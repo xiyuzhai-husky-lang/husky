@@ -51,6 +51,18 @@ impl<E: IsException, P: IsPedestal> TrackedException<E, P> {
         }
     }
 
+    pub fn vm_catch_unwind<C, B>(
+        f: impl FnOnce() -> C + std::panic::UnwindSafe,
+    ) -> VmControlFlow<C, B, TrackedException<E, P>> {
+        match std::panic::catch_unwind(f) {
+            Ok(c) => VmControlFlow::Continue(c),
+            Err(e) => match e.downcast::<TrackedException<E, P>>() {
+                Ok(e) => VmControlFlow::Throw(*e),
+                Err(e) => todo!(),
+            },
+        }
+    }
+
     pub fn vm_catch_unwind2<C, B, R>(
         f: impl FnOnce() -> R + std::panic::UnwindSafe,
         convert: impl FnOnce(R) -> VmControlFlow<C, B, TrackedException<E, P>>,
@@ -985,6 +997,238 @@ macro_rules! __ki_catch_unwind2 {
                 arg14, arg15, arg16,
             ),
             $convert
+        }))
+    }};
+}
+
+#[macro_export]
+macro_rules! vm_catch_unwind {
+    ($f: expr $(,)?) => {
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| $f()))
+    };
+    ($f: expr, $arg1: expr $(,)?) => {{
+        let arg1 = $arg1;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| $f(arg1)))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| $f(arg1, arg2)))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| $f(arg1, arg2, arg3)))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4, arg5)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4, arg5, arg6)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr, $arg11: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        let arg11 = $arg11;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(
+                arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11,
+            )
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr, $arg11: expr, $arg12: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        let arg11 = $arg11;
+        let arg12 = $arg12;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(
+                arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12,
+            )
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr, $arg11: expr, $arg12: expr, $arg13: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        let arg11 = $arg11;
+        let arg12 = $arg12;
+        let arg13 = $arg13;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(
+                arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13,
+            )
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr, $arg11: expr, $arg12: expr, $arg13: expr, $arg14: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        let arg11 = $arg11;
+        let arg12 = $arg12;
+        let arg13 = $arg13;
+        let arg14 = $arg14;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(
+                arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13,
+                arg14,
+            )
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr, $arg11: expr, $arg12: expr, $arg13: expr, $arg14: expr, $arg15: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        let arg11 = $arg11;
+        let arg12 = $arg12;
+        let arg13 = $arg13;
+        let arg14 = $arg14;
+        let arg15 = $arg15;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(
+                arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13,
+                arg14, arg15,
+            )
+        }))
+    }};
+    ($f: expr, $arg1: expr, $arg2: expr, $arg3: expr, $arg4: expr, $arg5: expr, $arg6: expr, $arg7: expr, $arg8: expr, $arg9: expr, $arg10: expr, $arg11: expr, $arg12: expr, $arg13: expr, $arg14: expr, $arg15: expr, $arg16: expr $(,)?) => {{
+        let arg1 = $arg1;
+        let arg2 = $arg2;
+        let arg3 = $arg3;
+        let arg4 = $arg4;
+        let arg5 = $arg5;
+        let arg6 = $arg6;
+        let arg7 = $arg7;
+        let arg8 = $arg8;
+        let arg9 = $arg9;
+        let arg10 = $arg10;
+        let arg11 = $arg11;
+        let arg12 = $arg12;
+        let arg13 = $arg13;
+        let arg14 = $arg14;
+        let arg15 = $arg15;
+        let arg16 = $arg16;
+        TrackedException::vm_catch_unwind(std::panic::AssertUnwindSafe(|| {
+            $f(
+                arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13,
+                arg14, arg15, arg16,
+            )
         }))
     }};
 }

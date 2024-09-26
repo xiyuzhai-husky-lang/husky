@@ -7,7 +7,7 @@ pub use crate::{
     static_var::StandardVarId as __VarId,
     IsGnItem as __IsGnItem, StandardKiControlFlow as __KiControlFlow,
     StandardLinketImpl as __LinketImpl, StandardVmArgumentValue as __VmArgumentValue,
-    StandardVmControlFlow as __VmControlFlow,
+    StandardVmArgumentValues as __VmArgumentValues, StandardVmControlFlow as __VmControlFlow,
 };
 pub use husky_ki_repr_interface::ugly::*;
 use husky_linket_impl::static_var::StaticVarResult;

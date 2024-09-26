@@ -1,9 +1,11 @@
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
 use husky_linket::linket::{Linket, LinketData};
-use husky_linket_impl::pedestal::virtual_pedestal::VirtualPedestal;
 use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl};
 use husky_linket_impl::{linket_impl::LinketImplStaticVarResult, pedestal::IsPedestal};
+use husky_linket_impl::{
+    linket_impl::VmArgumentValues, pedestal::virtual_pedestal::VirtualPedestal,
+};
 use husky_linket_impl::{
     linket_impl::{LinketImplKiControlFlow, VmArgumentValue},
     LinketImplVmControlFlowThawed,
@@ -49,7 +51,7 @@ impl IsLinketImpl for VirtualLinketImpl {
 
     fn eval_vm(
         self,
-        mut arguments: Vec<VmArgumentValue<Self>>,
+        mut arguments: VmArgumentValues<Self>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self> {
         use VmControlFlow::Continue;
