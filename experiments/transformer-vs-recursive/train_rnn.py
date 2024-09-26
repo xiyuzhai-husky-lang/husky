@@ -12,10 +12,11 @@ import os
 import pdb
 # Load the dataset
 dataset = MiniHuskyDataset(
-    n=10000,
-    max_fns=100,
+    n=100000,
+    max_fns=10,
+    min_dist=3,
     use_var_rate=0.2,
-    error_rate=0.2,
+    error_rate=0.5,
     data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
 )
 header = dataset.header
@@ -61,11 +62,12 @@ def run(config):
     model = SimpleRNN(
         input_dim=vocab_size,
         hidden_dim=config["hidden_dim"],
-        output_dim=output_dim,  # Updated to use output_dims from dataset
+        output_dim=output_dim,
+        bidirectional=True,
     ).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
+    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=0)
     optimizer = optim.Adam(model.parameters(), lr=config["learning_rate"])
 
     # Train the model
@@ -92,7 +94,7 @@ for hidden_dim in [64, 32, 16, 8, 4]:
         "seed": 42,
         "batch_size": 512,
         "micro_batch_size": 128,  # Assuming a change is needed here
-        "num_epochs": 100,
+        "num_epochs": 20,
         "learning_rate": 2e-4,
         "hidden_dim": hidden_dim,
     }
