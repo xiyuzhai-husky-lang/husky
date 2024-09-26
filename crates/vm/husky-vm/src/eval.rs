@@ -5,6 +5,7 @@ use history::VmHistory;
 use husky_linket_impl::linket_impl::LinketImplThawedValue;
 use husky_linktime::helpers::LinktimeThawedValue;
 use husky_vmir::stmt::{VmirStmtIdx, VmirStmtIdxRange};
+use snapshot::VmSnapshotKey;
 
 pub fn eval_linket_on_arguments<LinketImpl, VmRuntime: IsVmRuntime<LinketImpl>>(
     linket: Linket,
@@ -86,6 +87,22 @@ where
             VmMode::Record => {
                 // todo: do something?
                 f(self)
+            }
+        }
+    }
+
+    fn eval_loop_inner(
+        &mut self,
+        stmt: VmirStmtIdx<LinketImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
+        loop_index: usize,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl, ()>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl, ()> {
+        match self.mode() {
+            VmMode::Quick => f(self),
+            VmMode::Record => {
+                self.snapshot(stmt, VmSnapshotKey::Loop { loop_index });
+                self.quick(f)
             }
         }
     }

@@ -45,6 +45,14 @@ pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {
         f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
     ) -> LinketImplVmControlFlowThawed<LinketImpl>;
 
+    fn eval_loop_inner(
+        &mut self,
+        stmt: VmirStmtIdx<LinketImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
+        loop_index: usize,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl, ()>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl, ()>;
+
     /// wrap the statement evaluation process
     fn eval_stmt(
         &mut self,
