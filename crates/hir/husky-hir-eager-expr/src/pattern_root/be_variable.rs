@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_expr::syndicates::be_variable::BePatternSyndicate;
+use husky_syn_expr::syndicates::be_pattern::BePatternSyndicate;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

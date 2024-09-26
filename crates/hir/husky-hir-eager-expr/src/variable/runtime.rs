@@ -90,6 +90,10 @@ impl HirEagerRuntimeVariableRegionData {
     pub fn self_value_variable(&self) -> Option<HirEagerRuntimeVariableIdx> {
         self.self_value_variable
     }
+
+    pub fn arena(&self) -> &HirEagerRuntimeVariableArena {
+        &self.arena
+    }
 }
 
 impl std::ops::Index<HirEagerRuntimeVariableIdx> for HirEagerRuntimeVariableRegionData {

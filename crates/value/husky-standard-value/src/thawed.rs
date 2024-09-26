@@ -457,7 +457,7 @@ impl IsThawedValue for ThawedValue {
     /// else move.
     fn transient_access(&self) -> Self {
         match *self {
-            ThawedValue::Uninit => todo!(),
+            ThawedValue::Uninit => unreachable!(),
             ThawedValue::Invalid => todo!(),
             ThawedValue::Moved => todo!(),
             ThawedValue::Unit(()) => ThawedValue::Unit(()),
