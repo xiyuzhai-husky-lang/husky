@@ -1,16 +1,20 @@
 use super::*;
+use either::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
+use husky_fly_term::FlyBaseTypeData;
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_sem_expr::stmt::loop_stmt::{
     SemForBetweenParticulars, SemaForBetweenLoopBoundary, SemaForBetweenRange,
     SemaForextParticulars,
 };
+use path::major_item::ty::{PreludeIntTypePath, PreludeNumTypePath, PreludeTypePath};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db]
 pub struct HirEagerForBetweenParticulars {
-    pub frame_var_ident: Ident,
-    pub frame_var_place_idx: PlaceIdx,
+    pub for_loop_variable_ident: Ident,
+    pub for_loop_variable_place_idx: PlaceIdx,
+    pub for_loop_variable_ty_path: PreludeIntTypePath,
     pub range: HirEagerForBetweenRange,
 }
 
@@ -18,19 +22,26 @@ impl ToHirEager for SemForBetweenParticulars {
     type Output = HirEagerForBetweenParticulars;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        let EthPlace::Idx(frame_var_place_idx) = self
+        let for_loop_variable_ty = self
             .for_between_loop_var_expr_idx()
-            .ty(builder.sem_expr_arena_ref2())
-            .quary()
-            .unwrap()
-            .place()
-            .unwrap()
+            .ty(builder.sem_expr_arena_ref2());
+        let EthPlace::Idx(for_loop_variable_place_idx) =
+            for_loop_variable_ty.quary().unwrap().place().unwrap()
         else {
             unreachable!()
         };
+        let FlyBaseTypeData::TypeOntology {
+            refined_ty_path:
+                Left(PreludeTypePath::Num(PreludeNumTypePath::Int(for_loop_variable_ty_path))),
+            ..
+        } = for_loop_variable_ty.base_ty_data_inner(builder.db(), builder.terms())
+        else {
+            todo!()
+        };
         HirEagerForBetweenParticulars {
-            frame_var_ident: self.for_between_loop_var_ident(),
-            frame_var_place_idx,
+            for_loop_variable_ident: self.for_between_loop_var_ident(),
+            for_loop_variable_place_idx,
+            for_loop_variable_ty_path,
             range: self.range().to_hir_eager(builder),
         }
     }

@@ -210,6 +210,10 @@ impl IsThawedValue for ThawedValue {
         ThawedValue::Uninit
     }
 
+    fn is_uninit(&self) -> bool {
+        matches!(self, ThawedValue::Uninit)
+    }
+
     fn from_r8(r: u8) -> Self {
         ThawedValue::R8(r)
     }
@@ -250,27 +254,27 @@ impl IsThawedValue for ThawedValue {
         todo!()
     }
 
-    fn to_isize(self) -> isize {
+    fn to_i64(self) -> i64 {
         match self {
-            ThawedValue::I8(v) => v as isize,
-            ThawedValue::I16(v) => v as isize,
-            ThawedValue::I32(v) => v as isize,
-            ThawedValue::I64(v) => v as isize,
-            ThawedValue::I128(v) => v as isize,
-            ThawedValue::ISize(v) => v,
-            ThawedValue::U8(v) => v as isize,
-            ThawedValue::U16(v) => v as isize,
-            ThawedValue::U32(v) => v as isize,
-            ThawedValue::U64(v) => v as isize,
-            ThawedValue::U128(v) => v as isize,
-            ThawedValue::USize(v) => v as isize,
-            ThawedValue::R8(v) => v as isize,
-            ThawedValue::R16(v) => v as isize,
-            ThawedValue::R32(v) => v as isize,
-            ThawedValue::R64(v) => v as isize,
-            ThawedValue::R128(v) => v as isize,
-            ThawedValue::RSize(v) => v as isize,
-            _ => panic!("Cannot convert {} to isize", std::any::type_name::<Self>()),
+            ThawedValue::I8(v) => v as i64,
+            ThawedValue::I16(v) => v as i64,
+            ThawedValue::I32(v) => v as i64,
+            ThawedValue::I64(v) => v as i64,
+            ThawedValue::I128(v) => v as i64,
+            ThawedValue::ISize(v) => v as i64,
+            ThawedValue::U8(v) => v as i64,
+            ThawedValue::U16(v) => v as i64,
+            ThawedValue::U32(v) => v as i64,
+            ThawedValue::U64(v) => v as i64,
+            ThawedValue::U128(v) => v as i64,
+            ThawedValue::USize(v) => v as i64,
+            ThawedValue::R8(v) => v as i64,
+            ThawedValue::R16(v) => v as i64,
+            ThawedValue::R32(v) => v as i64,
+            ThawedValue::R64(v) => v as i64,
+            ThawedValue::R128(v) => v as i64,
+            ThawedValue::RSize(v) => v as i64,
+            _ => panic!("Cannot convert {} to i64", std::any::type_name::<Self>()),
         }
     }
 
@@ -518,6 +522,14 @@ impl PartialOrd for ThawedValue {
             (EnumUnit { index: l0, .. }, EnumUnit { index: r0, .. }) => todo!(),
             _ => unreachable!(),
         }
+    }
+}
+
+impl std::ops::Add<i64> for ThawedValue {
+    type Output = Self;
+
+    fn add(self, rhs: i64) -> Self::Output {
+        todo!()
     }
 }
 

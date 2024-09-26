@@ -40,14 +40,14 @@ impl<'a> SemExprBuilder<'a> {
         let Ok(ref range) = particulars.range else {
             todo!()
         };
-        let mut expected_frame_var_ty: Option<FlyTerm> = None;
+        let mut expected_for_loop_variable_ty: Option<FlyTerm> = None;
         let initial_bound_expr = match range.initial_boundary.bound_expr {
             Some(bound_expr) => {
                 let (bound_sem_expr_idx, num_ty_outcome) =
                     self.build_expr_with_outcome(bound_expr, ExpectIntType);
                 match num_ty_outcome {
                     Some(num_ty_outcome) => {
-                        expected_frame_var_ty = Some(num_ty_outcome.placeless_int_ty())
+                        expected_for_loop_variable_ty = Some(num_ty_outcome.placeless_int_ty())
                     }
                     None => (),
                 };
@@ -56,23 +56,23 @@ impl<'a> SemExprBuilder<'a> {
             None => None,
         };
         let final_bound_expr = match range.final_boundary.bound_expr {
-            Some(bound_expr) => match expected_frame_var_ty {
-                Some(expected_frame_var_ty) => Some(self.build_expr(
+            Some(bound_expr) => match expected_for_loop_variable_ty {
+                Some(expected_for_loop_variable_ty) => Some(self.build_expr(
                     bound_expr,
-                    ExpectCoercion::new_pure(self, expected_frame_var_ty),
+                    ExpectCoercion::new_pure(self, expected_for_loop_variable_ty),
                 )),
                 None => {
                     let (final_bound_sem_expr_idx, ty) =
                         self.build_expr_with_ty(bound_expr, ExpectAnyOriginal);
                     if let Some(ty) = ty {
-                        expected_frame_var_ty = Some(ty)
+                        expected_for_loop_variable_ty = Some(ty)
                     }
                     Some(final_bound_sem_expr_idx)
                 }
             },
             None => None,
         };
-        let Some(expected_frame_var_ty) = expected_frame_var_ty else {
+        let Some(expected_for_loop_variable_ty) = expected_for_loop_variable_ty else {
             todo!()
         };
         // let place = FlyPlace::ImmutableOnStack {
@@ -80,17 +80,17 @@ impl<'a> SemExprBuilder<'a> {
         //         .into_local_symbol_idx(self.syn_expr_region_data())
         //         .into(),
         // };
-        let frame_var_symbol_ty = SymbolType::new_variable_ty(
+        let for_loop_variable_symbol_ty = SymbolType::new_variable_ty(
             self,
             for_loop_varible_idx,
             VariableModifier::Pure,
-            expected_frame_var_ty,
+            expected_for_loop_variable_ty,
         )
         .unwrap();
-        self.add_symbol_ty(for_loop_varible_idx, frame_var_symbol_ty);
+        self.add_symbol_ty(for_loop_varible_idx, for_loop_variable_symbol_ty);
         let for_between_loop_var_expr_idx = self.build_expr(
             particulars.for_between_loop_var_expr_idx,
-            ExpectCoercion::new_pure(self, frame_var_symbol_ty.term()),
+            ExpectCoercion::new_pure(self, for_loop_variable_symbol_ty.term()),
         );
         let range = SemaForBetweenRange {
             initial_boundary: SemaForBetweenLoopBoundary {

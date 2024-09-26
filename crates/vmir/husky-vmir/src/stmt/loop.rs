@@ -1,4 +1,5 @@
 use super::{expr::VmirExprIdx, ToVmir, VmirBuilder};
+use husky_entity_path::path::major_item::ty::PreludeIntTypePath;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 use husky_hir_eager_expr::{
     HirEagerForBetweenLoopBoundary, HirEagerForBetweenParticulars, HirEagerForBetweenRange,
@@ -10,6 +11,7 @@ use husky_place::place::idx::PlaceIdx;
 #[derive(Debug, PartialEq, Eq)]
 pub struct VmirForBetweenParticulars<LinketImpl: IsLinketImpl> {
     for_loop_variable_place_idx: PlaceIdx,
+    for_loop_variable_ty_path: PreludeIntTypePath,
     range: VmirForBetweenRange<LinketImpl>,
 }
 
@@ -21,6 +23,10 @@ impl<LinketImpl: IsLinketImpl> VmirForBetweenParticulars<LinketImpl> {
     pub fn range(&self) -> &VmirForBetweenRange<LinketImpl> {
         &self.range
     }
+
+    pub fn for_loop_variable_ty_path(&self) -> PreludeIntTypePath {
+        self.for_loop_variable_ty_path
+    }
 }
 
 impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerForBetweenParticulars {
@@ -31,7 +37,8 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerForBetweenParticu
         Linktime: husky_linktime::IsLinktime<LinketImpl = LinketImpl>,
     {
         VmirForBetweenParticulars {
-            for_loop_variable_place_idx: self.frame_var_place_idx,
+            for_loop_variable_place_idx: self.for_loop_variable_place_idx,
+            for_loop_variable_ty_path: self.for_loop_variable_ty_path,
             range: self.range.to_vmir(builder),
         }
     }
