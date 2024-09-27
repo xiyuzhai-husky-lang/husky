@@ -69,7 +69,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     fn qual_suffix(&mut self, qual: LinQual) {
         self.write_str(match qual {
             LinQual::Ref => "_ref",
-            LinQual::RefMut => "_mut",
+            LinQual::Mut => "_mut",
             LinQual::Transient => "",
         });
     }

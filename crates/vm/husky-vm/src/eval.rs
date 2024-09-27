@@ -127,7 +127,7 @@ where
     ) -> LinketImplThawedValue<LinketImpl> {
         match qual {
             LinQual::Ref => self.variable_thawed_values[variable_idx.index()].ref_access(),
-            LinQual::RefMut => todo!(),
+            LinQual::Mut => self.variable_thawed_values[variable_idx.index()].mut_access(),
             LinQual::Transient => {
                 self.variable_thawed_values[variable_idx.index()].transient_access()
             }

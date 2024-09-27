@@ -216,7 +216,7 @@ impl LinTermVariableResolution {
             JavTermSymbolResolution::SelfPlace => {
                 smallvec![
                     LinTermVariableResolution::SelfQual(LinQual::Ref),
-                    LinTermVariableResolution::SelfQual(LinQual::RefMut),
+                    LinTermVariableResolution::SelfQual(LinQual::Mut),
                 ]
             }
         }

@@ -251,7 +251,29 @@ impl IsThawedValue for ThawedValue {
     }
 
     fn to_bool(self) -> bool {
-        todo!()
+        match self {
+            ThawedValue::Bool(val) => val,
+            ThawedValue::Char(val) => val != Default::default(),
+            ThawedValue::I8(val) => val != 0,
+            ThawedValue::I16(val) => val != 0,
+            ThawedValue::I32(val) => val != 0,
+            ThawedValue::I64(val) => val != 0,
+            ThawedValue::I128(val) => val != 0,
+            ThawedValue::ISize(val) => val != 0,
+            ThawedValue::U8(val) => val != 0,
+            ThawedValue::U16(val) => val != 0,
+            ThawedValue::U32(val) => val != 0,
+            ThawedValue::U64(val) => val != 0,
+            ThawedValue::U128(val) => val != 0,
+            ThawedValue::USize(val) => val != 0,
+            ThawedValue::R8(val) => val != 0,
+            ThawedValue::R16(val) => val != 0,
+            ThawedValue::R32(val) => val != 0,
+            ThawedValue::R64(val) => val != 0,
+            ThawedValue::R128(val) => val != 0,
+            ThawedValue::RSize(val) => val != 0,
+            _ => unreachable!(),
+        }
     }
 
     fn to_i64(self) -> i64 {
@@ -450,6 +472,52 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::OptionSizedRef(_) => todo!(),
             ThawedValue::OptionSizedMut(_) => todo!(),
             ThawedValue::EnumUnit { index, presenter } => todo!(),
+        }
+    }
+
+    fn mut_access(&mut self) -> Self {
+        match self {
+            ThawedValue::Uninit => todo!(),
+            ThawedValue::Invalid => todo!(),
+            ThawedValue::Moved => todo!(),
+            ThawedValue::Unit(_) => todo!(),
+            ThawedValue::Bool(b) => ThawedValue::Mut(b as *mut dyn ThawedDyn),
+            ThawedValue::Char(c) => ThawedValue::Mut(c as *mut dyn ThawedDyn),
+            ThawedValue::I8(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
+            ThawedValue::I16(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
+            ThawedValue::I32(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
+            ThawedValue::I64(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
+            ThawedValue::I128(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
+            ThawedValue::ISize(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
+            ThawedValue::U8(u) => ThawedValue::Mut(u as *mut dyn ThawedDyn),
+            ThawedValue::U16(u) => ThawedValue::Mut(u as *mut dyn ThawedDyn),
+            ThawedValue::U32(u) => ThawedValue::Mut(u as *mut dyn ThawedDyn),
+            ThawedValue::U64(u) => ThawedValue::Mut(u as *mut dyn ThawedDyn),
+            ThawedValue::U128(u) => ThawedValue::Mut(u as *mut dyn ThawedDyn),
+            ThawedValue::USize(u) => ThawedValue::Mut(u as *mut dyn ThawedDyn),
+            ThawedValue::R8(r) => ThawedValue::Mut(r as *mut dyn ThawedDyn),
+            ThawedValue::R16(r) => ThawedValue::Mut(r as *mut dyn ThawedDyn),
+            ThawedValue::R32(r) => ThawedValue::Mut(r as *mut dyn ThawedDyn),
+            ThawedValue::R64(r) => ThawedValue::Mut(r as *mut dyn ThawedDyn),
+            ThawedValue::R128(r) => ThawedValue::Mut(r as *mut dyn ThawedDyn),
+            ThawedValue::RSize(r) => ThawedValue::Mut(r as *mut dyn ThawedDyn),
+            ThawedValue::F32(f) => ThawedValue::Mut(f as *mut dyn ThawedDyn),
+            ThawedValue::F64(f) => ThawedValue::Mut(f as *mut dyn ThawedDyn),
+            ThawedValue::StringLiteral(_) => todo!(),
+            ThawedValue::Owned(owned_thawed_value) => {
+                ThawedValue::Mut(&mut **owned_thawed_value as *mut dyn ThawedDyn)
+            }
+            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(ptr) => ThawedValue::Mut(*ptr),
+            ThawedValue::OptionBox(thawed_dyn) => match thawed_dyn {
+                Some(boxed) => ThawedValue::Mut(boxed.as_mut() as *mut dyn ThawedDyn),
+                None => todo!(),
+            },
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(ptr) => ThawedValue::OptionSizedMut(*ptr),
+            ThawedValue::EnumUnit { .. } => todo!(),
         }
     }
 

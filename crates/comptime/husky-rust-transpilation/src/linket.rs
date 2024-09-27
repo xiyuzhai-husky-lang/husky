@@ -431,7 +431,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                     }
                     LinTermVariableResolution::SelfQual(place) => match place {
                         LinQual::Ref => ident.transpile_to_rust(builder),
-                        LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
+                        LinQual::Mut => builder.method_ritchie_ident_mut(ident),
                         LinQual::Transient => todo!(),
                     },
                     _ => unreachable!(),

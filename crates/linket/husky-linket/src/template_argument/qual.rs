@@ -6,12 +6,12 @@ use husky_hir_ty::{
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LinQual {
     Ref,
-    RefMut,
+    Mut,
     Transient,
 }
 
 impl LinQual {
-    pub const ALL: &'static [Self] = &[LinQual::Ref, LinQual::RefMut, LinQual::Transient];
+    pub const ALL: &'static [Self] = &[LinQual::Ref, LinQual::Mut, LinQual::Transient];
 
     // ad hoc
     pub fn from_hir_contracted_quary(contracted_quary: HirContractedQuary) -> Self {
@@ -25,7 +25,7 @@ impl LinQual {
                     HirContract::Pure => LinQual::Ref,
                     HirContract::Move => LinQual::Transient,
                     HirContract::Borrow => LinQual::Ref,
-                    HirContract::BorrowMut => LinQual::RefMut,
+                    HirContract::BorrowMut => LinQual::Mut,
                     HirContract::Compterm => todo!(),
                     HirContract::Leash => LinQual::Ref,
                     HirContract::At => todo!(),
@@ -60,7 +60,7 @@ impl LinQual {
                     }
                     HirContract::Move => LinQual::Transient,
                     HirContract::Borrow => LinQual::Ref,
-                    HirContract::BorrowMut => LinQual::RefMut,
+                    HirContract::BorrowMut => LinQual::Mut,
                     HirContract::Compterm => todo!(),
                     HirContract::Leash => LinQual::Ref,
                     HirContract::At => todo!(),
