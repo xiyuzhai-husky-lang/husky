@@ -108,6 +108,10 @@ impl IsThawedValue for Value {
     fn mut_access(&mut self) -> Self {
         todo!()
     }
+
+    fn assign(self, other: Self) {
+        unreachable!()
+    }
 }
 
 impl std::ops::Add<i64> for Value {
