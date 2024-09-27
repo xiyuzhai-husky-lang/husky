@@ -37,7 +37,7 @@ pub struct LazyPatternTraceData {
 }
 
 impl Trace {
-    pub(crate) fn new_lazy_pattern_expr(
+    pub(crate) fn new_lazy_pattern(
         biological_parent_path: TracePath,
         biological_parent: Trace,
         syn_pattern_idx: SynPatternIdx,
@@ -101,8 +101,7 @@ impl LazyPatternTraceData {
 
     pub fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let ki_repr_expansion = trace_ki_repr_expansion(db, trace_id);
-        match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)[self.hir_lazy_pattern_idx?]
-        {
+        match self.hir_lazy_expr_region.hir_lazy_pattern_arena(db)[self.hir_lazy_pattern_idx?] {
             HirLazyPatternData::Literal(_) => todo!(),
             HirLazyPatternData::Ident { .. } => {
                 let hir_lazy_variable_idxs = &self.hir_lazy_variable_idxs;

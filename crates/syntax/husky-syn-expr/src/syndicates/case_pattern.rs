@@ -20,19 +20,19 @@ where
             Err(OriginalSynExprError::ExpectedCasePattern(state))?
         };
         let symbols = self
-            .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
+            .pattern_region()
+            .pattern_variables(syn_pattern_root.syn_pattern_idx());
         let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
-            .map(|(ident, pattern_symbol)| {
+            .map(|(ident, pattern_variable)| {
                 CurrentVariableEntry::new(
-                    self.pattern_expr_region(),
+                    self.pattern_region(),
                     access_start,
                     Some(access_end),
                     CurrentVariableData::CaseVariable {
                         ident: *ident,
-                        pattern_variable_idx: *pattern_symbol,
+                        pattern_variable_idx: *pattern_variable,
                     },
                 )
             })

@@ -3,14 +3,14 @@ pub mod eager_call_input;
 pub mod eager_expr;
 pub mod eager_loop_frame;
 pub mod eager_loop_range;
-pub mod eager_pattern_expr;
+pub mod eager_pattern;
 pub mod eager_stmt;
 pub mod lazy_call;
 pub mod lazy_call_input;
 pub mod lazy_expr;
 pub mod lazy_loop_frame;
 pub mod lazy_loop_range;
-pub mod lazy_pattern_expr;
+pub mod lazy_pattern;
 pub mod lazy_stmt;
 pub mod place;
 pub mod script;
@@ -20,8 +20,8 @@ pub mod val;
 
 use self::{
     eager_call::*, eager_call_input::*, eager_expr::*, eager_loop_frame::*, eager_loop_range::*,
-    eager_pattern_expr::*, eager_stmt::*, lazy_call::*, lazy_call_input::*, lazy_expr::*,
-    lazy_loop_frame::*, lazy_loop_range::*, lazy_pattern_expr::*, lazy_stmt::*, place::*,
+    eager_pattern::*, eager_stmt::*, lazy_call::*, lazy_call_input::*, lazy_expr::*,
+    lazy_loop_frame::*, lazy_loop_range::*, lazy_pattern::*, lazy_stmt::*, place::*,
     script::*, submodule::*, val::*,
 };
 use crate::{

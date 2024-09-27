@@ -213,7 +213,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                     })
                     .collect();
                 HirEagerPatternData::OneOf {
-                    options: self.alloc_pattern_exprs(
+                    options: self.alloc_patterns(
                         hir_eager_options,
                         options.elements().iter().map(|option| option.syn_pattern()),
                     ),

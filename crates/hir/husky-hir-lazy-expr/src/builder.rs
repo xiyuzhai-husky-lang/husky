@@ -21,7 +21,7 @@ pub(crate) struct HirLazyExprBuilder<'a> {
     sem_place_contract_region: &'a SemPlaceContractRegion,
     hir_lazy_expr_arena: HirLazyExprArena,
     hir_lazy_stmt_arena: HirLazyStmtArena,
-    hir_lazy_pattern_expr_arena: HirLazyPatternArena,
+    hir_lazy_pattern_arena: HirLazyPatternArena,
     syn_to_hir_lazy_pattern_idx_map: SynPatternMap<HirLazyPatternIdx>,
     sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
     sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
@@ -34,7 +34,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_lazy_pattern_idx_map =
-            SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
+            SynPatternMap::new(syn_expr_region_data.pattern_arena());
         let (hir_lazy_variable_region, variable_to_hir_lazy_variable_map) =
             HirLazyVariableRegion::from_syn(syn_expr_region_data.variable_region());
         Self {
@@ -44,7 +44,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             sem_place_contract_region: sem_place_contract_region(db, sem_expr_region),
             hir_lazy_expr_arena: Default::default(),
             hir_lazy_stmt_arena: Default::default(),
-            hir_lazy_pattern_expr_arena: Default::default(),
+            hir_lazy_pattern_arena: Default::default(),
             syn_to_hir_lazy_pattern_idx_map,
             sem_to_hir_lazy_expr_idx_map: SemExprMap::new(sem_expr_region_data.sem_expr_arena()),
             sem_to_hir_lazy_stmt_idx_map: SemStmtMap::new(sem_expr_region_data.sem_stmt_arena()),
@@ -101,7 +101,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         syn_pattern_idx: SynPatternIdx,
         pattern_data: HirLazyPatternData,
     ) -> HirLazyPatternIdx {
-        let hir_lazy_pattern_idx = self.hir_lazy_pattern_expr_arena.alloc_one(pattern_data);
+        let hir_lazy_pattern_idx = self.hir_lazy_pattern_arena.alloc_one(pattern_data);
         self.syn_to_hir_lazy_pattern_idx_map
             .insert_new(syn_pattern_idx, hir_lazy_pattern_idx);
         hir_lazy_pattern_idx
@@ -156,10 +156,10 @@ impl<'a> HirLazyExprBuilder<'a> {
                 _ => continue,
             }
         }
-        for &syn_pattern_expr_root in self.syn_expr_region_data.syn_pattern_expr_roots() {
-            match syn_pattern_expr_root.kind() {
+        for &syn_pattern_root in self.syn_expr_region_data.syn_pattern_roots() {
+            match syn_pattern_root.kind() {
                 SynPatternRootKind::Parenate => {
-                    self.new_pattern(syn_pattern_expr_root);
+                    self.new_pattern(syn_pattern_root);
                 }
                 // already covered when building expr roots
                 SynPatternRootKind::Let
@@ -195,7 +195,7 @@ impl<'a> HirLazyExprBuilder<'a> {
                 self.db,
                 self.hir_lazy_expr_arena,
                 self.hir_lazy_stmt_arena,
-                self.hir_lazy_pattern_expr_arena,
+                self.hir_lazy_pattern_arena,
                 self.hir_lazy_variable_region,
             ),
             HirLazyExprSourceMap::new(

@@ -304,8 +304,8 @@ impl<'comptime, Context: IsSemExprAggregatorContext<'comptime>>
                 aggregation.aggregate(self.aggregate_expr(*opd));
                 for case in case_branches {
                     // Assuming case.pattern might contain expressions to aggregate
-                    // if let Some(pattern_expr) = case.pattern.expr() {
-                    //     aggregation.aggregate(self.aggregate_expr(pattern_expr));
+                    // if let Some(pattern) = case.pattern.expr() {
+                    //     aggregation.aggregate(self.aggregate_expr(pattern));
                     // }
                     aggregation.aggregate(self.aggregate_stmts(case.stmts));
                 }
