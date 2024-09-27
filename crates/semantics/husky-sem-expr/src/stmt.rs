@@ -438,7 +438,7 @@ impl<'a> SemExprBuilder<'a> {
                     let (expr, ty, outcome) = match eol_semicolon {
                         None => match stmt_ty_expectation.destination() {
                             FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
-                                self.build_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
+                                self.build_expr_with_ty_and_outcome2(expr_idx, stmt_ty_expectation)
                             }
                             FlyTermDestination::Specific(stmt_ty) => {
                                 let (expr, outcome) =
@@ -449,7 +449,7 @@ impl<'a> SemExprBuilder<'a> {
                         },
                         Some(_) => {
                             let (sem_expr_idx, expr_ty, outcome) =
-                                self.build_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
+                                self.build_expr_with_ty_and_outcome2(expr_idx, ExpectAnyOriginal);
                             let ty_result = match expr_ty {
                                 Some(ty) => match ty.base_resolved(self) {
                                     FlyTermBase::Eth(ty) if ty == self.term_menu().never() => {
