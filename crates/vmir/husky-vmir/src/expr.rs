@@ -22,7 +22,7 @@ use husky_lifetime_utils::capture::Captures;
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlowThawed};
 use husky_literal_value::LiteralValue;
-use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
+use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -595,7 +595,17 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                     HirBinaryOpr::Assign => todo!(),
                     HirBinaryOpr::AssignClosed(_) => todo!(),
                     HirBinaryOpr::AssignShift(_) => todo!(),
-                    HirBinaryOpr::Comparison(_) => todo!(),
+                    HirBinaryOpr::Comparison(opr) => Continue(
+                        match opr {
+                            BinaryComparisonOpr::Eq => lopd == ropd,
+                            BinaryComparisonOpr::Neq => lopd != ropd,
+                            BinaryComparisonOpr::Geq => lopd >= ropd,
+                            BinaryComparisonOpr::Greater => lopd > ropd,
+                            BinaryComparisonOpr::Leq => lopd <= ropd,
+                            BinaryComparisonOpr::Less => lopd < ropd,
+                        }
+                        .into(),
+                    ),
                     HirBinaryOpr::ShortCircuitLogic(_) => todo!(),
                 })
             }

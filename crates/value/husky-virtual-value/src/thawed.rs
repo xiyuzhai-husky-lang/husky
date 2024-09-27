@@ -104,6 +104,10 @@ impl IsThawedValue for Value {
     fn transient_access(&self) -> Self {
         todo!()
     }
+
+    fn mut_access(&mut self) -> Self {
+        todo!()
+    }
 }
 
 impl std::ops::Add<i64> for Value {
