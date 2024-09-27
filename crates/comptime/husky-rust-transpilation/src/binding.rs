@@ -175,7 +175,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
                     RustBinding::Deleash => {
                         if let Some(next_inner) = next_inner {
                             match next_inner {
-                                RustBinding::Deref => todo!(),
+                                RustBinding::Deref => {
+                                    use ::husky_print_utils::p;
+                                    use ::salsa::DebugWithDb;
+                                    p!(self.result());
+                                    todo!()
+                                }
                                 RustBinding::DerefMut => todo!(),
                                 RustBinding::DerefCustomed => todo!(),
                                 RustBinding::Deleash => todo!(),
