@@ -17,6 +17,10 @@ Husky is built with the following features:
 
 Many of the above features are already seen in existing languages. However, they are integrated harmonically for hybrid AI development. After all, a programming language is not just about the union of its features but also about their interaction.
 
+## Nature of Things
+
+Husky is currently a personal project. As a personal project, despite the huge effort necessary to create it, it's still worth it because it significantly facilicates me to do certain jobs that I'm greatly interested in. However, it needs more evidence to see whether the language will be of use to a more general audience beyond my small circle. It's also likely that my language is useful but a fundamental redesign of certain aspects could be even better. Hence, there's currently no intention of introducing the language to the public as the "next-generation AI language that replaces python, C++". Personally, I believe languages should first find killer applications that solidly solve problems that no other existing languages can solve, and then try to seek popularity. The last thing I want to see is hype. I would do everything to hunt down any misinformation spread about project.
+
 ## Timeline
 
 Husky is currently in the prototyping stage, focusing on AI research. It will transform into a stable language once AI technology is mature.
