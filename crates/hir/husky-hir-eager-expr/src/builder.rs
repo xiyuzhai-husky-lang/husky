@@ -146,7 +146,7 @@ impl<'db> HirEagerExprBuilder<'db> {
     pub(crate) fn alloc_pattern(
         &mut self,
         pattern: HirEagerPatternData,
-        place: EthPlace,
+        place: Option<EthPlace>,
         syn_pattern: SynPatternIdx,
     ) -> HirEagerPatternIdx {
         let contract =
@@ -160,7 +160,7 @@ impl<'db> HirEagerExprBuilder<'db> {
 
     pub(crate) fn alloc_patterns(
         &mut self,
-        patterns: Vec<(HirEagerPatternData, EthPlace)>,
+        patterns: Vec<(HirEagerPatternData, Option<EthPlace>)>,
         syn_patterns: impl Iterator<Item = SynPatternIdx> + Clone,
     ) -> HirEagerPatternIdxRange {
         let entries = std::iter::zip(patterns, syn_patterns.clone()).map(
@@ -275,7 +275,7 @@ impl<'db> HirEagerExprBuilder<'db> {
             .syn_pattern_ty(syn_pattern, self.db)
     }
 
-    pub(crate) fn syn_pattern_place(&self, syn_pattern: SynPatternIdx) -> EthPlace {
+    pub(crate) fn syn_pattern_place(&self, syn_pattern: SynPatternIdx) -> Option<EthPlace> {
         self.sem_expr_region_data
             .syn_pattern_place(syn_pattern, self.db)
     }
