@@ -433,7 +433,7 @@ impl IsThawedValue for ThawedValue {
                 FrozenValue::EnumUsize { index, presenter }
             }
             ThawedValue::Owned(ref slf) => FrozenValue::Owned(slf.freeze()),
-            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Leash(leashed_val) => FrozenValue::Leash(leashed_val),
             ThawedValue::Ref(_) => todo!(),
             ThawedValue::Mut(_) => todo!(),
             ThawedValue::OptionBox(_) => todo!(),
