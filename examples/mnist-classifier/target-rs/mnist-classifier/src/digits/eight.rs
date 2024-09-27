@@ -23,8 +23,8 @@ pub static mut __is_eight__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface>
 )]
 pub fn is_eight() -> malamute::OneVsAll {
     let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
-    if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches[1 as usize] {
-        if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches[0 as usize] {
+    if let Option::None = *<crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches.index(1 as usize) {
+        if let Option::None = *<crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches.index(0 as usize) {
             require!(false);
         }
         require!(false);
