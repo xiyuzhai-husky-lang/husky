@@ -12,6 +12,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternIdx {
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
+                variable_idx,
             } => {
                 if let Some(symbol_modifier) = symbol_modifier {
                     match symbol_modifier {
