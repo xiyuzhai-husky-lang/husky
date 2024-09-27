@@ -4,6 +4,7 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+codespan-reporting.workspace = true
 ordered-float.workspace = true
 optional = "0.5.0"
 thiserror.workspace = true
@@ -19,7 +20,9 @@ enum-class.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
-# `husky-token` shouldn't be included for dependencies!!
+husky-text.workspace = true
+# TODO: previously commented: `husky-token` shouldn't be included for dependencies!!
+# think about it
 husky-token.workspace = true
 husky-token-data.workspace = true
 husky-regional-token.workspace = true
