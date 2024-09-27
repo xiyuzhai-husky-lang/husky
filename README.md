@@ -1,30 +1,32 @@
 # The Husky Programming Language
 
-Husky is a new programming language for developing modular AI systems.
+Husky is a new programming language designed specifically for developing hybrid AI systems.
 
-## What are modular AI systems?
+## What are hybrid AI systems?
 
 TODO
 
 ## Why a new programming language?
 
-Existing languages are not good enough because they lack the proper abstraction, expressive power, and safety guarantees.
+Existing programming languages fall short because they lack the appropriate abstractions, expressive power, and safety guarantees needed for building hybrid AI systems.
 
-Husky is built with the following features:
+Husky introduces several key features designed to overcome these limitations:
 - TODO
 - TODO
 - TODO
 
-Many of the above features are already seen in existing languages. However, they are integrated harmonically for hybrid AI development. After all, a programming language is not just about the union of its features but also about their interaction.
+While some of these features may already exist in other programming languages, Husky integrates them in a way that is harmonious and particularly suited for hybrid AI development. A programming language is not just a collection of features—it’s about how those features interact and complement each other.
 
-## Nature of Things
+## Nature of the Project
 
-Husky is currently a personal project. As a personal project, despite the huge effort necessary to create it, it's still worth it because it significantly facilicates me to do certain jobs that I'm greatly interested in. However, it needs more evidence to see whether the language will be of use to a more general audience beyond my small circle. It's also likely that my language is useful but a fundamental redesign of certain aspects could be even better. Hence, there's currently no intention of introducing the language to the public as the "next-generation AI language that replaces python, C++". Personally, I believe languages should first find killer applications that solidly solve problems that no other existing languages can solve, and then try to seek popularity. The last thing I want to see is hype. I would do everything to hunt down any misinformation spread about project.
+Husky is currently a personal project. Despite the significant effort required to develop it, I believe it’s worthwhile because it enables me to tackle specific problems that are of great interest to me. However, more evidence is needed to determine if the language will be valuable to a wider audience beyond my immediate circle. It’s also possible that while Husky is useful, a fundamental redesign of certain aspects could lead to the creation of an entirely new project, one that is inspired by Husky but ventures in a different direction.
+
+At this stage, there is no intention to position Husky as the "next-generation AI language" meant to replace Python or C++. I believe programming languages should first find their "killer application"—solving a unique problem that no other language can address—before seeking broader adoption. My primary goal is to avoid hype and misinformation, and I will actively work to ensure accurate representation of the project.
 
 ## Timeline
 
-Husky is currently in the prototyping stage, focusing on AI research. It will transform into a stable language once AI technology is mature.
+Husky is currently in the prototyping phase, with a focus on AI research. The plan is to evolve it into a stable language as AI technology matures.
 
-I'm currently recuperating from hand pains. The focus is to deliver Husky for my own research first. The tutorials and documentations will wait at least two years.
+At the moment, I am recovering from hand pain, so the priority is delivering Husky for my personal research. Comprehensive tutorials and documentation will not be available for at least two years. While there may be occasional pieces of tutorials and documentation released sporadically, do not expect a fully polished release in the near future.
 
-In other words, for the next two years, there is no intention of publicly introducing the Husky programming language, although it's open source. There's going to sporadic pieces of tutorials and documentations here and there, but don't expect the full story to be revealed very soon.
+In short, Husky will remain largely under wraps for the next couple of years, although it will be open source. The full story of the language will unfold slowly over time.
