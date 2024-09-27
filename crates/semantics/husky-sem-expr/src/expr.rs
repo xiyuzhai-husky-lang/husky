@@ -80,6 +80,7 @@ use husky_token_data::{
 };
 use husky_wild_utils::{arb_mut, arb_ref};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use quary::FlyQuary;
 use smallvec::SmallVec;
 use std::ops::Index;
 use vec_like::{AsVecMapEntry, VecMap};
@@ -1266,6 +1267,7 @@ impl<'a> SemExprBuilder<'a> {
                                 self.term_menu().list_ty_ontology(),
                                 element_ty,
                             )
+                            .map(|t| t.with_quary(FlyQuary::Transient))
                             .map_err(|_| todo!()),
                         )
                     }
