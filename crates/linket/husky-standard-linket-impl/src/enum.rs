@@ -11,7 +11,7 @@ macro_rules! enum_variant_constructor_linket_impl {
         }
         fn enum_variant_constructor_vm_wrapper(_args: __VmArgumentValues) -> __ThawedValue {
             let r: $self_ty = $variant_path;
-            r.into_thawed_value()
+            unsafe { r.into_thawed() }.into_thawed_value()
         }
         __LinketImpl::EnumVariantConstructor {
             enum_variant_constructor_ki_wrapper,

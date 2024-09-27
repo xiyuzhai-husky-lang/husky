@@ -1,3 +1,4 @@
+pub mod control_flow;
 mod r#mut;
 mod option;
 mod primitive;
