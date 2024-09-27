@@ -407,7 +407,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
     }
 
     // todo: there is room for optimization
-    pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternArena {
+    pub(crate) fn hir_eager_pattern_arena(&self) -> &'a HirEagerPatternArena {
         self.extension.pattern_arena(self.db)
     }
 

@@ -17,7 +17,7 @@ pub struct SynExprRegionData {
     expr_arena: SynExprArena,
     principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
-    pattern_expr_region: SynPatternRegion,
+    pattern_region: SynPatternRegion,
     variable_region: VariableRegionData,
     pattern_roots: Vec<SynPatternRoot>,
     expr_roots: Vec<SynExprRoot>,
@@ -33,7 +33,7 @@ impl SynExprRegionData {
         expr_arena: SynExprArena,
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
-        pattern_expr_region: SynPatternRegion,
+        pattern_region: SynPatternRegion,
         variable_region: VariableRegionData,
         pattern_roots: Vec<SynPatternRoot>,
         expr_roots: Vec<SynExprRoot>,
@@ -73,7 +73,7 @@ impl SynExprRegionData {
             expr_arena,
             principal_item_path_expr_arena,
             stmt_arena,
-            pattern_expr_region,
+            pattern_region,
             variable_region,
             pattern_roots,
             expr_roots,
@@ -103,16 +103,16 @@ impl SynExprRegionData {
         &self.principal_item_path_expr_arena
     }
 
-    pub fn pattern_expr_arena(&self) -> &SynPatternArena {
-        self.pattern_expr_region.pattern_expr_arena()
+    pub fn pattern_arena(&self) -> &SynPatternArena {
+        self.pattern_region.pattern_arena()
     }
 
     pub fn stmt_arena(&self) -> &SynStmtArena {
         &self.stmt_arena
     }
 
-    pub fn pattern_expr_region(&self) -> &SynPatternRegion {
-        &self.pattern_expr_region
+    pub fn pattern_region(&self) -> &SynPatternRegion {
+        &self.pattern_region
     }
 
     pub fn variable_region(&self) -> &VariableRegionData {
@@ -129,7 +129,7 @@ impl SynExprRegionData {
         })
     }
 
-    pub fn syn_pattern_expr_roots(&self) -> &[SynPatternRoot] {
+    pub fn syn_pattern_roots(&self) -> &[SynPatternRoot] {
         self.pattern_roots.as_ref()
     }
 
@@ -149,15 +149,15 @@ impl SynExprRegionData {
         self.pattern_to_current_variable_map[syn_pattern_variable_idx].1
     }
 
-    pub fn syn_pattern_expr_current_variables_mapped<R>(
+    pub fn syn_pattern_current_variables_mapped<R>(
         &self,
         syn_pattern_idx: SynPatternIdx,
         f: impl Fn(CurrentVariableIdx) -> R,
     ) -> IdentPairMap<R> {
         unsafe {
             IdentPairMap::from_iter_assuming_no_repetitions_unchecked(
-                self.pattern_expr_region()
-                    .pattern_expr_symbols(syn_pattern_idx)
+                self.pattern_region()
+                    .pattern_variables(syn_pattern_idx)
                     .iter()
                     .map(|&(ident, syn_pattern_variable_idx)| {
                         let current_variable_idx =
@@ -203,14 +203,14 @@ impl std::ops::Index<PatternVariableIdx> for SynExprRegionData {
     type Output = PatternVariable;
 
     fn index(&self, index: PatternVariableIdx) -> &Self::Output {
-        &self.pattern_expr_region[index]
+        &self.pattern_region[index]
     }
 }
 impl std::ops::Index<SynPatternIdx> for SynExprRegionData {
     type Output = SynPatternData;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
-        &self.pattern_expr_region[index]
+        &self.pattern_region[index]
     }
 }
 

@@ -194,7 +194,7 @@ impl<'a> SynExprContext<'a> {
                     .regional_token_idx();
                 let access_end = self.ast_token_idx_range(body.end() - 1).end();
                 let for_loop_variable_symbol = CurrentVariableEntry::new(
-                    self.syn_pattern_expr_region(),
+                    self.syn_pattern_region(),
                     access_start,
                     Some(access_end),
                     current_variable_variant,

@@ -4,7 +4,7 @@ pub mod coercion;
 pub mod expr;
 pub mod helpers;
 pub mod jar;
-pub mod pattern_expr;
+pub mod pattern;
 pub mod pattern_root;
 pub mod place_contract;
 pub mod region;
@@ -13,7 +13,7 @@ pub mod stmt;
 pub mod variable;
 
 pub use self::expr::*;
-pub use self::pattern_expr::*;
+pub use self::pattern::*;
 pub use self::pattern_root::*;
 pub use self::region::*;
 pub use self::source_map::*;
