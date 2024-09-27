@@ -619,7 +619,7 @@ impl ThawedValue {
 
     pub fn into_ref<'a, T>(self, slush_values: Option<&mut SlushValues>) -> &'a T
     where
-        T: Boiled,
+        T: Thawed,
     {
         match self {
             ThawedValue::Uninit => todo!(),
@@ -659,7 +659,7 @@ impl ThawedValue {
                 t
             }
             ThawedValue::Leash(slf) => {
-                let slf: &<T as Boiled>::Thawed = ((slf as &dyn ThawedDyn) as &dyn std::any::Any)
+                let slf: &T = ((slf as &dyn ThawedDyn) as &dyn std::any::Any)
                     .downcast_ref()
                     .expect("type id is correct");
                 unsafe { std::mem::transmute(slf) }

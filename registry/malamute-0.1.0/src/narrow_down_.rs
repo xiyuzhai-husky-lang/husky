@@ -115,6 +115,7 @@ where
         value.into_owned()
     }
 }
+
 impl<Label> __IntoValue for NarrowDownInternal<Label>
 where
     Label: __Immortal
@@ -125,6 +126,31 @@ where
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
+    }
+}
+
+impl<Label> __FromThawedValue for NarrowDownInternal<Label>
+where
+    Label: __Thawed<Frozen = Label> + __Thawed,
+{
+    fn from_thawed_value_aux(
+        value: __ThawedValue,
+        _slush_values: Option<&mut __SlushValues>,
+    ) -> Self {
+        value.into_owned()
+    }
+}
+
+impl<Label> __IntoThawedValue for NarrowDownInternal<Label>
+where
+    Label: __Immortal
+        + __Boiled<Thawed = Label>
+        + __Thawed<Frozen = Label>
+        + __Frozen<Thawed = Label>
+        + __Serialize,
+{
+    fn into_thawed_value(self) -> __ThawedValue {
+        __ThawedValue::from_owned(self)
     }
 }
 
