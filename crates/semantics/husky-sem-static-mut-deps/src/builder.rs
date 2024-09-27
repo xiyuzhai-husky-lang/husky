@@ -16,7 +16,7 @@ use husky_fly_term::{
     },
 };
 use husky_sem_expr::{
-    helpers::{region::sem_expr_region_from_region_path, visitor::VisitSemExpr},
+    helpers::{path::sem_expr_region_from_region_path, visitor::VisitSemExpr},
     obelisks::closure_parameter::ClosureParameterObelisk,
     stmt::condition::SemCondition,
     SemExprData, SemExprIdx, SemExprMap, SemExprRegionData, SemRitchieArgument, SemStmtData,

@@ -1,4 +1,4 @@
-use super::region::sem_expr_region_from_region_path;
+use super::path::sem_expr_region_from_region_path;
 use super::*;
 use crate::{SemExprData, SemExprIdx, SemExprRegionData, SemStmtIdx, SemStmtIdxRange};
 use closure_parameter::ClosureParameterObelisk;

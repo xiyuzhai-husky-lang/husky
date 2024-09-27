@@ -383,7 +383,7 @@ impl<'comptime, Context: IsSemExprAggregatorContext<'comptime>>
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::helpers::region::sem_expr_region_from_region_path;
+    use crate::helpers::path::sem_expr_region_from_region_path;
     use husky_entity_tree::region_path::SynNodeRegionPath;
 
     #[derive(Default, Clone, Copy)]

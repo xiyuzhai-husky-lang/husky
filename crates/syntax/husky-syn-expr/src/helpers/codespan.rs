@@ -23,13 +23,26 @@ use salsa::DisplayWithDb;
 
 #[macro_export]
 macro_rules! emit_note_on_syn_expr_codespan {
-    ($self: expr, $($expr_messages: expr),* $(,)?) => {{
+    ($syn_expr_region: expr, $db: expr, $($expr_messages: tt),* $(,)?) => {{
         $crate::helpers::codespan::emit_note_on_syn_expr_codespan(
-            $self.syn_expr_region(),
+            $syn_expr_region,
             $crate::helpers::codespan::Severity::Note,
             format!("{}:{}:{}", file!(), line!(), column!()),
-            $self.db(),
+            $db,
             [$($crate::convert_expr_message!($expr_messages)),*]
+        )
+    }};
+}
+
+#[macro_export]
+macro_rules! emit_note_on_syn_pattern_codespan {
+    ($syn_expr_region: expr, $db: expr, $($pattern_messages: tt),* $(,)?) => {{
+        $crate::helpers::codespan::emit_note_on_syn_pattern_codespan(
+            $syn_expr_region,
+            $crate::helpers::codespan::Severity::Note,
+            format!("{}:{}:{}", file!(), line!(), column!()),
+            $db,
+            [$($crate::convert_expr_message!($pattern_messages)),*]
         )
     }};
 }
@@ -65,6 +78,9 @@ fn convert_expr_message_works() {
         assert_eq!(expr, expr1);
         expect!["expr: a = 1"].assert_eq(&message)
     }
+    {
+        let (expr1, message) = convert_expr_message!((expr, "a"));
+    }
 }
 
 pub fn emit_note_on_syn_expr_codespan(
@@ -77,6 +93,20 @@ pub fn emit_note_on_syn_expr_codespan(
     let mut emitter = SynExprCodespanEmitter::new(syn_expr_region, severity, title, db);
     for (expr, message) in expr_messages {
         emitter.add_expr(expr, message);
+    }
+    emitter.emit_to_stderr();
+}
+
+pub fn emit_note_on_syn_pattern_codespan(
+    syn_expr_region: SynExprRegion,
+    severity: Severity,
+    title: impl Into<String>,
+    db: &::salsa::Db,
+    pattern_messages: impl IntoIterator<Item = (SynPatternIdx, String)>,
+) {
+    let mut emitter = SynExprCodespanEmitter::new(syn_expr_region, severity, title, db);
+    for (pattern, message) in pattern_messages {
+        emitter.add_pattern(pattern, message);
     }
     emitter.emit_to_stderr();
 }
