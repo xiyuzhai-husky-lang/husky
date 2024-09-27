@@ -21,8 +21,8 @@ pub mod val;
 use self::{
     eager_call::*, eager_call_input::*, eager_expr::*, eager_loop_frame::*, eager_loop_range::*,
     eager_pattern::*, eager_stmt::*, lazy_call::*, lazy_call_input::*, lazy_expr::*,
-    lazy_loop_frame::*, lazy_loop_range::*, lazy_pattern::*, lazy_stmt::*, place::*,
-    script::*, submodule::*, val::*,
+    lazy_loop_frame::*, lazy_loop_range::*, lazy_pattern::*, lazy_stmt::*, place::*, script::*,
+    submodule::*, val::*,
 };
 use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},

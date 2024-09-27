@@ -1370,6 +1370,7 @@
         name: "husky-syn-expr",
         relative_path: "crates/syntax/husky-syn-expr",
         dependencies: [
+            "codespan-reporting",
             "either",
             "enum-class",
             "husky-check-utils",
@@ -1386,6 +1387,7 @@
             "husky-regional-token",
             "husky-syn-opr",
             "husky-term-prelude",
+            "husky-text",
             "husky-token",
             "husky-token-data",
             "husky-vfs",
@@ -2289,6 +2291,7 @@
             "husky-value",
             "husky-value-protocol",
             "serde",
+            "smallvec",
             "vec-like",
             "husky-core",
         ],
@@ -3673,6 +3676,11 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "bibtex-collector",
+        relative_path: "crates/gadgets/bibtex-collector",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "cargo-clean-repo",
         relative_path: "crates/gadgets/cargo-clean-repo",
         dependencies: [
@@ -4043,6 +4051,14 @@
         relative_path: "crates/utils/husky-rust-analysis-utils",
         dependencies: [
             "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-scholarly-utils",
+        relative_path: "crates/utils/husky-scholarly-utils",
+        dependencies: [
+            "pyo3",
+            "thiserror",
         ],
     },
     PackageSummary {
