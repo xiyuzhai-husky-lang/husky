@@ -6691,6 +6691,7 @@ dependencies = [
 name = "husky-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "codespan-reporting",
  "either",
  "enum-class",
  "expect-test",
