@@ -65,7 +65,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
-            } => Left(VmirDestructivePattern::Default(None /* ad hoc */)),
+                variable_idx,
+            } => Left(VmirDestructivePattern::Default(Some(variable_idx))),
             HirEagerPatternData::UnitPath(_) => todo!(),
             HirEagerPatternData::Tuple { path, fields } => todo!(),
             HirEagerPatternData::Props { path, fields } => todo!(),
