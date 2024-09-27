@@ -12,12 +12,15 @@ from utils import set_seed, custom_collate, linear_warmup_decay, Logger
 import os
 import pdb
 
-HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 512 + 1, 32))
+HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 128 + 1, 32))
+BATCH_SIZE = 512
 
-DATASET = "n100000-f10-d3-v0.20-e0.50"
+# DATASET = "n100000-f10-d3-v0.20-e0.50"
+DATASET = "n100000-f100-d20-v0.20-e0.50"
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
                                         "mini-husky/basic",
                                         f"dataset-{DATASET}.msgpack"))
+max_seq_len = ((dataset.get_max_len() - 1) // 512 + 1) * 512
 header = dataset.header
 vocab_size = len(dataset.vocab)
 output_dims = dataset.get_output_dims()
@@ -106,16 +109,16 @@ seed = args.seed
 # for seed in [42, 142857, 2225393, 20000308, 2018011309]:
 for hidden_dim in reversed(HIDDEN_DIM_SPACE):
     if hidden_dim <= 160:
-        min_lr = 1e-5
-        max_lr = 1e-3
+        min_lr, max_lr = 1e-5, 1e-3
     else:
-        min_lr = 1e-6
-        max_lr = 1e-4
-
+        min_lr, max_lr = 1e-6, 1e-4
+    
+    micro_batch_size = min(BATCH_SIZE, int((128 / hidden_dim) ** 2 * 256))
+    
     config = {
         "seed": seed,
-        "batch_size": 512,
-        "micro_batch_size": 512,
+        "batch_size": BATCH_SIZE,
+        "micro_batch_size": micro_batch_size,
         "num_epochs": 100,
         "min_lr": min_lr,
         "max_lr": max_lr,
@@ -123,5 +126,6 @@ for hidden_dim in reversed(HIDDEN_DIM_SPACE):
         "d_model": hidden_dim,
         "num_heads": min(4, hidden_dim),
         "num_layers": 8,
+        "max_seq_len": max_seq_len,
     }
     run(config)

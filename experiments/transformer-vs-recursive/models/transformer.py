@@ -55,9 +55,8 @@ class EncoderOnlyTransformer(nn.Module):
         return x
 
 class CustomBERTModel(nn.Module):
-    def __init__(self, vocab_size, output_dim, num_layers, num_heads, d_model, **kwargs):
+    def __init__(self, vocab_size, output_dim, num_layers, num_heads, d_model, max_seq_len, **kwargs):
         super(CustomBERTModel, self).__init__()
-        # self.bert = BertModel.from_pretrained('bert-base-uncased')
         config = BertConfig(
             vocab_size=vocab_size,
             hidden_size=d_model,
@@ -66,6 +65,7 @@ class CustomBERTModel(nn.Module):
             intermediate_size=2 * d_model, # ?
             hidden_dropout_prob=0.1,
             attention_probs_dropout_prob=0.1,
+            max_position_embeddings=max_seq_len,
         )
         self.bert = BertModel(config)
         self.regression = nn.Linear(d_model, output_dim)
