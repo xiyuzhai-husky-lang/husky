@@ -12,8 +12,11 @@ macro_rules! memo_linket_impl {
             },
             vm_wrapper: |__self| {
                 __VmControlFlow::Continue(
-                    $memo(<_ as __FromThawedValue>::from_thawed_value_static(__self))
-                        .into_thawed_value(),
+                    unsafe {
+                        $memo(<_ as __FromThawedValue>::from_thawed_value_static(__self))
+                            .into_thawed()
+                    }
+                    .into_thawed_value(),
                 )
             },
         }
