@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_path::path::ItemPath;
-use husky_sem_expr::{helpers::region::sem_expr_region_from_region_path, SemExprRegion};
+use husky_sem_expr::{helpers::path::sem_expr_region_from_region_path, SemExprRegion};
 use husky_syn_defn::item_syn_defn;
 use husky_syn_defn::ItemSynDefn;
 

@@ -6,6 +6,7 @@ use husky_eth_term::{
     term::{symbolic_variable::EthSymbolicVariable, EthTerm},
 };
 use husky_place::{place::EthPlace, PlaceRegistry};
+use husky_syn_decl::decl::HasSynDecl;
 use husky_term_prelude::symbol::SymbolName;
 use idx_arena::ArenaIdx;
 use salsa::fmt::WithFmtContext;
@@ -199,8 +200,8 @@ impl SemExprRegionData {
         &self.sem_expr_terms
     }
 
-    pub fn syn_pattern_ty(&self, syn_pattern_idx: SynPatternIdx, db: &::salsa::Db) -> EthTerm {
-        match self.syn_pattern_expr_ty_infos[syn_pattern_idx].ty {
+    pub fn syn_pattern_ty(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> EthTerm {
+        match self.syn_pattern_expr_ty_infos[pattern].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fly_term_region.terms()) {
                 FlyTermBase::Eth(ty_term) => ty_term,
                 FlyTermBase::Sol(_) => todo!(),
@@ -211,8 +212,11 @@ impl SemExprRegionData {
         }
     }
 
-    pub fn syn_pattern_place(&self, syn_pattern_idx: SynPatternIdx, db: &::salsa::Db) -> EthPlace {
-        match self.syn_pattern_expr_ty_infos[syn_pattern_idx].ty {
+    pub fn syn_pattern_place(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> EthPlace {
+        let syn_expr_region =
+            helpers::path::syn_expr_region_from_region_path(self.path, db).unwrap();
+        husky_syn_expr::emit_note_on_syn_pattern_codespan!(syn_expr_region, db, (pattern, "todo"));
+        match self.syn_pattern_expr_ty_infos[pattern].ty {
             Ok(ty_term) => ty_term.quary().unwrap().place().unwrap(),
             Err(_) => todo!(),
         }

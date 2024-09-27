@@ -1,5 +1,5 @@
 use husky_entity_tree::error::EntityTreeResult;
-use husky_sem_expr::{helpers::region::sem_expr_region_from_region_path, SemExprRegionData};
+use husky_sem_expr::{helpers::path::sem_expr_region_from_region_path, SemExprRegionData};
 use husky_text_protocol::range::TextRange;
 
 use husky_token::{verse::idx::TokenVerseIdx, TokenDb};
