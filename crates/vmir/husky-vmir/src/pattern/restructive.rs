@@ -1,5 +1,6 @@
 use super::*;
 use either::*;
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
 use husky_place::place::idx::PlaceIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -21,7 +22,7 @@ pub type VmirRestructivePatternIdxRange<LinketImpl> =
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum VmirRestructivePattern<LinketImpl: IsLinketImpl> {
-    Default(Option<PlaceIdx>) = 1,
+    Default(Option<HirEagerRuntimeVariableIdx>) = 1,
     Literal,
     UnitPath,
     OneOf(VmirRestructivePatternIdxRange<LinketImpl>),
@@ -92,8 +93,8 @@ impl<LinketImpl: IsLinketImpl> VmirRestructivePattern<LinketImpl> {
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) {
         match self {
-            VmirRestructivePattern::Default(place) => match place {
-                Some(place) => ctx.init_place(place, value),
+            VmirRestructivePattern::Default(variable_idx) => match variable_idx {
+                Some(variable_idx) => ctx.init_variable(variable_idx, value),
                 None => (),
             },
             VmirRestructivePattern::OneOf(_) => todo!(),

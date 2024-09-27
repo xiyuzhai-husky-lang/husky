@@ -38,7 +38,6 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     RuntimeVariable {
         name: HirEagerRuntimeVariableName,
         variable_idx: HirEagerRuntimeVariableIdx,
-        place_idx: PlaceIdx,
         qual: LinQual,
     },
     Binary {
@@ -280,7 +279,6 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 );
                 VmirExprData::RuntimeVariable {
                     variable_idx,
-                    place_idx,
                     qual,
                     name: variable_idx
                         .entry(self.hir_eager_runtime_variable_region_data().arena())
@@ -571,16 +569,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
             VmirExprData::RuntimeVariable {
-                place_idx,
                 qual,
                 name,
                 variable_idx,
-            } => {
-                use ::husky_print_utils::p;
-                use ::salsa::DebugWithDb;
-                p!(name.debug(db));
-                Continue(ctx.access_place(place_idx, qual))
-            }
+            } => Continue(ctx.access_variable(variable_idx, qual)),
             VmirExprData::Binary { lopd, opr, ropd } => {
                 let lopd = lopd.eval(None, ctx)?;
                 let ropd = ropd.eval(None, ctx)?;
