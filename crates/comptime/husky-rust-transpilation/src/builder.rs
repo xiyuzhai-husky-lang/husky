@@ -163,6 +163,14 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         self.write_str("rem_euclid")
     }
 
+    pub(crate) fn index(&mut self) {
+        self.write_str("index")
+    }
+
+    pub(crate) fn index_mut(&mut self) {
+        self.write_str("index_mut")
+    }
+
     pub(crate) fn pow(&mut self) {
         self.write_str("pow")
     }

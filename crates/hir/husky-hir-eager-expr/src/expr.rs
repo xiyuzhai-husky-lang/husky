@@ -224,7 +224,7 @@ impl ToHirEager for SemExprIdx {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         let place_contract_site =
-            HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
+            HirPlaceContractSite::from_sem(&builder.sem_place_contract_region()[*self]);
         let data = match *self.data(builder.sem_expr_arena_ref()) {
             SemExprData::Literal(_, _) => {
                 HirEagerExprData::Literal(match builder.expr_term(*self) {

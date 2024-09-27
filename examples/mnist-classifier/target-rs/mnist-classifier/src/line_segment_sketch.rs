@@ -276,17 +276,17 @@ impl crate::line_segment_sketch::LineSegmentSketch {
 
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __LineSegmentSketch__bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = &__self.deleash().strokes[0 as usize].start;
-        let mut xmin = start_point.x;
-        let mut xmax = start_point.x;
-        let mut ymin = start_point.y;
-        let mut ymax = start_point.y;
+        let start_point = Leash(&__self.deleash().strokes.index(0 as usize).start);
+        let mut xmin = start_point.deleash().x;
+        let mut xmax = start_point.deleash().x;
+        let mut ymin = start_point.deleash().y;
+        let mut ymax = start_point.deleash().y;
         for i in 0..__self.deleash().strokes.ilen() {
-            let point = &__self.deleash().strokes[i as usize].end;
-            xmin = xmin.min(point.x);
-            xmax = xmax.max(point.x);
-            ymin = ymin.min(point.y);
-            ymax = ymax.max(point.y)
+            let point = Leash(&__self.deleash().strokes.index(i as usize).end);
+            xmin = xmin.min(point.deleash().x);
+            xmax = xmax.max(point.deleash().x);
+            ymin = ymin.min(point.deleash().y);
+            ymax = ymax.max(point.deleash().y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
