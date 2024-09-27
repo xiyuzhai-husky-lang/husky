@@ -12,8 +12,8 @@ use husky_entity_path::path::{
 };
 use husky_hir_decl::decl::{HasHirDecl, TypeVariantHirDecl};
 use husky_hir_eager_expr::{
-    variable::runtime::HirEagerRuntimeVariableName, HirEagerExprData, HirEagerExprIdx,
-    HirEagerRitchieArgument,
+    variable::runtime::{HirEagerRuntimeVariableIdx, HirEagerRuntimeVariableName},
+    HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_ki::KiRuntimeCompterm;
@@ -35,8 +35,9 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     Literal {
         value: LiteralValue,
     },
-    Variable {
+    RuntimeVariable {
         name: HirEagerRuntimeVariableName,
+        variable_idx: HirEagerRuntimeVariableIdx,
         place_idx: PlaceIdx,
         qual: LinQual,
     },
@@ -277,7 +278,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     entry.contracted_quary(),
                     entry.is_base_ty_always_copyable(),
                 );
-                VmirExprData::Variable {
+                VmirExprData::RuntimeVariable {
+                    variable_idx,
                     place_idx,
                     qual,
                     name: variable_idx
@@ -568,10 +570,11 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
 
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
-            VmirExprData::Variable {
+            VmirExprData::RuntimeVariable {
                 place_idx,
                 qual,
                 name,
+                variable_idx,
             } => {
                 use ::husky_print_utils::p;
                 use ::salsa::DebugWithDb;
