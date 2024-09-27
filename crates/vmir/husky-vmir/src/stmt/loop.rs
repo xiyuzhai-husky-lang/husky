@@ -139,10 +139,18 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                     particulars.for_loop_variable_ty_path(),
                 );
                 ctx.set_variable(for_loop_variable_idx, for_loop_variable_value);
-                ctx.eval_loop_inner(self, stmts, loop_index, |ctx| {
-                    stmts.eval(ctx)?;
-                    VmControlFlow::Continue(())
-                })?;
+                match ctx.eval_loop_inner(self, stmts, loop_index, |ctx| {
+                    stmts.eval(ctx).map(|c| c.into())
+                }) {
+                    Continue(c) => (),
+                    LoopContinue => (),
+                    LoopExit(e) => {
+                        let () = e.into();
+                        break;
+                    }
+                    Return(r) => return Return(r),
+                    Throw(e) => return Throw(e),
+                };
                 for_loop_variable += step;
                 loop_index += 1;
             }
@@ -151,7 +159,7 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
         } else {
             panic!()
         }
-        VmControlFlow::Continue(().into())
+        Continue(().into())
     }
 }
 
