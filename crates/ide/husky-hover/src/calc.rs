@@ -290,6 +290,17 @@ impl<'a> HoverResultCalculator<'a> {
                     write!(debug_content, "prefix arithmetic operator")
                 }
                 TokenInfoData::BinaryOpr => write!(debug_content, "binary operator"),
+                TokenInfoData::BeKeyword => write!(debug_content, "be keyword"),
+                TokenInfoData::NewListLbox => write!(debug_content, "new list left box"),
+                TokenInfoData::NewListRbox => write!(debug_content, "new list right box"),
+                TokenInfoData::DelimiterLpar => write!(debug_content, "delimiter left parenthesis"),
+                TokenInfoData::DelimiterRpar => {
+                    write!(debug_content, "delimiter right parenthesis")
+                }
+                TokenInfoData::TupleLpar => write!(debug_content, "tuple left parenthesis"),
+                TokenInfoData::TupleRpar => write!(debug_content, "tuple right parenthesis"),
+                TokenInfoData::UnveilOpr => write!(debug_content, "unveil operator"),
+                TokenInfoData::SuffixOpr => write!(debug_content, "suffix operator"),
             },
             None => write!(debug_content, ""),
         }
