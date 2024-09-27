@@ -24,3 +24,13 @@ where
         todo!()
     }
 }
+
+impl<T> FromThawedValue for ThawedRef<T>
+where
+    T: Thawed,
+{
+    #[doc = r" `slush_values` is needed for keeping memory valid when coersing owned ty into ref or ref mut"]
+    fn from_thawed_value_aux(value: ThawedValue, slush_values: Option<&mut SlushValues>) -> Self {
+        todo!()
+    }
+}

@@ -28,7 +28,9 @@ use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use owned::OwnedThawedValue;
 
 /// Slush is the static version of a type
-pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
+pub trait Thawed:
+    Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static + FromThawedValue
+{
     type Frozen: Frozen<Thawed = Self>;
     fn freeze(&self) -> Self::Frozen;
 
@@ -103,6 +105,8 @@ pub trait ThawedDyn:
     fn unwrap_leash_thawed_dyn(&'static self) -> ExceptedThawedValue;
 
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue>;
+
+    fn assign_thawed_value_dyn(&mut self, other: ThawedValue);
 }
 
 impl<T> ThawedDyn for T
@@ -147,6 +151,10 @@ where
 
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue> {
         self.try_copy_thawed()
+    }
+
+    fn assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        *self = T::from_thawed_value_aux(other, None)
     }
 }
 
@@ -482,7 +490,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::Moved => todo!(),
             ThawedValue::Unit(_) => todo!(),
             ThawedValue::Bool(b) => ThawedValue::Mut(b as *mut dyn ThawedDyn),
-            ThawedValue::Char(c) => ThawedValue::Mut(c as *mut dyn ThawedDyn),
+            ThawedValue::Char(c) => todo!(), // ThawedValue::Mut(c as *mut dyn ThawedDyn),
             ThawedValue::I8(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
             ThawedValue::I16(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
             ThawedValue::I32(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
@@ -561,6 +569,22 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::OptionSizedRef(_) => todo!(),
             ThawedValue::OptionSizedMut(_) => todo!(),
             ThawedValue::EnumUnit { .. } => todo!(),
+        }
+    }
+
+    fn assign(self, other: Self) {
+        match self {
+            ThawedValue::StringLiteral(string_literal_id) => todo!(),
+            ThawedValue::Owned(owned_thawed_value) => todo!(),
+            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(m) => unsafe { (*m).assign_thawed_value_dyn(other) },
+            ThawedValue::OptionBox(thawed_dyn) => todo!(),
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(_) => todo!(),
+            ThawedValue::EnumUnit { index, presenter } => todo!(),
+            _ => unreachable!(),
         }
     }
 }

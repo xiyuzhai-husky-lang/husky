@@ -22,7 +22,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use slush::SlushValue;
 use smallvec::SmallVec;
-use thawed::ThawedValue;
+use thawed::{FromThawedValue, ThawedValue};
 
 pub trait Frozen:
     std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
