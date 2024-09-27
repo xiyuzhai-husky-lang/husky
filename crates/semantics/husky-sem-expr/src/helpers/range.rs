@@ -222,8 +222,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 .push(self.calc_principal_entity_path_expr_range(principal_entity_path_expr))
         }
         for pattern in self.syn_expr_region_data.pattern_arena().iter() {
-            self.pattern_ranges
-                .push(self.calc_pattern_range(pattern))
+            self.pattern_ranges.push(self.calc_pattern_range(pattern))
         }
         for sem_expr_entry in self.sem_expr_region_data.sem_expr_arena().iter() {
             let expr_range = self.calc_expr_range(sem_expr_entry.data());

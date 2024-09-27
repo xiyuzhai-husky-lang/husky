@@ -286,6 +286,10 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::ClosureEq => write!(debug_content, "closure eq"),
                 TokenInfoData::IndexColon => write!(debug_content, "index colon"),
                 TokenInfoData::UnwrapExclamation => write!(debug_content, "unwrap exclamation"),
+                TokenInfoData::PrefixArithOpr => {
+                    write!(debug_content, "prefix arithmetic operator")
+                }
+                TokenInfoData::BinaryOpr => write!(debug_content, "binary operator"),
             },
             None => write!(debug_content, ""),
         }

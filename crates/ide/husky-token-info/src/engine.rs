@@ -336,8 +336,14 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::UnwrapExclamation,
                 );
             }
-            SemExprData::Binary { .. }
-            | SemExprData::Suffix { .. }
+            SemExprData::Binary {
+                opr,
+                opr_regional_token_idx,
+                ..
+            } => {
+                self.add(opr_regional_token_idx, source, TokenInfoData::BinaryOpr);
+            }
+            SemExprData::Suffix { .. }
             | SemExprData::Unveil { .. }
             | SemExprData::TemplateInstantiation { .. }
             | SemExprData::NewTuple { .. }
