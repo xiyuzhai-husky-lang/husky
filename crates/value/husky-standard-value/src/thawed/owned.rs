@@ -38,12 +38,12 @@ impl OwnedThawedValue {
 
     pub(super) fn downcast_as_ref<T>(&self) -> &T
     where
-        T: Boiled,
+        T: Thawed,
     {
         unsafe {
             std::mem::transmute(
                 ((&*self.0 as &dyn ThawedDyn) as &dyn std::any::Any)
-                    .downcast_ref::<T::Thawed>()
+                    .downcast_ref::<T>()
                     .unwrap(),
             )
         }
