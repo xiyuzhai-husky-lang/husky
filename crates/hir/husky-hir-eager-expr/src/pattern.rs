@@ -65,12 +65,13 @@ pub enum HirEagerPatternData {
 pub struct HirEagerPatternEntry {
     data: HirEagerPatternData,
     contract: HirContract,
-    place: EthPlace,
+    /// None for patterns in parameters, Some otherwise
+    place: Option<EthPlace>,
 }
 
 /// # constructor
 impl HirEagerPatternEntry {
-    pub fn new(data: HirEagerPatternData, contract: HirContract, place: EthPlace) -> Self {
+    pub fn new(data: HirEagerPatternData, contract: HirContract, place: Option<EthPlace>) -> Self {
         Self {
             data,
             contract,
@@ -89,7 +90,7 @@ impl HirEagerPatternEntry {
         self.contract
     }
 
-    pub fn place(&self) -> EthPlace {
+    pub fn place(&self) -> Option<EthPlace> {
         self.place
     }
 

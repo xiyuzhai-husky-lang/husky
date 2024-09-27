@@ -212,15 +212,16 @@ impl SemExprRegionData {
         }
     }
 
-    pub fn syn_pattern_place(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> EthPlace {
+    /// will be `None` for patterns in parameters
+    pub fn syn_pattern_place(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> Option<EthPlace> {
         let syn_expr_region =
             helpers::path::syn_expr_region_from_region_path(self.path, db).unwrap();
         use ::husky_print_utils::p;
         use ::salsa::DebugWithDb;
         p!(self.path.debug(db));
-        husky_syn_expr::emit_note_on_syn_pattern_codespan!(syn_expr_region, db, (pattern, "todo"));
-        match self.syn_pattern_ty_infos[pattern].ty {
-            Ok(ty_term) => ty_term.quary().unwrap().place().unwrap(),
+        husky_syn_expr::emit_note_on_syn_pattern_codespan!(syn_expr_region, db, pattern);
+        match self.syn_pattern_ty_infos.get(pattern)?.ty {
+            Ok(ty_term) => ty_term.quary().unwrap().place(),
             Err(_) => todo!(),
         }
     }
