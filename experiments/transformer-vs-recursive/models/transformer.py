@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import math
 import torch.nn.functional as F
+from transformers import BertModel, BertConfig
 
 class PositionEncoding(nn.Module):
     def __init__(self, d_model, max_seq_len):
@@ -21,7 +22,6 @@ class PositionEncoding(nn.Module):
 
     def forward(self, x):
         return x + self.position_encoding[:, : x.size(1), :]  # pyright: ignore
-
 
 class EncoderOnlyTransformer(nn.Module):
     def __init__(
@@ -54,37 +54,28 @@ class EncoderOnlyTransformer(nn.Module):
         x = self.fc_out(x)
         return x
 
-class SimpleTransformer(nn.Module):
-    def __init__(
-        self, vocab_size, output_dim, num_layers, num_heads, d_model, max_seq_len
-    ):
-        super(SimpleTransformer, self).__init__()
-        self.vocab_size = vocab_size
-        self.linear = nn.Linear(vocab_size, d_model)
-        self.position_encoding = PositionEncoding(d_model, max_seq_len)
-        encoder_layer = nn.TransformerEncoderLayer(d_model=d_model, nhead=num_heads)
-        self.transformer_encoder = nn.TransformerEncoder(
-            encoder_layer, num_layers=num_layers
+class CustomBERTModel(nn.Module):
+    def __init__(self, vocab_size, output_dim, num_layers, num_heads, d_model, max_seq_len):
+        print("Using BERT model, ignoring vocab_size, num_layers, num_heads, d_model, max_seq_len")
+        super(CustomBERTModel, self).__init__()
+        # self.bert = BertModel.from_pretrained('bert-base-uncased')
+        config = BertConfig(
+            vocab_size=vocab_size,
+            hidden_size=d_model,
+            num_hidden_layers=num_layers,
+            num_attention_heads=num_heads,
+            intermediate_size=d_model, # ?
+            hidden_dropout_prob=0.1,
+            attention_probs_dropout_prob=0.1,
         )
-        self.fc_out = nn.Linear(d_model, output_dim)
+        self.bert = BertModel(config)
+        self.regression = nn.Linear(d_model, output_dim)
 
     def forward(self, x):
-        # Check if input indices are within the valid range
-        if torch.any(x >= self.vocab_size) or torch.any(x < 0):
-            invalid_indices = torch.where((x >= self.vocab_size) | (x < 0))
-            raise ValueError(
-                f"Input contains indices outside the valid range [0, {self.vocab_size - 1}]. "
-                f"Invalid indices: {invalid_indices}. "
-                f"Values at these indices: {x[invalid_indices]}"
-            )
-
-        # Convert word indices to embeddings
-        x = F.one_hot(x, num_classes=self.vocab_size).float()
-        x = self.linear(x)
-        x = self.position_encoding(x)
-        x = self.transformer_encoder(x)
-        x = self.fc_out(x)
-        return x
+        outputs = self.bert(x)
+        sequence_output = outputs.last_hidden_state
+        logits = self.regression(sequence_output)
+        return logits
 
 
 device = "cuda:0"

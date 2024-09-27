@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -6,18 +7,15 @@ import wandb
 from datasets.mini_husky import MiniHuskyDataset
 from models.rnn import SimpleRNN
 from train import train_model
-from utils import set_seed, custom_collate, Logger
+from utils import set_seed, custom_collate, linear_warmup_decay, Logger
 
 import os
 import pdb
-# Load the dataset
-dataset = MiniHuskyDataset(
-    n=10000,
-    max_fns=100,
-    use_var_rate=0.2,
-    error_rate=0.2,
-    data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
-)
+
+DATASET = "n100000-f10-d3-v0.20-e0.50"
+dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                        "mini-husky/basic",
+                                        f"dataset-{DATASET}.msgpack"))
 header = dataset.header
 vocab_size = len(dataset.vocab)
 output_dims = dataset.get_output_dims()
@@ -44,7 +42,7 @@ def run(config):
         collate_fn=custom_collate,
     )
 
-    exp_name = f"rnn_{config['hidden_dim']}_seed{config['seed']}_bs{config['batch_size']}"
+    exp_name = f"rnn_{config['hidden_dim']}_seed{config['seed']}_{DATASET}"
 
     logger = Logger(
         exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
@@ -61,12 +59,20 @@ def run(config):
     model = SimpleRNN(
         input_dim=vocab_size,
         hidden_dim=config["hidden_dim"],
-        output_dim=output_dim,  # Updated to use output_dims from dataset
+        output_dim=output_dim,
+        bidirectional=True,
     ).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
-    optimizer = optim.Adam(model.parameters(), lr=config["learning_rate"])
+    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=0)
+    optimizer = optim.Adam(model.parameters(), lr=1)
+    scheduler = torch.optim.lr_scheduler.LambdaLR(
+        optimizer,
+        lr_lambda=linear_warmup_decay(
+            total_iters=config["num_epochs"] * len(train_dataloader),
+            **config
+        )
+    )
 
     # Train the model
     print("Training RNN...")
@@ -77,6 +83,7 @@ def run(config):
         val_dataloader=val_dataloader,
         criterion=criterion,
         optimizer=optimizer,
+        scheduler=scheduler,
         num_epochs=config["num_epochs"],
         micro_batch_size=config["micro_batch_size"],
         device=device,
@@ -87,14 +94,18 @@ def run(config):
     logger.finish()
     torch.save(best_model.state_dict(), os.path.join(logger.exp_path, "best_model.pth"))
 
-for hidden_dim in [64, 32, 16, 8, 4]:
+
+for hidden_dim in np.logspace(start=10, stop=2, num=14, base=2):
     config = {
         "seed": 42,
         "batch_size": 512,
-        "micro_batch_size": 128,  # Assuming a change is needed here
-        "num_epochs": 100,
+        "micro_batch_size": 512,
+        "num_epochs": 20,
+        "min_lr": 2e-6,
+        "max_lr": 2e-4,
+        "warmup_iters": 990,
         "learning_rate": 2e-4,
-        "hidden_dim": hidden_dim,
+        "hidden_dim": int(hidden_dim),
     }
 
     run(config)
