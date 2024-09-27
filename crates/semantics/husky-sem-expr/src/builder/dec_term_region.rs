@@ -2,7 +2,8 @@ use super::*;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
 impl<'a> SemExprBuilder<'a> {
-    pub(super) fn infer_current_parameter_symbols(&mut self) {
+    // we can reuse the inference result from dec term region
+    pub(super) fn reuse_variable_inferences_from_dec_term_region(&mut self) {
         for (current_variable_idx, current_variable_entry) in self
             .syn_expr_region_data
             .variable_region()
@@ -28,16 +29,4 @@ impl<'a> SemExprBuilder<'a> {
             }
         }
     }
-
-    // fn parameter_pattern_ty(&self, pattern_idx: SynPatternIdx) -> EthTerm {
-    //     match self
-    //         .expr_region_data
-    //         .symbol_region()
-    //         .regular_parameter_pattern_ty_constraint(pattern_idx)
-    //     {
-    //         Some(_) => todo!(),
-    //         None => todo!(),
-    //     }
-    //     todo!()
-    // }
 }

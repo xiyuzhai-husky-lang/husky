@@ -3,7 +3,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct BePatternSyndicate {
-    pattern_expr_root: BeSynPatternRoot,
+    pattern_root: BeSynPatternRoot,
     variables: CurrentVariableIdxRange,
 }
 
@@ -16,30 +16,30 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<BePatternSyndicate> {
         let state = self.state();
-        let Some(pattern_expr_root) = self.try_parse_option::<BeSynPatternRoot>()? else {
+        let Some(pattern_root) = self.try_parse_option::<BeSynPatternRoot>()? else {
             Err(OriginalSynExprError::ExpectedBePattern(state))?
         };
         let symbols = self
-            .pattern_expr_region()
-            .pattern_expr_symbols(pattern_expr_root.syn_pattern_idx());
+            .pattern_region()
+            .pattern_variables(pattern_root.syn_pattern_idx());
         let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
-            .map(|(ident, pattern_symbol)| {
+            .map(|(ident, pattern_variable)| {
                 CurrentVariableEntry::new(
-                    self.pattern_expr_region(),
+                    self.pattern_region(),
                     access_start,
                     Some(access_end),
                     CurrentVariableData::BeVariable {
                         ident: *ident,
-                        pattern_variable_idx: *pattern_symbol,
+                        pattern_variable_idx: *pattern_variable,
                     },
                 )
             })
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
         Ok(BePatternSyndicate {
-            pattern_expr_root,
+            pattern_root,
             variables,
         })
     }
@@ -47,7 +47,7 @@ where
 
 impl BePatternSyndicate {
     pub fn syn_pattern_root(&self) -> BeSynPatternRoot {
-        self.pattern_expr_root
+        self.pattern_root
     }
 
     pub fn variables(&self) -> CurrentVariableIdxRange {

@@ -57,8 +57,8 @@ impl SemExprRegion {
         sem_expr_arena: SemExprArena,
         sem_stmt_arena: SemStmtArena,
         sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
-        pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
-        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+        pattern_ty_infos: SynPatternMap<PatternTypeInfo>,
+        pattern_variable_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
         symbol_tys: SymbolMap<SymbolType>,
         symbol_terms: SymbolMap<FlyTerm>,
@@ -79,8 +79,8 @@ impl SemExprRegion {
                 sem_expr_arena,
                 sem_stmt_arena,
                 sem_expr_roots,
-                syn_pattern_expr_ty_infos: pattern_expr_ty_infos,
-                syn_pattern_symbol_ty_infos: pattern_symbol_ty_infos,
+                syn_pattern_ty_infos: pattern_ty_infos,
+                syn_pattern_variable_ty_infos: pattern_variable_ty_infos,
                 sem_expr_terms,
                 symbol_tys,
                 symbol_terms,
@@ -102,8 +102,8 @@ pub struct SemExprRegionData {
     sem_expr_arena: SemExprArena,
     sem_stmt_arena: SemStmtArena,
     sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
-    syn_pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
-    syn_pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    syn_pattern_ty_infos: SynPatternMap<PatternTypeInfo>,
+    syn_pattern_variable_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FlyTerm>,
@@ -201,7 +201,7 @@ impl SemExprRegionData {
     }
 
     pub fn syn_pattern_ty(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> EthTerm {
-        match self.syn_pattern_expr_ty_infos[pattern].ty {
+        match self.syn_pattern_ty_infos[pattern].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fly_term_region.terms()) {
                 FlyTermBase::Eth(ty_term) => ty_term,
                 FlyTermBase::Sol(_) => todo!(),
@@ -215,8 +215,11 @@ impl SemExprRegionData {
     pub fn syn_pattern_place(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> EthPlace {
         let syn_expr_region =
             helpers::path::syn_expr_region_from_region_path(self.path, db).unwrap();
+        use ::husky_print_utils::p;
+        use ::salsa::DebugWithDb;
+        p!(self.path.debug(db));
         husky_syn_expr::emit_note_on_syn_pattern_codespan!(syn_expr_region, db, (pattern, "todo"));
-        match self.syn_pattern_expr_ty_infos[pattern].ty {
+        match self.syn_pattern_ty_infos[pattern].ty {
             Ok(ty_term) => ty_term.quary().unwrap().place().unwrap(),
             Err(_) => todo!(),
         }

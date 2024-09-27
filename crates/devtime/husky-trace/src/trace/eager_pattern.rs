@@ -33,13 +33,13 @@ pub struct EagerPatternTraceData {
 }
 
 impl Trace {
-    pub(crate) fn new_eager_pattern_expr(
+    pub(crate) fn new_eager_pattern(
         biological_parent_path: TracePath,
         biological_parent: Trace,
         syn_pattern_idx: SynPatternIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeVariableIdx>>,
         sem_expr_region: SemExprRegion,
-        eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternEssence>,
+        eager_pattern_trace_path_registry: &mut TracePathRegistry<EagerPatternEssence>,
         db: &::salsa::Db,
     ) -> Self {
         let essence = EagerPatternEssence::Haha;
@@ -47,7 +47,7 @@ impl Trace {
             EagerPatternTracePathData {
                 biological_parent_path,
                 essence: essence.clone(),
-                disambiguator: eager_pattern_expr_trace_path_registry.issue(essence),
+                disambiguator: eager_pattern_trace_path_registry.issue(essence),
             },
             db,
         );

@@ -42,7 +42,7 @@ impl<'db> HirEagerExprBuilder<'db> {
         let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_eager_pattern_idx_map =
-            SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
+            SynPatternMap::new(syn_expr_region_data.pattern_arena());
         let sem_to_hir_eager_expr_idx_map = SemExprMap::new(sem_expr_region_data.sem_expr_arena());
         let sem_to_hir_eager_stmt_idx_map = SemStmtMap::new(sem_expr_region_data.sem_stmt_arena());
         let hir_eager_comptime_symbol_region_data = HirEagerComptimeVariableRegionData::from_sema(
@@ -101,10 +101,10 @@ impl<'db> HirEagerExprBuilder<'db> {
                 _ => continue,
             }
         }
-        for &syn_pattern_expr_root in self.syn_expr_region_data.syn_pattern_expr_roots() {
-            match syn_pattern_expr_root.kind() {
+        for &syn_pattern_root in self.syn_expr_region_data.syn_pattern_roots() {
+            match syn_pattern_root.kind() {
                 SynPatternRootKind::Parenate => {
-                    self.new_pattern(syn_pattern_expr_root);
+                    self.new_pattern(syn_pattern_root);
                 }
                 // already covered when building expr roots
                 SynPatternRootKind::Let
@@ -158,7 +158,7 @@ impl<'db> HirEagerExprBuilder<'db> {
         pattern
     }
 
-    pub(crate) fn alloc_pattern_exprs(
+    pub(crate) fn alloc_patterns(
         &mut self,
         patterns: Vec<(HirEagerPatternData, EthPlace)>,
         syn_patterns: impl Iterator<Item = SynPatternIdx> + Clone,

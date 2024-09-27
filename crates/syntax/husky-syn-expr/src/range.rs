@@ -4,7 +4,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynExprRangeRegion {
     item_path_expr_ranges: Vec<RegionalTokenIdxRange>,
-    pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
+    pattern_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
     stmt_ranges: SynStmtMap<RegionalTokenIdxRange>,
 }
@@ -35,7 +35,7 @@ impl std::ops::Index<SynPatternIdx> for SynExprRangeRegion {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
-        &self.pattern_expr_ranges[index.index()]
+        &self.pattern_ranges[index.index()]
     }
 }
 
@@ -50,7 +50,7 @@ impl std::ops::Index<SynExprIdx> for SynExprRangeRegion {
 struct SynExprRangeCalculator<'a> {
     syn_expr_region_data: &'a SynExprRegionData,
     principal_entity_path_expr_ranges: Vec<RegionalTokenIdxRange>,
-    pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
+    pattern_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
     stmt_ranges: SynStmtMap<RegionalTokenIdxRange>,
 }
@@ -75,7 +75,7 @@ impl<'a> std::ops::Index<SynPatternIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
-        &self.pattern_expr_ranges[index.index()]
+        &self.pattern_ranges[index.index()]
     }
 }
 
@@ -109,7 +109,7 @@ impl<'a> SynExprRangeCalculator<'a> {
         SynExprRangeCalculator {
             syn_expr_region_data,
             principal_entity_path_expr_ranges: Default::default(),
-            pattern_expr_ranges: Default::default(),
+            pattern_ranges: Default::default(),
             expr_ranges: Default::default(),
             stmt_ranges: SynStmtMap::new(syn_expr_region_data.stmt_arena()),
         }
@@ -130,11 +130,11 @@ impl<'a> SynExprRangeCalculator<'a> {
             self.principal_entity_path_expr_ranges
                 .push(self.calc_principal_entity_path_expr_range(principal_entity_path_expr))
         }
-        self.pattern_expr_ranges
-            .reserve(self.syn_expr_region_data.pattern_expr_arena().len());
-        for pattern_expr in self.syn_expr_region_data.pattern_expr_arena().iter() {
-            self.pattern_expr_ranges
-                .push(self.calc_pattern_expr_range(pattern_expr))
+        self.pattern_ranges
+            .reserve(self.syn_expr_region_data.pattern_arena().len());
+        for pattern in self.syn_expr_region_data.pattern_arena().iter() {
+            self.pattern_ranges
+                .push(self.calc_pattern_range(pattern))
         }
         self.expr_ranges
             .reserve(self.syn_expr_region_data.expr_arena().len());
@@ -148,7 +148,7 @@ impl<'a> SynExprRangeCalculator<'a> {
         );
         SynExprRangeRegion {
             item_path_expr_ranges: self.principal_entity_path_expr_ranges,
-            pattern_expr_ranges: self.pattern_expr_ranges,
+            pattern_ranges: self.pattern_ranges,
             expr_ranges: self.expr_ranges,
             stmt_ranges: self.stmt_ranges,
         }
@@ -178,7 +178,7 @@ impl<'a> SynExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_pattern_expr_range(&self, expr: &SynPatternData) -> RegionalTokenIdxRange {
+    fn calc_pattern_range(&self, expr: &SynPatternData) -> RegionalTokenIdxRange {
         match expr {
             SynPatternData::Literal {
                 regional_token_idx, ..
@@ -225,8 +225,8 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynPatternData::OneOf { options } => {
                 let fst = options.elements().first().unwrap().syn_pattern();
                 let lst = options.elements().last().unwrap().syn_pattern();
-                let fst_range = self.pattern_expr_ranges[fst.index()];
-                let lst_range = self.pattern_expr_ranges[lst.index()];
+                let fst_range = self.pattern_ranges[fst.index()];
+                let lst_range = self.pattern_ranges[lst.index()];
                 fst_range.join(lst_range)
             }
             SynPatternData::Binding { .. } => todo!(),
