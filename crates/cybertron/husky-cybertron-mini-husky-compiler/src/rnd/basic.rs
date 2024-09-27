@@ -90,6 +90,7 @@ struct BasicCodeGenerator {
     float_literals: Vec<String>,
     bool_literals: Vec<String>,
     var_name_literals: Vec<String>,
+    time_step: usize,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -112,6 +113,7 @@ impl Type {
 struct Function {
     name: String,
     input_ty: Type,
+    last_called_step: usize,
 }
 
 impl BasicCodeGenerator {
@@ -141,12 +143,13 @@ impl BasicCodeGenerator {
             min_dist,
             use_var_rate,
             error_rate,
-            max_calls_per_fn: 5, // default value
+            max_calls_per_fn: 20, // default value
             used_fn_idx: Vec::new(),
             int_literals,
             float_literals,
             bool_literals,
             var_name_literals,
+            time_step: 0,
         }
     }
 
@@ -210,35 +213,37 @@ impl BasicCodeGenerator {
             input_ty.repr(),
             Some(AstKind::ParameterType),
             None,
-            None,
-            None,
+            Some(input_ty), // None,
+            Some(input_ty), // None,
         );
         self.push_token(")", Some(AstKind::ParametersRpar), None, None, None);
         self.with_curly(AstKind::FnBodyLcurl, AstKind::FnBodyRcurl, |gen| {
-            let num_calls = gen.rng.rand_range(1..=gen.max_calls_per_fn);
-            for _ in 0..num_calls {
+            for _ in 0..gen.max_calls_per_fn {
                 gen.gen_fn_call(var_name.clone(), Some(input_ty));
             }
         });
         self.functions.push(Function {
             name: fn_name,
-            input_ty,
+            input_ty: input_ty,
+            last_called_step: self.time_step,
         });
+        self.time_step += 1;
     }
 
     fn gen_fn_call(&mut self, var_name: String, var_type: Option<Type>) {
         let len = self.functions.len();
-        let callable_functions_len = if self.min_dist >= len {
-            0
-        } else {
-            len - self.min_dist
-        };
-        if callable_functions_len == 0 {
+        if len == 0 {
             return;
         }
 
-        let callee_index = self.rng.rand_range(0..callable_functions_len);
-        let callee = &self.functions[callee_index];
+        let callee_index = self.rng.rand_range(0..len);
+        let callee = &mut self.functions[callee_index];
+
+        if self.time_step - callee.last_called_step < self.min_dist {
+            return;
+        }
+
+        callee.last_called_step = self.time_step;
         let fn_name = callee.name.clone();
         let expected_type = callee.input_ty.clone();
         let mut value_type = expected_type.clone();
