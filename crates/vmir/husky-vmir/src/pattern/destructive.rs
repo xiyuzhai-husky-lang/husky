@@ -1,6 +1,7 @@
 use super::*;
 use either::*;
 use husky_control_flow_utils::require;
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
 use husky_place::place::idx::PlaceIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -20,7 +21,7 @@ pub type VmirDestructivePatternIdxRange<LinketImpl> =
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum VmirDestructivePattern<LinketImpl: IsLinketImpl> {
-    Default(Option<PlaceIdx>) = 1,
+    Default(Option<HirEagerRuntimeVariableIdx>) = 1,
     Or(VmirDestructivePatternIdxRange<LinketImpl>),
     Other(VmirDestructivePatternIdx<LinketImpl>),
 }
@@ -84,7 +85,7 @@ impl<LinketImpl: IsLinketImpl> VmirDestructivePattern<LinketImpl> {
     ) {
         match self {
             VmirDestructivePattern::Default(place) => match place {
-                Some(place) => ctx.init_place(place, value),
+                Some(place) => ctx.init_variable(place, value),
                 None => (),
             },
             VmirDestructivePattern::Or(_) => todo!(),

@@ -13,7 +13,6 @@ use path::major_item::ty::{PreludeIntTypePath, PreludeNumTypePath, PreludeTypePa
 #[salsa::derive_debug_with_db]
 pub struct HirEagerForBetweenParticulars {
     pub for_loop_variable_ident: Ident,
-    pub for_loop_variable_place_idx: PlaceIdx,
     pub for_loop_variable_ty_path: PreludeIntTypePath,
     pub range: HirEagerForBetweenRange,
 }
@@ -25,11 +24,6 @@ impl ToHirEager for SemForBetweenParticulars {
         let for_loop_variable_ty = self
             .for_between_loop_var_expr_idx()
             .ty(builder.sem_expr_arena_ref2());
-        let EthPlace::Idx(for_loop_variable_place_idx) =
-            for_loop_variable_ty.quary().unwrap().place().unwrap()
-        else {
-            unreachable!()
-        };
         let FlyBaseTypeData::TypeOntology {
             refined_ty_path:
                 Left(PreludeTypePath::Num(PreludeNumTypePath::Int(for_loop_variable_ty_path))),
@@ -40,7 +34,6 @@ impl ToHirEager for SemForBetweenParticulars {
         };
         HirEagerForBetweenParticulars {
             for_loop_variable_ident: self.for_between_loop_var_ident(),
-            for_loop_variable_place_idx,
             for_loop_variable_ty_path,
             range: self.range().to_hir_eager(builder),
         }
