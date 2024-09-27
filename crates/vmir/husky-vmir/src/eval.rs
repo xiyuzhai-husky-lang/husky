@@ -4,6 +4,7 @@ use crate::{
     stmt::{VmirStmtArena, VmirStmtIdx, VmirStmtIdxRange},
 };
 use husky_entity_path::path::major_item::form::MajorFormPath;
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
 use husky_linket::template_argument::qual::LinQual;
 use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplThawedValue},
@@ -60,13 +61,21 @@ pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {
         f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
     ) -> LinketImplVmControlFlowThawed<LinketImpl>;
 
-    /// access place
-    fn access_place(
+    /// access variable
+    fn access_variable(
         &mut self,
-        place_idx: PlaceIdx,
+        variable_idx: HirEagerRuntimeVariableIdx,
         qual: LinQual,
     ) -> LinketImplThawedValue<LinketImpl>;
 
-    fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>);
-    fn set_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>);
+    fn init_variable(
+        &mut self,
+        variable_idx: HirEagerRuntimeVariableIdx,
+        value: LinketImplThawedValue<LinketImpl>,
+    );
+    fn set_variable(
+        &mut self,
+        variable_idx: HirEagerRuntimeVariableIdx,
+        value: LinketImplThawedValue<LinketImpl>,
+    );
 }

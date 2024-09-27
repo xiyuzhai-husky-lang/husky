@@ -41,8 +41,8 @@ pub(crate) struct Vm<
     VmirStorage: IsVmirStorage<LinketImpl>,
 > {
     linket: Linket,
-    place_slush_values: Vec<LinketImplSlushValue<LinketImpl>>,
-    pub(crate) place_thawed_values: Vec<LinketImplThawedValue<LinketImpl>>,
+    variable_slush_values: Vec<LinketImplSlushValue<LinketImpl>>,
+    pub(crate) variable_thawed_values: Vec<LinketImplThawedValue<LinketImpl>>,
     mode: VmMode,
     expr_records: VmirExprMap<LinketImpl, VmRecord<LinketImpl>>,
     stmt_records: VmirStmtMap<LinketImpl, VmRecord<LinketImpl>>,
@@ -89,8 +89,8 @@ impl<
         Self {
             linket,
             mode,
-            place_slush_values: vec![],
-            place_thawed_values: place_values,
+            variable_slush_values: vec![],
+            variable_thawed_values: place_values,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),
             snapshots: Default::default(),
@@ -119,8 +119,8 @@ impl<
         }
         Self {
             linket: snapshot.linket(),
-            place_slush_values,
-            place_thawed_values,
+            variable_slush_values: place_slush_values,
+            variable_thawed_values: place_thawed_values,
             mode,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),
@@ -229,7 +229,7 @@ impl<
         let t = || {
             VmSnapshot::new(
                 self.linket,
-                self.place_thawed_values
+                self.variable_thawed_values
                     .iter()
                     .map(|v| v.freeze())
                     .collect(),

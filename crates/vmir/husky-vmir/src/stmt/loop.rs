@@ -2,7 +2,8 @@ use super::{expr::VmirExprIdx, *};
 use husky_entity_path::path::major_item::ty::PreludeIntTypePath;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
 use husky_hir_eager_expr::{
-    HirEagerForBetweenLoopBoundary, HirEagerForBetweenParticulars, HirEagerForBetweenRange,
+    variable::runtime::HirEagerRuntimeVariableIdx, HirEagerForBetweenLoopBoundary,
+    HirEagerForBetweenParticulars, HirEagerForBetweenRange,
 };
 use husky_linket_impl::linket_impl::IsLinketImpl;
 use husky_place::place::idx::PlaceIdx;
@@ -11,16 +12,11 @@ use husky_value::vm_control_flow::VmControlFlow;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VmirForBetweenParticulars<LinketImpl: IsLinketImpl> {
-    for_loop_variable_place_idx: PlaceIdx,
     for_loop_variable_ty_path: PreludeIntTypePath,
     range: VmirForBetweenRange<LinketImpl>,
 }
 
 impl<LinketImpl: IsLinketImpl> VmirForBetweenParticulars<LinketImpl> {
-    pub fn for_loop_variable_place_idx(&self) -> PlaceIdx {
-        self.for_loop_variable_place_idx
-    }
-
     pub fn range(&self) -> &VmirForBetweenRange<LinketImpl> {
         &self.range
     }
@@ -38,7 +34,6 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerForBetweenParticu
         Linktime: husky_linktime::IsLinktime<LinketImpl = LinketImpl>,
     {
         VmirForBetweenParticulars {
-            for_loop_variable_place_idx: self.for_loop_variable_place_idx,
             for_loop_variable_ty_path: self.for_loop_variable_ty_path,
             range: self.range.to_vmir(builder),
         }
@@ -93,6 +88,7 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
         self,
         stmts: VmirStmtIdxRange<LinketImpl>,
         particulars: &VmirForBetweenParticulars<LinketImpl>,
+        for_loop_variable_idx: HirEagerRuntimeVariableIdx,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         use VmControlFlow::*;
@@ -142,10 +138,7 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                     for_loop_variable,
                     particulars.for_loop_variable_ty_path(),
                 );
-                ctx.set_place(
-                    particulars.for_loop_variable_place_idx(),
-                    for_loop_variable_value,
-                );
+                ctx.set_variable(for_loop_variable_idx, for_loop_variable_value);
                 ctx.eval_loop_inner(self, stmts, loop_index, |ctx| {
                     stmts.eval(ctx)?;
                     VmControlFlow::Continue(())

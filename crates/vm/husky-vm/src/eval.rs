@@ -2,6 +2,7 @@ use crate::runtime::IsVmRuntime;
 use crate::vm::{Vm, VmMode};
 use crate::*;
 use history::VmHistory;
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
 use husky_linket_impl::linket_impl::LinketImplThawedValue;
 use husky_linktime::helpers::LinktimeThawedValue;
 use husky_value::IsThawedValue;
@@ -119,27 +120,37 @@ where
         }
     }
 
-    fn access_place(
+    fn access_variable(
         &mut self,
-        place_idx: PlaceIdx,
+        variable_idx: HirEagerRuntimeVariableIdx,
         qual: LinQual,
     ) -> LinketImplThawedValue<LinketImpl> {
         match qual {
-            LinQual::Ref => self.place_thawed_values[place_idx.index()].ref_access(),
+            LinQual::Ref => self.variable_thawed_values[variable_idx.index()].ref_access(),
             LinQual::RefMut => todo!(),
-            LinQual::Transient => self.place_thawed_values[place_idx.index()].transient_access(),
+            LinQual::Transient => {
+                self.variable_thawed_values[variable_idx.index()].transient_access()
+            }
         }
     }
 
-    fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>) {
+    fn init_variable(
+        &mut self,
+        variable_idx: HirEagerRuntimeVariableIdx,
+        value: LinketImplThawedValue<LinketImpl>,
+    ) {
         use husky_value::IsThawedValue;
 
-        assert!(self.place_thawed_values[place_idx.index()].is_uninit());
-        self.place_thawed_values[place_idx.index()] = value
+        assert!(self.variable_thawed_values[variable_idx.index()].is_uninit());
+        self.variable_thawed_values[variable_idx.index()] = value
     }
 
-    fn set_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>) {
-        self.place_thawed_values[place_idx.index()] = value
+    fn set_variable(
+        &mut self,
+        variable_idx: HirEagerRuntimeVariableIdx,
+        value: LinketImplThawedValue<LinketImpl>,
+    ) {
+        self.variable_thawed_values[variable_idx.index()] = value
     }
 
     fn eval_val(
