@@ -1,27 +1,23 @@
 #!/usr/bin/env python
 
 """
-This script searches for BibTeX entries for a list of paper titles using the Google Scholar API (via the scholarly library) and merges the results into an existing BibTeX file. The script works as follows:
+This script searches for BibTeX entries for a list of paper titles using Google Scholar or Semantic Scholar, based on user preference.
+The results are merged into an existing BibTeX file. The script can be configured to:
+1. Use only Google Scholar.
+2. Use only Semantic Scholar.
+3. Try Google Scholar first, and if it fails, fall back to Semantic Scholar.
 
-1. It reads a file containing paper titles (one title per line).
-2. It reads an existing BibTeX file (if it exists) and extracts the titles from it.
-3. For each paper title in the input file, it checks if the title is already present in the existing BibTeX file.
-4. If the title is not found in the existing file, it sends a search request to Google Scholar for the BibTeX entry.
-5. The script introduces a random delay between 5 and 10 seconds between each search request to avoid being rate-limited.
-6. Finally, it merges the new BibTeX entries with the existing ones, ensuring no duplicates, and writes the result back to the specified BibTeX file.
+You can also configure the maximum interval for sleep between API requests.
 
 Usage:
-    ./bibtex_collector.py <paper_titles_file_path> -o <bib_file_path>
+    ./bibtex_collector.py <paper_titles_file_path> -o <bib_file_path> --use <google|semantic|both> --max-sleep <max_interval>
 
 Example:
-    ./bibtex_collector.py paper_titles.txt -o output.bib
-
-Parameters:
-- <paper_titles_file_path>: The path to a text file containing a list of paper titles (one per line).
-- <bib_file_path>: The output BibTeX file where the results will be saved or merged with existing entries.
+    ./bibtex_collector.py paper_titles.txt -o output.bib --use google --max-sleep 10
 
 Requirements:
-- scholarly library: You must have the 'scholarly' library installed (pip install scholarly).
+- scholarly: Google Scholar library (pip install scholarly)
+- requests: To use Semantic Scholar API (pip install requests)
 """
 
 import sys
@@ -29,19 +25,74 @@ import os
 import re
 import time
 import random
+import requests
 from typing import List, Optional, Set
 from scholarly import scholarly
 
+SEMANTIC_SCHOLAR_API = "https://api.semanticscholar.org/graph/v1/paper/search"
 
-def search_bibtex(paper_title: str) -> Optional[str]:
+
+def search_bibtex_google(paper_title: str) -> Optional[str]:
     """Search for a paper on Google Scholar and return the BibTeX entry."""
     try:
         query = scholarly.search_pubs(paper_title)
         pub = next(query)
         return scholarly.bibtex(pub)
     except Exception as e:
-        print(f"Error retrieving BibTeX for '{paper_title}': {str(e)}")
+        print(f"Google Scholar search failed for '{paper_title}': {str(e)}")
         return None
+
+
+def search_bibtex_semantic_scholar(paper_title: str) -> Optional[str]:
+    """Search for a paper on Semantic Scholar and return the BibTeX entry."""
+    try:
+        response = requests.get(
+            SEMANTIC_SCHOLAR_API,
+            params={"query": paper_title, "fields": "title,authors,venue,year,bibtex"},
+            timeout=10,  # Timeout for requests
+        )
+        response.raise_for_status()  # Raises an HTTPError for bad responses
+        data = response.json()
+
+        # Check if the response contains any results
+        if "data" in data and len(data["data"]) > 0:
+            # Return the BibTeX entry if available
+            return data["data"][0].get("bibtex")
+        else:
+            print(f"No results found for '{paper_title}' on Semantic Scholar.")
+            return None
+    except Exception as e:
+        print(f"Semantic Scholar search failed for '{paper_title}': {str(e)}")
+        return None
+
+
+def search_bibtex(paper_title: str, search_engine: str) -> Optional[str]:
+    """
+    Search for a paper based on the user's search engine preference.
+
+    Args:
+        paper_title: The title of the paper to search for.
+        search_engine: The search engine to use ('google', 'semantic', or 'both').
+
+    Returns:
+        The BibTeX entry if found, otherwise None.
+    """
+    if search_engine == "google":
+        return search_bibtex_google(paper_title)
+
+    elif search_engine == "semantic":
+        return search_bibtex_semantic_scholar(paper_title)
+
+    elif search_engine == "both":
+        bibtex_entry = search_bibtex_google(paper_title)
+        if not bibtex_entry:
+            print(f"Falling back to Semantic Scholar for '{paper_title}'")
+            bibtex_entry = search_bibtex_semantic_scholar(paper_title)
+        return bibtex_entry
+
+    else:
+        print(f"Invalid search engine option: {search_engine}")
+        sys.exit(1)
 
 
 def read_paper_titles(file_path: str) -> List[str]:
@@ -97,12 +148,18 @@ def write_bibtex_to_file(bib_entries: List[str], output_file_path: str) -> None:
 
 def main() -> None:
     """Main function to handle the command-line arguments and process the BibTeX collection."""
-    if len(sys.argv) != 4 or sys.argv[2] != "-o":
-        print("Usage: <script> <paper_titles_file_path> -o <bib_file_path>")
+    if len(sys.argv) != 8 or sys.argv[4] != "--use" or sys.argv[6] != "--max-sleep":
+        print(
+            "Usage: <script> <paper_titles_file_path> -o <bib_file_path> --use <google|semantic|both> --max-sleep <max_interval>"
+        )
         sys.exit(1)
 
     paper_titles_file: str = sys.argv[1]
     bib_file_path: str = sys.argv[3]
+    search_engine: str = sys.argv[
+        5
+    ]  # Get the search engine preference (google, semantic, or both)
+    max_sleep: int = int(sys.argv[7])  # Get the max sleep interval (user defined)
 
     # Ensure that the paper titles file exists
     if not os.path.exists(paper_titles_file):
@@ -127,12 +184,14 @@ def main() -> None:
     for title in paper_titles:
         # Check if the title is already in the existing BibTeX file, skip if found
         if title not in existing_titles:
-            bibtex_entry: Optional[str] = search_bibtex(title)
-            if bibtex_entry:
-                new_bib_entries.append(bibtex_entry)
+            bibtex_entry: Optional[str] = search_bibtex(title, search_engine)
+            if not bibtex_entry:
+                sys.exit(1)  # Exit on failure
 
-            # Introduce a random delay of at least 5 seconds between searches
-            delay: float = random.uniform(5, 10)
+            new_bib_entries.append(bibtex_entry)
+
+            # Introduce a random delay between 0 seconds and the specified max_sleep interval
+            delay: float = random.uniform(0, max_sleep)
             print(f"Sleeping for {delay:.2f} seconds to avoid rate limiting.")
             time.sleep(delay)
         else:
