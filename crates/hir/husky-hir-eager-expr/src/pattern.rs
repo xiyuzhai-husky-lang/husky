@@ -18,6 +18,7 @@ use husky_term_prelude::literal::{
     Literal,
 };
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
+use variable::runtime::HirEagerRuntimeVariableIdx;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -28,6 +29,7 @@ pub enum HirEagerPatternData {
     Ident {
         symbol_modifier: Option<VariableModifier>,
         ident: Ident,
+        variable_idx: HirEagerRuntimeVariableIdx,
     },
     /// example: `A::B`
     UnitPath(PatternPath),
@@ -183,10 +185,21 @@ impl<'a> HirEagerExprBuilder<'a> {
             SynPatternData::Ident {
                 symbol_modifier_tokens,
                 ident_token,
-            } => HirEagerPatternData::Ident {
-                ident: ident_token.ident(),
-                symbol_modifier: symbol_modifier_tokens.map(Into::into),
-            },
+            } => {
+                let map = self
+                    .syn_expr_region_data()
+                    .syn_pattern_current_variables_mapped(syn_pattern, |current_variable_idx| {
+                        self.current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
+                    });
+                debug_assert_eq!(map.len(), 1);
+                debug_assert_eq!(map.data()[0].0, ident_token.ident());
+                let variable_idx = map.data()[0].1.unwrap();
+                HirEagerPatternData::Ident {
+                    ident: ident_token.ident(),
+                    symbol_modifier: symbol_modifier_tokens.map(Into::into),
+                    variable_idx,
+                }
+            }
             SynPatternData::UnitTypeVariant { path, .. } => {
                 HirEagerPatternData::UnitPath(path.into())
             }
