@@ -592,7 +592,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                         BinaryShiftOpr::Shl => lopd << ropd,
                         BinaryShiftOpr::Shr => lopd >> ropd,
                     }),
-                    HirBinaryOpr::Assign => todo!(),
+                    HirBinaryOpr::Assign => {
+                        lopd.assign(ropd);
+                        Continue(().into())
+                    }
                     HirBinaryOpr::AssignClosed(_) => todo!(),
                     HirBinaryOpr::AssignShift(_) => todo!(),
                     HirBinaryOpr::Comparison(opr) => Continue(

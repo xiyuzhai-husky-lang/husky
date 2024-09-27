@@ -29,7 +29,7 @@ use husky_visual_protocol::{
     visual::{primitive::PrimitiveVisual, Visual},
 };
 use std::cmp::Ordering;
-use thawed::ThawedValue;
+use thawed::{FromThawedValue, ThawedValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
@@ -76,7 +76,7 @@ pub enum Value {
 }
 
 pub trait Immortal:
-    Thawed + Frozen + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    Thawed + Frozen<Thawed = Self> + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
 {
     /// copy if the type is copyable
     ///

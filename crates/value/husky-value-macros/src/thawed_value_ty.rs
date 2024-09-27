@@ -36,7 +36,7 @@ pub(crate) fn thawed_value_ty(
     let from_thawed_value_trai = syn::Ident::new("FromThawedValue", ident.span());
     let into_thawed_value_trai = syn::Ident::new("IntoThawedValue", ident.span());
     let primitive_ty_thawed_value_conversions = [
-        "()", "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
+        "()", "bool", "char", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
         "i128", "isize", "f32", "f64",
     ]
     .into_iter()
@@ -101,18 +101,6 @@ pub(crate) fn thawed_value_ty(
         }
 
         #primitive_ty_thawed_value_conversions
-
-        impl #from_thawed_value_trai for &'static str {
-            fn from_thawed_value_aux(value: #thawed_value_ty, slush_values: Option<&mut SlushValues>) -> Self {
-                todo!()
-            }
-        }
-
-        impl #into_thawed_value_trai for &'static str {
-            fn into_thawed_value(self) -> #thawed_value_ty {
-                todo!()
-            }
-        }
 
         // repeat the above code with type u8 replaced by u8~u128,usize, i8~i128,isze
 

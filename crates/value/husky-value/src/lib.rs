@@ -226,6 +226,7 @@ pub trait IsThawedValue:
     /// if copyable, then copy;
     /// else move.
     fn transient_access(&self) -> Self;
+    fn assign(self, other: Self);
 }
 
 pub trait IsFrozenValue: Clone + Send + Sync + 'static {
