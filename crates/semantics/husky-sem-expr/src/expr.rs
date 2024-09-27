@@ -671,6 +671,26 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
+    ) -> (SemExprIdx, Option<FlyTerm>, Option<E::Outcome>) {
+        let (sem_expr_idx, expectation_idx_and_ty) =
+            self.build_expr_aux(expr_idx, expr_ty_expectation);
+        let (ty, outcome) = match expectation_idx_and_ty {
+            Some((expectation_idx, ty)) => (
+                Some(ty),
+                self.fly_term_region()[expectation_idx]
+                    .resolve_progress()
+                    .outcome::<E>()
+                    .cloned(),
+            ),
+            None => (None, None),
+        };
+        (sem_expr_idx, ty, outcome)
+    }
+
+    pub(crate) fn build_expr_with_ty_and_outcome2<E: ExpectFlyTerm>(
+        &mut self,
+        expr_idx: SynExprIdx,
+        expr_ty_expectation: E,
     ) -> (SemExprIdx, Option<FlyTerm>, Option<ExpectationOutcome>) {
         let (sem_expr_idx, expectation_idx_and_ty) =
             self.build_expr_aux(expr_idx, expr_ty_expectation);
