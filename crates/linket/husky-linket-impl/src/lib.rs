@@ -69,11 +69,14 @@ macro_rules! fn_linket_impl {
         fn fn_vm_wrapper(arguments: __SmallVec<[__VmArgumentValue; 4]>) -> __VmControlFlow {
             // todo: catch unwind
             __VmControlFlow::Continue(
-                FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                    std::marker::PhantomData,
-                    $fn_item,
-                )
-                .fn_vm_wrapper_aux(arguments)?
+                unsafe {
+                    FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                        std::marker::PhantomData,
+                        $fn_item,
+                    )
+                    .fn_vm_wrapper_aux(arguments)?
+                    .into_thawed()
+                }
                 .into_thawed_value(),
             )
         }
@@ -243,11 +246,14 @@ macro_rules! unveil_fn_linket_impl {
         fn fn_vm_wrapper(arguments: [__VmArgumentValue; 2]) -> __VmControlFlow {
             // todo: catch unwind
             __VmControlFlow::Continue(
-                UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                    std::marker::PhantomData,
-                    $fn_item,
-                )
-                .unveil_fn_vm_wrapper_aux(arguments)?
+                unsafe {
+                    UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                        std::marker::PhantomData,
+                        $fn_item,
+                    )
+                    .unveil_fn_vm_wrapper_aux(arguments)?
+                    .into_thawed()
+                }
                 .into_thawed_value(),
             )
         }

@@ -213,6 +213,12 @@ pub(crate) fn thawed_value_ty(
             }
         }
 
+        impl<C, B> #from_thawed_value_trai for std::ops::ControlFlow<B, C> {
+            fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
+                todo!("impl<C, B> #from_thawed_value_trai for std::ops::ControlFlow<B, C>")
+            }
+        }
+
         impl<C, B> #into_thawed_value_trai for std::ops::ControlFlow<B, C> {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 todo!("impl<C, B> #into_thawed_value_trai for std::ops::ControlFlow<B, C>")
