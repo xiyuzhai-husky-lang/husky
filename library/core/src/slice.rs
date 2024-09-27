@@ -206,13 +206,11 @@ where
     }
 }
 
-impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T>
+impl<T> CyclicSliceLeashed<T>
 where
     T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type Output = T;
-
-    fn index(&self, index: usize) -> &Self::Output {
-        self.index_i32(index as i32)
+    pub fn index(&self, index: usize) -> &'static T {
+        &self.index_i32(index as i32)
     }
 }

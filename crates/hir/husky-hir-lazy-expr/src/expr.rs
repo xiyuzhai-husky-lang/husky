@@ -139,7 +139,7 @@ impl ToHirLazy for SemExprIdx {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let place_contract_site =
-            HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
+            HirPlaceContractSite::from_sem(&builder.sem_place_contract_region()[*self]);
         let hir_lazy_expr = match *self.data(builder.sem_expr_arena_ref()) {
             SemExprData::Literal(_, _) => {
                 let EthTerm::Literal(lit) = builder.expr_term(*self) else {
