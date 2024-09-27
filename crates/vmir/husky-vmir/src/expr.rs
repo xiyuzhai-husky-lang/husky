@@ -551,7 +551,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 VmirCoercion::Trivial => value,
                 VmirCoercion::Never => todo!(),
                 VmirCoercion::WrapInSome => todo!(),
-                VmirCoercion::Redirection => todo!(),
+                VmirCoercion::Redirection => {
+                    // TODO
+                    value
+                }
                 VmirCoercion::Dedirection => todo!(),
             },
             None => value,
