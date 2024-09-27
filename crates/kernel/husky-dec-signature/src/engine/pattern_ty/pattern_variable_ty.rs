@@ -26,7 +26,10 @@ impl DecPatternVariableTypeInfo {
 }
 
 impl<'a> DecTermEngine<'a> {
-    pub(super) fn infer_pattern_variable_tys(&mut self, syn_pattern_root: impl Into<SynPatternRoot>) {
+    pub(super) fn infer_pattern_variable_tys(
+        &mut self,
+        syn_pattern_root: impl Into<SynPatternRoot>,
+    ) {
         let syn_pattern_root = syn_pattern_root.into();
         for (_, pattern_variable) in self
             .syn_expr_region_data
@@ -48,7 +51,10 @@ impl<'a> DecTermEngine<'a> {
         )
     }
 
-    fn calc_new_pattern_variable_base_ty(&mut self, pattern_variable: PatternVariableIdx) -> DecTerm {
+    fn calc_new_pattern_variable_base_ty(
+        &mut self,
+        pattern_variable: PatternVariableIdx,
+    ) -> DecTerm {
         match self.syn_expr_region_data[pattern_variable] {
             PatternVariable::Atom(pattern) => self
                 .get_pattern_ty(pattern)

@@ -39,7 +39,8 @@ impl SynPatternRegion {
             SynPatternData::Props { .. } => todo!(),
             SynPatternData::OneOf { ref options } => {
                 debug_assert!(options.elements().len() > 1);
-                let symbols = self.pattern_variable_maps[options.elements()[0].syn_pattern()].clone();
+                let symbols =
+                    self.pattern_variable_maps[options.elements()[0].syn_pattern()].clone();
                 for option in &options.elements()[1..] {
                     let option_symbols = &self.pattern_variable_maps[option.syn_pattern()];
                     if option_symbols != &symbols {
@@ -112,7 +113,10 @@ impl SynExprRegionData {
         self.pattern_region().pattern_contract(syn_pattern)
     }
 
-    pub fn pattern_variable_modifier(&self, pattern_variable: PatternVariableIdx) -> VariableModifier {
+    pub fn pattern_variable_modifier(
+        &self,
+        pattern_variable: PatternVariableIdx,
+    ) -> VariableModifier {
         self.pattern_region()
             .pattern_variable_modifier(pattern_variable)
     }

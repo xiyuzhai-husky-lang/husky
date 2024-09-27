@@ -196,8 +196,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 initial_value,
             } => {
                 let initial_value_ki_repr = self.build_expr(ki_domain_repr_guard, initial_value);
-                match self.hir_lazy_expr_region_data.hir_lazy_pattern_arena()
-                    [pattern.pattern_idx()]
+                match self.hir_lazy_expr_region_data.hir_lazy_pattern_arena()[pattern.pattern_idx()]
                 {
                     HirLazyPatternData::Literal(_) => todo!(),
                     HirLazyPatternData::Ident { ident: _ } => {

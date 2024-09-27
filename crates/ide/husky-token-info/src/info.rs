@@ -104,7 +104,9 @@ pub enum TokenInfoData {
     UnitRightParenthesis,
     Todo,
     Unreachable,
+    PrefixArithOpr,
     PrefixTypeOpr,
+    BinaryOpr,
     CallPar,
     NestedBlockCurl,
     ClosureVert,
@@ -184,6 +186,8 @@ impl TokenInfoData {
             TokenInfoData::Literal => TokenClass::Literal,
             TokenInfoData::IndexColon => TokenClass::Punctuation,
             TokenInfoData::UnwrapExclamation => TokenClass::Punctuation,
+            TokenInfoData::PrefixArithOpr => todo!(),
+            TokenInfoData::BinaryOpr => todo!(),
         }
     }
 }

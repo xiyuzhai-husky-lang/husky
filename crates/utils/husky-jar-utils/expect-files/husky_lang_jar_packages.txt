@@ -313,6 +313,7 @@
             "husky-entity-path",
             "husky-entity-tree",
             "husky-term-prelude",
+            "husky-text",
             "husky-token",
             "husky-token-data",
             "husky-vfs",

@@ -133,8 +133,7 @@ impl<'a> SynExprRangeCalculator<'a> {
         self.pattern_ranges
             .reserve(self.syn_expr_region_data.pattern_arena().len());
         for pattern in self.syn_expr_region_data.pattern_arena().iter() {
-            self.pattern_ranges
-                .push(self.calc_pattern_range(pattern))
+            self.pattern_ranges.push(self.calc_pattern_range(pattern))
         }
         self.expr_ranges
             .reserve(self.syn_expr_region_data.expr_arena().len());
