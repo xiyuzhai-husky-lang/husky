@@ -1,3 +1,4 @@
+import argparse
 import numpy as np
 import torch
 import torch.nn as nn
@@ -12,7 +13,11 @@ from utils import set_seed, custom_collate, linear_warmup_decay, Logger
 import os
 import pdb
 
-DATASET = "n100000-f10-d3-v0.20-e0.50"
+HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 128 + 1, 32))
+BATCH_SIZE = 512
+
+# DATASET = "n100000-f10-d3-v0.20-e0.50"
+DATASET = "n100000-f100-d20-v0.20-e0.50"
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
                                         "mini-husky/basic",
                                         f"dataset-{DATASET}.msgpack"))
@@ -42,7 +47,7 @@ def run(config):
         collate_fn=custom_collate,
     )
 
-    exp_name = f"rnn_{config['hidden_dim']}_seed{config['seed']}_{DATASET}"
+    exp_name = f"rnn_hd{config['hidden_dim']}_l{config['num_layers']}_seed{config['seed']}_{DATASET}"
 
     logger = Logger(
         exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
@@ -58,9 +63,9 @@ def run(config):
     # Create models
     model = SimpleRNN(
         input_dim=vocab_size,
-        hidden_dim=config["hidden_dim"],
         output_dim=output_dim,
         bidirectional=True,
+        **config
     ).to(device)
 
     # Loss function and optimizers
@@ -94,18 +99,30 @@ def run(config):
     logger.finish()
     torch.save(best_model.state_dict(), os.path.join(logger.exp_path, "best_model.pth"))
 
+parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
+parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
+args = parser.parse_args()
+seed = args.seed
 
-for hidden_dim in np.logspace(start=10, stop=2, num=14, base=2):
+# for seed in [42, 142857, 2225393, 20000308, 2018011309]:
+for hidden_dim in reversed(HIDDEN_DIM_SPACE):
+    if hidden_dim <= 160:
+        min_lr, max_lr = 1e-5, 1e-3
+    else:
+        min_lr, max_lr = 1e-6, 1e-4
+    
+    micro_batch_size = min(BATCH_SIZE, int((128 / hidden_dim) ** 2 * 256))
+
     config = {
-        "seed": 42,
-        "batch_size": 512,
-        "micro_batch_size": 512,
-        "num_epochs": 20,
-        "min_lr": 2e-6,
-        "max_lr": 2e-4,
+        "seed": seed,
+        "batch_size": BATCH_SIZE,
+        "micro_batch_size": micro_batch_size,
+        "num_epochs": 100,
+        "min_lr": min_lr,
+        "max_lr": max_lr,
         "warmup_iters": 990,
-        "learning_rate": 2e-4,
-        "hidden_dim": int(hidden_dim),
+        "hidden_dim": hidden_dim,
+        "num_layers": 8,
     }
 
     run(config)
