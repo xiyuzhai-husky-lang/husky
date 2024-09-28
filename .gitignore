@@ -346,3 +346,4 @@ out
 *.rich-test-lock
 
 data/mini-husky/basic/
+experiments/transformer-vs-recursive/results/
