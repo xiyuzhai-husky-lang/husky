@@ -1,3 +1,4 @@
+import argparse
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -11,10 +12,15 @@ from utils import set_seed, custom_collate, linear_warmup_decay, Logger
 import os
 import pdb
 
-DATASET = "n100000-f10-d3-v0.20-e0.50"
+HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 128 + 1, 32))
+BATCH_SIZE = 512
+
+# DATASET = "n100000-f10-d3-v0.20-e0.50"
+DATASET = "n100000-f100-d20-v0.20-e0.50"
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
                                         "mini-husky/basic",
                                         f"dataset-{DATASET}.msgpack"))
+max_seq_len = ((dataset.get_max_len() - 1) // 512 + 1) * 512
 header = dataset.header
 vocab_size = len(dataset.vocab)
 output_dims = dataset.get_output_dims()
@@ -43,7 +49,7 @@ def run(config):
         collate_fn=custom_collate,
     )
 
-    exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_{DATASET}"
+    exp_name = f"transformer_d{config['d_model']}_h{config['num_heads']}_l{config['num_layers']}_seed{config['seed']}_{DATASET}"
 
     logger = Logger(
         exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
@@ -61,10 +67,7 @@ def run(config):
     model = CustomBERTModel(
         vocab_size=vocab_size,
         output_dim=output_dim,  # Updated to use output_dims from dataset
-        num_layers=config["num_layers"],
-        num_heads=config["num_heads"],
-        d_model=config["d_model"],
-        max_seq_len=256,
+        **config
     ).to(device)
 
     # Loss function and optimizers
@@ -98,21 +101,31 @@ def run(config):
     logger.finish()
     torch.save(best_model.state_dict(), os.path.join(logger.exp_path, "best_model.pth"))
 
-for hidden_dim in [64, 32, 16]:
-    for d_model in [32, 16]:
-        for num_heads in [4, 2]:
-            for num_layers in [8, 4, 2]:
-                config = {
-                    "seed": 42,
-                    "batch_size": 512,
-                    "micro_batch_size": 512,
-                    "num_epochs": 20,
-                    "min_lr": 2e-6,
-                    "max_lr": 2e-4,
-                    "warmup_iters": 990,
-                    "hidden_dim": hidden_dim,
-                    "d_model": d_model,
-                    "num_heads": num_heads,
-                    "num_layers": num_layers,
-                }
-                run(config)
+parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
+parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
+args = parser.parse_args()
+seed = args.seed
+
+# for seed in [42, 142857, 2225393, 20000308, 2018011309]:
+for hidden_dim in reversed(HIDDEN_DIM_SPACE):
+    if hidden_dim <= 160:
+        min_lr, max_lr = 1e-5, 1e-3
+    else:
+        min_lr, max_lr = 1e-6, 1e-4
+    
+    micro_batch_size = min(BATCH_SIZE, int((128 / hidden_dim) ** 2 * 256))
+    
+    config = {
+        "seed": seed,
+        "batch_size": BATCH_SIZE,
+        "micro_batch_size": micro_batch_size,
+        "num_epochs": 100,
+        "min_lr": min_lr,
+        "max_lr": max_lr,
+        "warmup_iters": 990,
+        "d_model": hidden_dim,
+        "num_heads": min(4, hidden_dim),
+        "num_layers": 8,
+        "max_seq_len": max_seq_len,
+    }
+    run(config)
