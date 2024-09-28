@@ -65,13 +65,25 @@ class Logger:
         if log_wandb:
             wandb.init(project="transformer-vs-rnn", name=f"{exp_name}_{rnd_suf}", config=config)
         
+        self.log_buffer = []
+        self.buffer_limit = 100
+    
     def log(self, data):
         if self.log_wandb:
             wandb.log(data)
+        
+        self.log_buffer.append(data)
+        if len(self.log_buffer) >= self.buffer_limit:
+            self.dump_log()
+    
+    def dump_log(self):
         with open(self.file_path, "a") as f:
-            f.write(json.dumps(data) + "\n")
+            for data in self.log_buffer:
+                f.write(json.dumps(data) + "\n")
+        self.log_buffer = []
     
     def finish(self):
+        self.dump_log()
         if self.log_wandb:
             wandb.finish()
         print(f"Logs saved to {self.file_path}")
