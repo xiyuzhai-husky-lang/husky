@@ -44,9 +44,20 @@ train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 def run(config, train_dataset, val_dataset, header):
     set_seed(config["seed"])
 
-    # Data loaders
-    train_dataloader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True, collate_fn=custom_collate)
-    val_dataloader = DataLoader(val_dataset, batch_size=config["batch_size"], shuffle=False, collate_fn=custom_collate)
+    train_dataloader = DataLoader(
+        train_dataset,
+        batch_size=config["batch_size"],
+        shuffle=True,
+        collate_fn=custom_collate,
+        num_workers=4,
+    )
+    val_dataloader = DataLoader(
+        val_dataset,
+        batch_size=config["batch_size"],
+        shuffle=False,
+        collate_fn=custom_collate,
+        num_workers=4,
+    )
 
     # Experiment name
     exp_name = f"transformer_d{config['d_model']}_h{config['num_heads']}_l{config['num_layers']}_seed{config['seed']}_{args.dataset}"
