@@ -1,13 +1,23 @@
 #!/bin/bash
 
-# Define an associative array where keys are GPUs and values are experiment type and seed pairs
-# Format for each entry: gpu="exp:seed"
+dataset="n100000-f20-d5-v0.20-e0.50"
+num_epochs=20
+
 declare -A gpu_exp_seed_map=(
-    [3]="transformer:142857"
-    [4]="transformer:2225393"
-    [2]="transformer:20000308"
-    [7]="transformer:2018011309"
+    [0]="transformer:42"
+    [1]="transformer:142857"
+    [2]="transformer:2225393"
+    [3]="transformer:20000308"
+    [4]="transformer:2018011309"
 )
+# declare -A gpu_exp_seed_map=(
+#     [0]="rnn:42"
+#     [1]="rnn:142857"
+#     [2]="rnn:2225393"
+#     [3]="rnn:20000308"
+#     [4]="rnn:2018011309"
+# )
+server_name="du"
 
 # Loop through the associative array
 for gpu in "${!gpu_exp_seed_map[@]}"; do
@@ -19,7 +29,7 @@ for gpu in "${!gpu_exp_seed_map[@]}"; do
     tmux has-session -t "$session_name" 2>/dev/null
     if [ $? != 0 ]; then
         # Use the experiment type in the command to run the appropriate script
-        tmux new-session -d -s "$session_name" "CUDA_VISIBLE_DEVICES=$gpu python train_$exp.py --seed=$seed"
+        tmux new-session -d -s "$session_name" "python train_$exp.py --dataset=$dataset --num_epochs=$num_epochs --seed=$seed --server_name=$server_name --gpu_id=$gpu"
         echo "Experiment started in tmux session: $session_name"
     else
         echo "tmux session $session_name already exists."
