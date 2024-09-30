@@ -3,21 +3,21 @@
 dataset="n100000-f20-d5-v0.20-e0.50"
 num_epochs=20
 
-# declare -A gpu_exp_seed_map=(
-#     [0]="transformer:42"
-#     [1]="transformer:142857"
-#     [2]="transformer:2225393"
-#     [3]="transformer:20000308"
-#     [4]="transformer:2018011309"
-# )
 declare -A gpu_exp_seed_map=(
-    [0]="rnn:42"
-    [1]="rnn:142857"
-    [2]="rnn:2225393"
-    [3]="rnn:20000308"
-    [4]="rnn:2018011309"
+    [0]="transformer:42"
+    [1]="transformer:142857"
+    [2]="transformer:2225393"
+    [3]="transformer:20000308"
+    [4]="transformer:2018011309"
 )
-server_name="fd1"
+# declare -A gpu_exp_seed_map=(
+#     [0]="rnn:42"
+#     [1]="rnn:142857"
+#     [2]="rnn:2225393"
+#     [3]="rnn:20000308"
+#     [4]="rnn:2018011309"
+# )
+server_name="du"
 
 # Loop through the associative array
 for gpu in "${!gpu_exp_seed_map[@]}"; do

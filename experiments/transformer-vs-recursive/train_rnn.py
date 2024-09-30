@@ -45,12 +45,14 @@ def run(config, train_dataset, val_dataset, header):
         batch_size=config["batch_size"],
         shuffle=True,
         collate_fn=custom_collate,
+        num_workers=4,
     )
     val_dataloader = DataLoader(
         val_dataset,
         batch_size=config["batch_size"],
         shuffle=False,
         collate_fn=custom_collate,
+        num_workers=4,
     )
 
     exp_name = f"rnn_hd{config['hidden_dim']}_l{config['num_layers']}_seed{config['seed']}_{args.dataset}"
