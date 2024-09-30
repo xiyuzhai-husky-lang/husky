@@ -5,7 +5,8 @@ import os
 import torch
 import pdb
 
-DATASET = "n100000-f10-d3-v0.20-e0.50"
+# DATASET = "n100000-f10-d3-v0.20-e0.50"
+DATASET = "n100000-f20-d5-v0.20-e0.50"
 exp_dir = "results"
 
 runs = os.listdir(exp_dir)
@@ -17,7 +18,11 @@ for run in runs:
     model = parts[0]
 
     run_dir = os.path.join(exp_dir, run)
-    weights = torch.load(os.path.join(run_dir, "best_model.pth"), map_location="cpu")
+    ckpts = [x for x in os.listdir(run_dir) if x.endswith(".pth")]
+    if not ckpts:
+        print(f"Skipping {run} as no checkpoints found")
+        continue
+    weights = torch.load(os.path.join(run_dir, ckpts[0]), map_location="cpu")
 
     # get total param count
     total_params = 0
@@ -28,6 +33,8 @@ for run in runs:
     log = []
     with open(os.path.join(run_dir, "log.jsonl"), "r") as f:
         for line in f:
+            if not line.strip():
+                continue
             log.append(json.loads(line))
     
     local_dict = {}
@@ -47,7 +54,12 @@ for run in runs:
             val_dict[k][model] = {}
         if total_params not in val_dict[k][model]:
             val_dict[k][model][total_params] = []
-        val_dict[k][model][total_params].append(np.mean(sorted(v)[-5:]))
+        v = sorted(v)
+        if "acc" in k:
+            metric = np.mean(v[-5:])
+        else:
+            metric = np.mean(v[:5])
+        val_dict[k][model][total_params].append(metric)
 
 colors = plt.cm.tab10(np.linspace(0, 1, 10))
 color_dict = {}
@@ -70,6 +82,7 @@ for metric in val_dict:
     if "acc" in metric:
         plt.ylim(top=1.1)
 
+    # plt.xscale("log")
     plt.xlabel("#Params")
     plt.ylabel(metric)
     plt.title(DATASET)

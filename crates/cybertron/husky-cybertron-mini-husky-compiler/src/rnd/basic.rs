@@ -143,7 +143,7 @@ impl BasicCodeGenerator {
             min_dist,
             use_var_rate,
             error_rate,
-            max_calls_per_fn: 20, // default value
+            max_calls_per_fn: 10,
             used_fn_idx: Vec::new(),
             int_literals,
             float_literals,
