@@ -69,17 +69,16 @@ class Logger:
         self.buffer_limit = 100
     
     def log(self, data):
-        if self.log_wandb:
-            wandb.log(data)
-        
         self.log_buffer.append(data)
         if len(self.log_buffer) >= self.buffer_limit:
             self.dump_log()
     
     def dump_log(self):
         with open(self.file_path, "a") as f:
+            data_to_write = "\n".join(json.dumps(data) for data in self.log_buffer)
+            f.write(data_to_write + "\n")
             for data in self.log_buffer:
-                f.write(json.dumps(data) + "\n")
+                wandb.log(data)
         self.log_buffer = []
     
     def finish(self):
@@ -87,3 +86,9 @@ class Logger:
         if self.log_wandb:
             wandb.finish()
         print(f"Logs saved to {self.file_path}")
+
+def ordered_search_space(x):
+    if len(x) == 1:
+        return x
+    y = sorted(x)
+    return [y[0], y[-1]] + y[1: -1]
