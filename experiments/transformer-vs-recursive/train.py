@@ -1,7 +1,20 @@
 import torch
 from tqdm import tqdm
 
+
+import torch.nn.functional as F
+
 import pdb
+
+
+def distillation_loss(student_logits, teacher_logits, temperature=2.0):
+    """
+    Compute the distillation loss as described in Hinton's distillation paper.
+    The loss is a combination of the soft targets loss (KL divergence) and the hard target loss (CrossEntropy).
+    """
+    return F.kl_div(F.log_softmax(student_logits / temperature, dim=1),
+                    F.softmax(teacher_logits / temperature, dim=1),
+                    reduction='sum') * (temperature ** 2)
 
 def train_model(
     model,
@@ -18,6 +31,7 @@ def train_model(
     patience=5,
     min_delta=0.001,
     scheduler=None,
+    teacher_model=None,
 ):
     model.to(device)
 
@@ -41,6 +55,7 @@ def train_model(
             is_training=True,
             micro_batch_size=micro_batch_size,
             logger=logger,
+            teacher_model=teacher_model,
         )
 
         # Validation phase
@@ -59,12 +74,12 @@ def train_model(
         )
 
         # Early stopping check
-        if val_loss < best_val_loss - min_delta:
-            best_val_loss = val_loss
-            epochs_without_improvement = 0
-            best_model_state = model.state_dict()
-        else:
-            epochs_without_improvement += 1
+        # if val_loss < best_val_loss - min_delta:
+        #     best_val_loss = val_loss
+        #     epochs_without_improvement = 0
+        #     best_model_state = model.state_dict()
+        # else:
+        #     epochs_without_improvement += 1
 
         logger.log(
             {
@@ -86,33 +101,11 @@ def train_model(
         #     break
 
     # Load the best model state
-    if best_model_state is not None:
-        model.load_state_dict(best_model_state)
-        print("Loaded best model state from early stopping")
+    # if best_model_state is not None:
+    #     model.load_state_dict(best_model_state)
+    #     print("Loaded best model state from early stopping")
 
     return model
-
-# def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size):
-#     model.eval()
-#     val_loss, val_ast_acc, val_symbol_acc, val_error_acc, val_type_acc = run_epoch(
-#         epoch_idx=0,
-#         model=model,
-#         dataloader=val_dataloader,
-#         criterion=criterion,
-#         optimizer=None,
-#         device=device,
-#         output_dims=output_dims,
-#         is_training=False,
-#         micro_batch_size=micro_batch_size,
-#     )
-    
-#     print(
-#         f"Final Val Loss: {val_loss:.4f}, "
-#         f"Final Val AST Acc: {val_ast_acc:.4f}, "
-#         f"Final Val Symbol Acc: {val_symbol_acc:.4f}, "
-#         f"Final Val Error Acc: {val_error_acc:.4f}"
-#         f"Final Val Type Acc: {val_type_acc:.4f}"
-#     )
 
 def run_epoch(
     epoch_idx,
@@ -127,6 +120,7 @@ def run_epoch(
     micro_batch_size,
     scheduler=None,
     logger=None,
+    teacher_model=None,
 ):
     total_loss = 0.0
     accs = {k: 0.0 for k in header}
@@ -150,16 +144,30 @@ def run_epoch(
                 for j in range(len(output_by_fields)):
                     output_by_fields[j] = output_by_fields[j].reshape(-1, output_dims[j])
 
+                if teacher_model is not None:
+                    with torch.no_grad():
+                        teacher_logits = teacher_model(_inputs[i:i + micro_batch_size])
+                    
+                    teacher_logits_by_fields = list(teacher_logits.split(output_dims, dim=-1))
+                    for j in range(len(teacher_logits_by_fields)):
+                        teacher_logits_by_fields[j] = teacher_logits_by_fields[j].reshape(-1, output_dims[j])
+                else:
+                    teacher_logits_by_fields = [None] * len(output_by_fields)
+
                 target_by_fields = [t[i:i + micro_batch_size].view(-1) for t in _targets]
 
                 micro_batch_loss = 0.0
-                for k, o, t in zip(header, output_by_fields, target_by_fields):
+                for k, o, t, tl in zip(header, output_by_fields, target_by_fields, teacher_logits_by_fields):
                     mask = t != 0
                     
                     combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
                     _cnt = mask.sum()
                     cnt[k] += _cnt
-                    micro_batch_loss += criterion(o, t) / _cnt
+                    
+                    if teacher_model is None:
+                        micro_batch_loss += criterion(o, t) / _cnt
+                    else:
+                        micro_batch_loss += distillation_loss(o, tl) / _cnt
                 
                 micro_batch_loss /= (_inputs.shape[0] - 1) // micro_batch_size + 1
                 if is_training:
