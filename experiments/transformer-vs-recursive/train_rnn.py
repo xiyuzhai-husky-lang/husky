@@ -1,5 +1,4 @@
 import argparse
-import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -8,7 +7,7 @@ import wandb
 from datasets.mini_husky import MiniHuskyDataset
 from models.rnn import SimpleRNN
 from train import train_model
-from utils import set_seed, custom_collate, linear_warmup_decay, Logger
+from utils import set_seed, custom_collate, linear_warmup_decay, Logger, ordered_search_space
 
 import os
 import pdb
@@ -16,22 +15,28 @@ import pdb
 HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 128 + 1, 32))
 BATCH_SIZE = 512
 
-# DATASET = "n100000-f10-d3-v0.20-e0.50"
-DATASET = "n100000-f100-d20-v0.20-e0.50"
+parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
+parser.add_argument('--dataset', type=str, default="n100000-f40-d20-v0.20-e0.50", help='Dataset to use')
+parser.add_argument('--num_epochs', type=int, default=50, help='Number of epochs to train')
+parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
+parser.add_argument('--server_name', type=str, default="")
+parser.add_argument('--gpu_id', type=int, default=0)
+args = parser.parse_args()
+
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
                                         "mini-husky/basic",
-                                        f"dataset-{DATASET}.msgpack"))
+                                        f"dataset-{args.dataset}.msgpack"))
 header = dataset.header
-vocab_size = len(dataset.vocab)
-output_dims = dataset.get_output_dims()
-output_dim = sum(output_dims)
 
 # Split the dataset into train and validation sets
 train_size = int(0.8 * len(dataset))  # 80% for training
 val_size = len(dataset) - train_size  # 20% for validation
+
+# fix dataset
+set_seed(0)
 train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
-def run(config):
+def run(config, train_dataset, val_dataset, header):
     set_seed(config["seed"])
 
     train_dataloader = DataLoader(
@@ -47,7 +52,7 @@ def run(config):
         collate_fn=custom_collate,
     )
 
-    exp_name = f"rnn_hd{config['hidden_dim']}_l{config['num_layers']}_seed{config['seed']}_{DATASET}"
+    exp_name = f"rnn_hd{config['hidden_dim']}_l{config['num_layers']}_seed{config['seed']}_{args.dataset}"
 
     logger = Logger(
         exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
@@ -56,14 +61,13 @@ def run(config):
         config=config
     )
 
-    # Set device to CUDA if available
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(f"cuda:{config['gpu_id']}" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
     # Create models
     model = SimpleRNN(
-        input_dim=vocab_size,
-        output_dim=output_dim,
+        input_dim=len(dataset.vocab),
+        output_dim=sum(dataset.get_output_dims()),
         bidirectional=True,
         **config
     ).to(device)
@@ -81,7 +85,7 @@ def run(config):
 
     # Train the model
     print("Training RNN...")
-    best_model = train_model(
+    model = train_model(
         model=model,
         header=header,
         train_dataloader=train_dataloader,
@@ -92,37 +96,29 @@ def run(config):
         num_epochs=config["num_epochs"],
         micro_batch_size=config["micro_batch_size"],
         device=device,
-        output_dims=output_dims,
+        output_dims=dataset.get_output_dims(),
         logger=logger,
     )
 
     logger.finish()
-    torch.save(best_model.state_dict(), os.path.join(logger.exp_path, "best_model.pth"))
+    torch.save(model.state_dict(), os.path.join(logger.exp_path, "model.pth"))
 
-parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
-parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
-args = parser.parse_args()
-seed = args.seed
-
-# for seed in [42, 142857, 2225393, 20000308, 2018011309]:
-for hidden_dim in reversed(HIDDEN_DIM_SPACE):
+for hidden_dim in ordered_search_space(HIDDEN_DIM_SPACE):
     if hidden_dim <= 160:
         min_lr, max_lr = 1e-5, 1e-3
     else:
         min_lr, max_lr = 1e-6, 1e-4
     
-    micro_batch_size = min(BATCH_SIZE, int((128 / hidden_dim) ** 2 * 256))
+    micro_batch_size = 256
 
     config = {
-        "seed": seed,
         "batch_size": BATCH_SIZE,
         "micro_batch_size": micro_batch_size,
-        "num_epochs": 100,
         "min_lr": min_lr,
         "max_lr": max_lr,
         "warmup_iters": 990,
         "hidden_dim": hidden_dim,
         "num_layers": 8,
+        **vars(args)
     }
-
-    run(config)
+    run(config, train_dataset, val_dataset, header)
