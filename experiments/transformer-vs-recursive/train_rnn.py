@@ -12,15 +12,16 @@ from utils import set_seed, custom_collate, linear_warmup_decay, Logger, ordered
 import os
 import pdb
 
-HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 128 + 1, 32))
+HIDDEN_DIM_SPACE = [4, 8, 16] + list(range(32, 64 + 1, 16))
 BATCH_SIZE = 512
 
 parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
-parser.add_argument('--dataset', type=str, default="n100000-f40-d20-v0.20-e0.50", help='Dataset to use')
+parser.add_argument('--dataset', type=str, default="n100000-f20-d5-v0.20-e0.50", help='Dataset to use')
 parser.add_argument('--num_epochs', type=int, default=50, help='Number of epochs to train')
-parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
+parser.add_argument('--seed', type=int, default=123, help='Random seed for initialization')
 parser.add_argument('--server_name', type=str, default="")
 parser.add_argument('--gpu_id', type=int, default=0)
+parser.add_argument('--try_hidden_dim', type=int, default=None)
 args = parser.parse_args()
 
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
@@ -103,15 +104,19 @@ def run(config, train_dataset, val_dataset, header):
     logger.finish()
     torch.save(model.state_dict(), os.path.join(logger.exp_path, "model.pth"))
 
-for hidden_dim in ordered_search_space(HIDDEN_DIM_SPACE):
-    if hidden_dim <= 160:
-        min_lr, max_lr = 1e-5, 1e-3
-    else:
-        min_lr, max_lr = 1e-6, 1e-4
+if args.try_hidden_dim is not None:
+    print("Running with hidden_dim:", args.try_hidden_dim)
+    search_space = [args.try_hidden_dim]
+else:
+    search_space = HIDDEN_DIM_SPACE
+
+for hidden_dim in ordered_search_space(search_space):
+    min_lr, max_lr = 1e-5, 1e-3
     
-    micro_batch_size = 256
+    micro_batch_size = 512
 
     config = {
+        **vars(args),
         "batch_size": BATCH_SIZE,
         "micro_batch_size": micro_batch_size,
         "min_lr": min_lr,
@@ -119,6 +124,5 @@ for hidden_dim in ordered_search_space(HIDDEN_DIM_SPACE):
         "warmup_iters": 990,
         "hidden_dim": hidden_dim,
         "num_layers": 8,
-        **vars(args)
     }
     run(config, train_dataset, val_dataset, header)

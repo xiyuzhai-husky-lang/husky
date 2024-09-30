@@ -13,7 +13,7 @@ import os
 import pdb
 
 # Define the hidden dimension space
-HIDDEN_DIM_SPACE = [1, 2, 4, 8, 16] + list(range(32, 128 + 1, 32))
+HIDDEN_DIM_SPACE = [4, 8, 16] + list(range(32, 64 + 1, 16))
 BATCH_SIZE = 512
 
 # Argument parsing
@@ -23,6 +23,7 @@ parser.add_argument('--num_epochs', type=int, default=10, help='Number of epochs
 parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
 parser.add_argument('--server_name', type=str, default="")
 parser.add_argument('--gpu_id', type=int, default=0)
+parser.add_argument('--try_hidden_dim', type=int, default=None)
 args = parser.parse_args()
 
 # Load the dataset
@@ -74,21 +75,23 @@ def run(config, train_dataset, val_dataset, header):
     logger.finish()
     torch.save(model.state_dict(), os.path.join(logger.exp_path, "model.pth"))
 
-# Iterate through the hidden dimension space
-for hidden_dim in ordered_search_space(HIDDEN_DIM_SPACE):
-    # Learning rate bounds
-    min_lr, max_lr = 1e-6, 1e-4
+if args.try_hidden_dim is not None:
+    print("Running with hidden_dim:", args.try_hidden_dim)
+    search_space = [args.try_hidden_dim]
+else:
+    search_space = HIDDEN_DIM_SPACE
 
-    # Micro batch size
+for hidden_dim in ordered_search_space(search_space):
+    min_lr, max_lr = 1e-5, 1e-3
+
     micro_batch_size = BATCH_SIZE
 
-    # Configuration
     config = {
         "batch_size": BATCH_SIZE,
         "micro_batch_size": micro_batch_size,
         "min_lr": min_lr,
         "max_lr": max_lr,
-        "warmup_iters": 99,
+        "warmup_iters": 990,
         "vocab_size": len(dataset.vocab),
         "output_dims": dataset.get_output_dims(),
         "d_model": hidden_dim,
