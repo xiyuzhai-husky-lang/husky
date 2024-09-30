@@ -7,11 +7,7 @@ import torch.nn.functional as F
 import pdb
 
 
-def distillation_loss(student_logits, teacher_logits, temperature=2.0):
-    """
-    Compute the distillation loss as described in Hinton's distillation paper.
-    The loss is a combination of the soft targets loss (KL divergence) and the hard target loss (CrossEntropy).
-    """
+def distillation_loss(student_logits, teacher_logits, temperature=1.0):
     return F.kl_div(F.log_softmax(student_logits / temperature, dim=1),
                     F.softmax(teacher_logits / temperature, dim=1),
                     reduction='sum') * (temperature ** 2)
@@ -164,9 +160,8 @@ def run_epoch(
                     _cnt = mask.sum()
                     cnt[k] += _cnt
                     
-                    if teacher_model is None:
-                        micro_batch_loss += criterion(o, t) / _cnt
-                    else:
+                    micro_batch_loss += criterion(o, t) / _cnt
+                    if teacher_model is not None:
                         micro_batch_loss += distillation_loss(o, tl) / _cnt
                 
                 micro_batch_loss /= (_inputs.shape[0] - 1) // micro_batch_size + 1

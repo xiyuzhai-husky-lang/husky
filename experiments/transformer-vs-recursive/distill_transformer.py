@@ -84,9 +84,9 @@ for hidden_dim in ordered_search_space(HIDDEN_DIM_SPACE):
     config = {
         "batch_size": BATCH_SIZE,
         "micro_batch_size": micro_batch_size,
-        "min_lr": 1e-6,
-        "max_lr": 1e-4,
-        "warmup_iters": 99,
+        "min_lr": 1e-5,
+        "max_lr": 1e-3,
+        "warmup_iters": 990,
         "vocab_size": len(dataset.vocab),
         "output_dims": dataset.get_output_dims(),
         "d_model": hidden_dim,

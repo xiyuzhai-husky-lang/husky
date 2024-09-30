@@ -63,7 +63,7 @@ class Logger:
 
         self.log_wandb = log_wandb
         if log_wandb:
-            wandb.init(project="transformer-vs-rnn", name=f"{exp_name}_{rnd_suf}", config=config)
+            wandb.init(project="transformer-vs-rnn", name=f"{exp_name}_{rnd_suf}", config=config, settings=wandb.Settings(_disable_stats=True))
         
         self.log_buffer = []
         self.buffer_limit = 100
