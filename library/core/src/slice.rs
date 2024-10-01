@@ -101,6 +101,11 @@ where
     T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     type Thawed = Self;
+
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self {
+        std::mem::transmute(thawed)
+    }
+
     unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }

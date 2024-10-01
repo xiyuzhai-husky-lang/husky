@@ -14,4 +14,11 @@ where
     {
         todo!()
     }
+
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized,
+    {
+        todo!()
+    }
 }

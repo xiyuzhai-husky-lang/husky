@@ -23,6 +23,11 @@ pub trait Boiled {
     }
 
     /// should call `std::mem::transmute` under the hood
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized;
+
+    /// should call `std::mem::transmute` under the hood
     unsafe fn into_thawed(self) -> Self::Thawed
     where
         Self: Sized;

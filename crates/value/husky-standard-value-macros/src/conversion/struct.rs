@@ -38,8 +38,12 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
         impl #generics __Boiled for #self_ty where #impl_boiled_generic_constraints {
             type Thawed = #impl_boiled_assoc_ty_static;
 
+            unsafe fn from_thawed(thawed: Self::Thawed) -> Self {
+                std::mem::transmute(thawed)
+            }
+
             unsafe fn into_thawed(self) -> Self::Thawed {
-                self
+                std::mem::transmute(self)
             }
         }
 

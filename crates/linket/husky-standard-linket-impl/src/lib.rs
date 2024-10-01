@@ -11,8 +11,6 @@ mod tests;
 pub mod ugly;
 pub mod val;
 
-pub use husky_standard_value::{slush::SlushValues, value_conversion, FromValue, IntoValue, Value};
-
 use self::pedestal::StandardPedestal;
 use self::static_var::StandardVarId;
 use self::StandardLinketImpl as LinketImpl;
@@ -36,6 +34,9 @@ use husky_linket_impl::{
 use husky_standard_value::{
     exception::Exception,
     thawed::{FromThawedValue, IntoThawedValue, ThawedValue},
+};
+use husky_standard_value::{
+    slush::SlushValues, value_conversion, Boiled, FromValue, IntoValue, Value,
 };
 use husky_value::{ki_control_flow::KiControlFlow, vm_control_flow::VmControlFlow};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
