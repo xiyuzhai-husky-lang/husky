@@ -3833,13 +3833,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 65,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -3858,6 +3859,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 5,
                                             stmts: ArenaIdxRange(
                                                 1..4,
                                             ),
@@ -3884,6 +3886,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `hausdorff_norm`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -3891,6 +3894,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `curve_start`,
+                                                variable_idx: 2,
                                             },
                                             contract: Pure,
                                         },
@@ -3898,6 +3902,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `curve_ls`,
+                                                variable_idx: 3,
                                             },
                                             contract: Pure,
                                         },
@@ -3905,6 +3910,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `dp_norm`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },
@@ -3912,6 +3918,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `point`,
+                                                variable_idx: 6,
                                             },
                                             contract: Pure,
                                         },
@@ -3919,6 +3926,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `point_dist`,
+                                                variable_idx: 7,
                                             },
                                             contract: Pure,
                                         },
@@ -6082,13 +6090,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 65,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -6107,6 +6116,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 3,
                                             stmts: ArenaIdxRange(
                                                 0..3,
                                             ),
@@ -6133,6 +6143,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `angle_change`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -6142,6 +6153,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `dp0`,
+                                                variable_idx: 2,
                                             },
                                             contract: Move,
                                         },
@@ -6149,6 +6161,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `dp`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },
@@ -9841,13 +9854,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 65,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -9866,6 +9880,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 6,
                                             stmts: ArenaIdxRange(
                                                 0..5,
                                             ),
@@ -9886,6 +9901,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `start_point`,
+                                                variable_idx: 1,
                                             },
                                             contract: Pure,
                                         },
@@ -9895,6 +9911,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `xmin`,
+                                                variable_idx: 2,
                                             },
                                             contract: Move,
                                         },
@@ -9904,6 +9921,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `xmax`,
+                                                variable_idx: 3,
                                             },
                                             contract: Move,
                                         },
@@ -9913,6 +9931,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `ymin`,
+                                                variable_idx: 4,
                                             },
                                             contract: Move,
                                         },
@@ -9922,6 +9941,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `ymax`,
+                                                variable_idx: 5,
                                             },
                                             contract: Move,
                                         },
@@ -9929,6 +9949,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `point`,
+                                                variable_idx: 7,
                                             },
                                             contract: Pure,
                                         },
@@ -10480,7 +10501,9 @@
                                             ),
                                             contracted_quary_after_coercion: HirContractedQuary {
                                                 contract: None,
-                                                quary: Transient,
+                                                quary: Leashed {
+                                                    place_idx: None,
+                                                },
                                             },
                                         },
                                         HirEagerExprEntry {

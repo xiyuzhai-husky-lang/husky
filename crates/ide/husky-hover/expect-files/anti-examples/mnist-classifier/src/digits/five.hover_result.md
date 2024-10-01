@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type @ None) @ None: Type @ None> -> hvar(0, Type @ None) @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type): Type> -> hvar(0, Type) -> Type`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::MnistLabel`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist::MnistLabel`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::MnistLabel::Five`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistLabel @ None`",
+                            value: "\n\nentity `mnist::MnistLabel::Five`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistLabel`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        3,\n    ),\n    RegionalTokenIdx(\n        3,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel Five @ None`",
+                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        3,\n    ),\n    RegionalTokenIdx(\n        3,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel Five`",
                         },
                     ),
                     range: Some(

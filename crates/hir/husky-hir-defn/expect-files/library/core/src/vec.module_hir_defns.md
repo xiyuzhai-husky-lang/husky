@@ -374,6 +374,7 @@
                                                 Owned,
                                             ),
                                             ident: `e`,
+                                            variable_idx: 1,
                                         },
                                         contract: Move,
                                     },
@@ -1096,6 +1097,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `start`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -1103,6 +1105,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `end`,
+                                            variable_idx: 2,
                                         },
                                         contract: Pure,
                                     },
@@ -1297,6 +1300,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `f`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },

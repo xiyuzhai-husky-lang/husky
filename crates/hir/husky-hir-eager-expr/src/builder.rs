@@ -14,6 +14,7 @@ use husky_sem_expr::{
     SemStmtArenaRef, SemStmtIdx, SemStmtMap,
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemPlaceContractRegion};
+use husky_syn_expr::region::SynExprRegion;
 use husky_syn_expr::{
     context::{SynExprRootKind, SynPatternRootKind},
     pattern::{SynPatternIdx, SynPatternMap},
@@ -23,6 +24,7 @@ use husky_syn_expr::{
 
 pub(crate) struct HirEagerExprBuilder<'a> {
     db: &'a ::salsa::Db,
+    syn_expr_region: SynExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     pub(crate) sem_expr_region_data: &'a SemExprRegionData,
     sem_place_contract_region: &'a SemPlaceContractRegion,
@@ -33,13 +35,14 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
     sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeVariableRegionData,
-    hir_eager_runtime_symbol_region_data: HirEagerRuntimeVariableRegionData,
-    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRuntimeVariableIdx>,
+    hir_eager_runtime_variable_region_data: HirEagerRuntimeVariableRegionData,
+    variable_to_hir_eager_runtime_variable_map: VariableMap<HirEagerRuntimeVariableIdx>,
 }
 
 impl<'db> HirEagerExprBuilder<'db> {
     fn new(db: &'db ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
-        let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
+        let syn_expr_region = sem_expr_region.syn_expr_region(db);
+        let syn_expr_region_data = syn_expr_region.data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_eager_pattern_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_arena());
@@ -50,10 +53,11 @@ impl<'db> HirEagerExprBuilder<'db> {
             syn_expr_region_data.variable_region(),
             db,
         );
-        let (hir_eager_runtime_symbol_region, variable_to_hir_eager_runtime_symbol_map) =
+        let (hir_eager_runtime_variable_region, variable_to_hir_eager_runtime_variable_map) =
             HirEagerRuntimeVariableRegionData::from_syn(syn_expr_region_data.variable_region());
         Self {
             db,
+            syn_expr_region,
             syn_expr_region_data,
             sem_expr_region_data,
             sem_place_contract_region: sem_place_contract_region(db, sem_expr_region),
@@ -64,9 +68,15 @@ impl<'db> HirEagerExprBuilder<'db> {
             sem_to_hir_eager_expr_idx_map,
             sem_to_hir_eager_stmt_idx_map,
             hir_eager_comptime_symbol_region_data,
-            hir_eager_runtime_symbol_region_data: hir_eager_runtime_symbol_region,
-            variable_to_hir_eager_runtime_symbol_map,
+            hir_eager_runtime_variable_region_data: hir_eager_runtime_variable_region,
+            variable_to_hir_eager_runtime_variable_map,
         }
+    }
+}
+
+impl<'db> HirEagerExprBuilder<'db> {
+    pub(crate) fn syn_expr_region(&self) -> SynExprRegion {
+        self.syn_expr_region
     }
 
     pub(crate) fn syn_expr_region_data(&self) -> &'db SynExprRegionData {
@@ -146,12 +156,11 @@ impl<'db> HirEagerExprBuilder<'db> {
     pub(crate) fn alloc_pattern(
         &mut self,
         pattern: HirEagerPatternData,
-        place: Option<EthPlace>,
         syn_pattern: SynPatternIdx,
     ) -> HirEagerPatternIdx {
         let contract =
             HirContract::from_contract(self.syn_expr_region_data.pattern_contract(syn_pattern));
-        let entry = HirEagerPatternEntry::new(pattern, contract, place);
+        let entry = HirEagerPatternEntry::new(pattern, contract);
         let pattern = self.hir_eager_pattern_arena.alloc_one(entry);
         self.syn_to_hir_eager_pattern_idx_map
             .insert_new(syn_pattern, pattern);
@@ -160,17 +169,16 @@ impl<'db> HirEagerExprBuilder<'db> {
 
     pub(crate) fn alloc_patterns(
         &mut self,
-        patterns: Vec<(HirEagerPatternData, Option<EthPlace>)>,
+        patterns: Vec<HirEagerPatternData>,
         syn_patterns: impl Iterator<Item = SynPatternIdx> + Clone,
     ) -> HirEagerPatternIdxRange {
-        let entries = std::iter::zip(patterns, syn_patterns.clone()).map(
-            |((pattern, place), syn_pattern)| {
+        let entries =
+            std::iter::zip(patterns, syn_patterns.clone()).map(|(pattern, syn_pattern)| {
                 let contract = HirContract::from_contract(
                     self.syn_expr_region_data.pattern_contract(syn_pattern),
                 );
-                HirEagerPatternEntry::new(pattern, contract, place)
-            },
-        );
+                HirEagerPatternEntry::new(pattern, contract)
+            });
         let patterns = self.hir_eager_pattern_arena.alloc_batch(entries);
         for (pattern, syn_pattern) in std::iter::zip(patterns, syn_patterns) {
             self.syn_to_hir_eager_pattern_idx_map
@@ -213,20 +221,20 @@ impl<'db> HirEagerExprBuilder<'db> {
         }
     }
 
-    pub(crate) fn inherited_variable_to_hir_eager_runtime_symbol(
+    pub(crate) fn inherited_variable_to_hir_eager_runtime_variable(
         &self,
         inherited_variable_idx: InheritedVariableIdx,
     ) -> Option<HirEagerRuntimeVariableIdx> {
-        self.variable_to_hir_eager_runtime_symbol_map
+        self.variable_to_hir_eager_runtime_variable_map
             .get_inherited(inherited_variable_idx)
             .copied()
     }
 
-    pub(crate) fn current_variable_to_hir_eager_runtime_symbol(
+    pub(crate) fn current_variable_to_hir_eager_runtime_variable(
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirEagerRuntimeVariableIdx> {
-        self.variable_to_hir_eager_runtime_symbol_map
+        self.variable_to_hir_eager_runtime_variable_map
             .get_current(current_variable_idx)
             .copied()
     }
@@ -249,20 +257,20 @@ impl<'db> HirEagerExprBuilder<'db> {
                 self.hir_eager_stmt_arena,
                 self.hir_eager_pattern_arena,
                 self.hir_eager_comptime_symbol_region_data,
-                self.hir_eager_runtime_symbol_region_data,
+                self.hir_eager_runtime_variable_region_data,
             ),
             HirEagerExprSourceMap::new(
                 self.db,
                 self.syn_to_hir_eager_pattern_idx_map,
                 self.sem_to_hir_eager_expr_idx_map,
                 self.sem_to_hir_eager_stmt_idx_map,
-                self.variable_to_hir_eager_runtime_symbol_map,
+                self.variable_to_hir_eager_runtime_variable_map,
             ),
         )
     }
 
     pub(crate) fn self_value_variable(&self) -> Option<HirEagerRuntimeVariableIdx> {
-        self.hir_eager_runtime_symbol_region_data
+        self.hir_eager_runtime_variable_region_data
             .self_value_variable()
     }
 
@@ -273,11 +281,6 @@ impl<'db> HirEagerExprBuilder<'db> {
     pub(crate) fn syn_pattern_ty(&self, syn_pattern: SynPatternIdx) -> EthTerm {
         self.sem_expr_region_data
             .syn_pattern_ty(syn_pattern, self.db)
-    }
-
-    pub(crate) fn syn_pattern_place(&self, syn_pattern: SynPatternIdx) -> Option<EthPlace> {
-        self.sem_expr_region_data
-            .syn_pattern_place(syn_pattern, self.db)
     }
 
     pub(crate) fn terms(&self) -> &'db FlyTerms {

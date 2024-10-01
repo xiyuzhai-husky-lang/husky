@@ -48,7 +48,19 @@ impl FlyTerm {
                 return_ty.resolve_as_ethereal(terms).expect("todo"),
             )?
             .into()),
-            FlyTermDataKind::Solid => todo!(),
+            FlyTermDataKind::Solid => {
+                for param in &params {
+                    match param {
+                        FlyRitchieParameter::Simple(fly_ritchie_simple_parameter) => {
+                            p!(fly_ritchie_simple_parameter.ty().show2(db, terms))
+                        }
+                        FlyRitchieParameter::Variadic(fly_ritchie_variadic_parameter) => todo!(),
+                        FlyRitchieParameter::Keyed(fly_ritchie_keyed_parameter) => todo!(),
+                    }
+                }
+                p!(return_ty.show2(db, terms));
+                todo!()
+            }
             FlyTermDataKind::Hollow => Ok(terms
                 .hol_terms_mut()
                 .alloc_new(HolTermData::Ritchie {
