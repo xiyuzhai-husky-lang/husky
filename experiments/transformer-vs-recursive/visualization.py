@@ -16,6 +16,8 @@ exp_dir = "results"
 
 RUNS = os.listdir(exp_dir)
 
+plt.rcParams.update({'font.size': 15})
+
 for dataset in DATASETS:
     runs = [run for run in RUNS if dataset in run]
 
@@ -77,19 +79,22 @@ for dataset in DATASETS:
     color_dict = {model: i for i, model in enumerate(model_order)}
 
     for metric in val_dict:
-        fig = plt.figure(figsize=(4.5, 6))
+        fig = plt.figure(figsize=(6, 6))
         if "acc" in metric:
             bax = brokenaxes(ylims=((0, 0.05), (0.6, 1.05)), hspace=.05, fig=fig)
         else:
             bax = brokenaxes(fig=fig)
             bax.set_ylim(bottom=0)
-        for model in val_dict[metric]:
+        for model in model_order:
+            if model not in val_dict[metric]:
+                continue
+
             for param in val_dict[metric][model]:
                 val_dict[metric][model][param] = np.mean(val_dict[metric][model][param])
             
             x, y = zip(*sorted(val_dict[metric][model].items()))
-            scatter = bax.scatter(x, y, label=model, color=colors[color_dict[model]])  # Save the handle
-            bax.plot(x, y, color=colors[color_dict[model]], linestyle="--")
+            scatter = bax.scatter(x, y, label=model, color=colors[color_dict[model]], s=9**2)
+            bax.plot(x, y, color=colors[color_dict[model]], linestyle="--", linewidth=3)
 
         bax.ticklabel_format(style='sci', axis='x', scilimits=(4,4))
 
@@ -97,7 +102,7 @@ for dataset in DATASETS:
         bax.set_ylabel(metric)
         bax.set_title(dataset)
 
-        bax.legend(labels=model_order, loc="lower right" if "acc" in metric else "upper right")
+        bax.legend(loc="lower right" if "acc" in metric else "upper right")
 
         bax.grid(True)
         # reduce right margin
