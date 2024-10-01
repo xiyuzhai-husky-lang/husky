@@ -576,12 +576,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRuntimeVariableIdx {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
-        let hir_eager_runtime_symbol_region_data =
+        let hir_eager_runtime_variable_region_data =
             builder.extension.runtime_variable_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }
-        match hir_eager_runtime_symbol_region_data[self].name() {
+        match hir_eager_runtime_variable_region_data[self].name() {
             HirEagerRuntimeVariableName::SelfValue => {
                 let needs_elision = builder
                     .hir_eager_expr_region()

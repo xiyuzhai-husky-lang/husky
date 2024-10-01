@@ -67,18 +67,12 @@ pub enum HirEagerPatternData {
 pub struct HirEagerPatternEntry {
     data: HirEagerPatternData,
     contract: HirContract,
-    /// None for patterns in parameters, Some otherwise
-    place: Option<EthPlace>,
 }
 
 /// # constructor
 impl HirEagerPatternEntry {
-    pub fn new(data: HirEagerPatternData, contract: HirContract, place: Option<EthPlace>) -> Self {
-        Self {
-            data,
-            contract,
-            place,
-        }
+    pub fn new(data: HirEagerPatternData, contract: HirContract) -> Self {
+        Self { data, contract }
     }
 }
 
@@ -90,10 +84,6 @@ impl HirEagerPatternEntry {
 
     pub fn contract(&self) -> HirContract {
         self.contract
-    }
-
-    pub fn place(&self) -> Option<EthPlace> {
-        self.place
     }
 
     pub fn is_destructive(&self) -> bool {
@@ -114,8 +104,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     ) -> HirEagerPatternIdx {
         let syn_pattern = syn_pattern_root.into().syn_pattern_idx();
         let pattern_data = self.new_pattern_aux(syn_pattern);
-        let place = self.syn_pattern_place(syn_pattern);
-        self.alloc_pattern(pattern_data, place, syn_pattern)
+        self.alloc_pattern(pattern_data, syn_pattern)
     }
 
     fn new_pattern_aux(&mut self, syn_pattern: SynPatternIdx) -> HirEagerPatternData {
@@ -189,7 +178,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 let map = self
                     .syn_expr_region_data()
                     .syn_pattern_current_variables_mapped(syn_pattern, |current_variable_idx| {
-                        self.current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
+                        self.current_variable_to_hir_eager_runtime_variable(current_variable_idx)
                     });
                 debug_assert_eq!(map.len(), 1);
                 debug_assert_eq!(map.data()[0].0, ident_token.ident());
@@ -220,10 +209,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                     .iter()
                     .map(|option| {
                         let syn_pattern = option.syn_pattern();
-                        (
-                            self.new_pattern_aux(syn_pattern),
-                            self.syn_pattern_place(syn_pattern),
-                        )
+                        self.new_pattern_aux(syn_pattern)
                     })
                     .collect();
                 HirEagerPatternData::OneOf {

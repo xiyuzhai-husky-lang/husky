@@ -3475,6 +3475,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `raw_contours`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -3484,6 +3485,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `matches`,
+                                                variable_idx: 2,
                                             },
                                             contract: Move,
                                         },
@@ -4753,13 +4755,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 65,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -4778,6 +4781,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 3,
                                             stmts: ArenaIdxRange(
                                                 1..3,
                                             ),
@@ -4800,6 +4804,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `max_hole_ilen`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -4807,6 +4812,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `raw_contours`,
+                                                variable_idx: 2,
                                             },
                                             contract: Pure,
                                         },
@@ -4814,6 +4820,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `hole_ilen`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },
@@ -5696,13 +5703,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 65,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -5721,6 +5729,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 2,
                                             stmts: ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -5743,6 +5752,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `max_row`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -6460,13 +6470,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 65,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -6485,6 +6496,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 2,
                                             stmts: ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -6507,6 +6519,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `row_span_sum`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -9237,13 +9250,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 77,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -9262,6 +9276,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 6,
                                             stmts: ArenaIdxRange(
                                                 4..5,
                                             ),
@@ -9277,13 +9292,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 79,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -9302,6 +9318,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 8,
                                             stmts: ArenaIdxRange(
                                                 5..6,
                                             ),
@@ -9324,6 +9341,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `row_start`,
+                                                variable_idx: 1,
                                             },
                                             contract: Move,
                                         },
@@ -9333,6 +9351,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `row_end`,
+                                                variable_idx: 2,
                                             },
                                             contract: Move,
                                         },
@@ -9340,6 +9359,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `height`,
+                                                variable_idx: 3,
                                             },
                                             contract: Pure,
                                         },
@@ -9347,6 +9367,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `half_height`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },
@@ -9356,6 +9377,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `upper_mass`,
+                                                variable_idx: 5,
                                             },
                                             contract: Move,
                                         },
@@ -9365,6 +9387,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `lower_mass`,
+                                                variable_idx: 7,
                                             },
                                             contract: Move,
                                         },
@@ -10378,6 +10401,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `k`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -11560,13 +11584,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 82,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -11585,6 +11610,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 4,
                                             stmts: ArenaIdxRange(
                                                 2..3,
                                             ),
@@ -11607,6 +11633,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `top_k_row_span_sum`,
+                                                variable_idx: 2,
                                             },
                                             contract: Move,
                                         },
@@ -11616,6 +11643,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `i`,
+                                                variable_idx: 3,
                                             },
                                             contract: Move,
                                         },
@@ -11747,6 +11775,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `k`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -12929,13 +12958,14 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                frame_var_ident: Ident(
+                                                for_loop_variable_ident: Ident(
                                                     Coword(
                                                         Id {
                                                             value: 82,
                                                         },
                                                     ),
                                                 ),
+                                                for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
                                                         bound_expr: Some(
@@ -12954,6 +12984,7 @@
                                                     ),
                                                 },
                                             },
+                                            for_loop_varible_idx: 4,
                                             stmts: ArenaIdxRange(
                                                 2..3,
                                             ),
@@ -12976,6 +13007,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `top_k_row_span_sum`,
+                                                variable_idx: 2,
                                             },
                                             contract: Move,
                                         },
@@ -12985,6 +13017,7 @@
                                                     Mut,
                                                 ),
                                                 ident: `i`,
+                                                variable_idx: 3,
                                             },
                                             contract: Move,
                                         },

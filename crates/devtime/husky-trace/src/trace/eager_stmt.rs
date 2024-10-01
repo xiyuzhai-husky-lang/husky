@@ -559,7 +559,7 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
                                     pattern,
                                     |current_variable_idx| {
                                         self.hir_eager_expr_source_map_data
-                                            .current_variable_to_hir_eager_runtime_symbol(
+                                            .current_variable_to_hir_eager_runtime_variable(
                                                 current_variable_idx,
                                             )
                                     },

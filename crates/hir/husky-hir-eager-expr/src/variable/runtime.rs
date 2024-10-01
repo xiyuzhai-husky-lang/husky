@@ -54,28 +54,28 @@ impl HirEagerRuntimeVariableRegionData {
             })),
             AllowSelfValue::False => None,
         };
-        let mut variable_to_hir_eager_runtime_symbol_map =
+        let mut variable_to_hir_eager_runtime_variable_map =
             VariableMap::<HirEagerRuntimeVariableIdx>::new(variable_region);
 
         for (inherited_variable_idx, inherited_variable) in
             variable_region.indexed_inherited_variables()
         {
-            if let Some(hir_eager_runtime_symbol) =
+            if let Some(hir_eager_runtime_variable) =
                 HirEagerRuntimeVariableEntry::from_inherited_syn(inherited_variable)
             {
-                let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
-                variable_to_hir_eager_runtime_symbol_map
-                    .insert_new_inherited(inherited_variable_idx, hir_eager_runtime_symbol_idx)
+                let hir_eager_runtime_variable_idx = arena.alloc_one(hir_eager_runtime_variable);
+                variable_to_hir_eager_runtime_variable_map
+                    .insert_new_inherited(inherited_variable_idx, hir_eager_runtime_variable_idx)
             }
         }
         for (current_variable_idx, current_variable) in variable_region.indexed_current_variables()
         {
-            if let Some(hir_eager_runtime_symbol) =
+            if let Some(hir_eager_runtime_variable) =
                 HirEagerRuntimeVariableEntry::from_current_syn(current_variable)
             {
-                let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
-                variable_to_hir_eager_runtime_symbol_map
-                    .insert_new_current(current_variable_idx, hir_eager_runtime_symbol_idx)
+                let hir_eager_runtime_variable_idx = arena.alloc_one(hir_eager_runtime_variable);
+                variable_to_hir_eager_runtime_variable_map
+                    .insert_new_current(current_variable_idx, hir_eager_runtime_variable_idx)
             }
         }
         (
@@ -83,7 +83,7 @@ impl HirEagerRuntimeVariableRegionData {
                 arena,
                 self_value_variable,
             },
-            variable_to_hir_eager_runtime_symbol_map,
+            variable_to_hir_eager_runtime_variable_map,
         )
     }
 
@@ -192,7 +192,7 @@ impl ToHirEager for CurrentVariableIdx {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         builder
-            .current_variable_to_hir_eager_runtime_symbol(*self)
+            .current_variable_to_hir_eager_runtime_variable(*self)
             .unwrap()
     }
 }

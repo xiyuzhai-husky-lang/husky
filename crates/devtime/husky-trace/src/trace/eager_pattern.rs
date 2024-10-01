@@ -27,7 +27,7 @@ pub struct EagerPatternTraceData {
     path: TracePath,
     biological_parent: Trace,
     syn_pattern_idx: SynPatternIdx,
-    hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeVariableIdx>>,
+    hir_eager_runtime_variable_idxs: IdentPairMap<Option<HirEagerRuntimeVariableIdx>>,
     #[skip_fmt]
     sem_expr_region: SemExprRegion,
 }
@@ -37,7 +37,7 @@ impl Trace {
         biological_parent_path: TracePath,
         biological_parent: Trace,
         syn_pattern_idx: SynPatternIdx,
-        hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeVariableIdx>>,
+        hir_eager_runtime_variable_idxs: IdentPairMap<Option<HirEagerRuntimeVariableIdx>>,
         sem_expr_region: SemExprRegion,
         eager_pattern_trace_path_registry: &mut TracePathRegistry<EagerPatternEssence>,
         db: &::salsa::Db,
@@ -57,7 +57,7 @@ impl Trace {
                 path,
                 biological_parent: biological_parent.into(),
                 syn_pattern_idx,
-                hir_eager_runtime_symbol_idxs,
+                hir_eager_runtime_variable_idxs,
                 sem_expr_region,
             }
             .into(),

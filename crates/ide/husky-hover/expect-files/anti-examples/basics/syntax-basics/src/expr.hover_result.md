@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Some(Compterm)`",
+                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Some(Compterm)`",
+                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::i32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ncoercion = None\n\ntype = `Type @ None`\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::i32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ncoercion = None\n\ntype = `Type`\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ ImmutableOnStack { place: Idx(PlaceIdx(0)) }`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        11,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `i32 @ Some(Compterm)`",
+                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        11,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `i32 @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::i32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ncoercion = None\n\ntype = `Type @ None`\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::i32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ncoercion = None\n\ntype = `Type`\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ None`",
+                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Transient`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
+                            value: "\n\nbinary operator\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        11,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Transient`",
                         },
                     ),
                     range: Some(
@@ -670,7 +670,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ None`",
+                            value: "\n\nnested block curl\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ Transient`",
                         },
                     ),
                     range: Some(

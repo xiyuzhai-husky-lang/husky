@@ -288,7 +288,7 @@ impl ToHirEager for SemExprIdx {
                 InheritedVariableKind::Parenate { .. }
                 | InheritedVariableKind::SelfField { .. } => HirEagerExprData::RuntimeVariable(
                     builder
-                        .inherited_variable_to_hir_eager_runtime_symbol(inherited_variable_idx)
+                        .inherited_variable_to_hir_eager_runtime_variable(inherited_variable_idx)
                         .unwrap(),
                 ),
                 InheritedVariableKind::ReplLocal => todo!(),
@@ -298,7 +298,7 @@ impl ToHirEager for SemExprIdx {
                 ..
             } => HirEagerExprData::RuntimeVariable(
                 builder
-                    .current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
+                    .current_variable_to_hir_eager_runtime_variable(current_variable_idx)
                     .unwrap(),
             ),
             SemExprData::FrameVarDecl { .. } => todo!(),
