@@ -58,10 +58,7 @@ where
 
 impl<Label> __Boiled for NarrowDownInternal<Label>
 where
-    Label: __Boiled<Thawed = Label>
-        + __Thawed<Frozen = Label>
-        + __Frozen<Thawed = Label>
-        + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     type Thawed = NarrowDownInternal<Label>;
     unsafe fn into_thawed(self) -> Self::Thawed {
@@ -70,7 +67,7 @@ where
 }
 impl<Label> __Thawed for NarrowDownInternal<Label>
 where
-    Label: __Thawed<Frozen = Label> + __Frozen<Thawed = Label> + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     type Frozen = NarrowDownInternal<Label>;
     fn freeze(&self) -> Self::Frozen {
@@ -87,7 +84,7 @@ where
 }
 impl<Label> __Frozen for NarrowDownInternal<Label>
 where
-    Label: __Frozen<Thawed = Label> + __Thawed<Frozen = Label> + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     type Thawed = NarrowDownInternal<<Label as __Frozen>::Thawed>;
 
@@ -143,11 +140,7 @@ where
 
 impl<Label> __IntoThawedValue for NarrowDownInternal<Label>
 where
-    Label: __Immortal
-        + __Boiled<Thawed = Label>
-        + __Thawed<Frozen = Label>
-        + __Frozen<Thawed = Label>
-        + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     fn into_thawed_value(self) -> __ThawedValue {
         __ThawedValue::from_owned(self)

@@ -30,7 +30,7 @@ use owned::OwnedThawedValue;
 
 /// Slush is the static version of a type
 pub trait Thawed:
-    Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static + FromThawedValue
+    Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static + FromThawedValue + IntoThawedValue
 {
     type Frozen: Frozen<Thawed = Self>;
     fn freeze(&self) -> Self::Frozen;

@@ -34,3 +34,12 @@ where
         todo!()
     }
 }
+
+impl<T> IntoThawedValue for ThawedRef<T>
+where
+    T: Thawed,
+{
+    fn into_thawed_value(self) -> ThawedValue {
+        todo!()
+    }
+}
