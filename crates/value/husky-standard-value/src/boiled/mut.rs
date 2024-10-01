@@ -13,4 +13,11 @@ where
     unsafe fn into_thawed(self) -> Self::Thawed {
         unsafe { std::mem::transmute(self) }
     }
+
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized,
+    {
+        todo!()
+    }
 }

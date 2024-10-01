@@ -79,6 +79,8 @@ pub enum Value {
 pub trait Immortal:
     Thawed<Frozen = Self>
     + Frozen<Thawed = Self>
+    + FromValue
+    + IntoValue
     + std::any::Any
     + RefUnwindSafe
     + UnwindSafe
