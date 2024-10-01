@@ -31,6 +31,13 @@ where
     unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
+
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized,
+    {
+        todo!()
+    }
 }
 impl<Label> __Thawed for Class<Label>
 where

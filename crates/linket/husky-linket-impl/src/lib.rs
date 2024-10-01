@@ -105,7 +105,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 LinketImpl = LinketImpl
             >,
             F: Fn($($input,)*) -> $output,
-            $($input: Send + FromValue + FromThawedValue,)*
+            $($input: Send + FromValue + Boiled,)*
             $output: Send,
         {
             type FnOutput = $output;
@@ -175,10 +175,12 @@ macro_rules! impl_is_fn_linket_impl_source {
                         let argument = arguments.next().unwrap();
                         match argument  {
                             VmArgumentValue::Simple(value) => {
-                                <$input as FromThawedValue>::from_thawed_value_temp(
-                                    value,
-                                    (slush_values)
-                                )
+                                unsafe {
+                                    $input::from_thawed(<$input::Thawed as FromThawedValue>::from_thawed_value_temp(
+                                        value,
+                                        (slush_values)
+                                    ))
+                                }
                             },
                             VmArgumentValue::Keyed(value_opt) => {
                                 todo!()

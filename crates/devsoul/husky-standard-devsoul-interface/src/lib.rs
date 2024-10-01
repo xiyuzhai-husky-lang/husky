@@ -5,8 +5,8 @@ pub mod ugly;
 
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
 use husky_linket_impl::eval_context::DevEvalContextGuard;
-use husky_standard_linket_impl::{SlushValues, StandardKiControlFlow, StandardLinketImpl};
-use husky_standard_value::FromValue;
+use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl};
+use husky_standard_value::{slush::SlushValues, FromValue};
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
