@@ -16,15 +16,7 @@ pub enum Class<Label> {
 }
 impl<Label> __Immortal for Class<Label>
 where
-    Label: __Immortal
-        + __Boiled<Thawed = Label>
-        + __Serialize
-        + Copy
-        + Send
-        + Sync
-        + UnwindSafe
-        + RefUnwindSafe
-        + 'static,
+    Label: __Immortal + Copy + __Serialize,
 {
     fn try_copy(&self) -> Option<__Value> {
         Some((*self).into_value())
@@ -33,32 +25,16 @@ where
 
 impl<Label> __Boiled for Class<Label>
 where
-    Label: __Boiled<Thawed = Label>
-        + __Thawed
-        + __Serialize
-        + Copy
-        + Send
-        + Sync
-        + UnwindSafe
-        + RefUnwindSafe
-        + 'static,
+    Label: __Immortal + Copy + __Serialize,
 {
-    type Thawed = Class<<Label as __Boiled>::Thawed>;
+    type Thawed = Class<Label>;
     unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
 }
 impl<Label> __Thawed for Class<Label>
 where
-    Label: __Boiled<Thawed = Label>
-        + __Thawed
-        + __Serialize
-        + Copy
-        + Send
-        + Sync
-        + UnwindSafe
-        + RefUnwindSafe
-        + 'static,
+    Label: __Immortal + Copy + __Serialize,
 {
     type Frozen = Class<Label>;
     fn freeze(&self) -> Self::Frozen {
@@ -70,21 +46,13 @@ where
     }
 
     fn try_copy_thawed(&self) -> Option<__ThawedValue> {
-        Some((*self).into_thawed_value())
+        Some(unsafe { (*self).into_thawed().into_thawed_value() })
     }
 }
 
 impl<Label> __Frozen for Class<Label>
 where
-    Label: __Boiled<Thawed = Label>
-        + __Thawed
-        + __Serialize
-        + Copy
-        + Send
-        + Sync
-        + UnwindSafe
-        + RefUnwindSafe
-        + 'static,
+    Label: __Immortal + Copy + __Serialize,
 {
     type Thawed = Class<Label>;
     type Slush = ();
@@ -103,7 +71,7 @@ where
 
 impl<Label> __FromValue for Class<Label>
 where
-    Label: __Boiled<Thawed = Label> + __Thawed + Copy,
+    Label: __Immortal + Copy + __Serialize,
 {
     fn from_value_aux(value: __Value, _: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
@@ -112,15 +80,7 @@ where
 
 impl<Label> __IntoValue for Class<Label>
 where
-    Label: __Immortal
-        + __Boiled<Thawed = Label>
-        + __Serialize
-        + Copy
-        + Send
-        + Sync
-        + UnwindSafe
-        + RefUnwindSafe
-        + 'static,
+    Label: __Immortal + Copy + __Serialize,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
@@ -129,7 +89,7 @@ where
 
 impl<Label> __FromThawedValue for Class<Label>
 where
-    Label: __Boiled<Thawed = Label> + __Thawed + Copy,
+    Label: __Immortal + Copy + __Serialize,
 {
     fn from_thawed_value_aux(value: __ThawedValue, _: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
@@ -138,15 +98,7 @@ where
 
 impl<Label> __IntoThawedValue for Class<Label>
 where
-    Label: __Immortal
-        + __Boiled<Thawed = Label>
-        + __Serialize
-        + Copy
-        + Send
-        + Sync
-        + UnwindSafe
-        + RefUnwindSafe
-        + 'static,
+    Label: __Immortal + Copy + __Serialize,
 {
     fn into_thawed_value(self) -> __ThawedValue {
         __ThawedValue::from_owned(self)
