@@ -1452,6 +1452,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `ct`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },
@@ -1459,6 +1460,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `from`,
+                                        variable_idx: 2,
                                     },
                                     contract: Pure,
                                 },
@@ -1466,6 +1468,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `to`,
+                                        variable_idx: 3,
                                     },
                                     contract: Pure,
                                 },
@@ -1981,6 +1984,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `ct`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },
@@ -1988,6 +1992,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `r`,
+                                        variable_idx: 2,
                                     },
                                     contract: Pure,
                                 },

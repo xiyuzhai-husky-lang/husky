@@ -212,14 +212,6 @@ impl SemExprRegionData {
         }
     }
 
-    /// will be `None` for patterns in parameters
-    pub fn syn_pattern_place(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> Option<EthPlace> {
-        match self.syn_pattern_ty_infos.get(pattern)?.ty {
-            Ok(ty_term) => ty_term.quary().unwrap().place(),
-            Err(_) => todo!(),
-        }
-    }
-
     pub fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
     }

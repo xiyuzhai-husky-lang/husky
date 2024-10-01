@@ -688,6 +688,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `result`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },

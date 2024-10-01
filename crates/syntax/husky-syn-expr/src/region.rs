@@ -61,6 +61,10 @@ impl SynExprRegionData {
                         | CurrentVariableData::CaseVariable {
                             pattern_variable_idx,
                             ..
+                        }
+                        | CurrentVariableData::SimpleClosureParameter {
+                            pattern_variable_idx,
+                            ..
                         } => Some((pattern_variable_idx, current_variable_idx)),
                         _ => None,
                     }
@@ -142,6 +146,7 @@ impl SynExprRegionData {
         //     .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
     }
 
+    #[track_caller]
     pub fn syn_pattern_to_current_variable(
         &self,
         syn_pattern_variable_idx: PatternVariableIdx,
@@ -149,6 +154,7 @@ impl SynExprRegionData {
         self.pattern_to_current_variable_map[syn_pattern_variable_idx].1
     }
 
+    #[track_caller]
     pub fn syn_pattern_current_variables_mapped<R>(
         &self,
         syn_pattern_idx: SynPatternIdx,
