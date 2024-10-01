@@ -28,6 +28,7 @@ use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{primitive::PrimitiveVisual, Visual},
 };
+use serde::Serialize;
 use std::cmp::Ordering;
 use thawed::{FromThawedValue, ThawedValue};
 
@@ -76,7 +77,14 @@ pub enum Value {
 }
 
 pub trait Immortal:
-    Thawed + Frozen<Thawed = Self> + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    Thawed<Frozen = Self>
+    + Frozen<Thawed = Self>
+    + std::any::Any
+    + RefUnwindSafe
+    + UnwindSafe
+    + Send
+    + Sync
+    + 'static
 {
     /// copy if the type is copyable
     ///
