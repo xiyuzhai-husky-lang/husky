@@ -3,7 +3,7 @@ use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_eth_signature::signature::HasEthTemplate;
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    symbolic_variable::EthTermSymbolIndexImpl,
+    symbolic_variable::EthTermVariableIndexImpl,
     EthTerm,
 };
 use husky_term_prelude::ItemPathTerm;
@@ -56,27 +56,27 @@ fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: EthApplicatio
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| match param.variable().index(db).inner() {
-                EthTermSymbolIndexImpl::ExplicitLifetime {
+                EthTermVariableIndexImpl::ExplicitLifetime {
                     attrs: _,
                     variance: _,
                     disambiguator: _,
                 } => todo!(),
-                EthTermSymbolIndexImpl::ExplicitPlace {
+                EthTermVariableIndexImpl::ExplicitPlace {
                     attrs: _,
                     variance: _,
                     disambiguator: _,
                 } => todo!(),
-                EthTermSymbolIndexImpl::Type { attrs, .. } => (!attrs.phantom())
+                EthTermVariableIndexImpl::Type { attrs, .. } => (!attrs.phantom())
                     .then(|| HirTemplateArgument::Type(HirType::from_eth(arg, db).unwrap())),
-                EthTermSymbolIndexImpl::Prop { .. } => None,
-                EthTermSymbolIndexImpl::ConstPathLeading { .. }
-                | EthTermSymbolIndexImpl::ConstOther { .. } => todo!(),
-                EthTermSymbolIndexImpl::EphemPathLeading { .. }
-                | EthTermSymbolIndexImpl::EphemOther { .. }
-                | EthTermSymbolIndexImpl::SelfType
-                | EthTermSymbolIndexImpl::SelfValue
-                | EthTermSymbolIndexImpl::SelfLifetime
-                | EthTermSymbolIndexImpl::SelfPlace => unreachable!(),
+                EthTermVariableIndexImpl::Prop { .. } => None,
+                EthTermVariableIndexImpl::ConstPathLeading { .. }
+                | EthTermVariableIndexImpl::ConstOther { .. } => todo!(),
+                EthTermVariableIndexImpl::EphemPathLeading { .. }
+                | EthTermVariableIndexImpl::EphemOther { .. }
+                | EthTermVariableIndexImpl::SelfType
+                | EthTermVariableIndexImpl::SelfValue
+                | EthTermVariableIndexImpl::SelfLifetime
+                | EthTermVariableIndexImpl::SelfPlace => unreachable!(),
             })
             .collect();
             HirTrait::new(db, trai_path, template_arguments).into()

@@ -11,7 +11,7 @@ impl Linket {
         db: &'db salsa::Db,
     ) -> Option<(ItemPath, &LinInstantiation)> {
         Some(match *self.data(db) {
-            LinketData::MajorFunctionRitchie {
+            LinketData::MajorRitchie {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),

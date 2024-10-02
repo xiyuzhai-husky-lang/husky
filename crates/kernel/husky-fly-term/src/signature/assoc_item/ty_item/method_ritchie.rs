@@ -9,7 +9,7 @@ use husky_eth_signature::signature::{
     },
     HasEthTemplate,
 };
-use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
+use husky_eth_term::term::symbolic_variable::EthTermVariableIndexImpl;
 use husky_regional_token::IdentRegionalToken;
 use path::assoc_item::ty_item::TypeItemPath;
 use quary::FlyQuary;
@@ -164,39 +164,41 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     let mut method_template_argument_iter = method_template_arguments.iter();
     for template_parameter in template.template_parameters(db).iter() {
         match template_parameter.variable().index(db).inner() {
-            EthTermSymbolIndexImpl::ExplicitLifetime {
+            EthTermVariableIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
             } => todo!(),
-            EthTermSymbolIndexImpl::ExplicitPlace {
+            EthTermVariableIndexImpl::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,
             } => todo!(),
-            EthTermSymbolIndexImpl::Type {
+            EthTermVariableIndexImpl::Type {
                 attrs,
                 variance,
                 disambiguator,
             } => todo!(),
-            EthTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
-            EthTermSymbolIndexImpl::ConstPathLeading {
+            EthTermVariableIndexImpl::Prop { disambiguator } => todo!(),
+            EthTermVariableIndexImpl::ConstPathLeading {
                 attrs,
                 disambiguator,
                 ty_path,
             } => todo!(),
-            EthTermSymbolIndexImpl::ConstOther {
+            EthTermVariableIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
             } => todo!(),
-            EthTermSymbolIndexImpl::EphemPathLeading {
+            EthTermVariableIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             } => todo!(),
-            EthTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
-            EthTermSymbolIndexImpl::SelfType => unreachable!(),
-            EthTermSymbolIndexImpl::SelfValue => todo!(),
-            EthTermSymbolIndexImpl::SelfLifetime | EthTermSymbolIndexImpl::SelfPlace => continue,
+            EthTermVariableIndexImpl::EphemOther { disambiguator } => todo!(),
+            EthTermVariableIndexImpl::SelfType => unreachable!(),
+            EthTermVariableIndexImpl::SelfValue => todo!(),
+            EthTermVariableIndexImpl::SelfLifetime | EthTermVariableIndexImpl::SelfPlace => {
+                continue
+            }
         }
     }
     if let Some(_) = method_template_argument_iter.next() {
