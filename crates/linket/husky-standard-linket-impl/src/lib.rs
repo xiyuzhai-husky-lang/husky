@@ -372,12 +372,16 @@ impl IsLinketImpl for StandardLinketImpl {
     }
 }
 
-pub struct FnLinketImplSource<Pedestal, DevsoulInterface, F>(
-    pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
-    pub F,
-);
+pub struct FnLinketImplSource<F>(pub F);
 
 for_all_ritchie_tys! {impl_is_fn_linket_impl_source}
+
+#[test]
+fn for_all_ritchie_tys_impl_is_fn_linket_impl_source_works() {
+    use crate::ugly::*;
+
+    fn_linket_impl!(|| ());
+}
 
 pub struct UnveilFnLinketImplSource<Pedestal, DevsoulInterface, F>(
     pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
