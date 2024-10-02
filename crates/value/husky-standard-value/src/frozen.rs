@@ -1,3 +1,4 @@
+pub mod control_flow;
 mod leash;
 pub mod r#mut;
 mod option;
@@ -22,7 +23,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use slush::SlushValue;
 use smallvec::SmallVec;
-use thawed::ThawedValue;
+use thawed::{FromThawedValue, ThawedValue};
 
 pub trait Frozen:
     std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
@@ -92,8 +93,6 @@ where
 #[derive(Debug, Clone)]
 #[repr(u8)]
 pub enum FrozenValue {
-    /// useful for snapshot caching on stack
-    None,
     Uninit,
     Invalid,
     Moved,
@@ -126,7 +125,7 @@ pub enum FrozenValue {
         presenter: EnumUnitValuePresenter,
     },
     Owned(Arc<dyn FrozenDyn>),
-    Leash(&'static dyn FrozenDyn),
+    Leash(&'static dyn ImmortalDyn),
     SizedRef(Arc<dyn FrozenDyn>),
     SizedRefMut(Arc<dyn FrozenDyn>),
     OptionBox(Option<Arc<dyn FrozenDyn>>),
@@ -149,7 +148,6 @@ impl IsFrozenValue for FrozenValue {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> ValuePresentation {
         match self {
-            FrozenValue::None => todo!(),
             FrozenValue::Uninit => todo!(),
             FrozenValue::Invalid => todo!(),
             FrozenValue::Moved => todo!(),

@@ -110,7 +110,7 @@ impl EagerCallInputTraceData {
                 let parent = self.biological_parent;
                 parent
                     .var_deps_expansion(db)
-                    .expr_value_var_deps(argument_sem_expr_idx, db)
+                    .expr_control_flow_var_deps(argument_sem_expr_idx, db)
                     .clone()
             }
             EagerCallInputSketch::Variadic => todo!(),

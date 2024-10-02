@@ -80,6 +80,7 @@ use husky_token_data::{
 };
 use husky_wild_utils::{arb_mut, arb_ref};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use quary::FlyQuary;
 use smallvec::SmallVec;
 use std::ops::Index;
 use vec_like::{AsVecMapEntry, VecMap};
@@ -209,7 +210,7 @@ pub enum SemExprData {
         ritchie_kind_regional_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparRegionalToken,
-        parameter_ty_items: SmallVec<[SemaCommaListItem; 4]>,
+        parameter_ty_items: SmallVec<[SemCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
         light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
@@ -229,7 +230,7 @@ pub enum SemExprData {
         ident_token: IdentRegionalToken,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     MethodRitchieCall {
@@ -260,7 +261,7 @@ pub enum SemExprData {
     NewTuple {
         lpar_regional_token_idx: RegionalTokenIdx,
         /// guaranteed that items.len() > 0
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     /// there are two cases
@@ -270,19 +271,19 @@ pub enum SemExprData {
     Index {
         self_argument: SemExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 2]>,
+        items: SmallVec<[SemCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
         index_dynamic_dispatch: FlyIndexInstanceDispatch,
     },
     CompositionWithList {
         owner: SemExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     NewList {
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         element_ty: FlyTerm,
         // todo: disambiguate Vec, SmallList, Array, etc.
         rbox_regional_token_idx: RegionalTokenIdx,
@@ -293,7 +294,7 @@ pub enum SemExprData {
     BoxColonList {
         lbox_regional_token_idx: RegionalTokenIdx,
         colon_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     VecFunctor {
@@ -302,7 +303,7 @@ pub enum SemExprData {
     },
     ArrayFunctor {
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     Block {
@@ -312,7 +313,7 @@ pub enum SemExprData {
     EmptyHtmxTag {
         empty_htmx_bra_idx: RegionalTokenIdx,
         function_ident: IdentRegionalToken,
-        arguments: IdentMap<SemaHtmxArgumentExpr>,
+        arguments: IdentMap<SemHtmxArgumentExpr>,
         empty_htmx_ket: EmptyHtmxKetRegionalToken,
     },
     Closure {
@@ -532,6 +533,10 @@ impl<V> SemExprMap<V> {
         Self(ArenaMap::new2(sem_expr_arena.0))
     }
 
+    pub fn insert(&mut self, expr: SemExprIdx, v: V) -> Option<V> {
+        self.0.insert(expr.0, v)
+    }
+
     pub fn insert_new(&mut self, expr: SemExprIdx, v: V) {
         self.0.insert_new(expr.0, v)
     }
@@ -663,6 +668,26 @@ impl<'a> SemExprBuilder<'a> {
     }
 
     pub(crate) fn build_expr_with_ty_and_outcome<E: ExpectFlyTerm>(
+        &mut self,
+        expr_idx: SynExprIdx,
+        expr_ty_expectation: E,
+    ) -> (SemExprIdx, Option<FlyTerm>, Option<E::Outcome>) {
+        let (sem_expr_idx, expectation_idx_and_ty) =
+            self.build_expr_aux(expr_idx, expr_ty_expectation);
+        let (ty, outcome) = match expectation_idx_and_ty {
+            Some((expectation_idx, ty)) => (
+                Some(ty),
+                self.fly_term_region()[expectation_idx]
+                    .resolve_progress()
+                    .outcome::<E>()
+                    .cloned(),
+            ),
+            None => (None, None),
+        };
+        (sem_expr_idx, ty, outcome)
+    }
+
+    pub(crate) fn build_expr_with_ty_and_outcome2<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
@@ -1262,6 +1287,7 @@ impl<'a> SemExprBuilder<'a> {
                                 self.term_menu().list_ty_ontology(),
                                 element_ty,
                             )
+                            .map(|t| t.with_quary(FlyQuary::Transient))
                             .map_err(|_| todo!()),
                         )
                     }
@@ -1681,7 +1707,7 @@ impl<'a> SemExprBuilder<'a> {
             } => {
                 let mut params: Vec<FlyRitchieParameter> = vec![];
                 for item in parameter_ty_items.clone() {
-                    match self.infer_expr_term(item.sem_expr_idx) {
+                    match self.infer_expr_term(item.expr) {
                         Some(ty_term) => params
                             .push(FlyRitchieSimpleParameter::new(Contract::Pure, ty_term).into()),
                         None => todo!("err"),
@@ -1712,7 +1738,7 @@ impl<'a> SemExprBuilder<'a> {
             } => match items.len() {
                 0 => unreachable!(),
                 1 => {
-                    let Some(size) = self.infer_expr_term(items[0].sem_expr_idx) else {
+                    let Some(size) = self.infer_expr_term(items[0].expr) else {
                         todo!()
                     };
                     FlyTerm::new_application(self, self.eth_term_menu().array_ty_ontology(), size)

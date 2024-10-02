@@ -54,7 +54,7 @@ impl<'a> SemExprBuilder<'a> {
             CurrentVariableData::SimpleClosureParameter {
                 ident,
                 pattern_variable_idx,
-            } => self.infer_new_pattern_symbol_ty(*pattern_variable_idx),
+            } => self.infer_new_pattern_variable_ty(*pattern_variable_idx),
             CurrentVariableData::LetVariable {
                 pattern_variable_idx,
                 ..
@@ -66,7 +66,7 @@ impl<'a> SemExprBuilder<'a> {
             | CurrentVariableData::CaseVariable {
                 pattern_variable_idx,
                 ..
-            } => self.infer_new_pattern_symbol_ty(*pattern_variable_idx),
+            } => self.infer_new_pattern_variable_ty(*pattern_variable_idx),
             CurrentVariableData::LoopVariable { .. } => todo!(),
             CurrentVariableData::SelfType => todo!(),
             CurrentVariableData::SelfValue {
@@ -76,13 +76,13 @@ impl<'a> SemExprBuilder<'a> {
         }
     }
 
-    pub(crate) fn calc_new_pattern_symbol_ty(
+    pub(crate) fn calc_new_pattern_variable_ty(
         &mut self,
         pattern_variable_idx: PatternVariableIdx,
     ) -> PatternSymbolTypeResult<FlyTerm> {
         match self.syn_expr_region_data()[pattern_variable_idx] {
             PatternVariable::Atom(pattern_idx) => self
-                .get_pattern_expr_ty(pattern_idx)
+                .get_pattern_ty(pattern_idx)
                 .ok_or(DerivedPatternSymbolTypeError::PatternSemExprError.into()),
         }
     }

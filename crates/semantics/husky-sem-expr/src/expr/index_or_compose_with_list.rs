@@ -48,11 +48,11 @@ impl<'a> SemExprBuilder<'a> {
         self_expr_ty: FlyTerm,
         indices: &[SynCommaListItem],
     ) -> SemExprDataResult<(
-        SmallVec<[SemaCommaListItem; 2]>,
+        SmallVec<[SemCommaListItem; 2]>,
         FlyIndexInstanceDispatch,
         SemExprTypeResult<FlyTerm>,
     )> {
-        let mut index_sem_list_items: SmallVec<[SemaCommaListItem; 2]> = smallvec![];
+        let mut index_sem_list_items: SmallVec<[SemCommaListItem; 2]> = smallvec![];
         let mut index_tys: SmallVec<[FlyTerm; 2]> = smallvec![];
 
         for &index in indices {

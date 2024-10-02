@@ -149,7 +149,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::One`),
                                             ),
                                         ),

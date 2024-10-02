@@ -225,7 +225,7 @@ where
             }
         };
         Ok(Some(SynPatternComponent(
-            parser.context.borrow_mut().alloc_pattern_expr(expr),
+            parser.context.borrow_mut().alloc_pattern(expr),
         )))
     }
 }
@@ -258,7 +258,7 @@ impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,
 {
-    fn try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_syn_pattern_root_from_stream_without_guaranteed_rollback(
         self: &mut SynExprParser<'a, C>,
         root_kind: SynPatternRootKind,
     ) -> SynExprResult<Option<SynPatternRoot>> {
@@ -282,7 +282,7 @@ where
                 };
                 Ok(Some(SynPatternRoot::new(
                     root_kind,
-                    self.context_mut().alloc_pattern_expr(expr),
+                    self.context_mut().alloc_pattern(expr),
                     self.context_mut(),
                 )))
             }
@@ -313,7 +313,7 @@ where
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
-            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+            .try_parse_option_syn_pattern_root_from_stream_without_guaranteed_rollback(
                 SynPatternRootKind::Parenate,
             )?
         else {
@@ -348,7 +348,7 @@ where
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
-            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+            .try_parse_option_syn_pattern_root_from_stream_without_guaranteed_rollback(
                 SynPatternRootKind::Closure,
             )?
         else {
@@ -383,7 +383,7 @@ where
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
-            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+            .try_parse_option_syn_pattern_root_from_stream_without_guaranteed_rollback(
                 SynPatternRootKind::Let,
             )?
         else {
@@ -418,7 +418,7 @@ where
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
-            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+            .try_parse_option_syn_pattern_root_from_stream_without_guaranteed_rollback(
                 SynPatternRootKind::Case,
             )?
         else {
@@ -453,7 +453,7 @@ where
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
-            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+            .try_parse_option_syn_pattern_root_from_stream_without_guaranteed_rollback(
                 SynPatternRootKind::Be,
             )?
         else {

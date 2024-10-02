@@ -583,6 +583,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `i`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -590,6 +591,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `shift`,
+                                            variable_idx: 2,
                                         },
                                         contract: Pure,
                                     },
@@ -1700,6 +1702,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -3416,6 +3419,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -4451,6 +4455,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -6167,6 +6172,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -6988,6 +6994,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -7809,6 +7816,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `is_branch_cut_positive`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -9182,6 +9190,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `cos_value`,
+                                                variable_idx: 2,
                                             },
                                             contract: Pure,
                                         },
@@ -9301,6 +9310,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -9773,6 +9783,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -9780,6 +9791,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `is_branch_cut_positive`,
+                                            variable_idx: 2,
                                         },
                                         contract: Pure,
                                     },
@@ -11759,6 +11771,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `self_norm`,
+                                                variable_idx: 3,
                                             },
                                             contract: Pure,
                                         },
@@ -11766,6 +11779,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `other_norm`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },
@@ -11773,6 +11787,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `cos_value`,
+                                                variable_idx: 5,
                                             },
                                             contract: Pure,
                                         },
@@ -11780,6 +11795,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `arc_angle`,
+                                                variable_idx: 6,
                                             },
                                             contract: Pure,
                                         },
@@ -11968,6 +11984,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -13605,6 +13622,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `span`,
+                                                variable_idx: 2,
                                             },
                                             contract: Pure,
                                         },
@@ -13612,6 +13630,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `rel_min`,
+                                                variable_idx: 3,
                                             },
                                             contract: Pure,
                                         },
@@ -13619,6 +13638,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `rel_max`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },
@@ -13750,6 +13770,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `v`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -14444,6 +14465,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `span`,
+                                                variable_idx: 2,
                                             },
                                             contract: Pure,
                                         },
@@ -14608,6 +14630,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `other`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -15597,6 +15620,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `point`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },

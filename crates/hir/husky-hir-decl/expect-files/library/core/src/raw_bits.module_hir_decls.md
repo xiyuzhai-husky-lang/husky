@@ -206,6 +206,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `k`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },

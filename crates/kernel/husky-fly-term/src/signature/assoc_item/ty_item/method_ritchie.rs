@@ -220,7 +220,8 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
             .instantiate(engine, expr_idx, &instantiation),
         return_ty: template
             .return_ty(db)
-            .instantiate(engine, expr_idx, &instantiation),
+            .instantiate(engine, expr_idx, &instantiation)
+            .with_quary(FlyQuary::Transient),
         instantiation,
     })
 }

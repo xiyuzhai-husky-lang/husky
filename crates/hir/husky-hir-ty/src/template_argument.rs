@@ -22,7 +22,7 @@ pub enum HirTemplateArgument {
     /// It should be noted that phantom template parameter should only accept vacant parameter.
     Vacant,
     Type(HirType),
-    Constant(HirConstant),
+    Constant(HirCompterm),
     Lifetime(HirLifetimeTemplateVariable),
     ContractedQuary(HirContractedQuary),
 }
@@ -44,7 +44,7 @@ pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 impl HirTemplateArgument {
     pub(crate) fn from_eth(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
-            EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
+            EthTerm::Literal(lit) => HirCompterm::from_term(lit, db).into(),
             EthTerm::SymbolicVariable(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
             EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::ItemPath(path) => match path {

@@ -57,7 +57,7 @@ impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TemplateS
             let access_start = ctx.state().next_regional_token_idx();
             let traits = ctx.try_parse_option::<TraitsSyndicate>()?;
             let parameter_symbol = CurrentVariableEntry::new(
-                ctx.pattern_expr_region(),
+                ctx.pattern_region(),
                 access_start,
                 None,
                 CurrentVariableData::TemplateParameter {
@@ -89,7 +89,7 @@ impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TemplateS
             let access_start = ctx.state().next_regional_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentVariableEntry::new(
-                    ctx.pattern_expr_region(),
+                    ctx.pattern_region(),
                     access_start,
                     None,
                     CurrentVariableData::TemplateParameter {
@@ -110,7 +110,7 @@ impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TemplateS
             let symbol = ctx
                 .define_symbols(
                     [CurrentVariableEntry::new(
-                        ctx.pattern_expr_region(),
+                        ctx.pattern_region(),
                         access_start,
                         None,
                         CurrentVariableData::TemplateParameter {
@@ -142,7 +142,7 @@ impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TemplateS
             let symbol = ctx
                 .define_symbols(
                     [CurrentVariableEntry::new(
-                        ctx.pattern_expr_region(),
+                        ctx.pattern_region(),
                         access_start,
                         None,
                         CurrentVariableData::TemplateParameter {

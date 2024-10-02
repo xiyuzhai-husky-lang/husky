@@ -10,6 +10,10 @@ where
         format!("?{}", T::full_type_name()).into()
     }
 
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self {
+        std::mem::transmute(thawed)
+    }
+
     unsafe fn into_thawed(self) -> Self::Thawed {
         unsafe { std::mem::transmute(self) }
     }

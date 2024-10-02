@@ -5,7 +5,7 @@ use husky_hir_eager_expr::{
     HirEagerExprSourceMapData,
 };
 use husky_sem_expr::{
-    helpers::range::sem_expr_range_region, SemExprData, SemExprRegion, SemaRitchieArgument,
+    helpers::range::sem_expr_range_region, SemExprData, SemExprRegion, SemRitchieArgument,
 };
 use husky_syn_decl::decl::HasSynDecl;
 
@@ -221,7 +221,7 @@ impl EagerExprTraceData {
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
-            .expr_value_var_deps_table(db)[self.sem_expr_idx]
+            .expr_control_flow_var_deps_table(db)[self.sem_expr_idx]
             .clone()
     }
 
@@ -237,7 +237,7 @@ impl EagerExprTraceData {
 fn fn_call_eager_expr_trace_input_traces(
     trace_path: TracePath,
     trace: Trace,
-    ritchie_parameter_argument_matches: &[SemaRitchieArgument],
+    ritchie_parameter_argument_matches: &[SemRitchieArgument],
     caller_sem_expr_region: SemExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
     callee_syn_expr_region: SynExprRegion,
@@ -247,7 +247,7 @@ fn fn_call_eager_expr_trace_input_traces(
         .iter()
         .map(|m| {
             let data = match m {
-                SemaRitchieArgument::Simple(_, list_item) => {
+                SemRitchieArgument::Simple(_, list_item) => {
                     let sem_expr_idx = list_item.argument_sem_expr_idx();
                     EagerCallInputSketch::Simple {
                         argument_sem_expr_idx: sem_expr_idx,
@@ -255,10 +255,10 @@ fn fn_call_eager_expr_trace_input_traces(
                             .sem_to_hir_eager_expr_idx(sem_expr_idx),
                     }
                 }
-                SemaRitchieArgument::Variadic(_, _) => {
+                SemRitchieArgument::Variadic(_, _) => {
                     todo!()
                 }
-                SemaRitchieArgument::Keyed(_, _) => {
+                SemRitchieArgument::Keyed(_, _) => {
                     todo!()
                 }
             };

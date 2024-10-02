@@ -1,7 +1,7 @@
 ## `Task`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::Task`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `TASK`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::TASK`),

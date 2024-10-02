@@ -8,7 +8,7 @@ None
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -24,7 +24,7 @@ None
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -34,7 +34,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -44,7 +44,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )

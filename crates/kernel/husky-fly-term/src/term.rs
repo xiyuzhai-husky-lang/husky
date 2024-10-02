@@ -73,6 +73,19 @@ impl From<EthTerm> for FlyTerm {
     }
 }
 
+impl FlyTerm {
+    pub fn from_eth_transient(term: EthTerm) -> Self {
+        Self::from_eth_with_quary(term, FlyQuary::Transient)
+    }
+
+    pub fn from_eth_with_quary(term: EthTerm, quary: FlyQuary) -> Self {
+        Self {
+            quary: Some(quary),
+            base: term.into(),
+        }
+    }
+}
+
 impl From<Literal> for FlyTerm {
     fn from(value: Literal) -> Self {
         Into::<EthTerm>::into(value).into()
@@ -184,11 +197,14 @@ impl FlyTerm {
     }
 
     pub fn show2(self, db: &::salsa::Db, terms: &FlyTerms) -> String {
-        format!(
-            "{} @ {:?}",
-            self.base_term_data2(db, terms).show(db, terms),
-            self.quary
-        )
+        match self.quary {
+            Some(quary) => format!(
+                "{} @ {:?}",
+                self.base_term_data2(db, terms).show(db, terms),
+                quary
+            ),
+            None => self.base_term_data2(db, terms).show(db, terms),
+        }
     }
 
     pub(crate) fn base(&self) -> FlyTermBase {
