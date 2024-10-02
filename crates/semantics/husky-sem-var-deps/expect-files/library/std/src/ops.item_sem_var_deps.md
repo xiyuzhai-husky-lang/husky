@@ -1,7 +1,7 @@
 ## `Add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `Add::Output`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `Add::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

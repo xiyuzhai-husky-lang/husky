@@ -39,7 +39,7 @@ pub enum GenkiRuntimeConstantData {
 pub enum GenkiDomain {
     ConditionSatisfied(Genki),
     ConditionNotSatisfied(Genki),
-    StmtNotReturned(Genki),
+    StmtNotTransferred(Genki),
     Omni,
 }
 

@@ -8,7 +8,7 @@ pub struct TrivialFlyCoercion {
 
 impl TrivialFlyCoercion {
     /// equal to expectee's place because it's trivial
-    pub fn place_after_coercion(self) -> FlyQuary {
+    pub fn quary_after_coercion(self) -> FlyQuary {
         self.expectee_quary
     }
 }

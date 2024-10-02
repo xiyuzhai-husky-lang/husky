@@ -3,8 +3,8 @@ pub mod builder;
 pub mod expr;
 pub mod helpers;
 pub mod jar;
+mod obelisk;
 mod pattern;
-mod pattern_expr;
 mod region;
 pub mod source_map;
 pub mod stmt;
@@ -12,8 +12,8 @@ pub mod var_deps;
 pub mod variable;
 
 pub use self::expr::*;
+pub use self::obelisk::*;
 pub use self::pattern::*;
-pub use self::pattern_expr::*;
 pub use self::region::*;
 pub use self::stmt::*;
 

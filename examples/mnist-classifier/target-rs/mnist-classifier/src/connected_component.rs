@@ -92,43 +92,43 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
     let mut result: Vec<crate::connected_component::ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
     for j in 0..30 {
-        while unsearched[j as usize] != 0 {
-            let a = unsearched[j as usize];
+        while *unsearched.index(j as usize) != 0 {
+            let a = *unsearched.index(j as usize);
             let shift = a.ctz();
             let mut mask = mnist::BinaryImage28::new_zeros();
-            mask[j as usize] = crate::connected_component::horizontal_extend(a, 1 << shift);
+            *mask.index_mut(j as usize) = crate::connected_component::horizontal_extend(a, 1 << shift);
             let mut flag = false;
             while !flag {
                 flag = true;
                 let mut i = j;
                 while i < 30 - 1 {
                     {
-                        let old_row = mask[(i + 1) as usize];
-                        let new_row = old_row | crate::connected_component::horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
+                        let old_row = *mask.index((i + 1) as usize);
+                        let new_row = old_row | crate::connected_component::horizontal_extend(*img.index((i + 1) as usize), *mask.index(i as usize));
                         if (new_row == 0) {
                             break;
                         }
                         if old_row != new_row {
                             flag = false;
-                            mask[(i + 1) as usize] = new_row
+                            *mask.index_mut((i + 1) as usize) = new_row
                         }
                     }
                     i += 1
                 }
                 while i >= j {
                     {
-                        let old_row = mask[i as usize];
-                        let new_row = old_row | crate::connected_component::horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
+                        let old_row = *mask.index(i as usize);
+                        let new_row = old_row | crate::connected_component::horizontal_extend(*img.index(i as usize), *mask.index((i + 1) as usize));
                         if old_row != new_row {
                             flag = false;
-                            mask[i as usize] = new_row
+                            *mask.index_mut(i as usize) = new_row
                         }
                     }
                     i -= 1
                 }
             }
             for k in j..30 {
-                unsearched[k as usize] &= !mask[k as usize]
+                *unsearched.index_mut(k as usize) &= !(*mask.index(k as usize))
             }
             result.push(crate::connected_component::ConnectedComponent::__constructor(mask))
         }
@@ -168,7 +168,7 @@ impl crate::connected_component::ConnectedComponent {
         let mut max_hole_ilen = 0;
         let raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self);
         for i in (0 + 1)..raw_contours.deleash().ilen() {
-            let hole_ilen = raw_contours.deleash()[i as usize].points.ilen();
+            let hole_ilen = raw_contours.deleash().index(i as usize).points.ilen();
             if max_hole_ilen < hole_ilen {
                 max_hole_ilen = hole_ilen
             }
@@ -180,7 +180,7 @@ impl crate::connected_component::ConnectedComponent {
     pub fn max_row_span(&'static self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
-            max_row = max_row.max(__self.deleash().mask[i as usize].span())
+            max_row = max_row.max(__self.deleash().mask.index(i as usize).span())
         }
         return max_row as f32;
     }
@@ -189,7 +189,7 @@ impl crate::connected_component::ConnectedComponent {
     pub fn row_span_sum(&'static self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
-            row_span_sum += __self.deleash().mask[i as usize].span()
+            row_span_sum += __self.deleash().mask.index(i as usize).span()
         }
         return row_span_sum as f32;
     }
@@ -199,7 +199,7 @@ impl crate::connected_component::ConnectedComponent {
         let mut row_start = 1;
         while row_start < 29 {
             {
-                if __self.deleash().mask[row_start as usize] != 0 {
+                if *__self.deleash().mask.index(row_start as usize) != 0 {
                     break;
                 }
             }
@@ -208,7 +208,7 @@ impl crate::connected_component::ConnectedComponent {
         let mut row_end = row_start + 1;
         while row_end < 29 {
             {
-                if (__self.deleash().mask[row_end as usize] == 0) {
+                if (*__self.deleash().mask.index(row_end as usize) == 0) {
                     break;
                 }
             }
@@ -218,11 +218,11 @@ impl crate::connected_component::ConnectedComponent {
         let half_height = height / 2;
         let mut upper_mass = 0;
         for i1 in row_start..row_start + half_height {
-            upper_mass += __self.deleash().mask[i1 as usize].co()
+            upper_mass += __self.deleash().mask.index(i1 as usize).co()
         }
         let mut lower_mass = 0;
         for i2 in (row_end - half_height..row_end).rev() {
-            lower_mass += __self.deleash().mask[i2 as usize].co()
+            lower_mass += __self.deleash().mask.index(i2 as usize).co()
         }
         return crate::connected_component::ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
@@ -243,14 +243,14 @@ impl crate::connected_component::ConnectedComponent {
         let mut i = 1;
         while i < 29 {
             {
-                if self.mask[i as usize] != 0 {
+                if *self.mask.index(i as usize) != 0 {
                     break;
                 }
             }
             i += 1
         }
         for j in i..i + k {
-            top_k_row_span_sum += self.mask[j as usize].span()
+            top_k_row_span_sum += self.mask.index(j as usize).span()
         }
         return top_k_row_span_sum as f32;
     }
@@ -261,14 +261,14 @@ impl crate::connected_component::ConnectedComponent {
         let mut i = 1;
         while i < 29 {
             {
-                if self.mask[i as usize] != 0 {
+                if *self.mask.index(i as usize) != 0 {
                     break;
                 }
             }
             i += 1
         }
         for j in i..i + k {
-            top_k_row_span_sum += self.mask[j as usize].right_mass()
+            top_k_row_span_sum += self.mask.index(j as usize).right_mass()
         }
         return top_k_row_span_sum as f32;
     }

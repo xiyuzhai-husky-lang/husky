@@ -134,6 +134,10 @@ impl<T, V> ArenaMap<T, V> {
         self.data.iter().filter_map(|v| v.as_ref())
     }
 
+    pub fn insert(&mut self, idx: ArenaIdx<T>, v: V) -> Option<V> {
+        std::mem::replace(&mut self.data[idx.index()], Some(v))
+    }
+
     #[track_caller]
     pub fn insert_new(&mut self, idx: ArenaIdx<T>, v: V) {
         should!(self.data[idx.index()].is_none());

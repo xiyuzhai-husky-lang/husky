@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::task::MnistTask`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist::task::MnistTask`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::task::MnistTask`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist::task::MnistTask`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -790,7 +790,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\ncall par\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        15,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistTask @ None`",
+                            value: "\n\ncall par\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        15,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistTask @ Transient`",
                         },
                     ),
                     range: Some(
@@ -820,7 +820,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\ncall par\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistTask @ None`",
+                            value: "\n\ncall par\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistTask @ Transient`",
                         },
                     ),
                     range: Some(

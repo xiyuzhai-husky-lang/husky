@@ -77,14 +77,14 @@ impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ParenateParam
             ctx.try_parse_option::<ParenateParameterSynPatternRoot>()?
         {
             let symbols = ctx
-                .pattern_expr_region()
-                .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
+                .pattern_region()
+                .pattern_variables(syn_pattern_root.syn_pattern_idx());
             let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_variable_idx)| {
                     CurrentVariableEntry::new(
-                        ctx.pattern_expr_region(),
+                        ctx.pattern_region(),
                         access_start,
                         None,
                         CurrentVariableData::SimpleParenateParameter {
@@ -113,7 +113,7 @@ impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ParenateParam
                 let SynPatternData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,
-                } = ctx.pattern_expr_region()[syn_pattern_root.syn_pattern_idx()]
+                } = ctx.pattern_region()[syn_pattern_root.syn_pattern_idx()]
                 else {
                     todo!()
                 };
@@ -157,7 +157,7 @@ impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ParenateParam
             let ident_token = ctx
                 .try_parse_expected::<IdentRegionalToken, _>(OriginalSynExprError::ExpectedIdent)?;
             let variable = CurrentVariableEntry::new(
-                ctx.pattern_expr_region(),
+                ctx.pattern_region(),
                 access_start,
                 None,
                 CurrentVariableData::VariadicParenateParameter {

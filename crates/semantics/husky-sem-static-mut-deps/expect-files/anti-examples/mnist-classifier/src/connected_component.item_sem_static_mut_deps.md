@@ -1,7 +1,7 @@
 ## `ConnectedComponentDistribution`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `EffHoles`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `hole_tmpl`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `horizontal_extend`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## `find_connected_components`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemStaticMutDeps(
 ## `impl Visualize for ConnectedComponent`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemStaticMutDeps(
 ## `(ConnectedComponent as Visualize)::visualize`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemStaticMutDeps(
 ## `impl ConnectedComponent`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::raw_contours`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::eff_holes`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::max_hole_ilen`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::max_row_span`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::row_span_sum`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::distribution`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::upper_mass`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::lower_mass`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::top_k_row_span_sum`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemStaticMutDeps(
 ## `ConnectedComponent::top_k_row_right_mass_sum`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

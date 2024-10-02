@@ -29,12 +29,12 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
     let L = line_segment_sketch.deleash().strokes.ilen();
     let mut start = 0;
     let mut end = 1;
-    while start > -L && !crate::line_segment_sketch::convexity::is_convex(&line_segment_sketch.deleash(), start) {
+    while start > -L && !crate::line_segment_sketch::convexity::is_convex(line_segment_sketch.deleash(), start) {
         start -= 1
     }
     let ccv_start = start;
     while start < ccv_start + L {
-        while end <= start + L && !crate::line_segment_sketch::convexity::is_convex(&line_segment_sketch.deleash(), end) {
+        while end <= start + L && !crate::line_segment_sketch::convexity::is_convex(line_segment_sketch.deleash(), end) {
             end += 1
         }
         if end > start + 1 {
@@ -71,12 +71,12 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__hausdorff_norm__ITEM_PATH_ID_INTERFACE)]
     pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
-        let curve_start = &__self.deleash().strokes.deleash().first().unwrap().deleash().start;
+        let curve_start = Leash(&__self.deleash().strokes.deleash().first().unwrap().deleash().start);
         let curve_ls = __self.deleash().line_segment();
         let dp_norm = curve_ls.displacement().norm();
         for i in __self.deleash().strokes.deleash().start()..__self.deleash().strokes.deleash().end() {
-            let point = &__self.deleash().strokes.deleash()[i as usize].end;
-            let point_dist = curve_ls.dist_to_point(point);
+            let point = Leash(&__self.deleash().strokes.deleash().index(i as usize).end);
+            let point_dist = curve_ls.dist_to_point(&point.deleash());
             if point_dist > hausdorff_norm {
                 hausdorff_norm = point_dist
             }
@@ -87,9 +87,9 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__angle_change__ITEM_PATH_ID_INTERFACE)]
     pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
-        let mut dp0 = __self.deleash().strokes.deleash()[__self.deleash().strokes.deleash().start() as usize].displacement();
+        let mut dp0 = __self.deleash().strokes.deleash().index(__self.deleash().strokes.deleash().start() as usize).displacement();
         for i in (__self.deleash().strokes.deleash().start() + 1)..__self.deleash().strokes.deleash().end() {
-            let dp = __self.deleash().strokes.deleash()[i as usize].displacement();
+            let dp = __self.deleash().strokes.deleash().index(i as usize).displacement();
             angle_change += dp0.angle_to(&dp, true);
             dp0 = dp
         }
@@ -98,17 +98,17 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
 
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = &__self.deleash().strokes.deleash().first().unwrap().deleash().start;
-        let mut xmin = start_point.x;
-        let mut xmax = start_point.x;
-        let mut ymin = start_point.y;
-        let mut ymax = start_point.y;
+        let start_point = Leash(&__self.deleash().strokes.deleash().first().unwrap().deleash().start);
+        let mut xmin = start_point.deleash().x;
+        let mut xmax = start_point.deleash().x;
+        let mut ymin = start_point.deleash().y;
+        let mut ymax = start_point.deleash().y;
         for i in __self.deleash().strokes.deleash().start()..__self.deleash().strokes.deleash().end() {
-            let point = &__self.deleash().strokes.deleash()[i as usize].end;
-            xmin = xmin.min(point.x);
-            xmax = xmax.max(point.x);
-            ymin = ymin.min(point.y);
-            ymax = ymax.max(point.y)
+            let point = Leash(&__self.deleash().strokes.deleash().index(i as usize).end);
+            xmin = xmin.min(point.deleash().x);
+            xmax = xmax.max(point.deleash().x);
+            ymin = ymin.min(point.deleash().y);
+            ymax = ymax.max(point.deleash().y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }

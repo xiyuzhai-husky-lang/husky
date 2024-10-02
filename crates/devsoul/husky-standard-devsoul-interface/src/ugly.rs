@@ -8,7 +8,7 @@ pub use crate::{
     },
     eval_ki_domain_repr_interface as __eval_ki_domain_repr_interface,
     eval_ki_repr_interface as __eval_ki_repr_interface,
-    eval_val_runtime_constant as __eval_val_runtime_constant,
+    eval_ki_runtime_compterm as __eval_ki_runtime_compterm,
 };
 pub use husky_item_path_interface::ugly::*;
 pub use husky_standard_linket_impl::ugly::*;
