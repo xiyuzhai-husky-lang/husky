@@ -14,9 +14,13 @@ DATASETS = [
 ]
 exp_dir = "results"
 
+I1R = 40 * (10**4)
+I2L = 300 * (10**4)
+I2R = 310 * (10**4)
+
 RUNS = os.listdir(exp_dir)
 
-plt.rcParams.update({'font.size': 15})
+plt.rcParams.update({'font.size': 18})
 
 for dataset in DATASETS:
     runs = [run for run in RUNS if dataset in run]
@@ -81,7 +85,7 @@ for dataset in DATASETS:
     for metric in val_dict:
         fig = plt.figure(figsize=(6, 6))
         if "acc" in metric:
-            bax = brokenaxes(ylims=((0, 0.05), (0.6, 1.05)), hspace=.05, fig=fig)
+            bax = brokenaxes(xlims=((0, I1R), (I2L, I2R)), ylims=((0, 0.05), (0.6, 1.05)), hspace=.05, fig=fig)
         else:
             bax = brokenaxes(fig=fig)
             bax.set_ylim(bottom=0)
@@ -93,8 +97,11 @@ for dataset in DATASETS:
                 val_dict[metric][model][param] = np.mean(val_dict[metric][model][param])
             
             x, y = zip(*sorted(val_dict[metric][model].items()))
+            x, y = np.array(x), np.array(y)
             scatter = bax.scatter(x, y, label=model, color=colors[color_dict[model]], s=9**2)
-            bax.plot(x, y, color=colors[color_dict[model]], linestyle="--", linewidth=3)
+
+            idx = x <= I1R
+            bax.plot(x[idx], y[idx], color=colors[color_dict[model]], linestyle="--", linewidth=3)
 
         bax.ticklabel_format(style='sci', axis='x', scilimits=(4,4))
 
@@ -105,8 +112,6 @@ for dataset in DATASETS:
         bax.legend(loc="lower right" if "acc" in metric else "upper right")
 
         bax.grid(True)
-        # reduce right margin
-        plt.subplots_adjust(right=0.98)
         os.makedirs(f"figures/{dataset}", exist_ok=True)
         plt.savefig(f"figures/{dataset}/{metric}.pdf")
         plt.close()
