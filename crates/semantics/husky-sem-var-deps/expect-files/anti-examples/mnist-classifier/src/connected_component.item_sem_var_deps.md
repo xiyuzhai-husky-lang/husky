@@ -1,7 +1,7 @@
 ## `ConnectedComponentDistribution`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `EffHoles`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `hole_tmpl`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `ConnectedComponent`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `horizontal_extend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `find_connected_components`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## `impl Visualize for ConnectedComponent`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemVarDeps(
 ## `(ConnectedComponent as Visualize)::visualize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemVarDeps(
 ## `impl ConnectedComponent`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemVarDeps(
 ## `ConnectedComponent::raw_contours`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemVarDeps(
 ## `ConnectedComponent::eff_holes`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemVarDeps(
 ## `ConnectedComponent::max_hole_ilen`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemVarDeps(
 ## `ConnectedComponent::max_row_span`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemVarDeps(
 ## `ConnectedComponent::row_span_sum`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemVarDeps(
 ## `ConnectedComponent::distribution`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemVarDeps(
 ## `ConnectedComponent::upper_mass`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemVarDeps(
 ## `ConnectedComponent::lower_mass`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemVarDeps(
 ## `ConnectedComponent::top_k_row_span_sum`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemVarDeps(
 ## `ConnectedComponent::top_k_row_right_mass_sum`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

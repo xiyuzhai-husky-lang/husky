@@ -12,7 +12,7 @@ from utils import set_seed, custom_collate, linear_warmup_decay, Logger, ordered
 import os
 import pdb
 
-HIDDEN_DIM_SPACE = [4, 8, 16] + list(range(32, 64 + 1, 16))
+HIDDEN_DIM_SPACE = list(range(8, 64 + 1, 8)) + [256]
 BATCH_SIZE = 512
 
 parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
@@ -113,7 +113,10 @@ else:
     search_space = HIDDEN_DIM_SPACE
 
 for hidden_dim in ordered_search_space(search_space):
-    min_lr, max_lr = 1e-5, 1e-3
+    if hidden_dim <= 128:
+        min_lr, max_lr = 1e-5, 1e-3
+    else:
+        min_lr, max_lr = 1e-6, 1e-4
     
     micro_batch_size = 512
 

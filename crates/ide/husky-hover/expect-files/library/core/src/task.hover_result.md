@@ -700,7 +700,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::task::Task`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::task::Task`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(

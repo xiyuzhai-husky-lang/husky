@@ -1,7 +1,7 @@
 ## `Vec`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## ``Vec`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `impl Vec`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `Vec::ilen`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `Vec::push`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## `Vec::first`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemStaticMutDeps(
 ## `Vec::last`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemStaticMutDeps(
 ## `Vec::pop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemStaticMutDeps(
 ## `Vec::collect_leashes`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemStaticMutDeps(
 ## `Vec::cyclic_slice_leashed`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemStaticMutDeps(
 ## `Vec::pop_with_largest_opt_f32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

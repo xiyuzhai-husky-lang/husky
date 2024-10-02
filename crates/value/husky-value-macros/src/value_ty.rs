@@ -36,7 +36,7 @@ pub(crate) fn value_ty(
     let from_value_trai = syn::Ident::new("FromValue", ident.span());
     let into_value_trai = syn::Ident::new("IntoValue", ident.span());
     let primitive_ty_value_conversions = [
-        "()", "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
+        "()", "bool", "char", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
         "i128", "isize", "f32", "f64",
     ]
     .into_iter()
@@ -114,7 +114,7 @@ pub(crate) fn value_ty(
             }
         }
 
-        impl #generics_with_t #from_value_trai for Option<__T> where __T: Boiled {
+        impl #generics_with_t #from_value_trai for Option<__T> where __T: #value_trai {
             fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t #from_value_trai for Option<__T>")
@@ -127,14 +127,14 @@ pub(crate) fn value_ty(
             }
         }
 
-        impl #generics_with_t #into_value_trai for Option<__T> where __T: Boiled {
+        impl #generics_with_t #into_value_trai for Option<__T> where __T: #value_trai {
             fn into_value(self) -> #value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t #into_value_trai for Option<__T>")
             }
         }
 
-        impl #generics_with_t #from_value_trai for Vec<__T> where __T: #from_value_trai {
+        impl #generics_with_t #from_value_trai for Vec<__T> where __T: #value_trai {
             fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t #from_value_trai for Vec<__T>")
@@ -167,7 +167,10 @@ pub(crate) fn value_ty(
             }
         }
 
-        impl<C, B> #into_value_trai for std::ops::ControlFlow<B, C> {
+        impl<C, B> #into_value_trai for std::ops::ControlFlow<B, C>
+        where C: #value_trai,
+            B: #value_trai
+        {
             fn into_value(self) -> #value_ty {
                 todo!("impl<C, B> #into_value_trai for std::ops::ControlFlow<B, C>")
             }
@@ -215,7 +218,7 @@ pub(crate) fn value_ty(
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut __T where __T: #from_value_trai {
+        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut __T where __T: #value_trai {
             fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t #from_value_trai for &'temp mut __T")

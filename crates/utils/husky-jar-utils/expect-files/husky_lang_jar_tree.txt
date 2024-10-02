@@ -1146,6 +1146,8 @@
         "husky-hir-prelude",
         "husky-hir-ty",
         "husky-javelin",
+        "husky-ki",
+        "husky-ki-repr",
         "husky-linket",
         "husky-manifest",
         "husky-manifest-ast",

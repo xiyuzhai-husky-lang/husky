@@ -1,7 +1,7 @@
 ## `RawContour`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `Direction`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## ``Direction`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `Direction::Up`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `Direction::Left`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `Direction::Down`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## `Direction::Right`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemVarDeps(
 ## `get_pixel_pair`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemVarDeps(
 ## `get_pixel_to_the_left`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemVarDeps(
 ## `get_pixel_to_the_right`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemVarDeps(
 ## `get_inward_direction`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemVarDeps(
 ## `get_angle_change`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemVarDeps(
 ## `get_outward_direction`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemVarDeps(
 ## `StreakCache`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemVarDeps(
 ## `get_concave_middle_point`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemVarDeps(
 ## `find_raw_contours`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemVarDeps(
 ## `impl Visualize for RawContour`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemVarDeps(
 ## `(RawContour as Visualize)::visualize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemVarDeps(
 ## `impl RawContour`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -153,7 +153,7 @@ SemVarDeps(
 ## `RawContour::line_segment_sketch`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -161,7 +161,7 @@ SemVarDeps(
 ## `RawContour::bounding_box`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -169,7 +169,7 @@ SemVarDeps(
 ## `RawContour::relative_bounding_box`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -177,7 +177,7 @@ SemVarDeps(
 ## `RawContour::contour_len`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -185,7 +185,7 @@ SemVarDeps(
 ## `RawContour::displacement`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

@@ -3,6 +3,7 @@ use husky_entity_path::path::assoc_item::AssocItemPath;
 use husky_eth_signature::signature::{
     assoc_item::ty_item::assoc_ritchie::TypeAssocRitchieEthTemplate, HasEthTemplate,
 };
+use quary::FlyQuary;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -83,7 +84,8 @@ impl TypeAssocRitchieFlySignature {
                 .collect(),
             return_ty: template
                 .return_ty(db)
-                .instantiate(engine, expr_idx, &instantiation),
+                .instantiate(engine, expr_idx, &instantiation)
+                .with_quary(FlyQuary::Transient),
             ty: template
                 .ty(db)
                 .instantiate(engine, expr_idx, &instantiation),

@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db]
 pub struct LetPatternSyndicate {
-    syn_pattern_expr_root: LetPatternSynExprRoot,
+    syn_pattern_root: LetPatternSynExprRoot,
     variables: CurrentVariableIdxRange,
     colon_token: SynExprResult<Option<ColonRegionalToken>>,
     ty: Option<SynExprIdx>,
@@ -15,23 +15,23 @@ impl<'a, 'b> ProducedSynExprParser<'a, 'b> {
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<LetPatternSyndicate> {
         let state = self.state();
-        let Some(syn_pattern_expr_root) = self.try_parse_option::<LetPatternSynExprRoot>()? else {
+        let Some(syn_pattern_root) = self.try_parse_option::<LetPatternSynExprRoot>()? else {
             Err(OriginalSynExprError::ExpectedLetPattern(state))?
         };
         let symbols = self
-            .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_idx());
+            .pattern_region()
+            .pattern_variables(syn_pattern_root.syn_pattern_idx());
         let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
-            .map(|(ident, pattern_symbol)| {
+            .map(|(ident, pattern_variable)| {
                 CurrentVariableEntry::new(
-                    self.pattern_expr_region(),
+                    self.pattern_region(),
                     access_start,
                     Some(access_end),
                     CurrentVariableData::LetVariable {
                         ident: *ident,
-                        pattern_variable_idx: *pattern_symbol,
+                        pattern_variable_idx: *pattern_variable,
                     },
                 )
             })
@@ -48,12 +48,12 @@ impl<'a, 'b> ProducedSynExprParser<'a, 'b> {
             _ => None,
         };
         let ty_constraint = ty.map(|ty| SyndicateTypeConstraint::LetPattern {
-            pattern: syn_pattern_expr_root,
+            pattern: syn_pattern_root,
             ty,
         });
         let variables = self.define_symbols(symbols, ty_constraint);
         Ok(LetPatternSyndicate {
-            syn_pattern_expr_root,
+            syn_pattern_root,
             variables,
             colon_token,
             ty,
@@ -63,7 +63,7 @@ impl<'a, 'b> ProducedSynExprParser<'a, 'b> {
 
 impl LetPatternSyndicate {
     pub fn syn_pattern_root(&self) -> LetPatternSynExprRoot {
-        self.syn_pattern_expr_root
+        self.syn_pattern_root
     }
 
     pub fn variables(&self) -> CurrentVariableIdxRange {

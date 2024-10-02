@@ -51,7 +51,7 @@ impl TraitForTypeMethodRitchieFlySignature {
                 .iter()
                 .map(|&param| param.into())
                 .collect(),
-            return_ty: eth_sig.return_ty().into(),
+            return_ty: FlyTerm::from_eth_transient(eth_sig.return_ty()),
             instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MethodFn { self_place },
                 eth_sig.instantiation(),

@@ -28,7 +28,7 @@ pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::con
     let mut others = <Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>::collect_leashes(concave_components);
     let mut matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>> = vec![];
     for i in 0..templates.ilen() {
-        let template = templates[i as usize];
+        let template = *templates.index(i as usize);
         matches.push(others.pop_with_largest_opt_f32(template))
     }
     return crate::fermi::FermiMatchResult::__constructor(matches, others);
@@ -40,7 +40,7 @@ impl crate::fermi::FermiMatchResult {
     pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..__self.deleash().others.ilen() {
-            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(__self.deleash().others[i as usize]))
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(*__self.deleash().others.index(i as usize)))
         }
         return norm;
     }
@@ -49,7 +49,7 @@ impl crate::fermi::FermiMatchResult {
     pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..__self.deleash().others.ilen() {
-            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::rel_norm(__self.deleash().others[i as usize]))
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::rel_norm(*__self.deleash().others.index(i as usize)))
         }
         return norm;
     }
@@ -58,7 +58,7 @@ impl crate::fermi::FermiMatchResult {
     pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..__self.deleash().others.ilen() {
-            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(__self.deleash().others[i as usize]).abs())
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(*__self.deleash().others.index(i as usize)).abs())
         }
         return norm;
     }

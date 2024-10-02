@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 serde.workspace = true
+smallvec.workspace = true
 # abstractions
 vec-like.workspace = true
 # devsoul
