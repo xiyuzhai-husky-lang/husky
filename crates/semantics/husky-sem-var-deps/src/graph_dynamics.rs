@@ -1,6 +1,6 @@
 mod initial_value;
 
-use crate::{builder::SemVarDepsBuilder, var_deps::SemVarDeps, *};
+use crate::{builder::SemVarDepsBuilder, var_deps::value::SemValueVarDeps, *};
 use ::graph_dynamics::{
     context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
     cycle_group::CycleGroupMap,
@@ -28,7 +28,7 @@ use var_deps::SemVarDep;
 pub struct SemVarDepsGraphDynamicsScheme {}
 
 impl IsGraphDynamicsScheme for SemVarDepsGraphDynamicsScheme {
-    type Value = SemVarDeps;
+    type Value = SemValueVarDeps;
 
     const MAX_ITERATION: usize = 1000;
 }
@@ -63,15 +63,15 @@ impl<'db> IsGraphDynamicsContext<'db> for SemVarDepsGraphDynamicsContext<'db> {
         item_sem_item_path_cycle_group_itd(self.db, *node)
     }
 
-    fn initial_value(self, node: ItemPath) -> SemVarDeps {
+    fn initial_value(self, node: ItemPath) -> SemValueVarDeps {
         item_sem_var_deps_initial_value(self.db, *node).clone()
     }
 
     fn updated_value<'a>(
         self,
         node: ItemPath,
-        f: impl Fn(ItemPath) -> &'a SemVarDeps,
-    ) -> SemVarDeps {
+        f: impl Fn(ItemPath) -> &'a SemValueVarDeps,
+    ) -> SemValueVarDeps {
         let mut value = f(node).clone();
         let Some(mut builder) = SemVarDepsBuilder::new(self.db, RegionPath::ItemDefn(node), f)
         else {
@@ -86,18 +86,18 @@ impl<'db> IsGraphDynamicsContext<'db> for SemVarDepsGraphDynamicsContext<'db> {
         cycle_group_itd: SemItemPathDepsCyclceGroupItd,
     ) -> PropagationResultRef<
         'db,
-        &'db ::graph_dynamics::cycle_group::CycleGroupMap<Self::DepsScheme, SemVarDeps>,
+        &'db ::graph_dynamics::cycle_group::CycleGroupMap<Self::DepsScheme, SemValueVarDeps>,
     > {
         item_sem_var_deps_cycle_group_final_values(self.db, cycle_group_itd).as_ref()
     }
 }
 
 #[salsa::tracked(return_ref)]
-fn item_sem_var_deps_initial_value(db: &::salsa::Db, item_path_id: ItemPathId) -> SemVarDeps {
+fn item_sem_var_deps_initial_value(db: &::salsa::Db, item_path_id: ItemPathId) -> SemValueVarDeps {
     use husky_entity_tree::node::attr::HasAttrPaths;
 
     let attr_paths = item_path_id.attr_paths(db);
-    let mut deps = SemVarDeps::default();
+    let mut deps = SemValueVarDeps::default();
     let item_path = item_path_id.item_path(db);
     match item_path {
         ItemPath::Submodule(_, _) => (),
@@ -173,7 +173,7 @@ fn item_sem_var_deps_initial_value(db: &::salsa::Db, item_path_id: ItemPathId) -
 fn item_sem_var_deps_cycle_group_final_values(
     db: &::salsa::Db,
     cycle_group_itd: SemItemPathDepsCyclceGroupItd,
-) -> PropagationResult<CycleGroupMap<SemItemPathDepsGraphDepsScheme, SemVarDeps>> {
+) -> PropagationResult<CycleGroupMap<SemItemPathDepsGraphDepsScheme, SemValueVarDeps>> {
     let ctx = SemVarDepsGraphDynamicsContext { db };
     let cycle_group = cycle_group_itd.cycle_group(db);
     ctx.calc_cycle_group_final_values(cycle_group)
@@ -182,7 +182,7 @@ fn item_sem_var_deps_cycle_group_final_values(
 pub(crate) fn item_sem_var_deps<'db>(
     db: &'db ::salsa::Db,
     item_path_id: ItemPathId,
-) -> &'db SemVarDeps {
+) -> &'db SemValueVarDeps {
     let ctx = SemVarDepsGraphDynamicsContext { db };
     ctx.final_value(item_path_id.item_path(db)).unwrap()
 }

@@ -364,7 +364,7 @@
                                 ty_path: TypePath(`core::mem::Ref`, `Extern`),
                                 template_arguments: [
                                     HirTemplateArgument::Constant(
-                                        HirConstant::StaticLifetime,
+                                        HirCompterm::StaticLifetime,
                                     ),
                                     HirTemplateArgument::Type(
                                         HirType::PathLeading(

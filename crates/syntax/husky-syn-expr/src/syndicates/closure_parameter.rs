@@ -29,14 +29,14 @@ where
 
         if let Some(syn_pattern_root) = ctx.try_parse_option::<ClosureSynPatternRoot>()? {
             let symbols = ctx
-                .pattern_expr_region()
-                .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
+                .pattern_region()
+                .pattern_variables(syn_pattern_root.syn_pattern_idx());
             let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()
                 .map(|&(ident, pattern_variable_idx)| {
                     CurrentVariableEntry::new(
-                        ctx.pattern_expr_region(),
+                        ctx.pattern_region(),
                         access_start,
                         None,
                         CurrentVariableData::SimpleClosureParameter {

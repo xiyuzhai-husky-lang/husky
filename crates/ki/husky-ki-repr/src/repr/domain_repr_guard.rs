@@ -40,7 +40,7 @@ impl<'a> KiDomainReprGuard<'a> {
             self.db,
         );
         if has_control_flow.to_bool() {
-            self.ki_domain_repr = KiDomainRepr::ExprNotReturned(ki_repr)
+            self.ki_domain_repr = KiDomainRepr::ControlNotTransferred(ki_repr)
         }
         ki_repr
     }
@@ -63,7 +63,7 @@ impl<'a> KiDomainReprGuard<'a> {
             self.db,
         );
         if has_control_flow.to_bool() {
-            self.ki_domain_repr = KiDomainRepr::ExprNotReturned(ki_repr)
+            self.ki_domain_repr = KiDomainRepr::ControlNotTransferred(ki_repr)
         }
         ki_repr
     }
@@ -84,12 +84,12 @@ impl<'a> KiDomainReprGuard<'a> {
             },
             self.db,
         );
-        self.ki_domain_repr = KiDomainRepr::StmtNotReturned(ki_repr);
+        self.ki_domain_repr = KiDomainRepr::ControlNotTransferred(ki_repr);
         ki_repr
     }
 
     pub(crate) fn after_stmt(&mut self, ki_repr: KiRepr) {
-        self.ki_domain_repr = KiDomainRepr::StmtNotReturned(ki_repr)
+        self.ki_domain_repr = KiDomainRepr::ControlNotTransferred(ki_repr)
     }
 
     // change self

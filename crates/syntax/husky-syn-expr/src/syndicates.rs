@@ -1,6 +1,6 @@
 pub mod affect;
-pub mod be_variable;
-pub mod case_variable;
+pub mod be_pattern;
+pub mod case_pattern;
 pub mod closure_parameter;
 pub mod dep;
 pub mod let_variable;
@@ -15,8 +15,8 @@ pub mod trai;
 pub mod trais;
 pub mod tuple_field;
 
-pub use self::be_variable::*;
-pub use self::case_variable::*;
+pub use self::be_pattern::*;
+pub use self::case_pattern::*;
 pub use self::let_variable::*;
 pub use self::parenate_parameter::*;
 pub use self::props_field::*;

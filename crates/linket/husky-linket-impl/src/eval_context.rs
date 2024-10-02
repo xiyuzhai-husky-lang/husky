@@ -4,7 +4,7 @@ use std::{
 };
 
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
 use husky_value::ki_control_flow::KiControlFlow;
 
 use crate::linket_impl::{
@@ -142,12 +142,12 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
             .unwrap()
     }
 
-    pub fn eval_val_runtime_constant(
+    pub fn eval_ki_runtime_compterm(
         &self,
-        val_runtime_constant: KiRuntimeConstantInterface,
+        ki_runtime_compterm: KiRuntimeComptermInterface,
     ) -> LinketImpl::Value {
         self.runtime
-            .eval_val_runtime_constant_dyn(val_runtime_constant)
+            .eval_ki_runtime_compterm_dyn(ki_runtime_compterm)
     }
 
     pub fn eval_ki_pedestal(self, ki_repr: KiReprInterface) -> LinketImpl::Pedestal {
@@ -174,7 +174,7 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     /// the computation is done by the runtime
-    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control transfer
     fn eval_ki_repr_interface(
         &self,
         ki_repr: KiReprInterface,
@@ -186,7 +186,7 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
     ) -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>>;
 
     /// the computation is done by `f`
-    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control transfer
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
@@ -200,9 +200,9 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
         f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
-    fn eval_val_runtime_constant(
+    fn eval_ki_runtime_compterm(
         &self,
-        val_runtime_constant: KiRuntimeConstantInterface,
+        ki_runtime_compterm: KiRuntimeComptermInterface,
     ) -> LinketImpl::Value;
 
     fn eval_ki_pedestal(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal;
@@ -253,9 +253,9 @@ pub trait IsDevRuntimeInterfaceDyn<LinketImpl: IsLinketImpl> {
         f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
-    fn eval_val_runtime_constant_dyn(
+    fn eval_ki_runtime_compterm_dyn(
         &self,
-        val_runtime_constant: KiRuntimeConstantInterface,
+        ki_runtime_compterm: KiRuntimeComptermInterface,
     ) -> LinketImpl::Value;
 
     fn eval_ki_pedestal_dyn(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal;
@@ -305,11 +305,11 @@ where
         self.eval_memo_field_with(item_path_id_interface, slf, f)
     }
 
-    fn eval_val_runtime_constant_dyn(
+    fn eval_ki_runtime_compterm_dyn(
         &self,
-        val_runtime_constant: KiRuntimeConstantInterface,
+        ki_runtime_compterm: KiRuntimeComptermInterface,
     ) -> <LinketImpl as IsLinketImpl>::Value {
-        self.eval_val_runtime_constant(val_runtime_constant)
+        self.eval_ki_runtime_compterm(ki_runtime_compterm)
     }
 
     fn eval_ki_pedestal_dyn(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal {

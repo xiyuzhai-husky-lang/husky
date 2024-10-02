@@ -86,10 +86,13 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             },
             HirEagerStmtData::ForBetween {
                 ref particulars,
+                for_loop_varible_idx,
                 stmts,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::StmtFor);
-                particulars.frame_var_ident.transpile_to_rust(builder);
+                particulars
+                    .for_loop_variable_ident
+                    .transpile_to_rust(builder);
                 builder.keyword(RustKeyword::In);
                 let range = &particulars.range;
                 let t = |opd| {

@@ -2,6 +2,7 @@ mod ifelse;
 mod r#loop;
 mod r#match;
 
+use self::r#loop::*;
 use crate::{
     coercion::VmirCoercion,
     eval::EvalVmir,
@@ -13,9 +14,17 @@ use crate::{
     },
     *,
 };
-use husky_expr::stmt::ConditionConversion;
-use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
-use husky_linket_impl::{linket_impl::LinketImplThawedValue, LinketImplVmControlFlowThawed};
+use husky_entity_path::path::major_item::ty::PreludeIntTypePath;
+use husky_expr::stmt::{ConditionConversion, LoopBoundaryKind, LoopStep};
+use husky_hir_eager_expr::{
+    variable::runtime::HirEagerRuntimeVariableIdx, HirEagerCondition, HirEagerStmtData,
+    HirEagerStmtIdxRange,
+};
+use husky_linket_impl::{
+    linket_impl::{LinketImplThawedValue, LinketImplTrackedException},
+    LinketImplVmControlFlowThawed,
+};
+use husky_place::place::idx::PlaceIdx;
 use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
@@ -44,6 +53,8 @@ pub enum VmirStmtData<LinketImpl: IsLinketImpl> {
         discarded: bool,
     },
     ForBetween {
+        particulars: VmirForBetweenParticulars<LinketImpl>,
+        for_loop_variable_idx: HirEagerRuntimeVariableIdx,
         stmts: VmirStmtIdxRange<LinketImpl>,
     },
     Forext {
@@ -157,7 +168,11 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerStmtIdxRange {
                 HirEagerStmtData::ForBetween {
                     ref particulars,
                     stmts,
+                    for_loop_varible_idx,
+                    ..
                 } => VmirStmtData::ForBetween {
+                    particulars: particulars.to_vmir(builder),
+                    for_loop_variable_idx: for_loop_varible_idx,
                     stmts: stmts.to_vmir(builder),
                 },
                 HirEagerStmtData::Forext {
@@ -287,6 +302,9 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdxRange<LinketImpl> {
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         let (non_lasts, last) = self.split_last();
+        for non_last in non_lasts {
+            let () = non_last.eval(ctx)?.into();
+        }
         last.eval(ctx)
     }
 }
@@ -336,7 +354,11 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                     false => Continue(result),
                 }
             }
-            VmirStmtData::ForBetween { stmts } => todo!(),
+            VmirStmtData::ForBetween {
+                stmts,
+                for_loop_variable_idx,
+                ref particulars,
+            } => self.eval_for_between(stmts, particulars, for_loop_variable_idx, ctx),
             VmirStmtData::Forext { stmts } => todo!(),
             VmirStmtData::ForIn { stmts } => todo!(),
             VmirStmtData::While { condition, stmts } => todo!(),
@@ -345,7 +367,7 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
-            } => todo!(),
+            } => self.eval_if_else(if_branch, elif_branches, else_branch.as_ref(), ctx),
             VmirStmtData::Match {
                 opd,
                 ref case_branches,
@@ -358,7 +380,11 @@ impl<LinketImpl: IsLinketImpl> VmirCondition<LinketImpl> {
     fn eval<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> VmControlFlow<bool, LinketImplThawedValue<LinketImpl>, LinketImpl::Exception> {
+    ) -> VmControlFlow<
+        bool,
+        LinketImplThawedValue<LinketImpl>,
+        LinketImplTrackedException<LinketImpl>,
+    > {
         match self {
             VmirCondition::Be { opd, pattern } => todo!(),
             VmirCondition::Other { opd, conversion } => opd.eval(None, ctx).map(|v| v.to_bool()),

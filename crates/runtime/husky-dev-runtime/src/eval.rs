@@ -28,8 +28,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 KiDomainRepr::Omni => (),
                 KiDomainRepr::ConditionSatisfied(_) => unreachable!(),
                 KiDomainRepr::ConditionNotSatisfied(_) => unreachable!(),
-                KiDomainRepr::StmtNotReturned(_) => unreachable!(),
-                KiDomainRepr::ExprNotReturned(_) => unreachable!(),
+                KiDomainRepr::ControlNotTransferred(_) => unreachable!(),
+                KiDomainRepr::ControlNotTransferred(_) => unreachable!(),
             }
             return KiControlFlow::Continue(());
         };
@@ -76,15 +76,17 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     KiControlFlow::Throw(_) => todo!(),
                 }
             }
-            KiDomainRepr::StmtNotReturned(stmt_ki_repr) => match self.eval_ki_repr(stmt_ki_repr) {
-                KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
-                KiControlFlow::LoopContinue => todo!(),
-                KiControlFlow::LoopExit(_) => todo!(),
-                KiControlFlow::Return(_) | KiControlFlow::Undefined | KiControlFlow::Throw(_) => {
-                    KiControlFlow::Undefined
+            KiDomainRepr::ControlNotTransferred(stmt_ki_repr) => {
+                match self.eval_ki_repr(stmt_ki_repr) {
+                    KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
+                    KiControlFlow::LoopContinue => todo!(),
+                    KiControlFlow::LoopExit(_) => todo!(),
+                    KiControlFlow::Return(_)
+                    | KiControlFlow::Undefined
+                    | KiControlFlow::Throw(_) => KiControlFlow::Undefined,
                 }
-            },
-            KiDomainRepr::ExprNotReturned(_) => todo!(),
+            }
+            KiDomainRepr::ControlNotTransferred(_) => todo!(),
         }
     }
 

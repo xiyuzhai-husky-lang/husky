@@ -51,7 +51,7 @@ impl Linket {
     }
 
     pub fn place_registry(self, db: &::salsa::Db) -> Option<&PlaceRegistry> {
-        use husky_sem_expr::helpers::region::sem_expr_region_from_region_path;
+        use husky_sem_expr::helpers::path::sem_expr_region_from_region_path;
 
         let (path, _) = self.path_and_instantiation_for_definition(db)?;
         Some(

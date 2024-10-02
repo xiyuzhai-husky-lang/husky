@@ -72,10 +72,10 @@ pub fn is_seven() -> malamute::OneVsAll {
     require!(<crate::connected_component::ConnectedComponent>::max_hole_ilen(major_connected_component()) == 0.0f32);
     let simple_match_norm = <crate::fermi::FermiMatchResult>::norm(simple_seven_match());
     if simple_match_norm < 1.0f32 {
-        require!(let Some(_) = simple_seven_match().deleash().matches[0 as usize]);
+        require!(let Some(_) = *simple_seven_match().deleash().matches.index(0 as usize));
         let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
         if upper_excess < 10.0f32 {
-            let end_tangent = simple_seven_match().deleash().matches[0 as usize].unwrap().deleash().end_tangent();
+            let end_tangent = simple_seven_match().deleash().matches.index(0 as usize).unwrap().deleash().end_tangent();
             let a = end_tangent.y;
             require!(a < -7.0f32);
         }
@@ -86,8 +86,8 @@ pub fn is_seven() -> malamute::OneVsAll {
         require!(upper_excess > 10.0f32);
         return OneVsAll::Yes;
     }
-    require!(let Some(_) = special_seven_match().deleash().matches[0 as usize]);
-    let others = &special_seven_match().deleash().others;
+    require!(let Some(_) = *special_seven_match().deleash().matches.index(0 as usize));
+    let others = Leash(&special_seven_match().deleash().others);
     require!(false);
     OneVsAll::Yes
 }
