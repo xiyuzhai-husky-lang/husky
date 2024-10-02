@@ -4047,7 +4047,7 @@
                             HirTypeTemplateVariable::SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
-                            RefMut,
+                            Mut,
                         ),
                     ),
                 ],
@@ -4481,7 +4481,7 @@
                             HirTypeTemplateVariable::SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
-                            RefMut,
+                            Mut,
                         ),
                     ),
                 ],
@@ -4773,7 +4773,7 @@
                             HirTypeTemplateVariable::SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
-                            RefMut,
+                            Mut,
                         ),
                     ),
                 ],

@@ -3,10 +3,10 @@ pub mod label;
 #[cfg(feature = "ugly")]
 pub mod ugly;
 
-use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
 use husky_linket_impl::eval_context::DevEvalContextGuard;
-use husky_standard_linket_impl::{SlushValues, StandardKiControlFlow, StandardLinketImpl};
-use husky_standard_value::FromValue;
+use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl};
+use husky_standard_value::{slush::SlushValues, FromValue};
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
@@ -61,10 +61,10 @@ pub fn eval_ki_domain_repr_interface(
     dev_eval_context().eval_ki_domain_repr_interface(ki_domain_repr_interface)
 }
 
-pub fn eval_val_runtime_constant<T>(val_runtime_constant: KiRuntimeConstantInterface) -> T
+pub fn eval_ki_runtime_compterm<T>(ki_runtime_compterm: KiRuntimeComptermInterface) -> T
 where
     T: FromValue,
 {
     // no need to return a stand, because runtime constant are always solid
-    T::from_value_static(dev_eval_context().eval_val_runtime_constant(val_runtime_constant))
+    T::from_value_static(dev_eval_context().eval_ki_runtime_compterm(ki_runtime_compterm))
 }

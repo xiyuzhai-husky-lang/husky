@@ -495,6 +495,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `a`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },
@@ -502,6 +503,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `b`,
+                                        variable_idx: 2,
                                     },
                                     contract: Pure,
                                 },

@@ -24,7 +24,9 @@ impl<'a> SemExprBuilder<'a> {
                         FlyQuary::StackPure { place } => todo!(),
                         FlyQuary::ImmutableOnStack { place } => todo!(),
                         FlyQuary::MutableOnStack { .. } => (),
-                        FlyQuary::Transient => todo!(),
+                        FlyQuary::Transient => {
+                            todo!()
+                        }
                         FlyQuary::Ref { guard } => todo!(),
                         FlyQuary::RefMut { place, lifetime } => todo!(),
                         FlyQuary::Leashed { .. } => todo!(),

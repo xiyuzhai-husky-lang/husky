@@ -1,7 +1,7 @@
 ## `str`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `StringLiteral`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

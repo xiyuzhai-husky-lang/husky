@@ -439,6 +439,7 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "serde",
+ "smallvec",
  "vec-like",
 ]
 

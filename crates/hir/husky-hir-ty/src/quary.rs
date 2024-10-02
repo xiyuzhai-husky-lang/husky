@@ -93,10 +93,10 @@ pub struct HirContractedQuary {
     quary: HirQuary,
 }
 
-impl Default for HirContractedQuary {
-    fn default() -> Self {
+impl HirContractedQuary {
+    pub fn new_contractless_transient() -> Self {
         Self {
-            contract: Default::default(),
+            contract: None,
             quary: HirQuary::Transient,
         }
     }

@@ -4,7 +4,7 @@ impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_new_list_expr_term(
         &self,
         expr_idx: SemExprIdx,
-        items: &[SemaCommaListItem],
+        items: &[SemCommaListItem],
     ) -> SemExprTermResult<FlyTerm> {
         todo!()
         // match self

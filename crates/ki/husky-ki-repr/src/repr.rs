@@ -7,7 +7,7 @@ use self::source::*;
 use crate::*;
 use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
-use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
+use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeCompterm};
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
 use husky_linket::linket::Linket;
 use smallvec::{smallvec, SmallVec};
@@ -54,7 +54,7 @@ pub enum KiArgumentRepr {
         stmts: SmallVec<[KiRepr; 4]>,
     },
     // `None` means no runtime constants
-    RuntimeConstants(SmallVec<[KiRuntimeConstant; 4]>),
+    RuntimeConstants(SmallVec<[KiRuntimeCompterm; 4]>),
 }
 
 #[test]
@@ -145,8 +145,7 @@ pub enum KiDomainRepr {
     /// those where the val repr of type bool is defined and equals false
     ConditionNotSatisfied(KiRepr),
     /// those where the val repr of type ControlFlow<(), _> is defined and equals Continue(())
-    StmtNotReturned(KiRepr),
-    ExprNotReturned(KiRepr),
+    ControlNotTransferred(KiRepr),
 }
 
 #[test]
@@ -218,7 +217,7 @@ impl KiArgumentRepr {
                 stmts: stmts.iter().map(|&stmt| stmt.ki(db)).collect(),
             },
             KiArgumentRepr::RuntimeConstants(ref ki_reprs) => {
-                KiArgument::RuntimeConstants(ki_reprs.clone())
+                KiArgument::RuntimeCompterms(ki_reprs.clone())
             }
         }
     }
@@ -234,8 +233,9 @@ impl KiDomainRepr {
             KiDomainRepr::ConditionNotSatisfied(ki_repr) => {
                 KiDomain::ConditionNotSatisfied(ki_repr.ki(db))
             }
-            KiDomainRepr::StmtNotReturned(ki_repr) => KiDomain::StmtNotReturned(ki_repr.ki(db)),
-            KiDomainRepr::ExprNotReturned(_) => todo!(),
+            KiDomainRepr::ControlNotTransferred(ki_repr) => {
+                KiDomain::ControlNotTransferred(ki_repr.ki(db))
+            }
         }
     }
 }

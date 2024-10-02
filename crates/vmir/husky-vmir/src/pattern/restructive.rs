@@ -1,5 +1,6 @@
 use super::*;
 use either::*;
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
 use husky_place::place::idx::PlaceIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -21,7 +22,7 @@ pub type VmirRestructivePatternIdxRange<LinketImpl> =
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum VmirRestructivePattern<LinketImpl: IsLinketImpl> {
-    Default(Option<PlaceIdx>) = 1,
+    Default(Option<HirEagerRuntimeVariableIdx>) = 1,
     Literal,
     UnitPath,
     OneOf(VmirRestructivePatternIdxRange<LinketImpl>),
@@ -49,12 +50,14 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
         VmirRestructivePattern<Linktime::LinketImpl>,
         VmirRestructivePatternData<Linktime::LinketImpl>,
     > {
-        match *self.hir_eager_pattern_arena()[hir_eager_pattern].data() {
+        let hir_eager_pattern_entry = &self.hir_eager_pattern_arena()[hir_eager_pattern];
+        match *hir_eager_pattern_entry.data() {
             HirEagerPatternData::Literal(_) => Left(VmirRestructivePattern::Literal),
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
-            } => Left(VmirRestructivePattern::Default(None /* ad hoc */)),
+                variable_idx,
+            } => Left(VmirRestructivePattern::Default(Some(variable_idx))),
             HirEagerPatternData::UnitPath(path) => Left(VmirRestructivePattern::UnitPath),
             HirEagerPatternData::Tuple { path, fields } => todo!(),
             HirEagerPatternData::Props { path, fields } => todo!(),
@@ -80,6 +83,25 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerPatternData::Binding { ident, src } => todo!(),
             HirEagerPatternData::Range { start, end } => todo!(),
             HirEagerPatternData::Some => Right(VmirRestructivePatternData::Some),
+        }
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> VmirRestructivePattern<LinketImpl> {
+    pub(crate) fn take_value<'comptime>(
+        self,
+        value: LinketImplThawedValue<LinketImpl>,
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) {
+        match self {
+            VmirRestructivePattern::Default(variable_idx) => match variable_idx {
+                Some(variable_idx) => ctx.init_variable(variable_idx, value),
+                None => (),
+            },
+            VmirRestructivePattern::OneOf(_) => todo!(),
+            VmirRestructivePattern::Other(_) => todo!(),
+            VmirRestructivePattern::Literal => todo!(),
+            VmirRestructivePattern::UnitPath => todo!(),
         }
     }
 }

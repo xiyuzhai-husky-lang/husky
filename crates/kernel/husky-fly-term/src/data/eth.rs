@@ -67,7 +67,7 @@ impl TermRitchieFlyData {
         FlyTermData::Ritchie {
             ritchie_kind: self.ritchie_kind,
             parameter_contracted_tys: &self.parameter_contracted_tys,
-            return_ty: self.return_ty.into(),
+            return_ty: FlyTerm::from_eth_transient(self.return_ty),
         }
     }
 
@@ -75,7 +75,7 @@ impl TermRitchieFlyData {
         FlyBaseTypeData::Ritchie {
             ritchie_kind: self.ritchie_kind,
             parameter_contracted_tys: &self.parameter_contracted_tys,
-            return_ty: self.return_ty.into(),
+            return_ty: FlyTerm::from_eth_transient(self.return_ty),
         }
     }
 }
