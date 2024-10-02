@@ -1,7 +1,7 @@
 ## `ty`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

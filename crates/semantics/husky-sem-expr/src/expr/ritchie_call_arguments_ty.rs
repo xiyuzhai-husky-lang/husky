@@ -41,7 +41,7 @@ mod matcher {
 
     #[salsa::derive_debug_with_db]
     #[derive(Debug, PartialEq, Eq)]
-    pub enum SemaRitchieArgument {
+    pub enum SemRitchieArgument {
         Simple(FlyRitchieSimpleParameter, SemaSimpleArgument),
         Variadic(
             FlyRitchieVariadicParameter,
@@ -51,7 +51,7 @@ mod matcher {
         Keyed(FlyRitchieKeyedParameter, Option<SemaKeyedCallListItem>),
     }
 
-    pub type RitchieArgumentes = SmallVec<[SemaRitchieArgument; 4]>;
+    pub type RitchieArgumentes = SmallVec<[SemRitchieArgument; 4]>;
 
     pub(super) struct RitchieArgumenter<'a, 'b, Arguments: Iterator<Item = SynCallListItem>> {
         ritchie_parameters: &'b [FlyRitchieParameter],
@@ -101,7 +101,7 @@ mod matcher {
                             );
                             Ok(self
                                 .ritchie_matches
-                                .push(SemaRitchieArgument::Simple(param, item)))
+                                .push(SemRitchieArgument::Simple(param, item)))
                         }
                         SynCallListItem::Keyed(_) => todo!(),
                     },
@@ -130,7 +130,7 @@ mod matcher {
                     }
                     Ok(self
                         .ritchie_matches
-                        .push(SemaRitchieArgument::Variadic(param, items)))
+                        .push(SemRitchieArgument::Variadic(param, items)))
                 }
                 FlyRitchieParameter::Keyed(param) => match param.has_default() {
                     true => {
@@ -144,7 +144,7 @@ mod matcher {
                         };
                         Ok(self
                             .ritchie_matches
-                            .push(SemaRitchieArgument::Keyed(param, item)))
+                            .push(SemRitchieArgument::Keyed(param, item)))
                     }
                     false => todo!(),
                 },

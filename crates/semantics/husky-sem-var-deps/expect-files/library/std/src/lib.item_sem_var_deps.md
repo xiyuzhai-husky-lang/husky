@@ -1,7 +1,7 @@
 ## `prelude`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `logic`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `ops`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

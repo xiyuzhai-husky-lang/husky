@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::digits::three::downarc`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `fn(...) -> Option f32 @ None @ None`",
+                            value: "\n\nentity `mnist_classifier::digits::three::downarc`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `fn(...) -> Option f32 @ Transient`",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type @ None) @ None: Type @ None> -> hvar(0, Type @ None) @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type): Type> -> hvar(0, Type) -> Type`",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        23,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Option Leash ConcaveComponent @ Some(Leashed { place: None })`",
+                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        23,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Option Leash ConcaveComponent @ Leashed { place: None }`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        135,\n    ),\n    RegionalTokenIdx(\n        135,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel Three @ None`",
+                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        135,\n    ),\n    RegionalTokenIdx(\n        135,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel Three`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\ncall par\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `Option f32 @ None`",
+                            value: "\n\ncall par\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `Option f32`",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nprefix type operator\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nprefix type operator\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ ImmutableOnStack { place: Idx(PlaceIdx(0)) }`",
                         },
                     ),
                     range: Some(

@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ Some(Compterm)`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::ops::ControlFlow`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `core::ops::ControlFlow`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type -> Type`",
                         },
                     ),
                     range: Some(

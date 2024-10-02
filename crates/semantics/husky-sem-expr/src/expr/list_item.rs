@@ -2,8 +2,8 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct SemaCommaListItem {
-    pub sem_expr_idx: SemExprIdx,
+pub struct SemCommaListItem {
+    pub expr: SemExprIdx,
     pub comma_regional_token_idx: Option<RegionalTokenIdx>,
 }
 
@@ -12,11 +12,11 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         syn_comma_list_item: SynCommaListItem,
         expr_ty_expectation: E,
-    ) -> SemaCommaListItem {
-        let (sem_expr_idx, expectation_outcome) =
+    ) -> SemCommaListItem {
+        let (expr, expectation_outcome) =
             self.build_expr_with_outcome(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
-        SemaCommaListItem {
-            sem_expr_idx,
+        SemCommaListItem {
+            expr,
             comma_regional_token_idx: syn_comma_list_item.comma_regional_token_idx(),
         }
     }
@@ -25,12 +25,12 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         syn_comma_list_item: SynCommaListItem,
         expr_ty_expectation: E,
-    ) -> (SemaCommaListItem, Option<FlyTerm>) {
+    ) -> (SemCommaListItem, Option<FlyTerm>) {
         let (sem_expr_idx, ty) =
             self.build_expr_with_ty(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
         (
-            SemaCommaListItem {
-                sem_expr_idx,
+            SemCommaListItem {
+                expr: sem_expr_idx,
                 comma_regional_token_idx: syn_comma_list_item.comma_regional_token_idx(),
             },
             ty,

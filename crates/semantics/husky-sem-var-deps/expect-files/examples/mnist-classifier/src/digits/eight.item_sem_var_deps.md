@@ -1,7 +1,7 @@
 ## `upper_mouth_match`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `is_eight`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `big_mouth`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

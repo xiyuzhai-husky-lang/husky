@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::clone::Clone`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
+                            value: "\n\nentity `core::clone::Clone`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait`",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nunit right parenthesis\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nunit right parenthesis\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself type\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        17,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "Other keyword\n\nself type\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        17,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nunit left parenthesis\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nunit left parenthesis\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::ops::ControlFlow`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `core::ops::ControlFlow`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type -> Type`",
                         },
                     ),
                     range: Some(

@@ -1,18 +1,21 @@
 use crate::LinketImplVmControlFlowThawed;
 use crate::{exception::TrackedException, *};
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr_interface::KiRuntimeComptermInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
 use husky_value::{exception::IsException, ki_control_flow::KiControlFlow, IsValue};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use pedestal::{IsPedestal, IsPedestalFull};
 use serde::Serialize;
+use smallvec::SmallVec;
 use static_var::StaticVarResult;
+use std::fmt::{self, Debug, Formatter};
 use std::num::Saturating;
 
 pub type LinketImplStaticVarResult<LinketImpl, R> =
     StaticVarResult<<<LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId, R>;
 
-pub trait IsLinketImpl: std::fmt::Debug + Send + Sync + Copy + 'static {
+pub trait IsLinketImpl: std::fmt::Debug + Eq + Send + Sync + Copy + 'static {
     type Pedestal: IsPedestalFull;
     type Value: IsValue<Exception = Self::Exception>;
     type Exception: IsException;
@@ -28,7 +31,7 @@ pub trait IsLinketImpl: std::fmt::Debug + Send + Sync + Copy + 'static {
 
     fn eval_vm(
         self,
-        arguments: Vec<VmArgumentValue<Self>>,
+        arguments: VmArgumentValues<Self>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self>;
 
@@ -64,6 +67,8 @@ pub trait IsLinketImpl: std::fmt::Debug + Send + Sync + Copy + 'static {
 
 pub type LinketImplKiControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
     KiControlFlow<C, <LinketImpl as IsLinketImpl>::Value, LinketImplTrackedException<LinketImpl>>;
+pub type LinketImplVmControlFlow<LinketImpl, C = LinketImplThawedValue<LinketImpl>> =
+    VmControlFlow<C, LinketImplThawedValue<LinketImpl>, LinketImplTrackedException<LinketImpl>>;
 
 pub type LinketImplTrackedException<LinketImpl> = TrackedException<
     <LinketImpl as IsLinketImpl>::Exception,
@@ -82,7 +87,25 @@ pub type LinketImplTrackedExceptedValue<LinketImpl> =
 pub type LinketImplTrackedExcepted<LinketImpl, T> =
     Result<T, LinketImplTrackedException<LinketImpl>>;
 
-pub enum VmArgumentValue<LinketImpl: IsLinketImpl> {
+pub enum VmArgumentValue<'comptime, LinketImpl: IsLinketImpl> {
     Simple(LinketImplThawedValue<LinketImpl>),
+    Keyed(Option<LinketImplThawedValue<LinketImpl>>),
     Variadic(Vec<LinketImplThawedValue<LinketImpl>>),
+    RuntimeConstants(&'comptime [KiRuntimeComptermInterface]),
+}
+
+pub type VmArgumentValues<'comptime, LinketImpl> =
+    SmallVec<[VmArgumentValue<'comptime, LinketImpl>; 4]>;
+
+impl<'comptime, LinketImpl: IsLinketImpl + Debug> Debug for VmArgumentValue<'comptime, LinketImpl> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        match self {
+            VmArgumentValue::Simple(value) => f.debug_tuple("Simple").field(value).finish(),
+            VmArgumentValue::Keyed(value) => f.debug_tuple("Keyed").field(value).finish(),
+            VmArgumentValue::Variadic(values) => f.debug_tuple("Variadic").field(values).finish(),
+            VmArgumentValue::RuntimeConstants(values) => {
+                f.debug_tuple("RuntimeConstants").field(values).finish()
+            }
+        }
+    }
 }

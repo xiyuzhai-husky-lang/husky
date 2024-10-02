@@ -1,7 +1,7 @@
 ## `Point2d`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## ``Point2d`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `RelativePoint2d`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `Vector2d`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `ClosedRange`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## `BoundingBox`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemStaticMutDeps(
 ## `RelativeBoundingBox`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemStaticMutDeps(
 ## `impl Point2d`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemStaticMutDeps(
 ## `Point2d::from_i_shift28`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemStaticMutDeps(
 ## `Point2d::vector`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemStaticMutDeps(
 ## `Point2d::to`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemStaticMutDeps(
 ## `Point2d::norm`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemStaticMutDeps(
 ## `Point2d::dist`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemStaticMutDeps(
 ## `impl Vector2d`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemStaticMutDeps(
 ## `Vector2d::point`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemStaticMutDeps(
 ## `Vector2d::to`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemStaticMutDeps(
 ## `Vector2d::norm`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemStaticMutDeps(
 ## `Vector2d::dot`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemStaticMutDeps(
 ## `Vector2d::cross`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -153,7 +153,7 @@ SemStaticMutDeps(
 ## `Vector2d::angle`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -161,7 +161,7 @@ SemStaticMutDeps(
 ## `Vector2d::rotation_direction_to`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -169,7 +169,7 @@ SemStaticMutDeps(
 ## `Vector2d::angle_to`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -177,7 +177,7 @@ SemStaticMutDeps(
 ## `impl ClosedRange`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -185,7 +185,7 @@ SemStaticMutDeps(
 ## `ClosedRange::relative_range`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -193,7 +193,7 @@ SemStaticMutDeps(
 ## `ClosedRange::relative_point`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -201,7 +201,7 @@ SemStaticMutDeps(
 ## `impl BoundingBox`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -209,7 +209,7 @@ SemStaticMutDeps(
 ## `BoundingBox::relative_bounding_box`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -217,7 +217,7 @@ SemStaticMutDeps(
 ## `BoundingBox::relative_point`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -225,7 +225,7 @@ SemStaticMutDeps(
 ## `BoundingBox::xmin`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -233,7 +233,7 @@ SemStaticMutDeps(
 ## `BoundingBox::xmax`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -241,7 +241,7 @@ SemStaticMutDeps(
 ## `BoundingBox::ymin`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -249,7 +249,7 @@ SemStaticMutDeps(
 ## `BoundingBox::ymax`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -257,7 +257,7 @@ SemStaticMutDeps(
 ## `impl RelativeBoundingBox`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -265,7 +265,7 @@ SemStaticMutDeps(
 ## `RelativeBoundingBox::xmin`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -273,7 +273,7 @@ SemStaticMutDeps(
 ## `RelativeBoundingBox::xmax`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -281,7 +281,7 @@ SemStaticMutDeps(
 ## `RelativeBoundingBox::ymin`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -289,7 +289,7 @@ SemStaticMutDeps(
 ## `RelativeBoundingBox::ymax`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

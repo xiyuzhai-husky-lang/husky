@@ -104,7 +104,9 @@ pub enum TokenInfoData {
     UnitRightParenthesis,
     Todo,
     Unreachable,
+    PrefixArithOpr,
     PrefixTypeOpr,
+    BinaryOpr,
     CallPar,
     NestedBlockCurl,
     ClosureVert,
@@ -113,6 +115,15 @@ pub enum TokenInfoData {
     Literal,
     IndexColon,
     UnwrapExclamation,
+    BeKeyword,
+    NewListLbox,
+    NewListRbox,
+    DelimiterLpar,
+    DelimiterRpar,
+    TupleLpar,
+    TupleRpar,
+    UnveilOpr,
+    SuffixOpr,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -184,6 +195,17 @@ impl TokenInfoData {
             TokenInfoData::Literal => TokenClass::Literal,
             TokenInfoData::IndexColon => TokenClass::Punctuation,
             TokenInfoData::UnwrapExclamation => TokenClass::Punctuation,
+            TokenInfoData::PrefixArithOpr => TokenClass::Punctuation,
+            TokenInfoData::BinaryOpr => TokenClass::Punctuation,
+            TokenInfoData::BeKeyword => TokenClass::OtherKeyword,
+            TokenInfoData::NewListLbox => TokenClass::Punctuation,
+            TokenInfoData::NewListRbox => TokenClass::Punctuation,
+            TokenInfoData::DelimiterLpar => TokenClass::Punctuation,
+            TokenInfoData::DelimiterRpar => TokenClass::Punctuation,
+            TokenInfoData::TupleLpar => TokenClass::Punctuation,
+            TokenInfoData::TupleRpar => TokenClass::Punctuation,
+            TokenInfoData::UnveilOpr => TokenClass::Punctuation, // Changed from Operator
+            TokenInfoData::SuffixOpr => TokenClass::Punctuation, // Changed from Operator
         }
     }
 }

@@ -1,3 +1,4 @@
+pub mod control_flow;
 mod r#mut;
 mod option;
 mod primitive;
@@ -20,6 +21,11 @@ pub trait Boiled {
     fn full_type_name() -> std::borrow::Cow<'static, str> {
         std::any::type_name::<Self>().into()
     }
+
+    /// should call `std::mem::transmute` under the hood
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized;
 
     /// should call `std::mem::transmute` under the hood
     unsafe fn into_thawed(self) -> Self::Thawed

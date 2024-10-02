@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvec functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\nvec functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Vec Leash ConcaveComponent @ Some(Leashed { place: None })`",
+                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Vec Leash ConcaveComponent @ Leashed { place: None }`",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        35,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `f32 @ Some(MutableOnStack { place: Idx(PlaceIdx(1)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        35,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `f32 @ MutableOnStack { place: Idx(PlaceIdx(1)) }`",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        28,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(Leashed { place: None })`",
+                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        28,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Leashed { place: None }`",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        21,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ Some(MutableOnStack { place: Idx(PlaceIdx(1)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        21,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ MutableOnStack { place: Idx(PlaceIdx(1)) }`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        32,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ Some(Transient)`",
+                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        32,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ Transient`",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvec functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        15,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\nvec functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        15,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        52,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `Vec Option Leash ConcaveComponent @ Some(MutableOnStack { place: Idx(PlaceIdx(1)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        52,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `Vec Option Leash ConcaveComponent @ MutableOnStack { place: Idx(PlaceIdx(1)) }`",
                         },
                     ),
                     range: Some(

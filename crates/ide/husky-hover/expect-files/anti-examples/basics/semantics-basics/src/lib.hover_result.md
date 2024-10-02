@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `usize @ Some(Compterm)`",
+                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `usize @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `usize @ Some(Compterm)`",
+                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `usize @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        14,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\narray functor box prefix\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        14,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        15,\n    ),\n    RegionalTokenIdx(\n        15,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        15,\n    ),\n    RegionalTokenIdx(\n        15,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -820,7 +820,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\ntodo\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = Some(\n    Never,\n)\n\ntype = `never @ None`",
+                            value: "Other keyword\n\ntodo\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = Some(\n    Never,\n)\n\ntype = `never`",
                         },
                     ),
                     range: Some(

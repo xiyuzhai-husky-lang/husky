@@ -3,14 +3,14 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaTemplateArgumentList {
     langle: RegionalTokenIdx,
-    arguments: SmallVec<[SemaCommaListItem; 4]>,
+    arguments: SmallVec<[SemCommaListItem; 4]>,
     rangle: RegionalTokenIdx,
 }
 
 impl SemaTemplateArgumentList {
     pub(crate) fn new(
         langle: RegionalTokenIdx,
-        arguments: SmallVec<[SemaCommaListItem; 4]>,
+        arguments: SmallVec<[SemCommaListItem; 4]>,
         rangle: RegionalTokenIdx,
     ) -> Self {
         Self {
@@ -24,7 +24,7 @@ impl SemaTemplateArgumentList {
         self.langle
     }
 
-    pub fn arguments(&self) -> &[SemaCommaListItem] {
+    pub fn arguments(&self) -> &[SemCommaListItem] {
         &self.arguments
     }
 

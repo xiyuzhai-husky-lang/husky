@@ -13,4 +13,11 @@ where
     unsafe fn into_thawed(self) -> Self::Thawed {
         self.map(|slf| slf.into_thawed())
     }
+
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized,
+    {
+        todo!()
+    }
 }

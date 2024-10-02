@@ -17,6 +17,7 @@ use husky_regional_token::{
 };
 use husky_token_data::TokenDataResult;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use vec_like::VecPairMap;
 
 use crate::{obelisks::let_variable::LetVariableObelisk, *};
 
@@ -55,7 +56,7 @@ pub enum SemStmtData {
     },
     ForBetween {
         for_token: StmtForRegionalToken,
-        particulars: SemaForBetweenParticulars,
+        particulars: SemForBetweenParticulars,
         for_loop_varible_idx: CurrentVariableIdx,
         eol_colon: EolRegionalToken,
         stmts: SemStmtIdxRange,
@@ -261,9 +262,15 @@ impl IntoIterator for &SemStmtIdxRange {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemStmtMap<V>(ArenaMap<SemStmtEntry, V>);
 
+pub type SemStmtsMap<V> = VecPairMap<SemStmtIdxRange, V>;
+
 impl<V> SemStmtMap<V> {
     pub fn new(sem_stmt_arena: SemStmtArenaRef<'_>) -> SemStmtMap<V> {
         Self(ArenaMap::new2(sem_stmt_arena.0))
+    }
+
+    pub fn insert(&mut self, stmt: SemStmtIdx, v: V) -> Option<V> {
+        self.0.insert(stmt.0, v)
     }
 
     pub fn insert_new(&mut self, stmt: SemStmtIdx, v: V) {
@@ -431,7 +438,7 @@ impl<'a> SemExprBuilder<'a> {
                     let (expr, ty, outcome) = match eol_semicolon {
                         None => match stmt_ty_expectation.destination() {
                             FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
-                                self.build_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
+                                self.build_expr_with_ty_and_outcome2(expr_idx, stmt_ty_expectation)
                             }
                             FlyTermDestination::Specific(stmt_ty) => {
                                 let (expr, outcome) =
@@ -442,7 +449,7 @@ impl<'a> SemExprBuilder<'a> {
                         },
                         Some(_) => {
                             let (sem_expr_idx, expr_ty, outcome) =
-                                self.build_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
+                                self.build_expr_with_ty_and_outcome2(expr_idx, ExpectAnyOriginal);
                             let ty_result = match expr_ty {
                                 Some(ty) => match ty.base_resolved(self) {
                                     FlyTermBase::Eth(ty) if ty == self.term_menu().never() => {
@@ -622,7 +629,7 @@ impl<'a> SemExprBuilder<'a> {
                 target,
             },
             _ => SemCondition::Other {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 conversion: match outcome {
                     Some(ExpectConditionTypeOutcome { conversion }) => conversion,
                     None => todo!(),

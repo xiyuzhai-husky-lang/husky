@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentSketch`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentSketch`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nprefix type operator\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        11,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nprefix type operator\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        11,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentStroke`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentStroke`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::visual::Visualize`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
+                            value: "\n\nentity `core::visual::Visualize`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(

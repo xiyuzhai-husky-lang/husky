@@ -36,7 +36,7 @@
                                 ty_path: TypePath(`core::array::Array`, `Extern`),
                                 template_arguments: [
                                     HirTemplateArgument::Constant(
-                                        HirConstant::USize(
+                                        HirCompterm::USize(
                                             3,
                                         ),
                                     ),
