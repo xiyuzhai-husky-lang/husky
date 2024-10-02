@@ -58,7 +58,7 @@ impl IsLinketImpl for VirtualLinketImpl {
 
         let db: &::salsa::Db = db.downcast_ref().unwrap();
         match self.data(db) {
-            LinketData::MajorFunctionRitchie {
+            LinketData::MajorRitchie {
                 path,
                 instantiation,
             } => todo!(),

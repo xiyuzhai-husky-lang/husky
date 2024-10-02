@@ -46,36 +46,36 @@ impl EthSymbolicVariable {
 impl EthSymbolicVariable {
     pub fn class(self, db: &::salsa::Db) -> Option<TemplateVariableClass> {
         match self.index(db).inner() {
-            EthTermSymbolIndexImpl::ExplicitLifetime { attrs, .. } => Some(attrs.class),
-            EthTermSymbolIndexImpl::ExplicitPlace {
+            EthTermVariableIndexImpl::ExplicitLifetime { attrs, .. } => Some(attrs.class),
+            EthTermVariableIndexImpl::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,
             } => Some(attrs.class),
-            EthTermSymbolIndexImpl::Type {
+            EthTermVariableIndexImpl::Type {
                 attrs,
                 variance,
                 disambiguator,
             } => Some(attrs.class),
-            EthTermSymbolIndexImpl::Prop { disambiguator } => None,
-            EthTermSymbolIndexImpl::ConstPathLeading {
+            EthTermVariableIndexImpl::Prop { disambiguator } => None,
+            EthTermVariableIndexImpl::ConstPathLeading {
                 attrs,
                 disambiguator,
                 ty_path,
             } => Some(attrs.class),
-            EthTermSymbolIndexImpl::ConstOther {
+            EthTermVariableIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
             } => Some(attrs.class),
-            EthTermSymbolIndexImpl::EphemPathLeading {
+            EthTermVariableIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             } => None,
-            EthTermSymbolIndexImpl::EphemOther { disambiguator } => None,
-            EthTermSymbolIndexImpl::SelfType => None,
-            EthTermSymbolIndexImpl::SelfValue => None,
-            EthTermSymbolIndexImpl::SelfLifetime => None,
-            EthTermSymbolIndexImpl::SelfPlace => None,
+            EthTermVariableIndexImpl::EphemOther { disambiguator } => None,
+            EthTermVariableIndexImpl::SelfType => None,
+            EthTermVariableIndexImpl::SelfValue => None,
+            EthTermVariableIndexImpl::SelfLifetime => None,
+            EthTermVariableIndexImpl::SelfPlace => None,
         }
     }
 }

@@ -44,7 +44,7 @@ pub struct Linket {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinketData {
-    MajorFunctionRitchie {
+    MajorRitchie {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
@@ -284,7 +284,7 @@ impl Linket {
     ) -> Self {
         Self::new(
             db,
-            LinketData::MajorFunctionRitchie {
+            LinketData::MajorRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -369,7 +369,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                                         |instantiation| {
                                             Linket::new(
                                                 db,
-                                                LinketData::MajorFunctionRitchie {
+                                                LinketData::MajorRitchie {
                                                     path,
                                                     instantiation,
                                                 },
@@ -384,7 +384,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                                 |instantiation| {
                                     Linket::new(
                                         db,
-                                        LinketData::MajorFunctionRitchie {
+                                        LinketData::MajorRitchie {
                                             path,
                                             instantiation,
                                         },
