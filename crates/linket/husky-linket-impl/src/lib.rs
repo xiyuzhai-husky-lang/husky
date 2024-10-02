@@ -29,9 +29,9 @@ pub type LinketImplVmControlFlowThawed<LinketImpl, C = LinketImplThawedValue<Lin
 pub type LinketImplVmControlFlowFrozen<LinketImpl, C = LinketImplFrozenValue<LinketImpl>> =
     VmControlFlow<C, LinketImplFrozenValue<LinketImpl>, LinketImplTrackedException<LinketImpl>>;
 
-pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
-    type FnOutput;
-
+pub trait IsFnKiLinketImplSource<LinketImpl: IsLinketImpl, FnPointer>:
+    IsFnVmLinketImplSource<LinketImpl, FnPointer>
+{
     fn into_fn_linket_impl(
         self,
         fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> LinketImplKiControlFlow<LinketImpl>,
@@ -45,6 +45,18 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
         self,
         arguments: &[KiArgumentReprInterface],
     ) -> LinketImplKiControlFlow<LinketImpl, Self::FnOutput>;
+}
+
+pub trait IsFnVmLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
+    type FnOutput;
+
+    fn into_fn_linket_impl_vm_only(
+        self,
+        fn_vm_wrapper: fn(
+            SmallVec<[VmArgumentValue<LinketImpl>; 4]>,
+        ) -> LinketImplVmControlFlow<LinketImpl>,
+        fn_pointer: FnPointer,
+    ) -> LinketImpl;
 
     fn fn_vm_wrapper_aux(
         self,
@@ -54,6 +66,23 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
 
 #[macro_export]
 macro_rules! fn_linket_impl {
+    (vm only $fn_item: expr) => {{
+        fn fn_vm_wrapper(arguments: __SmallVec<[__VmArgumentValue; 4]>) -> __VmControlFlow {
+            // todo: catch unwind
+            __VmControlFlow::Continue(
+                unsafe {
+                    FnLinketImplSource($fn_item)
+                        .fn_vm_wrapper_aux(arguments)?
+                        .into_thawed()
+                }
+                .into_thawed_value(),
+            )
+        }
+        // pass `$fn_item` two times
+        // - one time is to determine the parameter types and return type
+        // - the other time is to actually give the fn pointer with implicit coercion
+        FnLinketImplSource($fn_item).into_fn_linket_impl_vm_only(fn_vm_wrapper, $fn_item)
+    }};
     ($fn_item: expr) => {{
         fn fn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
@@ -88,18 +117,13 @@ macro_rules! impl_is_fn_linket_impl_source {
         [$($input:ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<F, $($input,)* $output> IsFnLinketImplSource<
-            LinketImpl,
-            fn($($input,)*) -> $output
-        > for FnLinketImplSource<F>
+        impl<F, $($input,)* $output> IsFnKiLinketImplSource<LinketImpl, fn($($input,)*) -> $output> for FnLinketImplSource<F>
         where
             LinketImpl: IsLinketImpl,
             F: Fn($($input,)*) -> $output,
             $($input: Send + FromValue + Boiled,)*
             $output: Send,
         {
-            type FnOutput = $output;
-
             fn into_fn_linket_impl(
                 self,
                 fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
@@ -107,7 +131,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinketImpl {
                 LinketImpl::RitchieFn {
-                    fn_ki_wrapper,
+                    fn_ki_wrapper: Some(fn_ki_wrapper),
                     fn_vm_wrapper,
                     fn_pointer: unsafe {
                         std::mem::transmute(fn_pointer)
@@ -149,6 +173,32 @@ macro_rules! impl_is_fn_linket_impl_source {
                         }}),*
                 )
             }
+        }
+
+        #[allow(non_snake_case, unused_mut)]
+        impl<F, $($input,)* $output> IsFnVmLinketImplSource<LinketImpl, fn($($input,)*) -> $output> for FnLinketImplSource<F>
+        where
+            LinketImpl: IsLinketImpl,
+            F: Fn($($input,)*) -> $output,
+            $($input: Send + Boiled,)*
+            $output: Send,
+        {
+            type FnOutput = $output;
+
+            fn into_fn_linket_impl_vm_only(
+                self,
+                fn_vm_wrapper: fn(SmallVec<[StandardVmArgumentValue; 4]>) -> StandardVmControlFlow,
+                fn_pointer: fn($($input,)*) -> $output
+            ) -> LinketImpl {
+                LinketImpl::RitchieFn {
+                    fn_ki_wrapper: None,
+                    fn_vm_wrapper,
+                    fn_pointer: unsafe {
+                        std::mem::transmute(fn_pointer)
+                    },
+                }
+            }
+
 
             fn fn_vm_wrapper_aux(
                 self,

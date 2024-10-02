@@ -81,6 +81,9 @@ impl TranspileToRustWith<()> for Linket {
                 ref instantiation,
             } => match path.kind(db).ritchie() {
                 RitchieItemKind::Fn => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
+                    if self.vm_only(db) {
+                        builder.vm_only()
+                    }
                     (path, instantiation).transpile_to_rust(builder)
                 }),
                 RitchieItemKind::Gn => builder.macro_call(RustMacroName::GnLinketImpl, |builder| {
@@ -282,6 +285,9 @@ impl TranspileToRustWith<()> for Linket {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
+                if self.vm_only(db) {
+                    builder.vm_only()
+                }
                 (path, instantiation).transpile_to_rust(builder)
             }),
             LinketData::UnveilAssocRitchie {

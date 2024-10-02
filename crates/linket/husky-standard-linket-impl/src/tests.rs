@@ -4,7 +4,7 @@ use husky_ki_repr_interface::ugly::__KiArgumentReprInterface;
 
 #[test]
 fn fn_linket_impl_works() {
-    use crate::IsFnLinketImplSource;
+    use crate::*;
     use husky_devsoul_interface::ugly::*;
 
     type __LinketImpl = StandardLinketImpl;
@@ -29,7 +29,7 @@ fn fn_linket_impl_works() {
 
 #[test]
 fn unveil_fn_linket_impl_works() {
-    use crate::{IsFnLinketImplSource, IsUnveilFnLinketImplSource};
+    use crate::*;
     use husky_devsoul_interface::ugly::*;
 
     type __LinketImpl = StandardLinketImpl;

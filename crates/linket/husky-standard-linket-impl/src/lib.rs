@@ -62,7 +62,7 @@ pub type StandardVmArgumentValues<'comptime> = VmArgumentValues<'comptime, Stand
 pub enum StandardLinketImpl {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
+        fn_ki_wrapper: Option<fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow>,
         fn_vm_wrapper: fn(SmallVec<[StandardVmArgumentValue; 4]>) -> StandardVmControlFlow,
         fn_pointer: fn(),
     },
@@ -150,7 +150,9 @@ impl IsLinketImpl for StandardLinketImpl {
         ctx: DevEvalContext<StandardLinketImpl>,
     ) -> StandardKiControlFlow {
         match self {
-            StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
+            StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => {
+                fn_ki_wrapper.unwrap()(ki_argument_reprs)
+            }
             StandardLinketImpl::RitchieUnveilFn { fn_ki_wrapper, .. } => {
                 fn_ki_wrapper(ki_argument_reprs)
             }
