@@ -93,6 +93,15 @@ pub struct HirContractedQuary {
     quary: HirQuary,
 }
 
+impl From<HirQuaryTemplateVariable> for HirContractedQuary {
+    fn from(variable: HirQuaryTemplateVariable) -> Self {
+        Self {
+            contract: None,
+            quary: variable.into(),
+        }
+    }
+}
+
 impl HirContractedQuary {
     pub fn new_contractless_transient() -> Self {
         Self {
