@@ -29,6 +29,10 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
             builder.write_str("::*")
         })
     }
+
+    pub(crate) fn vm_only(&mut self) {
+        self.result += "vm only "
+    }
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {

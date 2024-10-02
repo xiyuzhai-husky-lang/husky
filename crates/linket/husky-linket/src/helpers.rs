@@ -1,6 +1,9 @@
+mod vm_only;
+
 use crate::*;
 use husky_entity_path::{path::ItemPath, region::RegionPath};
 use husky_place::PlaceRegistry;
+use template_argument::{qual::LinQual, ty::LinType, LinTemplateArgument};
 
 impl Linket {
     pub fn path_and_instantiation_for_definition<'db>(
