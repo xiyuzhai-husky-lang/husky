@@ -91,4 +91,4 @@ def ordered_search_space(x):
     if len(x) == 1:
         return x
     y = sorted(x)
-    return [y[0], y[-1]] + y[1: -1]
+    return [y[-1]] + y[0: -1]
