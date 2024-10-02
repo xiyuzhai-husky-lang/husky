@@ -58,24 +58,18 @@ macro_rules! fn_linket_impl {
         fn fn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
-                FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                    std::marker::PhantomData,
-                    $fn_item,
-                )
-                .fn_ki_wrapper_aux(arguments)?
-                .into_value(),
+                FnLinketImplSource($fn_item)
+                    .fn_ki_wrapper_aux(arguments)?
+                    .into_value(),
             )
         }
         fn fn_vm_wrapper(arguments: __SmallVec<[__VmArgumentValue; 4]>) -> __VmControlFlow {
             // todo: catch unwind
             __VmControlFlow::Continue(
                 unsafe {
-                    FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                        std::marker::PhantomData,
-                        $fn_item,
-                    )
-                    .fn_vm_wrapper_aux(arguments)?
-                    .into_thawed()
+                    FnLinketImplSource($fn_item)
+                        .fn_vm_wrapper_aux(arguments)?
+                        .into_thawed()
                 }
                 .into_thawed_value(),
             )
@@ -83,8 +77,7 @@ macro_rules! fn_linket_impl {
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
         // - the other time is to actually give the fn pointer with implicit coercion
-        FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(std::marker::PhantomData, $fn_item)
-            .into_fn_linket_impl(fn_ki_wrapper, fn_vm_wrapper, $fn_item)
+        FnLinketImplSource($fn_item).into_fn_linket_impl(fn_ki_wrapper, fn_vm_wrapper, $fn_item)
     }};
 }
 
@@ -95,15 +88,12 @@ macro_rules! impl_is_fn_linket_impl_source {
         [$($input:ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<Pedestal, DevsoulInterface, F, $($input,)* $output> IsFnLinketImplSource<
+        impl<F, $($input,)* $output> IsFnLinketImplSource<
             LinketImpl,
             fn($($input,)*) -> $output
-        > for FnLinketImplSource<Pedestal, DevsoulInterface, F>
+        > for FnLinketImplSource<F>
         where
-            Pedestal: IsPedestalFull,
-            DevsoulInterface: IsDevsoulInterface<
-                LinketImpl = LinketImpl
-            >,
+            LinketImpl: IsLinketImpl,
             F: Fn($($input,)*) -> $output,
             $($input: Send + FromValue + Boiled,)*
             $output: Send,
@@ -129,13 +119,13 @@ macro_rules! impl_is_fn_linket_impl_source {
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardKiControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::dev_eval_context();
+                let ctx = LinketImpl::dev_eval_context();
                 #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
                 #[allow(unused_variables)]
                 let slush_values = &mut SlushValues::default();
                 ki_catch_unwind!(
-                    self.1,
+                    self.0,
                     $({
                         let argument = arguments.next().unwrap();
                         match *argument {
@@ -164,13 +154,13 @@ macro_rules! impl_is_fn_linket_impl_source {
                 self,
                 arguments: SmallVec<[VmArgumentValue<LinketImpl>;4]>,
             ) -> StandardVmControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::dev_eval_context();
+                let ctx = LinketImpl::dev_eval_context();
                 #[allow(unused_variables)]
                 let mut arguments = arguments.into_iter();
                 #[allow(unused_variables)]
                 let slush_values = &mut SlushValues::default();
                 vm_catch_unwind!(
-                    self.1,
+                    self.0,
                     $({
                         let argument = arguments.next().unwrap();
                         match argument  {

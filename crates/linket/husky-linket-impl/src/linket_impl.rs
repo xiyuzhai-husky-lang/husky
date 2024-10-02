@@ -20,6 +20,10 @@ pub trait IsLinketImpl: std::fmt::Debug + Eq + Send + Sync + Copy + 'static {
     type Value: IsValue<Exception = Self::Exception>;
     type Exception: IsException;
 
+    fn dev_eval_context() -> DevEvalContext<Self> {
+        todo!()
+    }
+
     /// assumed that pedestal has already been
     fn eval_ki(
         self,
