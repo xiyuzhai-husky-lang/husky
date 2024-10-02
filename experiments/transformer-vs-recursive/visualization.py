@@ -15,8 +15,8 @@ DATASETS = [
 exp_dir = "results"
 
 I1R = 40 * (10**4)
-I2L = 300 * (10**4)
-I2R = 310 * (10**4)
+I2L = 295 * (10**4)
+I2R = 330 * (10**4)
 
 RUNS = os.listdir(exp_dir)
 
@@ -85,7 +85,9 @@ for dataset in DATASETS:
     for metric in val_dict:
         fig = plt.figure(figsize=(6, 6))
         if "acc" in metric:
-            bax = brokenaxes(xlims=((0, I1R), (I2L, I2R)), ylims=((0, 0.05), (0.6, 1.05)), hspace=.05, fig=fig)
+            bax = brokenaxes(xlims=((0, I1R), (I2L, I2R)), width_ratios=[5, 1],
+                             ylims=((0, 0.05), (0.6, 1.05)),
+                             hspace=.05, fig=fig)
         else:
             bax = brokenaxes(fig=fig)
             bax.set_ylim(bottom=0)
