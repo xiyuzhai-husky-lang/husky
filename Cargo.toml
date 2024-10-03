@@ -35,7 +35,7 @@ members = [
     "registry/*",
     "playground/learn-rusqlite",
     "playground/egui/*",
-    "playground/try-py-ffi-in-rs",
+    "playground/try-py-ffi-in-rs", "crates/mayuri/husky-mayuri-prototype",
 ]
 resolver = "2"
 
@@ -235,12 +235,8 @@ husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
 husky-cybertron = { path = "crates/cybertron/husky-cybertron" }
 husky-cybertron-macros = { path = "crates/cybertron/husky-cybertron-macros" }
 # devsoul
-husky-standard-devsoul = { path = "crates/devsoul/husky-standard-devsoul" }
-husky-standard-devsoul-interface = { path = "crates/devsoul/husky-standard-devsoul-interface" }
-husky-standard-devsoul-interface-macros = { path = "crates/devsoul/husky-standard-devsoul-interface-macros" }
 husky-devsoul = { path = "crates/devsoul/husky-devsoul" }
-husky-devsoul-interface = { path = "crates/devsoul/husky-devsoul-interface" }
-husky-devsoul-interface-macros = { path = "crates/devsoul/husky-devsoul-interface-macros" }
+husky-standard-devsoul = { path = "crates/devsoul/husky-standard-devsoul" }
 # devtime
 husky-devtime = { path = "crates/devtime/husky-devtime" }
 husky-trace = { path = "crates/devtime/husky-trace" }
@@ -306,6 +302,7 @@ husky-linket = { path = "crates/linket/husky-linket" }
 husky-linket-impl = { path = "crates/linket/husky-linket-impl" }
 husky-any-linket-impls = { path = "crates/linket/husky-any-linket-impls" }
 husky-standard-linket-impl = { path = "crates/linket/husky-standard-linket-impl" }
+husky-standard-linket-impl-macros = { path = "crates/linket/husky-standard-linket-impl-macros" }
 husky-virtual-linket-impl = { path = "crates/linket/husky-virtual-linket-impl" }
 # linktime
 husky-linktime = { path = "crates/linktime/husky-linktime" }

@@ -935,7 +935,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2376,7 +2376,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -3151,7 +3151,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -3722,7 +3722,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),

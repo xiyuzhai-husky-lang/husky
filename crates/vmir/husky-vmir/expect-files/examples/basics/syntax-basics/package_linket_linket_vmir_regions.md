@@ -420,7 +420,7 @@
     ),
     (
         Linket {
-            data: LinketData::MajorFunctionRitchie {
+            data: LinketData::MajorRitchie {
                 path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                     Fn,
                 )`),
@@ -437,7 +437,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MajorFunctionRitchie {
+                    data: LinketData::MajorRitchie {
                         path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
@@ -495,7 +495,9 @@
                         VmirStmtData::Let {
                             pattern: VmirPattern {
                                 restructive_pattern: VmirRestructivePattern::Default(
-                                    None,
+                                    Some(
+                                        0,
+                                    ),
                                 ),
                                 destructive_pattern: None,
                             },
@@ -545,7 +547,7 @@
     ),
     (
         Linket {
-            data: LinketData::MajorFunctionRitchie {
+            data: LinketData::MajorRitchie {
                 path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                     Fn,
                 )`),
@@ -562,7 +564,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MajorFunctionRitchie {
+                    data: LinketData::MajorRitchie {
                         path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
@@ -599,7 +601,9 @@
                         VmirStmtData::Let {
                             pattern: VmirPattern {
                                 restructive_pattern: VmirRestructivePattern::Default(
-                                    None,
+                                    Some(
+                                        0,
+                                    ),
                                 ),
                                 destructive_pattern: None,
                             },
@@ -641,7 +645,7 @@
     ),
     (
         Linket {
-            data: LinketData::MajorFunctionRitchie {
+            data: LinketData::MajorRitchie {
                 path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                     Fn,
                 )`),
@@ -658,7 +662,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MajorFunctionRitchie {
+                    data: LinketData::MajorRitchie {
                         path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),
@@ -695,7 +699,9 @@
                         VmirStmtData::Let {
                             pattern: VmirPattern {
                                 restructive_pattern: VmirRestructivePattern::Default(
-                                    None,
+                                    Some(
+                                        0,
+                                    ),
                                 ),
                                 destructive_pattern: None,
                             },
