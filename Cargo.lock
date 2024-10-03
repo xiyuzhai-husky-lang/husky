@@ -6594,6 +6594,7 @@ dependencies = [
  "husky-visual-protocol",
  "husky-wild-utils",
  "ordered-float 4.2.2",
+ "paste",
  "salsa",
  "serde",
  "serde-impl",

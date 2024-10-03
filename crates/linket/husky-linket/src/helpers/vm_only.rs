@@ -256,7 +256,7 @@ fn template_argument_vm_only(arg: LinTemplateArgument, db: &salsa::Db) -> bool {
 
 fn qual_vm_only(qual: LinQual) -> bool {
     match qual {
-        LinQual::Ref => false,
+        LinQual::Ref => true,
         LinQual::Mut => true,
         LinQual::Transient => false,
     }
