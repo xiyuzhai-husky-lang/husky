@@ -1,26 +1,34 @@
-import wandb
 import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader
+from tqdm import tqdm
 
+
+import torch.nn.functional as F
+
+import pdb
+
+
+def distillation_loss(student_logits, teacher_logits, temperature=1.0):
+    return F.kl_div(F.log_softmax(student_logits / temperature, dim=1),
+                    F.softmax(teacher_logits / temperature, dim=1),
+                    reduction='sum') * (temperature ** 2)
 
 def train_model(
     model,
+    header,
     train_dataloader,
     val_dataloader,
     criterion,
     optimizer,
     num_epochs,
+    micro_batch_size,
     device,
     output_dims,
-    log_wandb=True,
-    model_name=None,
-    padding_value=-1,
+    logger,
     patience=5,
     min_delta=0.001,
+    scheduler=None,
+    teacher_model=None,
 ):
-    ast_dim, symbol_dim, error_dim = output_dims
     model.to(device)
 
     best_val_loss = float("inf")
@@ -30,151 +38,162 @@ def train_model(
     for epoch in range(num_epochs):
         # Training phase
         model.train()
-        train_loss, train_ast_acc, train_symbol_acc, train_error_acc = run_epoch(
-            model,
-            train_dataloader,
-            criterion,
-            optimizer,
-            device,
-            output_dims,
-            padding_value,
+        train_loss, train_accs = run_epoch(
+            epoch_idx=epoch,
+            model=model,
+            header=header,
+            dataloader=train_dataloader,
+            criterion=criterion,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            device=device,
+            output_dims=output_dims,
             is_training=True,
+            micro_batch_size=micro_batch_size,
+            logger=logger,
+            teacher_model=teacher_model,
         )
 
         # Validation phase
         model.eval()
-        val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
-            model,
-            val_dataloader,
-            criterion,
-            optimizer,
-            device,
-            output_dims,
-            padding_value,
+        val_loss, val_accs = run_epoch(
+            epoch_idx=epoch,
+            model=model,
+            header=header,
+            dataloader=val_dataloader,
+            criterion=criterion,
+            optimizer=optimizer,
+            device=device,
+            output_dims=output_dims,
             is_training=False,
+            micro_batch_size=micro_batch_size * 4,
         )
 
         # Early stopping check
-        if val_loss < best_val_loss - min_delta:
-            best_val_loss = val_loss
-            epochs_without_improvement = 0
-            best_model_state = model.state_dict()
-        else:
-            epochs_without_improvement += 1
+        # if val_loss < best_val_loss - min_delta:
+        #     best_val_loss = val_loss
+        #     epochs_without_improvement = 0
+        #     best_model_state = model.state_dict()
+        # else:
+        #     epochs_without_improvement += 1
 
-        if log_wandb:
-            wandb.log(
-                {
-                    f"{model_name}_train_loss": train_loss,
-                    f"{model_name}_train_ast_accuracy": train_ast_acc,
-                    f"{model_name}_train_symbol_accuracy": train_symbol_acc,
-                    f"{model_name}_train_error_accuracy": train_error_acc,
-                    f"{model_name}_val_loss": val_loss,
-                    f"{model_name}_val_ast_accuracy": val_ast_acc,
-                    f"{model_name}_val_symbol_accuracy": val_symbol_acc,
-                    f"{model_name}_val_error_accuracy": val_error_acc,
-                },
-                step=epoch,
-            )
+        logger.log(
+            {
+                f"val/loss": val_loss,
+                **{f"val/{k}_acc": v for k, v in val_accs.items()},
+                "train/step": (epoch + 1) * len(train_dataloader),
+            }
+        )
 
         print(
             f"Epoch [{epoch + 1}/{num_epochs}], "
             f"Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}, "
-            f"Train AST Acc: {train_ast_acc:.4f}, Val AST Acc: {val_ast_acc:.4f}, "
-            f"Train Symbol Acc: {train_symbol_acc:.4f}, Val Symbol Acc: {val_symbol_acc:.4f}, "
-            f"Train Error Acc: {train_error_acc:.4f}, Val Error Acc: {val_error_acc:.4f}"
         )
+        for k in val_accs:
+            print(f"Train {k} acc: {train_accs[k]:.4f}, Val {k} acc: {val_accs[k]:.4f}")
 
-        if epochs_without_improvement >= patience:
-            print(f"Early stopping triggered after {epoch + 1} epochs")
-            break
+        # if epochs_without_improvement >= patience:
+        #     print(f"Early stopping triggered after {epoch + 1} epochs")
+        #     break
 
     # Load the best model state
-    if best_model_state is not None:
-        model.load_state_dict(best_model_state)
-        print("Loaded best model state from early stopping")
+    # if best_model_state is not None:
+    #     model.load_state_dict(best_model_state)
+    #     print("Loaded best model state from early stopping")
 
     return model
 
-
 def run_epoch(
+    epoch_idx,
     model,
+    header,
     dataloader,
     criterion,
     optimizer,
     device,
     output_dims,
-    padding_value,
     is_training,
+    micro_batch_size,
+    scheduler=None,
+    logger=None,
+    teacher_model=None,
 ):
-    ast_dim, symbol_dim, error_dim = output_dims
     total_loss = 0.0
-    total_ast_acc = 0.0
-    total_symbol_acc = 0.0
-    total_error_acc = 0.0
+    accs = {k: 0.0 for k in header}
 
-    for batch_idx, (inputs, targets) in enumerate(dataloader):
-        inputs = inputs.to(device)
-        ast_targets, symbol_targets, error_targets = [t.to(device) for t in targets]
+    for batch_idx, (_inputs, _targets) in tqdm(enumerate(dataloader)):
+        current_iter = epoch_idx * len(dataloader) + batch_idx
+
+        _inputs = _inputs.to(device)
+        _targets = [t.to(device) for t in _targets]
 
         if is_training:
             optimizer.zero_grad()
 
         with torch.set_grad_enabled(is_training):
-            outputs = model(inputs)
-            ast_outputs = outputs[:, :, :ast_dim]
-            symbol_outputs = outputs[:, :, ast_dim : ast_dim + symbol_dim]
-            error_outputs = outputs[
-                :, :, ast_dim + symbol_dim : ast_dim + symbol_dim + error_dim
-            ]
+            combined_loss = 0.0
+            combined_accs = {k: 0.0 for k in header}
+            cnt = {k: 0 for k in header}
+            for i in range(0, _inputs.shape[0], micro_batch_size):
+                outputs = model(_inputs[i:i + micro_batch_size])
+                output_by_fields = list(outputs.split(output_dims, dim=-1))
+                for j in range(len(output_by_fields)):
+                    output_by_fields[j] = output_by_fields[j].reshape(-1, output_dims[j])
 
-            ast_outputs = ast_outputs.view(-1, ast_dim)
-            symbol_outputs = symbol_outputs.view(-1, symbol_dim)
-            error_outputs = error_outputs.view(-1, error_dim)
+                if teacher_model is not None:
+                    with torch.no_grad():
+                        teacher_logits = teacher_model(_inputs[i:i + micro_batch_size])
+                    
+                    teacher_logits_by_fields = list(teacher_logits.split(output_dims, dim=-1))
+                    for j in range(len(teacher_logits_by_fields)):
+                        teacher_logits_by_fields[j] = teacher_logits_by_fields[j].reshape(-1, output_dims[j])
+                else:
+                    teacher_logits_by_fields = [None] * len(output_by_fields)
 
-            ast_targets = ast_targets.view(-1)
-            symbol_targets = symbol_targets.view(-1)
-            error_targets = error_targets.view(-1)
+                target_by_fields = [t[i:i + micro_batch_size].view(-1) for t in _targets]
 
-            ast_mask = ast_targets != padding_value
-            symbol_mask = symbol_targets != padding_value
-            assert torch.all(
-                ast_mask == symbol_mask
-            ), "ast_mask and symbol_mask are not identical"
-            error_mask = error_targets != padding_value
-            assert torch.all(
-                ast_mask == error_mask
-            ), "ast_mask and error_mask are not identical"
+                micro_batch_loss = 0.0
+                for k, o, t, tl in zip(header, output_by_fields, target_by_fields, teacher_logits_by_fields):
+                    mask = t != 0
+                    
+                    combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
+                    _cnt = mask.sum()
+                    cnt[k] += _cnt
+                    
+                    micro_batch_loss += criterion(o, t) / _cnt
+                    if teacher_model is not None:
+                        micro_batch_loss += distillation_loss(o, tl) / _cnt
+                
+                micro_batch_loss /= (_inputs.shape[0] - 1) // micro_batch_size + 1
+                if is_training:
+                    micro_batch_loss.backward()
+                combined_loss += micro_batch_loss.detach()
 
-            ast_loss = criterion(ast_outputs[ast_mask], ast_targets[ast_mask])
-            symbol_loss = criterion(
-                symbol_outputs[symbol_mask], symbol_targets[symbol_mask]
-            )
-            error_loss = criterion(error_outputs[error_mask], error_targets[error_mask])
+            for k, v in combined_accs.items():
+                combined_accs[k] = v / cnt[k]
 
-            combined_loss = ast_loss + symbol_loss + error_loss
+            if logger is not None:
+                # must be training
+                logger.log(
+                    {
+                        f"train/loss": combined_loss.item(),
+                        **{f"train/{k}_acc": v.item() for k, v in combined_accs.items()},
+                        f"train/learning_rate": optimizer.param_groups[0]["lr"],
+                        "train/step": current_iter,
+                    }
+                )
 
             if is_training:
-                combined_loss.backward()
                 optimizer.step()
+                if scheduler is not None:
+                    scheduler.step()
 
         total_loss += combined_loss.item()
-
-        ast_acc = (ast_outputs.argmax(dim=1) == ast_targets)[ast_mask].float().mean()
-        symbol_acc = (
-            (symbol_outputs.argmax(dim=1) == symbol_targets)[symbol_mask].float().mean()
-        )
-        error_acc = (
-            (error_outputs.argmax(dim=1) == error_targets)[error_mask].float().mean()
-        )
-
-        total_ast_acc += ast_acc.item()
-        total_symbol_acc += symbol_acc.item()
-        total_error_acc += error_acc.item()
+        for k in accs:
+            accs[k] += combined_accs[k].item()
 
     avg_loss = total_loss / len(dataloader)
-    avg_ast_acc = total_ast_acc / len(dataloader)
-    avg_symbol_acc = total_symbol_acc / len(dataloader)
-    avg_error_acc = total_error_acc / len(dataloader)
-
-    return avg_loss, avg_ast_acc, avg_symbol_acc, avg_error_acc
+    for k in accs:
+        accs[k] /= len(dataloader)
+    
+    return avg_loss, accs
