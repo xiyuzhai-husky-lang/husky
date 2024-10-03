@@ -5797,6 +5797,10 @@ name = "husky-marker-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-mayuri-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-minimal-toml-utils"
 version = "0.1.0"
 dependencies = [
