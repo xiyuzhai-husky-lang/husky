@@ -411,6 +411,15 @@
         ],
     },
     PackageSummary {
+        name: "ui-macros",
+        relative_path: "crates/abstractions/ui-macros",
+        dependencies: [
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
         name: "var-deps-algebra",
         relative_path: "crates/abstractions/var-deps-algebra",
         dependencies: [
@@ -3803,6 +3812,11 @@
             "smallvec",
             "version-stamp",
         ],
+    },
+    PackageSummary {
+        name: "husky-mayuri-prototype",
+        relative_path: "crates/mayuri/husky-mayuri-prototype",
+        dependencies: [],
     },
     PackageSummary {
         name: "husky-mir",
