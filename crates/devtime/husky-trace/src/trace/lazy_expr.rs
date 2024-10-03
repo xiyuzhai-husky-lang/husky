@@ -235,6 +235,9 @@ impl LazyExprTraceData {
     }
 
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        use ::husky_print_utils::p;
+        use ::salsa::DebugWithDb;
+        p!(trace.view_data(db));
         self.var_deps_expansion(db)
             .expr_control_flow_var_deps(self.sem_expr_idx, db)
             .clone()
