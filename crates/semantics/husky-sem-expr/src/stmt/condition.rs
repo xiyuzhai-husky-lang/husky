@@ -8,6 +8,7 @@ pub enum SemCondition {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
     Be {
+        expr: SemExprIdx,
         src: SemExprIdx,
         contract: Contract,
         be_regional_token_idx: RegionalTokenIdx,

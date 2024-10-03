@@ -5,6 +5,7 @@ mod primitive;
 mod r#ref;
 mod ritchie;
 mod str;
+mod tuple;
 mod vec;
 
 use husky_decl_macro_utils::{for_all_primitive_tys, for_all_ritchie_tys};
@@ -26,6 +27,8 @@ pub trait Boiled {
     unsafe fn from_thawed(thawed: Self::Thawed) -> Self
     where
         Self: Sized;
+
+    unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self;
 
     /// should call `std::mem::transmute` under the hood
     unsafe fn into_thawed(self) -> Self::Thawed

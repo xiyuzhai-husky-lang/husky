@@ -16,6 +16,46 @@ macro_rules! impl_thawed_for_primitive_ty {
             fn freeze(&self) -> Self::Frozen {
                 *self
             }
+
+            fn add_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).add_assign(other)
+            }
+
+            fn sub_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).sub_assign(other)
+            }
+
+            fn mul_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).mul_assign(other)
+            }
+
+            fn div_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).div_assign(other)
+            }
+
+            fn rem_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).rem_assign(other)
+            }
+
+            fn bitand_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).bitand_assign(other)
+            }
+
+            fn bitor_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).bitor_assign(other)
+            }
+
+            fn bitxor_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).bitxor_assign(other)
+            }
+
+            fn shl_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).shl_assign(other)
+            }
+
+            fn shr_assign_thawed_value(&mut self, other: ThawedValue) {
+                ThawedWrapper(self).shr_assign(other)
+            }
         }
     };
 }

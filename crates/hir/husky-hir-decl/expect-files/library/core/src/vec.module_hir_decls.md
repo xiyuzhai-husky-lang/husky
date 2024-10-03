@@ -504,10 +504,13 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::mem::At`, `Extern`),
                                             template_arguments: [
-                                                HirTemplateArgument::Type(
-                                                    HirType::Variable(
-                                                        HirTypeTemplateVariable::SelfPlace,
-                                                    ),
+                                                HirTemplateArgument::ContractedQuary(
+                                                    HirContractedQuary {
+                                                        contract: None,
+                                                        quary: Variable(
+                                                            SelfPlace,
+                                                        ),
+                                                    },
                                                 ),
                                                 HirTemplateArgument::Type(
                                                     HirType::Variable(
@@ -637,10 +640,13 @@
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::mem::At`, `Extern`),
                                             template_arguments: [
-                                                HirTemplateArgument::Type(
-                                                    HirType::Variable(
-                                                        HirTypeTemplateVariable::SelfPlace,
-                                                    ),
+                                                HirTemplateArgument::ContractedQuary(
+                                                    HirContractedQuary {
+                                                        contract: None,
+                                                        quary: Variable(
+                                                            SelfPlace,
+                                                        ),
+                                                    },
                                                 ),
                                                 HirTemplateArgument::Type(
                                                     HirType::Variable(

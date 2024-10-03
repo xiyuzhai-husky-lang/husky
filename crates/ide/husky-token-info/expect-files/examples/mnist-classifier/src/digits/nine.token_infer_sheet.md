@@ -212,7 +212,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::nine_match`),
+                        ),
+                        SemExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListLbox,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -265,7 +282,24 @@ Ok(
                     ),
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::nine_match`),
+                        ),
+                        SemExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListRbox,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -469,7 +503,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
+                        ),
+                        SemExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListLbox,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -522,7 +573,24 @@ Ok(
                     ),
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
+                        ),
+                        SemExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListRbox,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -913,7 +981,24 @@ Ok(
                     data: TokenInfoData::IndexColon,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::BeKeyword,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1103,7 +1188,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            27,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            12,
+                        ),
+                    ),
+                    data: TokenInfoData::BeKeyword,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1323,7 +1425,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            49,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            21,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1414,7 +1533,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            55,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            24,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1531,7 +1667,24 @@ Ok(
                     data: TokenInfoData::IndexColon,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            64,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            29,
+                        ),
+                    ),
+                    data: TokenInfoData::BeKeyword,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1622,7 +1775,24 @@ Ok(
             ],
             [],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            73,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            33,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1809,7 +1979,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            86,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            39,
+                        ),
+                    ),
+                    data: TokenInfoData::BeKeyword,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1900,7 +2087,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            95,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2008,7 +2212,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            103,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            48,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2242,7 +2463,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            118,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            54,
+                        ),
+                    ),
+                    data: TokenInfoData::BeKeyword,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2350,7 +2588,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            132,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            60,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2431,7 +2686,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            139,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            66,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -2517,7 +2789,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            146,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            70,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2670,7 +2959,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            159,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            76,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2714,7 +3020,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            163,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            79,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3160,7 +3483,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::downmost`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3514,7 +3854,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::big_cc`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3598,7 +3955,24 @@ Ok(
             ],
             [],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::big_cc`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(

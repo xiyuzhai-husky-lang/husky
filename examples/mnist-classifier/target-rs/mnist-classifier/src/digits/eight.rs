@@ -1,5 +1,5 @@
 use super::*;
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __upper_mouth_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -12,7 +12,7 @@ pub static mut __upper_mouth_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdI
 pub fn upper_mouth_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![big_mouth])
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __is_eight__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -31,7 +31,7 @@ pub fn is_eight() -> malamute::OneVsAll {
     }
     OneVsAll::Yes
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __big_mouth__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

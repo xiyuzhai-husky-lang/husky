@@ -3,6 +3,10 @@ use husky_hir_ty::{
     ritchie::HirContract,
 };
 
+use crate::LinInstantiation;
+
+use super::LinTermVariableResolution;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LinQual {
     Ref,
@@ -14,7 +18,10 @@ impl LinQual {
     pub const ALL: &'static [Self] = &[LinQual::Ref, LinQual::Mut, LinQual::Transient];
 
     // ad hoc
-    pub fn from_hir_contracted_quary(contracted_quary: HirContractedQuary) -> Self {
+    pub fn from_hir_contracted_quary(
+        contracted_quary: HirContractedQuary,
+        instantiation: &LinInstantiation,
+    ) -> Self {
         match contracted_quary.quary() {
             HirQuary::Compterm => todo!(),
             HirQuary::StackPure { .. }
@@ -36,7 +43,11 @@ impl LinQual {
             HirQuary::RefMut { place, lifetime } => todo!(),
             HirQuary::Leashed { place_idx } => LinQual::Ref,
             HirQuary::Todo => todo!(),
-            HirQuary::Variable(_) => todo!(),
+            HirQuary::Variable(variable) => match instantiation.resolve(variable.into()) {
+                LinTermVariableResolution::Explicit(lin_template_argument) => todo!(),
+                LinTermVariableResolution::SelfLifetime => todo!(),
+                LinTermVariableResolution::SelfQual(qual) => qual,
+            },
         }
     }
 

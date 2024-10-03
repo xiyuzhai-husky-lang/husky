@@ -113,7 +113,9 @@
                                                 ),
                                             },
                                             return_ty: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -415,7 +417,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -425,7 +429,9 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -572,7 +578,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
@@ -596,7 +602,7 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -963,7 +969,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -1364,7 +1372,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -1374,7 +1384,9 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -1598,7 +1610,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -1608,7 +1622,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -1632,7 +1648,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -1642,7 +1660,9 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -1677,7 +1697,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -1687,7 +1709,9 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -2001,7 +2025,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -2011,7 +2037,9 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -2235,7 +2263,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -2245,7 +2275,9 @@
                                 (
                                     25,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -2269,7 +2301,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -2279,7 +2313,9 @@
                                 (
                                     26,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -2314,7 +2350,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -2324,7 +2362,9 @@
                                 (
                                     27,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -2951,7 +2991,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -2961,7 +3003,9 @@
                                 (
                                     41,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -3185,7 +3229,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -3195,7 +3241,9 @@
                                 (
                                     46,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -3219,7 +3267,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -3229,7 +3279,9 @@
                                 (
                                     47,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -3264,7 +3316,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -3274,7 +3328,9 @@
                                 (
                                     48,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -3628,11 +3684,13 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -3652,7 +3710,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -3670,13 +3730,15 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -3698,7 +3760,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -4250,7 +4314,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -4338,7 +4404,9 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`r32`),
                                             ),
@@ -4387,7 +4455,9 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`r32`),
                                             ),
@@ -4456,7 +4526,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -4501,7 +4573,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -4532,7 +4606,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -4798,7 +4874,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -4886,7 +4964,9 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`r32`),
                                             ),
@@ -4935,7 +5015,9 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`r32`),
                                             ),
@@ -5004,7 +5086,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -5049,7 +5133,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -5080,7 +5166,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -5611,7 +5699,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -5699,7 +5789,9 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`r32`),
                                             ),
@@ -5748,7 +5840,9 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`r32`),
                                             ),
@@ -5817,7 +5911,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -5862,7 +5958,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -5903,7 +6001,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -6245,7 +6345,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec ConnectedComponent`),
                                     ),
@@ -6255,7 +6357,9 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec ConnectedComponent`),
                                         ),
@@ -6369,7 +6473,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`BinaryImage28`),
                                                     ),
@@ -6420,7 +6526,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`BinaryImage28`),
                                     ),
@@ -6430,7 +6538,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BinaryImage28`),
                                         ),
@@ -6988,7 +7098,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -7027,7 +7139,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -7037,7 +7151,9 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -7075,7 +7191,9 @@
                                                 ),
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: Eth(
                                                         ItemPath(
                                                             TypeOntology(
@@ -7187,7 +7305,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`BinaryImage28`),
                                     ),
@@ -7197,7 +7317,9 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BinaryImage28`),
                                         ),
@@ -7687,7 +7809,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -7697,7 +7821,9 @@
                                 (
                                     26,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -9129,7 +9255,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -9139,7 +9267,9 @@
                                 (
                                     54,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -9174,7 +9304,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -9184,7 +9316,9 @@
                                 (
                                     55,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -10803,7 +10937,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -10813,7 +10949,9 @@
                                 (
                                     86,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -10848,7 +10986,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`r32`),
                                     ),
@@ -10858,7 +10998,9 @@
                                 (
                                     87,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -12204,7 +12346,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConnectedComponent`),
                                     ),
@@ -12214,7 +12358,9 @@
                                 (
                                     114,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConnectedComponent`),
                                         ),
@@ -12295,7 +12441,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`unit`),
                                                     ),
@@ -12377,7 +12525,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -12387,7 +12537,9 @@
                                 (
                                     115,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -13311,7 +13463,7 @@
                                             186,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             189,
                                         ),
@@ -13537,7 +13689,7 @@
                                             20,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             21,
                                         ),
@@ -13636,11 +13788,13 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 Application(
                                     EthApplication(
@@ -13656,7 +13810,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -13702,7 +13858,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -13722,7 +13880,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -13808,7 +13968,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -13854,7 +14016,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -13872,13 +14036,15 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         Application(
                                             EthApplication(
@@ -13896,7 +14062,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -13946,7 +14114,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -13968,7 +14138,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -14062,7 +14234,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -14112,7 +14286,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -14759,7 +14935,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec ConnectedComponent`),
                                         ),
@@ -14821,7 +14999,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BinaryImage28`),
                                         ),
@@ -15159,7 +15339,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -15196,7 +15378,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`BinaryImage28`),
                                                         ),
@@ -15224,7 +15408,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BinaryImage28`),
                                         ),
@@ -15356,7 +15542,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`r32`),
                                                         ),
@@ -15588,7 +15776,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -16273,7 +16463,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`r32`),
                                                         ),
@@ -16648,7 +16840,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -16679,7 +16873,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -17491,7 +17687,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`r32`),
                                                         ),
@@ -17866,7 +18064,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -17897,7 +18097,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`r32`),
                                         ),
@@ -18872,7 +19074,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ConnectedComponent`),
                                                         ),
@@ -18969,7 +19173,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConnectedComponent`),
                                         ),
@@ -19008,7 +19214,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -19336,7 +19544,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Visual`),
                                                     ),
@@ -19375,7 +19585,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Visual`),
                                     ),
@@ -19385,7 +19597,9 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Visual`),
                                         ),
@@ -19472,8 +19686,8 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_ty_infos: [],
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [],
             },
             sem_expr_terms: [],
@@ -19579,7 +19793,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Visual`),
                                         ),
@@ -19825,7 +20041,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec RawContour`),
                                     ),
@@ -19835,7 +20053,9 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec RawContour`),
                                         ),
@@ -19922,8 +20142,8 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_ty_infos: [],
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [],
             },
             sem_expr_terms: [],
@@ -19971,7 +20191,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vec RawContour`),
                                                         ),
@@ -20068,7 +20290,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec RawContour`),
                                         ),
@@ -20272,7 +20496,9 @@
                                                 ),
                                             },
                                             return_ty: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Vec RawContour`),
                                                 ),
@@ -20387,7 +20613,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vec Leash RawContour`),
                                                     ),
@@ -20436,7 +20664,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec Leash RawContour`),
                                     ),
@@ -20446,7 +20676,9 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec Leash RawContour`),
                                         ),
@@ -20633,7 +20865,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash RawContour`),
                                     ),
@@ -20643,7 +20877,9 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash RawContour`),
                                         ),
@@ -20816,7 +21052,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash RawContour`),
                                                     ),
@@ -20898,7 +21136,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash RawContour`),
                                     ),
@@ -20908,7 +21148,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash RawContour`),
                                         ),
@@ -21126,7 +21368,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash RawContour`),
                                                     ),
@@ -21208,7 +21452,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash RawContour`),
                                     ),
@@ -21218,7 +21464,9 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash RawContour`),
                                         ),
@@ -21299,7 +21547,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`unit`),
                                                     ),
@@ -21381,7 +21631,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21391,7 +21643,9 @@
                                 (
                                     16,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -21609,7 +21863,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash RawContour`),
                                                     ),
@@ -21691,7 +21947,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash RawContour`),
                                     ),
@@ -21701,7 +21959,9 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash RawContour`),
                                         ),
@@ -21782,7 +22042,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`unit`),
                                                     ),
@@ -21864,7 +22126,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21874,7 +22138,9 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -22024,7 +22290,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`EffHoles`),
                                     ),
@@ -22034,7 +22302,9 @@
                                 (
                                     24,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`EffHoles`),
                                         ),
@@ -22306,11 +22576,13 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 Application(
                                     EthApplication(
@@ -22326,7 +22598,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 Application(
                                     EthApplication(
@@ -22340,13 +22614,15 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         Application(
                                             EthApplication(
@@ -22364,7 +22640,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         Application(
                                             EthApplication(
@@ -22566,7 +22844,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec Leash RawContour`),
                                         ),
@@ -22764,7 +23044,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash RawContour`),
                                         ),
@@ -22865,7 +23147,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash RawContour`),
                                         ),
@@ -22999,7 +23283,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash RawContour`),
                                         ),
@@ -23038,7 +23324,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -23178,7 +23466,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash RawContour`),
                                         ),
@@ -23217,7 +23507,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -23260,7 +23552,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`EffHoles`),
                                                         ),
@@ -23357,7 +23651,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`EffHoles`),
                                         ),
@@ -23606,7 +23902,9 @@
                                                 ),
                                             },
                                             return_ty: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Vec RawContour`),
                                                 ),
@@ -23811,7 +24109,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -23860,7 +24160,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -23870,7 +24172,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -24231,7 +24535,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -24280,7 +24586,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -24290,7 +24598,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -24928,7 +25238,7 @@
                                             12,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             15,
                                         ),
@@ -25027,7 +25337,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
@@ -25063,7 +25373,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Transient,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -25081,7 +25393,7 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -25123,7 +25435,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -25309,7 +25623,9 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -25318,7 +25634,9 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -25514,7 +25832,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -25726,7 +26046,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -26773,7 +27095,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -26810,7 +27134,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -26820,7 +27146,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -26901,7 +27229,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -26967,7 +27297,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -26977,7 +27309,9 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -27279,7 +27613,7 @@
                                             8,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             11,
                                         ),
@@ -27378,11 +27712,13 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            quary: None,
+                            quary: Some(
+                                Compterm,
+                            ),
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -27400,13 +27736,15 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Compterm,
+                                    ),
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -27983,7 +28321,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -28024,7 +28364,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -28802,7 +29144,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -28839,7 +29183,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -28849,7 +29195,9 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -29139,7 +29487,7 @@
                                             6,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),
@@ -29238,7 +29586,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
@@ -29254,7 +29602,7 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -29384,7 +29732,9 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -29393,7 +29743,9 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -29785,7 +30137,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -31925,7 +32279,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -31962,7 +32318,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -31972,7 +32330,9 @@
                                 (
                                     34,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -32677,7 +33037,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -32714,7 +33076,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -32724,7 +33088,9 @@
                                 (
                                     47,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -33176,7 +33542,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConnectedComponentDistribution`),
                                     ),
@@ -33186,7 +33554,9 @@
                                 (
                                     54,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConnectedComponentDistribution`),
                                         ),
@@ -33709,7 +34079,7 @@
                                             59,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             62,
                                         ),
@@ -33810,7 +34180,7 @@
                                             85,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             88,
                                         ),
@@ -33909,7 +34279,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
@@ -34007,7 +34377,7 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -34393,7 +34763,9 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -34402,7 +34774,9 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -34422,7 +34796,9 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -34431,7 +34807,9 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -35742,7 +36120,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -36258,7 +36638,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -36340,7 +36722,9 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        quary: None,
+                                                        quary: Some(
+                                                            Transient,
+                                                        ),
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ConnectedComponentDistribution`),
                                                         ),
@@ -36625,7 +37009,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConnectedComponentDistribution`),
                                         ),
@@ -36850,7 +37236,9 @@
                                                 ),
                                             },
                                             return_ty: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`ConnectedComponentDistribution`),
                                                 ),
@@ -37108,8 +37496,8 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_ty_infos: [],
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [],
             },
             sem_expr_terms: [
@@ -37515,7 +37903,9 @@
                                                 ),
                                             },
                                             return_ty: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`ConnectedComponentDistribution`),
                                                 ),
@@ -37773,8 +38163,8 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_ty_infos: [],
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [],
             },
             sem_expr_terms: [
@@ -38801,7 +39191,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -38811,7 +39203,9 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -39240,7 +39634,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -39279,7 +39675,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -39289,7 +39687,9 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -39753,7 +40153,7 @@
                                             29,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             32,
                                         ),
@@ -39852,7 +40252,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
@@ -39882,7 +40282,7 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -40072,7 +40472,9 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -40081,7 +40483,9 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -40671,7 +41075,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -40936,7 +41342,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -41925,7 +42333,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -41935,7 +42345,9 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -42364,7 +42776,9 @@
                                                     ),
                                                 },
                                                 return_ty: FlyTerm {
-                                                    quary: None,
+                                                    quary: Some(
+                                                        Transient,
+                                                    ),
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -42403,7 +42817,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -42413,7 +42829,9 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -42877,7 +43295,7 @@
                                             29,
                                         ),
                                     },
-                                    particulars: SemaForBetweenParticulars {
+                                    particulars: SemForBetweenParticulars {
                                         for_between_loop_var_regional_token_idx: RegionalTokenIdx(
                                             32,
                                         ),
@@ -42976,7 +43394,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [
+            syn_pattern_ty_infos: [
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
@@ -43006,7 +43424,7 @@
                     ),
                 },
             ],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [
                     Some(
                         PatternSymbolTypeInfo {
@@ -43196,7 +43614,9 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            quary: None,
+                                            quary: Some(
+                                                Transient,
+                                            ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -43205,7 +43625,9 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                quary: None,
+                                                quary: Some(
+                                                    Transient,
+                                                ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -43795,7 +44217,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -44060,7 +44484,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),

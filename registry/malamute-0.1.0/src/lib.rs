@@ -38,6 +38,11 @@ where
     {
         todo!()
     }
+
+    #[inline]
+    unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self {
+        std::mem::transmute(thawed_ref)
+    }
 }
 impl<Label> __Thawed for Class<Label>
 where
