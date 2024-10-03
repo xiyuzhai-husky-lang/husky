@@ -1,3 +1,5 @@
+pub mod slice;
+
 use super::*;
 use frozen::r#ref::FrozenRef;
 
