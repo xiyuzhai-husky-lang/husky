@@ -4,9 +4,15 @@ use super::*;
 use frozen::r#ref::FrozenRef;
 
 #[derive(Debug)]
-pub struct ThawedRef<T>(*const T)
-where
-    T: Thawed;
+pub struct ThawedRef<T>(*const T);
+
+impl<T> std::ops::Deref for ThawedRef<T> {
+    type Target = *const T;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 
 impl<T> Thawed for ThawedRef<T>
 where
@@ -31,9 +37,8 @@ impl<T> FromThawedValue for ThawedRef<T>
 where
     T: Thawed,
 {
-    #[doc = r" `slush_values` is needed for keeping memory valid when coersing owned ty into ref or ref mut"]
     fn from_thawed_value_aux(value: ThawedValue, slush_values: Option<&mut SlushValues>) -> Self {
-        todo!()
+        ThawedRef(value.into_ref(slush_values))
     }
 }
 

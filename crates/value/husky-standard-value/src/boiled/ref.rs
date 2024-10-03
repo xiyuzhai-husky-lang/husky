@@ -21,6 +21,10 @@ where
     where
         Self: Sized,
     {
-        todo!()
+        T::from_thawed_ref(&**thawed)
+    }
+
+    unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self {
+        std::mem::transmute(thawed_ref)
     }
 }
