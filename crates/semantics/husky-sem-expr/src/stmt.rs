@@ -613,23 +613,23 @@ impl<'a> SemExprBuilder<'a> {
         }
     }
 
-    pub(crate) fn build_sem_condition(&mut self, syn_expr_idx: SynExprIdx) -> SemCondition {
-        let (sem_expr_idx, outcome) =
-            self.build_expr_with_outcome(syn_expr_idx, ExpectConditionType);
-        match *sem_expr_idx.data(self.sem_expr_arena().arena_ref()) {
+    pub(crate) fn build_sem_condition(&mut self, expr: SynExprIdx) -> SemCondition {
+        let (expr, outcome) = self.build_expr_with_outcome(expr, ExpectConditionType);
+        match *expr.data(self.sem_expr_arena().arena_ref()) {
             SemExprData::Be {
                 src,
                 contract,
                 be_regional_token_idx,
                 target,
             } => SemCondition::Be {
+                expr,
                 src,
                 contract,
                 be_regional_token_idx,
                 target,
             },
             _ => SemCondition::Other {
-                expr: sem_expr_idx,
+                expr,
                 conversion: match outcome {
                     Some(ExpectConditionTypeOutcome { conversion }) => conversion,
                     None => todo!(),

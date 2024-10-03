@@ -5019,6 +5019,9 @@
                                         ),
                                     },
                                     condition: Be {
+                                        expr: SemExprIdx(
+                                            21,
+                                        ),
                                         src: SemExprIdx(
                                             20,
                                         ),
@@ -5080,6 +5083,9 @@
                                         ),
                                     },
                                     condition: Be {
+                                        expr: SemExprIdx(
+                                            28,
+                                        ),
                                         src: SemExprIdx(
                                             27,
                                         ),
