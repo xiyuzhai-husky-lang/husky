@@ -18,7 +18,6 @@ serde-impl = { workspace = true, features = ["json"] }
 husky-dev-comptime.workspace = true
 # devsoul
 husky-devsoul.workspace = true
-husky-devsoul-interface.workspace = true
 # devtime
 husky-trace.workspace = true
 # fs

@@ -1,5 +1,6 @@
 use husky_linket_impl::{
-    eval_context::IsDevRuntimeInterface, linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed,
+    dev_eval_context::IsDevRuntimeInterface, linket_impl::IsLinketImpl,
+    LinketImplVmControlFlowThawed,
 };
 use husky_linktime::IsLinktime;
 

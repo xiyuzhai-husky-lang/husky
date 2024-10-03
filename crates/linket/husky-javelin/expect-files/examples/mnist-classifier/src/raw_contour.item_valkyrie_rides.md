@@ -280,8 +280,8 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfPlace,
+                                    HirTemplateVariable::Quary(
+                                        SelfPlace,
                                     ),
                                     HirTermSymbolicVariableResolution::SelfContractedQuary(
                                         HirContractedQuary {
@@ -340,8 +340,8 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfLifetime,
+                                    HirTemplateVariable::Lifetime(
+                                        SelfLifetime,
                                     ),
                                     HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),
@@ -389,8 +389,8 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfLifetime,
+                                    HirTemplateVariable::Lifetime(
+                                        SelfLifetime,
                                     ),
                                     HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),
@@ -438,8 +438,8 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfLifetime,
+                                    HirTemplateVariable::Lifetime(
+                                        SelfLifetime,
                                     ),
                                     HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),

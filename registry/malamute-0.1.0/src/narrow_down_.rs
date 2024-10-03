@@ -2,7 +2,7 @@ mod flag;
 
 use self::flag::*;
 use crate::*;
-use ml_task::IsMlTask;
+use ml_task::{label::IsLabel, IsMlTask};
 use smallvec::SmallVec;
 
 #[allow(warnings, non_camel_case_types)]

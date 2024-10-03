@@ -229,8 +229,8 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfLifetime,
+                                    HirTemplateVariable::Lifetime(
+                                        SelfLifetime,
                                     ),
                                     HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),
@@ -298,8 +298,8 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfLifetime,
+                                    HirTemplateVariable::Lifetime(
+                                        SelfLifetime,
                                     ),
                                     HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),
