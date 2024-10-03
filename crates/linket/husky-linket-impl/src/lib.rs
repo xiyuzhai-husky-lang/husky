@@ -1,6 +1,6 @@
 #![feature(downcast_unchecked)]
 #![feature(trait_upcasting)]
-pub mod eval_context;
+pub mod dev_eval_context;
 pub mod exception;
 pub mod linket_impl;
 pub mod linket_impls;
@@ -13,7 +13,7 @@ pub mod var_id;
 use crate::linket_impl::LinketImplTrackedException;
 use crate::linket_impl::LinketImplVmControlFlow;
 use crate::pedestal::IsPedestalFull;
-use eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn};
+use dev_eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiArgumentReprInterface;
 use husky_value::vm_control_flow::VmControlFlow;
@@ -277,24 +277,18 @@ macro_rules! unveil_fn_linket_impl {
         fn fn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
-                UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                    std::marker::PhantomData,
-                    $fn_item,
-                )
-                .unveil_fn_ki_wrapper_aux(arguments)?
-                .into_value(),
+                UnveilFnLinketImplSource($fn_item)
+                    .unveil_fn_ki_wrapper_aux(arguments)?
+                    .into_value(),
             )
         }
         fn fn_vm_wrapper(arguments: [__VmArgumentValue; 2]) -> __VmControlFlow {
             // todo: catch unwind
             __VmControlFlow::Continue(
                 unsafe {
-                    UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                        std::marker::PhantomData,
-                        $fn_item,
-                    )
-                    .unveil_fn_vm_wrapper_aux(arguments)?
-                    .into_thawed()
+                    UnveilFnLinketImplSource($fn_item)
+                        .unveil_fn_vm_wrapper_aux(arguments)?
+                        .into_thawed()
                 }
                 .into_thawed_value(),
             )
@@ -302,11 +296,11 @@ macro_rules! unveil_fn_linket_impl {
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
         // - the other time is to actually give the fn pointer with implicit coercion
-        UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-            std::marker::PhantomData,
+        UnveilFnLinketImplSource($fn_item).into_unveil_linket_impl(
+            fn_ki_wrapper,
+            fn_vm_wrapper,
             $fn_item,
         )
-        .into_unveil_linket_impl(fn_ki_wrapper, fn_vm_wrapper, $fn_item)
     }};
 }
 
@@ -317,14 +311,12 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
         [$($runtime_constant: ident),*], $output:ident
     ) => {
         #[allow(non_snake_case, unused_mut)]
-        impl<Pedestal, DevsoulInterface, F, B, Target, $($runtime_constant,)* $output> IsUnveilFnLinketImplSource<
+        impl<F, B, Target, $($runtime_constant,)* $output> IsUnveilFnLinketImplSource<
             LinketImpl,
             Target,
             fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>
-        > for UnveilFnLinketImplSource<Pedestal, DevsoulInterface, F>
+        > for UnveilFnLinketImplSource<F>
         where
-            Pedestal: IsPedestalFull,
-            DevsoulInterface: IsDevsoulInterface<LinketImpl = LinketImpl>,
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             B: IntoValue + IntoThawedValue,
             Target: Send + FromValue + FromThawedValue,
@@ -356,7 +348,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardKiControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::dev_eval_context();
+                let ctx = LinketImpl::dev_eval_context();
                 debug_assert_eq!(arguments.len(), 2);
                 let KiArgumentReprInterface::Simple(target) = arguments[0] else {
                     unreachable!("expect ordinary argument")
@@ -369,7 +361,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 let slush_values = &mut SlushValues::default();
                 let mut runtime_constants = runtime_constants.iter();
                 ki_catch_unwind2!(
-                    self.1,
+                    self.0,
                     |cf| match cf {
                         std::ops::ControlFlow::Continue(c) => KiControlFlow::Continue(c),
                         std::ops::ControlFlow::Break(b) => KiControlFlow::Return(b.into_value()),
@@ -391,7 +383,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 self,
                 arguments: [VmArgumentValue<LinketImpl>;2],
             ) -> StandardVmControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::dev_eval_context();
+                let ctx = LinketImpl::dev_eval_context();
                 let [arg0,arg1] =arguments;
                 let VmArgumentValue::Simple(target) = arg0 else {
                     unreachable!("expect ordinary argument")
@@ -404,7 +396,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 let slush_values = &mut SlushValues::default();
                 let mut runtime_constants = runtime_constants.into_iter();
                 vm_catch_unwind2!(
-                    self.1,
+                    self.0,
                     |cf| match cf {
                         std::ops::ControlFlow::Continue(c) => VmControlFlow::Continue(c),
                         std::ops::ControlFlow::Break(b) => VmControlFlow::Return(b.into_thawed_value()),

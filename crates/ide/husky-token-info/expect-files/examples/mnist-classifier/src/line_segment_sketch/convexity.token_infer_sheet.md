@@ -551,7 +551,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -700,7 +717,24 @@ Ok(
                     data: TokenInfoData::IndexColon,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -725,7 +759,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -744,8 +795,42 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            17,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -927,7 +1012,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            25,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1076,7 +1178,24 @@ Ok(
                     data: TokenInfoData::IndexColon,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            72,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            33,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1101,7 +1220,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            74,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            32,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1120,8 +1256,42 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            76,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            33,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            77,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            35,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1483,7 +1653,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            115,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            55,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1751,7 +1938,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            141,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            62,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2113,7 +2317,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            179,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            82,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2253,7 +2474,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            193,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            85,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2305,7 +2543,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            199,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            88,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(

@@ -16,7 +16,7 @@ enum-class.workspace = true
 notify-change = { path = "../../abstractions/notify-change" }
 ui.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 # kernel
 husky-devsoul.workspace = true
 # gui

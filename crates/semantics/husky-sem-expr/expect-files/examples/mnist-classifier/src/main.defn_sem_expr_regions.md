@@ -140,7 +140,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -150,7 +152,9 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -284,7 +288,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -294,7 +300,9 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -428,7 +436,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -438,7 +448,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -572,7 +584,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -582,7 +596,9 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -716,7 +732,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -726,7 +744,9 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -860,7 +880,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -870,7 +892,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1004,7 +1028,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -1014,7 +1040,9 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1148,7 +1176,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -1158,7 +1188,9 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1292,7 +1324,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    quary: None,
+                                    quary: Some(
+                                        Transient,
+                                    ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -1302,7 +1336,9 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1711,8 +1747,8 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: [],
-            syn_pattern_symbol_ty_infos: ArenaMap {
+            syn_pattern_ty_infos: [],
+            syn_pattern_variable_ty_infos: ArenaMap {
                 data: [],
             },
             sem_expr_terms: [],
@@ -1836,7 +1872,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1902,7 +1940,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1968,7 +2008,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2034,7 +2076,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2100,7 +2144,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2166,7 +2212,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2232,7 +2280,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2298,7 +2348,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2364,7 +2416,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        quary: None,
+                                        quary: Some(
+                                            Transient,
+                                        ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),

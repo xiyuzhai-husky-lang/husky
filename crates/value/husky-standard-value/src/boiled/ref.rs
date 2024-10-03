@@ -1,4 +1,5 @@
 pub mod slice;
+mod str;
 
 use super::*;
 

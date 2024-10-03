@@ -28,7 +28,7 @@ use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
 use husky_linket::linket::Linket;
 use husky_linket_impl::{
-    eval_context::{DevEvalContext, IsDevRuntimeInterface},
+    dev_eval_context::{DevEvalContext, IsDevRuntimeInterface},
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue},
     pedestal::IsPedestal,
 };

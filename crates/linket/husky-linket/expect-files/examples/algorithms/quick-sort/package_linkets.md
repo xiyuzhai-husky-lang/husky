@@ -1,7 +1,7 @@
 ```rust
 [
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                 Fn,
             )`),
@@ -16,7 +16,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                 Fn,
             )`),
