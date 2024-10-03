@@ -28,6 +28,8 @@ pub trait Boiled {
     where
         Self: Sized;
 
+    unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self;
+
     /// should call `std::mem::transmute` under the hood
     unsafe fn into_thawed(self) -> Self::Thawed
     where
