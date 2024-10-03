@@ -6410,6 +6410,9 @@
                                         ),
                                     },
                                     condition: Be {
+                                        expr: SemExprIdx(
+                                            39,
+                                        ),
                                         src: SemExprIdx(
                                             38,
                                         ),
@@ -6549,6 +6552,9 @@
                                         ),
                                     },
                                     condition: Be {
+                                        expr: SemExprIdx(
+                                            54,
+                                        ),
                                         src: SemExprIdx(
                                             53,
                                         ),
@@ -6819,6 +6825,9 @@
                                         ),
                                     },
                                     condition: Be {
+                                        expr: SemExprIdx(
+                                            6,
+                                        ),
                                         src: SemExprIdx(
                                             5,
                                         ),
@@ -6894,6 +6903,9 @@
                                         ),
                                     },
                                     condition: Be {
+                                        expr: SemExprIdx(
+                                            12,
+                                        ),
                                         src: SemExprIdx(
                                             11,
                                         ),
@@ -7034,6 +7046,9 @@
                                             ),
                                         },
                                         condition: Be {
+                                            expr: SemExprIdx(
+                                                29,
+                                            ),
                                             src: SemExprIdx(
                                                 28,
                                             ),

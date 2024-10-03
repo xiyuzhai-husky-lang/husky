@@ -395,9 +395,12 @@
                 ),
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable {
-                            place_idx: PlaceIdx(0),
-                            qual: Ref,
+                        VmirExprData::RuntimeVariable {
+                            name: HirEagerRuntimeVariableName::Ident(
+                                `one_vs_all_result`,
+                            ),
+                            variable_idx: 0,
+                            qual: Transient,
                         },
                         VmirExprData::UnitTypeVariant {
                             linket_impl: VirtualLinketImpl(
@@ -906,9 +909,12 @@
                 ),
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Variable {
-                            place_idx: PlaceIdx(0),
-                            qual: Ref,
+                        VmirExprData::RuntimeVariable {
+                            name: HirEagerRuntimeVariableName::Ident(
+                                `one_vs_all_result`,
+                            ),
+                            variable_idx: 0,
+                            qual: Transient,
                         },
                         VmirExprData::UnitTypeVariant {
                             linket_impl: VirtualLinketImpl(
