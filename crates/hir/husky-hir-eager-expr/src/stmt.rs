@@ -224,6 +224,7 @@ impl ToHirEager for SemCondition {
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         match *self {
             SemCondition::Be {
+                expr,
                 src,
                 contract,
                 be_regional_token_idx: _,

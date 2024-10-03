@@ -2,7 +2,7 @@
 [
     (
         Linket {
-            data: LinketData::MajorFunctionRitchie {
+            data: LinketData::MajorRitchie {
                 path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                     Fn,
                 )`),
@@ -19,7 +19,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MajorFunctionRitchie {
+                    data: LinketData::MajorRitchie {
                         path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`),
@@ -134,11 +134,15 @@
                         VmirStmtData::Let {
                             pattern: VmirPattern {
                                 restructive_pattern: VmirRestructivePattern::Default(
-                                    None,
+                                    Some(
+                                        0,
+                                    ),
                                 ),
                                 destructive_pattern: Some(
                                     VmirDestructivePattern::Default(
-                                        None,
+                                        Some(
+                                            0,
+                                        ),
                                     ),
                                 ),
                             },
@@ -215,7 +219,7 @@
     ),
     (
         Linket {
-            data: LinketData::MajorFunctionRitchie {
+            data: LinketData::MajorRitchie {
                 path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                     Fn,
                 )`),
@@ -232,7 +236,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MajorFunctionRitchie {
+                    data: LinketData::MajorRitchie {
                         path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`),
@@ -335,11 +339,15 @@
                         VmirStmtData::Let {
                             pattern: VmirPattern {
                                 restructive_pattern: VmirRestructivePattern::Default(
-                                    None,
+                                    Some(
+                                        0,
+                                    ),
                                 ),
                                 destructive_pattern: Some(
                                     VmirDestructivePattern::Default(
-                                        None,
+                                        Some(
+                                            0,
+                                        ),
                                     ),
                                 ),
                             },

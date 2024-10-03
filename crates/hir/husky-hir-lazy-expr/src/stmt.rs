@@ -150,6 +150,7 @@ impl ToHirLazy for SemCondition {
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         match *self {
             SemCondition::Be {
+                expr,
                 src,
                 contract,
                 be_regional_token_idx: _,
