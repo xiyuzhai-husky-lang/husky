@@ -18,6 +18,7 @@ members = [
     "crates/lean/*",
     "crates/linket/*",
     "crates/linktime/*",
+    "crates/mayuri/*",
     "crates/mir/*",
     "crates/namekian/*",
     "crates/protocols/*",
@@ -35,7 +36,7 @@ members = [
     "registry/*",
     "playground/learn-rusqlite",
     "playground/egui/*",
-    "playground/try-py-ffi-in-rs", "crates/mayuri/husky-mayuri-prototype",
+    "playground/try-py-ffi-in-rs",
 ]
 resolver = "2"
 
