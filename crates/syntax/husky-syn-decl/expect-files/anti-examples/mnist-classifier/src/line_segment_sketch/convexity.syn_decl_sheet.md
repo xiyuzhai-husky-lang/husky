@@ -157,8 +157,8 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternRegion {
-                                        pattern_expr_arena: Arena {
+                                    pattern_region: SynPatternRegion {
+                                        pattern_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
@@ -180,11 +180,11 @@ SynDeclSheet {
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: [
+                                        pattern_contracts: [
                                             Contract::Pure,
                                             Contract::Pure,
                                         ],
-                                        pattern_symbol_arena: Arena {
+                                        pattern_variable_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
                                                     0,
@@ -194,7 +194,7 @@ SynDeclSheet {
                                                 ),
                                             ],
                                         },
-                                        pattern_symbol_maps: [
+                                        pattern_variable_maps: [
                                             [
                                                 (
                                                     `line_segment_sketch`,
@@ -208,7 +208,7 @@ SynDeclSheet {
                                                 ),
                                             ],
                                         ],
-                                        pattern_symbol_modifiers: ArenaMap {
+                                        pattern_variable_modifiers: ArenaMap {
                                             data: [
                                                 Pure,
                                                 Pure,

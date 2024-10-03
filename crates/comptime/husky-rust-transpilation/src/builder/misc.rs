@@ -265,7 +265,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, ()> {
             write!(
                 &mut self.result,
                 r#"
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut {}: Option<__ItemPathIdInterface> = None;
 

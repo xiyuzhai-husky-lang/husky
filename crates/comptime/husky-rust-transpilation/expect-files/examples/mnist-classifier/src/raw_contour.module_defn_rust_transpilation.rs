@@ -1,5 +1,5 @@
 use crate::*;
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __RawContour__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -19,7 +19,7 @@ impl RawContour {
         }
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __Direction__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -32,7 +32,7 @@ pub enum Direction {
     Down,
     Right,
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_pixel_pair__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -40,7 +40,7 @@ pub static mut __get_pixel_pair__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInte
 pub fn get_pixel_pair(row: u32, j: i32) -> u32 {
     row >> j - 1 & 3
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_pixel_to_the_left__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -48,7 +48,7 @@ pub static mut __get_pixel_to_the_left__ITEM_PATH_ID_INTERFACE: Option<__ItemPat
 pub fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
     row >> j & 1
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_pixel_to_the_right__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -56,7 +56,7 @@ pub static mut __get_pixel_to_the_right__ITEM_PATH_ID_INTERFACE: Option<__ItemPa
 pub fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     row >> j - 1 & 1
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_inward_direction__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -115,7 +115,7 @@ pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::ra
         }
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_angle_change__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -134,7 +134,7 @@ pub fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::r
         }
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_outward_direction__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -226,7 +226,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
         }
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __StreakCache__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -246,18 +246,18 @@ impl StreakCache {
         }
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __get_concave_middle_point__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
-    let p0 = &points[(N - 2) as usize];
-    let p2 = &points[(N - 1) as usize];
+    let p0 = points.index((N - 2) as usize);
+    let p2 = points.index((N - 1) as usize);
     crate::geom2d::Point2d::__constructor((p0.x + p2.x) / 2.0f32, (p0.y + p2.y) / 2.0f32)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __find_raw_contours__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -266,19 +266,19 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
     let mut result: Vec<crate::raw_contour::RawContour> = vec![];
     let mut boundary_unsearched = mnist::BinaryGrid28::new_zeros();
     for i in 1..=29 {
-        let r_ur = cc.deleash().mask[(i - 1) as usize];
-        let r_dr = cc.deleash().mask[i as usize];
+        let r_ur = *cc.deleash().mask.index((i - 1) as usize);
+        let r_dr = *cc.deleash().mask.index(i as usize);
         let r_ul = r_ur << 1;
         let r_dl = r_dr << 1;
-        boundary_unsearched[i as usize] = (r_ur | r_dr | r_ul | r_dl) & !(r_ur & r_dr & r_ul & r_dl)
+        *boundary_unsearched.index_mut(i as usize) = (r_ur | r_dr | r_ul | r_dl) & !(r_ur & r_dr & r_ul & r_dl)
     }
     for k in 1..=29 {
-        while boundary_unsearched[k as usize] != 0 {
+        while *boundary_unsearched.index(k as usize) != 0 {
             let mut contour: Vec<crate::geom2d::Point2d> = vec![];
             let mut i = k;
-            let mut j = boundary_unsearched[k as usize].ctz();
-            let mut row_above = cc.deleash().mask[(i - 1) as usize];
-            let mut row_below = cc.deleash().mask[i as usize];
+            let mut j = boundary_unsearched.index(k as usize).ctz();
+            let mut row_above = *cc.deleash().mask.index((i - 1) as usize);
+            let mut row_below = *cc.deleash().mask.index(i as usize);
             let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
@@ -293,7 +293,7 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
                 {
                     let outward_direction = crate::raw_contour::get_outward_direction(row_above, row_below, j, inward_direction);
                     let angle_change = crate::raw_contour::get_angle_change(inward_direction, outward_direction);
-                    boundary_unsearched[i as usize] = boundary_unsearched[i as usize] & !(1 << j);
+                    *boundary_unsearched.index_mut(i as usize) = *boundary_unsearched.index(i as usize) & !(1 << j);
                     if angle_change != 0 {
                         if prev_angle_change1 == -1 && prev_angle_change2 == -1 && current_streak == 1 && prev_streak1 != -1 && prev_streak2 == 1 {
                             *contour.last_mut().unwrap() = crate::raw_contour::get_concave_middle_point(&contour);
@@ -321,12 +321,12 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
                         crate::raw_contour::Direction::Up => {
                             i = i - 1;
                             row_below = row_above;
-                            row_above = cc.deleash().mask[(i - 1) as usize]
+                            row_above = *cc.deleash().mask.index((i - 1) as usize)
                         }
                         crate::raw_contour::Direction::Down => {
                             i = i + 1;
                             row_above = row_below;
-                            row_below = cc.deleash().mask[i as usize]
+                            row_below = *cc.deleash().mask.index(i as usize)
                         }
                         crate::raw_contour::Direction::Left => {
                             j = j + 1
@@ -359,7 +359,7 @@ impl Visualize for crate::raw_contour::RawContour {
         Contour!(("points", &self.points), __visual_synchrotron)
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __Visualize__for__RawContour__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -372,68 +372,68 @@ impl crate::raw_contour::RawContour {
 
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __RawContour__bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = &__self.deleash().points[0 as usize];
-        let mut xmin = start_point.x;
-        let mut xmax = start_point.x;
-        let mut ymin = start_point.y;
-        let mut ymax = start_point.y;
+        let start_point = Leash(&*__self.deleash().points.index(0 as usize));
+        let mut xmin = start_point.deleash().x;
+        let mut xmax = start_point.deleash().x;
+        let mut ymin = start_point.deleash().y;
+        let mut ymax = start_point.deleash().y;
         for i in 0..__self.deleash().points.ilen() {
-            let point = &__self.deleash().points[i as usize];
-            xmin = xmin.min(point.x);
-            xmax = xmax.max(point.x);
-            ymin = ymin.min(point.y);
-            ymax = ymax.max(point.y)
+            let point = Leash(&*__self.deleash().points.index(i as usize));
+            xmin = xmin.min(point.deleash().x);
+            xmax = xmax.max(point.deleash().x);
+            ymin = ymin.min(point.deleash().y);
+            ymax = ymax.max(point.deleash().y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __RawContour__relative_bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(__self.deleash().cc).deleash()[0 as usize])).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
+        <crate::raw_contour::RawContour>::bounding_box(Leash(&*<crate::connected_component::ConnectedComponent>::raw_contours(__self.deleash().cc).deleash().index(0 as usize))).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
     }
 
     #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __RawContour__contour_len__ITEM_PATH_ID_INTERFACE)]
     pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..__self.deleash().points.ilen() {
-            let a = &__self.deleash().points[(i - 1) as usize];
-            let b = &__self.deleash().points[i as usize];
-            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
+            let a = Leash(&*__self.deleash().points.index((i - 1) as usize));
+            let b = Leash(&*__self.deleash().points.index(i as usize));
+            contour_len += (a.deleash().x - b.deleash().x).abs() + (a.deleash().y - b.deleash().y).abs()
         }
-        let a = &__self.deleash().points[(__self.deleash().points.ilen() - 1) as usize];
-        let b = &__self.deleash().points[0 as usize];
-        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
+        let a = Leash(&*__self.deleash().points.index((__self.deleash().points.ilen() - 1) as usize));
+        let b = Leash(&*__self.deleash().points.index(0 as usize));
+        contour_len += (a.deleash().x - b.deleash().x).abs() + (a.deleash().y - b.deleash().y).abs();
         return contour_len;
     }
 
     pub fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
-        let ct_start = &self.points[start.rem_euclid(N) as usize];
-        let ct_end = &self.points[end.rem_euclid(N) as usize];
+        let ct_start = self.points.index(start.rem_euclid(N) as usize);
+        let ct_end = self.points.index(end.rem_euclid(N) as usize);
         ct_start.to(ct_end)
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __RawContour__line_segment_sketch__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __RawContour__bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __RawContour__relative_bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __RawContour__contour_len__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __RawContour__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

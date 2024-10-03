@@ -1,6 +1,5 @@
-use crate::thawed::r#ref::slice::ThawedSliceRef;
-
 use super::*;
+use crate::thawed::r#ref::slice::ThawedSliceRef;
 
 impl<T> Boiled for &[T]
 where

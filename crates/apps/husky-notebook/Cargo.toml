@@ -13,7 +13,7 @@ tracing-subscriber = "0.3.16"
 ui.workspace = true
 enum-index.workspace = true
 # devsoul
-husky-standard-devsoul-interface.workspace = true
+# husky-standard-devsoul-interface.workspace = true
 # linket
 husky-standard-linket-impl.workspace = true
 # gui

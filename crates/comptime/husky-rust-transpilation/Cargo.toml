@@ -46,7 +46,7 @@ husky-sem-var-deps.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 # utils
 husky-fmt-utils.workspace = true
 husky-io-utils.workspace = true
