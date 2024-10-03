@@ -80,6 +80,7 @@ use husky_token_data::{
 };
 use husky_wild_utils::{arb_mut, arb_ref};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use quary::FlyQuary;
 use smallvec::SmallVec;
 use std::ops::Index;
 use vec_like::{AsVecMapEntry, VecMap};
@@ -667,6 +668,26 @@ impl<'a> SemExprBuilder<'a> {
     }
 
     pub(crate) fn build_expr_with_ty_and_outcome<E: ExpectFlyTerm>(
+        &mut self,
+        expr_idx: SynExprIdx,
+        expr_ty_expectation: E,
+    ) -> (SemExprIdx, Option<FlyTerm>, Option<E::Outcome>) {
+        let (sem_expr_idx, expectation_idx_and_ty) =
+            self.build_expr_aux(expr_idx, expr_ty_expectation);
+        let (ty, outcome) = match expectation_idx_and_ty {
+            Some((expectation_idx, ty)) => (
+                Some(ty),
+                self.fly_term_region()[expectation_idx]
+                    .resolve_progress()
+                    .outcome::<E>()
+                    .cloned(),
+            ),
+            None => (None, None),
+        };
+        (sem_expr_idx, ty, outcome)
+    }
+
+    pub(crate) fn build_expr_with_ty_and_outcome2<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
@@ -1266,6 +1287,7 @@ impl<'a> SemExprBuilder<'a> {
                                 self.term_menu().list_ty_ontology(),
                                 element_ty,
                             )
+                            .map(|t| t.with_quary(FlyQuary::Transient))
                             .map_err(|_| todo!()),
                         )
                     }

@@ -15,8 +15,9 @@ use crate::{
     stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdx},
 };
 use husky_hir_eager_expr::{
-    HirEagerExprArena, HirEagerExprIdx, HirEagerExprMap, HirEagerPatternArena, HirEagerStmtArena,
-    HirEagerStmtIdx, HirEagerStmtIdxRange, HirEagerStmtMap,
+    variable::runtime::HirEagerRuntimeVariableRegionData, HirEagerExprArena, HirEagerExprIdx,
+    HirEagerExprMap, HirEagerPatternArena, HirEagerStmtArena, HirEagerStmtIdx,
+    HirEagerStmtIdxRange, HirEagerStmtMap,
 };
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linket::{instantiation::LinInstantiation, linket::Linket};
@@ -28,6 +29,7 @@ pub(crate) struct VmirBuilder<'comptime, Linktime: IsLinktime> {
     hir_eager_expr_arena: &'comptime HirEagerExprArena,
     hir_eager_stmt_arena: &'comptime HirEagerStmtArena,
     hir_eager_pattern_arena: &'comptime HirEagerPatternArena,
+    hir_eager_runtime_variable_region_data: &'comptime HirEagerRuntimeVariableRegionData,
     instantiation: &'comptime LinInstantiation,
     linktime: &'comptime Linktime,
     vmir_expr_arena: VmirExprArena<Linktime::LinketImpl>,
@@ -57,6 +59,8 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
         };
         let hir_eager_expr_arena = hir_eager_expr_region.expr_arena(db);
         let hir_eager_stmt_arena = hir_eager_expr_region.stmt_arena(db);
+        let hir_eager_runtime_variable_region_data =
+            hir_eager_expr_region.runtime_variable_region_data(db);
         Some((
             body,
             Self {
@@ -64,6 +68,7 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
                 hir_eager_expr_arena,
                 hir_eager_stmt_arena,
                 hir_eager_pattern_arena: hir_eager_expr_region.pattern_arena(db),
+                hir_eager_runtime_variable_region_data,
                 instantiation,
                 linktime,
                 vmir_expr_arena: Default::default(),
@@ -79,24 +84,30 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
 }
 
 /// # getters
-impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
-    pub(crate) fn db(&self) -> &'db ::salsa::Db {
+impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
+    pub(crate) fn db(&self) -> &'comptime ::salsa::Db {
         self.db
     }
 
-    pub(crate) fn hir_eager_expr_arena(&self) -> &'db HirEagerExprArena {
+    pub(crate) fn hir_eager_expr_arena(&self) -> &'comptime HirEagerExprArena {
         self.hir_eager_expr_arena
     }
 
-    pub(crate) fn hir_eager_stmt_arena(&self) -> &'db HirEagerStmtArena {
+    pub(crate) fn hir_eager_stmt_arena(&self) -> &'comptime HirEagerStmtArena {
         self.hir_eager_stmt_arena
     }
 
-    pub(crate) fn hir_eager_pattern_arena(&self) -> &'db HirEagerPatternArena {
+    pub(crate) fn hir_eager_pattern_arena(&self) -> &'comptime HirEagerPatternArena {
         self.hir_eager_pattern_arena
     }
 
-    pub(crate) fn lin_instantiation(&self) -> &'db LinInstantiation {
+    pub(crate) fn hir_eager_runtime_variable_region_data(
+        &self,
+    ) -> &'comptime HirEagerRuntimeVariableRegionData {
+        self.hir_eager_runtime_variable_region_data
+    }
+
+    pub(crate) fn lin_instantiation(&self) -> &'comptime LinInstantiation {
         self.instantiation
     }
 

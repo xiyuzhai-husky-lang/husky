@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::marker::Copy`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
+                            value: "\n\nentity `core::marker::Copy`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait`",
                         },
                     ),
                     range: Some(

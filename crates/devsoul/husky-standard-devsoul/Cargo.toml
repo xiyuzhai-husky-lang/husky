@@ -12,9 +12,9 @@ salsa.workspace = true
 # comptime
 husky-rust-transpilation.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 husky-devsoul.workspace = true
-husky-standard-devsoul-interface.workspace = true
+# husky-standard-devsoul-interface.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel

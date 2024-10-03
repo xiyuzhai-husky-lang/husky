@@ -4,13 +4,17 @@ use crate::{
     *,
 };
 use either::*;
+use husky_coword::Ident;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
     major_item::{form::MajorFormPath, MajorItemPath},
     PrincipalEntityPath,
 };
 use husky_hir_decl::decl::{HasHirDecl, TypeVariantHirDecl};
-use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
+use husky_hir_eager_expr::{
+    variable::runtime::{HirEagerRuntimeVariableIdx, HirEagerRuntimeVariableName},
+    HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument,
+};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_ki::KiRuntimeCompterm;
 use husky_ki_repr::expansion::ki_runtime_compterms_from_hir_instantiation;
@@ -18,9 +22,9 @@ use husky_lifetime_utils::capture::Captures;
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlowThawed};
 use husky_literal_value::LiteralValue;
-use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
+use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
-use husky_value::vm_control_flow::VmControlFlow;
+use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
 use smallvec::{smallvec, SmallVec};
@@ -31,8 +35,9 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     Literal {
         value: LiteralValue,
     },
-    Variable {
-        place_idx: PlaceIdx,
+    RuntimeVariable {
+        name: HirEagerRuntimeVariableName,
+        variable_idx: HirEagerRuntimeVariableIdx,
         qual: LinQual,
     },
     Binary {
@@ -71,7 +76,10 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     As {
         opd: VmirExprIdx<LinketImpl>,
     },
-    Index,
+    Index {
+        self_argument: VmirExprIdx<LinketImpl>,
+        items: VmirExprIdxRange<LinketImpl>,
+    },
     Val {
         linket_impl_or_val_path: Either<LinketImpl, MajorFormPath>,
     },
@@ -164,6 +172,21 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerExprIdx {
     }
 }
 
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &SmallVec<[HirEagerExprIdx; 4]> {
+    type Output = VmirExprIdxRange<LinketImpl>;
+
+    fn to_vmir<Linktime: IsLinktime<LinketImpl = LinketImpl>>(
+        self,
+        builder: &mut VmirBuilder<Linktime>,
+    ) -> Self::Output {
+        let mut exprs = Vec::new();
+        for &expr in self.iter() {
+            exprs.push(builder.build_vmir_expr(expr));
+        }
+        builder.alloc_exprs(&self, exprs)
+    }
+}
+
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinketImpl> {
         let db = self.db();
@@ -236,7 +259,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             },
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
             HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
-            HirEagerExprData::RuntimeVariable(_) => {
+            HirEagerExprData::RuntimeVariable(variable_idx) => {
                 let place_idx = match entry.quary().place() {
                     Some(place) => match place {
                         EthPlace::Idx(place_idx) => place_idx,
@@ -250,8 +273,17 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                         todo!()
                     }
                 };
-                let qual = LinQual::from_hir(entry.contracted_quary());
-                VmirExprData::Variable { place_idx, qual }
+                let qual = LinQual::variable_qual(
+                    entry.contracted_quary(),
+                    entry.is_base_ty_always_copyable(),
+                );
+                VmirExprData::RuntimeVariable {
+                    variable_idx,
+                    qual,
+                    name: variable_idx
+                        .entry(self.hir_eager_runtime_variable_region_data().arena())
+                        .name(),
+                }
             }
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary {
                 lopd: lopd.to_vmir(self),
@@ -443,9 +475,12 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 arguments: todo!(),
             },
             HirEagerExprData::Index {
-                self_argument: owner,
+                self_argument,
                 ref items,
-            } => VmirExprData::Index,
+            } => VmirExprData::Index {
+                self_argument: self_argument.to_vmir(self),
+                items: items.to_vmir(self),
+            },
             HirEagerExprData::NewList {
                 exprs: ref hir_eager_exprs,
                 element_ty,
@@ -453,14 +488,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 let linket =
                     Linket::new_vec_constructor(element_ty, self.lin_instantiation(), self.db());
                 let linket_impl = self.linket_impl(linket);
-                let mut exprs = Vec::new();
-                for &expr in hir_eager_exprs.iter() {
-                    exprs.push(self.build_vmir_expr(expr));
-                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments: smallvec![VmirArgument::Variadic {
-                        exprs: self.alloc_exprs(hir_eager_exprs, exprs),
+                        exprs: hir_eager_exprs.to_vmir(self),
                     }],
                 }
             }
@@ -520,7 +551,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 VmirCoercion::Trivial => value,
                 VmirCoercion::Never => todo!(),
                 VmirCoercion::WrapInSome => todo!(),
-                VmirCoercion::Redirection => todo!(),
+                VmirCoercion::Redirection => {
+                    // TODO
+                    value
+                }
                 VmirCoercion::Dedirection => todo!(),
             },
             None => value,
@@ -537,9 +571,11 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
 
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
-            VmirExprData::Variable { place_idx, qual } => {
-                Continue(ctx.access_place(place_idx, qual))
-            }
+            VmirExprData::RuntimeVariable {
+                qual,
+                name,
+                variable_idx,
+            } => Continue(ctx.access_variable(variable_idx, qual)),
             VmirExprData::Binary { lopd, opr, ropd } => {
                 let lopd = lopd.eval(None, ctx)?;
                 let ropd = ropd.eval(None, ctx)?;
@@ -559,10 +595,23 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                         BinaryShiftOpr::Shl => lopd << ropd,
                         BinaryShiftOpr::Shr => lopd >> ropd,
                     }),
-                    HirBinaryOpr::Assign => todo!(),
+                    HirBinaryOpr::Assign => {
+                        lopd.assign(ropd);
+                        Continue(().into())
+                    }
                     HirBinaryOpr::AssignClosed(_) => todo!(),
                     HirBinaryOpr::AssignShift(_) => todo!(),
-                    HirBinaryOpr::Comparison(_) => todo!(),
+                    HirBinaryOpr::Comparison(opr) => Continue(
+                        match opr {
+                            BinaryComparisonOpr::Eq => lopd == ropd,
+                            BinaryComparisonOpr::Neq => lopd != ropd,
+                            BinaryComparisonOpr::Geq => lopd >= ropd,
+                            BinaryComparisonOpr::Greater => lopd > ropd,
+                            BinaryComparisonOpr::Leq => lopd <= ropd,
+                            BinaryComparisonOpr::Less => lopd < ropd,
+                        }
+                        .into(),
+                    ),
                     HirBinaryOpr::ShortCircuitLogic(_) => todo!(),
                 })
             }
@@ -586,7 +635,7 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             } => {
                 let opd = opd.eval(None, ctx)?;
                 linket_impl.eval_vm(
-                    vec![
+                    smallvec![
                         VmArgumentValue::Simple(opd),
                         VmArgumentValue::RuntimeConstants(unsafe {
                             std::mem::transmute(runtime_compterms as &[_])
@@ -607,7 +656,9 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                             VmArgumentValue<LinketImpl>,
                         > {
                             match arg {
-                                VmirArgument::SelfValue { expr } => todo!(),
+                                VmirArgument::SelfValue { expr } => VmControlFlow::Continue(
+                                    VmArgumentValue::Simple(expr.eval(None, ctx)?),
+                                ),
                                 VmirArgument::Simple { expr, coercion } => todo!(),
                                 VmirArgument::Variadic { exprs } => {
                                     VmControlFlow::Continue(VmArgumentValue::Variadic(
@@ -628,14 +679,27 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Todo => todo!(),
             VmirExprData::Unreachable => todo!(),
             VmirExprData::As { opd } => todo!(),
-            VmirExprData::Index => todo!(),
+            VmirExprData::Index {
+                self_argument,
+                items,
+            } => {
+                let self_argument = self_argument.eval(None, ctx)?;
+                match items.0.len() {
+                    1 => {
+                        // TODO: ad hoc
+                        let index = VmirExprIdx(items.0.start()).eval(None, ctx)?.to_usize();
+                        self_argument.index(index).map_err(|_| todo!()).into()
+                    }
+                    _ => todo!(),
+                }
+            }
             VmirExprData::Val {
                 linket_impl_or_val_path,
             } => match linket_impl_or_val_path {
-                Left(linket_impl) => linket_impl.eval_vm(vec![], db),
+                Left(linket_impl) => linket_impl.eval_vm(smallvec![], db),
                 Right(val_path) => ctx.eval_val(val_path),
             },
-            VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(vec![], db),
+            VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(smallvec![], db),
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),
             VmirExprData::RitchieItemPath => todo!(),

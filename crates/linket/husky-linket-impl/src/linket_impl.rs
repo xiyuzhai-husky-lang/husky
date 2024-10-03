@@ -1,5 +1,6 @@
 use crate::LinketImplVmControlFlowThawed;
 use crate::{exception::TrackedException, *};
+use dev_eval_context::DevEvalContextGuard;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiRuntimeComptermInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
@@ -15,10 +16,14 @@ use std::num::Saturating;
 pub type LinketImplStaticVarResult<LinketImpl, R> =
     StaticVarResult<<<LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId, R>;
 
-pub trait IsLinketImpl: std::fmt::Debug + Send + Sync + Copy + 'static {
+pub trait IsLinketImpl: std::fmt::Debug + Eq + Send + Sync + Copy + 'static {
     type Pedestal: IsPedestalFull;
     type Value: IsValue<Exception = Self::Exception>;
     type Exception: IsException;
+
+    fn try_set_dev_eval_context(ctx: DevEvalContext<Self>) -> Result<DevEvalContextGuard, ()>;
+
+    fn dev_eval_context() -> DevEvalContext<Self>;
 
     /// assumed that pedestal has already been
     fn eval_ki(
@@ -31,7 +36,7 @@ pub trait IsLinketImpl: std::fmt::Debug + Send + Sync + Copy + 'static {
 
     fn eval_vm(
         self,
-        arguments: Vec<VmArgumentValue<Self>>,
+        arguments: VmArgumentValues<Self>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self>;
 
@@ -93,6 +98,9 @@ pub enum VmArgumentValue<'comptime, LinketImpl: IsLinketImpl> {
     Variadic(Vec<LinketImplThawedValue<LinketImpl>>),
     RuntimeConstants(&'comptime [KiRuntimeComptermInterface]),
 }
+
+pub type VmArgumentValues<'comptime, LinketImpl> =
+    SmallVec<[VmArgumentValue<'comptime, LinketImpl>; 4]>;
 
 impl<'comptime, LinketImpl: IsLinketImpl + Debug> Debug for VmArgumentValue<'comptime, LinketImpl> {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {

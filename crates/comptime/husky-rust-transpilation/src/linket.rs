@@ -20,7 +20,7 @@ use husky_linket::{
     linket::{ty::LinLeashClass, LinField},
     template_argument::{
         constant::LinConstant,
-        qual,
+        qual::{self, LinQual},
         ty::{LinRitchieParameter, LinRitchieType, LinType},
         LinTemplateArgument,
     },
@@ -76,11 +76,14 @@ impl TranspileToRustWith<()> for Linket {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
         match *self.data(db) {
-            LinketData::MajorFunctionRitchie {
+            LinketData::MajorRitchie {
                 path,
                 ref instantiation,
             } => match path.kind(db).ritchie() {
                 RitchieItemKind::Fn => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
+                    if self.vm_only(db) {
+                        builder.vm_only()
+                    }
                     (path, instantiation).transpile_to_rust(builder)
                 }),
                 RitchieItemKind::Gn => builder.macro_call(RustMacroName::GnLinketImpl, |builder| {
@@ -112,6 +115,9 @@ impl TranspileToRustWith<()> for Linket {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
+                if self.vm_only(db) {
+                    builder.vm_only()
+                }
                 (path, instantiation).transpile_to_rust(builder);
             }),
             LinketData::EnumVariantConstructor {
@@ -282,12 +288,16 @@ impl TranspileToRustWith<()> for Linket {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
+                if self.vm_only(db) {
+                    builder.vm_only()
+                }
                 (path, instantiation).transpile_to_rust(builder)
             }),
             LinketData::UnveilAssocRitchie {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::UnveilLinketImpl, |builder| {
+                // TODO: vm_only?
                 (path, instantiation).transpile_to_rust(builder)
             }),
             LinketData::Memo {
@@ -430,9 +440,9 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                         todo!()
                     }
                     LinTermVariableResolution::SelfQual(place) => match place {
-                        qual::LinQual::Ref => ident.transpile_to_rust(builder),
-                        qual::LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
-                        qual::LinQual::Transient => todo!(),
+                        LinQual::Ref => ident.transpile_to_rust(builder),
+                        LinQual::Mut => builder.method_ritchie_ident_mut(ident),
+                        LinQual::Transient => todo!(),
                     },
                     _ => unreachable!(),
                 }

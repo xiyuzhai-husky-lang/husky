@@ -4,7 +4,7 @@ use self::runtime_storage::*;
 use husky_devsoul::devsoul::{DevEvalContextLocalKey, IsDevsoul};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
-use husky_linket_impl::eval_context::IsDevRuntimeInterfaceDyn;
+use husky_linket_impl::dev_eval_context::IsDevRuntimeInterfaceDyn;
 use husky_mono_linktime::MonoLinktime;
 use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_standard_trace_protocol::{caryatid::StandardCaryatid, StandardTraceProtocol};

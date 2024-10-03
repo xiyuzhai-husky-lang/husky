@@ -304,8 +304,8 @@ impl<'comptime, Context: IsSemExprAggregatorContext<'comptime>>
                 aggregation.aggregate(self.aggregate_expr(*opd));
                 for case in case_branches {
                     // Assuming case.pattern might contain expressions to aggregate
-                    // if let Some(pattern_expr) = case.pattern.expr() {
-                    //     aggregation.aggregate(self.aggregate_expr(pattern_expr));
+                    // if let Some(pattern) = case.pattern.expr() {
+                    //     aggregation.aggregate(self.aggregate_expr(pattern));
                     // }
                     aggregation.aggregate(self.aggregate_stmts(case.stmts));
                 }
@@ -383,7 +383,7 @@ impl<'comptime, Context: IsSemExprAggregatorContext<'comptime>>
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::helpers::region::sem_expr_region_from_region_path;
+    use crate::helpers::path::sem_expr_region_from_region_path;
     use husky_entity_tree::region_path::SynNodeRegionPath;
 
     #[derive(Default, Clone, Copy)]

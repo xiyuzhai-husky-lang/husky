@@ -23,9 +23,9 @@ pub enum FlyCoercion {
 }
 
 impl FlyCoercion {
-    pub fn place_after_coercion(self) -> FlyQuary {
+    pub fn quary_after_coercion(self) -> FlyQuary {
         match self {
-            FlyCoercion::Trivial(slf) => slf.place_after_coercion(),
+            FlyCoercion::Trivial(slf) => slf.quary_after_coercion(),
             FlyCoercion::Dedirection(slf) => slf.place_after_coercion(),
             FlyCoercion::Never | FlyCoercion::WrapInSome | FlyCoercion::Redirection(_) => {
                 FlyQuary::Transient
@@ -181,7 +181,7 @@ impl ExpectCoercion {
             src,
             dst,
             coercion
-                .place_after_coercion()
+                .quary_after_coercion()
                 .bind(self.contract)
                 .map(|()| coercion)
                 .map_err(Into::into),

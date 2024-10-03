@@ -34,7 +34,7 @@ husky-devsoul.workspace = true
 husky-term-prelude.workspace = true
 husky-place.workspace = true
 husky-opr.workspace = true
-husky-expr = { path = "../../kernel/husky-expr" }
+husky-expr.workspace = true
 # lex
 # linket
 husky-javelin.workspace = true
@@ -46,7 +46,7 @@ husky-sem-var-deps.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 # utils
 husky-fmt-utils.workspace = true
 husky-io-utils.workspace = true

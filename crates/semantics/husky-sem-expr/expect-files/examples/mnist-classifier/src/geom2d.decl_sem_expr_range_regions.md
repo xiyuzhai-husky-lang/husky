@@ -28,7 +28,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -88,7 +88,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -148,7 +148,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -208,7 +208,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -268,7 +268,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -328,7 +328,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -376,7 +376,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -436,7 +436,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -521,7 +521,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -569,7 +569,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -630,7 +630,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -678,7 +678,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -739,7 +739,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -775,7 +775,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -823,7 +823,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -884,7 +884,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -932,7 +932,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1005,7 +1005,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1078,7 +1078,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1151,7 +1151,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1199,70 +1199,6 @@
     SemExprRangeRegion {
         data: SemExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            10,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            11,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            13,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            14,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            9,
-                        ),
-                    ),
-                },
-            ],
-            expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1300,6 +1236,70 @@
                     ),
                 },
             ],
+            pattern_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
+            ],
+            expr_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                },
+            ],
             stmt_ranges: SemStmtMap(
                 [],
             ),
@@ -1321,7 +1321,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1369,7 +1369,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1442,7 +1442,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1503,7 +1503,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1551,7 +1551,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1624,7 +1624,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -1685,7 +1685,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1721,7 +1721,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1757,7 +1757,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1793,7 +1793,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1829,7 +1829,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1865,7 +1865,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1901,7 +1901,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1937,7 +1937,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1973,7 +1973,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(

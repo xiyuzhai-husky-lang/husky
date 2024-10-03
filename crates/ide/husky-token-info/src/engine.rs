@@ -336,15 +336,67 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::UnwrapExclamation,
                 );
             }
-            SemExprData::Binary { .. }
-            | SemExprData::Suffix { .. }
-            | SemExprData::Unveil { .. }
-            | SemExprData::TemplateInstantiation { .. }
-            | SemExprData::NewTuple { .. }
-            | SemExprData::NewList { .. }
-            | SemExprData::Delimitered { .. }
-            | SemExprData::Block { .. }
-            | SemExprData::Be { .. } => (),
+            SemExprData::Binary {
+                opr,
+                opr_regional_token_idx,
+                ..
+            } => {
+                self.add(opr_regional_token_idx, source, TokenInfoData::BinaryOpr);
+            }
+            SemExprData::Suffix {
+                opr_regional_token_idx,
+                ..
+            } => {
+                self.add(opr_regional_token_idx, source, TokenInfoData::SuffixOpr);
+            }
+            SemExprData::Unveil {
+                opr_regional_token_idx,
+                ..
+            } => {
+                self.add(opr_regional_token_idx, source, TokenInfoData::UnveilOpr);
+            }
+            SemExprData::TemplateInstantiation { .. } => {
+                todo!()
+            }
+            SemExprData::NewTuple {
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
+                ..
+            } => {
+                self.add(lpar_regional_token_idx, source, TokenInfoData::TupleLpar);
+                self.add(rpar_regional_token_idx, source, TokenInfoData::TupleRpar);
+            }
+            SemExprData::NewList {
+                lbox_regional_token_idx,
+                rbox_regional_token_idx,
+                ..
+            } => {
+                self.add(lbox_regional_token_idx, source, TokenInfoData::NewListLbox);
+                self.add(rbox_regional_token_idx, source, TokenInfoData::NewListRbox);
+            }
+            SemExprData::Delimitered {
+                lpar_regional_token_idx,
+                rpar_regional_token_idx,
+                ..
+            } => {
+                self.add(
+                    lpar_regional_token_idx,
+                    source,
+                    TokenInfoData::DelimiterLpar,
+                );
+                self.add(
+                    rpar_regional_token_idx,
+                    source,
+                    TokenInfoData::DelimiterRpar,
+                );
+            }
+            SemExprData::Block { .. } => (),
+            SemExprData::Be {
+                be_regional_token_idx,
+                ..
+            } => {
+                self.add(be_regional_token_idx, source, TokenInfoData::BeKeyword);
+            }
             SemExprData::FunctionApplication { .. } => (),
             SemExprData::MajorItemPathAssocItem { .. } => (),
             SemExprData::TypeAsTraitItem { .. } => (),
@@ -547,20 +599,20 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         let current_variable_kind = current_variable.kind();
         match current_variable_kind {
             CurrentVariableKind::LetVariable {
-                pattern_variable_idx: pattern_symbol,
+                pattern_variable_idx: pattern_variable,
             }
             | CurrentVariableKind::BeVariable {
-                pattern_variable_idx: pattern_symbol,
+                pattern_variable_idx: pattern_variable,
             }
             | CurrentVariableKind::CaseVariable {
-                pattern_variable_idx: pattern_symbol,
+                pattern_variable_idx: pattern_variable,
             }
             | CurrentVariableKind::SimpleParenateParameter {
-                pattern_variable_idx: pattern_symbol,
+                pattern_variable_idx: pattern_variable,
             }
             | CurrentVariableKind::SimpleClosureParameter {
-                pattern_variable_idx: pattern_symbol,
-            } => match self.syn_expr_region_data[pattern_symbol] {
+                pattern_variable_idx: pattern_variable,
+            } => match self.syn_expr_region_data[pattern_variable] {
                 PatternVariable::Atom(pattern_idx) => {
                     match self.syn_expr_region_data[pattern_idx] {
                         SynPatternData::Ident {

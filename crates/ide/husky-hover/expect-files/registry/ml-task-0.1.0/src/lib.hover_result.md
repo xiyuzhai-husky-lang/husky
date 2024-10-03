@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself type\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "Other keyword\n\nself type\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type`",
                         },
                     ),
                     range: Some(

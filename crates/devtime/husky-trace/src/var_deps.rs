@@ -48,6 +48,7 @@ impl TraceVarDepsExpansion {
 }
 
 impl TraceVarDepsExpansion {
+    #[track_caller]
     pub fn expr_control_flow_var_deps(self, expr: SemExprIdx, db: &::salsa::Db) -> &TraceVarDeps {
         &self.expr_control_flow_var_deps_table(db)[expr]
     }

@@ -374,6 +374,7 @@
                                                 Owned,
                                             ),
                                             ident: `e`,
+                                            variable_idx: 1,
                                         },
                                         contract: Move,
                                     },
@@ -468,10 +469,13 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`core::mem::At`, `Extern`),
                                                 template_arguments: [
-                                                    HirTemplateArgument::Type(
-                                                        HirType::Variable(
-                                                            HirTypeTemplateVariable::SelfPlace,
-                                                        ),
+                                                    HirTemplateArgument::ContractedQuary(
+                                                        HirContractedQuary {
+                                                            contract: None,
+                                                            quary: Variable(
+                                                                SelfPlace,
+                                                            ),
+                                                        },
                                                     ),
                                                     HirTemplateArgument::Type(
                                                         HirType::Variable(
@@ -610,10 +614,13 @@
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`core::mem::At`, `Extern`),
                                                 template_arguments: [
-                                                    HirTemplateArgument::Type(
-                                                        HirType::Variable(
-                                                            HirTypeTemplateVariable::SelfPlace,
-                                                        ),
+                                                    HirTemplateArgument::ContractedQuary(
+                                                        HirContractedQuary {
+                                                            contract: None,
+                                                            quary: Variable(
+                                                                SelfPlace,
+                                                            ),
+                                                        },
                                                     ),
                                                     HirTemplateArgument::Type(
                                                         HirType::Variable(
@@ -1096,6 +1103,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `start`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -1103,6 +1111,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `end`,
+                                            variable_idx: 2,
                                         },
                                         contract: Pure,
                                     },
@@ -1297,6 +1306,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `f`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },

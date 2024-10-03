@@ -180,7 +180,7 @@ impl LinType {
                 ),
             )
             .into(),
-            HirType::Variable(symbol) => match instantiation.resolve(symbol.into()) {
+            HirType::Variable(variable) => match instantiation.resolve(variable.into()) {
                 LinTermVariableResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linket_ty) => linket_ty,
@@ -189,7 +189,12 @@ impl LinType {
                     LinTemplateArgument::Qual(_) => todo!(),
                 },
                 LinTermVariableResolution::SelfLifetime => todo!(),
-                LinTermVariableResolution::SelfQual(_) => todo!(),
+                LinTermVariableResolution::SelfQual(_) => {
+                    use ::husky_print_utils::p;
+                    use ::salsa::DebugWithDb;
+                    p!(variable, instantiation.path().debug(db));
+                    todo!()
+                }
             },
             HirType::TypeAssocType(_) => unreachable!(),
             HirType::TraitAssocType(_) => unreachable!(),

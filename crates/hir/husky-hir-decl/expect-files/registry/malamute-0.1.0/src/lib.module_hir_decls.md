@@ -1219,6 +1219,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `one_vs_all`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },
@@ -1470,6 +1471,7 @@
                                     data: HirEagerPatternData::Ident {
                                         symbol_modifier: None,
                                         ident: `one_vs_all_result`,
+                                        variable_idx: 1,
                                     },
                                     contract: Pure,
                                 },
