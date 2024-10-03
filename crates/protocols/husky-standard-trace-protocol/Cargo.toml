@@ -29,7 +29,7 @@ husky-standard-linket-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol.workspace = true
-husky-standard-devsoul-interface.workspace = true
+# husky-standard-devsoul-interface.workspace = true
 # utils
 husky-control-flow-utils.workspace = true
 

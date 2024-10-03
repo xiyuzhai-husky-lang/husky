@@ -10,8 +10,6 @@ serde_json.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 enum-class.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
 # fs
 husky-vfs.workspace = true
 # hir

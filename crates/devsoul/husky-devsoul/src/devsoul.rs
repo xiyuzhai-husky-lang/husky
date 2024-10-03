@@ -4,7 +4,7 @@ use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki::{Ki, KiDomain};
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
 use husky_linket_impl::{
-    eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn},
+    dev_eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn},
     linket_impl::{
         IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue,
         LinketImplTrackedException,

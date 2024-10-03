@@ -15,8 +15,8 @@ keywords.workspace = true
 colored.workspace = true
 rustc_version.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
-husky-standard-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
+# husky-standard-devsoul-interface.workspace = true
 # kernel
 husky-item-path-interface.workspace = true
 # linket
@@ -24,8 +24,8 @@ husky-linket-impl.workspace = true
 husky-standard-linket-impl.workspace = true
 
 [dev-dependencies]
-husky-devsoul-interface = { workspace = true, features = ["ugly"] }
-husky-standard-devsoul-interface = { workspace = true, features = ["ugly"] }
 
+# husky-devsoul-interface = { workspace = true, features = ["ugly"] }
+# husky-standard-devsoul-interface = { workspace = true, features = ["ugly"] }
 [lints]
 workspace = true

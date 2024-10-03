@@ -1,4 +1,5 @@
 #![feature(trait_upcasting)]
+mod dev_eval_context;
 pub mod r#enum;
 pub mod exception;
 pub mod memo;
@@ -17,13 +18,13 @@ use self::StandardLinketImpl as LinketImpl;
 #[cfg(test)]
 use self::StandardLinketImpl as __LinketImpl;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_devsoul_interface::devsoul::IsDevsoulInterface;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface};
+use husky_linket_impl::dev_eval_context::DevEvalContextGuard;
 use husky_linket_impl::linket_impl::VmArgumentValues;
 use husky_linket_impl::{
-    eval_context::DevEvalContext,
+    dev_eval_context::DevEvalContext,
     exception::TrackedException,
     impl_is_fn_linket_impl_source, impl_is_unveil_fn_linket_impl_source,
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, VmArgumentValue},
@@ -62,7 +63,7 @@ pub type StandardVmArgumentValues<'comptime> = VmArgumentValues<'comptime, Stand
 pub enum StandardLinketImpl {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
+        fn_ki_wrapper: Option<fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow>,
         fn_vm_wrapper: fn(SmallVec<[StandardVmArgumentValue; 4]>) -> StandardVmControlFlow,
         fn_pointer: fn(),
     },
@@ -142,6 +143,14 @@ impl IsLinketImpl for StandardLinketImpl {
     type Value = Value;
     type Exception = Exception;
 
+    fn try_set_dev_eval_context(ctx: DevEvalContext<Self>) -> Result<DevEvalContextGuard, ()> {
+        crate::dev_eval_context::try_set_dev_eval_context(ctx)
+    }
+
+    fn dev_eval_context() -> DevEvalContext<Self> {
+        crate::dev_eval_context::dev_eval_context()
+    }
+
     fn eval_ki(
         self,
         ki_repr_interface: KiReprInterface,
@@ -150,7 +159,9 @@ impl IsLinketImpl for StandardLinketImpl {
         ctx: DevEvalContext<StandardLinketImpl>,
     ) -> StandardKiControlFlow {
         match self {
-            StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
+            StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => {
+                fn_ki_wrapper.unwrap()(ki_argument_reprs)
+            }
             StandardLinketImpl::RitchieUnveilFn { fn_ki_wrapper, .. } => {
                 fn_ki_wrapper(ki_argument_reprs)
             }
@@ -372,17 +383,18 @@ impl IsLinketImpl for StandardLinketImpl {
     }
 }
 
-pub struct FnLinketImplSource<Pedestal, DevsoulInterface, F>(
-    pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
-    pub F,
-);
+pub struct FnLinketImplSource<F>(pub F);
 
 for_all_ritchie_tys! {impl_is_fn_linket_impl_source}
 
-pub struct UnveilFnLinketImplSource<Pedestal, DevsoulInterface, F>(
-    pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
-    pub F,
-);
+#[test]
+fn for_all_ritchie_tys_impl_is_fn_linket_impl_source_works() {
+    use crate::ugly::*;
+
+    fn_linket_impl!(|| ());
+}
+
+pub struct UnveilFnLinketImplSource<F>(pub F);
 
 for_all_ritchie_tys! {impl_is_unveil_fn_linket_impl_source}
 

@@ -55,7 +55,9 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     }
                 }
             }
-            HirType::Variable(svar) => builder.hir_template_svar(svar),
+            HirType::Variable(template_variable) => {
+                builder.hir_template_variable(template_variable)
+            }
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
@@ -135,7 +137,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirCompterm {
             HirCompterm::R64(value) => builder.write_display_copyable(value),
             HirCompterm::R128(value) => builder.write_display_copyable(value),
             HirCompterm::RSize(value) => builder.write_display_copyable(value),
-            HirCompterm::Symbol(symbol) => builder.hir_template_svar(symbol),
+            HirCompterm::Symbol(symbol) => builder.hir_template_variable(symbol),
             HirCompterm::TypeVariant(path) => path.transpile_to_rust(builder),
             HirCompterm::StaticLifetime => todo!(),
         }
@@ -144,6 +146,6 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirCompterm {
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirComptermTemplateVariable {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        builder.hir_template_svar(self)
+        builder.hir_template_variable(self)
     }
 }

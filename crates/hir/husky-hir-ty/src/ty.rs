@@ -11,7 +11,7 @@ use husky_eth_signature::{
 };
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    symbolic_variable::EthTermSymbolIndexImpl,
+    symbolic_variable::EthTermVariableIndexImpl,
     EthTerm,
 };
 use husky_fly_term::{
@@ -44,8 +44,8 @@ impl HirType {
     pub fn from_eth(term: EthTerm, db: &::salsa::Db) -> Option<Self> {
         let always_copyable = is_ty_term_always_copyable(term, db).unwrap()?;
         match term {
-            EthTerm::SymbolicVariable(symbol) => {
-                HirTypeTemplateVariable::from_eth(symbol, db).map(Into::into)
+            EthTerm::SymbolicVariable(variable) => {
+                HirTypeTemplateVariable::from_eth(variable, db).map(Into::into)
             }
             EthTerm::ItemPath(path) => match path {
                 ItemPathTerm::MajorForm(path) => match path.kind(db) {
@@ -197,18 +197,18 @@ pub(crate) fn hir_ty_from_eth_term_application(
             )
             .filter_map(|(param, arg)| {
                 match param.variable().index(db).inner() {
-                    EthTermSymbolIndexImpl::ExplicitLifetime { attrs, .. }
-                    | EthTermSymbolIndexImpl::ExplicitPlace { attrs, .. }
-                    | EthTermSymbolIndexImpl::Type { attrs, .. }
-                    | EthTermSymbolIndexImpl::ConstOther { attrs, .. }
-                    | EthTermSymbolIndexImpl::ConstPathLeading { attrs, .. } => !attrs.phantom(),
-                    EthTermSymbolIndexImpl::Prop { .. } => false,
-                    EthTermSymbolIndexImpl::EphemPathLeading { .. }
-                    | EthTermSymbolIndexImpl::EphemOther { .. }
-                    | EthTermSymbolIndexImpl::SelfType
-                    | EthTermSymbolIndexImpl::SelfValue
-                    | EthTermSymbolIndexImpl::SelfLifetime
-                    | EthTermSymbolIndexImpl::SelfPlace => unreachable!(),
+                    EthTermVariableIndexImpl::ExplicitLifetime { attrs, .. }
+                    | EthTermVariableIndexImpl::ExplicitPlace { attrs, .. }
+                    | EthTermVariableIndexImpl::Type { attrs, .. }
+                    | EthTermVariableIndexImpl::ConstOther { attrs, .. }
+                    | EthTermVariableIndexImpl::ConstPathLeading { attrs, .. } => !attrs.phantom(),
+                    EthTermVariableIndexImpl::Prop { .. } => false,
+                    EthTermVariableIndexImpl::EphemPathLeading { .. }
+                    | EthTermVariableIndexImpl::EphemOther { .. }
+                    | EthTermVariableIndexImpl::SelfType
+                    | EthTermVariableIndexImpl::SelfValue
+                    | EthTermVariableIndexImpl::SelfLifetime
+                    | EthTermVariableIndexImpl::SelfPlace => unreachable!(),
                 }
                 .then_some(arg)
             })

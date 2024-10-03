@@ -28,13 +28,18 @@ pub enum HirTemplateArgument {
 }
 
 impl From<HirTemplateVariable> for HirTemplateArgument {
-    fn from(symbol: HirTemplateVariable) -> Self {
-        match symbol {
-            HirTemplateVariable::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
-            HirTemplateVariable::Compterm(symbol) => HirTemplateArgument::Constant(symbol.into()),
-            HirTemplateVariable::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol.into()),
-            HirTemplateVariable::Quary(symbol) => todo!(),
-            // HirTemplateArgument::ContractedQuary(symbol.into()),
+    fn from(variable: HirTemplateVariable) -> Self {
+        match variable {
+            HirTemplateVariable::Type(variable) => HirTemplateArgument::Type(variable.into()),
+            HirTemplateVariable::Compterm(variable) => {
+                HirTemplateArgument::Constant(variable.into())
+            }
+            HirTemplateVariable::Lifetime(variable) => {
+                HirTemplateArgument::Lifetime(variable.into())
+            }
+            HirTemplateVariable::Quary(variable) => {
+                HirTemplateArgument::ContractedQuary(variable.into())
+            }
         }
     }
 }
