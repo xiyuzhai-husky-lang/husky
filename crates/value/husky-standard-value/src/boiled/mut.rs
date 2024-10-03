@@ -1,3 +1,5 @@
+pub mod slice;
+
 use super::*;
 
 impl<T> Boiled for &mut T

@@ -2312,6 +2312,7 @@
             "husky-visual-protocol",
             "husky-wild-utils",
             "ordered-float",
+            "paste",
             "salsa",
             "serde",
             "serde-impl",

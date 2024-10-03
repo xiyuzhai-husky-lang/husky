@@ -133,3 +133,7 @@ std::panic::panic_any(t)
 ### catch unwind anything
 
 <https://doc.rust-lang.org/std/panic/struct.AssertUnwindSafe.html>
+
+## rust item path not found by pub use
+
+Maybe it got shadowed in the way.

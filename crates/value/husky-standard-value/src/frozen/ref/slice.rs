@@ -1,15 +1,13 @@
-pub mod slice;
-
 use super::*;
 use crate::thawed::Thawed;
-use thawed::r#mut::ThawedMut;
+use thawed::r#ref::{slice::ThawedSliceRef, ThawedRef};
 
 #[derive(Debug)]
-pub struct FrozenMut<T>(Box<T>)
+pub struct FrozenSliceRef<T>(Arc<T>)
 where
     T: Frozen;
 
-impl<T> FrozenMut<T>
+impl<T> FrozenSliceRef<T>
 where
     T: Frozen,
 {
@@ -19,7 +17,7 @@ where
     }
 }
 
-impl<T> Clone for FrozenMut<T>
+impl<T> Clone for FrozenSliceRef<T>
 where
     T: Frozen,
 {
@@ -28,11 +26,11 @@ where
     }
 }
 
-impl<T> Frozen for FrozenMut<T>
+impl<T> Frozen for FrozenSliceRef<T>
 where
     T: Frozen,
 {
-    type Thawed = ThawedMut<T::Thawed>;
+    type Thawed = ThawedSliceRef<T::Thawed>;
 
     type Slush = Box<T::Slush>;
 

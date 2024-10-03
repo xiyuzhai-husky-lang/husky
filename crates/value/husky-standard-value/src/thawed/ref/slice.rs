@@ -1,17 +1,16 @@
-pub mod slice;
-
 use super::*;
+use frozen::r#ref::slice::FrozenSliceRef;
 
 #[derive(Debug)]
-pub struct ThawedMut<T>(*mut T)
+pub struct ThawedSliceRef<T>(*const [T])
 where
     T: Thawed;
 
-impl<T> Thawed for ThawedMut<T>
+impl<T> Thawed for ThawedSliceRef<T>
 where
     T: Thawed,
 {
-    type Frozen = FrozenMut<T::Frozen>;
+    type Frozen = FrozenSliceRef<T::Frozen>;
 
     fn freeze(&self) -> Self::Frozen {
         todo!()
@@ -26,7 +25,7 @@ where
     }
 }
 
-impl<T> FromThawedValue for ThawedMut<T>
+impl<T> FromThawedValue for ThawedSliceRef<T>
 where
     T: Thawed,
 {
@@ -36,7 +35,7 @@ where
     }
 }
 
-impl<T> IntoThawedValue for ThawedMut<T>
+impl<T> IntoThawedValue for ThawedSliceRef<T>
 where
     T: Thawed,
 {

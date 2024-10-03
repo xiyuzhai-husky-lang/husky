@@ -5,6 +5,7 @@ mod primitive;
 mod r#ref;
 mod ritchie;
 mod str;
+mod tuple;
 mod vec;
 
 use husky_decl_macro_utils::{for_all_primitive_tys, for_all_ritchie_tys};
