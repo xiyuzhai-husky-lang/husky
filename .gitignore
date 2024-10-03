@@ -344,3 +344,7 @@ out
 
 ## expect test lock
 *.rich-test-lock
+
+data/mini-husky/basic/
+experiments/transformer-vs-recursive/results/
+experiments/transformer-vs-recursive/figures/

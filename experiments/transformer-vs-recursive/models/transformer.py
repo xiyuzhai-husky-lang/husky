@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
 import math
-
+import torch.nn.functional as F
+from transformers import BertModel, BertConfig
 
 class PositionEncoding(nn.Module):
     def __init__(self, d_model, max_seq_len):
@@ -21,7 +22,6 @@ class PositionEncoding(nn.Module):
 
     def forward(self, x):
         return x + self.position_encoding[:, : x.size(1), :]  # pyright: ignore
-
 
 class EncoderOnlyTransformer(nn.Module):
     def __init__(
@@ -53,6 +53,28 @@ class EncoderOnlyTransformer(nn.Module):
         x = self.transformer_encoder(x)
         x = self.fc_out(x)
         return x
+
+class CustomBERTModel(nn.Module):
+    def __init__(self, vocab_size, output_dim, num_layers, num_heads, d_model, max_seq_len, **kwargs):
+        super(CustomBERTModel, self).__init__()
+        config = BertConfig(
+            vocab_size=vocab_size,
+            hidden_size=d_model,
+            num_hidden_layers=num_layers,
+            num_attention_heads=num_heads,
+            intermediate_size=2 * d_model, # ?
+            hidden_dropout_prob=0.1,
+            attention_probs_dropout_prob=0.1,
+            max_position_embeddings=max_seq_len,
+        )
+        self.bert = BertModel(config)
+        self.regression = nn.Linear(d_model, output_dim)
+
+    def forward(self, x):
+        outputs = self.bert(x)
+        sequence_output = outputs.last_hidden_state
+        logits = self.regression(sequence_output)
+        return logits
 
 
 device = "cuda:0"
