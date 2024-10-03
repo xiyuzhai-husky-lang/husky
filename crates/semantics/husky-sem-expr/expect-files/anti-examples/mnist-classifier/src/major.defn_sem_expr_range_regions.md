@@ -28,7 +28,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -137,7 +137,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -583,7 +583,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -849,7 +849,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -922,7 +922,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1019,7 +1019,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1092,7 +1092,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(

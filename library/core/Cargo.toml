@@ -6,8 +6,8 @@ edition = "2021"
 [dependencies]
 ordered-float = { workspace = true, features = ["serde"] }
 # devsoul
-husky-devsoul-interface = { workspace = true, features = ["ugly"] }
-husky-standard-devsoul-interface = { workspace = true, features = ["ugly"] }
+# husky-devsoul-interface = { workspace = true, features = ["ugly"] }
+# # husky-standard-devsoul-interface = { workspace = true, features = ["ugly"] }
 # protocols
 husky-visual-protocol = { workspace = true, features = ["ugly"] }
 # value

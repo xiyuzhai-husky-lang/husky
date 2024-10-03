@@ -7,12 +7,12 @@ pub enum PatternVariable {
 }
 
 impl PatternVariable {
-    pub(super) fn pattern_symbol_modifier(
+    pub(super) fn pattern_variable_modifier(
         &self,
-        pattern_expr_arena: &SynPatternArena,
+        pattern_arena: &SynPatternArena,
     ) -> VariableModifier {
         match self {
-            PatternVariable::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
+            PatternVariable::Atom(expr_idx) => match pattern_arena[*expr_idx] {
                 SynPatternData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token: _,

@@ -4,13 +4,13 @@ use husky_term_prelude::template_var_class::TemplateVariableClass;
 
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
-pub struct EthTemplateSymbolAttrs {
+pub struct EthTemplateVariableAttrs {
     pub class: TemplateVariableClass,
 }
 
-impl EthTemplateSymbolAttrs {
+impl EthTemplateVariableAttrs {
     pub fn from_dec(attrs: DeclarativeTemplateVariableAttrs) -> Self {
-        EthTemplateSymbolAttrs { class: attrs.class }
+        EthTemplateVariableAttrs { class: attrs.class }
     }
 
     pub fn phantom(self) -> bool {
@@ -18,7 +18,7 @@ impl EthTemplateSymbolAttrs {
     }
 }
 
-impl Into<DeclarativeTemplateVariableAttrs> for EthTemplateSymbolAttrs {
+impl Into<DeclarativeTemplateVariableAttrs> for EthTemplateVariableAttrs {
     fn into(self) -> DeclarativeTemplateVariableAttrs {
         unsafe { DeclarativeTemplateVariableAttrs::new(self.class) }
     }
@@ -31,7 +31,7 @@ pub enum EthTemplateSymbolAttr {
 /// wrapper so such the construction is private
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EthTermSymbolicVariableIndex(EthTermSymbolIndexImpl);
+pub struct EthTermSymbolicVariableIndex(EthTermVariableIndexImpl);
 
 impl EthTermSymbolicVariableIndex {
     pub(super) fn from_dec(index: DecSymbolicVariableIndex) -> Self {
@@ -40,8 +40,8 @@ impl EthTermSymbolicVariableIndex {
                 attrs,
                 variance,
                 disambiguator,
-            } => EthTermSymbolIndexImpl::ExplicitLifetime {
-                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
+            } => EthTermVariableIndexImpl::ExplicitLifetime {
+                attrs: EthTemplateVariableAttrs::from_dec(attrs),
                 variance,
                 disambiguator,
             },
@@ -49,8 +49,8 @@ impl EthTermSymbolicVariableIndex {
                 attrs,
                 variance,
                 disambiguator,
-            } => EthTermSymbolIndexImpl::ExplicitPlace {
-                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
+            } => EthTermVariableIndexImpl::ExplicitPlace {
+                attrs: EthTemplateVariableAttrs::from_dec(attrs),
                 variance,
                 disambiguator,
             },
@@ -58,8 +58,8 @@ impl EthTermSymbolicVariableIndex {
                 attrs,
                 variance,
                 disambiguator,
-            } => EthTermSymbolIndexImpl::Type {
-                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
+            } => EthTermVariableIndexImpl::Type {
+                attrs: EthTemplateVariableAttrs::from_dec(attrs),
                 variance,
                 disambiguator,
             },
@@ -68,16 +68,16 @@ impl EthTermSymbolicVariableIndex {
                 attrs,
                 disambiguator,
                 ty_path,
-            } => EthTermSymbolIndexImpl::ConstPathLeading {
-                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
+            } => EthTermVariableIndexImpl::ConstPathLeading {
+                attrs: EthTemplateVariableAttrs::from_dec(attrs),
                 disambiguator,
                 ty_path,
             },
             DecTermSymbolIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
-            } => EthTermSymbolIndexImpl::ConstOther {
-                attrs: EthTemplateSymbolAttrs::from_dec(attrs),
+            } => EthTermVariableIndexImpl::ConstOther {
+                attrs: EthTemplateVariableAttrs::from_dec(attrs),
                 disambiguator,
             },
             DecTermSymbolIndexImpl::ConstErr {
@@ -87,21 +87,21 @@ impl EthTermSymbolicVariableIndex {
             DecTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
-            } => EthTermSymbolIndexImpl::EphemPathLeading {
+            } => EthTermVariableIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             },
             DecTermSymbolIndexImpl::EphemOther { disambiguator: _ } => todo!(),
             DecTermSymbolIndexImpl::EphemErr { disambiguator: _ } => todo!(),
-            DecTermSymbolIndexImpl::SelfType => EthTermSymbolIndexImpl::SelfType,
-            DecTermSymbolIndexImpl::SelfValue => EthTermSymbolIndexImpl::SelfValue,
-            DecTermSymbolIndexImpl::SelfLifetime => EthTermSymbolIndexImpl::SelfLifetime,
-            DecTermSymbolIndexImpl::SelfPlace => EthTermSymbolIndexImpl::SelfPlace,
+            DecTermSymbolIndexImpl::SelfType => EthTermVariableIndexImpl::SelfType,
+            DecTermSymbolIndexImpl::SelfValue => EthTermVariableIndexImpl::SelfValue,
+            DecTermSymbolIndexImpl::SelfLifetime => EthTermVariableIndexImpl::SelfLifetime,
+            DecTermSymbolIndexImpl::SelfPlace => EthTermVariableIndexImpl::SelfPlace,
             DecTermSymbolIndexImpl::AdHoc { disambiguator: _ } => unreachable!(),
         })
     }
 
-    pub fn inner(self) -> EthTermSymbolIndexImpl {
+    pub fn inner(self) -> EthTermVariableIndexImpl {
         self.0
     }
 }
@@ -111,7 +111,7 @@ impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
     fn into(self) -> DecSymbolicVariableIndex {
         unsafe {
             DecSymbolicVariableIndex::new(match self.inner() {
-                EthTermSymbolIndexImpl::ExplicitLifetime {
+                EthTermVariableIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator,
@@ -120,7 +120,7 @@ impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
                     variance,
                     disambiguator,
                 },
-                EthTermSymbolIndexImpl::ExplicitPlace {
+                EthTermVariableIndexImpl::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator,
@@ -129,7 +129,7 @@ impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
                     variance,
                     disambiguator,
                 },
-                EthTermSymbolIndexImpl::Type {
+                EthTermVariableIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator,
@@ -138,10 +138,10 @@ impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
                     variance,
                     disambiguator,
                 },
-                EthTermSymbolIndexImpl::Prop { disambiguator } => {
+                EthTermVariableIndexImpl::Prop { disambiguator } => {
                     DecTermSymbolIndexImpl::Prop { disambiguator }
                 }
-                EthTermSymbolIndexImpl::ConstPathLeading {
+                EthTermVariableIndexImpl::ConstPathLeading {
                     attrs,
                     disambiguator,
                     ty_path,
@@ -150,27 +150,27 @@ impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
                     disambiguator,
                     ty_path,
                 },
-                EthTermSymbolIndexImpl::ConstOther {
+                EthTermVariableIndexImpl::ConstOther {
                     attrs,
                     disambiguator,
                 } => DecTermSymbolIndexImpl::ConstOther {
                     attrs: attrs.into(),
                     disambiguator,
                 },
-                EthTermSymbolIndexImpl::EphemPathLeading {
+                EthTermVariableIndexImpl::EphemPathLeading {
                     disambiguator,
                     ty_path,
                 } => DecTermSymbolIndexImpl::EphemPathLeading {
                     disambiguator,
                     ty_path,
                 },
-                EthTermSymbolIndexImpl::EphemOther { disambiguator } => {
+                EthTermVariableIndexImpl::EphemOther { disambiguator } => {
                     DecTermSymbolIndexImpl::EphemOther { disambiguator }
                 }
-                EthTermSymbolIndexImpl::SelfType => DecTermSymbolIndexImpl::SelfType,
-                EthTermSymbolIndexImpl::SelfValue => DecTermSymbolIndexImpl::SelfValue,
-                EthTermSymbolIndexImpl::SelfLifetime => DecTermSymbolIndexImpl::SelfLifetime,
-                EthTermSymbolIndexImpl::SelfPlace => DecTermSymbolIndexImpl::SelfPlace,
+                EthTermVariableIndexImpl::SelfType => DecTermSymbolIndexImpl::SelfType,
+                EthTermVariableIndexImpl::SelfValue => DecTermSymbolIndexImpl::SelfValue,
+                EthTermVariableIndexImpl::SelfLifetime => DecTermSymbolIndexImpl::SelfLifetime,
+                EthTermVariableIndexImpl::SelfPlace => DecTermSymbolIndexImpl::SelfPlace,
             })
         }
     }
@@ -181,19 +181,19 @@ impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
 #[repr(u8)]
-pub enum EthTermSymbolIndexImpl {
+pub enum EthTermVariableIndexImpl {
     ExplicitLifetime {
-        attrs: EthTemplateSymbolAttrs,
+        attrs: EthTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
     ExplicitPlace {
-        attrs: EthTemplateSymbolAttrs,
+        attrs: EthTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
     Type {
-        attrs: EthTemplateSymbolAttrs,
+        attrs: EthTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -201,12 +201,12 @@ pub enum EthTermSymbolIndexImpl {
         disambiguator: u8,
     },
     ConstPathLeading {
-        attrs: EthTemplateSymbolAttrs,
+        attrs: EthTemplateVariableAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
     ConstOther {
-        attrs: EthTemplateSymbolAttrs,
+        attrs: EthTemplateVariableAttrs,
         disambiguator: u8,
     },
     EphemPathLeading {

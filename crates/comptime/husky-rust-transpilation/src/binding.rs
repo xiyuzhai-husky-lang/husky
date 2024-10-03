@@ -116,7 +116,7 @@ impl RustBindings {
                         if expr_entry.is_base_ty_always_copyable() {
                             todo!()
                         } else {
-                            smallvec![RustBinding::Deref]
+                            smallvec![RustBinding::Deleash]
                         }
                     }
                     HirQuary::Todo => todo!(),
@@ -130,18 +130,65 @@ impl RustBindings {
                 let bindings = match expr_entry.contracted_quary().quary() {
                     HirQuary::Compterm => todo!(),
                     HirQuary::StackPure { place } => todo!(),
-                    HirQuary::ImmutableOnStack { place } => smallvec![RustBinding::Deref],
-                    HirQuary::MutableOnStack { place } => smallvec![RustBinding::DerefMut],
+                    HirQuary::ImmutableOnStack { place } => {
+                        match expr_entry.contracted_quary().contract() {
+                            Some(contract) => match contract {
+                                HirContract::Pure => {
+                                    if expr_entry.is_base_ty_always_copyable() {
+                                        smallvec![]
+                                    } else {
+                                        smallvec![RustBinding::Deref]
+                                    }
+                                }
+                                HirContract::Move => todo!(),
+                                HirContract::Borrow => todo!(),
+                                HirContract::BorrowMut => todo!(),
+                                HirContract::Compterm => todo!(),
+                                HirContract::Leash => smallvec![],
+                                HirContract::At => todo!(),
+                            }, // smallvec![RustBinding::Deref],
+                            None => todo!(),
+                        }
+                    }
+                    HirQuary::MutableOnStack { place } => {
+                        match expr_entry.contracted_quary().contract() {
+                            Some(contract) => match contract {
+                                HirContract::Pure => {
+                                    if expr_entry.is_base_ty_always_copyable() {
+                                        smallvec![]
+                                    } else {
+                                        smallvec![RustBinding::DerefMut]
+                                    }
+                                }
+                                HirContract::Move => todo!(),
+                                HirContract::Borrow => todo!(),
+                                HirContract::BorrowMut => smallvec![RustBinding::DerefMut],
+                                HirContract::Compterm => todo!(),
+                                HirContract::Leash => todo!(),
+                                HirContract::At => todo!(),
+                            },
+                            None => todo!(),
+                        }
+                    }
                     HirQuary::Transient => smallvec![],
                     HirQuary::Ref { guard } => smallvec![RustBinding::Deref],
                     HirQuary::RefMut { place, lifetime } => smallvec![RustBinding::DerefMut],
                     HirQuary::Ref { guard } => todo!(),
-                    HirQuary::Leashed { place_idx } => todo!(),
+                    HirQuary::Leashed { place_idx } => {
+                        if expr_entry.is_base_ty_always_copyable() {
+                            smallvec![]
+                        } else {
+                            smallvec![RustBinding::Deleash]
+                        }
+                    }
                     HirQuary::Todo => todo!(),
                     HirQuary::Variable(_) => todo!(),
                 };
                 RustBindings { bindings }
             }
+            HirEagerExprData::Index { .. } => RustBindings {
+                bindings: smallvec![RustBinding::Deref], // because we use index method instead of [..]
+            },
             _ => RustBindings {
                 bindings: smallvec![],
             },
@@ -175,7 +222,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
                     RustBinding::Deleash => {
                         if let Some(next_inner) = next_inner {
                             match next_inner {
-                                RustBinding::Deref => todo!(),
+                                RustBinding::Deref => {
+                                    use ::husky_print_utils::p;
+                                    use ::salsa::DebugWithDb;
+                                    p!(self.result());
+                                    todo!()
+                                }
                                 RustBinding::DerefMut => todo!(),
                                 RustBinding::DerefCustomed => todo!(),
                                 RustBinding::Deleash => todo!(),
@@ -355,7 +407,14 @@ impl RustBindings {
             match contract {
                 HirContract::Pure => {
                     if !is_always_copyable_after_coercion {
-                        self.add_outer_binding(RustBinding::Reref)
+                        match contracted_quary_after_coercion.quary() {
+                            HirQuary::Compterm => todo!(),
+                            HirQuary::Transient => todo!(),
+                            HirQuary::Leashed { place_idx } => todo!(),
+                            HirQuary::Todo => todo!(),
+                            HirQuary::Variable(hir_quary_template_variable) => todo!(),
+                            _ => self.add_outer_binding(RustBinding::Reref),
+                        }
                     }
                 }
                 HirContract::Move => (),
@@ -486,7 +545,7 @@ impl RustBindings {
                         },
                         HirQuary::Leashed { place_idx } => {
                             if !always_copyable {
-                                self.add_outer_binding(RustBinding::Reref)
+                                self.add_outer_binding(RustBinding::Releash)
                             }
                         }
                         HirQuary::Todo => todo!(),

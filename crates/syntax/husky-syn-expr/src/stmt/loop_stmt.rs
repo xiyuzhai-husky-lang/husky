@@ -53,13 +53,13 @@ impl SynForBetweenRange {
         final_bound: SynExprIdx,
     ) -> Self {
         let final_boundary_kind = match comparison {
-            // ill-formed: $frame_var >= $final_bound
+            // ill-formed: $for_loop_variable >= $final_bound
             BinaryComparisonOpr::Geq => todo!("invalid form",),
-            // ill-formed: $frame_var > $final_bound
+            // ill-formed: $for_loop_variable > $final_bound
             BinaryComparisonOpr::Greater => todo!("invalid form",),
-            // well-formed: $frame_var <= $final_bound
+            // well-formed: $for_loop_variable <= $final_bound
             BinaryComparisonOpr::Leq => LoopBoundaryKind::UpperClosed,
-            // well-formed: $frame_var < $final_bound
+            // well-formed: $for_loop_variable < $final_bound
             BinaryComparisonOpr::Less => LoopBoundaryKind::UpperOpen,
             _ => todo!(),
         };
@@ -78,13 +78,13 @@ impl SynForBetweenRange {
         comparison: BinaryComparisonOpr,
     ) -> Self {
         let initial_boundary_kind = match comparison {
-            // well-formed: $initial_bound >= $frame_var
+            // well-formed: $initial_bound >= $for_loop_variable
             BinaryComparisonOpr::Geq => LoopBoundaryKind::LowerClosed,
-            // well-formed: $initial_bound > $frame_var
+            // well-formed: $initial_bound > $for_loop_variable
             BinaryComparisonOpr::Greater => LoopBoundaryKind::LowerOpen,
-            // ill-formed: $initial_bound <= $frame_var
+            // ill-formed: $initial_bound <= $for_loop_variable
             BinaryComparisonOpr::Leq => todo!("invalid form",),
-            // ill-formed: $initial_bound < $frame_var
+            // ill-formed: $initial_bound < $for_loop_variable
             BinaryComparisonOpr::Less => todo!("invalid form",),
             _ => todo!("expect comparison"),
         };
@@ -193,15 +193,15 @@ impl<'a> SynExprContext<'a> {
                     .start()
                     .regional_token_idx();
                 let access_end = self.ast_token_idx_range(body.end() - 1).end();
-                let frame_var_symbol = CurrentVariableEntry::new(
-                    self.syn_pattern_expr_region(),
+                let for_loop_variable_symbol = CurrentVariableEntry::new(
+                    self.syn_pattern_region(),
                     access_start,
                     Some(access_end),
                     current_variable_variant,
                 );
                 let for_loop_varible_idx = self
                     .define_symbols(
-                        vec![frame_var_symbol],
+                        vec![for_loop_variable_symbol],
                         Some(SyndicateTypeConstraint::LoopVariable),
                     )
                     .start();
@@ -217,7 +217,7 @@ impl<'a> SynExprContext<'a> {
                 SynStmtData::ForBetween {
                     for_token,
                     particulars,
-                    for_loop_varible_idx: for_loop_varible_idx,
+                    for_loop_varible_idx,
                     eol_colon,
                     block: self.parse_stmts(body),
                 }

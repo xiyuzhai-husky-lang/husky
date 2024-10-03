@@ -18,7 +18,7 @@ use husky_linktime::{
     IsLinktime,
 };
 use husky_place::{place::idx::PlaceIdx, PlaceRegistry};
-use husky_value::IsFrozenValue;
+use husky_value::{IsFrozenValue, IsThawedValue};
 use husky_vmir::{
     eval::EvalVmir,
     expr::{VmirExprIdx, VmirExprMap},
@@ -27,7 +27,7 @@ use husky_vmir::{
     storage::IsVmirStorage,
 };
 use rustc_hash::FxHashMap;
-use vec_like::ordered_vec_map::OrderedVecPairMap;
+use vec_like::ordered_vec_map::{OrderedVecMap, OrderedVecPairMap};
 
 use crate::{
     history::{VmHistory, VmRecord},
@@ -41,8 +41,8 @@ pub(crate) struct Vm<
     VmirStorage: IsVmirStorage<LinketImpl>,
 > {
     linket: Linket,
-    place_slush_values: Vec<LinketImplSlushValue<LinketImpl>>,
-    pub(crate) place_thawed_values: Vec<LinketImplThawedValue<LinketImpl>>,
+    variable_slush_values: Vec<LinketImplSlushValue<LinketImpl>>,
+    pub(crate) variable_thawed_values: Vec<LinketImplThawedValue<LinketImpl>>,
     mode: VmMode,
     expr_records: VmirExprMap<LinketImpl, VmRecord<LinketImpl>>,
     stmt_records: VmirStmtMap<LinketImpl, VmRecord<LinketImpl>>,
@@ -77,21 +77,20 @@ impl<
         runtime: &'a DevRuntime,
         vmir_storage: &'a VmirStorage, // used to access others
     ) -> Self {
-        use husky_value::IsValue;
+        use husky_value::IsThawedValue;
 
         let place_registry = linket
             .place_registry(db)
             .expect("has vmir_region implies that this is some");
         let mut place_values = vec![];
         for _ in place_values.len()..place_registry.len() {
-            todo!()
-            // place_values.push(<LinketImpl as IsLinketImpl>::Value::new_uninit())
+            place_values.push(LinketImplThawedValue::<LinketImpl>::new_uninit())
         }
         Self {
             linket,
             mode,
-            place_slush_values: vec![],
-            place_thawed_values: place_values,
+            variable_slush_values: vec![],
+            variable_thawed_values: place_values,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),
             snapshots: Default::default(),
@@ -120,8 +119,8 @@ impl<
         }
         Self {
             linket: snapshot.linket(),
-            place_slush_values,
-            place_thawed_values,
+            variable_slush_values: place_slush_values,
+            variable_thawed_values: place_thawed_values,
             mode,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),
@@ -217,5 +216,33 @@ impl<
             self.stmt_records,
             self.snapshots,
         )
+    }
+
+    pub(crate) fn quick<R>(&mut self, f: impl FnOnce(&mut Self) -> R) -> R {
+        let mode = self.mode;
+        let r = f(self);
+        self.mode = mode;
+        r
+    }
+
+    pub(crate) fn snapshot(&mut self, stmt: VmirStmtIdx<LinketImpl>, key: VmSnapshotKey) {
+        let t = || {
+            VmSnapshot::new(
+                self.linket,
+                self.variable_thawed_values
+                    .iter()
+                    .map(|v| v.freeze())
+                    .collect(),
+            )
+        };
+        self.snapshots.update_value_or_insert_with(
+            stmt,
+            |map| {
+                let Ok(()) = map.insert_new((key, t())) else {
+                    unreachable!()
+                };
+            },
+            || OrderedVecMap::new_one_element_map((key, t())),
+        );
     }
 }

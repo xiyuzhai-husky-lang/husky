@@ -175,8 +175,8 @@ where
         expr_idx
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &SynPatternRegion {
-        self.context().pattern_expr_region()
+    pub(crate) fn pattern_region(&self) -> &SynPatternRegion {
+        self.context().pattern_region()
     }
 
     pub(crate) fn define_symbol(

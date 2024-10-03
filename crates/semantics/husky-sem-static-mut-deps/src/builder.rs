@@ -16,7 +16,7 @@ use husky_fly_term::{
     },
 };
 use husky_sem_expr::{
-    helpers::{region::sem_expr_region_from_region_path, visitor::VisitSemExpr},
+    helpers::{path::sem_expr_region_from_region_path, visitor::VisitSemExpr},
     obelisks::closure_parameter::ClosureParameterObelisk,
     stmt::condition::SemCondition,
     SemExprData, SemExprIdx, SemExprMap, SemExprRegionData, SemRitchieArgument, SemStmtData,
@@ -813,6 +813,7 @@ where
     fn calc_condition_value(&mut self, condition: SemCondition) -> SemValueStaticMutDeps {
         match condition {
             SemCondition::Be {
+                expr,
                 src,
                 contract,
                 be_regional_token_idx,
@@ -956,7 +957,17 @@ where
     }
 
     fn visit_condition_inner(&mut self, condition: SemCondition) {
-        ()
+        match condition {
+            SemCondition::Be { expr, src, .. } => {
+                self.expr_value_static_mut_deps_table
+                    .insert_new(expr, self.expr_value_static_mut_deps_table[src].clone());
+                self.expr_control_transfer_static_mut_deps_table.insert_new(
+                    expr,
+                    self.expr_control_transfer_static_mut_deps_table[src].clone(),
+                );
+            }
+            SemCondition::Other { expr, conversion } => (),
+        }
     }
 
     fn visit_branch_stmts(&mut self, f: impl Fn(&mut Self)) {

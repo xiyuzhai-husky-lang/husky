@@ -80,7 +80,7 @@ impl From<TypeMemoizedFieldEthSignature> for FieldFlySignature {
     fn from(signature: TypeMemoizedFieldEthSignature) -> Self {
         FieldFlySignature::Memoized {
             self_ty: signature.return_ty().into(),
-            return_ty: signature.return_ty().into(),
+            return_ty: FlyTerm::from_eth_transient(signature.return_ty()),
             expr_ty: signature.expr_ty().into(),
             path: signature.path().into(),
             instantiation: FlyInstantiation::from_eth(

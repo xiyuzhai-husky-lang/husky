@@ -18,7 +18,7 @@ pub struct SemExprRangeRegion {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemExprRangeRegionData {
     principal_entity_path_expr_ranges: Vec<RegionalTokenIdxRange>,
-    pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
+    pattern_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
     // use SemStmtMap because the inference order may not be in consistent with stmt id
     stmt_ranges: SemStmtMap<RegionalTokenIdxRange>,
@@ -111,7 +111,7 @@ impl std::ops::Index<SynPatternIdx> for SemExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
-        &self.pattern_expr_ranges[index.index()]
+        &self.pattern_ranges[index.index()]
     }
 }
 
@@ -135,7 +135,7 @@ struct SemExprRangeCalculator<'a> {
     syn_expr_region_data: &'a SynExprRegionData,
     sem_expr_region_data: &'a SemExprRegionData,
     principal_entity_path_expr_ranges: Vec<RegionalTokenIdxRange>,
-    pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
+    pattern_ranges: Vec<RegionalTokenIdxRange>,
     expr_ranges: Vec<RegionalTokenIdxRange>,
     stmt_ranges: SemStmtMap<RegionalTokenIdxRange>,
 }
@@ -160,7 +160,7 @@ impl<'a> std::ops::Index<SynPatternIdx> for SemExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
     fn index(&self, index: SynPatternIdx) -> &Self::Output {
-        &self.pattern_expr_ranges[index.index()]
+        &self.pattern_ranges[index.index()]
     }
 }
 
@@ -205,7 +205,7 @@ impl<'a> SemExprRangeCalculator<'a> {
             principal_entity_path_expr_ranges: t(syn_expr_region_data
                 .principal_item_path_expr_arena()
                 .len()),
-            pattern_expr_ranges: t(syn_expr_region_data.pattern_expr_arena().len()),
+            pattern_ranges: t(syn_expr_region_data.pattern_arena().len()),
             expr_ranges: t(sem_expr_region_data.sem_expr_arena().len()),
             stmt_ranges: SemStmtMap::new(sem_expr_region_data.sem_stmt_arena()),
         }
@@ -221,9 +221,8 @@ impl<'a> SemExprRangeCalculator<'a> {
             self.principal_entity_path_expr_ranges
                 .push(self.calc_principal_entity_path_expr_range(principal_entity_path_expr))
         }
-        for pattern_expr in self.syn_expr_region_data.pattern_expr_arena().iter() {
-            self.pattern_expr_ranges
-                .push(self.calc_pattern_expr_range(pattern_expr))
+        for pattern in self.syn_expr_region_data.pattern_arena().iter() {
+            self.pattern_ranges.push(self.calc_pattern_range(pattern))
         }
         for sem_expr_entry in self.sem_expr_region_data.sem_expr_arena().iter() {
             let expr_range = self.calc_expr_range(sem_expr_entry.data());
@@ -235,7 +234,7 @@ impl<'a> SemExprRangeCalculator<'a> {
         );
         SemExprRangeRegionData {
             principal_entity_path_expr_ranges: self.principal_entity_path_expr_ranges,
-            pattern_expr_ranges: self.pattern_expr_ranges,
+            pattern_ranges: self.pattern_ranges,
             expr_ranges: self.expr_ranges,
             stmt_ranges: self.stmt_ranges,
         }
@@ -266,7 +265,7 @@ impl<'a> SemExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_pattern_expr_range(&self, expr: &SynPatternData) -> RegionalTokenIdxRange {
+    fn calc_pattern_range(&self, expr: &SynPatternData) -> RegionalTokenIdxRange {
         match expr {
             SynPatternData::Literal {
                 regional_token_idx, ..
@@ -314,8 +313,8 @@ impl<'a> SemExprRangeCalculator<'a> {
             SynPatternData::OneOf { options } => {
                 let fst = options.elements().first().unwrap().syn_pattern();
                 let lst = options.elements().last().unwrap().syn_pattern();
-                let fst_range = self.pattern_expr_ranges[fst.index()];
-                let lst_range = self.pattern_expr_ranges[lst.index()];
+                let fst_range = self.pattern_ranges[fst.index()];
+                let lst_range = self.pattern_ranges[lst.index()];
                 fst_range.join(lst_range)
             }
             SynPatternData::Binding {

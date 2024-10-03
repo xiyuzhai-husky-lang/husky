@@ -662,7 +662,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1131,7 +1148,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
+                        ),
+                        SemExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1600,7 +1634,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2414,8 +2465,42 @@ Ok(
                 },
             ],
             [],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::fermi::fermi_match`),
+                        ),
+                        SemExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListLbox,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::fermi::fermi_match`),
+                        ),
+                        SemExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListRbox,
+                },
+            ],
             [],
             [
                 TokenInfo {

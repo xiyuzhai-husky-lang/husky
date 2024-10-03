@@ -49,7 +49,7 @@ impl IsVfsTestUnit<Jar> for TestLinket {
                     path,
                     linket: Linket::new(
                         db,
-                        LinketData::MajorFunctionRitchie {
+                        LinketData::MajorRitchie {
                             path,
                             instantiation: LinInstantiation::new_empty(path, false),
                         },
