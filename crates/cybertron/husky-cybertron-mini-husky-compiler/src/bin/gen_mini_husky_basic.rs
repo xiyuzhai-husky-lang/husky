@@ -1,8 +1,20 @@
-use husky_cybertron_mini_husky_compiler::rnd::basic::rnd_codes;
+use husky_cybertron_mini_husky_compiler::rnd::basic::{rnd_codes, TokenInfo};
+use rmp_serde::{Deserializer, Serializer};
+use serde::Serialize;
 use std::fs;
 use std::io::{self, Read, Write};
 use std::path::Path;
 use std::path::PathBuf;
+
+fn preview_data_strings(data: &Vec<(Vec<String>, Vec<TokenInfo>)>) {
+    'outer: for (strings, _tokens) in data {
+        for s in strings {
+            print!("{} ", s);
+        }
+        break 'outer;
+    }
+    println!();
+}
 
 fn main() {
     let dir = PathBuf::from("data/mini-husky/basic");
@@ -10,30 +22,30 @@ fn main() {
 
     // Predefined sets of parameters
     let params = vec![
-        (10000, 10, 0.5),
-        (50000, 15, 0.5),
-        (100000, 20, 0.5),
-        (1000000, 20, 0.5),
+        (100000, 10, 3, 0.2, 0.5),
+        (100000, 20, 5, 0.2, 0.5),
+        (100000, 40, 10, 0.2, 0.5),
+        (100000, 80, 20, 0.2, 0.5),
     ];
 
     // Keep track of files we're going to write
     let mut files_to_keep = Vec::new();
 
-    for (n, max_fns, error_rate) in &params {
+    for (n, max_fns, min_dist, use_var_rate, error_rate) in &params {
         let dataset_filename = dir.join(format!(
-            "dataset-n{}-f{}-e{:.2}.msgpack",
-            n, max_fns, error_rate
+            "dataset-n{}-f{}-d{}-v{:.2}-e{:.2}.msgpack",
+            n, max_fns, min_dist, use_var_rate, error_rate
         ));
         files_to_keep.push(dataset_filename.clone());
 
         // Generate the random codes
-        let data = rnd_codes(*n, *max_fns, *error_rate);
+        let data = rnd_codes(*n, *max_fns, *min_dist, *use_var_rate, *error_rate);
+
+        preview_data_strings(&data);
 
         // Write to the file
         let mut file = fs::File::create(&dataset_filename).expect("Unable to create file");
-        // file.write_all(&rmp_serde::to_vec(&data).expect("Unable to serialize data"))
-        //     .expect("Unable to write data
-        write_if_different(&dataset_filename, &data).expect("Unable to write data");
+        write_data(&dataset_filename, &data).expect("Unable to write data");
     }
 
     // Clear other files in the folder
@@ -51,23 +63,23 @@ fn main() {
     }
 }
 
-fn write_if_different<T: serde::Serialize>(dataset_filepath: &Path, data: &T) -> io::Result<()> {
-    let new_data = rmp_serde::to_vec(&data).expect("Unable to serialize data");
+fn write_data<T: serde::Serialize>(dataset_filepath: &Path, data: &T) -> io::Result<()> {
+    let header = [
+        "ast_kind",
+        "symbol_resolution",
+        "expected_type",
+        "actual_type",
+    ];
 
-    if dataset_filepath.exists() {
-        let mut existing_file = fs::File::open(&dataset_filepath)?;
-        let mut existing_data = Vec::new();
-        existing_file.read_to_end(&mut existing_data)?;
+    // Open a file in write mode
+    let mut file = fs::File::create(dataset_filepath)?;
 
-        // Compare the current and new data
-        if existing_data == new_data {
-            println!("No changes detected, skipping write.");
-            return Ok(()); // Skip writing if the data is identical
-        }
-    }
+    // Serialize and write the header first
+    header.serialize(&mut Serializer::new(&mut file));
 
-    let mut file = fs::File::create(&dataset_filepath)?;
-    file.write_all(&new_data)?;
+    // Serialize and write your actual data
+    data.serialize(&mut Serializer::new(&mut file));
+
     println!("Data written to {:?}", dataset_filepath);
 
     Ok(())
