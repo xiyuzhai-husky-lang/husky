@@ -10,6 +10,37 @@ use value::Value;
 impl IsThawedValue for Value {
     type Value = Value;
 
+    fn from_r8(r: u8) -> Self {
+        Value::R8(r)
+    }
+
+    fn from_r16(r: u16) -> Self {
+        Value::R16(r)
+    }
+
+    fn from_r32(r: u32) -> Self {
+        Value::R32(r)
+    }
+
+    fn from_r64(r: u64) -> Self {
+        Value::R64(r)
+    }
+
+    fn from_r128(r: u128) -> Self {
+        Value::R128(r)
+    }
+
+    fn from_rsize(r: u64) -> Self {
+        Value::RSize(r as usize)
+    }
+
+    fn new_uninit() -> Self {
+        todo!()
+    }
+    fn is_uninit(&self) -> bool {
+        todo!()
+    }
+
     fn r#move(&mut self) -> Self {
         unreachable!()
     }
@@ -59,6 +90,34 @@ impl IsThawedValue for Value {
     }
 
     fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue {
+        todo!()
+    }
+
+    fn to_i64(self) -> i64 {
+        todo!()
+    }
+
+    fn ref_access(&self) -> Self {
+        todo!()
+    }
+
+    fn transient_access(&self) -> Self {
+        todo!()
+    }
+
+    fn mut_access(&mut self) -> Self {
+        todo!()
+    }
+
+    fn assign(self, other: Self) {
+        unreachable!()
+    }
+}
+
+impl std::ops::Add<i64> for Value {
+    type Output = Self;
+
+    fn add(self, rhs: i64) -> Self::Output {
         todo!()
     }
 }

@@ -51,8 +51,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -247,8 +247,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -349,8 +349,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -672,8 +672,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -902,8 +902,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfPlace,
+                                HirTemplateVariable::Quary(
+                                    SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -964,8 +964,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1132,8 +1132,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1571,8 +1571,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1729,8 +1729,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -1903,8 +1903,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfPlace,
+                                HirTemplateVariable::Quary(
+                                    SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -2021,8 +2021,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2083,8 +2083,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfPlace,
+                                HirTemplateVariable::Quary(
+                                    SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -2210,8 +2210,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2272,8 +2272,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -2914,8 +2914,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3051,8 +3051,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3121,8 +3121,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3289,8 +3289,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfPlace,
+                                HirTemplateVariable::Quary(
+                                    SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -3341,8 +3341,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3393,8 +3393,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3445,8 +3445,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3687,8 +3687,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfPlace,
+                                HirTemplateVariable::Quary(
+                                    SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -3785,8 +3785,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3883,8 +3883,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -3935,8 +3935,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfPlace,
+                                HirTemplateVariable::Quary(
+                                    SelfPlace,
                                 ),
                                 JavTermSymbolResolution::SelfPlace,
                             ),
@@ -4091,8 +4091,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4483,8 +4483,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),
@@ -4553,8 +4553,8 @@ ValkyrieJavelinPantheon {
                                 ),
                             ),
                             (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
+                                HirTemplateVariable::Lifetime(
+                                    SelfLifetime,
                                 ),
                                 JavTermSymbolResolution::SelfLifetime,
                             ),

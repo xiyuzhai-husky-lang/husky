@@ -3,12 +3,26 @@ use husky_linket_impl::linket_impl::{IsLinketImpl, LinketImplFrozenValue};
 use husky_vmir::stmt::VmirStmtIdx;
 use vec_like::{ordered_vec_map::OrderedVecPairMap, SmallVecPairMap};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VmSnapshotKey {}
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub enum VmSnapshotKey {
+    Loop { loop_index: usize },
+}
 
 pub struct VmSnapshot<LinketImpl: IsLinketImpl> {
     linket: Linket,
-    place_frozen_values: Vec<LinketImplFrozenValue<LinketImpl>>,
+    variable_frozen_values: Vec<LinketImplFrozenValue<LinketImpl>>,
+}
+
+impl<LinketImpl: IsLinketImpl> VmSnapshot<LinketImpl> {
+    pub(crate) fn new(
+        linket: Linket,
+        variable_frozen_values: Vec<LinketImplFrozenValue<LinketImpl>>,
+    ) -> Self {
+        Self {
+            linket,
+            variable_frozen_values,
+        }
+    }
 }
 
 impl<LinketImpl: IsLinketImpl> VmSnapshot<LinketImpl> {
@@ -17,7 +31,7 @@ impl<LinketImpl: IsLinketImpl> VmSnapshot<LinketImpl> {
     }
 
     pub fn place_frozen_values(&self) -> &[LinketImplFrozenValue<LinketImpl>] {
-        &self.place_frozen_values
+        &self.variable_frozen_values
     }
 }
 
@@ -36,3 +50,5 @@ impl<LinketImpl: IsLinketImpl> VmSnapshots<LinketImpl> {
         Self { data }
     }
 }
+
+impl<LinketImpl: IsLinketImpl> VmSnapshots<LinketImpl> {}

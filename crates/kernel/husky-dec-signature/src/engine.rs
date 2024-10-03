@@ -29,8 +29,8 @@ pub(super) struct DecTermEngine<'a> {
     symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
     /// todo: change this to ordered
-    pattern_expr_ty_infos: SynPatternMap<PatternDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
+    pattern_ty_infos: SynPatternMap<PatternDeclarativeTypeInfo>,
+    pattern_variable_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
 }
 
 /// returns None for defn region
@@ -67,11 +67,11 @@ impl<'a> DecTermEngine<'a> {
                 dec_term_menu,
             ),
             expr_terms: SynExprMap::new(syn_expr_region_data.expr_arena()),
-            pattern_expr_ty_infos: SynPatternMap::new(syn_expr_region_data.pattern_expr_arena()),
-            pattern_symbol_ty_infos: SynPatternSymbolMap::new(
+            pattern_ty_infos: SynPatternMap::new(syn_expr_region_data.pattern_arena()),
+            pattern_variable_ty_infos: SynPatternSymbolMap::new(
                 syn_expr_region_data
-                    .pattern_expr_region()
-                    .pattern_symbol_arena(),
+                    .pattern_region()
+                    .pattern_variable_arena(),
             ),
         }
     }
@@ -262,7 +262,7 @@ impl<'a> DecTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_variable_signatures_in_parenate_or_lambda_parameter(
         &mut self,
-        parenate_syn_pattern_expr_root: ParenateParameterSynPatternRoot,
+        parenate_syn_pattern_root: ParenateParameterSynPatternRoot,
         ty: SynExprIdx,
         symbols: CurrentVariableIdxRange,
     ) {
@@ -283,7 +283,7 @@ impl<'a> DecTermEngine<'a> {
             }
             return;
         };
-        self.infer_pattern_tys_in_parenate_parameter(parenate_syn_pattern_expr_root, ty);
+        self.infer_pattern_tys_in_parenate_parameter(parenate_syn_pattern_root, ty);
         for symbol in symbols {
             self.infer_parenate_variable(symbol)
         }
@@ -296,7 +296,7 @@ impl<'a> DecTermEngine<'a> {
                 ident,
                 pattern_variable_idx,
             } => {
-                let base_ty = self.pattern_symbol_ty_infos[pattern_variable_idx].base_ty();
+                let base_ty = self.pattern_variable_ty_infos[pattern_variable_idx].base_ty();
                 self.symbolic_variable_region.add_new_parenate_variable(
                     self.db,
                     current_variable_idx,
@@ -376,8 +376,8 @@ impl<'a> DecTermEngine<'a> {
             self.syn_expr_region_data.path(),
             self.symbolic_variable_region,
             self.expr_terms,
-            self.pattern_expr_ty_infos,
-            self.pattern_symbol_ty_infos,
+            self.pattern_ty_infos,
+            self.pattern_variable_ty_infos,
         )
     }
 

@@ -486,8 +486,8 @@ struct EagerStmtAssocTraceRegistry<'a> {
     hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
     eager_expr_trace_path_registry: TracePathRegistry<EagerExprEssence>,
     eager_expr_traces_issued: VecPairMap<SemExprIdx, Trace>,
-    eager_pattern_expr_trace_path_registry: TracePathRegistry<EagerPatternEssence>,
-    eager_pattern_expr_traces_issued: VecPairMap<SynPatternIdx, Trace>,
+    eager_pattern_trace_path_registry: TracePathRegistry<EagerPatternEssence>,
+    eager_pattern_traces_issued: VecPairMap<SynPatternIdx, Trace>,
 }
 
 impl<'a> EagerStmtAssocTraceRegistry<'a> {
@@ -503,8 +503,8 @@ impl<'a> EagerStmtAssocTraceRegistry<'a> {
             hir_eager_expr_source_map_data: hir_eager_expr_source_map.data(db),
             eager_expr_trace_path_registry: Default::default(),
             eager_expr_traces_issued: Default::default(),
-            eager_pattern_expr_trace_path_registry: Default::default(),
-            eager_pattern_expr_traces_issued: Default::default(),
+            eager_pattern_trace_path_registry: Default::default(),
+            eager_pattern_traces_issued: Default::default(),
         }
     }
 }
@@ -548,24 +548,24 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
             TokenInfoSource::Pattern(_, pattern) => Some(
-                self.eager_pattern_expr_traces_issued
+                self.eager_pattern_traces_issued
                     .get_value_copied_or_insert_with(pattern, || {
-                        Trace::new_eager_pattern_expr(
+                        Trace::new_eager_pattern(
                             self.parent_trace.path(db),
                             self.parent_trace,
                             pattern,
                             self.syn_expr_region_data
-                                .syn_pattern_expr_current_variables_mapped(
+                                .syn_pattern_current_variables_mapped(
                                     pattern,
                                     |current_variable_idx| {
                                         self.hir_eager_expr_source_map_data
-                                            .current_variable_to_hir_eager_runtime_symbol(
+                                            .current_variable_to_hir_eager_runtime_variable(
                                                 current_variable_idx,
                                             )
                                     },
                                 ),
                             self.sem_expr_region,
-                            &mut self.eager_pattern_expr_trace_path_registry,
+                            &mut self.eager_pattern_trace_path_registry,
                             db,
                         )
                     })

@@ -1,10 +1,9 @@
 #![feature(downcast_unchecked)]
 use colored::Colorize;
-use husky_devsoul_interface::devsoul::IsDevsoulInterface;
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_linket_impl::{eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
+use husky_linket_impl::{dev_eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
 use husky_linket_impl::{
-    eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn},
+    dev_eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn},
     linket_impl::IsLinketImpl,
 };
 use std::any::Any;
@@ -20,16 +19,14 @@ pub type LinketImplsGetter = extern "C" fn(&[Option<ItemPathIdInterface>]) -> An
 pub static LINKET_IMPLS_GETTER_IDENT: &[u8] = b"linket_impls";
 
 impl AnyLinketImpls {
-    pub fn new<DevsoulInterface: IsDevsoulInterface>(
-        linket_impls: Vec<DevsoulInterface::LinketImpl>,
-    ) -> Self {
+    pub fn new<LinketImpl: IsLinketImpl>(linket_impls: Vec<LinketImpl>) -> Self {
         Self {
             linket_impls: Box::new(LinketImpls::new(
-                DevsoulInterface::try_set_dev_eval_context,
+                LinketImpl::try_set_dev_eval_context,
                 linket_impls,
             )),
             rustc_version: rustc_version::version().unwrap(),
-            linket_impl_type_name: std::any::type_name::<DevsoulInterface::LinketImpl>(),
+            linket_impl_type_name: std::any::type_name::<LinketImpl>(),
         }
     }
 
@@ -73,33 +70,17 @@ macro_rules! linket_impls {
                     linket.init_item_path_id_interface(item_path_id_interface)
                 }
             }
-            AnyLinketImpls::new::<__DevsoulInterface>(linkets)
+            AnyLinketImpls::new::<__LinketImpl>(linkets)
         }
     };
 }
 
 #[test]
 fn linket_impls_works() {
-    use husky_devsoul_interface::ugly::*;
-    use husky_standard_devsoul_interface::ugly::*;
     use husky_standard_linket_impl::{ugly::*, *};
 
     type __LinketImpl = StandardLinketImpl;
     type __DevEvalContext = DevEvalContext<__LinketImpl>;
-    struct __DevsoulInterface;
-    impl IsDevsoulInterface for __DevsoulInterface {
-        type LinketImpl = __LinketImpl;
-
-        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
-            todo!()
-        }
-
-        fn try_set_dev_eval_context(
-            ctx: DevEvalContext<Self::LinketImpl>,
-        ) -> Result<DevEvalContextGuard, ()> {
-            todo!()
-        }
-    }
 
     linket_impls! {}
 

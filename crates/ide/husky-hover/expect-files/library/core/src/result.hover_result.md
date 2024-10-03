@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::result::Result`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `core::result::Result`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        16,\n    ),\n    RegionalTokenIdx(\n        16,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        22,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ Some(Compterm)`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        22,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ Compterm`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::result::Result`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `core::result::Result`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type -> Type`",
                         },
                     ),
                     range: Some(
@@ -670,7 +670,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ Some(Compterm)`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        13,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ Compterm`",
                         },
                     ),
                     range: Some(

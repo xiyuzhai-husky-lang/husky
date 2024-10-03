@@ -17,7 +17,7 @@ use salsa::DisplayWithDb;
 
 #[macro_export]
 macro_rules! emit_note_on_sem_expr_codespan {
-    ($self: expr, $($expr_messages: expr),* $(,)?) => {{
+    ($self: expr, $($expr_messages: tt),* $(,)?) => {{
         $crate::helpers::codespan::emit_note_on_sem_expr_codespan(
             $self.sem_expr_region(),
             $crate::helpers::codespan::Severity::Note,

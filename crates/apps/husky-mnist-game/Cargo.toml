@@ -16,9 +16,6 @@ smallvec.workspace = true
 enum-index.workspace = true
 shifted-unsigned-int.workspace = true
 ui.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
-husky-standard-devsoul-interface.workspace = true
 # ki
 husky-ki-repr-interface.workspace = true
 # linket

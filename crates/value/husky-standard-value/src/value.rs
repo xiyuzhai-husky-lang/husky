@@ -28,8 +28,9 @@ use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{primitive::PrimitiveVisual, Visual},
 };
+use serde::Serialize;
 use std::cmp::Ordering;
-use thawed::ThawedValue;
+use thawed::{FromThawedValue, ThawedValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
@@ -76,7 +77,16 @@ pub enum Value {
 }
 
 pub trait Immortal:
-    Thawed + Frozen + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    Thawed<Frozen = Self>
+    + Frozen<Thawed = Self>
+    + FromValue
+    + IntoValue
+    + std::any::Any
+    + RefUnwindSafe
+    + UnwindSafe
+    + Send
+    + Sync
+    + 'static
 {
     /// copy if the type is copyable
     ///
@@ -261,6 +271,30 @@ impl Value {
 
 impl IsValue for Value {
     type Exception = Exception;
+
+    fn from_r8(r: u8) -> Self {
+        Value::R8(r)
+    }
+
+    fn from_r16(r: u16) -> Self {
+        Value::R16(r)
+    }
+
+    fn from_r32(r: u32) -> Self {
+        Value::R32(r)
+    }
+
+    fn from_r64(r: u64) -> Self {
+        Value::R64(r)
+    }
+
+    fn from_r128(r: u128) -> Self {
+        Value::R128(r)
+    }
+
+    fn from_rsize(r: u64) -> Self {
+        Value::RSize(r as usize)
+    }
 
     fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
         Value::EnumUnit { index, presenter }

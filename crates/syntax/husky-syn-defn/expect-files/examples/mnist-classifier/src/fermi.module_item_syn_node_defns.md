@@ -251,8 +251,8 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternRegion {
-                                        pattern_expr_arena: Arena {
+                                    pattern_region: SynPatternRegion {
+                                        pattern_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
                                                     symbol_modifier_tokens: None,
@@ -274,11 +274,11 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: [
+                                        pattern_contracts: [
                                             Contract::Pure,
                                             Contract::Pure,
                                         ],
-                                        pattern_symbol_arena: Arena {
+                                        pattern_variable_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
                                                     0,
@@ -288,7 +288,7 @@
                                                 ),
                                             ],
                                         },
-                                        pattern_symbol_maps: [
+                                        pattern_variable_maps: [
                                             [
                                                 (
                                                     `concave_components`,
@@ -302,7 +302,7 @@
                                                 ),
                                             ],
                                         ],
-                                        pattern_symbol_modifiers: ArenaMap {
+                                        pattern_variable_modifiers: ArenaMap {
                                             data: [
                                                 Pure,
                                                 Pure,
@@ -762,7 +762,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                            syn_pattern_root: LetPatternSynExprRoot {
                                                 syn_pattern_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -797,7 +797,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                            syn_pattern_root: LetPatternSynExprRoot {
                                                 syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
@@ -826,7 +826,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                            syn_pattern_root: LetPatternSynExprRoot {
                                                 syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -909,8 +909,8 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternRegion {
-                            pattern_expr_arena: Arena {
+                        pattern_region: SynPatternRegion {
+                            pattern_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: Some(
@@ -957,12 +957,12 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: [
+                            pattern_contracts: [
                                 Contract::Move,
                                 Contract::Move,
                                 Contract::Pure,
                             ],
-                            pattern_symbol_arena: Arena {
+                            pattern_variable_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
                                         0,
@@ -975,7 +975,7 @@
                                     ),
                                 ],
                             },
-                            pattern_symbol_maps: [
+                            pattern_variable_maps: [
                                 [
                                     (
                                         `others`,
@@ -995,7 +995,7 @@
                                     ),
                                 ],
                             ],
-                            pattern_symbol_modifiers: ArenaMap {
+                            pattern_variable_modifiers: ArenaMap {
                                 data: [
                                     Mut,
                                     Mut,
@@ -1284,16 +1284,16 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternRegion {
-                                                    pattern_expr_arena: Arena {
+                                                pattern_region: SynPatternRegion {
+                                                    pattern_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: [],
-                                                    pattern_symbol_arena: Arena {
+                                                    pattern_contracts: [],
+                                                    pattern_variable_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_symbol_maps: [],
-                                                    pattern_symbol_modifiers: ArenaMap {
+                                                    pattern_variable_maps: [],
+                                                    pattern_variable_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -1380,16 +1380,16 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternRegion {
-                                        pattern_expr_arena: Arena {
+                                    pattern_region: SynPatternRegion {
+                                        pattern_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: [],
-                                        pattern_symbol_arena: Arena {
+                                        pattern_contracts: [],
+                                        pattern_variable_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_symbol_maps: [],
-                                        pattern_symbol_modifiers: ArenaMap {
+                                        pattern_variable_maps: [],
+                                        pattern_variable_modifiers: ArenaMap {
                                             data: [],
                                         },
                                     },
@@ -1682,7 +1682,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                            syn_pattern_root: LetPatternSynExprRoot {
                                                 syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
@@ -1765,8 +1765,8 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternRegion {
-                            pattern_expr_arena: Arena {
+                        pattern_region: SynPatternRegion {
+                            pattern_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: Some(
@@ -1787,17 +1787,17 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: [
+                            pattern_contracts: [
                                 Contract::Move,
                             ],
-                            pattern_symbol_arena: Arena {
+                            pattern_variable_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
                             },
-                            pattern_symbol_maps: [
+                            pattern_variable_maps: [
                                 [
                                     (
                                         `norm`,
@@ -1805,7 +1805,7 @@
                                     ),
                                 ],
                             ],
-                            pattern_symbol_modifiers: ArenaMap {
+                            pattern_variable_modifiers: ArenaMap {
                                 data: [
                                     Mut,
                                 ],
@@ -2003,16 +2003,16 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternRegion {
-                                                    pattern_expr_arena: Arena {
+                                                pattern_region: SynPatternRegion {
+                                                    pattern_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: [],
-                                                    pattern_symbol_arena: Arena {
+                                                    pattern_contracts: [],
+                                                    pattern_variable_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_symbol_maps: [],
-                                                    pattern_symbol_modifiers: ArenaMap {
+                                                    pattern_variable_maps: [],
+                                                    pattern_variable_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -2099,16 +2099,16 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternRegion {
-                                        pattern_expr_arena: Arena {
+                                    pattern_region: SynPatternRegion {
+                                        pattern_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: [],
-                                        pattern_symbol_arena: Arena {
+                                        pattern_contracts: [],
+                                        pattern_variable_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_symbol_maps: [],
-                                        pattern_symbol_modifiers: ArenaMap {
+                                        pattern_variable_maps: [],
+                                        pattern_variable_modifiers: ArenaMap {
                                             data: [],
                                         },
                                     },
@@ -2401,7 +2401,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                            syn_pattern_root: LetPatternSynExprRoot {
                                                 syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
@@ -2484,8 +2484,8 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternRegion {
-                            pattern_expr_arena: Arena {
+                        pattern_region: SynPatternRegion {
+                            pattern_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: Some(
@@ -2506,17 +2506,17 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: [
+                            pattern_contracts: [
                                 Contract::Move,
                             ],
-                            pattern_symbol_arena: Arena {
+                            pattern_variable_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
                             },
-                            pattern_symbol_maps: [
+                            pattern_variable_maps: [
                                 [
                                     (
                                         `norm`,
@@ -2524,7 +2524,7 @@
                                     ),
                                 ],
                             ],
-                            pattern_symbol_modifiers: ArenaMap {
+                            pattern_variable_modifiers: ArenaMap {
                                 data: [
                                     Mut,
                                 ],
@@ -2722,16 +2722,16 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternRegion {
-                                                    pattern_expr_arena: Arena {
+                                                pattern_region: SynPatternRegion {
+                                                    pattern_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: [],
-                                                    pattern_symbol_arena: Arena {
+                                                    pattern_contracts: [],
+                                                    pattern_variable_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_symbol_maps: [],
-                                                    pattern_symbol_modifiers: ArenaMap {
+                                                    pattern_variable_maps: [],
+                                                    pattern_variable_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -2818,16 +2818,16 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternRegion {
-                                        pattern_expr_arena: Arena {
+                                    pattern_region: SynPatternRegion {
+                                        pattern_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: [],
-                                        pattern_symbol_arena: Arena {
+                                        pattern_contracts: [],
+                                        pattern_variable_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_symbol_maps: [],
-                                        pattern_symbol_modifiers: ArenaMap {
+                                        pattern_variable_maps: [],
+                                        pattern_variable_modifiers: ArenaMap {
                                             data: [],
                                         },
                                     },
@@ -3140,7 +3140,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                            syn_pattern_root: LetPatternSynExprRoot {
                                                 syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
@@ -3223,8 +3223,8 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternRegion {
-                            pattern_expr_arena: Arena {
+                        pattern_region: SynPatternRegion {
+                            pattern_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: Some(
@@ -3245,17 +3245,17 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: [
+                            pattern_contracts: [
                                 Contract::Move,
                             ],
-                            pattern_symbol_arena: Arena {
+                            pattern_variable_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
                                         0,
                                     ),
                                 ],
                             },
-                            pattern_symbol_maps: [
+                            pattern_variable_maps: [
                                 [
                                     (
                                         `norm`,
@@ -3263,7 +3263,7 @@
                                     ),
                                 ],
                             ],
-                            pattern_symbol_modifiers: ArenaMap {
+                            pattern_variable_modifiers: ArenaMap {
                                 data: [
                                     Mut,
                                 ],

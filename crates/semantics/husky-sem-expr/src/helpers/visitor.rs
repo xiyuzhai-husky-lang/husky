@@ -1,4 +1,4 @@
-use super::region::sem_expr_region_from_region_path;
+use super::path::sem_expr_region_from_region_path;
 use super::*;
 use crate::{SemExprData, SemExprIdx, SemExprRegionData, SemStmtIdx, SemStmtIdxRange};
 use closure_parameter::ClosureParameterObelisk;
@@ -401,9 +401,7 @@ impl SemCondition {
         visitor.visit_condition(self, |visitor| {
             match self {
                 SemCondition::Be { src, .. } => src.simulate(visitor),
-                SemCondition::Other {
-                    expr: sem_expr_idx, ..
-                } => sem_expr_idx.simulate(visitor),
+                SemCondition::Other { expr, .. } => expr.simulate(visitor),
             };
             visitor.visit_condition_inner(self)
         })

@@ -5,8 +5,8 @@ pub mod task;
 use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
-use husky_devsoul_interface::ugly::*;
-use husky_standard_devsoul_interface::{label::IsLabel, ugly::*};
+use husky_standard_linket_impl::ugly::*;
+use ml_task::label::IsLabel;
 
 #[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

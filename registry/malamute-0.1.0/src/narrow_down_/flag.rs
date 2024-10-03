@@ -1,5 +1,4 @@
 use super::*;
-use ad_hoc_devsoul_dependency::IsLabel;
 use ml_task::IsMlTask;
 use smallvec::*;
 

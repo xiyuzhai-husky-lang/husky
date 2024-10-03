@@ -2,7 +2,7 @@ mod flag;
 
 use self::flag::*;
 use crate::*;
-use ml_task::IsMlTask;
+use ml_task::{label::IsLabel, IsMlTask};
 use smallvec::SmallVec;
 
 #[allow(warnings, non_camel_case_types)]
@@ -58,19 +58,28 @@ where
 
 impl<Label> __Boiled for NarrowDownInternal<Label>
 where
-    Label: __Boiled<Thawed = Label>
-        + __Thawed<Frozen = Label>
-        + __Frozen<Thawed = Label>
-        + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     type Thawed = NarrowDownInternal<Label>;
     unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
+
+    unsafe fn from_thawed(thawed: Self::Thawed) -> Self
+    where
+        Self: Sized,
+    {
+        todo!()
+    }
+
+    #[inline]
+    unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self {
+        std::mem::transmute(thawed_ref)
+    }
 }
 impl<Label> __Thawed for NarrowDownInternal<Label>
 where
-    Label: __Thawed<Frozen = Label> + __Frozen<Thawed = Label> + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     type Frozen = NarrowDownInternal<Label>;
     fn freeze(&self) -> Self::Frozen {
@@ -87,7 +96,7 @@ where
 }
 impl<Label> __Frozen for NarrowDownInternal<Label>
 where
-    Label: __Frozen<Thawed = Label> + __Thawed<Frozen = Label> + __Serialize,
+    Label: __Immortal + __Serialize,
 {
     type Thawed = NarrowDownInternal<<Label as __Frozen>::Thawed>;
 
@@ -115,6 +124,7 @@ where
         value.into_owned()
     }
 }
+
 impl<Label> __IntoValue for NarrowDownInternal<Label>
 where
     Label: __Immortal
@@ -125,6 +135,27 @@ where
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
+    }
+}
+
+impl<Label> __FromThawedValue for NarrowDownInternal<Label>
+where
+    Label: __Thawed<Frozen = Label> + __Thawed,
+{
+    fn from_thawed_value_aux(
+        value: __ThawedValue,
+        _slush_values: Option<&mut __SlushValues>,
+    ) -> Self {
+        value.into_owned()
+    }
+}
+
+impl<Label> __IntoThawedValue for NarrowDownInternal<Label>
+where
+    Label: __Immortal + __Serialize,
+{
+    fn into_thawed_value(self) -> __ThawedValue {
+        __ThawedValue::from_owned(self)
     }
 }
 

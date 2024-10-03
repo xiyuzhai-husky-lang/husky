@@ -19,7 +19,7 @@ While some of these features may already exist in other programming languages, H
 
 ## Nature of the Project
 
-Husky is currently a personal project. Despite the significant effort required to develop it, I believe it’s worthwhile because it enables me to tackle specific problems that are of great interest to me. However, more evidence is needed to determine if the language will be valuable to a wider audience beyond my immediate circle. It’s also possible that while Husky is useful, a fundamental redesign of certain aspects could lead to the creation of an entirely new project, one that is inspired by Husky but ventures in a different direction.
+Husky is currently a personal project. Despite the significant effort required to develop it, I believe it’s worthwhile because it enables me to tackle specific problems that are of great interest to me. However, more evidence is needed to determine if the language will be valuable to a wider audience beyond my immediate circle. It’s also possible that while Husky is useful, a fundamental redesign of certain aspects could lead to the creation of an entirely new project, one that is inspired by Husky but ventures in a different direction that is more suitable for the wider audience.
 
 At this stage, there is no intention to position Husky as the "next-generation AI language" meant to replace Python or C++. I believe programming languages should first find their "killer application"—solving a unique problem that no other language can address—before seeking broader adoption. My primary goal is to avoid hype and misinformation, and I will actively work to ensure accurate representation of the project.
 

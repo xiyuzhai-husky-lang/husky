@@ -10,6 +10,7 @@ use husky_expr::stmt::ConditionConversion;
 use husky_fly_term::ExpectationOutcome;
 use husky_hir_ty::ritchie::HirContract;
 use husky_sem_expr::{stmt::condition::SemCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
+use variable::runtime::HirEagerRuntimeVariableIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmtData {
@@ -37,7 +38,7 @@ pub enum HirEagerStmtData {
     },
     ForBetween {
         particulars: HirEagerForBetweenParticulars,
-        // for_loop_varible_idx: CurrentHirEagerSymbolIdx,
+        for_loop_varible_idx: HirEagerRuntimeVariableIdx,
         stmts: HirEagerStmtIdxRange,
     },
     Forext {
@@ -127,11 +128,12 @@ impl ToHirEager for SemStmtIdx {
             },
             SemStmtData::ForBetween {
                 ref particulars,
-                for_loop_varible_idx: _for_loop_varible_idx,
+                for_loop_varible_idx,
                 stmts: ref block,
                 ..
             } => HirEagerStmtData::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
+                for_loop_varible_idx: for_loop_varible_idx.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
             SemStmtData::ForIn { .. } => todo!(),
@@ -222,6 +224,7 @@ impl ToHirEager for SemCondition {
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         match *self {
             SemCondition::Be {
+                expr,
                 src,
                 contract,
                 be_regional_token_idx: _,

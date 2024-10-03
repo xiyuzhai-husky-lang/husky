@@ -1,3 +1,5 @@
+pub mod slice;
+
 use super::*;
 use crate::thawed::Thawed;
 use thawed::r#mut::ThawedMut;

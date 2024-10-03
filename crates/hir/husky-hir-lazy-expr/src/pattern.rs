@@ -1,90 +1,82 @@
 use crate::*;
-use husky_hir_ty::HirType;
-use husky_sem_expr::obelisks::let_variable::LetVariableObelisk;
-use husky_syn_expr::{pattern::SynPatternData, syndicates::BePatternSyndicate};
+use husky_entity_path::path::PatternPath;
+use husky_syn_expr::{
+    context::SynPatternRoot,
+    pattern::{SynPatternData, SynPatternIdx},
+};
+use husky_term_prelude::literal::Literal;
+use idx_arena::ArenaRef;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirLazyLetVariablesPattern {
-    pattern_idx: HirLazyPatternIdx,
-    variables: SmallVec<[HirLazyVariableIdx; 2]>,
-    // variables: CurrentHirLazySymbolIdxRange,
-    ty: Option<HirType>,
+pub enum HirLazyPatternData {
+    /// example: `1`
+    /// todo: change this to primitive value data
+    Literal(Literal),
+    /// example: `a`
+    Ident {
+        // symbol_modifier: Option<EphemSymbolModifier>,
+        ident: Ident,
+    },
+    /// example: `A::B`
+    Unit(PatternPath),
+    /// example: `(a, b)`
+    Tuple {
+        path: Option<PatternPath>,
+        fields: HirLazyPatternIdxRange,
+    },
+    /// example: `C { .. }`
+    Props {
+        path: Option<PatternPath>,
+        // todo: change to punctuated
+        fields: HirLazyPatternIdxRange,
+    },
+    /// example: `A | B | C { .. }`
+    OneOf { options: HirLazyPatternIdxRange },
+    /// example: `x @ 1..9`
+    Binding {
+        ident: Ident,
+        /// example: `1..9`
+        src: HirLazyPatternIdx,
+    },
+    /// example: `1..9`
+    Range {
+        start: HirLazyPatternIdx,
+        end: HirLazyPatternIdx,
+    },
 }
 
-impl HirLazyLetVariablesPattern {
-    pub fn pattern_idx(&self) -> HirLazyPatternIdx {
-        self.pattern_idx
-    }
-
-    pub fn variables(&self) -> &[HirLazyVariableIdx] {
-        &self.variables
-    }
-}
+pub type HirLazyPatternArena = Arena<HirLazyPatternData>;
+pub type HirLazyPatternArenaRef<'a> = ArenaRef<'a, HirLazyPatternData>;
+pub type HirLazyPatternIdx = ArenaIdx<HirLazyPatternData>;
+pub type HirLazyPatternIdxRange = ArenaIdxRange<HirLazyPatternData>;
+pub type HirLazyPatternMap<V> = ArenaMap<HirLazyPatternData, V>;
+pub type HirLazyPatternOrderedMap<V> = ArenaOrderedMap<HirLazyPatternData, V>;
 
 impl<'a> HirLazyExprBuilder<'a> {
-    pub(super) fn new_let_variables_pattern(
+    pub(super) fn new_pattern(
         &mut self,
-        let_variables_pattern: &LetVariableObelisk,
-    ) -> HirLazyLetVariablesPattern {
-        HirLazyLetVariablesPattern {
-            pattern_idx: self.new_pattern(let_variables_pattern.syn_pattern_root()),
-            variables: let_variables_pattern
-                .variables()
-                .into_iter()
-                .filter_map(|var| self.current_variable_to_hir_lazy_variable(var))
-                .collect(),
-            ty: let_variables_pattern
-                .ty_sem_expr_idx()
-                .map(|ty_sem_expr_idx| {
-                    HirType::from_eth(self.expr_term(ty_sem_expr_idx), self.db()).unwrap()
-                }),
-        }
+        syn_pattern_root: impl Into<SynPatternRoot>,
+    ) -> HirLazyPatternIdx {
+        let syn_pattern_idx = syn_pattern_root.into().syn_pattern_idx();
+        let pattern_data = self.new_pattern_aux(syn_pattern_idx);
+        self.alloc_pattern(syn_pattern_idx, pattern_data)
     }
-}
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum HirLazyBeVariablesPattern {
-    Literal,
-    None,
-    Some,
-}
-
-impl ToHirLazy for BePatternSyndicate {
-    type Output = HirLazyBeVariablesPattern;
-
-    fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        let db = builder.db();
-        let pattern_expr_arena = builder.syn_expr_region_data().pattern_expr_arena();
-        match pattern_expr_arena[self.syn_pattern_root().syn_pattern_idx()] {
-            SynPatternData::Literal {
-                regional_token_idx: _,
-                literal: _,
-            } => todo!(),
+    fn new_pattern_aux(&mut self, syn_pattern_idx: SynPatternIdx) -> HirLazyPatternData {
+        match self.syn_expr_region_data()[syn_pattern_idx] {
+            SynPatternData::Literal { .. } => todo!(),
             SynPatternData::Ident {
-                symbol_modifier_tokens: _,
-                ident_token: _,
-            } => todo!(),
-            SynPatternData::UnitTypeVariant {
-                path_expr_idx: _,
-                path,
-            } => {
-                // ad hoc
-                if path.ident(db).data(db) == "None" {
-                    HirLazyBeVariablesPattern::None
-                } else {
-                    todo!()
-                }
-            }
+                symbol_modifier_tokens: _symbol_modifier_keyword_group,
+                ident_token,
+            } => HirLazyPatternData::Ident {
+                // symbol_modifier: (),
+                ident: ident_token.ident(),
+            },
+            SynPatternData::UnitTypeVariant { .. } => todo!(),
             SynPatternData::Tuple { .. } => todo!(),
             SynPatternData::TupleStruct { .. } => todo!(),
-            SynPatternData::TupleTypeVariant { path, .. } => {
-                // ad hoc
-                if path.ident(db).data(db) == "Some" {
-                    HirLazyBeVariablesPattern::Some
-                } else {
-                    todo!()
-                }
-            }
+            SynPatternData::TupleTypeVariant { .. } => todo!(),
             SynPatternData::Props { name: _, fields: _ } => todo!(),
             SynPatternData::OneOf { options: _ } => todo!(),
             SynPatternData::Binding {
