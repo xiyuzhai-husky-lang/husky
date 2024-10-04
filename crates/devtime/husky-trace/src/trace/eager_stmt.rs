@@ -526,6 +526,10 @@ impl EagerStmtTraceData {
     pub fn biological_parent(&self) -> Trace {
         self.biological_parent
     }
+
+    pub fn eager_stmt_sketch(&self) -> EagerStmtSketch {
+        self.eager_stmt_sketch
+    }
 }
 
 struct EagerStmtAssocTraceRegistry<'a> {

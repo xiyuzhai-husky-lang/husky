@@ -295,6 +295,10 @@ impl LazyStmtTraceData {
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }
+
+    pub fn lazy_stmt_sketch(&self) -> LazyStmtSketch {
+        self.lazy_stmt_sketch
+    }
 }
 
 struct LazyStmtAssocTraceRegistry<'a> {
