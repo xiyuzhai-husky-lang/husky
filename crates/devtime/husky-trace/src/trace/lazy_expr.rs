@@ -249,6 +249,10 @@ impl LazyExprTraceData {
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }
+
+    pub fn biological_parent(&self) -> Trace {
+        self.biological_parent
+    }
 }
 
 fn fn_call_lazy_expr_trace_input_traces(
