@@ -137,3 +137,9 @@ std::panic::panic_any(t)
 ## rust item path not found by pub use
 
 Maybe it got shadowed in the way.
+
+## vm
+
+### vm value not recorded
+
+crates/vmir/husky-vmir/src/expr.rs not using eval_expr_itself properly
