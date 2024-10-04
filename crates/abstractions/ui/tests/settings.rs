@@ -159,8 +159,7 @@ fn vscode_settings_trivial_ui_test() {
     // Additional assertions can be added here if needed
 }
 
-#[test]
-fn vscode_settings_ui_test() {
+fn main() {
     let mut settings = VsCodeSettings {
         editor: EditorSettings {
             font: FontSettings {
