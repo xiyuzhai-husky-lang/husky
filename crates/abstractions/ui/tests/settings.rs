@@ -106,26 +106,63 @@ fn vscode_settings_ui_test() {
     };
 
     let mut sections = Vec::new();
-    settings.for_each_section(&mut |name, _section| {
-        sections.push(name.to_string());
+    settings.for_each_section(&mut |title, section| {
+        sections.push(title.to_string());
+        section.for_each_subsection(&mut |title, subsection| {
+            subsection.for_each_item(&mut |_, item| item.setting_item_ui(&mut ()))
+        });
     });
     assert_eq!(sections, vec!["Editor", "Workbench", "Terminal"]);
 
-    // Test editor section
-    let mut editor_subsections = Vec::new();
-    settings
-        .editor
-        .for_each_subsection(&mut |name, _subsection| {
-            editor_subsections.push(name.to_string());
+    let mut subsections = Vec::new();
+    let mut items = Vec::new();
+
+    settings.for_each_section(&mut |_section_name, section| {
+        section.for_each_subsection(&mut |subsection_name, subsection| {
+            subsections.push(subsection_name.to_string());
+
+            subsection.for_each_item(&mut |item_name, item| {
+                items.push(item_name.to_string());
+                item.setting_item_ui(&mut ());
+            });
         });
-    assert_eq!(editor_subsections, vec!["Font", "Cursor", "Find"]);
-
-    // Test font subsection
-    let mut font_items = Vec::new();
-    settings.editor.font.for_each_item(&mut |name, _item| {
-        font_items.push(name.to_string());
     });
-    assert_eq!(font_items, vec!["Size", "Family", "Line height"]);
 
-    // Additional tests can be added for other sections and subsections
+    assert_eq!(
+        subsections,
+        vec![
+            "Font",
+            "Cursor",
+            "Find",
+            "Appearance",
+            "Sidebar",
+            "Integrated"
+        ]
+    );
+
+    assert_eq!(
+        items,
+        vec![
+            "Size",
+            "Family",
+            "Line height",
+            "Style",
+            "Blink",
+            "Width",
+            "Case sensitive",
+            "Whole word",
+            "Regex",
+            "Color theme",
+            "Icon theme",
+            "Position",
+            "Visible",
+            "Shell windows",
+            "Shell linux",
+            "Shell osx"
+        ]
+    );
+
+    // Additional assertions can be added here if needed
 }
+
+fn main() {}

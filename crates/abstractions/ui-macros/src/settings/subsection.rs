@@ -10,7 +10,7 @@ pub fn derive_setting_subsection_ui(input: TokenStream) -> TokenStream {
     let process_struct_fields = process_struct_fields(&struct_data);
     let expanded = quote! {
         impl<Ui: IsUi> SettingSubsectionUi<Ui> for #ty_ident {
-            fn for_each_item(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingUi<Ui>)) {
+            fn for_each_item(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingItemUi<Ui>)) {
                 #process_struct_fields
             }
         }
