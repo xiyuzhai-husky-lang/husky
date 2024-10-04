@@ -4,6 +4,11 @@ pub trait SettingsUi<Ui: IsUi> {
     fn for_each_section(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingSectionUi<Ui>));
 }
 
+/// trivial implementation
+impl<Ui: IsUi> SettingsUi<Ui> for () {
+    fn for_each_section(&mut self, _f: &mut dyn FnMut(&str, &mut dyn SettingSectionUi<Ui>)) {}
+}
+
 pub trait SettingSectionUi<Ui: IsUi> {
     fn for_each_subsection(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingSubsectionUi<Ui>));
 }
@@ -32,6 +37,21 @@ impl<Ui: IsUi> SettingItemUi<Ui> for () {
 }
 
 /// trivial implementation
-impl<Ui: IsUi> SettingsUi<Ui> for () {
-    fn for_each_section(&mut self, _f: &mut dyn FnMut(&str, &mut dyn SettingSectionUi<Ui>)) {}
+impl<Ui: IsUi> SettingItemUi<Ui> for bool {
+    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+}
+
+/// trivial implementation
+impl<Ui: IsUi> SettingItemUi<Ui> for u32 {
+    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+}
+
+/// trivial implementation
+impl<Ui: IsUi> SettingItemUi<Ui> for f32 {
+    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+}
+
+/// trivial implementation
+impl<Ui: IsUi> SettingItemUi<Ui> for String {
+    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
 }
