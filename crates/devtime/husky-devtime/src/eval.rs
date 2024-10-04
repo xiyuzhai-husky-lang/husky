@@ -59,6 +59,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
             TraceData::EagerPattern(_) => todo!(),
             TraceData::EagerStmt(data) => match data.eager_stmt_sketch {
                 EagerStmtSketch::Let {
+                    initial_value,
                     initial_value_hir_eager_expr_idx,
                     ..
                 } => Some(Right(self.eager_expr_trace_value(
