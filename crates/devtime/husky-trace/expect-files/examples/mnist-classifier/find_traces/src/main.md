@@ -107,7 +107,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 2,
@@ -5384,7 +5388,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            6,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 195,
@@ -8628,7 +8636,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 222,
@@ -8977,7 +8989,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            5,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 226,
@@ -13465,7 +13481,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            6,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 252,
@@ -13814,7 +13834,14 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                3,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -14074,7 +14101,14 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                7,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -14334,7 +14368,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            11,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -14707,7 +14745,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            15,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -15080,7 +15122,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            19,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -15453,7 +15499,28 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                21,
+                            ),
+                            src: SemExprIdx(
+                                20,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                46,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 4,
+                                },
+                                variables: ArenaIdxRange(
+                                    3..3,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -15622,7 +15689,14 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                26,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -15976,7 +16050,28 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                28,
+                            ),
+                            src: SemExprIdx(
+                                27,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                60,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 6,
+                                },
+                                variables: ArenaIdxRange(
+                                    3..3,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -16145,7 +16240,11 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            33,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -16551,7 +16650,14 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                41,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -17027,7 +17133,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            44,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -17311,7 +17421,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            47,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -17595,7 +17709,11 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            50,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -17879,7 +17997,14 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                53,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -18111,7 +18236,14 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                57,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -18371,7 +18503,14 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                63,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -18725,7 +18864,11 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            64,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -18825,7 +18968,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            5,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 271,
@@ -19174,7 +19321,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 277,
@@ -19523,7 +19674,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 279,
@@ -19872,7 +20027,28 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                4,
+                            ),
+                            src: SemExprIdx(
+                                3,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                8,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 1,
+                                },
+                                variables: ArenaIdxRange(
+                                    0..0,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -20252,7 +20428,28 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                9,
+                            ),
+                            src: SemExprIdx(
+                                8,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                20,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 3,
+                                },
+                                variables: ArenaIdxRange(
+                                    0..0,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -20632,7 +20829,11 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            11,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -20822,7 +21023,28 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                16,
+                            ),
+                            src: SemExprIdx(
+                                15,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                38,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 5,
+                                },
+                                variables: ArenaIdxRange(
+                                    1..1,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -21235,7 +21457,11 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -21608,7 +21834,28 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                22,
+                            ),
+                            src: SemExprIdx(
+                                21,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                51,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 8,
+                                },
+                                variables: ArenaIdxRange(
+                                    2..2,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -21777,7 +22024,11 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            26,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22122,7 +22373,11 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            31,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22462,7 +22717,14 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                34,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22759,7 +23021,14 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                43,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22808,7 +23077,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            47,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22857,7 +23130,28 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                49,
+                            ),
+                            src: SemExprIdx(
+                                48,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                110,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 14,
+                                },
+                                variables: ArenaIdxRange(
+                                    5..5,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22906,7 +23200,14 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                53,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -22955,7 +23256,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            58,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23004,7 +23309,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            62,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23053,7 +23362,28 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                64,
+                            ),
+                            src: SemExprIdx(
+                                63,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                142,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 18,
+                                },
+                                variables: ArenaIdxRange(
+                                    7..7,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23102,7 +23432,14 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                70,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23151,7 +23488,14 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                76,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23200,7 +23544,14 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                80,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23249,7 +23600,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            83,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23298,7 +23653,14 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                86,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23347,7 +23709,14 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                89,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23396,7 +23765,11 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            90,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23809,7 +24182,11 @@
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            91,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 281,
@@ -23909,7 +24286,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 292,
@@ -24009,7 +24390,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 294,
@@ -24358,7 +24743,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            5,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 298,
@@ -24707,7 +25096,14 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                3,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -24967,7 +25363,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            5,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -25222,7 +25622,28 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                13,
+                            ),
+                            src: SemExprIdx(
+                                12,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                25,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 2,
+                                },
+                                variables: ArenaIdxRange(
+                                    1..1,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -25271,7 +25692,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            18,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -25385,7 +25810,11 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            34,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -25682,7 +26111,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            42,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -25731,7 +26164,14 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                45,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -25780,7 +26220,11 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            46,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -26012,7 +26456,28 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                51,
+                            ),
+                            src: SemExprIdx(
+                                50,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                104,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 8,
+                                },
+                                variables: ArenaIdxRange(
+                                    5..5,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -26392,7 +26857,11 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            53,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -26582,7 +27051,14 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                54,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -26692,7 +27168,11 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            55,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -26792,7 +27272,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 308,
@@ -27141,7 +27625,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 312,
@@ -27611,7 +28099,14 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                18,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 312,
@@ -28052,7 +28547,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            19,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 312,
@@ -28152,7 +28651,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 314,
@@ -28501,7 +29004,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 318,
@@ -28850,7 +29357,11 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -29040,7 +29551,28 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                6,
+                            ),
+                            src: SemExprIdx(
+                                5,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                14,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 1,
+                                },
+                                variables: ArenaIdxRange(
+                                    1..1,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -29453,7 +29985,11 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            10,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -29826,7 +30362,28 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                12,
+                            ),
+                            src: SemExprIdx(
+                                11,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                27,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 4,
+                                },
+                                variables: ArenaIdxRange(
+                                    2..2,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -29995,7 +30552,11 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            16,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -30340,7 +30901,11 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            21,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -30680,7 +31245,14 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                24,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -30977,7 +31549,14 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                33,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31026,7 +31605,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            37,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31075,7 +31658,28 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                39,
+                            ),
+                            src: SemExprIdx(
+                                38,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                86,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 10,
+                                },
+                                variables: ArenaIdxRange(
+                                    5..5,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31124,7 +31728,14 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                43,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31173,7 +31784,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            48,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31222,7 +31837,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            52,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31271,7 +31890,28 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                54,
+                            ),
+                            src: SemExprIdx(
+                                53,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                118,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 14,
+                                },
+                                variables: ArenaIdxRange(
+                                    7..7,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31320,7 +31960,14 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                60,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31369,7 +32016,14 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                66,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31418,7 +32072,14 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                70,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31467,7 +32128,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            73,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31516,7 +32181,14 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                76,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31565,7 +32237,14 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                79,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -31614,7 +32293,11 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            80,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -32027,7 +32710,11 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            81,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -32127,7 +32814,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            6,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 324,
@@ -32476,7 +33167,11 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -32666,7 +33361,11 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            3,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -32856,7 +33555,28 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                8,
+                            ),
+                            src: SemExprIdx(
+                                7,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                22,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 2,
+                                },
+                                variables: ArenaIdxRange(
+                                    2..2,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -33269,7 +33989,11 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            12,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -33642,7 +34366,11 @@
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            16,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -34015,7 +34743,11 @@
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -34388,7 +35120,14 @@
                     hir_eager_stmt_idx: Some(
                         25,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                23,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -34620,7 +35359,11 @@
                     hir_eager_stmt_idx: Some(
                         26,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            28,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -34960,7 +35703,14 @@
                     hir_eager_stmt_idx: Some(
                         27,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                31,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35257,7 +36007,28 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                36,
+                            ),
+                            src: SemExprIdx(
+                                35,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                76,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 8,
+                                },
+                                variables: ArenaIdxRange(
+                                    6..6,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35306,7 +36077,28 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                38,
+                            ),
+                            src: SemExprIdx(
+                                37,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                83,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 10,
+                                },
+                                variables: ArenaIdxRange(
+                                    6..6,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35355,7 +36147,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            41,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35404,7 +36200,14 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                45,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35453,7 +36256,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            50,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35502,7 +36309,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            54,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35551,7 +36362,11 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            58,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35600,7 +36415,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            62,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35649,7 +36468,11 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            66,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35698,7 +36521,11 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            72,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35747,7 +36574,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            76,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35796,7 +36627,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            80,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35845,7 +36680,11 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            86,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -35894,7 +36733,14 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                89,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36191,7 +37037,28 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                94,
+                            ),
+                            src: SemExprIdx(
+                                93,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                211,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 22,
+                                },
+                                variables: ArenaIdxRange(
+                                    16..16,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36240,7 +37107,28 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                96,
+                            ),
+                            src: SemExprIdx(
+                                95,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                218,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 24,
+                                },
+                                variables: ArenaIdxRange(
+                                    16..16,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36289,7 +37177,28 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                98,
+                            ),
+                            src: SemExprIdx(
+                                97,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                225,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 26,
+                                },
+                                variables: ArenaIdxRange(
+                                    16..16,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36338,7 +37247,14 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                104,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36387,7 +37303,11 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            107,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36619,7 +37539,11 @@
                     hir_eager_stmt_idx: Some(
                         30,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            108,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -36719,7 +37643,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            2,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 25,
@@ -37146,7 +38074,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -37308,7 +38240,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -37537,7 +38473,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            8,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -37975,7 +38915,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            14,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -38024,7 +38968,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            17,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -38343,7 +39291,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            2,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 25,
@@ -38505,7 +39457,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -38582,7 +39538,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            2,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 25,
@@ -38842,7 +39802,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 336,
@@ -39071,7 +40035,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            9,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 336,
@@ -39601,7 +40569,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            2,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 25,
@@ -39763,7 +40735,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            13,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 336,
@@ -39962,7 +40938,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40011,7 +40991,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40127,7 +41111,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40265,7 +41253,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 338,
@@ -40342,7 +41334,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40391,7 +41387,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40507,7 +41507,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40645,7 +41649,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            3,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 12,
@@ -40722,7 +41730,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40771,7 +41783,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -40887,7 +41903,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 21,
@@ -41208,7 +42228,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 7,
@@ -41285,7 +42309,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            3,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 12,
@@ -41423,7 +42451,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 4,
@@ -41500,7 +42532,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 7,
@@ -41638,7 +42674,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -44620,7 +45660,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            3,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -48846,7 +49890,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            5,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -53861,7 +54909,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            7,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -53938,7 +54990,14 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                3,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -54198,7 +55257,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            5,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -54453,7 +55516,28 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                13,
+                            ),
+                            src: SemExprIdx(
+                                12,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                25,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 2,
+                                },
+                                variables: ArenaIdxRange(
+                                    1..1,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -54502,7 +55586,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            18,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -54616,7 +55704,11 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            34,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -54913,7 +56005,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            42,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -54962,7 +56058,14 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                45,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -55011,7 +56114,11 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            46,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -55243,7 +56350,28 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                51,
+                            ),
+                            src: SemExprIdx(
+                                50,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                104,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 8,
+                                },
+                                variables: ArenaIdxRange(
+                                    5..5,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -55623,7 +56751,11 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            53,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -55813,7 +56945,14 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                54,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -55923,7 +57062,11 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            55,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 304,
@@ -56033,7 +57176,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            9,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -56110,7 +57257,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            4,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 312,
@@ -56580,7 +57731,14 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                18,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 312,
@@ -57021,7 +58179,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            19,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 312,
@@ -57131,7 +58293,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            11,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -57208,7 +58374,14 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                3,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -57468,7 +58641,14 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                7,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -57728,7 +58908,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            11,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -58101,7 +59285,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            15,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -58474,7 +59662,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            19,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -58847,7 +60039,28 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                21,
+                            ),
+                            src: SemExprIdx(
+                                20,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                46,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 4,
+                                },
+                                variables: ArenaIdxRange(
+                                    3..3,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -59016,7 +60229,14 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                26,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -59370,7 +60590,28 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                28,
+                            ),
+                            src: SemExprIdx(
+                                27,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                60,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 6,
+                                },
+                                variables: ArenaIdxRange(
+                                    3..3,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -59539,7 +60780,11 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            33,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -59945,7 +61190,14 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                41,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -60421,7 +61673,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            44,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -60705,7 +61961,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            47,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -60989,7 +62249,11 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            50,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -61273,7 +62537,14 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                53,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -61505,7 +62776,14 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                57,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -61765,7 +63043,14 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                63,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -62119,7 +63404,11 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            64,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 261,
@@ -62229,7 +63518,11 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            13,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -62306,7 +63599,11 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -62496,7 +63793,28 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                6,
+                            ),
+                            src: SemExprIdx(
+                                5,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                14,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 1,
+                                },
+                                variables: ArenaIdxRange(
+                                    1..1,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -62909,7 +64227,11 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            10,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -63282,7 +64604,28 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                12,
+                            ),
+                            src: SemExprIdx(
+                                11,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                27,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 4,
+                                },
+                                variables: ArenaIdxRange(
+                                    2..2,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -63451,7 +64794,11 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            16,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -63796,7 +65143,11 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            21,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64136,7 +65487,14 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                24,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64433,7 +65791,14 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                33,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64482,7 +65847,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            37,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64531,7 +65900,28 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                39,
+                            ),
+                            src: SemExprIdx(
+                                38,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                86,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 10,
+                                },
+                                variables: ArenaIdxRange(
+                                    5..5,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64580,7 +65970,14 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                43,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64629,7 +66026,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            48,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64678,7 +66079,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            52,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64727,7 +66132,28 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                54,
+                            ),
+                            src: SemExprIdx(
+                                53,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                118,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 14,
+                                },
+                                variables: ArenaIdxRange(
+                                    7..7,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64776,7 +66202,14 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                60,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64825,7 +66258,14 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                66,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64874,7 +66314,14 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                70,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64923,7 +66370,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            73,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -64972,7 +66423,14 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                76,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -65021,7 +66479,14 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                79,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -65070,7 +66535,11 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Return {
+                        result: SemExprIdx(
+                            80,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -65483,7 +66952,11 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            81,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 320,
@@ -65593,7 +67066,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            15,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -65670,7 +67147,11 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            0,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 292,
@@ -65780,7 +67261,11 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            17,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
@@ -65857,7 +67342,11 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            1,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -66047,7 +67536,11 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            3,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -66237,7 +67730,28 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                8,
+                            ),
+                            src: SemExprIdx(
+                                7,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                22,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 2,
+                                },
+                                variables: ArenaIdxRange(
+                                    2..2,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -66650,7 +68164,11 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            12,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -67023,7 +68541,11 @@
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            16,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -67396,7 +68918,11 @@
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            20,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -67769,7 +69295,14 @@
                     hir_eager_stmt_idx: Some(
                         25,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                23,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68001,7 +69534,11 @@
                     hir_eager_stmt_idx: Some(
                         26,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            28,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68341,7 +69878,14 @@
                     hir_eager_stmt_idx: Some(
                         27,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                31,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68638,7 +70182,28 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                36,
+                            ),
+                            src: SemExprIdx(
+                                35,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                76,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 8,
+                                },
+                                variables: ArenaIdxRange(
+                                    6..6,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68687,7 +70252,28 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                38,
+                            ),
+                            src: SemExprIdx(
+                                37,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                83,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 10,
+                                },
+                                variables: ArenaIdxRange(
+                                    6..6,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68736,7 +70322,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            41,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68785,7 +70375,14 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                45,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68834,7 +70431,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            50,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68883,7 +70484,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            54,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68932,7 +70537,11 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            58,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -68981,7 +70590,11 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            62,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69030,7 +70643,11 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            66,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69079,7 +70696,11 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            72,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69128,7 +70749,11 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            76,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69177,7 +70802,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            80,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69226,7 +70855,11 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            86,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69275,7 +70908,14 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                89,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69572,7 +71212,28 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                94,
+                            ),
+                            src: SemExprIdx(
+                                93,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                211,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 22,
+                                },
+                                variables: ArenaIdxRange(
+                                    16..16,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69621,7 +71282,28 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                96,
+                            ),
+                            src: SemExprIdx(
+                                95,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                218,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 24,
+                                },
+                                variables: ArenaIdxRange(
+                                    16..16,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69670,7 +71352,28 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Be {
+                            expr: SemExprIdx(
+                                98,
+                            ),
+                            src: SemExprIdx(
+                                97,
+                            ),
+                            contract: Pure,
+                            be_regional_token_idx: RegionalTokenIdx(
+                                225,
+                            ),
+                            target: BePatternSyndicate {
+                                pattern_root: BeSynPatternRoot {
+                                    syn_pattern_idx: 26,
+                                },
+                                variables: ArenaIdxRange(
+                                    16..16,
+                                ),
+                            },
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69719,7 +71422,14 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Require {
+                        condition: Other {
+                            expr: SemExprIdx(
+                                104,
+                            ),
+                            conversion: None,
+                        },
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -69768,7 +71478,11 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Let {
+                        initial_value: SemExprIdx(
+                            107,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -70000,7 +71714,11 @@
                     hir_eager_stmt_idx: Some(
                         30,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            108,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 332,
@@ -70110,7 +71828,11 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: BasicStmt,
+                    eager_stmt_data_sketch: Eval {
+                        expr: SemExprIdx(
+                            18,
+                        ),
+                    },
                     sem_expr_region: SemExprRegion(
                         Id {
                             value: 334,
