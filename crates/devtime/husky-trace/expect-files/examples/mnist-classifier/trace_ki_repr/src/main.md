@@ -661,6 +661,9 @@
                         initial_value: SemExprIdx(
                             6,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -675,7 +678,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ConditionSatisfied(
+                    KiRepr(
+                        Id {
+                            value: 8,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -1068,6 +1129,9 @@
                         initial_value: SemExprIdx(
                             25,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            24,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -1082,7 +1146,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::Vector2d(0)::norm`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 24,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -1797,6 +1924,9 @@
                         initial_value: SemExprIdx(
                             33,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -1811,7 +1941,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 40,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MajorRitchie {
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                Fn,
+                            )`),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 41,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 32,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -5767,6 +5960,9 @@
                         initial_value: SemExprIdx(
                             64,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            61,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -5781,7 +5977,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 70,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 71,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 61,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -6481,6 +6721,9 @@
                         initial_value: SemExprIdx(
                             73,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            70,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -6495,7 +6738,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 76,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 79,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 70,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -7576,6 +7867,9 @@
                         initial_value: SemExprIdx(
                             80,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            77,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -7590,7 +7884,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 84,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 86,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 77,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -8399,6 +8741,9 @@
                         initial_value: SemExprIdx(
                             83,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            80,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -8413,7 +8758,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Div,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 81,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 88,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 80,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -9262,6 +9655,9 @@
                         initial_value: SemExprIdx(
                             88,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            85,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -9276,7 +9672,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 94,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 85,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -10975,6 +11429,9 @@
                         initial_value: SemExprIdx(
                             10,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            10,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -10989,7 +11446,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MajorRitchie {
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                Fn,
+                            )`),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 105,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 10,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -12971,6 +13491,9 @@
                         initial_value: SemExprIdx(
                             40,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            40,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -12985,7 +13508,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 134,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 135,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 40,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -13034,6 +13601,9 @@
                         initial_value: SemExprIdx(
                             44,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            44,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -13048,7 +13618,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 138,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 139,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 44,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -13097,6 +13711,9 @@
                         initial_value: SemExprIdx(
                             48,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            48,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -13111,7 +13728,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 142,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 143,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 48,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -13296,6 +13957,9 @@
                         initial_value: SemExprIdx(
                             80,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            79,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -13310,7 +13974,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 168,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 171,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 174,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 79,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -13962,6 +14674,9 @@
                         initial_value: SemExprIdx(
                             204,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            201,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -13976,7 +14691,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 276,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 279,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 201,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14025,6 +14784,9 @@
                         initial_value: SemExprIdx(
                             206,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            203,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14039,7 +14801,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 281,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 203,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14088,6 +14913,9 @@
                         initial_value: SemExprIdx(
                             216,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            213,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14102,7 +14930,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 285,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 290,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 213,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14151,6 +15023,9 @@
                         initial_value: SemExprIdx(
                             218,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            215,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14165,7 +15040,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 292,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 215,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14387,6 +15325,9 @@
                         initial_value: SemExprIdx(
                             231,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            228,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14401,7 +15342,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 228,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14450,6 +15449,9 @@
                         initial_value: SemExprIdx(
                             233,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            230,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14464,7 +15466,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 230,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14513,6 +15573,9 @@
                         initial_value: SemExprIdx(
                             236,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            233,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14527,7 +15590,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 305,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 307,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 233,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -14576,6 +15687,9 @@
                         initial_value: SemExprIdx(
                             239,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            236,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -14590,7 +15704,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Add,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 305,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 236,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -15779,6 +16941,9 @@
                         initial_value: SemExprIdx(
                             3,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            3,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -15793,7 +16958,45 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 326,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 327,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -16605,6 +17808,9 @@
                         initial_value: SemExprIdx(
                             7,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -16619,7 +17825,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -16942,6 +18206,9 @@
                         initial_value: SemExprIdx(
                             12,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            11,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -16956,7 +18223,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 335,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 336,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -17742,6 +19057,9 @@
                         initial_value: SemExprIdx(
                             29,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            27,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -17756,7 +19074,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 348,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 349,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 27,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -17805,6 +19167,9 @@
                         initial_value: SemExprIdx(
                             32,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            30,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -17819,7 +19184,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 352,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 30,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -17868,6 +19296,9 @@
                         initial_value: SemExprIdx(
                             34,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -17882,7 +19313,63 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::StructField {
+                            self_ty: LinTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                template_arguments: [],
+                            },
+                            field_ty_leash_class: Copyable,
+                            field: Props {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 354,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 32,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -17931,6 +19418,9 @@
                         initial_value: SemExprIdx(
                             38,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            36,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -17945,7 +19435,63 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::StructField {
+                            self_ty: LinTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                template_arguments: [],
+                            },
+                            field_ty_leash_class: Copyable,
+                            field: Props {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 358,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 36,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -17994,6 +19540,9 @@
                         initial_value: SemExprIdx(
                             40,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            38,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -18008,7 +19557,63 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::StructField {
+                            self_ty: LinTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                template_arguments: [],
+                            },
+                            field_ty_leash_class: Other,
+                            field: Props {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 267,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 324,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 38,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -18303,6 +19908,9 @@
                         initial_value: SemExprIdx(
                             65,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            62,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -18317,7 +19925,77 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 383,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 384,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 386,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 62,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -54823,6 +56501,9 @@
                         initial_value: SemExprIdx(
                             10,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            10,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -54837,7 +56518,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MajorRitchie {
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                Fn,
+                            )`),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 105,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 10,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -56819,6 +58563,9 @@
                         initial_value: SemExprIdx(
                             40,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            40,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -56833,7 +58580,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 134,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 135,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 40,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -56882,6 +58673,9 @@
                         initial_value: SemExprIdx(
                             44,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            44,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -56896,7 +58690,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 138,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 139,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 44,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -56945,6 +58783,9 @@
                         initial_value: SemExprIdx(
                             48,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            48,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -56959,7 +58800,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 142,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 143,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 48,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -57144,6 +59029,9 @@
                         initial_value: SemExprIdx(
                             80,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            79,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -57158,7 +59046,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 168,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 171,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 174,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 79,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -57810,6 +59746,9 @@
                         initial_value: SemExprIdx(
                             204,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            201,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -57824,7 +59763,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 276,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 279,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 201,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -57873,6 +59856,9 @@
                         initial_value: SemExprIdx(
                             206,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            203,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -57887,7 +59873,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 281,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 203,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -57936,6 +59985,9 @@
                         initial_value: SemExprIdx(
                             216,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            213,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -57950,7 +60002,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 285,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 290,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 213,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -57999,6 +60095,9 @@
                         initial_value: SemExprIdx(
                             218,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            215,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -58013,7 +60112,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 274,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 292,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 215,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -58235,6 +60397,9 @@
                         initial_value: SemExprIdx(
                             231,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            228,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -58249,7 +60414,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 228,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -58298,6 +60521,9 @@
                         initial_value: SemExprIdx(
                             233,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            230,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -58312,7 +60538,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 230,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -58361,6 +60645,9 @@
                         initial_value: SemExprIdx(
                             236,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            233,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -58375,7 +60662,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 305,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 307,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 233,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -58424,6 +60759,9 @@
                         initial_value: SemExprIdx(
                             239,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            236,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -58438,7 +60776,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Add,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 305,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 236,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -58916,6 +61302,9 @@
                         initial_value: SemExprIdx(
                             3,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            3,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -58930,7 +61319,45 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 326,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 327,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -59742,6 +62169,9 @@
                         initial_value: SemExprIdx(
                             7,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -59756,7 +62186,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -60079,6 +62567,9 @@
                         initial_value: SemExprIdx(
                             12,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            11,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -60093,7 +62584,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 335,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 336,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -60879,6 +63418,9 @@
                         initial_value: SemExprIdx(
                             29,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            27,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -60893,7 +63435,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 348,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 349,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 27,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -60942,6 +63528,9 @@
                         initial_value: SemExprIdx(
                             32,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            30,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -60956,7 +63545,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 352,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 30,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -61005,6 +63657,9 @@
                         initial_value: SemExprIdx(
                             34,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -61019,7 +63674,63 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::StructField {
+                            self_ty: LinTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                template_arguments: [],
+                            },
+                            field_ty_leash_class: Copyable,
+                            field: Props {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 354,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 32,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -61068,6 +63779,9 @@
                         initial_value: SemExprIdx(
                             38,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            36,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -61082,7 +63796,63 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::StructField {
+                            self_ty: LinTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                template_arguments: [],
+                            },
+                            field_ty_leash_class: Copyable,
+                            field: Props {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 358,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 36,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -61131,6 +63901,9 @@
                         initial_value: SemExprIdx(
                             40,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            38,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -61145,7 +63918,63 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 347,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::StructField {
+                            self_ty: LinTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                template_arguments: [],
+                            },
+                            field_ty_leash_class: Other,
+                            field: Props {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 267,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 324,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 38,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -61440,6 +64269,9 @@
                         initial_value: SemExprIdx(
                             65,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            62,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -61454,7 +64286,77 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 383,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 384,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 386,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 62,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -66296,6 +69198,9 @@
                         initial_value: SemExprIdx(
                             6,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -66310,7 +69215,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ConditionSatisfied(
+                    KiRepr(
+                        Id {
+                            value: 8,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -66703,6 +69666,9 @@
                         initial_value: SemExprIdx(
                             25,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            24,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -66717,7 +69683,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MethodRitchie {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::Vector2d(0)::norm`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 24,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -67432,6 +70461,9 @@
                         initial_value: SemExprIdx(
                             33,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -67446,7 +70478,70 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 40,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MajorRitchie {
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                Fn,
+                            )`),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: None,
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 41,
+                            },
+                        ),
+                    ),
+                    RuntimeConstants(
+                        [],
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 32,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -71402,6 +74497,9 @@
                         initial_value: SemExprIdx(
                             64,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            61,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -71416,7 +74514,51 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Index,
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 70,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 71,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 61,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -72116,6 +75258,9 @@
                         initial_value: SemExprIdx(
                             73,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            70,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -72130,7 +75275,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 76,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 79,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 70,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -73211,6 +76404,9 @@
                         initial_value: SemExprIdx(
                             80,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            77,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -73225,7 +76421,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Sub,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 84,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 86,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 77,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -74034,6 +77278,9 @@
                         initial_value: SemExprIdx(
                             83,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            80,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -74048,7 +77295,55 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Binary(
+                    Closed(
+                        Div,
+                    ),
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 81,
+                            },
+                        ),
+                    ),
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 88,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 80,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {
@@ -74897,6 +78192,9 @@
                         initial_value: SemExprIdx(
                             88,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            85,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -74911,7 +78209,65 @@
                 },
             ),
         },
-        None,
+        Some(
+            KiRepr {
+                ki_domain_repr: ControlNotTransferred(
+                    KiRepr(
+                        Id {
+                            value: 94,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::Memo {
+                            path: AssocItemPath::TypeItem(
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
+                            ),
+                            instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
+                                variable_resolutions: [],
+                                separator: Some(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                ),
+                arguments: [
+                    Simple(
+                        KiRepr(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
+                ],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 85,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
     ),
     (
         Trace {

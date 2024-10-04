@@ -555,6 +555,9 @@
                         initial_value: SemExprIdx(
                             6,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -569,7 +572,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -835,6 +840,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             25,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            24,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -1273,6 +1281,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             33,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -3392,6 +3403,9 @@
                         initial_value: SemExprIdx(
                             64,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            61,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -3813,6 +3827,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             73,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            70,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -4426,6 +4443,9 @@
                         initial_value: SemExprIdx(
                             80,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            77,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -4877,6 +4897,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             83,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            80,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -5384,6 +5407,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             88,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            85,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -6475,6 +6501,9 @@
                         initial_value: SemExprIdx(
                             10,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            10,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -7551,6 +7580,9 @@
                         initial_value: SemExprIdx(
                             40,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            40,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -7616,6 +7648,9 @@
                         initial_value: SemExprIdx(
                             44,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            44,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -7679,6 +7714,9 @@
                     ),
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            48,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
                             48,
                         ),
                     },
@@ -7822,6 +7860,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             80,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            79,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -8308,6 +8349,9 @@
                         initial_value: SemExprIdx(
                             204,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            201,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -8372,6 +8416,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             206,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            203,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -8438,6 +8485,9 @@
                         initial_value: SemExprIdx(
                             216,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            213,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -8502,6 +8552,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             218,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            215,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -8701,6 +8754,9 @@
                         initial_value: SemExprIdx(
                             231,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            228,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -8765,6 +8821,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             233,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            230,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -8831,6 +8890,9 @@
                         initial_value: SemExprIdx(
                             236,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            233,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -8895,6 +8957,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             239,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            236,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -9933,6 +9998,9 @@
                         initial_value: SemExprIdx(
                             3,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            3,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -9947,7 +10015,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -10478,6 +10548,9 @@
                         initial_value: SemExprIdx(
                             7,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -10679,6 +10752,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             12,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            11,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -11164,6 +11240,9 @@
                         initial_value: SemExprIdx(
                             29,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            27,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -11228,6 +11307,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             32,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            30,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -11294,6 +11376,9 @@
                         initial_value: SemExprIdx(
                             34,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -11359,6 +11444,9 @@
                         initial_value: SemExprIdx(
                             38,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            36,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -11423,6 +11511,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             40,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            38,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -11633,6 +11724,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             65,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            62,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -44888,6 +44982,9 @@
                         initial_value: SemExprIdx(
                             10,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            10,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -45964,6 +46061,9 @@
                         initial_value: SemExprIdx(
                             40,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            40,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -46029,6 +46129,9 @@
                         initial_value: SemExprIdx(
                             44,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            44,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -46092,6 +46195,9 @@
                     ),
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            48,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
                             48,
                         ),
                     },
@@ -46235,6 +46341,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             80,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            79,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -46721,6 +46830,9 @@
                         initial_value: SemExprIdx(
                             204,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            201,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -46785,6 +46897,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             206,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            203,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -46851,6 +46966,9 @@
                         initial_value: SemExprIdx(
                             216,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            213,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -46915,6 +47033,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             218,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            215,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -47114,6 +47235,9 @@
                         initial_value: SemExprIdx(
                             231,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            228,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -47178,6 +47302,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             233,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            230,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -47244,6 +47371,9 @@
                         initial_value: SemExprIdx(
                             236,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            233,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -47308,6 +47438,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             239,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            236,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -47715,6 +47848,9 @@
                         initial_value: SemExprIdx(
                             3,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            3,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -47729,7 +47865,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -48260,6 +48398,9 @@
                         initial_value: SemExprIdx(
                             7,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -48461,6 +48602,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             12,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            11,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48946,6 +49090,9 @@
                         initial_value: SemExprIdx(
                             29,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            27,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -49010,6 +49157,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             32,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            30,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49076,6 +49226,9 @@
                         initial_value: SemExprIdx(
                             34,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -49141,6 +49294,9 @@
                         initial_value: SemExprIdx(
                             38,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            36,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -49205,6 +49361,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             40,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            38,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49415,6 +49574,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             65,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            62,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -52284,6 +52446,9 @@
                         initial_value: SemExprIdx(
                             6,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            6,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -52298,7 +52463,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -52564,6 +52731,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             25,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            24,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -53002,6 +53172,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             33,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            32,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -55121,6 +55294,9 @@
                         initial_value: SemExprIdx(
                             64,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            61,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -55542,6 +55718,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             73,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            70,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -56155,6 +56334,9 @@
                         initial_value: SemExprIdx(
                             80,
                         ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            77,
+                        ),
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -56606,6 +56788,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             83,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            80,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -57113,6 +57298,9 @@
                     lazy_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             88,
+                        ),
+                        initial_value_hir_lazy_expr_idx: Some(
+                            85,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
