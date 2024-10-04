@@ -559,7 +559,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::Owned(ref slf) => FrozenValue::Owned(slf.freeze()),
             ThawedValue::Leash(leashed_val) => FrozenValue::Leash(leashed_val),
             ThawedValue::Ref(_) => todo!(),
-            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::Mut(mut_val) => FrozenValue::SizedMut(unsafe { &*mut_val }.freeze()),
             ThawedValue::OptionBox(_) => todo!(),
             ThawedValue::OptionLeash(_) => todo!(),
             ThawedValue::OptionSizedRef(_) => todo!(),

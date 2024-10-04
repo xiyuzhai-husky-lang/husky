@@ -229,7 +229,7 @@ pub trait IsThawedValue:
     fn assign(self, other: Self);
 }
 
-pub trait IsFrozenValue: Clone + Send + Sync + 'static {
+pub trait IsFrozenValue: std::fmt::Debug + Clone + Send + Sync + 'static {
     type Value: IsValue;
 
     fn thaw(
