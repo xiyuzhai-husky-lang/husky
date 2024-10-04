@@ -1,2 +1,2 @@
 #[cfg(feature = "egui")]
-mod egui;
+pub mod egui;

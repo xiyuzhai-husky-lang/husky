@@ -1,3 +1,6 @@
+#[cfg(feature = "egui")]
+pub mod egui;
+
 use crate::ui::IsUi;
 
 pub trait SettingsUi<Ui: IsUi> {
@@ -28,30 +31,26 @@ impl<Ui: IsUi> SettingSubsectionUi<Ui> for () {
 }
 
 pub trait SettingItemUi<Ui: IsUi> {
-    fn setting_item_ui(&mut self, ui: &mut Ui);
+    fn setting_item_ui(&mut self, item_title: &str, ui: &mut Ui);
 }
 
 /// trivial implementation
-impl<Ui: IsUi> SettingItemUi<Ui> for () {
-    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+impl SettingItemUi<()> for () {
+    fn setting_item_ui(&mut self, _item_title: &str, _ui: &mut ()) {}
 }
 
-/// trivial implementation
-impl<Ui: IsUi> SettingItemUi<Ui> for bool {
-    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+impl SettingItemUi<()> for bool {
+    fn setting_item_ui(&mut self, _item_title: &str, _ui: &mut ()) {}
 }
 
-/// trivial implementation
-impl<Ui: IsUi> SettingItemUi<Ui> for u32 {
-    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+impl SettingItemUi<()> for u32 {
+    fn setting_item_ui(&mut self, _item_title: &str, _ui: &mut ()) {}
 }
 
-/// trivial implementation
-impl<Ui: IsUi> SettingItemUi<Ui> for f32 {
-    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+impl SettingItemUi<()> for f32 {
+    fn setting_item_ui(&mut self, _item_title: &str, _ui: &mut ()) {}
 }
 
-/// trivial implementation
-impl<Ui: IsUi> SettingItemUi<Ui> for String {
-    fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+impl SettingItemUi<()> for String {
+    fn setting_item_ui(&mut self, _item_title: &str, _ui: &mut ()) {}
 }
