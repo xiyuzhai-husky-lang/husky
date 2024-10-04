@@ -151,6 +151,10 @@ impl Trace {
 }
 
 impl LazyStmtTraceData {
+    pub fn biological_parent(&self) -> Trace {
+        self.biological_parent
+    }
+
     pub fn view_lines(&self, trace: Trace, db: &::salsa::Db) -> TraceViewLines {
         let sem_stmt_idx = self.sem_stmt_idx;
         let sem_expr_region = self.sem_expr_region;

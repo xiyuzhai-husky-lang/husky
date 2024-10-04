@@ -33,7 +33,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
             TraceData::EagerLoopRange(eager_loop_range_trace_data) => todo!(),
             TraceData::Place(place_trace_data) => todo!(),
             TraceData::Script(script_trace_data) => todo!(),
-            _ => self.trace_history(trace.biological_parent(db), pedestal),
+            _ => self.trace_history(trace.biological_parent(db).unwrap(), pedestal),
         }
     }
 
