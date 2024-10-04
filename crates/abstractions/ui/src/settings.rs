@@ -1,6 +1,8 @@
 use crate::ui::IsUi;
 
-pub trait SettingsUi<Ui: IsUi> {}
+pub trait SettingsUi<Ui: IsUi> {
+    fn for_each_section(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingSectionUi<Ui>));
+}
 
 pub trait SettingSectionUi<Ui: IsUi> {
     fn for_each_subsection(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingSubsectionUi<Ui>));
@@ -27,4 +29,9 @@ pub trait SettingItemUi<Ui: IsUi> {
 /// trivial implementation
 impl<Ui: IsUi> SettingItemUi<Ui> for () {
     fn setting_item_ui(&mut self, _ui: &mut Ui) {}
+}
+
+/// trivial implementation
+impl<Ui: IsUi> SettingsUi<Ui> for () {
+    fn for_each_section(&mut self, _f: &mut dyn FnMut(&str, &mut dyn SettingSectionUi<Ui>)) {}
 }

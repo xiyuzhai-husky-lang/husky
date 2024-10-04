@@ -1,21 +1,16 @@
-pub mod section;
-pub mod subsection;
+use super::*;
 
-use crate::*;
-use proc_macro2::TokenStream as TokenStream2;
-use syn::{parse_macro_input, Data, DeriveInput, Fields};
-
-pub fn derive_settings_ui(input: TokenStream) -> TokenStream {
+pub fn derive_setting_subsection_ui(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
     let struct_data = match input.data {
         syn::Data::Struct(data) => data,
-        _ => panic!("SettingsUi can only be derived for structs"),
+        _ => panic!("SettingSubsectionUi can only be derived for structs"),
     };
     let ty_ident = &input.ident;
     let process_struct_fields = process_struct_fields(&struct_data);
     let expanded = quote! {
-        impl<Ui: IsUi> SettingsUi<Ui> for #ty_ident {
-            fn for_each_section(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingSectionUi<Ui>)) {
+        impl<Ui: IsUi> SettingSubsectionUi<Ui> for #ty_ident {
+            fn for_each_item(&mut self, f: &mut dyn FnMut(&str, &mut dyn SettingUi<Ui>)) {
                 #process_struct_fields
             }
         }
@@ -26,7 +21,7 @@ pub fn derive_settings_ui(input: TokenStream) -> TokenStream {
 fn process_struct_fields(struct_data: &syn::DataStruct) -> TokenStream2 {
     let fields = match &struct_data.fields {
         Fields::Named(fields) => &fields.named,
-        _ => panic!("Only named fields are supported for SettingsUi"),
+        _ => panic!("Only named fields are supported for SettingSubsectionUi"),
     };
     let field_uis = fields.iter().map(|field| {
         let field_name = &field.ident;
