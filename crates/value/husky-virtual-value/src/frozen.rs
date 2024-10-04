@@ -16,4 +16,11 @@ impl IsFrozenValue for Value {
     ) -> husky_value_protocol::ugly::__ValuePresentation {
         todo!()
     }
+
+    fn visualize(
+        &self,
+        visual_synchrotron: &mut husky_visual_protocol::ugly::__VisualSynchrotron,
+    ) -> husky_visual_protocol::visual::Visual {
+        todo!()
+    }
 }

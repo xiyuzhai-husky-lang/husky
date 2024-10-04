@@ -243,4 +243,5 @@ pub trait IsFrozenValue: Clone + Send + Sync + 'static {
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> ValuePresentation;
+    fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }

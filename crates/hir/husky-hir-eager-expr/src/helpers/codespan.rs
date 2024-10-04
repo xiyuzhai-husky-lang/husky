@@ -1,7 +1,7 @@
 pub use codespan_reporting::diagnostic::Severity;
 pub use husky_decl_macro_utils::file_rel_curr;
 
-use super::region::hir_eager_expr_source_map_from_sema;
+use super::region::hir_eager_expr_source_map_from_sem;
 use crate::{HirEagerExprIdx, HirEagerExprRegion, HirEagerExprSourceMapData};
 use codespan_reporting::diagnostic::{Diagnostic, Label};
 use codespan_reporting::files::SimpleFiles;
@@ -108,7 +108,7 @@ impl<'a> HirEagerExprCodespanEmitter<'a> {
         let region_path = hir_eager_expr_region.region_path(db);
         let sem_expr_region = hir_eager_expr_region.sem_expr_region(db);
         let hir_eager_expr_source_map_data =
-            hir_eager_expr_source_map_from_sema(sem_expr_region, db).data(db);
+            hir_eager_expr_source_map_from_sem(sem_expr_region, db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
         let sem_expr_range_region_data = sem_expr_range_region(db, sem_expr_region).data(db);
         let module_path = region_path.module_path(db);
