@@ -9,7 +9,8 @@ egui = { workspace = true, optional = true }
 rustc-hash = { workspace = true, optional = true }
 thiserror.workspace = true
 # abstractions
-enum-class = { workspace = true, optional = true }
+enum-class.workspace = true
+ui-macros.workspace = true
 # protocols
 husky-visual-protocol = { workspace = true }
 
@@ -19,9 +20,4 @@ expect-test.workspace = true
 ui = { path = ".", features = ["egui"] }
 
 [features]
-egui = [
-    "dep:egui",
-    "dep:rustc-hash",
-    "dep:enum-class",
-    "husky-visual-protocol/egui"
-]
+egui = ["dep:egui", "dep:rustc-hash", "husky-visual-protocol/egui"]
