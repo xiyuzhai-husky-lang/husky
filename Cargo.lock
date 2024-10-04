@@ -11630,6 +11630,7 @@ dependencies = [
 name = "ui"
 version = "0.1.0"
 dependencies = [
+ "eframe",
  "egui",
  "enum-class",
  "expect-test",
@@ -11638,6 +11639,7 @@ dependencies = [
  "smallvec",
  "thiserror",
  "ui",
+ "ui-macros",
 ]
 
 [[package]]
