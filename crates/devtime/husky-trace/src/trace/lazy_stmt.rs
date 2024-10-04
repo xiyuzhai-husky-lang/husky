@@ -9,15 +9,14 @@ use husky_hir_lazy_expr::{
     HirLazyExprRegion,
 };
 use husky_hir_lazy_expr::{source_map::HirLazyExprSourceMapData, HirLazyStmtIdx};
-
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_regional_token::{
-    ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
-    RegionalTokenIdxRange,
+    ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, EolRegionalToken, IfRegionalToken,
+    NarrateRegionalToken, RegionalTokenIdxRange, StmtForRegionalToken,
 };
 use husky_sem_expr::{
-    helpers::range::sem_expr_range_region, SemExprData, SemExprDb, SemExprRegion, SemStmtData,
-    SemStmtIdx, SemStmtIdxRange,
+    helpers::range::sem_expr_range_region, stmt::condition::SemCondition, SemExprData, SemExprDb,
+    SemExprIdx, SemExprRegion, SemStmtData, SemStmtIdx, SemStmtIdxRange,
 };
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
@@ -59,7 +58,22 @@ pub struct LazyStmtTraceData {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyStmtSketch {
-    BasicStmt,
+    Let {
+        initial_value: SemExprIdx,
+    },
+    Return {
+        result: SemExprIdx,
+    },
+    Require {
+        condition: SemCondition,
+    },
+    Assert {
+        condition: SemCondition,
+    },
+    Break,
+    Eval {
+        expr: SemExprIdx,
+    },
     IfBranch {
         if_regional_token: IfRegionalToken,
         eol_colon_regional_token: EolColonRegionalToken,
@@ -75,6 +89,22 @@ pub enum LazyStmtSketch {
         else_regional_token: ElseRegionalToken,
         eol_colon_regional_token: EolColonRegionalToken,
         stmts: SemStmtIdxRange,
+    },
+    ForIn {
+        for_regional_token: StmtForRegionalToken,
+        eol_colon_regional_token: EolRegionalToken,
+        stmts: SemStmtIdxRange,
+    },
+    ForBetween {
+        for_regional_token: StmtForRegionalToken,
+        eol_colon_regional_token: EolRegionalToken,
+        stmts: SemStmtIdxRange,
+    },
+    Match {
+        opd: SemExprIdx,
+    },
+    Narrate {
+        narrate_token: NarrateRegionalToken,
     },
 }
 
@@ -126,7 +156,14 @@ impl LazyStmtTraceData {
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let region_path = sem_expr_region.path(db);
         let regional_token_idx_range = match self.lazy_stmt_sketch {
-            LazyStmtSketch::BasicStmt => sem_expr_range_region.data(db)[sem_stmt_idx],
+            LazyStmtSketch::Let { .. }
+            | LazyStmtSketch::Return { .. }
+            | LazyStmtSketch::Require { .. }
+            | LazyStmtSketch::Assert { .. }
+            | LazyStmtSketch::Break
+            | LazyStmtSketch::Eval { .. }
+            | LazyStmtSketch::Match { .. }
+            | LazyStmtSketch::Narrate { .. } => sem_expr_range_region.data(db)[sem_stmt_idx],
             LazyStmtSketch::IfBranch {
                 if_regional_token,
                 eol_colon_regional_token,
@@ -151,6 +188,19 @@ impl LazyStmtTraceData {
                 else_regional_token.regional_token_idx(),
                 eol_colon_regional_token.regional_token_idx(),
             ),
+            LazyStmtSketch::ForIn {
+                for_regional_token,
+                eol_colon_regional_token,
+                ..
+            }
+            | LazyStmtSketch::ForBetween {
+                for_regional_token,
+                eol_colon_regional_token,
+                ..
+            } => RegionalTokenIdxRange::new_closed(
+                for_regional_token.regional_token_idx(),
+                eol_colon_regional_token.regional_token_idx(),
+            ),
         };
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
@@ -160,10 +210,19 @@ impl LazyStmtTraceData {
 
     pub fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
         match self.lazy_stmt_sketch {
-            LazyStmtSketch::BasicStmt => false,
-            LazyStmtSketch::IfBranch { .. } => true,
-            LazyStmtSketch::ElifBranch { .. } => true,
-            LazyStmtSketch::ElseBranch { .. } => true,
+            LazyStmtSketch::Let { .. }
+            | LazyStmtSketch::Return { .. }
+            | LazyStmtSketch::Require { .. }
+            | LazyStmtSketch::Assert { .. }
+            | LazyStmtSketch::Break
+            | LazyStmtSketch::Eval { .. }
+            | LazyStmtSketch::Narrate { .. } => false,
+            LazyStmtSketch::IfBranch { .. }
+            | LazyStmtSketch::ElifBranch { .. }
+            | LazyStmtSketch::ElseBranch { .. }
+            | LazyStmtSketch::ForIn { .. }
+            | LazyStmtSketch::ForBetween { .. }
+            | LazyStmtSketch::Match { .. } => true,
         }
     }
 
@@ -171,16 +230,25 @@ impl LazyStmtTraceData {
         let biological_parent_path = self.path;
         let biological_parent = trace_id;
         match self.lazy_stmt_sketch {
-            LazyStmtSketch::BasicStmt => vec![],
+            LazyStmtSketch::Let { .. }
+            | LazyStmtSketch::Return { .. }
+            | LazyStmtSketch::Require { .. }
+            | LazyStmtSketch::Assert { .. }
+            | LazyStmtSketch::Break
+            | LazyStmtSketch::Eval { .. }
+            | LazyStmtSketch::Narrate { .. } => vec![],
             LazyStmtSketch::IfBranch { stmts, .. }
             | LazyStmtSketch::ElifBranch { stmts, .. }
-            | LazyStmtSketch::ElseBranch { stmts, .. } => Trace::new_lazy_stmts(
+            | LazyStmtSketch::ElseBranch { stmts, .. }
+            | LazyStmtSketch::ForIn { stmts, .. }
+            | LazyStmtSketch::ForBetween { stmts, .. } => Trace::new_lazy_stmts(
                 biological_parent_path,
                 biological_parent,
                 stmts,
                 self.sem_expr_region,
                 db,
             ),
+            LazyStmtSketch::Match { .. } => todo!(), // Implement match subtraces
         }
     }
 
@@ -355,56 +423,50 @@ impl Trace {
         let mut subtraces: Vec<Trace> = vec![];
         let sem_stmt_arena = sem_expr_region.data(db).sem_stmt_arena();
         for stmt in stmts {
-            match stmt.data(sem_stmt_arena) {
-                SemStmtData::Let { .. } => {
-                    let lazy_stmt_sketch = LazyStmtEssence::Let {};
+            match *stmt.data(sem_stmt_arena) {
+                SemStmtData::Let { initial_value, .. } => {
+                    let essence = LazyStmtEssence::Let {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
                         parent_trace,
-                        lazy_stmt_sketch,
+                        essence,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::BasicStmt,
+                        LazyStmtSketch::Let { initial_value },
                         sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemStmtData::Return { .. } => {
-                    let path_data = LazyStmtEssence::Return {};
+                SemStmtData::Return { result, .. } => {
+                    let essence = LazyStmtEssence::Return {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
                         parent_trace,
-                        path_data,
+                        essence,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::BasicStmt,
+                        LazyStmtSketch::Return { result },
                         sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemStmtData::Require {
-                    require_token: _,
-                    condition: _,
-                } => {
-                    let path_data = LazyStmtEssence::Require {};
+                SemStmtData::Require { condition, .. } => {
+                    let essence = LazyStmtEssence::Require {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
                         parent_trace,
-                        path_data,
+                        essence,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::BasicStmt,
+                        LazyStmtSketch::Require { condition },
                         sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemStmtData::Assert {
-                    assert_token: _,
-                    condition: _,
-                } => {
+                SemStmtData::Assert { condition, .. } => {
                     let path_data = LazyStmtEssence::Assert {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
@@ -412,13 +474,13 @@ impl Trace {
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::BasicStmt,
+                        LazyStmtSketch::Assert { condition },
                         sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemStmtData::Break { break_token: _ } => {
+                SemStmtData::Break { .. } => {
                     let path_data = LazyStmtEssence::Break {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
@@ -426,13 +488,13 @@ impl Trace {
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::BasicStmt,
+                        LazyStmtSketch::Break,
                         sem_expr_region,
                         db,
                     );
                     subtraces.push(lazy_stmt_trace.into())
                 }
-                SemStmtData::Eval { .. } => {
+                SemStmtData::Eval { expr, .. } => {
                     let path_data = LazyStmtEssence::Eval {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
@@ -440,7 +502,7 @@ impl Trace {
                         path_data,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::BasicStmt,
+                        LazyStmtSketch::Eval { expr },
                         sem_expr_region,
                         db,
                     );
@@ -479,9 +541,9 @@ impl Trace {
                     stmts: _,
                 } => todo!(),
                 SemStmtData::IfElse {
-                    if_branch: sem_if_branch,
-                    elif_branches: sem_elif_branches,
-                    else_branch: sem_else_branch,
+                    ref if_branch,
+                    ref elif_branches,
+                    ref else_branch,
                 } => {
                     subtraces.push(
                         Trace::new_lazy_stmt(
@@ -491,16 +553,16 @@ impl Trace {
                             &mut registry,
                             stmt,
                             LazyStmtSketch::IfBranch {
-                                if_regional_token: sem_if_branch.if_token(),
-                                eol_colon_regional_token: sem_if_branch.eol_colon_token(),
-                                stmts: sem_if_branch.stmts(),
+                                if_regional_token: if_branch.if_token(),
+                                eol_colon_regional_token: if_branch.eol_colon_token(),
+                                stmts: if_branch.stmts(),
                             },
                             sem_expr_region,
                             db,
                         )
                         .into(),
                     );
-                    for (elif_branch_idx, sem_elif_branch) in sem_elif_branches.iter().enumerate() {
+                    for (elif_branch_idx, sem_elif_branch) in elif_branches.iter().enumerate() {
                         let elif_branch_idx = elif_branch_idx.try_into().unwrap();
                         subtraces.push(
                             Trace::new_lazy_stmt(
@@ -521,7 +583,7 @@ impl Trace {
                             .into(),
                         );
                     }
-                    if let Some(sem_else_branch) = sem_else_branch {
+                    if let Some(sem_else_branch) = else_branch {
                         subtraces.push(
                             Trace::new_lazy_stmt(
                                 parent_trace_path,
