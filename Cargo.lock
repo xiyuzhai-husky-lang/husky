@@ -11638,6 +11638,7 @@ dependencies = [
  "smallvec",
  "thiserror",
  "ui",
+ "ui-macros",
 ]
 
 [[package]]
