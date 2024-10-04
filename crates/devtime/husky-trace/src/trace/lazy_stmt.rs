@@ -5,8 +5,8 @@ use crate::registry::{
 };
 use husky_entity_path::path::PrincipalEntityPath;
 use husky_hir_lazy_expr::{
-    builder::hir_lazy_expr_region_with_source_map, source_map::HirLazyExprSourceMap,
-    HirLazyExprRegion,
+    builder::hir_lazy_expr_region_with_source_map, helpers::hir_lazy_expr_source_map_from_sem,
+    source_map::HirLazyExprSourceMap, HirLazyExprIdx, HirLazyExprRegion,
 };
 use husky_hir_lazy_expr::{source_map::HirLazyExprSourceMapData, HirLazyStmtIdx};
 use husky_ki_repr::expansion::KiReprExpansion;
@@ -60,6 +60,7 @@ pub struct LazyStmtTraceData {
 pub enum LazyStmtSketch {
     Let {
         initial_value: SemExprIdx,
+        initial_value_hir_lazy_expr_idx: Option<HirLazyExprIdx>,
     },
     Return {
         result: SemExprIdx,
@@ -254,14 +255,18 @@ impl LazyStmtTraceData {
 
     pub fn ki_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let ki_repr_expansion = trace_ki_repr_expansion(db, trace);
-        match ki_repr_expansion
-            .hir_lazy_stmt_ki_repr_map(db)
-            .get(self.hir_lazy_stmt_idx?)
-            .copied()
-        {
-            Some(ki_repr) => Some(ki_repr),
-            // ad hoc, consider variable
-            None => None,
+        match self.lazy_stmt_sketch {
+            LazyStmtSketch::Let {
+                initial_value_hir_lazy_expr_idx,
+                ..
+            } => ki_repr_expansion
+                .hir_lazy_expr_ki_repr_map(db)
+                .get(initial_value_hir_lazy_expr_idx?)
+                .copied(),
+            _ => ki_repr_expansion
+                .hir_lazy_stmt_ki_repr_map(db)
+                .get(self.hir_lazy_stmt_idx?)
+                .copied(),
         }
     }
 
@@ -271,9 +276,16 @@ impl LazyStmtTraceData {
     }
 
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
-        self.var_deps_expansion(db)
-            .stmt_control_flow_var_deps(self.sem_stmt_idx, db)
-            .clone()
+        match self.lazy_stmt_sketch {
+            LazyStmtSketch::Let { initial_value, .. } => self
+                .var_deps_expansion(db)
+                .expr_control_flow_var_deps(initial_value, db)
+                .clone(),
+            _ => self
+                .var_deps_expansion(db)
+                .stmt_control_flow_var_deps(self.sem_stmt_idx, db)
+                .clone(),
+        }
     }
 
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
@@ -425,6 +437,7 @@ impl Trace {
         for stmt in stmts {
             match *stmt.data(sem_stmt_arena) {
                 SemStmtData::Let { initial_value, .. } => {
+                    let source_map = hir_lazy_expr_source_map_from_sem(sem_expr_region, db);
                     let essence = LazyStmtEssence::Let {};
                     let lazy_stmt_trace = Trace::new_lazy_stmt(
                         parent_trace_path,
@@ -432,7 +445,12 @@ impl Trace {
                         essence,
                         &mut registry,
                         stmt,
-                        LazyStmtSketch::Let { initial_value },
+                        LazyStmtSketch::Let {
+                            initial_value,
+                            initial_value_hir_lazy_expr_idx: source_map
+                                .data(db)
+                                .sem_to_hir_lazy_expr_idx(initial_value),
+                        },
                         sem_expr_region,
                         db,
                     );
