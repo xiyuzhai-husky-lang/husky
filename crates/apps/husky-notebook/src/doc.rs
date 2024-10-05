@@ -1,5 +1,5 @@
-mod arena;
-mod tab;
+pub(crate) mod arena;
+pub(crate) mod tab;
 
 pub(crate) use self::tab::*;
 
@@ -55,6 +55,7 @@ impl NotebookApp {
 
     pub(crate) fn add_doc(&mut self, doc: Doc) {
         let id = self.docs.doc_arena.alloc(doc);
+        self.concentration = Some(id);
         self.dock_state.push_to_focused_leaf(DocTab::new(id))
     }
 }

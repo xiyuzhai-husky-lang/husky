@@ -14,6 +14,7 @@ use husky_trace_protocol::{
 use notify_change::NotifyChange;
 use std::{path::PathBuf, sync::Arc};
 use ui::{
+    app::IsParentActionBuffer,
     component::ComponentUi,
     hotkey::egui::{HotkeyBuffer, HotkeyMap},
     visual::cache::VisualUiCache,
@@ -28,6 +29,7 @@ where
     current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     facade: TraceDocFacade,
+    prev_facade: Option<TraceDocFacade>,
     view_action_buffer: TraceViewActionBuffer<TraceProtocol>,
     figure_ui_cache: ui::visual::cache::VisualUiCache<egui::Ui>,
     // set after client is initialized
@@ -44,6 +46,7 @@ where
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
     ParentSettings: HasTraceDocSettings,
+    ParentActionBuffer: IsParentActionBuffer,
 {
     fn component_ui(
         &mut self,
@@ -63,7 +66,7 @@ where
             }
         }
         self.render_inner(ui, parent_settings);
-        let actions = self.view_action_buffer.take_actions();
+        let actions = self.view_action_buffer.take_actions(parent_action_buffer);
         if actions.len() > 1 {
             use husky_print_utils::p;
             p!(actions);
@@ -78,7 +81,14 @@ where
     }
 
     fn toggle_help_facade(&mut self) {
-        self.facade = TraceDocFacade::Help
+        if self.facade != TraceDocFacade::Help {
+            assert!(self.prev_facade.is_none());
+            self.prev_facade = Some(self.facade);
+            self.facade = TraceDocFacade::Help;
+        } else {
+            self.facade = self.prev_facade.unwrap_or_default();
+            self.prev_facade = None;
+        }
     }
 }
 
@@ -125,6 +135,7 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             facade: Default::default(),
+            prev_facade: None,
             view_action_buffer: Default::default(),
             figure_ui_cache: Default::default(),
             caryatid_ui_buffer: Default::default(),

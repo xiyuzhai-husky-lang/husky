@@ -1,4 +1,4 @@
-use crate::ui::IsUi;
+use crate::{app::IsParentActionBuffer, ui::IsUi};
 
 pub trait ComponentUi<Ui: IsUi, Settings, ParentActionBuffer> {
     fn component_ui(
@@ -16,16 +16,22 @@ pub struct UiComponent<Ui: IsUi, Settings, ParentActionBuffer>(
     Box<dyn ComponentUi<Ui, Settings, ParentActionBuffer>>,
 );
 
-impl<Ui: IsUi, Settings, ParentActionBuffer> UiComponent<Ui, Settings, ParentActionBuffer> {
+impl<Ui: IsUi, Settings, AppActionBuffer: IsParentActionBuffer>
+    UiComponent<Ui, Settings, AppActionBuffer>
+{
     pub fn component_ui(
         &mut self,
         settings: &mut Settings,
         hotkey_buffer: &mut Ui::HotkeyBuffer,
-        action_buffer: &mut ParentActionBuffer,
+        action_buffer: &mut AppActionBuffer,
         ui: &mut Ui,
     ) {
         self.0
             .component_ui(settings, hotkey_buffer, action_buffer, ui)
+    }
+
+    pub fn toggle_help_facade(&mut self) {
+        self.0.toggle_help_facade();
     }
 }
 
