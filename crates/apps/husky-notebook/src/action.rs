@@ -1,6 +1,7 @@
 use crate::hotkey::NotebookHotkeyAction;
 
 pub enum NotebookAction {
+    ToggleHelpFacade,
     ToggleDocHelpFacade,
 }
 
@@ -10,6 +11,7 @@ impl NotebookAction {
         action: NotebookHotkeyAction,
     ) -> Self {
         match action {
+            NotebookHotkeyAction::ToggleHelpFacade => NotebookAction::ToggleHelpFacade,
             NotebookHotkeyAction::ToggleDocHelpFacade => NotebookAction::ToggleDocHelpFacade,
         }
     }
