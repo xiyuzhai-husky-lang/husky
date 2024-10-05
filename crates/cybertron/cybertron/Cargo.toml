@@ -1,5 +1,5 @@
 [package]
-name = "husky-cybertron"
+name = "cybertron"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -18,7 +18,7 @@ lazy_static.workspace = true
 shifted-unsigned-int.workspace = true
 paste.workspace = true
 # cybertron
-husky-cybertron-macros.workspace = true
+cybertron-macros.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 husky-fmt-utils.workspace = true

@@ -2,7 +2,7 @@ use crate::{
     ast::{helpers::parent_queries, Ast, AstData},
     *,
 };
-use husky_cybertron::{abstractions::bounded_vec::BoundedVec, prelude::*, seq::Seq};
+use cybertron::{abstractions::bounded_vec::BoundedVec, prelude::*, seq::Seq};
 use token::delimiter::{LCURL, RCURL};
 
 const D: usize = 8usize;

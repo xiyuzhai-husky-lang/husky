@@ -10,7 +10,7 @@ use crate::{
     *,
 };
 use ast::calc_asts_from_input;
-use husky_cybertron::{prelude::Idx, seq::Seq};
+use cybertron::{prelude::Idx, seq::Seq};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Symbol {

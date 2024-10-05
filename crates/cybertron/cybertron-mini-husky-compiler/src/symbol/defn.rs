@@ -1,6 +1,6 @@
 use super::*;
 use ast::{calc_asts_from_input_together_with_tokens_and_pre_asts, helpers::parent_queries};
-use husky_cybertron::prelude::*;
+use cybertron::prelude::*;
 use scope::{infer_scopes, Scope};
 use token::opr::{BinaryOpr, Opr};
 

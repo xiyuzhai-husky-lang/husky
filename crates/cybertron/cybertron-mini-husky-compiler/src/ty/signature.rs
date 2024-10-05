@@ -1,6 +1,6 @@
 use super::*;
 use crate::{rank::Rank, symbol::Symbol, token::ident::Ident};
-use husky_cybertron::seq::Seq;
+use cybertron::seq::Seq;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TypeSignature {

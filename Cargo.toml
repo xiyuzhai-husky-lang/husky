@@ -235,8 +235,8 @@ with-db = { path = "crates/abstractions/with-db" }
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
 # cybertron
-husky-cybertron = { path = "crates/cybertron/husky-cybertron" }
-husky-cybertron-macros = { path = "crates/cybertron/husky-cybertron-macros" }
+cybertron = { path = "crates/cybertron/cybertron" }
+cybertron-macros = { path = "crates/cybertron/cybertron-macros" }
 # devsoul
 husky-devsoul = { path = "crates/devsoul/husky-devsoul" }
 husky-standard-devsoul = { path = "crates/devsoul/husky-standard-devsoul" }

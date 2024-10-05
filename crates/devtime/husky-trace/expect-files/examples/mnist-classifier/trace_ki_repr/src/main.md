@@ -131,7 +131,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -10242,7 +10242,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             6,
                         ),
@@ -16145,7 +16145,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -16546,7 +16546,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             5,
                         ),
@@ -24617,7 +24617,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             6,
                         ),
@@ -25018,7 +25018,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 3,
@@ -25309,7 +25309,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 7,
@@ -25600,8 +25600,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            11,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             11,
                         ),
                     },
@@ -26001,8 +26004,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            15,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             15,
                         ),
                     },
@@ -26402,8 +26408,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            19,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             19,
                         ),
                     },
@@ -26803,7 +26812,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 21,
@@ -26993,7 +27002,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 26,
@@ -27354,7 +27363,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 28,
@@ -27544,9 +27553,12 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             33,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            31,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -27954,7 +27966,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 41,
@@ -28437,9 +28449,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             44,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            42,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -28725,9 +28740,12 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             47,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            45,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -29013,9 +29031,12 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             50,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            48,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -29301,7 +29322,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 53,
@@ -29540,7 +29561,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 57,
@@ -29831,7 +29852,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 63,
@@ -30192,7 +30213,7 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             64,
                         ),
@@ -30320,7 +30341,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             5,
                         ),
@@ -30721,7 +30742,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -31122,7 +31143,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -31523,7 +31544,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 4,
@@ -31948,7 +31969,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 9,
@@ -32373,9 +32394,12 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             11,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            9,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -32591,7 +32615,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 16,
@@ -33025,9 +33049,12 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             20,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            17,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -33426,7 +33453,7 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 22,
@@ -33616,9 +33643,12 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             26,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            22,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -33965,9 +33995,12 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             31,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            27,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -34357,7 +34390,7 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 34,
@@ -34596,7 +34629,7 @@
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 81,
@@ -34661,7 +34694,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 43,
@@ -34717,9 +34750,12 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             47,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            42,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -34770,7 +34806,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 49,
@@ -34840,7 +34876,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 53,
@@ -34896,9 +34932,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             58,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            52,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -34949,9 +34988,12 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             62,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            56,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -35002,7 +35044,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 64,
@@ -35072,7 +35114,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 70,
@@ -35128,7 +35170,7 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 76,
@@ -35184,7 +35226,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 80,
@@ -35240,9 +35282,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             83,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            76,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -35293,7 +35338,7 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 86,
@@ -35349,7 +35394,7 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 89,
@@ -35405,7 +35450,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             90,
                         ),
@@ -35822,7 +35867,7 @@
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             91,
                         ),
@@ -35950,7 +35995,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             0,
                         ),
@@ -36078,7 +36123,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -36479,7 +36524,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             5,
                         ),
@@ -36880,7 +36925,7 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 3,
@@ -37171,8 +37216,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            5,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             5,
                         ),
                     },
@@ -37389,7 +37437,7 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 13,
@@ -37454,7 +37502,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 13,
@@ -37524,9 +37572,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             18,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            17,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -37577,7 +37628,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 40,
@@ -37642,7 +37693,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             34,
                         ),
@@ -37878,7 +37929,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 74,
@@ -37943,9 +37994,12 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             42,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            41,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -37996,7 +38050,7 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 45,
@@ -38052,7 +38106,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             46,
                         ),
@@ -38288,7 +38342,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 51,
@@ -38713,9 +38767,12 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             53,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            51,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -38931,7 +38988,7 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 54,
@@ -39048,7 +39105,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             55,
                         ),
@@ -39176,7 +39233,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -39577,8 +39634,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            4,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             4,
                         ),
                     },
@@ -39969,7 +40029,7 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -40034,7 +40094,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 23,
@@ -40099,7 +40159,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 18,
@@ -40571,7 +40631,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             19,
                         ),
@@ -40699,7 +40759,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -41100,7 +41160,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             4,
                         ),
@@ -41501,8 +41561,11 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -41719,7 +41782,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 6,
@@ -42153,9 +42216,12 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             10,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            9,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -42554,7 +42620,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 12,
@@ -42744,9 +42810,12 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             16,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            14,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -43093,9 +43162,12 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             21,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            19,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -43485,7 +43557,7 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 24,
@@ -43724,7 +43796,7 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 57,
@@ -43789,7 +43861,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 33,
@@ -43845,9 +43917,12 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             37,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            34,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -43898,7 +43973,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 39,
@@ -43968,7 +44043,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 43,
@@ -44024,9 +44099,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             48,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            44,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -44077,9 +44155,12 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             52,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            48,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -44130,7 +44211,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 54,
@@ -44200,7 +44281,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 60,
@@ -44256,7 +44337,7 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 66,
@@ -44312,7 +44393,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 70,
@@ -44368,9 +44449,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             73,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            68,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -44421,7 +44505,7 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 76,
@@ -44477,7 +44561,7 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 79,
@@ -44533,7 +44617,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             80,
                         ),
@@ -44950,7 +45034,7 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             81,
                         ),
@@ -45078,7 +45162,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             6,
                         ),
@@ -45479,8 +45563,11 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -45697,8 +45784,11 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            3,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             3,
                         ),
                     },
@@ -45915,7 +46005,7 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 8,
@@ -46349,9 +46439,12 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             12,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            11,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -46750,9 +46843,12 @@
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             16,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            15,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -47151,9 +47247,12 @@
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             20,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            19,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -47552,7 +47651,7 @@
                     hir_eager_stmt_idx: Some(
                         25,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 23,
@@ -47791,9 +47890,12 @@
                     hir_eager_stmt_idx: Some(
                         26,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             28,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            27,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48183,7 +48285,7 @@
                     hir_eager_stmt_idx: Some(
                         27,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 31,
@@ -48422,7 +48524,7 @@
                     hir_eager_stmt_idx: Some(
                         28,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 69,
@@ -48487,7 +48589,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 36,
@@ -48557,7 +48659,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 38,
@@ -48627,9 +48729,12 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             41,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            38,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48680,7 +48785,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 45,
@@ -48736,9 +48841,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             50,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            47,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48789,9 +48897,12 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             54,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            51,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48842,9 +48953,12 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             58,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            55,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48895,9 +49009,12 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             62,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            59,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -48948,9 +49065,12 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             66,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            63,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49001,9 +49121,12 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             72,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            68,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49054,9 +49177,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             76,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            72,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49107,9 +49233,12 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             80,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            76,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49160,9 +49289,12 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             86,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            81,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -49213,7 +49345,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 89,
@@ -49452,7 +49584,7 @@
                     hir_eager_stmt_idx: Some(
                         29,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 204,
@@ -49517,7 +49649,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 94,
@@ -49587,7 +49719,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 96,
@@ -49657,7 +49789,7 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 98,
@@ -49727,7 +49859,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 104,
@@ -49783,9 +49915,12 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             107,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            99,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -50019,7 +50154,7 @@
                     hir_eager_stmt_idx: Some(
                         30,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             108,
                         ),
@@ -50147,7 +50282,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             2,
                         ),
@@ -50626,8 +50761,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            0,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
@@ -50792,8 +50930,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -50958,7 +51099,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: ForBetween {
+                    eager_stmt_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -51025,9 +51166,12 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             8,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            7,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -51426,7 +51570,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 29,
@@ -51491,7 +51635,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             14,
                         ),
@@ -51544,7 +51688,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             17,
                         ),
@@ -51891,7 +52035,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             2,
                         ),
@@ -52057,7 +52201,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             20,
                         ),
@@ -52162,7 +52306,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             2,
                         ),
@@ -52450,8 +52594,11 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            0,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
@@ -52616,7 +52763,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: ForBetween {
+                    eager_stmt_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 6,
@@ -52683,7 +52830,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             9,
                         ),
@@ -53265,7 +53412,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             2,
                         ),
@@ -53431,7 +53578,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             13,
                         ),
@@ -53658,8 +53805,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            0,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
@@ -53711,8 +53861,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -53764,7 +53917,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: ForBetween {
+                    eager_stmt_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -53831,7 +53984,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             20,
                         ),
@@ -53997,7 +54150,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             1,
                         ),
@@ -54102,8 +54255,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            0,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
@@ -54155,8 +54311,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -54208,7 +54367,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: ForBetween {
+                    eager_stmt_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -54275,7 +54434,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             20,
                         ),
@@ -54441,7 +54600,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             3,
                         ),
@@ -54546,8 +54705,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            0,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
@@ -54599,8 +54761,11 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -54652,7 +54817,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: ForBetween {
+                    eager_stmt_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -54719,7 +54884,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             20,
                         ),
@@ -55068,7 +55233,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             1,
                         ),
@@ -55173,7 +55338,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             3,
                         ),
@@ -55339,7 +55504,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             1,
                         ),
@@ -55444,7 +55609,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             1,
                         ),
@@ -55610,7 +55775,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             1,
                         ),
@@ -61203,7 +61368,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             3,
                         ),
@@ -68964,7 +69129,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             5,
                         ),
@@ -78765,7 +78930,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             7,
                         ),
@@ -78870,7 +79035,7 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 3,
@@ -79161,8 +79326,11 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            5,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             5,
                         ),
                     },
@@ -79379,7 +79547,7 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 13,
@@ -79444,7 +79612,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 13,
@@ -79514,9 +79682,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             18,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            17,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -79567,7 +79738,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 40,
@@ -79632,7 +79803,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             34,
                         ),
@@ -79868,7 +80039,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 74,
@@ -79933,9 +80104,12 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             42,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            41,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -79986,7 +80160,7 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 45,
@@ -80042,7 +80216,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             46,
                         ),
@@ -80278,7 +80452,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 51,
@@ -80703,9 +80877,12 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             53,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            51,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -80921,7 +81098,7 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 54,
@@ -81038,7 +81215,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             55,
                         ),
@@ -81152,7 +81329,7 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             9,
                         ),
@@ -81257,8 +81434,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            4,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             4,
                         ),
                     },
@@ -81649,7 +81829,7 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 11,
@@ -81714,7 +81894,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 23,
@@ -81779,7 +81959,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 18,
@@ -82251,7 +82431,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             19,
                         ),
@@ -82365,7 +82545,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             11,
                         ),
@@ -82470,7 +82650,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 3,
@@ -82761,7 +82941,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 7,
@@ -83052,8 +83232,11 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            11,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             11,
                         ),
                     },
@@ -83453,8 +83636,11 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            15,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             15,
                         ),
                     },
@@ -83854,8 +84040,11 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            19,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             19,
                         ),
                     },
@@ -84255,7 +84444,7 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 21,
@@ -84445,7 +84634,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 26,
@@ -84806,7 +84995,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 28,
@@ -84996,9 +85185,12 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             33,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            31,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -85406,7 +85598,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 41,
@@ -85889,9 +86081,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             44,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            42,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -86177,9 +86372,12 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             47,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            45,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -86465,9 +86663,12 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             50,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            48,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -86753,7 +86954,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 53,
@@ -86992,7 +87193,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 57,
@@ -87283,7 +87484,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 63,
@@ -87644,7 +87845,7 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             64,
                         ),
@@ -87758,7 +87959,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             13,
                         ),
@@ -87863,8 +88064,11 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -88081,7 +88285,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 6,
@@ -88515,9 +88719,12 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             10,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            9,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -88916,7 +89123,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 12,
@@ -89106,9 +89313,12 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             16,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            14,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -89455,9 +89665,12 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             21,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            19,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -89847,7 +90060,7 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 24,
@@ -90086,7 +90299,7 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 57,
@@ -90151,7 +90364,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 33,
@@ -90207,9 +90420,12 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             37,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            34,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -90260,7 +90476,7 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 39,
@@ -90330,7 +90546,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 43,
@@ -90386,9 +90602,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             48,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            44,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -90439,9 +90658,12 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             52,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            48,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -90492,7 +90714,7 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 54,
@@ -90562,7 +90784,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 60,
@@ -90618,7 +90840,7 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 66,
@@ -90674,7 +90896,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 70,
@@ -90730,9 +90952,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             73,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            68,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -90783,7 +91008,7 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 76,
@@ -90839,7 +91064,7 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 79,
@@ -90895,7 +91120,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Return {
+                    eager_stmt_sketch: Return {
                         result: SemExprIdx(
                             80,
                         ),
@@ -91312,7 +91537,7 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             81,
                         ),
@@ -91426,7 +91651,7 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             15,
                         ),
@@ -91531,7 +91756,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             0,
                         ),
@@ -91645,7 +91870,7 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             17,
                         ),
@@ -91750,8 +91975,11 @@
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            1,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             1,
                         ),
                     },
@@ -91968,8 +92196,11 @@
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
+                            3,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
                             3,
                         ),
                     },
@@ -92186,7 +92417,7 @@
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 8,
@@ -92620,9 +92851,12 @@
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             12,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            11,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -93021,9 +93255,12 @@
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             16,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            15,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -93422,9 +93659,12 @@
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             20,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            19,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -93823,7 +94063,7 @@
                     hir_eager_stmt_idx: Some(
                         25,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 23,
@@ -94062,9 +94302,12 @@
                     hir_eager_stmt_idx: Some(
                         26,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             28,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            27,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -94454,7 +94697,7 @@
                     hir_eager_stmt_idx: Some(
                         27,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 31,
@@ -94693,7 +94936,7 @@
                     hir_eager_stmt_idx: Some(
                         28,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 69,
@@ -94758,7 +95001,7 @@
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 36,
@@ -94828,7 +95071,7 @@
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 38,
@@ -94898,9 +95141,12 @@
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             41,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            38,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -94951,7 +95197,7 @@
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 45,
@@ -95007,9 +95253,12 @@
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             50,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            47,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95060,9 +95309,12 @@
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             54,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            51,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95113,9 +95365,12 @@
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             58,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            55,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95166,9 +95421,12 @@
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             62,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            59,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95219,9 +95477,12 @@
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             66,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            63,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95272,9 +95533,12 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             72,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            68,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95325,9 +95589,12 @@
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             76,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            72,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95378,9 +95645,12 @@
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             80,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            76,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95431,9 +95701,12 @@
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             86,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            81,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -95484,7 +95757,7 @@
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 89,
@@ -95723,7 +95996,7 @@
                     hir_eager_stmt_idx: Some(
                         29,
                     ),
-                    eager_stmt_data_sketch: IfBranch {
+                    eager_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 204,
@@ -95788,7 +96061,7 @@
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 94,
@@ -95858,7 +96131,7 @@
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 96,
@@ -95928,7 +96201,7 @@
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Be {
                             expr: SemExprIdx(
                                 98,
@@ -95998,7 +96271,7 @@
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
-                    eager_stmt_data_sketch: Require {
+                    eager_stmt_sketch: Require {
                         condition: Other {
                             expr: SemExprIdx(
                                 104,
@@ -96054,9 +96327,12 @@
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
-                    eager_stmt_data_sketch: Let {
+                    eager_stmt_sketch: Let {
                         initial_value: SemExprIdx(
                             107,
+                        ),
+                        initial_value_hir_eager_expr_idx: Some(
+                            99,
                         ),
                     },
                     sem_expr_region: SemExprRegion(
@@ -96290,7 +96566,7 @@
                     hir_eager_stmt_idx: Some(
                         30,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             108,
                         ),
@@ -96404,7 +96680,7 @@
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
-                    eager_stmt_data_sketch: Eval {
+                    eager_stmt_sketch: Eval {
                         expr: SemExprIdx(
                             18,
                         ),
