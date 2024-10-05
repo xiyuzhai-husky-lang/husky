@@ -8,6 +8,10 @@ import sys
 import shutil
 import re
 import subprocess
+from colorama import Fore, Style, init
+
+# Initialize colorama
+init(autoreset=True)
 
 # Usage: python rename_rust_package.py <old_package_name> <new_package_name>
 
@@ -93,13 +97,13 @@ def is_git_repo_clean():
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print(
-            "Usage: python rename_rust_package.py <old_package_name> <new_package_name>"
+            f"{Fore.YELLOW}Usage: python rename_rust_package.py <old_package_name> <new_package_name>{Style.RESET_ALL}"
         )
         sys.exit(1)
 
     if not is_git_repo_clean():
         print(
-            "Error: Git repository is not clean. Please commit or stash your changes."
+            f"{Fore.RED}Error: Git repository is not clean. Please commit or stash your changes.{Style.RESET_ALL}"
         )
         sys.exit(1)
 
