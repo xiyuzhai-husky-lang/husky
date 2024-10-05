@@ -1,5 +1,5 @@
 [package]
-name = "husky-lean-token"
+name = "lean-syn-expr"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
