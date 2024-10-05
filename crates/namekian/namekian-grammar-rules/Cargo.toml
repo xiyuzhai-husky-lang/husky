@@ -1,5 +1,5 @@
 [package]
-name = "husky-namekian-ast"
+name = "namekian-grammar-rules"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,14 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-# abstractions
-idx-arena.workspace = true
-salsa.workspace = true
-# protocols
-husky-text-protocol.workspace = true
-
-[dev-dependencies]
-expect-test.workspace = true
 
 [lints]
 workspace = true
