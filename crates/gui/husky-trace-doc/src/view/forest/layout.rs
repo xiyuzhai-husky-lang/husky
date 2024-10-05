@@ -11,7 +11,7 @@ where
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(in crate::view) fn render_forest(&mut self, ui: &mut egui::Ui) {
+    pub(crate) fn render_forest(&mut self, ui: &mut egui::Ui) {
         // todo: use layout style to determine
         self.render_amazon_forest(ui)
     }
