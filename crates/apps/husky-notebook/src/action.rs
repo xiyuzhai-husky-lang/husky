@@ -18,4 +18,12 @@ impl NotebookAction {
 }
 
 #[derive(Default)]
-pub struct NotebookActionBuffer {}
+pub struct NotebookActionBuffer {
+    actions: Vec<NotebookAction>,
+}
+
+impl NotebookActionBuffer {
+    pub(crate) fn take_all(&mut self) -> Vec<NotebookAction> {
+        std::mem::take(&mut self.actions)
+    }
+}

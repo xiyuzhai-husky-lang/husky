@@ -11,7 +11,7 @@ use hotkey::NotebookHotkeySettings;
 use husky_code_editor::settings::HasCodeEditorSettings;
 use husky_trace_doc::settings::HasTraceDocSettings;
 use husky_trace_protocol::settings::HasTraceSettings;
-use ui::{component::IsUiComponent, hotkey::egui::HotkeyBuffer};
+use ui::{component::ComponentUi, hotkey::egui::HotkeyBuffer};
 
 #[derive(Default, PartialEq, Eq)]
 pub(crate) struct NotebookSettings {
@@ -44,10 +44,10 @@ impl HasTraceDocSettings for NotebookSettings {
 
 pub(crate) struct NotebookSettingsView;
 
-impl<ParentActionBuffer> IsUiComponent<egui::Ui, NotebookSettings, ParentActionBuffer>
+impl<ParentActionBuffer> ComponentUi<egui::Ui, NotebookSettings, ParentActionBuffer>
     for NotebookSettingsView
 {
-    fn render(
+    fn component_ui(
         &mut self,
         _settings: &mut NotebookSettings,
         hotkey_buffer: &mut HotkeyBuffer,

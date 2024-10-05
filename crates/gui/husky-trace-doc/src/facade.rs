@@ -14,10 +14,10 @@ where
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(crate) fn render_facade(mut self, ui: &mut egui::Ui) {
+    pub(crate) fn facade_ui(mut self, ui: &mut egui::Ui) {
         match self.facade() {
-            TraceDocFacade::Standard => self.render_standard_facade(ui),
-            TraceDocFacade::Help => self.render_help_facade(ui),
+            TraceDocFacade::Standard => self.standard_facade_ui(ui),
+            TraceDocFacade::Help => self.help_facade_ui(ui),
         }
     }
 }
