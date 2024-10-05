@@ -3841,8 +3841,8 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-namekian-ast",
-        relative_path: "crates/namekian/husky-namekian-ast",
+        name: "namekian-ast",
+        relative_path: "crates/namekian/namekian-ast",
         dependencies: [
             "husky-text-protocol",
             "idx-arena",
@@ -3851,8 +3851,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-namekian-grammar-rules",
-        relative_path: "crates/namekian/husky-namekian-grammar-rules",
+        name: "namekian-grammar-rules",
+        relative_path: "crates/namekian/namekian-grammar-rules",
         dependencies: [],
     },
     PackageSummary {

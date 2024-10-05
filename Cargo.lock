@@ -5961,20 +5961,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-namekian-ast"
-version = "0.1.0"
-dependencies = [
- "expect-test",
- "husky-text-protocol",
- "idx-arena",
- "salsa",
-]
-
-[[package]]
-name = "husky-namekian-grammar-rules"
-version = "0.1.0"
-
-[[package]]
 name = "husky-notebook"
 version = "0.1.0"
 dependencies = [
@@ -8555,6 +8541,20 @@ dependencies = [
  "simba",
  "typenum",
 ]
+
+[[package]]
+name = "namekian-ast"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
+ "husky-text-protocol",
+ "idx-arena",
+ "salsa",
+]
+
+[[package]]
+name = "namekian-grammar-rules"
+version = "0.1.0"
 
 [[package]]
 name = "native-tls"
