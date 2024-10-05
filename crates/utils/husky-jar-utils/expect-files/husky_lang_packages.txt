@@ -3790,23 +3790,23 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-ast",
-        relative_path: "crates/lean/husky-lean-ast",
+        name: "lean-ast",
+        relative_path: "crates/lean/lean-ast",
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-sem-expr",
-        relative_path: "crates/lean/husky-lean-sem-expr",
+        name: "lean-sem-expr",
+        relative_path: "crates/lean/lean-sem-expr",
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-syn-expr",
-        relative_path: "crates/lean/husky-lean-syn-expr",
+        name: "lean-syn-expr",
+        relative_path: "crates/lean/lean-syn-expr",
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-token",
-        relative_path: "crates/lean/husky-lean-token",
+        name: "lean-token",
+        relative_path: "crates/lean/lean-token",
         dependencies: [],
     },
     PackageSummary {

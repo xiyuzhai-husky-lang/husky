@@ -1,5 +1,5 @@
 [package]
-name = "husky-lean-sem-expr"
+name = "lean-sem-expr"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
