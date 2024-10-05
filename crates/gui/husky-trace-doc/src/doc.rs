@@ -14,7 +14,7 @@ use husky_trace_protocol::{
 use notify_change::NotifyChange;
 use std::{path::PathBuf, sync::Arc};
 use ui::{
-    component::IsUiComponent,
+    component::ComponentUi,
     hotkey::egui::{HotkeyBuffer, HotkeyMap},
     visual::cache::VisualUiCache,
 };
@@ -37,7 +37,7 @@ where
 
 #[cfg(feature = "egui")]
 impl<TraceProtocol, ParentSettings, ParentActionBuffer>
-    IsUiComponent<egui::Ui, ParentSettings, ParentActionBuffer>
+    ComponentUi<egui::Ui, ParentSettings, ParentActionBuffer>
     for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
@@ -45,7 +45,7 @@ where
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
     ParentSettings: HasTraceDocSettings,
 {
-    fn render(
+    fn component_ui(
         &mut self,
         parent_settings: &mut ParentSettings,
         hotkey_buffer: &mut HotkeyBuffer,
@@ -108,7 +108,7 @@ where
                 &mut self.caryatid_ui_buffer,
                 ui,
             )
-            .render_facade(ui);
+            .facade_ui(ui);
         } else {
             // todo: render connecting status
         }

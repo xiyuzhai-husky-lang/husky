@@ -11,7 +11,7 @@ where
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_help_facade(mut self, ui: &mut egui::Ui) {
+    pub(super) fn help_facade_ui(mut self, ui: &mut egui::Ui) {
         ui.label("help\n Alt+F fill cascade.");
     }
 }
