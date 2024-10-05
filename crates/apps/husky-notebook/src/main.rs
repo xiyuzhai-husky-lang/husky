@@ -61,6 +61,7 @@ impl eframe::App for NotebookApp {
             self.init_done = true;
         }
         self.hotkey_buffer.start_frame(ctx);
+        self.hotkey_buffer.extract(self.settings.hotkey_map());
         self.render_facade(ctx)
     }
 }

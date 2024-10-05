@@ -1,11 +1,9 @@
 use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
+use facade::TraceDocFacade;
 use hotkey::TraceDocHotkeyAction;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-
-use std::{path::PathBuf, sync::Arc};
-
 use husky_trace_protocol::{
     caryatid::CaryatidUi,
     client::TraceClient,
@@ -14,6 +12,7 @@ use husky_trace_protocol::{
     view::action::TraceViewActionBuffer,
 };
 use notify_change::NotifyChange;
+use std::{path::PathBuf, sync::Arc};
 use ui::{
     component::IsUiComponent,
     hotkey::egui::{HotkeyBuffer, HotkeyMap},
@@ -28,6 +27,7 @@ where
 {
     current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
+    facade: TraceDocFacade,
     view_action_buffer: TraceViewActionBuffer<TraceProtocol>,
     figure_ui_cache: ui::visual::cache::VisualUiCache<egui::Ui>,
     // set after client is initialized
@@ -76,6 +76,10 @@ where
             }
         }
     }
+
+    fn help_facade(&mut self) {
+        self.facade = TraceDocFacade::Help
+    }
 }
 
 #[cfg(feature = "egui")]
@@ -97,13 +101,14 @@ where
             TraceDocView::new(
                 &self.current_dir,
                 trace_synchrotron,
+                &mut self.facade,
                 &mut self.view_action_buffer,
                 settings,
                 &mut self.figure_ui_cache,
                 &mut self.caryatid_ui_buffer,
                 ui,
             )
-            .render_standard_facade(ui);
+            .render_facade(ui);
         } else {
             // todo: render connecting status
         }
@@ -119,6 +124,7 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
         Self {
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
+            facade: Default::default(),
             view_action_buffer: Default::default(),
             figure_ui_cache: Default::default(),
             caryatid_ui_buffer: Default::default(),
