@@ -1,5 +1,5 @@
 use any::AnySeq;
-use husky_cybertron::debug::set_debug;
+use cybertron::debug::set_debug;
 use indexmap::IndexMap;
 use token::opr::{PrefixOpr, SuffixOpr};
 

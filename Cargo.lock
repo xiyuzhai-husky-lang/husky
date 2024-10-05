@@ -1901,6 +1901,64 @@ dependencies = [
 ]
 
 [[package]]
+name = "cybertron"
+version = "0.1.0"
+dependencies = [
+ "bounded-vec",
+ "cybertron-macros",
+ "expect-test",
+ "husky-decl-macro-utils",
+ "husky-fmt-utils",
+ "husky-print-utils",
+ "husky-wild-utils",
+ "lazy_static",
+ "paste",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "cybertron-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "quote",
+ "syn 2.0.76",
+]
+
+[[package]]
+name = "cybertron-mini-husky-compiler"
+version = "0.1.0"
+dependencies = [
+ "cybertron",
+ "enum-class",
+ "expect-test",
+ "husky-debug-utils",
+ "husky-print-utils",
+ "husky-rng-utils",
+ "husky-text-protocol",
+ "husky-wild-utils",
+ "indexmap 2.4.0",
+ "lazy_static",
+ "ordered-float 4.2.2",
+ "rmp-serde",
+ "serde",
+ "serde_json",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "cybertron-mini-lean-compiler"
+version = "0.1.0"
+
+[[package]]
+name = "cybertron-prototype"
+version = "0.1.0"
+dependencies = [
+ "husky-text-protocol",
+ "shifted-unsigned-int",
+]
+
+[[package]]
 name = "cyclic-slice"
 version = "0.0.0"
 
@@ -4489,64 +4547,6 @@ dependencies = [
  "husky-regional-token",
  "idx-arena",
  "salsa",
-]
-
-[[package]]
-name = "husky-cybertron"
-version = "0.1.0"
-dependencies = [
- "bounded-vec",
- "expect-test",
- "husky-cybertron-macros",
- "husky-decl-macro-utils",
- "husky-fmt-utils",
- "husky-print-utils",
- "husky-wild-utils",
- "lazy_static",
- "paste",
- "shifted-unsigned-int",
-]
-
-[[package]]
-name = "husky-cybertron-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "quote",
- "syn 2.0.76",
-]
-
-[[package]]
-name = "husky-cybertron-mini-husky-compiler"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "expect-test",
- "husky-cybertron",
- "husky-debug-utils",
- "husky-print-utils",
- "husky-rng-utils",
- "husky-text-protocol",
- "husky-wild-utils",
- "indexmap 2.4.0",
- "lazy_static",
- "ordered-float 4.2.2",
- "rmp-serde",
- "serde",
- "serde_json",
- "shifted-unsigned-int",
-]
-
-[[package]]
-name = "husky-cybertron-mini-lean-compiler"
-version = "0.1.0"
-
-[[package]]
-name = "husky-cybertron-prototype"
-version = "0.1.0"
-dependencies = [
- "husky-text-protocol",
- "shifted-unsigned-int",
 ]
 
 [[package]]

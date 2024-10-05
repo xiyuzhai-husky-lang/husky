@@ -1,4 +1,4 @@
-use husky_cybertron_mini_husky_compiler::rnd::basic::{rnd_codes, TokenInfo};
+use cybertron_mini_husky_compiler::rnd::basic::{rnd_codes, TokenInfo};
 use rmp_serde::{Deserializer, Serializer};
 use serde::Serialize;
 use std::fs;

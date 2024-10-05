@@ -8,8 +8,8 @@ pub mod separator;
 use self::{delimiter::*, ident::Ident, keyword::Keyword, literal::Literal, opr::Opr};
 use crate::token::separator::Separator;
 use crate::*;
+use cybertron::seq::Seq;
 use delimiter::{Delimiter, LeftDelimiter, RightDelimiter};
-use husky_cybertron::seq::Seq;
 use husky_text_protocol::char::TextCharIter;
 use opr::SuffixOpr;
 

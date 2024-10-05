@@ -2085,6 +2085,16 @@
         ],
     },
     PackageSummary {
+        name: "husky-db-viewer",
+        relative_path: "crates/apps/husky-db-viewer",
+        dependencies: [
+            "eframe",
+            "egui",
+            "rfd",
+            "rusqlite",
+        ],
+    },
+    PackageSummary {
         name: "husky-mnist-classifier-developer",
         relative_path: "crates/apps/husky-mnist-classifier-developer",
         dependencies: [
@@ -3558,11 +3568,11 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-cybertron",
-        relative_path: "crates/cybertron/husky-cybertron",
+        name: "cybertron",
+        relative_path: "crates/cybertron/cybertron",
         dependencies: [
             "bounded-vec",
-            "husky-cybertron-macros",
+            "cybertron-macros",
             "husky-decl-macro-utils",
             "husky-fmt-utils",
             "husky-print-utils",
@@ -3574,8 +3584,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-macros",
-        relative_path: "crates/cybertron/husky-cybertron-macros",
+        name: "cybertron-macros",
+        relative_path: "crates/cybertron/cybertron-macros",
         dependencies: [
             "husky-proc-macro-utils",
             "quote",
@@ -3583,12 +3593,12 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-mini-husky-compiler",
-        relative_path: "crates/cybertron/husky-cybertron-mini-husky-compiler",
+        name: "cybertron-mini-husky-compiler",
+        relative_path: "crates/cybertron/cybertron-mini-husky-compiler",
         dependencies: [
+            "cybertron",
             "enum-class",
             "expect-test",
-            "husky-cybertron",
             "husky-debug-utils",
             "husky-print-utils",
             "husky-rng-utils",
@@ -3604,8 +3614,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-mini-lean-compiler",
-        relative_path: "crates/cybertron/husky-cybertron-mini-lean-compiler",
+        name: "cybertron-mini-lean-compiler",
+        relative_path: "crates/cybertron/cybertron-mini-lean-compiler",
         dependencies: [],
     },
     PackageSummary {
@@ -3851,7 +3861,7 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-cybertron-prototype",
+        name: "cybertron-prototype",
         relative_path: "crates/prototypes/husky-cybertron-prototype",
         dependencies: [
             "husky-text-protocol",

@@ -1,5 +1,5 @@
 [package]
-name = "husky-cybertron-mini-husky-compiler"
+name = "cybertron-mini-husky-compiler"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -23,7 +23,7 @@ serde_json.workspace = true
 enum-class.workspace = true
 shifted-unsigned-int.workspace = true
 # cybertron
-husky-cybertron.workspace = true
+cybertron.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils

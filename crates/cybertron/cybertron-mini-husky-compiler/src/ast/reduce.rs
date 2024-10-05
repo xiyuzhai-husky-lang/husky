@@ -3,7 +3,7 @@ use super::{
     call::reduce_by_call, defn::reduce_by_defn, delimited::reduce_by_delimited, opr::reduce_by_opr,
     show::show_asts, stmt::reduce_by_stmt, utils::update_pre_asts_by_new_asts,
 };
-use husky_cybertron::{
+use cybertron::{
     debug::{is_debug, set_debug},
     prelude::*,
     seq::any::AnySeq,
