@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-# it doesn't quite work now!!!
-# its behavior is buggy
-# and it doesn't check git cleaness properly.
 
 import os
 import sys
@@ -17,56 +14,74 @@ init(autoreset=True)
 
 
 def rename_rust_package(old_package_name, new_package_name):
-    # Find the package directory
-    package_dir = None
-    for root, dirs, _ in os.walk("."):
-        if old_package_name in dirs:
-            package_dir = os.path.join(root, old_package_name)
-            break
+    # Find all directories containing the old package name and a Cargo.toml file
+    package_dirs = []
+    for root, dirs, files in os.walk("."):
+        for dir_name in dirs:
+            if old_package_name in dir_name:
+                potential_package_dir = os.path.join(root, dir_name)
+                if "Cargo.toml" in os.listdir(potential_package_dir):
+                    package_dirs.append(potential_package_dir)
 
-    if package_dir is None:
-        print(f"Error: Package '{old_package_name}' not found in the workspace.")
+    if not package_dirs:
+        print(
+            f"Error: No Rust package directories containing '{old_package_name}' found in the workspace."
+        )
         sys.exit(1)
 
-    # Rename the package directory
-    new_package_dir = os.path.join(os.path.dirname(package_dir), new_package_name)
-    shutil.move(package_dir, new_package_dir)
+    for package_dir in package_dirs:
+        # Rename the package directory
+        new_dir_name = package_dir.replace(old_package_name, new_package_name)
+        shutil.move(package_dir, new_dir_name)
+        print(f"Renamed directory: {package_dir} -> {new_dir_name}")
 
     # Update references in Cargo.toml files
     for root, _, files in os.walk("."):
         for file_name in files:
             if file_name == "Cargo.toml":
-                file_path = os.path.join(root, file_name)
-                with open(file_path, "r") as file:
-                    content = file.read()
-                if old_package_name in content:
-                    content = re.sub(
-                        old_package_name,
-                        new_package_name,
-                        content,
-                    )
-                    with open(file_path, "w") as file:
-                        file.write(content)
+                update_file_content(
+                    os.path.join(root, file_name), old_package_name, new_package_name
+                )
 
     # Update references in Rust source files (.rs)
-    for root, _, files in os.walk(new_package_dir):
+    for root, _, files in os.walk("."):
         for file_name in files:
             if file_name.endswith(".rs"):
-                file_path = os.path.join(root, file_name)
-                with open(file_path, "r") as file:
-                    content = file.read()
-                if old_package_name in content:
-                    content = re.sub(
-                        rf'\b{re.escape(old_package_name).replace("-", "_")}\b',
-                        new_package_name.replace("-", "_"),
-                        content,
-                    )
-                    with open(file_path, "w") as file:
-                        file.write(content)
+                update_file_content(
+                    os.path.join(root, file_name), old_package_name, new_package_name
+                )
 
     print(
-        f"Package renamed from '{old_package_name}' to '{new_package_name}' successfully."
+        f"Package references updated from '{old_package_name}' to '{new_package_name}' successfully."
     )
+
+
+def update_file_content(file_path, old_name, new_name):
+    with open(file_path, "r") as file:
+        content = file.read()
+
+    if file_path.endswith(".toml"):
+        # For Cargo.toml files, do a simple replacement
+        if old_name in content:
+            content = content.replace(old_name, new_name)
+            with open(file_path, "w") as file:
+                file.write(content)
+            print(f"Updated Cargo.toml file: {file_path}")
+
+    elif file_path.endswith(".rs"):
+        # For Rust files, handle both hyphenated and underscore versions
+        if old_name in content or old_name.replace("-", "_") in content:
+            # Replace hyphenated version
+            content = content.replace(old_name, new_name)
+            # Replace underscore version
+            content = re.sub(
+                rf'\b{re.escape(old_name).replace("-", "_")}\b',
+                new_name.replace("-", "_"),
+                content,
+            )
+            with open(file_path, "w") as file:
+                file.write(content)
+            print(f"Updated Rust file: {file_path}")
 
 
 def is_git_repo_clean():
