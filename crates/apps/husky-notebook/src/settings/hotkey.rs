@@ -16,8 +16,8 @@ impl Default for NotebookHotkeySettings {
     fn default() -> Self {
         Self {
             main_hotkey_map: HotkeyMap::new([
-                ("H", NotebookHotkeyAction::ToggleHelpFacade),
-                ("h", NotebookHotkeyAction::ToggleDocHelpFacade),
+                ("Ctrl+Shift+H", NotebookHotkeyAction::ToggleHelpFacade),
+                ("Ctrl+h", NotebookHotkeyAction::ToggleDocHelpFacade),
             ])
             .unwrap(),
         }
