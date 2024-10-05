@@ -7,7 +7,7 @@ where
     TraceProtocol: IsTraceProtocol,
     Settings: HasTraceDocSettings,
 {
-    pub(in crate::view) fn render_devtools(&mut self, ui: &mut egui::Ui) {
+    pub(crate) fn render_devtools(&mut self, ui: &mut egui::Ui) {
         ui.vertical(|ui| {
             ui.label(RichText::new("Devtools").color(Color32::WHITE));
             ui.separator();

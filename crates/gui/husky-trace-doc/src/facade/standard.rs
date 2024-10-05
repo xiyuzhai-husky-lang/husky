@@ -1,17 +1,17 @@
-use egui::CentralPanel;
-use husky_trace_protocol::caryatid::CaryatidUi;
-
 use super::*;
+use ::egui::*;
+use husky_trace_protocol::{caryatid::CaryatidUi, figure::FigureUi, protocol::IsTraceProtocol};
+use view::TraceDocView;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
 
-    TraceProtocol::Figure: FigureUi<egui::Ui>,
+    TraceProtocol::Figure: FigureUi<Ui>,
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(crate) fn render_standard_facade(mut self, ui: &mut egui::Ui) {
+    pub(super) fn render_standard_facade(mut self, ui: &mut egui::Ui) {
         TopBottomPanel::bottom(ui.next_auto_id())
             .frame(Frame::none().inner_margin(Margin {
                 left: 2.0,
