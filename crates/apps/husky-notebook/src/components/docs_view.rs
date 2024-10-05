@@ -37,7 +37,7 @@ impl<'a> egui_dock::TabViewer for DocsView<'a> {
 
     fn ui(&mut self, ui: &mut egui::Ui, tab: &mut Self::Tab) {
         ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
-        self.docs.component_mut(tab.id()).ui(
+        self.docs.component_mut(tab.id()).component_ui(
             self.settings,
             self.hotkey_buffer,
             self.action_buffer,

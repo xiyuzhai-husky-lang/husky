@@ -46,7 +46,7 @@ impl NotebookApp {
         self.add_doc(Doc {
             title: "mnist-classifier trace doc".to_string(),
             component: UiComponent::new(TraceDoc::<StandardTraceProtocol, _>::new(
-                self.tokio_runtime.clone(),
+                self.tokio_runtime().clone(),
                 EguiRepaintSignal::new(ctx.clone()),
                 ctx,
             )),
