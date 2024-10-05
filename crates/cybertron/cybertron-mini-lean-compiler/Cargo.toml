@@ -1,5 +1,5 @@
 [package]
-name = "husky-cybertron-macros"
+name = "cybertron-mini-lean-compiler"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -11,14 +11,7 @@ license.workspace = true
 categories.workspace = true
 keywords.workspace = true
 
-[lib]
-proc-macro = true
-
 [dependencies]
-quote.workspace = true
-syn.workspace = true
-# utils
-husky-proc-macro-utils.workspace = true
 
 [lints]
 workspace = true

@@ -1,4 +1,4 @@
-use husky_cybertron::prelude::*;
+use cybertron::prelude::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Delimiter(u8);

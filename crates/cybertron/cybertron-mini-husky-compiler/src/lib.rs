@@ -18,7 +18,7 @@ use self::{
     symbol::*,
     token::{ident::*, keyword::*, literal::*, opr::*, separator::*, *},
 };
+use cybertron::prelude::*;
 #[cfg(test)]
 use expect_test::*;
-use husky_cybertron::prelude::*;
 use husky_print_utils::p;

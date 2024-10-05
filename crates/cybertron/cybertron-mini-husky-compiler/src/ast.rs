@@ -13,8 +13,8 @@ use crate::{
     token::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr, Token},
     *,
 };
-use husky_cybertron::seq::idx::Option2;
-use husky_cybertron::{
+use cybertron::seq::idx::Option2;
+use cybertron::{
     prelude::*,
     seq::{idx::Idx, Seq},
 };
