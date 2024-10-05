@@ -77,7 +77,7 @@ where
         }
     }
 
-    fn help_facade(&mut self) {
+    fn toggle_help_facade(&mut self) {
         self.facade = TraceDocFacade::Help
     }
 }

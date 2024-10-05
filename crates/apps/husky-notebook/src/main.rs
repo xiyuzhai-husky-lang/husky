@@ -61,7 +61,10 @@ impl eframe::App for NotebookApp {
             self.init_done = true;
         }
         self.hotkey_buffer.start_frame(ctx);
-        self.hotkey_buffer.extract(self.settings.hotkey_map());
+        if let Some((argument, action)) = self.hotkey_buffer.extract(self.settings.hotkey_map()) {
+            let action = NotebookAction::from_hotkey_action(argument, action);
+            todo!()
+        }
         self.render_facade(ctx)
     }
 }

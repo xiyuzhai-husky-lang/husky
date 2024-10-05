@@ -1,13 +1,13 @@
-mod doc;
-mod frame;
-mod hotkey;
-mod layout;
+pub mod doc;
+pub mod frame;
+pub mod hotkey;
+pub mod layout;
 
 pub(crate) use self::doc::*;
 pub(crate) use self::layout::*;
 
 use egui::Color32;
-use hotkey::HuskyNotebookHotkeySettings;
+use hotkey::NotebookHotkeySettings;
 use husky_code_editor::settings::HasCodeEditorSettings;
 use husky_trace_doc::settings::HasTraceDocSettings;
 use husky_trace_protocol::settings::HasTraceSettings;
@@ -17,7 +17,7 @@ use ui::{component::IsUiComponent, hotkey::egui::HotkeyBuffer};
 pub(crate) struct NotebookSettings {
     layout: HuskyNotebookLayoutSettings,
     doc: HuskyNotebookDocSettings,
-    hotkey: HuskyNotebookHotkeySettings,
+    hotkey: NotebookHotkeySettings,
 }
 
 impl HasCodeEditorSettings for NotebookSettings {
@@ -57,7 +57,7 @@ impl<ParentActionBuffer> IsUiComponent<egui::Ui, NotebookSettings, ParentActionB
         ui.label("Ui Component Context");
     }
 
-    fn help_facade(&mut self) {
+    fn toggle_help_facade(&mut self) {
         todo!()
     }
 }
