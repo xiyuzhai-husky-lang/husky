@@ -1,4 +1,5 @@
 use crate::*;
+use doc::arena::DocId;
 
 // TODO: more privacy
 pub(crate) struct NotebookApp {
@@ -7,6 +8,7 @@ pub(crate) struct NotebookApp {
     pub(crate) settings: NotebookSettings,
     pub(crate) hotkey_buffer: HotkeyBuffer,
     pub(crate) action_buffer: NotebookActionBuffer,
+    pub(crate) concentration: Option<DocId>,
     tokio_runtime: Arc<tokio::runtime::Runtime>,
     init_done: bool,
 }
@@ -22,6 +24,7 @@ impl Default for NotebookApp {
             dock_state,
             docs,
             hotkey_buffer: Default::default(),
+            concentration: None,
             action_buffer,
             tokio_runtime: Arc::new(tokio::runtime::Runtime::new().unwrap()),
             init_done: false,
@@ -44,11 +47,11 @@ impl eframe::App for NotebookApp {
         self.hotkey_buffer.start_frame(ctx);
         if let Some((argument, action)) = self.hotkey_buffer.extract(self.settings.hotkey_map()) {
             let action = NotebookAction::from_hotkey_action(argument, action);
-            todo!()
+            self.take_action(action);
         }
         self.render_facade(ctx);
         for action in self.action_buffer.take_all() {
-            todo!()
+            self.take_action(action);
         }
     }
 }

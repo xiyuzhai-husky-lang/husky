@@ -22,7 +22,7 @@ where
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TraceDocFacade {
     Standard,
     Help,
