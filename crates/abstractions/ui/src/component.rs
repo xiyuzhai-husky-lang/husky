@@ -9,7 +9,7 @@ pub trait IsUiComponent<Ui: IsUi, Settings, ParentActionBuffer> {
         ui: &mut Ui,
     );
 
-    fn help_facade(&mut self);
+    fn toggle_help_facade(&mut self);
 }
 
 pub struct UiComponent<Ui: IsUi, Settings, ParentActionBuffer>(
