@@ -2,26 +2,34 @@ use super::*;
 use ui::hotkey::egui::{HotkeyMap, HotkeyPattern};
 
 #[derive(PartialEq, Eq)]
-pub struct HuskyNotebookHotkeySettings {
-    main_hotkey_map: HotkeyMap<()>,
+pub struct NotebookHotkeySettings {
+    main_hotkey_map: HotkeyMap<NotebookHotkeyAction>,
 }
 
-impl Default for HuskyNotebookHotkeySettings {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum NotebookHotkeyAction {
+    ToggleDocHelpFacade,
+}
+
+impl Default for NotebookHotkeySettings {
     fn default() -> Self {
         Self {
-            main_hotkey_map: HotkeyMap::new([]).unwrap(),
+            main_hotkey_map: HotkeyMap::new([("H", NotebookHotkeyAction::ToggleDocHelpFacade)])
+                .unwrap(),
         }
     }
 }
 
 impl NotebookSettings {
-    pub(crate) fn hotkey_map(&self) -> impl Iterator<Item = (&HotkeyPattern, ())> {
+    pub(crate) fn hotkey_map(
+        &self,
+    ) -> impl Iterator<Item = (&HotkeyPattern, NotebookHotkeyAction)> {
         self.hotkey.hotkey_map()
     }
 }
 
-impl HuskyNotebookHotkeySettings {
-    fn hotkey_map(&self) -> impl Iterator<Item = (&HotkeyPattern, ())> {
+impl NotebookHotkeySettings {
+    fn hotkey_map(&self) -> impl Iterator<Item = (&HotkeyPattern, NotebookHotkeyAction)> {
         self.main_hotkey_map.into_iter()
     }
 }
