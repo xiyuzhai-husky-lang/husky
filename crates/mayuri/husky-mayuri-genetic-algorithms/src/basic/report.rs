@@ -9,14 +9,14 @@ pub struct Report {
 pub struct GenerationReport {
     pub generation: usize,
     pub best_fitness: i32,
-    pub best_genes: Vec<bool>,
+    pub best_genome: Vec<bool>,
     pub population_size: usize,
 }
 
 impl fmt::Debug for GenerationReport {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let genes_str: String = self
-            .best_genes
+            .best_genome
             .iter()
             .map(|&b| if b { '1' } else { '0' })
             .collect();
