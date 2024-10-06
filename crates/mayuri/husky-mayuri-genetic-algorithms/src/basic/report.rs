@@ -15,7 +15,7 @@ pub struct GenerationReport {
 
 impl fmt::Debug for GenerationReport {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let genes_str: String = self
+        let genome_str: String = self
             .best_genome
             .iter()
             .map(|&b| if b { '1' } else { '0' })
@@ -23,7 +23,7 @@ impl fmt::Debug for GenerationReport {
         f.debug_struct("GenerationReport")
             .field("generation", &self.generation)
             .field("best_fitness", &self.best_fitness)
-            .field("best_genes", &genes_str)
+            .field("best_genome", &genome_str)
             .field("population_size", &self.population_size)
             .finish()
     }
