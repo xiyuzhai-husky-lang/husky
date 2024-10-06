@@ -72,7 +72,7 @@ impl Lab {
             self.report.generations.push(GenerationReport {
                 generation,
                 best_fitness: self.population[0].fitness,
-                best_genes: self.population[0].genes.clone(),
+                best_genome: self.population[0].genes.clone(),
                 population_size: self.population.len(),
             });
         }
