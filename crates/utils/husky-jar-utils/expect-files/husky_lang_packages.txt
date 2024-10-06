@@ -3830,6 +3830,7 @@
         relative_path: "crates/mayuri/husky-mayuri-genetic-algorithms",
         dependencies: [
             "rand",
+            "rand_chacha",
             "expect-test",
         ],
     },
