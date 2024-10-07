@@ -1,5 +1,5 @@
 [package]
-name = "husky-mayuri-genetic-algorithms"
+name = "mayuri-genetic-algorithms"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
