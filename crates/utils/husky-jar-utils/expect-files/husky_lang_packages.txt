@@ -3826,8 +3826,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-mayuri-genetic-algorithms",
-        relative_path: "crates/mayuri/husky-mayuri-genetic-algorithms",
+        name: "mayuri-genetic-algorithms",
+        relative_path: "crates/mayuri/mayuri-genetic-algorithms",
         dependencies: [
             "rand",
             "rand_chacha",
@@ -3835,8 +3835,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-mayuri-prototype",
-        relative_path: "crates/mayuri/husky-mayuri-prototype",
+        name: "mayuri-prototype",
+        relative_path: "crates/mayuri/mayuri-prototype",
         dependencies: [],
     },
     PackageSummary {

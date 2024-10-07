@@ -5872,19 +5872,6 @@ name = "husky-marker-utils"
 version = "0.1.0"
 
 [[package]]
-name = "husky-mayuri-genetic-algorithms"
-version = "0.1.0"
-dependencies = [
- "expect-test",
- "rand",
- "rand_chacha",
-]
-
-[[package]]
-name = "husky-mayuri-prototype"
-version = "0.1.0"
-
-[[package]]
 name = "husky-minimal-toml-utils"
 version = "0.1.0"
 dependencies = [
@@ -8336,6 +8323,19 @@ version = "0.1.0"
 dependencies = [
  "original-error",
 ]
+
+[[package]]
+name = "mayuri-genetic-algorithms"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
+ "rand",
+ "rand_chacha",
+]
+
+[[package]]
+name = "mayuri-prototype"
+version = "0.1.0"
 
 [[package]]
 name = "md-5"
