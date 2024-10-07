@@ -4477,6 +4477,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-config-utils"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "toml",
+]
+
+[[package]]
 name = "husky-control-flow-utils"
 version = "0.1.0"
 
@@ -8336,6 +8344,11 @@ dependencies = [
 [[package]]
 name = "mayuri-prototype"
 version = "0.1.0"
+dependencies = [
+ "husky-config-utils",
+ "husky-path-utils",
+ "serde",
+]
 
 [[package]]
 name = "md-5"
