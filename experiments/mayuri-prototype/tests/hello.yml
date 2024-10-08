@@ -1,0 +1,15 @@
+---
+src:
+    "dataset.py": "datasets/gaussian.py"
+    "model.py": "models/fcn.py"
+
+config:
+    epochs: 10
+
+---
+src:
+    "dataset.py": "datasets/ring.py"
+    "model.py": "models/fcn.py"
+
+config:
+    epochs: 10
