@@ -3837,7 +3837,19 @@
     PackageSummary {
         name: "mayuri-prototype",
         relative_path: "crates/mayuri/mayuri-prototype",
-        dependencies: [],
+        dependencies: [
+            "husky-config-utils",
+            "serde",
+            "husky-path-utils",
+        ],
+    },
+    PackageSummary {
+        name: "husky-config-utils",
+        relative_path: "crates/utils/husky-config-utils",
+        dependencies: [
+            "serde",
+            "toml",
+        ],
     },
     PackageSummary {
         name: "husky-mir",
