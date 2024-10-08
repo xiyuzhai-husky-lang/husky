@@ -3844,6 +3844,7 @@
         relative_path: "crates/mayuri/mayuri-prototype",
         dependencies: [
             "husky-config-utils",
+            "husky-yaml-utils",
             "serde",
             "yaml-rust2",
             "expect-test",
@@ -3857,6 +3858,14 @@
         dependencies: [
             "serde",
             "toml",
+            "yaml-rust2",
+        ],
+    },
+    PackageSummary {
+        name: "husky-yaml-utils",
+        relative_path: "crates/utils/husky-yaml-utils",
+        dependencies: [
+            "vec-like",
             "yaml-rust2",
         ],
     },

@@ -68,48 +68,38 @@ fn mayuri_fs_works() {
                     MayuriTestSubject {
                         path: "experiments/mayuri-prototype/tests/hello.yml",
                         rank: 0,
-                        src: [
-                            (
-                                "dataset.py",
-                                "datasets/gaussian.py",
-                            ),
-                            (
-                                "model.py",
-                                "models/fcn.py",
-                            ),
-                        ],
-                        config: Hash(
-                            {
-                                String(
-                                    "epochs",
-                                ): Integer(
-                                    10,
-                                ),
-                            },
-                        ),
+                        soul: Soul {
+                            src: [
+                                SourceFile {
+                                    origin: "dataset.py",
+                                    destination: "datasets/gaussian.py",
+                                },
+                                SourceFile {
+                                    origin: "model.py",
+                                    destination: "models/fcn.py",
+                                },
+                            ],
+                            config: OrderedYaml("---
+                            epochs: 10"),
+                        },
                     },
                     MayuriTestSubject {
                         path: "experiments/mayuri-prototype/tests/hello.yml",
                         rank: 1,
-                        src: [
-                            (
-                                "dataset.py",
-                                "datasets/ring.py",
-                            ),
-                            (
-                                "model.py",
-                                "models/fcn.py",
-                            ),
-                        ],
-                        config: Hash(
-                            {
-                                String(
-                                    "epochs",
-                                ): Integer(
-                                    10,
-                                ),
-                            },
-                        ),
+                        soul: Soul {
+                            src: [
+                                SourceFile {
+                                    origin: "dataset.py",
+                                    destination: "datasets/ring.py",
+                                },
+                                SourceFile {
+                                    origin: "model.py",
+                                    destination: "models/fcn.py",
+                                },
+                            ],
+                            config: OrderedYaml("---
+                            epochs: 10"),
+                        },
                     },
                 ],
             },
