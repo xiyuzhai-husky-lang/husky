@@ -3845,7 +3845,10 @@
         dependencies: [
             "husky-config-utils",
             "serde",
+            "yaml-rust2",
+            "expect-test",
             "husky-path-utils",
+            "pathdiff",
         ],
     },
     PackageSummary {
@@ -3854,6 +3857,7 @@
         dependencies: [
             "serde",
             "toml",
+            "yaml-rust2",
         ],
     },
     PackageSummary {
