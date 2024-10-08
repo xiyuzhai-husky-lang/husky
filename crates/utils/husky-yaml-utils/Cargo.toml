@@ -1,5 +1,5 @@
 [package]
-name = "mayuri-prototype"
+name = "husky-yaml-utils"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,16 +12,9 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-serde.workspace = true
 yaml-rust2.workspace = true
-# utils
-husky-config-utils.workspace = true
-
-[dev-dependencies]
-expect-test.workspace = true
-pathdiff.workspace = true
-# utils
-husky-path-utils.workspace = true
+# abstractions
+vec-like.workspace = true
 
 [lints]
 workspace = true

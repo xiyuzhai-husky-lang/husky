@@ -7489,6 +7489,14 @@ name = "husky-write-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-yaml-utils"
+version = "0.1.0"
+dependencies = [
+ "vec-like",
+ "yaml-rust2",
+]
+
+[[package]]
 name = "hyper"
 version = "1.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8356,9 +8364,12 @@ version = "0.1.0"
 name = "mayuri-prototype"
 version = "0.1.0"
 dependencies = [
+ "expect-test",
  "husky-config-utils",
  "husky-path-utils",
+ "pathdiff",
  "serde",
+ "yaml-rust2",
 ]
 
 [[package]]
