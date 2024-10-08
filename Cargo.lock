@@ -8342,6 +8342,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "mayuri-plot"
+version = "0.1.0"
+
+[[package]]
 name = "mayuri-prototype"
 version = "0.1.0"
 dependencies = [
