@@ -197,6 +197,7 @@ tracing-test = "0.2.5"
 unindent = "0.2.3"
 winapi = "0.3.9"
 xxhash-rust = { version = "0.8.5" }
+yaml-rust2 = "0.9.0"
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
 enum-class = { path = "crates/abstractions/enum-class" }
