@@ -3835,6 +3835,11 @@
         ],
     },
     PackageSummary {
+        name: "mayuri-plot",
+        relative_path: "crates/mayuri/mayuri-plot",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "mayuri-prototype",
         relative_path: "crates/mayuri/mayuri-prototype",
         dependencies: [
