@@ -1,3 +1,4 @@
+use std::fmt;
 use vec_like::ordered_vec_map::OrderedVecPairMap;
 use yaml_rust2::yaml::Hash;
 use yaml_rust2::Yaml;
@@ -28,6 +29,14 @@ impl OrderedYaml {
             .collect::<OrderedVecPairMap<Yaml, Yaml>>()
             .into_iter()
             .collect()
+    }
+}
+
+impl fmt::Debug for OrderedYaml {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "OrderedYaml(\"",)?;
+        yaml_rust2::YamlEmitter::new(f).dump(&self.inner).unwrap();
+        write!(f, "\")",)
     }
 }
 

@@ -8367,6 +8367,7 @@ dependencies = [
  "expect-test",
  "husky-config-utils",
  "husky-path-utils",
+ "husky-yaml-utils",
  "pathdiff",
  "serde",
  "yaml-rust2",
