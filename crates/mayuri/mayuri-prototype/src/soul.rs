@@ -1,10 +1,11 @@
 use crate::*;
+use husky_yaml_utils::ordered::OrderedYaml;
 use yaml_rust2::Yaml;
 
 #[derive(Debug)]
 pub struct Soul {
     src: Vec<SourceFile>,
-    config: Yaml,
+    config: OrderedYaml,
 }
 
 #[derive(Debug)]
@@ -29,7 +30,7 @@ impl Soul {
                         .collect()
                 })
                 .unwrap_or_default(),
-            config: yaml["config"].clone(),
+            config: OrderedYaml::new(&yaml["config"]),
         }
     }
 }
