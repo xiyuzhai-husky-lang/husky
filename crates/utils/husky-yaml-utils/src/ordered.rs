@@ -4,6 +4,7 @@ use yaml_rust2::yaml::Hash;
 use yaml_rust2::Yaml;
 
 /// `OrderedYaml` is a wrapper around `yaml_rust2::Yaml` that orders key-value pairs in YAML maps alphabetically by keys.
+#[derive(PartialEq, Eq, Clone, PartialOrd, Ord, Hash)]
 pub struct OrderedYaml {
     inner: Yaml,
 }
