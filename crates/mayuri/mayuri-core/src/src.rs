@@ -6,10 +6,16 @@ use std::ops::Index;
 use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
 
+#[derive(Debug, Clone)]
+pub struct MayuriCode {
+    pub sha: Sha512Output,
+    pub content: String,
+}
+
 #[derive(Debug)]
 pub struct MayuriSrc {
     dir_path: PathBuf,
-    shas: HashMap<String, Sha512Output>,
+    shas: HashMap<String, MayuriCode>,
 }
 
 impl MayuriSrc {
@@ -30,9 +36,9 @@ impl MayuriSrc {
                     .to_str()
                     .unwrap()
                     .to_string();
-                let content = fs::read(path)?;
-                let sha = content.sha512();
-                shas.insert(relative_path, sha);
+                let content = fs::read_to_string(path)?;
+                let sha = content.as_bytes().sha512();
+                shas.insert(relative_path, MayuriCode { sha, content });
             }
         }
 
@@ -41,7 +47,7 @@ impl MayuriSrc {
 }
 
 impl Index<&str> for MayuriSrc {
-    type Output = Sha512Output;
+    type Output = MayuriCode;
 
     fn index(&self, key: &str) -> &Self::Output {
         self.shas.get(key).unwrap_or_else(|| {
