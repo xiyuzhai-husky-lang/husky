@@ -112,7 +112,9 @@ impl<'a> PlaceContractEngine<'a> {
     fn infer_condition(&mut self, condition: SemCondition) {
         let expr = match condition {
             SemCondition::Be { src, .. } => src,
-            SemCondition::Other { sem_expr_idx, .. } => sem_expr_idx,
+            SemCondition::Other {
+                expr: sem_expr_idx, ..
+            } => sem_expr_idx,
         };
         self.infer_expr(expr, Contract::Pure, Default::default())
     }

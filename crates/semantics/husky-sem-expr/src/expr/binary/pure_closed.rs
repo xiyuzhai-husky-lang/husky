@@ -33,7 +33,9 @@ impl<'a> SemExprBuilder<'a> {
                 ty_path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
-            } => Ok(ItemPathTerm::TypeOntology(ty_path).into()),
+            } => Ok(FlyTerm::from_eth_transient(
+                ItemPathTerm::TypeOntology(ty_path).into(),
+            )),
             FlyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,

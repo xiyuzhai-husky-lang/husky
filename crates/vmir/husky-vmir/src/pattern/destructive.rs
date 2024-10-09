@@ -1,6 +1,7 @@
 use super::*;
 use either::*;
 use husky_control_flow_utils::require;
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
 use husky_place::place::idx::PlaceIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -20,7 +21,7 @@ pub type VmirDestructivePatternIdxRange<LinketImpl> =
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
 pub enum VmirDestructivePattern<LinketImpl: IsLinketImpl> {
-    Default(Option<PlaceIdx>) = 1,
+    Default(Option<HirEagerRuntimeVariableIdx>) = 1,
     Or(VmirDestructivePatternIdxRange<LinketImpl>),
     Other(VmirDestructivePatternIdx<LinketImpl>),
 }
@@ -64,7 +65,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
-            } => Left(VmirDestructivePattern::Default(None /* ad hoc */)),
+                variable_idx,
+            } => Left(VmirDestructivePattern::Default(Some(variable_idx))),
             HirEagerPatternData::UnitPath(_) => todo!(),
             HirEagerPatternData::Tuple { path, fields } => todo!(),
             HirEagerPatternData::Props { path, fields } => todo!(),
@@ -72,6 +74,23 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerPatternData::Binding { ident, src } => todo!(),
             HirEagerPatternData::Range { start, end } => todo!(),
             HirEagerPatternData::Some => Right(VmirDestructivePatternData::Some),
+        }
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> VmirDestructivePattern<LinketImpl> {
+    pub(crate) fn take_value<'comptime>(
+        self,
+        value: LinketImplThawedValue<LinketImpl>,
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) {
+        match self {
+            VmirDestructivePattern::Default(place) => match place {
+                Some(place) => ctx.init_variable(place, value),
+                None => (),
+            },
+            VmirDestructivePattern::Or(_) => todo!(),
+            VmirDestructivePattern::Other(_) => todo!(),
         }
     }
 }

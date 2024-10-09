@@ -5,7 +5,7 @@ use husky_entity_path::{
 };
 use husky_fly_term::instantiation::FlyInstantiation;
 use husky_sem_expr::{
-    helpers::region::sem_expr_region_from_region_path, SemExprData, SemExprRegion, SemStmtData,
+    helpers::path::sem_expr_region_from_region_path, SemExprData, SemExprRegion, SemStmtData,
 };
 use vec_like::VecSet;
 

@@ -93,10 +93,19 @@ pub struct HirContractedQuary {
     quary: HirQuary,
 }
 
-impl Default for HirContractedQuary {
-    fn default() -> Self {
+impl From<HirQuaryTemplateVariable> for HirContractedQuary {
+    fn from(variable: HirQuaryTemplateVariable) -> Self {
         Self {
-            contract: Default::default(),
+            contract: None,
+            quary: variable.into(),
+        }
+    }
+}
+
+impl HirContractedQuary {
+    pub fn new_contractless_transient() -> Self {
+        Self {
+            contract: None,
             quary: HirQuary::Transient,
         }
     }

@@ -1,9 +1,11 @@
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
 use husky_linket::linket::{Linket, LinketData};
-use husky_linket_impl::pedestal::virtual_pedestal::VirtualPedestal;
-use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl};
+use husky_linket_impl::{dev_eval_context::DevEvalContext, linket_impl::IsLinketImpl};
 use husky_linket_impl::{linket_impl::LinketImplStaticVarResult, pedestal::IsPedestal};
+use husky_linket_impl::{
+    linket_impl::VmArgumentValues, pedestal::virtual_pedestal::VirtualPedestal,
+};
 use husky_linket_impl::{
     linket_impl::{LinketImplKiControlFlow, VmArgumentValue},
     LinketImplVmControlFlowThawed,
@@ -37,6 +39,10 @@ impl IsLinketImpl for VirtualLinketImpl {
 
     type Exception = Exception;
 
+    fn dev_eval_context() -> DevEvalContext<Self> {
+        todo!()
+    }
+
     fn eval_ki(
         self,
         ki_repr_interface: KiReprInterface,
@@ -49,14 +55,14 @@ impl IsLinketImpl for VirtualLinketImpl {
 
     fn eval_vm(
         self,
-        mut arguments: Vec<VmArgumentValue<Self>>,
+        mut arguments: VmArgumentValues<Self>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self> {
         use VmControlFlow::Continue;
 
         let db: &::salsa::Db = db.downcast_ref().unwrap();
         match self.data(db) {
-            LinketData::MajorFunctionRitchie {
+            LinketData::MajorRitchie {
                 path,
                 instantiation,
             } => todo!(),
@@ -169,6 +175,12 @@ impl IsLinketImpl for VirtualLinketImpl {
         locked: &[ItemPathIdInterface],
         f: impl FnOnce(<Self::Pedestal as IsPedestal>::VarId) -> R,
     ) -> LinketImplStaticVarResult<Self, R> {
+        todo!()
+    }
+
+    fn try_set_dev_eval_context(
+        ctx: DevEvalContext<Self>,
+    ) -> Result<husky_linket_impl::dev_eval_context::DevEvalContextGuard, ()> {
         todo!()
     }
 }

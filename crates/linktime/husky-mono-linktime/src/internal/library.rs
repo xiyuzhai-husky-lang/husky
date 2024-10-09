@@ -4,7 +4,7 @@ use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket::linket::{target_linket_item_path_id_interfaces, target_linkets};
-use husky_linket_impl::{eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
+use husky_linket_impl::{dev_eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 use husky_vfs::path::package_path::PackagePath;

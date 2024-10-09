@@ -1,22 +1,20 @@
+use crate::runtime::IsVmRuntime;
 use crate::vm::{Vm, VmMode};
 use crate::*;
 use history::VmHistory;
-use husky_linket_impl::{eval_context::IsDevRuntimeInterface, linket_impl::LinketImplThawedValue};
+use husky_hir_eager_expr::variable::runtime::HirEagerRuntimeVariableIdx;
+use husky_linket_impl::linket_impl::LinketImplThawedValue;
 use husky_linktime::helpers::LinktimeThawedValue;
+use husky_value::IsThawedValue;
 use husky_vmir::stmt::{VmirStmtIdx, VmirStmtIdxRange};
+use snapshot::VmSnapshotKey;
 
-// ad hoc place, where to move?
-pub trait IsDevRuntime<LinketImpl: IsLinketImpl>: IsDevRuntimeInterface<LinketImpl> {
-    type Linktime: IsLinktime<LinketImpl = LinketImpl>;
-    fn linktime(&self) -> &Self::Linktime;
-}
-
-pub fn eval_linket_on_arguments<LinketImpl, DevRuntime: IsDevRuntime<LinketImpl>>(
+pub fn eval_linket_on_arguments<LinketImpl, VmRuntime: IsVmRuntime<LinketImpl>>(
     linket: Linket,
     arguments: Vec<LinketImpl::Value>,
     mode: VmMode,
     db: &::salsa::Db,
-    runtime: &DevRuntime,
+    runtime: &VmRuntime,
     vmir_storage: &impl IsVmirStorage<LinketImpl>,
 ) -> Option<(
     LinketImplVmControlFlowThawed<LinketImpl>,
@@ -44,7 +42,7 @@ impl<'a, LinketImpl, Runtime, VmirStorage> EvalVmir<'a, LinketImpl>
     for Vm<'a, LinketImpl, Runtime, VmirStorage>
 where
     LinketImpl: IsLinketImpl,
-    Runtime: IsDevRuntime<LinketImpl>,
+    Runtime: IsVmRuntime<LinketImpl>,
     VmirStorage: IsVmirStorage<LinketImpl>,
 {
     fn db(&self) -> &'a ::salsa::Db {
@@ -95,6 +93,22 @@ where
         }
     }
 
+    fn eval_loop_inner(
+        &mut self,
+        stmt: VmirStmtIdx<LinketImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
+        loop_index: usize,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl, ()>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl, ()> {
+        match self.mode() {
+            VmMode::Quick => f(self),
+            VmMode::Record => {
+                self.snapshot(stmt, VmSnapshotKey::Loop { loop_index });
+                self.quick(f)
+            }
+        }
+    }
+
     fn eval_stmt(
         &mut self,
         stmt: VmirStmtIdx<LinketImpl>,
@@ -106,26 +120,43 @@ where
         }
     }
 
-    fn access_place(
+    fn access_variable(
         &mut self,
-        place_idx: PlaceIdx,
+        variable_idx: HirEagerRuntimeVariableIdx,
         qual: LinQual,
     ) -> LinketImplThawedValue<LinketImpl> {
         match qual {
-            LinQual::Ref => todo!(),
-            LinQual::RefMut => todo!(),
-            LinQual::Transient => todo!(),
+            LinQual::Ref => self.variable_thawed_values[variable_idx.index()].ref_access(),
+            LinQual::Mut => self.variable_thawed_values[variable_idx.index()].mut_access(),
+            LinQual::Transient => {
+                self.variable_thawed_values[variable_idx.index()].transient_access()
+            }
         }
     }
 
-    fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>) {
-        self.place_thawed_values[place_idx.index()] = value
+    fn init_variable(
+        &mut self,
+        variable_idx: HirEagerRuntimeVariableIdx,
+        value: LinketImplThawedValue<LinketImpl>,
+    ) {
+        use husky_value::IsThawedValue;
+
+        assert!(self.variable_thawed_values[variable_idx.index()].is_uninit());
+        self.variable_thawed_values[variable_idx.index()] = value
+    }
+
+    fn set_variable(
+        &mut self,
+        variable_idx: HirEagerRuntimeVariableIdx,
+        value: LinketImplThawedValue<LinketImpl>,
+    ) {
+        self.variable_thawed_values[variable_idx.index()] = value
     }
 
     fn eval_val(
         &self,
         major_form_path: husky_entity_path::path::major_item::form::MajorFormPath,
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
-        todo!()
+        self.runtime.eval_val(major_form_path)
     }
 }

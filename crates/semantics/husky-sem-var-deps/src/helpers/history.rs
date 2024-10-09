@@ -1,9 +1,12 @@
 use super::*;
-use crate::{region::item_defn_sem_var_deps_region, var_deps::SemVarDeps};
+use crate::{region::item_defn_sem_var_deps_region, var_deps::value::SemValueVarDeps};
 use husky_entity_path::path::ItemPathId;
 
 #[salsa::tracked]
-pub fn item_history_sem_var_deps(db: &::salsa::Db, item_path_id: ItemPathId) -> Option<SemVarDeps> {
+pub fn item_history_sem_var_deps(
+    db: &::salsa::Db,
+    item_path_id: ItemPathId,
+) -> Option<SemValueVarDeps> {
     item_defn_sem_var_deps_region(db, item_path_id).map(|region| region.total_var_deps(db))
 }
 

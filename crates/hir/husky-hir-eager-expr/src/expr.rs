@@ -32,7 +32,7 @@ use husky_hir_ty::{
     HirType,
 };
 use husky_place::place::EthPlace;
-use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
+use husky_sem_expr::{SemExprData, SemExprIdx, SemRitchieArgument};
 use husky_sem_opr::{binary::SemBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::variable::{InheritedTemplateVariable, InheritedVariableKind};
 use husky_term_prelude::literal::Literal;
@@ -224,7 +224,7 @@ impl ToHirEager for SemExprIdx {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         let place_contract_site =
-            HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
+            HirPlaceContractSite::from_sem(&builder.sem_place_contract_region()[*self]);
         let data = match *self.data(builder.sem_expr_arena_ref()) {
             SemExprData::Literal(_, _) => {
                 HirEagerExprData::Literal(match builder.expr_term(*self) {
@@ -288,7 +288,7 @@ impl ToHirEager for SemExprIdx {
                 InheritedVariableKind::Parenate { .. }
                 | InheritedVariableKind::SelfField { .. } => HirEagerExprData::RuntimeVariable(
                     builder
-                        .inherited_variable_to_hir_eager_runtime_symbol(inherited_variable_idx)
+                        .inherited_variable_to_hir_eager_runtime_variable(inherited_variable_idx)
                         .unwrap(),
                 ),
                 InheritedVariableKind::ReplLocal => todo!(),
@@ -298,7 +298,7 @@ impl ToHirEager for SemExprIdx {
                 ..
             } => HirEagerExprData::RuntimeVariable(
                 builder
-                    .current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
+                    .current_variable_to_hir_eager_runtime_variable(current_variable_idx)
                     .unwrap(),
             ),
             SemExprData::FrameVarDecl { .. } => todo!(),
@@ -567,7 +567,7 @@ impl ToHirEager for SemExprIdx {
                 self_argument: self_argument.to_hir_eager(builder),
                 items: items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_eager(builder))
+                    .map(|item| item.expr.to_hir_eager(builder))
                     .collect(),
             },
             SemExprData::CompositionWithList { .. } => {
@@ -580,7 +580,7 @@ impl ToHirEager for SemExprIdx {
             } => HirEagerExprData::NewList {
                 exprs: items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_eager(builder))
+                    .map(|item| item.expr.to_hir_eager(builder))
                     .collect(),
                 element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.terms())
                     .unwrap(),
@@ -641,7 +641,7 @@ impl ToHirEager for SemExprIdx {
         let quary = ty.quary();
         let contracted_quary = quary
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
-            .unwrap_or_default();
+            .unwrap_or(HirContractedQuary::new_contractless_transient());
         let coercion = match self.expectation_outcome(builder.sem_expr_region_data) {
             Some(ref outcome) => match outcome {
                 ExpectationOutcome::Coercion(coersion_outcome) => {
@@ -686,9 +686,11 @@ impl ToHirEager for SemExprIdx {
             },
             None => quary,
         };
-        let contracted_quary_after_coercion = quary
-            .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
-            .unwrap_or_default();
+        let contracted_quary_after_coercion = quary_after_coercion
+            .map(|quary_after_coercion| {
+                HirContractedQuary::from_fly(quary_after_coercion, &place_contract_site)
+            })
+            .unwrap_or(HirContractedQuary::new_contractless_transient());
         let entry = HirEagerExprEntry {
             data,
             base_ty,

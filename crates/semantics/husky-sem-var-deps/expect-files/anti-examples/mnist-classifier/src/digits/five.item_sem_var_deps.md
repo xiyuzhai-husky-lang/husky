@@ -1,7 +1,7 @@
 ## `is_five`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

@@ -359,7 +359,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                 Fn,
             )`),
@@ -374,7 +374,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                 Fn,
             )`),
@@ -389,7 +389,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                 Fn,
             )`),

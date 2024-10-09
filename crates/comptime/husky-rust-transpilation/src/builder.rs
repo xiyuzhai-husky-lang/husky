@@ -27,7 +27,7 @@ use husky_hir_eager_expr::{
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    ritchie::HirContract, trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateVariable,
+    ritchie::HirContract, trai::HirTrait, HirCompterm, HirTemplateArgument, HirTemplateVariable,
     HirType, HirTypeTemplateVariable,
 };
 use husky_print_utils::p;
@@ -161,6 +161,14 @@ impl<'a> RustTranspilationBuilderBase<'a> {
 
     pub(crate) fn rem_eulid(&mut self) {
         self.write_str("rem_euclid")
+    }
+
+    pub(crate) fn index(&mut self) {
+        self.write_str("index")
+    }
+
+    pub(crate) fn index_mut(&mut self) {
+        self.write_str("index_mut")
     }
 
     pub(crate) fn pow(&mut self) {
@@ -407,7 +415,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
     }
 
     // todo: there is room for optimization
-    pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternArena {
+    pub(crate) fn hir_eager_pattern_arena(&self) -> &'a HirEagerPatternArena {
         self.extension.pattern_arena(self.db)
     }
 
@@ -416,7 +424,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         self.extension.stmt_arena(self.db)
     }
 
-    fn hir_template_svar(&mut self, symbol: impl Into<HirTemplateVariable>) {
+    fn hir_template_variable(&mut self, symbol: impl Into<HirTemplateVariable>) {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
@@ -542,8 +550,6 @@ impl<E> TranspileToRustWith<E> for HirTemplateVariable {
                     _ => todo!(),
                 },
                 HirTypeTemplateVariable::SelfType => builder.write_str("This"),
-                HirTypeTemplateVariable::SelfLifetime => todo!(),
-                HirTypeTemplateVariable::SelfPlace => todo!(),
             },
             HirTemplateVariable::Compterm(_) => todo!(),
             HirTemplateVariable::Lifetime(_) => todo!(),
@@ -568,12 +574,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRuntimeVariableIdx {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
-        let hir_eager_runtime_symbol_region_data =
+        let hir_eager_runtime_variable_region_data =
             builder.extension.runtime_variable_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }
-        match hir_eager_runtime_symbol_region_data[self].name() {
+        match hir_eager_runtime_variable_region_data[self].name() {
             HirEagerRuntimeVariableName::SelfValue => {
                 let needs_elision = builder
                     .hir_eager_expr_region()
