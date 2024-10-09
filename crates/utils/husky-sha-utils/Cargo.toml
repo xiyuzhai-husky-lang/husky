@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+crypto-common.workspace = true
 hex.workspace = true
 sealed.workspace = true
 sha2.workspace = true

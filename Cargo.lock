@@ -6519,6 +6519,7 @@ dependencies = [
 name = "husky-sha-utils"
 version = "0.1.0"
 dependencies = [
+ "crypto-common",
  "hex",
  "hex-literal",
  "sealed",
