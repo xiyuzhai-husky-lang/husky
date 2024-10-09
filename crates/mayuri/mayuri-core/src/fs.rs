@@ -42,8 +42,8 @@ impl MayuriFs {
             Err(e) => panic!("Failed to create MayuriSrc in {:?}: {}", root, e),
         };
 
-        let jobs = MayuriJobs::from_dir(root.join("jobs"), &src);
-        let tests = MayuriTests::from_dir(root.join("tests"), &src);
+        let jobs = MayuriJobs::from_dir(root.join("jobs"), &src, &nemu_config);
+        let tests = MayuriTests::from_dir(root.join("tests"), &src, &nemu_config);
 
         MayuriFs {
             root,
@@ -53,6 +53,14 @@ impl MayuriFs {
             jobs,
             tests,
         }
+    }
+
+    pub fn run_all_tests(&self) {
+        self.tests.run_all()
+    }
+
+    pub fn run_all_jobs(&self) {
+        self.jobs.run_all()
     }
 }
 
@@ -160,4 +168,6 @@ fn mayuri_fs_works() {
         }
     "#]]
     .assert_debug_eq(&fs);
+    fs.run_all_tests();
+    fs.run_all_jobs();
 }
