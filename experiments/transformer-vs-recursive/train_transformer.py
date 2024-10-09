@@ -73,7 +73,7 @@ def run(config, train_dataset, val_dataset, header):
     model = CustomBERTModel(output_dim=sum(dataset.get_output_dims()), **config).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=0)
+    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
     optimizer = optim.Adam(model.parameters(), lr=1)
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=linear_warmup_decay(total_iters=config["num_epochs"] * len(train_dataloader), **config))
 
@@ -92,12 +92,9 @@ else:
     search_space = HIDDEN_DIM_SPACE
 
 for hidden_dim in ordered_search_space(search_space):
-    if hidden_dim <= 128:
-        min_lr, max_lr = 1e-5, 1e-3
-    else:
-        min_lr, max_lr = 1e-6, 1e-4
+    min_lr, max_lr = 1e-5, 1e-3
 
-    micro_batch_size = 32
+    micro_batch_size = BATCH_SIZE
 
     config = {
         "batch_size": BATCH_SIZE,
