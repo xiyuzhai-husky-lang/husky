@@ -11,7 +11,7 @@ pub struct HirPlaceContractSite {
 }
 
 impl HirPlaceContractSite {
-    pub fn from_sema(sem_site: &SemPlaceContractSite) -> Self {
+    pub fn from_sem(sem_site: &SemPlaceContractSite) -> Self {
         HirPlaceContractSite {
             place_contracts: SmallVecPairMap::from_iter(
                 sem_site

@@ -18,7 +18,7 @@ impl LoopStepValue {
         }
     }
 
-    pub fn frame_var(&self, a: i32, i: i32) -> i32 {
+    pub fn for_loop_variable(&self, a: i32, i: i32) -> i32 {
         a + self.0 * i
     }
 }
@@ -54,13 +54,13 @@ pub enum LoopBoundaryKind {
 impl LoopBoundaryKind {
     pub fn new_final(final_comparison: BinaryComparisonOpr) -> LoopBoundaryKind {
         match final_comparison {
-            // ... $frame_var >= $final_bound
+            // ... $for_loop_variable >= $final_bound
             BinaryComparisonOpr::Geq => LoopBoundaryKind::LowerClosed,
-            // ... $frame_var > $final_bound
+            // ... $for_loop_variable > $final_bound
             BinaryComparisonOpr::Greater => LoopBoundaryKind::LowerOpen,
-            // ... $frame_var <= $final_bound
+            // ... $for_loop_variable <= $final_bound
             BinaryComparisonOpr::Leq => LoopBoundaryKind::UpperClosed,
-            // ... $frame_var < $final_bound
+            // ... $for_loop_variable < $final_bound
             BinaryComparisonOpr::Less => LoopBoundaryKind::UpperOpen,
             _ => todo!(),
         }

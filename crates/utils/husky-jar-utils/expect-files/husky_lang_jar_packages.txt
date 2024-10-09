@@ -313,6 +313,7 @@
             "husky-entity-path",
             "husky-entity-tree",
             "husky-term-prelude",
+            "husky-text",
             "husky-token",
             "husky-token-data",
             "husky-vfs",
@@ -779,12 +780,6 @@
         ],
     },
     JarPackageSummary {
-        name: "husky-hir-prelude",
-        dependencies: [
-            "husky-term-prelude",
-        ],
-    },
-    JarPackageSummary {
         name: "husky-ki",
         dependencies: [
             "husky-coword",
@@ -916,6 +911,12 @@
             "husky-sem-var-deps",
             "husky-term-prelude",
             "husky-vfs",
+        ],
+    },
+    JarPackageSummary {
+        name: "husky-hir-prelude",
+        dependencies: [
+            "husky-term-prelude",
         ],
     },
     JarPackageSummary {
@@ -1218,6 +1219,8 @@
             "husky-hir-eager-expr",
             "husky-hir-expr",
             "husky-hir-ty",
+            "husky-ki",
+            "husky-ki-repr",
             "husky-linket",
             "husky-place",
             "husky-ast",
@@ -1236,6 +1239,8 @@
             "husky-hir-prelude",
             "husky-hir-ty",
             "husky-javelin",
+            "husky-ki",
+            "husky-ki-repr",
             "husky-linket",
             "husky-manifest",
             "husky-manifest-ast",

@@ -43,8 +43,17 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             impl #generics __Boiled for #self_ty where #impl_boiled_generic_constraints {
                 type Thawed = #impl_boiled_assoc_ty_static;
 
+                unsafe fn from_thawed(thawed: Self::Thawed) -> Self {
+                    std::mem::transmute(thawed)
+                }
+
+                #[inline]
+                unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self {
+                    std::mem::transmute(thawed_ref)
+                }
+
                 unsafe fn into_thawed(self) -> Self::Thawed {
-                    self
+                    std::mem::transmute(self)
                 }
             }
 
@@ -146,8 +155,17 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             impl #generics __Boiled for #self_ty where #impl_boiled_generic_constraints {
                 type Thawed = #impl_boiled_assoc_ty_static;
 
+                unsafe fn from_thawed(thawed: Self::Thawed) -> Self {
+                    std::mem::transmute(thawed)
+                }
+
+                #[inline]
+                unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self {
+                    std::mem::transmute(thawed_ref)
+                }
+
                 unsafe fn into_thawed(self) -> Self::Thawed {
-                    self
+                    std::mem::transmute(self)
                 }
             }
 

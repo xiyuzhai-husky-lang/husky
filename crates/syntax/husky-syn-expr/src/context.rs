@@ -20,9 +20,9 @@ pub struct SynExprContext<'a> {
     variable_context: VariableContextMut<'a>,
     syn_expr_arena: SynExprArena,
     syn_principal_entity_path_expr_arena: SynPrincipalEntityPathExprArena,
-    syn_pattern_expr_region: SynPatternRegion,
+    syn_pattern_region: SynPatternRegion,
     syn_stmt_arena: SynStmtArena,
-    syn_pattern_expr_roots: Vec<SynPatternRoot>,
+    syn_pattern_roots: Vec<SynPatternRoot>,
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
@@ -84,9 +84,9 @@ impl<'a> SynExprContext<'a> {
             ),
             syn_expr_arena: Default::default(),
             syn_principal_entity_path_expr_arena: Default::default(),
-            syn_pattern_expr_region: Default::default(),
+            syn_pattern_region: Default::default(),
             syn_stmt_arena: Default::default(),
-            syn_pattern_expr_roots: vec![],
+            syn_pattern_roots: vec![],
             syn_expr_roots: vec![],
             has_self_lifetime: false,
             has_self_place: false,
@@ -101,9 +101,9 @@ impl<'a> SynExprContext<'a> {
             self.path,
             self.syn_expr_arena,
             self.syn_principal_entity_path_expr_arena,
-            self.syn_pattern_expr_region,
+            self.syn_pattern_region,
             self.syn_stmt_arena,
-            self.syn_pattern_expr_roots,
+            self.syn_pattern_roots,
             self.syn_expr_roots,
             self.has_self_lifetime,
             self.has_self_place,
@@ -129,8 +129,8 @@ impl<'a> SynExprContext<'a> {
         SynExprParser::new(self, env, token_stream)
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &SynPatternRegion {
-        &self.syn_pattern_expr_region
+    pub(crate) fn pattern_region(&self) -> &SynPatternRegion {
+        &self.syn_pattern_region
     }
 
     #[inline(always)]
@@ -168,8 +168,8 @@ impl<'a> SynExprContext<'a> {
         self.module_path
     }
 
-    pub fn syn_pattern_expr_region(&self) -> &SynPatternRegion {
-        &self.syn_pattern_expr_region
+    pub fn syn_pattern_region(&self) -> &SynPatternRegion {
+        &self.syn_pattern_region
     }
 
     pub(crate) fn syn_expr_arena_mut(&mut self) -> &mut SynExprArena {
@@ -188,8 +188,8 @@ impl<'a> SynExprContext<'a> {
         self.syn_stmt_arena.alloc_batch(syn_stmts)
     }
 
-    pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternData) -> SynPatternIdx {
-        self.syn_pattern_expr_region.alloc_one_pattern_expr(expr)
+    pub(crate) fn alloc_pattern(&mut self, expr: SynPatternData) -> SynPatternIdx {
+        self.syn_pattern_region.alloc_one_pattern(expr)
     }
 
     pub(crate) fn alloc_item_path_expr(

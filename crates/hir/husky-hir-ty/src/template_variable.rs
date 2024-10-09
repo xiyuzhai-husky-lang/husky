@@ -10,7 +10,7 @@ pub use self::ty::*;
 
 use crate::*;
 use husky_eth_term::term::symbolic_variable::{
-    EthSymbolicVariable, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl,
+    EthSymbolicVariable, EthTemplateVariableAttrs, EthTermVariableIndexImpl,
 };
 use husky_term_prelude::template_var_class::TemplateVariableClass;
 
@@ -48,7 +48,7 @@ impl HirTemplateVariableClass {
 }
 
 impl HirTemplateVariableAttrs {
-    pub(crate) fn from_eth(attrs: EthTemplateSymbolAttrs) -> Option<Self> {
+    pub(crate) fn from_eth(attrs: EthTemplateVariableAttrs) -> Option<Self> {
         Some(Self {
             class: HirTemplateVariableClass::from_term(attrs.class)?,
         })
@@ -67,31 +67,31 @@ fn hir_template_variable_from_eth(
     var: EthSymbolicVariable,
 ) -> Option<HirTemplateVariable> {
     match var.index(db).inner() {
-        EthTermSymbolIndexImpl::ExplicitLifetime {
+        EthTermVariableIndexImpl::ExplicitLifetime {
             attrs,
             variance,
             disambiguator,
         } => Some(
-            HirLifetimeTemplateVariable {
+            HirLifetimeTemplateVariable::Explicit {
                 attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
             .into(),
         ),
-        EthTermSymbolIndexImpl::ExplicitPlace {
+        EthTermVariableIndexImpl::ExplicitPlace {
             attrs,
             variance,
             disambiguator,
         } => Some(
-            HirQuaryTemplateVariable {
+            HirQuaryTemplateVariable::Explicit {
                 attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
             .into(),
         ),
-        EthTermSymbolIndexImpl::Type {
+        EthTermVariableIndexImpl::Type {
             attrs,
             variance,
             disambiguator,
@@ -103,8 +103,8 @@ fn hir_template_variable_from_eth(
             }
             .into(),
         ),
-        EthTermSymbolIndexImpl::Prop { disambiguator: _ } => todo!(),
-        EthTermSymbolIndexImpl::ConstPathLeading {
+        EthTermVariableIndexImpl::Prop { disambiguator: _ } => todo!(),
+        EthTermVariableIndexImpl::ConstPathLeading {
             attrs,
             disambiguator,
             ty_path,
@@ -120,7 +120,7 @@ fn hir_template_variable_from_eth(
             )
             .into(),
         ),
-        EthTermSymbolIndexImpl::ConstOther {
+        EthTermVariableIndexImpl::ConstOther {
             attrs,
             disambiguator,
         } => Some(
@@ -134,14 +134,16 @@ fn hir_template_variable_from_eth(
             )
             .into(),
         ),
-        EthTermSymbolIndexImpl::EphemPathLeading {
+        EthTermVariableIndexImpl::EphemPathLeading {
             disambiguator: _,
             ty_path: _,
         } => None,
-        EthTermSymbolIndexImpl::EphemOther { disambiguator: _ } => None,
-        EthTermSymbolIndexImpl::SelfType => Some(HirTypeTemplateVariable::SelfType.into()),
-        EthTermSymbolIndexImpl::SelfValue => todo!(),
-        EthTermSymbolIndexImpl::SelfLifetime => Some(HirTypeTemplateVariable::SelfLifetime.into()),
-        EthTermSymbolIndexImpl::SelfPlace => Some(HirTypeTemplateVariable::SelfPlace.into()),
+        EthTermVariableIndexImpl::EphemOther { disambiguator: _ } => None,
+        EthTermVariableIndexImpl::SelfType => Some(HirTypeTemplateVariable::SelfType.into()),
+        EthTermVariableIndexImpl::SelfValue => todo!(),
+        EthTermVariableIndexImpl::SelfLifetime => {
+            Some(HirLifetimeTemplateVariable::SelfLifetime.into())
+        }
+        EthTermVariableIndexImpl::SelfPlace => Some(HirQuaryTemplateVariable::SelfPlace.into()),
     }
 }

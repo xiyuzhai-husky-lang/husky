@@ -132,7 +132,7 @@ impl SynPatternRoot {
             kind,
             syn_pattern_idx,
         };
-        ctx.add_pattern_expr_root(slf);
+        ctx.add_pattern_root(slf);
         slf
     }
 
@@ -151,7 +151,7 @@ impl<'a> SynExprContext<'a> {
     }
 
     // move to somewhere else?
-    pub(crate) fn add_pattern_expr_root(&mut self, syn_pattern_expr_root: SynPatternRoot) {
-        self.syn_pattern_expr_roots.push(syn_pattern_expr_root)
+    pub(crate) fn add_pattern_root(&mut self, syn_pattern_root: SynPatternRoot) {
+        self.syn_pattern_roots.push(syn_pattern_root)
     }
 }

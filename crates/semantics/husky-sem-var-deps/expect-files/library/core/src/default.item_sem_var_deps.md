@@ -1,7 +1,7 @@
 ## `Default`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `Default::default`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

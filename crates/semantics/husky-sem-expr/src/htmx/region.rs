@@ -3,7 +3,7 @@
 //! we shall carefully consider how we shall statically analyze this in the future
 use self::term::PlotClassTerm;
 use super::{error::DerivedSemExprHtmxError, *};
-use helpers::region::sem_expr_region_from_region_path;
+use helpers::path::sem_expr_region_from_region_path;
 use husky_entity_path::{path::major_item::ty::PreludeTypePath, region::RegionPath};
 use husky_eth_term::term::EthTerm;
 use husky_term_prelude::ItemPathTerm;

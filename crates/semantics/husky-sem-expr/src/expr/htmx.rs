@@ -2,7 +2,7 @@ use super::*;
 use husky_regional_token::{EqRegionalToken, InlineLcurlRegionalToken, InlineRcurlRegionalToken};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum SemaHtmxArgumentExpr {
+pub enum SemHtmxArgumentExpr {
     Expanded {
         property_ident: IdentRegionalToken,
         eq: EqRegionalToken,
@@ -18,16 +18,16 @@ pub enum SemaHtmxArgumentExpr {
     },
 }
 
-impl SemaHtmxArgumentExpr {
+impl SemHtmxArgumentExpr {
     pub fn expr(self) -> SemExprIdx {
         match self {
-            SemaHtmxArgumentExpr::Expanded { argument, .. } => argument,
-            SemaHtmxArgumentExpr::Shortened { .. } => todo!(),
+            SemHtmxArgumentExpr::Expanded { argument, .. } => argument,
+            SemHtmxArgumentExpr::Shortened { .. } => todo!(),
         }
     }
 }
 
-impl vec_like::AsVecMapEntry for SemaHtmxArgumentExpr {
+impl vec_like::AsVecMapEntry for SemHtmxArgumentExpr {
     type K = Ident;
 
     fn key(&self) -> Self::K
@@ -35,18 +35,18 @@ impl vec_like::AsVecMapEntry for SemaHtmxArgumentExpr {
         Self::K: Copy,
     {
         match self {
-            SemaHtmxArgumentExpr::Expanded { property_ident, .. }
-            | SemaHtmxArgumentExpr::Shortened { property_ident, .. } => property_ident.ident(),
+            SemHtmxArgumentExpr::Expanded { property_ident, .. }
+            | SemHtmxArgumentExpr::Shortened { property_ident, .. } => property_ident.ident(),
         }
     }
 
     fn key_ref(&self) -> &Self::K {
         match self {
-            SemaHtmxArgumentExpr::Expanded {
+            SemHtmxArgumentExpr::Expanded {
                 property_ident: argument_ident,
                 ..
             }
-            | SemaHtmxArgumentExpr::Shortened {
+            | SemHtmxArgumentExpr::Shortened {
                 property_ident: argument_ident,
                 ..
             } => argument_ident.ident_ref(),
@@ -58,7 +58,7 @@ impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_html_argument_expr(
         &mut self,
         expr: SynHtmlArgumentExpr,
-    ) -> SemaHtmxArgumentExpr {
+    ) -> SemHtmxArgumentExpr {
         match expr {
             SynHtmlArgumentExpr::Expanded {
                 property_ident,
@@ -66,7 +66,7 @@ impl<'a> SemExprBuilder<'a> {
                 lcurl,
                 expr,
                 rcurl,
-            } => SemaHtmxArgumentExpr::Expanded {
+            } => SemHtmxArgumentExpr::Expanded {
                 property_ident,
                 eq,
                 lcurl,
@@ -77,7 +77,7 @@ impl<'a> SemExprBuilder<'a> {
                 lcurl,
                 property_ident,
                 rcurl,
-            } => SemaHtmxArgumentExpr::Shortened {
+            } => SemHtmxArgumentExpr::Shortened {
                 lcurl,
                 property_ident,
                 rcurl,

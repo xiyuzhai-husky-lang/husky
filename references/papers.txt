@@ -1,0 +1,38 @@
+Attention is all you need
+Layer normalization  
+Can recurrent neural networks learn nested recursion?  
+On the ability of self-attention networks to recognize counter languages  
+On the computational power of transformers and its implications in sequence modeling  
+Hierarchical structure guides rapid linguistic predictions during naturalistic listening  
+The best of both worlds: Combining recent advances in neural machine translation  
+Three models for the description of language  
+The algebraic theory of context-free languages  
+Learning context-free grammars: Capabilities and limitations of a recurrent neural network with an external stack memory  
+A formal hierarchy of RNN architectures  
+Neurophysiological dynamics of phrase-structure building during sentence processing  
+Learning Music Helps You Read: Using transfer to study linguistic structure in language models  
+On the turing completeness of modern neural network architectures  
+Language models are unsupervised multitask learners  
+Random features for large-scale kernel machines  
+Evaluating the ability of LSTMs to learn context-free grammars  
+Self-attention with relative position representations  
+Disan: Directional self-attention network for rnn/cnn-free language understanding  
+Novel positional encodings to enable tree-based transformers  
+A recurrent network that performs a context-sensitive prediction task  
+Memory-augmented recurrent neural networks can learn generalized dyck languages  
+The faculty of language: what is it, who has it, and how did it evolve?  
+Establishing strong baselines for the new decade: Sequence tagging, syntactic and semantic parsing with bert  
+Deep residual learning for image recognition  
+RNNs can generate bounded hierarchical languages with optimal memory  
+Long short-term memory  
+Finding structure in time  
+How hierarchical is language use?  
+Pragmatics as the origin of recursion  
+Open sesame: Getting inside BERT’s linguistic knowledge  
+Emergent linguistic structure in artificial neural networks trained by self-supervision  
+Pointer sentinel mixture models  
+Unsupervised grammar induction with depth-bounded PCFG  
+Constraints on multiple center-embedding of clauses  
+Rethinking the positional encoding in language pre-training  
+On the computational power of rnns  
+Theoretical limitations of self-attention in neural sequence models

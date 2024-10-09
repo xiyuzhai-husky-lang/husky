@@ -280,7 +280,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -360,7 +360,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -440,7 +440,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -497,7 +497,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -544,7 +544,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -602,7 +602,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -657,7 +657,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -691,7 +691,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -935,7 +935,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -1021,7 +1021,7 @@
                             ),
                             RuntimeConstants(
                                 [
-                                    KiRuntimeConstant(
+                                    KiRuntimeCompterm(
                                         Id {
                                             value: 2,
                                         },
@@ -1131,7 +1131,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1186,7 +1186,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1220,7 +1220,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1263,7 +1263,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1307,7 +1307,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1343,7 +1343,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1405,7 +1405,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1468,7 +1468,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1561,7 +1561,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1597,7 +1597,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1659,7 +1659,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1737,7 +1737,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1815,7 +1815,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1872,7 +1872,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1907,7 +1907,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1954,7 +1954,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -1998,7 +1998,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -2197,7 +2197,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 292,
@@ -2232,7 +2232,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 292,
@@ -2279,7 +2279,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -2335,7 +2335,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 296,
@@ -2367,7 +2367,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 296,
@@ -2376,7 +2376,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2457,7 +2457,7 @@
                             ),
                             RuntimeConstants(
                                 [
-                                    KiRuntimeConstant(
+                                    KiRuntimeCompterm(
                                         Id {
                                             value: 2,
                                         },
@@ -2484,7 +2484,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 296,
@@ -2544,7 +2544,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 299,
@@ -2597,7 +2597,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -2692,7 +2692,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -2728,7 +2728,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -2790,7 +2790,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -2859,7 +2859,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -2938,7 +2938,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -3009,7 +3009,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -3041,7 +3041,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -3110,7 +3110,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -3142,7 +3142,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -3151,7 +3151,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -3247,7 +3247,7 @@
                             ),
                             RuntimeConstants(
                                 [
-                                    KiRuntimeConstant(
+                                    KiRuntimeCompterm(
                                         Id {
                                             value: 2,
                                         },
@@ -3274,7 +3274,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -3334,7 +3334,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 302,
@@ -3404,7 +3404,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 313,
@@ -3459,7 +3459,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 313,
@@ -3494,7 +3494,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 313,
@@ -3571,7 +3571,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 319,
@@ -3624,7 +3624,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 322,
@@ -3681,7 +3681,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 322,
@@ -3713,7 +3713,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 322,
@@ -3722,7 +3722,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -3803,7 +3803,7 @@
                             ),
                             RuntimeConstants(
                                 [
-                                    KiRuntimeConstant(
+                                    KiRuntimeCompterm(
                                         Id {
                                             value: 2,
                                         },
@@ -3830,7 +3830,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 322,
@@ -3913,7 +3913,7 @@
                         caching_class: Val,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 326,
@@ -3970,7 +3970,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 326,
@@ -4005,7 +4005,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 326,
@@ -4214,7 +4214,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -4272,7 +4272,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4327,7 +4327,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4361,7 +4361,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4404,7 +4404,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4440,7 +4440,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4497,7 +4497,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4559,7 +4559,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4594,7 +4594,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -4641,7 +4641,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -4699,7 +4699,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 345,
@@ -4754,7 +4754,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 345,
@@ -4788,7 +4788,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 345,
@@ -4831,7 +4831,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -5258,7 +5258,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -5306,7 +5306,7 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 360,
@@ -5341,7 +5341,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 360,
@@ -5388,7 +5388,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 364,
@@ -5463,7 +5463,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 292,
@@ -5506,7 +5506,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 299,
@@ -5578,7 +5578,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 266,
@@ -5621,7 +5621,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 286,
@@ -5681,7 +5681,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 313,
@@ -5726,7 +5726,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 319,
@@ -5885,7 +5885,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -5955,7 +5955,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 326,
@@ -6000,7 +6000,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -6043,7 +6043,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 345,
@@ -6088,7 +6088,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 360,
@@ -6170,7 +6170,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 251,
@@ -6240,7 +6240,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 322,
@@ -6300,7 +6300,7 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 326,
@@ -6345,7 +6345,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 335,
@@ -6388,7 +6388,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 345,
@@ -6433,7 +6433,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 360,
@@ -6476,7 +6476,7 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        ki_domain_repr: StmtNotReturned(
+                        ki_domain_repr: ControlNotTransferred(
                             KiRepr(
                                 Id {
                                     value: 364,

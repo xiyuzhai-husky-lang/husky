@@ -28,15 +28,22 @@ impl<'a> SemExprBuilder<'a> {
                 ty_arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => (
-                    Ok(SemExprData::Unwrap {
-                        opd: opd_sem_expr_idx,
-                        opr_regional_token_idx,
-                        // unwrap_method_path: todo!(),
-                        // instantiation: todo!(),
-                    }),
-                    Ok(ty_arguments[0]),
-                ),
+                Left(PreludeTypePath::Option | PreludeTypePath::Result) => {
+                    let ty = ty_arguments[0];
+                    let expr_ty = match ty.quary() {
+                        Some(_) => ty,
+                        None => ty.with_quary(opd_ty.quary().unwrap()),
+                    };
+                    (
+                        Ok(SemExprData::Unwrap {
+                            opd: opd_sem_expr_idx,
+                            opr_regional_token_idx,
+                            // unwrap_method_path: todo!(),
+                            // instantiation: todo!(),
+                        }),
+                        Ok(expr_ty),
+                    )
+                }
                 _ => return (todo!(), Err(OriginalSemExprTypeError::CannotUnwrap.into())),
             },
             FlyTermData::Curry {

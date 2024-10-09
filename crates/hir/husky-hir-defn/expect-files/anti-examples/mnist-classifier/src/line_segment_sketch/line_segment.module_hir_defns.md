@@ -729,6 +729,7 @@
                                         data: HirEagerPatternData::Ident {
                                             symbol_modifier: None,
                                             ident: `pt`,
+                                            variable_idx: 1,
                                         },
                                         contract: Pure,
                                     },
@@ -2695,6 +2696,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `ab`,
+                                                variable_idx: 2,
                                             },
                                             contract: Pure,
                                         },
@@ -2702,6 +2704,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `ap`,
+                                                variable_idx: 3,
                                             },
                                             contract: Pure,
                                         },
@@ -2709,6 +2712,7 @@
                                             data: HirEagerPatternData::Ident {
                                                 symbol_modifier: None,
                                                 ident: `bp`,
+                                                variable_idx: 4,
                                             },
                                             contract: Pure,
                                         },

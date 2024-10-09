@@ -74,7 +74,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for P
             };
         let access_start = ctx.state().next_regional_token_idx();
         let symbol = CurrentVariableEntry::new(
-            ctx.pattern_expr_region(),
+            ctx.pattern_region(),
             access_start,
             None,
             CurrentVariableData::FieldVariable { ident_token },
