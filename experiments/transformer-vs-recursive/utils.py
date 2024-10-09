@@ -17,7 +17,7 @@ def set_seed(seed):
     random.seed(seed)
 
 def custom_collate(batch):
-    PADDING_VALUE = 0
+    PADDING_VALUE = -1
 
     inputs, targets = zip(*batch)
     inputs = [torch.as_tensor(x) for x in inputs]  # Convert lists to tensors

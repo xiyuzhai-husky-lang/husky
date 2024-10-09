@@ -76,7 +76,7 @@ def run(config, train_dataset, val_dataset, header):
     ).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=0)
+    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
     optimizer = optim.Adam(model.parameters(), lr=1)
     scheduler = torch.optim.lr_scheduler.LambdaLR(
         optimizer,
@@ -113,12 +113,9 @@ else:
     search_space = HIDDEN_DIM_SPACE
 
 for hidden_dim in ordered_search_space(search_space):
-    if hidden_dim <= 128:
-        min_lr, max_lr = 1e-5, 1e-3
-    else:
-        min_lr, max_lr = 1e-6, 1e-4
+    min_lr, max_lr = 1e-5, 1e-3
     
-    micro_batch_size = 512
+    micro_batch_size = BATCH_SIZE
 
     config = {
         **vars(args),
