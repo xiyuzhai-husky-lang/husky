@@ -7,6 +7,7 @@ Mayuri is an advanced MLOps (Machine Learning Operations) system designed to str
 ### 1. Intelligent Experiment Reuse and Caching
 
 Mayuri takes a unique approach to experiment management:
+
 - Considers only the actual code used in an experiment along with its configuration
 - Hashes this information to create a unique identifier for each experiment
 - Enables efficient caching and reuse of experiments, saving time and computational resources
