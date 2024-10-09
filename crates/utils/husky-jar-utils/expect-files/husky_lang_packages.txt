@@ -4053,6 +4053,16 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-sha-utils",
+        relative_path: "crates/utils/husky-sha-utils",
+        dependencies: [
+            "hex",
+            "sha2",
+            "hex",
+            "hex-literal",
+        ],
+    },
+    PackageSummary {
         name: "husky-tracing-utils",
         relative_path: "crates/utils/husky-tracing-utils",
         dependencies: [],
