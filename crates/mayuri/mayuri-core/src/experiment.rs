@@ -1,4 +1,5 @@
 use crate::*;
+use config::nemu::NemuConfig;
 use husky_sha_utils::Sha512Output;
 use husky_yaml_utils::ordered::OrderedYaml;
 use src::MayuriSrc;
@@ -31,16 +32,13 @@ impl ExperimentSrcDestinationPath {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ExperimentSrcOrigin {
     relative_path: String,
-    content_sha: Sha512Output,
+    sha: Sha512Output,
 }
 
 impl ExperimentSrcOrigin {
     pub fn new(relative_path: String, src: &MayuriSrc) -> Self {
-        let content_sha = src[&relative_path];
-        Self {
-            relative_path,
-            content_sha,
-        }
+        let sha = src[&relative_path].sha;
+        Self { relative_path, sha }
     }
 
     pub fn relative_path(&self) -> &str {
@@ -49,7 +47,7 @@ impl ExperimentSrcOrigin {
 }
 
 impl Experiment {
-    pub(super) fn new(yaml: &Yaml, src: &MayuriSrc) -> Self {
+    pub(super) fn new(yaml: &Yaml, src: &MayuriSrc, nemu_config: &NemuConfig) -> Self {
         Self {
             src: yaml["src"]
                 .as_hash()
@@ -71,5 +69,37 @@ impl Experiment {
                 .collect(),
             config: OrderedYaml::new(&yaml["config"]),
         }
+    }
+}
+
+impl Experiment {
+    fn run_local(&self) {
+        todo!()
+    }
+
+    /// Copy code from origin to destination
+    fn prepare_local(&self, src: &MayuriSrc) -> std::io::Result<()> {
+        use std::fs::{self, File};
+        use std::io::Write;
+        use std::path::Path;
+
+        for (dest, origin) in &self.src {
+            let dest_path = Path::new(dest.relative_path());
+            let origin_path = Path::new(origin.relative_path());
+
+            // Create parent directories if they don't exist
+            if let Some(parent) = dest_path.parent() {
+                fs::create_dir_all(parent)?;
+            }
+
+            // Read the content from the origin file
+            let content = &src[origin.relative_path()].content;
+
+            // Write the content to the destination file
+            let mut file = File::create(dest_path)?;
+            file.write_all(content.as_bytes())?;
+        }
+
+        Ok(())
     }
 }
