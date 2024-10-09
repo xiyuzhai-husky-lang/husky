@@ -3826,22 +3826,8 @@
         ],
     },
     PackageSummary {
-        name: "mayuri-genetic-algorithms",
-        relative_path: "crates/mayuri/mayuri-genetic-algorithms",
-        dependencies: [
-            "rand",
-            "rand_chacha",
-            "expect-test",
-        ],
-    },
-    PackageSummary {
-        name: "mayuri-plot",
-        relative_path: "crates/mayuri/mayuri-plot",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "mayuri-prototype",
-        relative_path: "crates/mayuri/mayuri-prototype",
+        name: "mayuri-core",
+        relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
             "husky-config-utils",
             "husky-sha-utils",
@@ -3884,6 +3870,20 @@
             "vec-like",
             "yaml-rust2",
         ],
+    },
+    PackageSummary {
+        name: "mayuri-genetic-algorithms",
+        relative_path: "crates/mayuri/mayuri-genetic-algorithms",
+        dependencies: [
+            "rand",
+            "rand_chacha",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "mayuri-plot",
+        relative_path: "crates/mayuri/mayuri-plot",
+        dependencies: [],
     },
     PackageSummary {
         name: "husky-mir",
