@@ -13,9 +13,12 @@ keywords.workspace = true
 
 [dependencies]
 serde.workspace = true
+walkdir.workspace = true
+vec-like.workspace = true
 yaml-rust2.workspace = true
 # utils
 husky-config-utils.workspace = true
+husky-sha-utils.workspace = true
 husky-yaml-utils.workspace = true
 
 [dev-dependencies]

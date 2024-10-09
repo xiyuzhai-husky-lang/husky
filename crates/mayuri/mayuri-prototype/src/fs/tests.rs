@@ -1,5 +1,5 @@
 use super::*;
-use crate::soul::Soul;
+use crate::{experiment::Experiment, src::MayuriSrc};
 use std::path::Path;
 use yaml_rust2::Yaml;
 
@@ -7,25 +7,24 @@ use yaml_rust2::Yaml;
 pub struct MayuriTestSubject {
     path: PathBuf,
     rank: usize,
-    soul: Soul,
+    experiment: Experiment,
 }
 
 impl MayuriTestSubject {
-    pub(super) fn from_file(path: PathBuf) -> impl Iterator<Item = Self> {
+    pub(super) fn from_file(path: PathBuf, src: &MayuriSrc) -> impl Iterator<Item = Self> + '_ {
         let contents = std::fs::read_to_string(&path).expect("Failed to read the YAML file");
 
         let docs = yaml_rust2::YamlLoader::load_from_str(&contents).expect("Failed to parse YAML");
-
         docs.into_iter()
             .enumerate()
-            .map(move |(rank, yaml)| Self::from_file_aux(path.clone(), rank, yaml))
+            .map(move |(rank, yaml)| Self::from_file_aux(path.clone(), rank, yaml, src))
     }
 
-    fn from_file_aux(path: PathBuf, rank: usize, yaml: Yaml) -> Self {
+    fn from_file_aux(path: PathBuf, rank: usize, yaml: Yaml, src: &MayuriSrc) -> Self {
         Self {
             path,
             rank,
-            soul: Soul::new(&yaml),
+            experiment: Experiment::new(&yaml, src),
         }
     }
 }
@@ -36,7 +35,7 @@ pub struct MayuriTestSubjects {
 }
 
 impl MayuriTestSubjects {
-    pub(super) fn from_dir(dir: PathBuf) -> Self {
+    pub(super) fn from_dir(dir: PathBuf, src: &MayuriSrc) -> Self {
         let mut subjects = Vec::new();
 
         if let Ok(entries) = std::fs::read_dir(dir) {
@@ -46,7 +45,7 @@ impl MayuriTestSubjects {
                         let path = entry.path();
                         if let Some(extension) = path.extension() {
                             if extension == "yaml" || extension == "yml" {
-                                subjects.extend(MayuriTestSubject::from_file(path));
+                                subjects.extend(MayuriTestSubject::from_file(path, src));
                             }
                         }
                     }

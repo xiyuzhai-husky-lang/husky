@@ -3844,8 +3844,11 @@
         relative_path: "crates/mayuri/mayuri-prototype",
         dependencies: [
             "husky-config-utils",
+            "husky-sha-utils",
             "husky-yaml-utils",
             "serde",
+            "vec-like",
+            "walkdir",
             "yaml-rust2",
             "expect-test",
             "husky-path-utils",
@@ -3859,6 +3862,18 @@
             "serde",
             "toml",
             "yaml-rust2",
+        ],
+    },
+    PackageSummary {
+        name: "husky-sha-utils",
+        relative_path: "crates/utils/husky-sha-utils",
+        dependencies: [
+            "crypto-common",
+            "hex",
+            "sealed",
+            "sha2",
+            "hex",
+            "hex-literal",
         ],
     },
     PackageSummary {
@@ -4051,16 +4066,6 @@
         name: "husky-screen-utils",
         relative_path: "crates/utils/husky-screen-utils",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-sha-utils",
-        relative_path: "crates/utils/husky-sha-utils",
-        dependencies: [
-            "hex",
-            "sha2",
-            "hex",
-            "hex-literal",
-        ],
     },
     PackageSummary {
         name: "husky-tracing-utils",
