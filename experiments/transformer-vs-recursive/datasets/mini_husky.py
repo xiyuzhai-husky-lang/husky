@@ -20,12 +20,19 @@ class MiniHuskyDataset(Dataset):
     def __init__(
         self,
         dataset_path,
+        desired_key = None
     ):
         self.max_len = 0
         self.header, self.data, self.stats = self._decode_rnd_codes(dataset_path)
         self.max_values = self.stats.max_values  # Add this line
         self.vocab = self._build_vocabulary()
         self.word_to_index = {word: i for i, word in enumerate(self.vocab)}
+
+        if desired_key is not None:
+            idx = self.header.index(desired_key)
+            self.header = self.header[idx]
+            self.data = [(words, token_infos[idx]) for words, token_infos in self.data]
+            self.max_values = {desired_key: self.max_values[desired_key]}
 
     def _decode_rnd_codes(
         self, filepath: str
@@ -119,12 +126,10 @@ class MiniHuskyDataset(Dataset):
 if __name__ == "__main__":
     # Load a specific dataset
     dataset = MiniHuskyDataset(
-        n=100000,
-        max_fns=10,
-        min_dist=3,
-        use_var_rate=0.2,
-        error_rate=0.5,
-        data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
+        os.path.join(os.environ["DATA_ROOT"],
+                     "mini-husky/basic",
+                     "dataset-n100000-f10-d3-v0.20-e0.50.msgpack"),
+        desired_key="expected_type"
     )
     
     print("Max length:", dataset.get_max_len())
