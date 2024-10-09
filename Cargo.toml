@@ -123,6 +123,8 @@ fxhash = "0.2.1"
 git2 = "0.18.3"
 hashlink = "0.9.0"
 heck = "0.5"
+hex = "0.4.3"
+hex-literal = "0.4.1"
 image = "0.25.0"
 imageproc = "0.25.0"
 indexmap = "2.4.0"
@@ -170,6 +172,7 @@ sealed = "0.5"
 serde = { version = "1.0.209", features = ["derive"] }
 serde_json = { version = "1.0.127", features = ["preserve_order"] }
 serde_with = "3.9.0"
+sha2 = "0.10.8"
 similar = "2.6.0"
 # turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
 smallvec = { version = "1.12", features = [
@@ -380,6 +383,7 @@ husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-profile-utils = { path = "crates/utils/husky-profile-utils" }
 husky-salsa-log-utils = { path = "crates/utils/husky-salsa-log-utils" }
 husky-screen-utils = { path = "crates/utils/husky-screen-utils" }
+husky-sha-utils = { path = "crates/utils/husky-sha-utils" }
 husky-sync-utils = { path = "crates/utils/husky-sync-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
