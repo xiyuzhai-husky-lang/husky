@@ -67,15 +67,15 @@ fn mayuri_fs_works() {
     env::set_current_dir(&root).unwrap();
 
     // Use a relative path from the root
-    let mayuri_prototype_dir = Path::new("experiments/mayuri-prototype");
+    let mayuri_prototype_dir = Path::new("experiments/mayuri-core");
 
     // Now the current directory is the root, so we use the relative path
     let fs = MayuriFs::new(mayuri_prototype_dir.to_path_buf());
     expect_test::expect![[r#"
         MayuriFs {
-            root: "experiments/mayuri-prototype",
+            root: "experiments/mayuri-core",
             src: MayuriSrc {
-                dir_path: "experiments/mayuri-prototype/src",
+                dir_path: "experiments/mayuri-core/src",
                 shas: {
                     "datasets/ring.py": Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
                     "models/fcn.py": Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
@@ -90,7 +90,7 @@ fn mayuri_fs_works() {
             tests: MayuriTests {
                 tests: [
                     MayuriTest {
-                        path: "experiments/mayuri-prototype/tests/hello.yml",
+                        path: "experiments/mayuri-core/tests/hello.yml",
                         rank: 0,
                         experiment: Experiment {
                             src: [
@@ -118,7 +118,7 @@ fn mayuri_fs_works() {
                         },
                     },
                     MayuriTest {
-                        path: "experiments/mayuri-prototype/tests/hello.yml",
+                        path: "experiments/mayuri-core/tests/hello.yml",
                         rank: 1,
                         experiment: Experiment {
                             src: [
