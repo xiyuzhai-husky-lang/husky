@@ -1,3 +1,4 @@
+//! Nemu is like Cargo, the manager of things
 use super::*;
 
 #[derive(Debug, Deserialize, PartialEq, Eq)]
