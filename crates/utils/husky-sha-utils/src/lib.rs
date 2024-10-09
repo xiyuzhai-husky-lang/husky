@@ -3,7 +3,7 @@ use sealed::sealed;
 use sha2::{Digest, Sha256, Sha512};
 use std::hash::Hasher;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(PartialEq, Eq, Clone, Copy, Hash)]
 pub struct Sha256Output(crypto_common::Output<Sha256>);
 
 impl Sha256Output {
@@ -12,12 +12,24 @@ impl Sha256Output {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+impl std::fmt::Debug for Sha256Output {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Sha256Output(`{}`)", self.hex())
+    }
+}
+
+#[derive(PartialEq, Eq, Clone, Copy, Hash)]
 pub struct Sha512Output(crypto_common::Output<Sha512>);
 
 impl Sha512Output {
     pub fn hex(&self) -> String {
         hex::encode(&self.0)
+    }
+}
+
+impl std::fmt::Debug for Sha512Output {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Sha512Output(`{})`", self.hex())
     }
 }
 
