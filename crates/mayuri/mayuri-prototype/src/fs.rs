@@ -1,10 +1,8 @@
 mod tests;
 
-use crate::src::MayuriSrc;
-
 use self::tests::MayuriTestSubject;
+use crate::{config::*, src::MayuriSrc, *};
 use husky_config_utils::IsConfig;
-use serde::Deserialize;
 use std::env;
 use std::fs;
 use std::io;
@@ -22,29 +20,32 @@ pub struct MayuriFs {
     nemu_config: NemuConfig,
 }
 
-#[derive(Debug, Deserialize)]
-pub struct MayuriConfig {
-    // Add fields as needed
-}
-
-#[derive(Debug, Deserialize)]
-pub struct NemuConfig {
-    // Add fields as needed
-}
-
 impl MayuriFs {
-    pub fn new(root: PathBuf) -> io::Result<Self> {
-        let mayuri_config = MayuriConfig::read_from_toml_file(&root.join("Mayuri.toml"))?;
-        let nemu_config = NemuConfig::read_from_toml_file(&root.join("Nemu.toml"))?;
-        let src = MayuriSrc::new(root.join("src"), &["py"])?;
+    pub fn new(root: PathBuf) -> Self {
+        let mayuri_config = match MayuriConfig::read_from_toml_file(&root.join("Mayuri.toml")) {
+            Ok(config) => config,
+            Err(e) => panic!("Failed to read Mayuri.toml: {}", e),
+        };
+
+        let nemu_config = match NemuConfig::read_from_toml_file(&root.join("Nemu.toml")) {
+            Ok(config) => config,
+            Err(e) => panic!("Failed to read Nemu.toml: {}", e),
+        };
+
+        let src = match MayuriSrc::new(root.join("src"), &["py"]) {
+            Ok(src) => src,
+            Err(e) => panic!("Failed to create MayuriSrc: {}", e),
+        };
+
         let test_subjects = MayuriTestSubjects::from_dir(root.join("tests"), &src);
-        Ok(MayuriFs {
+
+        MayuriFs {
             root,
             src,
             mayuri_config,
             nemu_config,
             test_subjects,
-        })
+        }
     }
 }
 
@@ -64,81 +65,13 @@ fn mayuri_fs_works() {
     let mayuri_prototype_dir = Path::new("experiments/mayuri-prototype");
 
     // Now the current directory is the root, so we use the relative path
-    let fs = MayuriFs::new(mayuri_prototype_dir.to_path_buf()).unwrap();
+    let fs = MayuriFs::new(mayuri_prototype_dir.to_path_buf());
     expect_test::expect![[r#"
         MayuriFs {
             root: "experiments/mayuri-prototype",
             src: MayuriSrc {
                 dir_path: "experiments/mayuri-prototype/src",
                 shas: {
-                    "main.py": Sha512Output(
-                        [
-                            124,
-                            191,
-                            9,
-                            89,
-                            223,
-                            51,
-                            148,
-                            1,
-                            201,
-                            0,
-                            35,
-                            243,
-                            147,
-                            140,
-                            215,
-                            214,
-                            33,
-                            146,
-                            112,
-                            134,
-                            53,
-                            97,
-                            4,
-                            236,
-                            102,
-                            201,
-                            204,
-                            2,
-                            62,
-                            162,
-                            99,
-                            171,
-                            33,
-                            2,
-                            234,
-                            121,
-                            171,
-                            230,
-                            230,
-                            210,
-                            74,
-                            105,
-                            60,
-                            168,
-                            194,
-                            44,
-                            180,
-                            41,
-                            168,
-                            201,
-                            230,
-                            85,
-                            88,
-                            179,
-                            208,
-                            97,
-                            59,
-                            240,
-                            97,
-                            59,
-                            49,
-                            233,
-                            208,
-                            97,
-                        ],
-                    ),
                     "datasets/gaussian.py": Sha512Output(
                         [
                             229,
@@ -341,6 +274,74 @@ fn mayuri_fs_works() {
                             49,
                             234,
                             78,
+                        ],
+                    ),
+                    "main.py": Sha512Output(
+                        [
+                            124,
+                            191,
+                            9,
+                            89,
+                            223,
+                            51,
+                            148,
+                            1,
+                            201,
+                            0,
+                            35,
+                            243,
+                            147,
+                            140,
+                            215,
+                            214,
+                            33,
+                            146,
+                            112,
+                            134,
+                            53,
+                            97,
+                            4,
+                            236,
+                            102,
+                            201,
+                            204,
+                            2,
+                            62,
+                            162,
+                            99,
+                            171,
+                            33,
+                            2,
+                            234,
+                            121,
+                            171,
+                            230,
+                            230,
+                            210,
+                            74,
+                            105,
+                            60,
+                            168,
+                            194,
+                            44,
+                            180,
+                            41,
+                            168,
+                            201,
+                            230,
+                            85,
+                            88,
+                            179,
+                            208,
+                            97,
+                            59,
+                            240,
+                            97,
+                            59,
+                            49,
+                            233,
+                            208,
+                            97,
                         ],
                     ),
                     "datasets/ring.py": Sha512Output(
@@ -742,7 +743,13 @@ fn mayuri_fs_works() {
                 ],
             },
             mayuri_config: MayuriConfig,
-            nemu_config: NemuConfig,
+            nemu_config: NemuConfig {
+                src: [
+                    NemuSrcFragment {
+                        path: "hello",
+                    },
+                ],
+            },
         }
     "#]]
     .assert_debug_eq(&fs);

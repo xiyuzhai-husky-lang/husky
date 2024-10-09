@@ -3853,6 +3853,7 @@
             "expect-test",
             "husky-path-utils",
             "pathdiff",
+            "toml",
         ],
     },
     PackageSummary {
