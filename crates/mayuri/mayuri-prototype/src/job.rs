@@ -1,16 +1,17 @@
-use super::*;
-use crate::{experiment::Experiment, src::MayuriSrc};
-use std::path::Path;
+use crate::*;
+use experiment::Experiment;
+use src::MayuriSrc;
+use std::path::PathBuf;
 use yaml_rust2::Yaml;
 
 #[derive(Debug)]
-pub struct MayuriTestSubject {
+pub struct MayuriJob {
     path: PathBuf,
     rank: usize,
     experiment: Experiment,
 }
 
-impl MayuriTestSubject {
+impl MayuriJob {
     pub(super) fn from_file(path: PathBuf, src: &MayuriSrc) -> impl Iterator<Item = Self> + '_ {
         let contents = std::fs::read_to_string(&path).expect("Failed to read the YAML file");
 
@@ -30,12 +31,12 @@ impl MayuriTestSubject {
 }
 
 #[derive(Debug)]
-pub struct MayuriTestSubjects {
-    subjects: Vec<MayuriTestSubject>,
+pub struct MayuriJobs {
+    tests: Vec<MayuriJob>,
 }
 
-impl MayuriTestSubjects {
-    pub(super) fn from_dir(dir: PathBuf, src: &MayuriSrc) -> Self {
+impl MayuriJobs {
+    pub(crate) fn from_dir(dir: PathBuf, src: &MayuriSrc) -> MayuriJobs {
         let mut subjects = Vec::new();
 
         if let Ok(entries) = std::fs::read_dir(dir) {
@@ -45,7 +46,7 @@ impl MayuriTestSubjects {
                         let path = entry.path();
                         if let Some(extension) = path.extension() {
                             if extension == "yaml" || extension == "yml" {
-                                subjects.extend(MayuriTestSubject::from_file(path, src));
+                                subjects.extend(MayuriJob::from_file(path, src));
                             }
                         }
                     }
@@ -53,6 +54,6 @@ impl MayuriTestSubjects {
             }
         }
 
-        Self { subjects }
+        Self { tests: subjects }
     }
 }
