@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 hex.workspace = true
+sealed.workspace = true
 sha2.workspace = true
 
 [dev-dependencies]
