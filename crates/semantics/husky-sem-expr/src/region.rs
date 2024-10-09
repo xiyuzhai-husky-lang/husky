@@ -5,8 +5,10 @@ use husky_eth_term::{
     fmt::EthTermFmtContext,
     term::{symbolic_variable::EthSymbolicVariable, EthTerm},
 };
-use husky_place::PlaceRegistry;
+use husky_place::{place::EthPlace, PlaceRegistry};
+use husky_syn_decl::decl::HasSynDecl;
 use husky_term_prelude::symbol::SymbolName;
+use idx_arena::ArenaIdx;
 use salsa::fmt::WithFmtContext;
 use vec_like::{VecMap, VecPairMap};
 
@@ -55,8 +57,8 @@ impl SemExprRegion {
         sem_expr_arena: SemExprArena,
         sem_stmt_arena: SemStmtArena,
         sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
-        pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
-        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+        pattern_ty_infos: SynPatternMap<PatternTypeInfo>,
+        pattern_variable_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
         symbol_tys: SymbolMap<SymbolType>,
         symbol_terms: SymbolMap<FlyTerm>,
@@ -77,8 +79,8 @@ impl SemExprRegion {
                 sem_expr_arena,
                 sem_stmt_arena,
                 sem_expr_roots,
-                syn_pattern_expr_ty_infos: pattern_expr_ty_infos,
-                syn_pattern_symbol_ty_infos: pattern_symbol_ty_infos,
+                syn_pattern_ty_infos: pattern_ty_infos,
+                syn_pattern_variable_ty_infos: pattern_variable_ty_infos,
                 sem_expr_terms,
                 symbol_tys,
                 symbol_terms,
@@ -100,8 +102,8 @@ pub struct SemExprRegionData {
     sem_expr_arena: SemExprArena,
     sem_stmt_arena: SemStmtArena,
     sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
-    syn_pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
-    syn_pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    syn_pattern_ty_infos: SynPatternMap<PatternTypeInfo>,
+    syn_pattern_variable_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FlyTerm>,
@@ -129,20 +131,24 @@ impl SemExprRegionData {
     }
 
     pub fn root_body(&self) -> SemExprIdx {
-        debug_assert_eq!(
+        self.opt_root_body().expect("Expected exactly one RootBody")
+    }
+
+    pub fn opt_root_body(&self) -> Option<SemExprIdx> {
+        debug_assert!(
             self.sem_expr_roots
                 .iter()
                 .filter(|&&(_, (_, root_kind))| root_kind == SynExprRootKind::RootBody)
-                .count(),
-            1
+                .count()
+                <= 1,
+            "Expected at most one RootBody"
         );
+
         self.sem_expr_roots
             .iter()
-            .filter_map(|&(_, (expr, root_kind))| {
+            .find_map(|&(_, (expr, root_kind))| {
                 (root_kind == SynExprRootKind::RootBody).then_some(expr)
             })
-            .next()
-            .unwrap()
     }
 
     pub fn sem_expr_arena(&self) -> SemExprArenaRef {
@@ -194,12 +200,8 @@ impl SemExprRegionData {
         &self.sem_expr_terms
     }
 
-    pub fn syn_pattern_ty(
-        &self,
-        syn_pattern_idx: idx_arena::ArenaIdx<SynPatternData>,
-        db: &::salsa::Db,
-    ) -> EthTerm {
-        match self.syn_pattern_expr_ty_infos[syn_pattern_idx].ty {
+    pub fn syn_pattern_ty(&self, pattern: SynPatternIdx, db: &::salsa::Db) -> EthTerm {
+        match self.syn_pattern_ty_infos[pattern].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fly_term_region.terms()) {
                 FlyTermBase::Eth(ty_term) => ty_term,
                 FlyTermBase::Sol(_) => todo!(),

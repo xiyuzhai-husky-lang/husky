@@ -13,6 +13,15 @@ pub enum VmControlFlow<C, B, E> {
     Throw(E),
 }
 
+impl<C, B, E> From<Result<C, E>> for VmControlFlow<C, B, E> {
+    fn from(result: Result<C, E>) -> Self {
+        match result {
+            Ok(value) => VmControlFlow::Continue(value),
+            Err(error) => VmControlFlow::Throw(error),
+        }
+    }
+}
+
 impl<C, B, E> VmControlFlow<C, B, E> {
     pub fn map<D>(self, f: impl FnOnce(C) -> D) -> VmControlFlow<D, B, E> {
         match self {
@@ -107,9 +116,9 @@ where
     > {
         match self {
             VmControlFlow::Continue(v) => VmControlFlow::Continue(v.freeze()),
-            VmControlFlow::LoopContinue => todo!(),
-            VmControlFlow::LoopExit(_) => todo!(),
-            VmControlFlow::Return(_) => todo!(),
+            VmControlFlow::LoopContinue => VmControlFlow::LoopContinue,
+            VmControlFlow::LoopExit(v) => VmControlFlow::LoopExit(v.freeze()),
+            VmControlFlow::Return(v) => VmControlFlow::Return(v.freeze()),
             VmControlFlow::Throw(e) => VmControlFlow::Throw(e.clone()),
         }
     }

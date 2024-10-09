@@ -87,7 +87,7 @@ impl JavType {
                 ),
             )
             .into(),
-            HirType::Variable(symbol) => instantiation.resolve_ty(symbol),
+            HirType::Variable(variable) => instantiation.resolve_ty(variable),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavRitchieType::new(

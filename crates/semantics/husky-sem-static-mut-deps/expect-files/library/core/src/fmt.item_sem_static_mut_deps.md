@@ -1,7 +1,7 @@
 ## `Debug`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

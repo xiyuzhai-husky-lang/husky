@@ -17,8 +17,10 @@ rustc-hash.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 husky-devsoul.workspace = true
+# hir
+husky-hir-eager-expr.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-place.workspace = true
@@ -40,7 +42,6 @@ husky-manifest.workspace = true
 husky-vfs.workspace = true
 # hir
 husky-hir-ty.workspace = true
-husky-hir-eager-expr.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
@@ -55,6 +56,9 @@ husky-dec-ty.workspace = true
 husky-dec-signature.workspace = true
 husky-eth-term.workspace = true
 husky-fly-term.workspace = true
+# ki
+husky-ki.workspace = true
+husky-ki-repr.workspace = true
 # lex
 husky-text.workspace = true
 husky-token-data.workspace = true

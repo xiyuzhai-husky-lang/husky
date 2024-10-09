@@ -1,4 +1,4 @@
-mod symbol;
+mod dec_term_region;
 #[macro_use]
 mod helpers;
 mod branch_ty_merger;
@@ -6,7 +6,7 @@ mod branch_ty_merger;
 pub(crate) use self::branch_ty_merger::*;
 pub(crate) use self::helpers::*;
 
-use self::symbol::*;
+use self::dec_term_region::*;
 use crate::*;
 use husky_dec_signature::{jar::DecSignatureDb, region::SynExprDecTermRegion};
 use husky_entity_path::menu::{item_path_menu, ItemPathMenu};
@@ -59,9 +59,12 @@ pub(crate) struct SemExprBuilder<'db> {
     sem_expr_term_results: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_terms: SymbolMap<FlyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
-    pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
-    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    pattern_expr_contracts: SynPatternMap<Contract>,
+    /// warning: not all pattern are inferred
+    ///
+    /// only those not inferred by dec term region is inferred
+    pattern_ty_infos: SynPatternMap<PatternTypeInfo>,
+    pattern_variable_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_contracts: SynPatternMap<Contract>,
     return_ty: Option<EthTerm>,
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EthTerm>,
@@ -127,7 +130,7 @@ impl<'a> SemExprBuilder<'a> {
         //     .eth_signature(db)
         //     .map(|signature| signature.data(db));
         let symbol_region = syn_expr_region_data.variable_region();
-        let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
+        let pattern_region = syn_expr_region_data.pattern_region();
         let toolchain = syn_expr_region.toolchain(db);
         let parent_sem_expr_region =
             parent_expr_region.map(|parent_expr_region| db.sem_expr_region(parent_expr_region));
@@ -188,9 +191,9 @@ impl<'a> SemExprBuilder<'a> {
                     .map(|parent_sem_expr_region| parent_sem_expr_region.data(db).symbol_tys()),
                 syn_expr_region_data.variable_region(),
             ),
-            pattern_expr_ty_infos: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
-            pattern_symbol_ty_infos: SynPatternSymbolMap::new(
-                pattern_expr_region.pattern_symbol_arena(),
+            pattern_ty_infos: SynPatternMap::new(pattern_region.pattern_arena()),
+            pattern_variable_ty_infos: SynPatternSymbolMap::new(
+                pattern_region.pattern_variable_arena(),
             ),
             return_ty,
             unveiler: Unveiler::Uninitialized,
@@ -199,7 +202,7 @@ impl<'a> SemExprBuilder<'a> {
             self_value_ty,
             self_lifetime,
             self_place,
-            pattern_expr_contracts: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
+            pattern_contracts: SynPatternMap::new(pattern_region.pattern_arena()),
             available_trai_items_table: AvailableTraitItemsTable::new_ad_hoc(db, module_path),
             regional_tokens_data,
             context_ref,
@@ -427,8 +430,8 @@ impl<'a> SemExprBuilder<'a> {
         self.self_value_ty
     }
 
-    pub(crate) fn get_pattern_expr_ty(&self, pattern_idx: SynPatternIdx) -> Option<FlyTerm> {
-        self.pattern_expr_ty_infos
+    pub(crate) fn get_pattern_ty(&self, pattern_idx: SynPatternIdx) -> Option<FlyTerm> {
+        self.pattern_ty_infos
             .get(pattern_idx)
             .map(|info| info.ty().ok().copied())
             .flatten()
@@ -451,7 +454,7 @@ impl<'a> FlyTermEngineMut<'a> for SemExprBuilder<'a> {
 
 impl<'a> SemExprBuilder<'a> {
     pub(crate) fn infer_all(&mut self) {
-        self.infer_current_parameter_symbols();
+        self.reuse_variable_inferences_from_dec_term_region();
         self.build_all_exprs()
     }
 
@@ -519,7 +522,7 @@ impl<'a> SemExprBuilder<'a> {
             .expect("todo")
     }
 
-    pub(crate) fn infer_new_current_variable_variable_ty(
+    pub(crate) fn infer_new_current_variable_ty(
         &mut self,
         current_variable_idx: CurrentVariableIdx,
     ) {
@@ -545,7 +548,7 @@ impl<'a> SemExprBuilder<'a> {
                     ..
                 } => self
                     .expr_region_data()
-                    .pattern_symbol_modifier(pattern_variable_idx),
+                    .pattern_variable_modifier(pattern_variable_idx),
                 _ => unreachable!(),
             };
         let ty = match SymbolType::new_variable_ty(self, current_variable_idx, modifier, ty) {
@@ -564,24 +567,24 @@ impl<'a> SemExprBuilder<'a> {
     ) {
         self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_idx(), ty);
         for symbol in symbols {
-            self.infer_new_current_variable_variable_ty(symbol)
+            self.infer_new_current_variable_ty(symbol)
         }
     }
 
     /// the way type inference works for patterns is dual to that of expression
     pub(crate) fn infer_pattern_ty(&mut self, syn_pattern_idx: SynPatternIdx, ty: FlyTerm) {
-        self.pattern_expr_ty_infos
+        self.pattern_ty_infos
             .insert_new(syn_pattern_idx, PatternTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(syn_pattern_idx, ty)
     }
 
-    pub(crate) fn infer_new_pattern_symbol_ty(
+    pub(crate) fn infer_new_pattern_variable_ty(
         &mut self,
         pattern_variable_idx: PatternVariableIdx,
     ) -> Option<FlyTerm> {
-        let ty_result = self.calc_new_pattern_symbol_ty(pattern_variable_idx);
+        let ty_result = self.calc_new_pattern_variable_ty(pattern_variable_idx);
         let ty = ty_result.as_ref().ok().copied();
-        self.pattern_symbol_ty_infos
+        self.pattern_variable_ty_infos
             .insert_new(pattern_variable_idx, PatternSymbolTypeInfo::new(ty_result));
         ty
     }
@@ -601,8 +604,8 @@ impl<'a> SemExprBuilder<'a> {
             self.sem_expr_arena,
             self.sem_stmt_arena,
             self.sem_expr_roots,
-            self.pattern_expr_ty_infos,
-            self.pattern_symbol_ty_infos,
+            self.pattern_ty_infos,
+            self.pattern_variable_ty_infos,
             self.sem_expr_term_results,
             self.symbol_tys,
             self.symbol_terms,

@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::marker::Copy`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
+                            value: "\n\nentity `core::marker::Copy`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::mem::Leash`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\nentity `core::mem::Leash`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type -> Type`",
                         },
                     ),
                     range: Some(

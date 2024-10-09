@@ -1,6 +1,9 @@
+mod vm_only;
+
 use crate::*;
 use husky_entity_path::{path::ItemPath, region::RegionPath};
 use husky_place::PlaceRegistry;
+use template_argument::{qual::LinQual, ty::LinType, LinTemplateArgument};
 
 impl Linket {
     pub fn path_and_instantiation_for_definition<'db>(
@@ -8,7 +11,7 @@ impl Linket {
         db: &'db salsa::Db,
     ) -> Option<(ItemPath, &LinInstantiation)> {
         Some(match *self.data(db) {
-            LinketData::MajorFunctionRitchie {
+            LinketData::MajorRitchie {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
@@ -51,7 +54,7 @@ impl Linket {
     }
 
     pub fn place_registry(self, db: &::salsa::Db) -> Option<&PlaceRegistry> {
-        use husky_sem_expr::helpers::region::sem_expr_region_from_region_path;
+        use husky_sem_expr::helpers::path::sem_expr_region_from_region_path;
 
         let (path, _) = self.path_and_instantiation_for_definition(db)?;
         Some(

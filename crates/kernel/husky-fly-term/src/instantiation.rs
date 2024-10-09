@@ -12,7 +12,7 @@ use husky_eth_term::{
     term::{
         application::{EthApplication, TermFunctionReduced},
         ritchie::EthRitchie,
-        symbolic_variable::{EthSymbolicVariable, EthTermSymbolIndexImpl},
+        symbolic_variable::{EthSymbolicVariable, EthTermVariableIndexImpl},
     },
 };
 use path::major_item::form::PreludeMajorFormPath;
@@ -310,10 +310,10 @@ impl FlyTermInstantiationBuilder {
                     (
                         symbol,
                         match symbol.index(db).inner() {
-                            EthTermSymbolIndexImpl::SelfLifetime => {
+                            EthTermVariableIndexImpl::SelfLifetime => {
                                 Some(FlyTermSymbolResolution::SelfLifetime)
                             }
-                            EthTermSymbolIndexImpl::SelfPlace => Some(match env {
+                            EthTermVariableIndexImpl::SelfPlace => Some(match env {
                                 FlyInstantiationEnvironment::AssocRitchie => todo!(),
                                 FlyInstantiationEnvironment::MethodFn { self_place } => {
                                     FlyTermSymbolResolution::SelfQuary(self_place)

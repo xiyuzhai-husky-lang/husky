@@ -51,16 +51,10 @@ impl<'comptime, LinketImpl: IsLinketImpl> VmirPattern<LinketImpl> {
         value: LinketImplThawedValue<LinketImpl>,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) {
-        match self.destructive_pattern {
-            Some(destructive_pattern) => match destructive_pattern {
-                VmirDestructivePattern::Default(place) => match place {
-                    Some(place) => ctx.init_place(place, value),
-                    None => (),
-                },
-                VmirDestructivePattern::Or(_) => todo!(),
-                VmirDestructivePattern::Other(_) => todo!(),
-            },
-            None => todo!(),
+        if let Some(destructive_pattern) = self.destructive_pattern {
+            destructive_pattern.take_value(value, ctx);
+        } else {
+            self.restructive_pattern.take_value(value, ctx);
         }
     }
 }

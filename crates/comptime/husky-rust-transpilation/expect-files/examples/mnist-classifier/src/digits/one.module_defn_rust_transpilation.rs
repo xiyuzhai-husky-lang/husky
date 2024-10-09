@@ -1,5 +1,5 @@
 use super::*;
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __one_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -12,7 +12,7 @@ pub static mut __one_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInt
 pub fn one_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost, upmost, hat])
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __is_one__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -23,7 +23,7 @@ pub static mut __is_one__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> =
     lazy
 )]
 pub fn is_one() -> malamute::OneVsAll {}
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __upmost__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -33,7 +33,7 @@ pub fn upmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveCo
     require!(dp.y > 0.0f32);
     Some(dp.y)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __downmost__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -43,7 +43,7 @@ pub fn downmost(cc: Leash<crate::line_segment_sketch::concave_component::Concave
     require!(dp.y <= 0.0f32);
     Some(-cc.deleash().end().y)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __hat__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

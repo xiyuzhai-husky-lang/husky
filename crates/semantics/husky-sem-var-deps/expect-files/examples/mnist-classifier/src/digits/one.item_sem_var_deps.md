@@ -1,7 +1,7 @@
 ## `one_fermi_match`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `is_one`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `upmost`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `downmost`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `hat`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

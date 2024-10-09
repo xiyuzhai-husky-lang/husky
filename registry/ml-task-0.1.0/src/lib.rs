@@ -1,3 +1,5 @@
+pub mod label;
+
 use ad_hoc_devsoul_dependency::{ugly::*, *};
 use husky_core::*;
 

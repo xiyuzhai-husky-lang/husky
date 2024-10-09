@@ -375,12 +375,26 @@ fn transpile_hir_eager_expr_to_rust(
             todo!()
         }
         HirEagerExprData::Index {
-            self_argument: owner,
+            self_argument,
             ref items,
         } => {
             // ad hoc
-            (owner, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
-            builder.delimited(RustDelimiter::Box, |builder| {
+            (self_argument, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
+            builder.punctuation(RustPunctuation::Dot);
+            match place_contract_site.place_contracts().len() {
+                0 => builder.index(),
+                1 => match place_contract_site.place_contracts()[0].1 {
+                    HirContract::Pure => builder.index(),
+                    HirContract::Move => todo!(),
+                    HirContract::Borrow => todo!(),
+                    HirContract::BorrowMut => builder.index_mut(),
+                    HirContract::Compterm => todo!(),
+                    HirContract::Leash => todo!(),
+                    HirContract::At => todo!(),
+                },
+                _ => todo!(),
+            }
+            builder.delimited(RustDelimiter::Par, |builder| {
                 (
                     items[0],
                     HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),

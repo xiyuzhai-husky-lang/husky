@@ -206,3 +206,21 @@ impl<C, B, E> From<Option<VmControlFlow<C, B, E>>> for KiControlFlow<C, B, E> {
         }
     }
 }
+
+impl<C, B, E> KiControlFlow<C, B, E> {
+    pub fn into_vm<C1, B1, E1>(self) -> Option<VmControlFlow<C1, B1, E1>>
+    where
+        C: Into<C1>,
+        B: Into<B1>,
+        E: Into<E1>,
+    {
+        match self {
+            KiControlFlow::Continue(c) => Some(VmControlFlow::Continue(c.into())),
+            KiControlFlow::LoopContinue => Some(VmControlFlow::LoopContinue),
+            KiControlFlow::LoopExit(b) => Some(VmControlFlow::LoopExit(b.into())),
+            KiControlFlow::Return(b) => Some(VmControlFlow::Return(b.into())),
+            KiControlFlow::Throw(e) => Some(VmControlFlow::Throw(e.into())),
+            KiControlFlow::Undefined => None,
+        }
+    }
+}

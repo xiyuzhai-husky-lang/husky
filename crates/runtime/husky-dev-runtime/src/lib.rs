@@ -7,6 +7,7 @@ mod eval;
 #[cfg(test)]
 mod tests;
 mod var;
+mod vm;
 
 pub use self::config::*;
 
@@ -22,18 +23,18 @@ use husky_devsoul::{
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, ItemPathId};
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
+use husky_ki::{KiRuntimeCompterm, KiRuntimeComptermData};
 use husky_ki_repr::repr::KiRepr;
-use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
 use husky_linket::linket::Linket;
 use husky_linket_impl::{
-    eval_context::{DevEvalContext, IsDevRuntimeInterface},
+    dev_eval_context::{DevEvalContext, IsDevRuntimeInterface},
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue},
     pedestal::IsPedestal,
 };
 use husky_value::ki_control_flow::KiControlFlow;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
-use husky_vm::eval::IsDevRuntime;
+use husky_vm::runtime::IsVmRuntime;
 use husky_wild_utils::arb_ref;
 use std::{
     convert::Infallible,
@@ -218,17 +219,17 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
             .get_or_try_init_memo_field_value(item_path_id_interface, __self, f)
     }
 
-    fn eval_val_runtime_constant(
+    fn eval_ki_runtime_compterm(
         &self,
-        val_runtime_constant: KiRuntimeConstantInterface,
+        ki_runtime_compterm: KiRuntimeComptermInterface,
     ) -> DevsoulValue<Devsoul> {
         use husky_value::IsValue;
 
         let db = self.db();
-        let val_runtime_constant: KiRuntimeConstant =
-            unsafe { std::mem::transmute(val_runtime_constant) };
-        match val_runtime_constant.data(db) {
-            KiRuntimeConstantData::TypeVariantPath(path) => {
+        let ki_runtime_compterm: KiRuntimeCompterm =
+            unsafe { std::mem::transmute(ki_runtime_compterm) };
+        match ki_runtime_compterm.data(db) {
+            KiRuntimeComptermData::TypeVariantPath(path) => {
                 let presenter = self
                     .comptime
                     .linket_impl(Linket::new_enum_index_presenter(
@@ -294,13 +295,5 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
         let ki = ki_repr.ki(db);
         self.storage
             .get_or_try_init_generic_gn_value(ki, pedestal, f, db)
-    }
-}
-
-impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsoul> {
-    type Linktime = Devsoul::Linktime;
-
-    fn linktime(&self) -> &Self::Linktime {
-        self.comptime().linktime()
     }
 }

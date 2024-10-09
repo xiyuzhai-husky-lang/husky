@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type @ None) @ None: Type @ None> -> hvar(0, Type @ None) @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type): Type> -> hvar(0, Type) -> Type`",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
+                            value: "\n\nbinary operator\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ Transient`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        19,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Option Leash RawContour @ Some(Leashed { place: None })`",
+                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        19,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Option Leash RawContour @ Leashed { place: None }`",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        31,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Option Leash RawContour @ Some(Leashed { place: None })`",
+                            value: "\n\nindex colon\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        31,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Option Leash RawContour @ Leashed { place: None }`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ StackPure { place: Idx(PlaceIdx(0)) }`",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nunwrap exclamation\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        20,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash LineSegmentStroke @ None`",
+                            value: "\n\nunwrap exclamation\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        20,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash LineSegmentStroke @ Transient`",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        26,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        26,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ StackPure { place: Idx(PlaceIdx(0)) }`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        38,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        38,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ StackPure { place: Idx(PlaceIdx(0)) }`",
                         },
                     ),
                     range: Some(

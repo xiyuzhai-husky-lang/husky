@@ -58,7 +58,7 @@ impl<'a> SemExprBuilder<'a> {
                         unveil_assoc_fn_signature,
                         return_ty: self.return_ty().unwrap(),
                     }),
-                    Ok(unveil_output_ty.into()),
+                    Ok(FlyTerm::from_eth_transient(unveil_output_ty.into())),
                 )
             }
             Unveiler::UniquePartiallyInstanted { template } => {
@@ -133,7 +133,8 @@ impl<'a> SemExprBuilder<'a> {
                             else {
                                 todo!()
                             };
-                            let ty_term = unveil_output_ty_signature.ty_term().into();
+                            let ty_term =
+                                FlyTerm::from_eth_transient(unveil_output_ty_signature.ty_term());
                             (
                                 Ok(SemExprData::Unveil {
                                     opd: opd_sem_expr_idx,

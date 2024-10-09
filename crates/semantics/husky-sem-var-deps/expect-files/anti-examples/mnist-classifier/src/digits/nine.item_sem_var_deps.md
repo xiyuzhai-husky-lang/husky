@@ -1,7 +1,7 @@
 ## `nine_match`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `nine_match_refine`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `is_nine`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -37,7 +37,7 @@ SemVarDeps(
 ## `downmost`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -45,7 +45,7 @@ SemVarDeps(
 ## `big_cc`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

@@ -22,19 +22,24 @@ pub enum HirTemplateArgument {
     /// It should be noted that phantom template parameter should only accept vacant parameter.
     Vacant,
     Type(HirType),
-    Constant(HirConstant),
+    Constant(HirCompterm),
     Lifetime(HirLifetimeTemplateVariable),
     ContractedQuary(HirContractedQuary),
 }
 
 impl From<HirTemplateVariable> for HirTemplateArgument {
-    fn from(symbol: HirTemplateVariable) -> Self {
-        match symbol {
-            HirTemplateVariable::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
-            HirTemplateVariable::Compterm(symbol) => HirTemplateArgument::Constant(symbol.into()),
-            HirTemplateVariable::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol.into()),
-            HirTemplateVariable::Quary(symbol) => todo!(),
-            // HirTemplateArgument::ContractedQuary(symbol.into()),
+    fn from(variable: HirTemplateVariable) -> Self {
+        match variable {
+            HirTemplateVariable::Type(variable) => HirTemplateArgument::Type(variable.into()),
+            HirTemplateVariable::Compterm(variable) => {
+                HirTemplateArgument::Constant(variable.into())
+            }
+            HirTemplateVariable::Lifetime(variable) => {
+                HirTemplateArgument::Lifetime(variable.into())
+            }
+            HirTemplateVariable::Quary(variable) => {
+                HirTemplateArgument::ContractedQuary(variable.into())
+            }
         }
     }
 }
@@ -44,7 +49,7 @@ pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 impl HirTemplateArgument {
     pub(crate) fn from_eth(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
-            EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
+            EthTerm::Literal(lit) => HirCompterm::from_term(lit, db).into(),
             EthTerm::SymbolicVariable(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
             EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::ItemPath(path) => match path {

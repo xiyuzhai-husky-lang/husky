@@ -24,6 +24,7 @@ use path::major_item::{
     form::MajorFormPath,
     trai::{OtherTraitPath, PreludeTraitPath, TraitPath},
 };
+use quary::FlyQuary;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -294,8 +295,15 @@ impl<'a> FlyTermDataKindMerger<'a> {
     }
 
     pub(crate) fn accept_one(&mut self, term: FlyTerm) {
-        if term.quary().is_some() {
-            self.has_sol = true
+        if let Some(quary) = term.quary() {
+            match quary {
+                FlyQuary::Compterm => todo!(),
+                FlyQuary::StackPure { place } => todo!(),
+                FlyQuary::Transient => (),
+                FlyQuary::Todo => todo!(),
+                FlyQuary::EtherealSymbol(eth_symbolic_variable) => todo!(),
+                _ => self.has_sol = true,
+            }
         }
         match term.resolve_progress(self.hol_terms) {
             TermResolveProgress::UnresolvedHol => self.has_hol = true,

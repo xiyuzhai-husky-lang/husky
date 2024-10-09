@@ -1,7 +1,7 @@
 ## `Class`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## ``Class`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `Class::Known`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `Class::Unknown`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `OneVsAll`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## ``OneVsAll`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemStaticMutDeps(
 ## `OneVsAll::Yes`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemStaticMutDeps(
 ## `OneVsAll::No`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemStaticMutDeps(
 ## `OneVsAllResult`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemStaticMutDeps(
 ## ``OneVsAllResult`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemStaticMutDeps(
 ## `OneVsAllResult::ConfidentYes`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemStaticMutDeps(
 ## `OneVsAllResult::ConfidentNo`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemStaticMutDeps(
 ## `OneVsAllResult::Unconfident`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemStaticMutDeps(
 ## `narrow_down`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemStaticMutDeps(
 ## ``narrow_down`::#dep`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemStaticMutDeps(
 ## `impl Default for OneVsAll`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemStaticMutDeps(
 ## `(OneVsAll as Default)::default`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemStaticMutDeps(
 ## `impl Unveil for Class`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemStaticMutDeps(
 ## `(Class as Unveil)::Output`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -153,7 +153,7 @@ SemStaticMutDeps(
 ## `(Class as Unveil)::unveil`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -161,7 +161,7 @@ SemStaticMutDeps(
 ## `impl Unveil for OneVsAll`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -169,7 +169,7 @@ SemStaticMutDeps(
 ## `(OneVsAll as Unveil)::Output`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -177,7 +177,7 @@ SemStaticMutDeps(
 ## `(OneVsAll as Unveil)::unveil`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

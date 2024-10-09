@@ -13,10 +13,9 @@ keywords.workspace = true
 
 [dependencies]
 serde.workspace = true
+smallvec.workspace = true
 # abstractions
 vec-like.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
 # kernel
 husky-item-path-interface.workspace = true
 # ki
@@ -40,8 +39,9 @@ workspace = true
 
 [features]
 ugly = [
-    "husky-devsoul-interface/ugly",
     "husky-item-path-interface/ugly",
+    "husky-ki-repr-interface/ugly",
+    "husky-linket-impl/ugly",
     "husky-value-protocol/ugly",
     "husky-value/ugly",
     "husky-standard-value/ugly"

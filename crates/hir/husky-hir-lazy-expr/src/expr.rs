@@ -139,7 +139,7 @@ impl ToHirLazy for SemExprIdx {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let place_contract_site =
-            HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
+            HirPlaceContractSite::from_sem(&builder.sem_place_contract_region()[*self]);
         let hir_lazy_expr = match *self.data(builder.sem_expr_arena_ref()) {
             SemExprData::Literal(_, _) => {
                 let EthTerm::Literal(lit) = builder.expr_term(*self) else {
@@ -412,7 +412,7 @@ impl ToHirLazy for SemExprIdx {
                 owner: owner_sem_expr_idx.to_hir_lazy(builder),
                 items: index_sem_list_items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
+                    .map(|item| item.expr.to_hir_lazy(builder))
                     .collect(),
             },
             SemExprData::CompositionWithList { .. } => {
@@ -425,7 +425,7 @@ impl ToHirLazy for SemExprIdx {
             } => HirLazyExprData::ConstructList {
                 items: items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
+                    .map(|item| item.expr.to_hir_lazy(builder))
                     .collect(),
                 element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),

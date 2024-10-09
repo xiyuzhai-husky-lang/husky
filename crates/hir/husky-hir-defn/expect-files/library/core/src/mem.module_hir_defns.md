@@ -11,7 +11,7 @@
                             [
                                 HirTemplateParameter {
                                     symbol: HirTemplateVariable::Lifetime(
-                                        HirLifetimeTemplateVariable {
+                                        Explicit {
                                             attrs: HirTemplateVariableAttrs {
                                                 class: Mono,
                                             },
@@ -67,7 +67,7 @@
                                             ),
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateVariable::Lifetime(
-                                                HirLifetimeTemplateVariable {
+                                                Explicit {
                                                     attrs: HirTemplateVariableAttrs {
                                                         class: Mono,
                                                     },
@@ -121,7 +121,7 @@
                             [
                                 HirTemplateParameter {
                                     symbol: HirTemplateVariable::Lifetime(
-                                        HirLifetimeTemplateVariable {
+                                        Explicit {
                                             attrs: HirTemplateVariableAttrs {
                                                 class: Mono,
                                             },
@@ -177,7 +177,7 @@
                                             ),
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateVariable::Lifetime(
-                                                HirLifetimeTemplateVariable {
+                                                Explicit {
                                                     attrs: HirTemplateVariableAttrs {
                                                         class: Mono,
                                                     },
@@ -308,7 +308,7 @@
                             [
                                 HirTemplateParameter {
                                     symbol: HirTemplateVariable::Quary(
-                                        HirQuaryTemplateVariable {
+                                        Explicit {
                                             attrs: HirTemplateVariableAttrs {
                                                 class: Mono,
                                             },
@@ -360,7 +360,7 @@
                                             ),
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateVariable::Quary(
-                                                HirQuaryTemplateVariable {
+                                                Explicit {
                                                     attrs: HirTemplateVariableAttrs {
                                                         class: Mono,
                                                     },

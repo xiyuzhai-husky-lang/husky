@@ -6,7 +6,7 @@ use husky_eth_signature::signature::{
     },
     HasEthTemplate,
 };
-use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
+use husky_eth_term::term::symbolic_variable::EthTermVariableIndexImpl;
 use husky_regional_token::IdentRegionalToken;
 use quary::FlyQuary;
 
@@ -51,7 +51,7 @@ impl TraitForTypeMethodRitchieFlySignature {
                 .iter()
                 .map(|&param| param.into())
                 .collect(),
-            return_ty: eth_sig.return_ty().into(),
+            return_ty: FlyTerm::from_eth_transient(eth_sig.return_ty()),
             instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MethodFn { self_place },
                 eth_sig.instantiation(),

@@ -44,7 +44,7 @@ None
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [
             SemVarDep::Item(
                 ItemPath(`mnist::INPUT`),
