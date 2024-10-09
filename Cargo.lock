@@ -8365,20 +8365,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mayuri-genetic-algorithms"
-version = "0.1.0"
-dependencies = [
- "expect-test",
- "rand",
- "rand_chacha",
-]
-
-[[package]]
-name = "mayuri-plot"
-version = "0.1.0"
-
-[[package]]
-name = "mayuri-prototype"
+name = "mayuri-core"
 version = "0.1.0"
 dependencies = [
  "expect-test",
@@ -8393,6 +8380,19 @@ dependencies = [
  "walkdir",
  "yaml-rust2",
 ]
+
+[[package]]
+name = "mayuri-genetic-algorithms"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
+ "rand",
+ "rand_chacha",
+]
+
+[[package]]
+name = "mayuri-plot"
+version = "0.1.0"
 
 [[package]]
 name = "md-5"

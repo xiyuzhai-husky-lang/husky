@@ -5,6 +5,7 @@ use crate::{
     test::{MayuriTest, MayuriTests},
     *,
 };
+use gitignore::set_up_gitignore;
 use husky_config_utils::IsConfig;
 use std::env;
 use std::fs;
@@ -24,20 +25,21 @@ pub struct MayuriFs {
 }
 
 impl MayuriFs {
-    pub fn new(root: PathBuf) -> Self {
+    pub fn new(root: PathBuf, append: bool) -> Self {
+        set_up_gitignore(&root, append);
         let mayuri_config = match MayuriConfig::read_from_toml_file(&root.join("Mayuri.toml")) {
             Ok(config) => config,
-            Err(e) => panic!("Failed to read Mayuri.toml: {}", e),
+            Err(e) => panic!("Failed to read Mayuri.toml in {:?}: {}", root, e),
         };
 
         let nemu_config = match NemuConfig::read_from_toml_file(&root.join("Nemu.toml")) {
             Ok(config) => config,
-            Err(e) => panic!("Failed to read Nemu.toml: {}", e),
+            Err(e) => panic!("Failed to read Nemu.toml in {:?}: {}", root, e),
         };
 
         let src = match MayuriSrc::new(root.join("src"), &["py"]) {
             Ok(src) => src,
-            Err(e) => panic!("Failed to create MayuriSrc: {}", e),
+            Err(e) => panic!("Failed to create MayuriSrc in {:?}: {}", root, e),
         };
 
         let jobs = MayuriJobs::from_dir(root.join("jobs"), &src);
@@ -67,21 +69,21 @@ fn mayuri_fs_works() {
     env::set_current_dir(&root).unwrap();
 
     // Use a relative path from the root
-    let mayuri_prototype_dir = Path::new("experiments/mayuri-core");
+    let mayuri_prototype_dir = Path::new("experiments/mayuri-prototype");
 
     // Now the current directory is the root, so we use the relative path
-    let fs = MayuriFs::new(mayuri_prototype_dir.to_path_buf());
+    let fs = MayuriFs::new(mayuri_prototype_dir.to_path_buf(), false);
     expect_test::expect![[r#"
         MayuriFs {
-            root: "experiments/mayuri-core",
+            root: "experiments/mayuri-prototype",
             src: MayuriSrc {
-                dir_path: "experiments/mayuri-core/src",
+                dir_path: "experiments/mayuri-prototype/src",
                 shas: {
                     "datasets/ring.py": Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
-                    "models/fcn.py": Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
+                    "main.py": Sha512Output(`7cbf0959df339401c90023f3938cd7d621927086356104ec66c9cc023ea263ab2102ea79abe6e6d24a693ca8c22cb429a8c9e65558b3d0613bf0613b31e9d061)`,
                     "datasets/gaussian.py": Sha512Output(`e50e95ebf2f1f1210d53a84753e7388f7f6ba1ea702ab19d1e983a82acdd20d87562d7ebe21c0e2b6f7f338969085497def15107c80182b39c26e4f516a61edb)`,
                     "visualize.py": Sha512Output(`967fef937b62d43ea3ef94de2c2b1c34b102563d41b281f6749b29660225de4f2df225137e54864544f59526bd77641ba40249f7ad60d5844001c9700331ea4e)`,
-                    "main.py": Sha512Output(`7cbf0959df339401c90023f3938cd7d621927086356104ec66c9cc023ea263ab2102ea79abe6e6d24a693ca8c22cb429a8c9e65558b3d0613bf0613b31e9d061)`,
+                    "models/fcn.py": Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
                 },
             },
             jobs: MayuriJobs {
@@ -90,7 +92,7 @@ fn mayuri_fs_works() {
             tests: MayuriTests {
                 tests: [
                     MayuriTest {
-                        path: "experiments/mayuri-core/tests/hello.yml",
+                        path: "experiments/mayuri-prototype/tests/hello.yml",
                         rank: 0,
                         experiment: Experiment {
                             src: [
@@ -118,7 +120,7 @@ fn mayuri_fs_works() {
                         },
                     },
                     MayuriTest {
-                        path: "experiments/mayuri-core/tests/hello.yml",
+                        path: "experiments/mayuri-prototype/tests/hello.yml",
                         rank: 1,
                         experiment: Experiment {
                             src: [
