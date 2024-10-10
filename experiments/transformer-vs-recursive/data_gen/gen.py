@@ -6,8 +6,8 @@ from pathlib import Path
 
 from data_gen.utils import rnd_codes_parallel
 
-def write_data(dataset_filepath, data):
-    compressed_filepath = f"{dataset_filepath}.json.gz"
+def write_data(dataset_filepath, split, data):
+    compressed_filepath = f"{dataset_filepath}_{split}.json.gz"
     with gzip.open(compressed_filepath, 'wt', encoding='utf-8') as file:
         json.dump(data, file)
     print(f"Data written and compressed to {compressed_filepath}")
@@ -20,7 +20,9 @@ def main():
     params = [
         (100000, 10, 3, 0.2, 0.5),
         (100000, 20, 3, 0.2, 0.5),
-        (100000, 20, 5, 0.2, 0.5)
+        (100000, 20, 5, 0.2, 0.5),
+        (100000, 40, 5, 0.2, 0.5),
+        (100000, 40, 10, 0.2, 0.5),
     ]
 
     files_to_keep = []
@@ -30,16 +32,19 @@ def main():
         files_to_keep.append(f"{dataset_filename}.json.gz")
 
         # Generate the random codes
-        data = rnd_codes_parallel(n, max_fns, min_dist, use_var_rate, error_rate, workers=16)
+        train = rnd_codes_parallel(True, int(n * 0.8), max_fns, min_dist, use_var_rate, error_rate, workers=16)
+        eval = rnd_codes_parallel(False, int(n * 0.2), max_fns, min_dist, use_var_rate, error_rate, workers=16)
 
-        print(data[0]["text"])
+        print("train:", train[0]["text"])
+        print("eval:", eval[0]["text"])
 
         # Write and compress the file
-        write_data(dataset_filename, data)
+        write_data(dataset_filename, "train", train)
+        write_data(dataset_filename, "eval", eval)
 
     # Clear other files in the folder
     for entry in dir_path.iterdir():
-        if entry.is_file() and entry.suffixes == ['.json', '.gz'] and str(entry) not in files_to_keep:
+        if entry.is_file() and entry.suffixes == ['.json', '.gz', ".msgpack"] and str(entry) not in files_to_keep:
             entry.unlink()
             print(f"Removed old file: {entry}")
 

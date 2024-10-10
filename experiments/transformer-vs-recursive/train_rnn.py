@@ -28,21 +28,17 @@ parser.add_argument('--gpu_id', type=int, default=0)
 parser.add_argument('--try_hidden_dim', type=int, default=None)
 args = parser.parse_args()
 
-dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
-                                        "mini-husky/basic",
-                                        f"dataset-{args.dataset}.json.gz"),
-                           desired_key="expected_type")
-header = dataset.header
+train_dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                              "mini-husky/basic",
+                                              f"dataset-{args.dataset}_train.json.gz"),
+                                 desired_key="expected_type")
+eval_dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                             "mini-husky/basic",
+                                             f"dataset-{args.dataset}_eval.json.gz"),
+                                desired_key="expected_type")
+header = train_dataset.header
 
-# Split the dataset into train and validation sets
-train_size = int(0.8 * len(dataset))  # 80% for training
-val_size = len(dataset) - train_size  # 20% for validation
-
-# fix dataset
-set_seed(0)
-train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
-
-def run(config, train_dataset, val_dataset, header):
+def run(config, train_dataset, eval_dataset, header):
     set_seed(config["seed"])
 
     train_dataloader = DataLoader(
@@ -52,8 +48,8 @@ def run(config, train_dataset, val_dataset, header):
         collate_fn=custom_collate,
         num_workers=4,
     )
-    val_dataloader = DataLoader(
-        val_dataset,
+    eval_dataloader = DataLoader(
+        eval_dataset,
         batch_size=config["batch_size"],
         shuffle=False,
         collate_fn=custom_collate,
@@ -75,7 +71,7 @@ def run(config, train_dataset, val_dataset, header):
     # Create models
     model = SimpleRNN(
         input_dim=config["vocab_size"],
-        output_dim=sum(dataset.get_output_dims()),
+        output_dim=sum(train_dataset.get_output_dims()),
         bidirectional=True,
         **config
     ).to(device)
@@ -97,14 +93,14 @@ def run(config, train_dataset, val_dataset, header):
         model=model,
         header=header,
         train_dataloader=train_dataloader,
-        val_dataloader=val_dataloader,
+        val_dataloader=eval_dataloader,
         criterion=criterion,
         optimizer=optimizer,
         scheduler=scheduler,
         num_epochs=config["num_epochs"],
         micro_batch_size=config["micro_batch_size"],
         device=device,
-        output_dims=dataset.get_output_dims(),
+        output_dims=train_dataset.get_output_dims(),
         logger=logger,
     )
 
@@ -133,4 +129,4 @@ for hidden_dim in ordered_search_space(search_space):
         "hidden_dim": hidden_dim,
         "num_layers": 8,
     }
-    run(config, train_dataset, val_dataset, header)
+    run(config, train_dataset, eval_dataset, header)
