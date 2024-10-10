@@ -1,7 +1,7 @@
 pub mod config;
 pub mod experiment;
 pub mod fs;
-mod gitignore;
+mod git;
 pub mod job;
 pub mod makefile;
 pub mod squad;
