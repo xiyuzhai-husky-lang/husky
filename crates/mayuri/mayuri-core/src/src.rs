@@ -9,18 +9,18 @@ use walkdir::WalkDir;
 #[derive(Debug)]
 pub struct MayuriSrc {
     dir_path: PathBuf,
-    shas: HashMap<String, MayuriCode>,
+    files: HashMap<String, MayuriSrcFile>,
 }
 
 #[derive(Debug, Clone)]
-pub struct MayuriCode {
+pub struct MayuriSrcFile {
     pub content: Arc<String>,
 }
 
-impl MayuriCode {
+impl MayuriSrcFile {
     fn from_file<P: AsRef<Path>>(path: P) -> std::io::Result<Self> {
         let content = Arc::new(fs::read_to_string(path)?);
-        Ok(MayuriCode { content })
+        Ok(MayuriSrcFile { content })
     }
 }
 
@@ -42,21 +42,24 @@ impl MayuriSrc {
                     .to_str()
                     .unwrap()
                     .to_string();
-                let mayuri_code = MayuriCode::from_file(path)?;
+                let mayuri_code = MayuriSrcFile::from_file(path)?;
                 let sha = mayuri_code.content.as_bytes().sha512();
                 shas.insert(relative_path, mayuri_code);
             }
         }
 
-        Ok(Self { dir_path, shas })
+        Ok(Self {
+            dir_path,
+            files: shas,
+        })
     }
 }
 
 impl Index<&str> for MayuriSrc {
-    type Output = MayuriCode;
+    type Output = MayuriSrcFile;
 
     fn index(&self, key: &str) -> &Self::Output {
-        self.shas.get(key).unwrap_or_else(|| {
+        self.files.get(key).unwrap_or_else(|| {
             panic!(
                 "Source file not found: {} in directory: {}",
                 key,
