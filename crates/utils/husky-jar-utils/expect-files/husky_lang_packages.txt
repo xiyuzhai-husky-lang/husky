@@ -3832,6 +3832,7 @@
             "husky-config-utils",
             "husky-sha-utils",
             "husky-yaml-utils",
+            "idx-arena",
             "serde",
             "vec-like",
             "walkdir",
@@ -4041,6 +4042,13 @@
         relative_path: "crates/utils/husky-log-utils",
         dependencies: [
             "log",
+        ],
+    },
+    PackageSummary {
+        name: "husky-make-utils",
+        relative_path: "crates/utils/husky-make-utils",
+        dependencies: [
+            "makefile-lossless",
         ],
     },
     PackageSummary {
