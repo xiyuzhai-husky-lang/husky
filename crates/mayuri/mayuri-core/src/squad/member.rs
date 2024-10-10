@@ -1,10 +1,12 @@
 use crate::*;
-use idx_arena::Arena;
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx};
 
 #[derive(Debug)]
-pub enum MayuriSquadMember {
+pub enum MayuriSquadMemberData {
     Local,
     Remote,
 }
 
-pub type MayuriSquadMemberArena = Arena<MayuriSquadMember>;
+pub type MayuriSquadMemberIdx = ArenaIdx<MayuriSquadMemberData>;
+pub type MayuriSquadMemberArena = Arena<MayuriSquadMemberData>;
+pub type MayuriSquadMemberMap<V> = ArenaMap<MayuriSquadMemberData, V>;
