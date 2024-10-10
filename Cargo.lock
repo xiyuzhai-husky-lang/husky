@@ -8373,6 +8373,7 @@ dependencies = [
  "husky-path-utils",
  "husky-sha-utils",
  "husky-yaml-utils",
+ "idx-arena",
  "pathdiff",
  "serde",
  "toml",
