@@ -1,5 +1,5 @@
-use husky_sha_utils::Sha512Output;
-use husky_sha_utils::ShaHash;
+use husky_sha_utils::{Sha512Output, ShaHash};
+use rustc_hash::FxHashMap;
 use std::fs;
 use std::ops::Index;
 use std::path::{Path, PathBuf};
@@ -10,7 +10,7 @@ use walkdir::WalkDir;
 #[derive(Debug)]
 pub struct MayuriSrc {
     dir_path: PathBuf,
-    files: HashMap<String, MayuriSrcFile>,
+    files: FxHashMap<String, MayuriSrcFile>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

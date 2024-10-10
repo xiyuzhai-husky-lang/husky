@@ -3834,6 +3834,7 @@
             "husky-sha-utils",
             "husky-yaml-utils",
             "idx-arena",
+            "rustc-hash",
             "serde",
             "vec-like",
             "walkdir",
