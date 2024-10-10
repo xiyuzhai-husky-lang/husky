@@ -71,7 +71,7 @@ BOOL_LITERALS = ["true", "false"]
 tokenizer = tiktoken.encoding_for_model("gpt2")
 
 class AstKind:
-    FnEntityName, ParameterType, ParameterIdent, FnEntityUsage, CallLpar, FnKeyword, LetKeyword, CallRpar, IntLiteral, FloatLiteral, BoolLiteral, ParametersLpar, ParametersRpar, FnBodyLcurl, FnBodyRcurl, ParameterTypeColon, StmtColon = range(1, 18)
+    FnEntityName, ParameterType, ParameterIdent, FnEntityUsage, CallLpar, FnKeyword, LetKeyword, CallRpar, IntLiteral, FloatLiteral, BoolLiteral, ParametersLpar, ParametersRpar, FnBodyLcurl, FnBodyRcurl, ParameterTypeColon, StmtColon, FnArgComma = range(1, 19)
 
 class SymbolResolution:
     Fn, Unresolved = 1, 2
@@ -92,9 +92,9 @@ class Type:
             return "Float"
 
 class Function:
-    def __init__(self, name, input_ty, last_called_step):
+    def __init__(self, name, input_tys, last_called_step):
         self.name = name
-        self.input_ty = input_ty
+        self.input_tys = input_tys
         self.last_called_step = last_called_step
 
 class BasicCodeGenerator:
@@ -110,6 +110,7 @@ class BasicCodeGenerator:
         self.min_dist = min_dist
         self.use_var_rate = use_var_rate
         self.error_rate = error_rate
+        self.max_args_per_fn = 5
         self.max_calls_per_fn = 5
         self.used_fn_idx = []
         self.functions = []
@@ -146,25 +147,31 @@ class BasicCodeGenerator:
             fn_idx = self.rng.integers(low=0, high=len(self.func_names))
         self.used_fn_idx.append(fn_idx)
         fn_name = self.func_names[fn_idx]
-        input_ty = self.rng.choice([Type.Bool, Type.Int, Type.Float]).item()
-        var_name = self.rng.choice(self.var_names).item()
+
+        num_vars = self.rng.integers(low=1, high=self.max_args_per_fn + 1)
+        input_tys = self.rng.choice([Type.Bool, Type.Int, Type.Float], num_vars).tolist()
+        var_names = self.rng.choice(self.var_names, num_vars).tolist()
 
         self.push_token("fn", AstKind.FnKeyword)
         self.push_token(fn_name, AstKind.FnEntityName, SymbolResolution.Fn)
         self.push_token("(", AstKind.ParametersLpar)
-        self.push_token(var_name, AstKind.ParameterIdent, expected_type=input_ty, actual_type=input_ty)
-        self.push_token(":", AstKind.ParameterTypeColon)
-        self.push_token(Type.repr(input_ty), AstKind.ParameterType, expected_type=input_ty, actual_type=input_ty)
+        for i in range(num_vars):
+            if i > 0:
+                self.push_token(",", AstKind.FnArgComma)
+            self.push_token(var_names[i], AstKind.ParameterIdent, expected_type=input_tys[i], actual_type=input_tys[i])
+            self.push_token(":", AstKind.ParameterTypeColon)
+            self.push_token(Type.repr(input_tys[i]), AstKind.ParameterType, expected_type=input_tys[i], actual_type=input_tys[i])
+
         self.push_token(")", AstKind.ParametersRpar)
-        self.with_curly(AstKind.FnBodyLcurl, AstKind.FnBodyRcurl, lambda gen: self.gen_fn_body(var_name, input_ty))
-        self.functions.append(Function(fn_name, input_ty, self.time_step))
+        self.with_curly(AstKind.FnBodyLcurl, AstKind.FnBodyRcurl, lambda gen: self.gen_fn_body(var_names, input_tys))
+        self.functions.append(Function(fn_name, input_tys, self.time_step))
         self.time_step += 1
 
-    def gen_fn_body(self, var_name, input_ty):
+    def gen_fn_body(self, var_names, input_tys):
         for _ in range(self.max_calls_per_fn):
-            self.gen_fn_call(var_name, input_ty)
+            self.gen_fn_call(var_names, input_tys)
 
-    def gen_fn_call(self, var_name, var_type):
+    def gen_fn_call(self, var_names, var_types):
         if not self.functions:
             return
         callee_index = self.rng.integers(low=0, high=len(self.functions))
@@ -175,25 +182,33 @@ class BasicCodeGenerator:
         callee.last_called_step = self.time_step
 
         fn_name = callee.name
-        expected_type = callee.input_ty
-        value_type = expected_type
-
-        use_var = self.rng.random() < self.use_var_rate
-        if use_var:
-            arg_literal = var_name
-            literal_kind = AstKind.ParameterIdent
-            value_type = var_type
-        else:
-            has_ty_error = self.rng.random() < self.error_rate
-            if has_ty_error:
-                types = [Type.Bool, Type.Int, Type.Float]
-                types.remove(expected_type)
-                value_type = self.rng.choice(types).item()
-            arg_literal, literal_kind = self.get_literal_by_type(value_type)
+        expected_types = callee.input_tys
 
         self.push_token(fn_name, AstKind.FnEntityUsage, SymbolResolution.Fn)
         self.push_token("(", AstKind.CallLpar)
-        self.push_token(arg_literal, literal_kind, expected_type=expected_type, actual_type=value_type)
+
+        for i in range(len(expected_types)):
+            if i > 0:
+                self.push_token(",", AstKind.FnArgComma)
+
+            use_var = self.rng.random() < self.use_var_rate
+            if use_var:
+                idx = self.rng.integers(low=0, high=len(var_names))
+                arg_literal = var_names[idx]
+                literal_kind = AstKind.ParameterIdent
+                value_type = var_types[idx]
+            else:
+                has_ty_error = self.rng.random() < self.error_rate
+                if has_ty_error:
+                    types = [Type.Bool, Type.Int, Type.Float]
+                    types.remove(expected_types[i])
+                    value_type = self.rng.choice(types).item()
+                else:
+                    value_type = expected_types[i]
+                arg_literal, literal_kind = self.get_literal_by_type(value_type)
+            
+            self.push_token(arg_literal, literal_kind, expected_type=expected_types[i], actual_type=value_type)
+
         self.push_token(")", AstKind.CallRpar)
         self.push_token(";", AstKind.StmtColon)
 

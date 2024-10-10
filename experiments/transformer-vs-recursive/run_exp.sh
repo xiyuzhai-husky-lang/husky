@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dataset="n100000-f40-d10-v0.20-e0.50"
+dataset="n100000-f10-d3-v0.20-e0.50"
 num_epochs=20
 
 declare -A gpu_exp_seed_map=(
