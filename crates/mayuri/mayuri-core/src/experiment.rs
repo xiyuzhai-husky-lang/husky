@@ -34,13 +34,11 @@ impl ExperimentSrcDestinationPath {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ExperimentSrcOrigin {
     relative_path: String,
-    sha: Sha512Output,
 }
 
 impl ExperimentSrcOrigin {
     pub fn new(relative_path: String, src: &MayuriSrc) -> Self {
-        let sha = src[&relative_path].sha;
-        Self { relative_path, sha }
+        Self { relative_path }
     }
 
     pub fn relative_path(&self) -> &str {
