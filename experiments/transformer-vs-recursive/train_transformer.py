@@ -9,15 +9,18 @@ from models.transformer import EncoderOnlyTransformer, CustomBERTModel
 from train import train_model
 from utils import set_seed, custom_collate, linear_warmup_decay, Logger, ordered_search_space
 
+import tiktoken
+
 import os
 import pdb
+
+tokenizer = tiktoken.encoding_for_model("gpt2")
 
 HIDDEN_DIM_SPACE = list(range(8, 64 + 1, 8)) + [208]
 BATCH_SIZE = 512
 
-# Argument parsing
 parser = argparse.ArgumentParser(description="Train Transformer models with different configurations.")
-parser.add_argument('--dataset', type=str, default="100000-f10-d3-v0.20-e0.50", help='Dataset to use')
+parser.add_argument('--dataset', type=str, default="n100000-f10-d3-v0.20-e0.50", help='Dataset to use')
 parser.add_argument('--num_epochs', type=int, default=10, help='Number of epochs to train')
 parser.add_argument('--seed', type=int, default=42, help='Random seed for initialization')
 parser.add_argument('--server_name', type=str, default="")
@@ -25,10 +28,10 @@ parser.add_argument('--gpu_id', type=int, default=0)
 parser.add_argument('--try_hidden_dim', type=int, default=None)
 args = parser.parse_args()
 
-# Load the dataset
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
                                         "mini-husky/basic",
-                                        f"dataset-{args.dataset}.msgpack"))
+                                        f"dataset-{args.dataset}.json.gz"),
+                           desired_key="expected_type")
 header = dataset.header
 max_seq_len = ((dataset.get_max_len() - 1) // 512 + 1) * 512
 
@@ -59,7 +62,7 @@ def run(config, train_dataset, val_dataset, header):
     )
 
     # Experiment name
-    exp_name = f"transformer_d{config['d_model']}_h{config['num_heads']}_l{config['num_layers']}_seed{config['seed']}_{args.dataset}"
+    exp_name = f"transformer_d{config['hidden_dim']}_h{config['num_heads']}_l{config['num_layers']}_seed{config['seed']}_{args.dataset}"
 
     # Logger setup
     logger = Logger(exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
@@ -102,10 +105,10 @@ for hidden_dim in ordered_search_space(search_space):
         "min_lr": min_lr,
         "max_lr": max_lr,
         "warmup_iters": 990,
-        "vocab_size": len(dataset.vocab),
+        "vocab_size": tokenizer.n_vocab,
         "output_dims": dataset.get_output_dims(),
-        "d_model": hidden_dim,
-        "num_heads": min(4, hidden_dim),
+        "hidden_dim": hidden_dim,
+        "num_heads": 1,
         "num_layers": 8,
         "max_seq_len": max_seq_len,
         **vars(args)

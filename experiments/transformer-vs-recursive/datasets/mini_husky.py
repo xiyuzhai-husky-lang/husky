@@ -4,7 +4,8 @@ from pprint import pprint
 import torch
 from torch.utils.data import Dataset
 from collections import Counter
-import msgpack
+import gzip
+import json
 from tqdm import tqdm
 
 import pdb
@@ -24,14 +25,12 @@ class MiniHuskyDataset(Dataset):
     ):
         self.max_len = 0
         self.header, self.data, self.stats = self._decode_rnd_codes(dataset_path)
-        self.max_values = self.stats.max_values  # Add this line
-        self.vocab = self._build_vocabulary()
-        self.word_to_index = {word: i for i, word in enumerate(self.vocab)}
+        self.max_values = self.stats.max_values
 
         if desired_key is not None:
             idx = self.header.index(desired_key)
-            self.header = self.header[idx]
-            self.data = [(words, token_infos[idx]) for words, token_infos in self.data]
+            self.header = [self.header[idx]]
+            self.data = [(words, (token_infos[idx],)) for words, token_infos in self.data]
             self.max_values = {desired_key: self.max_values[desired_key]}
 
     def _decode_rnd_codes(
@@ -40,35 +39,24 @@ class MiniHuskyDataset(Dataset):
         List[str],
         List[Tuple[List[str], Tuple[List[int], List[int], List[int]]]], DatasetStats
     ]:
-        header, data = None, None
-        with open(filepath, "rb") as f:
-            unpacker = msgpack.Unpacker(f)
-            
-            for unpacked in unpacker:
-                if header is None:
-                    header = unpacked
-                elif data is None:
-                    data = unpacked
-                else:
-                    print("Extra data found:", unpacked)
-                    break
+        with gzip.open(filepath, "rt", encoding="utf-8") as f:
+            data = json.load(f)
+        header = list(data[0].keys())
+        header.remove("token")
+        header.remove("text")
 
         decoded_data = []
         max_values = {k: 0 for k in header}
         counters = {k: Counter() for k in header}
         percents = {k: {} for k in header}
 
-        for tokens, token_infos in tqdm(data):
+        for d in tqdm(data):
+            tokens = d["token"]
             self.max_len = max(self.max_len, len(tokens))
-            # Use list comprehension to unpack values efficiently
-            fields = list(zip(*token_infos))
-            
-            for k, v in zip(header, fields):
-                max_values[k] = max(max_values[k], max(v))
-                counters[k].update(v)
-            
-            # Append the unpacked and decoded token infos
-            decoded_data.append((tokens, tuple(fields)))
+            for k in header:
+                max_values[k] = max(max_values[k], max(d[k]))
+                counters[k].update(d[k])
+            decoded_data.append((tokens, tuple([d[k] for k in header])))
 
         for k in header:
             tot = sum(counters[k].values())
@@ -82,12 +70,6 @@ class MiniHuskyDataset(Dataset):
 
         return header, decoded_data, stats
 
-    def _build_vocabulary(self):
-        word_counts = Counter()
-        for words, _ in self.data:
-            word_counts.update(words)
-        return ["<PAD>", "<UNK>"] + [word for word, _ in word_counts.most_common()]
-
     def get_dataset(
         self,
     ) -> List[Tuple[List[str], Tuple]]:
@@ -98,16 +80,10 @@ class MiniHuskyDataset(Dataset):
 
     def __getitem__(self, idx):
         words, token_infos = self.data[idx]
-        word_indices = torch.tensor(
-            [self._word_to_index(word) for word in words], dtype=torch.long
-        )
-        return word_indices, tuple(torch.tensor(t, dtype=torch.long) for t in token_infos)
+        return torch.tensor(words, dtype=torch.long), tuple(torch.tensor(t, dtype=torch.long) for t in token_infos)
 
     def get_words(self, idx):
         return self.data[idx][0]
-
-    def _word_to_index(self, word):
-        return self.word_to_index.get(word, 1)
 
     def get_max_values(self) -> Dict[str, int]:
         return self.max_values
@@ -128,7 +104,7 @@ if __name__ == "__main__":
     dataset = MiniHuskyDataset(
         os.path.join(os.environ["DATA_ROOT"],
                      "mini-husky/basic",
-                     "dataset-n100000-f10-d3-v0.20-e0.50.msgpack"),
+                     "dataset-n100000-f10-d3-v0.20-e0.50.json.gz"),
         desired_key="expected_type"
     )
     
@@ -144,11 +120,6 @@ if __name__ == "__main__":
         print(f"  {k}: {v}")
 
     print(f"\nTotal samples: {len(dataset)}")
-
-    # Print vocabulary
-    print("\nVocabulary:")
-    pprint(dataset.vocab[:50])
-    print(f"Vocabulary size: {len(dataset.vocab)}")
 
     # Print maximum values
     print("\nMaximum values:")
