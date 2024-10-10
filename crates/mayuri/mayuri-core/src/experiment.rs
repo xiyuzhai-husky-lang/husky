@@ -1,39 +1,27 @@
 pub mod path;
 
-use crate::*;
+use self::path::ExperimentPath;
+use crate::{
+    src::{MayuriSrc, MayuriSrcFile},
+    *,
+};
 use config::nemu::NemuConfig;
 use husky_sha_utils::Sha512Output;
 use husky_yaml_utils::ordered::OrderedYaml;
 use makefile::MayuriMakefileExtracted;
-use path::ExperimentPath;
-use src::{MayuriSrc, MayuriSrcFile};
 use vec_like::ordered_vec_map::OrderedVecPairMap;
 use yaml_rust2::Yaml;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct Experiment {
     path: ExperimentPath,
+    /// maps destination paths to files
     src_files: ExperimentSrcFiles,
     config: OrderedYaml,
     makefile: MayuriMakefileExtracted,
 }
 
-pub type ExperimentSrcFiles = OrderedVecPairMap<ExperimentSrcDestinationPath, MayuriSrcFile>;
-
-#[derive(Debug, PartialEq, Eq, Clone, PartialOrd, Ord, Hash)]
-pub struct ExperimentSrcDestinationPath {
-    relative_path: String,
-}
-
-impl ExperimentSrcDestinationPath {
-    pub fn new(relative_path: String) -> Self {
-        Self { relative_path }
-    }
-
-    pub fn relative_path(&self) -> &str {
-        &self.relative_path
-    }
-}
+pub type ExperimentSrcFiles = OrderedVecPairMap<String, MayuriSrcFile>;
 
 impl Experiment {
     pub(super) fn new(
@@ -47,12 +35,7 @@ impl Experiment {
             src_files: nemu_config
                 .src_paths()
                 .iter()
-                .map(|src_path| {
-                    (
-                        ExperimentSrcDestinationPath::new(src_path.path().to_string()),
-                        src[src_path.path()].clone(),
-                    )
-                })
+                .map(|src_path| (src_path.path().to_string(), src[src_path.path()].clone()))
                 .chain(
                     yaml["src"]
                         .as_hash()
@@ -60,11 +43,9 @@ impl Experiment {
                         .iter()
                         .map(|(k, v)| {
                             (
-                                ExperimentSrcDestinationPath::new(
-                                    k.as_str()
-                                        .expect("invalid yaml, expected string")
-                                        .to_string(),
-                                ),
+                                k.as_str()
+                                    .expect("invalid yaml, expected string")
+                                    .to_string(),
                                 src[v.as_str().expect("invalid, expected string")].clone(),
                             )
                         }),
@@ -88,7 +69,7 @@ impl Experiment {
         use std::path::Path;
 
         for (dest, src_file) in &self.src_files {
-            let dest_path = Path::new(dest.relative_path());
+            let dest_path = Path::new(dest);
 
             // Create parent directories if they don't exist
             if let Some(parent) = dest_path.parent() {
