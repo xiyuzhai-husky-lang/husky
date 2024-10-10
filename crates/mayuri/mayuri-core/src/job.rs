@@ -1,6 +1,7 @@
 use crate::*;
 use config::nemu::NemuConfig;
 use experiment::Experiment;
+use makefile::MayuriMakefileExtracted;
 use src::MayuriSrc;
 use std::path::PathBuf;
 use yaml_rust2::Yaml;
@@ -16,13 +17,14 @@ impl MayuriJob {
     pub(super) fn from_file<'a>(
         path: PathBuf,
         src: &'a MayuriSrc,
+        makefile: &'a MayuriMakefileExtracted,
         nemu_config: &'a NemuConfig,
     ) -> impl Iterator<Item = Self> + 'a {
         let contents = std::fs::read_to_string(&path).expect("Failed to read the YAML file");
 
         let docs = yaml_rust2::YamlLoader::load_from_str(&contents).expect("Failed to parse YAML");
         docs.into_iter().enumerate().map(move |(rank, yaml)| {
-            Self::from_file_aux(path.clone(), rank, yaml, src, nemu_config)
+            Self::from_file_aux(path.clone(), rank, yaml, src, makefile, nemu_config)
         })
     }
 
@@ -31,12 +33,13 @@ impl MayuriJob {
         rank: usize,
         yaml: Yaml,
         src: &MayuriSrc,
+        makefile: &MayuriMakefileExtracted,
         nemu_config: &NemuConfig,
     ) -> Self {
         Self {
             path,
             rank,
-            experiment: Experiment::new(&yaml, src, nemu_config),
+            experiment: Experiment::new(&yaml, src, makefile.clone(), nemu_config),
         }
     }
 }
@@ -47,7 +50,12 @@ pub struct MayuriJobs {
 }
 
 impl MayuriJobs {
-    pub(crate) fn from_dir(dir: PathBuf, src: &MayuriSrc, nemu_config: &NemuConfig) -> MayuriJobs {
+    pub(crate) fn from_dir(
+        dir: PathBuf,
+        src: &MayuriSrc,
+        makefile: &MayuriMakefileExtracted,
+        nemu_config: &NemuConfig,
+    ) -> MayuriJobs {
         let mut subjects = Vec::new();
 
         if let Ok(entries) = std::fs::read_dir(dir) {
@@ -57,7 +65,12 @@ impl MayuriJobs {
                         let path = entry.path();
                         if let Some(extension) = path.extension() {
                             if extension == "yaml" || extension == "yml" {
-                                subjects.extend(MayuriJob::from_file(path, src, nemu_config));
+                                subjects.extend(MayuriJob::from_file(
+                                    path,
+                                    src,
+                                    makefile,
+                                    nemu_config,
+                                ));
                             }
                         }
                     }

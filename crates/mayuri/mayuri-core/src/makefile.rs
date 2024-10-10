@@ -2,7 +2,7 @@ use crate::*;
 use husky_make_utils::extract::extract_makefile_rules;
 use std::path::Path;
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq, Eq, Clone, Hash)]
 pub struct MayuriMakefileExtracted {
     content: String,
 }
