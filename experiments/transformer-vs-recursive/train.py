@@ -154,15 +154,15 @@ def run_epoch(
 
                 micro_batch_loss = 0.0
                 for k, o, t, tl in zip(header, output_by_fields, target_by_fields, teacher_logits_by_fields):
-                    mask = t != -1
+                    mask = t > 0
                     
                     combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
                     _cnt = mask.sum()
                     cnt[k] += _cnt
                     
-                    micro_batch_loss += criterion(o, t) / _cnt
+                    micro_batch_loss += criterion(o[mask], t[mask]) / _cnt
                     if teacher_model is not None:
-                        micro_batch_loss += distillation_loss(o, tl) / _cnt
+                        micro_batch_loss += distillation_loss(o[mask], tl[mask]) / _cnt
                 
                 micro_batch_loss /= (_inputs.shape[0] - 1) // micro_batch_size + 1
                 if is_training:
