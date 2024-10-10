@@ -28,22 +28,19 @@ parser.add_argument('--gpu_id', type=int, default=0)
 parser.add_argument('--try_hidden_dim', type=int, default=None)
 args = parser.parse_args()
 
-dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
-                                        "mini-husky/basic",
-                                        f"dataset-{args.dataset}.json.gz"),
-                           desired_key="expected_type")
-header = dataset.header
-max_seq_len = ((dataset.get_max_len() - 1) // 512 + 1) * 512
+train_dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                              "mini-husky/basic",
+                                              f"dataset-{args.dataset}_train.json.gz"),
+                                 desired_key="expected_type")
+eval_dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                             "mini-husky/basic",
+                                             f"dataset-{args.dataset}_eval.json.gz"),
+                                desired_key="expected_type")
+header = train_dataset.header
+max_seq_len = ((max(train_dataset.get_max_len(),
+                    eval_dataset.get_max_len()) - 1) // 512 + 1) * 512
 
-# Split the dataset into training and validation sets
-train_size = int(0.8 * len(dataset))  # 80% for training
-val_size = len(dataset) - train_size  # Remaining for validation
-
-# Fix dataset
-set_seed(0)
-train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
-
-def run(config, train_dataset, val_dataset, header):
+def run(config, train_dataset, eval_dataset, header):
     set_seed(config["seed"])
 
     train_dataloader = DataLoader(
@@ -53,8 +50,8 @@ def run(config, train_dataset, val_dataset, header):
         collate_fn=custom_collate,
         num_workers=4,
     )
-    val_dataloader = DataLoader(
-        val_dataset,
+    eval_dataloader = DataLoader(
+        eval_dataset,
         batch_size=config["batch_size"],
         shuffle=False,
         collate_fn=custom_collate,
@@ -73,7 +70,7 @@ def run(config, train_dataset, val_dataset, header):
     print(f"Using device: {device}")
 
     # Model creation
-    model = CustomBERTModel(output_dim=sum(dataset.get_output_dims()), **config).to(device)
+    model = CustomBERTModel(output_dim=sum(train_dataset.get_output_dims()), **config).to(device)
 
     # Loss function and optimizers
     criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
@@ -82,7 +79,7 @@ def run(config, train_dataset, val_dataset, header):
 
     # Training
     print("Training Transformer...")
-    model = train_model(model=model, header=header, train_dataloader=train_dataloader, val_dataloader=val_dataloader, criterion=criterion, optimizer=optimizer, scheduler=scheduler, num_epochs=config["num_epochs"], micro_batch_size=config["micro_batch_size"], device=device, output_dims=dataset.get_output_dims(), logger=logger)
+    model = train_model(model=model, header=header, train_dataloader=train_dataloader, val_dataloader=eval_dataloader, criterion=criterion, optimizer=optimizer, scheduler=scheduler, num_epochs=config["num_epochs"], micro_batch_size=config["micro_batch_size"], device=device, output_dims=train_dataset.get_output_dims(), logger=logger)
 
     # Finish logging and save the model
     logger.finish()
@@ -106,7 +103,7 @@ for hidden_dim in ordered_search_space(search_space):
         "max_lr": max_lr,
         "warmup_iters": 990,
         "vocab_size": tokenizer.n_vocab,
-        "output_dims": dataset.get_output_dims(),
+        "output_dims": train_dataset.get_output_dims(),
         "hidden_dim": hidden_dim,
         "num_heads": 1,
         "num_layers": 8,
@@ -115,4 +112,4 @@ for hidden_dim in ordered_search_space(search_space):
     }
 
     # Run the training
-    run(config, train_dataset, val_dataset, header)
+    run(config, train_dataset, eval_dataset, header)

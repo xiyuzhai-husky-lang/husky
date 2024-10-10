@@ -98,12 +98,19 @@ class Function:
         self.last_called_step = last_called_step
 
 class BasicCodeGenerator:
-    def __init__(self, seed, min_dist, use_var_rate, error_rate):
+    def __init__(self, is_train, seed, min_dist, use_var_rate, error_rate):
+        if is_train:
+            self.func_names = FUNC_NAMES[:len(FUNC_NAMES) // 2]
+            self.var_names = VAR_NAMES[:len(VAR_NAMES) // 2]
+        else:
+            self.func_names = FUNC_NAMES[len(FUNC_NAMES) // 2:]
+            self.var_names = VAR_NAMES[len(VAR_NAMES) // 2:]
+
         self.rng = np.random.default_rng(seed)
         self.min_dist = min_dist
         self.use_var_rate = use_var_rate
         self.error_rate = error_rate
-        self.max_calls_per_fn = 10
+        self.max_calls_per_fn = 5
         self.used_fn_idx = []
         self.functions = []
         self.result = {
@@ -134,13 +141,13 @@ class BasicCodeGenerator:
         self.push_token("}", rcurl_kind)
 
     def gen_fn(self):
-        fn_idx = self.rng.integers(low=0, high=len(FUNC_NAMES))
+        fn_idx = self.rng.integers(low=0, high=len(self.func_names))
         while fn_idx in self.used_fn_idx:
-            fn_idx = self.rng.integers(low=0, high=len(FUNC_NAMES))
+            fn_idx = self.rng.integers(low=0, high=len(self.func_names))
         self.used_fn_idx.append(fn_idx)
-        fn_name = FUNC_NAMES[fn_idx]
+        fn_name = self.func_names[fn_idx]
         input_ty = self.rng.choice([Type.Bool, Type.Int, Type.Float]).item()
-        var_name = self.rng.choice(VAR_NAMES).item()
+        var_name = self.rng.choice(self.var_names).item()
 
         self.push_token("fn", AstKind.FnKeyword)
         self.push_token(fn_name, AstKind.FnEntityName, SymbolResolution.Fn)
@@ -209,16 +216,16 @@ class BasicCodeGenerator:
 from concurrent.futures import ProcessPoolExecutor
 from tqdm import tqdm
 
-def generate_code(seed, max_fns, min_dist, use_var_rate, error_rate):
+def generate_code(is_train, seed, max_fns, min_dist, use_var_rate, error_rate):
     """
     This function is a wrapper for the code generation process,
     designed to be called by each worker in the pool.
     """
-    bcg = BasicCodeGenerator(seed, min_dist, use_var_rate, error_rate)
+    bcg = BasicCodeGenerator(is_train, seed, min_dist, use_var_rate, error_rate)
     bcg.gen_fns(max_fns)
     return bcg.finish()
 
-def rnd_codes_parallel(n, max_fns, min_dist, use_var_rate, error_rate, workers=None):
+def rnd_codes_parallel(is_train, n, max_fns, min_dist, use_var_rate, error_rate, workers=None):
     """
     Generate random codes in parallel.
 
@@ -231,7 +238,7 @@ def rnd_codes_parallel(n, max_fns, min_dist, use_var_rate, error_rate, workers=N
     :return: List of generated codes.
     """
     # Tuple of arguments to pass to each parallel invocation
-    args = [(seed, max_fns, min_dist, use_var_rate, error_rate) for seed in range(n)]
+    args = [(is_train, seed, max_fns, min_dist, use_var_rate, error_rate) for seed in range(n)]
     
     # Use ProcessPoolExecutor to execute calls asynchronously
     with ProcessPoolExecutor(max_workers=workers) as executor:
