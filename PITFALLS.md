@@ -143,3 +143,7 @@ Maybe it got shadowed in the way.
 ### vm value not recorded
 
 crates/vmir/husky-vmir/src/expr.rs not using eval_expr_itself properly
+
+## raw string tabs
+
+vscode will convert tab into space even for raw string, be careful
