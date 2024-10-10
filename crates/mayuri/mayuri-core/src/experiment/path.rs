@@ -5,12 +5,7 @@ pub struct ExperimentPath {
     src_paths: ExperimentSrcPaths,
 }
 
-pub type ExperimentSrcPaths = OrderedVecPairMap<ExperimentSrcDestinationPath, ExperimentSrcOrigin>;
-
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ExperimentSrcOrigin {
-    relative_path: String,
-}
+pub type ExperimentSrcPaths = OrderedVecPairMap<ExperimentSrcDestinationPath, String>;
 
 impl ExperimentPath {
     pub fn new(yaml: &Yaml, nemu_config: &NemuConfig) -> Self {
@@ -21,7 +16,7 @@ impl ExperimentPath {
                 .map(|src_path| {
                     (
                         ExperimentSrcDestinationPath::new(src_path.path().to_string()),
-                        ExperimentSrcOrigin::new(src_path.path().to_string()),
+                        src_path.path().to_string(),
                     )
                 })
                 .chain(
@@ -36,9 +31,7 @@ impl ExperimentPath {
                                         .expect("invalid yaml, expected string")
                                         .to_string(),
                                 ),
-                                ExperimentSrcOrigin::new(
-                                    v.as_str().expect("invalid, expected string").to_string(),
-                                ),
+                                v.as_str().expect("invalid, expected string").to_string(),
                             )
                         }),
                 )
@@ -47,12 +40,4 @@ impl ExperimentPath {
     }
 }
 
-impl ExperimentSrcOrigin {
-    pub fn new(relative_path: String) -> Self {
-        Self { relative_path }
-    }
-
-    pub fn relative_path(&self) -> &str {
-        &self.relative_path
-    }
-}
+// ... existing code ...
