@@ -9,14 +9,18 @@ from models.rnn import SimpleRNN
 from train import train_model
 from utils import set_seed, custom_collate, linear_warmup_decay, Logger, ordered_search_space
 
+import tiktoken
+
 import os
 import pdb
+
+tokenizer = tiktoken.encoding_for_model("gpt2")
 
 HIDDEN_DIM_SPACE = list(range(8, 64 + 1, 8)) + [256]
 BATCH_SIZE = 512
 
 parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
-parser.add_argument('--dataset', type=str, default="n100000-f20-d5-v0.20-e0.50", help='Dataset to use')
+parser.add_argument('--dataset', type=str, default="n100000-f10-d3-v0.20-e0.50", help='Dataset to use')
 parser.add_argument('--num_epochs', type=int, default=50, help='Number of epochs to train')
 parser.add_argument('--seed', type=int, default=123, help='Random seed for initialization')
 parser.add_argument('--server_name', type=str, default="")
@@ -26,7 +30,8 @@ args = parser.parse_args()
 
 dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
                                         "mini-husky/basic",
-                                        f"dataset-{args.dataset}.msgpack"))
+                                        f"dataset-{args.dataset}.json.gz"),
+                           desired_key="expected_type")
 header = dataset.header
 
 # Split the dataset into train and validation sets
@@ -69,7 +74,7 @@ def run(config, train_dataset, val_dataset, header):
 
     # Create models
     model = SimpleRNN(
-        input_dim=len(dataset.vocab),
+        input_dim=config["vocab_size"],
         output_dim=sum(dataset.get_output_dims()),
         bidirectional=True,
         **config
@@ -124,6 +129,7 @@ for hidden_dim in ordered_search_space(search_space):
         "min_lr": min_lr,
         "max_lr": max_lr,
         "warmup_iters": 990,
+        "vocab_size": tokenizer.n_vocab,
         "hidden_dim": hidden_dim,
         "num_layers": 8,
     }
