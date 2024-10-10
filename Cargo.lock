@@ -8394,6 +8394,7 @@ dependencies = [
  "husky-yaml-utils",
  "idx-arena",
  "pathdiff",
+ "rustc-hash 2.0.0",
  "serde",
  "toml",
  "vec-like",
