@@ -21,6 +21,7 @@ idx-arena.workspace = true
 # utils
 husky-config-utils.workspace = true
 husky-sha-utils.workspace = true
+husky-make-utils.workspace = true
 husky-yaml-utils.workspace = true
 
 [dev-dependencies]
