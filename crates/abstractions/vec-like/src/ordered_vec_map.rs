@@ -241,10 +241,10 @@ where
 
     pub fn insert(&mut self, new: E)
     where
-        K: Ord + Copy,
+        K: Ord,
     {
-        let key = new.key();
-        match self.entries.binary_search_by(|e| e.key().cmp(&key)) {
+        let key = new.key_ref();
+        match self.entries.binary_search_by(|e| e.key_ref().cmp(&key)) {
             Ok(old) => (),
             Err(index) => self.entries.insert(index, new),
         }

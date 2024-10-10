@@ -3,12 +3,25 @@ use super::*;
 
 #[derive(Debug, Deserialize, PartialEq, Eq)]
 pub struct NemuConfig {
-    src: Vec<SrcFragment>,
+    #[serde(rename = "src")]
+    src_paths: Vec<SrcPath>,
 }
 
 #[derive(Debug, Deserialize, PartialEq, Eq)]
-pub struct SrcFragment {
+pub struct SrcPath {
     path: String,
+}
+
+impl SrcPath {
+    pub fn path(&self) -> &str {
+        &self.path
+    }
+}
+
+impl NemuConfig {
+    pub fn src_paths(&self) -> &[SrcPath] {
+        &self.src_paths
+    }
 }
 
 #[cfg(test)]
@@ -28,11 +41,11 @@ mod tests {
         let config: NemuConfig = toml::from_str(toml_str).unwrap();
 
         let expected_config = NemuConfig {
-            src: vec![
-                SrcFragment {
+            src_paths: vec![
+                SrcPath {
                     path: "main.py".to_string(),
                 },
-                SrcFragment {
+                SrcPath {
                     path: "eval.py".to_string(),
                 },
             ],
