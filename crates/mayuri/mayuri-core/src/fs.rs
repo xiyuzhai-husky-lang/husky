@@ -87,9 +87,9 @@ fn mayuri_fs_works() {
             src: MayuriSrc {
                 dir_path: "experiments/mayuri-prototype/src",
                 shas: {
-                    "visualize.py": MayuriCode {
-                        sha: Sha512Output(`967fef937b62d43ea3ef94de2c2b1c34b102563d41b281f6749b29660225de4f2df225137e54864544f59526bd77641ba40249f7ad60d5844001c9700331ea4e)`,
-                        content: "from dataset import Dataset\nfrom model import train_model\n\nif __name__ == \"__main__\":\n    # Generate a 2D Gaussian dataset\n    mean = (0, 0)\n    cov = [[1, 0.5], [0.5, 1]]\n    data = generate_2d_gaussian(n_samples=2000, mean=mean, cov=cov)\n\n    # Create data loaders\n    train_loader, val_loader, test_loader = create_data_loaders(data, batch_size=32)\n\n    print(f\"Number of batches in train_loader: {len(train_loader)}\")\n    print(f\"Number of batches in val_loader: {len(val_loader)}\")\n    print(f\"Number of batches in test_loader: {len(test_loader)}\")\n\n    # Plot the dataset\n    plot_2d_gaussian(data, title=\"2D Gaussian Distribution Example\")\n",
+                    "datasets/ring.py": MayuriCode {
+                        sha: Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
+                        content: "",
                     },
                     "models/fcn.py": MayuriCode {
                         sha: Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
@@ -103,9 +103,9 @@ fn mayuri_fs_works() {
                         sha: Sha512Output(`7cbf0959df339401c90023f3938cd7d621927086356104ec66c9cc023ea263ab2102ea79abe6e6d24a693ca8c22cb429a8c9e65558b3d0613bf0613b31e9d061)`,
                         content: "print(\"Hello world\")\n",
                     },
-                    "datasets/ring.py": MayuriCode {
-                        sha: Sha512Output(`1b7409ccf0d5a34d3a77eaabfa9fe27427655be9297127ee9522aa1bf4046d4f945983678169cb1a7348edcac47ef0d9e2c924130e5bcc5f0d94937852c42f1b)`,
-                        content: "",
+                    "visualize.py": MayuriCode {
+                        sha: Sha512Output(`967fef937b62d43ea3ef94de2c2b1c34b102563d41b281f6749b29660225de4f2df225137e54864544f59526bd77641ba40249f7ad60d5844001c9700331ea4e)`,
+                        content: "from dataset import Dataset\nfrom model import train_model\n\nif __name__ == \"__main__\":\n    # Generate a 2D Gaussian dataset\n    mean = (0, 0)\n    cov = [[1, 0.5], [0.5, 1]]\n    data = generate_2d_gaussian(n_samples=2000, mean=mean, cov=cov)\n\n    # Create data loaders\n    train_loader, val_loader, test_loader = create_data_loaders(data, batch_size=32)\n\n    print(f\"Number of batches in train_loader: {len(train_loader)}\")\n    print(f\"Number of batches in val_loader: {len(val_loader)}\")\n    print(f\"Number of batches in test_loader: {len(test_loader)}\")\n\n    # Plot the dataset\n    plot_2d_gaussian(data, title=\"2D Gaussian Distribution Example\")\n",
                     },
                 },
             },

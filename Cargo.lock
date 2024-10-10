@@ -5856,6 +5856,7 @@ dependencies = [
 name = "husky-make-utils"
 version = "0.1.0"
 dependencies = [
+ "expect-test",
  "makefile-lossless",
 ]
 

@@ -4049,6 +4049,8 @@
         relative_path: "crates/utils/husky-make-utils",
         dependencies: [
             "makefile-lossless",
+            "expect-test",
+            "tempfile",
         ],
     },
     PackageSummary {
