@@ -3830,6 +3830,7 @@
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
             "husky-config-utils",
+            "husky-make-utils",
             "husky-sha-utils",
             "husky-yaml-utils",
             "idx-arena",
@@ -3850,6 +3851,14 @@
             "serde",
             "toml",
             "yaml-rust2",
+        ],
+    },
+    PackageSummary {
+        name: "husky-make-utils",
+        relative_path: "crates/utils/husky-make-utils",
+        dependencies: [
+            "makefile-lossless",
+            "expect-test",
         ],
     },
     PackageSummary {
@@ -4042,15 +4051,6 @@
         relative_path: "crates/utils/husky-log-utils",
         dependencies: [
             "log",
-        ],
-    },
-    PackageSummary {
-        name: "husky-make-utils",
-        relative_path: "crates/utils/husky-make-utils",
-        dependencies: [
-            "makefile-lossless",
-            "expect-test",
-            "tempfile",
         ],
     },
     PackageSummary {
