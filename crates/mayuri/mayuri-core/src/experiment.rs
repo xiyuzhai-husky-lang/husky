@@ -2,6 +2,7 @@ use crate::*;
 use config::nemu::NemuConfig;
 use husky_sha_utils::Sha512Output;
 use husky_yaml_utils::ordered::OrderedYaml;
+use makefile::MayuriMakefileExtracted;
 use src::MayuriSrc;
 use vec_like::ordered_vec_map::OrderedVecPairMap;
 use yaml_rust2::Yaml;
@@ -10,6 +11,7 @@ use yaml_rust2::Yaml;
 pub struct Experiment {
     src: ExperimentSrc,
     config: OrderedYaml,
+    makefile: MayuriMakefileExtracted,
 }
 
 pub type ExperimentSrc = OrderedVecPairMap<ExperimentSrcDestinationPath, ExperimentSrcOrigin>;
@@ -47,7 +49,12 @@ impl ExperimentSrcOrigin {
 }
 
 impl Experiment {
-    pub(super) fn new(yaml: &Yaml, src: &MayuriSrc, nemu_config: &NemuConfig) -> Self {
+    pub(super) fn new(
+        yaml: &Yaml,
+        src: &MayuriSrc,
+        makefile: MayuriMakefileExtracted,
+        nemu_config: &NemuConfig,
+    ) -> Self {
         Self {
             src: yaml["src"]
                 .as_hash()
@@ -67,6 +74,7 @@ impl Experiment {
                     )
                 })
                 .collect(),
+            makefile,
             config: OrderedYaml::new(&yaml["config"]),
         }
     }
