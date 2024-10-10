@@ -12,7 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-serde.workspace = true
+serde = { workspace = true, features = ["rc"] }
 walkdir.workspace = true
 vec-like.workspace = true
 yaml-rust2.workspace = true
