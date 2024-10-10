@@ -69,7 +69,6 @@ mod tests {
     fn test_extract_makefile_rules() {
         let makefile_content = r#"
 .PHONY: build test clean
-
 build:
 	cargo build --release
 
