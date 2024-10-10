@@ -4,6 +4,7 @@ use std::fs;
 use std::ops::Index;
 use std::path::{Path, PathBuf};
 use std::{collections::HashMap, sync::Arc};
+use vec_like::ordered_vec_map::OrderedVecPairMap;
 use walkdir::WalkDir;
 
 #[derive(Debug)]
@@ -12,7 +13,7 @@ pub struct MayuriSrc {
     files: HashMap<String, MayuriSrcFile>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct MayuriSrcFile {
     pub content: Arc<String>,
 }
@@ -26,7 +27,7 @@ impl MayuriSrcFile {
 
 impl MayuriSrc {
     pub fn new(dir_path: PathBuf, allowed_exts: &[&str]) -> Result<Self, std::io::Error> {
-        let mut shas = HashMap::new();
+        let mut files = HashMap::default();
 
         for entry in WalkDir::new(&dir_path).into_iter().filter_map(|e| e.ok()) {
             let path = entry.path();
@@ -42,16 +43,13 @@ impl MayuriSrc {
                     .to_str()
                     .unwrap()
                     .to_string();
-                let mayuri_code = MayuriSrcFile::from_file(path)?;
-                let sha = mayuri_code.content.as_bytes().sha512();
-                shas.insert(relative_path, mayuri_code);
+                let src_file = MayuriSrcFile::from_file(path)?;
+                let sha = src_file.content.as_bytes().sha512();
+                files.insert(relative_path, src_file);
             }
         }
 
-        Ok(Self {
-            dir_path,
-            files: shas,
-        })
+        Ok(Self { dir_path, files })
     }
 }
 
