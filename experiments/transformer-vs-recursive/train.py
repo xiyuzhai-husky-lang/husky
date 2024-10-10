@@ -154,7 +154,7 @@ def run_epoch(
 
                 micro_batch_loss = 0.0
                 for k, o, t, tl in zip(header, output_by_fields, target_by_fields, teacher_logits_by_fields):
-                    mask = t != 0
+                    mask = t != -1
                     
                     combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
                     _cnt = mask.sum()
