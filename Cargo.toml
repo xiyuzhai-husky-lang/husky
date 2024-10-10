@@ -137,6 +137,7 @@ log = "0.4.22"
 lsp-server = "=0.7.0"
 lsp-types = { version = "=0.95.0", features = ["proposed"] }
 measureme = "12"
+makefile-lossless = "0.1.4"
 ndarray = "0.15.6"
 ndarray-stats = "0.5.1"
 once_cell = "1.19.0"

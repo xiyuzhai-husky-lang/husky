@@ -5853,6 +5853,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-make-utils"
+version = "0.1.0"
+dependencies = [
+ "makefile-lossless",
+]
+
+[[package]]
 name = "husky-manifest"
 version = "0.1.0"
 dependencies = [
@@ -8293,6 +8300,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "makefile-lossless"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c85e27a5f5acdf3f166adde6e63f540747a7306fe3bec2a118e599f3a97a9079"
+dependencies = [
+ "log",
+ "rowan",
+]
+
+[[package]]
 name = "malamute"
 version = "0.1.0"
 dependencies = [
@@ -10183,6 +10200,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "rowan"
+version = "0.15.16"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0a542b0253fa46e632d27a1dc5cf7b930de4df8659dc6e720b647fc72147ae3d"
+dependencies = [
+ "countme",
+ "hashbrown 0.14.5",
+ "rustc-hash 1.1.0",
+ "text-size",
+]
+
+[[package]]
 name = "rusqlite"
 version = "0.31.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11255,6 +11284,12 @@ dependencies = [
  "quote",
  "syn 2.0.76",
 ]
+
+[[package]]
+name = "text-size"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f18aa187839b2bdb1ad2fa35ead8c4c2976b64e4363c386d45ac0f7ee85c9233"
 
 [[package]]
 name = "textwrap"
