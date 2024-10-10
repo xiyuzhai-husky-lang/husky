@@ -73,7 +73,7 @@ def run(config, train_dataset, eval_dataset, header):
     model = CustomBERTModel(output_dim=sum(train_dataset.get_output_dims()), **config).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
+    criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = optim.Adam(model.parameters(), lr=1)
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=linear_warmup_decay(total_iters=config["num_epochs"] * len(train_dataloader), **config))
 
