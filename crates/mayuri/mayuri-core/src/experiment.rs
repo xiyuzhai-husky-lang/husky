@@ -6,7 +6,7 @@ use crate::{
     *,
 };
 use config::nemu::NemuConfig;
-use husky_sha_utils::Sha512Output;
+use husky_sha_utils::{Sha256Output, Sha512Output, ShaHash};
 use husky_yaml_utils::ordered::OrderedYaml;
 use makefile::MayuriMakefileExtracted;
 use vec_like::ordered_vec_map::OrderedVecPairMap;
@@ -15,8 +15,10 @@ use yaml_rust2::Yaml;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct Experiment {
     path: ExperimentPath,
+    path_sha256: Sha256Output,
     /// maps destination paths to files
     src_files: ExperimentSrcFiles,
+    src_files_sha512: Sha512Output,
     config: OrderedYaml,
     makefile: MayuriMakefileExtracted,
 }
@@ -30,27 +32,31 @@ impl Experiment {
         makefile: MayuriMakefileExtracted,
         nemu_config: &NemuConfig,
     ) -> Self {
+        let path = ExperimentPath::new(yaml, nemu_config);
+        let src_files: ExperimentSrcFiles = nemu_config
+            .src_paths()
+            .iter()
+            .map(|src_path| (src_path.path().to_string(), src[src_path.path()].clone()))
+            .chain(
+                yaml["src"]
+                    .as_hash()
+                    .expect("expected hash")
+                    .iter()
+                    .map(|(k, v)| {
+                        (
+                            k.as_str()
+                                .expect("invalid yaml, expected string")
+                                .to_string(),
+                            src[v.as_str().expect("invalid, expected string")].clone(),
+                        )
+                    }),
+            )
+            .collect();
         Self {
-            path: ExperimentPath::new(yaml, nemu_config),
-            src_files: nemu_config
-                .src_paths()
-                .iter()
-                .map(|src_path| (src_path.path().to_string(), src[src_path.path()].clone()))
-                .chain(
-                    yaml["src"]
-                        .as_hash()
-                        .expect("expected hash")
-                        .iter()
-                        .map(|(k, v)| {
-                            (
-                                k.as_str()
-                                    .expect("invalid yaml, expected string")
-                                    .to_string(),
-                                src[v.as_str().expect("invalid, expected string")].clone(),
-                            )
-                        }),
-                )
-                .collect(),
+            path_sha256: path.sha256(),
+            src_files_sha512: src_files.sha512(),
+            path,
+            src_files,
             makefile,
             config: OrderedYaml::new(&yaml["config"]),
         }
