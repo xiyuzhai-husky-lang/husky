@@ -14,7 +14,7 @@ keywords.workspace = true
 [dependencies]
 relative-path.workspace = true
 serde = { workspace = true, features = ["rc"] }
-serde_yaml.workspace = true
+serde_yml.workspace = true
 walkdir.workspace = true
 vec-like.workspace = true
 yaml-rust2.workspace = true

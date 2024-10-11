@@ -73,7 +73,7 @@ mod tests {
         b: 2
         "#;
 
-        let ordered: OrderedYaml = serde_yaml::from_str(yaml_str).unwrap();
+        let ordered: OrderedYaml = serde_yml::from_str(yaml_str).unwrap();
         // yaml_rust2::YamlLoader::load_from_str(yaml_str).unwrap();
 
         if let Yaml::Hash(hash) = &ordered.inner {
