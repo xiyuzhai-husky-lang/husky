@@ -121,7 +121,7 @@ futures-util = { version = "0.3", default-features = false, features = [
 ] }
 fxhash = "0.2.1"
 git2 = "0.18.3"
-hashlink = "0.9.0"
+hashlink = "0.9.1"
 heck = "0.5"
 hex = "0.4.3"
 hex-literal = "0.4.1"
@@ -173,6 +173,7 @@ rustc_version = "0.4"
 sealed = "0.5"
 serde = { version = "1.0.209", features = ["derive"] }
 serde_json = { version = "1.0.127", features = ["preserve_order"] }
+serde_yaml = { git = "https://github.com/xiyuzhai-husky-lang/serde-yaml.git" }
 serde_with = "3.9.0"
 sha2 = "0.10.8"
 similar = "2.6.0"

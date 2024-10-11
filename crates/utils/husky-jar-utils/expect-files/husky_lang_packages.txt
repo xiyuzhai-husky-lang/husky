@@ -3836,6 +3836,7 @@
             "idx-arena",
             "relative-path",
             "serde",
+            "serde_yaml",
             "vec-like",
             "walkdir",
             "yaml-rust2",
@@ -3878,6 +3879,9 @@
         name: "husky-yaml-utils",
         relative_path: "crates/utils/husky-yaml-utils",
         dependencies: [
+            "hashlink",
+            "serde",
+            "serde_yaml",
             "vec-like",
             "yaml-rust2",
         ],

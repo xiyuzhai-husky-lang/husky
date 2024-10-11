@@ -12,7 +12,10 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+hashlink.workspace = true
 yaml-rust2.workspace = true
+serde.workspace = true
+serde_yaml.workspace = true
 # abstractions
 vec-like.workspace = true
 
