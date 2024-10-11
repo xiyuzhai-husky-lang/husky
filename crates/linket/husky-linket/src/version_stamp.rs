@@ -45,7 +45,7 @@ impl HasVersionStamp for Linket {
 fn linket_version_stamp(db: &::salsa::Db, linket: Linket) -> LinketVersionStamp {
     let mut builder = LinketVersionStampBuilder::new(linket, db);
     match *linket.data(db) {
-        LinketData::MajorFunctionRitchie {
+        LinketData::MajorRitchie {
             path,
             ref instantiation,
         } => {

@@ -1441,7 +1441,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -1503,7 +1503,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -1623,7 +1623,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -1743,7 +1743,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -1895,7 +1895,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2082,7 +2082,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -3969,7 +3969,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MajorFunctionRitchie {
+                                data: LinketData::MajorRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),

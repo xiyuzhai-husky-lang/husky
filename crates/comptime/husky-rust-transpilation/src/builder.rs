@@ -424,7 +424,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         self.extension.stmt_arena(self.db)
     }
 
-    fn hir_template_svar(&mut self, symbol: impl Into<HirTemplateVariable>) {
+    fn hir_template_variable(&mut self, symbol: impl Into<HirTemplateVariable>) {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
@@ -550,8 +550,6 @@ impl<E> TranspileToRustWith<E> for HirTemplateVariable {
                     _ => todo!(),
                 },
                 HirTypeTemplateVariable::SelfType => builder.write_str("This"),
-                HirTypeTemplateVariable::SelfLifetime => todo!(),
-                HirTypeTemplateVariable::SelfPlace => todo!(),
             },
             HirTemplateVariable::Compterm(_) => todo!(),
             HirTemplateVariable::Lifetime(_) => todo!(),

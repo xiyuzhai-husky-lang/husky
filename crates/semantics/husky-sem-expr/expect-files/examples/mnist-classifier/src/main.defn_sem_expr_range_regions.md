@@ -136,7 +136,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [],
+            pattern_ranges: [],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(

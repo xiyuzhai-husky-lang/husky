@@ -1,5 +1,5 @@
 use super::*;
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __two_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -12,7 +12,7 @@ pub static mut __two_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface
 pub fn two_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __left_cc_pattern__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -22,7 +22,7 @@ pub fn left_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __right_cc_pattern__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -32,7 +32,7 @@ pub fn right_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component:
     require!(dp.y > 0.0f32);
     Some(dp.y)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __down_cc_pattern__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -42,7 +42,7 @@ pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::
     require!(dp.x > 0.0f32);
     Some(dp.x)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __is_two__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

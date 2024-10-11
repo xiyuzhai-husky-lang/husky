@@ -1,5 +1,5 @@
 use super::*;
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __left_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -12,7 +12,7 @@ pub static mut __left_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInt
 pub fn left_components() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __left_coordinate_max__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -20,7 +20,7 @@ pub static mut __left_coordinate_max__ITEM_PATH_ID_INTERFACE: Option<__ItemPathI
 pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().xmax())
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __components_max_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -33,7 +33,7 @@ pub static mut __components_max_downwards__ITEM_PATH_ID_INTERFACE: Option<__Item
 pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __components_max_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -46,7 +46,7 @@ pub static mut __components_max_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPa
 pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __is_four__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -83,7 +83,7 @@ pub fn is_four() -> malamute::OneVsAll {
     }
     OneVsAll::Yes
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __displacement_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -93,7 +93,7 @@ pub fn displacement_downwards(cc: Leash<crate::line_segment_sketch::concave_comp
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __cc_box_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

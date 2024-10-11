@@ -48,7 +48,7 @@ husky-entity-kind.workspace = true
 husky-ast.workspace = true
 husky-opr.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 husky-devsoul.workspace = true
 # utils
 husky-check-utils.workspace = true
