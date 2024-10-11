@@ -1,4 +1,6 @@
 //! Nemu is like Cargo, the manager of things
+use relative_path::RelativePath;
+
 use super::*;
 
 #[derive(Debug, Deserialize, PartialEq, Eq)]
@@ -9,12 +11,17 @@ pub struct NemuConfig {
 
 #[derive(Debug, Deserialize, PartialEq, Eq)]
 pub struct SrcPath {
-    path: String,
+    #[serde(rename = "path")]
+    path_str: String,
 }
 
 impl SrcPath {
-    pub fn path(&self) -> &str {
-        &self.path
+    pub fn path(&self) -> &RelativePath {
+        RelativePath::new(&self.path_str)
+    }
+
+    pub fn path_str(&self) -> &str {
+        &self.path_str
     }
 }
 
@@ -43,10 +50,10 @@ mod tests {
         let expected_config = NemuConfig {
             src_paths: vec![
                 SrcPath {
-                    path: "main.py".to_string(),
+                    path_str: "main.py".to_string(),
                 },
                 SrcPath {
-                    path: "eval.py".to_string(),
+                    path_str: "eval.py".to_string(),
                 },
             ],
         };
