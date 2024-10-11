@@ -1,7 +1,9 @@
 use crate::*;
 use config::nemu::NemuConfig;
 use experiment::Experiment;
+use husky_yaml_utils::ordered::OrderedYaml;
 use makefile::MayuriMakefileExtracted;
+use serde::Deserialize;
 use src::MayuriSrc;
 use std::path::PathBuf;
 use yaml_rust2::Yaml;
@@ -10,7 +12,14 @@ use yaml_rust2::Yaml;
 pub struct MayuriJob {
     path: PathBuf,
     rank: usize,
+    // TODO: change to data: MayuriJobData
     experiment: Experiment,
+}
+
+#[derive(Deserialize)]
+struct MayuriJobYaml {
+    confgi: OrderedYaml,
+    deps: Vec<String>,
 }
 
 impl MayuriJob {
