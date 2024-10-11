@@ -1287,7 +1287,7 @@
         ],
     },
     JarPackageSummary {
-        name: "husky-namekian-ast",
+        name: "namekian-ast",
         dependencies: [],
     },
 ]

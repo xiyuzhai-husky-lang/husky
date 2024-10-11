@@ -74,22 +74,22 @@ impl TestDomainsConfig {
             TestDomainsConfigImpl::All => {
                 vec![
                     TestDomain::new(
-                        paths.lang_dev_library_dir().to_owned(),
+                        paths.library_dir().to_owned(),
                         cargo_manifest_dir.join("expect-files/library"),
                         None,
                     ),
                     TestDomain::new(
-                        paths.lang_dev_examples_dir().to_owned(),
+                        paths.examples_dir().to_owned(),
                         cargo_manifest_dir.join("expect-files/anti-examples"),
                         Some(cargo_manifest_dir.join("adversarials/anti-examples")),
                     ),
                     TestDomain::new(
-                        paths.lang_dev_examples_dir().to_owned(),
+                        paths.examples_dir().to_owned(),
                         cargo_manifest_dir.join("expect-files/examples"),
                         Some(cargo_manifest_dir.join("adversarials/examples")),
                     ),
                     TestDomain::new(
-                        paths.lang_dev_registry_dir().to_owned(),
+                        paths.registry_dir().to_owned(),
                         cargo_manifest_dir.join("expect-files/registry"),
                         Some(cargo_manifest_dir.join("adversarials/registry")),
                     ),
@@ -98,19 +98,19 @@ impl TestDomainsConfig {
             TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples => {
                 vec![
                     TestDomain::new(
-                        paths.lang_dev_examples_dir().to_owned(),
+                        paths.examples_dir().to_owned(),
                         cargo_manifest_dir.join("expect-files/examples"),
                         Some(cargo_manifest_dir.join("adversarials/examples")),
                     ),
                     TestDomain::new(
-                        paths.lang_dev_registry_dir().to_owned(),
+                        paths.registry_dir().to_owned(),
                         cargo_manifest_dir.join("expect-files/registry"),
                         Some(cargo_manifest_dir.join("adversarials/registry")),
                     ),
                 ]
             }
             TestDomainsConfigImpl::ExamplesOnly => vec![TestDomain::new(
-                paths.lang_dev_examples_dir().to_owned(),
+                paths.examples_dir().to_owned(),
                 cargo_manifest_dir.join("expect-files/examples"),
                 Some(cargo_manifest_dir.join("adversarials/examples")),
             )],

@@ -101,7 +101,6 @@
     "husky-manifest-ast": {
         "husky-toml-ast",
     },
-    "husky-namekian-ast": {},
     "husky-place": {
         "husky-eth-term",
     },
@@ -176,4 +175,5 @@
     "husky-vmir": {
         "husky-ki-repr",
     },
+    "namekian-ast": {},
 }

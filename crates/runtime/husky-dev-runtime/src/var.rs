@@ -67,7 +67,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
         let db = self.db();
         let mut locked1 = locked.clone();
-        locked1.insert_new(item_path_id_interface).unwrap();
+        locked1
+            .insert_new(item_path_id_interface)
+            .expect("`locked` shouldn't contain `item_path_id_interface`");
         let path_id: ItemPathId = item_path_id_interface.into();
         let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path_id.item_path(db)
         else {
@@ -99,12 +101,18 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
         let db = self.db();
         match var_paths.next() {
-            Some(var_path) => self
-                .with_default_var_id(var_path, &locked, |default_var_id, locked| {
-                    pedestal.insert(var_path, default_var_id);
+            Some(var_path) => {
+                if locked.has(var_path) {
+                    // ignore this `var_path` because it has already be initialized
                     self.with_default_var_ids_aux(var_paths, pedestal, locked, f)
-                })
-                .flatten(),
+                } else {
+                    self.with_default_var_id(var_path, &locked, |default_var_id, locked| {
+                        pedestal.insert(var_path, default_var_id);
+                        self.with_default_var_ids_aux(var_paths, pedestal, locked, f)
+                    })
+                    .flatten()
+                }
+            }
             None => Ok(f(pedestal, locked)),
         }
     }

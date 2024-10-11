@@ -2085,6 +2085,16 @@
         ],
     },
     PackageSummary {
+        name: "husky-db-viewer",
+        relative_path: "crates/apps/husky-db-viewer",
+        dependencies: [
+            "eframe",
+            "egui",
+            "rfd",
+            "rusqlite",
+        ],
+    },
+    PackageSummary {
         name: "husky-mnist-classifier-developer",
         relative_path: "crates/apps/husky-mnist-classifier-developer",
         dependencies: [
@@ -3558,11 +3568,11 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-cybertron",
-        relative_path: "crates/cybertron/husky-cybertron",
+        name: "cybertron",
+        relative_path: "crates/cybertron/cybertron",
         dependencies: [
             "bounded-vec",
-            "husky-cybertron-macros",
+            "cybertron-macros",
             "husky-decl-macro-utils",
             "husky-fmt-utils",
             "husky-print-utils",
@@ -3574,8 +3584,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-macros",
-        relative_path: "crates/cybertron/husky-cybertron-macros",
+        name: "cybertron-macros",
+        relative_path: "crates/cybertron/cybertron-macros",
         dependencies: [
             "husky-proc-macro-utils",
             "quote",
@@ -3583,12 +3593,12 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-mini-husky-compiler",
-        relative_path: "crates/cybertron/husky-cybertron-mini-husky-compiler",
+        name: "cybertron-mini-husky-compiler",
+        relative_path: "crates/cybertron/cybertron-mini-husky-compiler",
         dependencies: [
+            "cybertron",
             "enum-class",
             "expect-test",
-            "husky-cybertron",
             "husky-debug-utils",
             "husky-print-utils",
             "husky-rng-utils",
@@ -3604,8 +3614,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-mini-lean-compiler",
-        relative_path: "crates/cybertron/husky-cybertron-mini-lean-compiler",
+        name: "cybertron-mini-lean-compiler",
+        relative_path: "crates/cybertron/cybertron-mini-lean-compiler",
         dependencies: [],
     },
     PackageSummary {
@@ -3780,23 +3790,23 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-ast",
-        relative_path: "crates/lean/husky-lean-ast",
+        name: "lean-ast",
+        relative_path: "crates/lean/lean-ast",
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-sem-expr",
-        relative_path: "crates/lean/husky-lean-sem-expr",
+        name: "lean-sem-expr",
+        relative_path: "crates/lean/lean-sem-expr",
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-syn-expr",
-        relative_path: "crates/lean/husky-lean-syn-expr",
+        name: "lean-syn-expr",
+        relative_path: "crates/lean/lean-syn-expr",
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-lean-token",
-        relative_path: "crates/lean/husky-lean-token",
+        name: "lean-token",
+        relative_path: "crates/lean/lean-token",
         dependencies: [],
     },
     PackageSummary {
@@ -3816,8 +3826,75 @@
         ],
     },
     PackageSummary {
-        name: "husky-mayuri-prototype",
-        relative_path: "crates/mayuri/husky-mayuri-prototype",
+        name: "mayuri-core",
+        relative_path: "crates/mayuri/mayuri-core",
+        dependencies: [
+            "husky-config-utils",
+            "husky-make-utils",
+            "husky-sha-utils",
+            "husky-yaml-utils",
+            "idx-arena",
+            "relative-path",
+            "rustc-hash",
+            "serde",
+            "vec-like",
+            "walkdir",
+            "yaml-rust2",
+            "expect-test",
+            "husky-path-utils",
+            "pathdiff",
+            "toml",
+        ],
+    },
+    PackageSummary {
+        name: "husky-config-utils",
+        relative_path: "crates/utils/husky-config-utils",
+        dependencies: [
+            "serde",
+            "toml",
+            "yaml-rust2",
+        ],
+    },
+    PackageSummary {
+        name: "husky-make-utils",
+        relative_path: "crates/utils/husky-make-utils",
+        dependencies: [
+            "makefile-lossless",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "husky-sha-utils",
+        relative_path: "crates/utils/husky-sha-utils",
+        dependencies: [
+            "crypto-common",
+            "hex",
+            "sealed",
+            "sha2",
+            "hex",
+            "hex-literal",
+        ],
+    },
+    PackageSummary {
+        name: "husky-yaml-utils",
+        relative_path: "crates/utils/husky-yaml-utils",
+        dependencies: [
+            "vec-like",
+            "yaml-rust2",
+        ],
+    },
+    PackageSummary {
+        name: "mayuri-genetic-algorithms",
+        relative_path: "crates/mayuri/mayuri-genetic-algorithms",
+        dependencies: [
+            "rand",
+            "rand_chacha",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "mayuri-plot",
+        relative_path: "crates/mayuri/mayuri-plot",
         dependencies: [],
     },
     PackageSummary {
@@ -3831,8 +3908,8 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-namekian-ast",
-        relative_path: "crates/namekian/husky-namekian-ast",
+        name: "namekian-ast",
+        relative_path: "crates/namekian/namekian-ast",
         dependencies: [
             "husky-text-protocol",
             "idx-arena",
@@ -3841,8 +3918,8 @@
         ],
     },
     PackageSummary {
-        name: "husky-namekian-grammar-rules",
-        relative_path: "crates/namekian/husky-namekian-grammar-rules",
+        name: "namekian-grammar-rules",
+        relative_path: "crates/namekian/namekian-grammar-rules",
         dependencies: [],
     },
     PackageSummary {
@@ -3851,7 +3928,7 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-cybertron-prototype",
+        name: "cybertron-prototype",
         relative_path: "crates/prototypes/husky-cybertron-prototype",
         dependencies: [
             "husky-text-protocol",
