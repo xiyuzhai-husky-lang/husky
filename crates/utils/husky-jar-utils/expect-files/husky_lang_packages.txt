@@ -3836,7 +3836,6 @@
             "idx-arena",
             "relative-path",
             "serde",
-            "serde_yml",
             "vec-like",
             "walkdir",
             "yaml-rust2",
@@ -3883,7 +3882,6 @@
             "serde",
             "vec-like",
             "yaml-rust2",
-            "serde_yml",
         ],
     },
     PackageSummary {
