@@ -4,7 +4,7 @@ use std::path::Path;
 
 pub fn set_up_gitignore(root: &Path, append: bool) -> io::Result<()> {
     let gitignore_path = root.join(".gitignore");
-    let required_patterns = vec!["env", "experiments/untracked"];
+    let required_patterns = vec!["env", "experiments/.local", "tests/.local"];
 
     if gitignore_path.exists() {
         let file = fs::File::open(&gitignore_path)?;

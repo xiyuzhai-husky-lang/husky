@@ -16,4 +16,8 @@ impl MayuriMakefileExtracted {
         let content = Arc::new(extract_makefile_rules(makefile_path, rules)?);
         Ok(Self { content })
     }
+
+    pub fn content(&self) -> &str {
+        &self.content
+    }
 }

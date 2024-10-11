@@ -3,12 +3,13 @@ use config::nemu::NemuConfig;
 use experiment::Experiment;
 use makefile::MayuriMakefileExtracted;
 use src::MayuriSrc;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use yaml_rust2::Yaml;
 
 #[derive(Debug)]
 pub struct MayuriTest {
     path: PathBuf,
+    name: String,
     rank: usize,
     experiment: Experiment,
 }
@@ -40,6 +41,7 @@ impl MayuriTest {
             path,
             rank,
             experiment: Experiment::new(&yaml, src, makefile.clone(), nemu_config),
+            name: yaml["name"].as_str().unwrap().to_string(),
         }
     }
 }
@@ -81,13 +83,13 @@ impl MayuriTests {
         Self { tests: subjects }
     }
 
-    pub(crate) fn run_all(&self) {
-        self.tests.iter().for_each(|test| test.run());
+    pub(crate) fn run_all(&self, tests_local_dir: &Path) {
+        self.tests.iter().for_each(|test| test.run(tests_local_dir));
     }
 }
 
 impl MayuriTest {
-    fn run(&self) {
-        todo!()
+    fn run(&self, tests_local_dir: &Path) {
+        self.experiment.run_local(tests_local_dir, Some(&self.name))
     }
 }
