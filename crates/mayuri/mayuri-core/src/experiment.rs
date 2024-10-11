@@ -41,7 +41,7 @@ impl Experiment {
         makefile: MayuriMakefileExtracted,
         nemu_config: &NemuConfig,
     ) -> Self {
-        let config = OrderedYaml::new(&yaml["config"]);
+        let config = OrderedYaml::new(yaml["config"].clone());
         let path = ExperimentGene::new(yaml, config.clone(), nemu_config);
         let src_files: ExperimentSrcFiles = nemu_config
             .src_paths()
