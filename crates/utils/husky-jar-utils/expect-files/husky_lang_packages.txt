@@ -3835,7 +3835,6 @@
             "husky-yaml-utils",
             "idx-arena",
             "relative-path",
-            "rustc-hash",
             "serde",
             "vec-like",
             "walkdir",

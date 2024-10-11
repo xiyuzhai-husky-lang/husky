@@ -8395,7 +8395,6 @@ dependencies = [
  "idx-arena",
  "pathdiff",
  "relative-path",
- "rustc-hash 2.0.0",
  "serde",
  "toml",
  "vec-like",

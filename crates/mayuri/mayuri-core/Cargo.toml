@@ -13,7 +13,6 @@ keywords.workspace = true
 
 [dependencies]
 relative-path.workspace = true
-rustc-hash.workspace = true
 serde = { workspace = true, features = ["rc"] }
 walkdir.workspace = true
 vec-like.workspace = true
