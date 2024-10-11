@@ -18,8 +18,5 @@ serde.workspace = true
 # abstractions
 vec-like.workspace = true
 
-[dev-dependencies]
-serde_yml.workspace = true
-
 [lints]
 workspace = true
