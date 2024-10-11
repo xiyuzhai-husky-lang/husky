@@ -717,7 +717,6 @@
     "husky-toml-token",
     "husky-vfs"
   ],
-  "husky-namekian-ast": [],
   "husky-place": [
     "husky-ast",
     "husky-corgi-config",
@@ -1167,5 +1166,6 @@
     "husky-toml-ast",
     "husky-toml-token",
     "husky-vfs"
-  ]
+  ],
+  "namekian-ast": []
 }

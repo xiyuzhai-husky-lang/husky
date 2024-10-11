@@ -7,7 +7,7 @@ where
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(in crate::view) fn render_figure(&mut self, ui: &mut egui::Ui) {
+    pub(crate) fn render_figure(&mut self, ui: &mut egui::Ui) {
         let visual_synchrotron = self.trace_synchrotron.visual_synchrotron();
         SidePanel::right(ui.auto_id_with("central_right"))
             .frame(Frame::none().inner_margin(0.0))
