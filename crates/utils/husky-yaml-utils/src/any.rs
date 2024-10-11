@@ -292,7 +292,7 @@ mod tests {
         c: 3
         "#;
 
-        let ordered: AnyYaml = serde_yaml::from_str(yaml_str).unwrap();
+        let ordered: AnyYaml = serde_yml::from_str(yaml_str).unwrap();
 
         if let Yaml::Hash(hash) = &ordered.inner {
             let keys: Vec<_> = hash.keys().map(|k| k.as_str().unwrap()).collect();
@@ -310,7 +310,7 @@ mod tests {
         - cherry
         "#;
 
-        let ordered: AnyYaml = serde_yaml::from_str(yaml_str).unwrap();
+        let ordered: AnyYaml = serde_yml::from_str(yaml_str).unwrap();
 
         if let Yaml::Array(array) = &ordered.inner {
             let items: Vec<_> = array.iter().map(|i| i.as_str().unwrap()).collect();
@@ -331,7 +331,7 @@ mod tests {
             - cycling
         "#;
 
-        let ordered: AnyYaml = serde_yaml::from_str(yaml_str).unwrap();
+        let ordered: AnyYaml = serde_yml::from_str(yaml_str).unwrap();
 
         if let Yaml::Hash(hash) = &ordered.inner {
             if let Yaml::Hash(person) = &hash[&Yaml::String("person".to_string())] {
@@ -364,7 +364,7 @@ mod tests {
         null_value: null
         "#;
 
-        let ordered: AnyYaml = serde_yaml::from_str(yaml_str).unwrap();
+        let ordered: AnyYaml = serde_yml::from_str(yaml_str).unwrap();
 
         if let Yaml::Hash(hash) = &ordered.inner {
             assert_eq!(
@@ -414,7 +414,7 @@ mod tests {
               - Mobile
         "#;
 
-        let ordered: AnyYaml = serde_yaml::from_str(yaml_str).unwrap();
+        let ordered: AnyYaml = serde_yml::from_str(yaml_str).unwrap();
 
         if let Yaml::Hash(hash) = &ordered.inner {
             // Check company details

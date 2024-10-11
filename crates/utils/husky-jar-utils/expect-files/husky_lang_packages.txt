@@ -3836,7 +3836,7 @@
             "idx-arena",
             "relative-path",
             "serde",
-            "serde_yaml",
+            "serde_yml",
             "vec-like",
             "walkdir",
             "yaml-rust2",
@@ -3881,9 +3881,9 @@
         dependencies: [
             "hashlink",
             "serde",
-            "serde_yaml",
             "vec-like",
             "yaml-rust2",
+            "serde_yml",
         ],
     },
     PackageSummary {
