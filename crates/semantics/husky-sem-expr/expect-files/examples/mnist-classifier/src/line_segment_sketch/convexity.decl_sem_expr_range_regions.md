@@ -40,7 +40,7 @@
                     ),
                 },
             ],
-            pattern_expr_ranges: [
+            pattern_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(

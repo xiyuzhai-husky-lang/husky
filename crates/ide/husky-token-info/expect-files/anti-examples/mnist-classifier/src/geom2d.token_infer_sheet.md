@@ -667,7 +667,24 @@ Ok(
                     data: TokenInfoData::CallPar,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -686,7 +703,24 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -711,8 +745,42 @@ Ok(
                     },
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -760,7 +828,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -779,7 +864,24 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -804,8 +906,42 @@ Ok(
                     },
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+                        ),
+                        SemExprIdx(
+                            12,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1381,7 +1517,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1463,7 +1616,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1608,7 +1778,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1646,7 +1833,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1684,7 +1888,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1722,7 +1943,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1760,7 +1998,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -2945,7 +3200,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::to`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3027,7 +3299,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::to`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3172,7 +3461,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3210,7 +3516,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3248,7 +3571,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3286,7 +3626,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3324,7 +3681,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -3541,7 +3915,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3585,7 +3976,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3623,7 +4031,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3862,7 +4287,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3906,7 +4348,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3944,7 +4403,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4170,7 +4646,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4208,7 +4701,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4248,7 +4758,24 @@ Ok(
             ],
             [],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -4313,7 +4840,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            22,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4332,7 +4876,24 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            12,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4419,7 +4980,24 @@ Ok(
             ],
             [],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            22,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4478,7 +5056,24 @@ Ok(
             ],
             [],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            21,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4525,8 +5120,42 @@ Ok(
                     ),
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            22,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            48,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            25,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4572,7 +5201,24 @@ Ok(
             ],
             [],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            27,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -4591,7 +5237,24 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+                        ),
+                        SemExprIdx(
+                            29,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5168,7 +5831,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5281,7 +5961,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5324,7 +6021,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            18,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5388,8 +6102,42 @@ Ok(
                 },
             ],
             [],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            17,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            16,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5414,7 +6162,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5439,8 +6204,42 @@ Ok(
                     },
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            40,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            16,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            41,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            18,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -5505,7 +6304,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            49,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            23,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5524,7 +6340,24 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            25,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5635,7 +6468,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            67,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            35,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5699,7 +6549,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            74,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            34,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5746,8 +6613,42 @@ Ok(
                     ),
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            76,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            35,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            77,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            38,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5817,7 +6718,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            84,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            41,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -5836,7 +6754,24 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            86,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
+                        ),
+                        SemExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6279,7 +7214,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6378,7 +7330,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6440,7 +7409,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            22,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6484,7 +7470,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6522,8 +7525,42 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            30,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            31,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            17,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6572,7 +7609,24 @@ Ok(
                 },
             ],
             [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            23,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6616,7 +7670,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            40,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            22,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6654,8 +7725,42 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            23,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+                        ),
+                        SemExprIdx(
+                            25,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7031,7 +8136,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7069,7 +8191,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterLpar,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7094,7 +8233,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
+                        ),
+                        SemExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7132,8 +8288,42 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::DelimiterRpar,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
+                        ),
+                        SemExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(

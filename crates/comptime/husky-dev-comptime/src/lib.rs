@@ -11,7 +11,7 @@ use husky_ki_repr::{
     var_deps::KiVarDeps,
 };
 use husky_linket::linket::Linket;
-use husky_linket_impl::eval_context::IsDevRuntimeInterfaceDyn;
+use husky_linket_impl::dev_eval_context::IsDevRuntimeInterfaceDyn;
 use husky_linktime::IsLinktime;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_toolchain_config::toolchain_config;

@@ -1046,7 +1046,24 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1907,7 +1924,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            80,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
+                        ),
+                        SemExprIdx(
+                            28,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -1957,7 +1991,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            84,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
+                        ),
+                        SemExprIdx(
+                            31,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2620,7 +2671,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            59,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
+                        ),
+                        SemExprIdx(
+                            25,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -2733,7 +2801,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            69,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
+                        ),
+                        SemExprIdx(
+                            28,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3565,7 +3650,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            73,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
+                        ),
+                        SemExprIdx(
+                            30,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3678,7 +3780,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            83,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
+                        ),
+                        SemExprIdx(
+                            36,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3791,7 +3910,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            93,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
+                        ),
+                        SemExprIdx(
+                            42,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -3904,7 +4040,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            103,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
+                        ),
+                        SemExprIdx(
+                            48,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6197,8 +6350,42 @@ Ok(
                 },
             ],
             [],
-            [],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListLbox,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::NewListRbox,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -6398,7 +6585,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            12,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -6424,7 +6628,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            18,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -6588,7 +6809,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::SuffixOpr,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -6662,7 +6900,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            26,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6687,7 +6942,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            55,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            25,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6738,7 +7010,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            60,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            31,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6763,7 +7052,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            62,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            30,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -6788,7 +7094,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            64,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            37,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -6952,7 +7275,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            74,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            39,
+                        ),
+                    ),
+                    data: TokenInfoData::SuffixOpr,
+                },
+            ],
             [],
             [
                 TokenInfo {
@@ -6978,7 +7318,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            77,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            44,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7003,7 +7360,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            79,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7312,7 +7686,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            103,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            57,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7361,7 +7752,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            106,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            62,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(
@@ -7386,7 +7794,24 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            108,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
+                        ),
+                        SemExprIdx(
+                            61,
+                        ),
+                    ),
+                    data: TokenInfoData::BinaryOpr,
+                },
+            ],
             [
                 TokenInfo {
                     regional_token_idx: Some(

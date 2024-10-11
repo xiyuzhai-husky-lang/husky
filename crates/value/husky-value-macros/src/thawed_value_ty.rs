@@ -104,34 +104,6 @@ pub(crate) fn thawed_value_ty(
 
         // repeat the above code with type u8 replaced by u8~u128,usize, i8~i128,isze
 
-
-        // impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp __T where __T: Thawed {
-        //     fn from_thawed_value_aux(value: #thawed_value_ty, slush_values: Option<&mut SlushValues>) -> Self {
-        //         value.into_ref(slush_values)
-        //     }
-        // }
-
-        // impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp __T where __T: Thawed {
-        //     fn into_thawed_value(self) -> #thawed_value_ty {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp __T")
-        //     }
-        // }
-
-        // impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut __T where __T: Thawed {
-        //     fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut __T")
-        //     }
-        // }
-
-        // impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut __T where __T: Thawed {
-        //     fn into_thawed_value(self) -> #thawed_value_ty {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut __T")
-        //     }
-        // }
-
         impl #generics_with_t #from_thawed_value_trai for Option<__T> where __T: Thawed {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
@@ -184,34 +156,6 @@ pub(crate) fn thawed_value_ty(
                 #thawed_value_ty::from_owned(self)
             }
         }
-
-        // impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp [__T] where __T: Thawed {
-        //     fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp [__T]")
-        //     }
-        // }
-
-        // impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp [__T] where __T: Thawed {
-        //     fn into_thawed_value(self) -> #thawed_value_ty {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp [__T]")
-        //     }
-        // }
-
-        // impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut [__T] where __T: Thawed {
-        //     fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut [__T]")
-        //     }
-        // }
-
-        // impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut [__T] where __T: Thawed {
-        //     fn into_thawed_value(self) -> #thawed_value_ty {
-        //         println!("__T typename = {}", std::any::type_name::<__T>());
-        //         todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut [__T]")
-        //     }
-        // }
 
         impl<C, B> #from_thawed_value_trai for std::ops::ControlFlow<B, C> {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {

@@ -146,7 +146,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                 Fn,
             )`),
@@ -200,7 +200,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                 Fn,
             )`),
@@ -215,7 +215,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                 Fn,
             )`),
@@ -632,7 +632,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                 Fn,
             )`),
@@ -647,7 +647,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                 Fn,
             )`),
@@ -662,7 +662,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                 Fn,
             )`),
@@ -677,7 +677,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                 Fn,
             )`),
@@ -692,7 +692,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                 Fn,
             )`),
@@ -707,7 +707,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                 Fn,
             )`),
@@ -779,7 +779,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                 Fn,
             )`),
@@ -794,7 +794,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                 Fn,
             )`),
@@ -1935,7 +1935,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                 Fn,
             )`),
@@ -1950,7 +1950,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                 Fn,
             )`),
@@ -1965,7 +1965,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                 Fn,
             )`),
@@ -1980,7 +1980,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                 Fn,
             )`),
@@ -1995,7 +1995,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                 Fn,
             )`),
@@ -2173,7 +2173,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                 Fn,
             )`),
@@ -2497,7 +2497,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                 Fn,
             )`),
@@ -2670,7 +2670,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                 Fn,
             )`),
@@ -2758,7 +2758,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                 Fn,
             )`),
@@ -2812,7 +2812,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                 Fn,
             )`),
@@ -2827,7 +2827,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                 Fn,
             )`),
@@ -2842,7 +2842,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                 Fn,
             )`),
@@ -2896,7 +2896,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                 Fn,
             )`),
@@ -2911,7 +2911,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                 Fn,
             )`),
@@ -2952,7 +2952,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                 Fn,
             )`),
@@ -2967,7 +2967,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                 Fn,
             )`),
@@ -2982,7 +2982,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                 Fn,
             )`),
@@ -3010,7 +3010,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                 Fn,
             )`),
@@ -3064,7 +3064,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                 Fn,
             )`),
@@ -3079,7 +3079,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                 Fn,
             )`),
@@ -3120,7 +3120,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                 Fn,
             )`),
@@ -3148,7 +3148,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                 Fn,
             )`),
@@ -3163,7 +3163,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                 Fn,
             )`),
@@ -3217,7 +3217,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                 Fn,
             )`),
@@ -3271,7 +3271,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                 Fn,
             )`),
@@ -3286,7 +3286,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                 Fn,
             )`),
@@ -3314,7 +3314,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                 Fn,
             )`),
@@ -3329,7 +3329,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                 Fn,
             )`),
@@ -3344,7 +3344,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                 Fn,
             )`),
@@ -3634,8 +3634,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -3765,8 +3765,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -3833,8 +3833,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -3991,8 +3991,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfPlace,
+                        HirTemplateVariable::Quary(
+                            SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
                             Ref,
@@ -4043,8 +4043,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfPlace,
+                        HirTemplateVariable::Quary(
+                            SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
                             Mut,
@@ -4095,8 +4095,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -4145,8 +4145,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -4195,8 +4195,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -4425,8 +4425,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfPlace,
+                        HirTemplateVariable::Quary(
+                            SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
                             Ref,
@@ -4477,8 +4477,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfPlace,
+                        HirTemplateVariable::Quary(
+                            SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
                             Mut,
@@ -4573,8 +4573,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -4667,8 +4667,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -4717,8 +4717,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfPlace,
+                        HirTemplateVariable::Quary(
+                            SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
                             Ref,
@@ -4769,8 +4769,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfPlace,
+                        HirTemplateVariable::Quary(
+                            SelfPlace,
                         ),
                         LinTermVariableResolution::SelfQual(
                             Mut,
@@ -4919,8 +4919,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -5295,8 +5295,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -5363,8 +5363,8 @@
                         ),
                     ),
                     (
-                        HirTemplateVariable::Type(
-                            HirTypeTemplateVariable::SelfLifetime,
+                        HirTemplateVariable::Lifetime(
+                            SelfLifetime,
                         ),
                         LinTermVariableResolution::SelfLifetime,
                     ),
@@ -5508,7 +5508,7 @@
         },
     },
     Linket {
-        data: LinketData::MajorFunctionRitchie {
+        data: LinketData::MajorRitchie {
             path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                 Gn,
             )`),

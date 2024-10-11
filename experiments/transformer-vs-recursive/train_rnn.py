@@ -9,14 +9,18 @@ from models.rnn import SimpleRNN
 from train import train_model
 from utils import set_seed, custom_collate, linear_warmup_decay, Logger, ordered_search_space
 
+import tiktoken
+
 import os
 import pdb
+
+tokenizer = tiktoken.encoding_for_model("gpt2")
 
 HIDDEN_DIM_SPACE = list(range(8, 64 + 1, 8)) + [256]
 BATCH_SIZE = 512
 
 parser = argparse.ArgumentParser(description="Train RNN models with different configurations.")
-parser.add_argument('--dataset', type=str, default="n100000-f20-d5-v0.20-e0.50", help='Dataset to use')
+parser.add_argument('--dataset', type=str, default="n100000-f10-d3-v0.20-e0.50", help='Dataset to use')
 parser.add_argument('--num_epochs', type=int, default=50, help='Number of epochs to train')
 parser.add_argument('--seed', type=int, default=123, help='Random seed for initialization')
 parser.add_argument('--server_name', type=str, default="")
@@ -24,20 +28,17 @@ parser.add_argument('--gpu_id', type=int, default=0)
 parser.add_argument('--try_hidden_dim', type=int, default=None)
 args = parser.parse_args()
 
-dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
-                                        "mini-husky/basic",
-                                        f"dataset-{args.dataset}.msgpack"))
-header = dataset.header
+train_dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                              "mini-husky/basic",
+                                              f"dataset-{args.dataset}_train.json.gz"),
+                                 desired_key="expected_type")
+eval_dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                             "mini-husky/basic",
+                                             f"dataset-{args.dataset}_eval.json.gz"),
+                                desired_key="expected_type")
+header = train_dataset.header
 
-# Split the dataset into train and validation sets
-train_size = int(0.8 * len(dataset))  # 80% for training
-val_size = len(dataset) - train_size  # 20% for validation
-
-# fix dataset
-set_seed(0)
-train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
-
-def run(config, train_dataset, val_dataset, header):
+def run(config, train_dataset, eval_dataset, header):
     set_seed(config["seed"])
 
     train_dataloader = DataLoader(
@@ -47,8 +48,8 @@ def run(config, train_dataset, val_dataset, header):
         collate_fn=custom_collate,
         num_workers=4,
     )
-    val_dataloader = DataLoader(
-        val_dataset,
+    eval_dataloader = DataLoader(
+        eval_dataset,
         batch_size=config["batch_size"],
         shuffle=False,
         collate_fn=custom_collate,
@@ -69,14 +70,14 @@ def run(config, train_dataset, val_dataset, header):
 
     # Create models
     model = SimpleRNN(
-        input_dim=len(dataset.vocab),
-        output_dim=sum(dataset.get_output_dims()),
+        input_dim=config["vocab_size"],
+        output_dim=sum(train_dataset.get_output_dims()),
         bidirectional=True,
         **config
     ).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=0)
+    criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = optim.Adam(model.parameters(), lr=1)
     scheduler = torch.optim.lr_scheduler.LambdaLR(
         optimizer,
@@ -92,14 +93,14 @@ def run(config, train_dataset, val_dataset, header):
         model=model,
         header=header,
         train_dataloader=train_dataloader,
-        val_dataloader=val_dataloader,
+        val_dataloader=eval_dataloader,
         criterion=criterion,
         optimizer=optimizer,
         scheduler=scheduler,
         num_epochs=config["num_epochs"],
         micro_batch_size=config["micro_batch_size"],
         device=device,
-        output_dims=dataset.get_output_dims(),
+        output_dims=train_dataset.get_output_dims(),
         logger=logger,
     )
 
@@ -113,12 +114,9 @@ else:
     search_space = HIDDEN_DIM_SPACE
 
 for hidden_dim in ordered_search_space(search_space):
-    if hidden_dim <= 128:
-        min_lr, max_lr = 1e-5, 1e-3
-    else:
-        min_lr, max_lr = 1e-6, 1e-4
+    min_lr, max_lr = 1e-5, 1e-3
     
-    micro_batch_size = 512
+    micro_batch_size = BATCH_SIZE
 
     config = {
         **vars(args),
@@ -127,7 +125,8 @@ for hidden_dim in ordered_search_space(search_space):
         "min_lr": min_lr,
         "max_lr": max_lr,
         "warmup_iters": 990,
+        "vocab_size": tokenizer.n_vocab,
         "hidden_dim": hidden_dim,
         "num_layers": 8,
     }
-    run(config, train_dataset, val_dataset, header)
+    run(config, train_dataset, eval_dataset, header)

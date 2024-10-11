@@ -42,6 +42,11 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
                 std::mem::transmute(thawed)
             }
 
+            #[inline]
+            unsafe fn from_thawed_ref(thawed_ref: &Self::Thawed) -> &Self {
+                std::mem::transmute(thawed_ref)
+            }
+
             unsafe fn into_thawed(self) -> Self::Thawed {
                 std::mem::transmute(self)
             }

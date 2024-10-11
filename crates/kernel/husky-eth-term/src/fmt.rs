@@ -1,5 +1,5 @@
 use self::term::symbolic_variable::EthSymbolicVariable;
-use crate::{term::symbolic_variable::EthTermSymbolIndexImpl, *};
+use crate::{term::symbolic_variable::EthTermVariableIndexImpl, *};
 use husky_entity_path::{
     path::{ItemPath, ItemPathId},
     region::RegionPath,
@@ -23,10 +23,10 @@ pub(crate) fn symbol_name(symbol: EthSymbolicVariable, db: &::salsa::Db) -> Symb
     let ctx = ETH_TERM_FMT_CONTEXT_CELL.get().unwrap();
     if !ctx.symbol_names(db).contains(symbol) {
         return match symbol.index(db).inner() {
-            EthTermSymbolIndexImpl::SelfType => SymbolName::SelfType,
-            EthTermSymbolIndexImpl::SelfValue => SymbolName::SelfValue,
-            EthTermSymbolIndexImpl::SelfLifetime => SymbolName::SelfLifetime,
-            EthTermSymbolIndexImpl::SelfPlace => SymbolName::SelfPlace,
+            EthTermVariableIndexImpl::SelfType => SymbolName::SelfType,
+            EthTermVariableIndexImpl::SelfValue => SymbolName::SelfValue,
+            EthTermVariableIndexImpl::SelfLifetime => SymbolName::SelfLifetime,
+            EthTermVariableIndexImpl::SelfPlace => SymbolName::SelfPlace,
             _ => {
                 use husky_print_utils::p;
                 p!(ctx.path(db).debug(db));

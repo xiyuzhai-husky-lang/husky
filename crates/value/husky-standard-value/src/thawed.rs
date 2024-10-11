@@ -27,6 +27,10 @@ use husky_value_macros::thawed_value_ty;
 use husky_value_protocol::presentation::{EnumUnitValuePresenter, ValuePresentation};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use owned::OwnedThawedValue;
+use std::ops::{
+    AddAssign, BitAndAssign, BitOrAssign, BitXorAssign, DivAssign, MulAssign, RemAssign, ShlAssign,
+    ShrAssign, SubAssign,
+};
 
 /// Slush is the static version of a type
 pub trait Thawed:
@@ -43,44 +47,114 @@ pub trait Thawed:
     fn try_copy_thawed(&self) -> Option<ThawedValue>;
 
     fn is_some(&self) -> bool {
-        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
+        unreachable!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
     fn is_none(&self) -> bool {
-        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
+        unreachable!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
     fn index_owned_thawed(self, index: usize) -> ExceptedThawedValue {
-        panic!(
+        unreachable!(
             "type `{}` doesn't support indexing owned",
             std::any::type_name::<Self>()
         )
     }
 
     fn index_ref_thawed<'a>(&'a self, index: usize) -> ExceptedThawedValue {
-        panic!(
+        unreachable!(
             "type `{}` doesn't support indexing ref",
             std::any::type_name::<Self>()
         )
     }
 
     fn index_leash_thawed(&'static self, index: usize) -> ExceptedThawedValue {
-        panic!(
+        unreachable!(
             "type `{}` doesn't support indexing leash",
             std::any::type_name::<Self>()
         )
     }
 
     fn unwrap_ref_thawed<'a>(&'a self) -> ExceptedThawedValue {
-        panic!(
+        unreachable!(
             "type `{}` doesn't support unwrap",
             std::any::type_name::<Self>()
         )
     }
 
     fn unwrap_leash_thawed(&'static self) -> ExceptedThawedValue {
-        panic!(
+        unreachable!(
             "type `{}` doesn't support unwrap",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn add_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "add_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn sub_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "sub_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn mul_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "mul_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn div_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "div_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn rem_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "rem_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn bitand_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "bitand_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn bitor_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "bitor_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn bitxor_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "bitxor_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn shl_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "shl_assign_thawed_value is not implemented for {}",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn shr_assign_thawed_value(&mut self, other: ThawedValue) {
+        unreachable!(
+            "shr_assign_thawed_value is not implemented for {}",
             std::any::type_name::<Self>()
         )
     }
@@ -108,6 +182,16 @@ pub trait ThawedDyn:
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue>;
 
     fn assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn add_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn sub_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn mul_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn div_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn rem_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn bitand_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn bitor_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn bitxor_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn shl_assign_thawed_value_dyn(&mut self, other: ThawedValue);
+    fn shr_assign_thawed_value_dyn(&mut self, other: ThawedValue);
 }
 
 impl<T> ThawedDyn for T
@@ -156,6 +240,46 @@ where
 
     fn assign_thawed_value_dyn(&mut self, other: ThawedValue) {
         *self = T::from_thawed_value_aux(other, None)
+    }
+
+    fn add_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.add_assign_thawed_value(other);
+    }
+
+    fn sub_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.sub_assign_thawed_value(other);
+    }
+
+    fn mul_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.mul_assign_thawed_value(other);
+    }
+
+    fn div_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.div_assign_thawed_value(other);
+    }
+
+    fn rem_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.rem_assign_thawed_value(other);
+    }
+
+    fn bitand_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.bitand_assign_thawed_value(other);
+    }
+
+    fn bitor_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.bitor_assign_thawed_value(other);
+    }
+
+    fn bitxor_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.bitxor_assign_thawed_value(other);
+    }
+
+    fn shl_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.shl_assign_thawed_value(other);
+    }
+
+    fn shr_assign_thawed_value_dyn(&mut self, other: ThawedValue) {
+        self.shr_assign_thawed_value(other);
     }
 }
 
@@ -305,7 +429,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::R64(v) => v as i64,
             ThawedValue::R128(v) => v as i64,
             ThawedValue::RSize(v) => v as i64,
-            _ => panic!("Cannot convert {} to i64", std::any::type_name::<Self>()),
+            _ => unreachable!("Cannot convert {} to i64", std::any::type_name::<Self>()),
         }
     }
 
@@ -329,7 +453,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::R64(v) => v as usize,
             ThawedValue::R128(v) => v as usize,
             ThawedValue::RSize(v) => v,
-            _ => panic!("Cannot convert {} to usize", std::any::type_name::<Self>()),
+            _ => unreachable!("Cannot convert {} to usize", std::any::type_name::<Self>()),
         }
     }
 
@@ -475,11 +599,11 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::Owned(owned_thawed_value) => todo!(),
             ThawedValue::Leash(_) => todo!(),
             ThawedValue::Ref(_) => todo!(),
-            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::Mut(ptr) => todo!(),
             ThawedValue::OptionBox(thawed_dyn) => todo!(),
             ThawedValue::OptionLeash(_) => todo!(),
             ThawedValue::OptionSizedRef(_) => todo!(),
-            ThawedValue::OptionSizedMut(_) => todo!(),
+            ThawedValue::OptionSizedMut(ptr) => ThawedValue::OptionSizedMut(*ptr),
             ThawedValue::EnumUnit { index, presenter } => todo!(),
         }
     }
@@ -489,7 +613,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::Uninit => todo!(),
             ThawedValue::Invalid => todo!(),
             ThawedValue::Moved => todo!(),
-            ThawedValue::Unit(_) => todo!(),
+            ThawedValue::Unit(()) => todo!(),
             ThawedValue::Bool(b) => ThawedValue::Mut(b as *mut dyn ThawedDyn),
             ThawedValue::Char(c) => todo!(), // ThawedValue::Mut(c as *mut dyn ThawedDyn),
             ThawedValue::I8(i) => ThawedValue::Mut(i as *mut dyn ThawedDyn),
@@ -526,7 +650,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::OptionLeash(_) => todo!(),
             ThawedValue::OptionSizedRef(_) => todo!(),
             ThawedValue::OptionSizedMut(ptr) => ThawedValue::OptionSizedMut(*ptr),
-            ThawedValue::EnumUnit { .. } => todo!(),
+            ThawedValue::EnumUnit { index, presenter } => todo!(),
         }
     }
 
@@ -785,7 +909,10 @@ impl std::ops::Add<ThawedValue> for ThawedValue {
 
 impl std::ops::AddAssign<ThawedValue> for ThawedValue {
     fn add_assign(&mut self, rhs: ThawedValue) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.add_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -807,7 +934,10 @@ impl std::ops::BitAnd for ThawedValue {
 
 impl std::ops::BitAndAssign for ThawedValue {
     fn bitand_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.bitand_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -829,7 +959,10 @@ impl std::ops::BitOr for ThawedValue {
 
 impl std::ops::BitOrAssign for ThawedValue {
     fn bitor_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.bitor_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -843,7 +976,10 @@ impl std::ops::BitXor for ThawedValue {
 
 impl std::ops::BitXorAssign for ThawedValue {
     fn bitxor_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.bitxor_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -909,7 +1045,10 @@ impl std::ops::Mul for ThawedValue {
 
 impl std::ops::MulAssign for ThawedValue {
     fn mul_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.mul_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -976,7 +1115,10 @@ impl std::ops::Shl for ThawedValue {
 
 impl std::ops::ShlAssign for ThawedValue {
     fn shl_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.shl_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -990,7 +1132,10 @@ impl std::ops::Shr for ThawedValue {
 
 impl std::ops::ShrAssign for ThawedValue {
     fn shr_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.shr_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -1026,7 +1171,10 @@ impl std::ops::Sub for ThawedValue {
 
 impl std::ops::SubAssign for ThawedValue {
     fn sub_assign(&mut self, rhs: Self) {
-        todo!()
+        match self {
+            ThawedValue::Mut(slf) => unsafe { &mut **slf }.sub_assign_thawed_value_dyn(rhs),
+            _ => unreachable!("can't assign to a rvalue"),
+        }
     }
 }
 
@@ -1069,5 +1217,157 @@ impl From<Value> for ThawedValue {
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => ThawedValue::EnumUnit { index, presenter },
         }
+    }
+}
+
+pub struct ThawedWrapper<T>(pub T);
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: AddAssign<T> + FromThawedValue,
+{
+    pub fn add_assign(&mut self, other: ThawedValue) {
+        *self.0 += T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: SubAssign<T> + FromThawedValue,
+{
+    pub fn sub_assign(&mut self, other: ThawedValue) {
+        *self.0 -= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: MulAssign<T> + FromThawedValue,
+{
+    pub fn mul_assign(&mut self, other: ThawedValue) {
+        *self.0 *= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: DivAssign<T> + FromThawedValue,
+{
+    pub fn div_assign(&mut self, other: ThawedValue) {
+        *self.0 /= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: RemAssign<T> + FromThawedValue,
+{
+    pub fn rem_assign(&mut self, other: ThawedValue) {
+        *self.0 %= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: BitAndAssign<T> + FromThawedValue,
+{
+    pub fn bitand_assign(&mut self, other: ThawedValue) {
+        *self.0 &= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: BitOrAssign<T> + FromThawedValue,
+{
+    pub fn bitor_assign(&mut self, other: ThawedValue) {
+        *self.0 |= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: BitXorAssign<T> + FromThawedValue,
+{
+    pub fn bitxor_assign(&mut self, other: ThawedValue) {
+        *self.0 ^= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: ShlAssign<T> + FromThawedValue,
+{
+    pub fn shl_assign(&mut self, other: ThawedValue) {
+        *self.0 <<= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> ThawedWrapper<&mut T>
+where
+    T: ShrAssign<T> + FromThawedValue,
+{
+    pub fn shr_assign(&mut self, other: ThawedValue) {
+        *self.0 >>= T::from_thawed_value_static(other);
+    }
+}
+
+impl<T> AddAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn add_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement AddAssign")
+    }
+}
+
+impl<T> SubAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn sub_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement SubAssign")
+    }
+}
+
+impl<T> MulAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn mul_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement MulAssign")
+    }
+}
+
+impl<T> DivAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn div_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement DivAssign")
+    }
+}
+
+impl<T> RemAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn rem_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement RemAssign")
+    }
+}
+
+impl<T> BitAndAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn bitand_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement BitAndAssign")
+    }
+}
+
+impl<T> BitOrAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn bitor_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement BitOrAssign")
+    }
+}
+
+impl<T> BitXorAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn bitxor_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement BitXorAssign")
+    }
+}
+
+impl<T> ShlAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn shl_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement ShlAssign")
+    }
+}
+
+impl<T> ShrAssign<ThawedValue> for ThawedWrapper<&mut T> {
+    fn shr_assign(&mut self, _other: ThawedValue) {
+        unreachable!("T doesn't implement ShrAssign")
     }
 }

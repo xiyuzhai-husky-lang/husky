@@ -7,11 +7,10 @@ name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
  "husky-any-linket-impls",
- "husky-devsoul-interface",
  "husky-ki-repr-interface",
  "husky-linket-impl",
- "husky-standard-devsoul-interface",
  "husky-standard-linket-impl",
+ "husky-standard-linket-impl-macros",
  "husky-standard-value",
 ]
 
@@ -239,10 +238,8 @@ name = "husky-any-linket-impls"
 version = "0.1.0"
 dependencies = [
  "colored",
- "husky-devsoul-interface",
  "husky-item-path-interface",
  "husky-linket-impl",
- "husky-standard-devsoul-interface",
  "husky-standard-linket-impl",
  "rustc_version",
 ]
@@ -258,8 +255,6 @@ dependencies = [
 name = "husky-core"
 version = "0.1.0"
 dependencies = [
- "husky-devsoul-interface",
- "husky-standard-devsoul-interface",
  "husky-standard-linket-impl",
  "husky-standard-value",
  "husky-visual-protocol",
@@ -282,36 +277,6 @@ name = "husky-decl-macro-utils"
 version = "0.1.0"
 dependencies = [
  "husky-path-utils",
-]
-
-[[package]]
-name = "husky-devsoul-interface"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-decl-macro-utils",
- "husky-devsoul-interface-macros",
- "husky-item-path-interface",
- "husky-linket-impl",
- "husky-value",
- "husky-value-protocol",
- "husky-visual-protocol",
- "once_cell",
- "serde",
- "serde-impl",
- "shifted-unsigned-int",
- "smallvec",
- "vec-like",
-]
-
-[[package]]
-name = "husky-devsoul-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]
@@ -399,39 +364,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-standard-devsoul-interface"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-devsoul-interface",
- "husky-item-path-interface",
- "husky-ki-repr-interface",
- "husky-linket-impl",
- "husky-print-utils",
- "husky-standard-devsoul-interface-macros",
- "husky-standard-linket-impl",
- "husky-standard-value",
- "serde",
- "shifted-unsigned-int",
- "vec-like",
-]
-
-[[package]]
-name = "husky-standard-devsoul-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "husky-standard-linket-impl"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
- "husky-devsoul-interface",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
  "husky-linket-impl",
@@ -439,7 +375,18 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "serde",
+ "smallvec",
  "vec-like",
+]
+
+[[package]]
+name = "husky-standard-linket-impl-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -456,6 +403,7 @@ dependencies = [
  "husky-visual-protocol",
  "husky-wild-utils",
  "ordered-float",
+ "paste",
  "serde",
  "serde-impl",
  "serde_json",
@@ -658,6 +606,12 @@ dependencies = [
  "smallvec",
  "windows-targets 0.52.6",
 ]
+
+[[package]]
+name = "paste"
+version = "1.0.15"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
 
 [[package]]
 name = "pathdiff"

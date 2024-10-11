@@ -6,7 +6,7 @@ use husky_eth_signature::signature::{
     },
     HasEthTemplate,
 };
-use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
+use husky_eth_term::term::symbolic_variable::EthTermVariableIndexImpl;
 use husky_regional_token::IdentRegionalToken;
 use quary::FlyQuary;
 

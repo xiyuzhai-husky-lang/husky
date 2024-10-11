@@ -1,5 +1,5 @@
 use super::*;
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __LineSegment__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
@@ -41,12 +41,12 @@ impl crate::line_segment_sketch::line_segment::LineSegment {
         }
     }
 }
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __LineSegment__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut __LineSegment__dist_to_point__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
