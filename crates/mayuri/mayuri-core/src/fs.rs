@@ -87,7 +87,7 @@ impl MayuriFs {
     }
 
     pub fn run_all_tests(&self) {
-        self.tests.run_all()
+        self.tests.run_all(&self.root.join("tests/.local"))
     }
 
     pub fn run_all_jobs(&self) {
@@ -114,6 +114,6 @@ fn mayuri_fs_works() {
     let fs = MayuriFs::new(mayuri_prototype_dir.to_path_buf(), false);
     expect_test::expect_file!["../expect-files/mayuri_fs_works1.md"]
         .assert_eq(&format!("```rust\n{:#?}\n```", fs));
-    // fs.run_all_tests();
+    fs.run_all_tests();
     // fs.run_all_jobs();
 }

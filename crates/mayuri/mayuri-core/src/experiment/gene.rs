@@ -1,15 +1,16 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ExperimentPath {
+pub struct ExperimentGene {
     src_paths: ExperimentSrcOriginPaths,
+    config: OrderedYaml,
 }
 
 /// maps destination paths to origin paths
 pub type ExperimentSrcOriginPaths = OrderedVecPairMap<String, String>;
 
-impl ExperimentPath {
-    pub fn new(yaml: &Yaml, nemu_config: &NemuConfig) -> Self {
+impl ExperimentGene {
+    pub fn new(yaml: &Yaml, config: OrderedYaml, nemu_config: &NemuConfig) -> Self {
         Self {
             src_paths: nemu_config
                 .src_paths()
@@ -30,6 +31,7 @@ impl ExperimentPath {
                         }),
                 )
                 .collect(),
+            config,
         }
     }
 }

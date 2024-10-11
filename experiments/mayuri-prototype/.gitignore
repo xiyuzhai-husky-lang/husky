@@ -1,3 +1,5 @@
 env
 
-experiments/untracked
+experiments/.local
+
+tests/.local
