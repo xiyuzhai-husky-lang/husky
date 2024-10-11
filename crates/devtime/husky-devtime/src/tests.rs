@@ -15,11 +15,8 @@ type StandardDevtime = Devtime<StandardDevsoul>;
 #[ignore]
 fn devtime_trace_server_works() {
     let dev_paths = HuskyLangDevPaths::new();
-    let devtime = StandardDevtime::new(
-        &dev_paths.lang_dev_examples_dir().join("mnist-classifier"),
-        None,
-    )
-    .unwrap();
+    let devtime =
+        StandardDevtime::new(&dev_paths.examples_dir().join("mnist-classifier"), None).unwrap();
     devtime.test_trace_server();
 }
 
@@ -28,10 +25,7 @@ fn devtime_trace_server_works() {
 #[ignore]
 fn devtime_trace_client_works() {
     let dev_paths = HuskyLangDevPaths::new();
-    let devtime = StandardDevtime::new(
-        &dev_paths.lang_dev_examples_dir().join("mnist-classifier"),
-        None,
-    )
-    .unwrap();
+    let devtime =
+        StandardDevtime::new(&dev_paths.examples_dir().join("mnist-classifier"), None).unwrap();
     devtime.test_trace_client();
 }

@@ -1,3 +1,4 @@
+pub mod app;
 pub mod component;
 pub mod hotkey;
 pub mod settings;

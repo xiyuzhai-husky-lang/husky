@@ -8,7 +8,7 @@ where
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_amazon_forest(&mut self, ui: &mut egui::Ui) {
+    pub(super) fn amazon_forest_ui(&mut self, ui: &mut egui::Ui) {
         Frame::none().inner_margin(CONSTANT1).show(ui, |ui| {
             ui.vertical(|ui| {
                 ui.style_mut().spacing.item_spacing = vec2(CONSTANT1, CONSTANT1);

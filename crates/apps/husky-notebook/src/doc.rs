@@ -1,5 +1,5 @@
-mod arena;
-mod tab;
+pub(crate) mod arena;
+pub(crate) mod tab;
 
 pub(crate) use self::tab::*;
 
@@ -46,7 +46,7 @@ impl NotebookApp {
         self.add_doc(Doc {
             title: "mnist-classifier trace doc".to_string(),
             component: UiComponent::new(TraceDoc::<StandardTraceProtocol, _>::new(
-                self.tokio_runtime.clone(),
+                self.tokio_runtime().clone(),
                 EguiRepaintSignal::new(ctx.clone()),
                 ctx,
             )),
@@ -55,6 +55,7 @@ impl NotebookApp {
 
     pub(crate) fn add_doc(&mut self, doc: Doc) {
         let id = self.docs.doc_arena.alloc(doc);
+        self.concentration = Some(id);
         self.dock_state.push_to_focused_leaf(DocTab::new(id))
     }
 }
