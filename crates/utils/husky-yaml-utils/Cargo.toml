@@ -15,9 +15,11 @@ keywords.workspace = true
 hashlink.workspace = true
 yaml-rust2.workspace = true
 serde.workspace = true
-serde_yaml.workspace = true
 # abstractions
 vec-like.workspace = true
+
+[dev-dependencies]
+serde_yaml.workspace = true
 
 [lints]
 workspace = true
