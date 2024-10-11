@@ -29,6 +29,10 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
             builder.write_str("::*")
         })
     }
+
+    pub(crate) fn vm_only(&mut self) {
+        self.result += "vm only "
+    }
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
@@ -261,7 +265,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, ()> {
             write!(
                 &mut self.result,
                 r#"
-
+#[rustfmt::skip]
 #[allow(non_upper_case_globals)]
 pub static mut {}: Option<__ItemPathIdInterface> = None;
 

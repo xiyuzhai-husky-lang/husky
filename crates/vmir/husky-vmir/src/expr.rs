@@ -577,7 +577,7 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 variable_idx,
             } => Continue(ctx.access_variable(variable_idx, qual)),
             VmirExprData::Binary { lopd, opr, ropd } => {
-                let lopd = lopd.eval(None, ctx)?;
+                let mut lopd = lopd.eval(None, ctx)?;
                 let ropd = ropd.eval(None, ctx)?;
                 ctx.eval_expr_itself(self, |_ctx| match opr {
                     HirBinaryOpr::Closed(opr) => Continue(match opr {
@@ -599,7 +599,20 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                         lopd.assign(ropd);
                         Continue(().into())
                     }
-                    HirBinaryOpr::AssignClosed(_) => todo!(),
+                    HirBinaryOpr::AssignClosed(opr) => {
+                        match opr {
+                            BinaryClosedOpr::Add => lopd += ropd,
+                            BinaryClosedOpr::BitAnd => todo!(),
+                            BinaryClosedOpr::BitOr => todo!(),
+                            BinaryClosedOpr::BitXor => todo!(),
+                            BinaryClosedOpr::Div => todo!(),
+                            BinaryClosedOpr::Mul => todo!(),
+                            BinaryClosedOpr::RemEuclid => todo!(),
+                            BinaryClosedOpr::Power => todo!(),
+                            BinaryClosedOpr::Sub => todo!(),
+                        }
+                        Continue(().into())
+                    }
                     HirBinaryOpr::AssignShift(_) => todo!(),
                     HirBinaryOpr::Comparison(opr) => Continue(
                         match opr {

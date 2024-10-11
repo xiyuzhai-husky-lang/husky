@@ -47,7 +47,7 @@ husky-sem-var-deps.workspace = true
 husky-entity-tree.workspace = true
 husky-syn-defn.workspace = true
 # devsoul
-husky-devsoul-interface.workspace = true
+# husky-devsoul-interface.workspace = true
 # ki
 husky-ki.workspace = true
 # utils

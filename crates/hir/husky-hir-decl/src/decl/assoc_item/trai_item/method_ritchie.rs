@@ -6,6 +6,7 @@ pub struct TraitMethodFnHirDecl {
     pub template_parameters: HirTemplateParameters,
     /// `Self` as generic parameter
     pub self_ty_template_parameter: HirTemplateParameter,
+    pub self_value_parameter: HirEagerSelfValueParameter,
     #[return_ref]
     pub parenate_parameters: HirEagerParenateParameters,
     pub return_ty: HirType,

@@ -17,8 +17,6 @@ husky-ki-repr-interface.workspace = true
 husky-hir-opr.workspace = true
 # linket
 husky-linket.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
 
 [dev-dependencies]
 husky-ki = { path = ".", features = ["test_utils"] }

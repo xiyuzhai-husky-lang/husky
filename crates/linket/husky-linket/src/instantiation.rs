@@ -241,6 +241,7 @@ impl LinTermVariableResolution {
             HirTermSymbolicVariableResolution::SelfContractedQuary(contracted_quary) => {
                 LinTermVariableResolution::SelfQual(LinQual::from_hir_contracted_quary(
                     contracted_quary,
+                    instantiation,
                 ))
             }
         }

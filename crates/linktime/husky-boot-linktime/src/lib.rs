@@ -2,7 +2,7 @@ mod internal;
 
 use self::internal::BootLinkTimeInternal;
 use husky_linket::linket::Linket;
-use husky_linket_impl::{eval_context::IsDevRuntimeInterfaceDyn, linket_impl::IsLinketImpl};
+use husky_linket_impl::{dev_eval_context::IsDevRuntimeInterfaceDyn, linket_impl::IsLinketImpl};
 use husky_linktime::IsLinktime;
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use std::collections::HashMap;

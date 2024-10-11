@@ -1,5 +1,5 @@
 [package]
-name = "husky-devsoul-interface-macros"
+name = "husky-standard-linket-impl-macros"
 version.workspace = true
 edition.workspace = true
 
