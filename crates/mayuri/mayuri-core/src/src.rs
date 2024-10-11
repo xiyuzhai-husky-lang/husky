@@ -1,8 +1,8 @@
 use husky_sha_utils::{Sha512Output, ShaHash};
-use rustc_hash::FxHashMap;
-use std::fs;
+// use rustc_hash::FxHashMap;
 use std::ops::Index;
 use std::path::{Path, PathBuf};
+use std::{collections::BTreeMap, fs};
 use std::{collections::HashMap, sync::Arc};
 use vec_like::ordered_vec_map::OrderedVecPairMap;
 use walkdir::WalkDir;
@@ -10,7 +10,7 @@ use walkdir::WalkDir;
 #[derive(Debug)]
 pub struct MayuriSrc {
     dir_path: PathBuf,
-    files: FxHashMap<String, MayuriSrcFile>,
+    files: BTreeMap<String, MayuriSrcFile>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -27,7 +27,7 @@ impl MayuriSrcFile {
 
 impl MayuriSrc {
     pub fn new(dir_path: PathBuf, allowed_exts: &[&str]) -> Result<Self, std::io::Error> {
-        let mut files = HashMap::default();
+        let mut files = BTreeMap::default();
 
         for entry in WalkDir::new(&dir_path).into_iter().filter_map(|e| e.ok()) {
             let path = entry.path();
