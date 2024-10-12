@@ -8,6 +8,7 @@ use husky_ki_repr::repr::KiDomainRepr;
 use husky_linket_impl::{pedestal::JointPedestal, static_var::StaticVarResult};
 use husky_trace_protocol::chart::{ChartDim0, ChartDim1};
 use husky_trace_protocol::{anchor::Anchor, chart::Chart};
+use smallvec::smallvec;
 use smallvec::SmallVec;
 use vec_like::SmallVecSet;
 
@@ -117,7 +118,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         }
     }
 
-    // todo: change to result
+    /// An anchor is either associating a global variable with a fixed value (specific anchor),
+    /// or with a range of values (generic anchor).
+    ///
+    /// Now, a sequence of anchors can then be viewed as associating a tuple of global variables with a set of values.
+    ///
+    /// This function eval `f` on the set of values and returns a chart.
     pub fn with_var_anchors<R>(
         &self,
         var_anchors: impl IntoIterator<Item = (ItemPathIdInterface, DevsoulAnchor<Devsoul>)>,
@@ -139,7 +145,6 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     DevsoulAnchor<Devsoul>,
                     SmallVecSet<ItemPathIdInterface, 2>,
                 )> {
-                    // todo: simplify using with_var_id
                     let item_path_id: ItemPathId = item_path_id_interface.into();
                     let ItemPath::MajorItem(MajorItemPath::Form(path)) = item_path_id.item_path(db)
                     else {
@@ -172,10 +177,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             .count();
         match number_of_generics {
             0 => self
-                .with_var_anchors_aux0(Default::default(), &var_anchors, f)
+                .with_var_anchors0(Default::default(), &var_anchors, f)
                 .map(Into::into),
             1 => self
-                .with_var_anchors_aux1(Default::default(), &var_anchors, f)
+                .with_var_anchors1(Default::default(), &var_anchors, f)
                 .map(Into::into),
             2 => {
                 todo!()
@@ -184,7 +189,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         }
     }
 
-    fn with_var_anchors_aux0<R>(
+    /// the remaining anchors are all specifics now,
+    ///
+    /// so it returns a chart of dimension 0.
+    fn with_var_anchors0<R>(
         &self,
         mut var_map: DevsoulOrderedVarMap<Devsoul>,
         remaining_vars: &[(
@@ -194,25 +202,34 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         )],
         mut f: impl FnMut(&DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChartDim0<Devsoul, R>> {
+        let &[(path, anchor, ref locked), ref remaining_vars @ ..] = remaining_vars else {
+            let joint_pedestal = JointPedestal::new(var_map);
+            let r = f(&joint_pedestal)?;
+            return Some((joint_pedestal, r));
+        };
         let db = self.db();
-        for &(path, anchor, ref locked) in remaining_vars {
-            let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path else {
-                todo!()
-            };
-            let linket_impl = self
-                .comptime
-                .linket_impl(Linket::new_var(major_form_path, db));
-            let Anchor::Specific(var_id) = anchor else {
-                unreachable!()
-            };
+        let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path else {
             todo!()
-        }
-        let joint_pedestal = JointPedestal::new(var_map);
-        let r = f(&joint_pedestal)?;
-        Some((joint_pedestal, r))
+        };
+        let linket_impl = self
+            .comptime
+            .linket_impl(Linket::new_var(major_form_path, db));
+        let Anchor::Specific(var_id) = anchor else {
+            unreachable!()
+        };
+        var_map.insert((path.into(), var_id));
+        linket_impl
+            .with_var_id(var_id, locked, || {
+                self.with_var_anchors0(var_map, remaining_vars, f)
+            })
+            .ok()
+            .flatten()
     }
 
-    fn with_var_anchors_aux1<R>(
+    /// the remaining anchors are all specifics except on generic,
+    ///
+    /// so it returns a chart of dimension 0.
+    fn with_var_anchors1<R>(
         &self,
         mut var_map: DevsoulOrderedVarMap<Devsoul>,
         remaining_vars: &[(
@@ -237,7 +254,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 var_map.insert(((*path).into(), var_id));
                 linket_impl
                     .with_var_id(var_id, locked, || {
-                        self.with_var_anchors_aux1(var_map, remaining_vars, f)
+                        self.with_var_anchors1(var_map, remaining_vars, f)
                     })
                     .ok()
                     .flatten()
@@ -253,7 +270,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                         var_map.insert(((*path).into(), var_id));
                         linket_impl
                             .with_var_id(var_id, locked, || {
-                                self.with_var_anchors_aux0(var_map, remaining_vars, &mut f)
+                                self.with_var_anchors0(var_map, remaining_vars, &mut f)
                             })
                             .ok()
                             .flatten()
