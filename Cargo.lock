@@ -7177,6 +7177,7 @@ dependencies = [
  "pathdiff",
  "rustc-hash 2.0.0",
  "serde",
+ "smallvec",
  "tokio",
  "ui",
 ]

@@ -13,10 +13,10 @@ where
             .frame(Frame::none().inner_margin(0.0))
             .resizable(false)
             .exact_width(ui.available_width() * (1.0 - 1.0 / 1.618))
-            .show_inside(ui, |ui| ui.label("todo: specific figure"));
+            .show_inside(ui, |ui| ui.label("todo: other figures"));
+        // TODO: other figures
         CentralPanel::default().show_inside(ui, |ui| {
-            self.generic_figure
-                .figure_ui(visual_synchrotron, self.visual_ui_cache, ui)
+            self.figures[0].figure_ui(visual_synchrotron, self.visual_ui_cache, ui)
         });
     }
 }

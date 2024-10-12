@@ -7,8 +7,15 @@ pub enum Windlass<VarId: IsVarId> {
     Generic {
         page_start: VarId,
         followed: Option<VarId>,
+        zone: Option<Zone>,
         page_limit: Option<usize>,
     },
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum Zone {
+    Gallery = 1,
+    Text,
 }
 
 impl<VarId: IsVarId> Windlass<VarId> {
