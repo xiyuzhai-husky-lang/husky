@@ -4297,6 +4297,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-annotated-text-viewer"
+version = "0.1.0"
+
+[[package]]
 name = "husky-any-linket-impls"
 version = "0.1.0"
 dependencies = [
@@ -7173,6 +7177,7 @@ dependencies = [
  "pathdiff",
  "rustc-hash 2.0.0",
  "serde",
+ "smallvec",
  "tokio",
  "ui",
 ]
@@ -7517,6 +7522,8 @@ version = "0.1.0"
 name = "husky-yaml-utils"
 version = "0.1.0"
 dependencies = [
+ "hashlink",
+ "serde",
  "vec-like",
  "yaml-rust2",
 ]

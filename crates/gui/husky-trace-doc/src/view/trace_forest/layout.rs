@@ -13,6 +13,6 @@ where
 {
     pub(crate) fn forest_ui(&mut self, ui: &mut egui::Ui) {
         // todo: use layout style to determine
-        self.amazon_forest_ui(ui)
+        self.amazon_trace_forest_ui(ui)
     }
 }
