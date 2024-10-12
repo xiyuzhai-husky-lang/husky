@@ -143,7 +143,7 @@ macro_rules! static_var_linket_impl {
 
 #[test]
 fn static_var_linket_impl_works() {
-    use crate::{pedestal::StandardPedestal, static_var::StandardVarId, ugly::*};
+    use crate::{pedestal::StandardPedestal, ugly::*, var::StandardVarId};
     use husky_linket_impl::static_var::IsStaticVar;
     use StandardLinketImpl as __LinketImpl;
 

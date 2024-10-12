@@ -4,16 +4,16 @@ pub mod r#enum;
 pub mod exception;
 pub mod memo;
 pub mod pedestal;
-pub mod static_var;
 pub mod r#struct;
 #[cfg(test)]
 mod tests;
 #[cfg(feature = "ugly")]
 pub mod ugly;
 pub mod val;
+pub mod var;
 
 use self::pedestal::StandardPedestal;
-use self::static_var::StandardVarId;
+use self::var::StandardVarId;
 use self::StandardLinketImpl as LinketImpl;
 #[cfg(test)]
 use self::StandardLinketImpl as __LinketImpl;
