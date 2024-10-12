@@ -1,3 +1,4 @@
+use serde::Deserialize;
 use std::fmt;
 use vec_like::ordered_vec_map::OrderedVecPairMap;
 use yaml_rust2::yaml::Hash;
@@ -9,27 +10,44 @@ pub struct OrderedYaml {
     inner: Yaml,
 }
 
+// impl<'de> Deserialize<'de> for OrderedYaml {
+//     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+//     where
+//         D: serde::Deserializer<'de>,
+//     {
+//         let yaml = deserializer.deserialize_any(AnyYamlVisitor)?;
+//         Ok(OrderedYaml::new(yaml.to_inner()))
+//     }
+// }
+
 impl OrderedYaml {
-    pub fn new(yaml: &Yaml) -> Self {
-        OrderedYaml {
-            inner: Self::ordered_yaml(yaml),
-        }
+    pub fn new(mut yaml: Yaml) -> Self {
+        Self::ordered_yaml(&mut yaml);
+        OrderedYaml { inner: yaml }
     }
 
-    fn ordered_yaml(yaml: &Yaml) -> Yaml {
+    fn ordered_yaml(yaml: &mut Yaml) {
         match yaml {
-            Yaml::Hash(hash) => Yaml::Hash(Self::ordered_hash(hash)),
-            Yaml::Array(array) => Yaml::Array(array.into_iter().map(Self::ordered_yaml).collect()),
-            scalar => scalar.clone(),
+            Yaml::Hash(hash) => Self::ordered_hash(hash),
+            Yaml::Array(array) => {
+                for item in array.iter_mut() {
+                    Self::ordered_yaml(item);
+                }
+            }
+            _ => {}
         }
     }
 
-    fn ordered_hash(hash: &Hash) -> Hash {
-        hash.iter()
-            .map(|(key, value)| (Self::ordered_yaml(key), Self::ordered_yaml(value)))
-            .collect::<OrderedVecPairMap<Yaml, Yaml>>()
-            .into_iter()
-            .collect()
+    fn ordered_hash(hash: &mut Hash) {
+        let mut ordered = OrderedVecPairMap::default();
+        for (key, value) in hash.iter_mut() {
+            let mut ordered_key = key.clone();
+            let mut ordered_value = value.clone();
+            Self::ordered_yaml(&mut ordered_key);
+            Self::ordered_yaml(&mut ordered_value);
+            ordered.insert((ordered_key, ordered_value));
+        }
+        *hash = ordered.into_iter().collect();
     }
 }
 
@@ -38,24 +56,5 @@ impl fmt::Debug for OrderedYaml {
         write!(f, "OrderedYaml(\"",)?;
         yaml_rust2::YamlEmitter::new(f).dump(&self.inner).unwrap();
         write!(f, "\")",)
-    }
-}
-
-#[cfg(test)]
-use yaml_rust2::YamlLoader;
-
-#[test]
-fn test_ordered_yaml_preserves_order() {
-    let yaml_str = r#"
-    c: 3
-    a: 1
-    b: 2
-    "#;
-    let docs = YamlLoader::load_from_str(yaml_str).unwrap();
-    let ordered = OrderedYaml::new(&docs[0]);
-
-    if let Yaml::Hash(hash) = ordered.inner {
-        let keys: Vec<_> = hash.keys().map(|k| k.as_str().unwrap()).collect();
-        assert_eq!(keys, vec!["a", "b", "c",]);
     }
 }

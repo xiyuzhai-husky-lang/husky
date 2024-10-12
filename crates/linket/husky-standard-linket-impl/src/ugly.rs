@@ -12,7 +12,7 @@ pub use crate::{
         StandardTrackedException as __TrackedException,
     },
     pedestal::StandardPedestal as __Pedestal,
-    static_var::StandardVarId as __VarId,
+    var::StandardVarId as __VarId,
     IsGnItem as __IsGnItem, StandardKiControlFlow as __KiControlFlow,
     StandardLinketImpl as __LinketImpl, StandardVmArgumentValue as __VmArgumentValue,
     StandardVmArgumentValues as __VmArgumentValues, StandardVmControlFlow as __VmControlFlow,

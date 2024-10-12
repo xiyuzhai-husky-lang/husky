@@ -1,8 +1,68 @@
-use crate::*;
-use config::nemu::NemuConfig;
-use experiment::Experiment;
-use makefile::MayuriMakefileExtracted;
-use src::MayuriSrc;
+//! # Job YAML Format
+//!
+//! ```yaml
+//! ---
+//! name: <job_name>           # Name of the job (string)
+//! src:                       # Source file mappings
+//!     <target>: <source>     # Map target files to source files
+//!     ...
+//! config:                    # Job configuration
+//!     <key>: <value>         # Key-value pairs for job parameters
+//!     ...                    # Additional key-value pairs can be added
+//! ---
+//! # Additional jobs follow the same structure, separated by '---'
+//! ```
+//!
+//! This YAML format defines multiple jobs in a single file. Each job
+//! specifies a name, source file mappings, and a flexible configuration section.
+//! Jobs are separated by `---`.
+//!
+//! ## Examples
+//!
+//! ### Single Job
+//!
+//! ```yaml
+//! ---
+//! name: simple-nn-job
+//! src:
+//!     "model.py": "models/neural_network.py"
+//!     "data.py": "datasets/mnist.py"
+//! config:
+//!     epochs: 10
+//!     learning_rate: 0.001
+//!     batch_size: 32
+//! ```
+//!
+//! ### Multiple Jobs
+//!
+//! ```yaml
+//! ---
+//! name: cnn-small-job
+//! src:
+//!     "model.py": "models/cnn.py"
+//!     "data.py": "datasets/cifar10.py"
+//! config:
+//!     epochs: 20
+//!     layers: [32, 64]
+//!     dropout: 0.5
+//!
+//! ---
+//! name: cnn-large-job
+//! src:
+//!     "model.py": "models/cnn.py"
+//!     "data.py": "datasets/cifar10.py"
+//! config:
+//!     epochs: 50
+//!     layers: [64, 128, 256]
+//!     dropout: 0.3
+//! ```
+
+use crate::{
+    config::nemu::NemuConfig, experiment::Experiment, makefile::MayuriMakefileExtracted,
+    src::MayuriSrc, *,
+};
+use husky_yaml_utils::ordered::OrderedYaml;
+use serde::Deserialize;
 use std::path::PathBuf;
 use yaml_rust2::Yaml;
 
@@ -14,7 +74,7 @@ pub struct MayuriJob {
 }
 
 impl MayuriJob {
-    pub(super) fn from_file<'a>(
+    pub(super) fn read_from_file<'a>(
         path: PathBuf,
         src: &'a MayuriSrc,
         makefile: &'a MayuriMakefileExtracted,
@@ -24,11 +84,11 @@ impl MayuriJob {
 
         let docs = yaml_rust2::YamlLoader::load_from_str(&contents).expect("Failed to parse YAML");
         docs.into_iter().enumerate().map(move |(rank, yaml)| {
-            Self::from_file_aux(path.clone(), rank, yaml, src, makefile, nemu_config)
+            Self::new(path.clone(), rank, yaml, src, makefile, nemu_config)
         })
     }
 
-    fn from_file_aux(
+    fn new(
         path: PathBuf,
         rank: usize,
         yaml: Yaml,
@@ -56,7 +116,7 @@ impl MayuriJobs {
         makefile: &MayuriMakefileExtracted,
         nemu_config: &NemuConfig,
     ) -> MayuriJobs {
-        let mut subjects = Vec::new();
+        let mut jobs = Vec::new();
 
         if let Ok(entries) = std::fs::read_dir(dir) {
             for entry in entries.flatten() {
@@ -65,7 +125,7 @@ impl MayuriJobs {
                         let path = entry.path();
                         if let Some(extension) = path.extension() {
                             if extension == "yaml" || extension == "yml" {
-                                subjects.extend(MayuriJob::from_file(
+                                jobs.extend(MayuriJob::read_from_file(
                                     path,
                                     src,
                                     makefile,
@@ -78,7 +138,7 @@ impl MayuriJobs {
             }
         }
 
-        Self { jobs: subjects }
+        Self { jobs }
     }
 
     pub(crate) fn run_all(&self) {

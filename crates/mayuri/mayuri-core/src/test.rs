@@ -1,3 +1,61 @@
+//! # Test YAML Format
+//!
+//! ```yaml
+//! ---
+//! name: <test_name>          # Name of the test (string)
+//! src:                       # Source file mappings
+//!     <target>: <source>     # Map target files to source files
+//!     ...
+//! config:                    # Test configuration
+//!     <key>: <value>         # Key-value pairs for test parameters
+//!     ...                    # Additional key-value pairs can be added
+//! ---
+//! # Additional tests follow the same structure, separated by '---'
+//! ```
+//!
+//! This YAML format defines multiple tests in a single file. Each test
+//! specifies a name, source file mappings, and a flexible configuration section.
+//! Tests are separated by `---`.
+//!
+//! ## Examples
+//!
+//! ### Single Test
+//!
+//! ```yaml
+//! ---
+//! name: unit-test-1
+//! src:
+//!     "test_model.py": "tests/test_neural_network.py"
+//!     "model.py": "models/neural_network.py"
+//! config:
+//!     test_cases: 5
+//!     timeout: 30
+//!     use_gpu: false
+//! ```
+//!
+//! ### Multiple Tests
+//!
+//! ```yaml
+//! ---
+//! name: integration-test-1
+//! src:
+//!     "test_pipeline.py": "tests/test_data_pipeline.py"
+//!     "data.py": "datasets/mnist.py"
+//! config:
+//!     dataset_size: 1000
+//!     batch_size: 32
+//!
+//! ---
+//! name: performance-test-1
+//! src:
+//!     "benchmark.py": "tests/benchmark_cnn.py"
+//!     "model.py": "models/cnn.py"
+//! config:
+//!     iterations: 100
+//!     warmup_rounds: 5
+//!     profile_memory: true
+//! ```
+
 use crate::*;
 use config::nemu::NemuConfig;
 use experiment::Experiment;

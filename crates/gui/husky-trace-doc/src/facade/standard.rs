@@ -36,6 +36,6 @@ where
 
     fn central_right_region_ui(&mut self, ui: &mut egui::Ui) {
         TopBottomPanel::bottom(ui.next_auto_id()).show_inside(ui, |ui| self.render_devtools(ui));
-        CentralPanel::default().show_inside(ui, |ui| self.render_figure(ui));
+        CentralPanel::default().show_inside(ui, |ui| self.render_figure_ocean(ui));
     }
 }
