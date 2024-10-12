@@ -28,6 +28,17 @@ impl IsVarId for StandardVarId {
             StandardVarId::Quadruple([a, b, c, _]) => Some(StandardVarId::Triple([a, b, c])),
         }
     }
+
+    /// append `raw_id` as last component
+    #[track_caller]
+    fn specialize(self, raw_id: u32) -> Self {
+        match self {
+            StandardVarId::Single(a) => StandardVarId::Pair([a, raw_id]),
+            StandardVarId::Pair([a, b]) => StandardVarId::Triple([a, b, raw_id]),
+            StandardVarId::Triple([a, b, c]) => StandardVarId::Quadruple([a, b, c, raw_id]),
+            StandardVarId::Quadruple(_) => unreachable!("reached max level of specialization"), // Cannot specialize further, return self
+        }
+    }
 }
 
 impl StandardVarId {
