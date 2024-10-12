@@ -20,7 +20,9 @@ use husky_trace_protocol::{
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
 use husky_value_protocol::presentation::ValuePresentation;
+use smallvec::SmallVec;
 use std::path::Path;
+
 use ui::visual::cache::VisualUiCache;
 
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
@@ -30,7 +32,7 @@ where
 {
     current_dir: &'a Path,
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
-    generic_figure: &'a TraceProtocol::Figure,
+    figures: SmallVec<[&'a TraceProtocol::Figure; 4]>,
     facade: &'a mut TraceDocFacade,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
@@ -59,7 +61,7 @@ where
         Self {
             current_dir,
             trace_synchrotron,
-            generic_figure: trace_synchrotron.figure(),
+            figures: trace_synchrotron.figures().collect(),
             facade,
             action_buffer,
             settings,

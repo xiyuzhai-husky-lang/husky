@@ -15,6 +15,7 @@ use husky_visual_protocol::{
 };
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
+use smallvec::SmallVec;
 use ui::{
     ui::{IsUi, UiTextureId},
     visual::cache::VisualUiCache,
@@ -57,50 +58,54 @@ pub struct FigureKey<VarId: IsVarId> {
     joint_static_var_anchors: OrderedSmallVecPairMap<ItemPathIdInterface, Anchor<VarId>, 4>,
 }
 
+pub type FigureKeys<VarId> = SmallVec<[FigureKey<VarId>; 4]>;
 pub type TraceFigureKey<TraceProtocol> =
     FigureKey<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId>;
+pub type TraceFigureKeys<TraceProtocol> =
+    FigureKeys<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId>;
 
 impl<VarId: IsVarIdFull> FigureKey<VarId> {
-    pub fn new<Pedestal, TraceProtocol>(
+    pub fn collect_from_caryatid<Pedestal, TraceProtocol>(
         followed: Option<TraceId>,
         accompanyings_except_followed: AccompanyingTraceIdsExceptFollowed,
         caryatid: &TraceProtocol::Caryatid,
         trace_synchrotron: &TraceSynchrotron<TraceProtocol>,
-    ) -> Self
+    ) -> FigureKeys<VarId>
     where
         Pedestal: IsPedestal<VarId = VarId>,
         TraceProtocol: IsTraceProtocol<Pedestal = Pedestal, Caryatid: IsCaryatid>,
     {
-        let mut joint_static_var_anchors: OrderedSmallVecPairMap<
-            ItemPathIdInterface,
-            Anchor<Pedestal::VarId>,
-            4,
-        > = Default::default();
-        let mut t = |&trace_id: &TraceId| -> bool {
-            let entry = &trace_synchrotron[trace_id];
-            let var_deps = entry.var_deps();
-            if !caryatid.has_var_deps(var_deps) {
-                return false;
-            }
-            joint_static_var_anchors.extend(
-                var_deps
-                    .iter()
-                    .copied()
-                    .map(|dep| (dep, caryatid[dep].into())),
-            );
-            true
-        };
-        let followed_reduced = followed.filter(&mut t);
-        let accompanyings_except_followed_reduced = accompanyings_except_followed
-            .iter()
-            .copied()
-            .filter(t)
-            .collect();
-        Self {
-            followed_reduced,
-            accompanyings_except_followed_reduced,
-            joint_static_var_anchors,
-        }
+        todo!()
+        // let mut joint_static_var_anchors: OrderedSmallVecPairMap<
+        //     ItemPathIdInterface,
+        //     Anchor<Pedestal::VarId>,
+        //     4,
+        // > = Default::default();
+        // let mut t = |&trace_id: &TraceId| -> bool {
+        //     let entry = &trace_synchrotron[trace_id];
+        //     let var_deps = entry.var_deps();
+        //     if !caryatid.has_var_deps(var_deps) {
+        //         return false;
+        //     }
+        //     joint_static_var_anchors.extend(
+        //         var_deps
+        //             .iter()
+        //             .copied()
+        //             .map(|dep| (dep, caryatid[dep].into())),
+        //     );
+        //     true
+        // };
+        // let followed_reduced = followed.filter(&mut t);
+        // let accompanyings_except_followed_reduced = accompanyings_except_followed
+        //     .iter()
+        //     .copied()
+        //     .filter(t)
+        //     .collect();
+        // Self {
+        //     followed_reduced,
+        //     accompanyings_except_followed_reduced,
+        //     joint_static_var_anchors,
+        // }
     }
 }
 
