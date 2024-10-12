@@ -3477,6 +3477,7 @@
             "pathdiff",
             "rustc-hash",
             "serde",
+            "smallvec",
             "tokio",
             "ui",
             "husky-gui",
@@ -3735,6 +3736,11 @@
         ],
     },
     PackageSummary {
+        name: "husky-annotated-text-viewer",
+        relative_path: "crates/gui/husky-annotated-text-viewer",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "husky-color",
         relative_path: "crates/gui/husky-color",
         dependencies: [
@@ -3878,6 +3884,8 @@
         name: "husky-yaml-utils",
         relative_path: "crates/utils/husky-yaml-utils",
         dependencies: [
+            "hashlink",
+            "serde",
             "vec-like",
             "yaml-rust2",
         ],

@@ -10,7 +10,7 @@ use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull, JointPedestal};
 use husky_standard_linket_impl::pedestal::{StandardJointPedestal, StandardPedestal};
-use husky_standard_linket_impl::static_var::StandardVarId;
+use husky_standard_linket_impl::var::StandardVarId;
 use husky_trace_protocol::{
     chart::Chart,
     figure::{FigureUi, IsFigure},

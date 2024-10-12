@@ -1,5 +1,5 @@
 [package]
-name = "husky-yaml-utils"
+name = "husky-annotated-text-viewer"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,11 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-hashlink.workspace = true
-yaml-rust2.workspace = true
-serde.workspace = true
-# abstractions
-vec-like.workspace = true
 
 [lints]
 workspace = true
