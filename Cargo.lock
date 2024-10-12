@@ -4297,6 +4297,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-annotated-text-viewer"
+version = "0.1.0"
+
+[[package]]
 name = "husky-any-linket-impls"
 version = "0.1.0"
 dependencies = [

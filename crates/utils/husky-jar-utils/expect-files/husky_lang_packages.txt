@@ -3735,6 +3735,11 @@
         ],
     },
     PackageSummary {
+        name: "husky-annotated-text-viewer",
+        relative_path: "crates/gui/husky-annotated-text-viewer",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "husky-color",
         relative_path: "crates/gui/husky-color",
         dependencies: [
