@@ -1,6 +1,7 @@
 use crate::{
     accompany::AccompanyingTraceIdsExceptFollowed, anchor::Anchor, caryatid::IsCaryatid,
-    chart::Chart, server::TracePlotInfos, IsTraceProtocol, TraceId, TraceSynchrotron,
+    chart::Chart, server::TracePlotInfos, windlass::Windlass, IsTraceProtocol, TraceId,
+    TraceSynchrotron,
 };
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
@@ -15,6 +16,7 @@ use husky_visual_protocol::{
 };
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
+use smallvec::smallvec;
 use smallvec::SmallVec;
 use ui::{
     ui::{IsUi, UiTextureId},
@@ -75,37 +77,81 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
         Pedestal: IsPedestal<VarId = VarId>,
         TraceProtocol: IsTraceProtocol<Pedestal = Pedestal, Caryatid: IsCaryatid>,
     {
-        todo!()
-        // let mut joint_static_var_anchors: OrderedSmallVecPairMap<
-        //     ItemPathIdInterface,
-        //     Anchor<Pedestal::VarId>,
-        //     4,
-        // > = Default::default();
-        // let mut t = |&trace_id: &TraceId| -> bool {
-        //     let entry = &trace_synchrotron[trace_id];
-        //     let var_deps = entry.var_deps();
-        //     if !caryatid.has_var_deps(var_deps) {
-        //         return false;
-        //     }
-        //     joint_static_var_anchors.extend(
-        //         var_deps
-        //             .iter()
-        //             .copied()
-        //             .map(|dep| (dep, caryatid[dep].into())),
-        //     );
-        //     true
-        // };
-        // let followed_reduced = followed.filter(&mut t);
-        // let accompanyings_except_followed_reduced = accompanyings_except_followed
-        //     .iter()
-        //     .copied()
-        //     .filter(t)
-        //     .collect();
-        // Self {
-        //     followed_reduced,
-        //     accompanyings_except_followed_reduced,
-        //     joint_static_var_anchors,
-        // }
+        let mut keys = smallvec![];
+        let mut anchors: SmallVec<[(ItemPathIdInterface, Anchor<Pedestal::VarId>); 4]> =
+            smallvec![];
+        for (item_path, windlass) in caryatid.var_path_windlasses() {
+            match windlass {
+                Windlass::Specific(_) => todo!(),
+                Windlass::Generic {
+                    page_start,
+                    followed,
+                    zone: None,
+                    page_limit,
+                } => todo!(),
+                Windlass::Generic {
+                    page_start,
+                    followed,
+                    zone: Some(zone),
+                    page_limit,
+                } => todo!(),
+            }
+            todo!()
+        }
+        todo!();
+        keys
+    }
+
+    fn new<Pedestal, TraceProtocol>(
+        followed: Option<TraceId>,
+        accompanyings_except_followed: AccompanyingTraceIdsExceptFollowed,
+        anchors: &[(ItemPathIdInterface, Anchor<Pedestal::VarId>)],
+        trace_synchrotron: &TraceSynchrotron<TraceProtocol>,
+    ) -> Self
+    where
+        Pedestal: IsPedestal<VarId = VarId>,
+        TraceProtocol: IsTraceProtocol<Pedestal = Pedestal, Caryatid: IsCaryatid>,
+    {
+        // Initialize reduced_anchors with all generic anchors,
+        // because generic anchors are definitely going to be needed
+        let mut reduced_anchors: OrderedSmallVecPairMap<
+            ItemPathIdInterface,
+            Anchor<Pedestal::VarId>,
+            4,
+        > = anchors
+            .iter()
+            .filter(|(id, anchor)| anchor.is_generic())
+            .copied()
+            .collect();
+        let mut t = |&trace_id: &TraceId| -> bool {
+            let entry = &trace_synchrotron[trace_id];
+            let var_deps = entry.var_deps();
+            // if anchors don't contain all var_deps, we can't render the trace
+            if !var_deps
+                .iter()
+                .all(|dep| anchors.iter().any(|(id, _)| id == dep))
+            {
+                return false;
+            }
+            reduced_anchors.extend(var_deps.iter().copied().filter_map(|dep| {
+                anchors
+                    .iter()
+                    .find(|(id, _)| *id == dep)
+                    .map(|&(_, anchor)| (dep, anchor))
+            }));
+            true
+        };
+        let followed_reduced = followed.filter(&mut t);
+        let accompanyings_except_followed_reduced = accompanyings_except_followed
+            .iter()
+            .copied()
+            .filter(t)
+            .collect();
+        Self {
+            followed_reduced,
+            accompanyings_except_followed_reduced,
+            joint_static_var_anchors: reduced_anchors,
+        }
     }
 }
 
