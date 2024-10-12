@@ -98,7 +98,7 @@ class Function:
         self.last_called_step = last_called_step
 
 class BasicCodeGenerator:
-    def __init__(self, is_train, seed, min_dist, use_var_rate, error_rate):
+    def __init__(self, is_train, seed, max_args_per_fn, max_calls_per_fn, min_dist, use_var_rate, error_rate):
         if is_train:
             self.func_names = FUNC_NAMES[:len(FUNC_NAMES) // 2]
             self.var_names = VAR_NAMES[:len(VAR_NAMES) // 2]
@@ -110,8 +110,8 @@ class BasicCodeGenerator:
         self.min_dist = min_dist
         self.use_var_rate = use_var_rate
         self.error_rate = error_rate
-        self.max_args_per_fn = 5
-        self.max_calls_per_fn = 5
+        self.max_args_per_fn = max_args_per_fn
+        self.max_calls_per_fn = max_calls_per_fn
         self.used_fn_idx = []
         self.functions = []
         self.result = {
@@ -221,7 +221,7 @@ class BasicCodeGenerator:
             return self.rng.choice(FLOAT_LITERALS).item(), AstKind.FloatLiteral
 
     def gen_fns(self, max_fns):
-        num_fns = self.rng.integers(low=3, high=max(max_fns, 3) + 1)
+        num_fns = self.rng.integers(low=max_fns // 2, high=max_fns + 1)
         for _ in range(num_fns):
             self.gen_fn()
 
@@ -231,29 +231,18 @@ class BasicCodeGenerator:
 from concurrent.futures import ProcessPoolExecutor
 from tqdm import tqdm
 
-def generate_code(is_train, seed, max_fns, min_dist, use_var_rate, error_rate):
+def generate_code(is_train, seed, max_fns, max_args_per_fn, max_calls_per_fn,min_dist, use_var_rate, error_rate):
     """
     This function is a wrapper for the code generation process,
     designed to be called by each worker in the pool.
     """
-    bcg = BasicCodeGenerator(is_train, seed, min_dist, use_var_rate, error_rate)
+    bcg = BasicCodeGenerator(is_train, seed, max_args_per_fn, max_calls_per_fn, min_dist, use_var_rate, error_rate)
     bcg.gen_fns(max_fns)
     return bcg.finish()
 
-def rnd_codes_parallel(is_train, n, max_fns, min_dist, use_var_rate, error_rate, workers=None):
-    """
-    Generate random codes in parallel.
-
-    :param n: Number of codes to generate.
-    :param max_fns: Maximum number of functions.
-    :param min_dist: Minimum distance.
-    :param use_var_rate: Use variable rate flag.
-    :param error_rate: Error rate.
-    :param workers: Number of worker processes to use. If None, it will use the number of processors on the machine.
-    :return: List of generated codes.
-    """
+def rnd_codes_parallel(is_train, n, max_fns, max_args_per_fn, max_calls_per_fn, min_dist, use_var_rate, error_rate, workers=16):
     # Tuple of arguments to pass to each parallel invocation
-    args = [(is_train, seed, max_fns, min_dist, use_var_rate, error_rate) for seed in range(n)]
+    args = [(is_train, seed, max_fns, max_args_per_fn, max_calls_per_fn, min_dist, use_var_rate, error_rate) for seed in range(n)]
     
     # Use ProcessPoolExecutor to execute calls asynchronously
     with ProcessPoolExecutor(max_workers=workers) as executor:
