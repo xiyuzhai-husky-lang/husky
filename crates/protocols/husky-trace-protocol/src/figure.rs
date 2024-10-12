@@ -80,31 +80,61 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
         let mut keys = smallvec![];
         let mut anchors: SmallVec<[(ItemPathIdInterface, Anchor<Pedestal::VarId>); 4]> =
             smallvec![];
-        for (item_path, windlass) in caryatid.var_path_windlasses() {
+        let windlasses = caryatid.windlasses();
+        for &(var_path, windlass) in windlasses {
             match windlass {
-                Windlass::Specific(_) => todo!(),
+                Windlass::Specific(moored)
+                | Windlass::Generic {
+                    moored, zone: None, ..
+                } => {
+                    // We haven't encountered a zone, so no key is created.
+                    // We simply add original windlass as a specific anchor for further processing.
+                    anchors.push((var_path, Anchor::Specific(moored)))
+                }
                 Windlass::Generic {
                     page_start,
-                    followed,
-                    zone: None,
-                    page_limit,
-                } => todo!(),
-                Windlass::Generic {
-                    page_start,
-                    followed,
+                    moored,
                     zone: Some(zone),
                     page_limit,
-                } => todo!(),
+                } => {
+                    // We have encountered a zone.
+                    // Then we are going to create a key for the zeon.
+                    // 1. Temporarily expand anchors with all zone entries;
+                    // 2. Create a FigureKey including all zone anchors;
+                    // 3. Reset anchors to pre-zone state;
+                    // 4. Add the original windlass as a specific anchor for further processing.
+                    let prev_len = anchors.len();
+                    {
+                        let zone_len = zone.len();
+                        for i in prev_len..(prev_len + zone_len) {
+                            let (var_path1, windlass) = windlasses[i];
+                            anchors.push((var_path1, windlass.into()));
+                        }
+                        keys.push(Self::new(
+                            followed,
+                            &accompanyings_except_followed,
+                            &anchors,
+                            trace_synchrotron,
+                        ));
+                    }
+                    anchors.truncate(prev_len);
+                    anchors.push((var_path, Anchor::Specific(moored)));
+                }
             }
-            todo!()
         }
-        todo!();
+        // In the end, we push a key for all specific anchors.
+        keys.push(Self::new(
+            followed,
+            &accompanyings_except_followed,
+            &anchors,
+            trace_synchrotron,
+        ));
         keys
     }
 
     fn new<Pedestal, TraceProtocol>(
         followed: Option<TraceId>,
-        accompanyings_except_followed: AccompanyingTraceIdsExceptFollowed,
+        accompanyings_except_followed: &AccompanyingTraceIdsExceptFollowed,
         anchors: &[(ItemPathIdInterface, Anchor<Pedestal::VarId>)],
         trace_synchrotron: &TraceSynchrotron<TraceProtocol>,
     ) -> Self
