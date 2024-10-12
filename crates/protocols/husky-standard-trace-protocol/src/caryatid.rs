@@ -39,8 +39,7 @@ impl IsCaryatid for StandardCaryatid {
                     .map(|windlass| match windlass {
                         Windlass::Specific(var_id)
                         | Windlass::Generic {
-                            followed: Some(var_id),
-                            ..
+                            followed: var_id, ..
                         } => Some((dep, var_id)),
                         _ => None,
                     })
