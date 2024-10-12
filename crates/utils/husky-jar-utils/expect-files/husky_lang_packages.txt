@@ -3477,6 +3477,7 @@
             "pathdiff",
             "rustc-hash",
             "serde",
+            "smallvec",
             "tokio",
             "ui",
             "husky-gui",

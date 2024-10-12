@@ -7,21 +7,21 @@ pub enum Windlass<VarId: IsVarId> {
     Generic {
         page_start: VarId,
         moored: VarId,
-        zone: Option<OceanZone>,
+        zone: Option<FigureZone>,
         page_limit: Option<usize>,
     },
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-pub enum OceanZone {
+pub enum FigureZone {
     Gallery = 1,
     Text,
 }
-impl OceanZone {
+impl FigureZone {
     pub(crate) fn len(self) -> usize {
         match self {
-            OceanZone::Gallery => 1,
-            OceanZone::Text => 1,
+            FigureZone::Gallery => 1,
+            FigureZone::Text => 1,
         }
     }
 }
