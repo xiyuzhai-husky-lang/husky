@@ -7,4 +7,8 @@ impl IsVarId for () {
     fn generalize(self) -> Option<Self> {
         None
     }
+
+    fn specialize(self, raw_id: u32) -> Self {
+        unreachable!("reached max level of specialization")
+    }
 }
