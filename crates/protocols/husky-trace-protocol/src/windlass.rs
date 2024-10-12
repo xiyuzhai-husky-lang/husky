@@ -6,7 +6,7 @@ pub enum Windlass<VarId: IsVarId> {
     Specific(VarId),
     Generic {
         page_start: VarId,
-        followed: Option<VarId>,
+        followed: VarId,
         zone: Option<Zone>,
         page_limit: Option<usize>,
     },
@@ -37,10 +37,8 @@ impl<VarId: IsVarId> Windlass<VarId> {
         match self {
             Windlass::Specific(var_id)
             | Windlass::Generic {
-                followed: Some(var_id),
-                ..
+                followed: var_id, ..
             } => Some(var_id),
-            Windlass::Generic { followed: None, .. } => None,
         }
     }
 }

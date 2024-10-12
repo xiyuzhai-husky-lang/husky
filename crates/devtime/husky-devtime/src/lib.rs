@@ -256,7 +256,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                     item_path_id_interface,
                     Windlass::Generic {
                         page_start,
-                        followed: Some(page_start),
+                        followed: page_start,
                         page_limit: Some(page_limit),
                         zone: todo!(),
                     },
