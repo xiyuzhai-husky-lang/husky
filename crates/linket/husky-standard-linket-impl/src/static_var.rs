@@ -2,63 +2,101 @@ use crate::*;
 use husky_linket_impl::var_id::IsVarId;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-pub struct StandardVarId {
-    data: [u64; 4],
+#[repr(u8)]
+pub enum StandardVarId {
+    Single(u32) = 1,
+    Pair([u32; 2]),
+    Triple([u32; 3]),
+    Quadruple([u32; 4]),
 }
 
-impl IsVarId for StandardVarId {}
+#[test]
+fn test_option_standard_var_id_size() {
+    assert_eq!(
+        std::mem::size_of::<StandardVarId>(),
+        std::mem::size_of::<Option<StandardVarId>>()
+    );
+}
+
+impl IsVarId for StandardVarId {
+    /// removes last component
+    fn generalize(self) -> Option<Self> {
+        match self {
+            StandardVarId::Single(_) => None,
+            StandardVarId::Pair([a, _]) => Some(StandardVarId::Single(a)),
+            StandardVarId::Triple([a, b, _]) => Some(StandardVarId::Pair([a, b])),
+            StandardVarId::Quadruple([a, b, c, _]) => Some(StandardVarId::Triple([a, b, c])),
+        }
+    }
+}
 
 impl StandardVarId {
-    pub fn new(data: [u64; 4]) -> Self {
-        Self { data }
+    pub fn new_single(data: u32) -> Self {
+        Self::Single(data)
+    }
+
+    pub fn new_pair(data: [u32; 2]) -> Self {
+        Self::Pair(data)
+    }
+
+    pub fn new_triple(data: [u32; 3]) -> Self {
+        Self::Triple(data)
+    }
+
+    pub fn new_quadruple(data: [u32; 4]) -> Self {
+        Self::Quadruple(data)
     }
 }
 
 impl From<u32> for StandardVarId {
     fn from(data: u32) -> Self {
-        Self {
-            data: [data as u64, 0, 0, 0],
-        }
+        StandardVarId::Single(data)
     }
 }
 
 impl Into<u32> for StandardVarId {
     fn into(self) -> u32 {
-        self.data[0] as u32
-    }
-}
-
-impl From<u64> for StandardVarId {
-    fn from(data: u64) -> Self {
-        Self {
-            data: [data, 0, 0, 0],
+        match self {
+            StandardVarId::Single(_) => todo!(),
+            StandardVarId::Pair(_) | StandardVarId::Triple(_) | StandardVarId::Quadruple(_) => {
+                unreachable!()
+            }
         }
-    }
-}
-
-impl Into<u64> for StandardVarId {
-    fn into(self) -> u64 {
-        self.data[0]
     }
 }
 
 impl From<usize> for StandardVarId {
     fn from(data: usize) -> Self {
-        Self {
-            data: [data as u64, 0, 0, 0],
-        }
+        StandardVarId::Single(data.try_into().unwrap())
     }
 }
 
 impl Into<usize> for StandardVarId {
     fn into(self) -> usize {
-        self.data[0] as usize
+        match self {
+            StandardVarId::Single(v) => v as usize,
+            StandardVarId::Pair(_) | StandardVarId::Triple(_) | StandardVarId::Quadruple(_) => {
+                unreachable!()
+            }
+        }
     }
 }
 
-impl From<[u64; 4]> for StandardVarId {
-    fn from(data: [u64; 4]) -> Self {
-        Self { data }
+impl From<[u32; 2]> for StandardVarId {
+    fn from(data: [u32; 2]) -> Self {
+        StandardVarId::Pair(data)
+    }
+}
+
+impl From<[u32; 3]> for StandardVarId {
+    fn from(data: [u32; 3]) -> Self {
+        StandardVarId::Triple(data)
+    }
+}
+
+impl From<[u32; 4]> for StandardVarId {
+    fn from(data: [u32; 4]) -> Self {
+        StandardVarId::Quadruple(data)
     }
 }
 
