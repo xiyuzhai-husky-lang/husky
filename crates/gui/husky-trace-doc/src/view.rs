@@ -1,9 +1,9 @@
 mod caryatid;
 mod devtools;
-mod figure;
-mod forest;
+mod figure_ocean;
 mod help;
 pub(crate) mod settings;
+mod trace_forest;
 
 use crate::*;
 use egui::{

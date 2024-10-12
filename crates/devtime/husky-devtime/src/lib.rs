@@ -36,7 +36,7 @@ use husky_trace_protocol::{
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
     trace_id::TraceId,
     var_id::VarIdPresentation,
-    windlass::{OceanZone, Windlass},
+    windlass::{FigureZone, Windlass},
 };
 use husky_value::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
@@ -257,7 +257,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                         page_start,
                         moored: page_start,
                         page_limit: Some(page_limit),
-                        zone: Some(OceanZone::Gallery), // TODO more diverse zones
+                        zone: Some(FigureZone::Gallery), // TODO more diverse zones
                     },
                 );
                 self.runtime
