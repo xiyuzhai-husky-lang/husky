@@ -12,22 +12,21 @@ pub enum Anchor<VarId: IsVarId> {
     },
 }
 
-// impl<VarId: IsVarId> From<Windlass<VarId>> for Anchor<VarId> {
-//     fn from(windlass: Windlass<VarId>) -> Self {
-//         match windlass {
-//             Windlass::Specific(var_id) => Anchor::Specific(var_id),
-//             Windlass::Generic {
-//                 page_start,
-//                 followed,
-//                 page_limit,
-//                 ..
-//             } => Anchor::Generic {
-//                 page_start,
-//                 page_limit,
-//             },
-//         }
-//     }
-// }
+impl<VarId: IsVarId> From<Windlass<VarId>> for Anchor<VarId> {
+    fn from(windlass: Windlass<VarId>) -> Self {
+        match windlass {
+            Windlass::Specific(var_id) => Anchor::Specific(var_id),
+            Windlass::Generic {
+                page_start,
+                page_limit,
+                ..
+            } => Anchor::Generic {
+                page_start,
+                page_limit,
+            },
+        }
+    }
+}
 
 impl<VarId: IsVarId> Anchor<VarId> {
     pub fn is_generic(self) -> bool {

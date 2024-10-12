@@ -36,7 +36,7 @@ use husky_trace_protocol::{
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
     trace_id::TraceId,
     var_id::VarIdPresentation,
-    windlass::Windlass,
+    windlass::{OceanZone, Windlass},
 };
 use husky_value::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
@@ -213,15 +213,14 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     {
         self.runtime
             .with_var_ids(
-                caryatid
-                    .clone()
-                    .var_path_windlasses()
-                    .map(|(item_path_id_interface, windlass)| match windlass {
+                caryatid.clone().windlasses().iter().copied().map(
+                    |(item_path_id_interface, windlass)| match windlass {
                         Windlass::Specific(var_id)
                         | Windlass::Generic {
                             page_start: var_id, ..
                         } => (item_path_id_interface, var_id),
-                    }),
+                    },
+                ),
                 |locked| {
                     self.add_extra_var_deps_to_caryatid_aux(
                         caryatid.clone(),
@@ -256,9 +255,9 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                     item_path_id_interface,
                     Windlass::Generic {
                         page_start,
-                        followed: page_start,
+                        moored: page_start,
                         page_limit: Some(page_limit),
-                        zone: todo!(),
+                        zone: Some(OceanZone::Gallery), // TODO more diverse zones
                     },
                 );
                 self.runtime
