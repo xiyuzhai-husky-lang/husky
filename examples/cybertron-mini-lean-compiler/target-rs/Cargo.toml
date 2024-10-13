@@ -11,5 +11,8 @@ path = "cybertron-mini-lean-compiler"
 [workspace.dependencies.cybertron-mini-lean-compiler-linkets]
 path = "cybertron-mini-lean-compiler-linkets"
 
+[workspace.dependencies.cybertron-mini-lean-tokens]
+path = "../../../registry/cybertron-mini-lean-tokens-0.1.0"
+
 [workspace.dependencies.husky-core]
 path = "../../../library/core"

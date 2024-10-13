@@ -409,6 +409,7 @@ husky-vmir = { path = "crates/vmir/husky-vmir" }
 husky-core = { path = "library/core" }
 # registry
 ad-hoc-devsoul-dependency = { path = "registry/ad-hoc-devsoul-dependency" }
+cybertron-mini-lean-tokens = { path = "examples/cybertron-mini-lean-tokens-0.1.0" }
 malamute = { path = "registry/malamute-0.1.0" }
 ml-task = { path = "registry/ml-task-0.1.0" }
 standard-devsoul = { path = "registry/standard-devsoul-0.1.0" }
