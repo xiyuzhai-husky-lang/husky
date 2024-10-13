@@ -1970,6 +1970,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "cybertron-mini-lean-tokens"
+version = "0.1.0"
+
+[[package]]
 name = "cybertron-prototype"
 version = "0.1.0"
 dependencies = [

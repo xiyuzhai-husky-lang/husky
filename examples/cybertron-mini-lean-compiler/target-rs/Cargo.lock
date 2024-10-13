@@ -139,6 +139,7 @@ name = "cybertron-mini-lean-compiler"
 version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
+ "cybertron-mini-lean-tokens",
  "husky-core",
 ]
 
@@ -148,8 +149,13 @@ version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
  "cybertron-mini-lean-compiler",
+ "cybertron-mini-lean-tokens",
  "husky-core",
 ]
+
+[[package]]
+name = "cybertron-mini-lean-tokens"
+version = "0.1.0"
 
 [[package]]
 name = "dashmap"
