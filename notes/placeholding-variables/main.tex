@@ -9,8 +9,14 @@
 
 % Define Husky language for listings
 \lstdefinelanguage{Husky}{
-  keywords={fn, let, mut, pub, self, struct, trait, type, use, impl, for, if, else, while, return, match, static, var, of},
-  keywordstyle=\color{blue}\bfseries,
+  morekeywords=[1]{fn, let, mut, pub, self, struct, trait, type, use, impl, static, var, of, compterm, term},
+  morekeywords=[2]{for, if, else, while, return, match},
+  morekeywords=[3]{InputId, Fin, Pos, Q, K, V, f32},  % User-defined and built-in types
+  morekeywords=[4]{INPUT_ID, POS, POS_AUX},  % Global variables
+  keywordstyle=[1]{\color{purple}\bfseries},
+  keywordstyle=[2]{\color{orange}\bfseries},
+  keywordstyle=[3]{\color{teal}\bfseries},  % Color for user-defined and built-in types
+  keywordstyle=[4]{\color{blue}\bfseries},  % Color for global variables
   identifierstyle=\color{black},
   sensitive=true,
   commentstyle=\color{green!60!black}\itshape,
@@ -40,33 +46,34 @@ Latex is so lame. Cite shit \cite{someAuthor2023}here.
 
 \section{Introduction}
 
-Husky is one of the most sophisticated programming language on earth, designed during my best years. Thus, it's too exhausting to explain it in one short. We shall first write a couple of essays addressing specific aspects and then combine them together.
+Husky is one of the most sophisticated programming languages on earth, designed during my best years. Thus, it's too exhausting to explain it in one short document. We shall first write a couple of essays addressing specific aspects and then combine them together.
 
-In this paper, we shall describe the placeholder variables in the Husky programming language, which is the basis of Husky's novel high level syntax and semantics.
+In this paper, we shall describe the placeholder variables in the Husky programming language, which are the basis of Husky's novel high-level syntax and semantics.
 
-A placeholder variables is defined by the keyword var. For example,
+A placeholder variable is defined by the keyword var. For example,
 \begin{tcolorbox}[colback=gray!5,colframe=gray!50!black,title=Husky Code]
     \begin{lstlisting}[language=Husky]
 static var INPUT_ID: InputId;
     \end{lstlisting}
 \end{tcolorbox}
 
-We also have type var, and compterm var.
+The additional keyword \huskyinline{static} indicates that this placeholder is meant for runtime calculation.
+We also have \huskyinline{type var} for type placeholder variables, and \huskyinline{compterm var} for computable term variables and \huskyinline{term var} for arbitrary term variables.
 
-The intended usage of placeholder variables is inspired from natural language. Consider the following:
+The intended usage of placeholder variables is inspired by natural language. Consider the following:
 
 \begin{tcolorbox}[colback=gray!5,colframe=gray!50!black,title=Example]
     Let $x$ be an integer. We say $x$ is positive if $x>0$. Then if $x=1$, $x$ is positive. Let $y=x+1$, then $y|_{x=0}=1$.
 \end{tcolorbox}
 
-In above, $x$ is not a variable like in python or Rust. It's a contextual placeholder that can be used to construct a term (including both value and proposition) depending on it, with the dependency automatically tracked. It's actually quite similar to tensorflow's placeholder variables, designed for compilation purposes, but much more general.
+In above, $x$ is not a variable like in Python or Rust. It's a contextual placeholder that can be used to construct a term (including both value and proposition) depending on it, with the dependency automatically tracked. It's actually quite similar to TensorFlow's placeholder variables, designed for compilation purposes, but much more general.
 
-TODO: ask Liao Zhang, whether this mechanism has true support from certain prover langauges like Coq or Lean.
+TODO: Ask Liao Zhang whether this mechanism has true support from certain prover languages like Coq or Lean.
 
 The intended purpose is to have a richer semantics for expressing \textbf{values that depends on a set of placeholders} together with \textbf{strong type safety}.
 
 \section{Related Work}
-\subsection{placeholder Variables as Indices}
+\subsection{Placeholder Variables as Indices}
 
 \begin{tcolorbox}[colback=gray!5,colframe=gray!50!black,title=Husky Code]
     \begin{lstlisting}[language=Husky]
@@ -111,7 +118,7 @@ gn fold(v: V, score: f32) -> const[POS_AUX] V:
 \subsection{Mathematica}
 It does a similar thing, but with dynamic typing. And there's a lack of support for compilation and static analysis.
 
-\subsection{Tensor Libaries like Numpy, PyTorch, Tensorflow}
+\subsection{Tensor Libraries like NumPy, PyTorch, TensorFlow}
 
 \bibliographystyle{plainnat}  % Add this before \end{document}
 \bibliography{references}     % Add this before \end{document}
