@@ -14,7 +14,7 @@
 *.blg
 
 # PDF output (uncomment if you don't want to track the compiled PDF)
-*.pdf
+# *.pdf
 
 # Beamer
 *.nav
