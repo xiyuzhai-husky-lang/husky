@@ -5,3 +5,4 @@ description = "example mini-lean-compiler in cybertron"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+cybertron-mini-lean-tokens = "0.1.0"

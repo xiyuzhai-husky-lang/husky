@@ -6,5 +6,8 @@ version = "0.1.0"
 [dependencies.ad-hoc-devsoul-dependency]
 workspace = true
 
+[dependencies.cybertron-mini-lean-tokens]
+workspace = true
+
 [dependencies.husky-core]
 workspace = true
