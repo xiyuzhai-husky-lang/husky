@@ -1957,6 +1957,19 @@ name = "cybertron-mini-lean-compiler"
 version = "0.1.0"
 
 [[package]]
+name = "cybertron-mini-lean-compiler-developer"
+version = "0.1.0"
+dependencies = [
+ "husky-ad-hoc-protocol",
+ "husky-dev-comptime",
+ "husky-devtime",
+ "husky-standard-devsoul",
+ "husky-standard-trace-protocol",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "cybertron-prototype"
 version = "0.1.0"
 dependencies = [
