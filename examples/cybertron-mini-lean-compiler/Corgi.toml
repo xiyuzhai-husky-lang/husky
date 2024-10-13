@@ -1,0 +1,7 @@
+[package]
+name = "cybertron-mini-lean-compiler"
+version.workspace = true
+description = "example mini-lean-compiler in cybertron"
+license = "MIT OR Apache-2.0"
+
+[dependencies]

@@ -91,6 +91,10 @@ mnist-developer:
 	# SKIP_COMPILATION=1 cargo run --bin husky-mnist-classifier-developer
 	cargo run --bin husky-mnist-classifier-developer -- --nocapture
 
+cybertron-mini-lean-compiler-developer:
+	# SKIP_COMPILATION=1 cargo run --bin husky-mnist-classifier-developer
+	cargo run --bin cybertron-mini-lean-compiler-developer -- --nocapture
+
 save:
 # git add -A
 # git commit -m "save"
