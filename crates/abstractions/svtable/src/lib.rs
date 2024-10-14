@@ -55,17 +55,17 @@
 //! For the above example, the macro will generate something similar to:
 //!
 //! ```rust,ignore
-//! pub struct ASvtable<T: A> {
+//! pub struct ASvtable<__Self: A> {
 //!     assoc_fn1: fn(),
 //!     assoc_fn2: fn(i32) -> bool,
-//!     _phantom: std::marker::PhantomData<T>,
+//!     _phantom: std::marker::PhantomData<__Self>,
 //! }
 //!
-//! impl<T: A> ASvtable<T> {
+//! impl<__Self: A> ASvtable<__Self> {
 //!     pub const fn new() -> Self {
 //!         Self {
-//!             assoc_fn1: T::assoc_fn1,
-//!             assoc_fn2: T::assoc_fn2,
+//!             assoc_fn1: __Self::assoc_fn1,
+//!             assoc_fn2: __Self::assoc_fn2,
 //!             _phantom: std::marker::PhantomData,
 //!         }
 //!     }
@@ -158,6 +158,8 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
     let input = parse_macro_input!(item as ItemTrait);
     let trait_name = &input.ident;
     let vis = &input.vis;
+    let generics = &input.generics;
+    let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
     // Parse the attribute to get the custom name if provided
     let custom_name = if !attr.is_empty() {
@@ -210,23 +212,40 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
         if let syn::TraitItem::Fn(assoc_fn) = item {
             let fn_name = &assoc_fn.sig.ident;
             Some(quote! {
-                #fn_name: T::#fn_name
+                #fn_name: __Self::#fn_name
             })
         } else {
             None
         }
     });
 
+    let mut svtable_generics = generics.clone();
+    let self_param = syn::GenericParam::Type(syn::TypeParam {
+        attrs: Vec::new(),
+        ident: syn::Ident::new("__Self", proc_macro2::Span::call_site()),
+        colon_token: None,
+        bounds: {
+            let mut bounds = syn::punctuated::Punctuated::new();
+            bounds.push(syn::parse_quote!(#trait_name #ty_generics));
+            bounds
+        },
+        eq_token: None,
+        default: None,
+    });
+    svtable_generics.params.push(self_param);
+    let (svtable_impl_generics, svtable_ty_generics, svtable_where_clause) =
+        svtable_generics.split_for_impl();
+
     let expanded = quote! {
         #input
 
         #[allow(non_camel_case_types)]
-        #vis struct #svtable_name<T: #trait_name> {
+        #vis struct #svtable_name #svtable_impl_generics #svtable_where_clause {
             #(#svtable_fields,)*
-            _phantom: std::marker::PhantomData<T>,
+            _phantom: std::marker::PhantomData<__Self>,
         }
 
-        impl<T: #trait_name> #svtable_name<T> {
+        impl #svtable_impl_generics #svtable_name #svtable_ty_generics #svtable_where_clause {
             pub const fn new() -> Self {
                 Self {
                     #(#svtable_field_assignments,)*
