@@ -157,6 +157,7 @@ use syn::{parse_macro_input, ItemTrait, LitStr, Meta};
 pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
     let input = parse_macro_input!(item as ItemTrait);
     let trait_name = &input.ident;
+    let vis = &input.vis;
 
     // Parse the attribute to get the custom name if provided
     let custom_name = if !attr.is_empty() {
@@ -187,12 +188,12 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
         None
     };
 
-    let vtable_name = match custom_name {
+    let svtable_name = match custom_name {
         Some(name) => syn::Ident::new(&name, trait_name.span()),
         None => syn::Ident::new(&format!("{}Svtable", trait_name), trait_name.span()),
     };
 
-    let vtable_fields = input.items.iter().filter_map(|item| {
+    let svtable_fields = input.items.iter().filter_map(|item| {
         if let syn::TraitItem::Fn(assoc_fn) = item {
             let fn_name = &assoc_fn.sig.ident;
             let inputs = &assoc_fn.sig.inputs;
@@ -205,7 +206,7 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
         }
     });
 
-    let vtable_field_assignments = input.items.iter().filter_map(|item| {
+    let svtable_field_assignments = input.items.iter().filter_map(|item| {
         if let syn::TraitItem::Fn(assoc_fn) = item {
             let fn_name = &assoc_fn.sig.ident;
             Some(quote! {
@@ -219,15 +220,16 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
     let expanded = quote! {
         #input
 
-        pub struct #vtable_name<T: #trait_name> {
-            #(#vtable_fields,)*
+        #[allow(non_camel_case_types)]
+        #vis struct #svtable_name<T: #trait_name> {
+            #(#svtable_fields,)*
             _phantom: std::marker::PhantomData<T>,
         }
 
-        impl<T: #trait_name> #vtable_name<T> {
+        impl<T: #trait_name> #svtable_name<T> {
             pub const fn new() -> Self {
                 Self {
-                    #(#vtable_field_assignments,)*
+                    #(#svtable_field_assignments,)*
                     _phantom: std::marker::PhantomData,
                 }
             }
