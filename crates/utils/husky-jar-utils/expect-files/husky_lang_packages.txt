@@ -377,6 +377,15 @@
         ],
     },
     PackageSummary {
+        name: "svtable",
+        relative_path: "crates/abstractions/svtable",
+        dependencies: [
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
         name: "time-capsule",
         relative_path: "crates/abstractions/time-capsule",
         dependencies: [
