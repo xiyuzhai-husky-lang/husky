@@ -146,9 +146,9 @@
 
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::punctuated::Punctuated;
 use syn::token::Comma;
 use syn::{parse_macro_input, ItemTrait, LitStr, Meta};
+use syn::{punctuated::Punctuated, DeriveInput};
 
 #[proc_macro_attribute]
 pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {

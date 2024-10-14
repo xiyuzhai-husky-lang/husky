@@ -59,6 +59,7 @@ pub type StandardVmControlFlow<C = ThawedValue, B = ThawedValue> =
     VmControlFlow<C, B, StandardTrackedException>;
 pub type StandardVmArgumentValue<'comptime> = VmArgumentValue<'comptime, StandardLinketImpl>;
 pub type StandardVmArgumentValues<'comptime> = VmArgumentValues<'comptime, StandardLinketImpl>;
+pub type StandardStaticVarSvtable = StaticVarSvtable<StandardVarId, Value>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinketImpl {
@@ -383,6 +384,13 @@ impl IsLinketImpl for StandardLinketImpl {
             unreachable!()
         };
         default_page_start(locked)
+    }
+
+    fn static_var_svtable(self) -> &'static StandardStaticVarSvtable {
+        let StandardLinketImpl::StaticVar { svtable, .. } = self else {
+            unreachable!()
+        };
+        svtable
     }
 }
 

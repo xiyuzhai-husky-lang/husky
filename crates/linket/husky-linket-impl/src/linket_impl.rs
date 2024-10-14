@@ -9,7 +9,7 @@ use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use pedestal::{IsPedestal, IsPedestalFull};
 use serde::Serialize;
 use smallvec::SmallVec;
-use static_var::StaticVarResult;
+use static_var::{StaticVarResult, StaticVarSvtable};
 use std::fmt::{self, Debug, Formatter};
 use std::num::Saturating;
 
@@ -68,6 +68,9 @@ pub trait IsLinketImpl: std::fmt::Debug + Eq + Send + Sync + Copy + 'static {
         self,
         locked: &[ItemPathIdInterface],
     ) -> LinketImplStaticVarResult<Self, <Self::Pedestal as IsPedestal>::VarId>;
+    fn static_var_svtable(
+        self,
+    ) -> &'static StaticVarSvtable<<Self::Pedestal as IsPedestal>::VarId, Self::Value>;
 }
 
 pub type LinketImplKiControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =

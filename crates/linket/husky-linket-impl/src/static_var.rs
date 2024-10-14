@@ -114,6 +114,45 @@ impl<VarId: IsVarId, Value: IsValue> StaticVarSvtable<VarId, Value> {
             get_value: <V>::get_value,
         }
     }
+
+    pub fn get_var_id(&self) -> VarId {
+        (self.get_var_id)()
+    }
+
+    pub fn page_var_ids<'db>(
+        &self,
+        locked: &'db [ItemPathIdInterface],
+        page_start: VarId,
+        page_limit: Option<usize>,
+    ) -> Box<dyn Iterator<Item = VarId> + 'db> {
+        (self.page_var_ids)(locked, page_start, page_limit)
+    }
+
+    pub fn default_page_start(
+        &self,
+        locked: &[ItemPathIdInterface],
+    ) -> StaticVarResult<VarId, VarId> {
+        (self.default_page_start)(locked)
+    }
+
+    pub unsafe fn try_set_var_id(
+        &self,
+        var_id: VarId,
+        locked: &[ItemPathIdInterface],
+    ) -> StaticVarResult<VarId, Box<dyn FnOnce() + 'static>> {
+        (self.try_set_var_id)(var_id, locked)
+    }
+
+    pub unsafe fn try_set_default_var_id(
+        &self,
+        locked: &[ItemPathIdInterface],
+    ) -> StaticVarResult<VarId, (VarId, Box<dyn FnOnce() + 'static>)> {
+        (self.try_set_default_var_id)(locked)
+    }
+
+    pub fn get_value(&self) -> Value {
+        (self.get_value)()
+    }
 }
 
 /// this is a mild error, sometimes intentionally triggered
