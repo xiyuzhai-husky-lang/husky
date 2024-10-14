@@ -58,15 +58,13 @@
 //! pub struct ASvtable<__Self: A> {
 //!     assoc_fn1: fn(),
 //!     assoc_fn2: fn(i32) -> bool,
-//!     _phantom: std::marker::PhantomData<__Self>,
 //! }
 //!
-//! impl<__Self: A> ASvtable<__Self> {
-//!     pub const fn new() -> Self {
+//! impl ASvtable {
+//!     pub const fn new<__Self: A>() -> Self {
 //!         Self {
 //!             assoc_fn1: __Self::assoc_fn1,
 //!             assoc_fn2: __Self::assoc_fn2,
-//!             _phantom: std::marker::PhantomData,
 //!         }
 //!     }
 //! }
@@ -125,17 +123,16 @@
 //!     }
 //!
 //!     #[test]
-//!     fn test_svtable_generation() {
-//!         let vtable = TestTraitSvtable::<TestImpl>::new();
+//!     fn test_ssvtable_generation() {
+//!         let svtable = TestTraitSsvtable::<TestImpl>::new();
+//!         // Test that the svtable has the correct methods
+//!         assert!(std::mem::size_of_val(&svtable.method1) == std::mem::size_of::<fn()>());
+//!         assert!(std::mem::size_of_val(&svtable.method2) == std::mem::size_of::<fn(i32) -> bool>());
 //!
-//!         // Test that the vtable has the correct methods
-//!         assert!(std::mem::size_of_val(&vtable.method1) == std::mem::size_of::<fn()>());
-//!         assert!(std::mem::size_of_val(&vtable.method2) == std::mem::size_of::<fn(i32) -> bool>());
-//!
-//!         // Test that the methods in the vtable work correctly
-//!         (vtable.method1)();
-//!         assert!((vtable.method2)(5));
-//!         assert!(!(vtable.method2)(-5));
+//!         // Test that the methods in the svtable work correctly
+//!         (svtable.method1)();
+//!         assert!((svtable.method2)(5));
+//!         assert!(!(svtable.method2)(-5));
 //!     }
 //! }
 //! ```
@@ -254,37 +251,18 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
         }
     });
 
-    let mut svtable_generics = generics.clone();
-    let self_param = syn::GenericParam::Type(syn::TypeParam {
-        attrs: Vec::new(),
-        ident: syn::Ident::new("__Self", proc_macro2::Span::call_site()),
-        colon_token: None,
-        bounds: {
-            let mut bounds = syn::punctuated::Punctuated::new();
-            bounds.push(syn::parse_quote!(#trait_name #ty_generics));
-            bounds
-        },
-        eq_token: None,
-        default: None,
-    });
-    svtable_generics.params.push(self_param);
-    let (svtable_impl_generics, svtable_ty_generics, svtable_where_clause) =
-        svtable_generics.split_for_impl();
-
     let expanded = quote! {
         #input
 
         #[allow(non_camel_case_types)]
-        #vis struct #svtable_name #svtable_impl_generics #svtable_where_clause {
+        #vis struct #svtable_name #impl_generics #where_clause {
             #(#svtable_fields,)*
-            _phantom: std::marker::PhantomData<__Self>,
         }
 
-        impl #svtable_impl_generics #svtable_name #svtable_ty_generics #svtable_where_clause {
-            pub const fn new() -> Self {
+        impl #impl_generics #svtable_name #ty_generics #where_clause {
+            pub const fn new<__Self: #trait_name #ty_generics>() -> Self {
                 Self {
                     #(#svtable_field_assignments,)*
-                    _phantom: std::marker::PhantomData,
                 }
             }
 
