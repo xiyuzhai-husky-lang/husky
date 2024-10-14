@@ -22,7 +22,10 @@ where
 
     fn page_var_ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = VarId>;
 
-    fn default_page_start(locked: &[ItemPathIdInterface]) -> StaticVarResult<VarId, VarId>;
+    fn default_page_start(
+        figure_zone: FigureZone,
+        locked: &[ItemPathIdInterface],
+    ) -> StaticVarResult<VarId, VarId>;
 
     fn get_id() -> VarId;
 
@@ -82,7 +85,7 @@ pub struct StaticVarSvtable<VarId: IsVarId, Value: IsValue> {
         VarId,
         Option<usize>,
     ) -> Box<dyn Iterator<Item = VarId> + 'db>,
-    default_page_start: fn(&[ItemPathIdInterface]) -> StaticVarResult<VarId, VarId>,
+    default_page_start: fn(FigureZone, &[ItemPathIdInterface]) -> StaticVarResult<VarId, VarId>,
     // todo: use guard?
     try_set_var_id: unsafe fn(
         VarId,
@@ -135,9 +138,10 @@ impl<VarId: IsVarId, Value: IsValue> StaticVarSvtable<VarId, Value> {
 
     pub fn default_page_start(
         &self,
+        zone: FigureZone,
         locked: &[ItemPathIdInterface],
     ) -> StaticVarResult<VarId, VarId> {
-        (self.default_page_start)(locked)
+        (self.default_page_start)(zone, locked)
     }
 
     pub unsafe fn try_set_var_id(

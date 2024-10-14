@@ -173,7 +173,10 @@ fn static_var_linket_impl_works() {
             todo!()
         }
 
-        fn default_page_start(locked: &[ItemPathIdInterface]) -> StaticVarResult<__VarId, __VarId> {
+        fn default_page_start(
+            figure_zone: __FigureZone,
+            locked: &[ItemPathIdInterface],
+        ) -> StaticVarResult<__VarId, __VarId> {
             todo!()
         }
 
