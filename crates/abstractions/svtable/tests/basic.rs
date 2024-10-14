@@ -25,7 +25,7 @@ impl TestTrait for TestStruct {
 
 #[test]
 fn test_svtable_creation() {
-    let vtable = TestTraitSvtable::<TestStruct>::new();
+    let vtable = TestTraitSvtable::new::<TestStruct>();
 
     // Test assoc_fn1
     assert_eq!((vtable.assoc_fn1)(5), 10);
@@ -42,9 +42,9 @@ fn test_svtable_creation() {
 
 #[test]
 fn test_svtable_type_safety() {
-    fn accepts_test_trait<T: TestTrait>(_: &TestTraitSvtable<T>) {}
+    fn accepts_test_trait(_: &TestTraitSvtable) {}
 
-    let vtable = TestTraitSvtable::<TestStruct>::new();
+    let vtable = TestTraitSvtable::new::<TestStruct>();
     accepts_test_trait(&vtable);
 }
 
@@ -66,8 +66,8 @@ fn test_svtable_multiple_implementations() {
         }
     }
 
-    let vtable1 = TestTraitSvtable::<TestStruct>::new();
-    let vtable2 = TestTraitSvtable::<AnotherStruct>::new();
+    let vtable1 = TestTraitSvtable::new::<TestStruct>();
+    let vtable2 = TestTraitSvtable::new::<AnotherStruct>();
 
     // Test function pointer style calls
     assert_eq!((vtable1.assoc_fn1)(5), 10);
@@ -93,5 +93,5 @@ fn test_svtable_multiple_implementations() {
 // New test for comparing direct trait calls with vtable method calls
 #[test]
 fn test_vtable_methods_vs_direct_calls() {
-    let vtable = TestTraitSvtable::<TestStruct>::new();
+    let vtable = TestTraitSvtable::new::<TestStruct>();
 }

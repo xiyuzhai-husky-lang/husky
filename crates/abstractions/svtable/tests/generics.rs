@@ -25,7 +25,7 @@ impl TestTrait<i32, String> for TestStruct {
 
 #[test]
 fn test_svtable_creation() {
-    let vtable = TestTraitSvtable::<i32, String, TestStruct>::new();
+    let vtable = TestTraitSvtable::<i32, String>::new::<TestStruct>();
 
     // Test assoc_fn1
     assert_eq!((vtable.assoc_fn1)(5), 10);
@@ -42,9 +42,9 @@ fn test_svtable_creation() {
 
 #[test]
 fn test_svtable_type_safety() {
-    fn accepts_test_trait<T: TestTrait<i32, String>>(_: &TestTraitSvtable<i32, String, T>) {}
+    fn accepts_test_trait(_: &TestTraitSvtable<i32, String>) {}
 
-    let svtable = TestTraitSvtable::<i32, String, TestStruct>::new();
+    let svtable = TestTraitSvtable::<i32, String>::new::<TestStruct>();
     accepts_test_trait(&svtable);
 }
 
@@ -69,8 +69,8 @@ fn test_svtable_multiple_implementations() {
         }
     }
 
-    let vtable1 = TestTraitSvtable::<i32, String, TestStruct>::new();
-    let vtable2 = TestTraitSvtable::<String, Vec<i32>, AnotherStruct>::new();
+    let vtable1 = TestTraitSvtable::<i32, String>::new::<TestStruct>();
+    let vtable2 = TestTraitSvtable::<String, Vec<i32>>::new::<AnotherStruct>();
 
     assert_eq!((vtable1.assoc_fn1)(5), 10);
     assert_eq!((vtable2.assoc_fn1)("hello".to_string()), "olleh");
