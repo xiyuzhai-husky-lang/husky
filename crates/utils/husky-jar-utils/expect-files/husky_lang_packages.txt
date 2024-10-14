@@ -2182,6 +2182,7 @@
         relative_path: "crates/linket/husky-linket-impl",
         dependencies: [
             "husky-decl-macro-utils",
+            "husky-figure-zone-protocol",
             "husky-item-path-interface",
             "husky-ki-repr-interface",
             "husky-value",
@@ -2191,6 +2192,13 @@
             "smallvec",
             "vec-like",
             "husky-core",
+        ],
+    },
+    PackageSummary {
+        name: "husky-figure-zone-protocol",
+        relative_path: "crates/protocols/husky-figure-zone-protocol",
+        dependencies: [
+            "serde",
         ],
     },
     PackageSummary {
@@ -2284,6 +2292,7 @@
             "enum-class",
             "futures",
             "futures-util",
+            "husky-figure-zone-protocol",
             "husky-io-utils",
             "husky-item-path-interface",
             "husky-ki-repr-interface",
@@ -2874,6 +2883,7 @@
             "husky-entity-path",
             "husky-eth-signature",
             "husky-eth-term",
+            "husky-figure-zone-protocol",
             "husky-hir-eager-expr",
             "husky-item-path-interface",
             "husky-ki-repr",

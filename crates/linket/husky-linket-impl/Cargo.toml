@@ -13,6 +13,7 @@ husky-item-path-interface.workspace = true
 # ki
 husky-ki-repr-interface.workspace = true
 # protocols
+husky-figure-zone-protocol.workspace = true
 husky-value-protocol.workspace = true
 # value
 husky-value.workspace = true

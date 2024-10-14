@@ -160,6 +160,10 @@ impl __IsStaticVar<__VarId> for INPUT {
         let default = 0usize.into();
         Ok((default, Self::try_set_var_id(default, locked)?))
     }
+
+    fn zones() -> &'static [__FigureZone] {
+        todo!()
+    }
 }
 
 #[allow(non_upper_case_globals)]
@@ -209,5 +213,9 @@ impl __IsStaticVar<__VarId> for TASK {
     ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
         todo!();
         Ok((todo!(), || todo!()))
+    }
+
+    fn zones() -> &'static [__FigureZone] {
+        todo!()
     }
 }

@@ -183,6 +183,10 @@ fn static_var_linket_impl_works() {
             todo!();
             Ok((todo!(), || todo!()))
         }
+
+        fn zones() -> &'static [husky_linket_impl::ugly::__FigureZone] {
+            todo!()
+        }
     }
 
     /// We use the same name
