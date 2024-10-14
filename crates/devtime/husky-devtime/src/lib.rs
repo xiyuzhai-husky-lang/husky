@@ -249,16 +249,16 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     {
         match var_deps.next() {
             Some(item_path_id_interface) => {
-                let page_start = self
+                let (zone, page_start) = self
                     .runtime
-                    .var_default_page_start_aux(item_path_id_interface, &locked)?;
+                    .var_default_zone_and_page_start(item_path_id_interface, &locked)?;
                 caryatid.add_new(
                     item_path_id_interface,
                     Windlass::Generic {
                         page_start,
                         moored: page_start,
                         page_limit: Some(page_limit),
-                        zone: Some(FigureZone::Gallery), // TODO more diverse zones
+                        zone: Some(zone),
                     },
                 );
                 self.runtime
