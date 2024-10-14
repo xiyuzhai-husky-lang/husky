@@ -234,6 +234,7 @@ salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
 snapshot = { path = "crates/abstractions/snapshot" }
+svtable = { path = "crates/abstractions/svtable" }
 time-capsule = { path = "crates/abstractions/time-capsule" }
 ui = { path = "crates/abstractions/ui" }
 ui-macros = { path = "crates/abstractions/ui-macros" }
