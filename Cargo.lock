@@ -4784,6 +4784,7 @@ dependencies = [
  "husky-entity-tree",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-figure-zone-protocol",
  "husky-fly-term",
  "husky-hir-lazy-expr",
  "husky-hir-opr",
