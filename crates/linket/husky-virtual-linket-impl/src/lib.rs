@@ -183,4 +183,13 @@ impl IsLinketImpl for VirtualLinketImpl {
     ) -> Result<husky_linket_impl::dev_eval_context::DevEvalContextGuard, ()> {
         todo!()
     }
+
+    fn static_var_svtable(
+        self,
+    ) -> &'static husky_linket_impl::static_var::StaticVarSvtable<
+        <Self::Pedestal as IsPedestal>::VarId,
+        Self::Value,
+    > {
+        todo!()
+    }
 }
