@@ -57,17 +57,6 @@ pub trait IsLinketImpl: std::fmt::Debug + Eq + Send + Sync + Copy + 'static {
         locked: &[ItemPathIdInterface],
         f: impl FnOnce(<Self::Pedestal as IsPedestal>::VarId) -> R,
     ) -> LinketImplStaticVarResult<Self, R>;
-    /// applies only for static var linkage
-    fn page_var_ids<'a>(
-        self,
-        locked: &'a [ItemPathIdInterface],
-        page_start: <Self::Pedestal as IsPedestal>::VarId,
-        page_limit: Option<usize>,
-    ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::VarId> + 'a>;
-    fn var_default_page_start(
-        self,
-        locked: &[ItemPathIdInterface],
-    ) -> LinketImplStaticVarResult<Self, <Self::Pedestal as IsPedestal>::VarId>;
     fn static_var_svtable(
         self,
     ) -> &'static StaticVarSvtable<<Self::Pedestal as IsPedestal>::VarId, Self::Value>;

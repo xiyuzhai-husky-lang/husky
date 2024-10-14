@@ -264,6 +264,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 page_limit,
             } => {
                 let iter = linket_impl
+                    .static_var_svtable()
                     .page_var_ids(locked, page_start, page_limit)
                     .filter_map(|var_id| {
                         let mut var_map = var_map.clone();
@@ -297,7 +298,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let linket_impl = self
             .comptime
             .linket_impl(Linket::new_var(major_form_path, db));
-        linket_impl.var_default_page_start(locked)
+        linket_impl.static_var_svtable().default_page_start(locked)
     }
 
     pub fn with_pedestal<R>(
