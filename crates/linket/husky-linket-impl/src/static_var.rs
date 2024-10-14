@@ -1,7 +1,7 @@
+use crate::*;
 use husky_value::IsValue;
 use serde::{Deserialize, Serialize};
-
-use crate::*;
+use var_id::IsVarId;
 
 pub trait IsStaticVar<VarId>: 'static
 where
@@ -69,6 +69,51 @@ where
     type Value: IsValue;
 
     fn get_value() -> Self::Value;
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct StaticVarSvtable<VarId: IsVarId, Value: IsValue> {
+    get_var_id: fn() -> VarId,
+    page_var_ids: for<'db> fn(
+        &'db [ItemPathIdInterface],
+        VarId,
+        Option<usize>,
+    ) -> Box<dyn Iterator<Item = VarId> + 'db>,
+    default_page_start: fn(&[ItemPathIdInterface]) -> StaticVarResult<VarId, VarId>,
+    // todo: use guard?
+    try_set_var_id: unsafe fn(
+        VarId,
+        locked: &[ItemPathIdInterface],
+    ) -> StaticVarResult<VarId, Box<dyn FnOnce() + 'static>>,
+    try_set_default_var_id:
+        unsafe fn(
+            locked: &[ItemPathIdInterface],
+        ) -> StaticVarResult<VarId, (VarId, Box<dyn FnOnce() + 'static>)>,
+    get_value: fn() -> Value,
+}
+
+impl<VarId: IsVarId, Value: IsValue> StaticVarSvtable<VarId, Value> {
+    pub const fn new<V: IsStaticVar<VarId, Value = Value>>() -> Self {
+        Self {
+            get_var_id: <V>::get_id,
+            try_set_var_id: |id, locked| unsafe {
+                <V>::try_set_var_id(id, locked)
+                    .map(|restore| -> Box<dyn FnOnce()> { Box::new(restore) })
+            },
+            try_set_default_var_id: |locked| unsafe {
+                <V>::try_set_default_var_id(locked).map(
+                    |(default, restore)| -> (VarId, Box<dyn FnOnce()>) {
+                        (default, Box::new(restore))
+                    },
+                )
+            },
+            page_var_ids: |locked, page_start, page_limit| {
+                Box::new(<V>::page_var_ids(locked, page_start, page_limit))
+            },
+            default_page_start: <V>::default_page_start,
+            get_value: <V>::get_value,
+        }
+    }
 }
 
 /// this is a mild error, sometimes intentionally triggered

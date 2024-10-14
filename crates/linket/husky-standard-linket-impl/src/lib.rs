@@ -23,6 +23,7 @@ use husky_ki_repr_interface::KiReprInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface};
 use husky_linket_impl::dev_eval_context::DevEvalContextGuard;
 use husky_linket_impl::linket_impl::VmArgumentValues;
+use husky_linket_impl::static_var::StaticVarSvtable;
 use husky_linket_impl::{
     dev_eval_context::DevEvalContext,
     exception::TrackedException,
@@ -132,6 +133,7 @@ pub enum StandardLinketImpl {
             )
                 -> StandardStaticVarResult<(StandardVarId, Box<dyn FnOnce() + 'static>)>,
         get_value: fn() -> Value,
+        svtable: &'static StaticVarSvtable<StandardVarId, Value>,
     },
     // todo: memo
 }
@@ -272,6 +274,7 @@ impl IsLinketImpl for StandardLinketImpl {
                 try_set_var_id,
                 try_set_default_var_id,
                 get_value,
+                ..
             } => todo!(),
         }
     }

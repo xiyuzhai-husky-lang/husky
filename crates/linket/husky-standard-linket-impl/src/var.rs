@@ -113,7 +113,8 @@ impl From<[u32; 4]> for StandardVarId {
 
 #[macro_export]
 macro_rules! static_var_linket_impl {
-    ($var_path: path, $item_path_id_interface: path) => {
+    ($var_path: path, $item_path_id_interface: path) => {{
+        static __SVTABLE: __StaticVarSvtable = __StaticVarSvtable::new::<$var_path>();
         __LinketImpl::StaticVar {
             init_item_path_id_interface: |item_path_id_interface| unsafe {
                 $item_path_id_interface = Some(item_path_id_interface)
@@ -137,8 +138,9 @@ macro_rules! static_var_linket_impl {
             },
             default_page_start: <$var_path as __IsStaticVar<__VarId>>::default_page_start,
             get_value: <$var_path as __IsStaticVar<__VarId>>::get_value,
+            svtable: &__SVTABLE,
         }
-    };
+    }};
 }
 
 #[test]
