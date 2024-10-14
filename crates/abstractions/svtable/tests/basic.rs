@@ -29,12 +29,15 @@ fn test_svtable_creation() {
 
     // Test assoc_fn1
     assert_eq!((vtable.assoc_fn1)(5), 10);
+    assert_eq!(vtable.assoc_fn1(5), 10); // New method-style call
 
     // Test assoc_fn2
     assert_eq!((vtable.assoc_fn2)("hello"), "HELLO");
+    assert_eq!(vtable.assoc_fn2("hello"), "HELLO"); // New method-style call
 
     // Test assoc_fn3 (we can only test that it doesn't panic)
     (vtable.assoc_fn3)();
+    vtable.assoc_fn3(); // New method-style call
 }
 
 #[test]
@@ -66,13 +69,29 @@ fn test_svtable_multiple_implementations() {
     let vtable1 = TestTraitSvtable::<TestStruct>::new();
     let vtable2 = TestTraitSvtable::<AnotherStruct>::new();
 
+    // Test function pointer style calls
     assert_eq!((vtable1.assoc_fn1)(5), 10);
     assert_eq!((vtable2.assoc_fn1)(5), 15);
 
     assert_eq!((vtable1.assoc_fn2)("hello"), "HELLO");
     assert_eq!((vtable2.assoc_fn2)("hello"), "olleh");
 
-    // Again, we can only test that these don't panic
     (vtable1.assoc_fn3)();
     (vtable2.assoc_fn3)();
+
+    // Test new method-style calls
+    assert_eq!(vtable1.assoc_fn1(5), 10);
+    assert_eq!(vtable2.assoc_fn1(5), 15);
+
+    assert_eq!(vtable1.assoc_fn2("hello"), "HELLO");
+    assert_eq!(vtable2.assoc_fn2("hello"), "olleh");
+
+    vtable1.assoc_fn3();
+    vtable2.assoc_fn3();
+}
+
+// New test for comparing direct trait calls with vtable method calls
+#[test]
+fn test_vtable_methods_vs_direct_calls() {
+    let vtable = TestTraitSvtable::<TestStruct>::new();
 }

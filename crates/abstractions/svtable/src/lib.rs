@@ -195,6 +195,41 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
         None => syn::Ident::new(&format!("{}Svtable", trait_name), trait_name.span()),
     };
 
+    let svtable_methods = input.items.iter().filter_map(|item| {
+        if let syn::TraitItem::Fn(assoc_fn) = item {
+            let fn_name = &assoc_fn.sig.ident;
+            let inputs = &assoc_fn.sig.inputs;
+            let output = &assoc_fn.sig.output;
+
+            // Create a new inputs list without the first `self` parameter (if it exists)
+            let call_inputs = inputs.iter().skip_while(|arg| {
+                if let syn::FnArg::Receiver(_) = arg {
+                    true
+                } else {
+                    false
+                }
+            });
+
+            // Extract parameter names for the function call
+            let param_names = call_inputs.clone().filter_map(|arg| {
+                if let syn::FnArg::Typed(pat_type) = arg {
+                    if let syn::Pat::Ident(pat_ident) = &*pat_type.pat {
+                        return Some(pat_ident.ident.clone());
+                    }
+                }
+                None
+            });
+
+            Some(quote! {
+                pub fn #fn_name(&self, #(#call_inputs),*) #output {
+                    (self.#fn_name)(#(#param_names),*)
+                }
+            })
+        } else {
+            None
+        }
+    });
+
     let svtable_fields = input.items.iter().filter_map(|item| {
         if let syn::TraitItem::Fn(assoc_fn) = item {
             let fn_name = &assoc_fn.sig.ident;
@@ -252,6 +287,8 @@ pub fn svtable(attr: TokenStream, item: TokenStream) -> TokenStream {
                     _phantom: std::marker::PhantomData,
                 }
             }
+
+            #(#svtable_methods)*
         }
     };
 
