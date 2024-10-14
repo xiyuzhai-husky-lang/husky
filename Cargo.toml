@@ -325,6 +325,7 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
+husky-figure-zone-protocol = { path = "crates/protocols/husky-figure-zone-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }

@@ -4862,6 +4862,7 @@ dependencies = [
  "husky-entity-path",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-figure-zone-protocol",
  "husky-hir-eager-expr",
  "husky-item-path-interface",
  "husky-ki-repr",
@@ -5140,6 +5141,13 @@ version = "0.1.0"
 dependencies = [
  "husky-entity-path",
  "husky-opr",
+]
+
+[[package]]
+name = "husky-figure-zone-protocol"
+version = "0.1.0"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -5830,6 +5838,7 @@ version = "0.1.0"
 dependencies = [
  "husky-core",
  "husky-decl-macro-utils",
+ "husky-figure-zone-protocol",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
  "husky-value",
@@ -7207,6 +7216,7 @@ dependencies = [
  "enum-class",
  "futures",
  "futures-util",
+ "husky-figure-zone-protocol",
  "husky-io-utils",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
