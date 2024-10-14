@@ -43,4 +43,8 @@ impl __IsStaticVar<__VarId> for TASK {
         todo!();
         Ok((todo!(), || todo!()))
     }
+
+    fn zones() -> &'static [__FigureZone] {
+        todo!()
+    }
 }

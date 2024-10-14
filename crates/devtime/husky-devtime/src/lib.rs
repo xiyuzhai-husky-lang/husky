@@ -21,6 +21,7 @@ use husky_devsoul::{
     },
 };
 use husky_entity_path::path::ItemPathId;
+use husky_figure_zone_protocol::FigureZone;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
@@ -36,7 +37,7 @@ use husky_trace_protocol::{
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
     trace_id::TraceId,
     var_id::VarIdPresentation,
-    windlass::{FigureZone, Windlass},
+    windlass::Windlass,
 };
 use husky_value::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
