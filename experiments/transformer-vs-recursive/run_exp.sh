@@ -1,25 +1,25 @@
 #!/bin/bash
 
-dataset="n200000-f20-a5-c5-d3-v0.20-e0.50"
-num_epochs=30
+dataset="n300000-f40-a5-c5-d5-v0.20-e0.50"
+num_epochs=40
 
-declare -A gpu_exp_seed_map=(
-    [0]="transformer:42"
-    [1]="transformer:142857"
-    [2]="transformer:2225393"
-    [3]="transformer:20000308"
-    [4]="transformer:2018011309"
-)
-hidden_dims="24 32 40 48 56 64"
-# hidden_dims="8 16 240"
 # declare -A gpu_exp_seed_map=(
-#     [0]="rnn:42"
-#     [1]="rnn:142857"
-#     [2]="rnn:2225393"
-#     [3]="rnn:20000308"
-#     [4]="rnn:2018011309"
+#     [5]="transformer:42"
+#     [6]="transformer:142857"
+#     [7]="transformer:2225393"
+#     [5]="transformer:20000308"
+#     [6]="transformer:2018011309"
 # )
-# hidden_dims="8 16 24 32 40 48 56 64 256"
+# hidden_dims="24 32 40 48 56 64"
+# hidden_dims="8 16 240"
+declare -A gpu_exp_seed_map=(
+    [0]="rnn:42"
+    [1]="rnn:142857"
+    [2]="rnn:2225393"
+    [3]="rnn:20000308"
+    [4]="rnn:2018011309"
+)
+hidden_dims="8 16 24 32 40 48 56 64 256"
 
 server_name=$(hostname)
 
