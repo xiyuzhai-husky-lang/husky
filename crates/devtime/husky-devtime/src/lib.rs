@@ -29,6 +29,7 @@ use husky_linket_impl::dev_eval_context::IsDevRuntimeInterface;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     caryatid::IsCaryatid,
+    chart::Chart,
     figure::{IsFigure, TraceFigureKey},
     item_path::ItemPathPresentation,
     protocol::{IsTraceProtocol, TraceBundle, TraceVarId},
@@ -181,12 +182,24 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                 },
             );
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
-        IsFigure::from_chart(
-            figure_key.figure_zone(),
-            chart,
-            trace_plot_map,
-            visual_synchrotron,
-        )
+        match figure_key.figure_zone() {
+            Some(zone) => match zone {
+                FigureZone::Gallery => todo!(),
+                FigureZone::Text => todo!(),
+            },
+            None => match chart {
+                Some(chart) => match chart {
+                    Chart::Dim0(chart) => {
+                        IsFigure::new_specific(chart, trace_plot_map, visual_synchrotron)
+                    }
+                    Chart::Dim1(chart) => {
+                        IsFigure::new_gallery(chart, trace_plot_map, visual_synchrotron)
+                    }
+                    Chart::Dim2(_) => todo!(),
+                },
+                None => IsFigure::new_void(),
+            },
+        }
     }
 
     fn calc_item_path_presentations(

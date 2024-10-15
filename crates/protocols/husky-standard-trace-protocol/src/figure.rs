@@ -4,7 +4,7 @@ mod specific;
 pub mod text;
 
 use self::{gallery::GalleryFigure, specific::SpecificFigure};
-use crate::chart::StandardChart;
+use crate::chart::{StandardChart, StandardChartDim0, StandardChartDim1};
 #[cfg(feature = "egui")]
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_figure_zone_protocol::FigureZone;
@@ -47,34 +47,6 @@ pub enum StandardFigure {
 impl IsFigure for StandardFigure {
     type Pedestal = StandardPedestal;
 
-    fn from_chart(
-        zone: Option<FigureZone>,
-        chart: Option<StandardChart<CompositeVisual<TraceId>>>,
-        trace_plot_map: &TracePlotInfos,
-        visual_synchrotron: &VisualSynchrotron,
-    ) -> Self {
-        let Some(chart) = chart else {
-            return StandardFigure::Void;
-        };
-        match zone {
-            Some(zone) => match zone {
-                FigureZone::Gallery => {
-                    let Chart::Dim1(chart) = chart else {
-                        unreachable!()
-                    };
-                    GalleryFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
-                }
-                FigureZone::Text => todo!(),
-            },
-            None => {
-                let Chart::Dim0(chart) = chart else {
-                    unreachable!()
-                };
-                SpecificFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
-            }
-        }
-    }
-
     fn for_all_joint_pedestals(&self, f: impl FnMut(&StandardJointPedestal)) {
         match self {
             StandardFigure::Void => (),
@@ -82,6 +54,34 @@ impl IsFigure for StandardFigure {
             StandardFigure::Dim1(slf) => slf.for_all_joint_pedestals(f),
             StandardFigure::Text(slf) => slf.for_all_joint_pedestals(f),
         }
+    }
+
+    fn new_void() -> Self {
+        Self::Void
+    }
+
+    fn new_specific(
+        chart: StandardChartDim0<CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> StandardFigure {
+        SpecificFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
+    }
+
+    fn new_gallery(
+        chart: StandardChartDim1<CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> StandardFigure {
+        GalleryFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
+    }
+
+    fn new_text(
+        chart: Option<StandardChartDim1<CompositeVisual<TraceId>>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> StandardFigure {
+        todo!()
     }
 }
 
