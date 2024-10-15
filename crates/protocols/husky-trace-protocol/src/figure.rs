@@ -130,6 +130,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
                             anchors.push((var_path1, windlass.into()));
                         }
                         keys.push(Self::new(
+                            Some(zone),
                             followed,
                             &accompanyings_except_followed,
                             &anchors,
@@ -143,6 +144,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
         }
         // In the end, we push a key for all specific anchors.
         keys.push(Self::new(
+            None,
             followed,
             &accompanyings_except_followed,
             &anchors,
@@ -152,6 +154,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
     }
 
     fn new<Pedestal, TraceProtocol>(
+        figure_zone: Option<FigureZone>,
         followed: Option<TraceId>,
         accompanyings_except_followed: &AccompanyingTraceIdsExceptFollowed,
         anchors: &[(ItemPathIdInterface, Anchor<Pedestal::VarId>)],
@@ -200,7 +203,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
             followed_reduced,
             accompanyings_except_followed_reduced,
             joint_static_var_anchors: reduced_anchors,
-            figure_zone: None,
+            figure_zone,
         }
     }
 }
@@ -226,6 +229,6 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
     }
 
     pub fn figure_zone(&self) -> Option<FigureZone> {
-        self.figure_zone.clone()
+        self.figure_zone
     }
 }
