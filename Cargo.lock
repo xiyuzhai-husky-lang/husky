@@ -1972,6 +1972,17 @@ dependencies = [
 [[package]]
 name = "cybertron-mini-lean-tokens"
 version = "0.1.0"
+dependencies = [
+ "husky-core",
+ "husky-linket-impl",
+ "husky-rng-utils",
+ "husky-standard-linket-impl",
+ "husky-standard-value",
+ "lazy_static",
+ "ml-task",
+ "serde",
+ "shifted-unsigned-int",
+]
 
 [[package]]
 name = "cybertron-prototype"
