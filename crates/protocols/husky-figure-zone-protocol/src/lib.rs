@@ -1,6 +1,8 @@
+pub mod text;
+
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Hash)]
 pub enum FigureZone {
     Gallery = 1,
     Text,
@@ -14,10 +16,3 @@ impl FigureZone {
         }
     }
 }
-
-pub enum FigureTextKey<VarId> {
-    Unit,
-    VarId(VarId),
-}
-
-pub enum FigureText {}

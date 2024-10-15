@@ -3,6 +3,7 @@ use crate::{
     chart::Chart, server::TracePlotInfos, windlass::Windlass, IsTraceProtocol, TraceId,
     TraceSynchrotron,
 };
+use husky_figure_zone_protocol::FigureZone;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::{
@@ -33,6 +34,7 @@ pub trait IsFigure:
     type Pedestal: IsPedestal;
 
     fn from_chart(
+        zone: Option<FigureZone>,
         chart: Option<Chart<<Self::Pedestal as IsPedestal>::VarId, CompositeVisual<TraceId>>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
@@ -58,6 +60,7 @@ pub struct FigureKey<VarId: IsVarId> {
     followed_reduced: Option<TraceId>,
     accompanyings_except_followed_reduced: OrderedSmallVecSet<TraceId, 4>,
     joint_static_var_anchors: OrderedSmallVecPairMap<ItemPathIdInterface, Anchor<VarId>, 4>,
+    figure_zone: Option<FigureZone>,
 }
 
 pub type FigureKeys<VarId> = SmallVec<[FigureKey<VarId>; 4]>;
@@ -181,10 +184,12 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
             followed_reduced,
             accompanyings_except_followed_reduced,
             joint_static_var_anchors: reduced_anchors,
+            figure_zone: None,
         }
     }
 }
 
+/// # getters
 impl<VarId: IsVarIdFull> FigureKey<VarId> {
     pub fn followed_reduced(&self) -> Option<TraceId> {
         self.followed_reduced
@@ -202,5 +207,9 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
 
     pub fn joint_static_var_anchors(&self) -> &[(ItemPathIdInterface, Anchor<VarId>)] {
         &self.joint_static_var_anchors
+    }
+
+    pub fn figure_zone(&self) -> Option<FigureZone> {
+        self.figure_zone.clone()
     }
 }

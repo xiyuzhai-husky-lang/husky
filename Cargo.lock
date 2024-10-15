@@ -5149,6 +5149,7 @@ name = "husky-figure-zone-protocol"
 version = "0.1.0"
 dependencies = [
  "serde",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
@@ -6625,6 +6626,7 @@ dependencies = [
  "egui",
  "enum-class",
  "husky-control-flow-utils",
+ "husky-figure-zone-protocol",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
  "husky-linket-impl",

@@ -181,7 +181,12 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                 },
             );
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
-        IsFigure::from_chart(chart, trace_plot_map, visual_synchrotron)
+        IsFigure::from_chart(
+            figure_key.figure_zone(),
+            chart,
+            trace_plot_map,
+            visual_synchrotron,
+        )
     }
 
     fn calc_item_path_presentations(
