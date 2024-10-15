@@ -184,19 +184,34 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
         match figure_key.figure_zone() {
             Some(zone) => match zone {
-                FigureZone::Gallery => todo!(),
-                FigureZone::Text => todo!(),
+                FigureZone::Gallery => match chart {
+                    Some(chart) => match chart {
+                        Chart::Dim0(_) => todo!(),
+                        Chart::Dim1(chart) => {
+                            IsFigure::new_gallery(chart, trace_plot_map, visual_synchrotron)
+                        }
+                        Chart::Dim2(chart) => todo!(),
+                    },
+                    None => IsFigure::new_void(), // ad hoc
+                },
+                FigureZone::Text => match chart {
+                    Some(chart) => match chart {
+                        Chart::Dim0(_) => todo!(),
+                        Chart::Dim1(chart) => {
+                            IsFigure::new_text(Some(chart), trace_plot_map, visual_synchrotron)
+                        }
+                        Chart::Dim2(chart) => todo!(),
+                    },
+                    None => IsFigure::new_text(None, trace_plot_map, visual_synchrotron), // ad hoc
+                },
             },
             None => match chart {
-                Some(chart) => match chart {
-                    Chart::Dim0(chart) => {
-                        IsFigure::new_specific(chart, trace_plot_map, visual_synchrotron)
-                    }
-                    Chart::Dim1(chart) => {
-                        IsFigure::new_gallery(chart, trace_plot_map, visual_synchrotron)
-                    }
-                    Chart::Dim2(_) => todo!(),
-                },
+                Some(chart) => {
+                    let Chart::Dim0(chart) = chart else {
+                        unreachable!()
+                    };
+                    IsFigure::new_specific(chart, trace_plot_map, visual_synchrotron)
+                }
                 None => IsFigure::new_void(),
             },
         }
