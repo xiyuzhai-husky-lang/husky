@@ -1,13 +1,10 @@
 use crate::*;
-use husky_figure_zone_protocol::FigureZone;
+use husky_figure_zone_protocol::{FigureText, FigureTextKey, FigureZone};
 use husky_value::IsValue;
 use serde::{Deserialize, Serialize};
 use var_id::IsVarId;
 
-pub trait IsStaticVar<VarId>: 'static
-where
-    VarId: std::fmt::Debug + Copy + Eq + 'static,
-{
+pub trait IsStaticVar<VarId: IsVarId>: 'static {
     fn item_path_id_interface() -> ItemPathIdInterface;
     fn page_var_ids<'a>(
         locked: &'a [ItemPathIdInterface],
@@ -75,6 +72,22 @@ where
     fn get_value() -> Self::Value;
 
     fn zones() -> &'static [FigureZone];
+
+    /// override if necessary
+    fn text_key(var_id: VarId) -> FigureTextKey<VarId> {
+        unreachable!(
+            "IsStaticVar::text_key() not implemented for `{}`",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    /// override if necessary
+    fn text(key: FigureTextKey<VarId>) -> FigureText {
+        unreachable!(
+            "IsStaticVar::text() not implemented for `{}`",
+            std::any::type_name::<Self>()
+        )
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

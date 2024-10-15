@@ -14,3 +14,10 @@ impl FigureZone {
         }
     }
 }
+
+pub enum FigureTextKey<VarId> {
+    Unit,
+    VarId(VarId),
+}
+
+pub enum FigureText {}
