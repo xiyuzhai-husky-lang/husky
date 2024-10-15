@@ -13,6 +13,8 @@ keywords.workspace = true
 
 [dependencies]
 serde.workspace = true
+# abstractions
+shifted-unsigned-int.workspace = true
 
 [lints]
 workspace = true

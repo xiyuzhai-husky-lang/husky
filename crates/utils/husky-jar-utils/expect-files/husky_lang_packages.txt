@@ -2199,6 +2199,7 @@
         relative_path: "crates/protocols/husky-figure-zone-protocol",
         dependencies: [
             "serde",
+            "shifted-unsigned-int",
         ],
     },
     PackageSummary {
@@ -2559,6 +2560,7 @@
             "egui",
             "enum-class",
             "husky-control-flow-utils",
+            "husky-figure-zone-protocol",
             "husky-item-path-interface",
             "husky-ki-repr-interface",
             "husky-linket-impl",

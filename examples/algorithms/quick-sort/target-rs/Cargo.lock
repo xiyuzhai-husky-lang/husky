@@ -284,6 +284,7 @@ name = "husky-figure-zone-protocol"
 version = "0.1.0"
 dependencies = [
  "serde",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
