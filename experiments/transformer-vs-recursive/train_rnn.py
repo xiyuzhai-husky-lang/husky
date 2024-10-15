@@ -113,7 +113,7 @@ for hidden_dim in ordered_search_space(search_space):
     if hidden_dim <= 64:
         min_lr, max_lr = 1e-5, 1e-3
     else:
-        min_lr, max_lr = 5e-6, 5e-4
+        min_lr, max_lr = 2e-6, 2e-4
     
     micro_batch_size = 64
 
