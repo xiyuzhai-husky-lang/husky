@@ -10,7 +10,7 @@ use husky_visual_protocol::{plot::PlotClass, visual::primitive::PrimitiveVisual}
 use ui::visual::cache::VisualUiCache;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct StandardFigureDim0 {
+pub struct SpecificFigure {
     joint_pedestal: StandardJointPedestal,
     plots: Vec<StandardPlot>,
 }
@@ -30,7 +30,7 @@ pub enum StandardPlot {
 }
 
 /// # constructor
-impl StandardFigureDim0 {
+impl SpecificFigure {
     pub(super) fn from_chart(
         (joint_pedestal, composite_visual): StandardChartDim0<CompositeVisual<TraceId>>,
         trace_plot_map: &TracePlotInfos,
@@ -136,22 +136,22 @@ impl<'a> StandardFigureBuilder<'a> {
         }
     }
 
-    fn finish(self) -> StandardFigureDim0 {
-        StandardFigureDim0 {
+    fn finish(self) -> SpecificFigure {
+        SpecificFigure {
             joint_pedestal: self.joint_pedestal,
             plots: self.plots,
         }
     }
 }
 
-impl StandardFigureDim0 {
+impl SpecificFigure {
     pub(super) fn for_all_joint_pedestals(&self, mut f: impl FnMut(&StandardJointPedestal)) {
         f(&self.joint_pedestal)
     }
 }
 /// # ui
 #[cfg(feature = "egui")]
-impl StandardFigureDim0 {
+impl SpecificFigure {
     pub(super) fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,

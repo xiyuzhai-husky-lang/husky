@@ -1,5 +1,8 @@
 use crate::*;
-use husky_figure_zone_protocol::{FigureText, FigureTextKey, FigureZone};
+use husky_figure_zone_protocol::{
+    text::{FigureText, FigureTextKey},
+    FigureZone,
+};
 use husky_value::IsValue;
 use serde::{Deserialize, Serialize};
 use var_id::IsVarId;
