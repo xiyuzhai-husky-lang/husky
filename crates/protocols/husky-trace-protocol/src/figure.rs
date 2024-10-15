@@ -1,7 +1,11 @@
 use crate::{
-    accompany::AccompanyingTraceIdsExceptFollowed, anchor::Anchor, caryatid::IsCaryatid,
-    chart::Chart, server::TracePlotInfos, windlass::Windlass, IsTraceProtocol, TraceId,
-    TraceSynchrotron,
+    accompany::AccompanyingTraceIdsExceptFollowed,
+    anchor::Anchor,
+    caryatid::IsCaryatid,
+    chart::{Chart, ChartDim0, ChartDim1},
+    server::TracePlotInfos,
+    windlass::Windlass,
+    IsTraceProtocol, TraceId, TraceSynchrotron,
 };
 use husky_figure_zone_protocol::FigureZone;
 use husky_item_path_interface::ItemPathIdInterface;
@@ -33,9 +37,19 @@ pub trait IsFigure:
 {
     type Pedestal: IsPedestal;
 
-    fn from_chart(
-        zone: Option<FigureZone>,
-        chart: Option<Chart<<Self::Pedestal as IsPedestal>::VarId, CompositeVisual<TraceId>>>,
+    fn new_void() -> Self;
+    fn new_specific(
+        chart: ChartDim0<FigureVarId<Self>, CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> Self;
+    fn new_gallery(
+        chart: ChartDim1<FigureVarId<Self>, CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> Self;
+    fn new_text(
+        chart: Option<ChartDim1<FigureVarId<Self>, CompositeVisual<TraceId>>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
@@ -45,6 +59,8 @@ pub trait IsFigure:
         f: impl FnMut(&JointPedestal<<Self::Pedestal as IsPedestal>::VarId>),
     );
 }
+
+pub type FigureVarId<Figure> = <<Figure as IsFigure>::Pedestal as IsPedestal>::VarId;
 
 pub trait FigureUi<Ui: IsUi> {
     fn figure_ui(
