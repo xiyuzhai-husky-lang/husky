@@ -4135,7 +4135,17 @@
     PackageSummary {
         name: "cybertron-mini-lean-tokens",
         relative_path: "registry/cybertron-mini-lean-tokens-0.1.0",
-        dependencies: [],
+        dependencies: [
+            "husky-core",
+            "husky-linket-impl",
+            "husky-rng-utils",
+            "husky-standard-linket-impl",
+            "husky-standard-value",
+            "lazy_static",
+            "ml-task",
+            "serde",
+            "shifted-unsigned-int",
+        ],
     },
     PackageSummary {
         name: "malamute",
