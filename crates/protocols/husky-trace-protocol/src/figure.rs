@@ -1,8 +1,13 @@
 use crate::{
-    accompany::AccompanyingTraceIdsExceptFollowed, anchor::Anchor, caryatid::IsCaryatid,
-    chart::Chart, server::TracePlotInfos, windlass::Windlass, IsTraceProtocol, TraceId,
-    TraceSynchrotron,
+    accompany::AccompanyingTraceIdsExceptFollowed,
+    anchor::Anchor,
+    caryatid::IsCaryatid,
+    chart::{Chart, ChartDim0, ChartDim1},
+    server::TracePlotInfos,
+    windlass::Windlass,
+    IsTraceProtocol, TraceId, TraceSynchrotron,
 };
+use husky_figure_zone_protocol::FigureZone;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::{
@@ -32,8 +37,19 @@ pub trait IsFigure:
 {
     type Pedestal: IsPedestal;
 
-    fn from_chart(
-        chart: Option<Chart<<Self::Pedestal as IsPedestal>::VarId, CompositeVisual<TraceId>>>,
+    fn new_void() -> Self;
+    fn new_specific(
+        chart: ChartDim0<FigureVarId<Self>, CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> Self;
+    fn new_gallery(
+        chart: ChartDim1<FigureVarId<Self>, CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> Self;
+    fn new_text(
+        chart: Option<ChartDim1<FigureVarId<Self>, CompositeVisual<TraceId>>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
@@ -43,6 +59,8 @@ pub trait IsFigure:
         f: impl FnMut(&JointPedestal<<Self::Pedestal as IsPedestal>::VarId>),
     );
 }
+
+pub type FigureVarId<Figure> = <<Figure as IsFigure>::Pedestal as IsPedestal>::VarId;
 
 pub trait FigureUi<Ui: IsUi> {
     fn figure_ui(
@@ -58,6 +76,7 @@ pub struct FigureKey<VarId: IsVarId> {
     followed_reduced: Option<TraceId>,
     accompanyings_except_followed_reduced: OrderedSmallVecSet<TraceId, 4>,
     joint_static_var_anchors: OrderedSmallVecPairMap<ItemPathIdInterface, Anchor<VarId>, 4>,
+    figure_zone: Option<FigureZone>,
 }
 
 pub type FigureKeys<VarId> = SmallVec<[FigureKey<VarId>; 4]>;
@@ -111,6 +130,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
                             anchors.push((var_path1, windlass.into()));
                         }
                         keys.push(Self::new(
+                            Some(zone),
                             followed,
                             &accompanyings_except_followed,
                             &anchors,
@@ -124,6 +144,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
         }
         // In the end, we push a key for all specific anchors.
         keys.push(Self::new(
+            None,
             followed,
             &accompanyings_except_followed,
             &anchors,
@@ -133,6 +154,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
     }
 
     fn new<Pedestal, TraceProtocol>(
+        figure_zone: Option<FigureZone>,
         followed: Option<TraceId>,
         accompanyings_except_followed: &AccompanyingTraceIdsExceptFollowed,
         anchors: &[(ItemPathIdInterface, Anchor<Pedestal::VarId>)],
@@ -181,10 +203,12 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
             followed_reduced,
             accompanyings_except_followed_reduced,
             joint_static_var_anchors: reduced_anchors,
+            figure_zone,
         }
     }
 }
 
+/// # getters
 impl<VarId: IsVarIdFull> FigureKey<VarId> {
     pub fn followed_reduced(&self) -> Option<TraceId> {
         self.followed_reduced
@@ -202,5 +226,9 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
 
     pub fn joint_static_var_anchors(&self) -> &[(ItemPathIdInterface, Anchor<VarId>)] {
         &self.joint_static_var_anchors
+    }
+
+    pub fn figure_zone(&self) -> Option<FigureZone> {
+        self.figure_zone
     }
 }

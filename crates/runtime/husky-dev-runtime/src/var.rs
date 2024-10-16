@@ -4,6 +4,7 @@ use husky_devsoul::helpers::{
     DevsoulAnchor, DevsoulChart, DevsoulChartDim0, DevsoulChartDim1, DevsoulJointPedestal,
     DevsoulOrderedVarMap, DevsoulPedestal, DevsoulStaticVarMap, DevsoulStaticVarResult,
 };
+use husky_figure_zone_protocol::FigureZone;
 use husky_ki_repr::repr::KiDomainRepr;
 use husky_linket_impl::{pedestal::JointPedestal, static_var::StaticVarResult};
 use husky_trace_protocol::chart::{ChartDim0, ChartDim1};
@@ -264,6 +265,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 page_limit,
             } => {
                 let iter = linket_impl
+                    .static_var_svtable()
                     .page_var_ids(locked, page_start, page_limit)
                     .filter_map(|var_id| {
                         let mut var_map = var_map.clone();
@@ -283,11 +285,11 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         }
     }
 
-    pub fn var_default_page_start_aux(
+    pub fn var_default_zone_and_page_start(
         &self,
         item_path_id_interface: ItemPathIdInterface,
         locked: &SmallVecSet<ItemPathIdInterface, 4>,
-    ) -> DevsoulStaticVarResult<Devsoul, DevsoulVarId<Devsoul>> {
+    ) -> DevsoulStaticVarResult<Devsoul, (FigureZone, DevsoulVarId<Devsoul>)> {
         let db = self.db();
         let path_id: ItemPathId = item_path_id_interface.into();
         let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path_id.item_path(db)
@@ -297,7 +299,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let linket_impl = self
             .comptime
             .linket_impl(Linket::new_var(major_form_path, db));
-        linket_impl.var_default_page_start(locked)
+        let static_var_svtable = linket_impl.static_var_svtable();
+        let zone = static_var_svtable.zones()[0];
+        Ok((zone, static_var_svtable.default_page_start(zone, locked)?))
     }
 
     pub fn with_pedestal<R>(

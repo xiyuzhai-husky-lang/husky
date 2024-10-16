@@ -1,4 +1,5 @@
 use crate::*;
+use husky_figure_zone_protocol::FigureZone;
 use husky_linket_impl::var_id::IsVarId;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -10,20 +11,6 @@ pub enum Windlass<VarId: IsVarId> {
         zone: Option<FigureZone>,
         page_limit: Option<usize>,
     },
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-pub enum FigureZone {
-    Gallery = 1,
-    Text,
-}
-impl FigureZone {
-    pub(crate) fn len(self) -> usize {
-        match self {
-            FigureZone::Gallery => 1,
-            FigureZone::Text => 1,
-        }
-    }
 }
 
 impl<VarId: IsVarId> Windlass<VarId> {

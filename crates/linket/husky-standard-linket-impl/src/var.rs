@@ -113,7 +113,8 @@ impl From<[u32; 4]> for StandardVarId {
 
 #[macro_export]
 macro_rules! static_var_linket_impl {
-    ($var_path: path, $item_path_id_interface: path) => {
+    ($var_path: path, $item_path_id_interface: path) => {{
+        static __SVTABLE: __StaticVarSvtable = __StaticVarSvtable::new::<$var_path>();
         __LinketImpl::StaticVar {
             init_item_path_id_interface: |item_path_id_interface| unsafe {
                 $item_path_id_interface = Some(item_path_id_interface)
@@ -130,15 +131,10 @@ macro_rules! static_var_linket_impl {
                     },
                 )
             },
-            page_var_ids: |locked, page_start, page_limit| {
-                Box::new(<$var_path as __IsStaticVar<__VarId>>::page_var_ids(
-                    locked, page_start, page_limit,
-                ))
-            },
-            default_page_start: <$var_path as __IsStaticVar<__VarId>>::default_page_start,
             get_value: <$var_path as __IsStaticVar<__VarId>>::get_value,
+            svtable: &__SVTABLE,
         }
-    };
+    }};
 }
 
 #[test]
@@ -177,7 +173,10 @@ fn static_var_linket_impl_works() {
             todo!()
         }
 
-        fn default_page_start(locked: &[ItemPathIdInterface]) -> StaticVarResult<__VarId, __VarId> {
+        fn default_page_start(
+            figure_zone: __FigureZone,
+            locked: &[ItemPathIdInterface],
+        ) -> StaticVarResult<__VarId, __VarId> {
             todo!()
         }
 
@@ -186,6 +185,10 @@ fn static_var_linket_impl_works() {
         ) -> StaticVarResult<__VarId, (__VarId, impl FnOnce() + 'static)> {
             todo!();
             Ok((todo!(), || todo!()))
+        }
+
+        fn zones() -> &'static [husky_linket_impl::ugly::__FigureZone] {
+            todo!()
         }
     }
 
@@ -197,13 +200,8 @@ fn static_var_linket_impl_works() {
     #[allow(non_upper_case_globals)]
     pub static mut STATIC_VAR_A__ITEM_PATH_ID_INTERFACE: Option<ItemPathIdInterface> = None;
 
-    let LinketImpl::StaticVar {
-        init_item_path_id_interface,
-        get_var_id: get_id,
-        try_set_var_id: try_replace_id,
-        page_var_ids: ids,
-        ..
-    } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
+    let LinketImpl::StaticVar { .. } =
+        static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {
         unreachable!()
     };
