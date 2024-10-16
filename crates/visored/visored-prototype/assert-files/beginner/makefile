@@ -5,3 +5,6 @@ update: update-lean-toolchain
 
 build: update
 	lake build
+
+clean:
+	lake clean
