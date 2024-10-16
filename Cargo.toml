@@ -30,13 +30,14 @@ members = [
     "crates/tex/*",
     "crates/utils/*",
     "crates/value/*",
+    "crates/visored/*",
     "crates/vm/*",
     "crates/vmir/*",
     "library/core",
     "registry/*",
     "playground/learn-rusqlite",
     "playground/egui/*",
-    "playground/try-py-ffi-in-rs", "crates/visored/visored-prototype",
+    "playground/try-py-ffi-in-rs",
 ]
 resolver = "2"
 
