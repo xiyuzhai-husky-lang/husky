@@ -4133,6 +4133,13 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "visored-prototype",
+        relative_path: "crates/visored/visored-prototype",
+        dependencies: [
+            "idx-arena",
+        ],
+    },
+    PackageSummary {
         name: "cybertron-mini-lean-tokens",
         relative_path: "registry/cybertron-mini-lean-tokens-0.1.0",
         dependencies: [
