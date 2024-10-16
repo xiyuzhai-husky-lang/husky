@@ -36,7 +36,7 @@ members = [
     "registry/*",
     "playground/learn-rusqlite",
     "playground/egui/*",
-    "playground/try-py-ffi-in-rs",
+    "playground/try-py-ffi-in-rs", "crates/visored/visored-prototype",
 ]
 resolver = "2"
 
