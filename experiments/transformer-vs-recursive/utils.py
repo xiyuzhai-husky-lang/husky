@@ -17,8 +17,6 @@ def set_seed(seed):
     random.seed(seed)
 
 def custom_collate(batch):
-    PADDING_VALUE = 0
-
     inputs, targets = zip(*batch)
     inputs = [torch.as_tensor(x) for x in inputs]  # Convert lists to tensors
     inputs_padded = pad_sequence(inputs, batch_first=True, padding_value=0)
@@ -29,7 +27,7 @@ def custom_collate(batch):
         fields[i] = pad_sequence(
             [torch.as_tensor(t) for t in fields[i]],
             batch_first=True,
-            padding_value=PADDING_VALUE,
+            padding_value=-1,
         )
 
     return inputs_padded, tuple(fields)
