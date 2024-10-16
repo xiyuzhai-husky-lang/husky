@@ -44,7 +44,7 @@ impl Docs {
 impl NotebookApp {
     pub fn add_default_docs(&mut self, ctx: &egui::Context) {
         self.add_doc(Doc {
-            title: "mnist-classifier trace doc".to_string(),
+            title: "trace doc".to_string(),
             component: UiComponent::new(TraceDoc::<StandardTraceProtocol, _>::new(
                 self.tokio_runtime().clone(),
                 EguiRepaintSignal::new(ctx.clone()),

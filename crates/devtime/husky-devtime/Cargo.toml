@@ -35,12 +35,13 @@ husky-item-path-interface.workspace = true
 # ki
 husky-ki-repr-interface.workspace = true
 # lex
-husky-text-protocol.workspace = true
 # linket
 husky-linket.workspace = true
 husky-linket-impl.workspace = true
 husky-standard-linket-impl.workspace = true
 # protocols
+husky-figure-zone-protocol.workspace = true
+husky-text-protocol.workspace = true
 husky-trace-protocol = { workspace = true, features = ["server"] }
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true

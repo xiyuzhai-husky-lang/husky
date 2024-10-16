@@ -93,6 +93,12 @@ impl From<usize> for ShiftedU32 {
     }
 }
 
+impl Into<u32> for ShiftedU32 {
+    fn into(self) -> u32 {
+        self.0.get() - 1
+    }
+}
+
 impl Into<usize> for ShiftedU32 {
     fn into(self) -> usize {
         self.index()
