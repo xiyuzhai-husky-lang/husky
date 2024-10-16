@@ -1957,6 +1957,34 @@ name = "cybertron-mini-lean-compiler"
 version = "0.1.0"
 
 [[package]]
+name = "cybertron-mini-lean-compiler-developer"
+version = "0.1.0"
+dependencies = [
+ "husky-ad-hoc-protocol",
+ "husky-dev-comptime",
+ "husky-devtime",
+ "husky-standard-devsoul",
+ "husky-standard-trace-protocol",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "cybertron-mini-lean-tokens"
+version = "0.1.0"
+dependencies = [
+ "husky-core",
+ "husky-linket-impl",
+ "husky-rng-utils",
+ "husky-standard-linket-impl",
+ "husky-standard-value",
+ "lazy_static",
+ "ml-task",
+ "serde",
+ "shifted-unsigned-int",
+]
+
+[[package]]
 name = "cybertron-prototype"
 version = "0.1.0"
 dependencies = [
@@ -4767,6 +4795,7 @@ dependencies = [
  "husky-entity-tree",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-figure-zone-protocol",
  "husky-fly-term",
  "husky-hir-lazy-expr",
  "husky-hir-opr",
@@ -4845,6 +4874,7 @@ dependencies = [
  "husky-entity-path",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-figure-zone-protocol",
  "husky-hir-eager-expr",
  "husky-item-path-interface",
  "husky-ki-repr",
@@ -5123,6 +5153,14 @@ version = "0.1.0"
 dependencies = [
  "husky-entity-path",
  "husky-opr",
+]
+
+[[package]]
+name = "husky-figure-zone-protocol"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
@@ -5813,6 +5851,7 @@ version = "0.1.0"
 dependencies = [
  "husky-core",
  "husky-decl-macro-utils",
+ "husky-figure-zone-protocol",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
  "husky-value",
@@ -6598,6 +6637,7 @@ dependencies = [
  "egui",
  "enum-class",
  "husky-control-flow-utils",
+ "husky-figure-zone-protocol",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
  "husky-linket-impl",
@@ -7190,6 +7230,7 @@ dependencies = [
  "enum-class",
  "futures",
  "futures-util",
+ "husky-figure-zone-protocol",
  "husky-io-utils",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
@@ -11167,6 +11208,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7401a30af6cb5818bb64852270bb722533397edcfc7344954a38f420819ece2"
 
 [[package]]
+name = "svtable"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.76",
+]
+
+[[package]]
 name = "syn"
 version = "1.0.109"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -12118,6 +12168,13 @@ name = "version_check"
 version = "0.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
+
+[[package]]
+name = "visored-prototype"
+version = "0.1.0"
+dependencies = [
+ "idx-arena",
+]
 
 [[package]]
 name = "waker-fn"

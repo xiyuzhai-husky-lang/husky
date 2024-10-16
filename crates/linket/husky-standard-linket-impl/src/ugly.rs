@@ -22,6 +22,7 @@ pub use husky_ki_repr_interface::ugly::*;
 pub use husky_linket_impl::ugly::*;
 pub use husky_standard_value::ugly::*;
 
-use husky_linket_impl::static_var::StaticVarResult;
+use husky_linket_impl::static_var::{StaticVarResult, StaticVarSvtable};
 
 pub type __StaticVarResult<T> = StaticVarResult<__VarId, T>;
+pub type __StaticVarSvtable = StaticVarSvtable<__VarId, __Value>;

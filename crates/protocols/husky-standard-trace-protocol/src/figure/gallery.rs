@@ -6,31 +6,31 @@ use husky_standard_linket_impl::pedestal::StandardJointPedestal;
 use ui::visual::cache::VisualUiCache;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct StandardFigureDim1 {
-    data: Vec<StandardFigureDim0>,
+pub struct GalleryFigure {
+    specific_figures: Vec<SpecificFigure>,
 }
 
 /// # constructor
-impl StandardFigureDim1 {
+impl GalleryFigure {
     pub(super) fn from_chart(
         chart: StandardChartDim1<CompositeVisual<TraceId>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         Self {
-            data: chart
+            specific_figures: chart
                 .into_iter()
                 .map(|chart_dim0| {
-                    StandardFigureDim0::from_chart(chart_dim0, trace_plot_map, visual_synchrotron)
+                    SpecificFigure::from_chart(chart_dim0, trace_plot_map, visual_synchrotron)
                 })
                 .collect(),
         }
     }
 }
 
-impl StandardFigureDim1 {
+impl GalleryFigure {
     pub(super) fn for_all_joint_pedestals(&self, mut f: impl FnMut(&StandardJointPedestal)) {
-        self.data
+        self.specific_figures
             .iter()
             .for_each(|figure| figure.for_all_joint_pedestals(&mut f))
     }
@@ -38,7 +38,7 @@ impl StandardFigureDim1 {
 
 /// # ui
 #[cfg(feature = "egui")]
-impl StandardFigureDim1 {
+impl GalleryFigure {
     pub(super) fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
@@ -55,8 +55,8 @@ impl StandardFigureDim1 {
         egui::Grid::new("generic_standard_figure")
             .num_columns(num_columns)
             .show(ui, |ui| {
-                let num_rows = self.data.len() / num_columns
-                    + if self.data.len() % num_columns == 0 {
+                let num_rows = self.specific_figures.len() / num_columns
+                    + if self.specific_figures.len() % num_columns == 0 {
                         0
                     } else {
                         1
@@ -64,7 +64,7 @@ impl StandardFigureDim1 {
                 for i in 0..num_rows {
                     for j in 0..num_columns {
                         let index = i * num_columns + j;
-                        if index < self.data.len() {
+                        if index < self.specific_figures.len() {
                             let rect = Rect::from_min_max(
                                 base + vec2((i as f32) * grid_width, (j as f32) * grid_height),
                                 base + vec2(
@@ -73,7 +73,11 @@ impl StandardFigureDim1 {
                                 ),
                             );
                             ui.allocate_ui_at_rect(rect, |ui| {
-                                self.data[index].figure_ui(visual_synchrotron, cache, ui)
+                                self.specific_figures[index].figure_ui(
+                                    visual_synchrotron,
+                                    cache,
+                                    ui,
+                                )
                             });
                         }
                     }

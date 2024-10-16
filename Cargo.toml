@@ -30,6 +30,7 @@ members = [
     "crates/tex/*",
     "crates/utils/*",
     "crates/value/*",
+    "crates/visored/*",
     "crates/vm/*",
     "crates/vmir/*",
     "library/core",
@@ -234,6 +235,7 @@ salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
 snapshot = { path = "crates/abstractions/snapshot" }
+svtable = { path = "crates/abstractions/svtable" }
 time-capsule = { path = "crates/abstractions/time-capsule" }
 ui = { path = "crates/abstractions/ui" }
 ui-macros = { path = "crates/abstractions/ui-macros" }
@@ -324,6 +326,7 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
+husky-figure-zone-protocol = { path = "crates/protocols/husky-figure-zone-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
@@ -409,6 +412,7 @@ husky-vmir = { path = "crates/vmir/husky-vmir" }
 husky-core = { path = "library/core" }
 # registry
 ad-hoc-devsoul-dependency = { path = "registry/ad-hoc-devsoul-dependency" }
+cybertron-mini-lean-tokens = { path = "examples/cybertron-mini-lean-tokens-0.1.0" }
 malamute = { path = "registry/malamute-0.1.0" }
 ml-task = { path = "registry/ml-task-0.1.0" }
 standard-devsoul = { path = "registry/standard-devsoul-0.1.0" }
