@@ -6,6 +6,7 @@ use crate::{file::FileId, position::PositionIdx};
 use husky_core::*;
 use husky_standard_linket_impl::ugly::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TokenFilePosition {
     file: FileId,
     position: PositionIdx,
@@ -20,6 +21,12 @@ impl From<__VarId> for TokenFilePosition {
             },
             _ => unreachable!(),
         }
+    }
+}
+
+impl Into<__VarId> for TokenFilePosition {
+    fn into(self) -> __VarId {
+        __VarId::Pair([self.file.into(), self.position.into()])
     }
 }
 
@@ -60,7 +67,7 @@ impl __IsStaticVar<__VarId> for TOKEN_FILE_POSITION {
     }
 
     fn get_id() -> __VarId {
-        todo!()
+        TOKEN_FILE_POSITION.get().unwrap().into()
     }
 
     fn try_set_var_id_aux(
@@ -88,6 +95,6 @@ impl __IsStaticVar<__VarId> for TOKEN_FILE_POSITION {
     }
 
     fn zones() -> &'static [__FigureZone] {
-        todo!()
+        &[__FigureZone::Text]
     }
 }
