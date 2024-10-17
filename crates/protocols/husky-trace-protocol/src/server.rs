@@ -1,5 +1,5 @@
-#[cfg(feature = "test_utils")]
-pub mod test_utils;
+#[cfg(feature = "test_helpers")]
+pub mod test_helpers;
 
 use self::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{

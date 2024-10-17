@@ -1,4 +1,4 @@
-pub use husky_vfs::test_utils::*;
+pub use husky_vfs::test_helpers::*;
 
 /// will have more adversarial tests based on token level information than `VfsTestUtils`
 pub trait TokenTestUtils: VfsTestUtils {

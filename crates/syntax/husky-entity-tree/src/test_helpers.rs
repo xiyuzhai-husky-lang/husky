@@ -13,7 +13,7 @@ use husky_entity_path::path::{
 use husky_path_utils::{Path, PathBuf};
 use husky_vfs::{
     path::{crate_path::CratePath, module_path::ModulePath, package_path::PackagePath},
-    test_utils::*,
+    test_helpers::*,
 };
 use rich_test::lock::ExpectUnitPath;
 

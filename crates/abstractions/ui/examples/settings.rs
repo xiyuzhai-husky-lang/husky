@@ -1,4 +1,4 @@
-use crate::test_utils::egui::launch_test_app;
+use crate::test_helpers::egui::launch_test_app;
 use ::ui::{settings::*, ui::*, *};
 use eframe::egui;
 
