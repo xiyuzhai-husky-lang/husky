@@ -3,8 +3,8 @@ use husky_path_utils::HuskyLangDevPaths;
 use husky_standard_devsoul::StandardDevsoul;
 use husky_standard_trace_protocol::figure::StandardFigure;
 use husky_trace_protocol::{
-    client::test_utils::TestTraceClient,
-    server::{test_utils::TestTraceServer, TraceServer},
+    client::test_helpers::TestTraceClient,
+    server::{test_helpers::TestTraceServer, TraceServer},
 };
 use tracing_test::traced_test;
 

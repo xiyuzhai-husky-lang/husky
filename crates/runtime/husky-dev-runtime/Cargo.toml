@@ -42,7 +42,7 @@ husky-linket.workspace = true
 husky-linket-impl.workspace = true
 # protocols
 husky-figure-zone-protocol.workspace = true
-husky-trace-protocol = { workspace = true, features = ["test_utils"] }
+husky-trace-protocol = { workspace = true, features = ["test_helpers"] }
 husky-visual-protocol.workspace = true
 # syntax
 husky-entity-tree.workspace = true
@@ -65,7 +65,7 @@ husky-vmir.workspace = true
 husky-value.workspace = true
 
 [dev-dependencies]
-husky-ast = { workspace = true, features = ["test_utils"] }
+husky-ast = { workspace = true, features = ["test_helpers"] }
 # ad hoc
 # linket
 husky-standard-linket-impl.workspace = true
