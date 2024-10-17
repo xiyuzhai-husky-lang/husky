@@ -1,4 +1,4 @@
-pub use husky_token::test_utils::*;
+pub use husky_token::test_helpers::*;
 
 /// will have more adversarial tests based on token level information than `TokenTestUtils`
 pub trait AstTestUtils: TokenTestUtils {

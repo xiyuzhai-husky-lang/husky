@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_path::path::major_item::{connection::MajorItemConnection, form::MajorFormPath};
 use husky_entity_tree::helpers::paths::module_test_paths;
 use husky_hir_decl::decl::HasHirDecl;
-use husky_vfs::{jar::VfsDb, test_utils::*};
+use husky_vfs::{jar::VfsDb, test_helpers::*};
 use rich_test::lock::ExpectUnitPath;
 
 #[salsa::derive_debug_with_db]
