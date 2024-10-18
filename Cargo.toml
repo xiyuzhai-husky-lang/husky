@@ -306,6 +306,7 @@ husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 # lean
 lean-ast = { path = "crates/lean/lean-ast" }
+lean-coword = { path = "crates/lean/lean-coword" }
 lean-hir-expr = { path = "crates/lean/lean-hir-expr" }
 lean-hir-decl = { path = "crates/lean/lean-hir-decl" }
 lean-hir-defn = { path = "crates/lean/lean-hir-defn" }
