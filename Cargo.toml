@@ -304,6 +304,14 @@ husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 husky-ki = { path = "crates/ki/husky-ki" }
 husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
+# lean
+lean-ast = { path = "crates/lean/lean-ast" }
+lean-hir-expr = { path = "crates/lean/lean-hir-expr" }
+lean-hir-decl = { path = "crates/lean/lean-hir-decl" }
+lean-hir-defn = { path = "crates/lean/lean-hir-defn" }
+lean-sem-expr = { path = "crates/lean/lean-sem-expr" }
+lean-syn-expr = { path = "crates/lean/lean-syn-expr" }
+lean-token = { path = "crates/lean/lean-token" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }
