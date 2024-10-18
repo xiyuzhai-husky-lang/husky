@@ -12,6 +12,9 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# lean
+lean-hir-expr.workspace = true
+# visored
 visored-sem-expr.workspace = true
 
 [dev-dependencies]
