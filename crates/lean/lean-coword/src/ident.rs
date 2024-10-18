@@ -1,6 +1,7 @@
 use husky_coword::Coword;
 use salsa::db::Db;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord, Hash)]
 pub struct LeanIdent(Coword);
 
 impl LeanIdent {
@@ -38,5 +39,9 @@ impl LeanIdent {
             "match",
         ];
         RESERVED_KEYWORDS.contains(&ident)
+    }
+
+    pub fn data<'db>(&self, db: &'db ::salsa::Db) -> &'db str {
+        self.0.data(db)
     }
 }

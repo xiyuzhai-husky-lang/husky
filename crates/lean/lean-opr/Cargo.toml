@@ -1,5 +1,5 @@
 [package]
-name = "lean-hir-expr"
+name = "lean-opr"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,13 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-# abstractions
-idx-arena.workspace = true
-smallvec.workspace = true
-salsa.workspace = true
-# lean
-lean-coword.workspace = true
-lean-opr.workspace = true
 
 [lints]
 workspace = true
