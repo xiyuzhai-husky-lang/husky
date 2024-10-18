@@ -19,24 +19,24 @@ pub enum SemMathExprData {
         dispatch: (),
     },
     Prefix {
-        opr: SemMathExprIdx,
-        opd: SemMathExprIdx,
+        opr: VisoredSemMathExprIdx,
+        opd: VisoredSemMathExprIdx,
         dispatch: (),
     },
     Suffix {
-        opd: SemMathExprIdx,
-        opr: SemMathExprIdx,
+        opd: VisoredSemMathExprIdx,
+        opr: VisoredSemMathExprIdx,
         dispatch: (),
     },
     Attach {
-        base: SemMathExprIdx,
+        base: VisoredSemMathExprIdx,
         // INVARIANCE: at least one of these are some
-        top: Option<SemMathExprIdx>,
-        bottom: Option<SemMathExprIdx>,
-        top_left: Option<SemMathExprIdx>,
-        bottom_left: Option<SemMathExprIdx>,
-        top_right: Option<SemMathExprIdx>,
-        bottom_right: Option<SemMathExprIdx>,
+        top: Option<VisoredSemMathExprIdx>,
+        bottom: Option<VisoredSemMathExprIdx>,
+        top_left: Option<VisoredSemMathExprIdx>,
+        bottom_left: Option<VisoredSemMathExprIdx>,
+        top_right: Option<VisoredSemMathExprIdx>,
+        bottom_right: Option<VisoredSemMathExprIdx>,
         dispatch: AttachDispatch,
     },
     UniadicChain,
@@ -45,4 +45,4 @@ pub enum SemMathExprData {
     VariadicArray,
 }
 
-pub type SemMathExprIdx = ArenaIdx<SemMathExprData>;
+pub type VisoredSemMathExprIdx = ArenaIdx<SemMathExprData>;
