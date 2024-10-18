@@ -8128,7 +8128,15 @@ name = "lean-hir-expr"
 version = "0.1.0"
 dependencies = [
  "idx-arena",
+ "lean-coword",
+ "lean-opr",
+ "salsa",
+ "smallvec",
 ]
+
+[[package]]
+name = "lean-opr"
+version = "0.1.0"
 
 [[package]]
 name = "lean-sem-expr"
