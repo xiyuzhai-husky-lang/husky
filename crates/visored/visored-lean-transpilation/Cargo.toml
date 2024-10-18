@@ -12,9 +12,9 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+visored-sem-expr.workspace = true
 
 [dev-dependencies]
-visored-sem-expr.workspace = true
 
 [lints]
 workspace = true
