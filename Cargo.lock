@@ -8108,6 +8108,18 @@ name = "lean-ast"
 version = "0.1.0"
 
 [[package]]
+name = "lean-hir-decl"
+version = "0.1.0"
+
+[[package]]
+name = "lean-hir-defn"
+version = "0.1.0"
+
+[[package]]
+name = "lean-hir-expr"
+version = "0.1.0"
+
+[[package]]
 name = "lean-sem-expr"
 version = "0.1.0"
 

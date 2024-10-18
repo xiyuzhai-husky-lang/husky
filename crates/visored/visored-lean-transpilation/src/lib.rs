@@ -1,14 +1,17 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+mod builder;
+
+use visored_sem_expr::math::SemMathExprIdx;
+
+pub trait ToLean: Copy {
+    type Target;
+
+    fn to_lean(self, builder: &mut ()) -> Self::Target;
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+impl ToLean for SemMathExprIdx {
+    type Target = ();
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    fn to_lean(self, builder: &mut ()) -> Self::Target {
+        todo!()
     }
 }

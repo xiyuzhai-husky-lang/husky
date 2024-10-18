@@ -3836,6 +3836,21 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "lean-hir-decl",
+        relative_path: "crates/lean/lean-hir-decl",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "lean-hir-defn",
+        relative_path: "crates/lean/lean-hir-defn",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "lean-hir-expr",
+        relative_path: "crates/lean/lean-hir-expr",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "lean-sem-expr",
         relative_path: "crates/lean/lean-sem-expr",
         dependencies: [],
@@ -4131,6 +4146,20 @@
         name: "husky-virtual-value-macros",
         relative_path: "crates/value/husky-virtual-value-macros",
         dependencies: [],
+    },
+    PackageSummary {
+        name: "visored-lean-transpilation",
+        relative_path: "crates/visored/visored-lean-transpilation",
+        dependencies: [
+            "visored-sem-expr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-sem-expr",
+        relative_path: "crates/visored/visored-sem-expr",
+        dependencies: [
+            "idx-arena",
+        ],
     },
     PackageSummary {
         name: "visored-prototype",
