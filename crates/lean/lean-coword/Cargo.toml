@@ -1,5 +1,5 @@
 [package]
-name = "lean-hir-expr"
+name = "lean-coword"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,7 +12,10 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-idx-arena.workspace = true
+# abstractions
+salsa.workspace = true
+# kernel
+husky-coword.workspace = true
 
 [lints]
 workspace = true

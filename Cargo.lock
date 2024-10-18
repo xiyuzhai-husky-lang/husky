@@ -8108,6 +8108,14 @@ name = "lean-ast"
 version = "0.1.0"
 
 [[package]]
+name = "lean-coword"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "salsa",
+]
+
+[[package]]
 name = "lean-hir-decl"
 version = "0.1.0"
 
@@ -8118,6 +8126,9 @@ version = "0.1.0"
 [[package]]
 name = "lean-hir-expr"
 version = "0.1.0"
+dependencies = [
+ "idx-arena",
+]
 
 [[package]]
 name = "lean-sem-expr"
