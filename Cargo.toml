@@ -415,8 +415,10 @@ husky-standard-value = { path = "crates/value/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
 husky-virtual-value = { path = "crates/value/husky-virtual-value" }
 # visored
-visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
+visored-coword = { path = "crates/visored/visored-coword" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
+visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
+visored-zfs-ty = { path = "crates/visored/visored-zfs-ty" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir
