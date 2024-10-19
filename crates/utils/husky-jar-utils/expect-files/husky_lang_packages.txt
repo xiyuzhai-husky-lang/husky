@@ -4199,6 +4199,7 @@
         name: "visored-hir-expr",
         relative_path: "crates/visored/visored-hir-expr",
         dependencies: [
+            "idx-arena",
             "visored-sem-expr",
         ],
     },

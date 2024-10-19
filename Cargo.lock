@@ -12230,6 +12230,7 @@ dependencies = [
 name = "visored-hir-expr"
 version = "0.1.0"
 dependencies = [
+ "idx-arena",
  "visored-sem-expr",
 ]
 
