@@ -12,6 +12,7 @@ members = [
     "crates/fs/*",
     "crates/gui/*",
     "crates/ide/*",
+    "crates/isabelle/*",
     "crates/kernel/*",
     "crates/ki/*",
     "crates/lex/*",
@@ -284,6 +285,11 @@ husky-inlay-hints = { path = "crates/ide/husky-inlay-hints" }
 husky-semantic-token = { path = "crates/ide/husky-semantic-token" }
 husky-token-info = { path = "crates/ide/husky-token-info" }
 rustc_span = { path = "crates/ide/rustc_span" }
+# isabelle
+isabelle-ast = { path = "crates/isabelle/isabelle-ast" }
+isabelle-sem-expr = { path = "crates/isabelle/isabelle-sem-expr" }
+isabelle-hir-expr = { path = "crates/isabelle/isabelle-hir-expr" }
+isabelle-token = { path = "crates/isabelle/isabelle-token" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
 husky-dec-term = { path = "crates/kernel/husky-dec-term" }
@@ -416,6 +422,8 @@ husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros
 husky-virtual-value = { path = "crates/value/husky-virtual-value" }
 # visored
 visored-coword = { path = "crates/visored/visored-coword" }
+visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
+visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-zfs-ty = { path = "crates/visored/visored-zfs-ty" }

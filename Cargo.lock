@@ -7896,6 +7896,25 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7943c866cc5cd64cbc25b2e01621d07fa8eb2a1a23160ee81ce38704e97b8ecf"
 
 [[package]]
+name = "isabelle-ast"
+version = "0.1.0"
+
+[[package]]
+name = "isabelle-hir-expr"
+version = "0.1.0"
+dependencies = [
+ "isabelle-sem-expr",
+]
+
+[[package]]
+name = "isabelle-sem-expr"
+version = "0.1.0"
+
+[[package]]
+name = "isabelle-token"
+version = "0.1.0"
+
+[[package]]
 name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -12205,6 +12224,20 @@ name = "visored-coword"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+]
+
+[[package]]
+name = "visored-hir-expr"
+version = "0.1.0"
+dependencies = [
+ "visored-sem-expr",
+]
+
+[[package]]
+name = "visored-isabelle-hol-transpilation"
+version = "0.1.0"
+dependencies = [
+ "isabelle-hir-expr",
 ]
 
 [[package]]
