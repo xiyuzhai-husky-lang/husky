@@ -1168,4 +1168,5 @@
         "husky-vfs",
     },
     "namekian-ast": {},
+    "visored-zfs-ty": {},
 }

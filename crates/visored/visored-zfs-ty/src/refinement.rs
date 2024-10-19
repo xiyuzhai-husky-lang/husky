@@ -1,14 +1,10 @@
-use crate::{term::VisoredZfsTermId, ty::VisoredZfsTypeData};
+use crate::{term::ZfsTermId, ty::ZfsTypeData};
 
 /// It's a term of type A -> B, where $A$ is the base type.
-pub struct VisoredZfsTypeRefinement {}
+pub struct ZfsTypeRefinement {}
 
-impl VisoredZfsTypeRefinement {
-    pub fn new(
-        term: VisoredZfsTermId,
-        data: &VisoredZfsTypeData,
-        prev_refinements: &[Self],
-    ) -> Self {
+impl ZfsTypeRefinement {
+    pub fn new(term: ZfsTermId, data: &ZfsTypeData, prev_refinements: &[Self]) -> Self {
         todo!()
     }
 }
