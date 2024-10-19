@@ -1,16 +1,16 @@
 use super::*;
 
 #[salsa::interned(constructor = new_inner)]
-pub struct EthLambdaVariable {
+pub struct EthAbstractVariable {
     pub ty: EthTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
-    pub index: LambdaVariableIndex,
+    pub index: AbstractVariableIndex,
 }
 
-impl EthLambdaVariable {
+impl EthAbstractVariable {
     #[inline(always)]
-    pub(crate) fn from_dec(db: &::salsa::Db, hvar: DecLambdaVariable) -> EthTermResult<Self> {
+    pub(crate) fn from_dec(db: &::salsa::Db, hvar: DecAbstractVariable) -> EthTermResult<Self> {
         let ty = hvar.ty(db)?;
         let ty = EthTerm::ty_from_dec(db, ty)?;
         Ok(Self::new_inner(db, ty, hvar.index(db)))
@@ -28,9 +28,9 @@ impl EthLambdaVariable {
 
 impl EthTerm {
     #[track_caller]
-    pub fn hvar(self) -> EthLambdaVariable {
+    pub fn hvar(self) -> EthAbstractVariable {
         match self {
-            EthTerm::LambdaVariable(slf) => slf,
+            EthTerm::AbstractVariable(slf) => slf,
             _ => unreachable!(),
         }
     }
@@ -38,7 +38,7 @@ impl EthTerm {
 
 /// # rewrite
 
-impl EthLambdaVariable {
+impl EthAbstractVariable {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &salsa::Db) -> EthTerm {
         if self == substitution.src() {
             return substitution.dst();
@@ -50,12 +50,12 @@ impl EthLambdaVariable {
         self,
         substitution: EthTermSubstitution,
         db: &salsa::Db,
-    ) -> EthLambdaVariable {
+    ) -> EthAbstractVariable {
         Self::new_inner(db, self.ty(db).substitute(substitution, db), self.index(db))
     }
 }
 
-impl EthInstantiate for EthLambdaVariable {
+impl EthInstantiate for EthAbstractVariable {
     type Output = Self;
 
     fn instantiate(
@@ -75,9 +75,9 @@ impl EthInstantiate for EthLambdaVariable {
 }
 
 /// back to declarative
-impl EthLambdaVariable {
-    pub(super) fn into_declarative(self, db: &salsa::Db) -> DecLambdaVariable {
-        DecLambdaVariable::new(
+impl EthAbstractVariable {
+    pub(super) fn into_declarative(self, db: &salsa::Db) -> DecAbstractVariable {
+        DecAbstractVariable::new(
             Ok(self.ty(db).into_declarative(db)),
             self.index(db).disambiguator(),
             db,

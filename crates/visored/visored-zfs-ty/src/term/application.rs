@@ -1,4 +1,4 @@
-use super::{VisoredZfsTerm, VisoredZfsTermId};
+use super::{VisoredZfsTerm, VisoredZfsTermId, VisoredZfsTerms};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct ApplicationVisoredZfsTerm(VisoredZfsTermId);
@@ -6,5 +6,5 @@ pub struct ApplicationVisoredZfsTerm(VisoredZfsTermId);
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct ApplicationVisoredZfsTermData {
     pub function: VisoredZfsTerm,
-    pub argument: VisoredZfsTerm,
+    pub arguments: VisoredZfsTerms,
 }

@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::path::major_item::ty::PreludeTypePath;
 
-impl salsa::DisplayWithDb for LambdaVariableIndex {
+impl salsa::DisplayWithDb for AbstractVariableIndex {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
