@@ -12,31 +12,31 @@ use idx_arena::ArenaIdx;
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
-pub enum SemMathExprData {
+pub enum SemExprData {
     Notation,
     Binary {
         opr: (),
         dispatch: (),
     },
     Prefix {
-        opr: VisoredSemMathExprIdx,
-        opd: VisoredSemMathExprIdx,
+        opr: VisoredSemExprIdx,
+        opd: VisoredSemExprIdx,
         dispatch: (),
     },
     Suffix {
-        opd: VisoredSemMathExprIdx,
-        opr: VisoredSemMathExprIdx,
+        opd: VisoredSemExprIdx,
+        opr: VisoredSemExprIdx,
         dispatch: (),
     },
     Attach {
-        base: VisoredSemMathExprIdx,
+        base: VisoredSemExprIdx,
         // INVARIANCE: at least one of these are some
-        top: Option<VisoredSemMathExprIdx>,
-        bottom: Option<VisoredSemMathExprIdx>,
-        top_left: Option<VisoredSemMathExprIdx>,
-        bottom_left: Option<VisoredSemMathExprIdx>,
-        top_right: Option<VisoredSemMathExprIdx>,
-        bottom_right: Option<VisoredSemMathExprIdx>,
+        top: Option<VisoredSemExprIdx>,
+        bottom: Option<VisoredSemExprIdx>,
+        top_left: Option<VisoredSemExprIdx>,
+        bottom_left: Option<VisoredSemExprIdx>,
+        top_right: Option<VisoredSemExprIdx>,
+        bottom_right: Option<VisoredSemExprIdx>,
         dispatch: AttachDispatch,
     },
     UniadicChain,
@@ -45,4 +45,4 @@ pub enum SemMathExprData {
     VariadicArray,
 }
 
-pub type VisoredSemMathExprIdx = ArenaIdx<SemMathExprData>;
+pub type VisoredSemExprIdx = ArenaIdx<SemExprData>;
