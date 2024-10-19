@@ -5,7 +5,7 @@ pub mod substitute_variable;
 
 use self::{
     application::{ApplicationVisoredZfsTerm, ApplicationVisoredZfsTermData},
-    bounded_variable::{BoundedVariableVisoredZfsTerm, BoundedVariableVisoredZfsTermData},
+    bounded_variable::{BoundVariableVisoredZfsTerm, BoundedVariableVisoredZfsTermData},
     free_variable::{FreeVariableVisoredZfsTerm, FreeVariableVisoredZfsTermData},
     substitute_variable::{SubstituteVariableVisoredZfsTerm, SubstituteVariableVisoredZfsTermData},
 };
@@ -14,7 +14,7 @@ use self::{
 pub enum VisoredZfsTerm {
     SubstituteVariable(SubstituteVariableVisoredZfsTerm),
     FreeVariable(FreeVariableVisoredZfsTerm),
-    BoundedVariable(BoundedVariableVisoredZfsTerm),
+    BoundVariable(BoundVariableVisoredZfsTerm),
     Application(ApplicationVisoredZfsTerm),
 }
 
