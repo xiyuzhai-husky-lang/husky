@@ -1,18 +1,18 @@
 use super::{ZfsTerm, ZfsTermData, ZfsTermId, ZfsTerms};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsApplication(ZfsTermId);
+pub struct ZfsAbstraction(ZfsTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsApplicationData {
-    pub function: ZfsTerm,
+pub struct ZfsAbstractionData {
+    pub parameters: ZfsTerm,
     pub arguments: ZfsTerms,
 }
 
-impl ZfsApplication {
-    pub fn data(self, db: &::salsa::Db) -> ZfsApplicationData {
+impl ZfsAbstraction {
+    pub fn data(self, db: &::salsa::Db) -> ZfsAbstractionData {
         match self.0.data(db) {
-            ZfsTermData::Application(data) => data,
+            ZfsTermData::Abstraction(data) => data,
             _ => unreachable!(),
         }
     }

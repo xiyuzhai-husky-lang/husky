@@ -1,11 +1,11 @@
 use smallvec::SmallVec;
 use visored_coword::namae::VisoredNamae;
 
-pub struct VisoredZfsType {
-    data: VisoredZfsTypeData,
+pub struct ZfsType {
+    data: ZfsTypeData,
     refinements: SmallVec<[(); 2]>,
 }
 
-pub enum VisoredZfsTypeData {
+pub enum ZfsTypeData {
     Named(VisoredNamae), // TODO: do we need a path here?
 }

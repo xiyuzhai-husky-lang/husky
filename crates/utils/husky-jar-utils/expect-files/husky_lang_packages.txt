@@ -3836,6 +3836,14 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "lean-coword",
+        relative_path: "crates/lean/lean-coword",
+        dependencies: [
+            "husky-coword",
+            "salsa",
+        ],
+    },
+    PackageSummary {
         name: "lean-hir-decl",
         relative_path: "crates/lean/lean-hir-decl",
         dependencies: [],
@@ -3848,6 +3856,17 @@
     PackageSummary {
         name: "lean-hir-expr",
         relative_path: "crates/lean/lean-hir-expr",
+        dependencies: [
+            "idx-arena",
+            "lean-coword",
+            "lean-opr",
+            "salsa",
+            "smallvec",
+        ],
+    },
+    PackageSummary {
+        name: "lean-opr",
+        relative_path: "crates/lean/lean-opr",
         dependencies: [],
     },
     PackageSummary {
@@ -4148,9 +4167,17 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "visored-coword",
+        relative_path: "crates/visored/visored-coword",
+        dependencies: [
+            "husky-coword",
+        ],
+    },
+    PackageSummary {
         name: "visored-lean-transpilation",
         relative_path: "crates/visored/visored-lean-transpilation",
         dependencies: [
+            "lean-hir-expr",
             "visored-sem-expr",
         ],
     },
@@ -4166,6 +4193,15 @@
         relative_path: "crates/visored/visored-prototype",
         dependencies: [
             "idx-arena",
+        ],
+    },
+    PackageSummary {
+        name: "visored-zfs-ty",
+        relative_path: "crates/visored/visored-zfs-ty",
+        dependencies: [
+            "salsa",
+            "smallvec",
+            "visored-coword",
         ],
     },
     PackageSummary {
