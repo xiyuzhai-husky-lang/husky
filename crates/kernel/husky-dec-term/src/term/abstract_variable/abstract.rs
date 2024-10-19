@@ -27,11 +27,11 @@ impl DecTerm {
         self,
         db: &::salsa::Db,
         symbol: DecSymbolicVariable,
-    ) -> (Self, Option<DecLambdaVariable>) {
+    ) -> (Self, Option<DecAbstractVariable>) {
         let Some(idx) = self.new_hvar_idx(db, symbol) else {
             return (self, None);
         };
-        let hvar = DecLambdaVariable::new(symbol.ty(db), idx, db);
+        let hvar = DecAbstractVariable::new(symbol.ty(db), idx, db);
         (
             self.substitute_symbol_with_hvar(db, symbol, hvar),
             Some(hvar),
@@ -124,7 +124,7 @@ impl DecTerm {
             DecTerm::List(_) => todo!(),
             DecTerm::Literal(_)
             | DecTerm::SymbolicVariable(_)
-            | DecTerm::LambdaVariable(_)
+            | DecTerm::AbstractVariable(_)
             | DecTerm::ItemPath(_)
             | DecTerm::Category(_)
             | DecTerm::Universe(_) => (),
@@ -139,7 +139,7 @@ impl DecTerm {
         self,
         db: &::salsa::Db,
         symbol: DecSymbolicVariable,
-        hvar: DecLambdaVariable,
+        hvar: DecAbstractVariable,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;

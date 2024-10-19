@@ -1,9 +1,9 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct BoundVariableVisoredZfsTerm(VisoredZfsTermId);
+pub struct AbstractVariableVisoredZfsTerm(VisoredZfsTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct BoundedVariableVisoredZfsTermData {
+pub struct AbstractVariableVisoredZfsTermData {
     // Add appropriate fields here
 }
