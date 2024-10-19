@@ -188,6 +188,8 @@ pub enum JarIndex {
     // tex
     TexAstJar,
     TexCommandJar,
+    // visored
+    VisoredZfsTypeJar,
     // vm
     VmirJar,
 }

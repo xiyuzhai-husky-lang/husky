@@ -12201,6 +12201,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
+name = "visored-coword"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+]
+
+[[package]]
 name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
@@ -12220,6 +12227,15 @@ name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
  "idx-arena",
+]
+
+[[package]]
+name = "visored-zfs-ty"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+ "smallvec",
+ "visored-coword",
 ]
 
 [[package]]
