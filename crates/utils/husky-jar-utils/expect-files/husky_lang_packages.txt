@@ -3821,6 +3821,28 @@
         ],
     },
     PackageSummary {
+        name: "isabelle-ast",
+        relative_path: "crates/isabelle/isabelle-ast",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "isabelle-hir-expr",
+        relative_path: "crates/isabelle/isabelle-hir-expr",
+        dependencies: [
+            "isabelle-sem-expr",
+        ],
+    },
+    PackageSummary {
+        name: "isabelle-sem-expr",
+        relative_path: "crates/isabelle/isabelle-sem-expr",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "isabelle-token",
+        relative_path: "crates/isabelle/isabelle-token",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "husky-primitive-value",
         relative_path: "crates/kernel/husky-primitive-value",
         dependencies: [],
@@ -4174,10 +4196,9 @@
         ],
     },
     PackageSummary {
-        name: "visored-lean-transpilation",
-        relative_path: "crates/visored/visored-lean-transpilation",
+        name: "visored-hir-expr",
+        relative_path: "crates/visored/visored-hir-expr",
         dependencies: [
-            "lean-hir-expr",
             "visored-sem-expr",
         ],
     },
@@ -4186,6 +4207,21 @@
         relative_path: "crates/visored/visored-sem-expr",
         dependencies: [
             "idx-arena",
+        ],
+    },
+    PackageSummary {
+        name: "visored-isabelle-hol-transpilation",
+        relative_path: "crates/visored/visored-isabelle-hol-transpilation",
+        dependencies: [
+            "isabelle-hir-expr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-lean-transpilation",
+        relative_path: "crates/visored/visored-lean-transpilation",
+        dependencies: [
+            "lean-hir-expr",
+            "visored-sem-expr",
         ],
     },
     PackageSummary {
