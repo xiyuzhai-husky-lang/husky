@@ -176,4 +176,5 @@
         "husky-ki-repr",
     },
     "namekian-ast": {},
+    "visored-zfs-ty": {},
 }
