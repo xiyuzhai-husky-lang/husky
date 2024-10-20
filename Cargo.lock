@@ -12262,6 +12262,8 @@ name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
  "idx-arena",
+ "salsa",
+ "visored-sem-expr",
 ]
 
 [[package]]

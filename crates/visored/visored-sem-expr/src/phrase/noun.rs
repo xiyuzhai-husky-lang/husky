@@ -1,5 +1,5 @@
 use super::*;
 
-pub struct VisoredSemNounPhraseData {}
+pub struct VdSemNounPhraseData {}
 
-pub struct NounPhrase(VisoredSemPhraseIdx);
+pub struct NounPhrase(VdSemPhraseIdx);
