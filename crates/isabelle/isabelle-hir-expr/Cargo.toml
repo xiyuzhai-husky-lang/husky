@@ -12,6 +12,9 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+idx-arena.workspace = true
+# isabelle
 isabelle-sem-expr.workspace = true
 
 [lints]

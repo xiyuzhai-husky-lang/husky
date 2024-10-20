@@ -7903,6 +7903,7 @@ version = "0.1.0"
 name = "isabelle-hir-expr"
 version = "0.1.0"
 dependencies = [
+ "idx-arena",
  "isabelle-sem-expr",
 ]
 
