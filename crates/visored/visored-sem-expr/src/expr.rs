@@ -8,7 +8,7 @@ mod variadic_array;
 mod variadic_chain;
 
 use attach::AttachDispatch;
-use idx_arena::ArenaIdx;
+use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
@@ -19,24 +19,24 @@ pub enum SemExprData {
         dispatch: (),
     },
     Prefix {
-        opr: VisoredSemExprIdx,
-        opd: VisoredSemExprIdx,
+        opr: VdSemExprIdx,
+        opd: VdSemExprIdx,
         dispatch: (),
     },
     Suffix {
-        opd: VisoredSemExprIdx,
-        opr: VisoredSemExprIdx,
+        opd: VdSemExprIdx,
+        opr: VdSemExprIdx,
         dispatch: (),
     },
     Attach {
-        base: VisoredSemExprIdx,
+        base: VdSemExprIdx,
         // INVARIANCE: at least one of these are some
-        top: Option<VisoredSemExprIdx>,
-        bottom: Option<VisoredSemExprIdx>,
-        top_left: Option<VisoredSemExprIdx>,
-        bottom_left: Option<VisoredSemExprIdx>,
-        top_right: Option<VisoredSemExprIdx>,
-        bottom_right: Option<VisoredSemExprIdx>,
+        top: Option<VdSemExprIdx>,
+        bottom: Option<VdSemExprIdx>,
+        top_left: Option<VdSemExprIdx>,
+        bottom_left: Option<VdSemExprIdx>,
+        top_right: Option<VdSemExprIdx>,
+        bottom_right: Option<VdSemExprIdx>,
         dispatch: AttachDispatch,
     },
     UniadicChain,
@@ -45,4 +45,7 @@ pub enum SemExprData {
     VariadicArray,
 }
 
-pub type VisoredSemExprIdx = ArenaIdx<SemExprData>;
+pub type VdSemExprIdx = ArenaIdx<SemExprData>;
+pub type VdSemExprIdxRange = ArenaIdxRange<SemExprData>;
+pub type VdSemExprArena = Arena<SemExprData>;
+pub type VdSemExprArenaRef<'a> = ArenaRef<'a, SemExprData>;

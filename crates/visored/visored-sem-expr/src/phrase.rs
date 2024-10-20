@@ -1,18 +1,18 @@
 pub mod noun;
 
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use noun::VisoredSemNounPhraseData;
+use noun::VdSemNounPhraseData;
 
-use crate::expr::VisoredSemExprIdx;
+use crate::expr::VdSemExprIdx;
 
-pub enum VisoredSemPhrase {
-    Expr(VisoredSemExprIdx),
+pub enum VdSemPhrase {
+    Expr(VdSemExprIdx),
 }
 
-pub enum VisoredSemPhraseData {
-    Noun(VisoredSemNounPhraseData),
+pub enum VdSemPhraseData {
+    Noun(VdSemNounPhraseData),
 }
 
-pub type VisoredSemPhraseArena = Arena<VisoredSemPhraseData>;
-pub type VisoredSemPhraseIdx = ArenaIdx<VisoredSemPhraseData>;
-pub type VisoredSemPhraseIdxRange = ArenaIdxRange<VisoredSemPhraseData>;
+pub type VdSemPhraseArena = Arena<VdSemPhraseData>;
+pub type VdSemPhraseIdx = ArenaIdx<VdSemPhraseData>;
+pub type VdSemPhraseIdxRange = ArenaIdxRange<VdSemPhraseData>;

@@ -3,7 +3,7 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdHirExprData {
     Literal(VdHirLiteral),
-    Variable(VisoredHirVariable),
+    Variable(VdHirVariable),
     Application {
         function: VdHirExprIdx,
         arguments: VdHirExprIdxRange,
@@ -18,4 +18,4 @@ pub type VdHirExprIdxRange = ArenaIdxRange<VdHirExprData>;
 pub struct VdHirLiteral {}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VisoredHirVariable {}
+pub struct VdHirVariable {}

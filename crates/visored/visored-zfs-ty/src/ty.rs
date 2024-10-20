@@ -1,5 +1,5 @@
 use smallvec::SmallVec;
-use visored_coword::namae::VisoredNamae;
+use visored_coword::namae::VdNamae;
 
 pub struct ZfsType {
     data: ZfsTypeData,
@@ -7,5 +7,5 @@ pub struct ZfsType {
 }
 
 pub enum ZfsTypeData {
-    Named(VisoredNamae), // TODO: do we need a path here?
+    Named(VdNamae), // TODO: do we need a path here?
 }

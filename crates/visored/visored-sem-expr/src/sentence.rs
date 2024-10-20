@@ -1,11 +1,11 @@
-use crate::clause::VisoredSemClauseIdxRange;
+use crate::clause::VdSemClauseIdxRange;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum VisoredSemSentenceData {
-    Clauses(VisoredSemClauseIdxRange),
+pub enum VdSemSentenceData {
+    Clauses(VdSemClauseIdxRange),
 }
 
-pub type VisoredSemSentenceArena = Arena<VisoredSemSentenceData>;
-pub type VisoredSemSentenceIdx = ArenaIdx<VisoredSemSentenceData>;
-pub type VisoredSemSentenceIdxRange = ArenaIdxRange<VisoredSemSentenceData>;
+pub type VdSemSentenceArena = Arena<VdSemSentenceData>;
+pub type VdSemSentenceIdx = ArenaIdx<VdSemSentenceData>;
+pub type VdSemSentenceIdxRange = ArenaIdxRange<VdSemSentenceData>;
