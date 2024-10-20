@@ -2,13 +2,13 @@ use husky_coword::Coword;
 use salsa::db::Db;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord, Hash)]
-pub struct LeanIdent(Coword);
+pub struct LnIdent(Coword);
 
-impl LeanIdent {
+impl LnIdent {
     pub fn new(db: &Db, ident: &str) -> Self {
         // TODO: allow broader idents, like h\1
         assert!(Self::is_valid(ident));
-        LeanIdent(Coword::from_ref(db, ident))
+        LnIdent(Coword::from_ref(db, ident))
     }
 
     pub fn is_valid(ident: &str) -> bool {
