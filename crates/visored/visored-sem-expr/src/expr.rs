@@ -12,7 +12,7 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
-pub enum SemExprData {
+pub enum VdSemExprData {
     Notation,
     Binary {
         opr: (),
@@ -45,7 +45,7 @@ pub enum SemExprData {
     VariadicArray,
 }
 
-pub type VdSemExprIdx = ArenaIdx<SemExprData>;
-pub type VdSemExprIdxRange = ArenaIdxRange<SemExprData>;
-pub type VdSemExprArena = Arena<SemExprData>;
-pub type VdSemExprArenaRef<'a> = ArenaRef<'a, SemExprData>;
+pub type VdSemExprIdx = ArenaIdx<VdSemExprData>;
+pub type VdSemExprIdxRange = ArenaIdxRange<VdSemExprData>;
+pub type VdSemExprArena = Arena<VdSemExprData>;
+pub type VdSemExprArenaRef<'a> = ArenaRef<'a, VdSemExprData>;
