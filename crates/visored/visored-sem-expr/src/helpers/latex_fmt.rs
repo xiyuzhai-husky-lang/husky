@@ -1,8 +1,11 @@
 use crate::{
-    clause::VdSemClauseArenaRef,
-    expr::VdSemExprArenaRef,
-    phrase::VdSemPhraseArenaRef,
-    sentence::{VdSemSentenceArenaRef, VdSemSentenceIdxRange},
+    clause::{VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx},
+    expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
+    phrase::{
+        noun::VdSemNounPhraseData, VdSemPhrase, VdSemPhraseArenaRef, VdSemPhraseData,
+        VdSemPhraseIdx,
+    },
+    sentence::{VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceIdx, VdSemSentenceIdxRange},
 };
 
 pub struct VdSemExprLaTeXFormatter<'a> {
@@ -33,6 +36,72 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     }
 
     pub fn fmt_sentences(&mut self, sentences: VdSemSentenceIdxRange) {
+        for sentence_idx in sentences {
+            self.fmt_sentence(sentence_idx);
+            self.result.push_str("\n\n");
+        }
+    }
+
+    pub fn fmt_sentence(&mut self, sentence_idx: VdSemSentenceIdx) {
+        match self.sentence_arena[sentence_idx] {
+            VdSemSentenceData::Clauses(clauses) => {
+                for (index, clause_idx) in clauses.into_iter().enumerate() {
+                    self.fmt_clause(clause_idx);
+                    if index < clauses.len() - 1 {
+                        self.result.push_str(", ");
+                    } else {
+                        self.result.push_str(". ");
+                    }
+                }
+            }
+        }
+    }
+
+    pub fn fmt_clause(&mut self, clause_idx: VdSemClauseIdx) {
+        match self.clause_arena[clause_idx] {
+            VdSemClauseData::Verb => todo!(),
+        }
+    }
+
+    pub fn fmt_phrase(&mut self, phrase_idx: VdSemPhraseIdx) {
+        match self.phrase_arena[phrase_idx] {
+            VdSemPhraseData::Noun(ref vd_sem_noun_phrase_data) => todo!(),
+        }
+    }
+
+    fn fmt_noun_phrase(&mut self, noun_phrase: &VdSemNounPhraseData) {
+        // Implement noun phrase formatting
+        // This is a placeholder implementation
+        // self.result.push_str("\\textbf{");
+        // self.fmt_expr(noun_phrase.head);
+        // self.result.push('}');
         todo!()
+    }
+
+    pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
+        match self.expr_arena[expr_idx] {
+            VdSemExprData::Notation => todo!(),
+            VdSemExprData::Binary { opr, dispatch } => todo!(),
+            VdSemExprData::Prefix { opr, opd, dispatch } => todo!(),
+            VdSemExprData::Suffix { opd, opr, dispatch } => todo!(),
+            VdSemExprData::Attach {
+                base,
+                top,
+                bottom,
+                top_left,
+                bottom_left,
+                top_right,
+                bottom_right,
+                ref dispatch,
+            } => todo!(),
+            VdSemExprData::UniadicChain => todo!(),
+            VdSemExprData::VariadicChain => todo!(),
+            VdSemExprData::UniadicArray => todo!(),
+            VdSemExprData::VariadicArray => todo!(),
+        }
+    }
+
+    pub fn finish(self) -> String {
+        self.result
     }
 }
