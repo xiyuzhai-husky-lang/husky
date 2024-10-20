@@ -12,7 +12,13 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+salsa.workspace = true
 idx-arena.workspace = true
+
+[dev-dependencies]
+# visored
+visored-sem-expr = { path = ".", features = ["test_helpers"] }
 
 [lints]
 workspace = true

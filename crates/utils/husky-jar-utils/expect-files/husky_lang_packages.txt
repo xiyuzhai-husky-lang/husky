@@ -3829,6 +3829,7 @@
         name: "isabelle-hir-expr",
         relative_path: "crates/isabelle/isabelle-hir-expr",
         dependencies: [
+            "idx-arena",
             "isabelle-sem-expr",
         ],
     },
@@ -4208,6 +4209,7 @@
         relative_path: "crates/visored/visored-sem-expr",
         dependencies: [
             "idx-arena",
+            "salsa",
         ],
     },
     PackageSummary {
