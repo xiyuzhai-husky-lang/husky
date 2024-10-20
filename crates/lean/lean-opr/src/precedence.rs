@@ -1,27 +1,27 @@
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
-pub enum LeanPrecedence {
+pub enum LnPrecedence {
     Application,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum LeanPrecedenceRange {
+pub enum LnPrecedenceRange {
     Any,
-    Greater(LeanPrecedence),
-    GreaterThan(LeanPrecedence),
+    Greater(LnPrecedence),
+    GreaterThan(LnPrecedence),
 }
 
 /// # constants
-impl LeanPrecedenceRange {
-    pub const APPLICATION_SUBEXPR: Self = LeanPrecedenceRange::Greater(LeanPrecedence::Application);
+impl LnPrecedenceRange {
+    pub const APPLICATION_SUBEXPR: Self = LnPrecedenceRange::Greater(LnPrecedence::Application);
 }
 
 /// # methods
-impl LeanPrecedenceRange {
-    pub fn include(self, precedence: LeanPrecedence) -> bool {
+impl LnPrecedenceRange {
+    pub fn include(self, precedence: LnPrecedence) -> bool {
         match self {
-            LeanPrecedenceRange::Any => true,
-            LeanPrecedenceRange::Greater(p) => precedence > p,
-            LeanPrecedenceRange::GreaterThan(p) => precedence >= p,
+            LnPrecedenceRange::Any => true,
+            LnPrecedenceRange::Greater(p) => precedence > p,
+            LnPrecedenceRange::GreaterThan(p) => precedence >= p,
         }
     }
 }
