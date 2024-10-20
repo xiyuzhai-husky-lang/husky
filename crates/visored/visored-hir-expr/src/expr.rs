@@ -1,21 +1,21 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum VisoredHirExprData {
-    Literal(VisoredHirLiteral),
+pub enum VdHirExprData {
+    Literal(VdHirLiteral),
     Variable(VisoredHirVariable),
     Application {
-        function: VisoredHirExprIdx,
-        arguments: VisoredHirExprIdxRange,
+        function: VdHirExprIdx,
+        arguments: VdHirExprIdxRange,
     },
 }
 
-pub type VisoredHirExprArena = Arena<VisoredHirExprData>;
-pub type VisoredHirExprIdx = ArenaIdx<VisoredHirExprData>;
-pub type VisoredHirExprIdxRange = ArenaIdxRange<VisoredHirExprData>;
+pub type VdHirExprArena = Arena<VdHirExprData>;
+pub type VdHirExprIdx = ArenaIdx<VdHirExprData>;
+pub type VdHirExprIdxRange = ArenaIdxRange<VdHirExprData>;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VisoredHirLiteral {}
+pub struct VdHirLiteral {}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VisoredHirVariable {}

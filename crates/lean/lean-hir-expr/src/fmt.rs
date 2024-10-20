@@ -1,23 +1,23 @@
-use crate::expr::{LeanHirExprArenaRef, LeanHirExprData, LeanHirExprIdx};
-use lean_opr::precedence::LeanPrecedenceRange;
+use crate::expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx};
+use lean_opr::precedence::LnPrecedenceRange;
 
-pub struct LeanHirExprFormatter<'a> {
+pub struct LnHirExprFormatter<'a> {
     db: &'a ::salsa::Db,
-    arena: LeanHirExprArenaRef<'a>,
+    arena: LnHirExprArenaRef<'a>,
     line_max_len: usize,
     result: String,
 }
 
-impl<'a> LeanHirExprFormatter<'a> {
-    pub fn format_expr_ext(&mut self, expr: LeanHirExprIdx) {
-        self.format_expr(expr, false, LeanPrecedenceRange::Any);
+impl<'a> LnHirExprFormatter<'a> {
+    pub fn format_expr_ext(&mut self, expr: LnHirExprIdx) {
+        self.format_expr(expr, false, LnPrecedenceRange::Any);
     }
 
     fn format_expr(
         &mut self,
-        expr: LeanHirExprIdx,
+        expr: LnHirExprIdx,
         try_multiline: bool,
-        precedence_range: LeanPrecedenceRange,
+        precedence_range: LnPrecedenceRange,
     ) {
         let needs_bracket = !precedence_range.include(self.arena[expr].precedence());
         if needs_bracket {
@@ -36,28 +36,28 @@ impl<'a> LeanHirExprFormatter<'a> {
         }
     }
 
-    fn format_expr_inner(&mut self, expr: LeanHirExprIdx, multiline: bool) {
+    fn format_expr_inner(&mut self, expr: LnHirExprIdx, multiline: bool) {
         // Lean formatter rule: outer expressions should multiline prior to inner expressions.
         // This ensures that subexpressions only attempt multiline formatting if the parent is already multiline.
         let subexpr_try_multiline = multiline;
         let db = self.db;
         let arena = self.arena;
         match arena[expr] {
-            LeanHirExprData::Variable { ident } => {
+            LnHirExprData::Variable { ident } => {
                 if !self.result.ends_with(['(', ' ']) {
                     self.result.push(' ');
                 }
                 self.result += ident.data(db)
             }
-            LeanHirExprData::Prefix { opr, opd } => {
+            LnHirExprData::Prefix { opr, opd } => {
                 self.result += opr.fmt_str();
                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
             }
-            LeanHirExprData::Suffix { opd, opr } => {
+            LnHirExprData::Suffix { opd, opr } => {
                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
                 self.result += opr.fmt_str();
             }
-            LeanHirExprData::Binary { lopd, opr, ropd } => {
+            LnHirExprData::Binary { lopd, opr, ropd } => {
                 self.format_expr(lopd, subexpr_try_multiline, opr.left_precedence_range());
                 if !self.result.ends_with(' ') {
                     self.result.push(' ');
@@ -66,7 +66,7 @@ impl<'a> LeanHirExprFormatter<'a> {
                 self.result.push(' ');
                 self.format_expr(ropd, subexpr_try_multiline, opr.right_precedence_range());
             }
-            LeanHirExprData::Lambda {
+            LnHirExprData::Lambda {
                 ref parameters,
                 body,
             } => {
@@ -77,23 +77,23 @@ impl<'a> LeanHirExprFormatter<'a> {
                     }
                     self.result += param.ident().data(db);
                     self.result.push_str(" : ");
-                    self.format_expr(param.ty(), false, LeanPrecedenceRange::Any);
+                    self.format_expr(param.ty(), false, LnPrecedenceRange::Any);
                 }
                 self.result += " => ";
                 if multiline {
                     self.result.push('\n');
                     self.result.push_str("  "); // Indent the body
                 }
-                self.format_expr(body, multiline, LeanPrecedenceRange::Any);
+                self.format_expr(body, multiline, LnPrecedenceRange::Any);
             }
-            LeanHirExprData::Application {
+            LnHirExprData::Application {
                 function_and_arguments,
             } => {
                 for expr in function_and_arguments {
                     self.format_expr(
                         expr,
                         subexpr_try_multiline,
-                        LeanPrecedenceRange::APPLICATION_SUBEXPR,
+                        LnPrecedenceRange::APPLICATION_SUBEXPR,
                     );
                 }
             }

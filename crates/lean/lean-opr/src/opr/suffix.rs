@@ -1,14 +1,14 @@
-use crate::precedence::LeanPrecedenceRange;
+use crate::precedence::LnPrecedenceRange;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub enum LeanSuffixOpr {}
+pub enum LnSuffixOpr {}
 
-impl LeanSuffixOpr {
+impl LnSuffixOpr {
     pub fn fmt_str(self) -> &'static str {
         todo!()
     }
 
-    pub fn precedence_range(self) -> LeanPrecedenceRange {
+    pub fn precedence_range(self) -> LnPrecedenceRange {
         todo!()
     }
 }

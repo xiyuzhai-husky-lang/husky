@@ -1,71 +1,72 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use lean_coword::ident::LeanIdent;
+use lean_coword::ident::LnIdent;
 use lean_opr::{
-    opr::{binary::LeanBinaryOpr, prefix::LeanPrefixOpr, suffix::LeanSuffixOpr},
-    precedence::LeanPrecedence,
+    opr::{binary::LnBinaryOpr, prefix::LnPrefixOpr, suffix::LnSuffixOpr},
+    precedence::LnPrecedence,
 };
 use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum LeanHirExprData {
+pub enum LnHirExprData {
     Variable {
-        ident: LeanIdent,
+        ident: LnIdent,
     },
     Prefix {
-        opr: LeanPrefixOpr,
-        opd: LeanHirExprIdx,
+        opr: LnPrefixOpr,
+        opd: LnHirExprIdx,
     },
     Suffix {
-        opd: LeanHirExprIdx,
-        opr: LeanSuffixOpr,
+        opd: LnHirExprIdx,
+        opr: LnSuffixOpr,
     },
     Binary {
-        lopd: LeanHirExprIdx,
-        opr: LeanBinaryOpr,
-        ropd: LeanHirExprIdx,
+        lopd: LnHirExprIdx,
+        opr: LnBinaryOpr,
+        ropd: LnHirExprIdx,
     },
     Lambda {
-        parameters: LeanHirLambdaParameters,
-        body: LeanHirExprIdx,
+        parameters: LnHirLambdaParameters,
+        body: LnHirExprIdx,
     },
     Application {
-        function_and_arguments: LeanHirExprIdxRange,
+        function_and_arguments: LnHirExprIdxRange,
     },
 }
-impl LeanHirExprData {
-    pub(crate) fn precedence(&self) -> LeanPrecedence {
+
+pub type LnHirExprIdx = ArenaIdx<LnHirExprData>;
+pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
+pub type LnHirExprArena = Arena<LnHirExprData>;
+pub type LnHirExprArenaRef<'a> = ArenaRef<'a, LnHirExprData>;
+
+impl LnHirExprData {
+    pub(crate) fn precedence(&self) -> LnPrecedence {
         match self {
-            LeanHirExprData::Variable { ident } => todo!(),
-            LeanHirExprData::Prefix { opr, opd } => todo!(),
-            LeanHirExprData::Suffix { opd, opr } => todo!(),
-            LeanHirExprData::Binary { lopd, opr, ropd } => todo!(),
-            LeanHirExprData::Lambda { parameters, body } => todo!(),
-            LeanHirExprData::Application {
+            LnHirExprData::Variable { ident } => todo!(),
+            LnHirExprData::Prefix { opr, opd } => todo!(),
+            LnHirExprData::Suffix { opd, opr } => todo!(),
+            LnHirExprData::Binary { lopd, opr, ropd } => todo!(),
+            LnHirExprData::Lambda { parameters, body } => todo!(),
+            LnHirExprData::Application {
                 function_and_arguments,
             } => todo!(),
         }
     }
 }
 
-pub type LeanHirExprIdx = ArenaIdx<LeanHirExprData>;
-pub type LeanHirExprIdxRange = ArenaIdxRange<LeanHirExprData>;
-pub type LeanHirExprArena = Arena<LeanHirExprData>;
-pub type LeanHirExprArenaRef<'a> = ArenaRef<'a, LeanHirExprData>;
-
 #[derive(Debug, PartialEq, Eq)]
-pub struct LeanHirLambdaParameter {
-    ident: LeanIdent,
-    ty: LeanHirExprIdx,
+pub struct LnHirLambdaParameter {
+    ident: LnIdent,
+    ty: LnHirExprIdx,
 }
 
-impl LeanHirLambdaParameter {
-    pub fn ident(&self) -> LeanIdent {
+impl LnHirLambdaParameter {
+    pub fn ident(&self) -> LnIdent {
         self.ident
     }
 
-    pub fn ty(&self) -> LeanHirExprIdx {
+    pub fn ty(&self) -> LnHirExprIdx {
         self.ty
     }
 }
 
-pub type LeanHirLambdaParameters = SmallVec<[LeanHirLambdaParameter; 4]>;
+pub type LnHirLambdaParameters = SmallVec<[LnHirLambdaParameter; 4]>;
