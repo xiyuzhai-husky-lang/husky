@@ -15,6 +15,18 @@ pub struct VdSemExprTestBuilder<'db> {
 }
 
 impl<'db> VdSemExprTestBuilder<'db> {
+    pub fn new(db: &'db ::salsa::Db) -> Self {
+        Self {
+            db,
+            expr_arena: VdSemExprArena::default(),
+            phrase_arena: VdSemPhraseArena::default(),
+            clause_arena: VdSemClauseArena::default(),
+            sentence_arena: VdSemSentenceArena::default(),
+        }
+    }
+}
+
+impl<'db> VdSemExprTestBuilder<'db> {
     pub fn latex_formatter<'a>(&'a self) -> VdSemExprLaTeXFormatter<'a> {
         VdSemExprLaTeXFormatter::new(
             self.db,

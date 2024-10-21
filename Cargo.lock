@@ -12261,9 +12261,11 @@ dependencies = [
 name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
+ "husky-coword",
  "idx-arena",
  "salsa",
  "visored-sem-expr",
+ "visored-zfs-ty",
 ]
 
 [[package]]
