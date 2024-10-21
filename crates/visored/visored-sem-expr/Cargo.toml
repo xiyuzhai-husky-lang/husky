@@ -15,8 +15,12 @@ keywords.workspace = true
 # abstractions
 salsa.workspace = true
 idx-arena.workspace = true
+# visored
+visored-zfs-ty.workspace = true
 
 [dev-dependencies]
+# kernel
+husky-coword.workspace = true
 # visored
 visored-sem-expr = { path = ".", features = ["test_helpers"] }
 

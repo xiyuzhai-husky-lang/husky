@@ -1,18 +1,18 @@
-use super::{ZfsTerm, ZfsTermData, ZfsTermId, ZfsTerms};
+use super::{VdZfsTerm, VdZfsTermData, VdZfsTermId, ZfsTerms};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsApplication(ZfsTermId);
+pub struct VdZfsApplication(VdZfsTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsApplicationData {
-    pub function: ZfsTerm,
+pub struct VdZfsApplicationData {
+    pub function: VdZfsTerm,
     pub arguments: ZfsTerms,
 }
 
-impl ZfsApplication {
-    pub fn data(self, db: &::salsa::Db) -> ZfsApplicationData {
+impl VdZfsApplication {
+    pub fn data(self, db: &::salsa::Db) -> VdZfsApplicationData {
         match self.0.data(db) {
-            ZfsTermData::Application(data) => data,
+            VdZfsTermData::Application(data) => data,
             _ => unreachable!(),
         }
     }

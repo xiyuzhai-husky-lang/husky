@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsStackVariable(ZfsTermId);
+pub struct VdZfsStackVariable(VdZfsTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsStackVariableData {
+pub struct VdZfsStackVariableData {
     // Add appropriate fields here
 }
 
-impl ZfsStackVariable {
-    pub fn data(self, db: &::salsa::Db) -> ZfsStackVariableData {
+impl VdZfsStackVariable {
+    pub fn data(self, db: &::salsa::Db) -> VdZfsStackVariableData {
         match self.0.data(db) {
-            ZfsTermData::StackVariable(data) => data,
+            VdZfsTermData::StackVariable(data) => data,
             _ => unreachable!(),
         }
     }
