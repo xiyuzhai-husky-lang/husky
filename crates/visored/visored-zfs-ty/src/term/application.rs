@@ -10,7 +10,7 @@ pub struct VdZfsApplicationData {
 }
 
 impl VdZfsApplication {
-    pub fn data(self, db: &::salsa::Db) -> VdZfsApplicationData {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfsApplicationData {
         match self.0.data(db) {
             VdZfsTermData::Application(data) => data,
             _ => unreachable!(),

@@ -4210,6 +4210,18 @@
         dependencies: [
             "idx-arena",
             "salsa",
+            "visored-zfs-ty",
+            "husky-coword",
+        ],
+    },
+    PackageSummary {
+        name: "visored-zfs-ty",
+        relative_path: "crates/visored/visored-zfs-ty",
+        dependencies: [
+            "enum-class",
+            "salsa",
+            "smallvec",
+            "visored-coword",
         ],
     },
     PackageSummary {
@@ -4232,15 +4244,6 @@
         relative_path: "crates/visored/visored-prototype",
         dependencies: [
             "idx-arena",
-        ],
-    },
-    PackageSummary {
-        name: "visored-zfs-ty",
-        relative_path: "crates/visored/visored-zfs-ty",
-        dependencies: [
-            "salsa",
-            "smallvec",
-            "visored-coword",
         ],
     },
     PackageSummary {
