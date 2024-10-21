@@ -8670,6 +8670,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "mizar-hir-expr"
+version = "0.1.0"
+
+[[package]]
 name = "ml-task"
 version = "0.1.0"
 dependencies = [
@@ -10300,6 +10304,10 @@ dependencies = [
  "rmp",
  "serde",
 ]
+
+[[package]]
+name = "rocq-hir-expr"
+version = "0.1.0"
 
 [[package]]
 name = "rowan"
