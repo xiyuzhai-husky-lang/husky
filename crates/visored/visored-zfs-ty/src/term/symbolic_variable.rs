@@ -1,9 +1,9 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsSymbolicVariable(ZfsTermId);
+pub struct VdZfsSymbolicVariable(VdZfsTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsSymbolicVariableData {
+pub struct VdZfsSymbolicVariableData {
     // Add appropriate fields here
 }

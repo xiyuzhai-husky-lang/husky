@@ -1,3 +1,6 @@
+use super::*;
+#[cfg(test)]
+use crate::test_helpers::builder::VdSemExprTestBuilder;
 use crate::{
     clause::{VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx},
     expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
@@ -80,10 +83,23 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         match self.expr_arena[expr_idx] {
+            VdSemExprData::Command { ref dispatch } => todo!(),
+            VdSemExprData::Literal {
+                literal,
+                ref dispatch,
+            } => todo!(),
             VdSemExprData::Notation => todo!(),
-            VdSemExprData::Binary { opr, dispatch } => todo!(),
-            VdSemExprData::Prefix { opr, opd, dispatch } => todo!(),
-            VdSemExprData::Suffix { opd, opr, dispatch } => todo!(),
+            VdSemExprData::Binary { opr, ref dispatch } => todo!(),
+            VdSemExprData::Prefix {
+                opr,
+                opd,
+                ref dispatch,
+            } => todo!(),
+            VdSemExprData::Suffix {
+                opd,
+                opr,
+                ref dispatch,
+            } => todo!(),
             VdSemExprData::Attach {
                 base,
                 top,
@@ -104,4 +120,17 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn finish(self) -> String {
         self.result
     }
+}
+
+#[test]
+fn latex_fmt_works() {
+    let db = &DB::default();
+    let mut builder = VdSemExprTestBuilder::new(db);
+    builder.new_expr_checked(
+        VdSemExprData::Literal {
+            literal: todo!(),
+            dispatch: todo!(),
+        },
+        "1",
+    );
 }

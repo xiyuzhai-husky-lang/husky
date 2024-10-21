@@ -10,50 +10,50 @@ pub mod stack_variable;
 pub mod symbolic_variable;
 
 use self::{
-    abstract_variable::{ZfsAbstractVariable, ZfsAbstractVariableData},
-    abstraction::{ZfsAbstraction, ZfsAbstractionData},
-    application::{ZfsApplication, ZfsApplicationData},
-    eval::{ZfsEval, ZfsEvalData},
-    exists::{ZfsExists, ZfsExistsData},
-    forall::{ZfsForAll, ZfsForAllData},
-    limit::{ZfsLimit, ZfsLimitData},
-    literal::{ZfsLiteral, ZfsLiteralData},
-    stack_variable::{ZfsStackVariable, ZfsStackVariableData},
-    symbolic_variable::{ZfsSymbolicVariable, ZfsSymbolicVariableData},
+    abstract_variable::{VdZfsAbstractVariable, VdZfsAbstractVariableData},
+    abstraction::{VdZfsAbstraction, VdZfsAbstractionData},
+    application::{VdZfsApplication, VdZfsApplicationData},
+    eval::{VdZfsEval, VdZfsEvalData},
+    exists::{VdZfsExists, VdZfsExistsData},
+    forall::{VdZfsForAll, VdZfsForAllData},
+    limit::{VdZfsLimit, VdZfsLimitData},
+    literal::{VdZfsLiteral, VdZfsLiteralData},
+    stack_variable::{VdZfsStackVariable, VdZfsStackVariableData},
+    symbolic_variable::{VdZfsSymbolicVariable, VdZfsSymbolicVariableData},
 };
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum ZfsTerm {
-    Literal(ZfsLiteral),
-    ForAll(ZfsForAll),
-    Exists(ZfsExists),
-    Limit(ZfsLimit),
-    Eval(ZfsEval),
-    SymbolicVariable(ZfsSymbolicVariable),
-    AbstractVariable(ZfsAbstractVariable),
-    StackVariable(ZfsStackVariable),
-    Application(ZfsApplication),
-    Abstraction(ZfsAbstraction),
+pub enum VdZfsTerm {
+    Literal(VdZfsLiteral),
+    ForAll(VdZfsForAll),
+    Exists(VdZfsExists),
+    Limit(VdZfsLimit),
+    Eval(VdZfsEval),
+    SymbolicVariable(VdZfsSymbolicVariable),
+    AbstractVariable(VdZfsAbstractVariable),
+    StackVariable(VdZfsStackVariable),
+    Application(VdZfsApplication),
+    Abstraction(VdZfsAbstraction),
 }
 
-pub type ZfsTerms = SmallVec<[ZfsTerm; 4]>;
+pub type ZfsTerms = SmallVec<[VdZfsTerm; 4]>;
 
 #[salsa::interned]
-pub struct ZfsTermId {
-    data: ZfsTermData,
+pub struct VdZfsTermId {
+    data: VdZfsTermData,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum ZfsTermData {
-    Literal(ZfsLiteralData),
-    ForAll(ZfsForAllData),
-    Exists(ZfsExistsData),
-    Limit(ZfsLimitData),
-    Eval(ZfsEvalData),
-    SymbolicVariable(ZfsSymbolicVariableData),
-    AbstractVariable(ZfsAbstractVariableData),
-    StackVariable(ZfsStackVariableData),
-    Application(ZfsApplicationData),
-    Abstraction(ZfsAbstractionData),
+pub enum VdZfsTermData {
+    Literal(VdZfsLiteralData),
+    ForAll(VdZfsForAllData),
+    Exists(VdZfsExistsData),
+    Limit(VdZfsLimitData),
+    Eval(VdZfsEvalData),
+    SymbolicVariable(VdZfsSymbolicVariableData),
+    AbstractVariable(VdZfsAbstractVariableData),
+    StackVariable(VdZfsStackVariableData),
+    Application(VdZfsApplicationData),
+    Abstraction(VdZfsAbstractionData),
 }

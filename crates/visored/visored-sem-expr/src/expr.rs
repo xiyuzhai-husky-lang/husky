@@ -1,22 +1,34 @@
-mod attach;
-mod notation;
-mod prefix;
-mod suffix;
-mod uniadic_array;
-mod uniadic_chain;
-mod variadic_array;
-mod variadic_chain;
+pub mod attach;
+pub mod binary;
+pub mod command;
+pub mod literal;
+pub mod notation;
+pub mod prefix;
+pub mod suffix;
+pub mod uniadic_array;
+pub mod uniadic_chain;
+pub mod variadic_array;
+pub mod variadic_chain;
 
-use attach::AttachDispatch;
+use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch, command::VdSemCommandDispatch};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use literal::VdSemLiteralDispatch;
+use visored_zfs_ty::term::literal::VdZfsLiteral;
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSemExprData {
+    Literal {
+        literal: VdZfsLiteral,
+        dispatch: VdSemLiteralDispatch,
+    },
+    Command {
+        dispatch: VdSemCommandDispatch,
+    },
     Notation,
     Binary {
         opr: (),
-        dispatch: (),
+        dispatch: VdSemBinaryDispatch,
     },
     Prefix {
         opr: VdSemExprIdx,

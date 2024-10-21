@@ -1,18 +1,18 @@
 use super::*;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct ZfsLiteral(ZfsTermId);
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+pub struct VdZfsLiteral(VdZfsTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum ZfsLiteralData {
+pub enum VdZfsLiteralData {
     Unit,
     // ...
 }
 
-impl ZfsLiteral {
-    pub fn data(self, db: &::salsa::Db) -> ZfsLiteralData {
+impl VdZfsLiteral {
+    pub fn data(self, db: &::salsa::Db) -> VdZfsLiteralData {
         match self.0.data(db) {
-            ZfsTermData::Literal(data) => data,
+            VdZfsTermData::Literal(data) => data,
             _ => unreachable!(),
         }
     }
