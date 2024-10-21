@@ -1,2 +1,2 @@
 #[salsa::jar]
-pub struct ZfsTypeJar(crate::term::VdZfsTermId);
+pub struct VdZfsTypeJar(crate::term::VdZfsTermId, crate::menu::vd_zfs_ty_menu);

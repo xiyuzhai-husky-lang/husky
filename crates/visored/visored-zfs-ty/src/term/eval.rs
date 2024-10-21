@@ -9,7 +9,7 @@ pub struct VdZfsEvalData {
 }
 
 impl VdZfsEval {
-    pub fn data(self, db: &::salsa::Db) -> VdZfsEvalData {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfsEvalData {
         match self.0.data(db) {
             VdZfsTermData::Eval(data) => data,
             _ => unreachable!(),

@@ -1,6 +1,7 @@
 pub mod jar;
+pub mod menu;
 pub mod refinement;
 pub mod term;
 pub mod ty;
 
-use self::jar::ZfsTypeJar as Jar;
+use self::jar::VdZfsTypeJar as Jar;

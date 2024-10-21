@@ -41,9 +41,11 @@ pub type ZfsTerms = SmallVec<[VdZfsTerm; 4]>;
 
 #[salsa::interned]
 pub struct VdZfsTermId {
+    #[return_ref]
     data: VdZfsTermData,
 }
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdZfsTermData {
     Literal(VdZfsLiteralData),

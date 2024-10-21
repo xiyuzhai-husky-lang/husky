@@ -9,7 +9,7 @@ pub struct VdZfsLimitData {
 }
 
 impl VdZfsLimit {
-    pub fn data(self, db: &::salsa::Db) -> VdZfsLimitData {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfsLimitData {
         match self.0.data(db) {
             VdZfsTermData::Limit(data) => data,
             _ => unreachable!(),

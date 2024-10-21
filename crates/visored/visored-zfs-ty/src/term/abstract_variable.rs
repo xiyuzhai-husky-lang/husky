@@ -9,7 +9,7 @@ pub struct VdZfsAbstractVariableData {
 }
 
 impl VdZfsAbstractVariable {
-    pub fn data(self, db: &::salsa::Db) -> VdZfsAbstractVariableData {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfsAbstractVariableData {
         match self.0.data(db) {
             VdZfsTermData::AbstractVariable(data) => data,
             _ => unreachable!(),

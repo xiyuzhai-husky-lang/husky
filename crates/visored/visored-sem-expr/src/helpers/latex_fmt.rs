@@ -1,3 +1,6 @@
+use expr::literal::VdSemLiteralDispatch;
+use visored_zfs_ty::{menu::vd_zfs_ty_menu, term::literal::VdZfsLiteralData};
+
 use super::*;
 #[cfg(test)]
 use crate::test_helpers::builder::VdSemExprTestBuilder;
@@ -82,12 +85,33 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     }
 
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
+        let db = self.db;
         match self.expr_arena[expr_idx] {
             VdSemExprData::Command { ref dispatch } => todo!(),
             VdSemExprData::Literal {
                 literal,
                 ref dispatch,
-            } => todo!(),
+            } => match literal.data(db) {
+                VdZfsLiteralData::NaturalNumber(s) => {
+                    if self
+                        .result
+                        .chars()
+                        .last()
+                        .map_or(false, |c| c.is_alphanumeric())
+                    {
+                        self.result.push(' ');
+                    }
+                    self.result.push_str(s);
+                    if !s.is_empty() && s.chars().last().unwrap().is_alphanumeric() {
+                        self.result.push(' ');
+                    }
+                }
+                VdZfsLiteralData::NegativeInteger(_) => todo!(),
+                VdZfsLiteralData::FiniteDecimalRepresentation(_) => {
+                    todo!()
+                }
+                VdZfsLiteralData::SpecialConstant(vd_zfs_special_constant) => todo!(),
+            },
             VdSemExprData::Notation => todo!(),
             VdSemExprData::Binary { opr, ref dispatch } => todo!(),
             VdSemExprData::Prefix {
@@ -125,11 +149,12 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 #[test]
 fn latex_fmt_works() {
     let db = &DB::default();
+    let menu = vd_zfs_ty_menu(db);
     let mut builder = VdSemExprTestBuilder::new(db);
     builder.new_expr_checked(
         VdSemExprData::Literal {
-            literal: todo!(),
-            dispatch: todo!(),
+            literal: menu.one_literal(),
+            dispatch: VdSemLiteralDispatch::Int,
         },
         "1",
     );

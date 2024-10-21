@@ -76,11 +76,43 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
         if jar_ident == "Jar" {
             continue;
         }
-        let jar_package_name = format!(
-            "husky-{}",
-            jar_ident.split("Jar").next().unwrap().to_case(Case::Kebab)
-        )
-        .replace("-type", "-ty");
+        let jar_package_name = if jar_ident.starts_with("Vd") {
+            format!(
+                "visored-{}",
+                jar_ident[2..]
+                    .split("Jar")
+                    .next()
+                    .unwrap()
+                    .to_case(Case::Kebab)
+            )
+            .replace("-type", "-ty")
+        } else if jar_ident.starts_with("Ln") {
+            format!(
+                "lean-{}",
+                jar_ident[2..]
+                    .split("Jar")
+                    .next()
+                    .unwrap()
+                    .to_case(Case::Kebab)
+            )
+            .replace("-type", "-ty")
+        } else if jar_ident.starts_with("Ie") {
+            format!(
+                "isabelle-{}",
+                jar_ident[2..]
+                    .split("Jar")
+                    .next()
+                    .unwrap()
+                    .to_case(Case::Kebab)
+            )
+            .replace("-type", "-ty")
+        } else {
+            format!(
+                "husky-{}",
+                jar_ident.split("Jar").next().unwrap().to_case(Case::Kebab)
+            )
+            .replace("-type", "-ty")
+        };
         let Some(deps) = jar_tree.get(&jar_package_name) else {
             panic!("{jar_package_name} is not present in jar tree");
         };
