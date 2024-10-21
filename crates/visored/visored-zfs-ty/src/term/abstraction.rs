@@ -10,7 +10,7 @@ pub struct VdZfsAbstractionData {
 }
 
 impl VdZfsAbstraction {
-    pub fn data(self, db: &::salsa::Db) -> VdZfsAbstractionData {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfsAbstractionData {
         match self.0.data(db) {
             VdZfsTermData::Abstraction(data) => data,
             _ => unreachable!(),
