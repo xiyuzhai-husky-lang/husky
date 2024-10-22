@@ -12240,6 +12240,7 @@ name = "visored-hir-expr"
 version = "0.1.0"
 dependencies = [
  "idx-arena",
+ "salsa",
  "visored-sem-expr",
 ]
 
@@ -12261,6 +12262,9 @@ dependencies = [
 [[package]]
 name = "visored-opr"
 version = "0.1.0"
+dependencies = [
+ "salsa",
+]
 
 [[package]]
 name = "visored-prototype"
