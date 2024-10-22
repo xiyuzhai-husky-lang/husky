@@ -75,4 +75,13 @@ impl<'db> VdSemExprTestBuilder<'db> {
         assert_eq!(&formatter.finish(), expected);
         sentence
     }
+
+    pub fn finish(self) -> VdSemExprRegionData {
+        VdSemExprRegionData::new(
+            self.expr_arena,
+            self.phrase_arena,
+            self.clause_arena,
+            self.sentence_arena,
+        )
+    }
 }

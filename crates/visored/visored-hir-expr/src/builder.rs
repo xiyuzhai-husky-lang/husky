@@ -1,4 +1,7 @@
-use crate::{expr::VdHirExprArena, stmt::VdHirStmtArena};
+use crate::{
+    expr::{VdHirExprArena, VdHirExprData, VdHirExprIdx, VdHirExprIdxRange},
+    stmt::VdHirStmtArena,
+};
 use visored_sem_expr::{
     clause::VdSemClauseArenaRef, expr::VdSemExprArenaRef, phrase::VdSemPhraseArenaRef,
     region::VdSemExprRegionData, sentence::VdSemSentenceArenaRef,
@@ -25,5 +28,32 @@ impl<'db> VdHirExprBuilder<'db> {
             expr_arena: VdHirExprArena::default(),
             stmt_arena: VdHirStmtArena::default(),
         }
+    }
+
+    pub fn vd_sem_expr_arena(&self) -> VdSemExprArenaRef<'db> {
+        self.vd_sem_expr_arena
+    }
+
+    pub fn vd_sem_phrase_arena(&self) -> VdSemPhraseArenaRef<'db> {
+        self.vd_sem_phrase_arena
+    }
+
+    pub fn vd_sem_clause_arena(&self) -> VdSemClauseArenaRef<'db> {
+        self.vd_sem_clause_arena
+    }
+
+    pub fn vd_sem_sentence_arena(&self) -> VdSemSentenceArenaRef<'db> {
+        self.vd_sem_sentence_arena
+    }
+
+    pub(crate) fn alloc_expr(&mut self, data: VdHirExprData) -> VdHirExprIdx {
+        self.expr_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_exprs(
+        &mut self,
+        data: impl IntoIterator<Item = VdHirExprData>,
+    ) -> VdHirExprIdxRange {
+        self.expr_arena.alloc_batch(data)
     }
 }
