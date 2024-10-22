@@ -66,6 +66,7 @@ impl<'db> VdHirExprBuilder<'db> {
             } => VdHirExprData::Application {
                 function: match dispatch {
                     VdSemBinaryDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
+                    VdSemBinaryDispatch::TrivialEq => VdHirApplicationFunction::TrivialEq,
                 },
                 arguments: [lopd, ropd].to_hir(self),
             },

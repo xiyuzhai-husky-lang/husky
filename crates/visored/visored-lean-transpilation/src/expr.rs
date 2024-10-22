@@ -35,6 +35,16 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                         ropd: ropd.to_lean(self),
                     }
                 }
+                VdHirApplicationFunction::TrivialEq => {
+                    debug_assert_eq!(arguments.len(), 2);
+                    let lopd = arguments.start();
+                    let ropd = lopd + 1;
+                    LnHirExprData::Binary {
+                        lopd: lopd.to_lean(self),
+                        opr: LnBinaryOpr::Eq,
+                        ropd: ropd.to_lean(self),
+                    }
+                }
             },
         }
     }
