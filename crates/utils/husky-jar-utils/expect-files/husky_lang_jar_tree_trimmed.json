@@ -176,5 +176,14 @@
     "husky-ki-repr"
   ],
   "namekian-ast": [],
+  "visored-hir-expr": [
+    "visored-sem-expr"
+  ],
+  "visored-opr": [],
+  "visored-sem-expr": [
+    "husky-coword",
+    "visored-opr",
+    "visored-zfs-ty"
+  ],
   "visored-zfs-ty": []
 }
