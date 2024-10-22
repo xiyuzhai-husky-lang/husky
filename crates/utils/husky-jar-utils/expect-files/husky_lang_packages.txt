@@ -4259,6 +4259,12 @@
         relative_path: "crates/visored/visored-lean-transpilation",
         dependencies: [
             "lean-hir-expr",
+            "lean-opr",
+            "salsa",
+            "visored-hir-expr",
+            "visored-opr",
+            "visored-zfs-ty",
+            "husky-coword",
             "visored-sem-expr",
         ],
     },

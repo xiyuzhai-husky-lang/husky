@@ -33,10 +33,10 @@ pub enum LnHirExprData {
     },
 }
 
-pub type LnHirExprIdx = ArenaIdx<LnHirExprData>;
-pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
 pub type LnHirExprArena = Arena<LnHirExprData>;
 pub type LnHirExprArenaRef<'a> = ArenaRef<'a, LnHirExprData>;
+pub type LnHirExprIdx = ArenaIdx<LnHirExprData>;
+pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
 
 impl LnHirExprData {
     pub(crate) fn precedence(&self) -> LnPrecedence {

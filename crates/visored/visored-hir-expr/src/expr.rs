@@ -1,8 +1,8 @@
-mod application;
+pub mod application;
 
 use crate::*;
 use application::VdHirApplicationFunction;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use visored_opr::opr::binary::VdBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData, VdSemExprIdx};
 use visored_zfs_ty::term::literal::VdZfsLiteral;
@@ -18,6 +18,7 @@ pub enum VdHirExprData {
 }
 
 pub type VdHirExprArena = Arena<VdHirExprData>;
+pub type VdHirExprArenaRef<'a> = ArenaRef<'a, VdHirExprData>;
 pub type VdHirExprIdx = ArenaIdx<VdHirExprData>;
 pub type VdHirExprIdxRange = ArenaIdxRange<VdHirExprData>;
 

@@ -12258,8 +12258,14 @@ dependencies = [
 name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
+ "husky-coword",
  "lean-hir-expr",
+ "lean-opr",
+ "salsa",
+ "visored-hir-expr",
+ "visored-opr",
  "visored-sem-expr",
+ "visored-zfs-ty",
 ]
 
 [[package]]
