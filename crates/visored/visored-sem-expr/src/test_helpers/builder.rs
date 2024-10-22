@@ -3,6 +3,7 @@ use crate::{
     expr::{VdSemExprArena, VdSemExprData, VdSemExprIdx},
     helpers::latex_fmt::VdSemExprLaTeXFormatter,
     phrase::{VdSemPhraseArena, VdSemPhraseData, VdSemPhraseIdx},
+    region::VdSemExprRegionData,
     sentence::{VdSemSentenceArena, VdSemSentenceData, VdSemSentenceIdx},
 };
 

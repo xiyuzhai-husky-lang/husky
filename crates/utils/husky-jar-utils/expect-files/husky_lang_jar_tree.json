@@ -1168,5 +1168,17 @@
     "husky-vfs"
   ],
   "namekian-ast": [],
+  "visored-hir-expr": [
+    "husky-coword",
+    "visored-opr",
+    "visored-sem-expr",
+    "visored-zfs-ty"
+  ],
+  "visored-opr": [],
+  "visored-sem-expr": [
+    "husky-coword",
+    "visored-opr",
+    "visored-zfs-ty"
+  ],
   "visored-zfs-ty": []
 }
