@@ -1,5 +1,6 @@
 use crate::{
     expr::{VdHirExprArena, VdHirExprData, VdHirExprIdx, VdHirExprIdxRange},
+    region::VdHirExprRegionData,
     stmt::VdHirStmtArena,
 };
 use visored_sem_expr::{
@@ -55,5 +56,11 @@ impl<'db> VdHirExprBuilder<'db> {
         data: impl IntoIterator<Item = VdHirExprData>,
     ) -> VdHirExprIdxRange {
         self.expr_arena.alloc_batch(data)
+    }
+}
+
+impl<'db> VdHirExprBuilder<'db> {
+    pub fn finish(self) -> VdHirExprRegionData {
+        VdHirExprRegionData::new(self.expr_arena, self.stmt_arena)
     }
 }

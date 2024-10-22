@@ -1174,6 +1174,13 @@
         "visored-sem-expr",
         "visored-zfs-ty",
     },
+    "visored-lean-transpilation": {
+        "husky-coword",
+        "visored-hir-expr",
+        "visored-opr",
+        "visored-sem-expr",
+        "visored-zfs-ty",
+    },
     "visored-opr": {},
     "visored-sem-expr": {
         "husky-coword",

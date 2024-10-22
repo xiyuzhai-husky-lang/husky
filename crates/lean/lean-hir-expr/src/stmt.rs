@@ -10,7 +10,7 @@ pub enum LnHirStmtData {
     Tactics(LnHirTactics),
 }
 
-pub type LnHirStmtIdx = ArenaIdx<LnHirStmtData>;
-pub type LnHirStmtIdxRange = ArenaIdxRange<LnHirStmtData>;
 pub type LnHirStmtArena = Arena<LnHirStmtData>;
 pub type LnHirStmtArenaRef<'a> = ArenaRef<'a, LnHirStmtData>;
+pub type LnHirStmtIdx = ArenaIdx<LnHirStmtData>;
+pub type LnHirStmtIdxRange = ArenaIdxRange<LnHirStmtData>;

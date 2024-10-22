@@ -1,6 +1,7 @@
-mod builder;
+pub mod builder;
 pub mod expr;
 pub mod jar;
+pub mod region;
 pub mod stmt;
 #[cfg(test)]
 mod tests;
