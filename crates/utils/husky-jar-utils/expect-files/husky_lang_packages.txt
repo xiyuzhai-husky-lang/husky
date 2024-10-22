@@ -3821,6 +3821,29 @@
         ],
     },
     PackageSummary {
+        name: "isabelle-ast",
+        relative_path: "crates/isabelle/isabelle-ast",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "isabelle-hir-expr",
+        relative_path: "crates/isabelle/isabelle-hir-expr",
+        dependencies: [
+            "idx-arena",
+            "isabelle-sem-expr",
+        ],
+    },
+    PackageSummary {
+        name: "isabelle-sem-expr",
+        relative_path: "crates/isabelle/isabelle-sem-expr",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "isabelle-token",
+        relative_path: "crates/isabelle/isabelle-token",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "husky-primitive-value",
         relative_path: "crates/kernel/husky-primitive-value",
         dependencies: [],
@@ -3836,9 +3859,54 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "lean-coword",
+        relative_path: "crates/lean/lean-coword",
+        dependencies: [
+            "husky-coword",
+            "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "lean-hir-decl",
+        relative_path: "crates/lean/lean-hir-decl",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "lean-hir-defn",
+        relative_path: "crates/lean/lean-hir-defn",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "lean-hir-expr",
+        relative_path: "crates/lean/lean-hir-expr",
+        dependencies: [
+            "idx-arena",
+            "lean-coword",
+            "lean-opr",
+            "lean-term",
+            "salsa",
+            "smallvec",
+        ],
+    },
+    PackageSummary {
+        name: "lean-opr",
+        relative_path: "crates/lean/lean-opr",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "lean-term",
+        relative_path: "crates/lean/lean-term",
+        dependencies: [
+            "enum-class",
+            "salsa",
+        ],
+    },
+    PackageSummary {
         name: "lean-sem-expr",
         relative_path: "crates/lean/lean-sem-expr",
-        dependencies: [],
+        dependencies: [
+            "salsa",
+        ],
     },
     PackageSummary {
         name: "lean-syn-expr",
@@ -3950,6 +4018,11 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "mizar-hir-expr",
+        relative_path: "crates/mizar/mizar-hir-expr",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "namekian-ast",
         relative_path: "crates/namekian/namekian-ast",
         dependencies: [
@@ -4002,6 +4075,11 @@
     PackageSummary {
         name: "husky-vn-prototype",
         relative_path: "crates/prototypes/husky-vn-prototype",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "rocq-hir-expr",
+        relative_path: "crates/rocq/rocq-hir-expr",
         dependencies: [],
     },
     PackageSummary {
@@ -4131,6 +4209,78 @@
         name: "husky-virtual-value-macros",
         relative_path: "crates/value/husky-virtual-value-macros",
         dependencies: [],
+    },
+    PackageSummary {
+        name: "visored-coword",
+        relative_path: "crates/visored/visored-coword",
+        dependencies: [
+            "husky-coword",
+        ],
+    },
+    PackageSummary {
+        name: "visored-hir-expr",
+        relative_path: "crates/visored/visored-hir-expr",
+        dependencies: [
+            "idx-arena",
+            "salsa",
+            "visored-opr",
+            "visored-sem-expr",
+            "visored-zfs-ty",
+            "husky-coword",
+            "visored-sem-expr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-opr",
+        relative_path: "crates/visored/visored-opr",
+        dependencies: [
+            "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "visored-sem-expr",
+        relative_path: "crates/visored/visored-sem-expr",
+        dependencies: [
+            "idx-arena",
+            "salsa",
+            "visored-opr",
+            "visored-zfs-ty",
+            "husky-coword",
+        ],
+    },
+    PackageSummary {
+        name: "visored-zfs-ty",
+        relative_path: "crates/visored/visored-zfs-ty",
+        dependencies: [
+            "enum-class",
+            "salsa",
+            "smallvec",
+            "visored-coword",
+        ],
+    },
+    PackageSummary {
+        name: "visored-isabelle-hol-transpilation",
+        relative_path: "crates/visored/visored-isabelle-hol-transpilation",
+        dependencies: [
+            "isabelle-hir-expr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-lean-transpilation",
+        relative_path: "crates/visored/visored-lean-transpilation",
+        dependencies: [
+            "lean-hir-expr",
+            "lean-opr",
+            "lean-term",
+            "salsa",
+            "visored-hir-expr",
+            "visored-opr",
+            "visored-zfs-ty",
+            "husky-coword",
+            "lean-sem-expr",
+            "lean-term",
+            "visored-sem-expr",
+        ],
     },
     PackageSummary {
         name: "visored-prototype",
