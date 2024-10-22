@@ -5,12 +5,14 @@ use visored_sem_expr::{
 };
 use visored_zfs_ty::menu::vd_zfs_ty_menu;
 
+use crate::{builder::VdHirExprBuilder, ToVdHir};
+
 #[salsa::db(
     husky_coword::jar::CowordJar,
     visored_zfs_ty::jar::VdZfsTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
-    visored_hir_expr::jar::VdHirExprJar
+    crate::jar::VdHirExprJar
 )]
 pub(crate) struct DB {}
 
@@ -31,8 +33,11 @@ fn to_hir_works() {
             lopd: one,
             opr: VdBinaryOpr::Add,
             ropd: one,
-            dispatch: VdSemBinaryDispatch::Add,
+            dispatch: VdSemBinaryDispatch::IntAdd,
         },
         "1+1",
     );
+    let vd_sem_expr_region_data = &builder.finish();
+    let mut builder = VdHirExprBuilder::new(db, vd_sem_expr_region_data);
+    let _ = one_add_one.to_hir(&mut builder);
 }
