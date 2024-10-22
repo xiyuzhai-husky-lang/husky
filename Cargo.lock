@@ -12259,6 +12259,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-opr"
+version = "0.1.0"
+
+[[package]]
 name = "visored-prototype"
 version = "0.1.0"
 dependencies = [
@@ -12272,6 +12276,7 @@ dependencies = [
  "husky-coword",
  "idx-arena",
  "salsa",
+ "visored-opr",
  "visored-sem-expr",
  "visored-zfs-ty",
 ]

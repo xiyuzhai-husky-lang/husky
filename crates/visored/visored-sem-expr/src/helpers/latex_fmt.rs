@@ -1,4 +1,5 @@
-use expr::literal::VdSemLiteralDispatch;
+use expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch};
+use visored_opr::opr::binary::VdBinaryOpr;
 use visored_zfs_ty::{menu::vd_zfs_ty_menu, term::literal::VdZfsLiteralData};
 
 use super::*;
@@ -102,9 +103,6 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                         self.result.push(' ');
                     }
                     self.result.push_str(s);
-                    if !s.is_empty() && s.chars().last().unwrap().is_alphanumeric() {
-                        self.result.push(' ');
-                    }
                 }
                 VdZfsLiteralData::NegativeInteger(_) => todo!(),
                 VdZfsLiteralData::FiniteDecimalRepresentation(_) => {
@@ -113,7 +111,17 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                 VdZfsLiteralData::SpecialConstant(vd_zfs_special_constant) => todo!(),
             },
             VdSemExprData::Notation => todo!(),
-            VdSemExprData::Binary { opr, ref dispatch } => todo!(),
+            VdSemExprData::Binary {
+                lopd,
+                opr,
+                ropd,
+                ref dispatch,
+                ..
+            } => {
+                self.fmt_expr(lopd);
+                self.result += opr.latex_code();
+                self.fmt_expr(ropd);
+            }
             VdSemExprData::Prefix {
                 opr,
                 opd,
@@ -151,11 +159,20 @@ fn latex_fmt_works() {
     let db = &DB::default();
     let menu = vd_zfs_ty_menu(db);
     let mut builder = VdSemExprTestBuilder::new(db);
-    builder.new_expr_checked(
+    let one = builder.new_expr_checked(
         VdSemExprData::Literal {
             literal: menu.one_literal(),
             dispatch: VdSemLiteralDispatch::Int,
         },
         "1",
+    );
+    let one_plus_one = builder.new_expr_checked(
+        VdSemExprData::Binary {
+            lopd: one,
+            opr: VdBinaryOpr::Add,
+            ropd: one,
+            dispatch: VdSemBinaryDispatch::Add,
+        },
+        "1+1",
     );
 }

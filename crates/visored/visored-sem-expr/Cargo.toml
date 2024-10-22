@@ -16,6 +16,7 @@ keywords.workspace = true
 salsa.workspace = true
 idx-arena.workspace = true
 # visored
+visored-opr.workspace = true
 visored-zfs-ty.workspace = true
 
 [dev-dependencies]
