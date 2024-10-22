@@ -8150,6 +8150,7 @@ dependencies = [
  "idx-arena",
  "lean-coword",
  "lean-opr",
+ "lean-term",
  "salsa",
  "smallvec",
 ]
@@ -8161,10 +8162,21 @@ version = "0.1.0"
 [[package]]
 name = "lean-sem-expr"
 version = "0.1.0"
+dependencies = [
+ "salsa",
+]
 
 [[package]]
 name = "lean-syn-expr"
 version = "0.1.0"
+
+[[package]]
+name = "lean-term"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "salsa",
+]
 
 [[package]]
 name = "lean-token"
@@ -12261,6 +12273,8 @@ dependencies = [
  "husky-coword",
  "lean-hir-expr",
  "lean-opr",
+ "lean-sem-expr",
+ "lean-term",
  "salsa",
  "visored-hir-expr",
  "visored-opr",

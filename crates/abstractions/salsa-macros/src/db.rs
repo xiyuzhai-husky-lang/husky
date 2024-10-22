@@ -114,7 +114,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             .replace("-type", "-ty")
         };
         let Some(deps) = jar_tree.get(&jar_package_name) else {
-            panic!("{jar_package_name} is not present in jar tree");
+            panic!("{jar_package_name} is not present in jar tree. Make sure jar tree is updated.");
         };
         for dep in deps {
             let dep_jar_ident = if dep.starts_with("husky-") {

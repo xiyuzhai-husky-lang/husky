@@ -1167,6 +1167,11 @@
     "husky-toml-token",
     "husky-vfs"
   ],
+  "lean-hir-expr": [
+    "lean-term"
+  ],
+  "lean-sem-expr": [],
+  "lean-term": [],
   "namekian-ast": [],
   "visored-hir-expr": [
     "husky-coword",
@@ -1176,6 +1181,9 @@
   ],
   "visored-lean-transpilation": [
     "husky-coword",
+    "lean-hir-expr",
+    "lean-sem-expr",
+    "lean-term",
     "visored-hir-expr",
     "visored-opr",
     "visored-sem-expr",

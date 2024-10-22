@@ -1,6 +1,6 @@
 mod builder;
+mod expr;
 pub mod jar;
-mod sem;
 #[cfg(test)]
 mod tests;
 

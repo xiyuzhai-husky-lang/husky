@@ -3883,6 +3883,7 @@
             "idx-arena",
             "lean-coword",
             "lean-opr",
+            "lean-term",
             "salsa",
             "smallvec",
         ],
@@ -3893,9 +3894,19 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "lean-term",
+        relative_path: "crates/lean/lean-term",
+        dependencies: [
+            "enum-class",
+            "salsa",
+        ],
+    },
+    PackageSummary {
         name: "lean-sem-expr",
         relative_path: "crates/lean/lean-sem-expr",
-        dependencies: [],
+        dependencies: [
+            "salsa",
+        ],
     },
     PackageSummary {
         name: "lean-syn-expr",
@@ -4260,11 +4271,14 @@
         dependencies: [
             "lean-hir-expr",
             "lean-opr",
+            "lean-term",
             "salsa",
             "visored-hir-expr",
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
+            "lean-sem-expr",
+            "lean-term",
             "visored-sem-expr",
         ],
     },

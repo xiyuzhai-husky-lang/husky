@@ -175,11 +175,18 @@
   "husky-vmir": [
     "husky-ki-repr"
   ],
+  "lean-hir-expr": [
+    "lean-term"
+  ],
+  "lean-sem-expr": [],
+  "lean-term": [],
   "namekian-ast": [],
   "visored-hir-expr": [
     "visored-sem-expr"
   ],
   "visored-lean-transpilation": [
+    "lean-hir-expr",
+    "lean-sem-expr",
     "visored-hir-expr"
   ],
   "visored-opr": [],

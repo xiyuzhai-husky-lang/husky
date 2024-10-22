@@ -19,6 +19,7 @@ salsa.workspace = true
 # lean
 lean-coword.workspace = true
 lean-opr.workspace = true
+lean-term.workspace = true
 
 [lints]
 workspace = true

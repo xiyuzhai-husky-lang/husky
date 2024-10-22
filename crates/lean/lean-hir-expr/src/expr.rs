@@ -4,10 +4,12 @@ use lean_opr::{
     opr::{binary::LnBinaryOpr, prefix::LnPrefixOpr, suffix::LnSuffixOpr},
     precedence::LnPrecedence,
 };
+use lean_term::term::literal::LnLiteral;
 use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum LnHirExprData {
+    Literal(LnLiteral),
     Variable {
         ident: LnIdent,
     },
@@ -49,6 +51,7 @@ impl LnHirExprData {
             LnHirExprData::Application {
                 function_and_arguments,
             } => todo!(),
+            LnHirExprData::Literal(_) => todo!(),
         }
     }
 }
