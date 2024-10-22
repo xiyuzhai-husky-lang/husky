@@ -10,6 +10,9 @@ use crate::{builder::VdLeanTranspilationBuilder, ToLean};
 
 #[salsa::db(
     husky_coword::jar::CowordJar,
+    lean_term::jar::LnTermJar,
+    lean_sem_expr::jar::LnSemExprJar,
+    lean_hir_expr::jar::LnHirExprJar,
     visored_zfs_ty::jar::VdZfsTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,

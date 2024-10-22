@@ -3,6 +3,8 @@ pub mod special_constant;
 use self::special_constant::VdZfsSpecialConstant;
 use super::*;
 
+#[salsa::as_id]
+#[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdZfsLiteral(VdZfsTermId);
 

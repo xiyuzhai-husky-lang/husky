@@ -1,5 +1,6 @@
 use crate::expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx};
 use lean_opr::precedence::LnPrecedenceRange;
+use lean_term::term::literal::LnLiteralData;
 
 pub struct LnHirExprFormatter<'a> {
     db: &'a ::salsa::Db,
@@ -95,6 +96,11 @@ impl<'a> LnHirExprFormatter<'a> {
                         subexpr_try_multiline,
                         LnPrecedenceRange::APPLICATION_SUBEXPR,
                     );
+                }
+            }
+            LnHirExprData::Literal(lit) => {
+                self.result += match lit.data(db) {
+                    LnLiteralData::Nat(s) => s,
                 }
             }
         }
