@@ -191,7 +191,7 @@ fn bad_comment() {
 
 #[test]
 fn builtin_library_toml_token_sheets() {
-    use husky_vfs::test_utils::VfsTestUtilsDb;
+    use husky_vfs::test_helpers::VfsTestUtilsDb;
 
     let db = DB::default();
     let db = &*db;

@@ -1167,5 +1167,33 @@
     "husky-toml-token",
     "husky-vfs"
   ],
-  "namekian-ast": []
+  "lean-hir-expr": [
+    "lean-term"
+  ],
+  "lean-sem-expr": [],
+  "lean-term": [],
+  "namekian-ast": [],
+  "visored-hir-expr": [
+    "husky-coword",
+    "visored-opr",
+    "visored-sem-expr",
+    "visored-zfs-ty"
+  ],
+  "visored-lean-transpilation": [
+    "husky-coword",
+    "lean-hir-expr",
+    "lean-sem-expr",
+    "lean-term",
+    "visored-hir-expr",
+    "visored-opr",
+    "visored-sem-expr",
+    "visored-zfs-ty"
+  ],
+  "visored-opr": [],
+  "visored-sem-expr": [
+    "husky-coword",
+    "visored-opr",
+    "visored-zfs-ty"
+  ],
+  "visored-zfs-ty": []
 }
