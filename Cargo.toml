@@ -12,6 +12,7 @@ members = [
     "crates/fs/*",
     "crates/gui/*",
     "crates/ide/*",
+    "crates/isabelle/*",
     "crates/kernel/*",
     "crates/ki/*",
     "crates/lex/*",
@@ -20,10 +21,12 @@ members = [
     "crates/linktime/*",
     "crates/mayuri/*",
     "crates/mir/*",
+    "crates/mizar/*",
     "crates/namekian/*",
     "crates/protocols/*",
     "crates/prototypes/*",
     "crates/runtime/*",
+    "crates/rocq/*",
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/devsoul/*",
@@ -38,6 +41,8 @@ members = [
     "playground/learn-rusqlite",
     "playground/egui/*",
     "playground/try-py-ffi-in-rs",
+    "crates/rocq/rocq-hir-expr",
+    "crates/mizar/mizar-hir-expr",
 ]
 resolver = "2"
 
@@ -284,6 +289,11 @@ husky-inlay-hints = { path = "crates/ide/husky-inlay-hints" }
 husky-semantic-token = { path = "crates/ide/husky-semantic-token" }
 husky-token-info = { path = "crates/ide/husky-token-info" }
 rustc_span = { path = "crates/ide/rustc_span" }
+# isabelle
+isabelle-ast = { path = "crates/isabelle/isabelle-ast" }
+isabelle-sem-expr = { path = "crates/isabelle/isabelle-sem-expr" }
+isabelle-hir-expr = { path = "crates/isabelle/isabelle-hir-expr" }
+isabelle-token = { path = "crates/isabelle/isabelle-token" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
 husky-dec-term = { path = "crates/kernel/husky-dec-term" }
@@ -304,6 +314,17 @@ husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 husky-ki = { path = "crates/ki/husky-ki" }
 husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
+# lean
+lean-ast = { path = "crates/lean/lean-ast" }
+lean-coword = { path = "crates/lean/lean-coword" }
+lean-hir-expr = { path = "crates/lean/lean-hir-expr" }
+lean-hir-decl = { path = "crates/lean/lean-hir-decl" }
+lean-hir-defn = { path = "crates/lean/lean-hir-defn" }
+lean-term = { path = "crates/lean/lean-term" }
+lean-opr = { path = "crates/lean/lean-opr" }
+lean-sem-expr = { path = "crates/lean/lean-sem-expr" }
+lean-syn-expr = { path = "crates/lean/lean-syn-expr" }
+lean-token = { path = "crates/lean/lean-token" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }
@@ -404,6 +425,14 @@ husky-literal-value = { path = "crates/value/husky-literal-value" }
 husky-standard-value = { path = "crates/value/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
 husky-virtual-value = { path = "crates/value/husky-virtual-value" }
+# visored
+visored-coword = { path = "crates/visored/visored-coword" }
+visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
+visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
+visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
+visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
+visored-opr = { path = "crates/visored/visored-opr" }
+visored-zfs-ty = { path = "crates/visored/visored-zfs-ty" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir

@@ -7896,6 +7896,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7943c866cc5cd64cbc25b2e01621d07fa8eb2a1a23160ee81ce38704e97b8ecf"
 
 [[package]]
+name = "isabelle-ast"
+version = "0.1.0"
+
+[[package]]
+name = "isabelle-hir-expr"
+version = "0.1.0"
+dependencies = [
+ "idx-arena",
+ "isabelle-sem-expr",
+]
+
+[[package]]
+name = "isabelle-sem-expr"
+version = "0.1.0"
+
+[[package]]
+name = "isabelle-token"
+version = "0.1.0"
+
+[[package]]
 name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8108,12 +8128,55 @@ name = "lean-ast"
 version = "0.1.0"
 
 [[package]]
+name = "lean-coword"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "salsa",
+]
+
+[[package]]
+name = "lean-hir-decl"
+version = "0.1.0"
+
+[[package]]
+name = "lean-hir-defn"
+version = "0.1.0"
+
+[[package]]
+name = "lean-hir-expr"
+version = "0.1.0"
+dependencies = [
+ "idx-arena",
+ "lean-coword",
+ "lean-opr",
+ "lean-term",
+ "salsa",
+ "smallvec",
+]
+
+[[package]]
+name = "lean-opr"
+version = "0.1.0"
+
+[[package]]
 name = "lean-sem-expr"
 version = "0.1.0"
+dependencies = [
+ "salsa",
+]
 
 [[package]]
 name = "lean-syn-expr"
 version = "0.1.0"
+
+[[package]]
+name = "lean-term"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "salsa",
+]
 
 [[package]]
 name = "lean-token"
@@ -8617,6 +8680,10 @@ checksum = "359f76430b20a79f9e20e115b3428614e654f04fab314482fc0fda0ebd3c6044"
 dependencies = [
  "windows-sys 0.48.0",
 ]
+
+[[package]]
+name = "mizar-hir-expr"
+version = "0.1.0"
 
 [[package]]
 name = "ml-task"
@@ -10249,6 +10316,10 @@ dependencies = [
  "rmp",
  "serde",
 ]
+
+[[package]]
+name = "rocq-hir-expr"
+version = "0.1.0"
 
 [[package]]
 name = "rowan"
@@ -12170,10 +12241,81 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
+name = "visored-coword"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+]
+
+[[package]]
+name = "visored-hir-expr"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "idx-arena",
+ "salsa",
+ "visored-opr",
+ "visored-sem-expr",
+ "visored-zfs-ty",
+]
+
+[[package]]
+name = "visored-isabelle-hol-transpilation"
+version = "0.1.0"
+dependencies = [
+ "isabelle-hir-expr",
+]
+
+[[package]]
+name = "visored-lean-transpilation"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "lean-hir-expr",
+ "lean-opr",
+ "lean-sem-expr",
+ "lean-term",
+ "salsa",
+ "visored-hir-expr",
+ "visored-opr",
+ "visored-sem-expr",
+ "visored-zfs-ty",
+]
+
+[[package]]
+name = "visored-opr"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+]
+
+[[package]]
 name = "visored-prototype"
 version = "0.1.0"
 dependencies = [
  "idx-arena",
+]
+
+[[package]]
+name = "visored-sem-expr"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "idx-arena",
+ "salsa",
+ "visored-opr",
+ "visored-sem-expr",
+ "visored-zfs-ty",
+]
+
+[[package]]
+name = "visored-zfs-ty"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "salsa",
+ "smallvec",
+ "visored-coword",
 ]
 
 [[package]]
