@@ -13,6 +13,7 @@ pub mod variadic_chain;
 use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch, command::VdSemCommandDispatch};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use literal::VdSemLiteralDispatch;
+use visored_opr::opr::binary::VdBinaryOpr;
 use visored_zfs_ty::term::literal::VdZfsLiteral;
 
 /// It's a tree of both form and meaning
@@ -27,7 +28,9 @@ pub enum VdSemExprData {
     },
     Notation,
     Binary {
-        opr: (),
+        lopd: VdSemExprIdx,
+        opr: VdBinaryOpr,
+        ropd: VdSemExprIdx,
         dispatch: VdSemBinaryDispatch,
     },
     Prefix {

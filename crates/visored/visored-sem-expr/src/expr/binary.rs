@@ -1,2 +1,4 @@
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdSemBinaryDispatch {}
+pub enum VdSemBinaryDispatch {
+    Add,
+}

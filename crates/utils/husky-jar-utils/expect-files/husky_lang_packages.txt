@@ -4007,6 +4007,11 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "mizar-hir-expr",
+        relative_path: "crates/mizar/mizar-hir-expr",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "namekian-ast",
         relative_path: "crates/namekian/namekian-ast",
         dependencies: [
@@ -4059,6 +4064,11 @@
     PackageSummary {
         name: "husky-vn-prototype",
         relative_path: "crates/prototypes/husky-vn-prototype",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "rocq-hir-expr",
+        relative_path: "crates/rocq/rocq-hir-expr",
         dependencies: [],
     },
     PackageSummary {
@@ -4210,9 +4220,15 @@
         dependencies: [
             "idx-arena",
             "salsa",
+            "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
         ],
+    },
+    PackageSummary {
+        name: "visored-opr",
+        relative_path: "crates/visored/visored-opr",
+        dependencies: [],
     },
     PackageSummary {
         name: "visored-zfs-ty",
