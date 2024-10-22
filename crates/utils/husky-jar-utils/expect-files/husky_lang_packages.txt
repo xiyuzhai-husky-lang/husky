@@ -4211,6 +4211,7 @@
         relative_path: "crates/visored/visored-hir-expr",
         dependencies: [
             "idx-arena",
+            "salsa",
             "visored-sem-expr",
         ],
     },
@@ -4228,7 +4229,9 @@
     PackageSummary {
         name: "visored-opr",
         relative_path: "crates/visored/visored-opr",
-        dependencies: [],
+        dependencies: [
+            "salsa",
+        ],
     },
     PackageSummary {
         name: "visored-zfs-ty",
