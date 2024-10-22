@@ -166,7 +166,7 @@ fn latex_fmt_works() {
         },
         "1",
     );
-    let one_plus_one = builder.new_expr_checked(
+    let one_add_one = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one,
             opr: VdBinaryOpr::Add,
