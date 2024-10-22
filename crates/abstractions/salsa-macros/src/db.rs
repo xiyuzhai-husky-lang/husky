@@ -117,8 +117,24 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             panic!("{jar_package_name} is not present in jar tree");
         };
         for dep in deps {
-            let kebab = dep.split("husky-").last().unwrap();
-            let dep_jar_ident = format!("{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type");
+            let dep_jar_ident = if dep.starts_with("husky-") {
+                let kebab = dep.split("husky-").last().unwrap();
+                format!("{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
+            } else if dep.starts_with("visored-") {
+                let kebab = dep.split("visored-").last().unwrap();
+                format!("Vd{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
+            } else if dep.starts_with("lean-") {
+                let kebab = dep.split("lean-").last().unwrap();
+                format!("Ln{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
+            } else if dep.starts_with("isabelle-") {
+                let kebab = dep.split("isabelle-").last().unwrap();
+                format!("Ie{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
+            } else if dep.starts_with("rocq-") {
+                let kebab = dep.split("rocq-").last().unwrap();
+                format!("Rq{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
+            } else {
+                todo!()
+            };
             assert!(
                 jar_idents.contains(&dep_jar_ident),
                 "expect `{dep_jar_ident}` to be included as a dependency for `{jar_ident}`"
