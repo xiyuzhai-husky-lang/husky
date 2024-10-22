@@ -4212,7 +4212,18 @@
         dependencies: [
             "idx-arena",
             "salsa",
+            "visored-opr",
             "visored-sem-expr",
+            "visored-zfs-ty",
+            "husky-coword",
+            "visored-sem-expr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-opr",
+        relative_path: "crates/visored/visored-opr",
+        dependencies: [
+            "salsa",
         ],
     },
     PackageSummary {
@@ -4224,13 +4235,6 @@
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
-        ],
-    },
-    PackageSummary {
-        name: "visored-opr",
-        relative_path: "crates/visored/visored-opr",
-        dependencies: [
-            "salsa",
         ],
     },
     PackageSummary {

@@ -171,7 +171,7 @@ fn latex_fmt_works() {
             lopd: one,
             opr: VdBinaryOpr::Add,
             ropd: one,
-            dispatch: VdSemBinaryDispatch::Add,
+            dispatch: VdSemBinaryDispatch::IntAdd,
         },
         "1+1",
     );
