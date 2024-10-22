@@ -1287,6 +1287,20 @@
         ],
     },
     JarPackageSummary {
+        name: "lean-hir-expr",
+        dependencies: [
+            "lean-term",
+        ],
+    },
+    JarPackageSummary {
+        name: "lean-term",
+        dependencies: [],
+    },
+    JarPackageSummary {
+        name: "lean-sem-expr",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "namekian-ast",
         dependencies: [],
     },
@@ -1319,10 +1333,14 @@
     JarPackageSummary {
         name: "visored-lean-transpilation",
         dependencies: [
+            "lean-hir-expr",
+            "lean-term",
             "visored-hir-expr",
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
+            "lean-sem-expr",
+            "lean-term",
             "visored-sem-expr",
         ],
     },

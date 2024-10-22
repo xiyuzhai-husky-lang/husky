@@ -158,6 +158,10 @@ pub enum JarIndex {
     // ki
     KiJar,
     KiReprJar,
+    // lean
+    LnTermJar,
+    LnSemExprJar,
+    LnHirExprJar,
     // lex
     TextJar,
     TokenJar,

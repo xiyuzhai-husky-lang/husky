@@ -1,5 +1,5 @@
 [package]
-name = "lean-sem-expr"
+name = "lean-term"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,6 +12,8 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+enum-class.workspace = true
 salsa.workspace = true
 
 [lints]
