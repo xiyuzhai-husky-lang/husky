@@ -4,6 +4,7 @@ use crate::term::literal::{VdZfsLiteral, VdZfsLiteralData};
 pub struct VdZfsTypeMenu {
     zero_literal: VdZfsLiteral,
     one_literal: VdZfsLiteral,
+    two_literal: VdZfsLiteral,
 }
 
 impl VdZfsTypeMenu {
@@ -11,6 +12,7 @@ impl VdZfsTypeMenu {
         Self {
             zero_literal: VdZfsLiteral::new(VdZfsLiteralData::NaturalNumber("0".to_string()), db),
             one_literal: VdZfsLiteral::new(VdZfsLiteralData::NaturalNumber("1".to_string()), db),
+            two_literal: VdZfsLiteral::new(VdZfsLiteralData::NaturalNumber("2".to_string()), db),
         }
     }
 }
@@ -22,6 +24,10 @@ impl VdZfsTypeMenu {
 
     pub fn one_literal(&self) -> VdZfsLiteral {
         self.one_literal
+    }
+
+    pub fn two_literal(&self) -> VdZfsLiteral {
+        self.two_literal
     }
 }
 
