@@ -41,17 +41,17 @@ pub type LnHirExprIdx = ArenaIdx<LnHirExprData>;
 pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
 
 impl LnHirExprData {
-    pub(crate) fn precedence(&self) -> LnPrecedence {
+    pub(crate) fn outer_precedence(&self) -> LnPrecedence {
         match self {
             LnHirExprData::Variable { ident } => todo!(),
             LnHirExprData::Prefix { opr, opd } => todo!(),
             LnHirExprData::Suffix { opd, opr } => todo!(),
-            LnHirExprData::Binary { lopd, opr, ropd } => todo!(),
+            LnHirExprData::Binary { lopd, opr, ropd } => opr.outer_precedence(),
             LnHirExprData::Lambda { parameters, body } => todo!(),
             LnHirExprData::Application {
                 function_and_arguments,
             } => todo!(),
-            LnHirExprData::Literal(_) => todo!(),
+            LnHirExprData::Literal(_) => LnPrecedence::Atom,
         }
     }
 }

@@ -1,5 +1,6 @@
 use crate::{
     expr::{LnHirExprArena, LnHirExprData, LnHirExprIdx, LnHirExprIdxRange},
+    fmt::LnHirExprFormatter,
     stmt::{LnHirStmtArena, LnHirStmtData, LnHirStmtIdx, LnHirStmtIdxRange},
 };
 
@@ -17,9 +18,20 @@ impl<'db> LeanHirExprBuilder<'db> {
             stmt_arena: Default::default(),
         }
     }
+}
 
+impl<'db> LeanHirExprBuilder<'db> {
     pub fn db(&self) -> &'db ::salsa::Db {
         self.db
+    }
+
+    pub fn formatter(&self, line_max_len: usize) -> LnHirExprFormatter {
+        LnHirExprFormatter::new(
+            self.expr_arena.as_arena_ref(),
+            self.stmt_arena.as_arena_ref(),
+            line_max_len,
+            self.db,
+        )
     }
 }
 

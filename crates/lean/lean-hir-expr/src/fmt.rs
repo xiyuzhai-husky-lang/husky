@@ -1,12 +1,33 @@
-use crate::expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx};
+use crate::{
+    expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx},
+    stmt::LnHirStmtArenaRef,
+};
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
 
 pub struct LnHirExprFormatter<'a> {
     db: &'a ::salsa::Db,
-    arena: LnHirExprArenaRef<'a>,
+    expr_arena: LnHirExprArenaRef<'a>,
+    stmt_arena: LnHirStmtArenaRef<'a>,
     line_max_len: usize,
     result: String,
+}
+
+impl<'a> LnHirExprFormatter<'a> {
+    pub fn new(
+        expr_arena: LnHirExprArenaRef<'a>,
+        stmt_arena: LnHirStmtArenaRef<'a>,
+        line_max_len: usize,
+        db: &'a ::salsa::Db,
+    ) -> Self {
+        Self {
+            db,
+            expr_arena,
+            stmt_arena,
+            line_max_len,
+            result: Default::default(),
+        }
+    }
 }
 
 impl<'a> LnHirExprFormatter<'a> {
@@ -20,7 +41,7 @@ impl<'a> LnHirExprFormatter<'a> {
         try_multiline: bool,
         precedence_range: LnPrecedenceRange,
     ) {
-        let needs_bracket = !precedence_range.include(self.arena[expr].precedence());
+        let needs_bracket = !precedence_range.include(self.expr_arena[expr].outer_precedence());
         if needs_bracket {
             // TODO: consider multiline
             self.result += "(";
@@ -42,7 +63,7 @@ impl<'a> LnHirExprFormatter<'a> {
         // This ensures that subexpressions only attempt multiline formatting if the parent is already multiline.
         let subexpr_try_multiline = multiline;
         let db = self.db;
-        let arena = self.arena;
+        let arena = self.expr_arena;
         match arena[expr] {
             LnHirExprData::Variable { ident } => {
                 if !self.result.ends_with(['(', ' ']) {
@@ -117,5 +138,9 @@ impl<'a> LnHirExprFormatter<'a> {
         self.result[prev_line_end_offset..]
             .lines()
             .all(|line| line.len() <= self.line_max_len)
+    }
+
+    pub fn finish(self) -> String {
+        self.result
     }
 }

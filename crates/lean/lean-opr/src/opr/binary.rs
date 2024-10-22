@@ -1,4 +1,4 @@
-use crate::precedence::LnPrecedenceRange;
+use crate::precedence::{LnPrecedence, LnPrecedenceRange};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum LnBinaryOpr {
@@ -7,14 +7,26 @@ pub enum LnBinaryOpr {
 
 impl LnBinaryOpr {
     pub fn fmt_str(self) -> &'static str {
-        todo!()
+        match self {
+            LnBinaryOpr::Add => "+",
+        }
     }
 
     pub fn left_precedence_range(self) -> LnPrecedenceRange {
-        todo!()
+        match self {
+            LnBinaryOpr::Add => LnPrecedenceRange::Greater(LnPrecedence::AddSub),
+        }
     }
 
     pub fn right_precedence_range(self) -> LnPrecedenceRange {
-        todo!()
+        match self {
+            LnBinaryOpr::Add => LnPrecedenceRange::NoLess(LnPrecedence::AddSub),
+        }
+    }
+
+    pub fn outer_precedence(self) -> LnPrecedence {
+        match self {
+            LnBinaryOpr::Add => LnPrecedence::AddSub,
+        }
     }
 }
