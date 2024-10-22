@@ -179,6 +179,9 @@
   "visored-hir-expr": [
     "visored-sem-expr"
   ],
+  "visored-lean-transpilation": [
+    "visored-hir-expr"
+  ],
   "visored-opr": [],
   "visored-sem-expr": [
     "husky-coword",
