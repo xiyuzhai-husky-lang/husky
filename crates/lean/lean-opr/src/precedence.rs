@@ -1,13 +1,15 @@
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum LnPrecedence {
     Application,
+    AddSub,
+    Atom,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LnPrecedenceRange {
     Any,
     Greater(LnPrecedence),
-    GreaterThan(LnPrecedence),
+    NoLess(LnPrecedence),
 }
 
 /// # constants
@@ -21,7 +23,19 @@ impl LnPrecedenceRange {
         match self {
             LnPrecedenceRange::Any => true,
             LnPrecedenceRange::Greater(p) => precedence > p,
-            LnPrecedenceRange::GreaterThan(p) => precedence >= p,
+            LnPrecedenceRange::NoLess(p) => precedence >= p,
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_precedence_ordering() {
+        assert!(LnPrecedence::Application < LnPrecedence::AddSub);
+        assert!(LnPrecedence::AddSub < LnPrecedence::Atom);
+        assert!(LnPrecedence::Application < LnPrecedence::Atom);
     }
 }
