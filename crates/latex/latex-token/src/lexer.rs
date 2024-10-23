@@ -1,6 +1,5 @@
 use crate::{
     data::{
-        code::LxCodeTokenData,
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
         LxTokenData,
@@ -51,10 +50,6 @@ impl<'a> Iterator for LxLexer<'a> {
 
         let token_data = if self.chars.eat_char_if(|c| c == '\n') {
             match self.mode {
-                LxMode::Code => {
-                    self.chars.eat_chars_while(|c| c == '\n');
-                    LxCodeTokenData::NewParagraph.into()
-                }
                 LxMode::Rose => {
                     if self.chars.eat_char_if(|c| c == '\n') {
                         self.chars.eat_chars_while(|c| c == '\n');

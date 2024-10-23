@@ -74,7 +74,6 @@ impl<'a> LxAstParser<'a> {
                 LxMathTokenData::Error(_) => todo!(),
             },
             LxTokenData::Rose(_) => todo!(),
-            LxTokenData::Code(_) => todo!(),
         }
     }
 }
