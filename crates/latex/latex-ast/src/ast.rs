@@ -121,6 +121,8 @@ impl<'a> LxAstParser<'a> {
                 LxRoseTokenData::Word(_) => todo!(),
                 LxRoseTokenData::Command(_) => todo!(),
                 LxRoseTokenData::Dollar => todo!(),
+                LxRoseTokenData::EscapedLpar => todo!(),
+                LxRoseTokenData::EscapedLbox => todo!(),
                 LxRoseTokenData::Nat32(_) => todo!(),
                 LxRoseTokenData::NewParagraph => todo!(),
             },

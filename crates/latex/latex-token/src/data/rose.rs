@@ -8,7 +8,12 @@ use latex_command::path::LxCommandPath;
 pub enum LxRoseTokenData {
     Word(Coword),
     Command(LxCommandPath),
+    /// `$`
     Dollar,
+    /// `\(`
+    EscapedLpar,
+    /// `\[`
+    EscapedLbox,
     Nat32(u32),
     NewParagraph,
 }
