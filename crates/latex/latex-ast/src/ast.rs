@@ -126,13 +126,11 @@ impl<'a> LxAstParser<'a> {
                 LxRoseTokenData::Nat32(_) => todo!(),
                 LxRoseTokenData::NewParagraph => todo!(),
             },
-            LxTokenData::Code(_) => todo!(),
         }
         let (idx, token) = self.next_token().unwrap();
         Some(match token {
             LxTokenData::Math(token) => self.parse_atomic_math_ast(idx, token).into(),
             LxTokenData::Rose(token) => self.parse_atomic_text_ast(idx, token).into(),
-            LxTokenData::Code(token) => todo!(),
         })
     }
 }
