@@ -8027,6 +8027,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "latex-annotation"
+version = "0.1.0"
+dependencies = [
+ "husky-text",
+ "latex-token",
+]
+
+[[package]]
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [

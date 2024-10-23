@@ -1,0 +1,21 @@
+[package]
+name = "latex-annotation"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+# lex
+husky-text.workspace = true
+# latex
+latex-token.workspace = true
+
+[lints]
+workspace = true
