@@ -4118,6 +4118,14 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "latex-annotation",
+        relative_path: "crates/latex/latex-annotation",
+        dependencies: [
+            "husky-text",
+            "latex-token",
+        ],
+    },
+    PackageSummary {
         name: "latex-syn-expr",
         relative_path: "crates/latex/latex-syn-expr",
         dependencies: [],
