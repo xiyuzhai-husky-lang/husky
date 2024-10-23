@@ -1,24 +1,25 @@
+//! means the prose mode
 use super::*;
-use latex_token::{data::rose::TexRoseTokenData, idx::TexTokenIdx};
+use latex_token::{data::rose::LxRoseTokenData, idx::LxTokenIdx};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum TexRoseAstData {
+pub enum LxRoseAstData {
     TextEdit { buffer: String },
 }
 
-impl<'a> TexAstParser<'a> {
+impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_text_ast(
         &mut self,
-        idx: TexTokenIdx,
-        token: TexRoseTokenData,
-    ) -> TexRoseAstData {
+        idx: LxTokenIdx,
+        token: LxRoseTokenData,
+    ) -> LxRoseAstData {
         match token {
-            TexRoseTokenData::Word(_) => todo!(),
-            TexRoseTokenData::Command(_) => todo!(),
-            TexRoseTokenData::Dollar => todo!(),
-            TexRoseTokenData::Nat32(_) => todo!(),
-            TexRoseTokenData::NewParagraph => todo!(),
+            LxRoseTokenData::Word(_) => todo!(),
+            LxRoseTokenData::Command(_) => todo!(),
+            LxRoseTokenData::Dollar => todo!(),
+            LxRoseTokenData::Nat32(_) => todo!(),
+            LxRoseTokenData::NewParagraph => todo!(),
         }
     }
 }

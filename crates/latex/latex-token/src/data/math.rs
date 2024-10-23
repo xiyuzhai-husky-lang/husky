@@ -1,12 +1,12 @@
 use super::*;
-use latex_command::path::TexCommandPath;
+use latex_command::path::LxCommandPath;
 use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenData {
-    Command(TexCommandPath),
+    Command(LxCommandPath),
     LeftDelimiter(LxMathDelimiter),
     RightDelimiter(LxMathDelimiter),
     Letter(LxMathLetter),
@@ -36,7 +36,7 @@ pub enum LxMathTokenError {
     UnexpectedNewParagraph,
 }
 
-impl<'a> TexLexer<'a> {
+impl<'a> LxLexer<'a> {
     pub(super) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
         match self.chars.peek()? {
             '\\' => {
@@ -44,7 +44,7 @@ impl<'a> TexLexer<'a> {
                 match self.chars.peek() {
                     Some(c) => match c {
                         c if c.is_alphanumeric() => {
-                            Some(LxMathTokenData::Command(TexCommandPath::Coword(
+                            Some(LxMathTokenData::Command(LxCommandPath::Coword(
                                 self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
                             )))
                         }
@@ -102,7 +102,7 @@ impl<'a> TexLexer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let tokenizer = TexLexer::new(db, input, TexMode::Math);
+        let tokenizer = LxLexer::new(db, input, LxMode::Math);
         let tokens: Vec<_> = tokenizer.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
@@ -110,27 +110,27 @@ fn next_text_token_data_works() {
         "hello",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerH,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerE,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerL,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerL,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerO,
                     ),
@@ -142,7 +142,7 @@ fn next_text_token_data_works() {
         "0",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
@@ -154,7 +154,7 @@ fn next_text_token_data_works() {
         "0",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
@@ -166,12 +166,12 @@ fn next_text_token_data_works() {
         "0 0",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
@@ -183,12 +183,12 @@ fn next_text_token_data_works() {
         "0\n0",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
@@ -200,17 +200,17 @@ fn next_text_token_data_works() {
         "0\n\n0",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Error(
                         LxMathTokenError::UnexpectedNewParagraph,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         0,
                     ),
@@ -222,7 +222,7 @@ fn next_text_token_data_works() {
         "{",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::LeftDelimiter(
                     Curl,
                 ),
@@ -234,7 +234,7 @@ fn next_text_token_data_works() {
         "}",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::RightDelimiter(
                     Curl,
                 ),
@@ -246,7 +246,7 @@ fn next_text_token_data_works() {
         "(",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::LeftDelimiter(
                     Par,
                 ),
@@ -258,7 +258,7 @@ fn next_text_token_data_works() {
         ")",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::RightDelimiter(
                     Par,
                 ),
@@ -270,7 +270,7 @@ fn next_text_token_data_works() {
         "[",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::LeftDelimiter(
                     Box,
                 ),
@@ -282,7 +282,7 @@ fn next_text_token_data_works() {
         "]",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::RightDelimiter(
                     Box,
                 ),
@@ -294,7 +294,7 @@ fn next_text_token_data_works() {
         "\\{",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::LeftDelimiter(
                     Set,
                 ),
@@ -306,7 +306,7 @@ fn next_text_token_data_works() {
         "\\}",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::RightDelimiter(
                     Set,
                 ),
@@ -318,7 +318,7 @@ fn next_text_token_data_works() {
         "+",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::Opr(
                     Add,
                 ),
@@ -330,17 +330,17 @@ fn next_text_token_data_works() {
         "x+1",
         &expect![[r#"
         [
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::Letter(
                     LowerX,
                 ),
             ),
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::Opr(
                     Add,
                 ),
             ),
-            TexTokenData::Math(
+            LxTokenData::Math(
                 LxMathTokenData::Nat32(
                     1,
                 ),
@@ -352,33 +352,33 @@ fn next_text_token_data_works() {
         "x_1^a+1",
         &expect![[r#"
             [
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerX,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Subscript,
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         1,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Superscript,
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Letter(
                         LowerA,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Opr(
                         Add,
                     ),
                 ),
-                TexTokenData::Math(
+                LxTokenData::Math(
                     LxMathTokenData::Nat32(
                         1,
                     ),

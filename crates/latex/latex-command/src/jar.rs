@@ -1,2 +1,2 @@
 #[salsa::jar]
-pub struct TexCommandJar();
+pub struct LxCommandJar();

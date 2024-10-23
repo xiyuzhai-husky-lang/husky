@@ -1,2 +1,2 @@
 #[salsa::input]
-pub struct TexAstDistrict {}
+pub struct LxAstDistrict {}

@@ -1,31 +1,31 @@
-use crate::{data::TexTokenData, idx::TexTokenIdx};
+use crate::{data::LxTokenData, idx::LxTokenIdx};
 use husky_text_protocol::range::TextRange;
 
 #[derive(Default)]
-pub struct TexTokenStorage {
-    ranged_tokens: Vec<(TextRange, TexTokenData)>,
+pub struct LxTokenStorage {
+    ranged_tokens: Vec<(TextRange, LxTokenData)>,
 }
 
 /// # getters
 
-impl std::ops::Index<TexTokenIdx> for TexTokenStorage {
-    type Output = TexTokenData;
+impl std::ops::Index<LxTokenIdx> for LxTokenStorage {
+    type Output = LxTokenData;
 
-    fn index(&self, idx: TexTokenIdx) -> &Self::Output {
+    fn index(&self, idx: LxTokenIdx) -> &Self::Output {
         &self.ranged_tokens[idx.index()].1
     }
 }
-impl TexTokenStorage {
-    pub fn token_range(&self, token_idx: TexTokenIdx) -> TextRange {
+impl LxTokenStorage {
+    pub fn token_range(&self, token_idx: LxTokenIdx) -> TextRange {
         self.ranged_tokens[token_idx.index()].0
     }
 }
 
 /// # actions
 
-impl TexTokenStorage {
-    pub(crate) fn alloc(&mut self, range: TextRange, token_data: TexTokenData) -> TexTokenIdx {
-        let idx = TexTokenIdx::from_index(self.ranged_tokens.len());
+impl LxTokenStorage {
+    pub(crate) fn alloc(&mut self, range: TextRange, token_data: LxTokenData) -> LxTokenIdx {
+        let idx = LxTokenIdx::from_index(self.ranged_tokens.len());
         self.ranged_tokens.push((range, token_data));
         idx
     }

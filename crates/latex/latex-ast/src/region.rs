@@ -1,2 +1,2 @@
 #[salsa::tracked]
-pub struct TexAstRegion {}
+pub struct LxAstRegion {}

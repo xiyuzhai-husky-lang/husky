@@ -1,27 +1,27 @@
 use crate::{
     data::{
-        code::TexCodeTokenData,
+        code::LxCodeTokenData,
         math::{LxMathTokenData, LxMathTokenError},
-        rose::TexRoseTokenData,
-        TexTokenData,
+        rose::LxRoseTokenData,
+        LxTokenData,
     },
-    idx::TexTokenIdx,
-    storage::TexTokenStorage,
+    idx::LxTokenIdx,
+    storage::LxTokenStorage,
 };
 use husky_coword::Coword;
 use husky_text_protocol::{char::TextCharIter, range::TextRange};
-use latex_prelude::mode::TexMode;
+use latex_prelude::mode::LxMode;
 
-pub struct TexLexer<'a> {
+pub struct LxLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
-    pub(crate) mode: TexMode,
-    pub(crate) storage: TexTokenStorage,
+    pub(crate) mode: LxMode,
+    pub(crate) storage: LxTokenStorage,
 }
 
 /// # constructor
-impl<'a> TexLexer<'a> {
-    pub fn new(db: &'a ::salsa::Db, input: &'a str, mode: TexMode) -> Self {
+impl<'a> LxLexer<'a> {
+    pub fn new(db: &'a ::salsa::Db, input: &'a str, mode: LxMode) -> Self {
         Self {
             db,
             chars: TextCharIter::new(input),
@@ -32,7 +32,7 @@ impl<'a> TexLexer<'a> {
 }
 
 /// # actions
-impl<'a> TexLexer<'a> {
+impl<'a> LxLexer<'a> {
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
         let coword_str_slice = self.chars.next_str_slice_while(|c| c.is_alphanumeric());
         if coword_str_slice.is_empty() {
@@ -42,8 +42,8 @@ impl<'a> TexLexer<'a> {
     }
 }
 
-impl<'a> Iterator for TexLexer<'a> {
-    type Item = (TexTokenIdx, TexTokenData);
+impl<'a> Iterator for LxLexer<'a> {
+    type Item = (LxTokenIdx, LxTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.chars.eat_chars_while(|c| c == ' ');
@@ -51,20 +51,20 @@ impl<'a> Iterator for TexLexer<'a> {
 
         let token_data = if self.chars.eat_char_if(|c| c == '\n') {
             match self.mode {
-                TexMode::Code => {
+                LxMode::Code => {
                     self.chars.eat_chars_while(|c| c == '\n');
-                    TexCodeTokenData::NewParagraph.into()
+                    LxCodeTokenData::NewParagraph.into()
                 }
-                TexMode::Rose => {
+                LxMode::Rose => {
                     if self.chars.eat_char_if(|c| c == '\n') {
                         self.chars.eat_chars_while(|c| c == '\n');
-                        TexRoseTokenData::NewParagraph.into()
+                        LxRoseTokenData::NewParagraph.into()
                     } else {
                         start = self.chars.current_position();
                         self.next_token_data()?
                     }
                 }
-                TexMode::Math => {
+                LxMode::Math => {
                     if self.chars.eat_char_if(|c| c == '\n') {
                         LxMathTokenData::Error(LxMathTokenError::UnexpectedNewParagraph).into()
                     } else {

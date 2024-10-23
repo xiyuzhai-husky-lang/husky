@@ -6,7 +6,7 @@ pub struct MathAstEvent {}
 impl IsTimeCapsuleEvent for MathAstEvent {
     type Buffer = MathAstEventBuffer;
 
-    type State = TexAstSheet;
+    type State = LxAstSheet;
 }
 
 #[derive(Default)]

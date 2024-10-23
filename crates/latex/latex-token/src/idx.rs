@@ -1,10 +1,10 @@
 use shifted_unsigned_int::ShiftedU32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TexTokenIdx(ShiftedU32);
+pub struct LxTokenIdx(ShiftedU32);
 
-impl TexTokenIdx {
-    pub(crate) fn from_index(index: usize) -> TexTokenIdx {
+impl LxTokenIdx {
+    pub(crate) fn from_index(index: usize) -> LxTokenIdx {
         Self(index.into())
     }
 

@@ -1,27 +1,27 @@
 use super::*;
 use husky_coword::Coword;
-use latex_command::path::TexCommandPath;
+use latex_command::path::LxCommandPath;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TexRoseTokenData {
+pub enum LxRoseTokenData {
     Word(Coword),
-    Command(TexCommandPath),
+    Command(LxCommandPath),
     Dollar,
     Nat32(u32),
     NewParagraph,
 }
 
-impl<'a> TexLexer<'a> {
-    pub(super) fn next_text_token_data(&mut self) -> Option<TexRoseTokenData> {
+impl<'a> LxLexer<'a> {
+    pub(super) fn next_text_token_data(&mut self) -> Option<LxRoseTokenData> {
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
                         c if c.is_alphanumeric() => Some(
-                            TexCommandPath::Coword(
+                            LxCommandPath::Coword(
                                 self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
                             )
                             .into(),
@@ -59,7 +59,7 @@ impl<'a> TexLexer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let lexer = TexLexer::new(db, input, TexMode::Rose);
+        let lexer = LxLexer::new(db, input, LxMode::Rose);
         let tokens: Vec<_> = lexer.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
@@ -91,7 +91,7 @@ fn next_text_token_data_works() {
         "\n\n",
         &expect![[r#"
             [
-                TexTokenData::Rose(
+                LxTokenData::Rose(
                     TexRoseTokenData::NewParagraph,
                 ),
             ]
@@ -101,7 +101,7 @@ fn next_text_token_data_works() {
         "hello",
         &expect![[r#"
             [
-                TexTokenData::Rose(
+                LxTokenData::Rose(
                     TexRoseTokenData::Word(
                         Coword(
                             "hello",
@@ -115,7 +115,7 @@ fn next_text_token_data_works() {
         "0",
         &expect![[r#"
             [
-                TexTokenData::Rose(
+                LxTokenData::Rose(
                     TexRoseTokenData::Nat32(
                         0,
                     ),
@@ -127,7 +127,7 @@ fn next_text_token_data_works() {
         " 0",
         &expect![[r#"
         [
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
@@ -139,12 +139,12 @@ fn next_text_token_data_works() {
         "0 0",
         &expect![[r#"
         [
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
             ),
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
@@ -156,12 +156,12 @@ fn next_text_token_data_works() {
         "0\n0",
         &expect![[r#"
         [
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
             ),
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
@@ -173,12 +173,12 @@ fn next_text_token_data_works() {
         "0  0",
         &expect![[r#"
         [
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
             ),
-            TexTokenData::Rose(
+            LxTokenData::Rose(
                 TexRoseTokenData::Nat32(
                     0,
                 ),
@@ -190,7 +190,7 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                TexTokenData::Rose(
+                LxTokenData::Rose(
                     TexRoseTokenData::Command(
                         TexCommandPath::Coword(
                             Coword(
@@ -206,7 +206,7 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                TexTokenData::Rose(
+                LxTokenData::Rose(
                     TexRoseTokenData::Command(
                         TexCommandPath::Coword(
                             Coword(

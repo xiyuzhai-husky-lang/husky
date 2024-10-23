@@ -1,2 +1,2 @@
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum TexCodeAstData {}
+pub enum LxCodeAstData {}
