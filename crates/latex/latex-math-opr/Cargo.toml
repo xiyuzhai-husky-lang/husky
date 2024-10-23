@@ -1,5 +1,5 @@
 [package]
-name = "latex-egui"
+name = "latex-math-opr"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,10 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-eframe.workspace = true
-egui.workspace = true
-# tex
-latex-ast = { workspace = true, features = ["egui"] }
 
 [lints]
 workspace = true

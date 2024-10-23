@@ -1,5 +1,5 @@
 [package]
-name = "latex-egui"
+name = "latex-command"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,10 +12,12 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-eframe.workspace = true
-egui.workspace = true
+# abstractions
+salsa.workspace = true
+# kernel
+husky-coword.workspace = true
 # tex
-latex-ast = { workspace = true, features = ["egui"] }
+latex-prelude.workspace = true
 
 [lints]
 workspace = true
