@@ -92,7 +92,7 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Rose(
-                    TexRoseTokenData::NewParagraph,
+                    LxRoseTokenData::NewParagraph,
                 ),
             ]
         "#]],
@@ -102,7 +102,7 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Rose(
-                    TexRoseTokenData::Word(
+                    LxRoseTokenData::Word(
                         Coword(
                             "hello",
                         ),
@@ -116,7 +116,7 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Rose(
-                    TexRoseTokenData::Nat32(
+                    LxRoseTokenData::Nat32(
                         0,
                     ),
                 ),
@@ -126,73 +126,73 @@ fn next_text_token_data_works() {
     t(
         " 0",
         &expect![[r#"
-        [
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+            [
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "0 0",
         &expect![[r#"
-        [
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+            [
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "0\n0",
         &expect![[r#"
-        [
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+            [
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "0  0",
         &expect![[r#"
-        [
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+            [
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-            LxTokenData::Rose(
-                TexRoseTokenData::Nat32(
-                    0,
+                LxTokenData::Rose(
+                    LxRoseTokenData::Nat32(
+                        0,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "\\emph",
         &expect![[r#"
             [
                 LxTokenData::Rose(
-                    TexRoseTokenData::Command(
-                        TexCommandPath::Coword(
+                    LxRoseTokenData::Command(
+                        LxCommandPath::Coword(
                             Coword(
                                 "emph",
                             ),
@@ -207,8 +207,8 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Rose(
-                    TexRoseTokenData::Command(
-                        TexCommandPath::Coword(
+                    LxRoseTokenData::Command(
+                        LxCommandPath::Coword(
                             Coword(
                                 "emph",
                             ),
