@@ -1,8 +1,8 @@
-use latex_prelude::mode::TexMode;
+use latex_prelude::mode::LxMode;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct TexCommandParameter {
-    mode: TexMode,
+pub struct LxCommandParameter {
+    mode: LxMode,
 }
 
-pub type TexCommandParameters = Vec<TexCommandParameter>;
+pub type LxCommandParameters = Vec<LxCommandParameter>;

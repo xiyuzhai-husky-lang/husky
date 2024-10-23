@@ -1,5 +1,6 @@
+//! for syntax tree
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum TexTreeAstData {}
+pub enum LxTreeAstData {}
 
 #[test]
 fn tex_tree_token_works() {

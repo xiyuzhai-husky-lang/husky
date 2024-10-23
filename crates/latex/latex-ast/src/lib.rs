@@ -8,6 +8,6 @@ pub mod sheet;
 mod tests;
 pub mod token;
 
-use self::jar::TexAstJar as Jar;
+use self::jar::LxAstJar as Jar;
 #[cfg(test)]
 use self::tests::*;
