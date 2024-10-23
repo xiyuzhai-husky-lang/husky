@@ -1,11 +1,11 @@
 use super::*;
-use crate::ast::{math::LxMathAstData, rose::TexRoseAstData};
+use crate::ast::{math::LxMathAstData, rose::LxRoseAstData};
 
 pub(in crate::sheet) struct MathAstTextEditAction<F>
 where
     F: FnOnce(&mut String),
 {
-    ast_idx: TexAstIdx,
+    ast_idx: LxAstIdx,
     f: F,
 }
 
@@ -13,7 +13,7 @@ impl<F> MathAstTextEditAction<F>
 where
     F: FnOnce(&mut String),
 {
-    pub(in crate::sheet) fn new(ast_idx: TexAstIdx, f: F) -> Self {
+    pub(in crate::sheet) fn new(ast_idx: LxAstIdx, f: F) -> Self {
         Self { ast_idx, f }
     }
 }
@@ -31,10 +31,10 @@ where
         ()
     }
 
-    fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
+    fn exec(self, sheet: &mut LxAstSheet) -> Self::Outcome {
         sheet.arena.update(self.ast_idx, |ast| match ast {
-            TexAstData::Math(LxMathAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
-            TexAstData::Rose(TexRoseAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
+            LxAstData::Math(LxMathAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
+            LxAstData::Rose(LxRoseAstData::TextEdit { ref mut buffer, .. }) => (self.f)(buffer),
             _ => unreachable!("shouldn't use this"),
         })
     }
@@ -42,7 +42,7 @@ where
 
 #[test]
 fn math_ast_text_edit_action_works() {
-    let mut sheet: TexAstSheet = Default::default();
+    let mut sheet: LxAstSheet = Default::default();
     let ast_idx = sheet.alloc_ast(
         LxMathAstData::TextEdit {
             buffer: "hello,".to_string(),
@@ -51,7 +51,7 @@ fn math_ast_text_edit_action_works() {
     );
     let action = MathAstTextEditAction::new(ast_idx, |s| *s += " world");
     action.exec(&mut sheet);
-    let TexAstData::Math(LxMathAstData::TextEdit { ref buffer, .. }) = sheet.arena[ast_idx] else {
+    let LxAstData::Math(LxMathAstData::TextEdit { ref buffer, .. }) = sheet.arena[ast_idx] else {
         unreachable!()
     };
     assert_eq!(buffer, "hello, world")

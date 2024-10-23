@@ -1,4 +1,4 @@
-use latex_token::{data::math::LxMathDelimiter, idx::TexTokenIdx};
+use latex_token::{data::math::LxMathDelimiter, idx::LxTokenIdx};
 
 use super::*;
 
@@ -12,23 +12,23 @@ pub enum LxMathAstData {
         buffer: String,
     },
     Attach {
-        base: TexAstIdx,
-        superscript: Option<TexAstIdx>,
-        subscript: Option<TexAstIdx>,
+        base: LxAstIdx,
+        superscript: Option<LxAstIdx>,
+        subscript: Option<LxAstIdx>,
     },
     Delimited {
-        left_delimiter_token_idx: TexTokenIdx,
+        left_delimiter_token_idx: LxTokenIdx,
         left_delimiter: LxMathDelimiter,
-        asts: TexAstIdxRange,
-        right_delimiter_token_idx: TexTokenIdx,
+        asts: LxAstIdxRange,
+        right_delimiter_token_idx: LxTokenIdx,
         right_delimiter: LxMathDelimiter,
     },
 }
 
-impl<'a> TexAstParser<'a> {
+impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_math_ast(
         &mut self,
-        idx: TexTokenIdx,
+        idx: LxTokenIdx,
         token: LxMathTokenData,
     ) -> LxMathAstData {
         match token {
@@ -47,7 +47,7 @@ impl<'a> TexAstParser<'a> {
 
     fn parse_delimited(
         &mut self,
-        left_delimiter_token_idx: TexTokenIdx,
+        left_delimiter_token_idx: LxTokenIdx,
         left_delimiter: LxMathDelimiter,
     ) -> LxMathAstData {
         let asts = self.parse_asts();
@@ -55,7 +55,7 @@ impl<'a> TexAstParser<'a> {
             todo!()
         };
         match token {
-            TexTokenData::Math(token) => match token {
+            LxTokenData::Math(token) => match token {
                 LxMathTokenData::Command(_) => todo!(),
                 LxMathTokenData::LeftDelimiter(_) => todo!(),
                 LxMathTokenData::RightDelimiter(right_delimiter) => LxMathAstData::Delimited {
@@ -73,8 +73,8 @@ impl<'a> TexAstParser<'a> {
                 LxMathTokenData::Superscript => todo!(),
                 LxMathTokenData::Error(_) => todo!(),
             },
-            TexTokenData::Rose(_) => todo!(),
-            TexTokenData::Code(_) => todo!(),
+            LxTokenData::Rose(_) => todo!(),
+            LxTokenData::Code(_) => todo!(),
         }
     }
 }

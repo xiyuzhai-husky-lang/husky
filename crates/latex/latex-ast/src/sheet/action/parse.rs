@@ -2,7 +2,7 @@
 use super::*;
 
 pub(in crate::sheet) struct MathAstParseAction {
-    ast_idx: TexAstIdx,
+    ast_idx: LxAstIdx,
 }
 
 impl IsTimeCapsuleAction for MathAstParseAction {
@@ -14,8 +14,8 @@ impl IsTimeCapsuleAction for MathAstParseAction {
         todo!()
     }
 
-    fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
-        // let TexAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
+    fn exec(self, sheet: &mut LxAstSheet) -> Self::Outcome {
+        // let LxAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
         //     unreachable!()
         // };
         todo!()

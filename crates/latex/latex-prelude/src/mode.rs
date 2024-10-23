@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum TexMode {
+pub enum LxMode {
     Code,
     Rose,
     Math,

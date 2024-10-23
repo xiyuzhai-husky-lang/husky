@@ -1,45 +1,45 @@
-use crate::ast::{TexAstArena, TexAstData, TexAstIdx, TexAstIdxRange};
-use latex_prelude::mode::TexMode;
-use latex_token::{data::TexTokenData, idx::TexTokenIdx, lexer::TexLexer};
+use crate::ast::{LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange};
+use latex_prelude::mode::LxMode;
+use latex_token::{data::LxTokenData, idx::LxTokenIdx, lexer::LxLexer};
 use std::iter::Peekable;
 
-pub(crate) struct TexAstParser<'a> {
+pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
-    lexer: Peekable<TexLexer<'a>>,
-    arena: &'a mut TexAstArena,
+    lexer: Peekable<LxLexer<'a>>,
+    arena: &'a mut LxAstArena,
 }
 
 /// # constructor
-impl<'a> TexAstParser<'a> {
+impl<'a> LxAstParser<'a> {
     pub(crate) fn new(
         db: &'a ::salsa::Db,
         input: &'a str,
-        mode: TexMode,
-        arena: &'a mut TexAstArena,
+        mode: LxMode,
+        arena: &'a mut LxAstArena,
     ) -> Self {
         Self {
             db,
-            lexer: TexLexer::new(db, input, mode).peekable(),
+            lexer: LxLexer::new(db, input, mode).peekable(),
             arena,
         }
     }
 
-    pub(crate) fn alloc_asts(&mut self, asts: Vec<TexAstData>) -> TexAstIdxRange {
+    pub(crate) fn alloc_asts(&mut self, asts: Vec<LxAstData>) -> LxAstIdxRange {
         self.arena.alloc_batch(asts)
     }
 
-    pub(crate) fn alloc_ast(&mut self, ast: TexAstData) -> TexAstIdx {
+    pub(crate) fn alloc_ast(&mut self, ast: LxAstData) -> LxAstIdx {
         self.arena.alloc_one(ast)
     }
 }
 
 /// # actions
-impl<'a> TexAstParser<'a> {
-    pub(crate) fn peek_token(&mut self) -> Option<TexTokenData> {
+impl<'a> LxAstParser<'a> {
+    pub(crate) fn peek_token(&mut self) -> Option<LxTokenData> {
         self.lexer.peek().map(|&(_, data)| data)
     }
 
-    pub(crate) fn next_token(&mut self) -> Option<(TexTokenIdx, TexTokenData)> {
+    pub(crate) fn next_token(&mut self) -> Option<(LxTokenIdx, LxTokenData)> {
         self.lexer.next()
     }
 }
