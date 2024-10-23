@@ -1,4 +1,7 @@
-use latex_token::{data::math::LxMathDelimiter, idx::LxTokenIdx};
+use latex_token::{
+    data::math::{digit::LxMathDigit, LxMathDelimiter},
+    idx::LxTokenIdx,
+};
 
 use super::*;
 
@@ -7,7 +10,7 @@ use super::*;
 pub enum LxMathAstData {
     Letter(LxMathLetter),
     Opr(LxMathOpr),
-    Nat32(u32),
+    Digit(LxMathDigit),
     TextEdit {
         buffer: String,
     },
@@ -36,8 +39,8 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
             LxMathTokenData::RightDelimiter(_) => todo!(),
             LxMathTokenData::Letter(letter) => LxMathAstData::Letter(letter),
-            LxMathTokenData::Opr(opr) => LxMathAstData::Opr(opr),
-            LxMathTokenData::Nat32(number) => LxMathAstData::Nat32(number),
+            LxMathTokenData::Opr(opr) => LxMathAstData::Opr(opr), // it's not constructed into a tree yet in the ast stage
+            LxMathTokenData::Digit(digit) => LxMathAstData::Digit(digit),
             LxMathTokenData::Other(_) => todo!(),
             LxMathTokenData::Subscript => todo!(),
             LxMathTokenData::Superscript => todo!(),
@@ -67,7 +70,7 @@ impl<'a> LxAstParser<'a> {
                 },
                 LxMathTokenData::Letter(_) => todo!(),
                 LxMathTokenData::Opr(_) => todo!(),
-                LxMathTokenData::Nat32(_) => todo!(),
+                LxMathTokenData::Digit(_) => todo!(),
                 LxMathTokenData::Other(_) => todo!(),
                 LxMathTokenData::Subscript => todo!(),
                 LxMathTokenData::Superscript => todo!(),

@@ -110,7 +110,7 @@ impl<'a> LxAstParser<'a> {
                     LxMathTokenData::RightDelimiter(_) => return None,
                     LxMathTokenData::Letter(_) => (),
                     LxMathTokenData::Opr(_) => (),
-                    LxMathTokenData::Nat32(_) => (),
+                    LxMathTokenData::Digit(_) => (),
                     LxMathTokenData::Other(_) => todo!(),
                     LxMathTokenData::Subscript => todo!(),
                     LxMathTokenData::Superscript => todo!(),
@@ -211,8 +211,8 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         LxAstData::Math(
-                            LxMathAstData::Nat32(
-                                2,
+                            LxMathAstData::Digit(
+                                Two,
                             ),
                         ),
                         LxAstData::Math(
@@ -245,8 +245,8 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         LxAstData::Math(
-                            LxMathAstData::Nat32(
-                                2,
+                            LxMathAstData::Digit(
+                                Two,
                             ),
                         ),
                         LxAstData::Math(
@@ -289,8 +289,8 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         LxAstData::Math(
-                            LxMathAstData::Nat32(
-                                2,
+                            LxMathAstData::Digit(
+                                Two,
                             ),
                         ),
                         LxAstData::Math(
