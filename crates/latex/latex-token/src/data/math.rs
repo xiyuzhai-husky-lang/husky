@@ -1,3 +1,6 @@
+pub mod digit;
+
+use self::digit::LxMathDigit;
 use super::*;
 use latex_command::path::LxCommandPath;
 use latex_math_letter::LxMathLetter;
@@ -11,7 +14,7 @@ pub enum LxMathTokenData {
     RightDelimiter(LxMathDelimiter),
     Letter(LxMathLetter),
     Opr(LxMathOpr),
-    Nat32(u32),
+    Digit(LxMathDigit),
     Other(char),
     Subscript,
     Superscript,
@@ -61,16 +64,8 @@ impl<'a> LxLexer<'a> {
                 }
             }
             n if n.is_numeric() => {
-                let numeric_str_slice = self.chars.next_numeric_str_slice();
-                match numeric_str_slice.parse::<u32>() {
-                    Ok(number) => Some(LxMathTokenData::Nat32(number)), // ad hoc
-                    Err(_) => {
-                        use husky_print_utils::p;
-
-                        p!(numeric_str_slice);
-                        todo!()
-                    }
-                }
+                self.chars.eat_char();
+                Some(LxMathTokenData::Digit(n.try_into().unwrap()))
             }
             c => {
                 self.chars.eat_char();
