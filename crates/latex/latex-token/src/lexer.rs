@@ -49,10 +49,11 @@ impl<'a> Iterator for LxLexer<'a> {
         let mut start = self.chars.current_position();
 
         let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
             match self.mode {
                 LxMode::Rose => {
                     if self.chars.eat_char_if(|c| c == '\n') {
-                        self.chars.eat_chars_while(|c| c == '\n');
+                        self.chars.eat_chars_while(|c| c == '\n' || c == ' ');
                         LxRoseTokenData::NewParagraph.into()
                     } else {
                         start = self.chars.current_position();
