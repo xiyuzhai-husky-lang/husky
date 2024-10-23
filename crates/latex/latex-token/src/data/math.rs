@@ -138,8 +138,8 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
             ]
@@ -150,8 +150,8 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
             ]
@@ -162,13 +162,13 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
             ]
@@ -179,13 +179,13 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
             ]
@@ -196,8 +196,8 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
                 LxTokenData::Math(
@@ -206,8 +206,8 @@ fn next_text_token_data_works() {
                     ),
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        0,
+                    LxMathTokenData::Digit(
+                        Zero,
                     ),
                 ),
             ]
@@ -324,24 +324,24 @@ fn next_text_token_data_works() {
     t(
         "x+1",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::Letter(
-                    LowerX,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Letter(
+                        LowerX,
+                    ),
                 ),
-            ),
-            LxTokenData::Math(
-                LxMathTokenData::Opr(
-                    Add,
+                LxTokenData::Math(
+                    LxMathTokenData::Opr(
+                        Add,
+                    ),
                 ),
-            ),
-            LxTokenData::Math(
-                LxMathTokenData::Nat32(
-                    1,
+                LxTokenData::Math(
+                    LxMathTokenData::Digit(
+                        One,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "x_1^a+1",
@@ -356,8 +356,8 @@ fn next_text_token_data_works() {
                     LxMathTokenData::Subscript,
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        1,
+                    LxMathTokenData::Digit(
+                        One,
                     ),
                 ),
                 LxTokenData::Math(
@@ -374,8 +374,8 @@ fn next_text_token_data_works() {
                     ),
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Nat32(
-                        1,
+                    LxMathTokenData::Digit(
+                        One,
                     ),
                 ),
             ]

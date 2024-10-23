@@ -1,3 +1,4 @@
+#![feature(step_trait)]
 pub mod data;
 pub mod idx;
 pub mod lexer;
