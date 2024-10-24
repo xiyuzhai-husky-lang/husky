@@ -4,99 +4,164 @@ use crate::{
 };
 use husky_text::Text;
 use latex_token::storage::LxTokenStorage;
-use std::iter::Peekable;
 
-pub struct LxAnnotationSparseBuilder<'a, I1, I2>
-where
-    I1: Iterator<Item = (&'a str, LxTokenAnnotation)>,
-    I2: Iterator<Item = ((&'a str, &'a str), LxSpaceAnnotation)>,
-{
-    token_storage: &'a LxTokenStorage,
-    text: Text<'a>,
-    token_annotation_iter: Peekable<I1>,
-    space_annotation_iter: Peekable<I2>,
-    token_annotations: Vec<LxTokenAnnotation>,
-    space_annotations: Vec<LxSpaceAnnotation>,
+pub(crate) fn collect_from_sparse_annotations<'a>(
+    raw_text: &'a str,
+    token_annotation_iter: impl Iterator<Item = (&'a str, LxTokenAnnotation)>,
+    space_annotation_iter: impl Iterator<Item = (&'a str, LxSpaceAnnotation)>,
+) -> LxAnnotations {
+    let token_annotations = collect_from_sparse_token_annotations(raw_text, token_annotation_iter);
+    let space_annotations = collect_from_sparse_space_annotations(raw_text, space_annotation_iter);
+
+    LxAnnotations::new(token_annotations, space_annotations)
 }
 
-impl<'a, I1, I2> LxAnnotationSparseBuilder<'a, I1, I2>
-where
-    I1: Iterator<Item = (&'a str, LxTokenAnnotation)>,
-    I2: Iterator<Item = ((&'a str, &'a str), LxSpaceAnnotation)>,
-{
-    pub fn new(
-        token_storage: &'a LxTokenStorage,
-        text: Text<'a>,
-        token_annotation_iter: I1,
-        space_annotation_iter: I2,
-    ) -> Self {
-        Self {
-            token_storage,
-            text,
-            token_annotation_iter: token_annotation_iter.peekable(),
-            space_annotation_iter: space_annotation_iter.peekable(),
-            token_annotations: Vec::new(),
-            space_annotations: Vec::new(),
-        }
-    }
+fn collect_from_sparse_token_annotations<'a>(
+    raw_text: &'a str,
+    token_annotation_iter: impl Iterator<Item = (&'a str, LxTokenAnnotation)>,
+) -> Vec<(usize, LxTokenAnnotation)> {
+    collect_from_sparse_annotations_aux(raw_text, token_annotation_iter)
 }
 
-impl<'a, I1, I2> LxAnnotationSparseBuilder<'a, I1, I2>
-where
-    I1: Iterator<Item = (&'a str, LxTokenAnnotation)>,
-    I2: Iterator<Item = ((&'a str, &'a str), LxSpaceAnnotation)>,
-{
-    pub(crate) fn collect_all_annotations(&mut self) {
-        self.collect_token_annotations();
-        self.collect_space_annotations();
-    }
+fn collect_from_sparse_space_annotations<'a>(
+    raw_text: &'a str,
+    space_annotation_iter: impl Iterator<Item = (&'a str, LxSpaceAnnotation)>,
+) -> Vec<(usize, LxSpaceAnnotation)> {
+    collect_from_sparse_annotations_aux(raw_text, space_annotation_iter)
+}
 
-    // for peek
-    fn collect_token_annotations(&mut self) {
-        for token_idx in self.token_storage.whole_token_idx_range() {
-            let annotation = {
-                let text_range = self.token_storage.token_text_range(token_idx);
-                let text = self.text.text_within(text_range);
-                match self.token_annotation_iter.peek() {
-                    Some(&(s, _)) => {
-                        if s == text {
-                            self.token_annotation_iter.next().unwrap().1
-                        } else {
-                            LxTokenAnnotation::Void
-                        }
-                    }
-                    None => LxTokenAnnotation::Void,
-                }
-            };
-            self.token_annotations.push(annotation);
-        }
+fn collect_from_sparse_annotations_aux<'a, A>(
+    raw_text: &'a str,
+    annotation_iter: impl Iterator<Item = (&'a str, A)>,
+) -> Vec<(usize, A)> {
+    let mut annotations = Vec::new();
+    let mut offset = 0;
+    for (s, annotation) in annotation_iter {
+        assert_eq!(&raw_text[offset..offset + s.len()], s);
+        offset += s.len();
+        annotations.push((offset, annotation));
     }
+    annotations
+}
 
-    fn collect_space_annotations(&mut self) {
-        for token_idx in self.token_storage.whole_token_idx_range_without_the_first() {
-            let prev_token_idx = token_idx - 1;
-            let annotation = {
-                let text_range = self.token_storage.token_text_range(token_idx);
-                let prev_text_range = self.token_storage.token_text_range(prev_token_idx);
-                let text = self.text.text_within(text_range);
-                let prev_text = self.text.text_within(prev_text_range);
-                match self.space_annotation_iter.peek() {
-                    Some(&((s1, s2), _)) => {
-                        if s1 == prev_text {
-                            assert_eq!(s2, text);
-                            self.space_annotation_iter.next().unwrap().1
-                        } else {
-                            LxSpaceAnnotation::Void
-                        }
-                    }
-                    None => LxSpaceAnnotation::Void,
-                }
-            };
-            self.space_annotations.push(annotation);
-        }
-    }
+#[cfg(test)]
+mod tests {
+    use crate::annotation::{
+        space::LxApplyAnnotation,
+        token::{LxIntegralAnnotation, LxVariableAnnotation},
+    };
 
-    pub(crate) fn finish(self) -> LxAnnotations {
-        LxAnnotations::new(self.token_annotations, self.space_annotations)
+    use super::*;
+    use husky_text::Text;
+
+    #[test]
+    fn test_collect_from_sparse_annotations_integral() {
+        let input = "\\int xdx";
+
+        let token_annotations = vec![
+            (
+                "\\int",
+                LxTokenAnnotation::Integral(
+                    LxIntegralAnnotation::SingleVariableIndefiniteIntegralOverReal,
+                ),
+            ),
+            (
+                " x",
+                LxTokenAnnotation::Variable(LxVariableAnnotation::Usage),
+            ),
+            ("d", LxTokenAnnotation::Differential),
+            (
+                "x",
+                LxTokenAnnotation::Variable(
+                    LxVariableAnnotation::SingleVariableIntegralVariableDecl,
+                ),
+            ),
+        ];
+
+        let space_annotations = vec![
+            (
+                "\\int",
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration),
+            ),
+            (
+                " x",
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
+            ),
+            (
+                "d",
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation),
+            ),
+        ];
+
+        let result = collect_from_sparse_annotations(
+            input,
+            token_annotations.iter().map(|&(s, a)| (s, a)),
+            space_annotations.iter().map(|&(s, a)| (s, a)),
+        );
+
+        assert_eq!(result.token_annotations().len(), 4);
+        assert_eq!(result.space_annotations().len(), 3);
+
+        // Check token annotations
+        assert_eq!(
+            result.token_annotations()[0],
+            (
+                4,
+                LxTokenAnnotation::Integral(
+                    LxIntegralAnnotation::SingleVariableIndefiniteIntegralOverReal
+                )
+            )
+        );
+        assert_eq!(
+            result.token_annotations()[1],
+            (6, LxTokenAnnotation::Variable(LxVariableAnnotation::Usage))
+        );
+        assert_eq!(
+            result.token_annotations()[2],
+            (7, LxTokenAnnotation::Differential)
+        );
+        assert_eq!(
+            result.token_annotations()[3],
+            (
+                8,
+                LxTokenAnnotation::Variable(
+                    LxVariableAnnotation::SingleVariableIntegralVariableDecl
+                )
+            )
+        );
+
+        // Check space annotations
+        assert_eq!(
+            result.space_annotations()[0],
+            (4, LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration))
+        );
+        assert_eq!(
+            result.space_annotations()[1],
+            (
+                6,
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul)
+            )
+        );
+        assert_eq!(
+            result.space_annotations()[2],
+            (
+                7,
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation)
+            )
+        );
+
+        // Verify that the strings sum up to the original text
+        let reconstructed_text: String = token_annotations.iter().map(|&(s, _)| s).collect();
+        assert_eq!(reconstructed_text, input);
+
+        let space_reconstructed_text: String = space_annotations.iter().map(|&(s, _)| s).collect();
+        assert!(input.starts_with(&space_reconstructed_text));
+
+        // Verify the order of annotations
+        let all_token_annotations: Vec<&str> = token_annotations.iter().map(|&(s, _)| s).collect();
+        assert_eq!(all_token_annotations, vec!["\\int", " x", "d", "x"]);
+
+        let all_space_annotations: Vec<&str> = space_annotations.iter().map(|&(s, _)| s).collect();
+        assert_eq!(all_space_annotations, vec!["\\int", " x", "d"]);
     }
 }
