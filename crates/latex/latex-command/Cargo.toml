@@ -16,7 +16,7 @@ keywords.workspace = true
 salsa.workspace = true
 # kernel
 husky-coword.workspace = true
-# tex
+# latex
 latex-prelude.workspace = true
 
 [lints]

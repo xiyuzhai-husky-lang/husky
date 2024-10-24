@@ -1,6 +1,6 @@
 use crate::{
     annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
-    annotations::Annotations,
+    annotations::LxAnnotations,
 };
 use husky_text::Text;
 use latex_token::storage::LxTokenStorage;
@@ -96,7 +96,7 @@ where
         }
     }
 
-    pub(crate) fn finish(self) -> Annotations {
-        Annotations::new(self.token_annotations, self.space_annotations)
+    pub(crate) fn finish(self) -> LxAnnotations {
+        LxAnnotations::new(self.token_annotations, self.space_annotations)
     }
 }

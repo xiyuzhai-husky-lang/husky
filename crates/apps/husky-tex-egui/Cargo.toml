@@ -14,7 +14,7 @@ keywords.workspace = true
 [dependencies]
 eframe.workspace = true
 egui.workspace = true
-# tex
+# latex
 latex-ast = { workspace = true, features = ["egui"] }
 
 [lints]

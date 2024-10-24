@@ -315,6 +315,7 @@ husky-ki = { path = "crates/ki/husky-ki" }
 husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 # latex
+latex-annotation = { path = "crates/latex/latex-annotation" }
 latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
