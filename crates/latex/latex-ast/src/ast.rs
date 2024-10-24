@@ -1,9 +1,7 @@
-mod code;
 pub mod math;
 pub mod rose;
-pub mod tree;
 
-use self::{code::LxCodeAstData, math::LxMathAstData, rose::LxRoseAstData, tree::LxTreeAstData};
+use self::{math::LxMathAstData, rose::LxRoseAstData};
 use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
@@ -17,17 +15,15 @@ use latex_token::data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenDat
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxAstData {
-    Code(LxCodeAstData),
     Math(LxMathAstData),
     Rose(LxRoseAstData),
-    Tree(LxTreeAstData),
 }
 
 pub type LxAstArena = Arena<LxAstData>;
 pub type LxAstIdx = ArenaIdx<LxAstData>;
 pub type LxAstIdxRange = ArenaIdxRange<LxAstData>;
 
-pub fn parse_tex_input_into_asts<'a>(
+pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
     input: &'a str,
     mode: LxMode,
@@ -142,7 +138,7 @@ fn parse_tex_input_into_asts_works() {
     fn t(input: &str, mode: LxMode, expected: Expect) {
         let db = &DB::default();
         let mut arena = LxAstArena::default();
-        let asts = parse_tex_input_into_asts(db, input, mode, &mut arena);
+        let asts = parse_latex_input_into_asts(db, input, mode, &mut arena);
         expected.assert_debug_eq(&((arena, asts).debug(db)));
     }
     t(
