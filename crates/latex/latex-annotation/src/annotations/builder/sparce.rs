@@ -95,8 +95,8 @@ mod tests {
 
         let result = collect_from_sparse_annotations(
             input,
-            token_annotations.iter().map(|&(s, a)| (s, a)),
-            space_annotations.iter().map(|&(s, a)| (s, a)),
+            token_annotations.iter().copied(),
+            space_annotations.iter().copied(),
         );
 
         assert_eq!(result.token_annotations().len(), 4);
