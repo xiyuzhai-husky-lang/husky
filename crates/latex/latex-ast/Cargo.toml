@@ -20,11 +20,12 @@ salsa.workspace = true
 time-capsule.workspace = true
 # kernel
 husky-coword.workspace = true
-# tex
+# latex
 latex-math-letter.workspace = true
 latex-math-opr.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
+latex-annotation.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

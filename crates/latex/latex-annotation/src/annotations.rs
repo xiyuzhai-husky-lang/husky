@@ -6,12 +6,12 @@ use husky_text::Text;
 use latex_token::{idx::LxTokenIdx, storage::LxTokenStorage};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct Annotations {
+pub struct LxAnnotations {
     token_annotations: Vec<LxTokenAnnotation>,
     space_annotations: Vec<LxSpaceAnnotation>,
 }
 
-impl Annotations {
+impl LxAnnotations {
     pub fn new(
         token_annotations: Vec<LxTokenAnnotation>,
         space_annotations: Vec<LxSpaceAnnotation>,

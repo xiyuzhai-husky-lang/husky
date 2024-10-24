@@ -42,7 +42,7 @@ impl<'a> LxLexer<'a> {
 }
 
 impl<'a> Iterator for LxLexer<'a> {
-    type Item = (LxTokenIdx, LxTokenData);
+    type Item = (LxTokenIdx, TextRange, LxTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.chars.eat_chars_while(|c| c == ' ');
@@ -76,6 +76,6 @@ impl<'a> Iterator for LxLexer<'a> {
             start,
             end: self.chars.current_position(),
         };
-        Some((self.storage.alloc(range, token_data), token_data))
+        Some((self.storage.alloc(range, token_data), range, token_data))
     }
 }
