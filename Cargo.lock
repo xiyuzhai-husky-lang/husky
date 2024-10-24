@@ -8030,6 +8030,7 @@ dependencies = [
 name = "latex-annotation"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "husky-text",
  "latex-token",
 ]

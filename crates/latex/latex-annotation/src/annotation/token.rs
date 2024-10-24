@@ -1,12 +1,19 @@
-#[derive(Debug, PartialEq, Eq)]
+#[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxTokenAnnotation {
     Void,
     Integral(LxIntegralAnnotation),
     Variable(LxVariableAnnotation),
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum LxIntegralAnnotation {}
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum LxIntegralAnnotation {
+    SingleVariableDefiniteIntegralOverReal,
+    SingleVariableIndefiniteIntegralOverReal,
+}
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum LxVariableAnnotation {}
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum LxVariableAnnotation {
+    Usage,
+    SingleVariableIntegralVariableDecl,
+}
