@@ -11,6 +11,7 @@ pub enum LxMathAstData {
     Letter(LxMathLetter),
     Opr(LxMathOpr),
     Digit(LxMathDigit),
+    /// not obtained through parsing, but through ui
     TextEdit {
         buffer: String,
     },
