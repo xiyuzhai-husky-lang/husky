@@ -56,7 +56,6 @@ impl<'db> VdHirExprBuilder<'db> {
                 literal,
                 ref dispatch,
             } => VdHirExprData::Literal(literal),
-            VdSemExprData::Command { ref dispatch } => todo!(),
             VdSemExprData::Notation => todo!(),
             VdSemExprData::Binary {
                 lopd,

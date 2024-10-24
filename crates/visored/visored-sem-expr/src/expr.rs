@@ -1,6 +1,5 @@
 pub mod attach;
 pub mod binary;
-pub mod command;
 pub mod literal;
 pub mod notation;
 pub mod prefix;
@@ -10,7 +9,7 @@ pub mod uniadic_chain;
 pub mod variadic_array;
 pub mod variadic_chain;
 
-use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch, command::VdSemCommandDispatch};
+use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use literal::VdSemLiteralDispatch;
 use visored_opr::opr::binary::VdBinaryOpr;
@@ -22,9 +21,6 @@ pub enum VdSemExprData {
     Literal {
         literal: VdZfsLiteral,
         dispatch: VdSemLiteralDispatch,
-    },
-    Command {
-        dispatch: VdSemCommandDispatch,
     },
     Notation,
     Binary {
