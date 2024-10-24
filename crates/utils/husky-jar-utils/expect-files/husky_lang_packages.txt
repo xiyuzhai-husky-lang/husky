@@ -4121,6 +4121,7 @@
         name: "latex-annotation",
         relative_path: "crates/latex/latex-annotation",
         dependencies: [
+            "enum-class",
             "husky-text",
             "latex-token",
         ],
