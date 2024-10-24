@@ -30,7 +30,7 @@ pub enum LxMathDelimiter {
     /// `[`, `]`
     Box,
     /// `\{`, `\}`
-    Set,
+    EscapedCurl,
 }
 
 #[salsa::derive_debug_with_db]
@@ -54,8 +54,12 @@ impl<'a> LxLexer<'a> {
                         c => {
                             self.chars.eat_char();
                             match c {
-                                '{' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Set)),
-                                '}' => Some(LxMathTokenData::RightDelimiter(LxMathDelimiter::Set)),
+                                '{' => Some(LxMathTokenData::LeftDelimiter(
+                                    LxMathDelimiter::EscapedCurl,
+                                )),
+                                '}' => Some(LxMathTokenData::RightDelimiter(
+                                    LxMathDelimiter::EscapedCurl,
+                                )),
                                 _ => todo!(),
                             }
                         }
@@ -288,26 +292,26 @@ fn next_text_token_data_works() {
     t(
         "\\{",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::LeftDelimiter(
-                    Set,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::LeftDelimiter(
+                        EscapedCurl,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "\\}",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::RightDelimiter(
-                    Set,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::RightDelimiter(
+                        EscapedCurl,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "+",
@@ -376,6 +380,83 @@ fn next_text_token_data_works() {
                 LxTokenData::Math(
                     LxMathTokenData::Digit(
                         One,
+                    ),
+                ),
+            ]
+        "#]],
+    );
+    t(
+        "\\int",
+        &expect![[r#"
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Command(
+                        LxCommandPath::Coword(
+                            Coword(
+                                "int",
+                            ),
+                        ),
+                    ),
+                ),
+            ]
+        "#]],
+    );
+    t(
+        "\\int x^3\\sin^3xdx",
+        &expect![[r#"
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Command(
+                        LxCommandPath::Coword(
+                            Coword(
+                                "int",
+                            ),
+                        ),
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Letter(
+                        LowerX,
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Superscript,
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Digit(
+                        Three,
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Command(
+                        LxCommandPath::Coword(
+                            Coword(
+                                "sin",
+                            ),
+                        ),
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Superscript,
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Digit(
+                        Three,
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Letter(
+                        LowerX,
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Letter(
+                        LowerD,
+                    ),
+                ),
+                LxTokenData::Math(
+                    LxMathTokenData::Letter(
+                        LowerX,
                     ),
                 ),
             ]

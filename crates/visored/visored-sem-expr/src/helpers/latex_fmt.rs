@@ -88,7 +88,6 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         let db = self.db;
         match self.expr_arena[expr_idx] {
-            VdSemExprData::Command { ref dispatch } => todo!(),
             VdSemExprData::Literal {
                 literal,
                 ref dispatch,
