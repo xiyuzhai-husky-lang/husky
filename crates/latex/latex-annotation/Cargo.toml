@@ -12,6 +12,8 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+enum-class.workspace = true
 # lex
 husky-text.workspace = true
 # latex
