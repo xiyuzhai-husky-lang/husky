@@ -6,6 +6,7 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use latex_annotation::annotations::LxAnnotations;
 use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 use latex_prelude::mode::LxMode;
@@ -26,10 +27,11 @@ pub type LxAstIdxRange = ArenaIdxRange<LxAstData>;
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
     input: &'a str,
+    annotations: &'a LxAnnotations,
     mode: LxMode,
     arena: &'a mut LxAstArena,
 ) -> LxAstIdxRange {
-    let mut parser = LxAstParser::new(db, input, mode, arena);
+    let mut parser = LxAstParser::new(db, input, annotations, mode, arena);
     let asts = parser.parse_asts();
     asts
 }
@@ -47,7 +49,7 @@ impl<'a> LxAstParser<'a> {
         let mut ast = self.parse_atomic_ast()?;
         match self.peek_token()? {
             LxTokenData::Math(LxMathTokenData::Subscript | LxMathTokenData::Superscript) => {
-                let (idx, LxTokenData::Math(token)) = self.next_token().unwrap() else {
+                let (idx, LxTokenData::Math(token), _, _) = self.next_token().unwrap() else {
                     unreachable!()
                 };
                 ast = match ast {
@@ -123,7 +125,7 @@ impl<'a> LxAstParser<'a> {
                 LxRoseTokenData::NewParagraph => todo!(),
             },
         }
-        let (idx, token) = self.next_token().unwrap();
+        let (idx, token, token_annotation, space_annotation) = self.next_token().unwrap();
         Some(match token {
             LxTokenData::Math(token) => self.parse_atomic_math_ast(idx, token).into(),
             LxTokenData::Rose(token) => self.parse_atomic_text_ast(idx, token).into(),
@@ -138,7 +140,7 @@ fn parse_tex_input_into_asts_works() {
     fn t(input: &str, mode: LxMode, expected: Expect) {
         let db = &DB::default();
         let mut arena = LxAstArena::default();
-        let asts = parse_latex_input_into_asts(db, input, mode, &mut arena);
+        let asts = parse_latex_input_into_asts(db, input, todo!(), mode, &mut arena);
         expected.assert_debug_eq(&((arena, asts).debug(db)));
     }
     t(

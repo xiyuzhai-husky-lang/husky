@@ -8044,6 +8044,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "idx-arena",
+ "latex-annotation",
  "latex-math-letter",
  "latex-math-opr",
  "latex-prelude",

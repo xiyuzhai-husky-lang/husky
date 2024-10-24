@@ -20,7 +20,7 @@ shifted-unsigned-int.workspace = true
 husky-coword.workspace = true
 # protocols
 husky-text-protocol.workspace = true
-# tex
+# latex
 latex-command.workspace = true
 latex-math-letter.workspace = true
 latex-math-opr.workspace = true
