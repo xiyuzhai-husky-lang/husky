@@ -11,6 +11,7 @@ pub mod variadic_chain;
 
 use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use latex_prelude::script::LxScriptKind;
 use literal::VdSemLiteralDispatch;
 use visored_opr::opr::binary::VdBinaryOpr;
 use visored_zfs_ty::term::literal::VdZfsLiteral;
@@ -42,7 +43,7 @@ pub enum VdSemExprData {
     Attach {
         base: VdSemExprIdx,
         // INVARIANCE: at least one of these are some
-        scripts: Vec<VdSemExprIdx>,
+        scripts: Vec<(LxScriptKind, VdSemExprIdx)>,
         dispatch: AttachDispatch,
     },
     UniadicChain,
