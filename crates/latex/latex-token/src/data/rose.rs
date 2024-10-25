@@ -65,7 +65,7 @@ fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
         let lexer = LxLexer::new(db, input, LxMode::Rose);
-        let tokens: Vec<_> = lexer.map(|(_, _, token_data)| token_data).collect();
+        let tokens: Vec<_> = lexer.map(|(_, _, _, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
     t(

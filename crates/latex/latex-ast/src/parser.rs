@@ -1,7 +1,7 @@
 use crate::ast::{LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange};
 use latex_annotation::{
     annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
-    annotations::LxAnnotations,
+    annotations::{walker::LxAnnotationsWalker, LxAnnotations},
 };
 use latex_prelude::mode::LxMode;
 use latex_token::{data::LxTokenData, idx::LxTokenIdx, lexer::LxLexer};
@@ -10,7 +10,7 @@ use std::iter::Peekable;
 pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
     lexer: Peekable<LxLexer<'a>>,
-    annotations: &'a LxAnnotations,
+    annotations_walker: LxAnnotationsWalker<'a>,
     arena: &'a mut LxAstArena,
 }
 
@@ -26,7 +26,7 @@ impl<'a> LxAstParser<'a> {
         Self {
             db,
             lexer: LxLexer::new(db, input, mode).peekable(),
-            annotations,
+            annotations_walker: annotations.walker(),
             arena,
         }
     }
@@ -43,7 +43,7 @@ impl<'a> LxAstParser<'a> {
 /// # actions
 impl<'a> LxAstParser<'a> {
     pub(crate) fn peek_token(&mut self) -> Option<LxTokenData> {
-        self.lexer.peek().map(|&(_, _, data)| data)
+        self.lexer.peek().map(|&(_, _, _, data)| data)
     }
 
     pub(crate) fn next_token(
@@ -54,9 +54,8 @@ impl<'a> LxAstParser<'a> {
         LxTokenAnnotation,
         LxSpaceAnnotation,
     )> {
-        let (token_idx, range, token_data) = self.lexer.next()?;
-        let token_annotation = todo!();
-        let space_annotation = todo!();
+        let (token_idx, (start, end), _, token_data) = self.lexer.next()?;
+        let (token_annotation, space_annotation) = self.annotations_walker.next(start, end);
         Some((token_idx, token_data, token_annotation, space_annotation))
     }
 }

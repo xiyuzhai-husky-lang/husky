@@ -102,7 +102,7 @@ fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
         let tokenizer = LxLexer::new(db, input, LxMode::Math);
-        let tokens: Vec<_> = tokenizer.map(|(_, _, token_data)| token_data).collect();
+        let tokens: Vec<_> = tokenizer.map(|(_, _, _, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
     t(
