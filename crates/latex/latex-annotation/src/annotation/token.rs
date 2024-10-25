@@ -1,6 +1,7 @@
 #[enum_class::from_variants]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
 pub enum LxTokenAnnotation {
+    #[default]
     Void,
     Integral(LxIntegralAnnotation),
     Variable(LxVariableAnnotation),

@@ -16,8 +16,8 @@ keywords.workspace = true
 enum-class.workspace = true
 # lex
 husky-text.workspace = true
-# latex
-latex-token.workspace = true
+# utils
+husky-print-utils.workspace = true
 
 [lints]
 workspace = true
