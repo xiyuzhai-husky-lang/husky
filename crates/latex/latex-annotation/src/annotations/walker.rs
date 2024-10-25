@@ -26,24 +26,26 @@ impl<'a> LxAnnotationsWalker<'a> {
     #[track_caller]
     pub fn next(&mut self, start: usize, end: usize) -> (LxTokenAnnotation, LxSpaceAnnotation) {
         (
-            self.next_token_annotation(end),
-            self.next_space_annotation(start),
+            self.next_token_annotation(start, end),
+            self.next_space_annotation(start, end),
         )
     }
 
     #[track_caller]
-    fn next_token_annotation(&mut self, offset: usize) -> LxTokenAnnotation {
+    fn next_token_annotation(&mut self, start: usize, end: usize) -> LxTokenAnnotation {
         next_annotation_aux(
-            offset,
+            start,
+            end,
             self.token_annotations,
             &mut self.next_token_annotation_index,
         )
     }
 
     #[track_caller]
-    fn next_space_annotation(&mut self, offset: usize) -> LxSpaceAnnotation {
+    fn next_space_annotation(&mut self, start: usize, end: usize) -> LxSpaceAnnotation {
         next_annotation_aux(
-            offset,
+            start,
+            end,
             self.space_annotations,
             &mut self.next_space_annotation_index,
         )
@@ -52,17 +54,19 @@ impl<'a> LxAnnotationsWalker<'a> {
 
 #[track_caller]
 fn next_annotation_aux<A: Copy + Default>(
-    offset: usize,
+    start: usize,
+    end: usize,
     token_annotations: &[LxAnnotationEntry<A>],
     next_token_annotation_index: &mut usize,
 ) -> A {
     if *next_token_annotation_index >= token_annotations.len() {
         return A::default();
     }
-    let offset1 = token_annotations[*next_token_annotation_index].start;
-    if offset1 > offset {
+    let start1 = token_annotations[*next_token_annotation_index].start;
+    if start1 > start {
         return A::default();
-    } else if offset1 == offset {
+    } else if start1 == start {
+        assert_eq!(end, token_annotations[*next_token_annotation_index].end);
         let result = token_annotations[*next_token_annotation_index].annotation;
         *next_token_annotation_index += 1;
         result
