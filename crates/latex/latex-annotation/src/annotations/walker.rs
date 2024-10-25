@@ -149,7 +149,7 @@ mod tests {
             )
         );
 
-        // Test at offset 6 ("d")
+        // Test at offset 6 ("d" after "x")
         assert_eq!(
             walker.next(6, 7),
             (
