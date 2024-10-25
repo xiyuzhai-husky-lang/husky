@@ -12,9 +12,8 @@ use latex_annotation::{
 };
 use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
-use latex_prelude::mode::LxMode;
+use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData};
-use math::LxScriptKind;
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]

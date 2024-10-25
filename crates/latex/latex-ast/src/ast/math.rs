@@ -28,17 +28,6 @@ pub enum LxMathAstData {
     },
 }
 
-#[salsa::derive_debug_with_db]
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LxScriptKind {
-    Subscript,
-    Superscript,
-    Presubscript,
-    Presuperscript,
-    Overscript,
-    Underscript,
-}
-
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_math_ast(
         &mut self,
