@@ -14,10 +14,12 @@ keywords.workspace = true
 [dependencies]
 # abstractions
 enum-class.workspace = true
-# lex
-husky-text.workspace = true
-# utils
-husky-print-utils.workspace = true
+
+[dev-dependencies]
+latex-annotation = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true
+
+[features]
+test_helpers = []

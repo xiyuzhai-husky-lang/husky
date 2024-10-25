@@ -2,7 +2,6 @@ use crate::{
     annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
     annotations::LxAnnotations,
 };
-use husky_text::Text;
 
 pub(crate) fn collect_from_sparse_annotations<'a>(
     raw_text: &'a str,
@@ -51,7 +50,6 @@ mod tests {
     };
 
     use super::*;
-    use husky_text::Text;
 
     #[test]
     fn test_collect_from_sparse_annotations_integral() {

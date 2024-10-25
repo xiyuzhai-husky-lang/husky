@@ -8031,8 +8031,7 @@ name = "latex-annotation"
 version = "0.1.0"
 dependencies = [
  "enum-class",
- "husky-print-utils",
- "husky-text",
+ "latex-annotation",
 ]
 
 [[package]]

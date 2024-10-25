@@ -3,7 +3,6 @@ mod walker;
 
 use crate::annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation};
 use builder::sparce::collect_from_sparse_annotations;
-use husky_text::Text;
 use walker::LxAnnotationsWalker;
 
 #[derive(Debug, PartialEq, Eq)]
