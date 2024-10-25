@@ -129,7 +129,7 @@ mod tests {
         let annotations = setup_test_data();
         let mut walker = annotations.walker();
 
-        // Test at offset 0
+        // Test at offset 0 ("\\int")
         assert_eq!(
             walker.next(0, 4),
             (
@@ -140,7 +140,7 @@ mod tests {
             )
         );
 
-        // Test at offset 4 ("x" after "\\int")
+        // Test at offset 5 ("x" after space)
         assert_eq!(
             walker.next(5, 6),
             (
@@ -149,7 +149,7 @@ mod tests {
             )
         );
 
-        // Test at offset 6 (after " x")
+        // Test at offset 6 ("d")
         assert_eq!(
             walker.next(6, 7),
             (
@@ -158,7 +158,7 @@ mod tests {
             )
         );
 
-        // Test at offset 7 (after "d")
+        // Test at offset 7 ("x" after "d")
         assert_eq!(
             walker.next(7, 8),
             (
@@ -169,7 +169,7 @@ mod tests {
             )
         );
 
-        // Test at offset 8 (beyond all annotations)
+        // Test at offset 8 (end of input)
         assert_eq!(
             walker.next(8, 9),
             (LxTokenAnnotation::default(), LxSpaceAnnotation::default())
