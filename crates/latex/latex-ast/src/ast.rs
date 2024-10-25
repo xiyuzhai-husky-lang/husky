@@ -6,7 +6,10 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use latex_annotation::annotations::LxAnnotations;
+use latex_annotation::{
+    annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
+    annotations::LxAnnotations,
+};
 use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 use latex_prelude::mode::LxMode;
@@ -134,18 +137,26 @@ impl<'a> LxAstParser<'a> {
 }
 
 #[test]
-#[ignore]
 fn parse_tex_input_into_asts_works() {
     use expect_test::Expect;
 
-    fn t(input: &str, mode: LxMode, expected: Expect) {
+    fn t(
+        input: &str,
+        token_annotations: Vec<(&str, LxTokenAnnotation)>,
+        space_annotations: Vec<(&str, LxSpaceAnnotation)>,
+        mode: LxMode,
+        expected: Expect,
+    ) {
         let db = &DB::default();
         let mut arena = LxAstArena::default();
-        let asts = parse_latex_input_into_asts(db, input, todo!(), mode, &mut arena);
+        let annotations = &LxAnnotations::from_sparse(input, token_annotations, space_annotations);
+        let asts = parse_latex_input_into_asts(db, input, annotations, mode, &mut arena);
         expected.assert_debug_eq(&((arena, asts).debug(db)));
     }
     t(
         "",
+        vec![],
+        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -160,6 +171,8 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x",
+        vec![],
+        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -174,6 +187,8 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x+1",
+        vec![],
+        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -199,6 +214,8 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x^2",
+        vec![],
+        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -233,6 +250,8 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x_2",
+        vec![],
+        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -267,6 +286,8 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x^{i+2}",
+        vec![],
+        vec![],
         LxMode::Math,
         expect![[r#"
             (

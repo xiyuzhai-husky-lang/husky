@@ -1,5 +1,5 @@
 mod builder;
-mod walker;
+pub mod walker;
 
 use crate::annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation};
 use builder::sparce::collect_from_sparse_annotations;
@@ -24,10 +24,14 @@ impl LxAnnotations {
 
     pub fn from_sparse<'a>(
         input: &'a str,
-        token_annotation_iter: impl Iterator<Item = (&'a str, LxTokenAnnotation)>,
-        space_annotation_iter: impl Iterator<Item = (&'a str, LxSpaceAnnotation)>,
+        token_annotations: impl IntoIterator<Item = (&'a str, LxTokenAnnotation)>,
+        space_annotations: impl IntoIterator<Item = (&'a str, LxSpaceAnnotation)>,
     ) -> Self {
-        collect_from_sparse_annotations(input, token_annotation_iter, space_annotation_iter)
+        collect_from_sparse_annotations(
+            input,
+            token_annotations.into_iter(),
+            space_annotations.into_iter(),
+        )
     }
 }
 

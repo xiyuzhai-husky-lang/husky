@@ -42,11 +42,12 @@ impl<'a> LxLexer<'a> {
 }
 
 impl<'a> Iterator for LxLexer<'a> {
-    type Item = (LxTokenIdx, TextRange, LxTokenData);
+    type Item = (LxTokenIdx, (usize, usize), TextRange, LxTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.chars.eat_chars_while(|c| c == ' ');
-        let mut start = self.chars.current_position();
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
 
         let token_data = if self.chars.eat_char_if(|c| c == '\n') {
             self.chars.eat_chars_while(|c| c == ' ');
@@ -56,7 +57,8 @@ impl<'a> Iterator for LxLexer<'a> {
                         self.chars.eat_chars_while(|c| c == '\n' || c == ' ');
                         LxRoseTokenData::NewParagraph.into()
                     } else {
-                        start = self.chars.current_position();
+                        start_offset = self.chars.current_offset();
+                        start_position = self.chars.current_position();
                         self.next_token_data()?
                     }
                 }
@@ -64,7 +66,8 @@ impl<'a> Iterator for LxLexer<'a> {
                     if self.chars.eat_char_if(|c| c == '\n') {
                         LxMathTokenData::Error(LxMathTokenError::UnexpectedNewParagraph).into()
                     } else {
-                        start = self.chars.current_position();
+                        start_offset = self.chars.current_offset();
+                        start_position = self.chars.current_position();
                         self.next_token_data()?
                     }
                 }
@@ -72,10 +75,16 @@ impl<'a> Iterator for LxLexer<'a> {
         } else {
             self.next_token_data()?
         };
+        let end_offset = self.chars.current_offset();
         let range = TextRange {
-            start,
+            start: start_position,
             end: self.chars.current_position(),
         };
-        Some((self.storage.alloc(range, token_data), range, token_data))
+        Some((
+            self.storage.alloc(range, token_data),
+            (start_offset, end_offset),
+            range,
+            token_data,
+        ))
     }
 }
