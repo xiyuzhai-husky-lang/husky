@@ -14,6 +14,7 @@ use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 use latex_prelude::mode::LxMode;
 use latex_token::data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData};
+use math::LxScriptKind;
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
@@ -51,51 +52,38 @@ impl<'a> LxAstParser<'a> {
     fn parse_ast(&mut self) -> Option<LxAstData> {
         let mut ast = self.parse_atomic_ast()?;
         match self.peek_token()? {
+            // TODO include more cases, like \limits
             LxTokenData::Math(LxMathTokenData::Subscript | LxMathTokenData::Superscript) => {
                 let (idx, LxTokenData::Math(token), _, _) = self.next_token().unwrap() else {
                     unreachable!()
                 };
                 ast = match ast {
-                    LxAstData::Math(LxMathAstData::Attach {
-                        base,
-                        superscript,
-                        subscript,
-                    }) => ast,
+                    LxAstData::Math(LxMathAstData::Attach { .. }) => ast,
                     base => {
                         let base = self.alloc_ast(base.into());
                         LxMathAstData::Attach {
                             base,
-                            superscript: None,
-                            subscript: None,
+                            scripts: Default::default(),
                         }
                         .into()
                     }
                 };
                 let LxAstData::Math(LxMathAstData::Attach {
-                    superscript,
-                    subscript,
-                    ..
-                }) = &mut ast
+                    ref mut scripts, ..
+                }) = ast
                 else {
                     unreachable!()
                 };
-                match token {
-                    LxMathTokenData::Subscript => match self.parse_atomic_ast() {
-                        Some(new_subscript) => match subscript {
-                            Some(_) => todo!("err: expected subscript"),
-                            None => *subscript = Some(self.alloc_ast(new_subscript)),
-                        },
-                        None => todo!("err: expected subscript"),
-                    },
-                    LxMathTokenData::Superscript => match self.parse_atomic_ast() {
-                        Some(new_superscript) => match superscript {
-                            Some(_) => todo!(),
-                            None => *superscript = Some(self.alloc_ast(new_superscript)),
-                        },
-                        None => todo!("err: expected superscript"),
-                    },
-                    _ => unreachable!(),
-                }
+                let script_kind = match token {
+                    LxMathTokenData::Subscript => LxScriptKind::Subscript,
+                    LxMathTokenData::Superscript => LxScriptKind::Superscript,
+                    _ => todo!(),
+                };
+                let ast = match self.parse_atomic_ast() {
+                    Some(new_subscript) => self.alloc_ast(new_subscript),
+                    None => todo!("err: expected subscript"),
+                };
+                scripts.push((script_kind, ast));
             }
             _ => (),
         };
@@ -234,10 +222,12 @@ fn parse_tex_input_into_asts_works() {
                         LxAstData::Math(
                             LxMathAstData::Attach {
                                 base: 0,
-                                superscript: Some(
-                                    1,
-                                ),
-                                subscript: None,
+                                scripts: [
+                                    (
+                                        LxScriptKind::Superscript,
+                                        1,
+                                    ),
+                                ],
                             },
                         ),
                     ],
@@ -270,10 +260,12 @@ fn parse_tex_input_into_asts_works() {
                         LxAstData::Math(
                             LxMathAstData::Attach {
                                 base: 0,
-                                superscript: None,
-                                subscript: Some(
-                                    1,
-                                ),
+                                scripts: [
+                                    (
+                                        LxScriptKind::Subscript,
+                                        1,
+                                    ),
+                                ],
                             },
                         ),
                     ],
@@ -331,10 +323,12 @@ fn parse_tex_input_into_asts_works() {
                         LxAstData::Math(
                             LxMathAstData::Attach {
                                 base: 0,
-                                superscript: Some(
-                                    4,
-                                ),
-                                subscript: None,
+                                scripts: [
+                                    (
+                                        LxScriptKind::Superscript,
+                                        4,
+                                    ),
+                                ],
                             },
                         ),
                     ],
