@@ -16,6 +16,8 @@ keywords.workspace = true
 enum-class.workspace = true
 
 [dev-dependencies]
+expect-test.workspace = true
+# latex
 latex-annotation = { workspace = true, features = ["test_helpers"] }
 
 [lints]

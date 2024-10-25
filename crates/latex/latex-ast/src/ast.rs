@@ -129,8 +129,8 @@ fn parse_tex_input_into_asts_works() {
 
     fn t(
         input: &str,
-        token_annotations: Vec<(&str, LxTokenAnnotation)>,
-        space_annotations: Vec<(&str, LxSpaceAnnotation)>,
+        token_annotations: Vec<((&str, &str), LxTokenAnnotation)>,
+        space_annotations: Vec<((&str, &str), LxSpaceAnnotation)>,
         mode: LxMode,
         expected: Expect,
     ) {

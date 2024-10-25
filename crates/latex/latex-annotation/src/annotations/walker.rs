@@ -1,16 +1,17 @@
+use super::{LxAnnotationEntry, LxSpaceAnnotationEntry, LxTokenAnnotationEntry};
 use crate::annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation};
 
 pub struct LxAnnotationsWalker<'a> {
-    token_annotations: &'a [(usize, LxTokenAnnotation)],
-    space_annotations: &'a [(usize, LxSpaceAnnotation)],
+    token_annotations: &'a [LxTokenAnnotationEntry],
+    space_annotations: &'a [LxSpaceAnnotationEntry],
     next_token_annotation_index: usize,
     next_space_annotation_index: usize,
 }
 
 impl<'a> LxAnnotationsWalker<'a> {
     pub fn new(
-        token_annotations: &'a [(usize, LxTokenAnnotation)],
-        space_annotations: &'a [(usize, LxSpaceAnnotation)],
+        token_annotations: &'a [LxTokenAnnotationEntry],
+        space_annotations: &'a [LxSpaceAnnotationEntry],
     ) -> Self {
         Self {
             token_annotations,
@@ -52,17 +53,17 @@ impl<'a> LxAnnotationsWalker<'a> {
 #[track_caller]
 fn next_annotation_aux<A: Copy + Default>(
     offset: usize,
-    token_annotations: &[(usize, A)],
+    token_annotations: &[LxAnnotationEntry<A>],
     next_token_annotation_index: &mut usize,
 ) -> A {
     if *next_token_annotation_index >= token_annotations.len() {
         return A::default();
     }
-    let offset1 = token_annotations[*next_token_annotation_index].0;
+    let offset1 = token_annotations[*next_token_annotation_index].start;
     if offset1 > offset {
         return A::default();
     } else if offset1 == offset {
-        let result = token_annotations[*next_token_annotation_index].1;
+        let result = token_annotations[*next_token_annotation_index].annotation;
         *next_token_annotation_index += 1;
         result
     } else {
@@ -84,18 +85,18 @@ mod tests {
 
         let token_annotations = vec![
             (
-                "\\int",
+                ("", "\\int"),
                 LxTokenAnnotation::Integral(
                     LxIntegralAnnotation::SingleVariableIndefiniteIntegralOverReal,
                 ),
             ),
             (
-                " x",
+                ("\\int ", "x"),
                 LxTokenAnnotation::Variable(LxVariableAnnotation::Usage),
             ),
-            ("d", LxTokenAnnotation::Differential),
+            (("\\int x", "d"), LxTokenAnnotation::Differential),
             (
-                "x",
+                ("\\int xd", "x"),
                 LxTokenAnnotation::Variable(
                     LxVariableAnnotation::SingleVariableIntegralVariableDecl,
                 ),
@@ -104,15 +105,15 @@ mod tests {
 
         let space_annotations = vec![
             (
-                "\\int ",
+                ("", "\\int "),
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration),
             ),
             (
-                "x",
+                ("\\int ", "x"),
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
             ),
             (
-                "d",
+                ("\\int x", "d"),
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation),
             ),
         ];
