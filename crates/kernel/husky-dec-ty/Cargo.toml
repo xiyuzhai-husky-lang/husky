@@ -43,7 +43,7 @@ husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-corgi-config-ast.workspace = true
-husky-dec-ty = { path = ".", features = ["test_helpers"] }
+husky-dec-ty = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

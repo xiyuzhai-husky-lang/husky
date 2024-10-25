@@ -59,7 +59,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude", features = [
 ] }
 # syntax
 husky-ast = { workspace = true, features = ["test_helpers"] }
-husky-entity-tree = { path = ".", features = ["test_helpers"] }
+husky-entity-tree = { workspace = true, features = ["test_helpers"] }
 # toml
 husky-corgi-config-ast.workspace = true
 husky-manifest-ast.workspace = true

@@ -67,7 +67,7 @@ husky-manifest-ast.workspace = true
 husky-entity-tree = { workspace = true, features = ["test_helpers"] }
 husky-corgi-config-ast.workspace = true
 # semantics
-husky-sem-expr = { path = ".", features = ["test_helpers"] }
+husky-sem-expr = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

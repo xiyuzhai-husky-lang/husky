@@ -18,7 +18,7 @@ husky-visual-protocol = { workspace = true }
 [dev-dependencies]
 expect-test.workspace = true
 # abstractions
-ui = { path = ".", features = ["egui", "test_helpers"] }
+ui = { workspace = true, features = ["egui", "test_helpers"] }
 
 [features]
 default = []
