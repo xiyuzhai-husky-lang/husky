@@ -17,8 +17,7 @@ pub enum LxMathAstData {
     },
     Attach {
         base: LxAstIdx,
-        superscript: Option<LxAstIdx>,
-        subscript: Option<LxAstIdx>,
+        scripts: Vec<(LxScriptKind, LxAstIdx)>,
     },
     Delimited {
         left_delimiter_token_idx: LxTokenIdx,
@@ -27,6 +26,17 @@ pub enum LxMathAstData {
         right_delimiter_token_idx: LxTokenIdx,
         right_delimiter: LxMathDelimiter,
     },
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum LxScriptKind {
+    Subscript,
+    Superscript,
+    Presubscript,
+    Presuperscript,
+    Overscript,
+    Underscript,
 }
 
 impl<'a> LxAstParser<'a> {

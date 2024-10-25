@@ -42,12 +42,7 @@ pub enum VdSemExprData {
     Attach {
         base: VdSemExprIdx,
         // INVARIANCE: at least one of these are some
-        top: Option<VdSemExprIdx>,
-        bottom: Option<VdSemExprIdx>,
-        top_left: Option<VdSemExprIdx>,
-        bottom_left: Option<VdSemExprIdx>,
-        top_right: Option<VdSemExprIdx>,
-        bottom_right: Option<VdSemExprIdx>,
+        scripts: Vec<VdSemExprIdx>,
         dispatch: AttachDispatch,
     },
     UniadicChain,
