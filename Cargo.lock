@@ -8081,6 +8081,9 @@ version = "0.1.0"
 [[package]]
 name = "latex-prelude"
 version = "0.1.0"
+dependencies = [
+ "salsa",
+]
 
 [[package]]
 name = "latex-syn-expr"
@@ -12307,6 +12310,9 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "idx-arena",
+ "latex-annotation",
+ "latex-prelude",
+ "latex-syn-expr",
  "salsa",
  "visored-opr",
  "visored-sem-expr",

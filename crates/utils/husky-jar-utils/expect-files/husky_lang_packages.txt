@@ -3568,7 +3568,9 @@
     PackageSummary {
         name: "latex-prelude",
         relative_path: "crates/latex/latex-prelude",
-        dependencies: [],
+        dependencies: [
+            "salsa",
+        ],
     },
     PackageSummary {
         name: "latex-token",
@@ -4245,6 +4247,9 @@
         relative_path: "crates/visored/visored-sem-expr",
         dependencies: [
             "idx-arena",
+            "latex-annotation",
+            "latex-prelude",
+            "latex-syn-expr",
             "salsa",
             "visored-opr",
             "visored-zfs-ty",
