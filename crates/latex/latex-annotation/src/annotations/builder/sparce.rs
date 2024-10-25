@@ -3,7 +3,6 @@ use crate::{
     annotations::LxAnnotations,
 };
 use husky_text::Text;
-use latex_token::storage::LxTokenStorage;
 
 pub(crate) fn collect_from_sparse_annotations<'a>(
     raw_text: &'a str,
