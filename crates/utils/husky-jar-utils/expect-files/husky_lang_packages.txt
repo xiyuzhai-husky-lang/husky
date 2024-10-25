@@ -3553,6 +3553,7 @@
         relative_path: "crates/latex/latex-annotation",
         dependencies: [
             "enum-class",
+            "expect-test",
         ],
     },
     PackageSummary {

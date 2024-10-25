@@ -6,15 +6,25 @@ use builder::sparce::collect_from_sparse_annotations;
 use walker::LxAnnotationsWalker;
 
 #[derive(Debug, PartialEq, Eq)]
+pub struct LxAnnotationEntry<A> {
+    pub start: usize,
+    pub end: usize,
+    pub annotation: A,
+}
+
+pub type LxTokenAnnotationEntry = LxAnnotationEntry<LxTokenAnnotation>;
+pub type LxSpaceAnnotationEntry = LxAnnotationEntry<LxSpaceAnnotation>;
+
+#[derive(Debug, PartialEq, Eq)]
 pub struct LxAnnotations {
-    token_annotations: Vec<(usize, LxTokenAnnotation)>,
-    space_annotations: Vec<(usize, LxSpaceAnnotation)>,
+    token_annotations: Vec<LxTokenAnnotationEntry>,
+    space_annotations: Vec<LxSpaceAnnotationEntry>,
 }
 
 impl LxAnnotations {
     pub fn new(
-        token_annotations: Vec<(usize, LxTokenAnnotation)>,
-        space_annotations: Vec<(usize, LxSpaceAnnotation)>,
+        token_annotations: Vec<LxTokenAnnotationEntry>,
+        space_annotations: Vec<LxSpaceAnnotationEntry>,
     ) -> Self {
         Self {
             token_annotations,
@@ -24,8 +34,8 @@ impl LxAnnotations {
 
     pub fn from_sparse<'a>(
         input: &'a str,
-        token_annotations: impl IntoIterator<Item = (&'a str, LxTokenAnnotation)>,
-        space_annotations: impl IntoIterator<Item = (&'a str, LxSpaceAnnotation)>,
+        token_annotations: impl IntoIterator<Item = ((&'a str, &'a str), LxTokenAnnotation)>,
+        space_annotations: impl IntoIterator<Item = ((&'a str, &'a str), LxSpaceAnnotation)>,
     ) -> Self {
         collect_from_sparse_annotations(
             input,
@@ -33,14 +43,12 @@ impl LxAnnotations {
             space_annotations.into_iter(),
         )
     }
-}
 
-impl LxAnnotations {
-    pub fn token_annotations(&self) -> &[(usize, LxTokenAnnotation)] {
+    pub fn token_annotations(&self) -> &[LxTokenAnnotationEntry] {
         &self.token_annotations
     }
 
-    pub fn space_annotations(&self) -> &[(usize, LxSpaceAnnotation)] {
+    pub fn space_annotations(&self) -> &[LxSpaceAnnotationEntry] {
         &self.space_annotations
     }
 
