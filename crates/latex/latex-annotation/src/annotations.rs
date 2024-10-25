@@ -4,7 +4,6 @@ mod walker;
 use crate::annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation};
 use builder::sparce::collect_from_sparse_annotations;
 use husky_text::Text;
-use latex_token::{idx::LxTokenIdx, storage::LxTokenStorage};
 use walker::LxAnnotationsWalker;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -45,10 +44,4 @@ impl LxAnnotations {
     pub fn walker(&self) -> LxAnnotationsWalker {
         LxAnnotationsWalker::new(&self.token_annotations, &self.space_annotations)
     }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum AnnotationIdx {
-    Token(LxTokenIdx),
-    Space(LxTokenIdx),
 }
