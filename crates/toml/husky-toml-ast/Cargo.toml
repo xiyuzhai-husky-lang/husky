@@ -25,7 +25,7 @@ husky-print-utils.workspace = true
 expect-test.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_helpers"] }
-husky-toml-ast = { path = ".", features = ["test_helpers"] }
+husky-toml-ast = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]
