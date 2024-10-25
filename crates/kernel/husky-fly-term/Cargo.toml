@@ -54,7 +54,7 @@ husky-manifest-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-decl.workspace = true
-husky-fly-term = { path = ".", features = ["test_helpers"] }
+husky-fly-term = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

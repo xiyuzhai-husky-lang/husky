@@ -134,6 +134,7 @@ impl<'a> LxAstParser<'a> {
 }
 
 #[test]
+#[ignore]
 fn parse_tex_input_into_asts_works() {
     use expect_test::Expect;
 

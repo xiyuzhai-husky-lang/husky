@@ -23,7 +23,7 @@ visored-zfs-ty.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored
-visored-sem-expr = { path = ".", features = ["test_helpers"] }
+visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true

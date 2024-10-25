@@ -45,7 +45,7 @@ husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features =
 
 [dev-dependencies]
 # protocol
-husky-trace-protocol = { path = ".", features = ["trivial"] }
+husky-trace-protocol = { workspace = true, features = ["trivial"] }
 
 [features]
 mock = []

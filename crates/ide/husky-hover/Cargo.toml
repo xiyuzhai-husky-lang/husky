@@ -61,7 +61,7 @@ husky-corgi-config-ast.workspace = true
 husky-manifest.workspace = true
 husky-dec-signature.workspace = true
 husky-corgi-config.workspace = true
-husky-hover = { path = ".", features = ["test_helpers"] }
+husky-hover = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

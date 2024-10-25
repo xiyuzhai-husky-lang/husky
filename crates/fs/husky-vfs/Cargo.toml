@@ -47,7 +47,7 @@ husky-toml-utils.workspace = true
 [dev-dependencies]
 tempfile = "3.3.0"
 # fs
-husky-vfs = { path = ".", features = ["test_helpers"] }
+husky-vfs = { workspace = true, features = ["test_helpers"] }
 
 [features]
 default = ["dep:relative-path"]
