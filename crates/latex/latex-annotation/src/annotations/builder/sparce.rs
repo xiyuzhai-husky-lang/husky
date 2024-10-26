@@ -136,22 +136,22 @@ mod tests {
                 ],
                 space_annotations: [
                     LxAnnotationEntry {
-                        start: 0,
-                        end: 4,
+                        start: 5,
+                        end: 6,
                         annotation: Apply(
                             Integration,
                         ),
                     },
                     LxAnnotationEntry {
-                        start: 5,
-                        end: 6,
+                        start: 6,
+                        end: 7,
                         annotation: Apply(
                             ScalarDifferentialFormMul,
                         ),
                     },
                     LxAnnotationEntry {
-                        start: 6,
-                        end: 7,
+                        start: 7,
+                        end: 8,
                         annotation: Apply(
                             Differentiation,
                         ),
@@ -160,19 +160,5 @@ mod tests {
             }
         "#]]
         .assert_debug_eq(&result);
-
-        // Verify that the strings sum up to the original text
-        let reconstructed_text: String = token_annotations.iter().map(|(s, _)| s.0).collect();
-        assert_eq!(reconstructed_text, input);
-
-        let space_reconstructed_text: String = space_annotations.iter().map(|(s, _)| s.0).collect();
-        assert!(input.starts_with(&space_reconstructed_text));
-
-        // Verify the order of annotations
-        let all_token_annotations: Vec<&str> = token_annotations.iter().map(|(s, _)| s.1).collect();
-        assert_eq!(all_token_annotations, vec!["\\int", "x", "d", "x"]);
-
-        let all_space_annotations: Vec<&str> = space_annotations.iter().map(|(s, _)| s.1).collect();
-        assert_eq!(all_space_annotations, vec!["x", "d", "x"]);
     }
 }

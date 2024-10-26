@@ -23,7 +23,6 @@ impl<'a> LxAnnotationsWalker<'a> {
 }
 
 impl<'a> LxAnnotationsWalker<'a> {
-    #[track_caller]
     pub fn next(&mut self, start: usize, end: usize) -> (LxTokenAnnotation, LxSpaceAnnotation) {
         (
             self.next_token_annotation(start, end),
@@ -31,7 +30,6 @@ impl<'a> LxAnnotationsWalker<'a> {
         )
     }
 
-    #[track_caller]
     fn next_token_annotation(&mut self, start: usize, end: usize) -> LxTokenAnnotation {
         next_annotation_aux(
             start,
@@ -41,7 +39,6 @@ impl<'a> LxAnnotationsWalker<'a> {
         )
     }
 
-    #[track_caller]
     fn next_space_annotation(&mut self, start: usize, end: usize) -> LxSpaceAnnotation {
         next_annotation_aux(
             start,
@@ -52,8 +49,7 @@ impl<'a> LxAnnotationsWalker<'a> {
     }
 }
 
-#[track_caller]
-fn next_annotation_aux<A: Copy + Default>(
+fn next_annotation_aux<A: Copy + Default + std::fmt::Debug>(
     start: usize,
     end: usize,
     token_annotations: &[LxAnnotationEntry<A>],
@@ -66,6 +62,8 @@ fn next_annotation_aux<A: Copy + Default>(
     if start1 > start {
         return A::default();
     } else if start1 == start {
+        use husky_print_utils::p;
+        p!(token_annotations[*next_token_annotation_index]);
         assert_eq!(end, token_annotations[*next_token_annotation_index].end);
         let result = token_annotations[*next_token_annotation_index].annotation;
         *next_token_annotation_index += 1;
@@ -109,15 +107,15 @@ mod tests {
 
         let space_annotations = vec![
             (
-                ("", "\\int "),
+                ("\\int ", "x"),
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration),
             ),
             (
-                ("\\int ", "x"),
+                ("\\int x", "d"),
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
             ),
             (
-                ("\\int x", "d"),
+                ("\\int xd", "x"),
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation),
             ),
         ];
