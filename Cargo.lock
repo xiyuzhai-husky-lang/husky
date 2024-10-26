@@ -8032,6 +8032,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "expect-test",
+ "husky-print-utils",
  "latex-annotation",
 ]
 
