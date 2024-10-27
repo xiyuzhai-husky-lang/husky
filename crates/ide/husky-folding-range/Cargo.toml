@@ -30,7 +30,7 @@ husky-text.workspace = true
 husky-token-data.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_helpers"] }
-husky-folding-range = { path = ".", features = ["test_helpers"] }
+husky-folding-range = { workspace = true, features = ["test_helpers"] }
 # toml
 husky-toml-token.workspace = true
 husky-toml-ast.workspace = true

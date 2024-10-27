@@ -76,7 +76,17 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
         if jar_ident == "Jar" {
             continue;
         }
-        let jar_package_name = if jar_ident.starts_with("Vd") {
+        let jar_package_name = if jar_ident.starts_with("Lx") {
+            format!(
+                "latex-{}",
+                jar_ident[2..]
+                    .split("Jar")
+                    .next()
+                    .unwrap()
+                    .to_case(Case::Kebab)
+            )
+            .replace("-type", "-ty")
+        } else if jar_ident.starts_with("Vd") {
             format!(
                 "visored-{}",
                 jar_ident[2..]
@@ -120,6 +130,9 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             let dep_jar_ident = if dep.starts_with("husky-") {
                 let kebab = dep.split("husky-").last().unwrap();
                 format!("{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
+            } else if dep.starts_with("latex-") {
+                let kebab = dep.split("latex-").last().unwrap();
+                format!("Lx{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")
             } else if dep.starts_with("visored-") {
                 let kebab = dep.split("visored-").last().unwrap();
                 format!("Vd{}Jar", kebab.to_case(Case::Pascal)).replace("Ty", "Type")

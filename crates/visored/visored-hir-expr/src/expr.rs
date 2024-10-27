@@ -56,7 +56,6 @@ impl<'db> VdHirExprBuilder<'db> {
                 literal,
                 ref dispatch,
             } => VdHirExprData::Literal(literal),
-            VdSemExprData::Command { ref dispatch } => todo!(),
             VdSemExprData::Notation => todo!(),
             VdSemExprData::Binary {
                 lopd,
@@ -66,6 +65,7 @@ impl<'db> VdHirExprBuilder<'db> {
             } => VdHirExprData::Application {
                 function: match dispatch {
                     VdSemBinaryDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
+                    VdSemBinaryDispatch::TrivialEq => VdHirApplicationFunction::TrivialEq,
                 },
                 arguments: [lopd, ropd].to_hir(self),
             },
@@ -79,16 +79,7 @@ impl<'db> VdHirExprBuilder<'db> {
                 opr,
                 ref dispatch,
             } => todo!(),
-            VdSemExprData::Attach {
-                base,
-                top,
-                bottom,
-                top_left,
-                bottom_left,
-                top_right,
-                bottom_right,
-                ref dispatch,
-            } => todo!(),
+            VdSemExprData::Attach { .. } => todo!(),
             VdSemExprData::UniadicChain => todo!(),
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),

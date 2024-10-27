@@ -24,7 +24,7 @@ husky-item-path-interface.workspace = true
 [dev-dependencies]
 expect-test.workspace = true
 husky-vfs = { workspace = true, features = ["test_helpers"] }
-husky-entity-path = { path = ".", features = ["test_helpers"] }
+husky-entity-path = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

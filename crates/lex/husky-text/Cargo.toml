@@ -24,7 +24,7 @@ husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
-husky-text = { path = ".", features = ["test_helpers"] }
+husky-text = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

@@ -40,6 +40,7 @@ impl<'db> VdSemExprTestBuilder<'db> {
 }
 
 impl<'db> VdSemExprTestBuilder<'db> {
+    #[track_caller]
     pub fn new_expr_checked(&mut self, data: VdSemExprData, expected: &str) -> VdSemExprIdx {
         let expr = self.expr_arena.alloc_one(data);
         let mut formatter = self.latex_formatter();
@@ -48,6 +49,7 @@ impl<'db> VdSemExprTestBuilder<'db> {
         expr
     }
 
+    #[track_caller]
     pub fn new_phrase_checked(&mut self, data: VdSemPhraseData, expected: &str) -> VdSemPhraseIdx {
         let phrase = self.phrase_arena.alloc_one(data);
         let mut formatter = self.latex_formatter();
@@ -56,6 +58,7 @@ impl<'db> VdSemExprTestBuilder<'db> {
         phrase
     }
 
+    #[track_caller]
     pub fn new_clause_checked(&mut self, data: VdSemClauseData, expected: &str) -> VdSemClauseIdx {
         let clause = self.clause_arena.alloc_one(data);
         let mut formatter = self.latex_formatter();
@@ -64,6 +67,7 @@ impl<'db> VdSemExprTestBuilder<'db> {
         clause
     }
 
+    #[track_caller]
     pub fn new_sentence_checked(
         &mut self,
         data: VdSemSentenceData,

@@ -45,7 +45,7 @@ husky-term-prelude.workspace = true
 # lex
 husky-token = { path = "../../lex/husky-token", features = ["test_helpers"] }
 # syntax
-husky-ast = { path = ".", features = ["test_helpers"] }
+husky-ast = { workspace = true, features = ["test_helpers"] }
 # utils
 husky-path-utils.workspace = true
 

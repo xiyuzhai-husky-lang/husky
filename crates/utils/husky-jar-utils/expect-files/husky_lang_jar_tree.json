@@ -1012,12 +1012,6 @@
     "husky-entity-path",
     "husky-vfs"
   ],
-  "husky-tex-ast": [
-    "husky-coword"
-  ],
-  "husky-tex-command": [
-    "husky-coword"
-  ],
   "husky-text": [
     "husky-coword",
     "husky-vfs"
@@ -1166,6 +1160,12 @@
     "husky-toml-ast",
     "husky-toml-token",
     "husky-vfs"
+  ],
+  "latex-ast": [
+    "husky-coword"
+  ],
+  "latex-command": [
+    "husky-coword"
   ],
   "lean-hir-expr": [
     "lean-term"

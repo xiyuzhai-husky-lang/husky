@@ -30,7 +30,7 @@ husky-print-utils.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_helpers"] }
 # kernel
-husky-eth-signature = { path = ".", features = ["test_helpers"] }
+husky-eth-signature = { workspace = true, features = ["test_helpers"] }
 husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 # infer

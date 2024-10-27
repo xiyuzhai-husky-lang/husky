@@ -1262,13 +1262,13 @@
         ],
     },
     JarPackageSummary {
-        name: "husky-tex-ast",
+        name: "latex-ast",
         dependencies: [
             "husky-coword",
         ],
     },
     JarPackageSummary {
-        name: "husky-tex-command",
+        name: "latex-command",
         dependencies: [
             "husky-coword",
         ],
