@@ -6858,78 +6858,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-tex-ast"
-version = "0.1.0"
-dependencies = [
- "egui",
- "enum-class",
- "expect-test",
- "husky-coword",
- "husky-tex-math-letter",
- "husky-tex-math-opr",
- "husky-tex-prelude",
- "husky-tex-token",
- "idx-arena",
- "salsa",
- "time-capsule",
-]
-
-[[package]]
-name = "husky-tex-command"
-version = "0.1.0"
-dependencies = [
- "husky-coword",
- "husky-tex-prelude",
- "salsa",
-]
-
-[[package]]
-name = "husky-tex-egui"
-version = "0.1.0"
-dependencies = [
- "eframe",
- "egui",
- "husky-tex-ast",
-]
-
-[[package]]
-name = "husky-tex-math-letter"
-version = "0.1.0"
-
-[[package]]
-name = "husky-tex-math-opr"
-version = "0.1.0"
-
-[[package]]
-name = "husky-tex-prelude"
-version = "0.1.0"
-
-[[package]]
-name = "husky-tex-sem-expr"
-version = "0.1.0"
-
-[[package]]
-name = "husky-tex-syn-expr"
-version = "0.1.0"
-
-[[package]]
-name = "husky-tex-token"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "expect-test",
- "husky-coword",
- "husky-print-utils",
- "husky-tex-command",
- "husky-tex-math-letter",
- "husky-tex-math-opr",
- "husky-tex-prelude",
- "husky-text-protocol",
- "salsa",
- "shifted-unsigned-int",
-]
-
-[[package]]
 name = "husky-text"
 version = "0.1.0"
 dependencies = [
@@ -8096,6 +8024,88 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c1d3a8a9f07310243de6c6226f039f14bce8d2f4c96b5d30ddbcfa31eb4e94ad"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "latex-annotation"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-print-utils",
+ "latex-annotation",
+]
+
+[[package]]
+name = "latex-ast"
+version = "0.1.0"
+dependencies = [
+ "egui",
+ "enum-class",
+ "expect-test",
+ "husky-coword",
+ "idx-arena",
+ "latex-annotation",
+ "latex-math-letter",
+ "latex-math-opr",
+ "latex-prelude",
+ "latex-token",
+ "salsa",
+ "time-capsule",
+]
+
+[[package]]
+name = "latex-command"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "latex-prelude",
+ "salsa",
+]
+
+[[package]]
+name = "latex-egui"
+version = "0.1.0"
+dependencies = [
+ "eframe",
+ "egui",
+ "latex-ast",
+]
+
+[[package]]
+name = "latex-math-letter"
+version = "0.1.0"
+
+[[package]]
+name = "latex-math-opr"
+version = "0.1.0"
+
+[[package]]
+name = "latex-prelude"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+]
+
+[[package]]
+name = "latex-syn-expr"
+version = "0.1.0"
+
+[[package]]
+name = "latex-token"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-coword",
+ "husky-print-utils",
+ "husky-text-protocol",
+ "latex-command",
+ "latex-math-letter",
+ "latex-math-opr",
+ "latex-prelude",
+ "salsa",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
@@ -12302,6 +12312,9 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "idx-arena",
+ "latex-annotation",
+ "latex-prelude",
+ "latex-syn-expr",
  "salsa",
  "visored-opr",
  "visored-sem-expr",

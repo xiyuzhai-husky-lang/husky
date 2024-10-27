@@ -30,7 +30,7 @@ members = [
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/devsoul/*",
-    "crates/tex/*",
+    "crates/latex/*",
     "crates/utils/*",
     "crates/value/*",
     "crates/visored/*",
@@ -314,6 +314,17 @@ husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 husky-ki = { path = "crates/ki/husky-ki" }
 husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
+# latex
+latex-annotation = { path = "crates/latex/latex-annotation" }
+latex-ast = { path = "crates/latex/latex-ast" }
+latex-command = { path = "crates/latex/latex-command" }
+latex-math-letter = { path = "crates/latex/latex-math-letter" }
+latex-math-opr = { path = "crates/latex/latex-math-opr" }
+latex-prelude = { path = "crates/latex/latex-prelude" }
+latex-sem-expr = { path = "crates/latex/latex-sem-expr" }
+latex-syn-expr = { path = "crates/latex/latex-syn-expr" }
+latex-text = { path = "crates/latex/latex-text" }
+latex-token = { path = "crates/latex/latex-token" }
 # lean
 lean-ast = { path = "crates/lean/lean-ast" }
 lean-coword = { path = "crates/lean/lean-coword" }
@@ -374,16 +385,6 @@ husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
-# tex
-husky-tex-ast = { path = "crates/tex/husky-tex-ast" }
-husky-tex-command = { path = "crates/tex/husky-tex-command" }
-husky-tex-math-letter = { path = "crates/tex/husky-tex-math-letter" }
-husky-tex-math-opr = { path = "crates/tex/husky-tex-math-opr" }
-husky-tex-prelude = { path = "crates/tex/husky-tex-prelude" }
-husky-tex-sem-expr = { path = "crates/tex/husky-tex-sem-expr" }
-husky-tex-syn-expr = { path = "crates/tex/husky-tex-syn-expr" }
-husky-tex-text = { path = "crates/tex/husky-tex-text" }
-husky-tex-token = { path = "crates/tex/husky-tex-token" }
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }

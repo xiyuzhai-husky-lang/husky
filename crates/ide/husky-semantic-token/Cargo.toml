@@ -62,7 +62,7 @@ husky-manifest.workspace = true
 husky-dec-signature.workspace = true
 husky-sem-expr.workspace = true
 husky-corgi-config.workspace = true
-husky-semantic-token = { path = ".", features = ["test_helpers"] }
+husky-semantic-token = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

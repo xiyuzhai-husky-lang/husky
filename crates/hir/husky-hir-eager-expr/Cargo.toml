@@ -46,7 +46,7 @@ husky-print-utils.workspace = true
 husky-decl-macro-utils.workspace = true
 
 [dev-dependencies]
-husky-hir-eager-expr = { path = ".", features = ["test_helpers"] }
+husky-hir-eager-expr = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

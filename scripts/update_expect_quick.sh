@@ -5,7 +5,7 @@ set -e
 
 # Duration over which to change the brightness, in seconds
 DURATION=0.5
-MONITOR=HDMI-2
+MONITOR=HDMI-0
 
 # # Define a cleanup function
 # cleanup() {
