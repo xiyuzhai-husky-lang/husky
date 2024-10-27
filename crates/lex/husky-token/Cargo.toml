@@ -48,7 +48,7 @@ husky-vfs = { workspace = true, features = ["test_helpers"] }
 husky-entity-path.workspace = true
 # utils
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }
-husky-token = { path = ".", features = ["test_helpers"] }
+husky-token = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["husky-vfs/test_helpers"]

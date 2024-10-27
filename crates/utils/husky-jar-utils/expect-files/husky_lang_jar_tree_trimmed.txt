@@ -138,12 +138,6 @@
     "husky-term-prelude": {
         "husky-entity-path",
     },
-    "husky-tex-ast": {
-        "husky-coword",
-    },
-    "husky-tex-command": {
-        "husky-coword",
-    },
     "husky-text": {
         "husky-vfs",
     },
@@ -174,6 +168,12 @@
     },
     "husky-vmir": {
         "husky-ki-repr",
+    },
+    "latex-ast": {
+        "husky-coword",
+    },
+    "latex-command": {
+        "husky-coword",
     },
     "lean-hir-expr": {
         "lean-term",

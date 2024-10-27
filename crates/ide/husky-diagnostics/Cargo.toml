@@ -59,7 +59,7 @@ husky-dec-signature.workspace = true
 husky-corgi-config.workspace = true
 # utils
 husky-path-utils.workspace = true
-husky-diagnostics = { path = ".", features = ["test_helpers"] }
+husky-diagnostics = { workspace = true, features = ["test_helpers"] }
 
 [features]
 test_helpers = ["salsa/test_helpers"]

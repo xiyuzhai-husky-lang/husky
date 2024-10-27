@@ -88,7 +88,6 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         let db = self.db;
         match self.expr_arena[expr_idx] {
-            VdSemExprData::Command { ref dispatch } => todo!(),
             VdSemExprData::Literal {
                 literal,
                 ref dispatch,
@@ -132,16 +131,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                 opr,
                 ref dispatch,
             } => todo!(),
-            VdSemExprData::Attach {
-                base,
-                top,
-                bottom,
-                top_left,
-                bottom_left,
-                top_right,
-                bottom_right,
-                ref dispatch,
-            } => todo!(),
+            VdSemExprData::Attach { .. } => todo!(),
             VdSemExprData::UniadicChain => todo!(),
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),

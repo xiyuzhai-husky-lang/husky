@@ -42,7 +42,7 @@ husky-sem-var-deps.workspace = true
 husky-corgi-config.workspace = true
 husky-vfs = { workspace = true, features = ["test_helpers"] }
 # ide
-husky-code-lens = { path = ".", features = ["lsp_support"] }
+husky-code-lens = { workspace = true, features = ["lsp_support"] }
 # kernel
 husky-coword.workspace = true
 husky-entity-path.workspace = true
