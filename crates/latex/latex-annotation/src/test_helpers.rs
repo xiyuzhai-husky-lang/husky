@@ -1,1 +1,1 @@
-pub mod annotations;
+pub mod example;
