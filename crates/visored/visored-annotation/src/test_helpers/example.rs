@@ -1,25 +1,25 @@
 use crate::{
     annotation::{
-        space::{LxApplyAnnotation, LxSpaceAnnotation},
-        token::{LxTokenAnnotation, LxVariableAnnotation},
+        space::{LxApplyAnnotation, VdSpaceAnnotation},
+        token::{LxVariableAnnotation, VdTokenAnnotation},
     },
-    annotations::LxAnnotations,
+    annotations::VdAnnotations,
 };
 
 #[derive(Debug, Clone)]
-pub struct LxAnnotationsExample {
+pub struct VdAnnotationsExample {
     pub root_mode: LxMode,
     pub input: String,
-    pub annotations: LxAnnotations,
+    pub annotations: VdAnnotations,
 }
 
-impl LxAnnotationsExample {
+impl VdAnnotationsExample {
     fn collect_from_sparse(
         examples: &[(
             LxMode,
             &str,
-            &[((&str, &str), LxTokenAnnotation)],
-            &[((&str, &str), LxSpaceAnnotation)],
+            &[((&str, &str), VdTokenAnnotation)],
+            &[((&str, &str), VdSpaceAnnotation)],
         )],
     ) -> Vec<Self> {
         examples
@@ -28,7 +28,7 @@ impl LxAnnotationsExample {
                 |&(root_mode, input, token_annotations, space_annotations)| Self {
                     root_mode,
                     input: input.to_string(),
-                    annotations: LxAnnotations::from_sparse(
+                    annotations: VdAnnotations::from_sparse(
                         input,
                         token_annotations.iter().copied(),
                         space_annotations.iter().copied(),
@@ -43,8 +43,8 @@ use latex_prelude::mode::LxMode;
 use lazy_static::lazy_static;
 
 lazy_static! {
-    pub static ref LX_ANNOTATIONS_EXAMPLES: Vec<LxAnnotationsExample> =
-        LxAnnotationsExample::collect_from_sparse(&[
+    pub static ref LX_ANNOTATIONS_EXAMPLES: Vec<VdAnnotationsExample> =
+        VdAnnotationsExample::collect_from_sparse(&[
             (LxMode::Math, "", &[], &[]),
             (
                 LxMode::Math,
@@ -52,26 +52,26 @@ lazy_static! {
                 &[
                     (
                         ("", "x"),
-                        LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage)
                     ),
                     (
                         ("x", "y"),
-                        LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage)
                     ),
                 ],
                 &[(
                     ("x", "y"),
-                    LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul)
+                    VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul)
                 ),]
             ),
             (
                 LxMode::Math,
                 "dx",
                 &[
-                    (("", "d"), LxTokenAnnotation::Differential),
+                    (("", "d"), VdTokenAnnotation::Differential),
                     (
                         ("d", "x"),
-                        LxTokenAnnotation::Variable(
+                        VdTokenAnnotation::Variable(
                             LxVariableAnnotation::SingleVariableIntegralVariableDecl
                         )
                     ),

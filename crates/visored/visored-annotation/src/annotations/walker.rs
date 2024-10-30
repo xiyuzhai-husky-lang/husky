@@ -1,17 +1,17 @@
-use super::{LxAnnotationEntry, LxSpaceAnnotationEntry, LxTokenAnnotationEntry};
-use crate::annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation};
+use super::{VdAnnotationEntry, VdSpaceAnnotationEntry, VdTokenAnnotationEntry};
+use crate::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
-pub struct LxAnnotationsWalker<'a> {
-    token_annotations: &'a [LxTokenAnnotationEntry],
-    space_annotations: &'a [LxSpaceAnnotationEntry],
+pub struct VdAnnotationsWalker<'a> {
+    token_annotations: &'a [VdTokenAnnotationEntry],
+    space_annotations: &'a [VdSpaceAnnotationEntry],
     next_token_annotation_index: usize,
     next_space_annotation_index: usize,
 }
 
-impl<'a> LxAnnotationsWalker<'a> {
+impl<'a> VdAnnotationsWalker<'a> {
     pub fn new(
-        token_annotations: &'a [LxTokenAnnotationEntry],
-        space_annotations: &'a [LxSpaceAnnotationEntry],
+        token_annotations: &'a [VdTokenAnnotationEntry],
+        space_annotations: &'a [VdSpaceAnnotationEntry],
     ) -> Self {
         Self {
             token_annotations,
@@ -22,15 +22,15 @@ impl<'a> LxAnnotationsWalker<'a> {
     }
 }
 
-impl<'a> LxAnnotationsWalker<'a> {
-    pub fn next(&mut self, start: usize, end: usize) -> (LxTokenAnnotation, LxSpaceAnnotation) {
+impl<'a> VdAnnotationsWalker<'a> {
+    pub fn next(&mut self, start: usize, end: usize) -> (VdTokenAnnotation, VdSpaceAnnotation) {
         (
             self.next_token_annotation(start, end),
             self.next_space_annotation(start, end),
         )
     }
 
-    fn next_token_annotation(&mut self, start: usize, end: usize) -> LxTokenAnnotation {
+    fn next_token_annotation(&mut self, start: usize, end: usize) -> VdTokenAnnotation {
         next_annotation_aux(
             start,
             end,
@@ -39,7 +39,7 @@ impl<'a> LxAnnotationsWalker<'a> {
         )
     }
 
-    fn next_space_annotation(&mut self, start: usize, end: usize) -> LxSpaceAnnotation {
+    fn next_space_annotation(&mut self, start: usize, end: usize) -> VdSpaceAnnotation {
         next_annotation_aux(
             start,
             end,
@@ -52,7 +52,7 @@ impl<'a> LxAnnotationsWalker<'a> {
 fn next_annotation_aux<A: Copy + Default + std::fmt::Debug>(
     start: usize,
     end: usize,
-    token_annotations: &[LxAnnotationEntry<A>],
+    token_annotations: &[VdAnnotationEntry<A>],
     next_token_annotation_index: &mut usize,
 ) -> A {
     if *next_token_annotation_index >= token_annotations.len() {
@@ -76,30 +76,30 @@ fn next_annotation_aux<A: Copy + Default + std::fmt::Debug>(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::annotation::token::{LxIntegralAnnotation, LxTokenAnnotation, LxVariableAnnotation};
+    use crate::annotation::token::{LxIntegralAnnotation, LxVariableAnnotation, VdTokenAnnotation};
     use crate::{
-        annotation::space::{LxApplyAnnotation, LxSpaceAnnotation},
-        annotations::LxAnnotations,
+        annotation::space::{LxApplyAnnotation, VdSpaceAnnotation},
+        annotations::VdAnnotations,
     };
 
-    fn setup_test_data() -> LxAnnotations {
+    fn setup_test_data() -> VdAnnotations {
         let input = "\\int xdx".to_string();
 
         let token_annotations = vec![
             (
                 ("", "\\int"),
-                LxTokenAnnotation::Integral(
+                VdTokenAnnotation::Integral(
                     LxIntegralAnnotation::SingleVariableIndefiniteIntegralOverReal,
                 ),
             ),
             (
                 ("\\int ", "x"),
-                LxTokenAnnotation::Variable(LxVariableAnnotation::Usage),
+                VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
             ),
-            (("\\int x", "d"), LxTokenAnnotation::Differential),
+            (("\\int x", "d"), VdTokenAnnotation::Differential),
             (
                 ("\\int xd", "x"),
-                LxTokenAnnotation::Variable(
+                VdTokenAnnotation::Variable(
                     LxVariableAnnotation::SingleVariableIntegralVariableDecl,
                 ),
             ),
@@ -107,10 +107,10 @@ mod tests {
 
         let space_annotations = vec![(
             ("\\int x", "d"),
-            LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
+            VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
         )];
 
-        LxAnnotations::from_sparse(
+        VdAnnotations::from_sparse(
             &input,
             token_annotations.into_iter(),
             space_annotations.into_iter(),
@@ -126,10 +126,10 @@ mod tests {
         assert_eq!(
             walker.next(0, 4),
             (
-                LxTokenAnnotation::Integral(
+                VdTokenAnnotation::Integral(
                     LxIntegralAnnotation::SingleVariableIndefiniteIntegralOverReal
                 ),
-                LxSpaceAnnotation::default()
+                VdSpaceAnnotation::default()
             )
         );
 
@@ -137,8 +137,8 @@ mod tests {
         assert_eq!(
             walker.next(5, 6),
             (
-                LxTokenAnnotation::Variable(LxVariableAnnotation::Usage),
-                LxSpaceAnnotation::Void
+                VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
+                VdSpaceAnnotation::Void
             )
         );
 
@@ -146,8 +146,8 @@ mod tests {
         assert_eq!(
             walker.next(6, 7),
             (
-                LxTokenAnnotation::Differential,
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul)
+                VdTokenAnnotation::Differential,
+                VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul)
             )
         );
     }
