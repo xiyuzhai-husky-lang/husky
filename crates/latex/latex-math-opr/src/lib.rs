@@ -1,6 +1,6 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(u8)]
-pub enum LxMathOpr {
+pub enum LxMathPunctuation {
     /// Addition `+`
     Add,
     /// Subtraction `-`
@@ -45,60 +45,82 @@ pub enum LxMathOpr {
     PlusMinus,
     /// Times `\times` or `×`
     Times,
+    /// Left parenthesis `(`
+    Lpar,
+    /// Right parenthesis `)`
+    Rpar,
+    /// Left box `[`
+    Lbox,
+    /// Right box `]`
+    Rbox,
+    /// Escaped left curly `{`
+    EscapedLcurl,
+    /// Escaped right curly `}`
+    EscapedRcurl,
 }
 
-impl LxMathOpr {
-    pub fn to_char(self) -> char {
+impl LxMathPunctuation {
+    pub fn to_str(self) -> &'static str {
         match self {
-            LxMathOpr::Add => '+',
-            LxMathOpr::Sub => '-',
-            LxMathOpr::Mul => '·',
-            LxMathOpr::Div => '/',
-            LxMathOpr::In => '∈',
-            LxMathOpr::NotIn => '∉',
-            LxMathOpr::Subset => '⊂',
-            LxMathOpr::Superset => '⊃',
-            LxMathOpr::SubsetEq => '⊆',
-            LxMathOpr::SupersetEq => '⊇',
-            LxMathOpr::ForAll => '∀',
-            LxMathOpr::Exists => '∃',
-            LxMathOpr::NotExists => '∄',
-            LxMathOpr::Infinity => '∞',
-            LxMathOpr::Equals => '=',
-            LxMathOpr::NotEquals => '≠',
-            LxMathOpr::LessThan => '<',
-            LxMathOpr::GreaterThan => '>',
-            LxMathOpr::LessEq => '≤',
-            LxMathOpr::GreaterEq => '≥',
-            LxMathOpr::PlusMinus => '±',
-            LxMathOpr::Times => '×',
+            LxMathPunctuation::Add => "+",
+            LxMathPunctuation::Sub => "-",
+            LxMathPunctuation::Mul => "·",
+            LxMathPunctuation::Div => "/",
+            LxMathPunctuation::In => "∈",
+            LxMathPunctuation::NotIn => "∉",
+            LxMathPunctuation::Subset => "⊂",
+            LxMathPunctuation::Superset => "⊃",
+            LxMathPunctuation::SubsetEq => "⊆",
+            LxMathPunctuation::SupersetEq => "⊇",
+            LxMathPunctuation::ForAll => "∀",
+            LxMathPunctuation::Exists => "∃",
+            LxMathPunctuation::NotExists => "∄",
+            LxMathPunctuation::Infinity => "∞",
+            LxMathPunctuation::Equals => "=",
+            LxMathPunctuation::NotEquals => "≠",
+            LxMathPunctuation::LessThan => "<",
+            LxMathPunctuation::GreaterThan => ">",
+            LxMathPunctuation::LessEq => "≤",
+            LxMathPunctuation::GreaterEq => "≥",
+            LxMathPunctuation::PlusMinus => "±",
+            LxMathPunctuation::Times => "×",
+            LxMathPunctuation::Lpar => "(",
+            LxMathPunctuation::Rpar => ")",
+            LxMathPunctuation::Lbox => "[",
+            LxMathPunctuation::Rbox => "]",
+            LxMathPunctuation::EscapedLcurl => "\\{",
+            LxMathPunctuation::EscapedRcurl => "\\}",
         }
     }
 
     pub fn try_from_char(c: char) -> Option<Self> {
         match c {
-            '+' => Some(LxMathOpr::Add),
-            '-' => Some(LxMathOpr::Sub),
-            '·' => Some(LxMathOpr::Mul),
-            '/' => Some(LxMathOpr::Div),
-            '∈' => Some(LxMathOpr::In),
-            '∉' => Some(LxMathOpr::NotIn),
-            '⊂' => Some(LxMathOpr::Subset),
-            '⊃' => Some(LxMathOpr::Superset),
-            '⊆' => Some(LxMathOpr::SubsetEq),
-            '⊇' => Some(LxMathOpr::SupersetEq),
-            '∀' => Some(LxMathOpr::ForAll),
-            '∃' => Some(LxMathOpr::Exists),
-            '∄' => Some(LxMathOpr::NotExists),
-            '∞' => Some(LxMathOpr::Infinity),
-            '=' => Some(LxMathOpr::Equals),
-            '≠' => Some(LxMathOpr::NotEquals),
-            '<' => Some(LxMathOpr::LessThan),
-            '>' => Some(LxMathOpr::GreaterThan),
-            '≤' => Some(LxMathOpr::LessEq),
-            '≥' => Some(LxMathOpr::GreaterEq),
-            '±' => Some(LxMathOpr::PlusMinus),
-            '×' => Some(LxMathOpr::Times),
+            '+' => Some(LxMathPunctuation::Add),
+            '-' => Some(LxMathPunctuation::Sub),
+            '·' => Some(LxMathPunctuation::Mul),
+            '/' => Some(LxMathPunctuation::Div),
+            '∈' => Some(LxMathPunctuation::In),
+            '∉' => Some(LxMathPunctuation::NotIn),
+            '⊂' => Some(LxMathPunctuation::Subset),
+            '⊃' => Some(LxMathPunctuation::Superset),
+            '⊆' => Some(LxMathPunctuation::SubsetEq),
+            '⊇' => Some(LxMathPunctuation::SupersetEq),
+            '∀' => Some(LxMathPunctuation::ForAll),
+            '∃' => Some(LxMathPunctuation::Exists),
+            '∄' => Some(LxMathPunctuation::NotExists),
+            '∞' => Some(LxMathPunctuation::Infinity),
+            '=' => Some(LxMathPunctuation::Equals),
+            '≠' => Some(LxMathPunctuation::NotEquals),
+            '<' => Some(LxMathPunctuation::LessThan),
+            '>' => Some(LxMathPunctuation::GreaterThan),
+            '≤' => Some(LxMathPunctuation::LessEq),
+            '≥' => Some(LxMathPunctuation::GreaterEq),
+            '±' => Some(LxMathPunctuation::PlusMinus),
+            '×' => Some(LxMathPunctuation::Times),
+            '(' => Some(LxMathPunctuation::Lpar),
+            ')' => Some(LxMathPunctuation::Rpar),
+            '[' => Some(LxMathPunctuation::Lbox),
+            ']' => Some(LxMathPunctuation::Rbox),
             _ => None,
         }
     }

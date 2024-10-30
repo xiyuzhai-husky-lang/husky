@@ -33,6 +33,15 @@ impl<'a> LxLexer<'a> {
             storage,
         }
     }
+
+    pub fn peek_char(&mut self) -> Option<char> {
+        self.chars.eat_chars_while(|c| c == ' ');
+        self.chars.peek()
+    }
+
+    pub fn mode(&self) -> LxMode {
+        self.mode
+    }
 }
 
 /// # actions

@@ -15,7 +15,7 @@ use std::{borrow::BorrowMut, iter::Peekable};
 
 pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
-    lexer: Peekable<LxLexer<'a>>,
+    lexer: LxLexer<'a>,
     arena: &'a mut LxAstArena,
 }
 
@@ -30,9 +30,13 @@ impl<'a> LxAstParser<'a> {
     ) -> Self {
         Self {
             db,
-            lexer: LxLexer::new(db, input, mode, token_storage).peekable(),
+            lexer: LxLexer::new(db, input, mode, token_storage),
             arena,
         }
+    }
+
+    pub(crate) fn mode(&self) -> LxMode {
+        self.lexer.mode()
     }
 }
 
@@ -54,8 +58,8 @@ impl<'a> LxAstParser<'a> {
         self.arena.rose.alloc_batch(asts)
     }
 
-    pub(crate) fn peek_token(&mut self) -> Option<LxTokenData> {
-        self.lexer.peek().map(|&(_, _, _, data)| data)
+    pub(crate) fn peek_char(&mut self) -> Option<char> {
+        self.lexer.peek_char()
     }
 
     pub(crate) fn next_token(&mut self) -> Option<(LxTokenIdx, LxTokenData)> {

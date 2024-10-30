@@ -4,7 +4,7 @@ use self::digit::LxMathDigit;
 use super::*;
 use latex_command::path::LxCommandPath;
 use latex_math_letter::LxMathLetter;
-use latex_math_opr::LxMathOpr;
+use latex_math_opr::LxMathPunctuation;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -13,7 +13,7 @@ pub enum LxMathTokenData {
     LeftDelimiter(LxMathDelimiter),
     RightDelimiter(LxMathDelimiter),
     Letter(LxMathLetter),
-    Opr(LxMathOpr),
+    Punctuation(LxMathPunctuation),
     Digit(LxMathDigit),
     Other(char),
     Subscript,
@@ -25,12 +25,6 @@ pub enum LxMathTokenData {
 pub enum LxMathDelimiter {
     /// `{`,  `}`
     Curl,
-    /// `(`, `)`
-    Par,
-    /// `[`, `]`
-    Box,
-    /// `\{`, `\}`
-    EscapedCurl,
 }
 
 #[salsa::derive_debug_with_db]
@@ -54,11 +48,11 @@ impl<'a> LxLexer<'a> {
                         c => {
                             self.chars.eat_char();
                             match c {
-                                '{' => Some(LxMathTokenData::LeftDelimiter(
-                                    LxMathDelimiter::EscapedCurl,
+                                '{' => Some(LxMathTokenData::Punctuation(
+                                    LxMathPunctuation::EscapedLcurl,
                                 )),
-                                '}' => Some(LxMathTokenData::RightDelimiter(
-                                    LxMathDelimiter::EscapedCurl,
+                                '}' => Some(LxMathTokenData::Punctuation(
+                                    LxMathPunctuation::EscapedRcurl,
                                 )),
                                 _ => todo!(),
                             }
@@ -78,15 +72,11 @@ impl<'a> LxLexer<'a> {
                     '^' => Some(LxMathTokenData::Superscript),
                     '{' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl)),
                     '}' => Some(LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl)),
-                    '(' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Par)),
-                    ')' => Some(LxMathTokenData::RightDelimiter(LxMathDelimiter::Par)),
-                    '[' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Box)),
-                    ']' => Some(LxMathTokenData::RightDelimiter(LxMathDelimiter::Box)),
                     c => {
                         if let Some(letter) = LxMathLetter::try_from_char(c) {
                             Some(LxMathTokenData::Letter(letter))
-                        } else if let Some(opr) = LxMathOpr::try_from_char(c) {
-                            Some(LxMathTokenData::Opr(opr))
+                        } else if let Some(opr) = LxMathPunctuation::try_from_char(c) {
+                            Some(LxMathTokenData::Punctuation(opr))
                         } else {
                             Some(LxMathTokenData::Other(c))
                         }

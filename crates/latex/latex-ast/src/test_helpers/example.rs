@@ -9,7 +9,7 @@ use latex_token::storage::LxTokenStorage;
 pub struct LxAstsExample {
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
-    pub asts: Option<LxAstIdxRange>,
+    pub asts: LxAstIdxRange,
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
 }
 
