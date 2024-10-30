@@ -28,6 +28,18 @@ pub enum LxMathAstData {
     },
 }
 
+impl LxMathAstData {
+    pub fn children(&self) -> Vec<LxMathAstIdx> {
+        match *self {
+            LxMathAstData::Delimited { asts, .. } => asts.into_iter().collect(),
+            LxMathAstData::Attach { ref scripts, .. } => {
+                scripts.iter().map(|&(_, ast)| ast).collect()
+            }
+            _ => vec![],
+        }
+    }
+}
+
 pub type LxMathAstArena = Arena<LxMathAstData>;
 pub type LxMathAstArenaRef<'a> = ArenaRef<'a, LxMathAstData>;
 pub type LxMathAstArenaMap<T> = ArenaMap<LxMathAstData, T>;
