@@ -1,6 +1,7 @@
 pub mod ast;
 pub mod jar;
 mod parser;
+pub mod range;
 pub mod region;
 pub mod sheet;
 #[cfg(feature = "test_helpers")]
