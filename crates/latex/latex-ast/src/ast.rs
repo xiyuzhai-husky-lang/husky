@@ -130,12 +130,10 @@ impl<'a> LxAstParser<'a> {
 
     fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
         let mut ast = self.parse_atomic_math_ast()?;
-        match self.peek_char()? {
+        match self.peek_math_token_data()? {
             // TODO include more cases, like \limits
-            '_' | '^' => {
-                let (idx, LxTokenData::Math(token)) = self.next_token().unwrap() else {
-                    unreachable!()
-                };
+            LxMathTokenData::Subscript | LxMathTokenData::Superscript => {
+                let (idx, token) = self.next_math_token().unwrap();
                 ast = match ast {
                     LxMathAstData::Attach { .. } => ast,
                     base => {
