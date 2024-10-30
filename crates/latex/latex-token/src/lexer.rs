@@ -11,32 +11,27 @@ use husky_coword::Coword;
 use husky_text_protocol::{char::TextCharIter, range::TextRange};
 use latex_prelude::mode::LxMode;
 
-pub fn lex_latex_input(input: &str, mode: LxMode, db: &::salsa::Db) -> LxTokenStorage {
-    let mut lexer = LxLexer::new(db, input, mode);
-    for _ in &mut lexer {}
-    lexer.finish()
-}
-
-pub(crate) struct LxLexer<'a> {
+pub struct LxLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
     pub(crate) mode: LxMode,
-    pub(crate) storage: LxTokenStorage,
+    pub(crate) storage: &'a mut LxTokenStorage,
 }
 
 /// # constructor
 impl<'a> LxLexer<'a> {
-    pub(crate) fn new(db: &'a ::salsa::Db, input: &'a str, mode: LxMode) -> Self {
+    pub fn new(
+        db: &'a ::salsa::Db,
+        input: &'a str,
+        mode: LxMode,
+        storage: &'a mut LxTokenStorage,
+    ) -> Self {
         Self {
             db,
             chars: TextCharIter::new(input),
             mode,
-            storage: Default::default(),
+            storage,
         }
-    }
-
-    pub(crate) fn finish(self) -> LxTokenStorage {
-        self.storage
     }
 }
 
