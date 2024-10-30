@@ -8048,6 +8048,7 @@ dependencies = [
  "husky-coword",
  "idx-arena",
  "latex-annotation",
+ "latex-ast",
  "latex-math-letter",
  "latex-math-opr",
  "latex-prelude",

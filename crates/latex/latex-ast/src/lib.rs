@@ -3,6 +3,8 @@ pub mod jar;
 mod parser;
 pub mod region;
 pub mod sheet;
+#[cfg(feature = "test_helpers")]
+pub mod test_helpers;
 #[cfg(test)]
 mod tests;
 

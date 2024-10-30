@@ -6,14 +6,12 @@ use crate::{
     annotations::LxAnnotations,
 };
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct LxAnnotationsExample {
     pub root_mode: LxMode,
     pub input: String,
     pub annotations: LxAnnotations,
 }
-
-pub type LxAnnotationsExamples = Vec<LxAnnotationsExample>;
 
 impl LxAnnotationsExample {
     fn collect_from_sparse(
@@ -23,7 +21,7 @@ impl LxAnnotationsExample {
             &[((&str, &str), LxTokenAnnotation)],
             &[((&str, &str), LxSpaceAnnotation)],
         )],
-    ) -> LxAnnotationsExamples {
+    ) -> Vec<Self> {
         examples
             .iter()
             .map(
@@ -45,46 +43,47 @@ use latex_prelude::mode::LxMode;
 use lazy_static::lazy_static;
 
 lazy_static! {
-    pub static ref EXAMPLES: LxAnnotationsExamples = LxAnnotationsExample::collect_from_sparse(&[
-        (LxMode::Math, "", &[], &[]),
-        (
-            LxMode::Math,
-            "xy",
-            &[
-                (
-                    ("", "x"),
-                    LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
-                ),
-                (
+    pub static ref LX_ANNOTATIONS_EXAMPLES: Vec<LxAnnotationsExample> =
+        LxAnnotationsExample::collect_from_sparse(&[
+            (LxMode::Math, "", &[], &[]),
+            (
+                LxMode::Math,
+                "xy",
+                &[
+                    (
+                        ("", "x"),
+                        LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                    ),
+                    (
+                        ("x", "y"),
+                        LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                    ),
+                ],
+                &[(
                     ("x", "y"),
-                    LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
-                ),
-            ],
-            &[(
-                ("x", "y"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul)
-            ),]
-        ),
-        (
-            LxMode::Math,
-            "dx",
-            &[
-                (("", "d"), LxTokenAnnotation::Differential),
-                (
-                    ("d", "x"),
-                    LxTokenAnnotation::Variable(
-                        LxVariableAnnotation::SingleVariableIntegralVariableDecl
-                    )
-                ),
-            ],
-            &[]
-        ),
-    ]);
+                    LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul)
+                ),]
+            ),
+            (
+                LxMode::Math,
+                "dx",
+                &[
+                    (("", "d"), LxTokenAnnotation::Differential),
+                    (
+                        ("d", "x"),
+                        LxTokenAnnotation::Variable(
+                            LxVariableAnnotation::SingleVariableIntegralVariableDecl
+                        )
+                    ),
+                ],
+                &[]
+            ),
+        ]);
 }
 
 #[test]
 fn latex_annotations_examples_works() {
-    let examples = &*EXAMPLES; // Dereference the lazy_static
+    let examples = &*LX_ANNOTATIONS_EXAMPLES; // Dereference the lazy_static
     expect_test::expect_file!["../../expect-files/annotations/examples.md"]
         .assert_eq(&format!("{:#?}", examples));
 }
