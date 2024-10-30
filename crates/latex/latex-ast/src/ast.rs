@@ -189,11 +189,17 @@ fn parse_tex_input_into_asts_works() {
                     data: [
                         LxAstData::Math(
                             LxMathAstData::Letter(
+                                LxTokenIdx(
+                                    0,
+                                ),
                                 LowerX,
                             ),
                         ),
                         LxAstData::Math(
                             LxMathAstData::Opr(
+                                LxTokenIdx(
+                                    1,
+                                ),
                                 Add,
                             ),
                         ),
@@ -216,11 +222,17 @@ fn parse_tex_input_into_asts_works() {
                     data: [
                         LxAstData::Math(
                             LxMathAstData::Letter(
+                                LxTokenIdx(
+                                    0,
+                                ),
                                 LowerX,
                             ),
                         ),
                         LxAstData::Math(
                             LxMathAstData::Digit(
+                                LxTokenIdx(
+                                    2,
+                                ),
                                 Two,
                             ),
                         ),
@@ -254,11 +266,17 @@ fn parse_tex_input_into_asts_works() {
                     data: [
                         LxAstData::Math(
                             LxMathAstData::Letter(
+                                LxTokenIdx(
+                                    0,
+                                ),
                                 LowerX,
                             ),
                         ),
                         LxAstData::Math(
                             LxMathAstData::Digit(
+                                LxTokenIdx(
+                                    2,
+                                ),
                                 Two,
                             ),
                         ),
@@ -292,21 +310,33 @@ fn parse_tex_input_into_asts_works() {
                     data: [
                         LxAstData::Math(
                             LxMathAstData::Letter(
+                                LxTokenIdx(
+                                    0,
+                                ),
                                 LowerX,
                             ),
                         ),
                         LxAstData::Math(
                             LxMathAstData::Letter(
+                                LxTokenIdx(
+                                    3,
+                                ),
                                 LowerI,
                             ),
                         ),
                         LxAstData::Math(
                             LxMathAstData::Opr(
+                                LxTokenIdx(
+                                    4,
+                                ),
                                 Add,
                             ),
                         ),
                         LxAstData::Math(
                             LxMathAstData::Digit(
+                                LxTokenIdx(
+                                    5,
+                                ),
                                 Two,
                             ),
                         ),
