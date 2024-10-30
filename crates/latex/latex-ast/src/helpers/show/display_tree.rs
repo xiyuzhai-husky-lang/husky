@@ -1,7 +1,12 @@
 use crate::{
-    ast::{math::LxMathAstIdx, rose::LxRoseAstIdx, LxAstArenaRef, LxAstIdx, LxAstIdxRange},
+    ast::{
+        math::{LxMathAstIdx, LxMathAstIdxRange},
+        rose::LxRoseAstIdx,
+        LxAstArenaRef, LxAstIdx, LxAstIdxRange,
+    },
     range::LxAstTokenIdxRangeMap,
 };
+use husky_tree_utils::display::DisplayTree;
 use latex_token::storage::LxTokenStorage;
 
 struct LxAstDisplayTreeBuilder<'a> {
@@ -33,33 +38,38 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
 /// # actions
 impl<'a> LxAstDisplayTreeBuilder<'a> {
-    fn render_asts(&mut self, asts: LxAstIdxRange) {
+    fn render_asts(&self, asts: LxAstIdxRange) -> Vec<DisplayTree> {
         match asts {
-            LxAstIdxRange::Math(range) => {
-                for ast in range {
-                    self.render_math_ast(ast);
-                }
-            }
-            LxAstIdxRange::Rose(range) => {
-                for ast in range {
-                    self.render_rose_ast(ast);
-                }
-            }
+            LxAstIdxRange::Math(range) => self.render_math_asts(range),
+            LxAstIdxRange::Rose(range) => self.render_rose_asts(range),
         }
     }
 
-    fn render_math_ast(&mut self, ast: LxMathAstIdx) {
+    fn render_math_asts(&self, asts: impl IntoIterator<Item = LxMathAstIdx>) -> Vec<DisplayTree> {
+        asts.into_iter()
+            .map(|ast| self.render_math_ast(ast))
+            .collect()
+    }
+
+    fn render_rose_asts(&self, asts: impl IntoIterator<Item = LxRoseAstIdx>) -> Vec<DisplayTree> {
+        asts.into_iter()
+            .map(|ast| self.render_rose_ast(ast))
+            .collect()
+    }
+
+    fn render_math_ast(&self, ast: LxMathAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let (start, end) = self
             .token_storage
             .math_token_idx_range_offset_range(ast_token_idx_range);
-        // self.tree_builder
-        //     .add_empty_child(text)
-        //     .add_node(self.input[start..end].to_string());
-        todo!()
+        let value = self.input[start..end].to_string();
+        DisplayTree::new(
+            value,
+            self.render_math_asts(self.ast_arena.math()[ast].children()),
+        )
     }
 
-    fn render_rose_ast(&mut self, ast: LxRoseAstIdx) {
+    fn render_rose_ast(&self, ast: LxRoseAstIdx) -> DisplayTree {
         todo!()
     }
 }
