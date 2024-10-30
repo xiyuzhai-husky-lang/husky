@@ -41,7 +41,7 @@ impl Step for LxMathTokenIdx {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxMathTokenIdxRange {
     start: ShiftedU32,
     end: ShiftedU32,
