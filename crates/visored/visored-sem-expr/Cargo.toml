@@ -16,10 +16,10 @@ keywords.workspace = true
 salsa.workspace = true
 idx-arena.workspace = true
 # latex
-latex-annotation.workspace = true
 latex-prelude.workspace = true
 latex-syn-expr.workspace = true
 # visored
+visored-annotation.workspace = true
 visored-opr.workspace = true
 visored-zfs-ty.workspace = true
 

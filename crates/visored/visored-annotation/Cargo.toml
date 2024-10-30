@@ -1,5 +1,5 @@
 [package]
-name = "latex-annotation"
+name = "visored-annotation"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -22,8 +22,8 @@ husky-print-utils.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true
-# latex
-latex-annotation = { workspace = true, features = ["test_helpers"] }
+# visored
+visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true
