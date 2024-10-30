@@ -5,7 +5,7 @@ use crate::annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation};
 use builder::sparce::collect_from_sparse_annotations;
 use walker::LxAnnotationsWalker;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LxAnnotationEntry<A> {
     pub start: usize,
     pub end: usize,
@@ -15,7 +15,7 @@ pub struct LxAnnotationEntry<A> {
 pub type LxTokenAnnotationEntry = LxAnnotationEntry<LxTokenAnnotation>;
 pub type LxSpaceAnnotationEntry = LxAnnotationEntry<LxSpaceAnnotation>;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LxAnnotations {
     token_annotations: Vec<LxTokenAnnotationEntry>,
     space_annotations: Vec<LxSpaceAnnotationEntry>,
