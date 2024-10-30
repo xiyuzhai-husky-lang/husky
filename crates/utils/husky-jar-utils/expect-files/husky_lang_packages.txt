@@ -4204,6 +4204,13 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-tree-utils",
+        relative_path: "crates/utils/husky-tree-utils",
+        dependencies: [
+            "expect-test",
+        ],
+    },
+    PackageSummary {
         name: "husky-virtual-value-macros",
         relative_path: "crates/value/husky-virtual-value-macros",
         dependencies: [],

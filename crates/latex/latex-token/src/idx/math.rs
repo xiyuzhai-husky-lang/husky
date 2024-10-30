@@ -79,4 +79,20 @@ impl LxMathTokenIdxRange {
             end: (idx + 1).0,
         }
     }
+
+    pub(crate) fn is_empty(self) -> bool {
+        self.start == self.end
+    }
+
+    pub fn start(&self) -> LxMathTokenIdx {
+        LxMathTokenIdx(self.start)
+    }
+
+    pub fn last(&self) -> Option<LxMathTokenIdx> {
+        if self.is_empty() {
+            None
+        } else {
+            Some(LxMathTokenIdx(self.end - 1))
+        }
+    }
 }
