@@ -1,4 +1,4 @@
-# LaTeX
+# LaTeX (the Husky version)
 
 In the normal language, text -> token -> ast -> syn expr -> sema expr.
 
@@ -16,7 +16,7 @@ We differs from standard implementation of LaTex in that
 - all `/` is interpreted as fraction, and thus no fraction command is needed for faster typing;
 - ...
 
-However, LaTex is designed to be as a limited yet more structured subset of LaTex as possible for easier data acquirement. It should yield meaningful error messages for AI agents to fix.
+Our LaTex is designed to be as a limited yet more structured subset of LaTex as possible for easier data acquirement. It should yield meaningful error messages for AI agents to fix. We'll gradually add more features to it as we see fit.
 
 Modes:
 - root.
