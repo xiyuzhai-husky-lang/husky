@@ -5,7 +5,7 @@ use self::{math::LxMathAstData, rose::LxRoseAstData};
 use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_annotation::{
     annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
     annotations::LxAnnotations,
@@ -27,6 +27,8 @@ pub enum LxAstData {
 }
 
 pub type LxAstArena = Arena<LxAstData>;
+pub type LxAstArenaRef<'a> = ArenaRef<'a, LxAstData>;
+pub type LxAstArenaMap<T> = ArenaMap<LxAstData, T>;
 pub type LxAstIdx = ArenaIdx<LxAstData>;
 pub type LxAstIdxRange = ArenaIdxRange<LxAstData>;
 
