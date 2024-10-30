@@ -16,6 +16,7 @@ egui = { workspace = true, optional = true }
 # abstractions
 enum-class.workspace = true
 idx-arena.workspace = true
+ptree.workspace = true
 salsa.workspace = true
 time-capsule.workspace = true
 # kernel
