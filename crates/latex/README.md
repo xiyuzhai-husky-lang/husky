@@ -10,7 +10,7 @@ Basically, the user modify directly the asts.
 
 LaTex asts is centered around displayability, what looks the same is processed the same way.
 
-We differs from standard implementation of LaTex in that
+We differs from the standard implementation of LaTex in that
 - greek letters like `α`, `β`, ... and special symbols like `∀`, `∃` are allowed for better readability;
 - `{...}` in math mode can be interpreted directly as set notation if the content inside doesn't begin with `_` or `^`;
 - all `/` is interpreted as fraction, and thus no fraction command is needed for faster typing;
