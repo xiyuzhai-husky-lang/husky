@@ -1,4 +1,4 @@
-use crate::{data::rose::LxRoseTokenData, idx::LxTokenIdx, lexer::LxLexer};
+use crate::{data::rose::LxRoseTokenData, idx::rose::LxRoseTokenIdx, lexer::LxLexer};
 
 pub struct LxRoseTokenStream<'a> {
     lexer: LxLexer<'a>,
@@ -11,7 +11,7 @@ impl<'a> LxRoseTokenStream<'a> {
 }
 
 impl<'a> Iterator for LxRoseTokenStream<'a> {
-    type Item = (LxTokenIdx, LxRoseTokenData);
+    type Item = (LxRoseTokenIdx, LxRoseTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.lexer.next_rose_token()

@@ -1,6 +1,6 @@
 use latex_token::{
     data::math::{digit::LxMathDigit, LxMathDelimiter},
-    idx::LxTokenIdx,
+    idx::math::LxMathTokenIdx,
 };
 
 use super::*;
@@ -8,9 +8,9 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxMathAstData {
-    Letter(LxTokenIdx, LxMathLetter),
-    Opr(LxTokenIdx, LxMathPunctuation),
-    Digit(LxTokenIdx, LxMathDigit),
+    Letter(LxMathTokenIdx, LxMathLetter),
+    Opr(LxMathTokenIdx, LxMathPunctuation),
+    Digit(LxMathTokenIdx, LxMathDigit),
     /// not obtained through parsing, but through ui
     TextEdit {
         buffer: String,
@@ -20,10 +20,10 @@ pub enum LxMathAstData {
         scripts: Vec<(LxScriptKind, LxMathAstIdx)>,
     },
     Delimited {
-        left_delimiter_token_idx: LxTokenIdx,
+        left_delimiter_token_idx: LxMathTokenIdx,
         left_delimiter: LxMathDelimiter,
         asts: LxMathAstIdxRange,
-        right_delimiter_token_idx: LxTokenIdx,
+        right_delimiter_token_idx: LxMathTokenIdx,
         right_delimiter: LxMathDelimiter,
     },
 }
@@ -59,7 +59,7 @@ impl<'a> LxAstParser<'a> {
     // here we differ from the latex syntax, we see all possible delimiters as latex delimiters
     fn parse_delimited(
         &mut self,
-        left_delimiter_token_idx: LxTokenIdx,
+        left_delimiter_token_idx: LxMathTokenIdx,
         left_delimiter: LxMathDelimiter,
     ) -> LxMathAstData {
         let asts = self.parse_math_asts();

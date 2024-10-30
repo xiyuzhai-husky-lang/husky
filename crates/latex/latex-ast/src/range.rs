@@ -1,20 +1,31 @@
-use crate::ast::{
-    math::LxMathAstData, LxAstArena, LxAstArenaMap, LxAstArenaRef, LxAstData, LxAstIdx,
-};
-use latex_token::idx::LxTokenIdxRange;
+use latex_token::idx::{math::LxMathTokenIdxRange, rose::LxRoseTokenIdxRange};
 
-pub type LxAstTokenIdxRangeMap = LxAstArenaMap<LxTokenIdxRange>;
+use crate::ast::{
+    math::{LxMathAstArenaMap, LxMathAstData},
+    rose::{LxRoseAstArenaMap, LxRoseAstData},
+    LxAstArena, LxAstArenaMap, LxAstArenaRef, LxAstData, LxAstIdx,
+};
+
+#[derive(Debug)]
+pub struct LxAstTokenIdxRangeMap {
+    pub(crate) math: LxMathAstArenaMap<LxMathTokenIdxRange>,
+    pub(crate) rose: LxRoseAstArenaMap<LxRoseTokenIdxRange>,
+}
 
 pub fn calc_ast_token_idx_range_map(db: &salsa::Db, arena: &LxAstArena) -> LxAstTokenIdxRangeMap {
     let mut calculator = LxAstTokenIdxRangeCalculator::new(db, arena);
     calculator.infer_all();
-    calculator.data
+    LxAstTokenIdxRangeMap {
+        math: calculator.math_data,
+        rose: calculator.rose_data,
+    }
 }
 
 struct LxAstTokenIdxRangeCalculator<'a> {
     db: &'a ::salsa::Db,
     ast_arena: LxAstArenaRef<'a>,
-    data: LxAstArenaMap<LxTokenIdxRange>,
+    math_data: LxMathAstArenaMap<LxMathTokenIdxRange>,
+    rose_data: LxRoseAstArenaMap<LxRoseTokenIdxRange>,
 }
 
 impl<'a> LxAstTokenIdxRangeCalculator<'a> {
@@ -22,7 +33,8 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
         Self {
             db,
             ast_arena: arena.as_arena_ref(),
-            data: LxAstArenaMap::new(arena),
+            math_data: LxMathAstArenaMap::new(&arena.math),
+            rose_data: LxRoseAstArenaMap::new(&arena.rose),
         }
     }
 }
@@ -30,15 +42,18 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
 impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     fn infer_all(&mut self) {
         self.ast_arena.math().indexed_iter().for_each(|(idx, ast)| {
-            self.data.math.insert_new(idx, self.calc_math_ast(ast));
+            self.math_data.insert_new(idx, self.calc_math_ast(ast));
+        });
+        self.ast_arena.rose().indexed_iter().for_each(|(idx, ast)| {
+            self.rose_data.insert_new(idx, self.calc_rose_ast(ast));
         });
     }
 
-    fn calc_math_ast(&self, data: &LxMathAstData) -> LxTokenIdxRange {
+    fn calc_math_ast(&self, data: &LxMathAstData) -> LxMathTokenIdxRange {
         match *data {
-            LxMathAstData::Letter(idx, _) => LxTokenIdxRange::new_single(idx),
-            LxMathAstData::Opr(idx, _) => LxTokenIdxRange::new_single(idx),
-            LxMathAstData::Digit(idx, _) => LxTokenIdxRange::new_single(idx),
+            LxMathAstData::Letter(idx, _) => LxMathTokenIdxRange::new_single(idx),
+            LxMathAstData::Opr(idx, _) => LxMathTokenIdxRange::new_single(idx),
+            LxMathAstData::Digit(idx, _) => LxMathTokenIdxRange::new_single(idx),
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => todo!(),
             LxMathAstData::Delimited {
@@ -49,5 +64,9 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 right_delimiter,
             } => todo!(),
         }
+    }
+
+    fn calc_rose_ast(&self, data: &LxRoseAstData) -> LxRoseTokenIdxRange {
+        todo!()
     }
 }

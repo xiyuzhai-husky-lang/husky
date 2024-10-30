@@ -99,9 +99,7 @@ fn next_text_token_data_works() {
         "\n\n",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::NewParagraph,
-                ),
+                LxRoseTokenData::NewParagraph,
             ]
         "#]],
     );
@@ -109,11 +107,9 @@ fn next_text_token_data_works() {
         "hello",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Word(
-                        Coword(
-                            "hello",
-                        ),
+                LxRoseTokenData::Word(
+                    Coword(
+                        "hello",
                     ),
                 ),
             ]
@@ -123,10 +119,8 @@ fn next_text_token_data_works() {
         "0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -135,10 +129,8 @@ fn next_text_token_data_works() {
         " 0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -147,15 +139,11 @@ fn next_text_token_data_works() {
         "0 0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -164,15 +152,11 @@ fn next_text_token_data_works() {
         "0\n0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -181,15 +165,11 @@ fn next_text_token_data_works() {
         "0  0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -198,12 +178,10 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Command(
-                        LxCommandPath::Coword(
-                            Coword(
-                                "emph",
-                            ),
+                LxRoseTokenData::Command(
+                    LxCommandPath::Coword(
+                        Coword(
+                            "emph",
                         ),
                     ),
                 ),
@@ -214,12 +192,10 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Command(
-                        LxCommandPath::Coword(
-                            Coword(
-                                "emph",
-                            ),
+                LxRoseTokenData::Command(
+                    LxCommandPath::Coword(
+                        Coword(
+                            "emph",
                         ),
                     ),
                 ),
