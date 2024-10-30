@@ -1,5 +1,8 @@
 use crate::{
-    annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
+    annotation::{
+        space::{LxApplyAnnotation, LxSpaceAnnotation},
+        token::{LxTokenAnnotation, LxVariableAnnotation},
+    },
     annotations::LxAnnotations,
 };
 
@@ -41,6 +44,42 @@ use latex_prelude::mode::LxMode;
 use lazy_static::lazy_static;
 
 lazy_static! {
-    pub static ref EXAMPLES: LxAnnotationsExamples =
-        LxAnnotationsExample::collect_from_sparse(&[(LxMode::Math, "", &[], &[])]);
+    pub static ref EXAMPLES: LxAnnotationsExamples = LxAnnotationsExample::collect_from_sparse(&[
+        (LxMode::Math, "", &[], &[]),
+        (
+            LxMode::Math,
+            "x y",
+            &[
+                (
+                    ("x", "x"),
+                    LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                ),
+                (
+                    ("y", "y"),
+                    LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                ),
+            ],
+            &[(
+                ("x", "y"),
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul)
+            ),]
+        ),
+        (
+            LxMode::Math,
+            "dx",
+            &[
+                (("d", "d"), LxTokenAnnotation::Differential),
+                (
+                    ("x", "x"),
+                    LxTokenAnnotation::Variable(
+                        LxVariableAnnotation::SingleVariableIntegralVariableDecl
+                    )
+                ),
+            ],
+            &[(
+                ("d", "x"),
+                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation)
+            ),]
+        ),
+    ]);
 }
