@@ -1,6 +1,6 @@
 #[enum_class::from_variants]
 #[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
-pub enum LxSpaceAnnotation {
+pub enum VdSpaceAnnotation {
     #[default]
     Void,
     Apply(LxApplyAnnotation),

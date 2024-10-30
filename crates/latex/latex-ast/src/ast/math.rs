@@ -37,7 +37,7 @@ pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
         match self.peek_char()? {
-            '}' => return None,
+            '}' | '$' => return None,
             _ => (),
         };
         let (idx, LxTokenData::Math(token)) = self.next_token()? else {
