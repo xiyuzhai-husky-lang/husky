@@ -48,6 +48,7 @@ impl<'a> LxAstParser<'a> {
         }
     }
 
+    // here we differ from the latex syntax, we see all possible delimiters as latex delimiters
     fn parse_delimited(
         &mut self,
         left_delimiter_token_idx: LxTokenIdx,
