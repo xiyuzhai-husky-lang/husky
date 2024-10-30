@@ -26,7 +26,6 @@ latex-math-letter.workspace = true
 latex-math-opr.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
-latex-annotation.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true
@@ -38,4 +37,4 @@ workspace = true
 
 [features]
 egui = ["dep:egui"]
-test_helpers = ["latex-annotation/test_helpers"]
+test_helpers = []

@@ -5,7 +5,7 @@ use crate::{
 };
 use husky_text_protocol::range::TextRange;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct LxTokenStorage {
     ranged_tokens: Vec<((usize, usize), TextRange, LxTokenData)>,
 }

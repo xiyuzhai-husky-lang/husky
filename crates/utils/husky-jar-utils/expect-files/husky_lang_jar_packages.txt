@@ -1305,20 +1305,6 @@
         dependencies: [],
     },
     JarPackageSummary {
-        name: "visored-hir-expr",
-        dependencies: [
-            "visored-opr",
-            "visored-sem-expr",
-            "visored-zfs-ty",
-            "husky-coword",
-            "visored-sem-expr",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-opr",
-        dependencies: [],
-    },
-    JarPackageSummary {
         name: "visored-sem-expr",
         dependencies: [
             "visored-opr",
@@ -1327,8 +1313,22 @@
         ],
     },
     JarPackageSummary {
+        name: "visored-opr",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "visored-zfs-ty",
         dependencies: [],
+    },
+    JarPackageSummary {
+        name: "visored-hir-expr",
+        dependencies: [
+            "visored-opr",
+            "visored-sem-expr",
+            "visored-zfs-ty",
+            "husky-coword",
+            "visored-sem-expr",
+        ],
     },
     JarPackageSummary {
         name: "visored-lean-transpilation",

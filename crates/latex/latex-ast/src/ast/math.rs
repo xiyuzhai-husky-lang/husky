@@ -61,7 +61,7 @@ impl<'a> LxAstParser<'a> {
         left_delimiter: LxMathDelimiter,
     ) -> LxMathAstData {
         let asts = self.parse_math_asts();
-        let Some((idx, token, _, _)) = self.next_token() else {
+        let Some((idx, token)) = self.next_token() else {
             todo!()
         };
         match token {
