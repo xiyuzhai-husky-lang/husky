@@ -16,17 +16,23 @@ pub enum LxMathAstData {
         buffer: String,
     },
     Attach {
-        base: LxAstIdx,
-        scripts: Vec<(LxScriptKind, LxAstIdx)>,
+        base: LxMathAstIdx,
+        scripts: Vec<(LxScriptKind, LxMathAstIdx)>,
     },
     Delimited {
         left_delimiter_token_idx: LxTokenIdx,
         left_delimiter: LxMathDelimiter,
-        asts: LxAstIdxRange,
+        asts: LxMathAstIdxRange,
         right_delimiter_token_idx: LxTokenIdx,
         right_delimiter: LxMathDelimiter,
     },
 }
+
+pub type LxMathAstArena = Arena<LxMathAstData>;
+pub type LxMathAstArenaRef<'a> = ArenaRef<'a, LxMathAstData>;
+pub type LxMathAstArenaMap<T> = ArenaMap<LxMathAstData, T>;
+pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
+pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_math_ast(
@@ -54,7 +60,7 @@ impl<'a> LxAstParser<'a> {
         left_delimiter_token_idx: LxTokenIdx,
         left_delimiter: LxMathDelimiter,
     ) -> LxMathAstData {
-        let asts = self.parse_asts();
+        let asts = self.parse_math_asts();
         let Some((idx, token, _, _)) = self.next_token() else {
             todo!()
         };

@@ -1,5 +1,5 @@
 use crate::{
-    ast::{LxAstArenaRef, LxAstIdx, LxAstIdxRange},
+    ast::{math::LxMathAstIdx, rose::LxRoseAstIdx, LxAstArenaRef, LxAstIdx, LxAstIdxRange},
     range::LxAstTokenIdxRangeMap,
 };
 use ptree::TreeBuilder;
@@ -33,12 +33,25 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 /// # actions
 impl<'a> LxAstDisplayTreeBuilder<'a> {
     fn render_asts(&mut self, asts: LxAstIdxRange) {
-        for ast in asts {
-            self.render_ast(ast);
+        match asts {
+            LxAstIdxRange::Math(range) => {
+                for ast in range {
+                    self.render_math_ast(ast);
+                }
+            }
+            LxAstIdxRange::Rose(range) => {
+                for ast in range {
+                    self.render_rose_ast(ast);
+                }
+            }
         }
     }
 
-    fn render_ast(&mut self, ast: LxAstIdx) {
+    fn render_math_ast(&mut self, ast: LxMathAstIdx) {
+        todo!()
+    }
+
+    fn render_rose_ast(&mut self, ast: LxRoseAstIdx) {
         todo!()
     }
 }

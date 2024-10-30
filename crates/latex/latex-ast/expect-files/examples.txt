@@ -8,14 +8,22 @@
                 space_annotations: [],
             },
         },
-        ast_arena: Arena {
-            data: [],
+        ast_arena: LxAstArena {
+            math: Arena {
+                data: [],
+            },
+            rose: Arena {
+                data: [],
+            },
         },
-        asts: ArenaIdxRange(
-            0..0,
-        ),
-        ast_token_idx_range_map: ArenaMap {
-            data: [],
+        asts: None,
+        ast_token_idx_range_map: LxAstArenaMap {
+            math: ArenaMap {
+                data: [],
+            },
+            rose: ArenaMap {
+                data: [],
+            },
         },
     },
     LatexAstsExample {
@@ -50,30 +58,42 @@
                 ],
             },
         },
-        ast_arena: Arena {
-            data: [
-                Math(
+        ast_arena: LxAstArena {
+            math: Arena {
+                data: [
                     Letter(
                         LxTokenIdx(
                             0,
                         ),
                         LowerX,
                     ),
-                ),
-            ],
+                ],
+            },
+            rose: Arena {
+                data: [],
+            },
         },
-        asts: ArenaIdxRange(
-            0..1,
-        ),
-        ast_token_idx_range_map: ArenaMap {
-            data: [
-                Some(
-                    LxTokenIdxRange {
-                        start: 0,
-                        end: 1,
-                    },
+        asts: Some(
+            Math(
+                ArenaIdxRange(
+                    0..1,
                 ),
-            ],
+            ),
+        ),
+        ast_token_idx_range_map: LxAstArenaMap {
+            math: ArenaMap {
+                data: [
+                    Some(
+                        LxTokenIdxRange {
+                            start: 0,
+                            end: 1,
+                        },
+                    ),
+                ],
+            },
+            rose: ArenaMap {
+                data: [],
+            },
         },
     },
     LatexAstsExample {
@@ -98,30 +118,42 @@
                 space_annotations: [],
             },
         },
-        ast_arena: Arena {
-            data: [
-                Math(
+        ast_arena: LxAstArena {
+            math: Arena {
+                data: [
                     Letter(
                         LxTokenIdx(
                             0,
                         ),
                         LowerD,
                     ),
-                ),
-            ],
+                ],
+            },
+            rose: Arena {
+                data: [],
+            },
         },
-        asts: ArenaIdxRange(
-            0..1,
-        ),
-        ast_token_idx_range_map: ArenaMap {
-            data: [
-                Some(
-                    LxTokenIdxRange {
-                        start: 0,
-                        end: 1,
-                    },
+        asts: Some(
+            Math(
+                ArenaIdxRange(
+                    0..1,
                 ),
-            ],
+            ),
+        ),
+        ast_token_idx_range_map: LxAstArenaMap {
+            math: ArenaMap {
+                data: [
+                    Some(
+                        LxTokenIdxRange {
+                            start: 0,
+                            end: 1,
+                        },
+                    ),
+                ],
+            },
+            rose: ArenaMap {
+                data: [],
+            },
         },
     },
 ]

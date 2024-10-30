@@ -29,28 +29,25 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
 
 impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     fn infer_all(&mut self) {
-        self.ast_arena.indexed_iter().for_each(|(idx, ast)| {
-            self.data.insert_new(idx, self.calc_ast(ast));
+        self.ast_arena.math().indexed_iter().for_each(|(idx, ast)| {
+            self.data.math.insert_new(idx, self.calc_math_ast(ast));
         });
     }
 
-    fn calc_ast(&self, data: &LxAstData) -> LxTokenIdxRange {
+    fn calc_math_ast(&self, data: &LxMathAstData) -> LxTokenIdxRange {
         match *data {
-            LxAstData::Math(ref data) => match *data {
-                LxMathAstData::Letter(idx, _) => LxTokenIdxRange::new_single(idx),
-                LxMathAstData::Opr(idx, _) => LxTokenIdxRange::new_single(idx),
-                LxMathAstData::Digit(idx, _) => LxTokenIdxRange::new_single(idx),
-                LxMathAstData::TextEdit { ref buffer } => todo!(),
-                LxMathAstData::Attach { base, ref scripts } => todo!(),
-                LxMathAstData::Delimited {
-                    left_delimiter_token_idx,
-                    left_delimiter,
-                    asts,
-                    right_delimiter_token_idx,
-                    right_delimiter,
-                } => todo!(),
-            },
-            LxAstData::Rose(ref data) => todo!(),
+            LxMathAstData::Letter(idx, _) => LxTokenIdxRange::new_single(idx),
+            LxMathAstData::Opr(idx, _) => LxTokenIdxRange::new_single(idx),
+            LxMathAstData::Digit(idx, _) => LxTokenIdxRange::new_single(idx),
+            LxMathAstData::TextEdit { ref buffer } => todo!(),
+            LxMathAstData::Attach { base, ref scripts } => todo!(),
+            LxMathAstData::Delimited {
+                left_delimiter_token_idx,
+                left_delimiter,
+                asts,
+                right_delimiter_token_idx,
+                right_delimiter,
+            } => todo!(),
         }
     }
 }
