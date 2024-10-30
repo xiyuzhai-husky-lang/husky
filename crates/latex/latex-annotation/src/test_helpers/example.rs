@@ -84,6 +84,6 @@ lazy_static! {
 #[test]
 fn latex_annotations_examples_works() {
     let examples = &*LX_ANNOTATIONS_EXAMPLES; // Dereference the lazy_static
-    expect_test::expect_file!["../../expect-files/annotations/examples.md"]
+    expect_test::expect_file!["../../expect-files/annotations/examples.txt"]
         .assert_eq(&format!("{:#?}", examples));
 }
