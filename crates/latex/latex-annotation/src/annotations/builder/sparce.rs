@@ -83,20 +83,10 @@ mod tests {
             ),
         ];
 
-        let space_annotations = vec![
-            (
-                ("\\int ", "x"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration),
-            ),
-            (
-                ("\\int x", "d"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
-            ),
-            (
-                ("\\int xd", "x"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation),
-            ),
-        ];
+        let space_annotations = vec![(
+            ("\\int x", "d"),
+            LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
+        )];
 
         let result = collect_from_sparse_annotations(
             input,

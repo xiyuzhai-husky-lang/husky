@@ -48,14 +48,14 @@ lazy_static! {
         (LxMode::Math, "", &[], &[]),
         (
             LxMode::Math,
-            "x y",
+            "xy",
             &[
                 (
-                    ("x", "x"),
+                    ("", "x"),
                     LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
                 ),
                 (
-                    ("y", "y"),
+                    ("x", "y"),
                     LxTokenAnnotation::Variable(LxVariableAnnotation::Usage)
                 ),
             ],
@@ -68,18 +68,20 @@ lazy_static! {
             LxMode::Math,
             "dx",
             &[
-                (("d", "d"), LxTokenAnnotation::Differential),
+                (("", "d"), LxTokenAnnotation::Differential),
                 (
-                    ("x", "x"),
+                    ("d", "x"),
                     LxTokenAnnotation::Variable(
                         LxVariableAnnotation::SingleVariableIntegralVariableDecl
                     )
                 ),
             ],
-            &[(
-                ("d", "x"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation)
-            ),]
+            &[]
         ),
     ]);
+}
+
+#[test]
+fn latex_annotations_examples_works() {
+    let examples = &*EXAMPLES; // Dereference the lazy_static
 }

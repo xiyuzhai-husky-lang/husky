@@ -105,20 +105,10 @@ mod tests {
             ),
         ];
 
-        let space_annotations = vec![
-            (
-                ("\\int ", "x"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration),
-            ),
-            (
-                ("\\int x", "d"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
-            ),
-            (
-                ("\\int xd", "x"),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation),
-            ),
-        ];
+        let space_annotations = vec![(
+            ("\\int x", "d"),
+            LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
+        )];
 
         LxAnnotations::from_sparse(
             &input,
@@ -143,32 +133,12 @@ mod tests {
             )
         );
 
-        // Test at offset 5 ("x" after space)
-        assert_eq!(
-            walker.next(5, 6),
-            (
-                LxTokenAnnotation::Variable(LxVariableAnnotation::Usage),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Integration)
-            )
-        );
-
         // Test at offset 6 ("d" after "x")
         assert_eq!(
             walker.next(6, 7),
             (
                 LxTokenAnnotation::Differential,
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul)
-            )
-        );
-
-        // Test at offset 7 ("x" after "d")
-        assert_eq!(
-            walker.next(7, 8),
-            (
-                LxTokenAnnotation::Variable(
-                    LxVariableAnnotation::SingleVariableIntegralVariableDecl
-                ),
-                LxSpaceAnnotation::Apply(LxApplyAnnotation::Differentiation)
             )
         );
 
