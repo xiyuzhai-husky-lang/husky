@@ -33,12 +33,42 @@ impl LxTokenStorage {
         LxRoseTokenIdxRange::new(0..self.ranged_rose_tokens.len())
     }
 
+    pub fn math_token_offset_range(&self, token_idx: LxMathTokenIdx) -> (usize, usize) {
+        self.ranged_math_tokens[token_idx.index()].0
+    }
+
+    pub fn rose_token_offset_range(&self, token_idx: LxRoseTokenIdx) -> (usize, usize) {
+        self.ranged_rose_tokens[token_idx.index()].0
+    }
+
     pub fn math_token_text_range(&self, token_idx: LxMathTokenIdx) -> TextRange {
         self.ranged_math_tokens[token_idx.index()].1
     }
 
     pub fn rose_token_text_range(&self, token_idx: LxRoseTokenIdx) -> TextRange {
         self.ranged_rose_tokens[token_idx.index()].1
+    }
+
+    pub fn math_token_idx_range_offset_range(&self, range: LxMathTokenIdxRange) -> (usize, usize) {
+        let first = self.math_token_offset_range(range.start());
+        match range.last() {
+            Some(last) => {
+                let last = self.math_token_offset_range(last);
+                (first.0, last.1)
+            }
+            None => todo!(),
+        }
+    }
+
+    pub fn rose_token_idx_range_offset_range(&self, range: LxRoseTokenIdxRange) -> (usize, usize) {
+        let first = self.rose_token_offset_range(range.start());
+        match range.last() {
+            Some(last) => {
+                let last = self.rose_token_offset_range(last);
+                (first.0, last.1)
+            }
+            None => todo!(),
+        }
     }
 }
 
