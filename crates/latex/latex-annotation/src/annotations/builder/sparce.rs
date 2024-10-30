@@ -126,24 +126,10 @@ mod tests {
                 ],
                 space_annotations: [
                     LxAnnotationEntry {
-                        start: 5,
-                        end: 6,
-                        annotation: Apply(
-                            Integration,
-                        ),
-                    },
-                    LxAnnotationEntry {
                         start: 6,
                         end: 7,
                         annotation: Apply(
                             ScalarDifferentialFormMul,
-                        ),
-                    },
-                    LxAnnotationEntry {
-                        start: 7,
-                        end: 8,
-                        annotation: Apply(
-                            Differentiation,
                         ),
                     },
                 ],
