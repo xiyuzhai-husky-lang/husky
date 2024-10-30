@@ -3543,6 +3543,7 @@
             "latex-math-opr",
             "latex-prelude",
             "latex-token",
+            "ptree",
             "salsa",
             "time-capsule",
             "expect-test",
