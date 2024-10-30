@@ -1,4 +1,4 @@
-use crate::{data::math::LxMathTokenData, idx::LxTokenIdx, lexer::LxLexer};
+use crate::{data::math::LxMathTokenData, idx::math::LxMathTokenIdx, lexer::LxLexer};
 
 pub struct LxMathTokenStream<'a> {
     lexer: LxLexer<'a>,
@@ -11,7 +11,7 @@ impl<'a> LxMathTokenStream<'a> {
 }
 
 impl<'a> Iterator for LxMathTokenStream<'a> {
-    type Item = (LxTokenIdx, LxMathTokenData);
+    type Item = (LxMathTokenIdx, LxMathTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.lexer.next_math_token()

@@ -8,8 +8,8 @@ use crate::{
 };
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData},
-    idx::LxTokenIdx,
+    data::{math::LxMathTokenData, rose::LxRoseTokenData},
+    idx::{math::LxMathTokenIdx, rose::LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
 };
@@ -70,11 +70,11 @@ impl<'a> LxAstParser<'a> {
         self.lexer.peek_rose_token_data()
     }
 
-    pub(crate) fn next_math_token(&mut self) -> Option<(LxTokenIdx, LxMathTokenData)> {
+    pub(crate) fn next_math_token(&mut self) -> Option<(LxMathTokenIdx, LxMathTokenData)> {
         self.lexer.next_math_token()
     }
 
-    pub(crate) fn next_rose_token(&mut self) -> Option<(LxTokenIdx, LxRoseTokenData)> {
+    pub(crate) fn next_rose_token(&mut self) -> Option<(LxRoseTokenIdx, LxRoseTokenData)> {
         self.lexer.next_rose_token()
     }
 }
