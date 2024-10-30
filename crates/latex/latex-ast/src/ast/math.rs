@@ -8,9 +8,9 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxMathAstData {
-    Letter(LxMathLetter),
-    Opr(LxMathOpr),
-    Digit(LxMathDigit),
+    Letter(LxTokenIdx, LxMathLetter),
+    Opr(LxTokenIdx, LxMathOpr),
+    Digit(LxTokenIdx, LxMathDigit),
     /// not obtained through parsing, but through ui
     TextEdit {
         buffer: String,
@@ -38,9 +38,9 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::Command(_) => todo!(),
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
             LxMathTokenData::RightDelimiter(_) => todo!(),
-            LxMathTokenData::Letter(letter) => LxMathAstData::Letter(letter),
-            LxMathTokenData::Opr(opr) => LxMathAstData::Opr(opr), // it's not constructed into a tree yet in the ast stage
-            LxMathTokenData::Digit(digit) => LxMathAstData::Digit(digit),
+            LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),
+            LxMathTokenData::Opr(opr) => LxMathAstData::Opr(idx, opr), // it's not constructed into a tree yet in the ast stage
+            LxMathTokenData::Digit(digit) => LxMathAstData::Digit(idx, digit),
             LxMathTokenData::Other(_) => todo!(),
             LxMathTokenData::Subscript => todo!(),
             LxMathTokenData::Superscript => todo!(),

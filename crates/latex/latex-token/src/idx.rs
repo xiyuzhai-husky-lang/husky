@@ -41,6 +41,7 @@ impl Step for LxTokenIdx {
     }
 }
 
+#[derive(Debug)]
 pub struct LxTokenIdxRange {
     start: ShiftedU32,
     end: ShiftedU32,
@@ -69,6 +70,13 @@ impl LxTokenIdxRange {
         Self {
             start: range.start.into(),
             end: range.end.into(),
+        }
+    }
+
+    pub fn new_single(idx: LxTokenIdx) -> Self {
+        Self {
+            start: idx.0,
+            end: (idx + 1).0,
         }
     }
 }
