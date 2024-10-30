@@ -11,7 +11,13 @@ use husky_coword::Coword;
 use husky_text_protocol::{char::TextCharIter, range::TextRange};
 use latex_prelude::mode::LxMode;
 
-pub struct LxLexer<'a> {
+pub fn lex_latex_input(input: &str, mode: LxMode, db: &::salsa::Db) -> LxTokenStorage {
+    let mut lexer = LxLexer::new(db, input, mode);
+    for _ in &mut lexer {}
+    lexer.finish()
+}
+
+pub(crate) struct LxLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
     pub(crate) mode: LxMode,
@@ -20,13 +26,17 @@ pub struct LxLexer<'a> {
 
 /// # constructor
 impl<'a> LxLexer<'a> {
-    pub fn new(db: &'a ::salsa::Db, input: &'a str, mode: LxMode) -> Self {
+    pub(crate) fn new(db: &'a ::salsa::Db, input: &'a str, mode: LxMode) -> Self {
         Self {
             db,
             chars: TextCharIter::new(input),
             mode,
             storage: Default::default(),
         }
+    }
+
+    pub(crate) fn finish(self) -> LxTokenStorage {
+        self.storage
     }
 }
 
@@ -81,7 +91,8 @@ impl<'a> Iterator for LxLexer<'a> {
             end: self.chars.current_position(),
         };
         Some((
-            self.storage.alloc(range, token_data),
+            self.storage
+                .alloc(start_offset, end_offset, range, token_data),
             (start_offset, end_offset),
             range,
             token_data,
