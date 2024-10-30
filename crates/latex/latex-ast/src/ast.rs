@@ -13,7 +13,10 @@ use latex_annotation::{
 use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
-use latex_token::data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData};
+use latex_token::{
+    data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData},
+    lexer::lex_latex_input,
+};
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
@@ -34,7 +37,8 @@ pub fn parse_latex_input_into_asts<'a>(
     mode: LxMode,
     arena: &'a mut LxAstArena,
 ) -> LxAstIdxRange {
-    let mut parser = LxAstParser::new(db, input, annotations, mode, arena);
+    let tokens = lex_latex_input(input, mode, db);
+    let mut parser = LxAstParser::new(db, &tokens, annotations, mode, arena);
     let asts = parser.parse_asts();
     asts
 }
