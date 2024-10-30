@@ -2,9 +2,8 @@ use crate::{
     data::{
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
-        LxTokenData,
     },
-    idx::LxTokenIdx,
+    idx::{math::LxMathTokenIdx, rose::LxRoseTokenIdx},
     storage::LxTokenStorage,
     stream::{math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
@@ -31,11 +30,11 @@ impl<'a> LxLexer<'a> {
 
 /// # actions
 impl<'a> LxLexer<'a> {
-    pub fn next_math_token(&mut self) -> Option<(LxTokenIdx, LxMathTokenData)> {
+    pub fn next_math_token(&mut self) -> Option<(LxMathTokenIdx, LxMathTokenData)> {
         let ((start_offset, end_offset), range, token_data) = self.next_math_token_aux()?;
         Some((
             self.storage
-                .alloc(start_offset, end_offset, range, token_data.into()),
+                .alloc_math_token(start_offset, end_offset, range, token_data),
             token_data,
         ))
     }
@@ -71,11 +70,11 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
-    pub fn next_rose_token(&mut self) -> Option<(LxTokenIdx, LxRoseTokenData)> {
+    pub fn next_rose_token(&mut self) -> Option<(LxRoseTokenIdx, LxRoseTokenData)> {
         let ((start_offset, end_offset), range, token_data) = self.next_rose_token_aux()?;
         Some((
             self.storage
-                .alloc(start_offset, end_offset, range, token_data.into()),
+                .alloc_rose_token(start_offset, end_offset, range, token_data),
             token_data,
         ))
     }

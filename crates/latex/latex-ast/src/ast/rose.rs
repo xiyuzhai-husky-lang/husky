@@ -1,6 +1,6 @@
 //! means the prose mode
 use super::*;
-use latex_token::{data::rose::LxRoseTokenData, idx::LxTokenIdx};
+use latex_token::{data::rose::LxRoseTokenData, idx::rose::LxRoseTokenIdx};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -17,7 +17,7 @@ pub type LxRoseAstIdxRange = ArenaIdxRange<LxRoseAstData>;
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_text_ast(
         &mut self,
-        idx: LxTokenIdx,
+        idx: LxRoseTokenIdx,
         token: LxRoseTokenData,
     ) -> LxRoseAstData {
         match token {
