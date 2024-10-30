@@ -415,6 +415,7 @@ husky-screen-utils = { path = "crates/utils/husky-screen-utils" }
 husky-sha-utils = { path = "crates/utils/husky-sha-utils" }
 husky-sync-utils = { path = "crates/utils/husky-sync-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
+husky-tree-utils = { path = "crates/utils/husky-tree-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 husky-wild-utils = { path = "crates/utils/husky-wild-utils" }

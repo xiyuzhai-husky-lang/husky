@@ -1,1 +1,1 @@
-mod display;
+pub mod display;

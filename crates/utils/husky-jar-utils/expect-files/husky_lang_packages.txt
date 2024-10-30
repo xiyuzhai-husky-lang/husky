@@ -3537,6 +3537,7 @@
             "egui",
             "enum-class",
             "husky-coword",
+            "husky-tree-utils",
             "idx-arena",
             "latex-math-letter",
             "latex-math-opr",
@@ -3545,6 +3546,13 @@
             "ptree",
             "salsa",
             "time-capsule",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "husky-tree-utils",
+        relative_path: "crates/utils/husky-tree-utils",
+        dependencies: [
             "expect-test",
         ],
     },
@@ -4202,13 +4210,6 @@
         name: "husky-tracing-utils",
         relative_path: "crates/utils/husky-tracing-utils",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-tree-utils",
-        relative_path: "crates/utils/husky-tree-utils",
-        dependencies: [
-            "expect-test",
-        ],
     },
     PackageSummary {
         name: "husky-virtual-value-macros",
