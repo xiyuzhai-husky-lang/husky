@@ -14,6 +14,9 @@
         asts: ArenaIdxRange(
             0..0,
         ),
+        ast_token_idx_range_map: ArenaMap {
+            data: [],
+        },
     },
     LatexAstsExample {
         annotations: LxAnnotationsExample {
@@ -51,6 +54,9 @@
             data: [
                 Math(
                     Letter(
+                        LxTokenIdx(
+                            0,
+                        ),
                         LowerX,
                     ),
                 ),
@@ -59,6 +65,16 @@
         asts: ArenaIdxRange(
             0..1,
         ),
+        ast_token_idx_range_map: ArenaMap {
+            data: [
+                Some(
+                    LxTokenIdxRange {
+                        start: 0,
+                        end: 1,
+                    },
+                ),
+            ],
+        },
     },
     LatexAstsExample {
         annotations: LxAnnotationsExample {
@@ -86,6 +102,9 @@
             data: [
                 Math(
                     Letter(
+                        LxTokenIdx(
+                            0,
+                        ),
                         LowerD,
                     ),
                 ),
@@ -94,5 +113,15 @@
         asts: ArenaIdxRange(
             0..1,
         ),
+        ast_token_idx_range_map: ArenaMap {
+            data: [
+                Some(
+                    LxTokenIdxRange {
+                        start: 0,
+                        end: 1,
+                    },
+                ),
+            ],
+        },
     },
 ]

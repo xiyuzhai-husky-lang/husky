@@ -1,4 +1,7 @@
-use crate::ast::{parse_latex_input_into_asts, LxAstArena, LxAstIdxRange};
+use crate::{
+    ast::{parse_latex_input_into_asts, LxAstArena, LxAstIdxRange},
+    range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
+};
 use latex_annotation::test_helpers::example::{LxAnnotationsExample, LX_ANNOTATIONS_EXAMPLES};
 
 #[derive(Debug)]
@@ -6,6 +9,7 @@ pub struct LatexAstsExample {
     pub annotations: LxAnnotationsExample,
     pub ast_arena: LxAstArena,
     pub asts: LxAstIdxRange,
+    pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
 }
 
 impl LatexAstsExample {
@@ -18,10 +22,12 @@ impl LatexAstsExample {
             annotations.root_mode,
             &mut ast_arena,
         );
+        let ast_token_idx_range_map = calc_ast_token_idx_range_map(db, &ast_arena);
         Self {
             annotations,
             ast_arena,
             asts,
+            ast_token_idx_range_map,
         }
     }
 }
