@@ -8,14 +8,17 @@ use crate::{
 };
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::LxTokenData, idx::LxTokenIdx, lexer::LxLexer, storage::LxTokenStorage,
-    stream::LxTokenStream,
+    data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData},
+    idx::LxTokenIdx,
+    lexer::LxLexer,
+    storage::LxTokenStorage,
 };
 use std::{borrow::BorrowMut, iter::Peekable};
 
 pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
     lexer: LxLexer<'a>,
+    mode: LxMode,
     arena: &'a mut LxAstArena,
 }
 
@@ -30,13 +33,14 @@ impl<'a> LxAstParser<'a> {
     ) -> Self {
         Self {
             db,
-            lexer: LxLexer::new(db, input, mode, token_storage),
+            lexer: LxLexer::new(db, input, token_storage),
+            mode,
             arena,
         }
     }
 
     pub(crate) fn mode(&self) -> LxMode {
-        self.lexer.mode()
+        self.mode
     }
 }
 
@@ -58,12 +62,19 @@ impl<'a> LxAstParser<'a> {
         self.arena.rose.alloc_batch(asts)
     }
 
-    pub(crate) fn peek_char(&mut self) -> Option<char> {
-        self.lexer.peek_char()
+    pub(crate) fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
+        self.lexer.peek_math_token_data()
     }
 
-    pub(crate) fn next_token(&mut self) -> Option<(LxTokenIdx, LxTokenData)> {
-        let (token_idx, _, _, token_data) = self.lexer.next()?;
-        Some((token_idx, token_data))
+    pub(crate) fn peek_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
+        self.lexer.peek_rose_token_data()
+    }
+
+    pub(crate) fn next_math_token(&mut self) -> Option<(LxTokenIdx, LxMathTokenData)> {
+        self.lexer.next_math_token()
+    }
+
+    pub(crate) fn next_rose_token(&mut self) -> Option<(LxTokenIdx, LxRoseTokenData)> {
+        self.lexer.next_rose_token()
     }
 }
