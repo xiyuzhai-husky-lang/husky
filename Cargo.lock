@@ -8034,6 +8034,8 @@ dependencies = [
  "expect-test",
  "husky-print-utils",
  "latex-annotation",
+ "latex-prelude",
+ "lazy_static",
 ]
 
 [[package]]
