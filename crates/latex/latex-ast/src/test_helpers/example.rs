@@ -5,14 +5,14 @@ use crate::{
 use latex_annotation::test_helpers::example::{LxAnnotationsExample, LX_ANNOTATIONS_EXAMPLES};
 
 #[derive(Debug)]
-pub struct LatexAstsExample {
+pub struct LxAstsExample {
     pub annotations: LxAnnotationsExample,
     pub ast_arena: LxAstArena,
     pub asts: Option<LxAstIdxRange>,
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
 }
 
-impl LatexAstsExample {
+impl LxAstsExample {
     pub fn from_annotations(annotations: LxAnnotationsExample, db: &salsa::Db) -> Self {
         let mut ast_arena = LxAstArena::default();
         let asts = parse_latex_input_into_asts(
@@ -32,11 +32,11 @@ impl LatexAstsExample {
     }
 }
 
-pub fn lx_asts_examples(db: &salsa::Db) -> Vec<LatexAstsExample> {
+pub fn lx_asts_examples(db: &salsa::Db) -> Vec<LxAstsExample> {
     LX_ANNOTATIONS_EXAMPLES
         .iter()
         .cloned()
-        .map(|eg| LatexAstsExample::from_annotations(eg, db))
+        .map(|eg| LxAstsExample::from_annotations(eg, db))
         .collect()
 }
 
