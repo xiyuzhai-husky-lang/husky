@@ -1,4 +1,7 @@
-use crate::ast::{LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange};
+use crate::{
+    ast::{LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange},
+    region::LxAstRegionData,
+};
 use latex_annotation::{
     annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
     annotations::{walker::LxAnnotationsWalker, LxAnnotations},
@@ -30,7 +33,10 @@ impl<'a> LxAstParser<'a> {
             arena,
         }
     }
+}
 
+/// # actions
+impl<'a> LxAstParser<'a> {
     pub(crate) fn alloc_asts(&mut self, asts: Vec<LxAstData>) -> LxAstIdxRange {
         self.arena.alloc_batch(asts)
     }
@@ -38,10 +44,7 @@ impl<'a> LxAstParser<'a> {
     pub(crate) fn alloc_ast(&mut self, ast: LxAstData) -> LxAstIdx {
         self.arena.alloc_one(ast)
     }
-}
 
-/// # actions
-impl<'a> LxAstParser<'a> {
     pub(crate) fn peek_token(&mut self) -> Option<LxTokenData> {
         self.lexer.peek().map(|&(_, _, _, data)| data)
     }
