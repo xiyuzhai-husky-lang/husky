@@ -3554,7 +3554,16 @@
         dependencies: [
             "enum-class",
             "husky-print-utils",
+            "latex-prelude",
+            "lazy_static",
             "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "latex-prelude",
+        relative_path: "crates/latex/latex-prelude",
+        dependencies: [
+            "salsa",
         ],
     },
     PackageSummary {
@@ -3566,13 +3575,6 @@
         name: "latex-math-opr",
         relative_path: "crates/latex/latex-math-opr",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "latex-prelude",
-        relative_path: "crates/latex/latex-prelude",
-        dependencies: [
-            "salsa",
-        ],
     },
     PackageSummary {
         name: "latex-token",
