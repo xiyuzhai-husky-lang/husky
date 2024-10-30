@@ -79,4 +79,20 @@ impl LxRoseTokenIdxRange {
             end: (idx + 1).0,
         }
     }
+
+    pub(crate) fn is_empty(self) -> bool {
+        self.start == self.end
+    }
+
+    pub fn start(self) -> LxRoseTokenIdx {
+        LxRoseTokenIdx(self.start)
+    }
+
+    pub fn last(self) -> Option<LxRoseTokenIdx> {
+        if self.is_empty() {
+            None
+        } else {
+            Some(LxRoseTokenIdx(self.end - 1))
+        }
+    }
 }

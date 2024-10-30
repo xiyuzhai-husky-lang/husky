@@ -12,6 +12,22 @@ pub struct LxAstTokenIdxRangeMap {
     pub(crate) rose: LxRoseAstArenaMap<LxRoseTokenIdxRange>,
 }
 
+impl std::ops::Index<LxMathAstIdx> for LxAstTokenIdxRangeMap {
+    type Output = LxMathTokenIdxRange;
+
+    fn index(&self, index: LxMathAstIdx) -> &Self::Output {
+        &self.math[index]
+    }
+}
+
+impl std::ops::Index<LxRoseAstIdx> for LxAstTokenIdxRangeMap {
+    type Output = LxRoseTokenIdxRange;
+
+    fn index(&self, index: LxRoseAstIdx) -> &Self::Output {
+        &self.rose[index]
+    }
+}
+
 pub fn calc_ast_token_idx_range_map(db: &salsa::Db, arena: &LxAstArena) -> LxAstTokenIdxRangeMap {
     let mut calculator = LxAstTokenIdxRangeCalculator::new(db, arena);
     calculator.infer_all();

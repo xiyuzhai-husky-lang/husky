@@ -7298,6 +7298,13 @@ name = "husky-trai-analysis"
 version = "0.1.0"
 
 [[package]]
+name = "husky-tree-utils"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
+]
+
+[[package]]
 name = "husky-unicode-symbols"
 version = "0.1.0"
 
