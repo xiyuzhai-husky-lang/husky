@@ -1,11 +1,11 @@
 use super::*;
 
 pub(in crate::sheet) struct MathAstAllocAstAction {
-    ast_data: LxAstData,
+    ast_data: LxMathAstData,
 }
 
 impl MathAstAllocAstAction {
-    pub(in crate::sheet) fn new(ast_data: LxAstData) -> Self {
+    pub(in crate::sheet) fn new(ast_data: LxMathAstData) -> Self {
         Self { ast_data }
     }
 }
@@ -13,7 +13,7 @@ impl MathAstAllocAstAction {
 impl IsTimeCapsuleAction for MathAstAllocAstAction {
     type Event = MathAstEvent;
 
-    type Outcome = LxAstIdx;
+    type Outcome = LxMathAstIdx;
 
     fn add_to_event_buffer(&self, _event: &mut MathAstEventBuffer) {
         // ignored because sheet is append only, no need to undo
@@ -21,6 +21,6 @@ impl IsTimeCapsuleAction for MathAstAllocAstAction {
     }
 
     fn exec(self, sheet: &mut LxAstSheet) -> Self::Outcome {
-        sheet.alloc_ast(self.ast_data)
+        sheet.alloc_math_ast(self.ast_data)
     }
 }

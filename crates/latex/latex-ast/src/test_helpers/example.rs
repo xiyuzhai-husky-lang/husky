@@ -8,7 +8,7 @@ use latex_annotation::test_helpers::example::{LxAnnotationsExample, LX_ANNOTATIO
 pub struct LatexAstsExample {
     pub annotations: LxAnnotationsExample,
     pub ast_arena: LxAstArena,
-    pub asts: LxAstIdxRange,
+    pub asts: Option<LxAstIdxRange>,
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
 }
 
