@@ -316,7 +316,6 @@ husky-ki = { path = "crates/ki/husky-ki" }
 husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 # latex
-latex-annotation = { path = "crates/latex/latex-annotation" }
 latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
@@ -428,6 +427,7 @@ husky-standard-value = { path = "crates/value/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
 husky-virtual-value = { path = "crates/value/husky-virtual-value" }
 # visored
+visored-annotation = { path = "crates/visored/visored-annotation" }
 visored-coword = { path = "crates/visored/visored-coword" }
 visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }

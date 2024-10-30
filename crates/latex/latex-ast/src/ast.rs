@@ -9,10 +9,6 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_annotation::{
-    annotation::{space::LxSpaceAnnotation, token::LxTokenAnnotation},
-    annotations::LxAnnotations,
-};
 use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
@@ -102,12 +98,11 @@ pub enum LxAstIdxRange {
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
     input: &'a str,
-    annotations: &'a LxAnnotations,
     mode: LxMode,
     arena: &'a mut LxAstArena,
 ) -> Option<LxAstIdxRange> {
     let tokens = lex_latex_input(input, mode, db);
-    let mut parser = LxAstParser::new(db, &tokens, annotations, mode, arena);
+    let mut parser = LxAstParser::new(db, &tokens, mode, arena);
     let asts = parser.parse_asts();
     asts
 }
@@ -141,7 +136,7 @@ impl<'a> LxAstParser<'a> {
         match self.peek_token()? {
             // TODO include more cases, like \limits
             LxTokenData::Math(LxMathTokenData::Subscript | LxMathTokenData::Superscript) => {
-                let (idx, LxTokenData::Math(token), _, _) = self.next_token().unwrap() else {
+                let (idx, LxTokenData::Math(token)) = self.next_token().unwrap() else {
                     unreachable!()
                 };
                 ast = match ast {
@@ -205,7 +200,7 @@ impl<'a> LxAstParser<'a> {
                 LxRoseTokenData::NewParagraph => todo!(),
             },
         }
-        let (idx, token, token_annotation, space_annotation) = self.next_token().unwrap();
+        let (idx, token) = self.next_token().unwrap();
         Some(match token {
             LxTokenData::Math(token) => self.parse_atomic_math_ast(idx, token).into(),
             LxTokenData::Rose(token) => self.parse_atomic_text_ast(idx, token).into(),
@@ -217,23 +212,14 @@ impl<'a> LxAstParser<'a> {
 fn parse_tex_input_into_asts_works() {
     use expect_test::Expect;
 
-    fn t(
-        input: &str,
-        token_annotations: Vec<((&str, &str), LxTokenAnnotation)>,
-        space_annotations: Vec<((&str, &str), LxSpaceAnnotation)>,
-        mode: LxMode,
-        expected: Expect,
-    ) {
+    fn t(input: &str, mode: LxMode, expected: Expect) {
         let db = &DB::default();
         let mut arena = LxAstArena::default();
-        let annotations = &LxAnnotations::from_sparse(input, token_annotations, space_annotations);
-        let asts = parse_latex_input_into_asts(db, input, annotations, mode, &mut arena);
+        let asts = parse_latex_input_into_asts(db, input, mode, &mut arena);
         expected.assert_debug_eq(&((arena, asts).debug(db)));
     }
     t(
         "",
-        vec![],
-        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -251,8 +237,6 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x",
-        vec![],
-        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -276,8 +260,6 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x+1",
-        vec![],
-        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -314,8 +296,6 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x^2",
-        vec![],
-        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -361,8 +341,6 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x_2",
-        vec![],
-        vec![],
         LxMode::Math,
         expect![[r#"
             (
@@ -408,8 +386,6 @@ fn parse_tex_input_into_asts_works() {
     );
     t(
         "x^{i+2}",
-        vec![],
-        vec![],
         LxMode::Math,
         expect![[r#"
             (

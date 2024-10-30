@@ -8140,18 +8140,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "latex-annotation"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "expect-test",
- "husky-print-utils",
- "latex-annotation",
- "latex-prelude",
- "lazy_static 1.5.0",
-]
-
-[[package]]
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [
@@ -8160,7 +8148,6 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "idx-arena",
- "latex-annotation",
  "latex-ast",
  "latex-math-letter",
  "latex-math-opr",
@@ -12507,6 +12494,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
+name = "visored-annotation"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-print-utils",
+ "latex-prelude",
+ "lazy_static 1.5.0",
+ "visored-sem-expr",
+]
+
+[[package]]
 name = "visored-coword"
 version = "0.1.0"
 dependencies = [
@@ -12568,10 +12567,10 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "idx-arena",
- "latex-annotation",
  "latex-prelude",
  "latex-syn-expr",
  "salsa",
+ "visored-annotation",
  "visored-opr",
  "visored-sem-expr",
  "visored-zfs-ty",
