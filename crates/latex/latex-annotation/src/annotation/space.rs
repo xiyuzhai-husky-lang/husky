@@ -11,8 +11,6 @@ pub enum LxSpaceAnnotation {
 pub enum LxApplyAnnotation {
     ScalarMul,
     ScalarDifferentialFormMul,
-    Differentiation,
-    Integration,
 }
 
 #[enum_class::from_variants]
