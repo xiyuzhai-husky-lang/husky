@@ -8,13 +8,14 @@ use crate::{
 };
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::LxTokenData, idx::LxTokenIdx, storage::LxTokenStorage, stream::LxTokenStream,
+    data::LxTokenData, idx::LxTokenIdx, lexer::LxLexer, storage::LxTokenStorage,
+    stream::LxTokenStream,
 };
 use std::{borrow::BorrowMut, iter::Peekable};
 
 pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
-    token_stream: Peekable<LxTokenStream<'a>>,
+    lexer: Peekable<LxLexer<'a>>,
     arena: &'a mut LxAstArena,
 }
 
@@ -22,13 +23,14 @@ pub(crate) struct LxAstParser<'a> {
 impl<'a> LxAstParser<'a> {
     pub(crate) fn new(
         db: &'a ::salsa::Db,
-        tokens: &'a LxTokenStorage,
+        input: &'a str,
         mode: LxMode,
+        token_storage: &'a mut LxTokenStorage,
         arena: &'a mut LxAstArena,
     ) -> Self {
         Self {
             db,
-            token_stream: tokens.stream().peekable(),
+            lexer: LxLexer::new(db, input, mode, token_storage).peekable(),
             arena,
         }
     }
@@ -53,11 +55,11 @@ impl<'a> LxAstParser<'a> {
     }
 
     pub(crate) fn peek_token(&mut self) -> Option<LxTokenData> {
-        self.token_stream.peek().map(|&(_, _, _, data)| data)
+        self.lexer.peek().map(|&(_, _, _, data)| data)
     }
 
     pub(crate) fn next_token(&mut self) -> Option<(LxTokenIdx, LxTokenData)> {
-        let (token_idx, _, _, token_data) = self.token_stream.next()?;
+        let (token_idx, _, _, token_data) = self.lexer.next()?;
         Some((token_idx, token_data))
     }
 }

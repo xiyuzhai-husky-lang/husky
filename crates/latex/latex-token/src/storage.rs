@@ -5,6 +5,7 @@ use crate::{
 };
 use husky_text_protocol::range::TextRange;
 
+#[salsa::derive_debug_with_db]
 #[derive(Default, Debug)]
 pub struct LxTokenStorage {
     ranged_tokens: Vec<((usize, usize), TextRange, LxTokenData)>,
