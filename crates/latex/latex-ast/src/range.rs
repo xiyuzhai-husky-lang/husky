@@ -1,8 +1,8 @@
 use latex_token::idx::{math::LxMathTokenIdxRange, rose::LxRoseTokenIdxRange};
 
 use crate::ast::{
-    math::{LxMathAstArenaMap, LxMathAstData},
-    rose::{LxRoseAstArenaMap, LxRoseAstData},
+    math::{LxMathAstArenaMap, LxMathAstData, LxMathAstIdx},
+    rose::{LxRoseAstArenaMap, LxRoseAstData, LxRoseAstIdx},
     LxAstArena, LxAstArenaMap, LxAstArenaRef, LxAstData, LxAstIdx,
 };
 
@@ -42,11 +42,18 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
 impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     fn infer_all(&mut self) {
         self.ast_arena.math().indexed_iter().for_each(|(idx, ast)| {
-            self.math_data.insert_new(idx, self.calc_math_ast(ast));
+            self.infer_math_ast(idx, ast);
         });
         self.ast_arena.rose().indexed_iter().for_each(|(idx, ast)| {
             self.rose_data.insert_new(idx, self.calc_rose_ast(ast));
         });
+    }
+
+    fn infer_math_ast(&mut self, idx: LxMathAstIdx, ast: &LxMathAstData) {
+        if !self.math_data.has(idx) {
+            let range = self.calc_math_ast(ast);
+            self.math_data.insert_new(idx, range);
+        }
     }
 
     fn calc_math_ast(&self, data: &LxMathAstData) -> LxMathTokenIdxRange {
@@ -66,7 +73,24 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
         }
     }
 
+    fn get_math_ast_range(&mut self, idx: LxMathAstIdx) -> LxMathTokenIdxRange {
+        self.infer_math_ast(idx, &self.ast_arena.math()[idx]);
+        self.math_data[idx]
+    }
+
+    fn infer_rose_ast(&mut self, idx: LxRoseAstIdx, ast: &LxRoseAstData) {
+        if !self.rose_data.has(idx) {
+            let range = self.calc_rose_ast(ast);
+            self.rose_data.insert_new(idx, range);
+        }
+    }
+
     fn calc_rose_ast(&self, data: &LxRoseAstData) -> LxRoseTokenIdxRange {
         todo!()
+    }
+
+    fn get_rose_ast_range(&mut self, idx: LxRoseAstIdx) -> LxRoseTokenIdxRange {
+        self.infer_rose_ast(idx, &self.ast_arena.rose()[idx]);
+        self.rose_data[idx]
     }
 }
