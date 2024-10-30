@@ -41,7 +41,7 @@ impl Step for LxRoseTokenIdx {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxRoseTokenIdxRange {
     start: ShiftedU32,
     end: ShiftedU32,
