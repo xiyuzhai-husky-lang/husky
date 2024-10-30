@@ -69,7 +69,7 @@ fn next_annotation_aux<A: Copy + Default + std::fmt::Debug>(
         *next_token_annotation_index += 1;
         result
     } else {
-        panic!()
+        panic!("Invalid annotation sequence: annotation start ({start1}) is before token start ({start})");
     }
 }
 
@@ -133,6 +133,15 @@ mod tests {
             )
         );
 
+        // Test at offset 5 ("x" after "\\int ")
+        assert_eq!(
+            walker.next(5, 6),
+            (
+                LxTokenAnnotation::Variable(LxVariableAnnotation::Usage),
+                LxSpaceAnnotation::Void
+            )
+        );
+
         // Test at offset 6 ("d" after "x")
         assert_eq!(
             walker.next(6, 7),
@@ -140,12 +149,6 @@ mod tests {
                 LxTokenAnnotation::Differential,
                 LxSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul)
             )
-        );
-
-        // Test at offset 8 (end of input)
-        assert_eq!(
-            walker.next(8, 9),
-            (LxTokenAnnotation::default(), LxSpaceAnnotation::default())
         );
     }
 

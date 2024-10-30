@@ -6,6 +6,7 @@ use crate::{
     annotations::LxAnnotations,
 };
 
+#[derive(Debug)]
 pub struct LxAnnotationsExample {
     pub root_mode: LxMode,
     pub input: String,
@@ -84,4 +85,6 @@ lazy_static! {
 #[test]
 fn latex_annotations_examples_works() {
     let examples = &*EXAMPLES; // Dereference the lazy_static
+    expect_test::expect_file!["../../expect-files/annotations/examples.md"]
+        .assert_eq(&format!("{:#?}", examples));
 }
