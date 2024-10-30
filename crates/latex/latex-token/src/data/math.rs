@@ -235,58 +235,58 @@ fn next_text_token_data_works() {
     t(
         "(",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::LeftDelimiter(
-                    Par,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Punctuation(
+                        Lpar,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         ")",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::RightDelimiter(
-                    Par,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Punctuation(
+                        Rpar,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "[",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::LeftDelimiter(
-                    Box,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Punctuation(
+                        Lbox,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "]",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::RightDelimiter(
-                    Box,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Punctuation(
+                        Rbox,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "\\{",
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::LeftDelimiter(
-                        EscapedCurl,
+                    LxMathTokenData::Punctuation(
+                        EscapedLcurl,
                     ),
                 ),
             ]
@@ -297,8 +297,8 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxTokenData::Math(
-                    LxMathTokenData::RightDelimiter(
-                        EscapedCurl,
+                    LxMathTokenData::Punctuation(
+                        EscapedRcurl,
                     ),
                 ),
             ]
@@ -307,14 +307,14 @@ fn next_text_token_data_works() {
     t(
         "+",
         &expect![[r#"
-        [
-            LxTokenData::Math(
-                LxMathTokenData::Opr(
-                    Add,
+            [
+                LxTokenData::Math(
+                    LxMathTokenData::Punctuation(
+                        Add,
+                    ),
                 ),
-            ),
-        ]
-    "#]],
+            ]
+        "#]],
     );
     t(
         "x+1",
@@ -326,7 +326,7 @@ fn next_text_token_data_works() {
                     ),
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Opr(
+                    LxMathTokenData::Punctuation(
                         Add,
                     ),
                 ),
@@ -364,7 +364,7 @@ fn next_text_token_data_works() {
                     ),
                 ),
                 LxTokenData::Math(
-                    LxMathTokenData::Opr(
+                    LxMathTokenData::Punctuation(
                         Add,
                     ),
                 ),
