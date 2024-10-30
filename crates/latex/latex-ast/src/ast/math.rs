@@ -9,7 +9,7 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxMathAstData {
     Letter(LxTokenIdx, LxMathLetter),
-    Opr(LxTokenIdx, LxMathOpr),
+    Opr(LxTokenIdx, LxMathPunctuation),
     Digit(LxTokenIdx, LxMathDigit),
     /// not obtained through parsing, but through ui
     TextEdit {
@@ -35,23 +35,26 @@ pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
 pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
 impl<'a> LxAstParser<'a> {
-    pub(super) fn parse_atomic_math_ast(
-        &mut self,
-        idx: LxTokenIdx,
-        token: LxMathTokenData,
-    ) -> LxMathAstData {
-        match token {
+    pub(super) fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
+        match self.peek_char()? {
+            '}' => return None,
+            _ => (),
+        };
+        let (idx, LxTokenData::Math(token)) = self.next_token()? else {
+            unreachable!()
+        };
+        Some(match token {
             LxMathTokenData::Command(_) => todo!(),
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
-            LxMathTokenData::RightDelimiter(_) => todo!(),
+            LxMathTokenData::RightDelimiter(_) => unreachable!(),
             LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),
-            LxMathTokenData::Opr(opr) => LxMathAstData::Opr(idx, opr), // it's not constructed into a tree yet in the ast stage
+            LxMathTokenData::Punctuation(opr) => LxMathAstData::Opr(idx, opr), // it's not constructed into a tree yet in the ast stage
             LxMathTokenData::Digit(digit) => LxMathAstData::Digit(idx, digit),
             LxMathTokenData::Other(_) => todo!(),
             LxMathTokenData::Subscript => todo!(),
             LxMathTokenData::Superscript => todo!(),
             LxMathTokenData::Error(_) => todo!(),
-        }
+        })
     }
 
     // here we differ from the latex syntax, we see all possible delimiters as latex delimiters
@@ -76,7 +79,7 @@ impl<'a> LxAstParser<'a> {
                     right_delimiter,
                 },
                 LxMathTokenData::Letter(_) => todo!(),
-                LxMathTokenData::Opr(_) => todo!(),
+                LxMathTokenData::Punctuation(_) => todo!(),
                 LxMathTokenData::Digit(_) => todo!(),
                 LxMathTokenData::Other(_) => todo!(),
                 LxMathTokenData::Subscript => todo!(),

@@ -10,7 +10,7 @@ use crate::parser::LxAstParser;
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_math_letter::LxMathLetter;
-use latex_math_opr::LxMathOpr;
+use latex_math_opr::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
     data::{
@@ -101,47 +101,44 @@ pub fn parse_latex_input_into_asts<'a>(
     mode: LxMode,
     token_storage: &'a mut LxTokenStorage,
     arena: &'a mut LxAstArena,
-) -> Option<LxAstIdxRange> {
+) -> LxAstIdxRange {
     let mut parser = LxAstParser::new(db, input, mode, token_storage, arena);
-    let asts = parser.parse_asts();
-    asts
+    parser.parse_asts()
 }
 
 impl<'a> LxAstParser<'a> {
-    pub(crate) fn parse_asts(&mut self) -> Option<LxAstIdxRange> {
-        match self.peek_token()? {
-            LxTokenData::Math(_) => {
+    pub(crate) fn parse_asts(&mut self) -> LxAstIdxRange {
+        match self.mode() {
+            LxMode::Rose => todo!(),
+            LxMode::Math => {
                 let mut asts = vec![];
-                while let Some(ast) = self.parse_ast() {
-                    let LxAstData::Math(ast) = ast else { todo!() };
+                while let Some(ast) = self.parse_math_ast() {
                     asts.push(ast)
                 }
-                Some(self.alloc_math_asts(asts).into())
+                self.alloc_math_asts(asts).into()
             }
-            LxTokenData::Rose(_) => todo!(),
         }
     }
 
     pub(crate) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
         let mut asts = vec![];
-        while let Some(ast) = self.parse_ast() {
-            let LxAstData::Math(ast) = ast else { todo!() };
+        while let Some(ast) = self.parse_math_ast() {
             asts.push(ast)
         }
         self.alloc_math_asts(asts)
     }
 
-    fn parse_ast(&mut self) -> Option<LxAstData> {
-        let mut ast = self.parse_atomic_ast()?;
-        match self.peek_token()? {
+    fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
+        let mut ast = self.parse_atomic_math_ast()?;
+        match self.peek_char()? {
             // TODO include more cases, like \limits
-            LxTokenData::Math(LxMathTokenData::Subscript | LxMathTokenData::Superscript) => {
+            '_' | '^' => {
                 let (idx, LxTokenData::Math(token)) = self.next_token().unwrap() else {
                     unreachable!()
                 };
                 ast = match ast {
-                    LxAstData::Math(LxMathAstData::Attach { .. }) => ast,
-                    LxAstData::Math(base) => {
+                    LxMathAstData::Attach { .. } => ast,
+                    base => {
                         let base = self.alloc_math_ast(base);
                         LxMathAstData::Attach {
                             base,
@@ -151,9 +148,9 @@ impl<'a> LxAstParser<'a> {
                     }
                     _ => todo!(),
                 };
-                let LxAstData::Math(LxMathAstData::Attach {
+                let LxMathAstData::Attach {
                     ref mut scripts, ..
-                }) = ast
+                } = ast
                 else {
                     unreachable!()
                 };
@@ -162,9 +159,8 @@ impl<'a> LxAstParser<'a> {
                     LxMathTokenData::Superscript => LxScriptKind::Superscript,
                     _ => todo!(),
                 };
-                let ast = match self.parse_atomic_ast() {
-                    Some(LxAstData::Math(new_subscript)) => self.alloc_math_ast(new_subscript),
-                    Some(LxAstData::Rose(_)) => todo!("err: expected math ast"),
+                let ast = match self.parse_atomic_math_ast() {
+                    Some(new_subscript) => self.alloc_math_ast(new_subscript),
                     None => todo!("err: expected subscript"),
                 };
                 scripts.push((script_kind, ast));
@@ -172,39 +168,6 @@ impl<'a> LxAstParser<'a> {
             _ => (),
         };
         Some(ast)
-    }
-
-    fn parse_atomic_ast(&mut self) -> Option<LxAstData> {
-        match self.peek_token()? {
-            LxTokenData::Math(token) => {
-                match token {
-                    LxMathTokenData::Command(_) => todo!(),
-                    LxMathTokenData::LeftDelimiter(_) => (),
-                    LxMathTokenData::RightDelimiter(_) => return None,
-                    LxMathTokenData::Letter(_) => (),
-                    LxMathTokenData::Opr(_) => (),
-                    LxMathTokenData::Digit(_) => (),
-                    LxMathTokenData::Other(_) => todo!(),
-                    LxMathTokenData::Subscript => todo!(),
-                    LxMathTokenData::Superscript => todo!(),
-                    LxMathTokenData::Error(_) => todo!(),
-                };
-            }
-            LxTokenData::Rose(token) => match token {
-                LxRoseTokenData::Word(_) => todo!(),
-                LxRoseTokenData::Command(_) => todo!(),
-                LxRoseTokenData::Dollar => todo!(),
-                LxRoseTokenData::EscapedLpar => todo!(),
-                LxRoseTokenData::EscapedLbox => todo!(),
-                LxRoseTokenData::Nat32(_) => todo!(),
-                LxRoseTokenData::NewParagraph => todo!(),
-            },
-        }
-        let (idx, token) = self.next_token().unwrap();
-        Some(match token {
-            LxTokenData::Math(token) => self.parse_atomic_math_ast(idx, token).into(),
-            LxTokenData::Rose(token) => self.parse_atomic_text_ast(idx, token).into(),
-        })
     }
 }
 
@@ -236,7 +199,11 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                 },
-                None,
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        0..0,
+                    ),
+                ),
             )
         "#]],
     );
@@ -269,11 +236,9 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                 },
-                Some(
-                    LxAstIdxRange::Math(
-                        ArenaIdxRange(
-                            0..0,
-                        ),
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        0..0,
                     ),
                 ),
             )
@@ -305,7 +270,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                             [1:2, 1:3),
                             Math(
-                                Opr(
+                                Punctuation(
                                     Add,
                                 ),
                             ),
@@ -345,11 +310,9 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                 },
-                Some(
-                    LxAstIdxRange::Math(
-                        ArenaIdxRange(
-                            0..2,
-                        ),
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        0..2,
                     ),
                 ),
             )
@@ -428,11 +391,9 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                 },
-                Some(
-                    LxAstIdxRange::Math(
-                        ArenaIdxRange(
-                            2..3,
-                        ),
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        2..3,
                     ),
                 ),
             )
@@ -511,11 +472,9 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                 },
-                Some(
-                    LxAstIdxRange::Math(
-                        ArenaIdxRange(
-                            2..3,
-                        ),
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        2..3,
                     ),
                 ),
             )
@@ -581,7 +540,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                             [1:5, 1:6),
                             Math(
-                                Opr(
+                                Punctuation(
                                     Add,
                                 ),
                             ),
@@ -667,11 +626,9 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                 },
-                Some(
-                    LxAstIdxRange::Math(
-                        ArenaIdxRange(
-                            5..6,
-                        ),
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        5..6,
                     ),
                 ),
             )
