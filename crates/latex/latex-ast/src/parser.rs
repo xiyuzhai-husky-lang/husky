@@ -1,5 +1,9 @@
 use crate::{
-    ast::{LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange},
+    ast::{
+        math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
+        rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+        LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange,
+    },
     region::LxAstRegionData,
 };
 use latex_annotation::{
@@ -39,12 +43,20 @@ impl<'a> LxAstParser<'a> {
 
 /// # actions
 impl<'a> LxAstParser<'a> {
-    pub(crate) fn alloc_asts(&mut self, asts: Vec<LxAstData>) -> LxAstIdxRange {
-        self.arena.alloc_batch(asts)
+    pub(crate) fn alloc_math_asts(&mut self, asts: Vec<LxMathAstData>) -> LxMathAstIdxRange {
+        self.arena.math.alloc_batch(asts)
     }
 
-    pub(crate) fn alloc_ast(&mut self, ast: LxAstData) -> LxAstIdx {
-        self.arena.alloc_one(ast)
+    pub(crate) fn alloc_math_ast(&mut self, ast: LxMathAstData) -> LxMathAstIdx {
+        self.arena.math.alloc_one(ast)
+    }
+
+    pub(crate) fn alloc_rose_ast(&mut self, ast: LxRoseAstData) -> LxRoseAstIdx {
+        self.arena.rose.alloc_one(ast)
+    }
+
+    pub(crate) fn alloc_rose_asts(&mut self, asts: Vec<LxRoseAstData>) -> LxRoseAstIdxRange {
+        self.arena.rose.alloc_batch(asts)
     }
 
     pub(crate) fn peek_token(&mut self) -> Option<LxTokenData> {

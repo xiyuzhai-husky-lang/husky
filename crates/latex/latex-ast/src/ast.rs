@@ -1,7 +1,10 @@
 pub mod math;
 pub mod rose;
 
-use self::{math::LxMathAstData, rose::LxRoseAstData};
+use self::{
+    math::{LxMathAstArena, LxMathAstArenaMap, LxMathAstArenaRef, LxMathAstData},
+    rose::{LxRoseAstArena, LxRoseAstArenaMap, LxRoseAstArenaRef, LxRoseAstData},
+};
 use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
@@ -14,9 +17,15 @@ use latex_math_letter::LxMathLetter;
 use latex_math_opr::LxMathOpr;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
-    data::{math::LxMathTokenData, rose::LxRoseTokenData, LxTokenData},
+    data::{
+        math::{LxMathDelimiter, LxMathTokenData},
+        rose::LxRoseTokenData,
+        LxTokenData,
+    },
     lexer::lex_latex_input,
 };
+use math::{LxMathAstIdx, LxMathAstIdxRange};
+use rose::{LxRoseAstIdx, LxRoseAstIdxRange};
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
@@ -26,11 +35,69 @@ pub enum LxAstData {
     Rose(LxRoseAstData),
 }
 
-pub type LxAstArena = Arena<LxAstData>;
-pub type LxAstArenaRef<'a> = ArenaRef<'a, LxAstData>;
-pub type LxAstArenaMap<T> = ArenaMap<LxAstData, T>;
-pub type LxAstIdx = ArenaIdx<LxAstData>;
-pub type LxAstIdxRange = ArenaIdxRange<LxAstData>;
+#[salsa::derive_debug_with_db]
+#[derive(Default, Debug)]
+pub struct LxAstArena {
+    pub(crate) math: LxMathAstArena,
+    pub(crate) rose: LxRoseAstArena,
+}
+impl LxAstArena {
+    pub(crate) fn as_arena_ref(&self) -> LxAstArenaRef {
+        LxAstArenaRef {
+            math: self.math.as_arena_ref(),
+            rose: self.rose.as_arena_ref(),
+        }
+    }
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+pub struct LxAstArenaRef<'a> {
+    math: LxMathAstArenaRef<'a>,
+    rose: LxRoseAstArenaRef<'a>,
+}
+
+impl<'a> LxAstArenaRef<'a> {
+    pub fn math(&self) -> LxMathAstArenaRef<'a> {
+        self.math
+    }
+
+    pub fn rose(&self) -> LxRoseAstArenaRef<'a> {
+        self.rose
+    }
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+pub struct LxAstArenaMap<T> {
+    pub(crate) math: LxMathAstArenaMap<T>,
+    pub(crate) rose: LxRoseAstArenaMap<T>,
+}
+
+impl<T> LxAstArenaMap<T> {
+    pub(crate) fn new(arena: &LxAstArena) -> Self {
+        Self {
+            math: LxMathAstArenaMap::new(&arena.math),
+            rose: LxRoseAstArenaMap::new(&arena.rose),
+        }
+    }
+}
+
+#[salsa::derive_debug_with_db]
+#[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LxAstIdx {
+    Math(LxMathAstIdx),
+    Rose(LxRoseAstIdx),
+}
+
+#[salsa::derive_debug_with_db]
+#[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LxAstIdxRange {
+    Math(LxMathAstIdxRange),
+    Rose(LxRoseAstIdxRange),
+}
 
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
@@ -38,7 +105,7 @@ pub fn parse_latex_input_into_asts<'a>(
     annotations: &'a LxAnnotations,
     mode: LxMode,
     arena: &'a mut LxAstArena,
-) -> LxAstIdxRange {
+) -> Option<LxAstIdxRange> {
     let tokens = lex_latex_input(input, mode, db);
     let mut parser = LxAstParser::new(db, &tokens, annotations, mode, arena);
     let asts = parser.parse_asts();
@@ -46,12 +113,27 @@ pub fn parse_latex_input_into_asts<'a>(
 }
 
 impl<'a> LxAstParser<'a> {
-    pub(crate) fn parse_asts(&mut self) -> LxAstIdxRange {
+    pub(crate) fn parse_asts(&mut self) -> Option<LxAstIdxRange> {
+        match self.peek_token()? {
+            LxTokenData::Math(_) => {
+                let mut asts = vec![];
+                while let Some(ast) = self.parse_ast() {
+                    let LxAstData::Math(ast) = ast else { todo!() };
+                    asts.push(ast)
+                }
+                Some(self.alloc_math_asts(asts).into())
+            }
+            LxTokenData::Rose(_) => todo!(),
+        }
+    }
+
+    pub(crate) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
         let mut asts = vec![];
         while let Some(ast) = self.parse_ast() {
+            let LxAstData::Math(ast) = ast else { todo!() };
             asts.push(ast)
         }
-        self.alloc_asts(asts)
+        self.alloc_math_asts(asts)
     }
 
     fn parse_ast(&mut self) -> Option<LxAstData> {
@@ -64,14 +146,15 @@ impl<'a> LxAstParser<'a> {
                 };
                 ast = match ast {
                     LxAstData::Math(LxMathAstData::Attach { .. }) => ast,
-                    base => {
-                        let base = self.alloc_ast(base.into());
+                    LxAstData::Math(base) => {
+                        let base = self.alloc_math_ast(base);
                         LxMathAstData::Attach {
                             base,
                             scripts: Default::default(),
                         }
                         .into()
                     }
+                    _ => todo!(),
                 };
                 let LxAstData::Math(LxMathAstData::Attach {
                     ref mut scripts, ..
@@ -85,7 +168,8 @@ impl<'a> LxAstParser<'a> {
                     _ => todo!(),
                 };
                 let ast = match self.parse_atomic_ast() {
-                    Some(new_subscript) => self.alloc_ast(new_subscript),
+                    Some(LxAstData::Math(new_subscript)) => self.alloc_math_ast(new_subscript),
+                    Some(LxAstData::Rose(_)) => todo!("err: expected math ast"),
                     None => todo!("err: expected subscript"),
                 };
                 scripts.push((script_kind, ast));
@@ -153,12 +237,15 @@ fn parse_tex_input_into_asts_works() {
         LxMode::Math,
         expect![[r#"
             (
-                Arena {
-                    data: [],
+                LxAstArena {
+                    math: Arena {
+                        data: [],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
                 },
-                ArenaIdxRange(
-                    0..0,
-                ),
+                None,
             )
         "#]],
     );
@@ -169,11 +256,20 @@ fn parse_tex_input_into_asts_works() {
         LxMode::Math,
         expect![[r#"
             (
-                Arena {
-                    data: [],
+                LxAstArena {
+                    math: Arena {
+                        data: [],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
                 },
-                ArenaIdxRange(
-                    0..0,
+                Some(
+                    LxAstIdxRange::Math(
+                        ArenaIdxRange(
+                            0..0,
+                        ),
+                    ),
                 ),
             )
         "#]],
@@ -185,28 +281,33 @@ fn parse_tex_input_into_asts_works() {
         LxMode::Math,
         expect![[r#"
             (
-                Arena {
-                    data: [
-                        LxAstData::Math(
+                LxAstArena {
+                    math: Arena {
+                        data: [
                             LxMathAstData::Letter(
                                 LxTokenIdx(
                                     0,
                                 ),
                                 LowerX,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Opr(
                                 LxTokenIdx(
                                     1,
                                 ),
                                 Add,
                             ),
-                        ),
-                    ],
+                        ],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
                 },
-                ArenaIdxRange(
-                    0..2,
+                Some(
+                    LxAstIdxRange::Math(
+                        ArenaIdxRange(
+                            0..2,
+                        ),
+                    ),
                 ),
             )
         "#]],
@@ -218,25 +319,21 @@ fn parse_tex_input_into_asts_works() {
         LxMode::Math,
         expect![[r#"
             (
-                Arena {
-                    data: [
-                        LxAstData::Math(
+                LxAstArena {
+                    math: Arena {
+                        data: [
                             LxMathAstData::Letter(
                                 LxTokenIdx(
                                     0,
                                 ),
                                 LowerX,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Digit(
                                 LxTokenIdx(
                                     2,
                                 ),
                                 Two,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Attach {
                                 base: 0,
                                 scripts: [
@@ -246,11 +343,18 @@ fn parse_tex_input_into_asts_works() {
                                     ),
                                 ],
                             },
-                        ),
-                    ],
+                        ],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
                 },
-                ArenaIdxRange(
-                    2..3,
+                Some(
+                    LxAstIdxRange::Math(
+                        ArenaIdxRange(
+                            2..3,
+                        ),
+                    ),
                 ),
             )
         "#]],
@@ -262,25 +366,21 @@ fn parse_tex_input_into_asts_works() {
         LxMode::Math,
         expect![[r#"
             (
-                Arena {
-                    data: [
-                        LxAstData::Math(
+                LxAstArena {
+                    math: Arena {
+                        data: [
                             LxMathAstData::Letter(
                                 LxTokenIdx(
                                     0,
                                 ),
                                 LowerX,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Digit(
                                 LxTokenIdx(
                                     2,
                                 ),
                                 Two,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Attach {
                                 base: 0,
                                 scripts: [
@@ -290,11 +390,18 @@ fn parse_tex_input_into_asts_works() {
                                     ),
                                 ],
                             },
-                        ),
-                    ],
+                        ],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
                 },
-                ArenaIdxRange(
-                    2..3,
+                Some(
+                    LxAstIdxRange::Math(
+                        ArenaIdxRange(
+                            2..3,
+                        ),
+                    ),
                 ),
             )
         "#]],
@@ -306,41 +413,33 @@ fn parse_tex_input_into_asts_works() {
         LxMode::Math,
         expect![[r#"
             (
-                Arena {
-                    data: [
-                        LxAstData::Math(
+                LxAstArena {
+                    math: Arena {
+                        data: [
                             LxMathAstData::Letter(
                                 LxTokenIdx(
                                     0,
                                 ),
                                 LowerX,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Letter(
                                 LxTokenIdx(
                                     3,
                                 ),
                                 LowerI,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Opr(
                                 LxTokenIdx(
                                     4,
                                 ),
                                 Add,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Digit(
                                 LxTokenIdx(
                                     5,
                                 ),
                                 Two,
                             ),
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Delimited {
                                 left_delimiter_token_idx: LxTokenIdx(
                                     2,
@@ -354,8 +453,6 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 right_delimiter: Curl,
                             },
-                        ),
-                        LxAstData::Math(
                             LxMathAstData::Attach {
                                 base: 0,
                                 scripts: [
@@ -365,11 +462,18 @@ fn parse_tex_input_into_asts_works() {
                                     ),
                                 ],
                             },
-                        ),
-                    ],
+                        ],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
                 },
-                ArenaIdxRange(
-                    5..6,
+                Some(
+                    LxAstIdxRange::Math(
+                        ArenaIdxRange(
+                            5..6,
+                        ),
+                    ),
                 ),
             )
         "#]],

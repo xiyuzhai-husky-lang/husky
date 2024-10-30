@@ -12,22 +12,19 @@ pub struct LxAstView<'a> {
 
 impl<'a> LxAstView<'a> {
     pub fn ui(self, ui: &mut egui::Ui) {
-        match self.time_capsule.arena()[self.ast_idx] {
-            LxAstData::Math(LxMathAstData::TextEdit { .. }) => {
-                self.time_capsule.add_event(|event_builder| {
-                    event_builder.add_action(MathAstTextEditAction::new(self.ast_idx, |text| {
+        match self.ast_idx {
+            LxAstIdx::Math(idx) => match self.time_capsule.arena().math[idx] {
+                LxMathAstData::TextEdit { .. } => self.time_capsule.add_event(|event_builder| {
+                    event_builder.add_action(MathAstTextEditAction::new(idx, |text| {
                         ui.text_edit_singleline(text);
                     }))
-                })
-            }
-            LxAstData::Rose(LxRoseAstData::TextEdit { .. }) => {
-                self.time_capsule.add_event(|event_builder| {
-                    event_builder.add_action(MathAstTextEditAction::new(self.ast_idx, |text| {
-                        ui.text_edit_singleline(text);
-                    }))
-                })
-            }
-            _ => todo!(),
+                }),
+                _ => todo!(),
+            },
+            LxAstIdx::Rose(idx) => match self.time_capsule.arena().rose[idx] {
+                LxRoseAstData::TextEdit { .. } => todo!(),
+                _ => todo!(),
+            },
         }
     }
 }

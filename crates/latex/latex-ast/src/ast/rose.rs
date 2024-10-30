@@ -8,6 +8,12 @@ pub enum LxRoseAstData {
     TextEdit { buffer: String },
 }
 
+pub type LxRoseAstArena = Arena<LxRoseAstData>;
+pub type LxRoseAstArenaRef<'a> = ArenaRef<'a, LxRoseAstData>;
+pub type LxRoseAstArenaMap<T> = ArenaMap<LxRoseAstData, T>;
+pub type LxRoseAstIdx = ArenaIdx<LxRoseAstData>;
+pub type LxRoseAstIdxRange = ArenaIdxRange<LxRoseAstData>;
+
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_text_ast(
         &mut self,
