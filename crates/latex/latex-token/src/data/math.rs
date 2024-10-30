@@ -101,7 +101,8 @@ impl<'a> LxLexer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let tokenizer = LxLexer::new(db, input, LxMode::Math);
+        let mut storage = LxTokenStorage::default();
+        let tokenizer = LxLexer::new(db, input, LxMode::Math, &mut storage);
         let tokens: Vec<_> = tokenizer.map(|(_, _, _, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }

@@ -16,7 +16,9 @@ pub struct LxAstsExample {
 impl LxAstsExample {
     pub fn new(input: &str, root_mode: LxMode, db: &salsa::Db) -> Self {
         let mut ast_arena = LxAstArena::default();
-        let asts = parse_latex_input_into_asts(db, input, root_mode, &mut ast_arena);
+        let mut token_storage = LxTokenStorage::default();
+        let asts =
+            parse_latex_input_into_asts(db, input, root_mode, &mut token_storage, &mut ast_arena);
         let ast_token_idx_range_map = calc_ast_token_idx_range_map(db, &ast_arena);
         Self {
             token_storage: todo!(),
