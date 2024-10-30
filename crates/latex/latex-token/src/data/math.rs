@@ -19,6 +19,7 @@ pub enum LxMathTokenData {
     Subscript,
     Superscript,
     Error(LxMathTokenError),
+    MathModeEnd,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -34,7 +35,7 @@ pub enum LxMathTokenError {
 }
 
 impl<'a> LxLexer<'a> {
-    pub(super) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
+    pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
@@ -92,8 +93,8 @@ fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let tokenizer = LxLexer::new(db, input, LxMode::Math, &mut storage);
-        let tokens: Vec<_> = tokenizer.map(|(_, _, _, token_data)| token_data).collect();
+        let stream = LxLexer::new(db, input, &mut storage).into_math_stream();
+        let tokens: Vec<_> = stream.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
     t(

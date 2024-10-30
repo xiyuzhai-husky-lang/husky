@@ -6,6 +6,7 @@ use crate::{
     },
     idx::LxTokenIdx,
     storage::LxTokenStorage,
+    stream::{math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
 use husky_coword::Coword;
 use husky_text_protocol::{char::TextCharIter, range::TextRange};
@@ -14,38 +15,104 @@ use latex_prelude::mode::LxMode;
 pub struct LxLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
-    pub(crate) mode: LxMode,
     pub(crate) storage: &'a mut LxTokenStorage,
 }
 
 /// # constructor
 impl<'a> LxLexer<'a> {
-    pub fn new(
-        db: &'a ::salsa::Db,
-        input: &'a str,
-        mode: LxMode,
-        storage: &'a mut LxTokenStorage,
-    ) -> Self {
+    pub fn new(db: &'a ::salsa::Db, input: &'a str, storage: &'a mut LxTokenStorage) -> Self {
         Self {
             db,
             chars: TextCharIter::new(input),
-            mode,
             storage,
         }
-    }
-
-    pub fn peek_char(&mut self) -> Option<char> {
-        self.chars.eat_chars_while(|c| c == ' ');
-        self.chars.peek()
-    }
-
-    pub fn mode(&self) -> LxMode {
-        self.mode
     }
 }
 
 /// # actions
 impl<'a> LxLexer<'a> {
+    pub fn next_math_token(&mut self) -> Option<(LxTokenIdx, LxMathTokenData)> {
+        let ((start_offset, end_offset), range, token_data) = self.next_math_token_aux()?;
+        Some((
+            self.storage
+                .alloc(start_offset, end_offset, range, token_data.into()),
+            token_data,
+        ))
+    }
+
+    fn next_math_token_aux(&mut self) -> Option<((usize, usize), TextRange, LxMathTokenData)> {
+        self.chars.eat_chars_while(|c| c == ' ');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
+            if self.chars.eat_char_if(|c| c == '\n') {
+                Some(LxMathTokenData::Error(
+                    LxMathTokenError::UnexpectedNewParagraph,
+                ))
+            } else {
+                self.next_math_token_data()
+            }
+        } else {
+            self.next_math_token_data()
+        }?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset, end_offset), range, token_data))
+    }
+
+    pub fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
+        let chars = self.chars.clone();
+        let (_, _, token_data) = self.next_math_token_aux()?;
+        self.chars = chars;
+        Some(token_data)
+    }
+
+    pub fn next_rose_token(&mut self) -> Option<(LxTokenIdx, LxRoseTokenData)> {
+        let ((start_offset, end_offset), range, token_data) = self.next_rose_token_aux()?;
+        Some((
+            self.storage
+                .alloc(start_offset, end_offset, range, token_data.into()),
+            token_data,
+        ))
+    }
+
+    fn next_rose_token_aux(&mut self) -> Option<((usize, usize), TextRange, LxRoseTokenData)> {
+        self.chars.eat_chars_while(|c| c == ' ');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
+            if self.chars.eat_char_if(|c| c == '\n') {
+                self.chars.eat_chars_while(|c| c == '\n' || c == ' ');
+                LxRoseTokenData::NewParagraph
+            } else {
+                start_offset = self.chars.current_offset();
+                start_position = self.chars.current_position();
+                self.next_rose_token_data()?
+            }
+        } else {
+            self.next_rose_token_data()?
+        };
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset, end_offset), range, token_data))
+    }
+
+    pub fn peek_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
+        let chars = self.chars.clone();
+        let (_, _, token_data) = self.next_rose_token_aux()?;
+        self.chars = chars;
+        Some(token_data)
+    }
+
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
         let coword_str_slice = self.chars.next_str_slice_while(|c| c.is_alphanumeric());
         if coword_str_slice.is_empty() {
@@ -53,53 +120,12 @@ impl<'a> LxLexer<'a> {
         }
         Some(Coword::from_ref(self.db, coword_str_slice))
     }
-}
 
-impl<'a> Iterator for LxLexer<'a> {
-    type Item = (LxTokenIdx, (usize, usize), TextRange, LxTokenData);
+    pub fn into_math_stream(self) -> LxMathTokenStream<'a> {
+        LxMathTokenStream::new(self)
+    }
 
-    fn next(&mut self) -> Option<Self::Item> {
-        self.chars.eat_chars_while(|c| c == ' ');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-
-        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
-            self.chars.eat_chars_while(|c| c == ' ');
-            match self.mode {
-                LxMode::Rose => {
-                    if self.chars.eat_char_if(|c| c == '\n') {
-                        self.chars.eat_chars_while(|c| c == '\n' || c == ' ');
-                        LxRoseTokenData::NewParagraph.into()
-                    } else {
-                        start_offset = self.chars.current_offset();
-                        start_position = self.chars.current_position();
-                        self.next_token_data()?
-                    }
-                }
-                LxMode::Math => {
-                    if self.chars.eat_char_if(|c| c == '\n') {
-                        LxMathTokenData::Error(LxMathTokenError::UnexpectedNewParagraph).into()
-                    } else {
-                        start_offset = self.chars.current_offset();
-                        start_position = self.chars.current_position();
-                        self.next_token_data()?
-                    }
-                }
-            }
-        } else {
-            self.next_token_data()?
-        };
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some((
-            self.storage
-                .alloc(start_offset, end_offset, range, token_data),
-            (start_offset, end_offset),
-            range,
-            token_data,
-        ))
+    pub(crate) fn into_rose_stream(self) -> LxRoseTokenStream<'a> {
+        LxRoseTokenStream::new(self)
     }
 }

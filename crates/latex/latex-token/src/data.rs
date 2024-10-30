@@ -14,12 +14,3 @@ pub enum LxTokenData {
     Math(LxMathTokenData),
     Rose(LxRoseTokenData),
 }
-
-impl<'a> LxLexer<'a> {
-    pub(crate) fn next_token_data(&mut self) -> Option<LxTokenData> {
-        match self.mode {
-            LxMode::Rose => self.next_text_token_data().map(Into::into),
-            LxMode::Math => self.next_math_token_data().map(Into::into),
-        }
-    }
-}

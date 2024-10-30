@@ -1,7 +1,6 @@
 use crate::{
     data::LxTokenData,
     idx::{LxTokenIdx, LxTokenIdxRange},
-    stream::LxTokenStream,
 };
 use husky_text_protocol::range::TextRange;
 
@@ -32,10 +31,6 @@ impl LxTokenStorage {
 
     pub fn token_text_range(&self, token_idx: LxTokenIdx) -> TextRange {
         self.ranged_tokens[token_idx.index()].1
-    }
-
-    pub fn stream(&self) -> LxTokenStream {
-        LxTokenStream::new(&self.ranged_tokens)
     }
 }
 

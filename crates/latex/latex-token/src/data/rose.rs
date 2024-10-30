@@ -19,7 +19,7 @@ pub enum LxRoseTokenData {
 }
 
 impl<'a> LxLexer<'a> {
-    pub(super) fn next_text_token_data(&mut self) -> Option<LxRoseTokenData> {
+    pub(crate) fn next_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
@@ -65,8 +65,10 @@ fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let lexer = LxLexer::new(db, input, LxMode::Rose, &mut storage);
-        let tokens: Vec<_> = lexer.map(|(_, _, _, token_data)| token_data).collect();
+        let mut stream = LxLexer::new(db, input, &mut storage)
+            .into_rose_stream()
+            .map(|(_, token_data)| token_data);
+        let mut tokens: Vec<_> = stream.collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
     t(

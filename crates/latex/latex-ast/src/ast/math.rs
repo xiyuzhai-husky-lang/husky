@@ -36,13 +36,11 @@ pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
-        match self.peek_char()? {
-            '}' | '$' => return None,
+        match self.peek_math_token_data()? {
+            LxMathTokenData::RightDelimiter(_) | LxMathTokenData::MathModeEnd => return None,
             _ => (),
         };
-        let (idx, LxTokenData::Math(token)) = self.next_token()? else {
-            unreachable!()
-        };
+        let (idx, token) = self.next_math_token()?;
         Some(match token {
             LxMathTokenData::Command(_) => todo!(),
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
@@ -54,6 +52,7 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::Subscript => todo!(),
             LxMathTokenData::Superscript => todo!(),
             LxMathTokenData::Error(_) => todo!(),
+            LxMathTokenData::MathModeEnd => unreachable!(),
         })
     }
 
@@ -64,29 +63,27 @@ impl<'a> LxAstParser<'a> {
         left_delimiter: LxMathDelimiter,
     ) -> LxMathAstData {
         let asts = self.parse_math_asts();
-        let Some((idx, token)) = self.next_token() else {
+        let Some((idx, token)) = self.next_math_token() else {
             todo!()
         };
         match token {
-            LxTokenData::Math(token) => match token {
-                LxMathTokenData::Command(_) => todo!(),
-                LxMathTokenData::LeftDelimiter(_) => todo!(),
-                LxMathTokenData::RightDelimiter(right_delimiter) => LxMathAstData::Delimited {
-                    left_delimiter_token_idx,
-                    left_delimiter,
-                    asts,
-                    right_delimiter_token_idx: idx,
-                    right_delimiter,
-                },
-                LxMathTokenData::Letter(_) => todo!(),
-                LxMathTokenData::Punctuation(_) => todo!(),
-                LxMathTokenData::Digit(_) => todo!(),
-                LxMathTokenData::Other(_) => todo!(),
-                LxMathTokenData::Subscript => todo!(),
-                LxMathTokenData::Superscript => todo!(),
-                LxMathTokenData::Error(_) => todo!(),
+            LxMathTokenData::Command(_) => todo!(),
+            LxMathTokenData::LeftDelimiter(_) => todo!(),
+            LxMathTokenData::RightDelimiter(right_delimiter) => LxMathAstData::Delimited {
+                left_delimiter_token_idx,
+                left_delimiter,
+                asts,
+                right_delimiter_token_idx: idx,
+                right_delimiter,
             },
-            LxTokenData::Rose(_) => todo!(),
+            LxMathTokenData::Letter(_) => todo!(),
+            LxMathTokenData::Punctuation(_) => todo!(),
+            LxMathTokenData::Digit(_) => todo!(),
+            LxMathTokenData::Other(_) => todo!(),
+            LxMathTokenData::Subscript => todo!(),
+            LxMathTokenData::Superscript => todo!(),
+            LxMathTokenData::Error(_) => todo!(),
+            LxMathTokenData::MathModeEnd => todo!(),
         }
     }
 }
