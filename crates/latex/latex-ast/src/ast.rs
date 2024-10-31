@@ -109,13 +109,7 @@ impl<'a> LxAstParser<'a> {
     pub(crate) fn parse_asts(&mut self) -> LxAstIdxRange {
         match self.mode() {
             LxMode::Rose => todo!(),
-            LxMode::Math => {
-                let mut asts = vec![];
-                while let Some(ast) = self.parse_math_ast() {
-                    asts.push(ast)
-                }
-                self.alloc_math_asts(asts).into()
-            }
+            LxMode::Math => self.parse_math_asts().into(),
         }
     }
 
@@ -129,41 +123,43 @@ impl<'a> LxAstParser<'a> {
 
     fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
         let mut ast = self.parse_atomic_math_ast()?;
-        match self.peek_math_token_data()? {
-            // TODO include more cases, like \limits
-            LxMathTokenData::Subscript | LxMathTokenData::Superscript => {
-                let (idx, token) = self.next_math_token().unwrap();
-                ast = match ast {
-                    LxMathAstData::Attach { .. } => ast,
-                    base => {
-                        let base = self.alloc_math_ast(base);
-                        LxMathAstData::Attach {
-                            base,
-                            scripts: Default::default(),
+        if let Some(token_data) = self.peek_math_token_data() {
+            match token_data {
+                // TODO include more cases, like \limits
+                LxMathTokenData::Subscript | LxMathTokenData::Superscript => {
+                    let (idx, token) = self.next_math_token().unwrap();
+                    ast = match ast {
+                        LxMathAstData::Attach { .. } => ast,
+                        base => {
+                            let base = self.alloc_math_ast(base);
+                            LxMathAstData::Attach {
+                                base,
+                                scripts: Default::default(),
+                            }
+                            .into()
                         }
-                        .into()
-                    }
-                    _ => todo!(),
-                };
-                let LxMathAstData::Attach {
-                    ref mut scripts, ..
-                } = ast
-                else {
-                    unreachable!()
-                };
-                let script_kind = match token {
-                    LxMathTokenData::Subscript => LxScriptKind::Subscript,
-                    LxMathTokenData::Superscript => LxScriptKind::Superscript,
-                    _ => todo!(),
-                };
-                let ast = match self.parse_atomic_math_ast() {
-                    Some(new_subscript) => self.alloc_math_ast(new_subscript),
-                    None => todo!("err: expected subscript"),
-                };
-                scripts.push((script_kind, ast));
+                        _ => todo!(),
+                    };
+                    let LxMathAstData::Attach {
+                        ref mut scripts, ..
+                    } = ast
+                    else {
+                        unreachable!()
+                    };
+                    let script_kind = match token {
+                        LxMathTokenData::Subscript => LxScriptKind::Subscript,
+                        LxMathTokenData::Superscript => LxScriptKind::Superscript,
+                        _ => todo!(),
+                    };
+                    let ast = match self.parse_atomic_math_ast() {
+                        Some(new_subscript) => self.alloc_math_ast(new_subscript),
+                        None => todo!("err: expected subscript"),
+                    };
+                    scripts.push((script_kind, ast));
+                }
+                _ => (),
             }
-            _ => (),
-        };
+        }
         Some(ast)
     }
 }
@@ -206,6 +202,49 @@ fn parse_tex_input_into_asts_works() {
         "#]],
     );
     t(
+        "1",
+        LxMode::Math,
+        expect![[r#"
+            (
+                LxTokenStorage {
+                    ranged_math_tokens: [
+                        (
+                            (
+                                0,
+                                1,
+                            ),
+                            [1:1, 1:2),
+                            Digit(
+                                One,
+                            ),
+                        ),
+                    ],
+                    ranged_rose_tokens: [],
+                },
+                LxAstArena {
+                    math: Arena {
+                        data: [
+                            LxMathAstData::Digit(
+                                LxMathTokenIdx(
+                                    0,
+                                ),
+                                One,
+                            ),
+                        ],
+                    },
+                    rose: Arena {
+                        data: [],
+                    },
+                },
+                LxAstIdxRange::Math(
+                    ArenaIdxRange(
+                        0..1,
+                    ),
+                ),
+            )
+        "#]],
+    );
+    t(
         "x",
         LxMode::Math,
         expect![[r#"
@@ -227,7 +266,14 @@ fn parse_tex_input_into_asts_works() {
                 },
                 LxAstArena {
                     math: Arena {
-                        data: [],
+                        data: [
+                            LxMathAstData::Letter(
+                                LxMathTokenIdx(
+                                    0,
+                                ),
+                                LowerX,
+                            ),
+                        ],
                     },
                     rose: Arena {
                         data: [],
@@ -235,7 +281,7 @@ fn parse_tex_input_into_asts_works() {
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
-                        0..0,
+                        0..1,
                     ),
                 ),
             )
@@ -296,6 +342,12 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 Add,
                             ),
+                            LxMathAstData::Digit(
+                                LxMathTokenIdx(
+                                    2,
+                                ),
+                                One,
+                            ),
                         ],
                     },
                     rose: Arena {
@@ -304,7 +356,7 @@ fn parse_tex_input_into_asts_works() {
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
-                        0..2,
+                        0..3,
                     ),
                 ),
             )
@@ -620,17 +672,19 @@ fn parse_tex_input_into_asts_then_show_works() {
         "x",
         LxMode::Math,
         expect![[r#"
-        x
-    "#]],
+            x
+            └─ x
+        "#]],
     );
     t(
         "x+1",
         LxMode::Math,
         expect![[r#"
-        x+1
-        ├─ x
-        └─ +
-    "#]],
+            x+1
+            ├─ x
+            ├─ +
+            └─ 1
+        "#]],
     );
     t(
         "x^2",
