@@ -9,7 +9,7 @@ use crate::{
 use husky_tree_utils::display::DisplayTree;
 use latex_token::storage::LxTokenStorage;
 
-struct LxAstDisplayTreeBuilder<'a> {
+pub struct LxAstDisplayTreeBuilder<'a> {
     db: &'a salsa::Db,
     input: &'a str,
     ast_arena: LxAstArenaRef<'a>,
@@ -19,7 +19,7 @@ struct LxAstDisplayTreeBuilder<'a> {
 
 /// # construction
 impl<'a> LxAstDisplayTreeBuilder<'a> {
-    fn new(
+    pub fn new(
         db: &'a salsa::Db,
         input: &'a str,
         token_storage: &'a LxTokenStorage,
@@ -38,7 +38,11 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
 /// # actions
 impl<'a> LxAstDisplayTreeBuilder<'a> {
-    fn render_asts(&self, asts: LxAstIdxRange) -> Vec<DisplayTree> {
+    pub fn render_all(&self, asts: LxAstIdxRange) -> DisplayTree {
+        DisplayTree::new(self.input.to_string(), self.render_asts(asts))
+    }
+
+    pub fn render_asts(&self, asts: LxAstIdxRange) -> Vec<DisplayTree> {
         match asts {
             LxAstIdxRange::Math(range) => self.render_math_asts(range),
             LxAstIdxRange::Rose(range) => self.render_rose_asts(range),

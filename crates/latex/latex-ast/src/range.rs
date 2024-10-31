@@ -72,20 +72,29 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
         }
     }
 
-    fn calc_math_ast(&self, data: &LxMathAstData) -> LxMathTokenIdxRange {
+    fn calc_math_ast(&mut self, data: &LxMathAstData) -> LxMathTokenIdxRange {
         match *data {
             LxMathAstData::Letter(idx, _) => LxMathTokenIdxRange::new_single(idx),
             LxMathAstData::Opr(idx, _) => LxMathTokenIdxRange::new_single(idx),
             LxMathAstData::Digit(idx, _) => LxMathTokenIdxRange::new_single(idx),
             LxMathAstData::TextEdit { ref buffer } => todo!(),
-            LxMathAstData::Attach { base, ref scripts } => todo!(),
+            LxMathAstData::Attach { base, ref scripts } => {
+                let mut range = self.get_math_ast_range(base);
+                for &(_, script) in scripts {
+                    let script_range = self.get_math_ast_range(script);
+                    range = range.join(script_range);
+                }
+                range
+            }
             LxMathAstData::Delimited {
                 left_delimiter_token_idx,
                 left_delimiter,
                 asts,
                 right_delimiter_token_idx,
                 right_delimiter,
-            } => todo!(),
+            } => {
+                LxMathTokenIdxRange::new_closed(left_delimiter_token_idx, right_delimiter_token_idx)
+            }
         }
     }
 
