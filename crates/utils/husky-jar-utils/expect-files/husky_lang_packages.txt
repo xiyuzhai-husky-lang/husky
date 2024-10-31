@@ -4129,11 +4129,6 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "latex-syn-expr",
-        relative_path: "crates/latex/latex-syn-expr",
-        dependencies: [],
-    },
-    PackageSummary {
         name: "husky-bindgen-utils",
         relative_path: "crates/utils/husky-bindgen-utils",
         dependencies: [
@@ -4234,7 +4229,6 @@
         dependencies: [
             "idx-arena",
             "latex-prelude",
-            "latex-syn-expr",
             "salsa",
             "visored-annotation",
             "visored-opr",
