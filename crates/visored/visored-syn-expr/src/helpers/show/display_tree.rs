@@ -147,7 +147,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
     fn math_asts_offset_range(&self, asts: LxMathAstIdxRange) -> (usize, usize) {
         let first = asts.start();
         let Some(last) = asts.last() else {
-            return self.math_ast_offset_range(first);
+            return (0, 0);
         };
         (
             self.math_ast_offset_range(first).0,
