@@ -195,5 +195,9 @@
         "visored-opr",
         "visored-zfs-ty",
     },
+    "visored-syn-expr": {
+        "visored-opr",
+        "visored-zfs-ty",
+    },
     "visored-zfs-ty": {},
 }

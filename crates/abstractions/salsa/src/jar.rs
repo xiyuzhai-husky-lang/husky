@@ -195,6 +195,7 @@ pub enum JarIndex {
     // visored
     VdZfsTypeJar,
     VdOprJar,
+    VdSynExprJar,
     VdSemExprJar,
     VdHirExprJar,
     VdLeanTranspilationJar,

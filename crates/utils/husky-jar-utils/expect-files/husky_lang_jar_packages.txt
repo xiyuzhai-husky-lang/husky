@@ -1344,4 +1344,11 @@
             "visored-sem-expr",
         ],
     },
+    JarPackageSummary {
+        name: "visored-syn-expr",
+        dependencies: [
+            "visored-opr",
+            "visored-zfs-ty",
+        ],
+    },
 ]
