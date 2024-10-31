@@ -636,19 +636,21 @@ fn parse_tex_input_into_asts_then_show_works() {
         "x^2",
         LxMode::Math,
         expect![[r#"
-        x^2
-        └─ x^2
-          └─ 2
-    "#]],
+            x^2
+            └─ x^2
+              ├─ x
+              └─ 2
+        "#]],
     );
     t(
         "x_2",
         LxMode::Math,
         expect![[r#"
-        x_2
-        └─ x_2
-          └─ 2
-    "#]],
+            x_2
+            └─ x_2
+              ├─ x
+              └─ 2
+        "#]],
     );
     t(
         "x^{i+2}",
@@ -656,6 +658,7 @@ fn parse_tex_input_into_asts_then_show_works() {
         expect![[r#"
             x^{i+2}
             └─ x^{i+2}
+              ├─ x
               └─ {i+2}
                 ├─ i
                 ├─ +
