@@ -94,6 +94,7 @@ impl<T> Sub<Self> for ArenaIdx<T> {
 impl<T> std::ops::Sub<usize> for ArenaIdx<T> {
     type Output = Self;
 
+    #[track_caller]
     fn sub(self, rhs: usize) -> Self::Output {
         Self::new(self.index() - rhs)
     }

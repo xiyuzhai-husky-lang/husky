@@ -1,20 +1,22 @@
 use thiserror::Error;
 
-#[derive(Debug, Error)]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum VdSynExprError {
     #[error("original error({0})")]
-    Original(OriginalVdSynExprError),
+    Original(#[from] OriginalVdSynExprError),
     #[error("derived error({0})")]
-    Derived(DerivedVdSynExprError),
+    Derived(#[from] DerivedVdSynExprError),
 }
 
-#[derive(Debug, Error)]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalVdSynExprError {
+    #[error("empty")]
+    Empty,
     #[error("todo")]
     Todo,
 }
 
-#[derive(Debug, Error)]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedVdSynExprError {
     #[error("todo")]
     Todo,
