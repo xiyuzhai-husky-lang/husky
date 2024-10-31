@@ -109,12 +109,6 @@ root
                 DisplayTree::new("child2".to_string(), vec![]),
             ],
         );
-        let expected = "\
-root
-├─ child1
-│  └─ grandchild
-└─ child2
-";
         expect![[r#"
             root
             ├─ child1

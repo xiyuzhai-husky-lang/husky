@@ -80,6 +80,15 @@ impl LxMathTokenIdxRange {
         }
     }
 
+    pub fn new_closed(first: LxMathTokenIdx, last: LxMathTokenIdx) -> Self {
+        Self {
+            start: first.0,
+            end: last.0 + 1usize,
+        }
+    }
+}
+
+impl LxMathTokenIdxRange {
     pub(crate) fn is_empty(self) -> bool {
         self.start == self.end
     }
@@ -93,6 +102,13 @@ impl LxMathTokenIdxRange {
             None
         } else {
             Some(LxMathTokenIdx(self.end - 1))
+        }
+    }
+
+    pub fn join(self, other: Self) -> Self {
+        Self {
+            start: self.start.min(other.start),
+            end: self.end.max(other.end),
         }
     }
 }
