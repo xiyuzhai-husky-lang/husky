@@ -12580,6 +12580,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-syn-expr"
+version = "0.1.0"
+dependencies = [
+ "idx-arena",
+ "latex-prelude",
+ "salsa",
+ "visored-opr",
+ "visored-zfs-ty",
+]
+
+[[package]]
 name = "visored-zfs-ty"
 version = "0.1.0"
 dependencies = [

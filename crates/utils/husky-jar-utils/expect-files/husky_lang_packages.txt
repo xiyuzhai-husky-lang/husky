@@ -4305,6 +4305,17 @@
         ],
     },
     PackageSummary {
+        name: "visored-syn-expr",
+        relative_path: "crates/visored/visored-syn-expr",
+        dependencies: [
+            "idx-arena",
+            "latex-prelude",
+            "salsa",
+            "visored-opr",
+            "visored-zfs-ty",
+        ],
+    },
+    PackageSummary {
         name: "cybertron-mini-lean-tokens",
         relative_path: "registry/cybertron-mini-lean-tokens-0.1.0",
         dependencies: [
