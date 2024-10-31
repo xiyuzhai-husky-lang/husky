@@ -1175,6 +1175,7 @@
     "namekian-ast": {},
     "visored-hir-expr": {
         "husky-coword",
+        "latex-ast",
         "visored-opr",
         "visored-sem-expr",
         "visored-syn-expr",
@@ -1182,6 +1183,7 @@
     },
     "visored-lean-transpilation": {
         "husky-coword",
+        "latex-ast",
         "lean-hir-expr",
         "lean-sem-expr",
         "lean-term",
@@ -1194,12 +1196,14 @@
     "visored-opr": {},
     "visored-sem-expr": {
         "husky-coword",
+        "latex-ast",
         "visored-opr",
         "visored-syn-expr",
         "visored-zfs-ty",
     },
     "visored-syn-expr": {
         "husky-coword",
+        "latex-ast",
         "visored-opr",
         "visored-zfs-ty",
     },

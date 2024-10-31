@@ -26,6 +26,8 @@ visored-zfs-ty.workspace = true
 [dev-dependencies]
 # kernel
 husky-coword.workspace = true
+# latex
+latex-ast.workspace = true
 # lean
 lean-term.workspace = true
 lean-sem-expr.workspace = true

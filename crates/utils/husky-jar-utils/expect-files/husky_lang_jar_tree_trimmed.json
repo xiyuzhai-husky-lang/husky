@@ -194,7 +194,7 @@
     "visored-syn-expr"
   ],
   "visored-syn-expr": [
-    "husky-coword",
+    "latex-ast",
     "visored-opr",
     "visored-zfs-ty"
   ],
