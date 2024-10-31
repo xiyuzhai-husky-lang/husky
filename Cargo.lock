@@ -12597,6 +12597,7 @@ dependencies = [
  "latex-prelude",
  "salsa",
  "smallvec",
+ "visored-annotation",
  "visored-opr",
  "visored-syn-expr",
  "visored-zfs-ty",

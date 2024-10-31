@@ -22,6 +22,7 @@ idx-arena.workspace = true
 latex-prelude.workspace = true
 latex-ast.workspace = true
 # visored
+visored-annotation.workspace = true
 visored-opr.workspace = true
 visored-zfs-ty.workspace = true
 
