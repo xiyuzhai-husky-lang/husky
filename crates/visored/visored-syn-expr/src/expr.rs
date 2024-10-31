@@ -124,9 +124,8 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
 
 #[cfg(test)]
 mod tests {
-    use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
-
     use super::*;
+    use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
     #[test]
     fn math_ast_idx_to_vd_syn_expr_idx_works() {
