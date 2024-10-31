@@ -17,7 +17,6 @@ salsa.workspace = true
 idx-arena.workspace = true
 # latex
 latex-prelude.workspace = true
-latex-syn-expr.workspace = true
 # visored
 visored-annotation.workspace = true
 visored-opr.workspace = true
