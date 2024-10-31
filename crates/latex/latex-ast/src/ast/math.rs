@@ -32,9 +32,12 @@ impl LxMathAstData {
     pub fn children(&self) -> Vec<LxMathAstIdx> {
         match *self {
             LxMathAstData::Delimited { asts, .. } => asts.into_iter().collect(),
-            LxMathAstData::Attach { ref scripts, .. } => {
-                scripts.iter().map(|&(_, ast)| ast).collect()
-            }
+            LxMathAstData::Attach {
+                base, ref scripts, ..
+            } => [base]
+                .into_iter()
+                .chain(scripts.iter().map(|&(_, ast)| ast))
+                .collect(),
             _ => vec![],
         }
     }
