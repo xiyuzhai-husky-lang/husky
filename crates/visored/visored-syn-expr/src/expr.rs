@@ -10,14 +10,14 @@ pub mod uniadic_chain;
 pub mod variadic_array;
 pub mod variadic_chain;
 
+use crate::builder::{ToVdSyn, VdSynExprBuilder};
+use crate::*;
 use either::*;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_ast::ast::math::LxMathAstIdxRange;
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
 use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
 use visored_zfs_ty::term::literal::VdZfsLiteral;
-
-use crate::builder::{ToVdSyn, VdSynExprBuilder};
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
@@ -56,6 +56,7 @@ pub enum VdSynExprData {
 pub type VdSynExprIdx = ArenaIdx<VdSynExprData>;
 pub type VdSynExprIdxRange = ArenaIdxRange<VdSynExprData>;
 pub type VdSynExprArena = Arena<VdSynExprData>;
+pub type VdSynExprMap<T> = ArenaMap<VdSynExprData, T>;
 pub type VdSynExprArenaRef<'a> = ArenaRef<'a, VdSynExprData>;
 
 impl VdSynExprData {
@@ -110,4 +111,30 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
         todo!()
     }
+}
+
+impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
+        todo!()
+    }
+}
+
+#[test]
+fn math_ast_idx_to_vd_syn_expr_idx_works() {
+    use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
+
+    let db = &DB::default();
+    let builder = VdSynExprBuilder::new(&db, todo!(), todo!(), todo!());
+    let math_ast_idx: LxMathAstIdx = todo!();
+    let vd_syn_expr_idx = math_ast_idx.to_vd_syn(&mut builder);
+    let display_tree_builder =
+        VdSynExprDisplayTreeBuilder::new(db, todo!(), todo!(), todo!(), todo!(), todo!(), todo!());
+    expect_test::expect![[r#"
+        <expected output here>
+    "#]]
+    .assert_eq(
+        &display_tree_builder
+            .render_expr(vd_syn_expr_idx)
+            .show(&Default::default()),
+    );
 }

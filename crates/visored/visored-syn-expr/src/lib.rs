@@ -6,6 +6,7 @@ pub mod helpers;
 pub mod jar;
 pub mod parser;
 pub mod phrase;
+pub mod range;
 pub mod region;
 pub mod sentence;
 #[cfg(feature = "test_helpers")]

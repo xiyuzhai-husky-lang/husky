@@ -37,7 +37,7 @@ pub struct LxAstArena {
     pub(crate) rose: LxRoseAstArena,
 }
 impl LxAstArena {
-    pub(crate) fn as_arena_ref(&self) -> LxAstArenaRef {
+    pub fn as_arena_ref(&self) -> LxAstArenaRef {
         LxAstArenaRef {
             math: self.math.as_arena_ref(),
             rose: self.rose.as_arena_ref(),
