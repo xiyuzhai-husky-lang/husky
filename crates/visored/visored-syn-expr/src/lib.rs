@@ -13,6 +13,7 @@ pub mod sentence;
 pub mod test_helpers;
 #[cfg(test)]
 mod tests;
+pub mod variable;
 
 use self::jar::VdSynExprJar as Jar;
 #[cfg(test)]
