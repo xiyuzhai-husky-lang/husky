@@ -4256,6 +4256,7 @@
             "latex-prelude",
             "salsa",
             "smallvec",
+            "visored-annotation",
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",

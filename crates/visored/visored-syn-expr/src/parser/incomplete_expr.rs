@@ -7,7 +7,7 @@ pub(super) use self::separated_list::*;
 use super::*;
 use crate::expr::VdSynExprData;
 use expr::list_item::VdSynSeparatedListItem;
-use visored_opr::{delimiter::VdDelimiter, precedence::VdPrecedence};
+use visored_opr::{delimiter::VdLeftDelimiter, precedence::VdPrecedence};
 
 #[derive(Debug, PartialEq, Eq)]
 pub(super) enum IncompleteVdSynExprData {
@@ -24,7 +24,7 @@ pub(super) enum IncompleteVdSynExprData {
     /// ```
     SeparatedList {
         opr: IncompleteSeparatedListOpr,
-        bra: VdDelimiter,
+        bra: VdLeftDelimiter,
         items: SmallVec<[VdSynSeparatedListItem; 4]>,
     },
     /// call list includes more separators like `;`

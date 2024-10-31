@@ -12,9 +12,12 @@ pub mod variadic_chain;
 
 use either::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use latex_ast::ast::math::LxMathAstIdxRange;
 use latex_prelude::script::LxScriptKind;
 use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
 use visored_zfs_ty::term::literal::VdZfsLiteral;
+
+use crate::builder::{ToVdSyn, VdSynExprBuilder};
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
@@ -101,4 +104,10 @@ pub enum VdSynExprClass {
     Prefix,
     Suffix,
     Separator,
+}
+
+impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
+        todo!()
+    }
 }
