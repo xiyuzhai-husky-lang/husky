@@ -604,3 +604,62 @@ fn parse_tex_input_into_asts_works() {
         "#]],
     );
 }
+
+#[test]
+fn parse_tex_input_into_asts_then_show_works() {
+    use crate::test_helpers::example::LxAstsExample;
+    use expect_test::Expect;
+
+    fn t(input: &str, mode: LxMode, expected: Expect) {
+        let db = &DB::default();
+        let example = LxAstsExample::new(input, mode, db);
+        let show = example.show(db);
+        expected.assert_eq(&show);
+    }
+    t(
+        "x",
+        LxMode::Math,
+        expect![[r#"
+        x
+    "#]],
+    );
+    t(
+        "x+1",
+        LxMode::Math,
+        expect![[r#"
+        x+1
+        ├─ x
+        └─ +
+    "#]],
+    );
+    t(
+        "x^2",
+        LxMode::Math,
+        expect![[r#"
+        x^2
+        └─ x^2
+          └─ 2
+    "#]],
+    );
+    t(
+        "x_2",
+        LxMode::Math,
+        expect![[r#"
+        x_2
+        └─ x_2
+          └─ 2
+    "#]],
+    );
+    t(
+        "x^{i+2}",
+        LxMode::Math,
+        expect![[r#"
+            x^{i+2}
+            └─ x^{i+2}
+              └─ {i+2}
+                ├─ i
+                ├─ +
+                └─ 2
+        "#]],
+    );
+}
