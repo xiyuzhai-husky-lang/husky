@@ -10,9 +10,10 @@ pub mod uniadic_chain;
 pub mod variadic_array;
 pub mod variadic_chain;
 
+use either::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_prelude::script::LxScriptKind;
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
 use visored_zfs_ty::term::literal::VdZfsLiteral;
 
 /// It's a tree of both form and meaning
@@ -22,18 +23,21 @@ pub enum VdSynExprData {
         literal: VdZfsLiteral,
     },
     Notation,
+    Opr {
+        opr: VdOpr,
+    },
     Binary {
         lopd: VdSynExprIdx,
-        opr: VdBinaryOpr,
+        opr: Either<VdBinaryOpr, VdSynExprIdx>,
         ropd: VdSynExprIdx,
     },
     Prefix {
-        opr: VdSynExprIdx,
+        opr: Either<VdPrefixOpr, VdSynExprIdx>,
         opd: VdSynExprIdx,
     },
     Suffix {
         opd: VdSynExprIdx,
-        opr: VdSynExprIdx,
+        opr: Either<VdSuffixOpr, VdSynExprIdx>,
     },
     Attach {
         base: VdSynExprIdx,
@@ -56,16 +60,30 @@ impl VdSynExprData {
         match *self {
             VdSynExprData::Literal { literal } => vec![],
             VdSynExprData::Notation => vec![],
-            VdSynExprData::Binary { lopd, opr, ropd } => vec![lopd, ropd],
-            VdSynExprData::Prefix { opr, opd } => vec![opr, opd],
-            VdSynExprData::Suffix { opd, opr } => vec![opd, opr],
+            VdSynExprData::Opr { opr } => vec![],
+            VdSynExprData::Binary { lopd, opr, ropd } => match opr {
+                Left(_) => vec![lopd, ropd],
+                Right(opr) => vec![lopd, opr, ropd],
+            },
+            VdSynExprData::Prefix { opr, opd } => match opr {
+                Left(_) => vec![opd],
+                Right(opr) => vec![opr, opd],
+            },
+            VdSynExprData::Suffix { opd, opr } => match opr {
+                Left(_) => vec![opd],
+                Right(opr) => vec![opd, opr],
+            },
             VdSynExprData::Attach { base, ref scripts } => [base]
                 .into_iter()
                 .chain(scripts.iter().map(|&(_, script)| script))
                 .collect(),
+            // ad hoc
             VdSynExprData::UniadicChain => vec![],
+            // ad hoc
             VdSynExprData::VariadicChain => vec![],
+            // ad hoc
             VdSynExprData::UniadicArray => vec![],
+            // ad hoc
             VdSynExprData::VariadicArray => vec![],
         }
     }
