@@ -12,6 +12,7 @@ use crate::{builder::VdHirExprBuilder, ToVdHir};
     visored_zfs_ty::jar::VdZfsTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
+    visored_syn_expr::jar::VdSynExprJar,
     crate::jar::VdHirExprJar
 )]
 pub(crate) struct DB {}

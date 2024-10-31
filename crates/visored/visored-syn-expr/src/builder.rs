@@ -6,7 +6,7 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
 };
 
-pub(crate) struct VdSemExprBuilder<'db> {
+pub(crate) struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
     expr_arena: VdSynExprArena,
     phrase_arena: VdSynPhraseArena,
@@ -14,7 +14,7 @@ pub(crate) struct VdSemExprBuilder<'db> {
     sentence_arena: VdSynSentenceArena,
 }
 
-impl<'db> VdSemExprBuilder<'db> {
+impl<'db> VdSynExprBuilder<'db> {
     pub fn finish(self) -> VdSynExprRegionData {
         VdSynExprRegionData::new(
             self.expr_arena,
@@ -23,4 +23,7 @@ impl<'db> VdSemExprBuilder<'db> {
             self.sentence_arena,
         )
     }
+}
+pub trait ToVdSyn<T> {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> T;
 }

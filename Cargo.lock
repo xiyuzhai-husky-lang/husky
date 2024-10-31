@@ -12525,6 +12525,7 @@ dependencies = [
  "salsa",
  "visored-opr",
  "visored-sem-expr",
+ "visored-syn-expr",
  "visored-zfs-ty",
 ]
 
@@ -12548,6 +12549,7 @@ dependencies = [
  "visored-hir-expr",
  "visored-opr",
  "visored-sem-expr",
+ "visored-syn-expr",
  "visored-zfs-ty",
 ]
 
