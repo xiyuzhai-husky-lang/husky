@@ -4249,6 +4249,7 @@
         name: "visored-syn-expr",
         relative_path: "crates/visored/visored-syn-expr",
         dependencies: [
+            "either",
             "enum-class",
             "idx-arena",
             "latex-ast",

@@ -10,6 +10,7 @@ use crate::{
     },
     sentence::{VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
 };
+use either::*;
 use visored_opr::opr::binary::VdBinaryOpr;
 use visored_zfs_ty::{menu::vd_zfs_ty_menu, term::literal::VdZfsLiteralData};
 
@@ -109,7 +110,10 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 lopd, opr, ropd, ..
             } => {
                 self.fmt_expr(lopd);
-                self.result += opr.latex_code();
+                match opr {
+                    Left(opr) => self.result.push_str(opr.latex_code()),
+                    Either::Right(opr) => self.fmt_expr(opr),
+                }
                 self.fmt_expr(ropd);
             }
             VdSynExprData::Prefix { opr, opd } => todo!(),
@@ -119,6 +123,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
+            VdSynExprData::Opr { opr } => todo!(),
         }
     }
 
@@ -141,7 +146,7 @@ fn latex_fmt_works() {
     let one_add_one = builder.new_expr_checked(
         VdSynExprData::Binary {
             lopd: one,
-            opr: VdBinaryOpr::Add,
+            opr: Either::Left(VdBinaryOpr::Add),
             ropd: one,
         },
         "1+1",
