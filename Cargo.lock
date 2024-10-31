@@ -12592,10 +12592,13 @@ version = "0.1.0"
 dependencies = [
  "either",
  "enum-class",
+ "expect-test",
  "husky-coword",
+ "husky-tree-utils",
  "idx-arena",
  "latex-ast",
  "latex-prelude",
+ "latex-token",
  "salsa",
  "smallvec",
  "thiserror",

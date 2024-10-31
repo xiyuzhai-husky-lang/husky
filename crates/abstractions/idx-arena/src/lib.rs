@@ -129,6 +129,10 @@ impl<T> ArenaIdxRange<T> {
         self.end.index() - self.start.index()
     }
 
+    pub fn is_empty(&self) -> bool {
+        self.start == self.end
+    }
+
     pub fn start(&self) -> ArenaIdx<T> {
         self.start
     }
