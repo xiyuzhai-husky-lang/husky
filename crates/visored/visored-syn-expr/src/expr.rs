@@ -13,7 +13,9 @@ pub mod variadic_chain;
 use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
 use either::*;
-use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use idx_arena::{
+    map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
+};
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
 use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
@@ -57,6 +59,7 @@ pub type VdSynExprIdx = ArenaIdx<VdSynExprData>;
 pub type VdSynExprIdxRange = ArenaIdxRange<VdSynExprData>;
 pub type VdSynExprArena = Arena<VdSynExprData>;
 pub type VdSynExprMap<T> = ArenaMap<VdSynExprData, T>;
+pub type VdSynExprOrderedMap<T> = ArenaOrderedMap<VdSynExprData, T>;
 pub type VdSynExprArenaRef<'a> = ArenaRef<'a, VdSynExprData>;
 
 impl VdSynExprData {
@@ -121,20 +124,36 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
 
 #[test]
 fn math_ast_idx_to_vd_syn_expr_idx_works() {
-    use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
+    use expect_test::{expect, Expect};
+    use latex_ast::test_helpers::example::LxAstsExample;
+    use latex_prelude::mode::LxMode;
 
-    let db = &DB::default();
-    let builder = VdSynExprBuilder::new(&db, todo!(), todo!(), todo!());
-    let math_ast_idx: LxMathAstIdx = todo!();
-    let vd_syn_expr_idx = math_ast_idx.to_vd_syn(&mut builder);
-    let display_tree_builder =
-        VdSynExprDisplayTreeBuilder::new(db, todo!(), todo!(), todo!(), todo!(), todo!(), todo!());
-    expect_test::expect![[r#"
+    fn t(input: &str, expected: &Expect) {
+        use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
+
+        let db = &DB::default();
+        let lx_asts_example = LxAstsExample::new(input, LxMode::Math, db);
+        let builder = VdSynExprBuilder::new(
+            &db,
+            &lx_asts_example.token_storage,
+            &lx_asts_example.ast_arena,
+            todo!(),
+        );
+        let math_ast_idx: LxMathAstIdx = todo!();
+        let vd_syn_expr_idx = math_ast_idx.to_vd_syn(&mut builder);
+        let display_tree_builder =
+            VdSynExprDisplayTreeBuilder::new2(&lx_asts_example, &builder, db);
+        expected.assert_eq(
+            &display_tree_builder
+                .render_expr(vd_syn_expr_idx)
+                .show(&Default::default()),
+        );
+    }
+
+    t(
+        "",
+        &expect![[r#"
         <expected output here>
-    "#]]
-    .assert_eq(
-        &display_tree_builder
-            .render_expr(vd_syn_expr_idx)
-            .show(&Default::default()),
+    "#]],
     );
 }

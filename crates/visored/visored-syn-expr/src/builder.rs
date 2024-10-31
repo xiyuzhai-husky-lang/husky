@@ -6,6 +6,7 @@ use crate::{
     clause::VdSynClauseArena,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx},
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx},
+    range::{VdSynClauseRangeMap, VdSynExprRangeMap, VdSynPhraseRangeMap, VdSynSentenceRangeMap},
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
 };
@@ -16,11 +17,16 @@ pub(crate) struct VdSynExprBuilder<'db> {
     ast_arena: LxAstArenaRef<'db>,
     annotations: &'db VdAnnotations,
     expr_arena: VdSynExprArena,
+    expr_range_map: VdSynExprRangeMap,
     phrase_arena: VdSynPhraseArena,
+    phrase_range_map: VdSynPhraseRangeMap,
     clause_arena: VdSynClauseArena,
+    clause_range_map: VdSynClauseRangeMap,
     sentence_arena: VdSynSentenceArena,
+    sentence_range_map: VdSynSentenceRangeMap,
 }
 
+/// # constructor
 impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
         db: &'db ::salsa::Db,
@@ -37,7 +43,62 @@ impl<'db> VdSynExprBuilder<'db> {
             phrase_arena: Default::default(),
             clause_arena: Default::default(),
             sentence_arena: Default::default(),
+            expr_range_map: Default::default(),
+            phrase_range_map: Default::default(),
+            clause_range_map: Default::default(),
+            sentence_range_map: Default::default(),
         }
+    }
+}
+
+/// # getters
+impl<'db> VdSynExprBuilder<'db> {
+    pub(crate) fn db(&self) -> &'db ::salsa::Db {
+        self.db
+    }
+
+    pub(crate) fn token_storage(&self) -> &LxTokenStorage {
+        self.token_storage
+    }
+
+    pub(crate) fn ast_arena(&self) -> &LxAstArenaRef<'db> {
+        &self.ast_arena
+    }
+
+    pub(crate) fn annotations(&self) -> &VdAnnotations {
+        self.annotations
+    }
+
+    pub(crate) fn expr_arena(&self) -> &VdSynExprArena {
+        &self.expr_arena
+    }
+
+    pub(crate) fn expr_range_map(&self) -> &VdSynExprRangeMap {
+        &self.expr_range_map
+    }
+
+    pub(crate) fn phrase_arena(&self) -> &VdSynPhraseArena {
+        &self.phrase_arena
+    }
+
+    pub(crate) fn phrase_range_map(&self) -> &VdSynPhraseRangeMap {
+        &self.phrase_range_map
+    }
+
+    pub(crate) fn clause_arena(&self) -> &VdSynClauseArena {
+        &self.clause_arena
+    }
+
+    pub(crate) fn clause_range_map(&self) -> &VdSynClauseRangeMap {
+        &self.clause_range_map
+    }
+
+    pub(crate) fn sentence_arena(&self) -> &VdSynSentenceArena {
+        &self.sentence_arena
+    }
+
+    pub(crate) fn sentence_range_map(&self) -> &VdSynSentenceRangeMap {
+        &self.sentence_range_map
     }
 }
 
