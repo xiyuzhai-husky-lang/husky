@@ -124,38 +124,39 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
 
 #[cfg(test)]
 mod tests {
+    use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
+
     use super::*;
 
     #[test]
     fn math_ast_idx_to_vd_syn_expr_idx_works() {
+        use crate::test_helpers::example::VdSynExprExample;
         use expect_test::{expect, Expect};
-        use latex_ast::test_helpers::example::LxAstsExample;
         use latex_prelude::mode::LxMode;
 
-        fn t(input: &str, expected: &Expect) {
+        fn t(
+            input: &str,
+            token_annotations: &[((&str, &str), VdTokenAnnotation)],
+            space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+            expected: &Expect,
+        ) {
             use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 
             let db = &DB::default();
-            let lx_asts_example = LxAstsExample::new(input, LxMode::Math, db);
-            let builder = VdSynExprBuilder::new(
-                &db,
-                &lx_asts_example.token_storage,
-                &lx_asts_example.ast_arena,
-                todo!(),
+            let example = VdSynExprExample::new(
+                input,
+                LxMode::Math,
+                token_annotations,
+                space_annotations,
+                db,
             );
-            let math_ast_idx: LxMathAstIdx = todo!();
-            let vd_syn_expr_idx = math_ast_idx.to_vd_syn(&mut builder);
-            let display_tree_builder =
-                VdSynExprDisplayTreeBuilder::new2(&lx_asts_example, &builder, db);
-            expected.assert_eq(
-                &display_tree_builder
-                    .render_expr(vd_syn_expr_idx)
-                    .show(&Default::default()),
-            );
+            expected.assert_eq(&example.show_display_tree(db));
         }
 
         t(
             "",
+            &[],
+            &[],
             &expect![[r#"
         <expected output here>
     "#]],

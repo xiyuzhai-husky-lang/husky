@@ -1,7 +1,3 @@
-use latex_ast::ast::{LxAstArena, LxAstArenaRef};
-use latex_token::storage::LxTokenStorage;
-use visored_annotation::annotations::VdAnnotations;
-
 use crate::{
     clause::VdSynClauseArena,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx},
@@ -10,6 +6,10 @@ use crate::{
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
 };
+use either::*;
+use latex_ast::ast::{LxAstArena, LxAstArenaRef, LxAstIdxRange};
+use latex_token::storage::LxTokenStorage;
+use visored_annotation::annotations::VdAnnotations;
 
 pub(crate) struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -103,7 +103,7 @@ impl<'db> VdSynExprBuilder<'db> {
 }
 
 impl<'db> VdSynExprBuilder<'db> {
-    pub fn finish(self) -> VdSynExprRegionData {
+    pub fn finish_to_region_data(self) -> VdSynExprRegionData {
         VdSynExprRegionData::new(
             self.expr_arena,
             self.phrase_arena,
@@ -111,7 +111,40 @@ impl<'db> VdSynExprBuilder<'db> {
             self.sentence_arena,
         )
     }
+
+    pub fn finish(
+        self,
+    ) -> (
+        VdSynExprArena,
+        VdSynExprRangeMap,
+        VdSynPhraseArena,
+        VdSynPhraseRangeMap,
+        VdSynClauseArena,
+        VdSynClauseRangeMap,
+        VdSynSentenceArena,
+        VdSynSentenceRangeMap,
+    ) {
+        (
+            self.expr_arena,
+            self.expr_range_map,
+            self.phrase_arena,
+            self.phrase_range_map,
+            self.clause_arena,
+            self.clause_range_map,
+            self.sentence_arena,
+            self.sentence_range_map,
+        )
+    }
 }
 pub trait ToVdSyn<T> {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> T;
+}
+
+impl ToVdSyn<Either<VdSynExprIdx, ()>> for LxAstIdxRange {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, ()> {
+        match self {
+            LxAstIdxRange::Math(slf) => Either::Left(slf.to_vd_syn(builder)),
+            LxAstIdxRange::Rose(slf) => Either::Right(todo!()),
+        }
+    }
 }
