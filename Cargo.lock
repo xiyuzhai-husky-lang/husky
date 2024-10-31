@@ -12597,6 +12597,7 @@ dependencies = [
  "latex-prelude",
  "salsa",
  "smallvec",
+ "thiserror",
  "visored-annotation",
  "visored-opr",
  "visored-syn-expr",
