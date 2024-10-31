@@ -12578,6 +12578,7 @@ dependencies = [
  "latex-ast",
  "latex-prelude",
  "salsa",
+ "thiserror",
  "visored-annotation",
  "visored-opr",
  "visored-sem-expr",
