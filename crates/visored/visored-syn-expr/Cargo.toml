@@ -20,5 +20,14 @@ latex-prelude.workspace = true
 visored-opr.workspace = true
 visored-zfs-ty.workspace = true
 
+[dev-dependencies]
+# kernel
+husky-coword.workspace = true
+# visored
+visored-syn-expr = { workspace = true, features = ["test_helpers"] }
+
 [lints]
 workspace = true
+
+[features]
+test_helpers = []
