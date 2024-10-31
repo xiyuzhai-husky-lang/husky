@@ -11,7 +11,7 @@ use crate::{
 };
 use husky_tree_utils::display::DisplayTree;
 #[cfg(feature = "test_helpers")]
-use latex_ast::test_helpers::example::LxAstsExample;
+use latex_ast::test_helpers::example::LxAstExample;
 use latex_ast::{
     ast::{
         math::{LxMathAstIdx, LxMathAstIdxRange},
@@ -74,7 +74,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     #[cfg(feature = "test_helpers")]
     pub fn new2(
-        lx_asts_example: &'a LxAstsExample,
+        lx_asts_example: &'a LxAstExample,
         builder: &'a VdSynExprBuilder<'a>,
         db: &'a salsa::Db,
     ) -> Self {

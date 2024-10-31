@@ -7,7 +7,7 @@ use latex_prelude::mode::LxMode;
 use latex_token::storage::LxTokenStorage;
 
 #[derive(Debug)]
-pub struct LxAstsExample {
+pub struct LxAstExample {
     pub input: String,
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
@@ -15,7 +15,7 @@ pub struct LxAstsExample {
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
 }
 
-impl LxAstsExample {
+impl LxAstExample {
     pub fn new(input: &str, root_mode: LxMode, db: &salsa::Db) -> Self {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
@@ -32,7 +32,7 @@ impl LxAstsExample {
     }
 }
 
-impl LxAstsExample {
+impl LxAstExample {
     pub fn show(&self, db: &salsa::Db) -> String {
         let display_tree_builder = LxAstDisplayTreeBuilder::new(
             db,
