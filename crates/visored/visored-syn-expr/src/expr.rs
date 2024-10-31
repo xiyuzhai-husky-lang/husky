@@ -122,38 +122,43 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
     }
 }
 
-#[test]
-fn math_ast_idx_to_vd_syn_expr_idx_works() {
-    use expect_test::{expect, Expect};
-    use latex_ast::test_helpers::example::LxAstsExample;
-    use latex_prelude::mode::LxMode;
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-    fn t(input: &str, expected: &Expect) {
-        use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
+    #[test]
+    fn math_ast_idx_to_vd_syn_expr_idx_works() {
+        use expect_test::{expect, Expect};
+        use latex_ast::test_helpers::example::LxAstsExample;
+        use latex_prelude::mode::LxMode;
 
-        let db = &DB::default();
-        let lx_asts_example = LxAstsExample::new(input, LxMode::Math, db);
-        let builder = VdSynExprBuilder::new(
-            &db,
-            &lx_asts_example.token_storage,
-            &lx_asts_example.ast_arena,
-            todo!(),
-        );
-        let math_ast_idx: LxMathAstIdx = todo!();
-        let vd_syn_expr_idx = math_ast_idx.to_vd_syn(&mut builder);
-        let display_tree_builder =
-            VdSynExprDisplayTreeBuilder::new2(&lx_asts_example, &builder, db);
-        expected.assert_eq(
-            &display_tree_builder
-                .render_expr(vd_syn_expr_idx)
-                .show(&Default::default()),
-        );
-    }
+        fn t(input: &str, expected: &Expect) {
+            use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 
-    t(
-        "",
-        &expect![[r#"
+            let db = &DB::default();
+            let lx_asts_example = LxAstsExample::new(input, LxMode::Math, db);
+            let builder = VdSynExprBuilder::new(
+                &db,
+                &lx_asts_example.token_storage,
+                &lx_asts_example.ast_arena,
+                todo!(),
+            );
+            let math_ast_idx: LxMathAstIdx = todo!();
+            let vd_syn_expr_idx = math_ast_idx.to_vd_syn(&mut builder);
+            let display_tree_builder =
+                VdSynExprDisplayTreeBuilder::new2(&lx_asts_example, &builder, db);
+            expected.assert_eq(
+                &display_tree_builder
+                    .render_expr(vd_syn_expr_idx)
+                    .show(&Default::default()),
+            );
+        }
+
+        t(
+            "",
+            &expect![[r#"
         <expected output here>
     "#]],
-    );
+        );
+    }
 }
