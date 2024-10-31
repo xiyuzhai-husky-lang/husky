@@ -12589,6 +12589,7 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "either",
  "enum-class",
  "husky-coword",
  "idx-arena",
