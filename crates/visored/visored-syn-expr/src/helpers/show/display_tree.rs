@@ -4,7 +4,7 @@ use crate::{
     expr::{VdSynExprArenaRef, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
-        VdSynClauseRangeMap, VdSynExprRange, VdSynExprRangeMap, VdSynPhraseRangeMap,
+        VdSynClauseRangeMap, VdSynExprAstRange, VdSynExprRangeMap, VdSynPhraseRangeMap,
         VdSynSentenceRangeMap,
     },
     sentence::VdSynSentenceArenaRef,
@@ -113,8 +113,8 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: VdSynExprIdx) -> DisplayTree {
         let expr_range = self.expr_range_map[expr];
         let (start, end) = match expr_range {
-            VdSynExprRange::Ast(ast) => self.ast_offset_range(ast),
-            VdSynExprRange::Asts(asts) => todo!(),
+            VdSynExprAstRange::Ast(ast) => self.ast_offset_range(ast),
+            VdSynExprAstRange::Asts(asts) => self.asts_offset_range(asts),
         };
         let value = self.input[(start..end)].to_string();
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
@@ -146,7 +146,9 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     fn math_asts_offset_range(&self, asts: LxMathAstIdxRange) -> (usize, usize) {
         let first = asts.start();
-        let Some(last) = asts.last() else { todo!() };
+        let Some(last) = asts.last() else {
+            return self.math_ast_offset_range(first);
+        };
         (
             self.math_ast_offset_range(first).0,
             self.math_ast_offset_range(last).1,

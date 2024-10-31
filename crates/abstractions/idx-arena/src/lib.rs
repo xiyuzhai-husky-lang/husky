@@ -146,7 +146,11 @@ impl<T> ArenaIdxRange<T> {
     }
 
     pub fn last(&self) -> Option<ArenaIdx<T>> {
-        (self.start < self.end).then_some(self.end - 1)
+        if self.start < self.end {
+            Some(self.end - 1)
+        } else {
+            None
+        }
     }
 
     pub fn new_single(idx: ArenaIdx<T>) -> Self {

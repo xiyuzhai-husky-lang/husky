@@ -13,11 +13,13 @@ pub mod variadic_chain;
 use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
 use either::*;
+use error::{OriginalVdSynExprError, VdSynExprError};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
+use range::VdSynExprAstRange;
 use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
 use visored_zfs_ty::term::literal::VdZfsLiteral;
 
@@ -53,6 +55,7 @@ pub enum VdSynExprData {
     VariadicChain,
     UniadicArray,
     VariadicArray,
+    Err(VdSynExprError),
 }
 
 pub type VdSynExprIdx = ArenaIdx<VdSynExprData>;
@@ -92,6 +95,7 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => vec![],
             // ad hoc
             VdSynExprData::VariadicArray => vec![],
+            VdSynExprData::Err(ref error) => vec![],
         }
     }
 
@@ -112,7 +116,14 @@ pub enum VdSynExprClass {
 
 impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
-        todo!()
+        if self.is_empty() {
+            builder.alloc_expr(
+                VdSynExprData::Err(OriginalVdSynExprError::Empty.into()),
+                VdSynExprAstRange::Asts(self.into()),
+            )
+        } else {
+            todo!()
+        }
     }
 }
 

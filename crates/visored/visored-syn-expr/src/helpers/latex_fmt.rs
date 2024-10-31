@@ -124,6 +124,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Opr { opr } => todo!(),
+            VdSynExprData::Err(ref error) => unreachable!("{error}"),
         }
     }
 

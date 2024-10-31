@@ -1,8 +1,11 @@
 use crate::{
     clause::VdSynClauseArena,
-    expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx},
+    expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx},
-    range::{VdSynClauseRangeMap, VdSynExprRangeMap, VdSynPhraseRangeMap, VdSynSentenceRangeMap},
+    range::{
+        VdSynClauseRangeMap, VdSynExprAstRange, VdSynExprRangeMap, VdSynPhraseRangeMap,
+        VdSynSentenceRangeMap,
+    },
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
 };
@@ -48,6 +51,16 @@ impl<'db> VdSynExprBuilder<'db> {
             clause_range_map: Default::default(),
             sentence_range_map: Default::default(),
         }
+    }
+
+    pub(crate) fn alloc_expr(
+        &mut self,
+        data: VdSynExprData,
+        range: VdSynExprAstRange,
+    ) -> VdSynExprIdx {
+        let idx = self.expr_arena.alloc_one(data);
+        self.expr_range_map.insert_next(idx, range);
+        idx
     }
 }
 
