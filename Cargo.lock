@@ -12522,6 +12522,7 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "idx-arena",
+ "latex-ast",
  "salsa",
  "visored-opr",
  "visored-sem-expr",
@@ -12541,6 +12542,7 @@ name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "latex-ast",
  "lean-hir-expr",
  "lean-opr",
  "lean-sem-expr",
@@ -12573,6 +12575,7 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "idx-arena",
+ "latex-ast",
  "latex-prelude",
  "salsa",
  "visored-annotation",
@@ -12586,10 +12589,13 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "husky-coword",
  "idx-arena",
+ "latex-ast",
  "latex-prelude",
  "salsa",
+ "smallvec",
  "visored-opr",
  "visored-syn-expr",
  "visored-zfs-ty",

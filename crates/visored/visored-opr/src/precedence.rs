@@ -1,6 +1,8 @@
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
-pub enum VdPrecedence {
-    Application,
+pub struct VdPrecedence(u64);
+
+impl VdPrecedence {
+    pub const APPLICATION: Self = VdPrecedence(0);
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -12,7 +14,7 @@ pub enum VdPrecedenceRange {
 
 /// # constants
 impl VdPrecedenceRange {
-    pub const APPLICATION_SUBEXPR: Self = VdPrecedenceRange::Greater(VdPrecedence::Application);
+    pub const APPLICATION_SUBEXPR: Self = VdPrecedenceRange::Greater(VdPrecedence::APPLICATION);
 }
 
 /// # methods

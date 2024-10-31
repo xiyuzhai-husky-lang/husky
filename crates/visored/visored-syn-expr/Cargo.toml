@@ -12,11 +12,15 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+enum-class.workspace = true
+smallvec.workspace = true
 # abstractions
 salsa.workspace = true
 idx-arena.workspace = true
 # latex
 latex-prelude.workspace = true
+latex-ast.workspace = true
+# visored
 visored-opr.workspace = true
 visored-zfs-ty.workspace = true
 

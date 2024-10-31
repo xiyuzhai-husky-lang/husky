@@ -1311,6 +1311,7 @@
             "visored-syn-expr",
             "visored-zfs-ty",
             "husky-coword",
+            "latex-ast",
         ],
     },
     JarPackageSummary {
@@ -1320,6 +1321,7 @@
     JarPackageSummary {
         name: "visored-syn-expr",
         dependencies: [
+            "latex-ast",
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
@@ -1336,6 +1338,7 @@
             "visored-sem-expr",
             "visored-zfs-ty",
             "husky-coword",
+            "latex-ast",
             "visored-sem-expr",
             "visored-syn-expr",
         ],
@@ -1349,6 +1352,7 @@
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
+            "latex-ast",
             "lean-sem-expr",
             "lean-term",
             "visored-sem-expr",
