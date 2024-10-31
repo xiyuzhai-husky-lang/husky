@@ -168,8 +168,8 @@ mod tests {
             &[],
             &[],
             &expect![[r#"
-        <expected output here>
-    "#]],
+
+            "#]],
         );
     }
 }
