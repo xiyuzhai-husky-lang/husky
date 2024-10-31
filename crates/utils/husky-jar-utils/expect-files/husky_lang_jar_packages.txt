@@ -1308,6 +1308,7 @@
         name: "visored-sem-expr",
         dependencies: [
             "visored-opr",
+            "visored-syn-expr",
             "visored-zfs-ty",
             "husky-coword",
         ],
@@ -1315,6 +1316,14 @@
     JarPackageSummary {
         name: "visored-opr",
         dependencies: [],
+    },
+    JarPackageSummary {
+        name: "visored-syn-expr",
+        dependencies: [
+            "visored-opr",
+            "visored-zfs-ty",
+            "husky-coword",
+        ],
     },
     JarPackageSummary {
         name: "visored-zfs-ty",
@@ -1342,13 +1351,6 @@
             "lean-sem-expr",
             "lean-term",
             "visored-sem-expr",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-syn-expr",
-        dependencies: [
-            "visored-opr",
-            "visored-zfs-ty",
         ],
     },
 ]

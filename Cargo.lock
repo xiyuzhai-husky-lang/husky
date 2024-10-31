@@ -12576,6 +12576,7 @@ dependencies = [
  "visored-annotation",
  "visored-opr",
  "visored-sem-expr",
+ "visored-syn-expr",
  "visored-zfs-ty",
 ]
 
@@ -12583,10 +12584,12 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "husky-coword",
  "idx-arena",
  "latex-prelude",
  "salsa",
  "visored-opr",
+ "visored-syn-expr",
  "visored-zfs-ty",
 ]
 
