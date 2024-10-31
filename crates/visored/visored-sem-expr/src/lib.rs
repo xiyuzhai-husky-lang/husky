@@ -1,5 +1,6 @@
 mod builder;
 pub mod clause;
+pub mod error;
 pub mod expr;
 pub mod helpers;
 pub mod jar;
