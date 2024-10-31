@@ -8200,10 +8200,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "latex-syn-expr"
-version = "0.1.0"
-
-[[package]]
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
@@ -12576,7 +12572,6 @@ dependencies = [
  "husky-coword",
  "idx-arena",
  "latex-prelude",
- "latex-syn-expr",
  "salsa",
  "visored-annotation",
  "visored-opr",
