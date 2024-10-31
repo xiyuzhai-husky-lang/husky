@@ -31,6 +31,7 @@ lean-term.workspace = true
 lean-sem-expr.workspace = true
 # visored
 visored-sem-expr = { workspace = true, features = ["test_helpers"] }
+visored-syn-expr = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true

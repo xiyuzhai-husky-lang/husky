@@ -17,6 +17,7 @@ use crate::{builder::VdLeanTranspilationBuilder, ToLean};
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
     visored_hir_expr::jar::VdHirExprJar,
+    visored_syn_expr::jar::VdSynExprJar,
     crate::Jar
 )]
 pub(crate) struct DB {}
