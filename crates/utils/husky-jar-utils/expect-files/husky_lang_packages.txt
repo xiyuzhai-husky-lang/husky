@@ -4284,6 +4284,7 @@
             "visored-zfs-ty",
             "husky-coword",
             "visored-sem-expr",
+            "visored-syn-expr",
         ],
     },
     PackageSummary {
@@ -4308,6 +4309,7 @@
             "lean-sem-expr",
             "lean-term",
             "visored-sem-expr",
+            "visored-syn-expr",
         ],
     },
     PackageSummary {
