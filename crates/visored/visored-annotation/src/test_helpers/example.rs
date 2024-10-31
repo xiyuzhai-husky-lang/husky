@@ -8,8 +8,8 @@ use crate::{
 
 #[derive(Debug, Clone)]
 pub struct VdAnnotationsExample {
-    pub root_mode: LxMode,
     pub input: String,
+    pub root_mode: LxMode,
     pub annotations: VdAnnotations,
 }
 

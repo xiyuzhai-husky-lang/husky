@@ -17,4 +17,6 @@ mod tests;
 use self::jar::VdSynExprJar as Jar;
 #[cfg(test)]
 use self::tests::*;
+use crate::builder::ToVdSyn;
+use either::*;
 use smallvec::SmallVec;

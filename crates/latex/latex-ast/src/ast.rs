@@ -659,12 +659,12 @@ fn parse_tex_input_into_asts_works() {
 
 #[test]
 fn parse_tex_input_into_asts_then_show_works() {
-    use crate::test_helpers::example::LxAstsExample;
+    use crate::test_helpers::example::LxAstExample;
     use expect_test::Expect;
 
     fn t(input: &str, mode: LxMode, expected: Expect) {
         let db = &DB::default();
-        let example = LxAstsExample::new(input, mode, db);
+        let example = LxAstExample::new(input, mode, db);
         let show = example.show(db);
         expected.assert_eq(&show);
     }
