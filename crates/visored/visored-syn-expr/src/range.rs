@@ -1,5 +1,9 @@
-use crate::expr::VdSynExprMap;
 use latex_ast::ast::{LxAstIdx, LxAstIdxRange};
+
+use crate::{
+    clause::VdSynClauseOrderedMap, expr::VdSynExprOrderedMap, phrase::VdSynPhraseOrderedMap,
+    sentence::VdSynSentenceOrderedMap,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynExprRange {
@@ -7,4 +11,11 @@ pub enum VdSynExprRange {
     Asts(LxAstIdxRange),
 }
 
-pub type VdSynExprRangeMap<'a> = VdSynExprMap<VdSynExprRange>;
+pub type VdSynPhraseRange = LxAstIdxRange;
+pub type VdSynClauseRange = LxAstIdxRange;
+pub type VdSynSentenceRange = LxAstIdxRange;
+
+pub type VdSynExprRangeMap = VdSynExprOrderedMap<VdSynExprRange>;
+pub type VdSynPhraseRangeMap = VdSynPhraseOrderedMap<VdSynPhraseRange>;
+pub type VdSynClauseRangeMap = VdSynClauseOrderedMap<VdSynClauseRange>;
+pub type VdSynSentenceRangeMap = VdSynSentenceOrderedMap<VdSynSentenceRange>;

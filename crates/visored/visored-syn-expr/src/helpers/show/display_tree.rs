@@ -1,9 +1,17 @@
 use crate::{
     builder::VdSynExprBuilder,
+    clause::VdSynClauseArenaRef,
     expr::{VdSynExprArenaRef, VdSynExprIdx, VdSynExprIdxRange},
-    range::{VdSynExprRange, VdSynExprRangeMap},
+    phrase::VdSynPhraseArenaRef,
+    range::{
+        VdSynClauseRangeMap, VdSynExprRange, VdSynExprRangeMap, VdSynPhraseRangeMap,
+        VdSynSentenceRangeMap,
+    },
+    sentence::VdSynSentenceArenaRef,
 };
 use husky_tree_utils::display::DisplayTree;
+#[cfg(feature = "test_helpers")]
+use latex_ast::test_helpers::example::LxAstsExample;
 use latex_ast::{
     ast::{
         math::{LxMathAstIdx, LxMathAstIdxRange},
@@ -21,7 +29,13 @@ pub struct VdSynExprDisplayTreeBuilder<'a> {
     ast_arena: LxAstArenaRef<'a>,
     ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
     expr_arena: VdSynExprArenaRef<'a>,
-    expr_range_map: &'a VdSynExprRangeMap<'a>,
+    expr_range_map: &'a VdSynExprRangeMap,
+    phrase_arena: VdSynPhraseArenaRef<'a>,
+    phrase_range_map: &'a VdSynPhraseRangeMap,
+    clause_arena: VdSynClauseArenaRef<'a>,
+    clause_range_map: &'a VdSynClauseRangeMap,
+    sentence_arena: VdSynSentenceArenaRef<'a>,
+    sentence_range_map: &'a VdSynSentenceRangeMap,
 }
 
 /// # construction
@@ -33,7 +47,13 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         ast_arena: LxAstArenaRef<'a>,
         ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
         expr_arena: VdSynExprArenaRef<'a>,
-        expr_range_map: &'a VdSynExprRangeMap<'a>,
+        expr_range_map: &'a VdSynExprRangeMap,
+        phrase_arena: VdSynPhraseArenaRef<'a>,
+        phrase_range_map: &'a VdSynPhraseRangeMap,
+        clause_arena: VdSynClauseArenaRef<'a>,
+        clause_range_map: &'a VdSynClauseRangeMap,
+        sentence_arena: VdSynSentenceArenaRef<'a>,
+        sentence_range_map: &'a VdSynSentenceRangeMap,
     ) -> Self {
         Self {
             db,
@@ -43,7 +63,36 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             ast_token_idx_range_map,
             expr_arena,
             expr_range_map,
+            phrase_arena,
+            phrase_range_map,
+            clause_arena,
+            clause_range_map,
+            sentence_arena,
+            sentence_range_map,
         }
+    }
+
+    #[cfg(feature = "test_helpers")]
+    pub fn new2(
+        lx_asts_example: &'a LxAstsExample,
+        builder: &'a VdSynExprBuilder<'a>,
+        db: &'a salsa::Db,
+    ) -> Self {
+        VdSynExprDisplayTreeBuilder::new(
+            db,
+            &lx_asts_example.input,
+            &lx_asts_example.token_storage,
+            lx_asts_example.ast_arena.as_arena_ref(),
+            &lx_asts_example.ast_token_idx_range_map,
+            builder.expr_arena().as_arena_ref(),
+            &builder.expr_range_map(),
+            builder.phrase_arena().as_arena_ref(),
+            &builder.phrase_range_map(),
+            builder.clause_arena().as_arena_ref(),
+            &builder.clause_range_map(),
+            builder.sentence_arena().as_arena_ref(),
+            &builder.sentence_range_map(),
+        )
     }
 }
 
