@@ -433,6 +433,7 @@ visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
+visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }
 visored-zfs-ty = { path = "crates/visored/visored-zfs-ty" }
 # vm
