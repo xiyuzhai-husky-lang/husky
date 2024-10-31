@@ -26,6 +26,8 @@ visored-syn-expr.workspace = true
 [dev-dependencies]
 # kernel
 husky-coword.workspace = true
+# latex
+latex-ast.workspace = true
 # visored
 visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 
