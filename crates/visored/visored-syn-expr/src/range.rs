@@ -1,15 +1,24 @@
-use latex_token::idx::LxTokenIdxRange;
-
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseIdx, VdSynClauseMap},
-    expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap},
+    expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynSeparator},
     phrase::{VdSynPhraseArena, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArena, VdSynSentenceIdx, VdSynSentenceMap},
 };
+use either::*;
+use latex_token::idx::LxTokenIdxRange;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynExprTokenIdxRange {
     Standard(LxTokenIdxRange),
+}
+impl VdSynExprTokenIdxRange {
+    fn join(self, other: VdSynExprTokenIdxRange) -> Self {
+        match (self, other) {
+            (VdSynExprTokenIdxRange::Standard(slf), VdSynExprTokenIdxRange::Standard(other)) => {
+                VdSynExprTokenIdxRange::Standard(slf.join(other))
+            }
+        }
+    }
 }
 
 pub type VdSynPhraseTokenIdxRange = LxTokenIdxRange;
@@ -102,7 +111,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::Literal {
                 token_idx_range,
                 literal,
-            } => todo!(),
+            } => VdSynExprTokenIdxRange::Standard(token_idx_range),
             VdSynExprData::Notation => todo!(),
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
@@ -114,7 +123,22 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(ref e) => VdSynExprTokenIdxRange::Standard(e.token_idx_range()),
-            VdSynExprData::SeparatedList { .. } => todo!(),
+            VdSynExprData::SeparatedList { ref fragments, .. } => {
+                // use the first and the last fragment's range
+                let mut t = |fragment: Either<VdSynExprIdx, VdSynSeparator>| match fragment {
+                    Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => self.get_expr(expr),
+                    Right(VdSynSeparator::Base(lx_math_token_idx, _)) => {
+                        VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_single(
+                            *lx_math_token_idx,
+                        ))
+                    }
+                };
+                let first = *fragments.first().expect("fragments are always non-empty");
+                let last = *fragments.last().expect("fragments are always non-empty");
+                let first_range = t(first);
+                let last_range = t(last);
+                first_range.join(last_range)
+            }
         }
     }
 

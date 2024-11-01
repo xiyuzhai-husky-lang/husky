@@ -72,9 +72,7 @@ impl VdSynExprExample {
             &annotations,
         );
         let result = (whole_token_range, asts).to_vd_syn(&mut builder);
-        todo!();
         let (expr_arena, phrase_arena, clause_arena, sentence_arena) = builder.finish();
-        todo!();
         let (expr_range_map, phrase_range_map, clause_range_map, sentence_range_map) =
             calc_expr_range_map(
                 db,
