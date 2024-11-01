@@ -4,7 +4,13 @@ use super::{
     incomplete_expr::IncompleteVdSynExprData,
     VdSynExprParser,
 };
-use visored_opr::{delimiter::VdLeftDelimiter, precedence::VdPrecedence};
+use crate::expr::VdSynExprClass;
+use either::*;
+use smallvec::smallvec;
+use visored_annotation::annotation::space::VdSpaceAnnotation;
+use visored_opr::{
+    delimiter::VdBaseLeftDelimiter, precedence::VdPrecedence, separator::VdBaseSeparator,
+};
 
 #[derive(Default)]
 pub(crate) struct VdSynExprStack {
@@ -93,14 +99,26 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     /// - if there is already a finished expression, interpret it as a function,
     /// and `top_expr` as an argument;
     /// - otherwise just adds it in the trivial way
-    pub(super) fn push_top_syn_expr(&mut self, top_expr: TopVdSynExpr) {
+    pub(super) fn push_top_syn_expr(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        top_expr: TopVdSynExpr,
+    ) {
         // this is for guaranteeing that application is left associative
         if self.complete_expr().is_some() {
             self.reduce(VdPrecedence::APPLICATION)
         };
-        if let Some(function) = self.take_complete_expr() {
-            todo!()
-            // self.push_unfinished_expr(IncompleteVdSynExprData::Application { function });
+        if let Some(expr) = self.take_complete_expr() {
+            match preceding_space_annotation {
+                Some(annotation) => todo!(),
+                _ => {
+                    let expr = self.builder.alloc_expr(expr);
+                    self.push_unfinished_expr(IncompleteVdSynExprData::SeparatedList {
+                        separator: VdBaseSeparator::Space,
+                        fragments: smallvec![Left(expr)],
+                    })
+                }
+            }
         }
         match top_expr {
             TopVdSynExpr::Unfinished(unfinished_expr) => self.push_unfinished_expr(unfinished_expr),
@@ -128,27 +146,23 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         self.stack.complete_expr = Some(expr)
     }
 
-    fn reduce_aux(
-        &mut self,
-        f: impl Fn(&mut Self, Option<VdSynExprData>, IncompleteVdSynExprData) -> TopVdSynExpr,
-    ) {
-        let complete_expr = self.take_complete_expr();
-        let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.pop() else {
-            unreachable!()
-        };
-        let top_expr = f(self, complete_expr, incomplete_expr);
-        self.push_top_syn_expr(top_expr)
-    }
+    // fn reduce_aux(
+    //     &mut self,
+    //     f: impl Fn(&mut Self, Option<VdSynExprData>, IncompleteVdSynExprData) -> TopVdSynExpr,
+    // ) {
+    //     let complete_expr = self.take_complete_expr();
+    //     let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.pop() else {
+    //         unreachable!()
+    //     };
+    //     let top_expr = f(self, complete_expr, incomplete_expr);
+    //     self.push_top_syn_expr(top_expr)
+    // }
 
     pub(super) fn reduce(&mut self, next_precedence: VdPrecedence) {
         while let Some(prev_precedence) = self.stack.prev_unfinished_expr_precedence() {
             if prev_precedence < next_precedence {
                 break;
             }
-            // // curry is right associative
-            // if prev_precedence == VdPrecedence::Curry && next_precedence == VdPrecedence::Curry {
-            //     break;
-            // }
             match self.stack.incomplete_exprs.pop().unwrap().0 {
                 IncompleteVdSynExprData::Binary { lopd, opr } => {
                     let finished_expr = self.take_complete_expr();
@@ -156,7 +170,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         Some(ropd) => VdSynExprData::Binary {
                             lopd,
                             opr,
-                            ropd: self.builder.alloc_expr(ropd, todo!()),
+                            ropd: self.builder.alloc_expr(ropd),
                         },
                         None => VdSynExprData::Err(
                             OriginalVdSynExprError::NoRightOperandForBinaryOperator { opr }.into(),
@@ -164,23 +178,51 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     })
                 }
                 IncompleteVdSynExprData::Prefix { opr } => {
-                    let finished_expr = self.take_complete_expr();
-                    self.stack.complete_expr = Some(match finished_expr {
+                    let expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match expr {
                         Some(opd) => VdSynExprData::Prefix {
                             opr,
-                            opd: self.builder.alloc_expr(opd, todo!()),
+                            opd: self.builder.alloc_expr(opd),
                         },
                         None => VdSynExprData::Err(
                             OriginalVdSynExprError::NoOperandForPrefixOperator { opr }.into(),
                         ),
                     })
                 }
-                IncompleteVdSynExprData::SeparatedList { bra_token_idx, .. } => {
-                    self.stack.complete_expr = Some(VdSynExprData::Err(
-                        OriginalVdSynExprError::UnterminatedList { bra_token_idx }.into(),
-                    ))
+                IncompleteVdSynExprData::SeparatedList {
+                    separator,
+                    fragments,
+                    ..
+                } => {
+                    let expr = self.take_complete_expr();
+                    match expr {
+                        Some(expr) => match expr.class() {
+                            VdSynExprClass::Atom => {
+                                match fragments.last() {
+                                    Some(fragment) => match fragment {
+                                        Left(expr) => todo!(),
+                                        Right(separator) => todo!(),
+                                    },
+                                    None => unreachable!(),
+                                };
+                                todo!()
+                            }
+                            VdSynExprClass::Prefix => todo!(),
+                            VdSynExprClass::Suffix => todo!(),
+                            VdSynExprClass::Separator => {
+                                use husky_print_utils::p;
+                                p!(expr);
+                                todo!()
+                            }
+                        },
+                        None => todo!(),
+                    }
+                    todo!()
+                    // self.stack.complete_expr = Some(VdSynExprData::Err(
+                    //     OriginalVdSynExprError::UnterminatedList { bra_token_idx }.into(),
+                    // ))
                 }
-                IncompleteVdSynExprData::CallList { .. } => todo!(),
+                IncompleteVdSynExprData::Delimited { bra } => todo!(),
             }
         }
     }
@@ -192,40 +234,24 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     ) {
         let complete_expr = self.take_complete_expr();
         let top_expr = f(self, complete_expr);
-        self.push_top_syn_expr(top_expr)
+        self.push_top_syn_expr(None, top_expr)
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<VdSynExprIdx> {
         assert!(self.stack.incomplete_exprs.len() == 0);
-        std::mem::take(&mut self.stack.complete_expr)
-            .map(|expr| self.builder.alloc_expr(expr, todo!()))
+        std::mem::take(&mut self.stack.complete_expr).map(|expr| self.builder.alloc_expr(expr))
     }
 
-    pub(super) fn last_bra(&self) -> Option<VdLeftDelimiter> {
-        for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
-            match unfinished_expr {
-                IncompleteVdSynExprData::SeparatedList { bra, .. } => return Some(*bra),
-                IncompleteVdSynExprData::CallList { .. } => todo!(),
-                //  return Some(Delimiter::Par),
-                _ => (),
-            }
-        }
-        None
-    }
-
-    pub(super) fn last_two_bras(&self) -> Vec<VdLeftDelimiter> {
-        let mut bras = vec![];
-        for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
-            match unfinished_expr {
-                IncompleteVdSynExprData::SeparatedList { bra, .. } => {
-                    bras.push(*bra);
-                    if bras.len() >= 2 {
-                        return bras;
-                    }
-                }
-                _ => (),
-            }
-        }
-        bras
+    pub(super) fn last_left_delimiter(&self) -> Option<VdBaseLeftDelimiter> {
+        todo!()
+        // for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
+        //     match unfinished_expr {
+        //         IncompleteVdSynExprData::SeparatedList { bra, .. } => return Some(*bra),
+        //         IncompleteVdSynExprData::CallList { .. } => todo!(),
+        //         //  return Some(Delimiter::Par),
+        //         _ => (),
+        //     }
+        // }
+        // None
     }
 }

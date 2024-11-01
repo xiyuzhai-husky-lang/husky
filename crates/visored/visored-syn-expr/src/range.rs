@@ -1,8 +1,7 @@
 use latex_ast::ast::{LxAstIdx, LxAstIdxRange};
 
 use crate::{
-    clause::VdSynClauseOrderedMap, expr::VdSynExprOrderedMap, phrase::VdSynPhraseOrderedMap,
-    sentence::VdSynSentenceOrderedMap,
+    clause::VdSynClauseMap, expr::VdSynExprMap, phrase::VdSynPhraseMap, sentence::VdSynSentenceMap,
 };
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -15,7 +14,7 @@ pub type VdSynPhraseRange = LxAstIdxRange;
 pub type VdSynClauseRange = LxAstIdxRange;
 pub type VdSynSentenceRange = LxAstIdxRange;
 
-pub type VdSynExprRangeMap = VdSynExprOrderedMap<VdSynExprAstRange>;
-pub type VdSynPhraseRangeMap = VdSynPhraseOrderedMap<VdSynPhraseRange>;
-pub type VdSynClauseRangeMap = VdSynClauseOrderedMap<VdSynClauseRange>;
-pub type VdSynSentenceRangeMap = VdSynSentenceOrderedMap<VdSynSentenceRange>;
+pub type VdSynExprRangeMap = VdSynExprMap<VdSynExprAstRange>;
+pub type VdSynPhraseRangeMap = VdSynPhraseMap<VdSynPhraseRange>;
+pub type VdSynClauseRangeMap = VdSynClauseMap<VdSynClauseRange>;
+pub type VdSynSentenceRangeMap = VdSynSentenceMap<VdSynSentenceRange>;

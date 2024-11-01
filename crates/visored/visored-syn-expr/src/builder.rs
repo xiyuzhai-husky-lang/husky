@@ -10,7 +10,10 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
 };
 use either::*;
-use latex_ast::ast::{LxAstArena, LxAstArenaRef, LxAstIdxRange};
+use latex_ast::{
+    ast::{LxAstArena, LxAstArenaRef, LxAstIdxRange},
+    range::LxAstTokenIdxRangeMap,
+};
 use latex_token::storage::LxTokenStorage;
 use visored_annotation::annotations::VdAnnotations;
 
@@ -18,15 +21,12 @@ pub(crate) struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
     token_storage: &'db LxTokenStorage,
     ast_arena: LxAstArenaRef<'db>,
+    ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
     annotations: &'db VdAnnotations,
     expr_arena: VdSynExprArena,
-    expr_range_map: VdSynExprRangeMap,
     phrase_arena: VdSynPhraseArena,
-    phrase_range_map: VdSynPhraseRangeMap,
     clause_arena: VdSynClauseArena,
-    clause_range_map: VdSynClauseRangeMap,
     sentence_arena: VdSynSentenceArena,
-    sentence_range_map: VdSynSentenceRangeMap,
 }
 
 /// # constructor
@@ -35,32 +35,24 @@ impl<'db> VdSynExprBuilder<'db> {
         db: &'db ::salsa::Db,
         token_storage: &'db LxTokenStorage,
         ast_arena: &'db LxAstArena,
+        ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
         annotations: &'db VdAnnotations,
     ) -> Self {
         Self {
             db,
             token_storage,
             ast_arena: ast_arena.as_arena_ref(),
+            ast_token_idx_range_map,
             annotations,
             expr_arena: Default::default(),
             phrase_arena: Default::default(),
             clause_arena: Default::default(),
             sentence_arena: Default::default(),
-            expr_range_map: Default::default(),
-            phrase_range_map: Default::default(),
-            clause_range_map: Default::default(),
-            sentence_range_map: Default::default(),
         }
     }
 
-    pub(crate) fn alloc_expr(
-        &mut self,
-        data: VdSynExprData,
-        range: VdSynExprAstRange,
-    ) -> VdSynExprIdx {
-        let idx = self.expr_arena.alloc_one(data);
-        self.expr_range_map.insert_next(idx, range);
-        idx
+    pub(crate) fn alloc_expr(&mut self, data: VdSynExprData) -> VdSynExprIdx {
+        self.expr_arena.alloc_one(data)
     }
 }
 
@@ -78,6 +70,10 @@ impl<'db> VdSynExprBuilder<'db> {
         &self.ast_arena
     }
 
+    pub(crate) fn ast_token_idx_range_map(&self) -> &LxAstTokenIdxRangeMap {
+        &self.ast_token_idx_range_map
+    }
+
     pub(crate) fn annotations(&self) -> &VdAnnotations {
         self.annotations
     }
@@ -86,32 +82,16 @@ impl<'db> VdSynExprBuilder<'db> {
         &self.expr_arena
     }
 
-    pub(crate) fn expr_range_map(&self) -> &VdSynExprRangeMap {
-        &self.expr_range_map
-    }
-
     pub(crate) fn phrase_arena(&self) -> &VdSynPhraseArena {
         &self.phrase_arena
-    }
-
-    pub(crate) fn phrase_range_map(&self) -> &VdSynPhraseRangeMap {
-        &self.phrase_range_map
     }
 
     pub(crate) fn clause_arena(&self) -> &VdSynClauseArena {
         &self.clause_arena
     }
 
-    pub(crate) fn clause_range_map(&self) -> &VdSynClauseRangeMap {
-        &self.clause_range_map
-    }
-
     pub(crate) fn sentence_arena(&self) -> &VdSynSentenceArena {
         &self.sentence_arena
-    }
-
-    pub(crate) fn sentence_range_map(&self) -> &VdSynSentenceRangeMap {
-        &self.sentence_range_map
     }
 }
 
@@ -129,23 +109,15 @@ impl<'db> VdSynExprBuilder<'db> {
         self,
     ) -> (
         VdSynExprArena,
-        VdSynExprRangeMap,
         VdSynPhraseArena,
-        VdSynPhraseRangeMap,
         VdSynClauseArena,
-        VdSynClauseRangeMap,
         VdSynSentenceArena,
-        VdSynSentenceRangeMap,
     ) {
         (
             self.expr_arena,
-            self.expr_range_map,
             self.phrase_arena,
-            self.phrase_range_map,
             self.clause_arena,
-            self.clause_range_map,
             self.sentence_arena,
-            self.sentence_range_map,
         )
     }
 }
