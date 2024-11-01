@@ -3,13 +3,13 @@ use super::*;
 #[cfg(feature = "lsp_support")]
 impl LineMap {
     #[cfg(feature = "lsp_support")]
-    pub fn string_range(line_map: &LineMap, range: lsp_types::Range) -> OffsetRange {
+    pub fn string_range(line_map: &LineMap, range: lsp_types::Range) -> TextOffsetRange {
         let start = line_map.lsp_offset(range.start);
         let end = line_map.lsp_offset(range.end);
         (start..end).into()
     }
 
-    pub(crate) fn lsp_offset(&self, position: lsp_types::Position) -> Offset {
+    pub(crate) fn lsp_offset(&self, position: lsp_types::Position) -> TextOffset {
         let line_col = TextPosition {
             line: position.line.into(),
             col: position.character.into(),

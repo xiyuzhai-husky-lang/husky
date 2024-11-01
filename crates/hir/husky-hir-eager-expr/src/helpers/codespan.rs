@@ -17,7 +17,7 @@ use husky_sem_expr::{
     SemExprIdx, SemExprRegionData,
 };
 use husky_text::{HasText, Text};
-use husky_text_protocol::offset::OffsetRange;
+use husky_text_protocol::offset::TextOffsetRange;
 use husky_token::{RangedTokenSheet, TokenDb};
 use husky_vfs::path::module_path::ModulePath;
 
@@ -146,7 +146,7 @@ impl<'a> HirEagerExprCodespanEmitter<'a> {
 
 /// # getters
 impl<'a> HirEagerExprCodespanEmitter<'a> {
-    fn expr_offset_range(&self, expr: HirEagerExprIdx) -> OffsetRange {
+    fn expr_offset_range(&self, expr: HirEagerExprIdx) -> TextOffsetRange {
         let expr: SemExprIdx = self
             .hir_eager_expr_source_map_data
             .hir_eager_to_sem_expr_idx(expr);

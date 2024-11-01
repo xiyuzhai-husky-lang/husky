@@ -3,10 +3,10 @@ mod lsp;
 mod text_bytes_len;
 mod wide_char;
 
-use offset::{OffsetRange, OffsetRangeFrom, OffsetRangeTo};
+use offset::{TextOffsetRange, TextOffsetRangeFrom, TextOffsetRangeTo};
 pub use text_bytes_len::*;
 
-use crate::offset::Offset;
+use crate::offset::TextOffset;
 use crate::*;
 use rustc_hash::FxHashMap;
 use std::{
@@ -19,7 +19,7 @@ use wide_char::*;
 pub struct LineMap {
     text_len_in_bytes: usize,
     /// Offset the the beginning of each line, zero-based
-    pub(crate) newlines: Vec<Offset>,
+    pub(crate) newlines: Vec<TextOffset>,
     /// List of non-ASCII characters on each line
     pub(crate) wide_chars_line_map: FxHashMap<TextLine, Vec<WideCharColRange>>,
 }
@@ -38,7 +38,7 @@ impl LineMap {
         let mut wide_chars_line_map = FxHashMap::default();
         let mut wide_chars_buffer: Vec<WideCharColRange> = vec![];
 
-        let mut newlines: Vec<Offset> = vec![0.into()];
+        let mut newlines: Vec<TextOffset> = vec![0.into()];
         let mut curr_row: usize = 0;
         let mut curr_col: u32 = 0;
         let mut line = 0;
@@ -46,7 +46,7 @@ impl LineMap {
             let c_len = c.text_bytes_len();
             curr_row += c_len as usize;
             if c == '\n' {
-                newlines.push(Offset::from(curr_row));
+                newlines.push(TextOffset::from(curr_row));
 
                 // Save any utf-16 characters seen in the previous line
                 if !wide_chars_buffer.is_empty() {
@@ -86,7 +86,7 @@ impl LineMap {
         (0.into())..(self.newlines.len().into())
     }
 
-    pub fn position_from_offset(&self, offset: Offset) -> TextPosition {
+    pub fn position_from_offset(&self, offset: TextOffset) -> TextPosition {
         let row = self.newlines.partition_point(|&it| it <= offset) - 1;
         let line_start_offset = self.newlines[row];
         let col = offset - line_start_offset;
@@ -97,7 +97,7 @@ impl LineMap {
     }
 
     /// the byte index
-    pub fn offset(&self, pos: TextPosition) -> Offset {
+    pub fn offset(&self, pos: TextPosition) -> TextOffset {
         if pos.line.index() == self.newlines.len() {
             if pos.col.index32() == 0 {
                 return self.text_len_in_bytes.into();
@@ -108,16 +108,16 @@ impl LineMap {
         self.newlines[pos.line.index()] + usize::from(pos.col.index())
     }
 
-    pub fn offset_range(&self, range: impl Into<TextRange>) -> OffsetRange {
+    pub fn offset_range(&self, range: impl Into<TextRange>) -> TextOffsetRange {
         let range = range.into();
         (self.offset(range.start)..self.offset(range.end)).into()
     }
 
-    pub fn offset_range_from(&self, range_from: RangeFrom<TextPosition>) -> OffsetRangeFrom {
+    pub fn offset_range_from(&self, range_from: RangeFrom<TextPosition>) -> TextOffsetRangeFrom {
         (self.offset(range_from.start)..).into()
     }
 
-    pub fn offset_range_to(&self, range_to: RangeTo<TextPosition>) -> OffsetRangeTo {
+    pub fn offset_range_to(&self, range_to: RangeTo<TextPosition>) -> TextOffsetRangeTo {
         (..self.offset(range_to.end)).into()
     }
 
@@ -135,7 +135,7 @@ impl LineMap {
     //     (..=self.offset(range_to_inclusive.end)).into()
     // }
 
-    pub fn text_line_offset_range(&self, line: TextLine) -> OffsetRange {
+    pub fn text_line_offset_range(&self, line: TextLine) -> TextOffsetRange {
         let end = if (line.0 as usize) < self.newlines.len() {
             self.offset(TextPosition {
                 line: line + 1,
@@ -151,7 +151,10 @@ impl LineMap {
             .into()
     }
 
-    pub fn text_line_range_offset_range(&self, text_line_range: Range<TextLine>) -> OffsetRange {
+    pub fn text_line_range_offset_range(
+        &self,
+        text_line_range: Range<TextLine>,
+    ) -> TextOffsetRange {
         (self.offset(TextPosition {
             line: text_line_range.start,
             col: 0.into(),
@@ -165,7 +168,7 @@ impl LineMap {
     pub fn offset_range_from_text_line(
         &self,
         range_from_text_line: RangeFrom<TextLine>,
-    ) -> OffsetRangeFrom {
+    ) -> TextOffsetRangeFrom {
         (self.offset(TextPosition {
             line: range_from_text_line.start,
             col: 0.into(),
@@ -176,7 +179,7 @@ impl LineMap {
     pub fn offset_range_to_text_line(
         &self,
         range_from_text_line: RangeTo<TextLine>,
-    ) -> OffsetRangeTo {
+    ) -> TextOffsetRangeTo {
         (..self.offset(TextPosition {
             line: range_from_text_line.end,
             col: 0.into(),
@@ -187,7 +190,7 @@ impl LineMap {
     pub fn offset_range_inclusive_text_line(
         &self,
         range_from_text_line: RangeInclusive<TextLine>,
-    ) -> OffsetRange {
+    ) -> TextOffsetRange {
         (self.offset(TextPosition {
             line: *range_from_text_line.start(),
             col: 0.into(),
@@ -201,7 +204,7 @@ impl LineMap {
     pub fn offset_range_to_inclusive_text_line(
         &self,
         range_from_text_line: RangeToInclusive<TextLine>,
-    ) -> OffsetRangeTo {
+    ) -> TextOffsetRangeTo {
         (..self.offset(TextPosition {
             line: range_from_text_line.end + 1,
             col: 0.into(),
@@ -225,7 +228,7 @@ impl LineMap {
         }
     }
 
-    pub fn lines(&self, range: OffsetRange) -> impl Iterator<Item = OffsetRange> + '_ {
+    pub fn lines(&self, range: TextOffsetRange) -> impl Iterator<Item = TextOffsetRange> + '_ {
         let lo = self.newlines.partition_point(|&it| it < range.start());
         let hi = self.newlines.partition_point(|&it| it <= range.end());
         let all = iter::once(range.start())
@@ -234,7 +237,7 @@ impl LineMap {
 
         all.clone()
             .zip(all.skip(1))
-            .map(|(lo, hi)| -> OffsetRange { (lo..hi).into() })
+            .map(|(lo, hi)| -> TextOffsetRange { (lo..hi).into() })
             .filter(|it| !it.is_empty())
     }
 
