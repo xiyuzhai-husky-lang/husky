@@ -4,7 +4,7 @@ use self::digit::LxMathDigit;
 use super::*;
 use latex_command::path::LxCommandPath;
 use latex_math_letter::LxMathLetter;
-use latex_math_opr::LxMathPunctuation;
+use latex_math_punctuation::LxMathPunctuation;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

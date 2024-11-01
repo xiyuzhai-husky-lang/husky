@@ -8158,7 +8158,7 @@ dependencies = [
  "latex-ast",
  "latex-command",
  "latex-math-letter",
- "latex-math-opr",
+ "latex-math-punctuation",
  "latex-prelude",
  "latex-token",
  "ptree",
@@ -8189,7 +8189,7 @@ name = "latex-math-letter"
 version = "0.1.0"
 
 [[package]]
-name = "latex-math-opr"
+name = "latex-math-punctuation"
 version = "0.1.0"
 
 [[package]]
@@ -8210,7 +8210,7 @@ dependencies = [
  "husky-text-protocol",
  "latex-command",
  "latex-math-letter",
- "latex-math-opr",
+ "latex-math-punctuation",
  "latex-prelude",
  "salsa",
  "shifted-unsigned-int",
@@ -12580,6 +12580,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-resolution"
+version = "0.1.0"
+dependencies = [
+ "latex-math-punctuation",
+ "salsa",
+ "visored-opr",
+]
+
+[[package]]
 name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
@@ -12619,6 +12628,7 @@ dependencies = [
  "thiserror",
  "visored-annotation",
  "visored-opr",
+ "visored-resolution",
  "visored-syn-expr",
  "visored-zfc-ty",
 ]
