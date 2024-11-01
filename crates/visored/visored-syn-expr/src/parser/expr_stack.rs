@@ -9,7 +9,9 @@ use either::*;
 use smallvec::smallvec;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
-    delimiter::VdBaseLeftDelimiter, precedence::VdPrecedence, separator::VdBaseSeparator,
+    delimiter::VdBaseLeftDelimiter,
+    precedence::VdPrecedence,
+    separator::{VdBaseSeparator, VdSeparator},
 };
 
 #[derive(Default)]
@@ -21,7 +23,12 @@ pub(crate) struct VdSynExprStack {
 impl VdSynExprStack {
     pub fn finish(self) -> VdSynExprData {
         assert!(self.complete_expr.is_some());
-        assert!(self.incomplete_exprs.is_empty());
+        assert!(
+            self.incomplete_exprs.is_empty(),
+            "incomplete exprs should be empty but {:?}, complete expr: {:?}",
+            self.incomplete_exprs,
+            self.complete_expr
+        );
         self.complete_expr.unwrap()
     }
 }
@@ -114,7 +121,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 _ => {
                     let expr = self.builder.alloc_expr(expr);
                     self.push_unfinished_expr(IncompleteVdSynExprData::SeparatedList {
-                        separator: VdBaseSeparator::Space,
+                        separator: VdBaseSeparator::Space.into(),
                         fragments: smallvec![Left(expr)],
                     })
                 }
@@ -191,21 +198,36 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 }
                 IncompleteVdSynExprData::SeparatedList {
                     separator,
-                    fragments,
-                    ..
+                    mut fragments,
                 } => {
                     let expr = self.take_complete_expr();
                     match expr {
                         Some(expr) => match expr.class() {
                             VdSynExprClass::Atom => {
-                                match fragments.last() {
-                                    Some(fragment) => match fragment {
-                                        Left(expr) => todo!(),
-                                        Right(separator) => todo!(),
+                                match fragments.last().expect("fragments are always non-empty") {
+                                    Left(_) => match separator {
+                                        VdSeparator::Base(base_separator) => match base_separator {
+                                            VdBaseSeparator::Space => {
+                                                let expr = self.builder.alloc_expr(expr);
+                                                fragments.push(Left(expr));
+                                                self.stack.incomplete_exprs.push((
+                                                    IncompleteVdSynExprData::SeparatedList {
+                                                        separator,
+                                                        fragments,
+                                                    },
+                                                    VdPrecedence::SPACE,
+                                                ))
+                                            }
+                                            VdBaseSeparator::Comma => todo!(),
+                                            VdBaseSeparator::Semicolon => todo!(),
+                                            VdBaseSeparator::Add => todo!(),
+                                            VdBaseSeparator::Mul => todo!(),
+                                            VdBaseSeparator::Dot => todo!(),
+                                        },
+                                        VdSeparator::Composite(composite_separator) => todo!(),
                                     },
-                                    None => unreachable!(),
-                                };
-                                todo!()
+                                    Right(separator) => todo!(),
+                                }
                             }
                             VdSynExprClass::Prefix => todo!(),
                             VdSynExprClass::Suffix => todo!(),
@@ -215,12 +237,13 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                                 todo!()
                             }
                         },
-                        None => todo!(),
+                        None => {
+                            self.stack.complete_expr = Some(VdSynExprData::SeparatedList {
+                                separator,
+                                fragments,
+                            })
+                        }
                     }
-                    todo!()
-                    // self.stack.complete_expr = Some(VdSynExprData::Err(
-                    //     OriginalVdSynExprError::UnterminatedList { bra_token_idx }.into(),
-                    // ))
                 }
                 IncompleteVdSynExprData::Delimited { bra } => todo!(),
             }
