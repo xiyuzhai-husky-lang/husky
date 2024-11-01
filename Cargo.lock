@@ -12550,11 +12550,13 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "latex-ast",
+ "latex-command",
  "lean-hir-expr",
  "lean-opr",
  "lean-sem-expr",
  "lean-term",
  "salsa",
+ "visored-annotation",
  "visored-hir-expr",
  "visored-opr",
  "visored-sem-expr",
