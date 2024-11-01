@@ -1,3 +1,4 @@
+use latex_command::path::LxCommandPath;
 use latex_token::{
     data::math::{digit::LxMathDigit, LxMathDelimiter},
     idx::LxMathTokenIdx,
@@ -25,6 +26,11 @@ pub enum LxMathAstData {
         asts: LxMathAstIdxRange,
         right_delimiter_token_idx: LxMathTokenIdx,
         right_delimiter: LxMathDelimiter,
+    },
+    Command {
+        command_token_idx: LxMathTokenIdx,
+        command_path: LxCommandPath,
+        // TODO: command arguments
     },
 }
 
@@ -57,7 +63,10 @@ impl<'a> LxAstParser<'a> {
         };
         let (idx, token) = self.next_math_token()?;
         Some(match token {
-            LxMathTokenData::Command(_) => todo!(),
+            LxMathTokenData::Command(command_path) => LxMathAstData::Command {
+                command_token_idx: idx,
+                command_path,
+            },
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
             LxMathTokenData::RightDelimiter(_) => unreachable!(),
             LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),

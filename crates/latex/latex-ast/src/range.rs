@@ -93,6 +93,10 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 right_delimiter_token_idx,
                 right_delimiter,
             } => LxTokenIdxRange::new_closed(*left_delimiter_token_idx, *right_delimiter_token_idx),
+            LxMathAstData::Command {
+                command_token_idx,
+                command_path,
+            } => LxTokenIdxRange::new_single(*command_token_idx), // TODO: consider command arguments
         }
     }
 

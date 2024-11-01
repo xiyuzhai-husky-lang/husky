@@ -23,6 +23,7 @@ visored-zfs-ty.workspace = true
 [dev-dependencies]
 # latex
 latex-ast.workspace = true
+latex-command.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored

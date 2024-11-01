@@ -1,19 +1,23 @@
+use super::*;
 use crate::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::{
         VdAnnotationEntry, VdAnnotations, VdSpaceAnnotationEntry, VdTokenAnnotationEntry,
     },
 };
+use latex_ast::ast::LxAstArena;
+use latex_token::storage::LxTokenStorage;
 
 pub(crate) fn collect_from_sparse_annotations<'a>(
     raw_text: &'a str,
     token_annotation_iter: impl Iterator<Item = ((&'a str, &'a str), VdTokenAnnotation)>,
     space_annotation_iter: impl Iterator<Item = ((&'a str, &'a str), VdSpaceAnnotation)>,
+    token_storage: &LxTokenStorage,
 ) -> VdAnnotations {
     let token_annotations = collect_from_sparse_token_annotations(raw_text, token_annotation_iter);
     let space_annotations = collect_from_sparse_space_annotations(raw_text, space_annotation_iter);
 
-    VdAnnotations::new(token_annotations, space_annotations)
+    VdAnnotations::new(token_annotations, space_annotations, token_storage)
 }
 
 fn collect_from_sparse_token_annotations<'a>(
@@ -51,16 +55,18 @@ fn collect_from_sparse_annotations_aux<'a, A>(
 
 #[cfg(test)]
 mod tests {
+    use super::*;
     use crate::annotation::{
         space::LxApplyAnnotation,
         token::{LxIntegralAnnotation, LxVariableAnnotation},
     };
     use expect_test::expect;
-
-    use super::*;
+    use latex_ast::ast::parse_latex_input_into_asts;
+    use latex_prelude::mode::LxMode;
 
     #[test]
     fn test_collect_from_sparse_annotations_integral() {
+        let db = &DB::default();
         let input = "\\int xdx";
 
         let token_annotations = vec![
@@ -88,10 +94,21 @@ mod tests {
             VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
         )];
 
+        let mut token_storage = LxTokenStorage::default();
+        let mut ast_arena = LxAstArena::default();
+        let asts = parse_latex_input_into_asts(
+            db,
+            input,
+            LxMode::Math,
+            &mut token_storage,
+            &mut ast_arena,
+        );
+
         let result = collect_from_sparse_annotations(
             input,
             token_annotations.iter().copied(),
             space_annotations.iter().copied(),
+            &token_storage,
         );
 
         expect![[r#"

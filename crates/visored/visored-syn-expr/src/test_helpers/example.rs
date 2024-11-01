@@ -57,6 +57,7 @@ impl VdSynExprExample {
             input,
             token_annotations.iter().copied(),
             space_annotations.iter().copied(),
+            &token_storage,
         );
         let mut builder = VdSynExprBuilder::new(db, &token_storage, &ast_arena, &annotations);
         let result = asts.to_vd_syn(&mut builder);
