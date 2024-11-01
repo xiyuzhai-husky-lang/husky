@@ -1,9 +1,9 @@
 use crate::precedence::VdPrecedenceRange;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub enum VdPrefixOpr {}
+pub enum VdBasePrefixOpr {}
 
-impl VdPrefixOpr {
+impl VdBasePrefixOpr {
     pub fn fmt_str(self) -> &'static str {
         todo!()
     }
@@ -11,4 +11,10 @@ impl VdPrefixOpr {
     pub fn precedence_range(self) -> VdPrecedenceRange {
         todo!()
     }
+}
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+pub enum VdCompositePrefixOpr {
+    /// `d/dx`
+    Differential,
 }

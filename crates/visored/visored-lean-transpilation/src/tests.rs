@@ -1,5 +1,5 @@
 use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::{
     expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch, VdSemExprData},
     test_helpers::builder::VdSemExprTestBuilder,
@@ -39,7 +39,7 @@ fn one_add_one_to_lean_works() {
     let one_add_one = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one,
-            opr: VdBinaryOpr::Add,
+            opr: VdBaseBinaryOpr::Add,
             ropd: one,
             dispatch: VdSemBinaryDispatch::IntAdd,
         },
@@ -78,7 +78,7 @@ fn one_add_one_eqs_two_to_lean_works() {
     let one_add_one = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one,
-            opr: VdBinaryOpr::Add,
+            opr: VdBaseBinaryOpr::Add,
             ropd: one,
             dispatch: VdSemBinaryDispatch::IntAdd,
         },
@@ -87,7 +87,7 @@ fn one_add_one_eqs_two_to_lean_works() {
     let one_add_one_eqs_two = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one_add_one,
-            opr: VdBinaryOpr::Eq,
+            opr: VdBaseBinaryOpr::Eq,
             ropd: two,
             dispatch: VdSemBinaryDispatch::TrivialEq,
         },

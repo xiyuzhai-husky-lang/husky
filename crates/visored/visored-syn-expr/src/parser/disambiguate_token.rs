@@ -2,7 +2,7 @@ use latex_ast::ast::math::LxMathAstIdx;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
     delimiter::{VdLeftDelimiter, VdRightDelimiter},
-    opr::VdOpr,
+    opr::VdBaseOpr,
     separator::VdSeparator,
 };
 
@@ -18,7 +18,7 @@ pub struct DisambiguatedMathAst {
 
 pub enum DisambiguatedToken {
     Expr(VdSynExprData, VdSynExprClass),
-    Opr(VdOpr),
+    Opr(VdBaseOpr),
     Separator(VdSeparator),
     LeftDelimiter(VdLeftDelimiter),
     RightDelimiter(VdRightDelimiter),

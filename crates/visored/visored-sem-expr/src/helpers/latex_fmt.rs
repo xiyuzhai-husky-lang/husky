@@ -1,5 +1,5 @@
 use expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch};
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfs_ty::{menu::vd_zfs_ty_menu, term::literal::VdZfsLiteralData};
 
 use super::*;
@@ -159,7 +159,7 @@ fn latex_fmt_works() {
     let one_add_one = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one,
-            opr: VdBinaryOpr::Add,
+            opr: VdBaseBinaryOpr::Add,
             ropd: one,
             dispatch: VdSemBinaryDispatch::IntAdd,
         },

@@ -1,4 +1,4 @@
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::{
     expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch, VdSemExprData},
     test_helpers::builder::VdSemExprTestBuilder,
@@ -34,7 +34,7 @@ fn to_hir_works() {
     let one_add_one = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one,
-            opr: VdBinaryOpr::Add,
+            opr: VdBaseBinaryOpr::Add,
             ropd: one,
             dispatch: VdSemBinaryDispatch::IntAdd,
         },
