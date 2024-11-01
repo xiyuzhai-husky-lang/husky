@@ -1,5 +1,4 @@
 mod builder;
-pub mod walker;
 
 use crate::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
@@ -7,36 +6,38 @@ use crate::{
 };
 use builder::sparce::collect_from_sparse_annotations;
 use latex_token::storage::LxTokenStorage;
-use walker::VdAnnotationsWalker;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct VdAnnotationEntry<A> {
+pub struct VdAnnotationRecord<A> {
     pub start: usize,
     pub end: usize,
     pub annotation: A,
 }
 
-pub type VdTokenAnnotationEntry = VdAnnotationEntry<VdTokenAnnotation>;
-pub type VdSpaceAnnotationEntry = VdAnnotationEntry<VdSpaceAnnotation>;
+pub type VdTokenAnnotationRecord = VdAnnotationRecord<VdTokenAnnotation>;
+pub type VdSpaceAnnotationRecord = VdAnnotationRecord<VdSpaceAnnotation>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VdAnnotations {
-    token_annotation_entries: Vec<VdTokenAnnotationEntry>,
-    space_annotation_entries: Vec<VdSpaceAnnotationEntry>,
-    token_annotations: Vec<VdTokenAnnotation>,
+    token_annotation_records: Vec<VdTokenAnnotationRecord>,
+    space_annotation_records: Vec<VdSpaceAnnotationRecord>,
+    token_annotations: Vec<Option<VdTokenAnnotation>>,
+    space_annotations: Vec<Option<VdSpaceAnnotation>>,
 }
 
 impl VdAnnotations {
     pub fn new(
-        token_annotation_entries: Vec<VdTokenAnnotationEntry>,
-        space_annotation_entries: Vec<VdSpaceAnnotationEntry>,
+        token_annotation_records: Vec<VdTokenAnnotationRecord>,
+        space_annotation_records: Vec<VdSpaceAnnotationRecord>,
         token_storage: &LxTokenStorage,
     ) -> Self {
-        let token_annotations = collect_token_annotations(&token_annotation_entries, token_storage);
+        let token_annotations = collect_token_annotations(&token_annotation_records, token_storage);
+        let space_annotations = collect_space_annotations(&space_annotation_records, token_storage);
         Self {
-            token_annotation_entries,
-            space_annotation_entries,
+            token_annotation_records,
+            space_annotation_records,
             token_annotations,
+            space_annotations,
         }
     }
 
@@ -54,25 +55,56 @@ impl VdAnnotations {
         )
     }
 
-    pub fn token_annotation_entries(&self) -> &[VdTokenAnnotationEntry] {
-        &self.token_annotation_entries
+    pub fn token_annotation_records(&self) -> &[VdTokenAnnotationRecord] {
+        &self.token_annotation_records
     }
 
-    pub fn space_annotation_entries(&self) -> &[VdSpaceAnnotationEntry] {
-        &self.space_annotation_entries
-    }
-
-    pub fn walker(&self) -> VdAnnotationsWalker {
-        VdAnnotationsWalker::new(
-            &self.token_annotation_entries,
-            &self.space_annotation_entries,
-        )
+    pub fn space_annotation_records(&self) -> &[VdSpaceAnnotationRecord] {
+        &self.space_annotation_records
     }
 }
 
 fn collect_token_annotations(
-    token_annotation_entries: &[VdTokenAnnotationEntry],
+    token_annotation_entries: &[VdTokenAnnotationRecord],
     token_storage: &LxTokenStorage,
-) -> Vec<VdTokenAnnotation> {
-    todo!()
+) -> Vec<Option<VdTokenAnnotation>> {
+    let mut entry_idx = 0;
+    token_storage
+        .ranged_tokens()
+        .iter()
+        .map(|&((start, end), _, _)| {
+            if entry_idx < token_annotation_entries.len()
+                && token_annotation_entries[entry_idx].start == start
+            {
+                assert_eq!(token_annotation_entries[entry_idx].end, end);
+                entry_idx += 1;
+                Some(token_annotation_entries[entry_idx - 1].annotation)
+            } else {
+                None
+            }
+        })
+        .collect()
+}
+
+fn collect_space_annotations(
+    space_annotation_entries: &[VdSpaceAnnotationRecord],
+    token_storage: &LxTokenStorage,
+) -> Vec<Option<VdSpaceAnnotation>> {
+    let mut entry_idx = 0;
+    token_storage
+        .ranged_tokens()
+        .iter()
+        .map(|&((start, end), _, _)| {
+            let annotation = if entry_idx < space_annotation_entries.len()
+                && space_annotation_entries[entry_idx].start == start
+            {
+                assert_eq!(space_annotation_entries[entry_idx].end, end);
+                entry_idx += 1;
+                Some(space_annotation_entries[entry_idx - 1].annotation)
+            } else {
+                None
+            };
+            annotation
+        })
+        .collect()
 }

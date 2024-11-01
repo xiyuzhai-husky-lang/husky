@@ -2,7 +2,7 @@ use super::*;
 use crate::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::{
-        VdAnnotationEntry, VdAnnotations, VdSpaceAnnotationEntry, VdTokenAnnotationEntry,
+        VdAnnotationRecord, VdAnnotations, VdSpaceAnnotationRecord, VdTokenAnnotationRecord,
     },
 };
 use latex_ast::ast::LxAstArena;
@@ -23,28 +23,28 @@ pub(crate) fn collect_from_sparse_annotations<'a>(
 fn collect_from_sparse_token_annotations<'a>(
     raw_text: &'a str,
     token_annotation_iter: impl Iterator<Item = ((&'a str, &'a str), VdTokenAnnotation)>,
-) -> Vec<VdTokenAnnotationEntry> {
+) -> Vec<VdTokenAnnotationRecord> {
     collect_from_sparse_annotations_aux(raw_text, token_annotation_iter)
 }
 
 fn collect_from_sparse_space_annotations<'a>(
     raw_text: &'a str,
     space_annotation_iter: impl Iterator<Item = ((&'a str, &'a str), VdSpaceAnnotation)>,
-) -> Vec<VdSpaceAnnotationEntry> {
+) -> Vec<VdSpaceAnnotationRecord> {
     collect_from_sparse_annotations_aux(raw_text, space_annotation_iter)
 }
 
 fn collect_from_sparse_annotations_aux<'a, A>(
     raw_text: &'a str,
     annotation_iter: impl Iterator<Item = ((&'a str, &'a str), A)>,
-) -> Vec<VdAnnotationEntry<A>> {
+) -> Vec<VdAnnotationRecord<A>> {
     let mut annotations = Vec::new();
     for ((prev_s, token_s), annotation) in annotation_iter {
         let start = prev_s.len();
         let end = prev_s.len() + token_s.len();
         assert_eq!(&raw_text[..start], prev_s);
         assert_eq!(&raw_text[start..end], token_s);
-        annotations.push(VdAnnotationEntry {
+        annotations.push(VdAnnotationRecord {
             start,
             end,
             annotation,
@@ -113,27 +113,27 @@ mod tests {
 
         expect![[r#"
             VdAnnotations {
-                token_annotations: [
-                    VdAnnotationEntry {
+                token_annotation_records: [
+                    VdAnnotationRecord {
                         start: 0,
                         end: 4,
                         annotation: Integral(
                             SingleVariableIndefiniteIntegralOverReal,
                         ),
                     },
-                    VdAnnotationEntry {
+                    VdAnnotationRecord {
                         start: 5,
                         end: 6,
                         annotation: Variable(
                             Usage,
                         ),
                     },
-                    VdAnnotationEntry {
+                    VdAnnotationRecord {
                         start: 6,
                         end: 7,
                         annotation: Differential,
                     },
-                    VdAnnotationEntry {
+                    VdAnnotationRecord {
                         start: 7,
                         end: 8,
                         annotation: Variable(
@@ -141,14 +141,44 @@ mod tests {
                         ),
                     },
                 ],
-                space_annotations: [
-                    VdAnnotationEntry {
+                space_annotation_records: [
+                    VdAnnotationRecord {
                         start: 6,
                         end: 7,
                         annotation: Apply(
                             ScalarDifferentialFormMul,
                         ),
                     },
+                ],
+                token_annotations: [
+                    Some(
+                        Integral(
+                            SingleVariableIndefiniteIntegralOverReal,
+                        ),
+                    ),
+                    Some(
+                        Variable(
+                            Usage,
+                        ),
+                    ),
+                    Some(
+                        Differential,
+                    ),
+                    Some(
+                        Variable(
+                            SingleVariableIntegralVariableDecl,
+                        ),
+                    ),
+                ],
+                space_annotations: [
+                    None,
+                    None,
+                    Some(
+                        Apply(
+                            ScalarDifferentialFormMul,
+                        ),
+                    ),
+                    None,
                 ],
             }
         "#]]

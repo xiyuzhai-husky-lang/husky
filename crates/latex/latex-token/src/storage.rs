@@ -14,8 +14,6 @@ pub struct LxTokenStorage {
     ranged_tokens: Vec<((usize, usize), TextRange, LxTokenData)>,
 }
 
-/// # getters
-
 impl std::ops::Index<LxMathTokenIdx> for LxTokenStorage {
     type Output = LxMathTokenData;
 
@@ -27,7 +25,13 @@ impl std::ops::Index<LxMathTokenIdx> for LxTokenStorage {
     }
 }
 
+/// # getters
+
 impl LxTokenStorage {
+    pub fn ranged_tokens(&self) -> &[((usize, usize), TextRange, LxTokenData)] {
+        &self.ranged_tokens
+    }
+
     pub fn whole_token_idx_range(&self) -> LxTokenIdxRange {
         LxTokenIdxRange::new(0..self.ranged_tokens.len())
     }
