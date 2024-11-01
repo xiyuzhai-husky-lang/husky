@@ -94,7 +94,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 .token_storage
                 .token_idx_range_offset_range(token_idx_range),
         };
-        let value = self.input[start..end].to_string();
+        let value = format!("{:?}", &self.input[start..end]);
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }
 
