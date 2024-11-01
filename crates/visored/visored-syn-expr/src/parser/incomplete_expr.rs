@@ -6,12 +6,13 @@ pub(super) use self::separated_list::*;
 
 use super::*;
 use crate::expr::VdSynExprData;
-use expr::list_item::VdSynSeparatedListItem;
+use expr::{list_item::VdSynSeparatedListItem, VdSynLeftDelimiter, VdSynSeparator};
 use latex_token::idx::LxTokenIdx;
 use visored_opr::{
-    delimiter::VdLeftDelimiter,
+    delimiter::VdBaseLeftDelimiter,
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     precedence::VdPrecedence,
+    separator::VdBaseSeparator,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -28,15 +29,11 @@ pub(super) enum IncompleteVdSynExprData {
     /// A(a, b, c)
     /// ```
     SeparatedList {
-        opr: IncompleteSeparatedListOpr,
-        bra: VdLeftDelimiter,
-        bra_token_idx: LxTokenIdx,
-        items: SmallVec<[VdSynSeparatedListItem; 4]>,
+        separator: VdBaseSeparator,
+        fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
     },
-    /// call list includes more separators like `;`
-    CallList {
-        opr: IncompleteCallListOpr,
-        items: SmallVec<[VdSynSeparatedListItem; 4]>,
+    Delimited {
+        bra: VdSynLeftDelimiter,
     },
 }
 
@@ -45,8 +42,8 @@ impl IncompleteVdSynExprData {
         match self {
             IncompleteVdSynExprData::Binary { opr, .. } => todo!(),
             IncompleteVdSynExprData::Prefix { opr, .. } => todo!(),
-            IncompleteVdSynExprData::SeparatedList { .. }
-            | IncompleteVdSynExprData::CallList { .. } => todo!(),
+            IncompleteVdSynExprData::SeparatedList { separator, .. } => separator.precedence(),
+            IncompleteVdSynExprData::Delimited { bra } => todo!(),
         }
     }
 }

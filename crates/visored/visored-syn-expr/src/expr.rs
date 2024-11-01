@@ -19,10 +19,15 @@ use idx_arena::{
 };
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
-use latex_token::idx::LxTokenIdxRange;
+use latex_token::idx::{LxMathTokenIdx, LxTokenIdxRange};
 use range::VdSynExprAstRange;
-use visored_opr::opr::{
-    binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr,
+use visored_opr::{
+    delimiter::{
+        VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
+        VdCompositeRightDelimiter,
+    },
+    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
+    separator::{VdBaseSeparator, VdCompositeSeparator},
 };
 use visored_zfc_ty::term::literal::VdZfcLiteral;
 
@@ -60,6 +65,24 @@ pub enum VdSynExprData {
     UniadicArray,
     VariadicArray,
     Err(VdSynExprError),
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdSynSeparator {
+    Base(LxMathTokenIdx, VdBaseSeparator),
+    Composite(VdSynExprIdx, VdCompositeSeparator),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynLeftDelimiter {
+    Base(VdBaseLeftDelimiter),
+    Composite(VdSynExprIdx, VdCompositeLeftDelimiter),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynRightDelimiter {
+    Base(VdBaseRightDelimiter),
+    Composite(VdSynExprIdx, VdCompositeRightDelimiter),
 }
 
 pub type VdSynExprIdx = ArenaIdx<VdSynExprData>;
@@ -105,9 +128,21 @@ impl VdSynExprData {
 
     pub fn class(&self) -> VdSynExprClass {
         match *self {
-            // ad hoc
-            _ => VdSynExprClass::Separator,
-            _ => unreachable!(),
+            VdSynExprData::Literal {
+                token_idx_range,
+                literal,
+            } => VdSynExprClass::Atom,
+            VdSynExprData::Notation => todo!(),
+            VdSynExprData::BaseOpr { opr } => todo!(),
+            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
+            VdSynExprData::Prefix { opr, opd } => todo!(),
+            VdSynExprData::Suffix { opd, opr } => todo!(),
+            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::UniadicChain => todo!(),
+            VdSynExprData::VariadicChain => todo!(),
+            VdSynExprData::UniadicArray => todo!(),
+            VdSynExprData::VariadicArray => todo!(),
+            VdSynExprData::Err(ref error) => todo!(),
         }
     }
 }
@@ -122,10 +157,7 @@ pub enum VdSynExprClass {
 impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
         if self.is_empty() {
-            builder.alloc_expr(
-                VdSynExprData::Err(OriginalVdSynExprError::Empty.into()),
-                VdSynExprAstRange::Asts(self.into()),
-            )
+            builder.alloc_expr(VdSynExprData::Err(OriginalVdSynExprError::Empty.into()))
         } else {
             let parser = builder.parser();
             parser.parse_asts(self)
@@ -191,6 +223,14 @@ mod tests {
             &[],
             &expect![[r#"
                 "11\n"
+            "#]],
+        );
+        t(
+            "1 1",
+            &[],
+            &[],
+            &expect![[r#"
+                "1 1\n"
             "#]],
         );
     }

@@ -25,6 +25,25 @@ impl std::ops::Index<LxMathTokenIdx> for LxTokenStorage {
     }
 }
 
+impl std::ops::Index<LxRoseTokenIdx> for LxTokenStorage {
+    type Output = LxRoseTokenData;
+
+    fn index(&self, idx: LxRoseTokenIdx) -> &Self::Output {
+        match &self.ranged_tokens[idx.0.index()].2 {
+            LxTokenData::Rose(data) => data,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::Index<LxTokenIdx> for LxTokenStorage {
+    type Output = ((usize, usize), TextRange, LxTokenData);
+
+    fn index(&self, idx: LxTokenIdx) -> &Self::Output {
+        &self.ranged_tokens[idx.index()]
+    }
+}
+
 /// # getters
 
 impl LxTokenStorage {
