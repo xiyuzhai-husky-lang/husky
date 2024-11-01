@@ -6990,10 +6990,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-text-span"
-version = "0.1.0"
-
-[[package]]
 name = "husky-tn-prototype"
 version = "0.1.0"
 
@@ -7144,7 +7140,6 @@ dependencies = [
  "husky-coword",
  "husky-print-utils",
  "husky-text-protocol",
- "husky-text-span",
  "husky-vfs",
  "salsa",
  "thiserror",
@@ -12510,6 +12505,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-print-utils",
+ "husky-text-protocol",
  "latex-ast",
  "latex-command",
  "latex-prelude",
@@ -12610,6 +12606,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-print-utils",
+ "husky-text-protocol",
  "husky-tree-utils",
  "idx-arena",
  "latex-ast",

@@ -1,4 +1,4 @@
-use std::ops::{Range, RangeFrom, RangeInclusive, RangeTo, RangeToInclusive};
+use std::ops::{Range, RangeFrom, RangeTo};
 
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
@@ -10,6 +10,12 @@ use shifted_unsigned_int::ShiftedU32;
 )]
 #[serde(transparent)]
 pub struct TextOffset(ShiftedU32);
+
+impl std::fmt::Display for TextOffset {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.index())
+    }
+}
 
 impl TextOffset {
     pub fn index(self) -> usize {
@@ -67,6 +73,15 @@ pub struct TextOffsetRange {
     end: TextOffset,
 }
 
+impl From<Range<usize>> for TextOffsetRange {
+    fn from(range: Range<usize>) -> Self {
+        Self {
+            start: TextOffset::from(range.start),
+            end: TextOffset::from(range.end),
+        }
+    }
+}
+
 impl From<Range<TextOffset>> for TextOffsetRange {
     fn from(range: Range<TextOffset>) -> Self {
         Self {
@@ -78,7 +93,7 @@ impl From<Range<TextOffset>> for TextOffsetRange {
 
 impl Into<Range<usize>> for TextOffsetRange {
     fn into(self) -> Range<usize> {
-        self.raw()
+        self.raw_range()
     }
 }
 
@@ -87,8 +102,19 @@ impl TextOffsetRange {
         Self { start, end }
     }
 
-    pub(crate) fn raw(self) -> Range<usize> {
+    pub fn raw_range(self) -> Range<usize> {
         self.start.index()..self.end.index()
+    }
+
+    pub fn raw_tuple(self) -> (usize, usize) {
+        (self.start.index(), self.end.index())
+    }
+
+    pub fn join(self, other: Self) -> Self {
+        Self {
+            start: self.start.min(other.start),
+            end: self.end.max(other.end),
+        }
     }
 }
 

@@ -8,7 +8,7 @@ use crate::{
     stream::{math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
 use husky_coword::Coword;
-use husky_text_protocol::{char::TextCharIter, range::TextRange};
+use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextRange};
 use latex_prelude::mode::LxMode;
 
 pub struct LxLexer<'a> {
@@ -31,15 +31,15 @@ impl<'a> LxLexer<'a> {
 /// # actions
 impl<'a> LxLexer<'a> {
     pub fn next_math_token(&mut self) -> Option<(LxMathTokenIdx, LxMathTokenData)> {
-        let ((start_offset, end_offset), range, token_data) = self.next_math_token_aux()?;
+        let (offset_range, range, token_data) = self.next_math_token_aux()?;
         Some((
             self.storage
-                .alloc_math_token(start_offset, end_offset, range, token_data),
+                .alloc_math_token(offset_range, range, token_data),
             token_data,
         ))
     }
 
-    fn next_math_token_aux(&mut self) -> Option<((usize, usize), TextRange, LxMathTokenData)> {
+    fn next_math_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxMathTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
@@ -60,7 +60,7 @@ impl<'a> LxLexer<'a> {
             start: start_position,
             end: self.chars.current_position(),
         };
-        Some(((start_offset, end_offset), range, token_data))
+        Some(((start_offset..end_offset).into(), range, token_data))
     }
 
     pub fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
@@ -71,15 +71,15 @@ impl<'a> LxLexer<'a> {
     }
 
     pub fn next_rose_token(&mut self) -> Option<(LxRoseTokenIdx, LxRoseTokenData)> {
-        let ((start_offset, end_offset), range, token_data) = self.next_rose_token_aux()?;
+        let (offset_range, range, token_data) = self.next_rose_token_aux()?;
         Some((
             self.storage
-                .alloc_rose_token(start_offset, end_offset, range, token_data),
+                .alloc_rose_token(offset_range, range, token_data),
             token_data,
         ))
     }
 
-    fn next_rose_token_aux(&mut self) -> Option<((usize, usize), TextRange, LxRoseTokenData)> {
+    fn next_rose_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxRoseTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
@@ -102,7 +102,7 @@ impl<'a> LxLexer<'a> {
             start: start_position,
             end: self.chars.current_position(),
         };
-        Some(((start_offset, end_offset), range, token_data))
+        Some(((start_offset..end_offset).into(), range, token_data))
     }
 
     pub fn peek_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
