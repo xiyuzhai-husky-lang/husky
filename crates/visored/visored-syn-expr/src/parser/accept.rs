@@ -1,11 +1,16 @@
 use super::*;
 use disambiguate_token::DisambiguatedToken;
 use either::*;
-use expr::{VdSynExprClass, VdSynExprData};
-use incomplete_expr::{IncompleteSeparatedListOpr, IncompleteVdSynExprData};
+use expr::{list_item::VdSynSeparatedListItem, VdSynExprClass, VdSynExprData};
+use incomplete_expr::{IncompleteCallListOpr, IncompleteSeparatedListOpr, IncompleteVdSynExprData};
 use latex_token::idx::LxTokenIdx;
 use smallvec::smallvec;
-use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
+use visored_opr::{
+    delimiter::VdRightDelimiter,
+    opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr},
+    precedence::VdPrecedence,
+    separator::VdSeparator,
+};
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
     pub(crate) fn accept_token(&mut self, token: DisambiguatedToken) {
@@ -21,150 +26,65 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         }
     }
 
-    fn accept_list_end(&mut self, ket: Delimiter, ket_regional_token_idx: RegionalTokenIdx) {
-        self.reduce(Precedence::ListItem);
+    fn accept_list_end(&mut self, ket: VdRightDelimiter, ket_token_idx: LxTokenIdx) {
+        self.reduce(VdPrecedence::LIST_ITEM);
         let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
         match last_incomplete_expr {
-            IncompleteSynExprData::CommaList {
+            IncompleteVdSynExprData::SeparatedList {
                 opr,
                 bra,
-                bra_regional_token_idx,
                 mut items,
             } => {
                 if bra != ket {
                     todo!()
                 }
-                self.take_complete_and_push_to_top(|this, finished_expr| {
+                self.take_complete_and_push_to_top(|slf, finished_expr| {
                     if let Some(expr) = finished_expr {
-                        items.push(SynCommaListItem::new(
-                            this.context_mut().alloc_expr(expr),
+                        items.push(VdSynSeparatedListItem::new(
+                            slf.builder.alloc_expr(expr, todo!()),
                             None,
                         ))
                     }
                     match opr {
-                        IncompleteCommaListOpr::UnitOrDelimiteredOrNewTuple => match items.last() {
-                            None => SynExprData::Unit {
-                                lpar_regional_token_idx: bra_regional_token_idx,
-                                rpar_regional_token_idx: ket_regional_token_idx,
-                            },
-                            Some(last_item) => {
-                                if items.len() == 1
-                                    && last_item.comma_regional_token_idx().is_none()
-                                {
-                                    SynExprData::Delimitered {
-                                        lpar_regional_token_idx: bra_regional_token_idx,
-                                        item: last_item.syn_expr_idx(),
-                                        rpar_regional_token_idx: ket_regional_token_idx,
-                                    }
-                                } else {
-                                    SynExprData::NewTuple {
-                                        lpar_regional_token_idx: bra_regional_token_idx,
-                                        items,
-                                        rpar_regional_token_idx: ket_regional_token_idx,
+                        IncompleteSeparatedListOpr::UnitOrDelimiteredOrNewTuple => {
+                            match items.last() {
+                                None => VdSynExprData::Unit {
+                                    lpar_token_idx: bra_token_idx,
+                                    rpar_token_idx: ket_token_idx,
+                                },
+                                Some(last_item) => {
+                                    if items.len() == 1
+                                        && last_item.comma_regional_token_idx().is_none()
+                                    {
+                                        VdSynExprData::Delimitered {
+                                            lpar_token_idx: bra_token_idx,
+                                            item: last_item.syn_expr_idx(),
+                                            rpar_token_idx: ket_token_idx,
+                                        }
+                                    } else {
+                                        VdSynExprData::NewTuple {
+                                            lpar_token_idx: bra_token_idx,
+                                            items,
+                                            rpar_regional_token_idx: ket_regional_token_idx,
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .into(),
-                        IncompleteCommaListOpr::Index { owner } => {
-                            SynExprData::IndexOrCompositionWithList {
-                                owner,
-                                lbox_regional_token_idx: bra_regional_token_idx,
-                                items,
-                                rbox_regional_token_idx: ket_regional_token_idx,
-                            }
                             .into()
                         }
-                        IncompleteCommaListOpr::BoxList => SynExprData::List {
-                            lbox_regional_token_idx: bra_regional_token_idx,
-                            items,
-                            rbox_regional_token_idx: ket_regional_token_idx,
-                        }
-                        .into(),
-                        IncompleteCommaListOpr::BoxColonList {
-                            colon_regional_token_idx,
-                        } => SynExprData::BoxColonList {
-                            lbox_regional_token_idx: bra_regional_token_idx,
-                            colon_regional_token_idx,
-                            items,
-                            rbox_regional_token_idx: ket_regional_token_idx,
-                        }
-                        .into(),
-                        IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
-                            // ad hoc
-                            let generic_arguments: Option<SynTemplateArguments> = None;
-                            SynExprData::FunctionApplicationOrCall {
-                                function,
-                                template_arguments: generic_arguments,
-                                lpar_regional_token_idx: bra_regional_token_idx,
-                                items,
-                                rpar_regional_token_idx: ket_regional_token_idx,
-                            }
-                            .into()
-                        }
-                        IncompleteCommaListOpr::MethodInstantiation { .. } => {
-                            todo!()
-                        }
-                        IncompleteCommaListOpr::MethodApplicationOrCall {
-                            self_expr,
-                            dot_regional_token_idx,
-                            ident_token,
-                            template_arguments,
-                        } => SynExprData::MethodApplicationOrCall {
-                            self_argument: self_expr,
-                            dot_regional_token_idx,
-                            ident_token,
-                            template_arguments,
-                            lpar_regional_token_idx: bra_regional_token_idx,
-                            items,
-                            rpar_regional_token_idx: ket_regional_token_idx,
-                        }
-                        .into(),
-                        IncompleteCommaListOpr::TemplateInstantiation { template } => {
-                            SynExprData::TemplateInstantiation {
-                                template,
-                                template_arguments: SynTemplateArguments::new(
-                                    bra_regional_token_idx,
-                                    items,
-                                    ket_regional_token_idx,
-                                ),
-                            }
-                            .into()
-                        }
-                        IncompleteCommaListOpr::RitchieArguments {
-                            ritchie_kind_regional_token_idx,
-                            ritchie_kind,
-                            lpar_token,
-                        } => match this.try_parse_option::<LightArrowRegionalToken>() {
-                            Ok(Some(light_arrow_token)) => IncompleteSynExprData::Ritchie {
-                                ritchie_kind_regional_token_idx,
-                                ritchie_kind,
-                                lpar_token,
-                                argument_tys: items,
-                                rpar_regional_token_idx: ket_regional_token_idx,
-                                light_arrow_token,
-                            }
-                            .into(),
-                            Ok(None) => todo!(),
-                            Err(_) => todo!(),
-                        },
                     }
                 })
             }
-            IncompleteSynExprData::CallList {
-                opr,
-                lpar_regional_token_idx,
-                items,
-            } => match opr {
+            IncompleteVdSynExprData::CallList { opr, items } => match opr {
                 IncompleteCallListOpr::FunctionCall {
                     function,
                     generic_arguments,
-                } => self.set_complete_expr(SynExprData::FunctionCall {
+                } => self.set_complete_expr(VdSynExprData::FunctionCall {
                     function,
                     template_arguments: generic_arguments,
-                    lpar_regional_token_idx,
+                    lpar_token_idx: bra_token_idx,
                     items,
-                    rpar_regional_token_idx: ket_regional_token_idx,
+                    rpar_token_idx: ket_token_idx,
                 }),
                 IncompleteCallListOpr::MethodCall { .. } => todo!(),
             },
@@ -177,7 +97,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         }
     }
 
-    fn accept_atom(&mut self, atom: SynExprData) {
+    fn accept_atom(&mut self, atom: VdSynExprData) {
         self.push_top_syn_expr(atom.into())
     }
 
@@ -204,69 +124,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         })
     }
 
-    fn accept_dot_opr(&mut self, dot_regional_token_idx: RegionalTokenIdx) {
-        self.take_complete_and_push_to_top(|this, finished_expr| match finished_expr {
-            Some(self_expr) => {
-                let self_expr = this.context_mut().alloc_expr(self_expr);
-                match this.try_parse_option::<IdentRegionalToken>() {
-                    Ok(Some(ident_token)) => match this.try_parse_option::<LparRegionalToken>() {
-                        Ok(Some(lpar)) => IncompleteSynExprData::CommaList {
-                            opr: IncompleteCommaListOpr::MethodApplicationOrCall {
-                                self_expr,
-                                dot_regional_token_idx,
-                                ident_token,
-                                template_arguments: None,
-                            },
-                            bra: Delimiter::Par,
-                            bra_regional_token_idx: lpar.regional_token_idx(),
-                            items: smallvec![],
-                        }
-                        .into(),
-                        Ok(None) => match this.try_parse_option::<ColonColonLaRegionalToken>() {
-                            Ok(Some(langle)) => IncompleteSynExprData::CommaList {
-                                opr: IncompleteCommaListOpr::MethodInstantiation {
-                                    self_expr,
-                                    dot_regional_token_idx,
-                                    ident_token,
-                                },
-                                bra: Delimiter::TurboFish,
-                                bra_regional_token_idx: langle.regional_token_idx(),
-                                items: smallvec![],
-                            }
-                            .into(),
-                            Ok(None) => SynExprData::Field {
-                                owner: self_expr,
-                                dot_regional_token_idx,
-                                ident_token,
-                            }
-                            .into(),
-                            Err(_) => todo!(),
-                        },
-                        Err(e) => {
-                            p!(e);
-                            todo!()
-                        }
-                    },
-                    _ => SynExprData::Err(
-                        OriginalSynExprError::ExpectedIdentAfterDot {
-                            dot_regional_token_idx,
-                        }
-                        .into(),
-                    )
-                    .into(),
-                }
-            }
-            None => SynExprData::Err(
-                OriginalSynExprError::ExpectedExprBeforeDot {
-                    dot_regional_token_idx,
-                }
-                .into(),
-            )
-            .into(),
-        })
-    }
-
-    fn accept_comma(&mut self, comma_regional_token_idx: RegionalTokenIdx) {
+    fn accept_separator(&mut self, separator: VdSeparator) {
         match self.take_complete_expr() {
             Some(item) => {
                 let item = self.context_mut().alloc_expr(item);
@@ -314,31 +172,6 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 None => unreachable!(),
             },
         }
-    }
-
-    fn accept_be_pattern(&mut self, be_regional_token_idx: RegionalTokenIdx) {
-        self.reduce(Precedence::Be);
-        let src = self.take_complete_expr().unwrap_or(SynExprData::Err(
-            OriginalSynExprError::ExpectedItemBeforeBe {
-                be_regional_token_idx,
-            }
-            .into(),
-        ));
-        let src = self.context_mut().alloc_expr(src);
-        let end = match self.env() {
-            Some(env) => match env {
-                ExprEnvironment::TypeBeforeEq => todo!(),
-                ExprEnvironment::WithinDelimiteredParameterList(_) => todo!(),
-                ExprEnvironment::Condition(end) => end,
-            },
-            None => todo!(),
-        };
-        let expr = SynExprData::Be {
-            src,
-            be_regional_token_idx,
-            target: self.parse_be_variables_pattern_expected(end),
-        };
-        self.push_top_syn_expr(expr.into())
     }
 
     fn accept_binary_opr(&mut self, binary: Either<VdBinaryOpr, VdSynExprIdx>) {
