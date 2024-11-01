@@ -27,6 +27,7 @@ visored-zfs-ty.workspace = true
 # kernel
 husky-coword.workspace = true
 # latex
+latex-command.workspace = true
 latex-ast.workspace = true
 # lean
 lean-term.workspace = true
@@ -34,6 +35,7 @@ lean-sem-expr.workspace = true
 # visored
 visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 visored-syn-expr = { workspace = true, features = ["test_helpers"] }
+visored-annotation = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true

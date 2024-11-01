@@ -1,3 +1,4 @@
+use super::*;
 use crate::{
     annotation::{
         space::{LxApplyAnnotation, VdSpaceAnnotation},
@@ -21,30 +22,54 @@ impl VdAnnotationsExample {
             &[((&str, &str), VdTokenAnnotation)],
             &[((&str, &str), VdSpaceAnnotation)],
         )],
+        db: &::salsa::Db,
     ) -> Vec<Self> {
         examples
             .iter()
             .map(
-                |&(root_mode, input, token_annotations, space_annotations)| Self {
-                    root_mode,
-                    input: input.to_string(),
-                    annotations: VdAnnotations::from_sparse(
+                |&(root_mode, input, token_annotations, space_annotations)| {
+                    let mut token_storage = LxTokenStorage::default();
+                    let mut ast_arena = LxAstArena::default();
+                    let asts = parse_latex_input_into_asts(
+                        &db,
+                        &input,
+                        LxMode::Math,
+                        &mut token_storage,
+                        &mut ast_arena,
+                    );
+                    let mut ast_arena = LxAstArena::default();
+                    let asts = parse_latex_input_into_asts(
+                        &db,
+                        &input,
+                        LxMode::Math,
+                        &mut token_storage,
+                        &mut ast_arena,
+                    );
+                    let annotations = VdAnnotations::from_sparse(
                         input,
                         token_annotations.iter().copied(),
                         space_annotations.iter().copied(),
-                    ),
+                        &token_storage,
+                    );
+                    Self {
+                        root_mode,
+                        input: input.to_string(),
+                        annotations,
+                    }
                 },
             )
             .collect()
     }
 }
 
+use latex_ast::ast::{parse_latex_input_into_asts, LxAstArena};
 use latex_prelude::mode::LxMode;
+use latex_token::storage::LxTokenStorage;
 use lazy_static::lazy_static;
 
-lazy_static! {
-    pub static ref LX_ANNOTATIONS_EXAMPLES: Vec<VdAnnotationsExample> =
-        VdAnnotationsExample::collect_from_sparse(&[
+pub fn lx_annotations_examples(db: &::salsa::Db) -> Vec<VdAnnotationsExample> {
+    VdAnnotationsExample::collect_from_sparse(
+        &[
             (LxMode::Math, "", &[], &[]),
             (
                 LxMode::Math,
@@ -52,17 +77,17 @@ lazy_static! {
                 &[
                     (
                         ("", "x"),
-                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
                     ),
                     (
                         ("x", "y"),
-                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage)
+                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
                     ),
                 ],
                 &[(
                     ("x", "y"),
-                    VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul)
-                ),]
+                    VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul),
+                )],
             ),
             (
                 LxMode::Math,
@@ -72,18 +97,21 @@ lazy_static! {
                     (
                         ("d", "x"),
                         VdTokenAnnotation::Variable(
-                            LxVariableAnnotation::SingleVariableIntegralVariableDecl
-                        )
+                            LxVariableAnnotation::SingleVariableIntegralVariableDecl,
+                        ),
                     ),
                 ],
-                &[]
+                &[],
             ),
-        ]);
+        ],
+        db,
+    )
 }
 
 #[test]
 fn latex_annotations_examples_works() {
-    let examples = &*LX_ANNOTATIONS_EXAMPLES; // Dereference the lazy_static
+    let db = &DB::default();
+    let examples = lx_annotations_examples(db);
     expect_test::expect_file!["../../expect-files/annotations/examples.txt"]
         .assert_eq(&format!("{:#?}", examples));
 }
