@@ -19,8 +19,6 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         preceding_space_annotation: Option<VdSpaceAnnotation>,
         token: DisambiguatedToken,
     ) {
-        use husky_print_utils::p;
-        p!(self.stack, token);
         match token {
             DisambiguatedToken::Expr(expr, class) => match class {
                 VdSynExprClass::Atom => self.accept_atom(preceding_space_annotation, expr),
@@ -34,7 +32,6 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             DisambiguatedToken::RightDelimiter(vd_right_delimiter) => todo!(),
             DisambiguatedToken::Letter(lx_math_token_idx, lx_math_letter) => todo!(),
         }
-        p!(self.stack);
     }
 
     fn accept_list_end(&mut self, ket: VdBaseRightDelimiter, ket_token_idx: LxTokenIdx) {

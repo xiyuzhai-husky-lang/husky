@@ -216,7 +216,7 @@ mod tests {
                 space_annotations,
                 db,
             );
-            expected.assert_debug_eq(&example.show_display_tree(db));
+            expected.assert_eq(&example.show_display_tree(db));
         }
 
         t(
@@ -224,7 +224,7 @@ mod tests {
             &[],
             &[],
             &expect![[r#"
-                "\n"
+
             "#]],
         );
         t(
@@ -232,7 +232,7 @@ mod tests {
             &[],
             &[],
             &expect![[r#"
-                "1\n"
+                1
             "#]],
         );
         t(
@@ -240,7 +240,7 @@ mod tests {
             &[],
             &[],
             &expect![[r#"
-                "11\n"
+                11
             "#]],
         );
         t(
@@ -248,7 +248,9 @@ mod tests {
             &[],
             &[],
             &expect![[r#"
-                "1 1\n├─ 1\n└─ 1\n"
+                1 1
+                ├─ 1
+                └─ 1
             "#]],
         );
     }

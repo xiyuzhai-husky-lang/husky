@@ -119,7 +119,7 @@ ena = "0.14.2"
 env_logger = "0.10"
 env_proxy = "0.4"
 epaint = { git = "https://github.com/xiyuzhai-husky-lang/egui.git" }
-expect-test = "1.4.1"
+expect-test = "1.5.0"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
     "sink",
