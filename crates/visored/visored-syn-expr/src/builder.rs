@@ -3,8 +3,8 @@ use crate::{
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx},
     range::{
-        VdSynClauseRangeMap, VdSynExprAstRange, VdSynExprRangeMap, VdSynPhraseRangeMap,
-        VdSynSentenceRangeMap,
+        VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
+        VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
     },
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
