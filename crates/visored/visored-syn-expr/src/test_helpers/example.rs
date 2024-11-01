@@ -4,7 +4,10 @@ use crate::{
     clause::VdSynClauseArena,
     expr::VdSynExprArena,
     phrase::VdSynPhraseArena,
-    range::{VdSynClauseRangeMap, VdSynExprRangeMap, VdSynPhraseRangeMap, VdSynSentenceRangeMap},
+    range::{
+        VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap,
+        VdSynSentenceTokenIdxRangeMap,
+    },
     sentence::VdSynSentenceArena,
 };
 use expr::VdSynExprIdx;
@@ -16,6 +19,7 @@ use latex_ast::{
 };
 use latex_prelude::mode::LxMode;
 use latex_token::storage::LxTokenStorage;
+use range::calc_expr_range_map;
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
@@ -34,10 +38,10 @@ pub struct VdSynExprExample {
     pub phrase_arena: VdSynPhraseArena,
     pub clause_arena: VdSynClauseArena,
     pub sentence_arena: VdSynSentenceArena,
-    pub expr_range_map: VdSynExprRangeMap,
-    pub phrase_range_map: VdSynPhraseRangeMap,
-    pub clause_range_map: VdSynClauseRangeMap,
-    pub sentence_range_map: VdSynSentenceRangeMap,
+    pub expr_range_map: VdSynExprTokenIdxRangeMap,
+    pub phrase_range_map: VdSynPhraseTokenIdxRangeMap,
+    pub clause_range_map: VdSynClauseTokenIdxRangeMap,
+    pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
 }
 
 impl VdSynExprExample {
@@ -68,6 +72,14 @@ impl VdSynExprExample {
         );
         let result = asts.to_vd_syn(&mut builder);
         let (expr_arena, phrase_arena, clause_arena, sentence_arena) = builder.finish();
+        let (expr_range_map, phrase_range_map, clause_range_map, sentence_range_map) =
+            calc_expr_range_map(
+                db,
+                &expr_arena,
+                &phrase_arena,
+                &clause_arena,
+                &sentence_arena,
+            );
         Self {
             input: input.to_string(),
             root_mode,
