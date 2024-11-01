@@ -1,9 +1,8 @@
 #[enum_class::from_variants]
-#[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[repr(u8)]
 pub enum VdTokenAnnotation {
-    #[default]
-    Void,
-    Integral(LxIntegralAnnotation),
+    Integral(LxIntegralAnnotation) = 1,
     Variable(LxVariableAnnotation),
     Differential,
 }
