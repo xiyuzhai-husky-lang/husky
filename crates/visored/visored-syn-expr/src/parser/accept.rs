@@ -23,6 +23,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             },
             DisambiguatedToken::Opr(opr) => self.accept_opr(opr),
             DisambiguatedToken::Separator(sep) => self.accept_separator(sep),
+            DisambiguatedToken::LeftDelimiter(vd_left_delimiter) => todo!(),
+            DisambiguatedToken::RightDelimiter(vd_right_delimiter) => todo!(),
+            DisambiguatedToken::Letter(lx_math_token_idx, lx_math_letter) => todo!(),
         }
     }
 

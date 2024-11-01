@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum VdZfsSpecialConstant {
+pub enum VdZfcSpecialConstant {
     Pi,
     Gamma,
 }

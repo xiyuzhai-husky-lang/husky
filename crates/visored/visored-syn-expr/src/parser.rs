@@ -35,16 +35,18 @@ impl<'db> VdSynExprBuilder<'db> {
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
     pub fn parse_asts(mut self, asts: LxMathAstIdxRange) -> VdSynExprIdx {
-        for ast in asts {
-            self.parse_ast(ast);
+        let mut next = asts.start();
+        let end = asts.end();
+        while next < end {
+            self.parse_ast(&mut next, end);
         }
         let Self { builder, stack } = self;
         let data = stack.finish();
         builder.alloc_expr(data, VdSynExprAstRange::Asts(asts.into()))
     }
 
-    fn parse_ast(&mut self, ast: LxMathAstIdx) {
-        let token = self.disambiguate_token(ast);
+    fn parse_ast(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) {
+        let token = self.disambiguate_token(next, end);
         self.accept_token(token);
     }
 }

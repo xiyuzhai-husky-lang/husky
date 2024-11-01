@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VdZfsEval(VdZfsTermId);
+pub struct VdZfcEval(VdZfcTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VdZfsEvalData {
+pub struct VdZfcEvalData {
     // Add appropriate fields here
 }
 
-impl VdZfsEval {
-    pub fn data(self, db: &::salsa::Db) -> &VdZfsEvalData {
+impl VdZfcEval {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfcEvalData {
         match self.0.data(db) {
-            VdZfsTermData::Eval(data) => data,
+            VdZfcTermData::Eval(data) => data,
             _ => unreachable!(),
         }
     }

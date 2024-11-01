@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VdZfsLimit(VdZfsTermId);
+pub struct VdZfcAbstractVariable(VdZfcTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VdZfsLimitData {
+pub struct VdZfcAbstractVariableData {
     // Add appropriate fields here
 }
 
-impl VdZfsLimit {
-    pub fn data(self, db: &::salsa::Db) -> &VdZfsLimitData {
+impl VdZfcAbstractVariable {
+    pub fn data(self, db: &::salsa::Db) -> &VdZfcAbstractVariableData {
         match self.0.data(db) {
-            VdZfsTermData::Limit(data) => data,
+            VdZfcTermData::AbstractVariable(data) => data,
             _ => unreachable!(),
         }
     }

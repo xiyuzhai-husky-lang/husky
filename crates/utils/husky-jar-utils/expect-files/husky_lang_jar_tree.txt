@@ -1181,7 +1181,7 @@
         "visored-opr",
         "visored-sem-expr",
         "visored-syn-expr",
-        "visored-zfs-ty",
+        "visored-zfc-ty",
     },
     "visored-lean-transpilation": {
         "husky-coword",
@@ -1194,7 +1194,7 @@
         "visored-opr",
         "visored-sem-expr",
         "visored-syn-expr",
-        "visored-zfs-ty",
+        "visored-zfc-ty",
     },
     "visored-opr": {},
     "visored-sem-expr": {
@@ -1203,14 +1203,14 @@
         "latex-command",
         "visored-opr",
         "visored-syn-expr",
-        "visored-zfs-ty",
+        "visored-zfc-ty",
     },
     "visored-syn-expr": {
         "husky-coword",
         "latex-ast",
         "latex-command",
         "visored-opr",
-        "visored-zfs-ty",
+        "visored-zfc-ty",
     },
-    "visored-zfs-ty": {},
+    "visored-zfc-ty": {},
 }

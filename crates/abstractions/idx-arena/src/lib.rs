@@ -106,7 +106,7 @@ impl<T> IntoIterator for ArenaIdxRange<T> {
     type IntoIter = impl Iterator<Item = Self::Item>;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.to_range().into_iter()
+        self.to_range()
     }
 }
 
