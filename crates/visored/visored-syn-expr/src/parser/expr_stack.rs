@@ -10,11 +10,11 @@ use smallvec::smallvec;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
     delimiter::VdBaseLeftDelimiter,
-    precedence::VdPrecedence,
+    precedence::{VdPrecedence, VdPrecedenceRange},
     separator::{VdBaseSeparator, VdSeparator},
 };
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub(crate) struct VdSynExprStack {
     incomplete_exprs: Vec<(IncompleteVdSynExprData, VdPrecedence)>,
     complete_expr: Option<VdSynExprData>,
@@ -113,7 +113,12 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     ) {
         // this is for guaranteeing that application is left associative
         if self.complete_expr().is_some() {
-            self.reduce(VdPrecedence::APPLICATION)
+            match preceding_space_annotation {
+                Some(annotation) => todo!(),
+                _ => {
+                    self.reduce(VdPrecedenceRange::SPACE_LEFT);
+                }
+            }
         };
         if let Some(expr) = self.take_complete_expr() {
             match preceding_space_annotation {
@@ -165,9 +170,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     //     self.push_top_syn_expr(top_expr)
     // }
 
-    pub(super) fn reduce(&mut self, next_precedence: VdPrecedence) {
+    pub(super) fn reduce(&mut self, precedence_range: VdPrecedenceRange) {
         while let Some(prev_precedence) = self.stack.prev_unfinished_expr_precedence() {
-            if prev_precedence < next_precedence {
+            if !precedence_range.include(prev_precedence) {
                 break;
             }
             match self.stack.incomplete_exprs.pop().unwrap().0 {

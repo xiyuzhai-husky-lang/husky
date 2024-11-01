@@ -71,7 +71,7 @@ pub enum VdSynExprData {
     Err(VdSynExprError),
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSeparator {
     Base(LxMathTokenIdx, VdBaseSeparator),
     Composite(VdSynExprIdx, VdCompositeSeparator),
@@ -127,7 +127,13 @@ impl VdSynExprData {
             // ad hoc
             VdSynExprData::VariadicArray => vec![],
             VdSynExprData::Err(..) => vec![],
-            VdSynExprData::SeparatedList { .. } => todo!(),
+            VdSynExprData::SeparatedList { ref fragments, .. } => fragments
+                .iter()
+                .filter_map(|fragment| match *fragment {
+                    Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => Some(expr),
+                    Right(VdSynSeparator::Base(_, _)) => None,
+                })
+                .collect(),
         }
     }
 
@@ -153,6 +159,7 @@ impl VdSynExprData {
     }
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynExprClass {
     Atom,
     Prefix,
@@ -165,16 +172,14 @@ pub enum VdSynExprClass {
 impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
         let (token_range, asts) = self;
-        let a = if asts.is_empty() {
+        if asts.is_empty() {
             builder.alloc_expr(VdSynExprData::Err(
                 OriginalVdSynExprError::Empty(token_range).into(),
             ))
         } else {
             let parser = builder.parser();
             parser.parse_asts(asts)
-        };
-        todo!();
-        a
+        }
     }
 }
 
@@ -211,40 +216,39 @@ mod tests {
                 space_annotations,
                 db,
             );
-            todo!();
             expected.assert_debug_eq(&example.show_display_tree(db));
         }
 
-        // t(
-        //     "",
-        //     &[],
-        //     &[],
-        //     &expect![[r#"
-        //         "\n"
-        //     "#]],
-        // );
-        // t(
-        //     "1",
-        //     &[],
-        //     &[],
-        //     &expect![[r#"
-        //         "1\n"
-        //     "#]],
-        // );
-        // t(
-        //     "11",
-        //     &[],
-        //     &[],
-        //     &expect![[r#"
-        //         "11\n"
-        //     "#]],
-        // );
+        t(
+            "",
+            &[],
+            &[],
+            &expect![[r#"
+                "\n"
+            "#]],
+        );
+        t(
+            "1",
+            &[],
+            &[],
+            &expect![[r#"
+                "1\n"
+            "#]],
+        );
+        t(
+            "11",
+            &[],
+            &[],
+            &expect![[r#"
+                "11\n"
+            "#]],
+        );
         t(
             "1 1",
             &[],
             &[],
             &expect![[r#"
-                "1 1\n"
+                "1 1\n├─ 1\n└─ 1\n"
             "#]],
         );
     }

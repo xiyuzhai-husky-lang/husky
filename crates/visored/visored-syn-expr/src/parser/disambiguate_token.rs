@@ -21,6 +21,7 @@ pub struct DisambiguatedMathAst {
     preceding_space_annotation: Option<VdSpaceAnnotation>,
 }
 
+#[derive(Debug)]
 pub enum DisambiguatedToken {
     Expr(VdSynExprData, VdSynExprClass),
     Opr(VdBaseOpr),

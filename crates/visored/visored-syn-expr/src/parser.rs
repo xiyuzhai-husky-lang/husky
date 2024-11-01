@@ -8,6 +8,7 @@ pub(crate) mod incomplete_expr;
 use expr::VdSynExprIdx;
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use range::VdSynExprTokenIdxRange;
+use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
 use self::expr_stack::VdSynExprStack;
 use crate::builder::VdSynExprBuilder;
@@ -40,6 +41,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         while next < end {
             self.parse_ast(&mut next, end);
         }
+        self.reduce(VdPrecedenceRange::Any);
         let Self { builder, stack } = self;
         builder.alloc_expr(stack.finish())
     }
