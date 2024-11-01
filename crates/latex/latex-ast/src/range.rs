@@ -1,7 +1,7 @@
 use latex_token::idx::LxTokenIdxRange;
 
 use crate::ast::{
-    math::{LxMathAstArenaMap, LxMathAstData, LxMathAstIdx},
+    math::{LxMathAstArenaMap, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
     rose::{LxRoseAstArenaMap, LxRoseAstData, LxRoseAstIdx},
     LxAstArena, LxAstArenaMap, LxAstArenaRef, LxAstData, LxAstIdx,
 };
@@ -25,6 +25,12 @@ impl std::ops::Index<LxRoseAstIdx> for LxAstTokenIdxRangeMap {
 
     fn index(&self, index: LxRoseAstIdx) -> &Self::Output {
         &self.rose[index]
+    }
+}
+
+impl LxAstTokenIdxRangeMap {
+    pub fn math_asts_token_idx_range(&self, asts: LxMathAstIdxRange) -> LxTokenIdxRange {
+        todo!()
     }
 }
 

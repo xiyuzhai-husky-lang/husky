@@ -7,7 +7,7 @@ pub(crate) mod incomplete_expr;
 
 use expr::VdSynExprIdx;
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
-use range::VdSynExprAstRange;
+use range::VdSynExprTokenIdxRange;
 
 use self::expr_stack::VdSynExprStack;
 use crate::builder::VdSynExprBuilder;

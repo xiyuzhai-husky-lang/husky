@@ -4,8 +4,8 @@ use crate::{
     expr::{VdSynExprArenaRef, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
-        VdSynClauseRangeMap, VdSynExprAstRange, VdSynExprRangeMap, VdSynPhraseRangeMap,
-        VdSynSentenceRangeMap,
+        VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
+        VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
     },
     sentence::VdSynSentenceArenaRef,
 };
@@ -29,13 +29,13 @@ pub struct VdSynExprDisplayTreeBuilder<'a> {
     ast_arena: LxAstArenaRef<'a>,
     ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
     expr_arena: VdSynExprArenaRef<'a>,
-    expr_range_map: &'a VdSynExprRangeMap,
+    expr_range_map: &'a VdSynExprTokenIdxRangeMap,
     phrase_arena: VdSynPhraseArenaRef<'a>,
-    phrase_range_map: &'a VdSynPhraseRangeMap,
+    phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
     clause_arena: VdSynClauseArenaRef<'a>,
-    clause_range_map: &'a VdSynClauseRangeMap,
+    clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
     sentence_arena: VdSynSentenceArenaRef<'a>,
-    sentence_range_map: &'a VdSynSentenceRangeMap,
+    sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
 }
 
 /// # construction
@@ -50,10 +50,10 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
         sentence_arena: VdSynSentenceArenaRef<'a>,
-        expr_range_map: &'a VdSynExprRangeMap,
-        phrase_range_map: &'a VdSynPhraseRangeMap,
-        clause_range_map: &'a VdSynClauseRangeMap,
-        sentence_range_map: &'a VdSynSentenceRangeMap,
+        expr_range_map: &'a VdSynExprTokenIdxRangeMap,
+        phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
+        clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
+        sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
     ) -> Self {
         Self {
             db,
@@ -90,8 +90,9 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: VdSynExprIdx) -> DisplayTree {
         let expr_range = self.expr_range_map[expr];
         let (start, end) = match expr_range {
-            VdSynExprAstRange::Ast(ast) => self.ast_offset_range(ast),
-            VdSynExprAstRange::Asts(asts) => self.asts_offset_range(asts),
+            VdSynExprTokenIdxRange::Standard(token_idx_range) => self
+                .token_storage
+                .token_idx_range_offset_range(token_idx_range),
         };
         let value = self.input[start..end].to_string();
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))

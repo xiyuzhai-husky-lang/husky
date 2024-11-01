@@ -20,7 +20,7 @@ use idx_arena::{
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdxRange};
-use range::VdSynExprAstRange;
+use range::VdSynExprTokenIdxRange;
 use visored_opr::{
     delimiter::{
         VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
@@ -122,7 +122,7 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => vec![],
             // ad hoc
             VdSynExprData::VariadicArray => vec![],
-            VdSynExprData::Err(ref error) => vec![],
+            VdSynExprData::Err(..) => vec![],
         }
     }
 
@@ -142,7 +142,7 @@ impl VdSynExprData {
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
-            VdSynExprData::Err(ref error) => todo!(),
+            VdSynExprData::Err(..) => todo!(),
         }
     }
 }
@@ -157,7 +157,14 @@ pub enum VdSynExprClass {
 impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
         if self.is_empty() {
-            builder.alloc_expr(VdSynExprData::Err(OriginalVdSynExprError::Empty.into()))
+            builder.alloc_expr(VdSynExprData::Err(
+                OriginalVdSynExprError::Empty(
+                    builder
+                        .ast_token_idx_range_map()
+                        .math_asts_token_idx_range(self),
+                )
+                .into(),
+            ))
         } else {
             let parser = builder.parser();
             parser.parse_asts(self)
