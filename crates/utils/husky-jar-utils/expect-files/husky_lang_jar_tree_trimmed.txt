@@ -196,7 +196,7 @@
     "visored-syn-expr": {
         "latex-ast",
         "visored-opr",
-        "visored-zfs-ty",
+        "visored-zfc-ty",
     },
-    "visored-zfs-ty": {},
+    "visored-zfc-ty": {},
 }

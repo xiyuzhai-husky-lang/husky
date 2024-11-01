@@ -21,7 +21,7 @@ latex-prelude.workspace = true
 # visored
 visored-annotation.workspace = true
 visored-opr.workspace = true
-visored-zfs-ty.workspace = true
+visored-zfc-ty.workspace = true
 visored-syn-expr.workspace = true
 
 [dev-dependencies]

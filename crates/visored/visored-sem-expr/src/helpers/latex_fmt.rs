@@ -1,6 +1,6 @@
 use expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_zfs_ty::{menu::vd_zfs_ty_menu, term::literal::VdZfsLiteralData};
+use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
 
 use super::*;
 #[cfg(test)]
@@ -92,7 +92,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                 literal,
                 ref dispatch,
             } => match literal.data(db) {
-                VdZfsLiteralData::NaturalNumber(s) => {
+                VdZfcLiteralData::NaturalNumber(s) => {
                     if self
                         .result
                         .chars()
@@ -103,11 +103,11 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                     }
                     self.result.push_str(s);
                 }
-                VdZfsLiteralData::NegativeInteger(_) => todo!(),
-                VdZfsLiteralData::FiniteDecimalRepresentation(_) => {
+                VdZfcLiteralData::NegativeInteger(_) => todo!(),
+                VdZfcLiteralData::FiniteDecimalRepresentation(_) => {
                     todo!()
                 }
-                VdZfsLiteralData::SpecialConstant(vd_zfs_special_constant) => todo!(),
+                VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
             VdSemExprData::Notation => todo!(),
             VdSemExprData::Binary {
@@ -147,7 +147,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 #[test]
 fn latex_fmt_works() {
     let db = &DB::default();
-    let menu = vd_zfs_ty_menu(db);
+    let menu = vd_zfc_ty_menu(db);
     let mut builder = VdSemExprTestBuilder::new(db);
     let one = builder.new_expr_checked(
         VdSemExprData::Literal {

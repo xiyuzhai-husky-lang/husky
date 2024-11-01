@@ -8,6 +8,13 @@ pub struct LxTokenIdx(ShiftedU32);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub struct LxMathTokenIdx(pub(crate) LxTokenIdx);
 
+impl std::ops::Add<usize> for LxMathTokenIdx {
+    type Output = Self;
+    fn add(self, rhs: usize) -> Self::Output {
+        Self(self.0 + rhs)
+    }
+}
+
 impl std::ops::Deref for LxMathTokenIdx {
     type Target = LxTokenIdx;
     fn deref(&self) -> &Self::Target {

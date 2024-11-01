@@ -21,7 +21,7 @@ lean-term.workspace = true
 # visored
 visored-hir-expr.workspace = true
 visored-opr.workspace = true
-visored-zfs-ty.workspace = true
+visored-zfc-ty.workspace = true
 
 [dev-dependencies]
 # kernel

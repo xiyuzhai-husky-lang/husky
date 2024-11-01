@@ -1311,7 +1311,7 @@
         dependencies: [
             "visored-opr",
             "visored-syn-expr",
-            "visored-zfs-ty",
+            "visored-zfc-ty",
             "husky-coword",
             "latex-ast",
             "latex-command",
@@ -1326,13 +1326,13 @@
         dependencies: [
             "latex-ast",
             "visored-opr",
-            "visored-zfs-ty",
+            "visored-zfc-ty",
             "husky-coword",
             "latex-command",
         ],
     },
     JarPackageSummary {
-        name: "visored-zfs-ty",
+        name: "visored-zfc-ty",
         dependencies: [],
     },
     JarPackageSummary {
@@ -1340,7 +1340,7 @@
         dependencies: [
             "visored-opr",
             "visored-sem-expr",
-            "visored-zfs-ty",
+            "visored-zfc-ty",
             "husky-coword",
             "latex-ast",
             "latex-command",
@@ -1355,7 +1355,7 @@
             "lean-term",
             "visored-hir-expr",
             "visored-opr",
-            "visored-zfs-ty",
+            "visored-zfc-ty",
             "husky-coword",
             "latex-ast",
             "latex-command",

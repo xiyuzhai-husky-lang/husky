@@ -19,17 +19,19 @@ use idx_arena::{
 };
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
+use latex_token::idx::LxTokenIdxRange;
 use range::VdSynExprAstRange;
 use visored_opr::opr::{
     binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr,
 };
-use visored_zfs_ty::term::literal::VdZfsLiteral;
+use visored_zfc_ty::term::literal::VdZfcLiteral;
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynExprData {
     Literal {
-        literal: VdZfsLiteral,
+        token_idx_range: LxTokenIdxRange,
+        literal: VdZfcLiteral,
     },
     Notation,
     BaseOpr {
@@ -70,7 +72,7 @@ pub type VdSynExprArenaRef<'a> = ArenaRef<'a, VdSynExprData>;
 impl VdSynExprData {
     pub fn children(&self) -> Vec<VdSynExprIdx> {
         match *self {
-            VdSynExprData::Literal { literal } => vec![],
+            VdSynExprData::Literal { .. } => vec![],
             VdSynExprData::Notation => vec![],
             VdSynExprData::BaseOpr { opr } => vec![],
             VdSynExprData::Binary { lopd, opr, ropd } => match opr {
@@ -180,7 +182,7 @@ mod tests {
             &[],
             &[],
             &expect![[r#"
-
+                "1\n"
             "#]],
         );
     }

@@ -1,5 +1,5 @@
 [package]
-name = "visored-zfs-ty"
+name = "visored-zfc-ty"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
