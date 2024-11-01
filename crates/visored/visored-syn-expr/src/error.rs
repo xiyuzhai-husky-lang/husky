@@ -1,4 +1,8 @@
+use crate::expr::VdSynExprIdx;
+use either::Either;
+use latex_token::idx::LxTokenIdx;
 use thiserror::Error;
+use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr};
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum VdSynExprError {
@@ -14,6 +18,16 @@ pub enum OriginalVdSynExprError {
     Empty,
     #[error("todo")]
     Todo,
+    #[error("no right operand for binary operator")]
+    NoRightOperandForBinaryOperator {
+        opr: Either<VdBinaryOpr, VdSynExprIdx>,
+    },
+    #[error("no operand for prefix operator")]
+    NoOperandForPrefixOperator {
+        opr: Either<VdPrefixOpr, VdSynExprIdx>,
+    },
+    #[error("unterminated list")]
+    UnterminatedList { bra_token_idx: LxTokenIdx },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
