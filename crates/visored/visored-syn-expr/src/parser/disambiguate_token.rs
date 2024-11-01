@@ -43,7 +43,17 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             LxMathAstData::Letter(lx_math_token_idx, lx_math_letter) => {
                 DisambiguatedToken::Letter(lx_math_token_idx, lx_math_letter)
             }
-            LxMathAstData::Opr(lx_math_token_idx, lx_math_punctuation) => {
+            LxMathAstData::Punctuation(lx_math_token_idx, punctuation) => {
+                if let Some(token_annotation) = self
+                    .builder
+                    .annotations()
+                    .token_annotation(*lx_math_token_idx)
+                {
+                    return todo!();
+                }
+                self.builder
+                    .default_resolution_table()
+                    .resolve_punctuation(punctuation);
                 todo!()
             }
             LxMathAstData::Digit(first_token_idx, digit) => {

@@ -24,11 +24,13 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
+use visored_resolution::table::VdDefaultResolutionTable;
 
 pub struct VdSynExprExample {
     pub input: String,
     pub root_mode: LxMode,
     pub annotations: VdAnnotations,
+    pub default_resolution_table: VdDefaultResolutionTable,
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
     pub asts: LxAstIdxRange,
@@ -64,12 +66,14 @@ impl VdSynExprExample {
             space_annotations.iter().copied(),
             &token_storage,
         );
+        let default_resolution_table = VdDefaultResolutionTable::new_standard(db);
         let mut builder = VdSynExprBuilder::new(
             db,
             &token_storage,
             &ast_arena,
             &ast_token_idx_range_map,
             &annotations,
+            &default_resolution_table,
         );
         let result = (whole_token_range, asts).to_vd_syn(&mut builder);
         let (expr_arena, phrase_arena, clause_arena, sentence_arena) = builder.finish();
@@ -85,6 +89,7 @@ impl VdSynExprExample {
             input: input.to_string(),
             root_mode,
             annotations,
+            default_resolution_table,
             token_storage,
             ast_arena,
             asts,

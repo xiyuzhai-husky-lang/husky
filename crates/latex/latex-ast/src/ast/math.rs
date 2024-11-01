@@ -10,7 +10,7 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxMathAstData {
     Letter(LxMathTokenIdx, LxMathLetter),
-    Opr(LxMathTokenIdx, LxMathPunctuation),
+    Punctuation(LxMathTokenIdx, LxMathPunctuation),
     Digit(LxMathTokenIdx, LxMathDigit),
     /// not obtained through parsing, but through ui
     TextEdit {
@@ -70,7 +70,7 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
             LxMathTokenData::RightDelimiter(_) => unreachable!(),
             LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),
-            LxMathTokenData::Punctuation(opr) => LxMathAstData::Opr(idx, opr), // it's not constructed into a tree yet in the ast stage
+            LxMathTokenData::Punctuation(opr) => LxMathAstData::Punctuation(idx, opr), // it's not constructed into a tree yet in the ast stage
             LxMathTokenData::Digit(digit) => LxMathAstData::Digit(idx, digit),
             LxMathTokenData::Other(_) => todo!(),
             LxMathTokenData::Subscript => todo!(),
