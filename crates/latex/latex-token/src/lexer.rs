@@ -3,7 +3,7 @@ use crate::{
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
     },
-    idx::{math::LxMathTokenIdx, rose::LxRoseTokenIdx},
+    idx::{LxMathTokenIdx, LxRoseTokenIdx},
     storage::LxTokenStorage,
     stream::{math::LxMathTokenStream, rose::LxRoseTokenStream},
 };

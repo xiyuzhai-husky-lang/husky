@@ -182,8 +182,7 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [],
-                    ranged_rose_tokens: [],
+                    ranged_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
@@ -207,26 +206,29 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [
+                    ranged_tokens: [
                         (
                             (
                                 0,
                                 1,
                             ),
                             [1:1, 1:2),
-                            Digit(
-                                One,
+                            Math(
+                                Digit(
+                                    One,
+                                ),
                             ),
                         ),
                     ],
-                    ranged_rose_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
                         data: [
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
-                                    0,
+                                    LxTokenIdx(
+                                        0,
+                                    ),
                                 ),
                                 One,
                             ),
@@ -250,26 +252,29 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [
+                    ranged_tokens: [
                         (
                             (
                                 0,
                                 1,
                             ),
                             [1:1, 1:2),
-                            Letter(
-                                LowerX,
+                            Math(
+                                Letter(
+                                    LowerX,
+                                ),
                             ),
                         ),
                     ],
-                    ranged_rose_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
                         data: [
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
-                                    0,
+                                    LxTokenIdx(
+                                        0,
+                                    ),
                                 ),
                                 LowerX,
                             ),
@@ -293,15 +298,17 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [
+                    ranged_tokens: [
                         (
                             (
                                 0,
                                 1,
                             ),
                             [1:1, 1:2),
-                            Letter(
-                                LowerX,
+                            Math(
+                                Letter(
+                                    LowerX,
+                                ),
                             ),
                         ),
                         (
@@ -310,8 +317,10 @@ fn parse_tex_input_into_asts_works() {
                                 2,
                             ),
                             [1:2, 1:3),
-                            Punctuation(
-                                Add,
+                            Math(
+                                Punctuation(
+                                    Add,
+                                ),
                             ),
                         ),
                         (
@@ -320,31 +329,38 @@ fn parse_tex_input_into_asts_works() {
                                 3,
                             ),
                             [1:3, 1:4),
-                            Digit(
-                                One,
+                            Math(
+                                Digit(
+                                    One,
+                                ),
                             ),
                         ),
                     ],
-                    ranged_rose_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
                         data: [
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
-                                    0,
+                                    LxTokenIdx(
+                                        0,
+                                    ),
                                 ),
                                 LowerX,
                             ),
                             LxMathAstData::Opr(
                                 LxMathTokenIdx(
-                                    1,
+                                    LxTokenIdx(
+                                        1,
+                                    ),
                                 ),
                                 Add,
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
-                                    2,
+                                    LxTokenIdx(
+                                        2,
+                                    ),
                                 ),
                                 One,
                             ),
@@ -368,15 +384,17 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [
+                    ranged_tokens: [
                         (
                             (
                                 0,
                                 1,
                             ),
                             [1:1, 1:2),
-                            Letter(
-                                LowerX,
+                            Math(
+                                Letter(
+                                    LowerX,
+                                ),
                             ),
                         ),
                         (
@@ -385,7 +403,9 @@ fn parse_tex_input_into_asts_works() {
                                 2,
                             ),
                             [1:2, 1:3),
-                            Superscript,
+                            Math(
+                                Superscript,
+                            ),
                         ),
                         (
                             (
@@ -393,25 +413,30 @@ fn parse_tex_input_into_asts_works() {
                                 3,
                             ),
                             [1:3, 1:4),
-                            Digit(
-                                Two,
+                            Math(
+                                Digit(
+                                    Two,
+                                ),
                             ),
                         ),
                     ],
-                    ranged_rose_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
                         data: [
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
-                                    0,
+                                    LxTokenIdx(
+                                        0,
+                                    ),
                                 ),
                                 LowerX,
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
-                                    2,
+                                    LxTokenIdx(
+                                        2,
+                                    ),
                                 ),
                                 Two,
                             ),
@@ -444,15 +469,17 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [
+                    ranged_tokens: [
                         (
                             (
                                 0,
                                 1,
                             ),
                             [1:1, 1:2),
-                            Letter(
-                                LowerX,
+                            Math(
+                                Letter(
+                                    LowerX,
+                                ),
                             ),
                         ),
                         (
@@ -461,7 +488,9 @@ fn parse_tex_input_into_asts_works() {
                                 2,
                             ),
                             [1:2, 1:3),
-                            Subscript,
+                            Math(
+                                Subscript,
+                            ),
                         ),
                         (
                             (
@@ -469,25 +498,30 @@ fn parse_tex_input_into_asts_works() {
                                 3,
                             ),
                             [1:3, 1:4),
-                            Digit(
-                                Two,
+                            Math(
+                                Digit(
+                                    Two,
+                                ),
                             ),
                         ),
                     ],
-                    ranged_rose_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
                         data: [
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
-                                    0,
+                                    LxTokenIdx(
+                                        0,
+                                    ),
                                 ),
                                 LowerX,
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
-                                    2,
+                                    LxTokenIdx(
+                                        2,
+                                    ),
                                 ),
                                 Two,
                             ),
@@ -520,15 +554,17 @@ fn parse_tex_input_into_asts_works() {
         expect![[r#"
             (
                 LxTokenStorage {
-                    ranged_math_tokens: [
+                    ranged_tokens: [
                         (
                             (
                                 0,
                                 1,
                             ),
                             [1:1, 1:2),
-                            Letter(
-                                LowerX,
+                            Math(
+                                Letter(
+                                    LowerX,
+                                ),
                             ),
                         ),
                         (
@@ -537,7 +573,9 @@ fn parse_tex_input_into_asts_works() {
                                 2,
                             ),
                             [1:2, 1:3),
-                            Superscript,
+                            Math(
+                                Superscript,
+                            ),
                         ),
                         (
                             (
@@ -545,8 +583,10 @@ fn parse_tex_input_into_asts_works() {
                                 3,
                             ),
                             [1:3, 1:4),
-                            LeftDelimiter(
-                                Curl,
+                            Math(
+                                LeftDelimiter(
+                                    Curl,
+                                ),
                             ),
                         ),
                         (
@@ -555,8 +595,10 @@ fn parse_tex_input_into_asts_works() {
                                 4,
                             ),
                             [1:4, 1:5),
-                            Letter(
-                                LowerI,
+                            Math(
+                                Letter(
+                                    LowerI,
+                                ),
                             ),
                         ),
                         (
@@ -565,8 +607,10 @@ fn parse_tex_input_into_asts_works() {
                                 5,
                             ),
                             [1:5, 1:6),
-                            Punctuation(
-                                Add,
+                            Math(
+                                Punctuation(
+                                    Add,
+                                ),
                             ),
                         ),
                         (
@@ -575,8 +619,10 @@ fn parse_tex_input_into_asts_works() {
                                 6,
                             ),
                             [1:6, 1:7),
-                            Digit(
-                                Two,
+                            Math(
+                                Digit(
+                                    Two,
+                                ),
                             ),
                         ),
                         (
@@ -585,50 +631,63 @@ fn parse_tex_input_into_asts_works() {
                                 7,
                             ),
                             [1:7, 1:8),
-                            RightDelimiter(
-                                Curl,
+                            Math(
+                                RightDelimiter(
+                                    Curl,
+                                ),
                             ),
                         ),
                     ],
-                    ranged_rose_tokens: [],
                 },
                 LxAstArena {
                     math: Arena {
                         data: [
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
-                                    0,
+                                    LxTokenIdx(
+                                        0,
+                                    ),
                                 ),
                                 LowerX,
                             ),
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
-                                    3,
+                                    LxTokenIdx(
+                                        3,
+                                    ),
                                 ),
                                 LowerI,
                             ),
                             LxMathAstData::Opr(
                                 LxMathTokenIdx(
-                                    4,
+                                    LxTokenIdx(
+                                        4,
+                                    ),
                                 ),
                                 Add,
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
-                                    5,
+                                    LxTokenIdx(
+                                        5,
+                                    ),
                                 ),
                                 Two,
                             ),
                             LxMathAstData::Delimited {
                                 left_delimiter_token_idx: LxMathTokenIdx(
-                                    2,
+                                    LxTokenIdx(
+                                        2,
+                                    ),
                                 ),
                                 left_delimiter: Curl,
                                 asts: ArenaIdxRange(
                                     1..4,
                                 ),
                                 right_delimiter_token_idx: LxMathTokenIdx(
-                                    6,
+                                    LxTokenIdx(
+                                        6,
+                                    ),
                                 ),
                                 right_delimiter: Curl,
                             },
