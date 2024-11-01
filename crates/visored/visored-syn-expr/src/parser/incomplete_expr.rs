@@ -12,7 +12,7 @@ use visored_opr::{
     delimiter::VdBaseLeftDelimiter,
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     precedence::VdPrecedence,
-    separator::VdBaseSeparator,
+    separator::{VdBaseSeparator, VdSeparator},
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -29,7 +29,7 @@ pub(super) enum IncompleteVdSynExprData {
     /// A(a, b, c)
     /// ```
     SeparatedList {
-        separator: VdBaseSeparator,
+        separator: VdSeparator,
         fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
     },
     Delimited {

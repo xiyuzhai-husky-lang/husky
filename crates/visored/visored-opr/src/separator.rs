@@ -1,5 +1,20 @@
 use crate::precedence::VdPrecedence;
 
+#[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSeparator {
+    Base(VdBaseSeparator),
+    Composite(VdCompositeSeparator),
+}
+impl VdSeparator {
+    pub fn precedence(self) -> VdPrecedence {
+        match self {
+            VdSeparator::Base(sep) => sep.precedence(),
+            VdSeparator::Composite(sep) => sep.precedence(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdBaseSeparator {
     Space,
@@ -25,4 +40,9 @@ impl VdBaseSeparator {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdCompositeSeparator {
     Call,
+}
+impl VdCompositeSeparator {
+    fn precedence(self) -> VdPrecedence {
+        todo!()
+    }
 }

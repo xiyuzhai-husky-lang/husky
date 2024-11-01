@@ -2,8 +2,8 @@
 pub struct VdPrecedence(u64);
 
 impl VdPrecedence {
-    pub const APPLICATION: Self = VdPrecedence(0);
-    pub const SPACE: Self = VdPrecedence(0);
+    pub const APPLICATION: Self = VdPrecedence(1);
+    pub const SPACE: Self = VdPrecedence(1);
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

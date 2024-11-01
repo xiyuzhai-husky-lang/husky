@@ -56,6 +56,7 @@ impl VdSynExprExample {
         let mut token_storage = LxTokenStorage::default();
         let asts =
             parse_latex_input_into_asts(db, input, root_mode, &mut token_storage, &mut ast_arena);
+        let whole_token_range = token_storage.whole_token_idx_range();
         let ast_token_idx_range_map = calc_ast_token_idx_range_map(db, &ast_arena);
         let annotations = VdAnnotations::from_sparse(
             input,
@@ -70,8 +71,10 @@ impl VdSynExprExample {
             &ast_token_idx_range_map,
             &annotations,
         );
-        let result = asts.to_vd_syn(&mut builder);
+        let result = (whole_token_range, asts).to_vd_syn(&mut builder);
+        todo!();
         let (expr_arena, phrase_arena, clause_arena, sentence_arena) = builder.finish();
+        todo!();
         let (expr_range_map, phrase_range_map, clause_range_map, sentence_range_map) =
             calc_expr_range_map(
                 db,
@@ -93,10 +96,10 @@ impl VdSynExprExample {
             phrase_arena,
             clause_arena,
             sentence_arena,
-            expr_range_map: todo!(),
-            phrase_range_map: todo!(),
-            clause_range_map: todo!(),
-            sentence_range_map: todo!(),
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
         }
     }
 

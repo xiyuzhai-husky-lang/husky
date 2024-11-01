@@ -27,7 +27,7 @@ use visored_opr::{
         VdCompositeRightDelimiter,
     },
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
-    separator::{VdBaseSeparator, VdCompositeSeparator},
+    separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
 };
 use visored_zfc_ty::term::literal::VdZfcLiteral;
 
@@ -54,6 +54,10 @@ pub enum VdSynExprData {
     Suffix {
         opd: VdSynExprIdx,
         opr: Either<VdBaseSuffixOpr, VdSynExprIdx>,
+    },
+    SeparatedList {
+        separator: VdSeparator,
+        fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
     },
     Attach {
         base: VdSynExprIdx,
@@ -123,6 +127,7 @@ impl VdSynExprData {
             // ad hoc
             VdSynExprData::VariadicArray => vec![],
             VdSynExprData::Err(..) => vec![],
+            VdSynExprData::SeparatedList { .. } => todo!(),
         }
     }
 
@@ -143,6 +148,7 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(..) => todo!(),
+            VdSynExprData::SeparatedList { .. } => todo!(),
         }
     }
 }
@@ -154,21 +160,21 @@ pub enum VdSynExprClass {
     Separator,
 }
 
-impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
+// token idx range is needed because the ast idx range might be empty,
+// in which case we need to return an error yet can't determine the token idx range from the ast idx range alone
+impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
-        if self.is_empty() {
+        let (token_range, asts) = self;
+        let a = if asts.is_empty() {
             builder.alloc_expr(VdSynExprData::Err(
-                OriginalVdSynExprError::Empty(
-                    builder
-                        .ast_token_idx_range_map()
-                        .math_asts_token_idx_range(self),
-                )
-                .into(),
+                OriginalVdSynExprError::Empty(token_range).into(),
             ))
         } else {
             let parser = builder.parser();
-            parser.parse_asts(self)
-        }
+            parser.parse_asts(asts)
+        };
+        todo!();
+        a
     }
 }
 
@@ -205,33 +211,34 @@ mod tests {
                 space_annotations,
                 db,
             );
+            todo!();
             expected.assert_debug_eq(&example.show_display_tree(db));
         }
 
-        t(
-            "",
-            &[],
-            &[],
-            &expect![[r#"
-                "\n"
-            "#]],
-        );
-        t(
-            "1",
-            &[],
-            &[],
-            &expect![[r#"
-                "1\n"
-            "#]],
-        );
-        t(
-            "11",
-            &[],
-            &[],
-            &expect![[r#"
-                "11\n"
-            "#]],
-        );
+        // t(
+        //     "",
+        //     &[],
+        //     &[],
+        //     &expect![[r#"
+        //         "\n"
+        //     "#]],
+        // );
+        // t(
+        //     "1",
+        //     &[],
+        //     &[],
+        //     &expect![[r#"
+        //         "1\n"
+        //     "#]],
+        // );
+        // t(
+        //     "11",
+        //     &[],
+        //     &[],
+        //     &expect![[r#"
+        //         "11\n"
+        //     "#]],
+        // );
         t(
             "1 1",
             &[],

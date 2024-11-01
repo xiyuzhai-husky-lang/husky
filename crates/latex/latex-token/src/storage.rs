@@ -55,6 +55,7 @@ impl LxTokenStorage {
         LxTokenIdxRange::new(0..self.ranged_tokens.len())
     }
 
+    #[track_caller]
     pub fn token_offset_range(
         &self,
         token_idx: impl std::borrow::Borrow<LxTokenIdx>,
@@ -63,9 +64,9 @@ impl LxTokenStorage {
     }
 
     pub fn token_idx_range_offset_range(&self, range: LxTokenIdxRange) -> (usize, usize) {
-        let first = self.token_offset_range(range.start());
         match range.last() {
             Some(last) => {
+                let first = self.token_offset_range(range.start());
                 let last = self.token_offset_range(last);
                 (first.0, last.1)
             }

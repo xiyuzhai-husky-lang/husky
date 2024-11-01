@@ -142,16 +142,3 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         )
     }
 }
-
-// impl<'db> VdSynExprBuilder<'db> {
-//     pub fn display_tree(&self) -> DisplayTree {
-//         let display_tree_builder = LxAstDisplayTreeBuilder::new(
-//             self.db,
-//             self.input,
-//             self.token_storage,
-//             self.ast_arena,
-//             self.ast_token_idx_range_map,
-//         );
-//         display_tree_builder.render_all(self.expr_range_map.keys())
-//     }
-// }

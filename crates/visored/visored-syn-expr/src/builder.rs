@@ -14,7 +14,7 @@ use latex_ast::{
     ast::{LxAstArena, LxAstArenaRef, LxAstIdxRange},
     range::LxAstTokenIdxRangeMap,
 };
-use latex_token::storage::LxTokenStorage;
+use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
 
 pub(crate) struct VdSynExprBuilder<'db> {
@@ -125,11 +125,12 @@ pub trait ToVdSyn<T> {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> T;
 }
 
-impl ToVdSyn<Either<VdSynExprIdx, ()>> for LxAstIdxRange {
+impl ToVdSyn<Either<VdSynExprIdx, ()>> for (LxTokenIdxRange, LxAstIdxRange) {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, ()> {
-        match self {
-            LxAstIdxRange::Math(slf) => Either::Left(slf.to_vd_syn(builder)),
-            LxAstIdxRange::Rose(slf) => Either::Right(todo!()),
+        let (token_range, asts) = self;
+        match asts {
+            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
+            LxAstIdxRange::Rose(asts) => Either::Right(todo!()),
         }
     }
 }

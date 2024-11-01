@@ -37,6 +37,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         end: LxMathAstIdx,
     ) -> DisambiguatedToken {
         let ast_data = &self.builder.ast_arena()[*next];
+        *next += 1;
         match *ast_data {
             LxMathAstData::Letter(lx_math_token_idx, lx_math_letter) => {
                 DisambiguatedToken::Letter(lx_math_token_idx, lx_math_letter)
