@@ -216,33 +216,13 @@ mod tests {
                 space_annotations,
                 db,
             );
-            expected.assert_eq(&example.show_display_tree(db));
+            // needs to trim to avoid expect test bug
+            expected.assert_eq(&example.show_display_tree(db).trim_end_matches('\n'));
         }
 
-        t(
-            "",
-            &[],
-            &[],
-            &expect![[r#"
-
-            "#]],
-        );
-        t(
-            "1",
-            &[],
-            &[],
-            &expect![[r#"
-                1
-            "#]],
-        );
-        t(
-            "11",
-            &[],
-            &[],
-            &expect![[r#"
-                11
-            "#]],
-        );
+        t("", &[], &[], &expect![""]);
+        t("1", &[], &[], &expect!["1"]);
+        t("11", &[], &[], &expect!["11"]);
         t(
             "1 1",
             &[],
@@ -250,8 +230,7 @@ mod tests {
             &expect![[r#"
                 1 1
                 ├─ 1
-                └─ 1
-            "#]],
+                └─ 1"#]],
         );
     }
 }
