@@ -1,7 +1,7 @@
 #![feature(nonzero_ops)]
 use std::{
     num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8, NonZeroUsize},
-    ops::{Add, AddAssign, Sub},
+    ops::{Add, AddAssign, Sub, SubAssign},
 };
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -88,6 +88,13 @@ impl ShiftedU32 {
     }
 }
 
+impl From<i32> for ShiftedU32 {
+    fn from(value: i32) -> Self {
+        let value: u32 = value.try_into().unwrap();
+        ShiftedU32::from(value)
+    }
+}
+
 impl From<u32> for ShiftedU32 {
     fn from(value: u32) -> Self {
         debug_assert!(value + 1 < u32::MAX as u32);
@@ -120,12 +127,6 @@ impl ShiftedU32 {
     }
 }
 
-impl AddAssign<u32> for ShiftedU32 {
-    fn add_assign(&mut self, rhs: u32) {
-        self.0 = unsafe { NonZeroU32::new_unchecked(self.0.get() + rhs) }
-    }
-}
-
 impl Add<u32> for ShiftedU32 {
     type Output = Self;
 
@@ -153,6 +154,46 @@ impl Sub<usize> for ShiftedU32 {
             .checked_sub(rhs as u32)
             .expect("Subtraction overflow");
         ShiftedU32(NonZeroU32::new(result).expect("Result of subtraction is zero"))
+    }
+}
+
+impl Sub<u32> for ShiftedU32 {
+    type Output = Self;
+    fn sub(self, rhs: u32) -> Self::Output {
+        self.checked_sub(rhs).unwrap()
+    }
+}
+
+impl Sub<i32> for ShiftedU32 {
+    type Output = Self;
+    fn sub(self, rhs: i32) -> Self::Output {
+        self.checked_sub(rhs.try_into().unwrap()).unwrap()
+    }
+}
+
+impl AddAssign<u32> for ShiftedU32 {
+    fn add_assign(&mut self, rhs: u32) {
+        self.0 = unsafe { NonZeroU32::new_unchecked(self.0.get() + rhs) }
+    }
+}
+
+impl AddAssign<usize> for ShiftedU32 {
+    fn add_assign(&mut self, rhs: usize) {
+        let rhs: u32 = rhs.try_into().unwrap();
+        *self += rhs
+    }
+}
+
+impl SubAssign<u32> for ShiftedU32 {
+    fn sub_assign(&mut self, rhs: u32) {
+        *self = *self - rhs;
+    }
+}
+
+impl SubAssign<usize> for ShiftedU32 {
+    fn sub_assign(&mut self, rhs: usize) {
+        let rhs: u32 = rhs.try_into().unwrap();
+        *self -= rhs;
     }
 }
 

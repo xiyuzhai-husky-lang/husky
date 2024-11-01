@@ -19,7 +19,7 @@ pub enum LxRoseTokenData {
 }
 
 impl<'a> LxLexer<'a> {
-    pub(super) fn next_text_token_data(&mut self) -> Option<LxRoseTokenData> {
+    pub(crate) fn next_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
@@ -64,8 +64,11 @@ impl<'a> LxLexer<'a> {
 fn next_text_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
-        let lexer = LxLexer::new(db, input, LxMode::Rose);
-        let tokens: Vec<_> = lexer.map(|(_, _, _, token_data)| token_data).collect();
+        let mut storage = LxTokenStorage::default();
+        let mut stream = LxLexer::new(db, input, &mut storage)
+            .into_rose_stream()
+            .map(|(_, token_data)| token_data);
+        let mut tokens: Vec<_> = stream.collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }
     t(
@@ -96,9 +99,7 @@ fn next_text_token_data_works() {
         "\n\n",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::NewParagraph,
-                ),
+                LxRoseTokenData::NewParagraph,
             ]
         "#]],
     );
@@ -106,11 +107,9 @@ fn next_text_token_data_works() {
         "hello",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Word(
-                        Coword(
-                            "hello",
-                        ),
+                LxRoseTokenData::Word(
+                    Coword(
+                        "hello",
                     ),
                 ),
             ]
@@ -120,10 +119,8 @@ fn next_text_token_data_works() {
         "0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -132,10 +129,8 @@ fn next_text_token_data_works() {
         " 0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -144,15 +139,11 @@ fn next_text_token_data_works() {
         "0 0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -161,15 +152,11 @@ fn next_text_token_data_works() {
         "0\n0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -178,15 +165,11 @@ fn next_text_token_data_works() {
         "0  0",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
-                LxTokenData::Rose(
-                    LxRoseTokenData::Nat32(
-                        0,
-                    ),
+                LxRoseTokenData::Nat32(
+                    0,
                 ),
             ]
         "#]],
@@ -195,12 +178,10 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Command(
-                        LxCommandPath::Coword(
-                            Coword(
-                                "emph",
-                            ),
+                LxRoseTokenData::Command(
+                    LxCommandPath::Coword(
+                        Coword(
+                            "emph",
                         ),
                     ),
                 ),
@@ -211,12 +192,10 @@ fn next_text_token_data_works() {
         "\\emph",
         &expect![[r#"
             [
-                LxTokenData::Rose(
-                    LxRoseTokenData::Command(
-                        LxCommandPath::Coword(
-                            Coword(
-                                "emph",
-                            ),
+                LxRoseTokenData::Command(
+                    LxCommandPath::Coword(
+                        Coword(
+                            "emph",
                         ),
                     ),
                 ),

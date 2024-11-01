@@ -11,7 +11,7 @@ use husky_token_data::delimiter::Delimiter;
 /// ```
 /// in the above `c + d` would be the finished expression, `a +`, `b *` and `(c + d` would be unfinished expressions.
 #[derive(Default, Debug)]
-pub(crate) struct ExprStack {
+pub(crate) struct SynExprStack {
     incomplete_exprs: Vec<(IncompleteSynExprData, Precedence)>,
     complete_expr: Option<SynExprData>,
 }
@@ -48,7 +48,7 @@ impl From<IncompleteSynExprData> for TopSynExpr {
     }
 }
 
-impl ExprStack {
+impl SynExprStack {
     pub(super) fn prev_unfinished_expr_precedence(&self) -> Option<Precedence> {
         self.incomplete_exprs
             .last()

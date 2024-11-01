@@ -3,13 +3,13 @@ pub mod application;
 use crate::*;
 use application::VdHirApplicationFunction;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData, VdSemExprIdx};
-use visored_zfs_ty::term::literal::VdZfsLiteral;
+use visored_zfc_ty::term::literal::VdZfcLiteral;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdHirExprData {
-    Literal(VdZfsLiteral),
+    Literal(VdZfcLiteral),
     Variable(VdHirVariable),
     Application {
         function: VdHirApplicationFunction,

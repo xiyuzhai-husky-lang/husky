@@ -36,6 +36,7 @@ husky-token-data.workspace = true
 husky-token.workspace = true
 husky-regional-token.workspace = true
 # protocol
+husky-text-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # semantics
 husky-sem-opr.workspace = true
