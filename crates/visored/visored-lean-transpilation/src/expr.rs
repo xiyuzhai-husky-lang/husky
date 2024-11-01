@@ -4,7 +4,7 @@ use lean_hir_expr::expr::{LnHirExprData, LnHirExprIdx};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::term::literal::{LnLiteral, LnLiteralData};
 use visored_hir_expr::expr::{application::VdHirApplicationFunction, VdHirExprData, VdHirExprIdx};
-use visored_zfs_ty::term::literal::{VdZfsLiteral, VdZfsLiteralData};
+use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 impl ToLean for VdHirExprIdx {
     type Target = LnHirExprIdx;
@@ -51,14 +51,14 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
 }
 
 #[salsa::tracked]
-fn to_lean_literal(db: &salsa::Db, literal: VdZfsLiteral) -> LnLiteral {
+fn to_lean_literal(db: &salsa::Db, literal: VdZfcLiteral) -> LnLiteral {
     let data = match literal.data(db) {
-        VdZfsLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
-        VdZfsLiteralData::NegativeInteger(_) => todo!(),
-        VdZfsLiteralData::FiniteDecimalRepresentation(_) => {
+        VdZfcLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
+        VdZfcLiteralData::NegativeInteger(_) => todo!(),
+        VdZfcLiteralData::FiniteDecimalRepresentation(_) => {
             todo!()
         }
-        VdZfsLiteralData::SpecialConstant(vd_zfs_special_constant) => todo!(),
+        VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
     };
     LnLiteral::new(data, db)
 }

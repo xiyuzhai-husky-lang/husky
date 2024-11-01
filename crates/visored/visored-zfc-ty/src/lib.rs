@@ -4,4 +4,4 @@ pub mod refinement;
 pub mod term;
 pub mod ty;
 
-use self::jar::VdZfsTypeJar as Jar;
+use self::jar::VdZfcTypeJar as Jar;

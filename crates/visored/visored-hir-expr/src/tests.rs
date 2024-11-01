@@ -3,7 +3,7 @@ use visored_sem_expr::{
     expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch, VdSemExprData},
     test_helpers::builder::VdSemExprTestBuilder,
 };
-use visored_zfs_ty::menu::vd_zfs_ty_menu;
+use visored_zfc_ty::menu::vd_zfc_ty_menu;
 
 use crate::{builder::VdHirExprBuilder, ToVdHir};
 
@@ -11,7 +11,7 @@ use crate::{builder::VdHirExprBuilder, ToVdHir};
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
-    visored_zfs_ty::jar::VdZfsTypeJar,
+    visored_zfc_ty::jar::VdZfcTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
     visored_syn_expr::jar::VdSynExprJar,
@@ -22,7 +22,7 @@ pub(crate) struct DB {}
 #[test]
 fn to_hir_works() {
     let db = &DB::default();
-    let menu = vd_zfs_ty_menu(db);
+    let menu = vd_zfc_ty_menu(db);
     let mut builder = VdSemExprTestBuilder::new(db);
     let one = builder.new_expr_checked(
         VdSemExprData::Literal {

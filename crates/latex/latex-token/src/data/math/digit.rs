@@ -14,6 +14,22 @@ pub enum LxMathDigit {
     Eight,
     Nine,
 }
+impl LxMathDigit {
+    pub fn char(&self) -> char {
+        match self {
+            LxMathDigit::Zero => '0',
+            LxMathDigit::One => '1',
+            LxMathDigit::Two => '2',
+            LxMathDigit::Three => '3',
+            LxMathDigit::Four => '4',
+            LxMathDigit::Five => '5',
+            LxMathDigit::Six => '6',
+            LxMathDigit::Seven => '7',
+            LxMathDigit::Eight => '8',
+            LxMathDigit::Nine => '9',
+        }
+    }
+}
 
 impl TryFrom<char> for LxMathDigit {
     type Error = ();

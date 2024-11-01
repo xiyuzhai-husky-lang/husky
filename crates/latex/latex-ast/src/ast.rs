@@ -52,6 +52,22 @@ pub struct LxAstArenaRef<'a> {
     rose: LxRoseAstArenaRef<'a>,
 }
 
+impl<'a> std::ops::Index<LxMathAstIdx> for LxAstArenaRef<'a> {
+    type Output = LxMathAstData;
+
+    fn index(&self, index: LxMathAstIdx) -> &Self::Output {
+        &self.math[index]
+    }
+}
+
+impl<'a> std::ops::Index<LxRoseAstIdx> for LxAstArenaRef<'a> {
+    type Output = LxRoseAstData;
+
+    fn index(&self, index: LxRoseAstIdx) -> &Self::Output {
+        &self.rose[index]
+    }
+}
+
 impl<'a> LxAstArenaRef<'a> {
     pub fn math(&self) -> LxMathAstArenaRef<'a> {
         self.math

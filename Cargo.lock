@@ -12534,7 +12534,7 @@ dependencies = [
  "visored-opr",
  "visored-sem-expr",
  "visored-syn-expr",
- "visored-zfs-ty",
+ "visored-zfc-ty",
 ]
 
 [[package]]
@@ -12561,7 +12561,7 @@ dependencies = [
  "visored-opr",
  "visored-sem-expr",
  "visored-syn-expr",
- "visored-zfs-ty",
+ "visored-zfc-ty",
 ]
 
 [[package]]
@@ -12593,7 +12593,7 @@ dependencies = [
  "visored-opr",
  "visored-sem-expr",
  "visored-syn-expr",
- "visored-zfs-ty",
+ "visored-zfc-ty",
 ]
 
 [[package]]
@@ -12608,6 +12608,7 @@ dependencies = [
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-math-letter",
  "latex-prelude",
  "latex-token",
  "salsa",
@@ -12616,11 +12617,11 @@ dependencies = [
  "visored-annotation",
  "visored-opr",
  "visored-syn-expr",
- "visored-zfs-ty",
+ "visored-zfc-ty",
 ]
 
 [[package]]
-name = "visored-zfs-ty"
+name = "visored-zfc-ty"
 version = "0.1.0"
 dependencies = [
  "enum-class",

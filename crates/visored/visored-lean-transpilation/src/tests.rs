@@ -4,7 +4,7 @@ use visored_sem_expr::{
     expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch, VdSemExprData},
     test_helpers::builder::VdSemExprTestBuilder,
 };
-use visored_zfs_ty::menu::vd_zfs_ty_menu;
+use visored_zfc_ty::menu::vd_zfc_ty_menu;
 
 use crate::{builder::VdLeanTranspilationBuilder, ToLean};
 
@@ -15,7 +15,7 @@ use crate::{builder::VdLeanTranspilationBuilder, ToLean};
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
     lean_hir_expr::jar::LnHirExprJar,
-    visored_zfs_ty::jar::VdZfsTypeJar,
+    visored_zfc_ty::jar::VdZfcTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
     visored_hir_expr::jar::VdHirExprJar,
@@ -27,7 +27,7 @@ pub(crate) struct DB {}
 #[test]
 fn one_add_one_to_lean_works() {
     let db = &DB::default();
-    let menu = vd_zfs_ty_menu(db);
+    let menu = vd_zfc_ty_menu(db);
     let mut builder = VdSemExprTestBuilder::new(db);
     let one = builder.new_expr_checked(
         VdSemExprData::Literal {
@@ -59,7 +59,7 @@ fn one_add_one_to_lean_works() {
 #[test]
 fn one_add_one_eqs_two_to_lean_works() {
     let db = &DB::default();
-    let menu = vd_zfs_ty_menu(db);
+    let menu = vd_zfc_ty_menu(db);
     let mut builder = VdSemExprTestBuilder::new(db);
     let one = builder.new_expr_checked(
         VdSemExprData::Literal {
