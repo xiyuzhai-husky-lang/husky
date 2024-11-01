@@ -8,7 +8,7 @@ mod tests;
 use self::jar::*;
 #[cfg(test)]
 use self::tests::*;
-use husky_text_protocol::{line_map::*, position::TextLine, range::*};
+use husky_text_protocol::{line_map::*, offset::OffsetRange, position::TextLine, range::*};
 use husky_vfs::path::module_path::ModulePath;
 use line_map::module_text_line_map;
 
@@ -50,7 +50,7 @@ impl<'a> std::fmt::Debug for Text<'a> {
 }
 
 impl<'a> Text<'a> {
-    pub fn offset_range(self, range: TextRange) -> std::ops::Range<usize> {
+    pub fn offset_range(self, range: TextRange) -> OffsetRange {
         self.line_map.offset_range(range)
     }
 }
