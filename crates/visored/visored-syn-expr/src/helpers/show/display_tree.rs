@@ -9,6 +9,7 @@ use crate::{
     },
     sentence::VdSynSentenceArenaRef,
 };
+use husky_text_protocol::offset::TextOffsetRange;
 use husky_tree_utils::display::DisplayTree;
 #[cfg(feature = "test_helpers")]
 use latex_ast::test_helpers::example::LxAstExample;
@@ -89,56 +90,52 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     pub fn render_expr(&self, expr: VdSynExprIdx) -> DisplayTree {
         let expr_range = self.expr_range_map[expr];
-        let (start, end) = match expr_range {
+        let offset_range = match expr_range {
             VdSynExprTokenIdxRange::Standard(token_idx_range) => self
                 .token_storage
                 .token_idx_range_offset_range(token_idx_range),
         };
-        let value = format!("{:?}", &self.input[start..end]);
+        let value = format!("{:?}", &self.input[offset_range]);
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }
 
-    fn ast_offset_range(&self, ast: LxAstIdx) -> (usize, usize) {
+    fn ast_offset_range(&self, ast: LxAstIdx) -> TextOffsetRange {
         match ast {
             LxAstIdx::Math(ast) => self.math_ast_offset_range(ast),
             LxAstIdx::Rose(ast) => self.rose_ast_offset_range(ast),
         }
     }
 
-    fn math_ast_offset_range(&self, ast: LxMathAstIdx) -> (usize, usize) {
+    fn math_ast_offset_range(&self, ast: LxMathAstIdx) -> TextOffsetRange {
         let range = self.ast_token_idx_range_map[ast];
         self.token_storage.token_idx_range_offset_range(range)
     }
 
-    fn rose_ast_offset_range(&self, ast: LxRoseAstIdx) -> (usize, usize) {
+    fn rose_ast_offset_range(&self, ast: LxRoseAstIdx) -> TextOffsetRange {
         let range = self.ast_token_idx_range_map[ast];
         self.token_storage.token_idx_range_offset_range(range)
     }
 
-    fn asts_offset_range(&self, asts: LxAstIdxRange) -> (usize, usize) {
+    fn asts_offset_range(&self, asts: LxAstIdxRange) -> TextOffsetRange {
         match asts {
             LxAstIdxRange::Math(asts) => self.math_asts_offset_range(asts),
             LxAstIdxRange::Rose(asts) => self.rose_asts_offset_range(asts),
         }
     }
 
-    fn math_asts_offset_range(&self, asts: LxMathAstIdxRange) -> (usize, usize) {
+    fn math_asts_offset_range(&self, asts: LxMathAstIdxRange) -> TextOffsetRange {
         let first = asts.start();
         let Some(last) = asts.last() else {
-            return (0, 0);
+            return (0..0).into();
         };
-        (
-            self.math_ast_offset_range(first).0,
-            self.math_ast_offset_range(last).1,
-        )
+        self.math_ast_offset_range(first)
+            .join(self.math_ast_offset_range(last))
     }
 
-    fn rose_asts_offset_range(&self, asts: LxRoseAstIdxRange) -> (usize, usize) {
+    fn rose_asts_offset_range(&self, asts: LxRoseAstIdxRange) -> TextOffsetRange {
         let first = asts.start();
         let Some(last) = asts.last() else { todo!() };
-        (
-            self.rose_ast_offset_range(first).0,
-            self.rose_ast_offset_range(last).1,
-        )
+        self.rose_ast_offset_range(first)
+            .join(self.rose_ast_offset_range(last))
     }
 }

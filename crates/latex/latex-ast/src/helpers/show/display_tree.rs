@@ -63,10 +63,10 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
     fn render_math_ast(&self, ast: LxMathAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
-        let (start, end) = self
+        let offset_range = self
             .token_storage
             .token_idx_range_offset_range(ast_token_idx_range);
-        let value = self.input[start..end].to_string();
+        let value = self.input[offset_range].to_string();
         DisplayTree::new(
             value,
             self.render_math_asts(self.ast_arena.math()[ast].children()),

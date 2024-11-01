@@ -24,6 +24,8 @@ latex-math-letter.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
+# protocols
+husky-text-protocol.workspace = true
 # utils
 husky-print-utils.workspace = true
 husky-tree-utils.workspace = true

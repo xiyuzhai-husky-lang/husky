@@ -340,7 +340,6 @@ husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }
 husky-token = { path = "crates/lex/husky-token" }
 husky-text = { path = "crates/lex/husky-text" }
-husky-text-span = { path = "crates/lex/husky-text-span" }
 # linket
 husky-javelin = { path = "crates/linket/husky-javelin" }
 husky-linket = { path = "crates/linket/husky-linket" }
