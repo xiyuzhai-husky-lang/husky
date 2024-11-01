@@ -1,9 +1,9 @@
 use crate::precedence::VdPrecedenceRange;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub enum VdSuffixOpr {}
+pub enum VdBaseSuffixOpr {}
 
-impl VdSuffixOpr {
+impl VdBaseSuffixOpr {
     pub fn fmt_str(self) -> &'static str {
         todo!()
     }
@@ -12,3 +12,6 @@ impl VdSuffixOpr {
         todo!()
     }
 }
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+pub enum VdCompositeSuffixOpr {}

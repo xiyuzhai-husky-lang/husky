@@ -119,7 +119,7 @@ ena = "0.14.2"
 env_logger = "0.10"
 env_proxy = "0.4"
 epaint = { git = "https://github.com/xiyuzhai-husky-lang/egui.git" }
-expect-test = "1.4.1"
+expect-test = "1.5.0"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
     "sink",
@@ -152,6 +152,7 @@ parking_lot = "0.12.1"
 paste = "1.0.6"
 pathdiff = "0.2.1"
 proc-macro2 = "1.0.86"
+ptree = "0.5.0"
 pyo3 = "0.22.3"
 quote = "1.0.37"
 rand = "0.8.4"
@@ -315,14 +316,12 @@ husky-ki = { path = "crates/ki/husky-ki" }
 husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 # latex
-latex-annotation = { path = "crates/latex/latex-annotation" }
 latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
 latex-math-opr = { path = "crates/latex/latex-math-opr" }
 latex-prelude = { path = "crates/latex/latex-prelude" }
 latex-sem-expr = { path = "crates/latex/latex-sem-expr" }
-latex-syn-expr = { path = "crates/latex/latex-syn-expr" }
 latex-text = { path = "crates/latex/latex-text" }
 latex-token = { path = "crates/latex/latex-token" }
 # lean
@@ -415,6 +414,7 @@ husky-screen-utils = { path = "crates/utils/husky-screen-utils" }
 husky-sha-utils = { path = "crates/utils/husky-sha-utils" }
 husky-sync-utils = { path = "crates/utils/husky-sync-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
+husky-tree-utils = { path = "crates/utils/husky-tree-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
@@ -427,13 +427,15 @@ husky-standard-value = { path = "crates/value/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
 husky-virtual-value = { path = "crates/value/husky-virtual-value" }
 # visored
+visored-annotation = { path = "crates/visored/visored-annotation" }
 visored-coword = { path = "crates/visored/visored-coword" }
 visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
+visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }
-visored-zfs-ty = { path = "crates/visored/visored-zfs-ty" }
+visored-zfc-ty = { path = "crates/visored/visored-zfc-ty" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir

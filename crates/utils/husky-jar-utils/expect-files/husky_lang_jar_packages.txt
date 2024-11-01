@@ -1265,6 +1265,8 @@
         name: "latex-ast",
         dependencies: [
             "husky-coword",
+            "latex-command",
+            "latex-command",
         ],
     },
     JarPackageSummary {
@@ -1305,13 +1307,14 @@
         dependencies: [],
     },
     JarPackageSummary {
-        name: "visored-hir-expr",
+        name: "visored-sem-expr",
         dependencies: [
             "visored-opr",
-            "visored-sem-expr",
-            "visored-zfs-ty",
+            "visored-syn-expr",
+            "visored-zfc-ty",
             "husky-coword",
-            "visored-sem-expr",
+            "latex-ast",
+            "latex-command",
         ],
     },
     JarPackageSummary {
@@ -1319,16 +1322,31 @@
         dependencies: [],
     },
     JarPackageSummary {
-        name: "visored-sem-expr",
+        name: "visored-syn-expr",
         dependencies: [
+            "latex-ast",
             "visored-opr",
-            "visored-zfs-ty",
+            "visored-zfc-ty",
             "husky-coword",
+            "latex-command",
         ],
     },
     JarPackageSummary {
-        name: "visored-zfs-ty",
+        name: "visored-zfc-ty",
         dependencies: [],
+    },
+    JarPackageSummary {
+        name: "visored-hir-expr",
+        dependencies: [
+            "visored-opr",
+            "visored-sem-expr",
+            "visored-zfc-ty",
+            "husky-coword",
+            "latex-ast",
+            "latex-command",
+            "visored-sem-expr",
+            "visored-syn-expr",
+        ],
     },
     JarPackageSummary {
         name: "visored-lean-transpilation",
@@ -1337,11 +1355,14 @@
             "lean-term",
             "visored-hir-expr",
             "visored-opr",
-            "visored-zfs-ty",
+            "visored-zfc-ty",
             "husky-coword",
+            "latex-ast",
+            "latex-command",
             "lean-sem-expr",
             "lean-term",
             "visored-sem-expr",
+            "visored-syn-expr",
         ],
     },
 ]

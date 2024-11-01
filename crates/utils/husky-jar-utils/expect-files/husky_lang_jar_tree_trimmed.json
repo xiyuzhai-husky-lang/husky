@@ -170,7 +170,7 @@
     "husky-ki-repr"
   ],
   "latex-ast": [
-    "husky-coword"
+    "latex-command"
   ],
   "latex-command": [
     "husky-coword"
@@ -191,9 +191,12 @@
   ],
   "visored-opr": [],
   "visored-sem-expr": [
-    "husky-coword",
-    "visored-opr",
-    "visored-zfs-ty"
+    "visored-syn-expr"
   ],
-  "visored-zfs-ty": []
+  "visored-syn-expr": [
+    "latex-ast",
+    "visored-opr",
+    "visored-zfc-ty"
+  ],
+  "visored-zfc-ty": []
 }
