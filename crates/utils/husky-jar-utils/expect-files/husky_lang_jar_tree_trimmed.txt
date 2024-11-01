@@ -170,7 +170,7 @@
         "husky-ki-repr",
     },
     "latex-ast": {
-        "husky-coword",
+        "latex-command",
     },
     "latex-command": {
         "husky-coword",

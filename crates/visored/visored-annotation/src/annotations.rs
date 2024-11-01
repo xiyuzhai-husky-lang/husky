@@ -1,8 +1,12 @@
 mod builder;
 pub mod walker;
 
-use crate::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
+use crate::{
+    annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
+    *,
+};
 use builder::sparce::collect_from_sparse_annotations;
+use latex_token::storage::LxTokenStorage;
 use walker::VdAnnotationsWalker;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -25,6 +29,7 @@ impl VdAnnotations {
     pub fn new(
         token_annotations: Vec<VdTokenAnnotationEntry>,
         space_annotations: Vec<VdSpaceAnnotationEntry>,
+        token_storage: &LxTokenStorage,
     ) -> Self {
         Self {
             token_annotations,
@@ -36,11 +41,13 @@ impl VdAnnotations {
         input: &'a str,
         token_annotations: impl IntoIterator<Item = ((&'a str, &'a str), VdTokenAnnotation)>,
         space_annotations: impl IntoIterator<Item = ((&'a str, &'a str), VdSpaceAnnotation)>,
+        token_storage: &LxTokenStorage,
     ) -> Self {
         collect_from_sparse_annotations(
             input,
             token_annotations.into_iter(),
             space_annotations.into_iter(),
+            token_storage,
         )
     }
 

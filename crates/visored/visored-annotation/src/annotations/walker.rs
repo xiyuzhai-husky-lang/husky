@@ -1,4 +1,4 @@
-use super::{VdAnnotationEntry, VdSpaceAnnotationEntry, VdTokenAnnotationEntry};
+use super::*;
 use crate::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 pub struct VdAnnotationsWalker<'a> {
@@ -75,6 +75,9 @@ fn next_annotation_aux<A: Copy + Default + std::fmt::Debug>(
 
 #[cfg(test)]
 mod tests {
+    use latex_ast::ast::{parse_latex_input_into_asts, LxAstArena};
+    use latex_prelude::mode::LxMode;
+
     use super::*;
     use crate::annotation::token::{LxIntegralAnnotation, LxVariableAnnotation, VdTokenAnnotation};
     use crate::{
@@ -83,6 +86,8 @@ mod tests {
     };
 
     fn setup_test_data() -> VdAnnotations {
+        let db = DB::default();
+
         let input = "\\int xdx".to_string();
 
         let token_annotations = vec![
@@ -110,10 +115,20 @@ mod tests {
             VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul),
         )];
 
+        let mut token_storage = LxTokenStorage::default();
+        let mut ast_arena = LxAstArena::default();
+        let asts = parse_latex_input_into_asts(
+            &db,
+            &input,
+            LxMode::Math,
+            &mut token_storage,
+            &mut ast_arena,
+        );
         VdAnnotations::from_sparse(
             &input,
             token_annotations.into_iter(),
             space_annotations.into_iter(),
+            &token_storage,
         )
     }
 

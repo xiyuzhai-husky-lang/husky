@@ -10,6 +10,7 @@ use crate::{builder::VdHirExprBuilder, ToVdHir};
 #[salsa::db(
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
+    latex_command::jar::LxCommandJar,
     visored_zfs_ty::jar::VdZfsTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,

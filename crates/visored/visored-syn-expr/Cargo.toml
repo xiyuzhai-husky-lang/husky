@@ -34,6 +34,8 @@ visored-zfs-ty.workspace = true
 expect-test.workspace = true
 # kernel
 husky-coword.workspace = true
+# latex
+latex-command.workspace = true
 # visored
 visored-syn-expr = { workspace = true, features = ["test_helpers"] }
 
