@@ -54,7 +54,7 @@ impl LxTokenIdx {
         Self(index.into())
     }
 
-    pub(crate) fn index(self) -> usize {
+    pub fn index(self) -> usize {
         self.0.index()
     }
 }

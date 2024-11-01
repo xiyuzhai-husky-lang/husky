@@ -5,7 +5,7 @@ use crate::{
     *,
 };
 use builder::sparce::collect_from_sparse_annotations;
-use latex_token::storage::LxTokenStorage;
+use latex_token::{idx::LxTokenIdx, storage::LxTokenStorage};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VdAnnotationRecord<A> {
@@ -63,6 +63,14 @@ impl VdAnnotations {
 
     pub fn space_annotation_records(&self) -> &[VdSpaceAnnotationRecord] {
         &self.space_annotation_records
+    }
+
+    pub fn token_annotation(&self, idx: LxTokenIdx) -> Option<VdTokenAnnotation> {
+        self.token_annotations[idx.index()]
+    }
+
+    pub fn preceding_space_annotation(&self, idx: LxTokenIdx) -> Option<VdSpaceAnnotation> {
+        self.space_annotations[idx.index()]
     }
 }
 
