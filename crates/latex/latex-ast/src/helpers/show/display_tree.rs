@@ -65,7 +65,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let (start, end) = self
             .token_storage
-            .math_token_idx_range_offset_range(ast_token_idx_range);
+            .token_idx_range_offset_range(ast_token_idx_range);
         let value = self.input[start..end].to_string();
         DisplayTree::new(
             value,

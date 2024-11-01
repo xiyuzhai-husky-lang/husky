@@ -94,7 +94,7 @@ where
         )
     }
 
-    pub fn nearest_left2(self) -> Seq<(Option2<(Idx, T)>)> {
+    pub fn nearest_left2(self) -> Seq<Option2<(Idx, T)>> {
         let ts = self.data();
         Seq::new(
             (0..ts.len())
@@ -128,7 +128,7 @@ where
 {
     (1..=i)
         .into_iter()
-        .filter_map(|j| ts[(i - j)].map(|t| (idx!(i - j), t)))
+        .filter_map(|j| ts[i - j].map(|t| (idx!(i - j), t)))
         .next()
 }
 
@@ -138,7 +138,7 @@ where
 {
     (1..=i)
         .into_iter()
-        .filter_map(|j| ts[(i - j)].map(|t| (idx!(i - j), t)))
+        .filter_map(|j| ts[i - j].map(|t| (idx!(i - j), t)))
         .collect()
 }
 

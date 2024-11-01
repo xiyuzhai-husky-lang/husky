@@ -1,6 +1,6 @@
 use latex_token::{
     data::math::{digit::LxMathDigit, LxMathDelimiter},
-    idx::math::LxMathTokenIdx,
+    idx::LxMathTokenIdx,
 };
 
 use super::*;

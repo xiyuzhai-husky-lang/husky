@@ -116,7 +116,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynExprAstRange::Ast(ast) => self.ast_offset_range(ast),
             VdSynExprAstRange::Asts(asts) => self.asts_offset_range(asts),
         };
-        let value = self.input[(start..end)].to_string();
+        let value = self.input[start..end].to_string();
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }
 
@@ -129,12 +129,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     fn math_ast_offset_range(&self, ast: LxMathAstIdx) -> (usize, usize) {
         let range = self.ast_token_idx_range_map[ast];
-        self.token_storage.math_token_idx_range_offset_range(range)
+        self.token_storage.token_idx_range_offset_range(range)
     }
 
     fn rose_ast_offset_range(&self, ast: LxRoseAstIdx) -> (usize, usize) {
         let range = self.ast_token_idx_range_map[ast];
-        self.token_storage.rose_token_idx_range_offset_range(range)
+        self.token_storage.token_idx_range_offset_range(range)
     }
 
     fn asts_offset_range(&self, asts: LxAstIdxRange) -> (usize, usize) {

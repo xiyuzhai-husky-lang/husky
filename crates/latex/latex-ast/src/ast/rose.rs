@@ -1,6 +1,6 @@
 //! means the prose mode
 use super::*;
-use latex_token::{data::rose::LxRoseTokenData, idx::rose::LxRoseTokenIdx};
+use latex_token::{data::rose::LxRoseTokenData, idx::LxRoseTokenIdx};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
