@@ -29,6 +29,7 @@ visored-syn-expr.workspace = true
 husky-coword.workspace = true
 # latex
 latex-ast.workspace = true
+latex-command.workspace = true
 # visored
 visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 

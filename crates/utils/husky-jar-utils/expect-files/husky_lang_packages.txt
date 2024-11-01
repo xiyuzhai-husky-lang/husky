@@ -3539,6 +3539,7 @@
             "husky-coword",
             "husky-tree-utils",
             "idx-arena",
+            "latex-command",
             "latex-math-letter",
             "latex-math-opr",
             "latex-prelude",
@@ -3547,6 +3548,7 @@
             "salsa",
             "time-capsule",
             "expect-test",
+            "latex-command",
         ],
     },
     PackageSummary {
@@ -3554,6 +3556,22 @@
         relative_path: "crates/utils/husky-tree-utils",
         dependencies: [
             "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "latex-command",
+        relative_path: "crates/latex/latex-command",
+        dependencies: [
+            "husky-coword",
+            "latex-prelude",
+            "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "latex-prelude",
+        relative_path: "crates/latex/latex-prelude",
+        dependencies: [
+            "salsa",
         ],
     },
     PackageSummary {
@@ -3565,13 +3583,6 @@
         name: "latex-math-opr",
         relative_path: "crates/latex/latex-math-opr",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "latex-prelude",
-        relative_path: "crates/latex/latex-prelude",
-        dependencies: [
-            "salsa",
-        ],
     },
     PackageSummary {
         name: "latex-token",
@@ -3588,15 +3599,6 @@
             "salsa",
             "shifted-unsigned-int",
             "expect-test",
-        ],
-    },
-    PackageSummary {
-        name: "latex-command",
-        relative_path: "crates/latex/latex-command",
-        dependencies: [
-            "husky-coword",
-            "latex-prelude",
-            "salsa",
         ],
     },
     PackageSummary {
@@ -4217,9 +4219,14 @@
         dependencies: [
             "enum-class",
             "husky-print-utils",
+            "latex-ast",
             "latex-prelude",
+            "latex-token",
             "lazy_static",
             "expect-test",
+            "husky-coword",
+            "latex-command",
+            "salsa",
             "visored-sem-expr",
         ],
     },
@@ -4237,6 +4244,7 @@
             "visored-zfs-ty",
             "husky-coword",
             "latex-ast",
+            "latex-command",
         ],
     },
     PackageSummary {
@@ -4265,6 +4273,7 @@
             "visored-zfs-ty",
             "expect-test",
             "husky-coword",
+            "latex-command",
         ],
     },
     PackageSummary {
@@ -4295,6 +4304,7 @@
             "visored-zfs-ty",
             "husky-coword",
             "latex-ast",
+            "latex-command",
             "visored-sem-expr",
             "visored-syn-expr",
         ],

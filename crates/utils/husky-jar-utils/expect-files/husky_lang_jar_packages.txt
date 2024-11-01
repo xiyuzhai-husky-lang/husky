@@ -1265,6 +1265,8 @@
         name: "latex-ast",
         dependencies: [
             "husky-coword",
+            "latex-command",
+            "latex-command",
         ],
     },
     JarPackageSummary {
@@ -1312,6 +1314,7 @@
             "visored-zfs-ty",
             "husky-coword",
             "latex-ast",
+            "latex-command",
         ],
     },
     JarPackageSummary {
@@ -1325,6 +1328,7 @@
             "visored-opr",
             "visored-zfs-ty",
             "husky-coword",
+            "latex-command",
         ],
     },
     JarPackageSummary {
@@ -1339,6 +1343,7 @@
             "visored-zfs-ty",
             "husky-coword",
             "latex-ast",
+            "latex-command",
             "visored-sem-expr",
             "visored-syn-expr",
         ],
