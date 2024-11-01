@@ -9,47 +9,47 @@ use shifted_unsigned_int::ShiftedU32;
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
 #[serde(transparent)]
-pub struct Offset(ShiftedU32);
+pub struct TextOffset(ShiftedU32);
 
-impl Offset {
+impl TextOffset {
     pub fn index(self) -> usize {
         self.0.index()
     }
 }
 
-impl From<i32> for Offset {
+impl From<i32> for TextOffset {
     fn from(raw: i32) -> Self {
-        Offset(ShiftedU32::from(raw))
+        TextOffset(ShiftedU32::from(raw))
     }
 }
 
-impl From<usize> for Offset {
+impl From<usize> for TextOffset {
     fn from(raw: usize) -> Self {
-        Offset(ShiftedU32::from(raw))
+        TextOffset(ShiftedU32::from(raw))
     }
 }
 
-impl From<u32> for Offset {
+impl From<u32> for TextOffset {
     fn from(raw: u32) -> Self {
-        Offset(ShiftedU32::from(raw))
+        TextOffset(ShiftedU32::from(raw))
     }
 }
 
-impl std::ops::Add<usize> for Offset {
-    type Output = Offset;
+impl std::ops::Add<usize> for TextOffset {
+    type Output = TextOffset;
 
     fn add(self, rhs: usize) -> Self::Output {
-        Offset(self.0 + rhs)
+        TextOffset(self.0 + rhs)
     }
 }
 
-impl std::ops::AddAssign<usize> for Offset {
+impl std::ops::AddAssign<usize> for TextOffset {
     fn add_assign(&mut self, rhs: usize) {
         self.0 += rhs;
     }
 }
 
-impl std::ops::Sub<Self> for Offset {
+impl std::ops::Sub<Self> for TextOffset {
     type Output = usize;
 
     fn sub(self, rhs: Self) -> Self::Output {
@@ -62,13 +62,13 @@ impl std::ops::Sub<Self> for Offset {
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
-pub struct OffsetRange {
-    start: Offset,
-    end: Offset,
+pub struct TextOffsetRange {
+    start: TextOffset,
+    end: TextOffset,
 }
 
-impl From<Range<Offset>> for OffsetRange {
-    fn from(range: Range<Offset>) -> Self {
+impl From<Range<TextOffset>> for TextOffsetRange {
+    fn from(range: Range<TextOffset>) -> Self {
         Self {
             start: range.start,
             end: range.end,
@@ -76,14 +76,14 @@ impl From<Range<Offset>> for OffsetRange {
     }
 }
 
-impl Into<Range<usize>> for OffsetRange {
+impl Into<Range<usize>> for TextOffsetRange {
     fn into(self) -> Range<usize> {
         self.raw()
     }
 }
 
-impl OffsetRange {
-    pub fn new(start: Offset, end: Offset) -> Self {
+impl TextOffsetRange {
+    pub fn new(start: TextOffset, end: TextOffset) -> Self {
         Self { start, end }
     }
 
@@ -92,12 +92,12 @@ impl OffsetRange {
     }
 }
 
-impl OffsetRange {
-    pub fn start(self) -> Offset {
+impl TextOffsetRange {
+    pub fn start(self) -> TextOffset {
         self.start
     }
 
-    pub fn end(self) -> Offset {
+    pub fn end(self) -> TextOffset {
         self.end
     }
 
@@ -106,30 +106,30 @@ impl OffsetRange {
     }
 }
 
-impl std::ops::Index<OffsetRange> for str {
+impl std::ops::Index<TextOffsetRange> for str {
     type Output = str;
 
-    fn index(&self, range: OffsetRange) -> &Self::Output {
+    fn index(&self, range: TextOffsetRange) -> &Self::Output {
         &self[range.start.index()..range.end.index()]
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, Serialize, Deserialize)]
 #[serde(transparent)]
-pub struct OffsetRangeFrom {
-    start: Offset,
+pub struct TextOffsetRangeFrom {
+    start: TextOffset,
 }
 
-impl From<RangeFrom<Offset>> for OffsetRangeFrom {
-    fn from(range: RangeFrom<Offset>) -> Self {
+impl From<RangeFrom<TextOffset>> for TextOffsetRangeFrom {
+    fn from(range: RangeFrom<TextOffset>) -> Self {
         Self { start: range.start }
     }
 }
 
-impl std::ops::Index<OffsetRangeFrom> for str {
+impl std::ops::Index<TextOffsetRangeFrom> for str {
     type Output = str;
 
-    fn index(&self, range: OffsetRangeFrom) -> &Self::Output {
+    fn index(&self, range: TextOffsetRangeFrom) -> &Self::Output {
         &self[range.start.index()..]
     }
 }
@@ -138,18 +138,18 @@ impl std::ops::Index<OffsetRangeFrom> for str {
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
 #[serde(transparent)]
-pub struct OffsetRangeTo {
-    end: Offset,
+pub struct TextOffsetRangeTo {
+    end: TextOffset,
 }
 
-impl From<RangeTo<Offset>> for OffsetRangeTo {
-    fn from(range: RangeTo<Offset>) -> Self {
+impl From<RangeTo<TextOffset>> for TextOffsetRangeTo {
+    fn from(range: RangeTo<TextOffset>) -> Self {
         Self { end: range.end }
     }
 }
 
-impl OffsetRangeTo {
-    pub fn end(self) -> Offset {
+impl TextOffsetRangeTo {
+    pub fn end(self) -> TextOffset {
         self.end
     }
 
@@ -158,10 +158,10 @@ impl OffsetRangeTo {
     }
 }
 
-impl std::ops::Index<OffsetRangeTo> for str {
+impl std::ops::Index<TextOffsetRangeTo> for str {
     type Output = str;
 
-    fn index(&self, range: OffsetRangeTo) -> &Self::Output {
+    fn index(&self, range: TextOffsetRangeTo) -> &Self::Output {
         &self[range.raw()]
     }
 }
