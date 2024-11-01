@@ -9,7 +9,7 @@ use crate::{
 use latex_prelude::mode::LxMode;
 use latex_token::{
     data::{math::LxMathTokenData, rose::LxRoseTokenData},
-    idx::{math::LxMathTokenIdx, rose::LxRoseTokenIdx},
+    idx::{LxMathTokenIdx, LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
 };
