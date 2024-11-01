@@ -1358,6 +1358,7 @@
             "visored-zfs-ty",
             "husky-coword",
             "latex-ast",
+            "latex-command",
             "lean-sem-expr",
             "lean-term",
             "visored-sem-expr",

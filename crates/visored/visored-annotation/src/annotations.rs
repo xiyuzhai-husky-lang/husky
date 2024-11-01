@@ -21,19 +21,22 @@ pub type VdSpaceAnnotationEntry = VdAnnotationEntry<VdSpaceAnnotation>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VdAnnotations {
-    token_annotations: Vec<VdTokenAnnotationEntry>,
-    space_annotations: Vec<VdSpaceAnnotationEntry>,
+    token_annotation_entries: Vec<VdTokenAnnotationEntry>,
+    space_annotation_entries: Vec<VdSpaceAnnotationEntry>,
+    token_annotations: Vec<VdTokenAnnotation>,
 }
 
 impl VdAnnotations {
     pub fn new(
-        token_annotations: Vec<VdTokenAnnotationEntry>,
-        space_annotations: Vec<VdSpaceAnnotationEntry>,
+        token_annotation_entries: Vec<VdTokenAnnotationEntry>,
+        space_annotation_entries: Vec<VdSpaceAnnotationEntry>,
         token_storage: &LxTokenStorage,
     ) -> Self {
+        let token_annotations = collect_token_annotations(&token_annotation_entries, token_storage);
         Self {
+            token_annotation_entries,
+            space_annotation_entries,
             token_annotations,
-            space_annotations,
         }
     }
 
@@ -51,15 +54,25 @@ impl VdAnnotations {
         )
     }
 
-    pub fn token_annotations(&self) -> &[VdTokenAnnotationEntry] {
-        &self.token_annotations
+    pub fn token_annotation_entries(&self) -> &[VdTokenAnnotationEntry] {
+        &self.token_annotation_entries
     }
 
-    pub fn space_annotations(&self) -> &[VdSpaceAnnotationEntry] {
-        &self.space_annotations
+    pub fn space_annotation_entries(&self) -> &[VdSpaceAnnotationEntry] {
+        &self.space_annotation_entries
     }
 
     pub fn walker(&self) -> VdAnnotationsWalker {
-        VdAnnotationsWalker::new(&self.token_annotations, &self.space_annotations)
+        VdAnnotationsWalker::new(
+            &self.token_annotation_entries,
+            &self.space_annotation_entries,
+        )
     }
+}
+
+fn collect_token_annotations(
+    token_annotation_entries: &[VdTokenAnnotationEntry],
+    token_storage: &LxTokenStorage,
+) -> Vec<VdTokenAnnotation> {
+    todo!()
 }
