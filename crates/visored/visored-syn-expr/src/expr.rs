@@ -20,7 +20,9 @@ use idx_arena::{
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
 use range::VdSynExprAstRange;
-use visored_opr::opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr};
+use visored_opr::opr::{
+    binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr,
+};
 use visored_zfs_ty::term::literal::VdZfsLiteral;
 
 /// It's a tree of both form and meaning
@@ -30,21 +32,21 @@ pub enum VdSynExprData {
         literal: VdZfsLiteral,
     },
     Notation,
-    Opr {
-        opr: VdOpr,
+    BaseOpr {
+        opr: VdBaseOpr,
     },
     Binary {
         lopd: VdSynExprIdx,
-        opr: Either<VdBinaryOpr, VdSynExprIdx>,
+        opr: Either<VdBaseBinaryOpr, VdSynExprIdx>,
         ropd: VdSynExprIdx,
     },
     Prefix {
-        opr: Either<VdPrefixOpr, VdSynExprIdx>,
+        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
         opd: VdSynExprIdx,
     },
     Suffix {
         opd: VdSynExprIdx,
-        opr: Either<VdSuffixOpr, VdSynExprIdx>,
+        opr: Either<VdBaseSuffixOpr, VdSynExprIdx>,
     },
     Attach {
         base: VdSynExprIdx,
@@ -70,7 +72,7 @@ impl VdSynExprData {
         match *self {
             VdSynExprData::Literal { literal } => vec![],
             VdSynExprData::Notation => vec![],
-            VdSynExprData::Opr { opr } => vec![],
+            VdSynExprData::BaseOpr { opr } => vec![],
             VdSynExprData::Binary { lopd, opr, ropd } => match opr {
                 Left(_) => vec![lopd, ropd],
                 Right(opr) => vec![lopd, opr, ropd],

@@ -13,7 +13,7 @@ use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_prelude::script::LxScriptKind;
 use literal::VdSemLiteralDispatch;
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfs_ty::term::literal::VdZfsLiteral;
 
 /// It's a tree of both form and meaning
@@ -26,7 +26,7 @@ pub enum VdSemExprData {
     Notation,
     Binary {
         lopd: VdSemExprIdx,
-        opr: VdBinaryOpr,
+        opr: VdBaseBinaryOpr,
         ropd: VdSemExprIdx,
         dispatch: VdSemBinaryDispatch,
     },

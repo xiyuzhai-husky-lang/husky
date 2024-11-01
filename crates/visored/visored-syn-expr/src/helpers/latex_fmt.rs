@@ -11,7 +11,7 @@ use crate::{
     sentence::{VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
 };
 use either::*;
-use visored_opr::opr::binary::VdBinaryOpr;
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfs_ty::{menu::vd_zfs_ty_menu, term::literal::VdZfsLiteralData};
 
 pub struct VdSynExprLaTeXFormatter<'a> {
@@ -123,7 +123,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
-            VdSynExprData::Opr { opr } => todo!(),
+            VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Err(ref error) => unreachable!("{error}"),
         }
     }
@@ -147,7 +147,7 @@ fn latex_fmt_works() {
     let one_add_one = builder.new_expr_checked(
         VdSynExprData::Binary {
             lopd: one,
-            opr: Either::Left(VdBinaryOpr::Add),
+            opr: Either::Left(VdBaseBinaryOpr::Add),
             ropd: one,
         },
         "1+1",
