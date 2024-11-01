@@ -21,7 +21,9 @@ pub type VdSpaceAnnotationRecord = VdAnnotationRecord<VdSpaceAnnotation>;
 pub struct VdAnnotations {
     token_annotation_records: Vec<VdTokenAnnotationRecord>,
     space_annotation_records: Vec<VdSpaceAnnotationRecord>,
+    /// the ith element is the annotation of the ith token
     token_annotations: Vec<Option<VdTokenAnnotation>>,
+    /// the ith element is the annotation of the space before the ith token
     space_annotations: Vec<Option<VdSpaceAnnotation>>,
 }
 
