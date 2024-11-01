@@ -7,7 +7,7 @@ use visored_opr::{
 };
 
 use super::{
-    expr::{VdSynExprClass, VdSynExprIdx},
+    expr::{VdSynExprClass, VdSynExprData, VdSynExprIdx},
     VdSynExprParser,
 };
 
@@ -17,7 +17,7 @@ pub struct DisambiguatedMathAst {
 }
 
 pub enum DisambiguatedToken {
-    Expr(VdSynExprIdx, VdSynExprClass),
+    Expr(VdSynExprData, VdSynExprClass),
     Opr(VdOpr),
     Separator(VdSeparator),
     LeftDelimiter(VdLeftDelimiter),
