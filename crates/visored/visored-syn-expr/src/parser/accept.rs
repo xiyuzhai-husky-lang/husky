@@ -7,7 +7,7 @@ use latex_token::idx::LxTokenIdx;
 use smallvec::smallvec;
 use visored_opr::{
     delimiter::{VdLeftDelimiter, VdRightDelimiter},
-    opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr, suffix::VdSuffixOpr, VdOpr},
+    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
     precedence::VdPrecedence,
     separator::VdSeparator,
 };
@@ -100,19 +100,19 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         self.push_top_syn_expr(atom.into())
     }
 
-    fn accept_opr(&mut self, opr: VdOpr) {
+    fn accept_opr(&mut self, opr: VdBaseOpr) {
         match opr {
-            VdOpr::Binary(opr) => todo!(),
-            VdOpr::Prefix(opr) => self.accept_prefix_opr(Left(opr)),
-            VdOpr::Suffix(opr) => self.accept_suffix_opr(Left(opr)),
+            VdBaseOpr::Binary(opr) => todo!(),
+            VdBaseOpr::Prefix(opr) => self.accept_prefix_opr(Left(opr)),
+            VdBaseOpr::Suffix(opr) => self.accept_suffix_opr(Left(opr)),
         }
     }
 
-    fn accept_prefix_opr(&mut self, opr: Either<VdPrefixOpr, VdSynExprIdx>) {
+    fn accept_prefix_opr(&mut self, opr: Either<VdBasePrefixOpr, VdSynExprIdx>) {
         self.push_top_syn_expr(IncompleteVdSynExprData::Prefix { opr }.into())
     }
 
-    fn accept_suffix_opr(&mut self, opr: Either<VdSuffixOpr, VdSynExprIdx>) {
+    fn accept_suffix_opr(&mut self, opr: Either<VdBaseSuffixOpr, VdSynExprIdx>) {
         self.take_complete_and_push_to_top(|slf, top_expr| match top_expr {
             Some(expr) => VdSynExprData::Suffix {
                 opd: slf.builder.alloc_expr(expr, todo!()),
@@ -173,7 +173,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         // }
     }
 
-    fn accept_binary_opr(&mut self, binary: Either<VdBinaryOpr, VdSynExprIdx>) {
+    fn accept_binary_opr(&mut self, binary: Either<VdBaseBinaryOpr, VdSynExprIdx>) {
         // self.reduce(binary.precedence());
         // let lopd = self.take_complete_expr().unwrap_or(VdSynExprData::Err(
         //     OriginalSynExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),

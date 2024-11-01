@@ -10,7 +10,7 @@ use expr::list_item::VdSynSeparatedListItem;
 use latex_token::idx::LxTokenIdx;
 use visored_opr::{
     delimiter::VdLeftDelimiter,
-    opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr},
+    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     precedence::VdPrecedence,
 };
 
@@ -18,10 +18,10 @@ use visored_opr::{
 pub(super) enum IncompleteVdSynExprData {
     Binary {
         lopd: VdSynExprIdx,
-        opr: Either<VdBinaryOpr, VdSynExprIdx>,
+        opr: Either<VdBaseBinaryOpr, VdSynExprIdx>,
     },
     Prefix {
-        opr: Either<VdPrefixOpr, VdSynExprIdx>,
+        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
     },
     /// list separated by commas
     /// ```husky
