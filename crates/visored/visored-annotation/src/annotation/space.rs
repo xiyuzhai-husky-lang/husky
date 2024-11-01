@@ -1,9 +1,8 @@
 #[enum_class::from_variants]
-#[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[repr(u8)]
 pub enum VdSpaceAnnotation {
-    #[default]
-    Void,
-    Apply(LxApplyAnnotation),
+    Apply(LxApplyAnnotation) = 1,
     Sever(LxSeverAnnotation),
 }
 
