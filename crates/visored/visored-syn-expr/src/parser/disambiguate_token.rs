@@ -6,7 +6,10 @@ use visored_opr::{
     separator::VdSeparator,
 };
 
-use super::expr::{VdSynExprClass, VdSynExprIdx};
+use super::{
+    expr::{VdSynExprClass, VdSynExprIdx},
+    VdSynExprParser,
+};
 
 pub struct DisambiguatedMathAst {
     ast: LxMathAstIdx,
@@ -19,4 +22,10 @@ pub enum DisambiguatedToken {
     Separator(VdSeparator),
     LeftDelimiter(VdLeftDelimiter),
     RightDelimiter(VdRightDelimiter),
+}
+
+impl<'a, 'db> VdSynExprParser<'a, 'db> {
+    pub fn disambiguate_token(&mut self, ast: LxMathAstIdx) -> DisambiguatedToken {
+        todo!()
+    }
 }

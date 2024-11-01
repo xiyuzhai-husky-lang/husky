@@ -7,16 +7,21 @@ pub(super) use self::separated_list::*;
 use super::*;
 use crate::expr::VdSynExprData;
 use expr::list_item::VdSynSeparatedListItem;
-use visored_opr::{delimiter::VdLeftDelimiter, precedence::VdPrecedence};
+use latex_token::idx::LxTokenIdx;
+use visored_opr::{
+    delimiter::VdLeftDelimiter,
+    opr::{binary::VdBinaryOpr, prefix::VdPrefixOpr},
+    precedence::VdPrecedence,
+};
 
 #[derive(Debug, PartialEq, Eq)]
 pub(super) enum IncompleteVdSynExprData {
     Binary {
-        lopd: VdSynExprData,
-        opr: VdSynExprData,
+        lopd: VdSynExprIdx,
+        opr: Either<VdBinaryOpr, VdSynExprIdx>,
     },
     Prefix {
-        opr: VdSynExprData,
+        opr: Either<VdPrefixOpr, VdSynExprIdx>,
     },
     /// list separated by commas
     /// ```husky
@@ -25,6 +30,7 @@ pub(super) enum IncompleteVdSynExprData {
     SeparatedList {
         opr: IncompleteSeparatedListOpr,
         bra: VdLeftDelimiter,
+        bra_token_idx: LxTokenIdx,
         items: SmallVec<[VdSynSeparatedListItem; 4]>,
     },
     /// call list includes more separators like `;`
