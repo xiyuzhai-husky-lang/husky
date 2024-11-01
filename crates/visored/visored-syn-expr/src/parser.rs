@@ -45,6 +45,6 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
 
     fn parse_ast(&mut self, ast: LxMathAstIdx) {
         let token = self.disambiguate_token(ast);
-        self.stack.accept(token);
+        self.accept_token(token);
     }
 }
