@@ -33,6 +33,8 @@ husky-entity-kind.workspace = true
 husky-term-prelude.workspace = true
 husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
+# protocols
+husky-text-protocol.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 husky-item-decl-ast.workspace = true
