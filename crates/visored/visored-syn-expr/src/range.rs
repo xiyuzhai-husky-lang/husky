@@ -114,6 +114,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(ref e) => VdSynExprTokenIdxRange::Standard(e.token_idx_range()),
+            VdSynExprData::SeparatedList { .. } => todo!(),
         }
     }
 

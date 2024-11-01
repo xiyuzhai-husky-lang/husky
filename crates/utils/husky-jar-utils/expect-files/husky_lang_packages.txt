@@ -4252,6 +4252,7 @@
         name: "visored-opr",
         relative_path: "crates/visored/visored-opr",
         dependencies: [
+            "enum-class",
             "salsa",
         ],
     },
