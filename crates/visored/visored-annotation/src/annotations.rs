@@ -5,12 +5,12 @@ use crate::{
     *,
 };
 use builder::sparce::collect_from_sparse_annotations;
+use husky_text_protocol::offset::TextOffsetRange;
 use latex_token::{idx::LxTokenIdx, storage::LxTokenStorage};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VdAnnotationRecord<A> {
-    pub start: usize,
-    pub end: usize,
+    pub offset_range: TextOffsetRange,
     pub annotation: A,
 }
 
@@ -75,20 +75,23 @@ impl VdAnnotations {
 }
 
 fn collect_token_annotations(
-    token_annotation_entries: &[VdTokenAnnotationRecord],
+    token_annotation_records: &[VdTokenAnnotationRecord],
     token_storage: &LxTokenStorage,
 ) -> Vec<Option<VdTokenAnnotation>> {
     let mut entry_idx = 0;
     token_storage
         .ranged_tokens()
         .iter()
-        .map(|&((start, end), _, _)| {
-            if entry_idx < token_annotation_entries.len()
-                && token_annotation_entries[entry_idx].start == start
+        .map(|&(range, _, _)| {
+            if entry_idx < token_annotation_records.len()
+                && token_annotation_records[entry_idx].offset_range.start() == range.start()
             {
-                assert_eq!(token_annotation_entries[entry_idx].end, end);
+                assert_eq!(
+                    token_annotation_records[entry_idx].offset_range.end(),
+                    range.end()
+                );
                 entry_idx += 1;
-                Some(token_annotation_entries[entry_idx - 1].annotation)
+                Some(token_annotation_records[entry_idx - 1].annotation)
             } else {
                 None
             }
@@ -97,20 +100,23 @@ fn collect_token_annotations(
 }
 
 fn collect_space_annotations(
-    space_annotation_entries: &[VdSpaceAnnotationRecord],
+    space_annotation_records: &[VdSpaceAnnotationRecord],
     token_storage: &LxTokenStorage,
 ) -> Vec<Option<VdSpaceAnnotation>> {
     let mut entry_idx = 0;
     token_storage
         .ranged_tokens()
         .iter()
-        .map(|&((start, end), _, _)| {
-            let annotation = if entry_idx < space_annotation_entries.len()
-                && space_annotation_entries[entry_idx].start == start
+        .map(|&(offset_range, _, _)| {
+            let annotation = if entry_idx < space_annotation_records.len()
+                && space_annotation_records[entry_idx].offset_range.start() == offset_range.start()
             {
-                assert_eq!(space_annotation_entries[entry_idx].end, end);
+                assert_eq!(
+                    space_annotation_records[entry_idx].offset_range.end(),
+                    offset_range.end()
+                );
                 entry_idx += 1;
-                Some(space_annotation_entries[entry_idx - 1].annotation)
+                Some(space_annotation_records[entry_idx - 1].annotation)
             } else {
                 None
             };
