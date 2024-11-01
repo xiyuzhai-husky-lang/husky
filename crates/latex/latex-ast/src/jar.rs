@@ -1,2 +1,2 @@
 #[salsa::jar]
-pub struct LxAstJar(crate::district::LxAstDistrict, crate::region::LxAstRegion);
+pub struct LxAstJar(crate::region::LxAstRegion);
