@@ -4261,6 +4261,7 @@
         dependencies: [
             "either",
             "enum-class",
+            "husky-print-utils",
             "husky-tree-utils",
             "idx-arena",
             "latex-ast",

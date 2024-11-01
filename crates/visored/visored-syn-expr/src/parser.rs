@@ -41,12 +41,16 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             self.parse_ast(&mut next, end);
         }
         let Self { builder, stack } = self;
-        let data = stack.finish();
-        builder.alloc_expr(data, VdSynExprAstRange::Asts(asts.into()))
+        builder.alloc_expr(stack.finish())
     }
 
     fn parse_ast(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) {
+        let range = self.builder.ast_token_idx_range_map()[*next];
+        let preceding_space_annotation = self
+            .builder
+            .annotations()
+            .preceding_space_annotation(range.start());
         let token = self.disambiguate_token(next, end);
-        self.accept_token(token);
+        self.accept_token(preceding_space_annotation, token);
     }
 }

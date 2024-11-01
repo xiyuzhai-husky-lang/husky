@@ -5,23 +5,28 @@ use expr::{list_item::VdSynSeparatedListItem, VdSynExprClass, VdSynExprData};
 use incomplete_expr::{IncompleteCallListOpr, IncompleteSeparatedListOpr, IncompleteVdSynExprData};
 use latex_token::idx::LxTokenIdx;
 use smallvec::smallvec;
+use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
-    delimiter::{VdLeftDelimiter, VdRightDelimiter},
+    delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
     precedence::VdPrecedence,
-    separator::VdSeparator,
+    separator::VdBaseSeparator,
 };
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub(crate) fn accept_token(&mut self, token: DisambiguatedToken) {
+    pub(crate) fn accept_token(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        token: DisambiguatedToken,
+    ) {
         match token {
             DisambiguatedToken::Expr(expr, class) => match class {
-                VdSynExprClass::Atom => self.accept_atom(expr),
+                VdSynExprClass::Atom => self.accept_atom(preceding_space_annotation, expr),
                 VdSynExprClass::Prefix => todo!(),
                 VdSynExprClass::Suffix => todo!(),
                 VdSynExprClass::Separator => todo!(),
             },
-            DisambiguatedToken::Opr(opr) => self.accept_opr(opr),
+            DisambiguatedToken::Opr(opr) => self.accept_opr(preceding_space_annotation, opr),
             DisambiguatedToken::Separator(sep) => self.accept_separator(sep),
             DisambiguatedToken::LeftDelimiter(vd_left_delimiter) => todo!(),
             DisambiguatedToken::RightDelimiter(vd_right_delimiter) => todo!(),
@@ -29,7 +34,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         }
     }
 
-    fn accept_list_end(&mut self, ket: VdRightDelimiter, ket_token_idx: LxTokenIdx) {
+    fn accept_list_end(&mut self, ket: VdBaseRightDelimiter, ket_token_idx: LxTokenIdx) {
         todo!()
         // self.reduce(VdPrecedence::LIST_ITEM);
         // let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
@@ -99,26 +104,41 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         // }
     }
 
-    fn accept_atom(&mut self, atom: VdSynExprData) {
-        self.push_top_syn_expr(atom.into())
+    fn accept_atom(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        atom: VdSynExprData,
+    ) {
+        self.push_top_syn_expr(preceding_space_annotation, atom.into())
     }
 
-    fn accept_opr(&mut self, opr: VdBaseOpr) {
+    fn accept_opr(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        opr: VdBaseOpr,
+    ) {
         match opr {
             VdBaseOpr::Binary(opr) => todo!(),
-            VdBaseOpr::Prefix(opr) => self.accept_prefix_opr(Left(opr)),
+            VdBaseOpr::Prefix(opr) => self.accept_prefix_opr(preceding_space_annotation, Left(opr)),
             VdBaseOpr::Suffix(opr) => self.accept_suffix_opr(Left(opr)),
         }
     }
 
-    fn accept_prefix_opr(&mut self, opr: Either<VdBasePrefixOpr, VdSynExprIdx>) {
-        self.push_top_syn_expr(IncompleteVdSynExprData::Prefix { opr }.into())
+    fn accept_prefix_opr(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
+    ) {
+        self.push_top_syn_expr(
+            preceding_space_annotation,
+            IncompleteVdSynExprData::Prefix { opr }.into(),
+        )
     }
 
     fn accept_suffix_opr(&mut self, opr: Either<VdBaseSuffixOpr, VdSynExprIdx>) {
         self.take_complete_and_push_to_top(|slf, top_expr| match top_expr {
             Some(expr) => VdSynExprData::Suffix {
-                opd: slf.builder.alloc_expr(expr, todo!()),
+                opd: slf.builder.alloc_expr(expr),
                 opr,
             }
             .into(),
@@ -126,7 +146,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         })
     }
 
-    fn accept_separator(&mut self, separator: VdSeparator) {
+    fn accept_separator(&mut self, separator: VdBaseSeparator) {
         todo!()
         // match self.take_complete_expr() {
         //     Some(item) => {
@@ -191,7 +211,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         todo!()
     }
 
-    fn accept_list_start(&mut self, bra: VdLeftDelimiter, bra_token_idx: LxTokenIdx) {
+    fn accept_list_start(&mut self, bra: VdBaseLeftDelimiter, bra_token_idx: LxTokenIdx) {
         // self.reduce(Precedence::Application);
         // self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
         //     let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));

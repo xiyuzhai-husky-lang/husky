@@ -31,12 +31,12 @@ pub struct VdSynExprExample {
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
     pub result: Either<VdSynExprIdx, ()>,
     pub expr_arena: VdSynExprArena,
-    pub expr_range_map: VdSynExprRangeMap,
     pub phrase_arena: VdSynPhraseArena,
-    pub phrase_range_map: VdSynPhraseRangeMap,
     pub clause_arena: VdSynClauseArena,
-    pub clause_range_map: VdSynClauseRangeMap,
     pub sentence_arena: VdSynSentenceArena,
+    pub expr_range_map: VdSynExprRangeMap,
+    pub phrase_range_map: VdSynPhraseRangeMap,
+    pub clause_range_map: VdSynClauseRangeMap,
     pub sentence_range_map: VdSynSentenceRangeMap,
 }
 
@@ -59,18 +59,15 @@ impl VdSynExprExample {
             space_annotations.iter().copied(),
             &token_storage,
         );
-        let mut builder = VdSynExprBuilder::new(db, &token_storage, &ast_arena, &annotations);
+        let mut builder = VdSynExprBuilder::new(
+            db,
+            &token_storage,
+            &ast_arena,
+            &ast_token_idx_range_map,
+            &annotations,
+        );
         let result = asts.to_vd_syn(&mut builder);
-        let (
-            expr_arena,
-            expr_range_map,
-            phrase_arena,
-            phrase_range_map,
-            clause_arena,
-            clause_range_map,
-            sentence_arena,
-            sentence_range_map,
-        ) = builder.finish();
+        let (expr_arena, phrase_arena, clause_arena, sentence_arena) = builder.finish();
         Self {
             input: input.to_string(),
             root_mode,
@@ -81,13 +78,13 @@ impl VdSynExprExample {
             ast_token_idx_range_map,
             result,
             expr_arena,
-            expr_range_map,
             phrase_arena,
-            phrase_range_map,
             clause_arena,
-            clause_range_map,
             sentence_arena,
-            sentence_range_map,
+            expr_range_map: todo!(),
+            phrase_range_map: todo!(),
+            clause_range_map: todo!(),
+            sentence_range_map: todo!(),
         }
     }
 
@@ -99,12 +96,12 @@ impl VdSynExprExample {
             self.ast_arena.as_arena_ref(),
             &self.ast_token_idx_range_map,
             self.expr_arena.as_arena_ref(),
-            &self.expr_range_map,
             self.phrase_arena.as_arena_ref(),
-            &self.phrase_range_map,
             self.clause_arena.as_arena_ref(),
-            &self.clause_range_map,
             self.sentence_arena.as_arena_ref(),
+            &self.expr_range_map,
+            &self.phrase_range_map,
+            &self.clause_range_map,
             &self.sentence_range_map,
         );
         match self.result {
