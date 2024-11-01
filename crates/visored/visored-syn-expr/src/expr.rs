@@ -109,6 +109,7 @@ impl VdSynExprData {
 }
 
 pub enum VdSynExprClass {
+    Atom,
     Prefix,
     Suffix,
     Separator,
@@ -122,7 +123,8 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdxRange {
                 VdSynExprAstRange::Asts(self.into()),
             )
         } else {
-            todo!()
+            let parser = builder.parser();
+            parser.parse_asts(self)
         }
     }
 }
@@ -171,13 +173,13 @@ mod tests {
                 "\n"
             "#]],
         );
-        // t(
-        //     "1",
-        //     &[],
-        //     &[],
-        //     &expect![[r#"
+        t(
+            "1",
+            &[],
+            &[],
+            &expect![[r#"
 
-        //     "#]],
-        // );
+            "#]],
+        );
     }
 }
