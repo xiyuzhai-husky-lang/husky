@@ -319,7 +319,7 @@ husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
-latex-math-opr = { path = "crates/latex/latex-math-opr" }
+latex-math-punctuation = { path = "crates/latex/latex-math-punctuation" }
 latex-prelude = { path = "crates/latex/latex-prelude" }
 latex-sem-expr = { path = "crates/latex/latex-sem-expr" }
 latex-text = { path = "crates/latex/latex-text" }
@@ -431,6 +431,7 @@ visored-coword = { path = "crates/visored/visored-coword" }
 visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
+visored-resolution = { path = "crates/visored/visored-resolution" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }

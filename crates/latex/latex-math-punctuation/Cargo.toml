@@ -1,5 +1,5 @@
 [package]
-name = "latex-math-opr"
+name = "latex-math-punctuation"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

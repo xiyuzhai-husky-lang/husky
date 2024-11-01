@@ -10,7 +10,7 @@ use crate::parser::LxAstParser;
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_math_letter::LxMathLetter;
-use latex_math_opr::LxMathPunctuation;
+use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
     data::{
@@ -384,7 +384,7 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 LowerX,
                             ),
-                            LxMathAstData::Opr(
+                            LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         1,
@@ -746,7 +746,7 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 LowerI,
                             ),
-                            LxMathAstData::Opr(
+                            LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         4,
