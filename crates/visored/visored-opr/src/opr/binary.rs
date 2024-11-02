@@ -15,17 +15,27 @@ impl VdBaseBinaryOpr {
     }
 
     pub fn left_precedence_range(self) -> VdPrecedenceRange {
-        todo!()
+        match self {
+            VdBaseBinaryOpr::Add => VdPrecedenceRange::ADD_LEFT,
+            VdBaseBinaryOpr::Eq => VdPrecedenceRange::EQ_LEFT,
+        }
     }
 
     pub fn right_precedence_range(self) -> VdPrecedenceRange {
         todo!()
     }
 
-    pub fn latex_code(&self) -> &str {
+    pub fn latex_code(self) -> &'static str {
         match self {
             VdBaseBinaryOpr::Add => "+",
             VdBaseBinaryOpr::Eq => "=",
+        }
+    }
+
+    pub fn precedence(self) -> crate::precedence::VdPrecedence {
+        match self {
+            VdBaseBinaryOpr::Add => crate::precedence::VdPrecedence::ADD,
+            VdBaseBinaryOpr::Eq => crate::precedence::VdPrecedence::EQ,
         }
     }
 }
@@ -56,6 +66,13 @@ impl VdCompositeBinaryOpr {
         match self {
             VdCompositeBinaryOpr::Add => "+",
             VdCompositeBinaryOpr::Eq => "=",
+        }
+    }
+
+    pub fn precedence(self) -> crate::precedence::VdPrecedence {
+        match self {
+            VdCompositeBinaryOpr::Add => crate::precedence::VdPrecedence::ADD,
+            VdCompositeBinaryOpr::Eq => crate::precedence::VdPrecedence::EQ,
         }
     }
 }

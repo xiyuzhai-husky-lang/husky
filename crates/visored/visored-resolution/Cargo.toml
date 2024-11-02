@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 # abstractions
+enum-index.workspace = true
 salsa.workspace = true
 # latex
 latex-math-punctuation.workspace = true

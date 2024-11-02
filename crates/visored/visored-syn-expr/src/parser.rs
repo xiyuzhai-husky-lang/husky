@@ -1,9 +1,9 @@
 mod accept;
 mod debug;
-mod disambiguate_token;
 mod env;
 mod expr_stack;
 pub(crate) mod incomplete_expr;
+mod resolve;
 
 use expr::VdSynExprIdx;
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
@@ -52,7 +52,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             .builder
             .annotations()
             .preceding_space_annotation(range.start());
-        let token = self.disambiguate_token(next, end);
-        self.accept_token(preceding_space_annotation, token);
+        let token = self.resolve_token(next, end);
+        let range = range.join(self.builder.ast_token_idx_range_map()[*next - 1]);
+        self.accept_token(preceding_space_annotation, range, token);
     }
 }

@@ -11,6 +11,7 @@ use crate::{
     sentence::{VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
 };
 use either::*;
+use expr::VdSynBinaryOpr;
 use latex_token::idx::LxTokenIdxRange;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
@@ -112,8 +113,8 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             } => {
                 self.fmt_expr(lopd);
                 match opr {
-                    Left(opr) => self.result.push_str(opr.latex_code()),
-                    Either::Right(opr) => self.fmt_expr(opr),
+                    VdSynBinaryOpr::Base(_, opr) => self.result.push_str(opr.latex_code()),
+                    VdSynBinaryOpr::Composite(opr, _) => self.fmt_expr(opr),
                 }
                 self.fmt_expr(ropd);
             }
@@ -151,7 +152,8 @@ fn latex_fmt_works() {
     let one_add_one = builder.new_expr_checked(
         VdSynExprData::Binary {
             lopd: one,
-            opr: Either::Left(VdBaseBinaryOpr::Add),
+            opr: todo!(),
+            // (VdBaseBinaryOpr::Add),
             ropd: one,
         },
         "1+1",
