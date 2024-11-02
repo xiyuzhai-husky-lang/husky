@@ -8,4 +8,5 @@ pub enum VdPunctuationResolution {
 
 impl VdPunctuationResolution {
     pub const ADD: Self = Self::Opr(VdBaseOpr::ADD);
+    pub const EQ: Self = Self::Opr(VdBaseOpr::EQ);
 }

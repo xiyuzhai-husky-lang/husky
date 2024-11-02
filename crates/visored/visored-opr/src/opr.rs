@@ -17,6 +17,7 @@ pub enum VdBaseOpr {
 
 impl VdBaseOpr {
     pub const ADD: Self = Self::Binary(VdBaseBinaryOpr::Add);
+    pub const EQ: Self = Self::Binary(VdBaseBinaryOpr::Eq);
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
