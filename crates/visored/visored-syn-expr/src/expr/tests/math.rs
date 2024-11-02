@@ -30,7 +30,7 @@ fn litera_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            ""
+            "" error
         "#]],
     );
     t(
@@ -38,7 +38,7 @@ fn litera_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1"
+            "1" literal
         "#]],
     );
     t(
@@ -46,7 +46,7 @@ fn litera_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "11"
+            "11" literal
         "#]],
     );
     t(
@@ -54,10 +54,10 @@ fn litera_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-                "1 1"
-                ├─ "1"
-                └─ "1"
-            "#]],
+            "1 1" separated list
+            ├─ "1" literal
+            └─ "1" literal
+        "#]],
     );
 }
 
@@ -68,9 +68,9 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1 + 1"
-            ├─ "1"
-            └─ "1"
+            "1 + 1" binary
+            ├─ "1" literal
+            └─ "1" literal
         "#]],
     );
     t(
@@ -78,11 +78,11 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1 + 1 = 2"
-            ├─ "1 + 1"
-            │ ├─ "1"
-            │ └─ "1"
-            └─ "2"
+            "1 + 1 = 2" binary
+            ├─ "1 + 1" binary
+            │ ├─ "1" literal
+            │ └─ "1" literal
+            └─ "2" literal
         "#]],
     );
     t(
@@ -90,11 +90,11 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1 + 1 = 2"
-            ├─ "1 + 1"
-            │ ├─ "1"
-            │ └─ "1"
-            └─ "2"
+            "1 + 1 = 2" binary
+            ├─ "1 + 1" binary
+            │ ├─ "1" literal
+            │ └─ "1" literal
+            └─ "2" literal
         "#]],
     );
 }
@@ -106,7 +106,7 @@ fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "x"
+            "x" letter
         "#]],
     );
     t(
@@ -114,7 +114,7 @@ fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "y"
+            "y" letter
         "#]],
     );
     t(
@@ -122,7 +122,7 @@ fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "z"
+            "z" letter
         "#]],
     );
     t(
@@ -130,11 +130,11 @@ fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "xyz"
-            ├─ "xy"
-            │ ├─ "x"
-            │ └─ "y"
-            └─ "z"
+            "xyz" separated list
+            ├─ "xy" separated list
+            │ ├─ "x" letter
+            │ └─ "y" letter
+            └─ "z" letter
         "#]],
     );
 }
@@ -146,9 +146,9 @@ fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1+x"
-            ├─ "1"
-            └─ "x"
+            "1+x" binary
+            ├─ "1" literal
+            └─ "x" letter
         "#]],
     );
     t(
@@ -156,11 +156,11 @@ fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1+2x"
-            ├─ "1"
-            └─ "2x"
-              ├─ "2"
-              └─ "x"
+            "1+2x" binary
+            ├─ "1" literal
+            └─ "2x" separated list
+              ├─ "2" literal
+              └─ "x" letter
         "#]],
     );
     t(
@@ -168,19 +168,19 @@ fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1+x+y+z+xyz"
-            ├─ "1+x+y+z"
-            │ ├─ "1+x+y"
-            │ │ ├─ "1+x"
-            │ │ │ ├─ "1"
-            │ │ │ └─ "x"
-            │ │ └─ "y"
-            │ └─ "z"
-            └─ "xyz"
-              ├─ "xy"
-              │ ├─ "x"
-              │ └─ "y"
-              └─ "z"
+            "1+x+y+z+xyz" binary
+            ├─ "1+x+y+z" binary
+            │ ├─ "1+x+y" binary
+            │ │ ├─ "1+x" binary
+            │ │ │ ├─ "1" literal
+            │ │ │ └─ "x" letter
+            │ │ └─ "y" letter
+            │ └─ "z" letter
+            └─ "xyz" separated list
+              ├─ "xy" separated list
+              │ ├─ "x" letter
+              │ └─ "y" letter
+              └─ "z" letter
         "#]],
     );
 }
