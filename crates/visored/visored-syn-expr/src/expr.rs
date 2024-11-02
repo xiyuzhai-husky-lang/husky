@@ -185,6 +185,7 @@ impl VdSynExprData {
         }
     }
 
+    #[track_caller]
     pub fn class(&self) -> VdSynExprClass {
         match *self {
             VdSynExprData::Literal { .. }
@@ -200,7 +201,7 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(..) => todo!(),
-            VdSynExprData::SeparatedList { .. } => todo!(),
+            VdSynExprData::SeparatedList { .. } => unreachable!(),
         }
     }
 }
