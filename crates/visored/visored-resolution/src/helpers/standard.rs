@@ -28,7 +28,7 @@ fn lx_math_punctuation_standard_resolution(
         LxMathPunctuation::Exists => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::NotExists => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::Infinity => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Equals => Some(VdPunctuationResolution::Todo),
+        LxMathPunctuation::Equals => Some(VdPunctuationResolution::EQ),
         LxMathPunctuation::NotEquals => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::LessThan => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::GreaterThan => Some(VdPunctuationResolution::Todo),
