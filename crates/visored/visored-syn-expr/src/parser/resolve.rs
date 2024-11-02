@@ -12,6 +12,7 @@ use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
     delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
     opr::VdBaseOpr,
+    precedence::VdPrecedence,
     separator::VdBaseSeparator,
 };
 use visored_resolution::resolution::punctuation::VdPunctuationResolution;
@@ -38,7 +39,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         match *ast_data {
             LxMathAstData::Letter(token_idx, letter) => ResolvedToken::Expr(
                 VdSynExprData::Letter { token_idx, letter },
-                VdSynExprClass::Atom,
+                VdSynExprClass::ATOM,
             ),
             LxMathAstData::Punctuation(token_idx, punctuation) => {
                 if let Some(token_annotation) =
@@ -95,7 +96,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         self.builder.db(),
                     ),
                 };
-                ResolvedToken::Expr(expr_data, VdSynExprClass::Atom)
+                ResolvedToken::Expr(expr_data, VdSynExprClass::ATOM)
             }
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => todo!(),

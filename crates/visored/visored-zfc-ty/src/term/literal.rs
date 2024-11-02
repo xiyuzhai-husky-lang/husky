@@ -27,6 +27,18 @@ impl VdZfcLiteral {
     }
 
     pub fn new(data: VdZfcLiteralData, db: &::salsa::Db) -> Self {
+        #[cfg(test)]
+        {
+            match data {
+                VdZfcLiteralData::NaturalNumber(ref n) => {
+                    debug_assert!(!n.is_empty());
+                    debug_assert!(n.chars().all(|c| c.is_digit(10)));
+                }
+                VdZfcLiteralData::NegativeInteger(_) => todo!(),
+                VdZfcLiteralData::FiniteDecimalRepresentation(_) => todo!(),
+                VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
+            }
+        }
         Self(VdZfcTermId::new(db, data.into()))
     }
 }

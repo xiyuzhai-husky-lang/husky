@@ -1,4 +1,4 @@
-use crate::precedence::VdPrecedenceRange;
+use crate::precedence::{VdPrecedence, VdPrecedenceRange};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum VdBaseBinaryOpr {
@@ -32,10 +32,10 @@ impl VdBaseBinaryOpr {
         }
     }
 
-    pub fn precedence(self) -> crate::precedence::VdPrecedence {
+    pub fn precedence(self) -> VdPrecedence {
         match self {
-            VdBaseBinaryOpr::Add => crate::precedence::VdPrecedence::ADD,
-            VdBaseBinaryOpr::Eq => crate::precedence::VdPrecedence::EQ,
+            VdBaseBinaryOpr::Add => VdPrecedence::ADD,
+            VdBaseBinaryOpr::Eq => VdPrecedence::EQ,
         }
     }
 }
@@ -69,10 +69,10 @@ impl VdCompositeBinaryOpr {
         }
     }
 
-    pub fn precedence(self) -> crate::precedence::VdPrecedence {
+    pub fn precedence(self) -> VdPrecedence {
         match self {
-            VdCompositeBinaryOpr::Add => crate::precedence::VdPrecedence::ADD,
-            VdCompositeBinaryOpr::Eq => crate::precedence::VdPrecedence::EQ,
+            VdCompositeBinaryOpr::Add => VdPrecedence::ADD,
+            VdCompositeBinaryOpr::Eq => VdPrecedence::EQ,
         }
     }
 }
