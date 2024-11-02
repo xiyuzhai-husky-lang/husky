@@ -1,6 +1,9 @@
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseIdx, VdSynClauseMap},
-    expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynSeparator},
+    expr::{
+        VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynLeftDelimiter,
+        VdSynRightDelimiter, VdSynSeparator,
+    },
     phrase::{VdSynPhraseArena, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArena, VdSynSentenceIdx, VdSynSentenceMap},
 };
@@ -142,6 +145,26 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 let first_range = t(first);
                 let last_range = t(last);
                 first_range.join(last_range)
+            }
+            VdSynExprData::Delimited {
+                left_delimiter,
+
+                right_delimiter,
+                ..
+            } => {
+                let left_delimiter_range = match left_delimiter {
+                    VdSynLeftDelimiter::Base(token_idx_range, _) => {
+                        VdSynExprTokenIdxRange::Standard(token_idx_range)
+                    }
+                    VdSynLeftDelimiter::Composite(expr, _) => self.get_expr(expr),
+                };
+                let right_delimiter_range = match right_delimiter {
+                    VdSynRightDelimiter::Base(token_idx_range, _) => {
+                        VdSynExprTokenIdxRange::Standard(token_idx_range)
+                    }
+                    VdSynRightDelimiter::Composite(expr, _) => self.get_expr(expr),
+                };
+                left_delimiter_range.join(right_delimiter_range)
             }
         }
     }

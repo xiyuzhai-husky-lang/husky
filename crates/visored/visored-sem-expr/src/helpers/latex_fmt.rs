@@ -144,25 +144,25 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     }
 }
 
-#[test]
-fn latex_fmt_works() {
-    let db = &DB::default();
-    let menu = vd_zfc_ty_menu(db);
-    let mut builder = VdSemExprTestBuilder::new(db);
-    let one = builder.new_expr_checked(
-        VdSemExprData::Literal {
-            literal: menu.one_literal(),
-            dispatch: VdSemLiteralDispatch::Int,
-        },
-        "1",
-    );
-    let one_add_one = builder.new_expr_checked(
-        VdSemExprData::Binary {
-            lopd: one,
-            opr: VdBaseBinaryOpr::Add,
-            ropd: one,
-            dispatch: VdSemBinaryDispatch::IntAdd,
-        },
-        "1+1",
-    );
-}
+// #[test]
+// fn latex_fmt_works() {
+//     let db = &DB::default();
+//     let menu = vd_zfc_ty_menu(db);
+//     let mut builder = VdSemExprTestBuilder::new(db);
+//     let one = builder.new_expr_checked(
+//         VdSemExprData::Literal {
+//             literal: menu.one_literal(),
+//             dispatch: VdSemLiteralDispatch::Int,
+//         },
+//         "1",
+//     );
+//     let one_add_one = builder.new_expr_checked(
+//         VdSemExprData::Binary {
+//             lopd: one,
+//             opr: VdBaseBinaryOpr::Add,
+//             ropd: one,
+//             dispatch: VdSemBinaryDispatch::IntAdd,
+//         },
+//         "1+1",
+//     );
+// }

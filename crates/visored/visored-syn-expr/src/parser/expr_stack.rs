@@ -66,7 +66,7 @@ impl From<IncompleteVdSynExprData> for TopVdSynExpr {
 }
 
 impl VdSynExprStack {
-    pub(super) fn prev_unfinished_expr_precedence(&self) -> Option<VdPrecedence> {
+    pub(super) fn prev_incomplete_expr_precedence(&self) -> Option<VdPrecedence> {
         self.incomplete_exprs
             .last()
             .map(|(_, precedence)| *precedence)
@@ -86,7 +86,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         self.stack.incomplete_exprs.pop().map(|(expr, _)| expr)
     }
 
-    fn push_unfinished_expr(&mut self, incomplete_expr: IncompleteVdSynExprData) {
+    fn push_incomplete_expr(&mut self, incomplete_expr: IncompleteVdSynExprData) {
         assert!(self.stack.complete_expr.is_none());
         let precedence = incomplete_expr.precedence();
         self.stack
@@ -125,7 +125,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 Some(annotation) => todo!(),
                 _ => {
                     let expr = self.builder.alloc_expr(expr);
-                    self.push_unfinished_expr(IncompleteVdSynExprData::SeparatedList {
+                    self.push_incomplete_expr(IncompleteVdSynExprData::SeparatedList {
                         separator: VdBaseSeparator::Space.into(),
                         fragments: smallvec![Left(expr)],
                     })
@@ -133,7 +133,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             }
         }
         match top_expr {
-            TopVdSynExpr::Incomplete(incomplete_expr) => self.push_unfinished_expr(incomplete_expr),
+            TopVdSynExpr::Incomplete(incomplete_expr) => self.push_incomplete_expr(incomplete_expr),
             TopVdSynExpr::Complete(finished_expr) => self.stack.complete_expr = Some(finished_expr),
         }
     }
@@ -175,7 +175,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         precedence_range: VdPrecedenceRange,
         separator1: Option<VdSeparator>,
     ) {
-        while let Some(prev_precedence) = self.stack.prev_unfinished_expr_precedence() {
+        while let Some(prev_precedence) = self.stack.prev_incomplete_expr_precedence() {
             if !precedence_range.contains(prev_precedence) {
                 break;
             }
@@ -224,25 +224,21 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                                             VdBaseSeparator::Space => {
                                                 let expr = self.builder.alloc_expr(expr);
                                                 fragments.push(Left(expr));
-                                                self.push_unfinished_expr(
+                                                self.push_incomplete_expr(
                                                     IncompleteVdSynExprData::SeparatedList {
                                                         separator,
                                                         fragments,
                                                     },
                                                 )
                                             }
-                                            VdBaseSeparator::Comma => todo!(),
-                                            VdBaseSeparator::Semicolon => todo!(),
-                                            VdBaseSeparator::Add => todo!(),
-                                            VdBaseSeparator::Mul => todo!(),
-                                            VdBaseSeparator::Dot => todo!(),
+                                            _ => todo!(),
                                         },
                                         VdSeparator::Composite(composite_separator) => todo!(),
                                     },
                                     Right(_) => {
                                         let expr = self.builder.alloc_expr(expr);
                                         fragments.push(Left(expr));
-                                        self.push_unfinished_expr(
+                                        self.push_incomplete_expr(
                                             IncompleteVdSynExprData::SeparatedList {
                                                 separator,
                                                 fragments,
@@ -261,7 +257,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         },
                         None => {
                             if separator1 == Some(separator) {
-                                self.push_unfinished_expr(IncompleteVdSynExprData::SeparatedList {
+                                self.push_incomplete_expr(IncompleteVdSynExprData::SeparatedList {
                                     separator,
                                     fragments,
                                 });
@@ -275,7 +271,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         }
                     }
                 }
-                IncompleteVdSynExprData::Delimited { bra } => todo!(),
+                IncompleteVdSynExprData::Delimited {
+                    left_delimiter: bra,
+                } => todo!(),
             }
         }
     }

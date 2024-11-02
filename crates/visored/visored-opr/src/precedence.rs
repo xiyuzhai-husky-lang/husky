@@ -13,9 +13,9 @@ impl std::fmt::Debug for VdPrecedence {
             Self::MIN => write!(f, "VdPrecedence::MIN"),
             Self::SEMICOLON => write!(f, "VdPrecedence::SEMICOLON"),
             Self::COMMA => write!(f, "VdPrecedence::COMMA"),
-            Self::EQ => write!(f, "VdPrecedence::EQ"),
-            Self::ADD => write!(f, "VdPrecedence::ADD"),
-            Self::MUL => write!(f, "VdPrecedence::MUL"),
+            Self::COMPARISON => write!(f, "VdPrecedence::EQ"),
+            Self::ADD_SUB => write!(f, "VdPrecedence::ADD"),
+            Self::MUL_DIV => write!(f, "VdPrecedence::MUL"),
             Self::SPACE => write!(f, "VdPrecedence::SPACE"),
             Self::ATOM => write!(f, "VdPrecedence::ATOM"),
             Self::MAX => write!(f, "VdPrecedence::MAX"),
@@ -30,9 +30,9 @@ impl std::fmt::Display for VdPrecedence {
             Self::MIN => write!(f, "VdPrecedence::MIN"),
             Self::SEMICOLON => write!(f, "VdPrecedence::SEMICOLON"),
             Self::COMMA => write!(f, "VdPrecedence::COMMA"),
-            Self::EQ => write!(f, "VdPrecedence::EQ"),
-            Self::ADD => write!(f, "VdPrecedence::ADD"),
-            Self::MUL => write!(f, "VdPrecedence::MUL"),
+            Self::COMPARISON => write!(f, "VdPrecedence::EQ"),
+            Self::ADD_SUB => write!(f, "VdPrecedence::ADD"),
+            Self::MUL_DIV => write!(f, "VdPrecedence::MUL"),
             Self::SPACE => write!(f, "VdPrecedence::SPACE"),
             Self::ATOM => write!(f, "VdPrecedence::ATOM"),
             Self::MAX => write!(f, "VdPrecedence::MAX"),
@@ -43,11 +43,12 @@ impl std::fmt::Display for VdPrecedence {
 
 impl VdPrecedence {
     pub const MIN: Self = VdPrecedence(0);
-    pub const SEMICOLON: Self = VdPrecedence(4000);
+    pub const INCOMPLTE_DELIMITED: Self = VdPrecedence(10);
+    pub const COMPARISON: Self = VdPrecedence(500);
+    pub const SEMICOLON: Self = VdPrecedence(1000);
     pub const COMMA: Self = VdPrecedence(5000);
-    pub const EQ: Self = VdPrecedence(10000);
-    pub const ADD: Self = VdPrecedence(20000);
-    pub const MUL: Self = VdPrecedence(30000);
+    pub const ADD_SUB: Self = VdPrecedence(20000);
+    pub const MUL_DIV: Self = VdPrecedence(30000);
     pub const SPACE: Self = VdPrecedence(100000);
     pub const ATOM: Self = VdPrecedence(u64::MAX - 1);
     pub const MAX: Self = VdPrecedence(u64::MAX);
@@ -55,12 +56,16 @@ impl VdPrecedence {
 
 #[test]
 fn vd_precedence_works() {
+    // (a; b
+    assert!(VdPrecedence::INCOMPLTE_DELIMITED < VdPrecedence::SEMICOLON);
     // a=a+b
-    assert!(VdPrecedence::EQ < VdPrecedence::ADD);
+    assert!(VdPrecedence::SEMICOLON < VdPrecedence::COMPARISON);
+    // a, b < 1
+    assert!(VdPrecedence::COMPARISON < VdPrecedence::COMMA);
     // a+a\times b
-    assert!(VdPrecedence::ADD < VdPrecedence::MUL);
+    assert!(VdPrecedence::ADD_SUB < VdPrecedence::MUL_DIV);
     // a\times b c
-    assert!(VdPrecedence::MUL < VdPrecedence::SPACE);
+    assert!(VdPrecedence::MUL_DIV < VdPrecedence::SPACE);
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -72,10 +77,12 @@ pub enum VdPrecedenceRange {
 
 /// # constants
 impl VdPrecedenceRange {
+    pub const RIGHT_DELIMITER_LEFT: Self =
+        VdPrecedenceRange::Greater(VdPrecedence::INCOMPLTE_DELIMITED);
     pub const SPACE_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::SPACE);
-    pub const ADD_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::ADD);
-    pub const MUL_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::MUL);
-    pub const EQ_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::EQ);
+    pub const ADD_SUB_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB);
+    pub const MUL_DIV_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV);
+    pub const COMPARISON_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::COMPARISON);
 }
 
 /// # methods
@@ -92,5 +99,5 @@ impl VdPrecedenceRange {
 #[test]
 fn vd_precedence_range_works() {
     assert!(VdPrecedenceRange::SPACE_LEFT.contains(VdPrecedence::SPACE));
-    assert!(!VdPrecedenceRange::SPACE_LEFT.contains(VdPrecedence::ADD));
+    assert!(!VdPrecedenceRange::SPACE_LEFT.contains(VdPrecedence::ADD_SUB));
 }

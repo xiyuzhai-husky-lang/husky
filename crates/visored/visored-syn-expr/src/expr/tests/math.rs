@@ -78,7 +78,7 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1 + 1 = 2" binary
+            "1 + 1 = 2" separated list
             ├─ "1 + 1" separated list
             │ ├─ "1" literal
             │ └─ "1" literal
@@ -90,7 +90,7 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "1 + 1 = 2" binary
+            "1 + 1 = 2" separated list
             ├─ "1 + 1" separated list
             │ ├─ "1" literal
             │ └─ "1" literal
@@ -243,6 +243,19 @@ fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
               ├─ "a" letter
               ├─ "b" letter
               └─ "c" letter
+        "#]],
+    );
+}
+
+#[test]
+fn delimiters_math_ast_idx_to_vd_syn_expr_idx_works() {
+    t(
+        "(1)",
+        &[],
+        &[],
+        &expect![[r#"
+            "(1)" delimited
+            └─ "1" literal
         "#]],
     );
 }

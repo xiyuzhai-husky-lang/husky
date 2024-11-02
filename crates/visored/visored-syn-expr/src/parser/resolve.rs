@@ -53,7 +53,13 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         VdPunctuationResolution::Separator(separator) => {
                             ResolvedToken::Separator(separator)
                         }
-                        VdPunctuationResolution::Todo => todo!(),
+                        VdPunctuationResolution::LeftDelimiter(left_delimiter) => {
+                            ResolvedToken::LeftDelimiter(left_delimiter)
+                        }
+                        VdPunctuationResolution::RightDelimiter(right_delimiter) => {
+                            ResolvedToken::RightDelimiter(right_delimiter)
+                        }
+                        VdPunctuationResolution::Todo => todo!("punctuation = {:?}", punctuation),
                     },
                     None => todo!(),
                 }

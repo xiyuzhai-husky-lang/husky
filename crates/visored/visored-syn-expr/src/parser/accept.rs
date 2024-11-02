@@ -3,8 +3,9 @@ use either::*;
 use error::OriginalVdSynExprError;
 use expr::{
     list_item::VdSynSeparatedListItem, VdSynBinaryOpr, VdSynExprClass, VdSynExprData,
-    VdSynPrefixOpr, VdSynSeparator, VdSynSuffixOpr,
+    VdSynLeftDelimiter, VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator, VdSynSuffixOpr,
 };
+use expr_stack::TopVdSynExpr;
 use incomplete_expr::{IncompleteCallListOpr, IncompleteSeparatedListOpr, IncompleteVdSynExprData};
 use latex_token::idx::{LxTokenIdx, LxTokenIdxRange};
 use resolve::ResolvedToken;
@@ -40,79 +41,16 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 preceding_space_annotation,
                 VdSynSeparator::Base(token_idx_range, sep),
             ),
-            ResolvedToken::LeftDelimiter(vd_left_delimiter) => todo!(),
-            ResolvedToken::RightDelimiter(vd_right_delimiter) => todo!(),
+            ResolvedToken::LeftDelimiter(left_delimiter) => self.accept_left_delimiter(
+                preceding_space_annotation,
+                token_idx_range,
+                VdSynLeftDelimiter::Base(token_idx_range, left_delimiter),
+            ),
+            ResolvedToken::RightDelimiter(right_delimiter) => self.accept_right_delimiter(
+                preceding_space_annotation,
+                VdSynRightDelimiter::Base(token_idx_range, right_delimiter),
+            ),
         }
-    }
-
-    fn accept_list_end(&mut self, ket: VdBaseRightDelimiter, ket_token_idx: LxTokenIdx) {
-        todo!()
-        // self.reduce(VdPrecedence::LIST_ITEM);
-        // let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
-        // match last_incomplete_expr {
-        //     IncompleteVdSynExprData::SeparatedList {
-        //         opr,
-        //         bra,
-        //         mut items,
-        //     } => {
-        //         if bra != ket {
-        //             todo!()
-        //         }
-        //         self.take_complete_and_push_to_top(|slf, finished_expr| {
-        //             if let Some(expr) = finished_expr {
-        //                 items.push(VdSynSeparatedListItem::new(
-        //                     slf.builder.alloc_expr(expr, todo!()),
-        //                     None,
-        //                 ))
-        //             }
-        //             match opr {
-        //                 IncompleteSeparatedListOpr::UnitOrDelimiteredOrNewTuple => {
-        //                     match items.last() {
-        //                         None => VdSynExprData::Unit {
-        //                             lpar_token_idx: bra_token_idx,
-        //                             rpar_token_idx: ket_token_idx,
-        //                         },
-        //                         Some(last_item) => {
-        //                             if items.len() == 1 && last_item.comma_token_idx().is_none() {
-        //                                 VdSynExprData::Delimitered {
-        //                                     lpar_token_idx: bra_token_idx,
-        //                                     item: last_item.syn_expr_idx(),
-        //                                     rpar_token_idx: ket_token_idx,
-        //                                 }
-        //                             } else {
-        //                                 VdSynExprData::NewTuple {
-        //                                     lpar_token_idx: bra_token_idx,
-        //                                     items,
-        //                                     rpar_token_idx: ket_token_idx,
-        //                                 }
-        //                             }
-        //                         }
-        //                     }
-        //                     .into()
-        //                 }
-        //             }
-        //         })
-        //     }
-        //     IncompleteVdSynExprData::CallList { opr, items } => match opr {
-        //         IncompleteCallListOpr::FunctionCall {
-        //             function,
-        //             generic_arguments,
-        //         } => self.set_complete_expr(VdSynExprData::FunctionCall {
-        //             function,
-        //             template_arguments: generic_arguments,
-        //             lpar_token_idx: bra_token_idx,
-        //             items,
-        //             rpar_token_idx: ket_token_idx,
-        //         }),
-        //         IncompleteCallListOpr::MethodCall { .. } => todo!(),
-        //     },
-        //     _ => {
-        //         p!(last_incomplete_expr);
-        //         // p!(self.context.path.debug(self.db()));
-        //         p!(ket_token_idx);
-        //         todo!()
-        //     }
-        // }
     }
 
     fn accept_complete_expr(
@@ -240,7 +178,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         }
                         Right(_) => todo!(),
                     },
-                    IncompleteVdSynExprData::Delimited { bra } => todo!(),
+                    IncompleteVdSynExprData::Delimited {
+                        left_delimiter: bra,
+                    } => todo!(),
                 },
                 None => todo!(),
             },
@@ -264,17 +204,41 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         self.push_top_syn_expr(None, incomplete_expr.into());
     }
 
-    fn accept_list_start(&mut self, bra: VdBaseLeftDelimiter, bra_token_idx: LxTokenIdx) {
-        // self.reduce(Precedence::Application);
-        // self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
-        //     let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
-        //     todo!()
-        //     // match bra {
-        //     //     VdLeftDelimiter::Par => todo!(),
-        //     //     VdLeftDelimiter::Brace => todo!(),
-        //     //     VdLeftDelimiter::Vert => todo!(),
-        //     // }
-        // })
-        todo!()
+    fn accept_left_delimiter(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        token_idx_range: LxTokenIdxRange,
+        left_delimiter: VdSynLeftDelimiter,
+    ) {
+        self.push_top_syn_expr(
+            preceding_space_annotation,
+            IncompleteVdSynExprData::Delimited { left_delimiter }.into(),
+        );
+    }
+
+    fn accept_right_delimiter(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        right_delimiter: VdSynRightDelimiter,
+    ) {
+        if let Some(annotation) = preceding_space_annotation {
+            todo!()
+        }
+        self.reduce(VdPrecedenceRange::RIGHT_DELIMITER_LEFT, None);
+        let Some(item) = self.take_complete_expr() else {
+            todo!()
+        };
+        let Some(IncompleteVdSynExprData::Delimited { left_delimiter }) =
+            self.take_last_incomplete_expr()
+        else {
+            todo!()
+        };
+        let item = self.builder.alloc_expr(item);
+        let expr = VdSynExprData::Delimited {
+            left_delimiter,
+            item,
+            right_delimiter,
+        };
+        self.set_complete_expr(expr);
     }
 }
