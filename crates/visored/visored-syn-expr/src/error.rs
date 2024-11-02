@@ -1,4 +1,4 @@
-use crate::expr::VdSynExprIdx;
+use crate::expr::{VdSynBinaryOpr, VdSynExprIdx, VdSynPrefixOpr};
 use either::Either;
 use latex_token::idx::{LxTokenIdx, LxTokenIdxRange};
 use thiserror::Error;
@@ -19,15 +19,13 @@ pub enum OriginalVdSynExprError {
     #[error("todo")]
     Todo,
     #[error("no right operand for binary operator")]
-    NoRightOperandForBinaryOperator {
-        opr: Either<VdBaseBinaryOpr, VdSynExprIdx>,
-    },
+    NoRightOperandForBinaryOperator { opr: VdSynBinaryOpr },
     #[error("no operand for prefix operator")]
-    NoOperandForPrefixOperator {
-        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
-    },
+    NoOperandForPrefixOperator { opr: VdSynPrefixOpr },
     #[error("unterminated list")]
     UnterminatedList { bra_token_idx: LxTokenIdx },
+    #[error("no left operand for binary operator")]
+    NoLeftOperandForBinaryOperator { opr: VdSynBinaryOpr },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -51,11 +49,12 @@ impl VdSynExprError {
 impl OriginalVdSynExprError {
     pub fn token_idx_range(&self) -> LxTokenIdxRange {
         match *self {
-            Self::Empty(range) => range,
-            Self::Todo => todo!(),
-            Self::NoRightOperandForBinaryOperator { .. } => todo!(),
-            Self::NoOperandForPrefixOperator { .. } => todo!(),
-            Self::UnterminatedList { bra_token_idx } => todo!(),
+            OriginalVdSynExprError::Empty(range) => range,
+            OriginalVdSynExprError::Todo => todo!(),
+            OriginalVdSynExprError::NoRightOperandForBinaryOperator { .. } => todo!(),
+            OriginalVdSynExprError::NoOperandForPrefixOperator { .. } => todo!(),
+            OriginalVdSynExprError::UnterminatedList { bra_token_idx } => todo!(),
+            OriginalVdSynExprError::NoLeftOperandForBinaryOperator { opr } => todo!(),
         }
     }
 }

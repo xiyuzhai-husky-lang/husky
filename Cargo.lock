@@ -8191,6 +8191,9 @@ version = "0.1.0"
 [[package]]
 name = "latex-math-punctuation"
 version = "0.1.0"
+dependencies = [
+ "enum-index",
+]
 
 [[package]]
 name = "latex-prelude"
@@ -12583,6 +12586,7 @@ dependencies = [
 name = "visored-resolution"
 version = "0.1.0"
 dependencies = [
+ "enum-index",
  "latex-math-punctuation",
  "salsa",
  "visored-opr",

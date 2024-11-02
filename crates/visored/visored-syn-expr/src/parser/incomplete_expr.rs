@@ -6,7 +6,10 @@ pub(super) use self::separated_list::*;
 
 use super::*;
 use crate::expr::VdSynExprData;
-use expr::{list_item::VdSynSeparatedListItem, VdSynLeftDelimiter, VdSynSeparator};
+use expr::{
+    list_item::VdSynSeparatedListItem, VdSynBinaryOpr, VdSynLeftDelimiter, VdSynPrefixOpr,
+    VdSynSeparator,
+};
 use latex_token::idx::LxTokenIdx;
 use visored_opr::{
     delimiter::VdBaseLeftDelimiter,
@@ -19,10 +22,10 @@ use visored_opr::{
 pub(super) enum IncompleteVdSynExprData {
     Binary {
         lopd: VdSynExprIdx,
-        opr: Either<VdBaseBinaryOpr, VdSynExprIdx>,
+        opr: VdSynBinaryOpr,
     },
     Prefix {
-        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
+        opr: VdSynPrefixOpr,
     },
     /// list separated by commas
     /// ```husky
@@ -40,7 +43,7 @@ pub(super) enum IncompleteVdSynExprData {
 impl IncompleteVdSynExprData {
     pub(super) fn precedence(&self) -> VdPrecedence {
         match self {
-            IncompleteVdSynExprData::Binary { opr, .. } => todo!(),
+            IncompleteVdSynExprData::Binary { opr, .. } => opr.precedence(),
             IncompleteVdSynExprData::Prefix { opr, .. } => todo!(),
             IncompleteVdSynExprData::SeparatedList { separator, .. } => separator.precedence(),
             IncompleteVdSynExprData::Delimited { bra } => todo!(),

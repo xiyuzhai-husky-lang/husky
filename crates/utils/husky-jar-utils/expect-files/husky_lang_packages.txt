@@ -3580,7 +3580,9 @@
     PackageSummary {
         name: "latex-math-punctuation",
         relative_path: "crates/latex/latex-math-punctuation",
-        dependencies: [],
+        dependencies: [
+            "enum-index",
+        ],
     },
     PackageSummary {
         name: "latex-token",
@@ -4285,6 +4287,8 @@
         name: "visored-resolution",
         relative_path: "crates/visored/visored-resolution",
         dependencies: [
+            "enum-index",
+            "latex-math-punctuation",
             "salsa",
             "visored-opr",
         ],

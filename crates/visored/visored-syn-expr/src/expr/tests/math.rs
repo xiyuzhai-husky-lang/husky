@@ -68,9 +68,9 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-                "1 1"
-                ├─ "1"
-                └─ "1"
-            "#]],
+            "1 + 1"
+            ├─ "1"
+            └─ "1"
+        "#]],
     );
 }

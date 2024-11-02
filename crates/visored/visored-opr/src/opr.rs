@@ -15,6 +15,10 @@ pub enum VdBaseOpr {
     Binary(VdBaseBinaryOpr),
 }
 
+impl VdBaseOpr {
+    pub const ADD: Self = Self::Binary(VdBaseBinaryOpr::Add);
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum VdCompositeOpr {
     Prefix(VdCompositePrefixOpr),

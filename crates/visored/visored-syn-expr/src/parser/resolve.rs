@@ -14,6 +14,7 @@ use visored_opr::{
     opr::VdBaseOpr,
     separator::VdBaseSeparator,
 };
+use visored_resolution::resolution::punctuation::VdPunctuationResolution;
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 pub struct DisambiguatedMathAst {
@@ -22,9 +23,9 @@ pub struct DisambiguatedMathAst {
 }
 
 #[derive(Debug)]
-pub enum DisambiguatedToken {
+pub enum ResolvedToken {
     Expr(VdSynExprData, VdSynExprClass),
-    Opr(VdBaseOpr),
+    Opr(LxMathTokenIdx, VdBaseOpr),
     Separator(VdBaseSeparator),
     LeftDelimiter(VdBaseLeftDelimiter),
     RightDelimiter(VdBaseRightDelimiter),
@@ -32,16 +33,12 @@ pub enum DisambiguatedToken {
 }
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub fn disambiguate_token(
-        &mut self,
-        next: &mut LxMathAstIdx,
-        end: LxMathAstIdx,
-    ) -> DisambiguatedToken {
+    pub fn resolve_token(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) -> ResolvedToken {
         let ast_data = &self.builder.ast_arena()[*next];
         *next += 1;
         match *ast_data {
             LxMathAstData::Letter(lx_math_token_idx, lx_math_letter) => {
-                DisambiguatedToken::Letter(lx_math_token_idx, lx_math_letter)
+                ResolvedToken::Letter(lx_math_token_idx, lx_math_letter)
             }
             LxMathAstData::Punctuation(lx_math_token_idx, punctuation) => {
                 if let Some(token_annotation) = self
@@ -51,10 +48,15 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 {
                     return todo!();
                 }
-                self.builder
-                    .default_resolution_table()
-                    .resolve_punctuation(punctuation);
-                todo!()
+                match self.builder.default_resolution_table()[punctuation] {
+                    Some(resolution) => match resolution {
+                        VdPunctuationResolution::Opr(vd_base_opr) => {
+                            ResolvedToken::Opr(lx_math_token_idx, vd_base_opr)
+                        }
+                        VdPunctuationResolution::Todo => todo!(),
+                    },
+                    None => todo!(),
+                }
             }
             LxMathAstData::Digit(first_token_idx, digit) => {
                 let mut last_token_idx = first_token_idx;
@@ -94,7 +96,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         self.builder.db(),
                     ),
                 };
-                DisambiguatedToken::Expr(expr_data, VdSynExprClass::Atom)
+                ResolvedToken::Expr(expr_data, VdSynExprClass::Atom)
             }
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => todo!(),
