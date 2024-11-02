@@ -29,7 +29,6 @@ pub enum ResolvedToken {
     Separator(VdBaseSeparator),
     LeftDelimiter(VdBaseLeftDelimiter),
     RightDelimiter(VdBaseRightDelimiter),
-    Letter(LxMathTokenIdx, LxMathLetter),
 }
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
@@ -37,21 +36,20 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         let ast_data = &self.builder.ast_arena()[*next];
         *next += 1;
         match *ast_data {
-            LxMathAstData::Letter(lx_math_token_idx, lx_math_letter) => {
-                ResolvedToken::Letter(lx_math_token_idx, lx_math_letter)
-            }
-            LxMathAstData::Punctuation(lx_math_token_idx, punctuation) => {
-                if let Some(token_annotation) = self
-                    .builder
-                    .annotations()
-                    .token_annotation(*lx_math_token_idx)
+            LxMathAstData::Letter(token_idx, letter) => ResolvedToken::Expr(
+                VdSynExprData::Letter { token_idx, letter },
+                VdSynExprClass::Atom,
+            ),
+            LxMathAstData::Punctuation(token_idx, punctuation) => {
+                if let Some(token_annotation) =
+                    self.builder.annotations().token_annotation(*token_idx)
                 {
                     return todo!();
                 }
                 match self.builder.default_resolution_table()[punctuation] {
                     Some(resolution) => match resolution {
                         VdPunctuationResolution::Opr(vd_base_opr) => {
-                            ResolvedToken::Opr(lx_math_token_idx, vd_base_opr)
+                            ResolvedToken::Opr(token_idx, vd_base_opr)
                         }
                         VdPunctuationResolution::Todo => todo!(),
                     },

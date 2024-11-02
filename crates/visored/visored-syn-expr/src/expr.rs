@@ -20,6 +20,7 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
+use latex_math_letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
 use range::VdSynExprTokenIdxRange;
@@ -47,6 +48,10 @@ pub enum VdSynExprData {
         literal: VdZfcLiteral,
     },
     Notation,
+    Letter {
+        token_idx: LxMathTokenIdx,
+        letter: LxMathLetter,
+    },
     BaseOpr {
         opr: VdBaseOpr,
     },
@@ -141,9 +146,10 @@ pub type VdSynExprArenaRef<'a> = ArenaRef<'a, VdSynExprData>;
 impl VdSynExprData {
     pub fn children(&self) -> Vec<VdSynExprIdx> {
         match *self {
-            VdSynExprData::Literal { .. } => vec![],
-            VdSynExprData::Notation => vec![],
-            VdSynExprData::BaseOpr { opr } => vec![],
+            VdSynExprData::Literal { .. }
+            | VdSynExprData::Notation
+            | VdSynExprData::Letter { .. }
+            | VdSynExprData::BaseOpr { .. } => vec![],
             VdSynExprData::Binary { lopd, opr, ropd } => match opr {
                 VdSynBinaryOpr::Base(_, _) => vec![lopd, ropd],
                 VdSynBinaryOpr::Composite(opr, _) => vec![lopd, opr, ropd],
@@ -181,16 +187,14 @@ impl VdSynExprData {
 
     pub fn class(&self) -> VdSynExprClass {
         match *self {
-            VdSynExprData::Literal {
-                token_idx_range,
-                literal,
-            } => VdSynExprClass::Atom,
-            VdSynExprData::Notation => todo!(),
-            VdSynExprData::BaseOpr { opr } => todo!(),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
-            VdSynExprData::Prefix { opr, opd } => todo!(),
-            VdSynExprData::Suffix { opd, opr } => todo!(),
-            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::Literal { .. }
+            | VdSynExprData::Notation
+            | VdSynExprData::Letter { .. }
+            | VdSynExprData::BaseOpr { .. } => VdSynExprClass::Atom,
+            VdSynExprData::Binary { .. } => todo!(),
+            VdSynExprData::Prefix { .. } => todo!(),
+            VdSynExprData::Suffix { .. } => todo!(),
+            VdSynExprData::Attach { .. } => todo!(),
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),

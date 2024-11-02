@@ -98,3 +98,89 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
         "#]],
     );
 }
+
+#[test]
+fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
+    t(
+        "x",
+        &[],
+        &[],
+        &expect![[r#"
+            "x"
+        "#]],
+    );
+    t(
+        "y",
+        &[],
+        &[],
+        &expect![[r#"
+            "y"
+        "#]],
+    );
+    t(
+        "z",
+        &[],
+        &[],
+        &expect![[r#"
+            "z"
+        "#]],
+    );
+    t(
+        "xyz",
+        &[],
+        &[],
+        &expect![[r#"
+            "xyz"
+            ├─ "xy"
+            │ ├─ "x"
+            │ └─ "y"
+            └─ "z"
+        "#]],
+    );
+}
+
+#[test]
+fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
+    t(
+        "1+x",
+        &[],
+        &[],
+        &expect![[r#"
+            "1+x"
+            ├─ "1"
+            └─ "x"
+        "#]],
+    );
+    t(
+        "1+2x",
+        &[],
+        &[],
+        &expect![[r#"
+            "1+2x"
+            ├─ "1"
+            └─ "2x"
+              ├─ "2"
+              └─ "x"
+        "#]],
+    );
+    t(
+        "1+x+y+z+xyz",
+        &[],
+        &[],
+        &expect![[r#"
+            "1+x+y+z+xyz"
+            ├─ "1+x+y+z"
+            │ ├─ "1+x+y"
+            │ │ ├─ "1+x"
+            │ │ │ ├─ "1"
+            │ │ │ └─ "x"
+            │ │ └─ "y"
+            │ └─ "z"
+            └─ "xyz"
+              ├─ "xy"
+              │ ├─ "x"
+              │ └─ "y"
+              └─ "z"
+        "#]],
+    );
+}
