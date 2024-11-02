@@ -37,7 +37,7 @@ pub(super) enum IncompleteVdSynExprData {
         fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
     },
     Delimited {
-        bra: VdSynLeftDelimiter,
+        left_delimiter: VdSynLeftDelimiter,
     },
 }
 
@@ -47,7 +47,7 @@ impl IncompleteVdSynExprData {
             IncompleteVdSynExprData::Binary { opr, .. } => opr.precedence(),
             IncompleteVdSynExprData::Prefix { opr, .. } => todo!(),
             IncompleteVdSynExprData::SeparatedList { separator, .. } => separator.precedence(),
-            IncompleteVdSynExprData::Delimited { bra } => todo!(),
+            IncompleteVdSynExprData::Delimited { .. } => VdPrecedence::INCOMPLTE_DELIMITED,
         }
     }
 }
@@ -75,7 +75,9 @@ impl IncompleteVdSynExprData {
                 }
                 s
             }
-            IncompleteVdSynExprData::Delimited { bra } => todo!(),
+            IncompleteVdSynExprData::Delimited { left_delimiter } => {
+                format!("{}", left_delimiter.show(db, arena))
+            }
         }
     }
 }

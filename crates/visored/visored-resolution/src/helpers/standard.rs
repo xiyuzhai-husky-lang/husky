@@ -15,8 +15,8 @@ fn lx_math_punctuation_standard_resolution(
 ) -> Option<VdPunctuationResolution> {
     match punctuation {
         LxMathPunctuation::Add => Some(VdPunctuationResolution::SEPARATOR_ADD),
-        LxMathPunctuation::Sub => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Mul => Some(VdPunctuationResolution::Todo),
+        LxMathPunctuation::Sub => Some(VdPunctuationResolution::SUB),
+        LxMathPunctuation::Mul => Some(VdPunctuationResolution::SEPARATOR_MUL),
         LxMathPunctuation::Div => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::In => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::NotIn => Some(VdPunctuationResolution::Todo),
@@ -36,8 +36,8 @@ fn lx_math_punctuation_standard_resolution(
         LxMathPunctuation::GreaterEq => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::PlusMinus => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::Times => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Lpar => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Rpar => Some(VdPunctuationResolution::Todo),
+        LxMathPunctuation::Lpar => Some(VdPunctuationResolution::LPAR),
+        LxMathPunctuation::Rpar => Some(VdPunctuationResolution::RPAR),
         LxMathPunctuation::Lbox => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::Rbox => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::EscapedLcurl => Some(VdPunctuationResolution::Todo),

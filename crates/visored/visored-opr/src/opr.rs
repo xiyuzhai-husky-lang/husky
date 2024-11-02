@@ -16,8 +16,8 @@ pub enum VdBaseOpr {
 }
 
 impl VdBaseOpr {
-    pub const ADD: Self = Self::Binary(VdBaseBinaryOpr::Add);
-    pub const EQ: Self = Self::Binary(VdBaseBinaryOpr::Eq);
+    pub const SUB: Self = Self::Binary(VdBaseBinaryOpr::Sub);
+    pub const DIV: Self = Self::Binary(VdBaseBinaryOpr::Div);
 }
 
 impl VdBaseOpr {

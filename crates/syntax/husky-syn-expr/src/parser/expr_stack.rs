@@ -49,7 +49,7 @@ impl From<IncompleteSynExprData> for TopSynExpr {
 }
 
 impl SynExprStack {
-    pub(super) fn prev_unfinished_expr_precedence(&self) -> Option<Precedence> {
+    pub(super) fn prev_incomplete_expr_precedence(&self) -> Option<Precedence> {
         self.incomplete_exprs
             .last()
             .map(|(_, precedence)| *precedence)
@@ -160,7 +160,7 @@ where
         self.stack.incomplete_exprs.pop().map(|(expr, _)| expr)
     }
 
-    fn push_unfinished_expr(&mut self, incomplete_expr: IncompleteSynExprData) {
+    fn push_incomplete_expr(&mut self, incomplete_expr: IncompleteSynExprData) {
         assert!(self.stack.complete_expr.is_none());
         let precedence = incomplete_expr.precedence();
         self.stack
@@ -186,10 +186,10 @@ where
             self.reduce(Precedence::Application)
         };
         if let Some(function) = self.take_complete_expr() {
-            self.push_unfinished_expr(IncompleteSynExprData::Application { function });
+            self.push_incomplete_expr(IncompleteSynExprData::Application { function });
         }
         match top_expr {
-            TopSynExpr::Incomplete(incomplete_expr) => self.push_unfinished_expr(incomplete_expr),
+            TopSynExpr::Incomplete(incomplete_expr) => self.push_incomplete_expr(incomplete_expr),
             TopSynExpr::Complete(finished_expr) => self.stack.complete_expr = Some(finished_expr),
         }
     }
@@ -227,7 +227,7 @@ where
     }
 
     pub(super) fn reduce(&mut self, next_precedence: Precedence) {
-        while let Some(prev_precedence) = self.stack.prev_unfinished_expr_precedence() {
+        while let Some(prev_precedence) = self.stack.prev_incomplete_expr_precedence() {
             if prev_precedence < next_precedence {
                 break;
             }

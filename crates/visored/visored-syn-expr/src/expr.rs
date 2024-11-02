@@ -75,6 +75,11 @@ pub enum VdSynExprData {
         separator: VdSeparator,
         fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
     },
+    Delimited {
+        left_delimiter: VdSynLeftDelimiter,
+        item: VdSynExprIdx,
+        right_delimiter: VdSynRightDelimiter,
+    },
     Attach {
         base: VdSynExprIdx,
         // INVARIANCE: at least one of these are some
@@ -176,14 +181,36 @@ impl VdSynSeparator {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynLeftDelimiter {
-    Base(VdBaseLeftDelimiter),
+    Base(LxTokenIdxRange, VdBaseLeftDelimiter),
     Composite(VdSynExprIdx, VdCompositeLeftDelimiter),
+}
+
+impl VdSynLeftDelimiter {
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
+            VdSynLeftDelimiter::Base(token_idx_range, left_delimiter) => {
+                left_delimiter.latex_code().to_string()
+            }
+            VdSynLeftDelimiter::Composite(expr, _) => arena[expr].show(db, arena),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynRightDelimiter {
-    Base(VdBaseRightDelimiter),
+    Base(LxTokenIdxRange, VdBaseRightDelimiter),
     Composite(VdSynExprIdx, VdCompositeRightDelimiter),
+}
+
+impl VdSynRightDelimiter {
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
+            VdSynRightDelimiter::Base(_, right_delimiter) => {
+                right_delimiter.latex_code().to_string()
+            }
+            VdSynRightDelimiter::Composite(expr, _) => arena[expr].show(db, arena),
+        }
+    }
 }
 
 pub type VdSynExprIdx = ArenaIdx<VdSynExprData>;
@@ -232,6 +259,23 @@ impl VdSynExprData {
                     Right(VdSynSeparator::Base(_, _)) => None,
                 })
                 .collect(),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => {
+                let mut children = vec![];
+                match left_delimiter {
+                    VdSynLeftDelimiter::Base(_, _) => (),
+                    VdSynLeftDelimiter::Composite(expr, _) => children.push(expr),
+                }
+                children.push(item);
+                match right_delimiter {
+                    VdSynRightDelimiter::Base(_, _) => (),
+                    VdSynRightDelimiter::Composite(expr, _) => children.push(expr),
+                }
+                children
+            }
         }
     }
 
@@ -240,7 +284,8 @@ impl VdSynExprData {
         match *self {
             VdSynExprData::Literal { .. }
             | VdSynExprData::Notation
-            | VdSynExprData::Letter { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
+            | VdSynExprData::Letter { .. }
+            | VdSynExprData::Delimited { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
             VdSynExprData::BaseOpr { .. } => todo!(),
             VdSynExprData::Binary { .. } => todo!(),
             VdSynExprData::Prefix { .. } => todo!(),
@@ -334,6 +379,16 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(ref error) => error.to_string(),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => format!(
+                "{}{}{}",
+                left_delimiter.show(db, arena),
+                arena[item].show(db, arena),
+                right_delimiter.show(db, arena)
+            ),
         }
     }
 }
