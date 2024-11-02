@@ -53,12 +53,12 @@ impl IncompleteVdSynExprData {
 }
 
 impl IncompleteVdSynExprData {
-    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
         match *self {
             IncompleteVdSynExprData::Binary { lopd, opr } => {
-                format!("{} {}", arena[lopd].show(arena), opr.show(arena),)
+                format!("{} {}", arena[lopd].show(db, arena), opr.show(db, arena))
             }
-            IncompleteVdSynExprData::Prefix { opr } => opr.show(arena),
+            IncompleteVdSynExprData::Prefix { opr } => opr.show(db, arena),
             IncompleteVdSynExprData::SeparatedList {
                 separator,
                 ref fragments,
@@ -69,8 +69,8 @@ impl IncompleteVdSynExprData {
                         s += " ";
                     }
                     match fragment {
-                        Left(expr) => s += &arena[*expr].show(arena),
-                        Right(sep) => s += &sep.show(arena),
+                        Left(expr) => s += &arena[*expr].show(db, arena),
+                        Right(sep) => s += &sep.show(db, arena),
                     }
                 }
                 s

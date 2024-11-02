@@ -5,7 +5,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     pub fn show(&self) -> String {
         format!(
             "{}",
-            self.stack.show(self.builder.expr_arena().as_arena_ref())
+            self.stack
+                .show(self.builder.db(), self.builder.expr_arena().as_arena_ref())
         )
     }
 }
