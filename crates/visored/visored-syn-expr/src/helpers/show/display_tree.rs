@@ -1,7 +1,7 @@
 use crate::{
     builder::VdSynExprBuilder,
     clause::VdSynClauseArenaRef,
-    expr::{VdSynExprArenaRef, VdSynExprIdx, VdSynExprIdxRange},
+    expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
         VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
@@ -95,7 +95,29 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 .token_storage
                 .token_idx_range_offset_range(token_idx_range),
         };
-        let value = format!("{:?}", &self.input[offset_range]);
+        let source = &self.input[offset_range];
+        let value = match self.expr_arena[expr] {
+            VdSynExprData::Literal {
+                token_idx_range,
+                literal,
+            } => format!("{:?} literal", source),
+            VdSynExprData::Notation => format!("{:?} notation", source),
+            VdSynExprData::Letter { token_idx, letter } => format!("{:?} letter", source),
+            VdSynExprData::BaseOpr { opr } => format!("{:?} base opr", source),
+            VdSynExprData::Binary { lopd, opr, ropd } => format!("{:?} binary", source),
+            VdSynExprData::Prefix { opr, opd } => format!("{:?} prefix", source),
+            VdSynExprData::Suffix { opd, opr } => format!("{:?} suffix", source),
+            VdSynExprData::SeparatedList {
+                separator,
+                ref fragments,
+            } => format!("{:?} separated list", source),
+            VdSynExprData::Attach { base, ref scripts } => format!("{:?} attach", source),
+            VdSynExprData::UniadicChain => format!("{:?} uniadic chain", source),
+            VdSynExprData::VariadicChain => format!("{:?} variadic chain", source),
+            VdSynExprData::UniadicArray => format!("{:?} uniadic array", source),
+            VdSynExprData::VariadicArray => format!("{:?} variadic array", source),
+            VdSynExprData::Err(ref error) => format!("{:?} error", source),
+        };
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }
 
