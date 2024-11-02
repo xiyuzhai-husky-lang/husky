@@ -50,6 +50,7 @@ pub enum VdBaseSeparator {
     Add,
     Mul,
     Dot,
+    Eq,
 }
 
 impl VdBaseSeparator {
@@ -59,16 +60,18 @@ impl VdBaseSeparator {
     pub const ADD: Self = Self::Add;
     pub const MUL: Self = Self::Mul;
     pub const DOT: Self = Self::Dot;
+    pub const EQ: Self = Self::Eq;
 
     fn left_precedence_range(self) -> VdPrecedenceRange {
         match self {
             VdBaseSeparator::Space => VdPrecedenceRange::NoLess(VdPrecedence::SPACE),
             VdBaseSeparator::Comma => VdPrecedenceRange::NoLess(VdPrecedence::COMMA),
             VdBaseSeparator::Semicolon => VdPrecedenceRange::NoLess(VdPrecedence::SEMICOLON),
-            VdBaseSeparator::Add => VdPrecedenceRange::NoLess(VdPrecedence::ADD),
+            VdBaseSeparator::Add => VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB),
             VdBaseSeparator::Mul | VdBaseSeparator::Dot => {
-                VdPrecedenceRange::NoLess(VdPrecedence::MUL)
+                VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV)
             }
+            VdBaseSeparator::Eq => VdPrecedenceRange::NoLess(VdPrecedence::COMPARISON),
         }
     }
 
@@ -77,9 +80,10 @@ impl VdBaseSeparator {
             VdBaseSeparator::Space => VdPrecedenceRange::Greater(VdPrecedence::SPACE),
             VdBaseSeparator::Comma => VdPrecedenceRange::Greater(VdPrecedence::COMMA),
             VdBaseSeparator::Semicolon => VdPrecedenceRange::Greater(VdPrecedence::SEMICOLON),
-            VdBaseSeparator::Add => VdPrecedenceRange::Greater(VdPrecedence::ADD),
-            VdBaseSeparator::Mul => VdPrecedenceRange::Greater(VdPrecedence::MUL),
-            VdBaseSeparator::Dot => VdPrecedenceRange::Greater(VdPrecedence::MUL),
+            VdBaseSeparator::Add => VdPrecedenceRange::Greater(VdPrecedence::ADD_SUB),
+            VdBaseSeparator::Mul => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
+            VdBaseSeparator::Dot => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
+            VdBaseSeparator::Eq => VdPrecedenceRange::Greater(VdPrecedence::COMPARISON),
         }
     }
 }
@@ -90,9 +94,10 @@ impl VdBaseSeparator {
             VdBaseSeparator::Space => VdPrecedence::SPACE,
             VdBaseSeparator::Comma => todo!(),
             VdBaseSeparator::Semicolon => VdPrecedence::SEMICOLON,
-            VdBaseSeparator::Add => VdPrecedence::ADD,
-            VdBaseSeparator::Mul => VdPrecedence::MUL,
-            VdBaseSeparator::Dot => VdPrecedence::MUL,
+            VdBaseSeparator::Add => VdPrecedence::ADD_SUB,
+            VdBaseSeparator::Mul => VdPrecedence::MUL_DIV,
+            VdBaseSeparator::Dot => VdPrecedence::MUL_DIV,
+            VdBaseSeparator::Eq => VdPrecedence::COMPARISON,
         }
     }
 
@@ -104,6 +109,7 @@ impl VdBaseSeparator {
             VdBaseSeparator::Add => "+",
             VdBaseSeparator::Mul => "\\times",
             VdBaseSeparator::Dot => "\\cdot",
+            VdBaseSeparator::Eq => "=",
         }
     }
 }

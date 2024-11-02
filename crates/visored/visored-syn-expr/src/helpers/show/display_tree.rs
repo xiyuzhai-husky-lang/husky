@@ -117,6 +117,11 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynExprData::UniadicArray => format!("{:?} uniadic array", source),
             VdSynExprData::VariadicArray => format!("{:?} variadic array", source),
             VdSynExprData::Err(ref error) => format!("{:?} error", source),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => format!("{:?} delimited", source),
         };
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }

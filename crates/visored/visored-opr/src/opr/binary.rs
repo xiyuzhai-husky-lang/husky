@@ -2,22 +2,24 @@ use crate::precedence::{VdPrecedence, VdPrecedenceRange};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum VdBaseBinaryOpr {
-    Add,
-    Eq,
+    /// a-b
+    Sub,
+    /// a/b
+    Div,
 }
 
 impl VdBaseBinaryOpr {
     pub fn fmt_str(self) -> &'static str {
         match self {
-            VdBaseBinaryOpr::Add => "+",
-            VdBaseBinaryOpr::Eq => "=",
+            VdBaseBinaryOpr::Sub => todo!(),
+            VdBaseBinaryOpr::Div => todo!(),
         }
     }
 
     pub fn left_precedence_range(self) -> VdPrecedenceRange {
         match self {
-            VdBaseBinaryOpr::Add => VdPrecedenceRange::ADD_LEFT,
-            VdBaseBinaryOpr::Eq => VdPrecedenceRange::EQ_LEFT,
+            VdBaseBinaryOpr::Sub => VdPrecedenceRange::ADD_SUB_LEFT,
+            VdBaseBinaryOpr::Div => todo!(),
         }
     }
 
@@ -27,15 +29,15 @@ impl VdBaseBinaryOpr {
 
     pub fn latex_code(self) -> &'static str {
         match self {
-            VdBaseBinaryOpr::Add => "+",
-            VdBaseBinaryOpr::Eq => "=",
+            VdBaseBinaryOpr::Sub => "-",
+            VdBaseBinaryOpr::Div => "/",
         }
     }
 
     pub fn precedence(self) -> VdPrecedence {
         match self {
-            VdBaseBinaryOpr::Add => VdPrecedence::ADD,
-            VdBaseBinaryOpr::Eq => VdPrecedence::EQ,
+            VdBaseBinaryOpr::Sub => VdPrecedence::ADD_SUB,
+            VdBaseBinaryOpr::Div => VdPrecedence::MUL_DIV,
         }
     }
 }
@@ -71,8 +73,8 @@ impl VdCompositeBinaryOpr {
 
     pub fn precedence(self) -> VdPrecedence {
         match self {
-            VdCompositeBinaryOpr::Add => VdPrecedence::ADD,
-            VdCompositeBinaryOpr::Eq => VdPrecedence::EQ,
+            VdCompositeBinaryOpr::Add => VdPrecedence::ADD_SUB,
+            VdCompositeBinaryOpr::Eq => VdPrecedence::COMPARISON,
         }
     }
 }
