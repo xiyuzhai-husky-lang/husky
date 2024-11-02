@@ -17,8 +17,8 @@ pub(crate) struct SynExprStack {
 }
 
 pub(super) enum TopSynExpr {
-    Unfinished(IncompleteSynExprData),
-    Finished(SynExprData),
+    Incomplete(IncompleteSynExprData),
+    Complete(SynExprData),
 }
 
 pub(super) enum TopExprRef<'a> {
@@ -29,7 +29,7 @@ pub(super) enum TopExprRef<'a> {
 
 impl From<SynExprResult<SynExprData>> for TopSynExpr {
     fn from(result: SynExprResult<SynExprData>) -> Self {
-        Self::Finished(match result {
+        TopSynExpr::Complete(match result {
             Ok(data) => data,
             Err(e) => SynExprData::Err(e),
         })
@@ -38,13 +38,13 @@ impl From<SynExprResult<SynExprData>> for TopSynExpr {
 
 impl From<SynExprData> for TopSynExpr {
     fn from(v: SynExprData) -> Self {
-        Self::Finished(v)
+        TopSynExpr::Complete(v)
     }
 }
 
 impl From<IncompleteSynExprData> for TopSynExpr {
     fn from(v: IncompleteSynExprData) -> Self {
-        Self::Unfinished(v)
+        TopSynExpr::Incomplete(v)
     }
 }
 
@@ -189,8 +189,8 @@ where
             self.push_unfinished_expr(IncompleteSynExprData::Application { function });
         }
         match top_expr {
-            TopSynExpr::Unfinished(unfinished_expr) => self.push_unfinished_expr(unfinished_expr),
-            TopSynExpr::Finished(finished_expr) => self.stack.complete_expr = Some(finished_expr),
+            TopSynExpr::Incomplete(incomplete_expr) => self.push_unfinished_expr(incomplete_expr),
+            TopSynExpr::Complete(finished_expr) => self.stack.complete_expr = Some(finished_expr),
         }
     }
 
@@ -198,8 +198,8 @@ where
     pub(super) fn top_expr<'d>(&'d self) -> TopExprRef<'d> {
         if let Some(ref finished_expr) = self.stack.complete_expr {
             TopExprRef::Finished(finished_expr)
-        } else if let Some((unfinished_expr, _)) = self.stack.incomplete_exprs.last() {
-            TopExprRef::Incomplete(unfinished_expr)
+        } else if let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.last() {
+            TopExprRef::Incomplete(incomplete_expr)
         } else {
             TopExprRef::None
         }
@@ -401,8 +401,8 @@ where
     }
 
     pub(super) fn last_bra(&self) -> Option<Delimiter> {
-        for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
-            match unfinished_expr {
+        for (incomplete_expr, _) in self.stack.incomplete_exprs.iter().rev() {
+            match incomplete_expr {
                 IncompleteSynExprData::CommaList { bra, .. } => return Some(*bra),
                 IncompleteSynExprData::CallList { .. } => return Some(Delimiter::Par),
                 _ => (),
@@ -413,8 +413,8 @@ where
 
     pub(super) fn last_two_bras(&self) -> Vec<Delimiter> {
         let mut bras = vec![];
-        for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
-            match unfinished_expr {
+        for (incomplete_expr, _) in self.stack.incomplete_exprs.iter().rev() {
+            match incomplete_expr {
                 IncompleteSynExprData::CommaList { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
