@@ -37,7 +37,6 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             ResolvedToken::Separator(sep) => self.accept_separator(sep),
             ResolvedToken::LeftDelimiter(vd_left_delimiter) => todo!(),
             ResolvedToken::RightDelimiter(vd_right_delimiter) => todo!(),
-            ResolvedToken::Letter(lx_math_token_idx, lx_math_letter) => todo!(),
         }
     }
 

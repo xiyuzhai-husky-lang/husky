@@ -109,9 +109,11 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     fn calc_expr(&mut self, expr: VdSynExprIdx) -> VdSynExprTokenIdxRange {
         match self.expr_arena[expr] {
             VdSynExprData::Literal {
-                token_idx_range,
-                literal,
+                token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
+            VdSynExprData::Letter { token_idx, .. } => {
+                VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_single(*token_idx))
+            }
             VdSynExprData::Notation => todo!(),
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Binary { lopd, ropd, .. } => {
