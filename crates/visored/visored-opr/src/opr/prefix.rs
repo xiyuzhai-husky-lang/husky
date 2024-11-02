@@ -4,7 +4,7 @@ use crate::precedence::VdPrecedenceRange;
 pub enum VdBasePrefixOpr {}
 
 impl VdBasePrefixOpr {
-    pub fn fmt_str(self) -> &'static str {
+    pub fn latex_code(self) -> &'static str {
         todo!()
     }
 
@@ -17,4 +17,10 @@ impl VdBasePrefixOpr {
 pub enum VdCompositePrefixOpr {
     /// `d/dx`
     Differential,
+}
+
+impl VdCompositePrefixOpr {
+    pub fn latex_code(self) -> &'static str {
+        todo!()
+    }
 }

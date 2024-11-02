@@ -12,6 +12,8 @@ pub mod uniadic_chain;
 pub mod variadic_array;
 pub mod variadic_chain;
 
+use std::fmt::Formatter;
+
 use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
 use either::*;
@@ -90,10 +92,28 @@ pub enum VdSynPrefixOpr {
     Composite(VdSynExprIdx, VdCompositePrefixOpr),
 }
 
+impl VdSynPrefixOpr {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynPrefixOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynPrefixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSuffixOpr {
     Base(LxTokenIdxRange, VdBaseSuffixOpr),
     Composite(VdSynExprIdx, VdCompositeSuffixOpr),
+}
+
+impl VdSynSuffixOpr {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynSuffixOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynSuffixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -118,10 +138,28 @@ impl VdSynBinaryOpr {
     }
 }
 
+impl VdSynBinaryOpr {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynBinaryOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynBinaryOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSeparator {
     Base(LxMathTokenIdx, VdBaseSeparator),
     Composite(VdSynExprIdx, VdCompositeSeparator),
+}
+
+impl VdSynSeparator {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynSeparator::Base(_, slf) => slf.latex_code().to_string(),
+            VdSynSeparator::Composite(slf, _) => arena[slf].show(arena),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -232,6 +270,12 @@ impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
 
 impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
+        todo!()
+    }
+}
+
+impl VdSynExprData {
+    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
         todo!()
     }
 }

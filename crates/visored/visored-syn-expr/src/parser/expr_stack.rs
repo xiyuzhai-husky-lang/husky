@@ -1,6 +1,6 @@
 use super::{
     error::{OriginalVdSynExprError, VdSynExprResult},
-    expr::{VdSynExprData, VdSynExprIdx},
+    expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx},
     incomplete_expr::IncompleteVdSynExprData,
     VdSynExprParser,
 };
@@ -251,8 +251,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                             if separator1 == Some(separator) {
                                 use husky_debug_utils::detonate;
                                 use husky_print_utils::p;
+                                p!(self.show());
                                 p!(self.stack);
-                                detonate!(10);
+                                detonate!(100);
                                 self.stack.incomplete_exprs.push((
                                     IncompleteVdSynExprData::SeparatedList {
                                         separator,
@@ -300,5 +301,28 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         //     }
         // }
         // None
+    }
+}
+
+impl VdSynExprStack {
+    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
+        use std::fmt::Write;
+
+        let mut s = "Stack { incomplete: [".to_string();
+        // Show incomplete expressions with precedence
+        for (i, (expr, precedence)) in self.incomplete_exprs.iter().enumerate() {
+            if i > 0 {
+                s += ", ";
+            }
+            write!(s, "({}, {})", expr.show(arena), precedence.to_string());
+        }
+        s += "], complete: ";
+        if let Some(expr) = &self.complete_expr {
+            s += &expr.show(arena);
+        } else {
+            s += "None";
+        };
+        s += " }";
+        s
     }
 }

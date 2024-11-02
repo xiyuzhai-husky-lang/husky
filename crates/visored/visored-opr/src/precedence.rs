@@ -2,6 +2,24 @@
 pub struct VdPrecedence(u64);
 
 impl VdPrecedence {
+    pub fn raw(&self) -> u64 {
+        self.0
+    }
+}
+
+impl std::fmt::Display for VdPrecedence {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match *self {
+            Self::EQ => write!(f, "EQ"),
+            Self::ADD => write!(f, "ADD"),
+            Self::MUL => write!(f, "MUL"),
+            Self::SPACE => write!(f, "SPACE"),
+            _ => write!(f, "{}", self.raw()),
+        }
+    }
+}
+
+impl VdPrecedence {
     pub const EQ: Self = VdPrecedence(100);
     pub const ADD: Self = VdPrecedence(200);
     pub const MUL: Self = VdPrecedence(300);
