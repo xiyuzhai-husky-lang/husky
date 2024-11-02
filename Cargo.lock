@@ -12618,6 +12618,7 @@ dependencies = [
  "enum-class",
  "expect-test",
  "husky-coword",
+ "husky-debug-utils",
  "husky-print-utils",
  "husky-text-protocol",
  "husky-tree-utils",

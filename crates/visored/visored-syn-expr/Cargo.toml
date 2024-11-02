@@ -27,6 +27,7 @@ latex-ast.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils
+husky-debug-utils.workspace = true
 husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored

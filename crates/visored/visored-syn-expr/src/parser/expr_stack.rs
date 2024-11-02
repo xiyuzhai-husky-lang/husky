@@ -116,7 +116,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             match preceding_space_annotation {
                 Some(annotation) => todo!(),
                 _ => {
-                    self.reduce(VdPrecedenceRange::SPACE_LEFT);
+                    self.reduce(VdPrecedenceRange::SPACE_LEFT, Some(VdSeparator::SPACE));
                 }
             }
         };
@@ -170,15 +170,20 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     //     self.push_top_syn_expr(top_expr)
     // }
 
-    pub(super) fn reduce(&mut self, precedence_range: VdPrecedenceRange) {
+    pub(super) fn reduce(
+        &mut self,
+        precedence_range: VdPrecedenceRange,
+        separator1: Option<VdSeparator>,
+    ) {
         while let Some(prev_precedence) = self.stack.prev_unfinished_expr_precedence() {
             if !precedence_range.include(prev_precedence) {
                 break;
             }
-            match self.stack.incomplete_exprs.pop().unwrap().0 {
+            let (incomplete_expr, precedence) = self.stack.incomplete_exprs.pop().unwrap();
+            match incomplete_expr {
                 IncompleteVdSynExprData::Binary { lopd, opr } => {
-                    let finished_expr = self.take_complete_expr();
-                    self.stack.complete_expr = Some(match finished_expr {
+                    let complete_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match complete_expr {
                         Some(ropd) => VdSynExprData::Binary {
                             lopd,
                             opr,
@@ -243,10 +248,24 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                             }
                         },
                         None => {
-                            self.stack.complete_expr = Some(VdSynExprData::SeparatedList {
-                                separator,
-                                fragments,
-                            })
+                            if separator1 == Some(separator) {
+                                use husky_debug_utils::detonate;
+                                use husky_print_utils::p;
+                                p!(self.stack);
+                                detonate!(10);
+                                self.stack.incomplete_exprs.push((
+                                    IncompleteVdSynExprData::SeparatedList {
+                                        separator,
+                                        fragments,
+                                    },
+                                    precedence,
+                                ))
+                            } else {
+                                self.stack.complete_expr = Some(VdSynExprData::SeparatedList {
+                                    separator,
+                                    fragments,
+                                })
+                            }
                         }
                     }
                 }

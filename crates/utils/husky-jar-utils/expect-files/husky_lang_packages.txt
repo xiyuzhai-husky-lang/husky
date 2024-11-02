@@ -4263,6 +4263,7 @@
         dependencies: [
             "either",
             "enum-class",
+            "husky-debug-utils",
             "husky-print-utils",
             "husky-text-protocol",
             "husky-tree-utils",

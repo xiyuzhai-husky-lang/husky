@@ -130,11 +130,7 @@ fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
         &[],
         &[],
         &expect![[r#"
-            "xyz" separated list
-            ├─ "xy" separated list
-            │ ├─ "x" letter
-            │ └─ "y" letter
-            └─ "z" letter
+            "z" letter
         "#]],
     );
 }
@@ -176,11 +172,7 @@ fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
             │ │ │ └─ "x" letter
             │ │ └─ "y" letter
             │ └─ "z" letter
-            └─ "xyz" separated list
-              ├─ "xy" separated list
-              │ ├─ "x" letter
-              │ └─ "y" letter
-              └─ "z" letter
+            └─ "z" letter
         "#]],
     );
 }
