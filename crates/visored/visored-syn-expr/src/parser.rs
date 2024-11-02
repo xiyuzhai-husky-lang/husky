@@ -41,7 +41,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         while next < end {
             self.parse_ast(&mut next, end);
         }
-        self.reduce(VdPrecedenceRange::Any);
+        self.reduce(VdPrecedenceRange::Any, None);
         let Self { builder, stack } = self;
         builder.alloc_expr(stack.finish())
     }

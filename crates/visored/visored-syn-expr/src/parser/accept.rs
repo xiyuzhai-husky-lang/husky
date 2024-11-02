@@ -230,7 +230,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         if let Some(annotation) = preceding_space_annotation {
             todo!()
         }
-        self.reduce(opr.left_precedence_range());
+        self.reduce(opr.left_precedence_range(), None);
         let lopd = self.take_complete_expr().unwrap_or(VdSynExprData::Err(
             OriginalVdSynExprError::NoLeftOperandForBinaryOperator { opr }.into(),
         ));

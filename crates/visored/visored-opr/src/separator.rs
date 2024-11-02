@@ -6,6 +6,11 @@ pub enum VdSeparator {
     Base(VdBaseSeparator),
     Composite(VdCompositeSeparator),
 }
+
+impl VdSeparator {
+    pub const SPACE: Self = VdSeparator::Base(VdBaseSeparator::Space);
+}
+
 impl VdSeparator {
     pub fn precedence(self) -> VdPrecedence {
         match self {
