@@ -18,6 +18,13 @@ impl VdSeparator {
             VdSeparator::Composite(sep) => sep.precedence(),
         }
     }
+
+    pub fn latex_code(self) -> &'static str {
+        match self {
+            VdSeparator::Base(slf) => slf.latex_code(),
+            VdSeparator::Composite(slf) => slf.latex_code(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -40,14 +47,30 @@ impl VdBaseSeparator {
             VdBaseSeparator::Dot => todo!(),
         }
     }
+
+    pub fn latex_code(self) -> &'static str {
+        match self {
+            VdBaseSeparator::Space => "␣",
+            VdBaseSeparator::Comma => ",",
+            VdBaseSeparator::Semicolon => ";",
+            VdBaseSeparator::Add => "+",
+            VdBaseSeparator::Mul => "\\times",
+            VdBaseSeparator::Dot => "\\cdot",
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdCompositeSeparator {
     Call,
 }
+
 impl VdCompositeSeparator {
-    fn precedence(self) -> VdPrecedence {
+    pub fn precedence(self) -> VdPrecedence {
+        todo!()
+    }
+
+    pub fn latex_code(self) -> &'static str {
         todo!()
     }
 }

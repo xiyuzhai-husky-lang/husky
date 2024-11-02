@@ -46,7 +46,7 @@ impl LxAstArena {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LxAstArenaRef<'a> {
     math: LxMathAstArenaRef<'a>,
     rose: LxRoseAstArenaRef<'a>,

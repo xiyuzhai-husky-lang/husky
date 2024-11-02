@@ -70,8 +70,8 @@ impl<'db> VdSynExprBuilder<'db> {
         self.token_storage
     }
 
-    pub(crate) fn ast_arena(&self) -> &LxAstArenaRef<'db> {
-        &self.ast_arena
+    pub(crate) fn ast_arena(&self) -> LxAstArenaRef<'db> {
+        self.ast_arena
     }
 
     pub(crate) fn ast_token_idx_range_map(&self) -> &LxAstTokenIdxRangeMap {
