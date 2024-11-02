@@ -37,7 +37,7 @@ use visored_opr::{
         suffix::{VdBaseSuffixOpr, VdCompositeSuffixOpr},
         VdBaseOpr,
     },
-    precedence::VdPrecedenceRange,
+    precedence::{VdPrecedence, VdPrecedenceRange},
     separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
 };
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
@@ -150,7 +150,7 @@ impl VdSynBinaryOpr {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSeparator {
-    Base(LxMathTokenIdx, VdBaseSeparator),
+    Base(LxTokenIdxRange, VdBaseSeparator),
     Composite(VdSynExprIdx, VdCompositeSeparator),
 }
 
@@ -160,6 +160,17 @@ impl VdSynSeparator {
             VdSynSeparator::Base(_, slf) => slf.latex_code().to_string(),
             VdSynSeparator::Composite(slf, _) => arena[slf].show(db, arena),
         }
+    }
+
+    pub(crate) fn separator(self) -> VdSeparator {
+        match self {
+            VdSynSeparator::Base(_, separator) => separator.into(),
+            VdSynSeparator::Composite(_, separator) => separator.into(),
+        }
+    }
+
+    pub(crate) fn left_precedence_range(self) -> VdPrecedenceRange {
+        self.separator().left_precedence_range()
     }
 }
 
@@ -229,8 +240,8 @@ impl VdSynExprData {
         match *self {
             VdSynExprData::Literal { .. }
             | VdSynExprData::Notation
-            | VdSynExprData::Letter { .. }
-            | VdSynExprData::BaseOpr { .. } => VdSynExprClass::Atom,
+            | VdSynExprData::Letter { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
+            VdSynExprData::BaseOpr { .. } => todo!(),
             VdSynExprData::Binary { .. } => todo!(),
             VdSynExprData::Prefix { .. } => todo!(),
             VdSynExprData::Suffix { .. } => todo!(),
@@ -240,17 +251,23 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(..) => todo!(),
-            VdSynExprData::SeparatedList { .. } => unreachable!(),
+            VdSynExprData::SeparatedList { separator, .. } => {
+                VdSynExprClass::Complete(separator.precedence())
+            }
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynExprClass {
-    Atom,
+    Complete(VdPrecedence),
     Prefix,
     Suffix,
     Separator,
+}
+
+impl VdSynExprClass {
+    pub const ATOM: Self = VdSynExprClass::Complete(VdPrecedence::ATOM);
 }
 
 // token idx range is needed because the ast idx range might be empty,
@@ -282,10 +299,7 @@ impl VdSynExprData {
                 token_idx_range,
                 literal,
             } => match literal.data(db) {
-                VdZfcLiteralData::NaturalNumber(n) => {
-                    debug_assert!(n.is_empty());
-                    n.to_string()
-                }
+                VdZfcLiteralData::NaturalNumber(n) => n.to_string(),
                 VdZfcLiteralData::NegativeInteger(n) => n.to_string(),
                 VdZfcLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
@@ -295,7 +309,7 @@ impl VdSynExprData {
             VdSynExprData::BaseOpr { opr } => opr.latex_code().to_string(),
             VdSynExprData::Binary { lopd, opr, ropd } => {
                 format!(
-                    "{}%{}&{}",
+                    "{} {} {}",
                     arena[lopd].show(db, arena),
                     opr.show(db, arena),
                     arena[ropd].show(db, arena)
@@ -306,7 +320,14 @@ impl VdSynExprData {
             VdSynExprData::SeparatedList {
                 separator,
                 ref fragments,
-            } => todo!(),
+            } => fragments
+                .iter()
+                .map(|fragment| match fragment {
+                    Left(expr) => arena[*expr].show(db, arena),
+                    Right(separator) => separator.show(db, arena),
+                })
+                .collect::<Vec<_>>()
+                .join(" "),
             VdSynExprData::Attach { base, ref scripts } => todo!(),
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),

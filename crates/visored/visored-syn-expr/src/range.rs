@@ -133,10 +133,8 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 // use the first and the last fragment's range
                 let mut t = |fragment: Either<VdSynExprIdx, VdSynSeparator>| match fragment {
                     Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => self.get_expr(expr),
-                    Right(VdSynSeparator::Base(lx_math_token_idx, _)) => {
-                        VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_single(
-                            *lx_math_token_idx,
-                        ))
+                    Right(VdSynSeparator::Base(token_idx_range, _)) => {
+                        VdSynExprTokenIdxRange::Standard(token_idx_range)
                     }
                 };
                 let first = *fragments.first().expect("fragments are always non-empty");
