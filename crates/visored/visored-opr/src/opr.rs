@@ -20,6 +20,16 @@ impl VdBaseOpr {
     pub const EQ: Self = Self::Binary(VdBaseBinaryOpr::Eq);
 }
 
+impl VdBaseOpr {
+    pub fn latex_code(self) -> &'static str {
+        match self {
+            VdBaseOpr::Prefix(opr) => opr.latex_code(),
+            VdBaseOpr::Suffix(opr) => opr.latex_code(),
+            VdBaseOpr::Binary(opr) => opr.latex_code(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum VdCompositeOpr {
     Prefix(VdCompositePrefixOpr),

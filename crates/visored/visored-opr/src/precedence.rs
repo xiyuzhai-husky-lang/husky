@@ -10,11 +10,11 @@ impl VdPrecedence {
 impl std::fmt::Display for VdPrecedence {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match *self {
-            Self::EQ => write!(f, "EQ"),
-            Self::ADD => write!(f, "ADD"),
-            Self::MUL => write!(f, "MUL"),
-            Self::SPACE => write!(f, "SPACE"),
-            _ => write!(f, "{}", self.raw()),
+            Self::EQ => write!(f, "VdPrecedence::EQ"),
+            Self::ADD => write!(f, "VdPrecedence::ADD"),
+            Self::MUL => write!(f, "VdPrecedence::MUL"),
+            Self::SPACE => write!(f, "VdPrecedence::SPACE"),
+            _ => write!(f, "VdPrecedence({})", self.raw()),
         }
     }
 }

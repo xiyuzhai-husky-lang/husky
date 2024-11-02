@@ -59,7 +59,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             LxMathAstData::Digit(first_token_idx, digit) => {
                 let mut last_token_idx = first_token_idx;
                 let mut last_offset_end = self.builder.token_storage()[*first_token_idx].0.end();
-                let mut s = String::new();
+                let mut s = String::from(digit.char());
                 // TODO: handle real number by using a kind variable, literal number kind
                 while *next < end {
                     match self.builder.ast_arena()[*next] {

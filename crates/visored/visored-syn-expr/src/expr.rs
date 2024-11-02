@@ -40,9 +40,10 @@ use visored_opr::{
     precedence::VdPrecedenceRange,
     separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
 };
-use visored_zfc_ty::term::literal::VdZfcLiteral;
+use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 /// It's a tree of both form and meaning
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynExprData {
     Literal {
@@ -93,7 +94,7 @@ pub enum VdSynPrefixOpr {
 }
 
 impl VdSynPrefixOpr {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
         match *self {
             VdSynPrefixOpr::Base(_, opr) => opr.latex_code().to_string(),
             VdSynPrefixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
@@ -139,7 +140,7 @@ impl VdSynBinaryOpr {
 }
 
 impl VdSynBinaryOpr {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
         match *self {
             VdSynBinaryOpr::Base(_, opr) => opr.latex_code().to_string(),
             VdSynBinaryOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
@@ -154,10 +155,10 @@ pub enum VdSynSeparator {
 }
 
 impl VdSynSeparator {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
         match *self {
             VdSynSeparator::Base(_, slf) => slf.latex_code().to_string(),
-            VdSynSeparator::Composite(slf, _) => arena[slf].show(arena),
+            VdSynSeparator::Composite(slf, _) => arena[slf].show(db, arena),
         }
     }
 }
@@ -275,7 +276,43 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
 }
 
 impl VdSynExprData {
-    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
-        todo!()
+    pub fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynExprData::Literal {
+                token_idx_range,
+                literal,
+            } => match literal.data(db) {
+                VdZfcLiteralData::NaturalNumber(n) => {
+                    debug_assert!(n.is_empty());
+                    n.to_string()
+                }
+                VdZfcLiteralData::NegativeInteger(n) => n.to_string(),
+                VdZfcLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
+                VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
+            },
+            VdSynExprData::Notation => todo!(),
+            VdSynExprData::Letter { token_idx, letter } => letter.latex_code().to_string(),
+            VdSynExprData::BaseOpr { opr } => opr.latex_code().to_string(),
+            VdSynExprData::Binary { lopd, opr, ropd } => {
+                format!(
+                    "{}%{}&{}",
+                    arena[lopd].show(db, arena),
+                    opr.show(db, arena),
+                    arena[ropd].show(db, arena)
+                )
+            }
+            VdSynExprData::Prefix { opr, opd } => todo!(),
+            VdSynExprData::Suffix { opd, opr } => todo!(),
+            VdSynExprData::SeparatedList {
+                separator,
+                ref fragments,
+            } => todo!(),
+            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::UniadicChain => todo!(),
+            VdSynExprData::VariadicChain => todo!(),
+            VdSynExprData::UniadicArray => todo!(),
+            VdSynExprData::VariadicArray => todo!(),
+            VdSynExprData::Err(ref error) => error.to_string(),
+        }
     }
 }
