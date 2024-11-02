@@ -14,7 +14,7 @@ fn lx_math_punctuation_standard_resolution(
     punctuation: LxMathPunctuation,
 ) -> Option<VdPunctuationResolution> {
     match punctuation {
-        LxMathPunctuation::Add => Some(VdPunctuationResolution::ADD),
+        LxMathPunctuation::Add => Some(VdPunctuationResolution::SEPARATOR_ADD),
         LxMathPunctuation::Sub => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::Mul => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::Div => Some(VdPunctuationResolution::Todo),

@@ -48,8 +48,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 }
                 match self.builder.default_resolution_table()[punctuation] {
                     Some(resolution) => match resolution {
-                        VdPunctuationResolution::Opr(vd_base_opr) => {
-                            ResolvedToken::Opr(token_idx, vd_base_opr)
+                        VdPunctuationResolution::Opr(opr) => ResolvedToken::Opr(token_idx, opr),
+                        VdPunctuationResolution::Separator(separator) => {
+                            ResolvedToken::Separator(separator)
                         }
                         VdPunctuationResolution::Todo => todo!(),
                     },
