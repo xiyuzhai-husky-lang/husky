@@ -21,14 +21,20 @@ use idx_arena::{
 };
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use latex_prelude::script::LxScriptKind;
-use latex_token::idx::{LxMathTokenIdx, LxTokenIdxRange};
+use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
 use range::VdSynExprTokenIdxRange;
 use visored_opr::{
     delimiter::{
         VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
         VdCompositeRightDelimiter,
     },
-    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
+    opr::{
+        binary::{VdBaseBinaryOpr, VdCompositeBinaryOpr},
+        prefix::{VdBasePrefixOpr, VdCompositePrefixOpr},
+        suffix::{VdBaseSuffixOpr, VdCompositeSuffixOpr},
+        VdBaseOpr,
+    },
+    precedence::VdPrecedenceRange,
     separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
 };
 use visored_zfc_ty::term::literal::VdZfcLiteral;
@@ -46,16 +52,16 @@ pub enum VdSynExprData {
     },
     Binary {
         lopd: VdSynExprIdx,
-        opr: Either<VdBaseBinaryOpr, VdSynExprIdx>,
+        opr: VdSynBinaryOpr,
         ropd: VdSynExprIdx,
     },
     Prefix {
-        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
+        opr: VdSynPrefixOpr,
         opd: VdSynExprIdx,
     },
     Suffix {
         opd: VdSynExprIdx,
-        opr: Either<VdBaseSuffixOpr, VdSynExprIdx>,
+        opr: VdSynSuffixOpr,
     },
     SeparatedList {
         separator: VdSeparator,
@@ -71,6 +77,40 @@ pub enum VdSynExprData {
     UniadicArray,
     VariadicArray,
     Err(VdSynExprError),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynPrefixOpr {
+    Base(LxTokenIdxRange, VdBasePrefixOpr),
+    Composite(VdSynExprIdx, VdCompositePrefixOpr),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynSuffixOpr {
+    Base(LxTokenIdxRange, VdBaseSuffixOpr),
+    Composite(VdSynExprIdx, VdCompositeSuffixOpr),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynBinaryOpr {
+    Base(LxTokenIdxRange, VdBaseBinaryOpr),
+    Composite(VdSynExprIdx, VdCompositeBinaryOpr),
+}
+
+impl VdSynBinaryOpr {
+    pub(crate) fn left_precedence_range(self) -> VdPrecedenceRange {
+        match self {
+            VdSynBinaryOpr::Base(_, opr) => opr.left_precedence_range(),
+            VdSynBinaryOpr::Composite(_, opr) => opr.left_precedence_range(),
+        }
+    }
+
+    pub(crate) fn precedence(self) -> visored_opr::precedence::VdPrecedence {
+        match self {
+            VdSynBinaryOpr::Base(_, opr) => opr.precedence(),
+            VdSynBinaryOpr::Composite(_, opr) => opr.precedence(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -105,16 +145,16 @@ impl VdSynExprData {
             VdSynExprData::Notation => vec![],
             VdSynExprData::BaseOpr { opr } => vec![],
             VdSynExprData::Binary { lopd, opr, ropd } => match opr {
-                Left(_) => vec![lopd, ropd],
-                Right(opr) => vec![lopd, opr, ropd],
+                VdSynBinaryOpr::Base(_, _) => vec![lopd, ropd],
+                VdSynBinaryOpr::Composite(opr, _) => vec![lopd, opr, ropd],
             },
             VdSynExprData::Prefix { opr, opd } => match opr {
-                Left(_) => vec![opd],
-                Right(opr) => vec![opr, opd],
+                VdSynPrefixOpr::Base(_, _) => vec![opd],
+                VdSynPrefixOpr::Composite(opr, _) => vec![opr, opd],
             },
             VdSynExprData::Suffix { opd, opr } => match opr {
-                Left(_) => vec![opd],
-                Right(opr) => vec![opd, opr],
+                VdSynSuffixOpr::Base(_, _) => vec![opd],
+                VdSynSuffixOpr::Composite(opr, _) => vec![opd, opr],
             },
             VdSynExprData::Attach { base, ref scripts } => [base]
                 .into_iter()

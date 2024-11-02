@@ -1,9 +1,13 @@
 use super::*;
-use disambiguate_token::DisambiguatedToken;
 use either::*;
-use expr::{list_item::VdSynSeparatedListItem, VdSynExprClass, VdSynExprData};
+use error::OriginalVdSynExprError;
+use expr::{
+    list_item::VdSynSeparatedListItem, VdSynBinaryOpr, VdSynExprClass, VdSynExprData,
+    VdSynPrefixOpr, VdSynSuffixOpr,
+};
 use incomplete_expr::{IncompleteCallListOpr, IncompleteSeparatedListOpr, IncompleteVdSynExprData};
-use latex_token::idx::LxTokenIdx;
+use latex_token::idx::{LxTokenIdx, LxTokenIdxRange};
+use resolve::ResolvedToken;
 use smallvec::smallvec;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
@@ -17,20 +21,23 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     pub(crate) fn accept_token(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
-        token: DisambiguatedToken,
+        token_idx_range: LxTokenIdxRange,
+        token: ResolvedToken,
     ) {
         match token {
-            DisambiguatedToken::Expr(expr, class) => match class {
+            ResolvedToken::Expr(expr, class) => match class {
                 VdSynExprClass::Atom => self.accept_atom(preceding_space_annotation, expr),
                 VdSynExprClass::Prefix => todo!(),
                 VdSynExprClass::Suffix => todo!(),
                 VdSynExprClass::Separator => todo!(),
             },
-            DisambiguatedToken::Opr(opr) => self.accept_opr(preceding_space_annotation, opr),
-            DisambiguatedToken::Separator(sep) => self.accept_separator(sep),
-            DisambiguatedToken::LeftDelimiter(vd_left_delimiter) => todo!(),
-            DisambiguatedToken::RightDelimiter(vd_right_delimiter) => todo!(),
-            DisambiguatedToken::Letter(lx_math_token_idx, lx_math_letter) => todo!(),
+            ResolvedToken::Opr(lx_math_token_idx, opr) => {
+                self.accept_opr(preceding_space_annotation, token_idx_range, opr)
+            }
+            ResolvedToken::Separator(sep) => self.accept_separator(sep),
+            ResolvedToken::LeftDelimiter(vd_left_delimiter) => todo!(),
+            ResolvedToken::RightDelimiter(vd_right_delimiter) => todo!(),
+            ResolvedToken::Letter(lx_math_token_idx, lx_math_letter) => todo!(),
         }
     }
 
@@ -115,27 +122,47 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     fn accept_opr(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
+        token_idx_range: LxTokenIdxRange,
         opr: VdBaseOpr,
     ) {
         match opr {
-            VdBaseOpr::Binary(opr) => todo!(),
-            VdBaseOpr::Prefix(opr) => self.accept_prefix_opr(preceding_space_annotation, Left(opr)),
-            VdBaseOpr::Suffix(opr) => self.accept_suffix_opr(Left(opr)),
+            VdBaseOpr::Binary(opr) => self.accept_binary_opr(
+                preceding_space_annotation,
+                VdSynBinaryOpr::Base(token_idx_range, opr),
+            ),
+            VdBaseOpr::Prefix(opr) => self.accept_prefix_opr(
+                preceding_space_annotation,
+                VdSynPrefixOpr::Base(token_idx_range, opr),
+            ),
+            VdBaseOpr::Suffix(opr) => self.accept_suffix_opr(
+                preceding_space_annotation,
+                VdSynSuffixOpr::Base(token_idx_range, opr),
+            ),
         }
     }
 
     fn accept_prefix_opr(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
-        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
+        opr: VdSynPrefixOpr,
     ) {
+        if let Some(annotation) = preceding_space_annotation {
+            todo!()
+        }
         self.push_top_syn_expr(
             preceding_space_annotation,
             IncompleteVdSynExprData::Prefix { opr }.into(),
         )
     }
 
-    fn accept_suffix_opr(&mut self, opr: Either<VdBaseSuffixOpr, VdSynExprIdx>) {
+    fn accept_suffix_opr(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        opr: VdSynSuffixOpr,
+    ) {
+        if let Some(annotation) = preceding_space_annotation {
+            todo!()
+        }
         self.take_complete_and_push_to_top(|slf, top_expr| match top_expr {
             Some(expr) => VdSynExprData::Suffix {
                 opd: slf.builder.alloc_expr(expr),
@@ -196,19 +223,21 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         // }
     }
 
-    fn accept_binary_opr(&mut self, binary: Either<VdBaseBinaryOpr, VdSynExprIdx>) {
-        // self.reduce(binary.precedence());
-        // let lopd = self.take_complete_expr().unwrap_or(VdSynExprData::Err(
-        //     OriginalSynExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
-        // ));
-        // let lopd = self.builder.alloc_expr(lopd, todo!());
-        // let unfinished_expr = IncompleteVdSynExprData::Binary {
-        //     lopd,
-        //     punctuation: binary,
-        //     punctuation_token_idx: binary_token_idx,
-        // };
-        // self.push_top_syn_expr(unfinished_expr.into())
-        todo!()
+    fn accept_binary_opr(
+        &mut self,
+        preceding_space_annotation: Option<VdSpaceAnnotation>,
+        opr: VdSynBinaryOpr,
+    ) {
+        if let Some(annotation) = preceding_space_annotation {
+            todo!()
+        }
+        self.reduce(opr.left_precedence_range());
+        let lopd = self.take_complete_expr().unwrap_or(VdSynExprData::Err(
+            OriginalVdSynExprError::NoLeftOperandForBinaryOperator { opr }.into(),
+        ));
+        let lopd = self.builder.alloc_expr(lopd);
+        let unfinished_expr = IncompleteVdSynExprData::Binary { lopd, opr };
+        self.push_top_syn_expr(None, unfinished_expr.into());
     }
 
     fn accept_list_start(&mut self, bra: VdBaseLeftDelimiter, bra_token_idx: LxTokenIdx) {

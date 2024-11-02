@@ -1,4 +1,6 @@
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+use enum_index::{full_map::EnumFullVecMap, IsEnumIndex};
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, IsEnumIndex)]
 #[repr(u8)]
 pub enum LxMathPunctuation {
     /// Addition `+`
@@ -58,6 +60,8 @@ pub enum LxMathPunctuation {
     /// Escaped right curly `}`
     EscapedRcurl,
 }
+
+pub type LxMathPunctationMap<T> = EnumFullVecMap<LxMathPunctuation, T>;
 
 impl LxMathPunctuation {
     pub fn to_str(self) -> &'static str {
