@@ -36,6 +36,16 @@ pub enum VdBaseSeparator {
     Mul,
     Dot,
 }
+
+impl VdBaseSeparator {
+    pub const SPACE: Self = Self::Space;
+    pub const COMMA: Self = Self::Comma;
+    pub const SEMICOLON: Self = Self::Semicolon;
+    pub const ADD: Self = Self::Add;
+    pub const MUL: Self = Self::Mul;
+    pub const DOT: Self = Self::Dot;
+}
+
 impl VdBaseSeparator {
     pub fn precedence(self) -> VdPrecedence {
         match self {
