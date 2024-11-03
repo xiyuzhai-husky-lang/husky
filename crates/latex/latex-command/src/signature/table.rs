@@ -45,6 +45,23 @@ impl LxCommandSignatureTable {
                         parameters: vec![],
                     },
                 ),
+                (
+                    menu.frac_name(),
+                    LxCommandSignature {
+                        path: menu.frac_path(),
+                        parameters: vec![
+                            LxCommandParameter::new(LxMode::Math),
+                            LxCommandParameter::new(LxMode::Math),
+                        ],
+                    },
+                ),
+                (
+                    menu.text_name(),
+                    LxCommandSignature {
+                        path: menu.text_path(),
+                        parameters: vec![LxCommandParameter::new(LxMode::Rose)],
+                    },
+                ),
             ]
             .into_iter()
             .collect(),
