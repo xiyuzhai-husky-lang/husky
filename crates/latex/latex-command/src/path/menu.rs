@@ -9,6 +9,10 @@ pub struct LxCommandPathMenu {
     sin_path: LxCommandPath,
     cos_name: LxCommandName,
     cos_path: LxCommandPath,
+    frac_name: LxCommandName,
+    frac_path: LxCommandPath,
+    text_name: LxCommandName,
+    text_path: LxCommandPath,
 }
 
 impl LxCommandPathMenu {
@@ -22,6 +26,10 @@ impl LxCommandPathMenu {
             sin_path: p("sin"),
             cos_name: n("cos"),
             cos_path: p("cos"),
+            frac_name: n("frac"),
+            frac_path: p("frac"),
+            text_name: n("text"),
+            text_path: p("text"),
         }
     }
 }
@@ -49,6 +57,22 @@ impl LxCommandPathMenu {
 
     pub fn cos_path(&self) -> LxCommandPath {
         self.cos_path
+    }
+
+    pub fn frac_name(&self) -> LxCommandName {
+        self.frac_name
+    }
+
+    pub fn frac_path(&self) -> LxCommandPath {
+        self.frac_path
+    }
+
+    pub fn text_name(&self) -> LxCommandName {
+        self.text_name
+    }
+
+    pub fn text_path(&self) -> LxCommandPath {
+        self.text_path
     }
 }
 
