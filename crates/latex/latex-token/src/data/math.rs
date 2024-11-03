@@ -36,14 +36,16 @@ pub enum LxMathTokenError {
 
 impl<'a> LxLexer<'a> {
     pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
+        let db = self.db;
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
                         c if c.is_alphanumeric() => {
-                            Some(LxMathTokenData::Command(LxCommandPath::Coword(
+                            Some(LxMathTokenData::Command(LxCommandPath::new_prelude(
                                 self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
+                                db,
                             )))
                         }
                         c => {
