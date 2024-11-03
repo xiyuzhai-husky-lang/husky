@@ -20,18 +20,21 @@ pub enum LxRoseTokenData {
 
 impl<'a> LxLexer<'a> {
     pub(crate) fn next_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
+        let db = self.db;
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphanumeric() => Some(
-                            LxCommandPath::Coword(
-                                self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
+                        c if c.is_alphabetic() => Some(
+                            LxCommandPath::new_prelude(
+                                self.next_coword_with(|c| c.is_alphabetic()).unwrap(),
+                                db,
                             )
                             .into(),
                         ),
-                        _ => todo!(),
+                        c if c.is_numeric() => todo!("latex might allow single digit command"),
+                        _ => todo!("latex one digit non letter command"),
                     },
                     None => todo!(),
                 }
