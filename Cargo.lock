@@ -8163,6 +8163,7 @@ dependencies = [
  "latex-token",
  "ptree",
  "salsa",
+ "smallvec",
  "time-capsule",
 ]
 

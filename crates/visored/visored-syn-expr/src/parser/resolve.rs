@@ -116,6 +116,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             LxMathAstData::Command {
                 command_token_idx,
                 command_path,
+                ..
             } => todo!(),
         }
     }
