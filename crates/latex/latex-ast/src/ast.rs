@@ -1,5 +1,7 @@
 pub mod math;
 pub mod rose;
+#[cfg(test)]
+pub mod tests;
 
 use self::{
     math::{LxMathAstArena, LxMathAstArenaMap, LxMathAstArenaRef, LxMathAstData},
@@ -133,7 +135,7 @@ pub fn parse_latex_input_into_asts<'a>(
 impl<'a> LxAstParser<'a> {
     pub(crate) fn parse_asts(&mut self) -> LxAstIdxRange {
         match self.mode() {
-            LxMode::Rose => todo!(),
+            LxMode::Rose => self.parse_rose_asts().into(),
             LxMode::Math => self.parse_math_asts().into(),
         }
     }
