@@ -1,10 +1,12 @@
+#[cfg(test)]
+mod tests;
+
+use super::*;
 use latex_command::path::LxCommandPath;
 use latex_token::{
     data::math::{digit::LxMathDigit, LxMathDelimiter},
     idx::LxMathTokenIdx,
 };
-
-use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -63,10 +65,20 @@ impl<'a> LxAstParser<'a> {
         };
         let (idx, token) = self.next_math_token()?;
         Some(match token {
-            LxMathTokenData::Command(command_path) => LxMathAstData::Command {
-                command_token_idx: idx,
-                command_path,
-            },
+            LxMathTokenData::Command(command_name) => {
+                let Ok(command_name) = command_name else {
+                    todo!()
+                };
+                let command_signature = &self.command_signature_table()[command_name];
+                let command_path = command_signature.path();
+                if command_signature.parameters().len() > 0 {
+                    todo!()
+                }
+                LxMathAstData::Command {
+                    command_token_idx: idx,
+                    command_path,
+                }
+            }
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
             LxMathTokenData::RightDelimiter(_) => unreachable!(),
             LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),

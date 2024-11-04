@@ -7,15 +7,26 @@ use latex_prelude::mode::LxMode;
 use parameter::LxCommandParameter;
 use rustc_hash::FxHashMap;
 
+#[salsa::derive_debug_with_db]
+#[derive(Debug)]
 pub struct LxCommandSignatureTable {
     pub signatures: FxHashMap<LxCommandName, LxCommandSignature>,
 }
 
-impl<const N: usize> From<[(LxCommandPath, &[LxMode]); N]> for LxCommandSignatureTable {
-    fn from(value: [(LxCommandPath, &[LxMode]); N]) -> Self {
+impl std::ops::Index<LxCommandName> for LxCommandSignatureTable {
+    type Output = LxCommandSignature;
+
+    fn index(&self, index: LxCommandName) -> &Self::Output {
+        &self.signatures[&index]
+    }
+}
+
+impl LxCommandSignatureTable {
+    fn new(value: &[(LxCommandPath, &[LxMode])]) -> Self {
         Self {
             signatures: value
                 .into_iter()
+                .copied()
                 .map(|(path, parameter_modes)| {
                     (
                         path.name(),
@@ -34,17 +45,6 @@ impl<const N: usize> From<[(LxCommandPath, &[LxMode]); N]> for LxCommandSignatur
     }
 }
 
-impl<const N: usize> From<[LxCommandSignature; N]> for LxCommandSignatureTable {
-    fn from(value: [LxCommandSignature; N]) -> Self {
-        Self {
-            signatures: value
-                .into_iter()
-                .map(|signature| (signature.path().name(), signature))
-                .collect(),
-        }
-    }
-}
-
 impl std::ops::Deref for LxCommandSignatureTable {
     type Target = FxHashMap<LxCommandName, LxCommandSignature>;
 
@@ -58,20 +58,26 @@ impl LxCommandSignatureTable {
         use LxMode::*;
 
         let LxCommandPathMenu {
+            alpha_path,
+            beta_path,
+            gamma_path,
+            pi_path,
             sqrt_path,
             sin_path,
             cos_path,
             frac_path,
             text_path,
-            ..
-        } = command_path_menu(db);
-        [
+        } = *command_path_menu(db);
+        Self::new(&[
+            (alpha_path, &[]),
+            (beta_path, &[]),
+            (gamma_path, &[]),
+            (pi_path, &[]),
             (sqrt_path, &[Math]),
             (sin_path, &[]),
             (cos_path, &[]),
             (frac_path, &[Math, Math]),
             (text_path, &[Rose]),
-        ]
-        .into()
+        ])
     }
 }
