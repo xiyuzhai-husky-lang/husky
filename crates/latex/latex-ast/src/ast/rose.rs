@@ -1,4 +1,7 @@
 //! means the prose mode
+#[cfg(test)]
+pub mod tests;
+
 use super::*;
 use latex_token::{data::rose::LxRoseTokenData, idx::LxRoseTokenIdx};
 
