@@ -4,7 +4,7 @@ use crate::path::{
     LxCommandName,
 };
 use latex_prelude::mode::LxMode;
-use parameter::LxCommandParameter;
+use parameter::{LxCommandParameter, LxCommandParameterMode};
 use rustc_hash::FxHashMap;
 
 #[salsa::derive_debug_with_db]
@@ -22,7 +22,7 @@ impl std::ops::Index<LxCommandName> for LxCommandSignatureTable {
 }
 
 impl LxCommandSignatureTable {
-    fn new(value: &[(LxCommandPath, &[LxMode])]) -> Self {
+    fn new(value: &[(LxCommandPath, &[LxCommandParameterMode])]) -> Self {
         Self {
             signatures: value
                 .into_iter()
@@ -55,7 +55,7 @@ impl std::ops::Deref for LxCommandSignatureTable {
 
 impl LxCommandSignatureTable {
     pub fn new_default(db: &salsa::Db) -> Self {
-        use LxMode::*;
+        use LxCommandParameterMode::*;
 
         let LxCommandPathMenu {
             alpha_path,
