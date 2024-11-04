@@ -52,7 +52,7 @@ pub enum VdSynExprData {
     },
     Notation,
     Letter {
-        token_idx: LxMathTokenIdx,
+        token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
     },
     BaseOpr {
@@ -350,7 +350,7 @@ impl VdSynExprData {
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
             VdSynExprData::Notation => todo!(),
-            VdSynExprData::Letter { token_idx, letter } => letter.latex_code().to_string(),
+            VdSynExprData::Letter { letter, .. } => letter.latex_code().to_string(),
             VdSynExprData::BaseOpr { opr } => opr.latex_code().to_string(),
             VdSynExprData::Binary { lopd, opr, ropd } => {
                 format!(

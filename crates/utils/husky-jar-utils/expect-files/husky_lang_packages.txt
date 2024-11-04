@@ -4294,7 +4294,10 @@
         relative_path: "crates/visored/visored-resolution",
         dependencies: [
             "enum-index",
+            "latex-command",
+            "latex-math-letter",
             "latex-math-punctuation",
+            "rustc-hash",
             "salsa",
             "visored-opr",
         ],

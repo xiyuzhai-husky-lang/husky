@@ -102,7 +102,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 literal,
             } => format!("{:?} literal", source),
             VdSynExprData::Notation => format!("{:?} notation", source),
-            VdSynExprData::Letter { token_idx, letter } => format!("{:?} letter", source),
+            VdSynExprData::Letter { letter, .. } => format!("{:?} letter", source),
             VdSynExprData::BaseOpr { opr } => format!("{:?} base opr", source),
             VdSynExprData::Binary { lopd, opr, ropd } => format!("{:?} binary", source),
             VdSynExprData::Prefix { opr, opd } => format!("{:?} prefix", source),
