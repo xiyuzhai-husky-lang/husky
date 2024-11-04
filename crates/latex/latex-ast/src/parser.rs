@@ -6,6 +6,7 @@ use crate::{
     },
     region::LxAstRegionData,
 };
+use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
     data::{math::LxMathTokenData, rose::LxRoseTokenData},
@@ -17,6 +18,7 @@ use std::{borrow::BorrowMut, iter::Peekable};
 
 pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
+    command_signature_table: &'a LxCommandSignatureTable,
     lexer: LxLexer<'a>,
     mode: LxMode,
     arena: &'a mut LxAstArena,
@@ -26,6 +28,7 @@ pub(crate) struct LxAstParser<'a> {
 impl<'a> LxAstParser<'a> {
     pub(crate) fn new(
         db: &'a ::salsa::Db,
+        command_signature_table: &'a LxCommandSignatureTable,
         input: &'a str,
         mode: LxMode,
         token_storage: &'a mut LxTokenStorage,
@@ -33,14 +36,21 @@ impl<'a> LxAstParser<'a> {
     ) -> Self {
         Self {
             db,
+            command_signature_table,
             lexer: LxLexer::new(db, input, token_storage),
             mode,
             arena,
         }
     }
+}
 
+impl<'a> LxAstParser<'a> {
     pub(crate) fn mode(&self) -> LxMode {
         self.mode
+    }
+
+    pub(crate) fn command_signature_table(&self) -> &'a LxCommandSignatureTable {
+        self.command_signature_table
     }
 }
 

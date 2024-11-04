@@ -6990,10 +6990,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-text-span"
-version = "0.1.0"
-
-[[package]]
 name = "husky-tn-prototype"
 version = "0.1.0"
 
@@ -7144,7 +7140,6 @@ dependencies = [
  "husky-coword",
  "husky-print-utils",
  "husky-text-protocol",
- "husky-text-span",
  "husky-vfs",
  "salsa",
  "thiserror",
@@ -8163,11 +8158,12 @@ dependencies = [
  "latex-ast",
  "latex-command",
  "latex-math-letter",
- "latex-math-opr",
+ "latex-math-punctuation",
  "latex-prelude",
  "latex-token",
  "ptree",
  "salsa",
+ "smallvec",
  "time-capsule",
 ]
 
@@ -8177,7 +8173,9 @@ version = "0.1.0"
 dependencies = [
  "husky-coword",
  "latex-prelude",
+ "rustc-hash 2.0.0",
  "salsa",
+ "thiserror",
 ]
 
 [[package]]
@@ -8194,8 +8192,11 @@ name = "latex-math-letter"
 version = "0.1.0"
 
 [[package]]
-name = "latex-math-opr"
+name = "latex-math-punctuation"
 version = "0.1.0"
+dependencies = [
+ "enum-index",
+]
 
 [[package]]
 name = "latex-prelude"
@@ -8215,7 +8216,7 @@ dependencies = [
  "husky-text-protocol",
  "latex-command",
  "latex-math-letter",
- "latex-math-opr",
+ "latex-math-punctuation",
  "latex-prelude",
  "salsa",
  "shifted-unsigned-int",
@@ -12510,6 +12511,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-print-utils",
+ "husky-text-protocol",
  "latex-ast",
  "latex-command",
  "latex-prelude",
@@ -12549,6 +12551,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-item-path"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+]
+
+[[package]]
 name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
@@ -12584,6 +12593,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-resolution"
+version = "0.1.0"
+dependencies = [
+ "enum-index",
+ "latex-command",
+ "latex-math-letter",
+ "latex-math-punctuation",
+ "rustc-hash 2.0.0",
+ "salsa",
+ "visored-item-path",
+ "visored-opr",
+]
+
+[[package]]
 name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
@@ -12609,7 +12632,9 @@ dependencies = [
  "enum-class",
  "expect-test",
  "husky-coword",
+ "husky-debug-utils",
  "husky-print-utils",
+ "husky-text-protocol",
  "husky-tree-utils",
  "idx-arena",
  "latex-ast",
@@ -12622,6 +12647,7 @@ dependencies = [
  "thiserror",
  "visored-annotation",
  "visored-opr",
+ "visored-resolution",
  "visored-syn-expr",
  "visored-zfc-ty",
 ]

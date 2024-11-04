@@ -16,6 +16,7 @@ use latex_ast::{
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
+use visored_resolution::table::VdDefaultResolutionTable;
 
 pub(crate) struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -23,6 +24,7 @@ pub(crate) struct VdSynExprBuilder<'db> {
     ast_arena: LxAstArenaRef<'db>,
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
     annotations: &'db VdAnnotations,
+    default_resolution_table: &'db VdDefaultResolutionTable,
     expr_arena: VdSynExprArena,
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
@@ -37,6 +39,7 @@ impl<'db> VdSynExprBuilder<'db> {
         ast_arena: &'db LxAstArena,
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
         annotations: &'db VdAnnotations,
+        default_resolution_table: &'db VdDefaultResolutionTable,
     ) -> Self {
         Self {
             db,
@@ -44,6 +47,7 @@ impl<'db> VdSynExprBuilder<'db> {
             ast_arena: ast_arena.as_arena_ref(),
             ast_token_idx_range_map,
             annotations,
+            default_resolution_table,
             expr_arena: Default::default(),
             phrase_arena: Default::default(),
             clause_arena: Default::default(),
@@ -66,8 +70,8 @@ impl<'db> VdSynExprBuilder<'db> {
         self.token_storage
     }
 
-    pub(crate) fn ast_arena(&self) -> &LxAstArenaRef<'db> {
-        &self.ast_arena
+    pub(crate) fn ast_arena(&self) -> LxAstArenaRef<'db> {
+        self.ast_arena
     }
 
     pub(crate) fn ast_token_idx_range_map(&self) -> &LxAstTokenIdxRangeMap {
@@ -76,6 +80,10 @@ impl<'db> VdSynExprBuilder<'db> {
 
     pub(crate) fn annotations(&self) -> &VdAnnotations {
         self.annotations
+    }
+
+    pub(crate) fn default_resolution_table(&self) -> &VdDefaultResolutionTable {
+        self.default_resolution_table
     }
 
     pub(crate) fn expr_arena(&self) -> &VdSynExprArena {

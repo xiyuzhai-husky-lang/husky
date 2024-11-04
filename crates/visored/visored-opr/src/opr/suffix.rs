@@ -4,7 +4,7 @@ use crate::precedence::VdPrecedenceRange;
 pub enum VdBaseSuffixOpr {}
 
 impl VdBaseSuffixOpr {
-    pub fn fmt_str(self) -> &'static str {
+    pub fn latex_code(self) -> &'static str {
         todo!()
     }
 
@@ -15,3 +15,9 @@ impl VdBaseSuffixOpr {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum VdCompositeSuffixOpr {}
+
+impl VdCompositeSuffixOpr {
+    pub fn latex_code(self) -> &'static str {
+        todo!()
+    }
+}

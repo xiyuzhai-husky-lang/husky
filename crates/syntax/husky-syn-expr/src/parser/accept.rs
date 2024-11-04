@@ -453,19 +453,19 @@ where
             }
             .into(),
         ));
-        let unfinished_expr = IncompleteSynExprData::Binary {
+        let incomplete_expr = IncompleteSynExprData::Binary {
             lopd,
             punctuation: binary,
             punctuation_regional_token_idx: binary_regional_token_idx,
         };
-        self.push_top_syn_expr(unfinished_expr.into())
+        self.push_top_syn_expr(incomplete_expr.into())
     }
 
     fn accept_colon_right_after_lbox(&mut self, colon_regional_token_idx: RegionalTokenIdx) {
         #[cfg(test)]
         assert!(self.complete_expr().is_none());
-        let unfinished_expr = self.take_last_incomplete_expr().unwrap();
-        match unfinished_expr {
+        let incomplete_expr = self.take_last_incomplete_expr().unwrap();
+        match incomplete_expr {
             IncompleteSynExprData::CommaList {
                 opr: IncompleteCommaListOpr::BoxList,
                 bra,

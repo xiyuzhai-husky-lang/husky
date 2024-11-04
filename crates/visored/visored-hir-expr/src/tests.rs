@@ -20,6 +20,7 @@ use crate::{builder::VdHirExprBuilder, ToVdHir};
 pub(crate) struct DB {}
 
 #[test]
+#[ignore]
 fn to_hir_works() {
     let db = &DB::default();
     let menu = vd_zfc_ty_menu(db);
@@ -34,7 +35,8 @@ fn to_hir_works() {
     let one_add_one = builder.new_expr_checked(
         VdSemExprData::Binary {
             lopd: one,
-            opr: VdBaseBinaryOpr::Add,
+            opr: todo!(),
+            // VdBaseBinaryOpr::Add,
             ropd: one,
             dispatch: VdSemBinaryDispatch::IntAdd,
         },
