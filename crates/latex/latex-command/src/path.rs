@@ -4,13 +4,13 @@ use husky_coword::Coword;
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxCommandPath {
     package: LxPackagePath,
     name: LxCommandName,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LxPackagePath {
     Prelude,
 }

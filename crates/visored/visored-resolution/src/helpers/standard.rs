@@ -1,13 +1,52 @@
+use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
 use latex_math_punctuation::{LxMathPunctationMap, LxMathPunctuation};
 
-use crate::{resolution::punctuation::VdPunctuationResolution, table::VdDefaultResolutionTable};
+use crate::{
+    resolution::{
+        command::{VdCommandResolution, VdCommandResolutionMap},
+        punctuation::VdPunctuationResolution,
+    },
+    table::VdDefaultResolutionTable,
+};
 
 impl VdDefaultResolutionTable {
     pub fn new_standard(db: &salsa::Db) -> Self {
         let punctuation_resolution_map =
             LxMathPunctationMap::new(lx_math_punctuation_standard_resolution);
-        Self::new(punctuation_resolution_map, db)
+        let command_resolution_map = standard_command_resolution_map(db);
+        Self::new(punctuation_resolution_map, command_resolution_map, db)
     }
+}
+
+fn standard_command_resolution_map(
+    db: &salsa::Db,
+) -> std::collections::HashMap<
+    latex_command::path::LxCommandPath,
+    crate::resolution::command::VdCommandResolution,
+    rustc_hash::FxBuildHasher,
+> {
+    let LxCommandPathMenu {
+        alpha,
+        beta,
+        gamma,
+        pi,
+        sin,
+        cos,
+        sqrt,
+        frac,
+        text,
+    } = *command_path_menu(db);
+    VdCommandResolutionMap::from_iter([
+        (alpha, VdCommandResolution::ALPHA),
+        (beta, VdCommandResolution::BETA),
+        (gamma, VdCommandResolution::GAMMA),
+        (pi, VdCommandResolution::PI),
+        (sin, VdCommandResolution::Todo),
+        (cos, VdCommandResolution::Todo),
+        (sqrt, VdCommandResolution::Todo),
+        (frac, VdCommandResolution::Todo),
+        (text, VdCommandResolution::Todo),
+    ])
 }
 
 fn lx_math_punctuation_standard_resolution(

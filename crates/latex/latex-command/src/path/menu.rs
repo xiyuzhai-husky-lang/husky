@@ -4,34 +4,34 @@ use super::*;
 pub struct LxCommandPathMenu {
     // maths
     // - extended letters
-    pub alpha_path: LxCommandPath,
-    pub beta_path: LxCommandPath,
-    pub gamma_path: LxCommandPath,
+    pub alpha: LxCommandPath,
+    pub beta: LxCommandPath,
+    pub gamma: LxCommandPath,
     // - constants
-    pub pi_path: LxCommandPath,
+    pub pi: LxCommandPath,
     // - functions
-    pub sin_path: LxCommandPath,
-    pub cos_path: LxCommandPath,
+    pub sin: LxCommandPath,
+    pub cos: LxCommandPath,
     // - layouts
-    pub sqrt_path: LxCommandPath,
-    pub frac_path: LxCommandPath,
+    pub sqrt: LxCommandPath,
+    pub frac: LxCommandPath,
     // - environments
-    pub text_path: LxCommandPath,
+    pub text: LxCommandPath,
 }
 
 impl LxCommandPathMenu {
     fn new(db: &salsa::Db) -> Self {
         let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(db, data), db);
         Self {
-            alpha_path: p("alpha"),
-            beta_path: p("beta"),
-            gamma_path: p("gamma"),
-            pi_path: p("pi"),
-            sin_path: p("sin"),
-            cos_path: p("cos"),
-            sqrt_path: p("sqrt"),
-            frac_path: p("frac"),
-            text_path: p("text"),
+            alpha: p("alpha"),
+            beta: p("beta"),
+            gamma: p("gamma"),
+            pi: p("pi"),
+            sin: p("sin"),
+            cos: p("cos"),
+            sqrt: p("sqrt"),
+            frac: p("frac"),
+            text: p("text"),
         }
     }
 }

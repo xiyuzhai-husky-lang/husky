@@ -2,12 +2,14 @@ use super::{
     expr::{VdSynExprClass, VdSynExprData, VdSynExprIdx},
     VdSynExprParser,
 };
-use latex_ast::ast::math::{LxMathAstData, LxMathAstIdx};
+use latex_ast::ast::math::{LxMathAstData, LxMathAstIdx, LxMathCommandArgument};
+use latex_command::path::LxCommandPath;
 use latex_math_letter::LxMathLetter;
 use latex_token::{
     data::math::digit::LxMathDigit,
     idx::{LxMathTokenIdx, LxTokenIdxRange},
 };
+use salsa::DebugWithDb;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
     delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
@@ -15,7 +17,9 @@ use visored_opr::{
     precedence::VdPrecedence,
     separator::VdBaseSeparator,
 };
-use visored_resolution::resolution::punctuation::VdPunctuationResolution;
+use visored_resolution::resolution::{
+    command::VdCommandResolution, punctuation::VdPunctuationResolution,
+};
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 pub struct DisambiguatedMathAst {
@@ -38,7 +42,10 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         *next += 1;
         match *ast_data {
             LxMathAstData::Letter(token_idx, letter) => ResolvedToken::Expr(
-                VdSynExprData::Letter { token_idx, letter },
+                VdSynExprData::Letter {
+                    token_idx_range: LxTokenIdxRange::new_single(*token_idx),
+                    letter,
+                },
                 VdSynExprClass::ATOM,
             ),
             LxMathAstData::Punctuation(token_idx, punctuation) => {
@@ -116,8 +123,36 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             LxMathAstData::Command {
                 command_token_idx,
                 command_path,
-                ..
-            } => todo!(),
+                ref arguments,
+            } => self.resolve_command(command_token_idx, command_path, arguments),
+        }
+    }
+
+    fn resolve_command(
+        &mut self,
+        command_token_idx: LxMathTokenIdx,
+        command_path: LxCommandPath,
+        arguments: &[LxMathCommandArgument],
+    ) -> ResolvedToken {
+        match self.builder.default_resolution_table()[command_path] {
+            VdCommandResolution::Letter(letter) => {
+                let token_idx_range = match arguments.last() {
+                    Some(argument) => {
+                        LxTokenIdxRange::new_closed(*command_token_idx, *argument.rcurl_token_idx())
+                    }
+                    None => LxTokenIdxRange::new_single(*command_token_idx),
+                };
+                ResolvedToken::Expr(
+                    VdSynExprData::Letter {
+                        token_idx_range,
+                        letter,
+                    },
+                    VdSynExprClass::ATOM,
+                )
+            }
+            VdCommandResolution::Todo => {
+                todo!("command_path = {:?}", command_path.debug(self.builder.db()))
+            }
         }
     }
 }

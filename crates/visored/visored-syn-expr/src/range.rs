@@ -114,9 +114,9 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::Literal {
                 token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
-            VdSynExprData::Letter { token_idx, .. } => {
-                VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_single(*token_idx))
-            }
+            VdSynExprData::Letter {
+                token_idx_range, ..
+            } => VdSynExprTokenIdxRange::Standard(token_idx_range),
             VdSynExprData::Notation => todo!(),
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Binary { lopd, ropd, .. } => {

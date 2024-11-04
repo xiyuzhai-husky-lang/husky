@@ -58,26 +58,26 @@ impl LxCommandSignatureTable {
         use LxCommandParameterMode::*;
 
         let LxCommandPathMenu {
-            alpha_path,
-            beta_path,
-            gamma_path,
-            pi_path,
-            sqrt_path,
-            sin_path,
-            cos_path,
-            frac_path,
-            text_path,
+            alpha,
+            beta,
+            gamma,
+            pi,
+            sqrt,
+            sin,
+            cos,
+            frac,
+            text,
         } = *command_path_menu(db);
         Self::new(&[
-            (alpha_path, &[]),
-            (beta_path, &[]),
-            (gamma_path, &[]),
-            (pi_path, &[]),
-            (sqrt_path, &[Math]),
-            (sin_path, &[]),
-            (cos_path, &[]),
-            (frac_path, &[Math, Math]),
-            (text_path, &[Rose]),
+            (alpha, &[]),
+            (beta, &[]),
+            (gamma, &[]),
+            (pi, &[]),
+            (sqrt, &[Math]),
+            (sin, &[]),
+            (cos, &[]),
+            (frac, &[Math, Math]),
+            (text, &[Rose]),
         ])
     }
 }

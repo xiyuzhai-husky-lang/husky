@@ -24,7 +24,7 @@ latex-math-letter.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
-latex-command = { workspace = true, optional = true }
+latex-command.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils
@@ -50,4 +50,4 @@ visored-syn-expr = { workspace = true, features = ["test_helpers"] }
 workspace = true
 
 [features]
-test_helpers = ["latex-ast/test_helpers", "dep:latex-command"]
+test_helpers = ["latex-ast/test_helpers"]
