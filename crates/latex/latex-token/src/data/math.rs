@@ -28,6 +28,20 @@ pub enum LxMathDelimiter {
     Curl,
 }
 
+impl LxMathDelimiter {
+    pub fn left_latex_code(&self) -> &'static str {
+        match self {
+            LxMathDelimiter::Curl => "{",
+        }
+    }
+
+    pub fn right_latex_code(&self) -> &'static str {
+        match self {
+            LxMathDelimiter::Curl => "}",
+        }
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenError {
@@ -318,9 +332,13 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "int",
+                    Ok(
+                        LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "int",
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -332,9 +350,13 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "int",
+                    Ok(
+                        LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "int",
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -346,9 +368,13 @@ fn next_text_token_data_works() {
                     Three,
                 ),
                 LxMathTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "sin",
+                    Ok(
+                        LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "sin",
+                                ),
+                            ),
                         ),
                     ),
                 ),

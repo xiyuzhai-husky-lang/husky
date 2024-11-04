@@ -91,6 +91,7 @@ impl LxCommandName {
     }
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum LxCommandNameError {
     /// command identifier cannot be empty

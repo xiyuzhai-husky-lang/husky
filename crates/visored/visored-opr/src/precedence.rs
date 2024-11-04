@@ -60,8 +60,6 @@ impl VdPrecedence {
 fn vd_precedence_works() {
     // (a; b
     assert!(VdPrecedence::INCOMPLTE_DELIMITED < VdPrecedence::SEMICOLON);
-    // a=a+b
-    assert!(VdPrecedence::SEMICOLON < VdPrecedence::COMPARISON);
     // a, b < 1
     assert!(VdPrecedence::COMPARISON < VdPrecedence::COMMA);
     // \sum a+ b

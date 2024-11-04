@@ -377,3 +377,31 @@ fn opr_commands_vd_syn_expr_parsing_works() {
         "#]],
     )
 }
+
+#[test]
+fn attach_vd_syn_expr_parsing_works() {
+    t(
+        "x^2",
+        &[],
+        &[],
+        &expect![[r#"
+            "x^2" attach
+            ├─ "x" letter
+            └─ "2" literal
+        "#]],
+    );
+    t(
+        "{(x+1)}^2",
+        &[],
+        &[],
+        &expect![[r#"
+            "{(x+1)}^2" attach
+            ├─ "{(x+1)}" latex delimited
+            │ └─ "(x+1)" delimited
+            │   └─ "x+1" separated list
+            │     ├─ "x" letter
+            │     └─ "1" literal
+            └─ "2" literal
+        "#]],
+    );
+}
