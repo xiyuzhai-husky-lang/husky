@@ -5,10 +5,14 @@ pub mod literal;
 pub mod notation;
 pub mod prefix;
 pub mod suffix;
+#[cfg(test)]
+mod tests;
 pub mod uniadic_array;
 pub mod uniadic_chain;
 pub mod variadic_array;
 pub mod variadic_chain;
+
+use std::fmt::Formatter;
 
 use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
@@ -18,20 +22,28 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
+use latex_math_letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
-use latex_token::idx::{LxMathTokenIdx, LxTokenIdxRange};
+use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
 use range::VdSynExprTokenIdxRange;
 use visored_opr::{
     delimiter::{
         VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
         VdCompositeRightDelimiter,
     },
-    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
+    opr::{
+        binary::{VdBaseBinaryOpr, VdCompositeBinaryOpr},
+        prefix::{VdBasePrefixOpr, VdCompositePrefixOpr},
+        suffix::{VdBaseSuffixOpr, VdCompositeSuffixOpr},
+        VdBaseOpr,
+    },
+    precedence::{VdPrecedence, VdPrecedenceRange},
     separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
 };
-use visored_zfc_ty::term::literal::VdZfcLiteral;
+use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 /// It's a tree of both form and meaning
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynExprData {
     Literal {
@@ -39,30 +51,50 @@ pub enum VdSynExprData {
         literal: VdZfcLiteral,
     },
     Notation,
+    Letter {
+        token_idx_range: LxTokenIdxRange,
+        letter: LxMathLetter,
+    },
     BaseOpr {
         opr: VdBaseOpr,
     },
     Binary {
         lopd: VdSynExprIdx,
-        opr: Either<VdBaseBinaryOpr, VdSynExprIdx>,
+        opr: VdSynBinaryOpr,
         ropd: VdSynExprIdx,
     },
     Prefix {
-        opr: Either<VdBasePrefixOpr, VdSynExprIdx>,
+        opr: VdSynPrefixOpr,
         opd: VdSynExprIdx,
     },
     Suffix {
         opd: VdSynExprIdx,
-        opr: Either<VdBaseSuffixOpr, VdSynExprIdx>,
+        opr: VdSynSuffixOpr,
     },
     SeparatedList {
         separator: VdSeparator,
         fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
     },
+    Delimited {
+        left_delimiter: VdSynLeftDelimiter,
+        item: VdSynExprIdx,
+        right_delimiter: VdSynRightDelimiter,
+    },
     Attach {
         base: VdSynExprIdx,
         // INVARIANCE: at least one of these are some
         scripts: Vec<(LxScriptKind, VdSynExprIdx)>,
+    },
+    Fraction {
+        command_token_idx: LxMathTokenIdx,
+        numerator: VdSynExprIdx,
+        denominator: VdSynExprIdx,
+        denominator_rcurl_token_idx: LxMathTokenIdx,
+    },
+    Sqrt {
+        command_token_idx: LxMathTokenIdx,
+        radicand: VdSynExprIdx,
+        radicand_rcurl_token_idx: LxMathTokenIdx,
     },
     UniadicChain,
     VariadicChain,
@@ -72,21 +104,131 @@ pub enum VdSynExprData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynPrefixOpr {
+    Base(LxTokenIdxRange, VdBasePrefixOpr),
+    Composite(VdSynExprIdx, VdCompositePrefixOpr),
+}
+
+impl VdSynPrefixOpr {
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
+            VdSynPrefixOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynPrefixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
+
+    pub(crate) fn precedence(self) -> VdPrecedence {
+        match self {
+            VdSynPrefixOpr::Base(_, opr) => opr.precedence(),
+            VdSynPrefixOpr::Composite(_, opr) => opr.precedence(),
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynSuffixOpr {
+    Base(LxTokenIdxRange, VdBaseSuffixOpr),
+    Composite(VdSynExprIdx, VdCompositeSuffixOpr),
+}
+
+impl VdSynSuffixOpr {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynSuffixOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynSuffixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynBinaryOpr {
+    Base(LxTokenIdxRange, VdBaseBinaryOpr),
+    Composite(VdSynExprIdx, VdCompositeBinaryOpr),
+}
+
+impl VdSynBinaryOpr {
+    pub(crate) fn left_precedence_range(self) -> VdPrecedenceRange {
+        match self {
+            VdSynBinaryOpr::Base(_, opr) => opr.left_precedence_range(),
+            VdSynBinaryOpr::Composite(_, opr) => opr.left_precedence_range(),
+        }
+    }
+
+    pub(crate) fn precedence(self) -> visored_opr::precedence::VdPrecedence {
+        match self {
+            VdSynBinaryOpr::Base(_, opr) => opr.precedence(),
+            VdSynBinaryOpr::Composite(_, opr) => opr.precedence(),
+        }
+    }
+}
+
+impl VdSynBinaryOpr {
+    pub(crate) fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynBinaryOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynBinaryOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSeparator {
-    Base(LxMathTokenIdx, VdBaseSeparator),
+    Base(LxTokenIdxRange, VdBaseSeparator),
     Composite(VdSynExprIdx, VdCompositeSeparator),
+}
+
+impl VdSynSeparator {
+    pub(crate) fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynSeparator::Base(_, slf) => slf.latex_code().to_string(),
+            VdSynSeparator::Composite(slf, _) => arena[slf].show(db, arena),
+        }
+    }
+
+    pub(crate) fn separator(self) -> VdSeparator {
+        match self {
+            VdSynSeparator::Base(_, separator) => separator.into(),
+            VdSynSeparator::Composite(_, separator) => separator.into(),
+        }
+    }
+
+    pub(crate) fn left_precedence_range(self) -> VdPrecedenceRange {
+        self.separator().left_precedence_range()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynLeftDelimiter {
-    Base(VdBaseLeftDelimiter),
+    Base(LxTokenIdxRange, VdBaseLeftDelimiter),
     Composite(VdSynExprIdx, VdCompositeLeftDelimiter),
+}
+
+impl VdSynLeftDelimiter {
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
+            VdSynLeftDelimiter::Base(token_idx_range, left_delimiter) => {
+                left_delimiter.latex_code().to_string()
+            }
+            VdSynLeftDelimiter::Composite(expr, _) => arena[expr].show(db, arena),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynRightDelimiter {
-    Base(VdBaseRightDelimiter),
+    Base(LxTokenIdxRange, VdBaseRightDelimiter),
     Composite(VdSynExprIdx, VdCompositeRightDelimiter),
+}
+
+impl VdSynRightDelimiter {
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
+            VdSynRightDelimiter::Base(_, right_delimiter) => {
+                right_delimiter.latex_code().to_string()
+            }
+            VdSynRightDelimiter::Composite(expr, _) => arena[expr].show(db, arena),
+        }
+    }
 }
 
 pub type VdSynExprIdx = ArenaIdx<VdSynExprData>;
@@ -99,20 +241,21 @@ pub type VdSynExprArenaRef<'a> = ArenaRef<'a, VdSynExprData>;
 impl VdSynExprData {
     pub fn children(&self) -> Vec<VdSynExprIdx> {
         match *self {
-            VdSynExprData::Literal { .. } => vec![],
-            VdSynExprData::Notation => vec![],
-            VdSynExprData::BaseOpr { opr } => vec![],
+            VdSynExprData::Literal { .. }
+            | VdSynExprData::Notation
+            | VdSynExprData::Letter { .. }
+            | VdSynExprData::BaseOpr { .. } => vec![],
             VdSynExprData::Binary { lopd, opr, ropd } => match opr {
-                Left(_) => vec![lopd, ropd],
-                Right(opr) => vec![lopd, opr, ropd],
+                VdSynBinaryOpr::Base(_, _) => vec![lopd, ropd],
+                VdSynBinaryOpr::Composite(opr, _) => vec![lopd, opr, ropd],
             },
             VdSynExprData::Prefix { opr, opd } => match opr {
-                Left(_) => vec![opd],
-                Right(opr) => vec![opr, opd],
+                VdSynPrefixOpr::Base(_, _) => vec![opd],
+                VdSynPrefixOpr::Composite(opr, _) => vec![opr, opd],
             },
             VdSynExprData::Suffix { opd, opr } => match opr {
-                Left(_) => vec![opd],
-                Right(opr) => vec![opd, opr],
+                VdSynSuffixOpr::Base(_, _) => vec![opd],
+                VdSynSuffixOpr::Composite(opr, _) => vec![opd, opr],
             },
             VdSynExprData::Attach { base, ref scripts } => [base]
                 .into_iter()
@@ -134,37 +277,72 @@ impl VdSynExprData {
                     Right(VdSynSeparator::Base(_, _)) => None,
                 })
                 .collect(),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => {
+                let mut children = vec![];
+                match left_delimiter {
+                    VdSynLeftDelimiter::Base(_, _) => (),
+                    VdSynLeftDelimiter::Composite(expr, _) => children.push(expr),
+                }
+                children.push(item);
+                match right_delimiter {
+                    VdSynRightDelimiter::Base(_, _) => (),
+                    VdSynRightDelimiter::Composite(expr, _) => children.push(expr),
+                }
+                children
+            }
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => vec![numerator, denominator],
+            VdSynExprData::Sqrt { radicand, .. } => vec![radicand],
         }
     }
 
     pub fn class(&self) -> VdSynExprClass {
         match *self {
-            VdSynExprData::Literal {
-                token_idx_range,
-                literal,
-            } => VdSynExprClass::Atom,
-            VdSynExprData::Notation => todo!(),
-            VdSynExprData::BaseOpr { opr } => todo!(),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
-            VdSynExprData::Prefix { opr, opd } => todo!(),
-            VdSynExprData::Suffix { opd, opr } => todo!(),
-            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::Literal { .. }
+            | VdSynExprData::Notation
+            | VdSynExprData::Letter { .. }
+            | VdSynExprData::Delimited { .. }
+            | VdSynExprData::Fraction { .. }
+            | VdSynExprData::Sqrt { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
+            VdSynExprData::BaseOpr { opr } => match opr {
+                VdBaseOpr::Prefix(opr) => VdSynExprClass::Prefix,
+                VdBaseOpr::Suffix(opr) => VdSynExprClass::Suffix,
+                VdBaseOpr::Binary(opr) => VdSynExprClass::Binary,
+            },
+            VdSynExprData::Binary { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
+            VdSynExprData::Prefix { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
+            VdSynExprData::Suffix { .. } => todo!(),
+            VdSynExprData::Attach { .. } => todo!(),
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(..) => todo!(),
-            VdSynExprData::SeparatedList { .. } => todo!(),
+            VdSynExprData::SeparatedList { separator, .. } => {
+                VdSynExprClass::Complete(separator.precedence())
+            }
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynExprClass {
-    Atom,
+    Complete(VdPrecedence),
     Prefix,
     Suffix,
     Separator,
+    Binary,
+}
+
+impl VdSynExprClass {
+    pub const ATOM: Self = VdSynExprClass::Complete(VdPrecedence::ATOM);
 }
 
 // token idx range is needed because the ast idx range might be empty,
@@ -189,69 +367,70 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
-
-    #[test]
-    fn math_ast_idx_to_vd_syn_expr_idx_works() {
-        use crate::test_helpers::example::VdSynExprExample;
-        use expect_test::{expect, Expect};
-        use latex_prelude::mode::LxMode;
-
-        fn t(
-            input: &str,
-            token_annotations: &[((&str, &str), VdTokenAnnotation)],
-            space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-            expected: &Expect,
-        ) {
-            use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
-
-            let db = &DB::default();
-            let example = VdSynExprExample::new(
-                input,
-                LxMode::Math,
-                token_annotations,
-                space_annotations,
-                db,
-            );
-            expected.assert_eq(&example.show_display_tree(db));
+impl VdSynExprData {
+    pub fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match *self {
+            VdSynExprData::Literal {
+                token_idx_range,
+                literal,
+            } => match literal.data(db) {
+                VdZfcLiteralData::NaturalNumber(n) => n.to_string(),
+                VdZfcLiteralData::NegativeInteger(n) => n.to_string(),
+                VdZfcLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
+                VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
+            },
+            VdSynExprData::Notation => todo!(),
+            VdSynExprData::Letter { letter, .. } => letter.latex_code().to_string(),
+            VdSynExprData::BaseOpr { opr } => opr.latex_code().to_string(),
+            VdSynExprData::Binary { lopd, opr, ropd } => {
+                format!(
+                    "{} {} {}",
+                    arena[lopd].show(db, arena),
+                    opr.show(db, arena),
+                    arena[ropd].show(db, arena)
+                )
+            }
+            VdSynExprData::Prefix { opr, opd } => todo!(),
+            VdSynExprData::Suffix { opd, opr } => todo!(),
+            VdSynExprData::SeparatedList {
+                separator,
+                ref fragments,
+            } => fragments
+                .iter()
+                .map(|fragment| match fragment {
+                    Left(expr) => arena[*expr].show(db, arena),
+                    Right(separator) => separator.show(db, arena),
+                })
+                .collect::<Vec<_>>()
+                .join(" "),
+            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => format!(
+                "{}{}{}",
+                left_delimiter.show(db, arena),
+                arena[item].show(db, arena),
+                right_delimiter.show(db, arena)
+            ),
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => format!(
+                "\\frac{{{}}}{{{}}}",
+                arena[numerator].show(db, arena),
+                arena[denominator].show(db, arena)
+            ),
+            VdSynExprData::Sqrt { radicand, .. } => {
+                format!("\\sqrt{{{}}}", arena[radicand].show(db, arena))
+            }
+            VdSynExprData::UniadicChain => todo!(),
+            VdSynExprData::VariadicChain => todo!(),
+            VdSynExprData::UniadicArray => todo!(),
+            VdSynExprData::VariadicArray => todo!(),
+            VdSynExprData::Err(ref error) => error.to_string(),
         }
-
-        t(
-            "",
-            &[],
-            &[],
-            &expect![[r#"
-            ""
-        "#]],
-        );
-        t(
-            "1",
-            &[],
-            &[],
-            &expect![[r#"
-            "1"
-        "#]],
-        );
-        t(
-            "11",
-            &[],
-            &[],
-            &expect![[r#"
-            "11"
-        "#]],
-        );
-        t(
-            "1 1",
-            &[],
-            &[],
-            &expect![[r#"
-                "1 1"
-                ├─ "1"
-                └─ "1"
-            "#]],
-        );
     }
 }

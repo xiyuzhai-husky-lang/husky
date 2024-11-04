@@ -160,3 +160,12 @@ gen-mini-husky-basic:
 
 bibtex:
 	scripts/research/bibtex_finder.py references/papers.txt -o references/papers.bib --use semantic --max-sleep 0
+
+chmod-local-scripts:
+	chmod +x .local/scripts/*
+
+debug: chmod-local-scripts
+	.local/scripts/debug.sh
+
+debug-tracked: chmod-local-scripts
+	.local/scripts/debug_tracked.sh

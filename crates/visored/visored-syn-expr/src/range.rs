@@ -1,6 +1,9 @@
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseIdx, VdSynClauseMap},
-    expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynSeparator},
+    expr::{
+        VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynLeftDelimiter,
+        VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
+    },
     phrase::{VdSynPhraseArena, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArena, VdSynSentenceIdx, VdSynSentenceMap},
 };
@@ -109,13 +112,28 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     fn calc_expr(&mut self, expr: VdSynExprIdx) -> VdSynExprTokenIdxRange {
         match self.expr_arena[expr] {
             VdSynExprData::Literal {
-                token_idx_range,
-                literal,
+                token_idx_range, ..
+            } => VdSynExprTokenIdxRange::Standard(token_idx_range),
+            VdSynExprData::Letter {
+                token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
             VdSynExprData::Notation => todo!(),
             VdSynExprData::BaseOpr { opr } => todo!(),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
-            VdSynExprData::Prefix { opr, opd } => todo!(),
+            VdSynExprData::Binary { lopd, ropd, .. } => {
+                let lopd_range = self.get_expr(lopd);
+                let ropd_range = self.get_expr(ropd);
+                lopd_range.join(ropd_range)
+            }
+            VdSynExprData::Prefix { opr, opd } => {
+                let opd_range = self.get_expr(opd);
+                let opr_range = match opr {
+                    VdSynPrefixOpr::Base(lx_token_idx_range, _) => {
+                        VdSynExprTokenIdxRange::Standard(lx_token_idx_range)
+                    }
+                    VdSynPrefixOpr::Composite(expr, _) => self.get_expr(expr),
+                };
+                opr_range.join(opd_range)
+            }
             VdSynExprData::Suffix { opd, opr } => todo!(),
             VdSynExprData::Attach { base, ref scripts } => todo!(),
             VdSynExprData::UniadicChain => todo!(),
@@ -127,10 +145,8 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 // use the first and the last fragment's range
                 let mut t = |fragment: Either<VdSynExprIdx, VdSynSeparator>| match fragment {
                     Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => self.get_expr(expr),
-                    Right(VdSynSeparator::Base(lx_math_token_idx, _)) => {
-                        VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_single(
-                            *lx_math_token_idx,
-                        ))
+                    Right(VdSynSeparator::Base(token_idx_range, _)) => {
+                        VdSynExprTokenIdxRange::Standard(token_idx_range)
                     }
                 };
                 let first = *fragments.first().expect("fragments are always non-empty");
@@ -139,6 +155,42 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 let last_range = t(last);
                 first_range.join(last_range)
             }
+            VdSynExprData::Delimited {
+                left_delimiter,
+
+                right_delimiter,
+                ..
+            } => {
+                let left_delimiter_range = match left_delimiter {
+                    VdSynLeftDelimiter::Base(token_idx_range, _) => {
+                        VdSynExprTokenIdxRange::Standard(token_idx_range)
+                    }
+                    VdSynLeftDelimiter::Composite(expr, _) => self.get_expr(expr),
+                };
+                let right_delimiter_range = match right_delimiter {
+                    VdSynRightDelimiter::Base(token_idx_range, _) => {
+                        VdSynExprTokenIdxRange::Standard(token_idx_range)
+                    }
+                    VdSynRightDelimiter::Composite(expr, _) => self.get_expr(expr),
+                };
+                left_delimiter_range.join(right_delimiter_range)
+            }
+            VdSynExprData::Fraction {
+                command_token_idx,
+                denominator_rcurl_token_idx,
+                ..
+            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
+                *command_token_idx,
+                *denominator_rcurl_token_idx,
+            )),
+            VdSynExprData::Sqrt {
+                command_token_idx,
+                radicand_rcurl_token_idx,
+                ..
+            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
+                *command_token_idx,
+                *radicand_rcurl_token_idx,
+            )),
         }
     }
 

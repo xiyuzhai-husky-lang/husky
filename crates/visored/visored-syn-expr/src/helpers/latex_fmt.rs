@@ -11,6 +11,7 @@ use crate::{
     sentence::{VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
 };
 use either::*;
+use expr::VdSynBinaryOpr;
 use latex_token::idx::LxTokenIdxRange;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
@@ -107,13 +108,16 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
             VdSynExprData::Notation => todo!(),
+            VdSynExprData::Letter { letter, .. } => {
+                self.result += letter.latex_code();
+            }
             VdSynExprData::Binary {
                 lopd, opr, ropd, ..
             } => {
                 self.fmt_expr(lopd);
                 match opr {
-                    Left(opr) => self.result.push_str(opr.latex_code()),
-                    Either::Right(opr) => self.fmt_expr(opr),
+                    VdSynBinaryOpr::Base(_, opr) => self.result.push_str(opr.latex_code()),
+                    VdSynBinaryOpr::Composite(opr, _) => self.fmt_expr(opr),
                 }
                 self.fmt_expr(ropd);
             }
@@ -127,6 +131,17 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Err(ref error) => unreachable!("{error}"),
             VdSynExprData::SeparatedList { .. } => todo!(),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => todo!(),
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => todo!(),
+            VdSynExprData::Sqrt { radicand, .. } => todo!(),
         }
     }
 
@@ -151,7 +166,8 @@ fn latex_fmt_works() {
     let one_add_one = builder.new_expr_checked(
         VdSynExprData::Binary {
             lopd: one,
-            opr: Either::Left(VdBaseBinaryOpr::Add),
+            opr: todo!(),
+            // (VdBaseBinaryOpr::Add),
             ropd: one,
         },
         "1+1",

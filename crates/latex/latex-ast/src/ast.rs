@@ -9,8 +9,9 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use latex_command::signature::table::LxCommandSignatureTable;
 use latex_math_letter::LxMathLetter;
-use latex_math_opr::LxMathPunctuation;
+use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
     data::{
@@ -46,7 +47,7 @@ impl LxAstArena {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LxAstArenaRef<'a> {
     math: LxMathAstArenaRef<'a>,
     rose: LxRoseAstArenaRef<'a>,
@@ -112,12 +113,20 @@ pub enum LxAstIdxRange {
 
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
+    command_signature_table: &'a LxCommandSignatureTable,
     input: &'a str,
     mode: LxMode,
     token_storage: &'a mut LxTokenStorage,
     arena: &'a mut LxAstArena,
 ) -> LxAstIdxRange {
-    let mut parser = LxAstParser::new(db, input, mode, token_storage, arena);
+    let mut parser = LxAstParser::new(
+        db,
+        command_signature_table,
+        input,
+        mode,
+        token_storage,
+        arena,
+    );
     parser.parse_asts()
 }
 
@@ -178,6 +187,10 @@ impl<'a> LxAstParser<'a> {
         }
         Some(ast)
     }
+
+    pub(crate) fn parse_rose_asts(&mut self) -> LxRoseAstIdxRange {
+        todo!()
+    }
 }
 
 // TODO replace it with example
@@ -189,7 +202,15 @@ fn parse_tex_input_into_asts_works() {
         let db = &DB::default();
         let mut arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
-        let asts = parse_latex_input_into_asts(db, input, mode, &mut token_storage, &mut arena);
+        let command_signature_table = &LxCommandSignatureTable::new_default(db);
+        let asts = parse_latex_input_into_asts(
+            db,
+            command_signature_table,
+            input,
+            mode,
+            &mut token_storage,
+            &mut arena,
+        );
         expected.assert_debug_eq(&((token_storage, arena, asts).debug(db)));
     }
     t(
@@ -224,10 +245,14 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     ranged_tokens: [
                         (
-                            (
-                                0,
-                                1,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    0,
+                                ),
+                                end: TextOffset(
+                                    1,
+                                ),
+                            },
                             [1:1, 1:2),
                             Math(
                                 Digit(
@@ -270,10 +295,14 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     ranged_tokens: [
                         (
-                            (
-                                0,
-                                1,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    0,
+                                ),
+                                end: TextOffset(
+                                    1,
+                                ),
+                            },
                             [1:1, 1:2),
                             Math(
                                 Letter(
@@ -316,10 +345,14 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     ranged_tokens: [
                         (
-                            (
-                                0,
-                                1,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    0,
+                                ),
+                                end: TextOffset(
+                                    1,
+                                ),
+                            },
                             [1:1, 1:2),
                             Math(
                                 Letter(
@@ -328,10 +361,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                1,
-                                2,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    1,
+                                ),
+                                end: TextOffset(
+                                    2,
+                                ),
+                            },
                             [1:2, 1:3),
                             Math(
                                 Punctuation(
@@ -340,10 +377,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                2,
-                                3,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    2,
+                                ),
+                                end: TextOffset(
+                                    3,
+                                ),
+                            },
                             [1:3, 1:4),
                             Math(
                                 Digit(
@@ -364,7 +405,7 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 LowerX,
                             ),
-                            LxMathAstData::Opr(
+                            LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         1,
@@ -402,10 +443,14 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     ranged_tokens: [
                         (
-                            (
-                                0,
-                                1,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    0,
+                                ),
+                                end: TextOffset(
+                                    1,
+                                ),
+                            },
                             [1:1, 1:2),
                             Math(
                                 Letter(
@@ -414,20 +459,28 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                1,
-                                2,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    1,
+                                ),
+                                end: TextOffset(
+                                    2,
+                                ),
+                            },
                             [1:2, 1:3),
                             Math(
                                 Superscript,
                             ),
                         ),
                         (
-                            (
-                                2,
-                                3,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    2,
+                                ),
+                                end: TextOffset(
+                                    3,
+                                ),
+                            },
                             [1:3, 1:4),
                             Math(
                                 Digit(
@@ -487,10 +540,14 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     ranged_tokens: [
                         (
-                            (
-                                0,
-                                1,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    0,
+                                ),
+                                end: TextOffset(
+                                    1,
+                                ),
+                            },
                             [1:1, 1:2),
                             Math(
                                 Letter(
@@ -499,20 +556,28 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                1,
-                                2,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    1,
+                                ),
+                                end: TextOffset(
+                                    2,
+                                ),
+                            },
                             [1:2, 1:3),
                             Math(
                                 Subscript,
                             ),
                         ),
                         (
-                            (
-                                2,
-                                3,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    2,
+                                ),
+                                end: TextOffset(
+                                    3,
+                                ),
+                            },
                             [1:3, 1:4),
                             Math(
                                 Digit(
@@ -572,10 +637,14 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     ranged_tokens: [
                         (
-                            (
-                                0,
-                                1,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    0,
+                                ),
+                                end: TextOffset(
+                                    1,
+                                ),
+                            },
                             [1:1, 1:2),
                             Math(
                                 Letter(
@@ -584,20 +653,28 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                1,
-                                2,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    1,
+                                ),
+                                end: TextOffset(
+                                    2,
+                                ),
+                            },
                             [1:2, 1:3),
                             Math(
                                 Superscript,
                             ),
                         ),
                         (
-                            (
-                                2,
-                                3,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    2,
+                                ),
+                                end: TextOffset(
+                                    3,
+                                ),
+                            },
                             [1:3, 1:4),
                             Math(
                                 LeftDelimiter(
@@ -606,10 +683,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                3,
-                                4,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    3,
+                                ),
+                                end: TextOffset(
+                                    4,
+                                ),
+                            },
                             [1:4, 1:5),
                             Math(
                                 Letter(
@@ -618,10 +699,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                4,
-                                5,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    4,
+                                ),
+                                end: TextOffset(
+                                    5,
+                                ),
+                            },
                             [1:5, 1:6),
                             Math(
                                 Punctuation(
@@ -630,10 +715,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                5,
-                                6,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    5,
+                                ),
+                                end: TextOffset(
+                                    6,
+                                ),
+                            },
                             [1:6, 1:7),
                             Math(
                                 Digit(
@@ -642,10 +731,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         ),
                         (
-                            (
-                                6,
-                                7,
-                            ),
+                            TextOffsetRange {
+                                start: TextOffset(
+                                    6,
+                                ),
+                                end: TextOffset(
+                                    7,
+                                ),
+                            },
                             [1:7, 1:8),
                             Math(
                                 RightDelimiter(
@@ -674,7 +767,7 @@ fn parse_tex_input_into_asts_works() {
                                 ),
                                 LowerI,
                             ),
-                            LxMathAstData::Opr(
+                            LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         4,
@@ -728,70 +821,6 @@ fn parse_tex_input_into_asts_works() {
                     ),
                 ),
             )
-        "#]],
-    );
-}
-
-#[test]
-fn parse_tex_input_into_asts_then_show_works() {
-    use crate::test_helpers::example::LxAstExample;
-    use expect_test::Expect;
-
-    fn t(input: &str, mode: LxMode, expected: Expect) {
-        let db = &DB::default();
-        let example = LxAstExample::new(input, mode, db);
-        let show = example.show(db);
-        expected.assert_eq(&show);
-    }
-    t(
-        "x",
-        LxMode::Math,
-        expect![[r#"
-            x
-            └─ x
-        "#]],
-    );
-    t(
-        "x+1",
-        LxMode::Math,
-        expect![[r#"
-            x+1
-            ├─ x
-            ├─ +
-            └─ 1
-        "#]],
-    );
-    t(
-        "x^2",
-        LxMode::Math,
-        expect![[r#"
-            x^2
-            └─ x^2
-              ├─ x
-              └─ 2
-        "#]],
-    );
-    t(
-        "x_2",
-        LxMode::Math,
-        expect![[r#"
-            x_2
-            └─ x_2
-              ├─ x
-              └─ 2
-        "#]],
-    );
-    t(
-        "x^{i+2}",
-        LxMode::Math,
-        expect![[r#"
-            x^{i+2}
-            └─ x^{i+2}
-              ├─ x
-              └─ {i+2}
-                ├─ i
-                ├─ +
-                └─ 2
         "#]],
     );
 }

@@ -1325,6 +1325,7 @@
         name: "visored-syn-expr",
         dependencies: [
             "latex-ast",
+            "latex-command",
             "visored-opr",
             "visored-zfc-ty",
             "husky-coword",
