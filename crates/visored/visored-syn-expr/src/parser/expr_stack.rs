@@ -215,9 +215,6 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     match expr {
                         Some(expr) => match expr.class() {
                             VdSynExprClass::Complete(precedence) => {
-                                debug_assert!(separator
-                                    .right_precedence_range()
-                                    .contains(precedence));
                                 match fragments.last().expect("fragments are always non-empty") {
                                     Left(_) => match separator {
                                         VdSeparator::Base(base_separator) => match base_separator {
@@ -254,6 +251,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                                 p!(expr);
                                 todo!()
                             }
+                            VdSynExprClass::Binary => todo!(),
                         },
                         None => {
                             if separator1 == Some(separator) {

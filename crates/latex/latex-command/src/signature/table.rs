@@ -58,6 +58,11 @@ impl LxCommandSignatureTable {
         use LxCommandParameterMode::*;
 
         let LxCommandPathMenu {
+            int,
+            sum,
+            prod,
+            times,
+            otimes,
             alpha,
             beta,
             gamma,
@@ -69,6 +74,11 @@ impl LxCommandSignatureTable {
             text,
         } = *command_path_menu(db);
         Self::new(&[
+            (int, &[]),
+            (sum, &[]),
+            (prod, &[]),
+            (times, &[]),
+            (otimes, &[]),
             (alpha, &[]),
             (beta, &[]),
             (gamma, &[]),

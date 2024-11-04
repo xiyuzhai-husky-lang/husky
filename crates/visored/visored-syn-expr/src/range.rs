@@ -2,7 +2,7 @@ use crate::{
     clause::{VdSynClauseArena, VdSynClauseIdx, VdSynClauseMap},
     expr::{
         VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynLeftDelimiter,
-        VdSynRightDelimiter, VdSynSeparator,
+        VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
     },
     phrase::{VdSynPhraseArena, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArena, VdSynSentenceIdx, VdSynSentenceMap},
@@ -124,7 +124,16 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 let ropd_range = self.get_expr(ropd);
                 lopd_range.join(ropd_range)
             }
-            VdSynExprData::Prefix { opr, opd } => todo!(),
+            VdSynExprData::Prefix { opr, opd } => {
+                let opd_range = self.get_expr(opd);
+                let opr_range = match opr {
+                    VdSynPrefixOpr::Base(lx_token_idx_range, _) => {
+                        VdSynExprTokenIdxRange::Standard(lx_token_idx_range)
+                    }
+                    VdSynPrefixOpr::Composite(expr, _) => self.get_expr(expr),
+                };
+                opr_range.join(opd_range)
+            }
             VdSynExprData::Suffix { opd, opr } => todo!(),
             VdSynExprData::Attach { base, ref scripts } => todo!(),
             VdSynExprData::UniadicChain => todo!(),

@@ -3,6 +3,12 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxCommandPathMenu {
     // maths
+    // - operators
+    pub int: LxCommandPath,
+    pub sum: LxCommandPath,
+    pub times: LxCommandPath,
+    pub otimes: LxCommandPath,
+    pub prod: LxCommandPath,
     // - extended letters
     pub alpha: LxCommandPath,
     pub beta: LxCommandPath,
@@ -23,6 +29,11 @@ impl LxCommandPathMenu {
     fn new(db: &salsa::Db) -> Self {
         let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(db, data), db);
         Self {
+            int: p("int"),
+            sum: p("sum"),
+            times: p("times"),
+            otimes: p("otimes"),
+            prod: p("prod"),
             alpha: p("alpha"),
             beta: p("beta"),
             gamma: p("gamma"),
