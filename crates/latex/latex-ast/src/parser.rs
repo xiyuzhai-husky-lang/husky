@@ -49,7 +49,7 @@ impl<'a> LxAstParser<'a> {
         self.mode
     }
 
-    pub(crate) fn command_signature_table(&self) -> &LxCommandSignatureTable {
+    pub(crate) fn command_signature_table(&self) -> &'a LxCommandSignatureTable {
         self.command_signature_table
     }
 }

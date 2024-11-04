@@ -18,4 +18,10 @@ impl LxCommandParameter {
     }
 }
 
+impl LxCommandParameter {
+    pub fn mode(&self) -> LxCommandParameterMode {
+        self.mode
+    }
+}
+
 pub type LxCommandParameters = Vec<LxCommandParameter>;
