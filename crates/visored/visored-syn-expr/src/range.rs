@@ -135,7 +135,13 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 opr_range.join(opd_range)
             }
             VdSynExprData::Suffix { opd, opr } => todo!(),
-            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::Attach { base, ref scripts } => {
+                let mut range = self.get_expr(base);
+                for &(_, script) in scripts {
+                    range = range.join(self.get_expr(script));
+                }
+                range
+            }
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
@@ -155,6 +161,14 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 let last_range = t(last);
                 first_range.join(last_range)
             }
+            VdSynExprData::LxDelimited {
+                left_delimiter_token_idx,
+                right_delimiter_token_idx,
+                ..
+            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
+                *left_delimiter_token_idx,
+                *right_delimiter_token_idx,
+            )),
             VdSynExprData::Delimited {
                 left_delimiter,
 

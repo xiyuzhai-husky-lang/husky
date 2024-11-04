@@ -21,10 +21,13 @@ use error::{OriginalVdSynExprError, VdSynExprError};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
+use latex_ast::ast::math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange};
 use latex_math_letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
-use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
+use latex_token::{
+    data::math::LxMathDelimiter,
+    idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange},
+};
 use range::VdSynExprTokenIdxRange;
 use visored_opr::{
     delimiter::{
@@ -74,6 +77,13 @@ pub enum VdSynExprData {
     SeparatedList {
         separator: VdSeparator,
         fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
+    },
+    LxDelimited {
+        left_delimiter_token_idx: LxMathTokenIdx,
+        left_delimiter: LxMathDelimiter,
+        item: VdSynExprIdx,
+        right_delimiter_token_idx: LxMathTokenIdx,
+        right_delimiter: LxMathDelimiter,
     },
     Delimited {
         left_delimiter: VdSynLeftDelimiter,
@@ -277,6 +287,7 @@ impl VdSynExprData {
                     Right(VdSynSeparator::Base(_, _)) => None,
                 })
                 .collect(),
+            VdSynExprData::LxDelimited { item, .. } => vec![item],
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,
@@ -308,6 +319,7 @@ impl VdSynExprData {
             VdSynExprData::Literal { .. }
             | VdSynExprData::Notation
             | VdSynExprData::Letter { .. }
+            | VdSynExprData::LxDelimited { .. }
             | VdSynExprData::Delimited { .. }
             | VdSynExprData::Fraction { .. }
             | VdSynExprData::Sqrt { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
@@ -363,7 +375,8 @@ impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
 
 impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
-        todo!()
+        let token_idx_range = builder.ast_token_idx_range_map()[self];
+        (token_idx_range, LxMathAstIdxRange::new_single(self)).to_vd_syn(builder)
     }
 }
 
@@ -404,6 +417,17 @@ impl VdSynExprData {
                 .collect::<Vec<_>>()
                 .join(" "),
             VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::LxDelimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+                ..
+            } => format!(
+                "{}{}{}",
+                left_delimiter.left_latex_code(),
+                arena[item].show(db, arena),
+                right_delimiter.right_latex_code()
+            ),
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,

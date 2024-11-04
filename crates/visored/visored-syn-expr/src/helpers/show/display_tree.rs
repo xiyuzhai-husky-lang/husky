@@ -117,6 +117,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynExprData::UniadicArray => format!("{:?} uniadic array", source),
             VdSynExprData::VariadicArray => format!("{:?} variadic array", source),
             VdSynExprData::Err(ref error) => format!("{:?} error", source),
+            VdSynExprData::LxDelimited { .. } => format!("{:?} latex delimited", source),
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,
