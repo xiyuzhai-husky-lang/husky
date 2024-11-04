@@ -99,3 +99,50 @@ fn parse_math_extended_letter_command_latex_input_into_asts_then_show_works() {
         "#]],
     );
 }
+
+#[test]
+fn parse_math_command_with_arguments_latex_input_into_asts_then_show_works() {
+    t(
+        "\\sqrt{}",
+        expect![[r#"
+            \sqrt{}
+            └─ \sqrt{}
+              └─ 
+        "#]],
+    );
+    t(
+        "\\sqrt{1}",
+        expect![[r#"
+            \sqrt{1}
+            └─ \sqrt{1}
+              └─ 1
+                └─ 1
+        "#]],
+    );
+    t(
+        "\\sqrt{1+x}",
+        expect![[r#"
+            \sqrt{1+x}
+            └─ \sqrt{1+x}
+              └─ 1+x
+                ├─ 1
+                ├─ +
+                └─ x
+        "#]],
+    );
+    t(
+        "\\sqrt{1+x^2}+1",
+        expect![[r#"
+            \sqrt{1+x^2}+1
+            ├─ \sqrt{1+x^2}
+            │ └─ 1+x^2
+            │   ├─ 1
+            │   ├─ +
+            │   └─ x^2
+            │     ├─ x
+            │     └─ 2
+            ├─ +
+            └─ 1
+        "#]],
+    );
+}

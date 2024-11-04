@@ -187,6 +187,10 @@ impl<'a> LxAstParser<'a> {
         }
         Some(ast)
     }
+
+    pub(crate) fn parse_rose_asts(&mut self) -> LxRoseAstIdxRange {
+        todo!()
+    }
 }
 
 // TODO replace it with example

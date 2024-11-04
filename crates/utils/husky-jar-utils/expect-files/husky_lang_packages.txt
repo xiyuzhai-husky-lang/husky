@@ -3544,6 +3544,7 @@
             "latex-token",
             "ptree",
             "salsa",
+            "smallvec",
             "time-capsule",
             "expect-test",
             "latex-command",
