@@ -146,3 +146,39 @@ fn parse_math_command_with_arguments_latex_input_into_asts_then_show_works() {
         "#]],
     );
 }
+
+#[test]
+fn parse_attach_works() {
+    t(
+        "x^2",
+        expect![[r#"
+            x^2
+            └─ x^2
+              ├─ x
+              └─ 2
+        "#]],
+    );
+    t(
+        "(x)^2",
+        expect![[r#"
+            (x)^2
+            ├─ (
+            ├─ x
+            └─ )^2
+              ├─ )
+              └─ 2
+        "#]],
+    );
+    t(
+        "{(x)}^2",
+        expect![[r#"
+            {(x)}^2
+            └─ {(x)}^2
+              ├─ {(x)}
+              │ ├─ (
+              │ ├─ x
+              │ └─ )
+              └─ 2
+        "#]],
+    );
+}
