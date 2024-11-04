@@ -1,5 +1,6 @@
 use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
 use latex_math_punctuation::{LxMathPunctationMap, LxMathPunctuation};
+use visored_item_path::VdItemPath;
 
 use crate::{
     resolution::{
@@ -41,11 +42,11 @@ fn standard_command_resolution_map(
         (beta, VdCommandResolution::BETA),
         (gamma, VdCommandResolution::GAMMA),
         (pi, VdCommandResolution::PI),
-        (sin, VdCommandResolution::Todo),
-        (cos, VdCommandResolution::Todo),
-        (sqrt, VdCommandResolution::Todo),
-        (frac, VdCommandResolution::Todo),
-        (text, VdCommandResolution::Todo),
+        (sin, VdCommandResolution::Item(VdItemPath::SIN)),
+        (cos, VdCommandResolution::Item(VdItemPath::COS)),
+        (sqrt, VdCommandResolution::Sqrt),
+        (frac, VdCommandResolution::Frac),
+        (text, VdCommandResolution::Text),
     ])
 }
 

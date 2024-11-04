@@ -2,7 +2,9 @@ use super::{
     expr::{VdSynExprClass, VdSynExprData, VdSynExprIdx},
     VdSynExprParser,
 };
-use latex_ast::ast::math::{LxMathAstData, LxMathAstIdx, LxMathCommandArgument};
+use latex_ast::ast::math::{
+    LxMathAstData, LxMathAstIdx, LxMathCommandArgument, LxMathCommandArgumentData,
+};
 use latex_command::path::LxCommandPath;
 use latex_math_letter::LxMathLetter;
 use latex_token::{
@@ -134,6 +136,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         command_path: LxCommandPath,
         arguments: &[LxMathCommandArgument],
     ) -> ResolvedToken {
+        use crate::builder::ToVdSyn;
+
         match self.builder.default_resolution_table()[command_path] {
             VdCommandResolution::Letter(letter) => {
                 let token_idx_range = match arguments.last() {
@@ -153,6 +157,53 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             VdCommandResolution::Todo => {
                 todo!("command_path = {:?}", command_path.debug(self.builder.db()))
             }
+            VdCommandResolution::Item(_) => todo!(),
+            VdCommandResolution::Frac => {
+                debug_assert!(arguments.len() == 2);
+                let [numerator_arg, denominator_arg] = arguments else {
+                    unreachable!()
+                };
+                let LxMathCommandArgumentData::Math(numerator_asts) = *numerator_arg.data() else {
+                    unreachable!()
+                };
+                let numerator =
+                    (numerator_arg.asts_token_idx_range(), numerator_asts).to_vd_syn(self.builder);
+                let LxMathCommandArgumentData::Math(denominator_asts) = *denominator_arg.data()
+                else {
+                    unreachable!()
+                };
+                let denominator = (denominator_arg.asts_token_idx_range(), denominator_asts)
+                    .to_vd_syn(self.builder);
+                ResolvedToken::Expr(
+                    VdSynExprData::Fraction {
+                        command_token_idx,
+                        numerator,
+                        denominator,
+                        denominator_rcurl_token_idx: denominator_arg.rcurl_token_idx(),
+                    },
+                    VdSynExprClass::ATOM,
+                )
+            }
+            VdCommandResolution::Sqrt => {
+                debug_assert!(arguments.len() == 1);
+                let [radicand_arg] = arguments else {
+                    unreachable!()
+                };
+                let LxMathCommandArgumentData::Math(radicand_asts) = *radicand_arg.data() else {
+                    unreachable!()
+                };
+                let radicand =
+                    (radicand_arg.asts_token_idx_range(), radicand_asts).to_vd_syn(self.builder);
+                ResolvedToken::Expr(
+                    VdSynExprData::Sqrt {
+                        command_token_idx,
+                        radicand,
+                        radicand_rcurl_token_idx: radicand_arg.rcurl_token_idx(),
+                    },
+                    VdSynExprClass::ATOM,
+                )
+            }
+            VdCommandResolution::Text => todo!(),
         }
     }
 }

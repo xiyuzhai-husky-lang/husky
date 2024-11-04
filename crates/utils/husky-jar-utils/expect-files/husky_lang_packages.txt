@@ -4299,7 +4299,15 @@
             "latex-math-punctuation",
             "rustc-hash",
             "salsa",
+            "visored-item-path",
             "visored-opr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-item-path",
+        relative_path: "crates/visored/visored-item-path",
+        dependencies: [
+            "salsa",
         ],
     },
     PackageSummary {
