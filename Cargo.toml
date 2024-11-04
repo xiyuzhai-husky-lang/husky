@@ -430,6 +430,7 @@ visored-annotation = { path = "crates/visored/visored-annotation" }
 visored-coword = { path = "crates/visored/visored-coword" }
 visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
+visored-item-path = { path = "crates/visored/visored-item-path" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-resolution = { path = "crates/visored/visored-resolution" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }

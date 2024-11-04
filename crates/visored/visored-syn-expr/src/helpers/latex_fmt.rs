@@ -136,6 +136,12 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 item,
                 right_delimiter,
             } => todo!(),
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => todo!(),
+            VdSynExprData::Sqrt { radicand, .. } => todo!(),
         }
     }
 

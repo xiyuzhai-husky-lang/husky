@@ -85,6 +85,17 @@ pub enum VdSynExprData {
         // INVARIANCE: at least one of these are some
         scripts: Vec<(LxScriptKind, VdSynExprIdx)>,
     },
+    Fraction {
+        command_token_idx: LxMathTokenIdx,
+        numerator: VdSynExprIdx,
+        denominator: VdSynExprIdx,
+        denominator_rcurl_token_idx: LxMathTokenIdx,
+    },
+    Sqrt {
+        command_token_idx: LxMathTokenIdx,
+        radicand: VdSynExprIdx,
+        radicand_rcurl_token_idx: LxMathTokenIdx,
+    },
     UniadicChain,
     VariadicChain,
     UniadicArray,
@@ -276,6 +287,12 @@ impl VdSynExprData {
                 }
                 children
             }
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => vec![numerator, denominator],
+            VdSynExprData::Sqrt { radicand, .. } => vec![radicand],
         }
     }
 
@@ -285,7 +302,9 @@ impl VdSynExprData {
             VdSynExprData::Literal { .. }
             | VdSynExprData::Notation
             | VdSynExprData::Letter { .. }
-            | VdSynExprData::Delimited { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
+            | VdSynExprData::Delimited { .. }
+            | VdSynExprData::Fraction { .. }
+            | VdSynExprData::Sqrt { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
             VdSynExprData::BaseOpr { .. } => todo!(),
             VdSynExprData::Binary { .. } => todo!(),
             VdSynExprData::Prefix { .. } => todo!(),
@@ -374,11 +393,6 @@ impl VdSynExprData {
                 .collect::<Vec<_>>()
                 .join(" "),
             VdSynExprData::Attach { base, ref scripts } => todo!(),
-            VdSynExprData::UniadicChain => todo!(),
-            VdSynExprData::VariadicChain => todo!(),
-            VdSynExprData::UniadicArray => todo!(),
-            VdSynExprData::VariadicArray => todo!(),
-            VdSynExprData::Err(ref error) => error.to_string(),
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,
@@ -389,6 +403,23 @@ impl VdSynExprData {
                 arena[item].show(db, arena),
                 right_delimiter.show(db, arena)
             ),
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => format!(
+                "\\frac{{{}}}{{{}}}",
+                arena[numerator].show(db, arena),
+                arena[denominator].show(db, arena)
+            ),
+            VdSynExprData::Sqrt { radicand, .. } => {
+                format!("\\sqrt{{{}}}", arena[radicand].show(db, arena))
+            }
+            VdSynExprData::UniadicChain => todo!(),
+            VdSynExprData::VariadicChain => todo!(),
+            VdSynExprData::UniadicArray => todo!(),
+            VdSynExprData::VariadicArray => todo!(),
+            VdSynExprData::Err(ref error) => error.to_string(),
         }
     }
 }

@@ -281,6 +281,69 @@ fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
 }
 
 #[test]
+fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
+    t(
+        "\\frac{1}{2}",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\frac{1}{2}" fraction
+            ├─ "1" literal
+            └─ "2" literal
+        "#]],
+    );
+    t(
+        "\\frac{x+1}{2-2y}",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\frac{x+1}{2-2y}" fraction
+            ├─ "x+1" separated list
+            │ ├─ "x" letter
+            │ └─ "1" literal
+            └─ "2-2y" binary
+              ├─ "2" literal
+              └─ "2y" separated list
+                ├─ "2" literal
+                └─ "y" letter
+        "#]],
+    );
+    t(
+        "\\sqrt{1}",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\sqrt{1}" sqrt
+            └─ "1" literal
+        "#]],
+    );
+    t(
+        "\\sqrt{x+1}",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\sqrt{x+1}" sqrt
+            └─ "x+1" separated list
+              ├─ "x" letter
+              └─ "1" literal
+        "#]],
+    );
+    t(
+        "\\sqrt{\\frac{1}{2+x}}",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\sqrt{\\frac{1}{2+x}}" sqrt
+            └─ "\\frac{1}{2+x}" fraction
+              ├─ "1" literal
+              └─ "2+x" separated list
+                ├─ "2" literal
+                └─ "x" letter
+        "#]],
+    );
+}
+
+#[test]
 fn debug_vd_syn_expr_parsing_works() {
     t(
         "1+x+2y",

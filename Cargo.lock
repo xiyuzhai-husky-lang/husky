@@ -12551,6 +12551,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-item-path"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+]
+
+[[package]]
 name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
@@ -12595,6 +12602,7 @@ dependencies = [
  "latex-math-punctuation",
  "rustc-hash 2.0.0",
  "salsa",
+ "visored-item-path",
  "visored-opr",
 ]
 
