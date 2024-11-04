@@ -48,6 +48,8 @@ impl VdPrecedence {
     pub const SEMICOLON: Self = VdPrecedence(1000);
     pub const COMMA: Self = VdPrecedence(5000);
     pub const ADD_SUB: Self = VdPrecedence(20000);
+    pub const REDUCE_PREFIX: Self = VdPrecedence(25000);
+    pub const DIFFERENTIAL: Self = VdPrecedence(25000);
     pub const MUL_DIV: Self = VdPrecedence(30000);
     pub const SPACE: Self = VdPrecedence(100000);
     pub const ATOM: Self = VdPrecedence(u64::MAX - 1);
@@ -62,6 +64,10 @@ fn vd_precedence_works() {
     assert!(VdPrecedence::SEMICOLON < VdPrecedence::COMPARISON);
     // a, b < 1
     assert!(VdPrecedence::COMPARISON < VdPrecedence::COMMA);
+    // \sum a+ b
+    assert!(VdPrecedence::ADD_SUB < VdPrecedence::REDUCE_PREFIX);
+    // \sum a b
+    assert!(VdPrecedence::REDUCE_PREFIX < VdPrecedence::MUL_DIV);
     // a+a\times b
     assert!(VdPrecedence::ADD_SUB < VdPrecedence::MUL_DIV);
     // a\times b c

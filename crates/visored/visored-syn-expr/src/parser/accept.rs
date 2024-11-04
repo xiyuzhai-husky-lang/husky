@@ -33,6 +33,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 VdSynExprClass::Prefix => todo!(),
                 VdSynExprClass::Suffix => todo!(),
                 VdSynExprClass::Separator => todo!(),
+                VdSynExprClass::Binary => todo!(),
             },
             ResolvedToken::Opr(lx_math_token_idx, opr) => {
                 self.accept_opr(preceding_space_annotation, token_idx_range, opr)

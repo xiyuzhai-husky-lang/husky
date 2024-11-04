@@ -110,10 +110,17 @@ pub enum VdSynPrefixOpr {
 }
 
 impl VdSynPrefixOpr {
-    pub(crate) fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
-        match *self {
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
             VdSynPrefixOpr::Base(_, opr) => opr.latex_code().to_string(),
             VdSynPrefixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+        }
+    }
+
+    pub(crate) fn precedence(self) -> VdPrecedence {
+        match self {
+            VdSynPrefixOpr::Base(_, opr) => opr.precedence(),
+            VdSynPrefixOpr::Composite(_, opr) => opr.precedence(),
         }
     }
 }
@@ -296,7 +303,6 @@ impl VdSynExprData {
         }
     }
 
-    #[track_caller]
     pub fn class(&self) -> VdSynExprClass {
         match *self {
             VdSynExprData::Literal { .. }
@@ -305,9 +311,13 @@ impl VdSynExprData {
             | VdSynExprData::Delimited { .. }
             | VdSynExprData::Fraction { .. }
             | VdSynExprData::Sqrt { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
-            VdSynExprData::BaseOpr { .. } => todo!(),
-            VdSynExprData::Binary { .. } => todo!(),
-            VdSynExprData::Prefix { .. } => todo!(),
+            VdSynExprData::BaseOpr { opr } => match opr {
+                VdBaseOpr::Prefix(opr) => VdSynExprClass::Prefix,
+                VdBaseOpr::Suffix(opr) => VdSynExprClass::Suffix,
+                VdBaseOpr::Binary(opr) => VdSynExprClass::Binary,
+            },
+            VdSynExprData::Binary { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
+            VdSynExprData::Prefix { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
             VdSynExprData::Suffix { .. } => todo!(),
             VdSynExprData::Attach { .. } => todo!(),
             VdSynExprData::UniadicChain => todo!(),
@@ -328,6 +338,7 @@ pub enum VdSynExprClass {
     Prefix,
     Suffix,
     Separator,
+    Binary,
 }
 
 impl VdSynExprClass {

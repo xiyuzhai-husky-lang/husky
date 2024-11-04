@@ -16,8 +16,16 @@ pub enum VdBaseOpr {
 }
 
 impl VdBaseOpr {
-    pub const SUB: Self = Self::Binary(VdBaseBinaryOpr::Sub);
-    pub const DIV: Self = Self::Binary(VdBaseBinaryOpr::Div);
+    pub const INTEGRAL: Self = Self::Prefix(VdBasePrefixOpr::INTEGRAL);
+    pub const DIFFERENTIAL: Self = Self::Prefix(VdBasePrefixOpr::DIFFERENTIAL);
+    pub const SUM: Self = Self::Prefix(VdBasePrefixOpr::SUM);
+    pub const PROD: Self = Self::Prefix(VdBasePrefixOpr::PROD);
+
+    pub const TIMES: Self = Self::Binary(VdBaseBinaryOpr::TIMES);
+    pub const OTIMES: Self = Self::Binary(VdBaseBinaryOpr::OTIMES);
+
+    pub const SUB: Self = Self::Binary(VdBaseBinaryOpr::SUB);
+    pub const DIV: Self = Self::Binary(VdBaseBinaryOpr::DIV);
 }
 
 impl VdBaseOpr {

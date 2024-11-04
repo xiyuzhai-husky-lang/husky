@@ -359,3 +359,21 @@ fn debug_vd_syn_expr_parsing_works() {
         "#]],
     );
 }
+
+#[test]
+fn opr_commands_vd_syn_expr_parsing_works() {
+    use visored_annotation::annotation::token::DIFFERENTIAL;
+
+    t(
+        "\\int xdx",
+        &[(("\\int x", "d"), DIFFERENTIAL)],
+        &[],
+        &expect![[r#"
+            "\\int xdx" prefix
+            └─ "xdx" separated list
+              ├─ "x" letter
+              └─ "dx" prefix
+                └─ "x" letter
+        "#]],
+    )
+}

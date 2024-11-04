@@ -27,6 +27,11 @@ fn standard_command_resolution_map(
     rustc_hash::FxBuildHasher,
 > {
     let LxCommandPathMenu {
+        int,
+        sum,
+        prod,
+        times,
+        otimes,
         alpha,
         beta,
         gamma,
@@ -38,6 +43,11 @@ fn standard_command_resolution_map(
         text,
     } = *command_path_menu(db);
     VdCommandResolutionMap::from_iter([
+        (int, VdCommandResolution::INT),
+        (sum, VdCommandResolution::SUM),
+        (prod, VdCommandResolution::PROD),
+        (times, VdCommandResolution::TIMES),
+        (otimes, VdCommandResolution::OTIMES),
         (alpha, VdCommandResolution::ALPHA),
         (beta, VdCommandResolution::BETA),
         (gamma, VdCommandResolution::GAMMA),
