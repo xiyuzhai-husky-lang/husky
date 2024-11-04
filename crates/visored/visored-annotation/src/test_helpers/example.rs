@@ -71,38 +71,23 @@ impl VdAnnotationsExample {
 }
 
 pub fn lx_annotations_examples(db: &::salsa::Db) -> Vec<VdAnnotationsExample> {
+    use crate::annotation::{space::*, token::*};
+
     VdAnnotationsExample::collect_from_sparse(
         &[
             (LxMode::Math, "", &[], &[]),
             (
                 LxMode::Math,
                 "xy",
-                &[
-                    (
-                        ("", "x"),
-                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
-                    ),
-                    (
-                        ("x", "y"),
-                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
-                    ),
-                ],
-                &[(
-                    ("x", "y"),
-                    VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul),
-                )],
+                &[(("", "x"), USAGE), (("x", "y"), USAGE)],
+                &[(("x", "y"), SCALAR_MUL)],
             ),
             (
                 LxMode::Math,
                 "dx",
                 &[
-                    (("", "d"), VdTokenAnnotation::Differential),
-                    (
-                        ("d", "x"),
-                        VdTokenAnnotation::Variable(
-                            LxVariableAnnotation::SingleVariableIntegralVariableDecl,
-                        ),
-                    ),
+                    (("", "d"), DIFFERENTIAL),
+                    (("d", "x"), SINGLE_VARIABLE_INTEGRAL_VARIABLE_DECL),
                 ],
                 &[],
             ),
