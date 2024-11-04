@@ -19,7 +19,8 @@ pub enum LxVariableAnnotation {
     SingleVariableIntegralVariableDecl,
 }
 
-pub const USAGE: VdTokenAnnotation = VdTokenAnnotation::Variable(LxVariableAnnotation::Usage);
+pub const VARIABLE_USAGE: VdTokenAnnotation =
+    VdTokenAnnotation::Variable(LxVariableAnnotation::Usage);
 pub const SINGLE_VARIABLE_INTEGRAL_VARIABLE_DECL: VdTokenAnnotation =
     VdTokenAnnotation::Variable(LxVariableAnnotation::SingleVariableIntegralVariableDecl);
 pub const DIFFERENTIAL: VdTokenAnnotation = VdTokenAnnotation::Differential;

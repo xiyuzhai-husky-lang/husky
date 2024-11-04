@@ -79,7 +79,7 @@ pub fn lx_annotations_examples(db: &::salsa::Db) -> Vec<VdAnnotationsExample> {
             (
                 LxMode::Math,
                 "xy",
-                &[(("", "x"), USAGE), (("x", "y"), USAGE)],
+                &[(("", "x"), VARIABLE_USAGE), (("x", "y"), VARIABLE_USAGE)],
                 &[(("x", "y"), SCALAR_MUL)],
             ),
             (
