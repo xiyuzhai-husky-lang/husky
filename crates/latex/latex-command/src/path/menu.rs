@@ -3,16 +3,16 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxCommandPathMenu {
     // maths
-    sqrt_name: LxCommandName,
-    sqrt_path: LxCommandPath,
-    sin_name: LxCommandName,
-    sin_path: LxCommandPath,
-    cos_name: LxCommandName,
-    cos_path: LxCommandPath,
-    frac_name: LxCommandName,
-    frac_path: LxCommandPath,
-    text_name: LxCommandName,
-    text_path: LxCommandPath,
+    pub sqrt_name: LxCommandName,
+    pub sqrt_path: LxCommandPath,
+    pub sin_name: LxCommandName,
+    pub sin_path: LxCommandPath,
+    pub cos_name: LxCommandName,
+    pub cos_path: LxCommandPath,
+    pub frac_name: LxCommandName,
+    pub frac_path: LxCommandPath,
+    pub text_name: LxCommandName,
+    pub text_path: LxCommandPath,
 }
 
 impl LxCommandPathMenu {
