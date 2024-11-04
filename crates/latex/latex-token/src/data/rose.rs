@@ -182,11 +182,16 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxRoseTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "emph",
+                    LxCommandPath {
+                        package: Prelude,
+                        name: LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "emph",
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             ]
         "#]],
@@ -196,11 +201,16 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxRoseTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "emph",
+                    LxCommandPath {
+                        package: Prelude,
+                        name: LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "emph",
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             ]
         "#]],

@@ -332,9 +332,13 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "int",
+                    Ok(
+                        LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "int",
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -346,9 +350,13 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "int",
+                    Ok(
+                        LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "int",
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -360,9 +368,13 @@ fn next_text_token_data_works() {
                     Three,
                 ),
                 LxMathTokenData::Command(
-                    LxCommandPath::Coword(
-                        Coword(
-                            "sin",
+                    Ok(
+                        LxCommandName::LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "sin",
+                                ),
+                            ),
                         ),
                     ),
                 ),
