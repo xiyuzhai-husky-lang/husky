@@ -3,11 +3,13 @@ use crate::{
     helpers::show::display_tree::LxAstDisplayTreeBuilder,
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
 };
+use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::storage::LxTokenStorage;
 
 #[derive(Debug)]
 pub struct LxAstExample {
+    pub command_signature_table: LxCommandSignatureTable,
     pub input: String,
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
@@ -19,10 +21,18 @@ impl LxAstExample {
     pub fn new(input: &str, root_mode: LxMode, db: &salsa::Db) -> Self {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
-        let asts =
-            parse_latex_input_into_asts(db, input, root_mode, &mut token_storage, &mut ast_arena);
+        let command_signature_table = LxCommandSignatureTable::new_default(db);
+        let asts = parse_latex_input_into_asts(
+            db,
+            &command_signature_table,
+            input,
+            root_mode,
+            &mut token_storage,
+            &mut ast_arena,
+        );
         let ast_token_idx_range_map = calc_ast_token_idx_range_map(db, &ast_arena);
         Self {
+            command_signature_table,
             input: input.to_string(),
             token_storage,
             ast_arena,

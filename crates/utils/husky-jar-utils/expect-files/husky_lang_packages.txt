@@ -3562,7 +3562,9 @@
         dependencies: [
             "husky-coword",
             "latex-prelude",
+            "rustc-hash",
             "salsa",
+            "thiserror",
         ],
     },
     PackageSummary {
@@ -4221,6 +4223,7 @@
             "husky-print-utils",
             "husky-text-protocol",
             "latex-ast",
+            "latex-command",
             "latex-prelude",
             "latex-token",
             "lazy_static",
@@ -4269,6 +4272,7 @@
             "husky-tree-utils",
             "idx-arena",
             "latex-ast",
+            "latex-command",
             "latex-math-letter",
             "latex-prelude",
             "latex-token",
