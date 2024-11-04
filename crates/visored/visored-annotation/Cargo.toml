@@ -20,6 +20,7 @@ salsa.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
+latex-command = { workspace = true, optional = true }
 # protocols
 husky-text-protocol.workspace = true
 # utils
@@ -40,4 +41,4 @@ visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 workspace = true
 
 [features]
-test_helpers = []
+test_helpers = ["dep:latex-command"]

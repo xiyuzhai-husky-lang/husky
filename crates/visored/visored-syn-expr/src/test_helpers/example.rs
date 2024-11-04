@@ -17,6 +17,7 @@ use latex_ast::{
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
     test_helpers::example::LxAstExample,
 };
+use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::storage::LxTokenStorage;
 use range::calc_expr_range_map;
@@ -56,8 +57,15 @@ impl VdSynExprExample {
     ) -> Self {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
-        let asts =
-            parse_latex_input_into_asts(db, input, root_mode, &mut token_storage, &mut ast_arena);
+        let command_signature_table = LxCommandSignatureTable::new_default(db);
+        let asts = parse_latex_input_into_asts(
+            db,
+            &command_signature_table,
+            input,
+            root_mode,
+            &mut token_storage,
+            &mut ast_arena,
+        );
         let whole_token_range = token_storage.whole_token_idx_range();
         let ast_token_idx_range_map = calc_ast_token_idx_range_map(db, &ast_arena);
         let annotations = VdAnnotations::from_sparse(

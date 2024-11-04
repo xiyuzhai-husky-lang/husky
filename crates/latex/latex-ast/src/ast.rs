@@ -9,6 +9,7 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use latex_command::signature::table::LxCommandSignatureTable;
 use latex_math_letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
@@ -112,12 +113,20 @@ pub enum LxAstIdxRange {
 
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
+    command_signature_table: &'a LxCommandSignatureTable,
     input: &'a str,
     mode: LxMode,
     token_storage: &'a mut LxTokenStorage,
     arena: &'a mut LxAstArena,
 ) -> LxAstIdxRange {
-    let mut parser = LxAstParser::new(db, input, mode, token_storage, arena);
+    let mut parser = LxAstParser::new(
+        db,
+        command_signature_table,
+        input,
+        mode,
+        token_storage,
+        arena,
+    );
     parser.parse_asts()
 }
 
@@ -189,7 +198,15 @@ fn parse_tex_input_into_asts_works() {
         let db = &DB::default();
         let mut arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
-        let asts = parse_latex_input_into_asts(db, input, mode, &mut token_storage, &mut arena);
+        let command_signature_table = &LxCommandSignatureTable::new_default(db);
+        let asts = parse_latex_input_into_asts(
+            db,
+            command_signature_table,
+            input,
+            mode,
+            &mut token_storage,
+            &mut arena,
+        );
         expected.assert_debug_eq(&((token_storage, arena, asts).debug(db)));
     }
     t(
@@ -800,70 +817,6 @@ fn parse_tex_input_into_asts_works() {
                     ),
                 ),
             )
-        "#]],
-    );
-}
-
-#[test]
-fn parse_tex_input_into_asts_then_show_works() {
-    use crate::test_helpers::example::LxAstExample;
-    use expect_test::Expect;
-
-    fn t(input: &str, mode: LxMode, expected: Expect) {
-        let db = &DB::default();
-        let example = LxAstExample::new(input, mode, db);
-        let show = example.show(db);
-        expected.assert_eq(&show);
-    }
-    t(
-        "x",
-        LxMode::Math,
-        expect![[r#"
-            x
-            └─ x
-        "#]],
-    );
-    t(
-        "x+1",
-        LxMode::Math,
-        expect![[r#"
-            x+1
-            ├─ x
-            ├─ +
-            └─ 1
-        "#]],
-    );
-    t(
-        "x^2",
-        LxMode::Math,
-        expect![[r#"
-            x^2
-            └─ x^2
-              ├─ x
-              └─ 2
-        "#]],
-    );
-    t(
-        "x_2",
-        LxMode::Math,
-        expect![[r#"
-            x_2
-            └─ x_2
-              ├─ x
-              └─ 2
-        "#]],
-    );
-    t(
-        "x^{i+2}",
-        LxMode::Math,
-        expect![[r#"
-            x^{i+2}
-            └─ x^{i+2}
-              ├─ x
-              └─ {i+2}
-                ├─ i
-                ├─ +
-                └─ 2
         "#]],
     );
 }

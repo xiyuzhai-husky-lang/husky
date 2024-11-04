@@ -61,13 +61,14 @@ mod tests {
     };
     use expect_test::expect;
     use latex_ast::ast::parse_latex_input_into_asts;
+    use latex_command::signature::table::LxCommandSignatureTable;
     use latex_prelude::mode::LxMode;
 
     #[test]
     fn test_collect_from_sparse_annotations_integral() {
         let db = &DB::default();
         let input = "\\int xdx";
-
+        let command_signature_table = LxCommandSignatureTable::new_default(db);
         let token_annotations = vec![
             (
                 ("", "\\int"),
@@ -97,6 +98,7 @@ mod tests {
         let mut ast_arena = LxAstArena::default();
         let asts = parse_latex_input_into_asts(
             db,
+            &command_signature_table,
             input,
             LxMode::Math,
             &mut token_storage,

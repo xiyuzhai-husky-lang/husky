@@ -51,10 +51,10 @@ impl LxCommandPath {
 }
 
 impl LxCommandName {
-    pub fn new(ident: Coword, db: &salsa::Db) -> LxCommandIdentResult<Self> {
+    pub fn new(ident: Coword, db: &salsa::Db) -> LxCommandNameResult<Self> {
         let data = ident.data(db);
         if data.len() == 0 {
-            Err(LxCommandIdentError::Empty)?
+            Err(LxCommandNameError::Empty)?
         } else if data.len() == 1 {
             let c = data.chars().next().unwrap();
             if !c.is_alphabetic() {
@@ -63,16 +63,16 @@ impl LxCommandName {
         } else {
             for c in data.chars() {
                 if !c.is_alphabetic() {
-                    Err(LxCommandIdentError::NonAlphabeticCharater(c))?;
+                    Err(LxCommandNameError::NonAlphabeticCharater(c))?;
                 }
             }
         }
         Ok(Self::LettersOnly(LettersOnlyLxCommandName(ident)))
     }
 
-    pub fn new2(data: &str, db: &salsa::Db) -> LxCommandIdentResult<Self> {
+    pub fn new2(data: &str, db: &salsa::Db) -> LxCommandNameResult<Self> {
         if data.len() == 0 {
-            Err(LxCommandIdentError::Empty)?
+            Err(LxCommandNameError::Empty)?
         } else if data.len() == 1 {
             let c = data.chars().next().unwrap();
             if !c.is_alphabetic() {
@@ -81,7 +81,7 @@ impl LxCommandName {
         } else {
             for c in data.chars() {
                 if !c.is_alphabetic() {
-                    Err(LxCommandIdentError::NonAlphabeticCharater(c))?;
+                    Err(LxCommandNameError::NonAlphabeticCharater(c))?;
                 }
             }
         }
@@ -91,8 +91,8 @@ impl LxCommandName {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
-pub enum LxCommandIdentError {
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
+pub enum LxCommandNameError {
     /// command identifier cannot be empty
     #[error("empty identifier")]
     Empty,
@@ -101,4 +101,4 @@ pub enum LxCommandIdentError {
     NonAlphabeticCharater(char),
 }
 
-pub type LxCommandIdentResult<T> = Result<T, LxCommandIdentError>;
+pub type LxCommandNameResult<T> = Result<T, LxCommandNameError>;
