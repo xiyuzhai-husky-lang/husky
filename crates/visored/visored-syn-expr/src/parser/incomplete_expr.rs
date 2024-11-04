@@ -45,7 +45,7 @@ impl IncompleteVdSynExprData {
     pub(super) fn precedence(&self) -> VdPrecedence {
         match self {
             IncompleteVdSynExprData::Binary { opr, .. } => opr.precedence(),
-            IncompleteVdSynExprData::Prefix { opr, .. } => todo!(),
+            IncompleteVdSynExprData::Prefix { opr, .. } => opr.precedence(),
             IncompleteVdSynExprData::SeparatedList { separator, .. } => separator.precedence(),
             IncompleteVdSynExprData::Delimited { .. } => VdPrecedence::INCOMPLTE_DELIMITED,
         }

@@ -12,7 +12,7 @@ use latex_token::{
     idx::{LxMathTokenIdx, LxTokenIdxRange},
 };
 use salsa::DebugWithDb;
-use visored_annotation::annotation::space::VdSpaceAnnotation;
+use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_opr::{
     delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
     opr::VdBaseOpr,
@@ -43,13 +43,26 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         let ast_data = &self.builder.ast_arena()[*next];
         *next += 1;
         match *ast_data {
-            LxMathAstData::Letter(token_idx, letter) => ResolvedToken::Expr(
-                VdSynExprData::Letter {
-                    token_idx_range: LxTokenIdxRange::new_single(*token_idx),
-                    letter,
-                },
-                VdSynExprClass::ATOM,
-            ),
+            LxMathAstData::Letter(token_idx, letter) => {
+                if let Some(token_annotation) =
+                    self.builder.annotations().token_annotation(*token_idx)
+                {
+                    match token_annotation {
+                        VdTokenAnnotation::Integral(lx_integral_annotation) => todo!(),
+                        VdTokenAnnotation::Variable(lx_variable_annotation) => todo!(),
+                        VdTokenAnnotation::Differential => {
+                            return ResolvedToken::Opr(token_idx, VdBaseOpr::DIFFERENTIAL)
+                        }
+                    }
+                }
+                ResolvedToken::Expr(
+                    VdSynExprData::Letter {
+                        token_idx_range: LxTokenIdxRange::new_single(*token_idx),
+                        letter,
+                    },
+                    VdSynExprClass::ATOM,
+                )
+            }
             LxMathAstData::Punctuation(token_idx, punctuation) => {
                 if let Some(token_annotation) =
                     self.builder.annotations().token_annotation(*token_idx)
@@ -204,6 +217,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 )
             }
             VdCommandResolution::Text => todo!(),
+            VdCommandResolution::Opr(vd_base_opr) => {
+                ResolvedToken::Opr(command_token_idx, vd_base_opr)
+            }
         }
     }
 }
