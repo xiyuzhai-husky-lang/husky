@@ -98,6 +98,15 @@ pub struct LxTokenIdxRange {
     end: ShiftedU32,
 }
 
+impl From<std::ops::Range<LxTokenIdx>> for LxTokenIdxRange {
+    fn from(range: std::ops::Range<LxTokenIdx>) -> Self {
+        Self {
+            start: range.start.0,
+            end: range.end.0,
+        }
+    }
+}
+
 impl IntoIterator for LxTokenIdxRange {
     type Item = LxTokenIdx;
     type IntoIter = std::ops::Range<LxTokenIdx>;

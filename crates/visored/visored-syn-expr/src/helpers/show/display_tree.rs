@@ -122,6 +122,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 item,
                 right_delimiter,
             } => format!("{:?} delimited", source),
+            VdSynExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => format!("{:?} fraction", source),
+            VdSynExprData::Sqrt { radicand, .. } => format!("{:?} sqrt", source),
         };
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }

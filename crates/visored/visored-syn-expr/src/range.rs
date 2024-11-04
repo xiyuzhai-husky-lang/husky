@@ -166,6 +166,22 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 };
                 left_delimiter_range.join(right_delimiter_range)
             }
+            VdSynExprData::Fraction {
+                command_token_idx,
+                denominator_rcurl_token_idx,
+                ..
+            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
+                *command_token_idx,
+                *denominator_rcurl_token_idx,
+            )),
+            VdSynExprData::Sqrt {
+                command_token_idx,
+                radicand_rcurl_token_idx,
+                ..
+            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
+                *command_token_idx,
+                *radicand_rcurl_token_idx,
+            )),
         }
     }
 

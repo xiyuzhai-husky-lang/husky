@@ -6,7 +6,7 @@ use super::*;
 use latex_command::{path::LxCommandPath, signature::parameter::LxCommandParameterMode};
 use latex_token::{
     data::math::{digit::LxMathDigit, LxMathDelimiter},
-    idx::LxMathTokenIdx,
+    idx::{LxMathTokenIdx, LxTokenIdxRange},
 };
 use smallvec::{smallvec, SmallVec};
 
@@ -57,6 +57,10 @@ impl LxMathCommandArgument {
 
     pub fn rcurl_token_idx(&self) -> LxMathTokenIdx {
         self.rcurl_token_idx
+    }
+
+    pub fn asts_token_idx_range(&self) -> LxTokenIdxRange {
+        ((*self.lcurl_token_idx + 1)..*self.rcurl_token_idx).into()
     }
 }
 
