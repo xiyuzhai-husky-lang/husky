@@ -2,14 +2,14 @@ pub mod digit;
 
 use self::digit::LxMathDigit;
 use super::*;
-use latex_command::path::LxCommandPath;
+use latex_command::path::{LxCommandName, LxCommandNameResult};
 use latex_math_letter::LxMathLetter;
-use latex_math_opr::LxMathPunctuation;
+use latex_math_punctuation::LxMathPunctuation;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenData {
-    Command(LxCommandPath),
+    Command(LxCommandNameResult<LxCommandName>),
     LeftDelimiter(LxMathDelimiter),
     RightDelimiter(LxMathDelimiter),
     Letter(LxMathLetter),
@@ -36,14 +36,16 @@ pub enum LxMathTokenError {
 
 impl<'a> LxLexer<'a> {
     pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
+        let db = self.db;
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
                         c if c.is_alphanumeric() => {
-                            Some(LxMathTokenData::Command(LxCommandPath::Coword(
-                                self.next_coword_with(|c| c.is_alphanumeric()).unwrap(),
+                            Some(LxMathTokenData::Command(LxCommandName::new2(
+                                self.chars.next_str_slice_while(|c| c.is_alphanumeric()),
+                                db,
                             )))
                         }
                         c => {

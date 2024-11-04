@@ -168,7 +168,7 @@ pub enum LxMathLetter {
 }
 
 impl LxMathLetter {
-    pub fn tex(self) -> &'static str {
+    pub fn latex_code(self) -> &'static str {
         match self {
             LxMathLetter::UpperA => "A",
             LxMathLetter::UpperB => "B",

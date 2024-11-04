@@ -1,7 +1,9 @@
 use latex_token::idx::LxTokenIdxRange;
 
 use crate::ast::{
-    math::{LxMathAstArenaMap, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
+    math::{
+        LxMathAstArenaMap, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange, LxMathCommandArgument,
+    },
     rose::{LxRoseAstArenaMap, LxRoseAstData, LxRoseAstIdx},
     LxAstArena, LxAstArenaMap, LxAstArenaRef, LxAstData, LxAstIdx,
 };
@@ -81,7 +83,7 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     fn calc_math_ast(&mut self, data: &LxMathAstData) -> LxTokenIdxRange {
         match *data {
             LxMathAstData::Letter(idx, _) => LxTokenIdxRange::new_single(*idx),
-            LxMathAstData::Opr(idx, _) => LxTokenIdxRange::new_single(*idx),
+            LxMathAstData::Punctuation(idx, _) => LxTokenIdxRange::new_single(*idx),
             LxMathAstData::Digit(idx, _) => LxTokenIdxRange::new_single(*idx),
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => {
@@ -102,7 +104,14 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
             LxMathAstData::Command {
                 command_token_idx,
                 command_path,
-            } => LxTokenIdxRange::new_single(*command_token_idx), // TODO: consider command arguments
+                ref arguments,
+            } => match arguments.last() {
+                Some(last_argument) => LxTokenIdxRange::new_closed(
+                    *command_token_idx,
+                    *last_argument.rcurl_token_idx(),
+                ),
+                None => LxTokenIdxRange::new_single(*command_token_idx),
+            },
         }
     }
 

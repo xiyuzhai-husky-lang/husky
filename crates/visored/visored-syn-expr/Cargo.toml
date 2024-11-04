@@ -24,12 +24,17 @@ latex-math-letter.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
+latex-command.workspace = true
+# protocols
+husky-text-protocol.workspace = true
 # utils
+husky-debug-utils.workspace = true
 husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
 visored-opr.workspace = true
+visored-resolution.workspace = true
 visored-zfc-ty.workspace = true
 
 [dev-dependencies]

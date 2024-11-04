@@ -1,4 +1,5 @@
-pub mod command;
 pub mod jar;
-pub mod parameter;
 pub mod path;
+pub mod signature;
+
+use self::jar::LxCommandJar as Jar;

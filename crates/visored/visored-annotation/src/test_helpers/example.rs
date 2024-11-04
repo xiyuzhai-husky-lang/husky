@@ -6,6 +6,11 @@ use crate::{
     },
     annotations::VdAnnotations,
 };
+use latex_ast::ast::{parse_latex_input_into_asts, LxAstArena};
+use latex_command::signature::table::LxCommandSignatureTable;
+use latex_prelude::mode::LxMode;
+use latex_token::storage::LxTokenStorage;
+use lazy_static::lazy_static;
 
 #[derive(Debug, Clone)]
 pub struct VdAnnotationsExample {
@@ -24,6 +29,7 @@ impl VdAnnotationsExample {
         )],
         db: &::salsa::Db,
     ) -> Vec<Self> {
+        let command_signature_table = LxCommandSignatureTable::new_default(db);
         examples
             .iter()
             .map(
@@ -32,6 +38,7 @@ impl VdAnnotationsExample {
                     let mut ast_arena = LxAstArena::default();
                     let asts = parse_latex_input_into_asts(
                         &db,
+                        &command_signature_table,
                         &input,
                         LxMode::Math,
                         &mut token_storage,
@@ -40,6 +47,7 @@ impl VdAnnotationsExample {
                     let mut ast_arena = LxAstArena::default();
                     let asts = parse_latex_input_into_asts(
                         &db,
+                        &command_signature_table,
                         &input,
                         LxMode::Math,
                         &mut token_storage,
@@ -62,44 +70,24 @@ impl VdAnnotationsExample {
     }
 }
 
-use latex_ast::ast::{parse_latex_input_into_asts, LxAstArena};
-use latex_prelude::mode::LxMode;
-use latex_token::storage::LxTokenStorage;
-use lazy_static::lazy_static;
-
 pub fn lx_annotations_examples(db: &::salsa::Db) -> Vec<VdAnnotationsExample> {
+    use crate::annotation::{space::*, token::*};
+
     VdAnnotationsExample::collect_from_sparse(
         &[
             (LxMode::Math, "", &[], &[]),
             (
                 LxMode::Math,
                 "xy",
-                &[
-                    (
-                        ("", "x"),
-                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
-                    ),
-                    (
-                        ("x", "y"),
-                        VdTokenAnnotation::Variable(LxVariableAnnotation::Usage),
-                    ),
-                ],
-                &[(
-                    ("x", "y"),
-                    VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul),
-                )],
+                &[(("", "x"), VARIABLE_USAGE), (("x", "y"), VARIABLE_USAGE)],
+                &[(("x", "y"), SCALAR_MUL)],
             ),
             (
                 LxMode::Math,
                 "dx",
                 &[
-                    (("", "d"), VdTokenAnnotation::Differential),
-                    (
-                        ("d", "x"),
-                        VdTokenAnnotation::Variable(
-                            LxVariableAnnotation::SingleVariableIntegralVariableDecl,
-                        ),
-                    ),
+                    (("", "d"), DIFFERENTIAL),
+                    (("d", "x"), SINGLE_VARIABLE_INTEGRAL_VARIABLE_DECL),
                 ],
                 &[],
             ),
