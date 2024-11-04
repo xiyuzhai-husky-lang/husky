@@ -28,6 +28,20 @@ pub enum LxMathDelimiter {
     Curl,
 }
 
+impl LxMathDelimiter {
+    pub fn left_latex_code(&self) -> &'static str {
+        match self {
+            LxMathDelimiter::Curl => "{",
+        }
+    }
+
+    pub fn right_latex_code(&self) -> &'static str {
+        match self {
+            LxMathDelimiter::Curl => "}",
+        }
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenError {

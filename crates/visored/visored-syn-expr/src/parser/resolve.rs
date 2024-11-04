@@ -40,6 +40,8 @@ pub enum ResolvedToken {
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
     pub fn resolve_token(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) -> ResolvedToken {
+        use crate::builder::ToVdSyn;
+
         let ast_data = &self.builder.ast_arena()[*next];
         *next += 1;
         match *ast_data {
@@ -127,14 +129,38 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 ResolvedToken::Expr(expr_data, VdSynExprClass::ATOM)
             }
             LxMathAstData::TextEdit { ref buffer } => todo!(),
-            LxMathAstData::Attach { base, ref scripts } => todo!(),
+            LxMathAstData::Attach { base, ref scripts } => {
+                let base = base.to_vd_syn(self.builder);
+                let scripts = scripts
+                    .iter()
+                    .copied()
+                    .map(|(script_kind, script)| (script_kind, script.to_vd_syn(self.builder)))
+                    .collect();
+                ResolvedToken::Expr(
+                    VdSynExprData::Attach { base, scripts },
+                    VdSynExprClass::ATOM,
+                )
+            }
             LxMathAstData::Delimited {
                 left_delimiter_token_idx,
                 left_delimiter,
                 asts,
                 right_delimiter_token_idx,
                 right_delimiter,
-            } => todo!(),
+            } => ResolvedToken::Expr(
+                VdSynExprData::LxDelimited {
+                    left_delimiter_token_idx,
+                    left_delimiter,
+                    item: (
+                        ((*left_delimiter_token_idx + 1)..(*right_delimiter_token_idx)).into(),
+                        asts,
+                    )
+                        .to_vd_syn(self.builder),
+                    right_delimiter_token_idx,
+                    right_delimiter,
+                },
+                VdSynExprClass::ATOM,
+            ),
             LxMathAstData::Command {
                 command_token_idx,
                 command_path,

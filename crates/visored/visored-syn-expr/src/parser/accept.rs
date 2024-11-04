@@ -135,24 +135,17 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             Some(item) => {
                 let item = self.builder.alloc_expr(item);
                 match self.last_incomplete_expr_mut() {
-                    Some(expr) => match expr {
-                        IncompleteVdSynExprData::SeparatedList {
-                            separator: separator0,
-                            fragments,
-                        } => {
-                            if separator.separator() == *separator0 {
-                                match fragments.last().unwrap() {
-                                    Left(_) => fragments.push(Right(separator)),
-                                    // `,,`
-                                    Right(_) => todo!("repeated separator"),
-                                }
-                            } else {
-                                todo!()
-                            }
+                    Some(IncompleteVdSynExprData::SeparatedList {
+                        separator: separator0,
+                        fragments,
+                    }) if separator.separator() == *separator0 => {
+                        match fragments.last().unwrap() {
+                            Left(_) => fragments.push(Right(separator)),
+                            // `,,`
+                            Right(_) => todo!("repeated separator"),
                         }
-                        _ => todo!(),
-                    },
-                    None => self.push_top_syn_expr(
+                    }
+                    _ => self.push_top_syn_expr(
                         preceding_space_annotation,
                         IncompleteVdSynExprData::SeparatedList {
                             separator: separator.separator(),

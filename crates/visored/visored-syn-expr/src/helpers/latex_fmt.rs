@@ -131,6 +131,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Err(ref error) => unreachable!("{error}"),
             VdSynExprData::SeparatedList { .. } => todo!(),
+            VdSynExprData::LxDelimited { .. } => todo!(),
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,
