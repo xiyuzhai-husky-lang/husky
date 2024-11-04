@@ -24,7 +24,7 @@ fn t(
 }
 
 #[test]
-fn litera_math_ast_idx_to_vd_syn_expr_idx_works() {
+fn literal_vd_syn_expr_parsing_works() {
     t(
         "",
         &[],
@@ -62,7 +62,7 @@ fn litera_math_ast_idx_to_vd_syn_expr_idx_works() {
 }
 
 #[test]
-fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
+fn basic_arithematics_vd_syn_expr_parsing_works() {
     t(
         "1 + 1",
         &[],
@@ -100,7 +100,7 @@ fn basic_arithematics_math_ast_idx_to_vd_syn_expr_idx_works() {
 }
 
 #[test]
-fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
+fn xyz_vd_syn_expr_parsing_works() {
     t(
         "x",
         &[],
@@ -139,7 +139,7 @@ fn xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
 }
 
 #[test]
-fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
+fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
     t(
         "1+x",
         &[],
@@ -248,7 +248,7 @@ fn arithemtics_with_xyz_math_ast_idx_to_vd_syn_expr_idx_works() {
 }
 
 #[test]
-fn delimiters_math_ast_idx_to_vd_syn_expr_idx_works() {
+fn delimiters_vd_syn_expr_parsing_works() {
     t(
         "(1)",
         &[],
@@ -261,7 +261,27 @@ fn delimiters_math_ast_idx_to_vd_syn_expr_idx_works() {
 }
 
 #[test]
-fn debug_math_ast_idx_to_vd_syn_expr_idx_works() {
+fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
+    t(
+        "\\alpha",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\alpha" letter
+        "#]],
+    );
+    t(
+        "\\pi",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\pi" letter
+        "#]],
+    );
+}
+
+#[test]
+fn debug_vd_syn_expr_parsing_works() {
     t(
         "1+x+2y",
         &[],
