@@ -2,11 +2,18 @@ use latex_prelude::mode::LxMode;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LxCommandParameter {
-    mode: LxMode,
+    mode: LxCommandParameterMode,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LxCommandParameterMode {
+    Math,
+    Rose,
+    SingleLetter,
 }
 
 impl LxCommandParameter {
-    pub fn new(mode: LxMode) -> Self {
+    pub fn new(mode: LxCommandParameterMode) -> Self {
         Self { mode }
     }
 }
