@@ -17,3 +17,7 @@ pub enum LxApplyAnnotation {
 pub enum LxSeverAnnotation {
     Index,
 }
+
+pub const SCALAR_MUL: VdSpaceAnnotation = VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarMul);
+pub const SCALAR_DIFFERENTIAL_FORM_MUL: VdSpaceAnnotation =
+    VdSpaceAnnotation::Apply(LxApplyAnnotation::ScalarDifferentialFormMul);
