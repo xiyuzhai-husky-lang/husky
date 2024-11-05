@@ -320,6 +320,7 @@ latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
 latex-math-punctuation = { path = "crates/latex/latex-math-punctuation" }
+latex-rose-punctuation = { path = "crates/latex/latex-rose-punctuation" }
 latex-prelude = { path = "crates/latex/latex-prelude" }
 latex-sem-expr = { path = "crates/latex/latex-sem-expr" }
 latex-text = { path = "crates/latex/latex-text" }

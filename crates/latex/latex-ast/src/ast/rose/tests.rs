@@ -14,8 +14,11 @@ fn parse_basic_math_latex_input_into_asts_then_show_works() {
     t(
         "Hello, world!",
         expect![[r#"
-        hello
-        └─ hello
-    "#]],
+            Hello, world!
+            ├─ Hello
+            ├─ ,
+            ├─ world
+            └─ !
+        "#]],
     );
 }
