@@ -11,7 +11,7 @@ use crate::{
 };
 use either::*;
 use latex_ast::{
-    ast::{LxAstArena, LxAstArenaRef, LxAstIdxRange},
+    ast::{rose::LxRoseAstIdxRange, LxAstArena, LxAstArenaRef, LxAstIdxRange},
     range::LxAstTokenIdxRangeMap,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -133,12 +133,15 @@ pub trait ToVdSyn<T> {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> T;
 }
 
-impl ToVdSyn<Either<VdSynExprIdx, ()>> for (LxTokenIdxRange, LxAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, ()> {
+impl<R> ToVdSyn<Either<VdSynExprIdx, R>> for (LxTokenIdxRange, LxAstIdxRange)
+where
+    (LxTokenIdxRange, LxRoseAstIdxRange): ToVdSyn<R>,
+{
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, R> {
         let (token_range, asts) = self;
         match asts {
             LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
-            LxAstIdxRange::Rose(asts) => Either::Right(todo!()),
+            LxAstIdxRange::Rose(asts) => Either::Right((token_range, asts).to_vd_syn(builder)),
         }
     }
 }

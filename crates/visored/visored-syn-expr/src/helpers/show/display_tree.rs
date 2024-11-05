@@ -11,8 +11,6 @@ use crate::{
 };
 use husky_text_protocol::offset::TextOffsetRange;
 use husky_tree_utils::display::DisplayTree;
-#[cfg(feature = "test_helpers")]
-use latex_ast::test_helpers::example::LxAstExample;
 use latex_ast::{
     ast::{
         math::{LxMathAstIdx, LxMathAstIdxRange},
