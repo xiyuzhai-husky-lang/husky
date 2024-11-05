@@ -12647,6 +12647,7 @@ dependencies = [
  "latex-command",
  "latex-math-letter",
  "latex-prelude",
+ "latex-rose-punctuation",
  "latex-token",
  "salsa",
  "smallvec",

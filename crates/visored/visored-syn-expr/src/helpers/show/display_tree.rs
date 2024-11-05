@@ -1,14 +1,14 @@
 use crate::{
     builder::VdSynExprBuilder,
-    clause::VdSynClauseArenaRef,
+    clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseIdx},
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
         VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
         VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap,
     },
-    sentence::VdSynSentenceArenaRef,
-    stmt::VdSynStmtArenaRef,
+    sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceIdx},
+    stmt::{VdSynStmtArenaRef, VdSynStmtChild, VdSynStmtIdx, VdSynStmtIdxRange},
 };
 use husky_text_protocol::offset::TextOffsetRange;
 use husky_tree_utils::display::DisplayTree;
@@ -81,7 +81,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
 /// # actions
 impl<'a> VdSynExprDisplayTreeBuilder<'a> {
-    pub fn render_all(&self, exprs: VdSynExprIdxRange) -> DisplayTree {
+    pub fn render_all_exprs(&self, exprs: VdSynExprIdxRange) -> DisplayTree {
         // TODO: maybe just use the range covered by these exprs
         DisplayTree::new(self.input.to_string(), self.render_exprs(exprs))
     }
@@ -136,6 +136,85 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynExprData::Sqrt { radicand, .. } => format!("{:?} sqrt", source),
         };
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
+    }
+
+    pub fn render_all_stmts(&self, stmts: VdSynStmtIdxRange) -> DisplayTree {
+        let stmts_range =
+            self.stmt_range_map[stmts.start()].join(self.stmt_range_map[stmts.last().unwrap()]);
+        let offset_range = self.token_storage.token_idx_range_offset_range(stmts_range);
+        DisplayTree::new(
+            self.input[offset_range].to_string(),
+            self.render_stmts(stmts),
+        )
+    }
+
+    pub fn render_stmts(&self, stmts: VdSynStmtIdxRange) -> Vec<DisplayTree> {
+        stmts
+            .into_iter()
+            .map(|stmt| self.render_stmt(stmt))
+            .collect()
+    }
+
+    pub fn render_stmt(&self, stmt: VdSynStmtIdx) -> DisplayTree {
+        let stmt_range = self.stmt_range_map[stmt];
+        let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
+        let source = &self.input[offset_range];
+        DisplayTree::new(
+            source.to_string(),
+            self.render_stmt_children(self.stmt_arena[stmt].children()),
+        )
+    }
+
+    fn render_stmt_children(&self, children: Vec<VdSynStmtChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSynStmtChild::Sentence(sentence) => self.render_sentence(sentence),
+                VdSynStmtChild::Stmt(stmt) => self.render_stmt(stmt),
+            })
+            .collect()
+    }
+
+    fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
+        let sentence_range = self.sentence_range_map[sentence];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(sentence_range);
+        let source = &self.input[offset_range];
+        DisplayTree::new(
+            source.to_string(),
+            self.render_sentence_children(self.sentence_arena[sentence].children()),
+        )
+    }
+
+    fn render_sentence_children(&self, children: Vec<VdSynSentenceChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSynSentenceChild::Clause(clause) => self.render_clause(clause),
+            })
+            .collect()
+    }
+
+    fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
+        let clause_range = self.clause_range_map[clause];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(clause_range);
+        let source = &self.input[offset_range];
+        DisplayTree::new(
+            source.to_string(),
+            self.render_clause_children(self.clause_arena[clause].children()),
+        )
+    }
+
+    fn render_clause_children(&self, children: Vec<VdSynClauseChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSynClauseChild::Expr(expr) => todo!(),
+            })
+            .collect()
     }
 
     fn ast_offset_range(&self, ast: LxAstIdx) -> TextOffsetRange {

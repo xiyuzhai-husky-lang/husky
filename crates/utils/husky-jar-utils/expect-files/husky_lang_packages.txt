@@ -4274,6 +4274,7 @@
         dependencies: [
             "either",
             "enum-class",
+            "husky-coword",
             "husky-debug-utils",
             "husky-print-utils",
             "husky-text-protocol",
@@ -4283,6 +4284,7 @@
             "latex-command",
             "latex-math-letter",
             "latex-prelude",
+            "latex-rose-punctuation",
             "latex-token",
             "salsa",
             "smallvec",
