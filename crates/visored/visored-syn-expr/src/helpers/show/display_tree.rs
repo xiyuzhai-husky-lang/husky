@@ -5,9 +5,10 @@ use crate::{
     phrase::VdSynPhraseArenaRef,
     range::{
         VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
-        VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
+        VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap,
     },
     sentence::VdSynSentenceArenaRef,
+    stmt::VdSynStmtArenaRef,
 };
 use husky_text_protocol::offset::TextOffsetRange;
 use husky_tree_utils::display::DisplayTree;
@@ -35,6 +36,8 @@ pub struct VdSynExprDisplayTreeBuilder<'a> {
     clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
     sentence_arena: VdSynSentenceArenaRef<'a>,
     sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
+    stmt_arena: VdSynStmtArenaRef<'a>,
+    stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
 }
 
 /// # construction
@@ -49,10 +52,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
         sentence_arena: VdSynSentenceArenaRef<'a>,
+        stmt_arena: VdSynStmtArenaRef<'a>,
         expr_range_map: &'a VdSynExprTokenIdxRangeMap,
         phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
         clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
+        stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
     ) -> Self {
         Self {
             db,
@@ -68,6 +73,8 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             clause_range_map,
             sentence_arena,
             sentence_range_map,
+            stmt_arena,
+            stmt_range_map,
         }
     }
 }

@@ -8,6 +8,7 @@ use crate::{
     },
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
+    stmt::VdSynStmtArena,
 };
 use either::*;
 use latex_ast::{
@@ -29,6 +30,7 @@ pub(crate) struct VdSynExprBuilder<'db> {
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
     sentence_arena: VdSynSentenceArena,
+    stmt_arena: VdSynStmtArena,
 }
 
 /// # constructor
@@ -52,6 +54,7 @@ impl<'db> VdSynExprBuilder<'db> {
             phrase_arena: Default::default(),
             clause_arena: Default::default(),
             sentence_arena: Default::default(),
+            stmt_arena: Default::default(),
         }
     }
 
@@ -120,12 +123,14 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynPhraseArena,
         VdSynClauseArena,
         VdSynSentenceArena,
+        VdSynStmtArena,
     ) {
         (
             self.expr_arena,
             self.phrase_arena,
             self.clause_arena,
             self.sentence_arena,
+            self.stmt_arena,
         )
     }
 }
