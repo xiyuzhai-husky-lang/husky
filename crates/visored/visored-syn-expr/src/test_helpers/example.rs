@@ -13,13 +13,12 @@ use crate::{
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use latex_ast::{
-    ast::{parse_latex_input_into_asts, LxAstArena, LxAstIdxRange},
+    ast::{parse_latex_input_into_asts, rose::LxRoseAstIdxRange, LxAstArena, LxAstIdxRange},
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
-    test_helpers::example::LxAstExample,
 };
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
-use latex_token::storage::LxTokenStorage;
+use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use range::calc_expr_range_map;
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
@@ -27,7 +26,7 @@ use visored_annotation::{
 };
 use visored_resolution::table::VdDefaultResolutionTable;
 
-pub struct VdSynExprExample {
+pub struct VdSynExprExample<R> {
     pub input: String,
     pub root_mode: LxMode,
     pub annotations: VdAnnotations,
@@ -36,7 +35,7 @@ pub struct VdSynExprExample {
     pub ast_arena: LxAstArena,
     pub asts: LxAstIdxRange,
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
-    pub result: Either<VdSynExprIdx, ()>,
+    pub result: Either<VdSynExprIdx, R>,
     pub expr_arena: VdSynExprArena,
     pub phrase_arena: VdSynPhraseArena,
     pub clause_arena: VdSynClauseArena,
@@ -47,7 +46,10 @@ pub struct VdSynExprExample {
     pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
 }
 
-impl VdSynExprExample {
+impl<R> VdSynExprExample<R>
+where
+    (LxTokenIdxRange, LxRoseAstIdxRange): ToVdSyn<R>,
+{
     pub fn new(
         input: &str,
         root_mode: LxMode,

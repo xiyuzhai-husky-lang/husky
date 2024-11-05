@@ -50,4 +50,4 @@ visored-syn-expr = { workspace = true, features = ["test_helpers"] }
 workspace = true
 
 [features]
-test_helpers = ["latex-ast/test_helpers"]
+test_helpers = []
