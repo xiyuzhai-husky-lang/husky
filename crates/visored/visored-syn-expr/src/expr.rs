@@ -21,7 +21,10 @@ use error::{OriginalVdSynExprError, VdSynExprError};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use latex_ast::ast::math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange};
+use latex_ast::ast::{
+    math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
+    LxAstIdxRange,
+};
 use latex_math_letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::{
@@ -377,6 +380,16 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
         let token_idx_range = builder.ast_token_idx_range_map()[self];
         (token_idx_range, LxMathAstIdxRange::new_single(self)).to_vd_syn(builder)
+    }
+}
+
+impl ToVdSyn<Either<VdSynExprIdx, ()>> for (LxTokenIdxRange, LxAstIdxRange) {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, ()> {
+        let (token_range, asts) = self;
+        match asts {
+            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
+            LxAstIdxRange::Rose(asts) => Either::Right(todo!()),
+        }
     }
 }
 
