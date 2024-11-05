@@ -10,7 +10,7 @@ fn t(input: &str, expected: Expect) {
 }
 
 #[test]
-fn parse_basic_math_latex_input_into_asts_then_show_works() {
+fn parse_basic_rose_latex_input_into_asts_then_show_works() {
     t(
         "Hello, world!",
         expect![[r#"
@@ -19,6 +19,22 @@ fn parse_basic_math_latex_input_into_asts_then_show_works() {
             ├─ ,
             ├─ world
             └─ !
+        "#]],
+    );
+}
+
+#[test]
+fn parse_rose_with_math_latex_input_into_asts_then_show_works() {
+    t(
+        "Let $x = 1$.",
+        expect![[r#"
+            Let $x = 1$.
+            ├─ Let
+            ├─ $x = 1$
+            │ ├─ x
+            │ ├─ =
+            │ └─ 1
+            └─ .
         "#]],
     );
 }

@@ -89,6 +89,7 @@ impl<'a> LxLexer<'a> {
                     '^' => Some(LxMathTokenData::Superscript),
                     '{' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl)),
                     '}' => Some(LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl)),
+                    '$' => Some(LxMathTokenData::MathModeEnd),
                     c => {
                         if let Some(letter) = LxMathLetter::try_from_char(c) {
                             Some(LxMathTokenData::Letter(letter))
