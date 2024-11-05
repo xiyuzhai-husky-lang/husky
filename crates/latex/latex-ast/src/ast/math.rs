@@ -161,7 +161,7 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),
             LxMathTokenData::Punctuation(opr) => LxMathAstData::Punctuation(idx, opr), // it's not constructed into a tree yet in the ast stage
             LxMathTokenData::Digit(digit) => LxMathAstData::Digit(idx, digit),
-            LxMathTokenData::Other(_) => todo!(),
+            LxMathTokenData::Other(c) => todo!("c: {}", c),
             LxMathTokenData::Subscript => todo!(),
             LxMathTokenData::Superscript => todo!(),
             LxMathTokenData::Error(_) => todo!(),
