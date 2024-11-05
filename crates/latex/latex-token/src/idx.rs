@@ -172,10 +172,10 @@ impl LxTokenIdxRange {
         }
     }
 
-    pub fn to(self, end: LxTokenIdx) -> Self {
+    pub fn to_included(self, last: LxTokenIdx) -> Self {
         Self {
             start: self.start,
-            end: end.0,
+            end: last.0 + 1,
         }
     }
 }

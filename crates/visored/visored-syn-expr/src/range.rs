@@ -275,6 +275,11 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 right_dollar_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*assume_token_idx, *right_dollar_token_idx),
+            VdSynClauseData::Then {
+                then_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
         }
     }
 
@@ -296,7 +301,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynSentenceData::Clauses { clauses, end } => {
                 let clauses_range = self.get_clause(clauses.start());
                 match end {
-                    VdSynSentenceEnd::Period(token_idx) => clauses_range.to(*token_idx),
+                    VdSynSentenceEnd::Period(token_idx) => clauses_range.to_included(*token_idx),
                 }
             }
         }
