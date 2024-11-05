@@ -79,7 +79,61 @@ pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
 pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
 impl<'a> LxAstParser<'a> {
-    pub(super) fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
+    pub(super) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
+        let mut asts = vec![];
+        while let Some(ast) = self.parse_math_ast() {
+            asts.push(ast)
+        }
+        self.alloc_math_asts(asts)
+    }
+
+    fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
+        let mut ast = self.parse_atomic_math_ast()?;
+        while let Some(token_data) = self.peek_math_token_data() {
+            match token_data {
+                // TODO include more cases, like \limits
+                LxMathTokenData::Subscript | LxMathTokenData::Superscript => {
+                    let (idx, token) = self.next_math_token().unwrap();
+                    ast = match ast {
+                        LxMathAstData::Attach { .. } => ast,
+                        base => {
+                            let base = self.alloc_math_ast(base);
+                            LxMathAstData::Attach {
+                                base,
+                                scripts: Default::default(),
+                            }
+                            .into()
+                        }
+                        _ => todo!(),
+                    };
+                    let LxMathAstData::Attach {
+                        ref mut scripts, ..
+                    } = ast
+                    else {
+                        unreachable!()
+                    };
+                    let script_kind = match token {
+                        LxMathTokenData::Subscript => LxScriptKind::Subscript,
+                        LxMathTokenData::Superscript => LxScriptKind::Superscript,
+                        _ => todo!(),
+                    };
+                    let ast = match self.parse_atomic_math_ast() {
+                        Some(new_subscript) => self.alloc_math_ast(new_subscript),
+                        None => todo!("err: expected subscript"),
+                    };
+                    // check that the script kind is not already present
+                    if scripts.iter().copied().any(|(kind, _)| kind == script_kind) {
+                        todo!("err: script kind already present")
+                    }
+                    scripts.push((script_kind, ast));
+                }
+                _ => break,
+            }
+        }
+        Some(ast)
+    }
+
+    fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
         match self.peek_math_token_data()? {
             LxMathTokenData::RightDelimiter(_) | LxMathTokenData::MathModeEnd => return None,
             _ => (),

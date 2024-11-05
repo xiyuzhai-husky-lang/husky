@@ -139,60 +139,6 @@ impl<'a> LxAstParser<'a> {
             LxMode::Math => self.parse_math_asts().into(),
         }
     }
-
-    pub(crate) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
-        let mut asts = vec![];
-        while let Some(ast) = self.parse_math_ast() {
-            asts.push(ast)
-        }
-        self.alloc_math_asts(asts)
-    }
-
-    fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
-        let mut ast = self.parse_atomic_math_ast()?;
-        if let Some(token_data) = self.peek_math_token_data() {
-            match token_data {
-                // TODO include more cases, like \limits
-                LxMathTokenData::Subscript | LxMathTokenData::Superscript => {
-                    let (idx, token) = self.next_math_token().unwrap();
-                    ast = match ast {
-                        LxMathAstData::Attach { .. } => ast,
-                        base => {
-                            let base = self.alloc_math_ast(base);
-                            LxMathAstData::Attach {
-                                base,
-                                scripts: Default::default(),
-                            }
-                            .into()
-                        }
-                        _ => todo!(),
-                    };
-                    let LxMathAstData::Attach {
-                        ref mut scripts, ..
-                    } = ast
-                    else {
-                        unreachable!()
-                    };
-                    let script_kind = match token {
-                        LxMathTokenData::Subscript => LxScriptKind::Subscript,
-                        LxMathTokenData::Superscript => LxScriptKind::Superscript,
-                        _ => todo!(),
-                    };
-                    let ast = match self.parse_atomic_math_ast() {
-                        Some(new_subscript) => self.alloc_math_ast(new_subscript),
-                        None => todo!("err: expected subscript"),
-                    };
-                    scripts.push((script_kind, ast));
-                }
-                _ => (),
-            }
-        }
-        Some(ast)
-    }
-
-    pub(crate) fn parse_rose_asts(&mut self) -> LxRoseAstIdxRange {
-        todo!()
-    }
 }
 
 // TODO replace it with example

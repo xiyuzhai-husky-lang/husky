@@ -128,7 +128,11 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     }
 
     fn calc_rose_ast(&self, data: &LxRoseAstData) -> LxTokenIdxRange {
-        todo!()
+        match *data {
+            LxRoseAstData::TextEdit { ref buffer } => todo!(),
+            LxRoseAstData::Word(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+            LxRoseAstData::Punctuation(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+        }
     }
 
     fn get_rose_ast_range(&mut self, idx: LxRoseAstIdx) -> LxTokenIdxRange {

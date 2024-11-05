@@ -1,6 +1,7 @@
 use super::*;
 use husky_coword::Coword;
 use latex_command::path::LxCommandPath;
+use latex_rose_punctuation::LxRosePunctuation;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
@@ -16,6 +17,7 @@ pub enum LxRoseTokenData {
     EscapedLbox,
     Nat32(u32),
     NewParagraph,
+    Punctuation(LxRosePunctuation),
 }
 
 impl<'a> LxLexer<'a> {
@@ -53,6 +55,10 @@ impl<'a> LxLexer<'a> {
                 )
                 .into(),
             ),
+            c if let Some(punctuation) = LxRosePunctuation::try_from_char(c) => {
+                self.chars.eat_char();
+                Some(LxRoseTokenData::Punctuation(punctuation))
+            }
             c => {
                 use husky_print_utils::p;
 

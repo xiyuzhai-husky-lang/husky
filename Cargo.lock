@@ -8160,6 +8160,7 @@ dependencies = [
  "latex-math-letter",
  "latex-math-punctuation",
  "latex-prelude",
+ "latex-rose-punctuation",
  "latex-token",
  "ptree",
  "salsa",
@@ -8206,6 +8207,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "latex-rose-punctuation"
+version = "0.1.0"
+
+[[package]]
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
@@ -8218,6 +8223,7 @@ dependencies = [
  "latex-math-letter",
  "latex-math-punctuation",
  "latex-prelude",
+ "latex-rose-punctuation",
  "salsa",
  "shifted-unsigned-int",
 ]
