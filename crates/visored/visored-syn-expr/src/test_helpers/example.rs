@@ -20,14 +20,14 @@ use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use range::{calc_expr_range_map, VdSynStmtTokenIdxRangeMap};
-use stmt::VdSynStmtArena;
+use stmt::{VdSynStmtArena, VdSynStmtIdxRange};
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
 use visored_resolution::table::VdDefaultResolutionTable;
 
-pub struct VdSynExprExample<R> {
+pub struct VdSynExprExample {
     pub input: String,
     pub root_mode: LxMode,
     pub annotations: VdAnnotations,
@@ -36,7 +36,7 @@ pub struct VdSynExprExample<R> {
     pub ast_arena: LxAstArena,
     pub asts: LxAstIdxRange,
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
-    pub result: Either<VdSynExprIdx, R>,
+    pub result: Either<VdSynExprIdx, VdSynStmtIdxRange>,
     pub expr_arena: VdSynExprArena,
     pub phrase_arena: VdSynPhraseArena,
     pub clause_arena: VdSynClauseArena,
@@ -49,10 +49,7 @@ pub struct VdSynExprExample<R> {
     pub stmt_range_map: VdSynStmtTokenIdxRangeMap,
 }
 
-impl<R> VdSynExprExample<R>
-where
-    (LxTokenIdxRange, LxRoseAstIdxRange): ToVdSyn<R>,
-{
+impl VdSynExprExample {
     pub fn new(
         input: &str,
         root_mode: LxMode,
@@ -147,7 +144,7 @@ where
         );
         match self.result {
             Left(expr) => builder.render_expr(expr).show(&Default::default()),
-            Right(_) => todo!(),
+            Right(stmts) => builder.render_all_stmts(stmts).show(&Default::default()),
         }
     }
 }

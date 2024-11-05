@@ -1324,6 +1324,7 @@
     JarPackageSummary {
         name: "visored-syn-expr",
         dependencies: [
+            "husky-coword",
             "latex-ast",
             "latex-command",
             "visored-opr",

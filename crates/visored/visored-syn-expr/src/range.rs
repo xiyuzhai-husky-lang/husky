@@ -1,12 +1,17 @@
 use crate::{
-    clause::{VdSynClauseArena, VdSynClauseArenaRef, VdSynClauseIdx, VdSynClauseMap},
+    clause::{
+        VdSynClauseArena, VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx, VdSynClauseMap,
+    },
     expr::{
         VdSynExprArena, VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprMap,
         VdSynLeftDelimiter, VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
     },
     phrase::{VdSynPhraseArena, VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
-    sentence::{VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
-    stmt::{VdSynStmtArena, VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
+    sentence::{
+        VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceEnd,
+        VdSynSentenceIdx, VdSynSentenceMap,
+    },
+    stmt::{VdSynStmtArena, VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtMap},
 };
 use either::*;
 use latex_token::idx::LxTokenIdxRange;
@@ -234,7 +239,11 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_phrase(&mut self, phrase: VdSynPhraseIdx) {
-        todo!()
+        if self.phrase_range_map.has(phrase) {
+            return;
+        }
+        let range = self.calc_phrase(phrase);
+        self.phrase_range_map.insert(phrase, range);
     }
 
     fn calc_phrase(&mut self, phrase: VdSynPhraseIdx) -> VdSynPhraseTokenIdxRange {
@@ -247,11 +256,26 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_clause(&mut self, clause: VdSynClauseIdx) {
-        todo!()
+        if self.clause_range_map.has(clause) {
+            return;
+        }
+        let range = self.calc_clause(clause);
+        self.clause_range_map.insert(clause, range);
     }
 
     fn calc_clause(&mut self, clause: VdSynClauseIdx) -> VdSynClauseTokenIdxRange {
-        todo!()
+        match self.clause_arena[clause] {
+            VdSynClauseData::Let {
+                let_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
+            VdSynClauseData::Assume {
+                assume_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*assume_token_idx, *right_dollar_token_idx),
+        }
     }
 
     fn get_clause(&mut self, clause: VdSynClauseIdx) -> VdSynClauseTokenIdxRange {
@@ -260,11 +284,22 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_sentence(&mut self, sentence: VdSynSentenceIdx) {
-        todo!()
+        if self.sentence_range_map.has(sentence) {
+            return;
+        }
+        let range = self.calc_sentence(sentence);
+        self.sentence_range_map.insert(sentence, range);
     }
 
     fn calc_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSynSentenceTokenIdxRange {
-        todo!()
+        match self.sentence_arena[sentence] {
+            VdSynSentenceData::Clauses { clauses, end } => {
+                let clauses_range = self.get_clause(clauses.start());
+                match end {
+                    VdSynSentenceEnd::Period(token_idx) => clauses_range.to(*token_idx),
+                }
+            }
+        }
     }
 
     fn get_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSynSentenceTokenIdxRange {
@@ -273,11 +308,23 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_stmt(&mut self, stmt: VdSynStmtIdx) {
-        todo!()
+        if self.stmt_range_map.has(stmt) {
+            return;
+        }
+        let range = self.calc_stmt(stmt);
+        self.stmt_range_map.insert(stmt, range);
     }
 
     fn calc_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSynStmtTokenIdxRange {
-        todo!()
+        match self.stmt_arena[stmt] {
+            VdSynStmtData::Paragraph(sentences) => {
+                let first = self.get_sentence(sentences.start());
+                let last =
+                    self.get_sentence(sentences.last().expect("sentences are always non-empty"));
+                first.join(last)
+            }
+            VdSynStmtData::Block { environment, stmts } => todo!(),
+        }
     }
 
     fn get_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSynStmtTokenIdxRange {

@@ -1,14 +1,14 @@
 use crate::{
-    clause::VdSynClauseArena,
+    clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
-    phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx},
+    phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
     range::{
         VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
         VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
     },
     region::VdSynExprRegionData,
-    sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx},
-    stmt::VdSynStmtArena,
+    sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
+    stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
 };
 use either::*;
 use latex_ast::{
@@ -57,10 +57,6 @@ impl<'db> VdSynExprBuilder<'db> {
             stmt_arena: Default::default(),
         }
     }
-
-    pub(crate) fn alloc_expr(&mut self, data: VdSynExprData) -> VdSynExprIdx {
-        self.expr_arena.alloc_one(data)
-    }
 }
 
 /// # getters
@@ -106,7 +102,51 @@ impl<'db> VdSynExprBuilder<'db> {
     }
 }
 
+/// # actions
 impl<'db> VdSynExprBuilder<'db> {
+    pub(crate) fn alloc_expr(&mut self, data: VdSynExprData) -> VdSynExprIdx {
+        self.expr_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_exprs(&mut self, data: Vec<VdSynExprData>) -> VdSynExprIdxRange {
+        self.expr_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_phrase(&mut self, data: VdSynPhraseData) -> VdSynPhraseIdx {
+        self.phrase_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_phrases(&mut self, data: Vec<VdSynPhraseData>) -> VdSynPhraseIdxRange {
+        self.phrase_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_clause(&mut self, data: VdSynClauseData) -> VdSynClauseIdx {
+        self.clause_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_clauses(&mut self, data: Vec<VdSynClauseData>) -> VdSynClauseIdxRange {
+        self.clause_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_sentence(&mut self, data: VdSynSentenceData) -> VdSynSentenceIdx {
+        self.sentence_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_sentences(
+        &mut self,
+        data: Vec<VdSynSentenceData>,
+    ) -> VdSynSentenceIdxRange {
+        self.sentence_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_stmt(&mut self, data: VdSynStmtData) -> VdSynStmtIdx {
+        self.stmt_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_stmts(&mut self, data: Vec<VdSynStmtData>) -> VdSynStmtIdxRange {
+        self.stmt_arena.alloc_batch(data)
+    }
+
     pub fn finish_to_region_data(self) -> VdSynExprRegionData {
         VdSynExprRegionData::new(
             self.expr_arena,

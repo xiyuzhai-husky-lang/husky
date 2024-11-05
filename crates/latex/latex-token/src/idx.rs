@@ -171,4 +171,11 @@ impl LxTokenIdxRange {
             end: self.end.max(other.end),
         }
     }
+
+    pub fn to(self, end: LxTokenIdx) -> Self {
+        Self {
+            start: self.start,
+            end: end.0,
+        }
+    }
 }
