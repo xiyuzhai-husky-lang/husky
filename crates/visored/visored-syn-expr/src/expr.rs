@@ -383,16 +383,6 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
     }
 }
 
-impl ToVdSyn<Either<VdSynExprIdx, ()>> for (LxTokenIdxRange, LxAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, ()> {
-        let (token_range, asts) = self;
-        match asts {
-            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
-            LxAstIdxRange::Rose(asts) => Either::Right(todo!()),
-        }
-    }
-}
-
 impl VdSynExprData {
     pub fn show(&self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
         match *self {
