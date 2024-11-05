@@ -85,11 +85,13 @@ impl<'db> VdSynExprBuilder<'db> {
         word: Coword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> Option<VdSynStmtData> {
-        let sentences = vec![self.parse_sentence(token_idx, word, asts)];
+        let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];
         while let Some(ast_idx) = asts.next() {
             match self.ast_arena()[ast_idx] {
                 LxRoseAstData::TextEdit { .. } => todo!(),
-                LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
+                LxRoseAstData::Word(lx_rose_token_idx, coword) => {
+                    sentences.push(self.parse_sentence(lx_rose_token_idx, coword, asts));
+                }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
                 LxRoseAstData::Math {
                     left_dollar_token_idx,
