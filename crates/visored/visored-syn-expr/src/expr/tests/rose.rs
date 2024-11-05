@@ -25,5 +25,5 @@ fn t(
 
 #[test]
 fn let_sentence_vd_syn_expr_parsing_works() {
-    t("let $x = 1$", &[], &[], &expect![[r#""let x = 1""#]]);
+    t("Let $x = 1$.", &[], &[], &expect![[r#""let x = 1""#]]);
 }

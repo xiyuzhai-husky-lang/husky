@@ -13,6 +13,7 @@ use crate::{
 use either::*;
 use expr::VdSynBinaryOpr;
 use latex_token::idx::LxTokenIdxRange;
+use sentence::VdSynSentenceEnd;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
 
@@ -52,14 +53,12 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 
     pub fn fmt_sentence(&mut self, sentence_idx: VdSynSentenceIdx) {
         match self.sentence_arena[sentence_idx] {
-            VdSynSentenceData::Clauses(clauses) => {
+            VdSynSentenceData::Clauses { clauses, end } => {
                 for (index, clause_idx) in clauses.into_iter().enumerate() {
                     self.fmt_clause(clause_idx);
-                    if index < clauses.len() - 1 {
-                        self.result.push_str(", ");
-                    } else {
-                        self.result.push_str(". ");
-                    }
+                }
+                match end {
+                    VdSynSentenceEnd::Period(_) => self.result += ".",
                 }
             }
         }
@@ -67,7 +66,18 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 
     pub fn fmt_clause(&mut self, clause_idx: VdSynClauseIdx) {
         match self.clause_arena[clause_idx] {
-            VdSynClauseData::Verb => todo!(),
+            VdSynClauseData::Let {
+                let_token_idx,
+                left_dollar_token_idx,
+                math_asts,
+                right_dollar_token_idx,
+            } => todo!(),
+            VdSynClauseData::Assume {
+                assume_token_idx,
+                left_dollar_token_idx,
+                math_asts,
+                right_dollar_token_idx,
+            } => todo!(),
         }
     }
 

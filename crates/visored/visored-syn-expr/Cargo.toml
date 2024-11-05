@@ -19,8 +19,11 @@ thiserror.workspace = true
 # abstractions
 salsa.workspace = true
 idx-arena.workspace = true
+# kernel
+husky-coword.workspace = true
 # latex
 latex-math-letter.workspace = true
+latex-rose-punctuation.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
