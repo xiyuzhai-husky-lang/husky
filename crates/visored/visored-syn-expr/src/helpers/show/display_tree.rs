@@ -1,14 +1,14 @@
 use crate::{
     builder::VdSynExprBuilder,
-    clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseIdx},
+    clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
         VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
         VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap,
     },
-    sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceIdx},
-    stmt::{VdSynStmtArenaRef, VdSynStmtChild, VdSynStmtIdx, VdSynStmtIdxRange},
+    sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceData, VdSynSentenceIdx},
+    stmt::{VdSynStmtArenaRef, VdSynStmtChild, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
 };
 use husky_text_protocol::offset::TextOffsetRange;
 use husky_tree_utils::display::DisplayTree;
@@ -105,24 +105,24 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynExprData::Literal {
                 token_idx_range,
                 literal,
-            } => format!("{:?} literal", source),
-            VdSynExprData::Notation => format!("{:?} notation", source),
-            VdSynExprData::Letter { letter, .. } => format!("{:?} letter", source),
-            VdSynExprData::BaseOpr { opr } => format!("{:?} base opr", source),
-            VdSynExprData::Binary { lopd, opr, ropd } => format!("{:?} binary", source),
-            VdSynExprData::Prefix { opr, opd } => format!("{:?} prefix", source),
-            VdSynExprData::Suffix { opd, opr } => format!("{:?} suffix", source),
+            } => format!("{:?} expr.literal", source),
+            VdSynExprData::Notation => format!("{:?} expr.notation", source),
+            VdSynExprData::Letter { letter, .. } => format!("{:?} expr.letter", source),
+            VdSynExprData::BaseOpr { opr } => format!("{:?} expr.base_opr", source),
+            VdSynExprData::Binary { lopd, opr, ropd } => format!("{:?} expr.binary", source),
+            VdSynExprData::Prefix { opr, opd } => format!("{:?} expr.prefix", source),
+            VdSynExprData::Suffix { opd, opr } => format!("{:?} expr.suffix", source),
             VdSynExprData::SeparatedList {
                 separator,
                 ref fragments,
-            } => format!("{:?} separated list", source),
-            VdSynExprData::Attach { base, ref scripts } => format!("{:?} attach", source),
-            VdSynExprData::UniadicChain => format!("{:?} uniadic chain", source),
-            VdSynExprData::VariadicChain => format!("{:?} variadic chain", source),
-            VdSynExprData::UniadicArray => format!("{:?} uniadic array", source),
-            VdSynExprData::VariadicArray => format!("{:?} variadic array", source),
-            VdSynExprData::Err(ref error) => format!("{:?} error", source),
-            VdSynExprData::LxDelimited { .. } => format!("{:?} latex delimited", source),
+            } => format!("{:?} expr.separated_list", source),
+            VdSynExprData::Attach { base, ref scripts } => format!("{:?} expr.attach", source),
+            VdSynExprData::UniadicChain => format!("{:?} expr.uniadic_chain", source),
+            VdSynExprData::VariadicChain => format!("{:?} expr.variadic_chain", source),
+            VdSynExprData::UniadicArray => format!("{:?} expr.uniadic_array", source),
+            VdSynExprData::VariadicArray => format!("{:?} expr.variadic_array", source),
+            VdSynExprData::Err(ref error) => format!("{:?} expr.error", source),
+            VdSynExprData::LxDelimited { .. } => format!("{:?} expr.latex_delimited", source),
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,
@@ -159,8 +159,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         let stmt_range = self.stmt_range_map[stmt];
         let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
         let source = &self.input[offset_range];
+        let value = match self.stmt_arena[stmt] {
+            VdSynStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
+            VdSynStmtData::Block { environment, stmts } => format!("{:?} stmt.block", source),
+        };
         DisplayTree::new(
-            source.to_string(),
+            value,
             self.render_stmt_children(self.stmt_arena[stmt].children()),
         )
     }
@@ -181,8 +185,11 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(sentence_range);
         let source = &self.input[offset_range];
+        let value = match self.sentence_arena[sentence] {
+            VdSynSentenceData::Clauses { clauses, end } => format!("{:?} sentence.clauses", source),
+        };
         DisplayTree::new(
-            source.to_string(),
+            value,
             self.render_sentence_children(self.sentence_arena[sentence].children()),
         )
     }
@@ -202,8 +209,13 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(clause_range);
         let source = &self.input[offset_range];
+        let value = match self.clause_arena[clause] {
+            VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
+            VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
+            VdSynClauseData::Then { .. } => format!("{:?} clause.then", source),
+        };
         DisplayTree::new(
-            source.to_string(),
+            value,
             self.render_clause_children(self.clause_arena[clause].children()),
         )
     }
@@ -212,7 +224,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         children
             .into_iter()
             .map(|child| match child {
-                VdSynClauseChild::Expr(expr) => todo!(),
+                VdSynClauseChild::Expr(expr) => self.render_expr(expr),
             })
             .collect()
     }

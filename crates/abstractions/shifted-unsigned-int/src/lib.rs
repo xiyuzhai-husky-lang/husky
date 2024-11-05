@@ -135,6 +135,14 @@ impl Add<u32> for ShiftedU32 {
     }
 }
 
+impl Add<i32> for ShiftedU32 {
+    type Output = Self;
+
+    fn add(self, rhs: i32) -> Self::Output {
+        self.checked_add(rhs.try_into().unwrap()).unwrap()
+    }
+}
+
 impl Add<usize> for ShiftedU32 {
     type Output = Self;
 

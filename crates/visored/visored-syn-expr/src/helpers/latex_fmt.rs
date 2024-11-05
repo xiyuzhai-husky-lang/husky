@@ -69,15 +69,16 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
             VdSynClauseData::Let {
                 let_token_idx,
                 left_dollar_token_idx,
-                math_asts,
+                formula,
                 right_dollar_token_idx,
             } => todo!(),
             VdSynClauseData::Assume {
                 assume_token_idx,
                 left_dollar_token_idx,
-                math_asts,
+                formula,
                 right_dollar_token_idx,
             } => todo!(),
+            VdSynClauseData::Then { formula, .. } => todo!(),
         }
     }
 

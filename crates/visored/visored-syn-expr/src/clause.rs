@@ -18,13 +18,19 @@ pub enum VdSynClauseData {
     Let {
         let_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
-        math_asts: LxMathAstIdxRange,
+        formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
     Assume {
         assume_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
-        math_asts: LxMathAstIdxRange,
+        formula: VdSynExprIdx,
+        right_dollar_token_idx: LxRoseTokenIdx,
+    },
+    Then {
+        then_token_idx: LxRoseTokenIdx,
+        left_dollar_token_idx: LxRoseTokenIdx,
+        formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
 }
@@ -35,7 +41,11 @@ pub enum VdSynClauseChild {
 
 impl VdSynClauseData {
     pub(crate) fn children(&self) -> Vec<VdSynClauseChild> {
-        todo!()
+        match *self {
+            VdSynClauseData::Let { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
+            VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
+            VdSynClauseData::Then { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
+        }
     }
 }
 
@@ -64,7 +74,11 @@ impl<'db> VdSynExprBuilder<'db> {
                     } => VdSynClauseData::Let {
                         let_token_idx: token_idx,
                         left_dollar_token_idx,
-                        math_asts,
+                        formula: (
+                            ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
+                            math_asts,
+                        )
+                            .to_vd_syn(self),
                         right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
@@ -82,7 +96,33 @@ impl<'db> VdSynExprBuilder<'db> {
                     } => VdSynClauseData::Assume {
                         assume_token_idx: token_idx,
                         left_dollar_token_idx,
+                        formula: (
+                            ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
+                            math_asts,
+                        )
+                            .to_vd_syn(self),
+                        right_dollar_token_idx,
+                    },
+                    LxRoseAstData::TextEdit { ref buffer } => todo!(),
+                    LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
+                    LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                }
+            }
+            "Then" | "then" => {
+                let ast = asts.next().expect("expect a then clause");
+                match self.ast_arena()[ast] {
+                    LxRoseAstData::Math {
+                        left_dollar_token_idx,
                         math_asts,
+                        right_dollar_token_idx,
+                    } => VdSynClauseData::Then {
+                        then_token_idx: token_idx,
+                        left_dollar_token_idx,
+                        formula: (
+                            ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
+                            math_asts,
+                        )
+                            .to_vd_syn(self),
                         right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
