@@ -132,3 +132,13 @@ impl<'db> VdSynExprBuilder<'db> {
 pub trait ToVdSyn<T> {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> T;
 }
+
+impl ToVdSyn<Either<VdSynExprIdx, ()>> for (LxTokenIdxRange, LxAstIdxRange) {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, ()> {
+        let (token_range, asts) = self;
+        match asts {
+            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
+            LxAstIdxRange::Rose(asts) => Either::Right(todo!()),
+        }
+    }
+}
