@@ -1,9 +1,11 @@
+pub mod block;
 mod builder;
 pub mod clause;
 pub mod error;
 pub mod expr;
 pub mod helpers;
 pub mod jar;
+pub mod paragraph;
 pub mod parser;
 pub mod phrase;
 pub mod range;
