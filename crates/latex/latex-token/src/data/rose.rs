@@ -55,6 +55,10 @@ impl<'a> LxLexer<'a> {
                 )
                 .into(),
             ),
+            '$' => {
+                self.chars.eat_char();
+                Some(LxRoseTokenData::Dollar)
+            }
             c if let Some(punctuation) = LxRosePunctuation::try_from_char(c) => {
                 self.chars.eat_char();
                 Some(LxRoseTokenData::Punctuation(punctuation))

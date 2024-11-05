@@ -1,5 +1,6 @@
 use super::*;
 
 pub enum LxRoseAstChild {
-    Ast(LxRoseAstIdx),
+    RoseAst(LxRoseAstIdx),
+    MathAst(LxMathAstIdx),
 }

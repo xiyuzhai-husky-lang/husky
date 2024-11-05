@@ -137,7 +137,8 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
     fn render_rose_child(&self, child: LxRoseAstChild) -> DisplayTree {
         match child {
-            LxRoseAstChild::Ast(ast) => self.render_rose_ast(ast),
+            LxRoseAstChild::RoseAst(ast) => self.render_rose_ast(ast),
+            LxRoseAstChild::MathAst(ast) => self.render_math_ast(ast),
         }
     }
 }
