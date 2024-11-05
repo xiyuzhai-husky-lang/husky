@@ -1,11 +1,12 @@
 use crate::{
-    clause::{VdSynClauseArena, VdSynClauseIdx, VdSynClauseMap},
+    clause::{VdSynClauseArena, VdSynClauseArenaRef, VdSynClauseIdx, VdSynClauseMap},
     expr::{
-        VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynLeftDelimiter,
-        VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
+        VdSynExprArena, VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprMap,
+        VdSynLeftDelimiter, VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
     },
-    phrase::{VdSynPhraseArena, VdSynPhraseIdx, VdSynPhraseMap},
-    sentence::{VdSynSentenceArena, VdSynSentenceIdx, VdSynSentenceMap},
+    phrase::{VdSynPhraseArena, VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
+    sentence::{VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
+    stmt::{VdSynStmtArena, VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
 };
 use either::*;
 use latex_token::idx::LxTokenIdxRange;
@@ -27,11 +28,13 @@ impl VdSynExprTokenIdxRange {
 pub type VdSynPhraseTokenIdxRange = LxTokenIdxRange;
 pub type VdSynClauseTokenIdxRange = LxTokenIdxRange;
 pub type VdSynSentenceTokenIdxRange = LxTokenIdxRange;
+pub type VdSynStmtTokenIdxRange = LxTokenIdxRange;
 
 pub type VdSynExprTokenIdxRangeMap = VdSynExprMap<VdSynExprTokenIdxRange>;
 pub type VdSynPhraseTokenIdxRangeMap = VdSynPhraseMap<VdSynPhraseTokenIdxRange>;
 pub type VdSynClauseTokenIdxRangeMap = VdSynClauseMap<VdSynClauseTokenIdxRange>;
 pub type VdSynSentenceTokenIdxRangeMap = VdSynSentenceMap<VdSynSentenceTokenIdxRange>;
+pub type VdSynStmtTokenIdxRangeMap = VdSynStmtMap<VdSynStmtTokenIdxRange>;
 
 pub fn calc_expr_range_map(
     db: &::salsa::Db,
@@ -39,28 +42,38 @@ pub fn calc_expr_range_map(
     phrase_arena: &VdSynPhraseArena,
     clause_arena: &VdSynClauseArena,
     sentence_arena: &VdSynSentenceArena,
+    stmt_arena: &VdSynStmtArena,
 ) -> (
     VdSynExprTokenIdxRangeMap,
     VdSynPhraseTokenIdxRangeMap,
     VdSynClauseTokenIdxRangeMap,
     VdSynSentenceTokenIdxRangeMap,
+    VdSynStmtTokenIdxRangeMap,
 ) {
-    let mut calculator =
-        VdSynExprRangeCalculator::new(db, expr_arena, phrase_arena, clause_arena, sentence_arena);
+    let mut calculator = VdSynExprRangeCalculator::new(
+        db,
+        expr_arena,
+        phrase_arena,
+        clause_arena,
+        sentence_arena,
+        stmt_arena,
+    );
     calculator.infer_all_ranges();
     calculator.finish()
 }
 
 struct VdSynExprRangeCalculator<'db> {
     db: &'db ::salsa::Db,
-    expr_arena: &'db VdSynExprArena,
-    phrase_arena: &'db VdSynPhraseArena,
-    clause_arena: &'db VdSynClauseArena,
-    sentence_arena: &'db VdSynSentenceArena,
+    expr_arena: VdSynExprArenaRef<'db>,
+    phrase_arena: VdSynPhraseArenaRef<'db>,
+    clause_arena: VdSynClauseArenaRef<'db>,
+    sentence_arena: VdSynSentenceArenaRef<'db>,
+    stmt_arena: VdSynStmtArenaRef<'db>,
     expr_range_map: VdSynExprTokenIdxRangeMap,
     phrase_range_map: VdSynPhraseTokenIdxRangeMap,
     clause_range_map: VdSynClauseTokenIdxRangeMap,
     sentence_range_map: VdSynSentenceTokenIdxRangeMap,
+    stmt_range_map: VdSynStmtTokenIdxRangeMap,
 }
 
 impl<'db> VdSynExprRangeCalculator<'db> {
@@ -70,34 +83,40 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         phrase_arena: &'db VdSynPhraseArena,
         clause_arena: &'db VdSynClauseArena,
         sentence_arena: &'db VdSynSentenceArena,
+        stmt_arena: &'db VdSynStmtArena,
     ) -> Self {
         Self {
             db,
-            expr_arena,
-            phrase_arena,
-            clause_arena,
-            sentence_arena,
+            expr_arena: expr_arena.as_arena_ref(),
+            phrase_arena: phrase_arena.as_arena_ref(),
+            clause_arena: clause_arena.as_arena_ref(),
+            sentence_arena: sentence_arena.as_arena_ref(),
+            stmt_arena: stmt_arena.as_arena_ref(),
             expr_range_map: VdSynExprTokenIdxRangeMap::new(expr_arena),
             phrase_range_map: VdSynPhraseTokenIdxRangeMap::new(phrase_arena),
             clause_range_map: VdSynClauseTokenIdxRangeMap::new(clause_arena),
             sentence_range_map: VdSynSentenceTokenIdxRangeMap::new(sentence_arena),
+            stmt_range_map: VdSynStmtTokenIdxRangeMap::new(stmt_arena),
         }
     }
 }
 
 impl<'db> VdSynExprRangeCalculator<'db> {
     fn infer_all_ranges(&mut self) {
-        for expr in self.expr_arena.indices() {
+        for expr in self.expr_arena.index_iter() {
             self.infer_expr(expr);
         }
-        for phrase in self.phrase_arena.indices() {
+        for phrase in self.phrase_arena.index_iter() {
             self.infer_phrase(phrase);
         }
-        for clause in self.clause_arena.indices() {
+        for clause in self.clause_arena.index_iter() {
             self.infer_clause(clause);
         }
-        for sentence in self.sentence_arena.indices() {
+        for sentence in self.sentence_arena.index_iter() {
             self.infer_sentence(sentence);
+        }
+        for stmt in self.stmt_arena.index_iter() {
+            self.infer_stmt(stmt);
         }
     }
 
@@ -110,7 +129,8 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn calc_expr(&mut self, expr: VdSynExprIdx) -> VdSynExprTokenIdxRange {
-        match self.expr_arena[expr] {
+        let expr_arena = self.expr_arena;
+        match expr_arena[expr] {
             VdSynExprData::Literal {
                 token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
@@ -252,6 +272,19 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         self.sentence_range_map[sentence]
     }
 
+    fn infer_stmt(&mut self, stmt: VdSynStmtIdx) {
+        todo!()
+    }
+
+    fn calc_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSynStmtTokenIdxRange {
+        todo!()
+    }
+
+    fn get_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSynStmtTokenIdxRange {
+        self.infer_stmt(stmt);
+        self.stmt_range_map[stmt]
+    }
+
     fn finish(
         self,
     ) -> (
@@ -259,12 +292,14 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         VdSynPhraseTokenIdxRangeMap,
         VdSynClauseTokenIdxRangeMap,
         VdSynSentenceTokenIdxRangeMap,
+        VdSynStmtTokenIdxRangeMap,
     ) {
         (
             self.expr_range_map,
             self.phrase_range_map,
             self.clause_range_map,
             self.sentence_range_map,
+            self.stmt_range_map,
         )
     }
 }
