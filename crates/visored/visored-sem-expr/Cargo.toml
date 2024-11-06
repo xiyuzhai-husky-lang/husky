@@ -16,6 +16,8 @@ thiserror.workspace = true
 # abstractions
 salsa.workspace = true
 idx-arena.workspace = true
+# kernel
+husky-coword.workspace = true
 # latex
 latex-prelude.workspace = true
 # visored
