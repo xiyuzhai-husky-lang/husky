@@ -52,11 +52,7 @@ impl<const N: usize> ToVdHir for [VdSemExprIdx; N] {
 impl<'db> VdHirExprBuilder<'db> {
     fn build_expr_from_sem_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdHirExprData {
         match self.vd_sem_expr_arena()[sem_expr_idx] {
-            VdSemExprData::Literal {
-                literal,
-                ref dispatch,
-                ..
-            } => VdHirExprData::Literal(literal),
+            VdSemExprData::Literal { literal, .. } => VdHirExprData::Literal(literal),
             VdSemExprData::Binary {
                 lopd,
                 opr,
@@ -89,10 +85,7 @@ impl<'db> VdHirExprBuilder<'db> {
                 letter,
             } => todo!(),
             VdSemExprData::BaseOpr { opr } => todo!(),
-            VdSemExprData::SeparatedList {
-                token_idx_range,
-                ref fragments,
-            } => todo!(),
+            VdSemExprData::SeparatedList { ref fragments } => todo!(),
             VdSemExprData::LxDelimited {
                 left_delimiter_token_idx,
                 right_delimiter_token_idx,

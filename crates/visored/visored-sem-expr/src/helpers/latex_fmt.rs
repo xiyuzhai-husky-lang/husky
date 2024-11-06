@@ -1,4 +1,4 @@
-use expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch};
+use expr::binary::VdSemBinaryDispatch;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
 
@@ -89,11 +89,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         let db = self.db;
         match self.expr_arena[expr_idx] {
-            VdSemExprData::Literal {
-                literal,
-                ref dispatch,
-                ..
-            } => match literal.data(db) {
+            VdSemExprData::Literal { literal, .. } => match literal.data(db) {
                 VdZfcLiteralData::NaturalNumber(s) => {
                     if self
                         .result

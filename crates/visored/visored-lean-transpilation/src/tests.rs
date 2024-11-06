@@ -1,7 +1,7 @@
 use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::{
-    expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch, VdSemExprData},
+    expr::{binary::VdSemBinaryDispatch, VdSemExprData},
     test_helpers::builder::VdSemExprTestBuilder,
 };
 use visored_zfc_ty::menu::vd_zfc_ty_menu;
