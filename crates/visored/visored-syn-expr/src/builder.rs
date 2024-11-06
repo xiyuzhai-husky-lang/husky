@@ -1,5 +1,6 @@
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
+    division::VdSynDivisionArena,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
     range::{
@@ -31,6 +32,7 @@ pub(crate) struct VdSynExprBuilder<'db> {
     clause_arena: VdSynClauseArena,
     sentence_arena: VdSynSentenceArena,
     stmt_arena: VdSynStmtArena,
+    division_arena: VdSynDivisionArena,
 }
 
 /// # constructor
@@ -55,6 +57,7 @@ impl<'db> VdSynExprBuilder<'db> {
             clause_arena: Default::default(),
             sentence_arena: Default::default(),
             stmt_arena: Default::default(),
+            division_arena: Default::default(),
         }
     }
 }
@@ -164,6 +167,7 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynClauseArena,
         VdSynSentenceArena,
         VdSynStmtArena,
+        VdSynDivisionArena,
     ) {
         (
             self.expr_arena,
@@ -171,6 +175,7 @@ impl<'db> VdSynExprBuilder<'db> {
             self.clause_arena,
             self.sentence_arena,
             self.stmt_arena,
+            self.division_arena,
         )
     }
 }

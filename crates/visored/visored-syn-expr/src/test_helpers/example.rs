@@ -86,7 +86,8 @@ impl VdSynExprExample {
             &default_resolution_table,
         );
         let result = (whole_token_range, asts).to_vd_syn(&mut builder);
-        let (expr_arena, phrase_arena, clause_arena, sentence_arena, stmt_arena) = builder.finish();
+        let (expr_arena, phrase_arena, clause_arena, sentence_arena, stmt_arena, division_arena) =
+            builder.finish();
         let (
             expr_range_map,
             phrase_range_map,
@@ -100,6 +101,7 @@ impl VdSynExprExample {
             &clause_arena,
             &sentence_arena,
             &stmt_arena,
+            &division_arena,
         );
         Self {
             input: input.to_string(),
