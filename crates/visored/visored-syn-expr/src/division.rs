@@ -9,7 +9,7 @@ pub struct VdSynDivisionData {
 }
 
 pub type VdSynDivisionArena = Arena<VdSynDivisionData>;
-pub type VdSynDivisionRef<'a> = ArenaRef<'a, VdSynDivisionData>;
+pub type VdSynDivisionArenaRef<'a> = ArenaRef<'a, VdSynDivisionData>;
 pub type VdSynDivisionMap<T> = ArenaMap<VdSynDivisionData, T>;
 pub type VdSynDivisionIdx = ArenaIdx<VdSynDivisionData>;
 pub type VdSynDivisionIdxRange = ArenaIdxRange<VdSynDivisionData>;

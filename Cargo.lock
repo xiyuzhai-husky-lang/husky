@@ -12616,15 +12616,20 @@ dependencies = [
 name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
+ "either",
  "husky-coword",
+ "husky-tree-utils",
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-math-letter",
  "latex-prelude",
+ "latex-token",
  "salsa",
  "thiserror",
  "visored-annotation",
  "visored-opr",
+ "visored-resolution",
  "visored-sem-expr",
  "visored-syn-expr",
  "visored-zfc-ty",

@@ -9,7 +9,7 @@ pub struct VdSemDivisionData {
 }
 
 pub type VdSemDivisionArena = Arena<VdSemDivisionData>;
-pub type VdSemDivisionRef<'a> = ArenaRef<'a, VdSemDivisionData>;
+pub type VdSemDivisionArenaRef<'a> = ArenaRef<'a, VdSemDivisionData>;
 pub type VdSemDivisionMap<T> = ArenaMap<VdSemDivisionData, T>;
 pub type VdSemDivisionIdx = ArenaIdx<VdSemDivisionData>;
 pub type VdSemDivisionIdxRange = ArenaIdxRange<VdSemDivisionData>;

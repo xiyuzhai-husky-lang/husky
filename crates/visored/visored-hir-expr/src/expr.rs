@@ -55,8 +55,8 @@ impl<'db> VdHirExprBuilder<'db> {
             VdSemExprData::Literal {
                 literal,
                 ref dispatch,
+                ..
             } => VdHirExprData::Literal(literal),
-            VdSemExprData::Notation => todo!(),
             VdSemExprData::Binary {
                 lopd,
                 opr,
@@ -84,6 +84,31 @@ impl<'db> VdHirExprBuilder<'db> {
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),
             VdSemExprData::VariadicArray => todo!(),
+            VdSemExprData::Letter {
+                token_idx_range,
+                letter,
+            } => todo!(),
+            VdSemExprData::BaseOpr { opr } => todo!(),
+            VdSemExprData::SeparatedList {
+                token_idx_range,
+                ref fragments,
+            } => todo!(),
+            VdSemExprData::LxDelimited {
+                left_delimiter_token_idx,
+                right_delimiter_token_idx,
+            } => todo!(),
+            VdSemExprData::Delimited {
+                left_delimiter,
+                right_delimiter,
+            } => todo!(),
+            VdSemExprData::Fraction {
+                command_token_idx,
+                denominator_rcurl_token_idx,
+            } => todo!(),
+            VdSemExprData::Sqrt {
+                command_token_idx,
+                radicand_rcurl_token_idx,
+            } => todo!(),
         }
     }
 }
