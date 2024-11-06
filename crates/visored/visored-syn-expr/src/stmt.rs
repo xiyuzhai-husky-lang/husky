@@ -1,5 +1,3 @@
-use std::iter::Peekable;
-
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     sentence::{VdSynSentenceIdx, VdSynSentenceIdxRange},
@@ -10,6 +8,7 @@ use idx_arena::{
 };
 use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
 use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
+use std::iter::Peekable;
 
 pub enum VdSynStmtData {
     Paragraph(VdSynSentenceIdxRange),
@@ -17,25 +16,6 @@ pub enum VdSynStmtData {
         environment: (),
         stmts: VdSynStmtIdxRange,
     },
-}
-
-pub enum VdSynStmtChild {
-    Sentence(VdSynSentenceIdx),
-    Stmt(VdSynStmtIdx),
-}
-
-impl VdSynStmtData {
-    pub(crate) fn children(&self) -> Vec<VdSynStmtChild> {
-        match self {
-            VdSynStmtData::Paragraph(sentences) => sentences
-                .into_iter()
-                .map(VdSynStmtChild::Sentence)
-                .collect(),
-            VdSynStmtData::Block { stmts, .. } => {
-                stmts.into_iter().map(VdSynStmtChild::Stmt).collect()
-            }
-        }
-    }
 }
 
 pub type VdSynStmtArena = Arena<VdSynStmtData>;
@@ -101,5 +81,24 @@ impl<'db> VdSynExprBuilder<'db> {
             }
         }
         Some(VdSynStmtData::Paragraph(self.alloc_sentences(sentences)))
+    }
+}
+
+pub enum VdSynStmtChild {
+    Sentence(VdSynSentenceIdx),
+    Stmt(VdSynStmtIdx),
+}
+
+impl VdSynStmtData {
+    pub(crate) fn children(&self) -> Vec<VdSynStmtChild> {
+        match self {
+            VdSynStmtData::Paragraph(sentences) => sentences
+                .into_iter()
+                .map(VdSynStmtChild::Sentence)
+                .collect(),
+            VdSynStmtData::Block { stmts, .. } => {
+                stmts.into_iter().map(VdSynStmtChild::Stmt).collect()
+            }
+        }
     }
 }
