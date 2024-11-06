@@ -1,6 +1,7 @@
 pub mod block;
 mod builder;
 pub mod clause;
+pub mod division;
 pub mod error;
 pub mod expr;
 pub mod helpers;
