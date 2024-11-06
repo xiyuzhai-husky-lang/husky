@@ -22,5 +22,16 @@ use self::jar::VdSynExprJar as Jar;
 #[cfg(test)]
 use self::tests::*;
 use crate::builder::ToVdSyn;
+use builder::VdSynExprBuilder;
+use clause::VdSynClauseArena;
+use division::VdSynDivisionArena;
 use either::*;
+use expr::{VdSynExprArena, VdSynExprIdx};
+use latex_ast::{ast::LxAstArenaRef, range::LxAstTokenIdxRangeMap};
+use latex_token::storage::LxTokenStorage;
+use phrase::VdSynPhraseArena;
+use sentence::VdSynSentenceArena;
 use smallvec::SmallVec;
+use stmt::VdSynStmtArena;
+use visored_annotation::annotations::VdAnnotations;
+use visored_resolution::table::VdDefaultResolutionTable;

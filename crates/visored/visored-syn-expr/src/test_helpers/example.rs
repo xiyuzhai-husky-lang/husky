@@ -10,6 +10,7 @@ use crate::{
     },
     sentence::VdSynSentenceArena,
 };
+use division::VdSynDivisionArena;
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use latex_ast::{
@@ -19,7 +20,7 @@ use latex_ast::{
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
-use range::{calc_expr_range_map, VdSynStmtTokenIdxRangeMap};
+use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use stmt::{VdSynStmtArena, VdSynStmtIdxRange};
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
@@ -42,11 +43,13 @@ pub struct VdSynExprExample {
     pub clause_arena: VdSynClauseArena,
     pub sentence_arena: VdSynSentenceArena,
     pub stmt_arena: VdSynStmtArena,
+    pub division_arena: VdSynDivisionArena,
     pub expr_range_map: VdSynExprTokenIdxRangeMap,
     pub phrase_range_map: VdSynPhraseTokenIdxRangeMap,
     pub clause_range_map: VdSynClauseTokenIdxRangeMap,
     pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
     pub stmt_range_map: VdSynStmtTokenIdxRangeMap,
+    pub division_range_map: VdSynDivisionTokenIdxRangeMap,
 }
 
 impl VdSynExprExample {
@@ -80,7 +83,7 @@ impl VdSynExprExample {
         let mut builder = VdSynExprBuilder::new(
             db,
             &token_storage,
-            &ast_arena,
+            ast_arena.as_arena_ref(),
             &ast_token_idx_range_map,
             &annotations,
             &default_resolution_table,
@@ -94,6 +97,7 @@ impl VdSynExprExample {
             clause_range_map,
             sentence_range_map,
             stmt_range_map,
+            division_range_map,
         ) = calc_expr_range_map(
             db,
             &expr_arena,
@@ -118,11 +122,13 @@ impl VdSynExprExample {
             clause_arena,
             sentence_arena,
             stmt_arena,
+            division_arena,
             expr_range_map,
             phrase_range_map,
             clause_range_map,
             sentence_range_map,
             stmt_range_map,
+            division_range_map,
         }
     }
 
@@ -138,11 +144,13 @@ impl VdSynExprExample {
             self.clause_arena.as_arena_ref(),
             self.sentence_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
+            self.division_arena.as_arena_ref(),
             &self.expr_range_map,
             &self.phrase_range_map,
             &self.clause_range_map,
             &self.sentence_range_map,
             &self.stmt_range_map,
+            &self.division_range_map,
         );
         match self.result {
             Left(expr) => builder.render_expr(expr).show(&Default::default()),

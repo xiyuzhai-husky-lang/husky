@@ -57,6 +57,7 @@ pub fn calc_expr_range_map(
     VdSynClauseTokenIdxRangeMap,
     VdSynSentenceTokenIdxRangeMap,
     VdSynStmtTokenIdxRangeMap,
+    VdSynDivisionTokenIdxRangeMap,
 ) {
     let mut calculator = VdSynExprRangeCalculator::new(
         db,
@@ -352,6 +353,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         VdSynClauseTokenIdxRangeMap,
         VdSynSentenceTokenIdxRangeMap,
         VdSynStmtTokenIdxRangeMap,
+        VdSynDivisionTokenIdxRangeMap,
     ) {
         (
             self.expr_range_map,
@@ -359,6 +361,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             self.clause_range_map,
             self.sentence_range_map,
             self.stmt_range_map,
+            self.division_range_map,
         )
     }
 }

@@ -12,17 +12,26 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+either.workspace = true
 thiserror.workspace = true
 # abstractions
 salsa.workspace = true
 idx-arena.workspace = true
+# latex
+latex-ast.workspace = true
 # kernel
 husky-coword.workspace = true
 # latex
+latex-command.workspace = true
 latex-prelude.workspace = true
+latex-token.workspace = true
+latex-math-letter.workspace = true
+# utils
+husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
 visored-opr.workspace = true
+visored-resolution.workspace = true
 visored-zfc-ty.workspace = true
 visored-syn-expr.workspace = true
 
@@ -30,7 +39,6 @@ visored-syn-expr.workspace = true
 # kernel
 husky-coword.workspace = true
 # latex
-latex-ast.workspace = true
 latex-command.workspace = true
 # visored
 visored-sem-expr = { workspace = true, features = ["test_helpers"] }

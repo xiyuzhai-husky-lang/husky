@@ -18,31 +18,3 @@ use crate::{builder::VdHirExprBuilder, ToVdHir};
     crate::jar::VdHirExprJar
 )]
 pub(crate) struct DB {}
-
-#[test]
-#[ignore]
-fn to_hir_works() {
-    let db = &DB::default();
-    let menu = vd_zfc_ty_menu(db);
-    let mut builder = VdSemExprTestBuilder::new(db);
-    let one = builder.new_expr_checked(
-        VdSemExprData::Literal {
-            literal: menu.one_literal(),
-            dispatch: VdSemLiteralDispatch::Int,
-        },
-        "1",
-    );
-    let one_add_one = builder.new_expr_checked(
-        VdSemExprData::Binary {
-            lopd: one,
-            opr: todo!(),
-            // VdBaseBinaryOpr::Add,
-            ropd: one,
-            dispatch: VdSemBinaryDispatch::IntAdd,
-        },
-        "1+1",
-    );
-    let vd_sem_expr_region_data = &builder.finish();
-    let mut builder = VdHirExprBuilder::new(db, vd_sem_expr_region_data);
-    let _ = one_add_one.to_hir(&mut builder);
-}
