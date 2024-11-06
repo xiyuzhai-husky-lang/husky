@@ -28,14 +28,15 @@ pub trait ToVdSem<T> {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> T;
 }
 
-impl<'db> ToVdSem<Either<VdSemExprIdx, VdSemStmtIdxRange>>
-    for Either<VdSynExprIdx, VdSynStmtIdxRange>
+impl<L, R, T, S> ToVdSem<Either<T, S>> for Either<L, R>
+where
+    L: ToVdSem<T>,
+    R: ToVdSem<S>,
 {
-    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> Either<VdSemExprIdx, VdSemStmtIdxRange> {
-        todo!()
-        // match self {
-        //     Left(syn_expr_idx) => Left(builder.expr_arena.insert(syn_expr_idx.into())),
-        //     Right(syn_stmt_idx_range) => Right(syn_stmt_idx_range),
-        // }
+    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> Either<T, S> {
+        match self {
+            Left(left) => Left(left.to_vd_sem(builder)),
+            Right(right) => Right(right.to_vd_sem(builder)),
+        }
     }
 }
