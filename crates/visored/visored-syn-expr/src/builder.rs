@@ -20,7 +20,7 @@ use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
 use visored_resolution::table::VdDefaultResolutionTable;
 
-pub(crate) struct VdSynExprBuilder<'db> {
+pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
     token_storage: &'db LxTokenStorage,
     ast_arena: LxAstArenaRef<'db>,
@@ -40,7 +40,7 @@ impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
         db: &'db ::salsa::Db,
         token_storage: &'db LxTokenStorage,
-        ast_arena: &'db LxAstArena,
+        ast_arena: LxAstArenaRef<'db>,
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
         annotations: &'db VdAnnotations,
         default_resolution_table: &'db VdDefaultResolutionTable,
@@ -48,7 +48,7 @@ impl<'db> VdSynExprBuilder<'db> {
         Self {
             db,
             token_storage,
-            ast_arena: ast_arena.as_arena_ref(),
+            ast_arena,
             ast_token_idx_range_map,
             annotations,
             default_resolution_table,

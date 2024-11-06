@@ -1,11 +1,13 @@
 use crate::{
     builder::VdSynExprBuilder,
     clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
+    division::VdSynDivisionArenaRef,
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
-        VdSynClauseTokenIdxRangeMap, VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap,
-        VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap,
+        VdSynClauseTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap, VdSynExprTokenIdxRange,
+        VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
+        VdSynStmtTokenIdxRangeMap,
     },
     sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceData, VdSynSentenceIdx},
     stmt::{VdSynStmtArenaRef, VdSynStmtChild, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
@@ -29,15 +31,17 @@ pub struct VdSynExprDisplayTreeBuilder<'a> {
     ast_arena: LxAstArenaRef<'a>,
     ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
     expr_arena: VdSynExprArenaRef<'a>,
-    expr_range_map: &'a VdSynExprTokenIdxRangeMap,
     phrase_arena: VdSynPhraseArenaRef<'a>,
-    phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
     clause_arena: VdSynClauseArenaRef<'a>,
-    clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
     sentence_arena: VdSynSentenceArenaRef<'a>,
-    sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
     stmt_arena: VdSynStmtArenaRef<'a>,
+    division_arena: VdSynDivisionArenaRef<'a>,
+    expr_range_map: &'a VdSynExprTokenIdxRangeMap,
+    phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
+    clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
+    sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+    division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
 }
 
 /// # construction
@@ -53,11 +57,13 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         clause_arena: VdSynClauseArenaRef<'a>,
         sentence_arena: VdSynSentenceArenaRef<'a>,
         stmt_arena: VdSynStmtArenaRef<'a>,
+        division_arena: VdSynDivisionArenaRef<'a>,
         expr_range_map: &'a VdSynExprTokenIdxRangeMap,
         phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
         clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
         stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+        division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
     ) -> Self {
         Self {
             db,
@@ -66,15 +72,17 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             ast_arena,
             ast_token_idx_range_map,
             expr_arena,
-            expr_range_map,
             phrase_arena,
-            phrase_range_map,
             clause_arena,
-            clause_range_map,
             sentence_arena,
-            sentence_range_map,
             stmt_arena,
+            division_arena,
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
             stmt_range_map,
+            division_range_map,
         }
     }
 }

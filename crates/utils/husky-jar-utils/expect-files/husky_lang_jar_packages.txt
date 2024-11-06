@@ -1309,11 +1309,13 @@
     JarPackageSummary {
         name: "visored-sem-expr",
         dependencies: [
+            "husky-coword",
+            "latex-ast",
+            "latex-command",
             "visored-opr",
             "visored-syn-expr",
             "visored-zfc-ty",
             "husky-coword",
-            "latex-ast",
             "latex-command",
         ],
     },
