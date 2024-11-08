@@ -8283,6 +8283,7 @@ version = "0.1.0"
 name = "lean-hir-expr"
 version = "0.1.0"
 dependencies = [
+ "husky-tree-utils",
  "idx-arena",
  "lean-coword",
  "lean-opr",
@@ -12576,6 +12577,7 @@ dependencies = [
  "either",
  "expect-test",
  "husky-coword",
+ "husky-tree-utils",
  "latex-ast",
  "latex-command",
  "latex-prelude",
