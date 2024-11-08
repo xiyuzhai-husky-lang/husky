@@ -241,8 +241,11 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSynExprData::Letter {
                 token_idx_range,
                 letter,
-            } => todo!(),
-            VdSynExprData::BaseOpr { opr } => todo!(),
+            } => VdSemExprData::Letter {
+                token_idx_range,
+                letter,
+            },
+            VdSynExprData::BaseOpr { opr } => VdSemExprData::BaseOpr { opr },
             VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
             VdSynExprData::Prefix { opr, opd } => todo!(),
             VdSynExprData::Suffix { opd, opr } => todo!(),
