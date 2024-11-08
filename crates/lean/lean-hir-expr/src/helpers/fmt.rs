@@ -1,6 +1,7 @@
 use crate::{
     expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx},
     stmt::LnHirStmtArenaRef,
+    tactic::LnHirTacticArenaRef,
 };
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
@@ -9,22 +10,35 @@ pub struct LnHirExprFormatter<'a> {
     db: &'a ::salsa::Db,
     expr_arena: LnHirExprArenaRef<'a>,
     stmt_arena: LnHirStmtArenaRef<'a>,
-    line_max_len: usize,
+    tactic_arena: LnHirTacticArenaRef<'a>,
+    config: &'a LnHirExprFormatterConfig,
     result: String,
+}
+
+pub struct LnHirExprFormatterConfig {
+    line_max_len: usize,
+}
+
+impl Default for LnHirExprFormatterConfig {
+    fn default() -> Self {
+        Self { line_max_len: 80 }
+    }
 }
 
 impl<'a> LnHirExprFormatter<'a> {
     pub fn new(
         expr_arena: LnHirExprArenaRef<'a>,
         stmt_arena: LnHirStmtArenaRef<'a>,
-        line_max_len: usize,
+        tactic_arena: LnHirTacticArenaRef<'a>,
+        config: &'a LnHirExprFormatterConfig,
         db: &'a ::salsa::Db,
     ) -> Self {
         Self {
             db,
             expr_arena,
             stmt_arena,
-            line_max_len,
+            tactic_arena,
+            config,
             result: Default::default(),
         }
     }
@@ -137,7 +151,7 @@ impl<'a> LnHirExprFormatter<'a> {
         // Check all lines from the previous line end
         self.result[prev_line_end_offset..]
             .lines()
-            .all(|line| line.len() <= self.line_max_len)
+            .all(|line| line.len() <= self.config.line_max_len)
     }
 
     pub fn finish(self) -> String {
