@@ -4263,6 +4263,7 @@
             "visored-resolution",
             "visored-syn-expr",
             "visored-zfc-ty",
+            "expect-test",
             "husky-coword",
             "latex-command",
         ],

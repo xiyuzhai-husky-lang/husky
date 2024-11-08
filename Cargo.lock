@@ -12617,6 +12617,7 @@ name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
  "either",
+ "expect-test",
  "husky-coword",
  "husky-tree-utils",
  "idx-arena",

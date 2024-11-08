@@ -56,7 +56,6 @@ pub enum VdSynExprData {
         token_idx_range: LxTokenIdxRange,
         literal: VdZfcLiteral,
     },
-    Notation,
     Letter {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
@@ -255,7 +254,6 @@ impl VdSynExprData {
     pub fn children(&self) -> Vec<VdSynExprIdx> {
         match *self {
             VdSynExprData::Literal { .. }
-            | VdSynExprData::Notation
             | VdSynExprData::Letter { .. }
             | VdSynExprData::BaseOpr { .. } => vec![],
             VdSynExprData::Binary { lopd, opr, ropd } => match opr {
@@ -320,7 +318,6 @@ impl VdSynExprData {
     pub fn class(&self) -> VdSynExprClass {
         match *self {
             VdSynExprData::Literal { .. }
-            | VdSynExprData::Notation
             | VdSynExprData::Letter { .. }
             | VdSynExprData::LxDelimited { .. }
             | VdSynExprData::Delimited { .. }
@@ -395,7 +392,6 @@ impl VdSynExprData {
                 VdZfcLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
-            VdSynExprData::Notation => todo!(),
             VdSynExprData::Letter { letter, .. } => letter.latex_code().to_string(),
             VdSynExprData::BaseOpr { opr } => opr.latex_code().to_string(),
             VdSynExprData::Binary { lopd, opr, ropd } => {

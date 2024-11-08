@@ -114,7 +114,6 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 token_idx_range,
                 literal,
             } => format!("{:?} expr.literal", source),
-            VdSynExprData::Notation => format!("{:?} expr.notation", source),
             VdSynExprData::Letter { letter, .. } => format!("{:?} expr.letter", source),
             VdSynExprData::BaseOpr { opr } => format!("{:?} expr.base_opr", source),
             VdSynExprData::Binary { lopd, opr, ropd } => format!("{:?} expr.binary", source),
