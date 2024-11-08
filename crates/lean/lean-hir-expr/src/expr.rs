@@ -54,6 +54,23 @@ impl LnHirExprData {
             LnHirExprData::Literal(_) => LnPrecedence::Atom,
         }
     }
+
+    pub(crate) fn children(&self) -> Vec<LnHirExprIdx> {
+        match *self {
+            LnHirExprData::Literal(_) => vec![],
+            LnHirExprData::Variable { ident } => todo!(),
+            LnHirExprData::Prefix { opr, opd } => todo!(),
+            LnHirExprData::Suffix { opd, opr } => todo!(),
+            LnHirExprData::Binary { lopd, opr, ropd } => vec![lopd, ropd],
+            LnHirExprData::Lambda {
+                ref parameters,
+                body,
+            } => todo!(),
+            LnHirExprData::Application {
+                function_and_arguments,
+            } => todo!(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
