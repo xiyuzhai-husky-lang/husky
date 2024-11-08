@@ -1,4 +1,6 @@
 pub mod application;
+#[cfg(test)]
+pub mod tests;
 
 use crate::*;
 use application::VdHirApplicationFunction;
@@ -28,19 +30,15 @@ pub struct VdHirLiteral {}
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdHirVariable {}
 
-impl ToVdHir for VdSemExprIdx {
-    type Output = VdHirExprIdx;
-
-    fn to_hir(self, builder: &mut VdHirExprBuilder) -> Self::Output {
+impl ToVdHir<VdHirExprIdx> for VdSemExprIdx {
+    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdx {
         let data = builder.build_expr_from_sem_expr(self);
         builder.alloc_expr(data)
     }
 }
 
-impl<const N: usize> ToVdHir for [VdSemExprIdx; N] {
-    type Output = VdHirExprIdxRange;
-
-    fn to_hir(self, builder: &mut VdHirExprBuilder) -> Self::Output {
+impl<const N: usize> ToVdHir<VdHirExprIdxRange> for [VdSemExprIdx; N] {
+    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdxRange {
         let data = self
             .into_iter()
             .map(|expr| builder.build_expr_from_sem_expr(expr))
@@ -51,7 +49,7 @@ impl<const N: usize> ToVdHir for [VdSemExprIdx; N] {
 
 impl<'db> VdHirExprBuilder<'db> {
     fn build_expr_from_sem_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdHirExprData {
-        match self.vd_sem_expr_arena()[sem_expr_idx] {
+        match self.sem_expr_arena()[sem_expr_idx] {
             VdSemExprData::Literal { literal, .. } => VdHirExprData::Literal(literal),
             VdSemExprData::Binary {
                 lopd,
@@ -63,7 +61,7 @@ impl<'db> VdHirExprBuilder<'db> {
                     VdSemBinaryDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
                     VdSemBinaryDispatch::TrivialEq => VdHirApplicationFunction::TrivialEq,
                 },
-                arguments: [lopd, ropd].to_hir(self),
+                arguments: [lopd, ropd].to_vd_hir(self),
             },
             VdSemExprData::Prefix {
                 opr,

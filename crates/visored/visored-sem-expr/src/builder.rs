@@ -178,6 +178,8 @@ impl<'db> VdSemExprBuilder<'db> {
             self.phrase_arena,
             self.clause_arena,
             self.sentence_arena,
+            self.stmt_arena,
+            self.division_arena,
         )
     }
 
