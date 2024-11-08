@@ -85,21 +85,33 @@ impl<'db> VdHirExprBuilder<'db> {
                 letter,
             } => todo!(),
             VdSemExprData::BaseOpr { opr } => todo!(),
-            VdSemExprData::SeparatedList { ref fragments } => todo!(),
+            VdSemExprData::SeparatedList {
+                separator,
+                ref fragments,
+            } => todo!(),
             VdSemExprData::LxDelimited {
                 left_delimiter_token_idx,
+                item,
                 right_delimiter_token_idx,
             } => todo!(),
             VdSemExprData::Delimited {
                 left_delimiter,
+                item,
                 right_delimiter,
             } => todo!(),
             VdSemExprData::Fraction {
                 command_token_idx,
+                numerator_lcurl_token_idx,
+                numerator,
+                numerator_rcurl_token_idx,
+                denominator_lcurl_token_idx,
+                denominator,
                 denominator_rcurl_token_idx,
             } => todo!(),
             VdSemExprData::Sqrt {
                 command_token_idx,
+                radicand_lcurl_token_idx,
+                radicand,
                 radicand_rcurl_token_idx,
             } => todo!(),
         }

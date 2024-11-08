@@ -142,10 +142,12 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
             VdSemExprData::Fraction {
                 command_token_idx,
                 denominator_rcurl_token_idx,
+                ..
             } => todo!(),
             VdSemExprData::Sqrt {
                 command_token_idx,
                 radicand_rcurl_token_idx,
+                ..
             } => todo!(),
         }
     }

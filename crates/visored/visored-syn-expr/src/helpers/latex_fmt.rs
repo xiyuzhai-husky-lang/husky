@@ -118,7 +118,6 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 }
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
-            VdSynExprData::Notation => todo!(),
             VdSynExprData::Letter { letter, .. } => {
                 self.result += letter.latex_code();
             }
