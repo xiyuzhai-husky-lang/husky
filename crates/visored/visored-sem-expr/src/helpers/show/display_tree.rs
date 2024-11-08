@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    clause::VdSemClauseArenaRef,
+    clause::{VdSemClauseArenaRef, VdSemClauseChild, VdSemClauseData, VdSemClauseIdx},
     division::VdSemDivisionArenaRef,
     expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
     phrase::VdSemPhraseArenaRef,
@@ -9,8 +9,8 @@ use crate::{
         VdSemExprTokenIdxRangeMap, VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap,
         VdSemStmtTokenIdxRangeMap,
     },
-    sentence::VdSemSentenceArenaRef,
-    stmt::{VdSemStmtArenaRef, VdSemStmtIdxRange},
+    sentence::{VdSemSentenceArenaRef, VdSemSentenceChild, VdSemSentenceData, VdSemSentenceIdx},
+    stmt::{VdSemStmtArenaRef, VdSemStmtChild, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
 use husky_tree_utils::display::DisplayTree;
 use latex_ast::{ast::LxAstArenaRef, range::LxAstTokenIdxRangeMap};
@@ -131,6 +131,94 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
     }
 
     pub fn render_all_stmts(&self, stmts: VdSemStmtIdxRange) -> DisplayTree {
-        todo!()
+        let stmts_range =
+            self.stmt_range_map[stmts.start()].join(self.stmt_range_map[stmts.last().unwrap()]);
+        let offset_range = self.token_storage.token_idx_range_offset_range(stmts_range);
+        DisplayTree::new(
+            self.input[offset_range].to_string(),
+            self.render_stmts(stmts),
+        )
+    }
+
+    pub fn render_stmts(&self, stmts: VdSemStmtIdxRange) -> Vec<DisplayTree> {
+        stmts
+            .into_iter()
+            .map(|stmt| self.render_stmt(stmt))
+            .collect()
+    }
+
+    pub fn render_stmt(&self, stmt: VdSemStmtIdx) -> DisplayTree {
+        let stmt_range = self.stmt_range_map[stmt];
+        let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
+        let source = &self.input[offset_range];
+        let value = match self.stmt_arena[stmt] {
+            VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
+            VdSemStmtData::Block { environment, stmts } => format!("{:?} stmt.block", source),
+        };
+        DisplayTree::new(
+            value,
+            self.render_stmt_children(self.stmt_arena[stmt].children()),
+        )
+    }
+
+    fn render_stmt_children(&self, children: Vec<VdSemStmtChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSemStmtChild::Sentence(sentence) => self.render_sentence(sentence),
+                VdSemStmtChild::Stmt(stmt) => self.render_stmt(stmt),
+            })
+            .collect()
+    }
+
+    fn render_sentence(&self, sentence: VdSemSentenceIdx) -> DisplayTree {
+        let sentence_range = self.sentence_range_map[sentence];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(sentence_range);
+        let source = &self.input[offset_range];
+        let value = match self.sentence_arena[sentence] {
+            VdSemSentenceData::Clauses { clauses, end } => format!("{:?} sentence.clauses", source),
+        };
+        DisplayTree::new(
+            value,
+            self.render_sentence_children(self.sentence_arena[sentence].children()),
+        )
+    }
+
+    fn render_sentence_children(&self, children: Vec<VdSemSentenceChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSemSentenceChild::Clause(clause) => self.render_clause(clause),
+            })
+            .collect()
+    }
+
+    fn render_clause(&self, clause: VdSemClauseIdx) -> DisplayTree {
+        let clause_range = self.clause_range_map[clause];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(clause_range);
+        let source = &self.input[offset_range];
+        let value = match self.clause_arena[clause] {
+            VdSemClauseData::Verb => todo!(),
+            VdSemClauseData::Let { .. } => format!("{:?} clause.let", source),
+            VdSemClauseData::Assume { .. } => format!("{:?} clause.assume", source),
+            VdSemClauseData::Then { .. } => format!("{:?} clause.then", source),
+        };
+        DisplayTree::new(
+            value,
+            self.render_clause_children(self.clause_arena[clause].children()),
+        )
+    }
+
+    fn render_clause_children(&self, children: Vec<VdSemClauseChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSemClauseChild::Expr(expr) => self.render_expr(expr),
+            })
+            .collect()
     }
 }
