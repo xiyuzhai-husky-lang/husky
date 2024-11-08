@@ -86,7 +86,10 @@ impl<'db> VdHirExprBuilder<'db> {
             VdSemExprData::SeparatedList {
                 separator,
                 ref fragments,
-            } => todo!(),
+            } => VdHirExprData::Application {
+                function: todo!(),
+                arguments: todo!(),
+            },
             VdSemExprData::LxDelimited {
                 left_delimiter_token_idx,
                 item,
