@@ -180,18 +180,9 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),
             VdSemExprData::VariadicArray => todo!(),
-            VdSemExprData::SeparatedList { ref fragments, .. } => {
-                // use the first and the last fragment's range
-                let mut t = |fragment: Either<VdSemExprIdx, VdSemSeparator>| match fragment {
-                    Left(expr) | Right(VdSemSeparator::Composite(expr, _)) => self.get_expr(expr),
-                    Right(VdSemSeparator::Base(token_idx_range, _)) => {
-                        VdSemExprTokenIdxRange::Standard(token_idx_range)
-                    }
-                };
-                let first = *fragments.first().expect("fragments are always non-empty");
-                let last = *fragments.last().expect("fragments are always non-empty");
-                let first_range = t(first);
-                let last_range = t(last);
+            VdSemExprData::SeparatedList { items, .. } => {
+                let first_range = self.get_expr(items.start());
+                let last_range = self.get_expr(items.last().expect("items are always non-empty"));
                 first_range.join(last_range)
             }
             VdSemExprData::LxDelimited {

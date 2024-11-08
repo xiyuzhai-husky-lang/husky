@@ -42,3 +42,16 @@ impl VdZfcLiteral {
         Self(VdZfcTermId::new(db, data.into()))
     }
 }
+
+impl VdZfcLiteralData {
+    pub fn as_str(&self) -> &str {
+        match self {
+            VdZfcLiteralData::NaturalNumber(n) => n,
+            VdZfcLiteralData::NegativeInteger(n) => n,
+            VdZfcLiteralData::FiniteDecimalRepresentation(n) => n,
+            VdZfcLiteralData::SpecialConstant(_) => {
+                todo!()
+            }
+        }
+    }
+}

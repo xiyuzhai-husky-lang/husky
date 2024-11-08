@@ -23,6 +23,8 @@ visored-annotation = { workspace = true, optional = true }
 visored-sem-expr.workspace = true
 visored-opr.workspace = true
 visored-zfc-ty.workspace = true
+# utils
+husky-tree-utils = { workspace = true, optional = true }
 
 [dev-dependencies]
 expect-test.workspace = true
@@ -43,5 +45,6 @@ workspace = true
 test_helpers = [
     "dep:latex-prelude",
     "dep:visored-annotation",
+    "dep:husky-tree-utils",
     "visored-sem-expr/test_helpers"
 ]
