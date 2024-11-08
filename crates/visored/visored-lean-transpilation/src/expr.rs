@@ -1,4 +1,4 @@
-use super::ToLean;
+use super::TranspileToLean;
 use crate::builder::VdLeanTranspilationBuilder;
 use lean_hir_expr::expr::{LnHirExprData, LnHirExprIdx};
 use lean_opr::opr::binary::LnBinaryOpr;
@@ -6,10 +6,8 @@ use lean_term::term::literal::{LnLiteral, LnLiteralData};
 use visored_hir_expr::expr::{application::VdHirApplicationFunction, VdHirExprData, VdHirExprIdx};
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
-impl ToLean for VdHirExprIdx {
-    type Target = LnHirExprIdx;
-
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> Self::Target {
+impl TranspileToLean<LnHirExprIdx> for VdHirExprIdx {
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnHirExprIdx {
         let data = builder.build_expr(self);
         builder.alloc_expr(data)
     }

@@ -6,25 +6,25 @@ use crate::{
 };
 use either::*;
 use expr::{application::VdHirApplicationFunction, VdHirExprData};
+use helpers::show::display_tree::VdHirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_sem_expr::test_helpers::example::VdSemExprExample;
 
-pub struct VdHirExprExample<'db> {
-    db: &'db salsa::Db,
-    expr_arena: VdHirExprArena,
-    stmt_arena: VdHirStmtArena,
-    result: Either<VdHirExprIdx, VdHirStmtIdxRange>,
+pub struct VdHirExprExample {
+    pub expr_arena: VdHirExprArena,
+    pub stmt_arena: VdHirStmtArena,
+    pub result: Either<VdHirExprIdx, VdHirStmtIdxRange>,
 }
 
-impl<'db> VdHirExprExample<'db> {
+impl VdHirExprExample {
     pub fn new(
         input: &str,
         root_mode: LxMode,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        db: &'db salsa::Db,
+        db: &salsa::Db,
     ) -> Self {
         let VdSemExprExample {
             input,
@@ -61,47 +61,29 @@ impl<'db> VdHirExprExample<'db> {
         let result = result.to_vd_hir(&mut builder);
         let (expr_arena, stmt_arena) = builder.finish();
         Self {
-            db,
             expr_arena,
             stmt_arena,
             result,
         }
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
-        self.display_tree().show(&Default::default())
+    pub(crate) fn show_display_tree(&self, db: &::salsa::Db) -> String {
+        self.display_tree(db).show(&Default::default())
     }
 
-    fn display_tree(&self) -> DisplayTree {
+    fn display_tree(&self, db: &::salsa::Db) -> DisplayTree {
+        let builder = self.display_tree_builder(db);
         match self.result {
-            Left(expr) => self.render_expr(expr),
+            Left(expr) => builder.render_expr(expr),
             Right(_) => todo!(),
         }
     }
 
-    fn render_expr(&self, expr: VdHirExprIdx) -> DisplayTree {
-        let db = self.db;
-        match self.expr_arena[expr] {
-            VdHirExprData::Literal(literal) => {
-                DisplayTree::new(literal.data(db).as_str().to_string(), vec![])
-            }
-            VdHirExprData::Variable(ref variable) => todo!(),
-            VdHirExprData::Application {
-                function,
-                arguments,
-            } => {
-                let value = match function {
-                    VdHirApplicationFunction::IntAdd => "separator list int add".to_string(),
-                    VdHirApplicationFunction::TrivialEq => "separator list eq".to_string(),
-                };
-                DisplayTree::new(
-                    value,
-                    arguments
-                        .into_iter()
-                        .map(|arg| self.render_expr(arg))
-                        .collect(),
-                )
-            }
-        }
+    fn display_tree_builder<'a>(&'a self, db: &'a ::salsa::Db) -> VdHirExprDisplayTreeBuilder<'a> {
+        VdHirExprDisplayTreeBuilder::new(
+            db,
+            self.expr_arena.as_arena_ref(),
+            self.stmt_arena.as_arena_ref(),
+        )
     }
 }

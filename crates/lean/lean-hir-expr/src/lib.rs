@@ -4,3 +4,4 @@ pub mod fmt;
 pub mod jar;
 pub mod region;
 pub mod stmt;
+pub mod tactic;
