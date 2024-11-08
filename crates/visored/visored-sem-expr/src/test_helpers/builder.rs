@@ -7,12 +7,16 @@ use crate::{
     sentence::{VdSemSentenceArena, VdSemSentenceData, VdSemSentenceIdx},
 };
 
+use super::{division::VdSemDivisionArena, stmt::VdSemStmtArena};
+
 pub struct VdSemExprTestBuilder<'db> {
     db: &'db ::salsa::Db,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
     sentence_arena: VdSemSentenceArena,
+    stmt_arena: VdSemStmtArena,
+    division_arena: VdSemDivisionArena,
 }
 
 impl<'db> VdSemExprTestBuilder<'db> {
@@ -23,6 +27,8 @@ impl<'db> VdSemExprTestBuilder<'db> {
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
             sentence_arena: VdSemSentenceArena::default(),
+            stmt_arena: VdSemStmtArena::default(),
+            division_arena: VdSemDivisionArena::default(),
         }
     }
 }
@@ -86,6 +92,8 @@ impl<'db> VdSemExprTestBuilder<'db> {
             self.phrase_arena,
             self.clause_arena,
             self.sentence_arena,
+            self.stmt_arena,
+            self.division_arena,
         )
     }
 }
