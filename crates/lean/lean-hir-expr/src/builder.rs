@@ -1,6 +1,6 @@
 use crate::{
     expr::{LnHirExprArena, LnHirExprData, LnHirExprIdx, LnHirExprIdxRange},
-    fmt::LnHirExprFormatter,
+    helpers::fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
     stmt::{LnHirStmtArena, LnHirStmtData, LnHirStmtIdx, LnHirStmtIdxRange},
     tactic::{LnHirTacticArena, LnHirTacticData, LnHirTacticIdx, LnHirTacticIdxRange},
 };
@@ -28,11 +28,12 @@ impl<'db> LeanHirExprBuilder<'db> {
         self.db
     }
 
-    pub fn formatter(&self, line_max_len: usize) -> LnHirExprFormatter {
+    pub fn formatter<'a>(&'a self, config: &'a LnHirExprFormatterConfig) -> LnHirExprFormatter<'a> {
         LnHirExprFormatter::new(
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
-            line_max_len,
+            self.tactic_arena.as_arena_ref(),
+            config,
             self.db,
         )
     }

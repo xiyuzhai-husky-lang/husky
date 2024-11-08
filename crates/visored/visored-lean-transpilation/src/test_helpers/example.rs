@@ -5,7 +5,10 @@ use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
 use lean_hir_expr::{
     expr::{LnHirExprArena, LnHirExprIdx},
-    helpers::show::display_tree::LnHirExprDisplayTreeBuilder,
+    helpers::{
+        fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
+        show::display_tree::LnHirExprDisplayTreeBuilder,
+    },
     stmt::{LnHirStmtArena, LnHirStmtIdxRange},
     tactic::LnHirTacticArena,
 };
@@ -52,7 +55,7 @@ impl VdLeanTranspilationExample {
         }
     }
 
-    pub(crate) fn show_display_tree(&self, db: &::salsa::Db) -> String {
+    pub fn show_display_tree(&self, db: &::salsa::Db) -> String {
         self.display_tree(db).show(&Default::default())
     }
 
@@ -67,5 +70,29 @@ impl VdLeanTranspilationExample {
             Left(expr) => builder.render_expr(expr),
             Right(_) => todo!(),
         }
+    }
+
+    pub fn show_fmt(&self, db: &::salsa::Db) -> String {
+        let fmt_config = Default::default();
+        let mut formatter = self.formatter(db, &fmt_config);
+        match self.result {
+            Left(expr) => formatter.format_expr_ext(expr),
+            Right(_) => todo!(),
+        }
+        formatter.finish()
+    }
+
+    fn formatter<'a>(
+        &'a self,
+        db: &'a ::salsa::Db,
+        config: &'a LnHirExprFormatterConfig,
+    ) -> LnHirExprFormatter<'a> {
+        LnHirExprFormatter::new(
+            self.expr_arena.as_arena_ref(),
+            self.stmt_arena.as_arena_ref(),
+            self.tactic_arena.as_arena_ref(),
+            config,
+            db,
+        )
     }
 }
