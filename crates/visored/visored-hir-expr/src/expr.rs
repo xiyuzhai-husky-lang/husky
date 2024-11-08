@@ -6,7 +6,10 @@ use crate::*;
 use application::VdHirApplicationFunction;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData, VdSemExprIdx};
+use visored_sem_expr::expr::{
+    binary::VdSemBinaryDispatch, separated_list::VdSemSeparatedListDispatch, VdSemExprData,
+    VdSemExprIdx, VdSemExprIdxRange,
+};
 use visored_zfc_ty::term::literal::VdZfcLiteral;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -30,9 +33,19 @@ pub struct VdHirLiteral {}
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdHirVariable {}
 
+impl ToVdHir<VdHirExprIdxRange> for VdSemExprIdxRange {
+    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdxRange {
+        let mut exprs: Vec<VdHirExprData> = Vec::with_capacity(self.len());
+        for expr in self {
+            exprs.push(builder.build_expr(expr));
+        }
+        builder.alloc_exprs(exprs)
+    }
+}
+
 impl ToVdHir<VdHirExprIdx> for VdSemExprIdx {
     fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdx {
-        let data = builder.build_expr_from_sem_expr(self);
+        let data = builder.build_expr(self);
         builder.alloc_expr(data)
     }
 }
@@ -41,14 +54,14 @@ impl<const N: usize> ToVdHir<VdHirExprIdxRange> for [VdSemExprIdx; N] {
     fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdxRange {
         let data = self
             .into_iter()
-            .map(|expr| builder.build_expr_from_sem_expr(expr))
+            .map(|expr| builder.build_expr(expr))
             .collect::<Vec<_>>();
         builder.alloc_exprs(data)
     }
 }
 
 impl<'db> VdHirExprBuilder<'db> {
-    fn build_expr_from_sem_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdHirExprData {
+    fn build_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdHirExprData {
         match self.sem_expr_arena()[sem_expr_idx] {
             VdSemExprData::Literal { literal, .. } => VdHirExprData::Literal(literal),
             VdSemExprData::Binary {
@@ -85,29 +98,22 @@ impl<'db> VdHirExprBuilder<'db> {
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {
                 separator,
-                ref fragments,
+                items,
+                ref dispatch,
             } => VdHirExprData::Application {
-                function: todo!(),
-                arguments: todo!(),
+                function: match dispatch {
+                    VdSemSeparatedListDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
+                    VdSemSeparatedListDispatch::Eq => VdHirApplicationFunction::TrivialEq,
+                },
+                arguments: items.to_vd_hir(self),
             },
-            VdSemExprData::LxDelimited {
-                left_delimiter_token_idx,
-                item,
-                right_delimiter_token_idx,
-            } => todo!(),
-            VdSemExprData::Delimited {
-                left_delimiter,
-                item,
-                right_delimiter,
-            } => todo!(),
+            VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
+                self.build_expr(item)
+            }
             VdSemExprData::Fraction {
-                command_token_idx,
-                numerator_lcurl_token_idx,
                 numerator,
-                numerator_rcurl_token_idx,
-                denominator_lcurl_token_idx,
                 denominator,
-                denominator_rcurl_token_idx,
+                ..
             } => todo!(),
             VdSemExprData::Sqrt {
                 command_token_idx,

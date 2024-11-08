@@ -15,7 +15,7 @@ use crate::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
     division::{VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx},
-    expr::{VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
+    expr::{VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange},
     helpers::latex_fmt::VdSemExprLaTeXFormatter,
     phrase::{VdSemPhraseArena, VdSemPhraseArenaRef, VdSemPhraseData, VdSemPhraseIdx},
     region::VdSemExprRegionData,
@@ -138,13 +138,29 @@ impl<'db> VdSemExprBuilder<'db> {
 }
 
 impl<'db> VdSemExprBuilder<'db> {
-    pub fn alloc_expr(&mut self, syn_expr: VdSynExprIdx, data: VdSemExprData) -> VdSemExprIdx {
+    pub(crate) fn alloc_expr(
+        &mut self,
+        syn_expr: VdSynExprIdx,
+        data: VdSemExprData,
+    ) -> VdSemExprIdx {
         let expr = self.expr_arena.alloc_one(data);
         self.syn_to_sem_expr_map.insert(syn_expr, expr);
         expr
     }
 
-    pub fn alloc_phrase(
+    pub(crate) fn alloc_exprs(
+        &mut self,
+        exprs: Vec<VdSemExprData>,
+        srcs: impl Iterator<Item = VdSynExprIdx>,
+    ) -> VdSemExprIdxRange {
+        let exprs = self.expr_arena.alloc_batch(exprs);
+        for (expr, src) in exprs.into_iter().zip(srcs) {
+            self.syn_to_sem_expr_map.insert(src, expr);
+        }
+        exprs
+    }
+
+    pub(crate) fn alloc_phrase(
         &mut self,
         syn_phrase: VdSynPhraseIdx,
         data: VdSemPhraseData,
@@ -152,19 +168,22 @@ impl<'db> VdSemExprBuilder<'db> {
         self.phrase_arena.alloc_one(data)
     }
 
-    pub fn alloc_clauses(&mut self, clauses: Vec<VdSemClauseData>) -> VdSemClauseIdxRange {
+    pub(crate) fn alloc_clauses(&mut self, clauses: Vec<VdSemClauseData>) -> VdSemClauseIdxRange {
         self.clause_arena.alloc_batch(clauses)
     }
 
-    pub fn alloc_sentences(&mut self, sentences: Vec<VdSemSentenceData>) -> VdSemSentenceIdxRange {
+    pub(crate) fn alloc_sentences(
+        &mut self,
+        sentences: Vec<VdSemSentenceData>,
+    ) -> VdSemSentenceIdxRange {
         self.sentence_arena.alloc_batch(sentences)
     }
 
-    pub fn alloc_stmts(&mut self, stmts: Vec<VdSemStmtData>) -> VdSemStmtIdxRange {
+    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemStmtData>) -> VdSemStmtIdxRange {
         self.stmt_arena.alloc_batch(stmts)
     }
 
-    pub fn alloc_division(
+    pub(crate) fn alloc_division(
         &mut self,
         syn_division: VdSynDivisionIdx,
         data: VdSemDivisionData,
@@ -172,7 +191,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.division_arena.alloc_one(data)
     }
 
-    pub fn finish_into_region_data(self) -> VdSemExprRegionData {
+    pub(crate) fn finish_into_region_data(self) -> VdSemExprRegionData {
         VdSemExprRegionData::new(
             self.expr_arena,
             self.phrase_arena,
@@ -183,7 +202,7 @@ impl<'db> VdSemExprBuilder<'db> {
         )
     }
 
-    pub fn finish(
+    pub(crate) fn finish(
         self,
     ) -> (
         VdSemExprArena,

@@ -5,23 +5,26 @@ use crate::{
     *,
 };
 use either::*;
+use expr::{application::VdHirApplicationFunction, VdHirExprData};
+use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_sem_expr::test_helpers::example::VdSemExprExample;
 
-pub struct VdHirExprExample {
+pub struct VdHirExprExample<'db> {
+    db: &'db salsa::Db,
     expr_arena: VdHirExprArena,
     stmt_arena: VdHirStmtArena,
     result: Either<VdHirExprIdx, VdHirStmtIdxRange>,
 }
 
-impl VdHirExprExample {
+impl<'db> VdHirExprExample<'db> {
     pub fn new(
         input: &str,
         root_mode: LxMode,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        db: &salsa::Db,
+        db: &'db salsa::Db,
     ) -> Self {
         let VdSemExprExample {
             input,
@@ -58,6 +61,7 @@ impl VdHirExprExample {
         let result = result.to_vd_hir(&mut builder);
         let (expr_arena, stmt_arena) = builder.finish();
         Self {
+            db,
             expr_arena,
             stmt_arena,
             result,
@@ -65,6 +69,39 @@ impl VdHirExprExample {
     }
 
     pub(crate) fn show_display_tree(&self) -> String {
-        todo!()
+        self.display_tree().show(&Default::default())
+    }
+
+    fn display_tree(&self) -> DisplayTree {
+        match self.result {
+            Left(expr) => self.render_expr(expr),
+            Right(_) => todo!(),
+        }
+    }
+
+    fn render_expr(&self, expr: VdHirExprIdx) -> DisplayTree {
+        let db = self.db;
+        match self.expr_arena[expr] {
+            VdHirExprData::Literal(literal) => {
+                DisplayTree::new(literal.data(db).as_str().to_string(), vec![])
+            }
+            VdHirExprData::Variable(ref variable) => todo!(),
+            VdHirExprData::Application {
+                function,
+                arguments,
+            } => {
+                let value = match function {
+                    VdHirApplicationFunction::IntAdd => "separator list int add".to_string(),
+                    VdHirApplicationFunction::TrivialEq => "separator list eq".to_string(),
+                };
+                DisplayTree::new(
+                    value,
+                    arguments
+                        .into_iter()
+                        .map(|arg| self.render_expr(arg))
+                        .collect(),
+                )
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ pub mod binary;
 pub mod literal;
 pub mod notation;
 pub mod prefix;
+pub mod separated_list;
 pub mod suffix;
 #[cfg(test)]
 pub mod tests;
@@ -18,6 +19,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_math_letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
+use separated_list::VdSemSeparatedListDispatch;
 use visored_opr::{
     delimiter::{
         VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
@@ -73,7 +75,8 @@ pub enum VdSemExprData {
     },
     SeparatedList {
         separator: VdSeparator,
-        fragments: Vec<Either<VdSemExprIdx, VdSemSeparator>>,
+        items: VdSemExprIdxRange,
+        dispatch: VdSemSeparatedListDispatch,
     },
     // TODO: maybe these two are just separated lists?
     UniadicChain,
@@ -141,13 +144,7 @@ impl VdSemExprData {
             VdSemExprData::UniadicArray => vec![],
             // ad hoc
             VdSemExprData::VariadicArray => vec![],
-            VdSemExprData::SeparatedList { ref fragments, .. } => fragments
-                .iter()
-                .filter_map(|fragment| match *fragment {
-                    Left(expr) | Right(VdSemSeparator::Composite(expr, _)) => Some(expr),
-                    Right(VdSemSeparator::Base(_, _)) => None,
-                })
-                .collect(),
+            VdSemExprData::SeparatedList { ref items, .. } => items.into_iter().collect(),
             VdSemExprData::LxDelimited { item, .. } => vec![item],
             VdSemExprData::Delimited {
                 left_delimiter,
@@ -218,6 +215,19 @@ pub type VdSemExprArena = Arena<VdSemExprData>;
 pub type VdSemExprArenaRef<'a> = ArenaRef<'a, VdSemExprData>;
 pub type VdSemExprMap<T> = ArenaMap<VdSemExprData, T>;
 
+impl<I> ToVdSem<VdSemExprIdxRange> for I
+where
+    I: Iterator<Item = VdSynExprIdx> + Clone,
+{
+    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemExprIdxRange {
+        let mut exprs: Vec<VdSemExprData> = vec![];
+        for expr in self.clone() {
+            exprs.push(builder.build_expr(expr));
+        }
+        builder.alloc_exprs(exprs, self)
+    }
+}
+
 impl ToVdSem<VdSemExprIdx> for VdSynExprIdx {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemExprIdx {
         if let Some(&idx) = builder.syn_to_sem_expr_map().get(self) {
@@ -252,14 +262,7 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSynExprData::SeparatedList {
                 separator,
                 ref fragments,
-            } => VdSemExprData::SeparatedList {
-                separator,
-                fragments: fragments
-                    .iter()
-                    .copied()
-                    .map(|fragment| fragment.to_vd_sem(self))
-                    .collect(),
-            },
+            } => self.build_separated_list(separator, fragments),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,

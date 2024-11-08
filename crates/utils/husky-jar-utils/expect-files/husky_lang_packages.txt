@@ -4257,6 +4257,7 @@
             "latex-prelude",
             "latex-token",
             "salsa",
+            "smallvec",
             "thiserror",
             "visored-annotation",
             "visored-opr",
@@ -4349,6 +4350,7 @@
         relative_path: "crates/visored/visored-hir-expr",
         dependencies: [
             "either",
+            "husky-tree-utils",
             "idx-arena",
             "latex-prelude",
             "salsa",
