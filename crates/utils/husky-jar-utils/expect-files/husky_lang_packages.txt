@@ -3903,6 +3903,7 @@
         name: "lean-hir-expr",
         relative_path: "crates/lean/lean-hir-expr",
         dependencies: [
+            "husky-tree-utils",
             "idx-arena",
             "lean-coword",
             "lean-opr",
@@ -4378,6 +4379,7 @@
         relative_path: "crates/visored/visored-lean-transpilation",
         dependencies: [
             "either",
+            "husky-tree-utils",
             "latex-prelude",
             "lean-hir-expr",
             "lean-opr",

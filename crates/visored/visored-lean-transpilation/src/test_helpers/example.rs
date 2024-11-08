@@ -1,11 +1,25 @@
 use super::*;
 use crate::builder::VdLeanTranspilationBuilder;
 use either::*;
+use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
+use lean_hir_expr::{
+    expr::{LnHirExprArena, LnHirExprIdx},
+    helpers::show::display_tree::LnHirExprDisplayTreeBuilder,
+    stmt::{LnHirStmtArena, LnHirStmtIdxRange},
+    tactic::LnHirTacticArena,
+};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
-use visored_hir_expr::test_helpers::example::VdHirExprExample;
+use visored_hir_expr::{
+    expr::VdHirExprIdx, stmt::VdHirStmtIdxRange, test_helpers::example::VdHirExprExample,
+};
 
-pub struct VdLeanTranspilationExample {}
+pub struct VdLeanTranspilationExample {
+    expr_arena: LnHirExprArena,
+    stmt_arena: LnHirStmtArena,
+    tactic_arena: LnHirTacticArena,
+    result: Either<LnHirExprIdx, LnHirStmtIdxRange>,
+}
 
 impl VdLeanTranspilationExample {
     pub fn new(
@@ -26,10 +40,32 @@ impl VdLeanTranspilationExample {
             vd_hir_stmt_arena.as_arena_ref(),
         );
         let result = match result {
-            Left(expr) => expr.to_lean(&mut builder),
+            Left(expr) => Left(expr.to_lean(&mut builder)),
             Right(stmts) => todo!(),
         };
-        let _ = builder.finish();
-        Self {}
+        let (expr_arena, stmt_arena, tactic_arena) = builder.finish();
+        Self {
+            expr_arena,
+            stmt_arena,
+            tactic_arena,
+            result,
+        }
+    }
+
+    pub(crate) fn show_display_tree(&self, db: &::salsa::Db) -> String {
+        self.display_tree(db).show(&Default::default())
+    }
+
+    fn display_tree(&self, db: &::salsa::Db) -> DisplayTree {
+        let builder = LnHirExprDisplayTreeBuilder::new(
+            db,
+            self.expr_arena.as_arena_ref(),
+            self.stmt_arena.as_arena_ref(),
+            self.tactic_arena.as_arena_ref(),
+        );
+        match self.result {
+            Left(expr) => builder.render_expr(expr),
+            Right(_) => todo!(),
+        }
     }
 }

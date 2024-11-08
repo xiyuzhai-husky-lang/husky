@@ -22,3 +22,23 @@ impl LnLiteral {
         }
     }
 }
+
+impl LnLiteralData {
+    pub fn str(&self) -> &str {
+        match self {
+            LnLiteralData::Nat(s) => s,
+        }
+    }
+}
+
+impl AsRef<str> for LnLiteralData {
+    fn as_ref(&self) -> &str {
+        self.str()
+    }
+}
+
+impl std::fmt::Display for LnLiteralData {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.str())
+    }
+}

@@ -20,6 +20,8 @@ salsa.workspace = true
 lean-coword.workspace = true
 lean-opr.workspace = true
 lean-term.workspace = true
+# utils
+husky-tree-utils.workspace = true
 
 [lints]
 workspace = true

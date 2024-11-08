@@ -21,6 +21,8 @@ latex-prelude = { workspace = true, optional = true }
 lean-opr.workspace = true
 lean-hir-expr.workspace = true
 lean-term.workspace = true
+# utils
+husky-tree-utils = { workspace = true, optional = true }
 # visored
 visored-annotation = { workspace = true, optional = true }
 visored-hir-expr.workspace = true
@@ -49,6 +51,7 @@ workspace = true
 [features]
 test_helpers = [
     "dep:latex-prelude",
+    "dep:husky-tree-utils",
     "visored-annotation",
     "visored-hir-expr/test_helpers"
 ]
