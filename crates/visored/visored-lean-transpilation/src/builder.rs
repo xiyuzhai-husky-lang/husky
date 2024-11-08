@@ -1,4 +1,7 @@
-use lean_hir_expr::builder::LeanHirExprBuilder;
+use lean_hir_expr::{
+    builder::LeanHirExprBuilder, expr::LnHirExprArena, stmt::LnHirStmtArena,
+    tactic::LnHirTacticArena,
+};
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
 use visored_hir_expr::{
@@ -12,11 +15,23 @@ pub struct VdLeanTranspilationBuilder<'db> {
 }
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
-    pub fn new(db: &'db ::salsa::Db, vd_hir_expr_region_data: &'db VdHirExprRegionData) -> Self {
+    pub fn new0(db: &'db ::salsa::Db, vd_hir_expr_region_data: &'db VdHirExprRegionData) -> Self {
         Self {
             lean_hir_expr_builder: LeanHirExprBuilder::new(db),
             expr_arena: vd_hir_expr_region_data.expr_arena(),
             stmt_arena: vd_hir_expr_region_data.stmt_arena(),
+        }
+    }
+
+    pub fn new(
+        db: &'db ::salsa::Db,
+        expr_arena: VdHirExprArenaRef<'db>,
+        stmt_arena: VdHirStmtArenaRef<'db>,
+    ) -> Self {
+        Self {
+            lean_hir_expr_builder: LeanHirExprBuilder::new(db),
+            expr_arena,
+            stmt_arena,
         }
     }
 }
@@ -42,5 +57,11 @@ impl<'db> Deref for VdLeanTranspilationBuilder<'db> {
 impl<'db> DerefMut for VdLeanTranspilationBuilder<'db> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.lean_hir_expr_builder
+    }
+}
+
+impl<'db> VdLeanTranspilationBuilder<'db> {
+    pub fn finish(self) -> (LnHirExprArena, LnHirStmtArena, LnHirTacticArena) {
+        self.lean_hir_expr_builder.finish()
     }
 }

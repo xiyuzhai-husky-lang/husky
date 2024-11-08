@@ -1,3 +1,9 @@
+mod math;
+mod rose;
+
+use crate::test_helpers::example::VdLeanTranspilationExample;
+use crate::{builder::VdLeanTranspilationBuilder, TranspileToLean, *};
+use expect_test::{expect, Expect};
 use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::{
@@ -5,8 +11,6 @@ use visored_sem_expr::{
     test_helpers::builder::VdSemExprTestBuilder,
 };
 use visored_zfc_ty::menu::vd_zfc_ty_menu;
-
-use crate::{builder::VdLeanTranspilationBuilder, ToLean};
 
 #[salsa::db(
     husky_coword::jar::CowordJar,

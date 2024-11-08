@@ -12573,9 +12573,12 @@ dependencies = [
 name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
+ "either",
+ "expect-test",
  "husky-coword",
  "latex-ast",
  "latex-command",
+ "latex-prelude",
  "lean-hir-expr",
  "lean-opr",
  "lean-sem-expr",
@@ -12583,6 +12586,7 @@ dependencies = [
  "salsa",
  "visored-annotation",
  "visored-hir-expr",
+ "visored-lean-transpilation",
  "visored-opr",
  "visored-sem-expr",
  "visored-syn-expr",

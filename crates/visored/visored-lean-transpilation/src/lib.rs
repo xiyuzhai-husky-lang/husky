@@ -1,14 +1,17 @@
 mod builder;
 mod expr;
+pub mod helpers;
 pub mod jar;
+pub mod stmt;
+#[cfg(feature = "test_helpers")]
+mod test_helpers;
 #[cfg(test)]
 mod tests;
 
-use self::jar::VdLeanTranspilationJar as Jar;
-use crate::builder::VdLeanTranspilationBuilder;
+#[cfg(test)]
+use self::tests::*;
+use self::{builder::VdLeanTranspilationBuilder, jar::VdLeanTranspilationJar as Jar};
 
-pub trait ToLean: Copy {
-    type Target;
-
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> Self::Target;
+pub trait TranspileToLean<T>: Copy {
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> T;
 }
