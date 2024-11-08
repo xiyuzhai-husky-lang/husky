@@ -12538,11 +12538,16 @@ dependencies = [
 name = "visored-hir-expr"
 version = "0.1.0"
 dependencies = [
+ "either",
+ "expect-test",
  "husky-coword",
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-prelude",
  "salsa",
+ "visored-annotation",
+ "visored-hir-expr",
  "visored-opr",
  "visored-sem-expr",
  "visored-syn-expr",
