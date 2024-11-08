@@ -29,7 +29,7 @@ use visored_opr::{
         suffix::{VdBaseSuffixOpr, VdCompositeSuffixOpr},
         VdBaseOpr,
     },
-    separator::{VdBaseSeparator, VdCompositeSeparator},
+    separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
 };
 use visored_syn_expr::expr::{VdSynExprData, VdSynSeparator};
 use visored_zfc_ty::term::literal::VdZfcLiteral;
@@ -62,7 +62,7 @@ pub enum VdSemExprData {
     },
     Suffix {
         opd: VdSemExprIdx,
-        opr: VdSemExprIdx,
+        opr: VdSemSuffixOpr,
         dispatch: (),
     },
     Attach {
@@ -72,6 +72,7 @@ pub enum VdSemExprData {
         dispatch: AttachDispatch,
     },
     SeparatedList {
+        separator: VdSeparator,
         fragments: Vec<Either<VdSemExprIdx, VdSemSeparator>>,
     },
     // TODO: maybe these two are just separated lists?
@@ -81,20 +82,98 @@ pub enum VdSemExprData {
     VariadicArray,
     LxDelimited {
         left_delimiter_token_idx: LxMathTokenIdx,
+        item: VdSemExprIdx,
         right_delimiter_token_idx: LxMathTokenIdx,
     },
     Delimited {
         left_delimiter: VdSemLeftDelimiter,
+        item: VdSemExprIdx,
         right_delimiter: VdSemRightDelimiter,
     },
     Fraction {
         command_token_idx: LxMathTokenIdx,
+        numerator_lcurl_token_idx: LxMathTokenIdx,
+        numerator: VdSemExprIdx,
+        numerator_rcurl_token_idx: LxMathTokenIdx,
+        denominator_lcurl_token_idx: LxMathTokenIdx,
+        denominator: VdSemExprIdx,
         denominator_rcurl_token_idx: LxMathTokenIdx,
     },
     Sqrt {
         command_token_idx: LxMathTokenIdx,
+        radicand_lcurl_token_idx: LxMathTokenIdx,
+        radicand: VdSemExprIdx,
         radicand_rcurl_token_idx: LxMathTokenIdx,
     },
+}
+
+impl VdSemExprData {
+    pub(crate) fn children(&self) -> Vec<VdSemExprIdx> {
+        match *self {
+            VdSemExprData::Literal { .. }
+            | VdSemExprData::Letter { .. }
+            | VdSemExprData::BaseOpr { .. } => vec![],
+            VdSemExprData::Binary {
+                lopd, opr, ropd, ..
+            } => match opr {
+                VdSemBinaryOpr::Base(_, _) => vec![lopd, ropd],
+                VdSemBinaryOpr::Composite(opr, _) => vec![lopd, opr, ropd],
+            },
+            VdSemExprData::Prefix { opr, opd, .. } => match opr {
+                VdSemPrefixOpr::Base(_, _) => vec![opd],
+                VdSemPrefixOpr::Composite(opr, _) => vec![opr, opd],
+            },
+            VdSemExprData::Suffix { opd, opr, .. } => match opr {
+                VdSemSuffixOpr::Base(_, _) => vec![opd],
+                VdSemSuffixOpr::Composite(opr, _) => vec![opd, opr],
+            },
+            VdSemExprData::Attach {
+                base, ref scripts, ..
+            } => [base]
+                .into_iter()
+                .chain(scripts.iter().map(|&(_, script)| script))
+                .collect(),
+            // ad hoc
+            VdSemExprData::UniadicChain => vec![],
+            // ad hoc
+            VdSemExprData::VariadicChain => vec![],
+            // ad hoc
+            VdSemExprData::UniadicArray => vec![],
+            // ad hoc
+            VdSemExprData::VariadicArray => vec![],
+            VdSemExprData::SeparatedList { ref fragments, .. } => fragments
+                .iter()
+                .filter_map(|fragment| match *fragment {
+                    Left(expr) | Right(VdSemSeparator::Composite(expr, _)) => Some(expr),
+                    Right(VdSemSeparator::Base(_, _)) => None,
+                })
+                .collect(),
+            VdSemExprData::LxDelimited { item, .. } => vec![item],
+            VdSemExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => {
+                let mut children = vec![];
+                match left_delimiter {
+                    VdSemLeftDelimiter::Base(_, _) => (),
+                    VdSemLeftDelimiter::Composite(expr, _) => children.push(expr),
+                }
+                children.push(item);
+                match right_delimiter {
+                    VdSemRightDelimiter::Base(_, _) => (),
+                    VdSemRightDelimiter::Composite(expr, _) => children.push(expr),
+                }
+                children
+            }
+            VdSemExprData::Fraction {
+                numerator,
+                denominator,
+                ..
+            } => vec![numerator, denominator],
+            VdSemExprData::Sqrt { radicand, .. } => vec![radicand],
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -159,7 +238,6 @@ impl<'db> VdSemExprBuilder<'db> {
                 token_idx_range,
                 literal,
             },
-            VdSynExprData::Notation => todo!(),
             VdSynExprData::Letter {
                 token_idx_range,
                 letter,
@@ -172,6 +250,7 @@ impl<'db> VdSemExprBuilder<'db> {
                 separator,
                 ref fragments,
             } => VdSemExprData::SeparatedList {
+                separator,
                 fragments: fragments
                     .iter()
                     .copied()

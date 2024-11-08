@@ -36,6 +36,7 @@ visored-zfc-ty.workspace = true
 visored-syn-expr.workspace = true
 
 [dev-dependencies]
+expect-test.workspace = true
 # kernel
 husky-coword.workspace = true
 # latex

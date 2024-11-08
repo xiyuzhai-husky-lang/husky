@@ -150,7 +150,6 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::Letter {
                 token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
-            VdSynExprData::Notation => todo!(),
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Binary { lopd, ropd, .. } => {
                 let lopd_range = self.get_expr(lopd);

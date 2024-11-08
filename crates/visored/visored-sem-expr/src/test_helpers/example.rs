@@ -17,6 +17,7 @@ use crate::{
     helpers::show::display_tree::VdSemExprDisplayTreeBuilder, range::VdSemDivisionTokenIdxRangeMap,
 };
 use either::*;
+use husky_tree_utils::display::DisplayTree;
 use latex_ast::{
     ast::{parse_latex_input_into_asts, rose::LxRoseAstIdxRange, LxAstArena, LxAstIdxRange},
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
