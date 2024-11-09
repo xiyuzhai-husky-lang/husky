@@ -8,6 +8,10 @@ use latex_command::{
     path::LxCommandPath,
     signature::{parameter::LxCommandParameterMode, LxCommandSignature},
 };
+use latex_environment::{
+    path::{LxEnvironmentName, LxEnvironmentPath},
+    signature::LxEnvironmentSignature,
+};
 use latex_token::{
     data::{
         code::LxCodeTokenData,
@@ -47,13 +51,13 @@ pub enum LxMathAstData {
         begin_command_token_idx: LxMathTokenIdx,
         begin_lcurl_token_idx: LxMathTokenIdx,
         begin_environment_name_token_idx: LxCodeTokenIdx,
-        environment_name: Coword,
         begin_rcurl_token_idx: LxMathTokenIdx,
-        asts: LxMathAstIdxRange,
+        asts: LxAstIdxRange,
         end_command_token_idx: LxMathTokenIdx,
         end_lcurl_token_idx: LxMathTokenIdx,
         end_environment_name_token_idx: LxCodeTokenIdx,
         end_rcurl_token_idx: LxMathTokenIdx,
+        environment_signature: LxEnvironmentSignature,
     },
 }
 
@@ -283,7 +287,20 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
             _ => todo!(),
         };
-        let asts = self.parse_math_asts();
+        let begin_environment_name = LxEnvironmentName::new(begin_environment_name);
+        let Some(environment_signature) = self
+            .environment_signature_table()
+            .signature(begin_environment_name)
+        else {
+            todo!()
+        };
+        if !environment_signature.allowed_in_math() {
+            todo!()
+        }
+        let asts = match environment_signature.body_mode() {
+            LxMode::Math => self.parse_math_asts().into(),
+            LxMode::Rose => self.parse_rose_asts().into(),
+        };
         let Some((end_command_token_idx, end_command_token)) = self.next_math_token() else {
             todo!()
         };
@@ -314,20 +331,20 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
             _ => todo!(),
         };
-        if begin_environment_name != end_environment_name {
+        if begin_environment_name.coword() != end_environment_name {
             todo!()
         }
         LxMathAstData::Environment {
             begin_command_token_idx,
             begin_lcurl_token_idx,
             begin_environment_name_token_idx,
-            environment_name: begin_environment_name,
             begin_rcurl_token_idx,
             asts,
             end_command_token_idx,
             end_lcurl_token_idx,
             end_environment_name_token_idx,
             end_rcurl_token_idx,
+            environment_signature,
         }
     }
 }

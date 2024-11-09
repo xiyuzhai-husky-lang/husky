@@ -42,6 +42,7 @@ expect-test.workspace = true
 husky-coword.workspace = true
 # latex
 latex-command.workspace = true
+latex-environment.workspace = true
 # visored
 visored-sem-expr = { workspace = true, features = ["test_helpers"] }
 

@@ -62,6 +62,7 @@ mod tests {
     use expect_test::expect;
     use latex_ast::ast::parse_latex_input_into_asts;
     use latex_command::signature::table::LxCommandSignatureTable;
+    use latex_environment::signature::table::LxEnvironmentSignatureTable;
     use latex_prelude::mode::LxMode;
 
     #[test]
@@ -69,6 +70,7 @@ mod tests {
         let db = &DB::default();
         let input = "\\int xdx";
         let command_signature_table = LxCommandSignatureTable::new_default(db);
+        let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
         let token_annotations = vec![
             (
                 ("", "\\int"),
@@ -99,6 +101,7 @@ mod tests {
         let asts = parse_latex_input_into_asts(
             db,
             &command_signature_table,
+            &environment_signature_table,
             input,
             LxMode::Math,
             &mut token_storage,

@@ -24,6 +24,7 @@ time-capsule.workspace = true
 husky-coword.workspace = true
 # latex
 latex-command.workspace = true
+latex-environment.workspace = true
 latex-math-letter.workspace = true
 latex-math-punctuation.workspace = true
 latex-rose-punctuation.workspace = true

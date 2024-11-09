@@ -28,6 +28,7 @@ latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
 latex-command.workspace = true
+latex-environment.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils

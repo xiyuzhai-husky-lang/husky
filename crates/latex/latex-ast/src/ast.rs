@@ -15,6 +15,7 @@ use latex_command::{
     path::menu::{command_path_menu, LxCommandPathMenu},
     signature::table::LxCommandSignatureTable,
 };
+use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_math_letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
@@ -119,6 +120,7 @@ pub enum LxAstIdxRange {
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
     command_signature_table: &'a LxCommandSignatureTable,
+    environment_signature_table: &'a LxEnvironmentSignatureTable,
     input: &'a str,
     mode: LxMode,
     token_storage: &'a mut LxTokenStorage,
@@ -127,6 +129,7 @@ pub fn parse_latex_input_into_asts<'a>(
     let mut parser = LxAstParser::new(
         db,
         command_signature_table,
+        environment_signature_table,
         input,
         mode,
         token_storage,
@@ -154,9 +157,11 @@ fn parse_tex_input_into_asts_works() {
         let mut arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
         let command_signature_table = &LxCommandSignatureTable::new_default(db);
+        let environment_signature_table = &LxEnvironmentSignatureTable::new_default(db);
         let asts = parse_latex_input_into_asts(
             db,
             command_signature_table,
+            environment_signature_table,
             input,
             mode,
             &mut token_storage,

@@ -10,6 +10,7 @@ use latex_command::{
     path::menu::{command_path_menu, LxCommandPathMenu},
     signature::table::LxCommandSignatureTable,
 };
+use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
     data::{code::LxCodeTokenData, math::LxMathTokenData, rose::LxRoseTokenData},
@@ -23,6 +24,7 @@ pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
     command_path_menu: &'a LxCommandPathMenu,
     command_signature_table: &'a LxCommandSignatureTable,
+    environment_signature_table: &'a LxEnvironmentSignatureTable,
     lexer: LxLexer<'a>,
     mode: LxMode,
     arena: &'a mut LxAstArena,
@@ -33,6 +35,7 @@ impl<'a> LxAstParser<'a> {
     pub(crate) fn new(
         db: &'a ::salsa::Db,
         command_signature_table: &'a LxCommandSignatureTable,
+        environment_signature_table: &'a LxEnvironmentSignatureTable,
         input: &'a str,
         mode: LxMode,
         token_storage: &'a mut LxTokenStorage,
@@ -43,6 +46,7 @@ impl<'a> LxAstParser<'a> {
             db,
             command_path_menu,
             command_signature_table,
+            environment_signature_table,
             lexer: LxLexer::new(db, input, token_storage),
             mode,
             arena,
@@ -61,6 +65,10 @@ impl<'a> LxAstParser<'a> {
 
     pub(crate) fn command_signature_table(&self) -> &'a LxCommandSignatureTable {
         self.command_signature_table
+    }
+
+    pub(crate) fn environment_signature_table(&self) -> &'a LxEnvironmentSignatureTable {
+        self.environment_signature_table
     }
 }
 
