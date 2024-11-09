@@ -11,7 +11,10 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_command::signature::table::LxCommandSignatureTable;
+use latex_command::{
+    path::menu::{command_path_menu, LxCommandPathMenu},
+    signature::table::LxCommandSignatureTable,
+};
 use latex_math_letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};

@@ -6,11 +6,14 @@ use crate::{
     },
     region::LxAstRegionData,
 };
-use latex_command::signature::table::LxCommandSignatureTable;
+use latex_command::{
+    path::menu::{command_path_menu, LxCommandPathMenu},
+    signature::table::LxCommandSignatureTable,
+};
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::{math::LxMathTokenData, rose::LxRoseTokenData},
-    idx::{LxMathTokenIdx, LxRoseTokenIdx},
+    data::{code::LxCodeTokenData, math::LxMathTokenData, rose::LxRoseTokenData},
+    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
 };
@@ -18,6 +21,7 @@ use std::{borrow::BorrowMut, iter::Peekable};
 
 pub(crate) struct LxAstParser<'a> {
     db: &'a ::salsa::Db,
+    command_path_menu: &'a LxCommandPathMenu,
     command_signature_table: &'a LxCommandSignatureTable,
     lexer: LxLexer<'a>,
     mode: LxMode,
@@ -34,8 +38,10 @@ impl<'a> LxAstParser<'a> {
         token_storage: &'a mut LxTokenStorage,
         arena: &'a mut LxAstArena,
     ) -> Self {
+        let command_path_menu = command_path_menu(db);
         Self {
             db,
+            command_path_menu,
             command_signature_table,
             lexer: LxLexer::new(db, input, token_storage),
             mode,
@@ -47,6 +53,10 @@ impl<'a> LxAstParser<'a> {
 impl<'a> LxAstParser<'a> {
     pub(crate) fn mode(&self) -> LxMode {
         self.mode
+    }
+
+    pub(crate) fn command_path_menu(&self) -> &'a LxCommandPathMenu {
+        self.command_path_menu
     }
 
     pub(crate) fn command_signature_table(&self) -> &'a LxCommandSignatureTable {
@@ -86,5 +96,9 @@ impl<'a> LxAstParser<'a> {
 
     pub(crate) fn next_rose_token(&mut self) -> Option<(LxRoseTokenIdx, LxRoseTokenData)> {
         self.lexer.next_rose_token()
+    }
+
+    pub(crate) fn next_code_token(&mut self) -> Option<(LxCodeTokenIdx, LxCodeTokenData)> {
+        self.lexer.next_code_token()
     }
 }

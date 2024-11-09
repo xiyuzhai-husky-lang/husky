@@ -1,11 +1,12 @@
 use crate::{
     data::{
+        code::LxCodeTokenData,
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
     },
-    idx::{LxMathTokenIdx, LxRoseTokenIdx},
+    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     storage::LxTokenStorage,
-    stream::{math::LxMathTokenStream, rose::LxRoseTokenStream},
+    stream::{code::LxCodeTokenStream, math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
 use husky_coword::Coword;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextRange};
@@ -112,6 +113,40 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
+    pub fn next_code_token(&mut self) -> Option<(LxCodeTokenIdx, LxCodeTokenData)> {
+        let (offset_range, range, token_data) = self.next_code_token_aux()?;
+        Some((
+            self.storage
+                .alloc_code_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_code_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxCodeTokenData)> {
+        self.chars.eat_chars_while(|c| c == ' ');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
+            if self.chars.eat_char_if(|c| c == '\n') {
+                todo!()
+                // Some(LxCodeTokenData::Error(
+                //     LxCodeTokenError::UnexpectedNewParagraph,
+                // ))
+            } else {
+                self.next_code_token_data()
+            }
+        } else {
+            self.next_code_token_data()
+        }?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
         let coword_str_slice = self.chars.next_str_slice_while(|c| c.is_alphanumeric());
         if coword_str_slice.is_empty() {
@@ -126,5 +161,9 @@ impl<'a> LxLexer<'a> {
 
     pub(crate) fn into_rose_stream(self) -> LxRoseTokenStream<'a> {
         LxRoseTokenStream::new(self)
+    }
+
+    pub(crate) fn into_code_stream(self) -> LxCodeTokenStream<'a> {
+        LxCodeTokenStream::new(self)
     }
 }
