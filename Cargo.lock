@@ -11797,6 +11797,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "timestamp-vfs"
+version = "0.1.0"
+dependencies = [
+ "tempfile",
+]
+
+[[package]]
 name = "tint"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
