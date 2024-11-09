@@ -8157,6 +8157,7 @@ dependencies = [
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-environment",
  "latex-math-letter",
  "latex-math-punctuation",
  "latex-prelude",
@@ -8186,6 +8187,17 @@ dependencies = [
  "eframe",
  "egui",
  "latex-ast",
+]
+
+[[package]]
+name = "latex-environment"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "latex-prelude",
+ "rustc-hash 2.0.0",
+ "salsa",
+ "thiserror",
 ]
 
 [[package]]
@@ -12529,11 +12541,12 @@ dependencies = [
  "husky-text-protocol",
  "latex-ast",
  "latex-command",
+ "latex-environment",
  "latex-prelude",
  "latex-token",
  "lazy_static 1.5.0",
  "salsa",
- "visored-sem-expr",
+ "visored-annotation",
 ]
 
 [[package]]
@@ -12554,6 +12567,7 @@ dependencies = [
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-environment",
  "latex-prelude",
  "salsa",
  "visored-annotation",
@@ -12588,6 +12602,7 @@ dependencies = [
  "husky-tree-utils",
  "latex-ast",
  "latex-command",
+ "latex-environment",
  "latex-prelude",
  "lean-hir-expr",
  "lean-opr",
@@ -12643,6 +12658,7 @@ dependencies = [
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-environment",
  "latex-math-letter",
  "latex-prelude",
  "latex-token",
@@ -12672,6 +12688,7 @@ dependencies = [
  "idx-arena",
  "latex-ast",
  "latex-command",
+ "latex-environment",
  "latex-math-letter",
  "latex-prelude",
  "latex-rose-punctuation",

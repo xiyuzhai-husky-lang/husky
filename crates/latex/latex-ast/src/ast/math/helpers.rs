@@ -31,9 +31,10 @@ impl LxMathAstData {
                 .copied()
                 .map(LxMathAstChild::CommandArgument)
                 .collect(),
-            LxMathAstData::Environment { asts, .. } => {
-                asts.into_iter().map(LxMathAstChild::Ast).collect()
-            }
+            LxMathAstData::Environment { asts, .. } => match asts {
+                LxAstIdxRange::Math(asts) => asts.into_iter().map(LxMathAstChild::Ast).collect(),
+                LxAstIdxRange::Rose(asts) => todo!(),
+            },
         }
     }
 }

@@ -318,6 +318,7 @@ husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 # latex
 latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
+latex-environment = { path = "crates/latex/latex-environment" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
 latex-math-punctuation = { path = "crates/latex/latex-math-punctuation" }
 latex-rose-punctuation = { path = "crates/latex/latex-rose-punctuation" }

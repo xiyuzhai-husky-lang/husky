@@ -16,6 +16,7 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
+    latex_environment::jar::LxEnvironmentJar,
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
     lean_hir_expr::jar::LnHirExprJar,

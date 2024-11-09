@@ -10,6 +10,7 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
+    latex_environment::jar::LxEnvironmentJar,
     visored_zfc_ty::jar::VdZfcTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
