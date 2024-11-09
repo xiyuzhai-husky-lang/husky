@@ -21,6 +21,7 @@ latex-prelude.workspace = true
 latex-token.workspace = true
 latex-ast.workspace = true
 latex-command = { workspace = true, optional = true }
+latex-environment = { workspace = true, optional = true }
 # protocols
 husky-text-protocol.workspace = true
 # utils
@@ -34,11 +35,12 @@ salsa.workspace = true
 husky-coword.workspace = true
 # latex
 latex-command.workspace = true
+latex-environment.workspace = true
 # visored
-visored-sem-expr = { workspace = true, features = ["test_helpers"] }
+visored-annotation = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true
 
 [features]
-test_helpers = ["dep:latex-command"]
+test_helpers = ["dep:latex-command", "dep:latex-environment"]

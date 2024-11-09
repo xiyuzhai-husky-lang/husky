@@ -4,6 +4,7 @@ use crate::{
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
 };
 use latex_command::signature::table::LxCommandSignatureTable;
+use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::storage::LxTokenStorage;
 
@@ -22,9 +23,11 @@ impl LxAstExample {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
         let command_signature_table = LxCommandSignatureTable::new_default(db);
+        let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
         let asts = parse_latex_input_into_asts(
             db,
             &command_signature_table,
+            &environment_signature_table,
             input,
             root_mode,
             &mut token_storage,
