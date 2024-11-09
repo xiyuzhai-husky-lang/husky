@@ -166,6 +166,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 command_path,
                 ref arguments,
             } => self.resolve_command(command_token_idx, command_path, arguments),
+            LxMathAstData::Environment { .. } => todo!(),
         }
     }
 

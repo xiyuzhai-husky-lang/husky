@@ -112,6 +112,11 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 ),
                 None => LxTokenIdxRange::new_single(*command_token_idx),
             },
+            LxMathAstData::Environment {
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
         }
     }
 

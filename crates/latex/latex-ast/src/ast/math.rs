@@ -3,13 +3,17 @@ pub mod helpers;
 mod tests;
 
 use super::*;
+use husky_coword::Coword;
 use latex_command::{
     path::LxCommandPath,
     signature::{parameter::LxCommandParameterMode, LxCommandSignature},
 };
 use latex_token::{
-    data::math::{digit::LxMathDigit, LxMathDelimiter},
-    idx::{LxMathTokenIdx, LxTokenIdxRange},
+    data::{
+        code::LxCodeTokenData,
+        math::{digit::LxMathDigit, LxMathDelimiter},
+    },
+    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
 };
 use smallvec::{smallvec, SmallVec};
 
@@ -38,6 +42,18 @@ pub enum LxMathAstData {
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
         arguments: SmallVec<[LxMathCommandArgument; 2]>,
+    },
+    Environment {
+        begin_command_token_idx: LxMathTokenIdx,
+        begin_lcurl_token_idx: LxMathTokenIdx,
+        begin_environment_name_token_idx: LxCodeTokenIdx,
+        environment_name: Coword,
+        begin_rcurl_token_idx: LxMathTokenIdx,
+        asts: LxMathAstIdxRange,
+        end_command_token_idx: LxMathTokenIdx,
+        end_lcurl_token_idx: LxMathTokenIdx,
+        end_environment_name_token_idx: LxCodeTokenIdx,
+        end_rcurl_token_idx: LxMathTokenIdx,
     },
 }
 
@@ -139,6 +155,11 @@ impl<'a> LxAstParser<'a> {
     fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
         match self.peek_math_token_data()? {
             LxMathTokenData::RightDelimiter(_) | LxMathTokenData::MathModeEnd => return None,
+            LxMathTokenData::Command(Ok(command_name))
+                if command_name == self.command_path_menu().end.name() =>
+            {
+                return None
+            }
             _ => (),
         };
         let (idx, token) = self.next_math_token()?;
@@ -161,8 +182,8 @@ impl<'a> LxAstParser<'a> {
                             arguments,
                         }
                     }
-                    LxCommandSignature::Begin => todo!(),
-                    LxCommandSignature::End => todo!(),
+                    LxCommandSignature::Begin => self.parse_environment(idx),
+                    LxCommandSignature::End => unreachable!(),
                 }
             }
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
@@ -236,6 +257,77 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::Superscript => todo!(),
             LxMathTokenData::Error(_) => todo!(),
             LxMathTokenData::MathModeEnd => todo!(),
+        }
+    }
+
+    fn parse_environment(&mut self, begin_command_token_idx: LxMathTokenIdx) -> LxMathAstData {
+        let Some((begin_lcurl_token_idx, begin_lcurl_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match begin_lcurl_token {
+            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => {}
+            _ => todo!(),
+        };
+        let Some((begin_environment_name_token_idx, begin_environment_name_token)) =
+            self.next_code_token()
+        else {
+            todo!()
+        };
+        let LxCodeTokenData::Word(begin_environment_name) = begin_environment_name_token else {
+            todo!()
+        };
+        let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match begin_rcurl_token {
+            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
+            _ => todo!(),
+        };
+        let asts = self.parse_math_asts();
+        let Some((end_command_token_idx, end_command_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match end_command_token {
+            LxMathTokenData::Command(Ok(command_name))
+                if command_name == self.command_path_menu().end.name() => {}
+            _ => todo!(),
+        };
+        let Some((end_lcurl_token_idx, end_lcurl_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match end_lcurl_token {
+            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => {}
+            _ => todo!(),
+        };
+        let Some((end_environment_name_token_idx, end_environment_name_token)) =
+            self.next_code_token()
+        else {
+            todo!()
+        };
+        let LxCodeTokenData::Word(end_environment_name) = end_environment_name_token else {
+            todo!()
+        };
+        let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match end_rcurl_token {
+            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
+            _ => todo!(),
+        };
+        if begin_environment_name != end_environment_name {
+            todo!()
+        }
+        LxMathAstData::Environment {
+            begin_command_token_idx,
+            begin_lcurl_token_idx,
+            begin_environment_name_token_idx,
+            environment_name: begin_environment_name,
+            begin_rcurl_token_idx,
+            asts,
+            end_command_token_idx,
+            end_lcurl_token_idx,
+            end_environment_name_token_idx,
+            end_rcurl_token_idx,
         }
     }
 }
