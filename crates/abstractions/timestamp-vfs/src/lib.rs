@@ -1,3 +1,5 @@
+//! TODO: now totally written by AI. Check it carefully.
+//!
 //! A virtual file system implementation that tracks file versions using timestamps
 //!
 //! This crate provides a simple in-memory file system abstraction that maintains file contents
@@ -11,9 +13,9 @@
 //! # Example
 //! ```
 //! # use std::io;
-//! use timestamp_vfs::{TpVfs, FileKind};
+//! use timestamp_vfs::{TpVfs, error::TpVfsResult, FileKind};
 //!
-//! # fn main() -> io::Result<()> {
+//! # fn main() -> TpVfsResult<()> {
 //! let mut vfs = TpVfs::new();
 //!
 //! // Set file content
@@ -30,11 +32,14 @@
 //! When a file is accessed via `get_file`, the VFS checks if the underlying file has been
 //! modified by comparing timestamps. If the file has changed, it automatically reloads
 //! the content from disk.
+pub mod error;
 
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::{SystemTime, UNIX_EPOCH};
+
+use error::{TpVfsError, TpVfsResult};
 
 /// Represents the type of file in the virtual file system
 #[derive(Debug, Clone, PartialEq)]
@@ -81,11 +86,13 @@ impl TpVfs {
     }
 
     /// Gets the file's last modified timestamp in milliseconds
-    fn get_timestamp<P: AsRef<Path>>(path: P) -> std::io::Result<u64> {
-        Ok(std::fs::metadata(path)?
-            .modified()?
+    fn get_timestamp<P: AsRef<Path>>(path: P) -> TpVfsResult<u64> {
+        Ok(std::fs::metadata(path)
+            .map_err(TpVfsError::MetadataIO)?
+            .modified()
+            .map_err(TpVfsError::Modified)?
             .duration_since(UNIX_EPOCH)
-            .unwrap()
+            .map_err(TpVfsError::DuringSince)?
             .as_millis() as u64)
     }
 
@@ -108,12 +115,12 @@ impl TpVfs {
         path: P,
         content: Vec<u8>,
         kind: FileKind,
-    ) -> std::io::Result<()> {
+    ) -> TpVfsResult<()> {
         let path_ref = path.as_ref();
 
         // If it's an on-disk file, write to the filesystem first
         if kind == FileKind::OnDisk {
-            std::fs::write(path_ref, &content)?;
+            std::fs::write(path_ref, &content).map_err(TpVfsError::Write)?;
         }
 
         self.files.insert(
@@ -166,14 +173,18 @@ impl TpVfs {
     /// let content = vfs.get_file(&file_path).unwrap().unwrap();
     /// assert_eq!(&*content, b"Hello");
     /// ```
-    pub fn get_file<P: AsRef<Path>>(&mut self, path: P) -> std::io::Result<Option<Arc<[u8]>>> {
+    pub fn get_file<P: AsRef<Path>>(&mut self, path: P) -> TpVfsResult<Option<Arc<[u8]>>> {
         let path_ref = path.as_ref();
 
         // First check if file exists and get its OS timestamp
         let os_timestamp = match Self::get_timestamp(path_ref) {
             Ok(ts) => ts,
-            Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(None),
-            Err(e) => return Err(e),
+            Err(e) => match e {
+                TpVfsError::MetadataIO(e) if e.kind() == std::io::ErrorKind::NotFound => {
+                    return Ok(None)
+                }
+                _ => return Err(e),
+            },
         };
 
         // Check if file needs updating
@@ -186,7 +197,7 @@ impl TpVfs {
         }
 
         // File has changed or doesn't exist in VFS - update it
-        let content = std::fs::read(path_ref)?;
+        let content = std::fs::read(path_ref).map_err(TpVfsError::Read)?;
         self.files.insert(
             path_ref.to_path_buf(),
             TpVfsFile {

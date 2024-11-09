@@ -393,6 +393,14 @@
         ],
     },
     PackageSummary {
+        name: "timestamp-vfs",
+        relative_path: "crates/abstractions/timestamp-vfs",
+        dependencies: [
+            "thiserror",
+            "tempfile",
+        ],
+    },
+    PackageSummary {
         name: "ui",
         relative_path: "crates/abstractions/ui",
         dependencies: [
