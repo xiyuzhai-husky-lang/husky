@@ -3,7 +3,10 @@ pub mod helpers;
 mod tests;
 
 use super::*;
-use latex_command::{path::LxCommandPath, signature::parameter::LxCommandParameterMode};
+use latex_command::{
+    path::LxCommandPath,
+    signature::{parameter::LxCommandParameterMode, LxCommandSignature},
+};
 use latex_token::{
     data::math::{digit::LxMathDigit, LxMathDelimiter},
     idx::{LxMathTokenIdx, LxTokenIdxRange},
@@ -145,15 +148,21 @@ impl<'a> LxAstParser<'a> {
                     todo!()
                 };
                 let command_signature = &self.command_signature_table()[command_name];
-                let command_path = command_signature.path();
-                let mut arguments: SmallVec<[LxMathCommandArgument; 2]> = smallvec![];
-                for parameter in command_signature.parameters() {
-                    arguments.push(self.parse_command_argument(parameter.mode())?);
-                }
-                LxMathAstData::Command {
-                    command_token_idx: idx,
-                    command_path,
-                    arguments,
+                match command_signature {
+                    LxCommandSignature::Complete(command_signature) => {
+                        let command_path = command_signature.path();
+                        let mut arguments: SmallVec<[LxMathCommandArgument; 2]> = smallvec![];
+                        for parameter in command_signature.parameters() {
+                            arguments.push(self.parse_command_argument(parameter.mode())?);
+                        }
+                        LxMathAstData::Command {
+                            command_token_idx: idx,
+                            command_path,
+                            arguments,
+                        }
+                    }
+                    LxCommandSignature::Begin => todo!(),
+                    LxCommandSignature::End => todo!(),
                 }
             }
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
