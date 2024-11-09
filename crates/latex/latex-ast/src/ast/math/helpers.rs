@@ -29,8 +29,11 @@ impl LxMathAstData {
             } => arguments
                 .iter()
                 .copied()
-                .map(|argument| LxMathAstChild::CommandArgument(argument))
+                .map(LxMathAstChild::CommandArgument)
                 .collect(),
+            LxMathAstData::Environment { asts, .. } => {
+                asts.into_iter().map(LxMathAstChild::Ast).collect()
+            }
         }
     }
 }

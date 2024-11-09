@@ -1,3 +1,4 @@
+pub mod code;
 pub mod math;
 pub mod rose;
 
@@ -5,6 +6,7 @@ use self::{math::LxMathTokenData, rose::LxRoseTokenData};
 use crate::lexer::LxLexer;
 #[cfg(test)]
 use crate::*;
+use code::LxCodeTokenData;
 use latex_prelude::mode::LxMode;
 
 #[enum_class::from_variants]
@@ -13,4 +15,5 @@ use latex_prelude::mode::LxMode;
 pub enum LxTokenData {
     Math(LxMathTokenData),
     Rose(LxRoseTokenData),
+    Code(LxCodeTokenData),
 }
