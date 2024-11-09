@@ -22,25 +22,36 @@ impl std::ops::Index<LxCommandName> for LxCommandSignatureTable {
 }
 
 impl LxCommandSignatureTable {
-    fn new(value: &[(LxCommandPath, &[LxCommandParameterMode])]) -> Self {
+    fn new(
+        begin: LxCommandPath,
+        end: LxCommandPath,
+        complete_commands: &[(LxCommandPath, &[LxCommandParameterMode])],
+    ) -> Self {
         Self {
-            signatures: value
-                .into_iter()
-                .copied()
-                .map(|(path, parameter_modes)| {
-                    (
-                        path.name(),
-                        LxCommandSignature {
-                            path,
-                            parameters: parameter_modes
-                                .into_iter()
-                                .copied()
-                                .map(LxCommandParameter::new)
-                                .collect(),
-                        },
-                    )
-                })
-                .collect(),
+            signatures: [
+                (begin.name(), LxCommandSignature::Begin),
+                (end.name(), LxCommandSignature::End),
+            ]
+            .into_iter()
+            .chain(
+                complete_commands
+                    .into_iter()
+                    .copied()
+                    .map(|(path, parameter_modes)| {
+                        (
+                            path.name(),
+                            LxCommandSignature::Complete(LxCompleteCommandSignature {
+                                path,
+                                parameters: parameter_modes
+                                    .into_iter()
+                                    .copied()
+                                    .map(LxCommandParameter::new)
+                                    .collect(),
+                            }),
+                        )
+                    }),
+            )
+            .collect(),
         }
     }
 }
@@ -58,6 +69,8 @@ impl LxCommandSignatureTable {
         use LxCommandParameterMode::*;
 
         let LxCommandPathMenu {
+            begin,
+            end,
             int,
             sum,
             prod,
@@ -73,21 +86,25 @@ impl LxCommandSignatureTable {
             frac,
             text,
         } = *command_path_menu(db);
-        Self::new(&[
-            (int, &[]),
-            (sum, &[]),
-            (prod, &[]),
-            (times, &[]),
-            (otimes, &[]),
-            (alpha, &[]),
-            (beta, &[]),
-            (gamma, &[]),
-            (pi, &[]),
-            (sqrt, &[Math]),
-            (sin, &[]),
-            (cos, &[]),
-            (frac, &[Math, Math]),
-            (text, &[Rose]),
-        ])
+        Self::new(
+            begin,
+            end,
+            &[
+                (int, &[]),
+                (sum, &[]),
+                (prod, &[]),
+                (times, &[]),
+                (otimes, &[]),
+                (alpha, &[]),
+                (beta, &[]),
+                (gamma, &[]),
+                (pi, &[]),
+                (sqrt, &[Math]),
+                (sin, &[]),
+                (cos, &[]),
+                (frac, &[Math, Math]),
+                (text, &[Rose]),
+            ],
+        )
     }
 }

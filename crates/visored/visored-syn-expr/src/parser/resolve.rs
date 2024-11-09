@@ -20,7 +20,7 @@ use visored_opr::{
     separator::VdBaseSeparator,
 };
 use visored_resolution::resolution::{
-    command::VdCommandResolution, punctuation::VdPunctuationResolution,
+    command::VdCompleteCommandResolution, punctuation::VdPunctuationResolution,
 };
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
@@ -178,7 +178,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         use crate::builder::ToVdSyn;
 
         match self.builder.default_resolution_table()[command_path] {
-            VdCommandResolution::Letter(letter) => {
+            VdCompleteCommandResolution::Letter(letter) => {
                 let token_idx_range = match arguments.last() {
                     Some(argument) => {
                         LxTokenIdxRange::new_closed(*command_token_idx, *argument.rcurl_token_idx())
@@ -193,11 +193,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            VdCommandResolution::Todo => {
+            VdCompleteCommandResolution::Todo => {
                 todo!("command_path = {:?}", command_path.debug(self.builder.db()))
             }
-            VdCommandResolution::Item(_) => todo!(),
-            VdCommandResolution::Frac => {
+            VdCompleteCommandResolution::Item(_) => todo!(),
+            VdCompleteCommandResolution::Frac => {
                 debug_assert!(arguments.len() == 2);
                 let [numerator_arg, denominator_arg] = arguments else {
                     unreachable!()
@@ -223,7 +223,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            VdCommandResolution::Sqrt => {
+            VdCompleteCommandResolution::Sqrt => {
                 debug_assert!(arguments.len() == 1);
                 let [radicand_arg] = arguments else {
                     unreachable!()
@@ -242,8 +242,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            VdCommandResolution::Text => todo!(),
-            VdCommandResolution::Opr(vd_base_opr) => {
+            VdCompleteCommandResolution::Text => todo!(),
+            VdCompleteCommandResolution::Opr(vd_base_opr) => {
                 ResolvedToken::Opr(command_token_idx, vd_base_opr)
             }
         }

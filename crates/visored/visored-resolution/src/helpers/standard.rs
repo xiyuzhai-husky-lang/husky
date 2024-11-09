@@ -4,7 +4,7 @@ use visored_item_path::VdItemPath;
 
 use crate::{
     resolution::{
-        command::{VdCommandResolution, VdCommandResolutionMap},
+        command::{VdCompleteCommandResolution, VdCompleteCommandResolutionMap},
         punctuation::VdPunctuationResolution,
     },
     table::VdDefaultResolutionTable,
@@ -23,7 +23,7 @@ fn standard_command_resolution_map(
     db: &salsa::Db,
 ) -> std::collections::HashMap<
     latex_command::path::LxCommandPath,
-    crate::resolution::command::VdCommandResolution,
+    crate::resolution::command::VdCompleteCommandResolution,
     rustc_hash::FxBuildHasher,
 > {
     let LxCommandPathMenu {
@@ -41,22 +41,23 @@ fn standard_command_resolution_map(
         sqrt,
         frac,
         text,
+        ..
     } = *command_path_menu(db);
-    VdCommandResolutionMap::from_iter([
-        (int, VdCommandResolution::INT),
-        (sum, VdCommandResolution::SUM),
-        (prod, VdCommandResolution::PROD),
-        (times, VdCommandResolution::TIMES),
-        (otimes, VdCommandResolution::OTIMES),
-        (alpha, VdCommandResolution::ALPHA),
-        (beta, VdCommandResolution::BETA),
-        (gamma, VdCommandResolution::GAMMA),
-        (pi, VdCommandResolution::PI),
-        (sin, VdCommandResolution::Item(VdItemPath::SIN)),
-        (cos, VdCommandResolution::Item(VdItemPath::COS)),
-        (sqrt, VdCommandResolution::Sqrt),
-        (frac, VdCommandResolution::Frac),
-        (text, VdCommandResolution::Text),
+    VdCompleteCommandResolutionMap::from_iter([
+        (int, VdCompleteCommandResolution::INT),
+        (sum, VdCompleteCommandResolution::SUM),
+        (prod, VdCompleteCommandResolution::PROD),
+        (times, VdCompleteCommandResolution::TIMES),
+        (otimes, VdCompleteCommandResolution::OTIMES),
+        (alpha, VdCompleteCommandResolution::ALPHA),
+        (beta, VdCompleteCommandResolution::BETA),
+        (gamma, VdCompleteCommandResolution::GAMMA),
+        (pi, VdCompleteCommandResolution::PI),
+        (sin, VdCompleteCommandResolution::Item(VdItemPath::SIN)),
+        (cos, VdCompleteCommandResolution::Item(VdItemPath::COS)),
+        (sqrt, VdCompleteCommandResolution::Sqrt),
+        (frac, VdCompleteCommandResolution::Frac),
+        (text, VdCompleteCommandResolution::Text),
     ])
 }
 
