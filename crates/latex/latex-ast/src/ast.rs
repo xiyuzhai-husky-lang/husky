@@ -262,7 +262,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -277,7 +279,9 @@ fn parse_tex_input_into_asts_works() {
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                         ],
                     },
@@ -312,7 +316,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -359,7 +365,9 @@ fn parse_tex_input_into_asts_works() {
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
@@ -410,7 +418,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -455,7 +465,9 @@ fn parse_tex_input_into_asts_works() {
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
@@ -507,7 +519,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -552,7 +566,9 @@ fn parse_tex_input_into_asts_works() {
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
@@ -604,7 +620,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -650,7 +668,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:4, 1:5),
                             Math(
                                 Letter(
-                                    LowerI,
+                                    LowerLatin(
+                                        I,
+                                    ),
                                 ),
                             ),
                         ),
@@ -713,7 +733,9 @@ fn parse_tex_input_into_asts_works() {
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Letter(
                                 LxMathTokenIdx(
@@ -721,7 +743,9 @@ fn parse_tex_input_into_asts_works() {
                                         3,
                                     ),
                                 ),
-                                LowerI,
+                                LowerLatin(
+                                    I,
+                                ),
                             ),
                             LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
