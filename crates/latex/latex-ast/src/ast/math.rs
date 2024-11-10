@@ -51,7 +51,7 @@ pub enum LxMathAstData {
         right_delimiter_token_idx: LxMathTokenIdx,
         right_delimiter: LxMathDelimiter,
     },
-    Command {
+    CompleteCommand {
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
         arguments: SmallVec<[LxMathCommandArgument; 2]>,
@@ -197,7 +197,7 @@ impl<'a> LxAstParser<'a> {
                         for parameter in command_signature.parameters() {
                             arguments.push(self.parse_command_argument(parameter.mode())?);
                         }
-                        LxMathAstData::Command {
+                        LxMathAstData::CompleteCommand {
                             command_token_idx: idx,
                             command_path,
                             arguments,

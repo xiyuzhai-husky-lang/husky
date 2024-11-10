@@ -106,7 +106,7 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 right_delimiter_token_idx,
                 right_delimiter,
             } => LxTokenIdxRange::new_closed(*left_delimiter_token_idx, *right_delimiter_token_idx),
-            LxMathAstData::Command {
+            LxMathAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
                 ref arguments,
