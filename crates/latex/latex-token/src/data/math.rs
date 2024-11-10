@@ -3,7 +3,7 @@ pub mod digit;
 use self::digit::LxMathDigit;
 use super::*;
 use latex_command::path::{LxCommandName, LxCommandNameResult};
-use latex_math_letter::LxMathLetter;
+use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 
 #[salsa::derive_debug_with_db]

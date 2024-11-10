@@ -3,7 +3,7 @@ pub mod table;
 
 use self::parameter::LxCommandParameters;
 use crate::path::LxCommandPath;
-use latex_math_letter::LxMathLetterStyle;
+use latex_math_letter::letter::styled::LxMathLetterStyle;
 use parameter::LxCommandParameter;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

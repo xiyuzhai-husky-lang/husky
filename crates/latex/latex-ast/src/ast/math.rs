@@ -12,7 +12,7 @@ use latex_environment::{
     path::{LxEnvironmentName, LxEnvironmentPath},
     signature::LxEnvironmentSignature,
 };
-use latex_math_letter::LxMathLetterStyle;
+use latex_math_letter::letter::styled::LxMathLetterStyle;
 use latex_token::{
     data::{
         code::LxCodeTokenData,
