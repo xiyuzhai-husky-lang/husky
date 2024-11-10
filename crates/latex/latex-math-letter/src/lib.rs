@@ -11,6 +11,7 @@ pub enum LxMathLetter {
     UpperLatin(LxMathLatinLetter),
     LowerLatin(LxMathLatinLetter),
     StyledUpperLatin(LxMathLetterStyle, LxMathLatinLetter),
+    StyledLowerLatin(LxMathLetterStyle, LxMathLatinLetter),
     DistinctUpperGreek(LxMathDistinctUpperGreekLetter),
     DistinctLowerGreek(LxMathDistinctLowerGreekLetter),
 }
@@ -21,6 +22,7 @@ impl LxMathLetter {
             LxMathLetter::UpperLatin(lx_math_latin_letter) => todo!(),
             LxMathLetter::LowerLatin(lx_math_latin_letter) => todo!(),
             LxMathLetter::StyledUpperLatin(lx_math_letter_style, lx_math_latin_letter) => todo!(),
+            LxMathLetter::StyledLowerLatin(lx_math_letter_style, lx_math_latin_letter) => todo!(),
             LxMathLetter::DistinctUpperGreek(lx_math_upper_greek_letter) => todo!(),
             LxMathLetter::DistinctLowerGreek(lx_math_lower_greek_letter) => todo!(),
         }
@@ -122,8 +124,10 @@ impl LxMathLetter {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LxMathLetterStyle {
     Mathbb,
-    Mathfrak,
     Mathcal,
+    Mathfrak,
+    Mathit,
+    Mathrm,
     Mathscr,
     Mathsf,
 }
@@ -132,18 +136,21 @@ impl LxMathLetterStyle {
     pub const MATHBB: Self = Self::Mathbb;
     pub const MATHFRAK: Self = Self::Mathfrak;
     pub const MATHCAL: Self = Self::Mathcal;
+    pub const MATHIT: Self = Self::Mathit;
+    pub const MATHRM: Self = Self::Mathrm;
     pub const MATHSCR: Self = Self::Mathscr;
     pub const MATHSF: Self = Self::Mathsf;
 }
 
 impl LxMathLetterStyle {
-    pub fn apply(self, letter: LxMathLetter) -> Option<LxMathLetter> {
+    pub fn apply(self, letter: LxMathLetter) -> LxMathLetterResult<LxMathLetter> {
         match letter {
-            LxMathLetter::UpperLatin(lx_math_latin_letter) => todo!(),
-            LxMathLetter::LowerLatin(lx_math_latin_letter) => todo!(),
-            LxMathLetter::StyledUpperLatin(lx_math_letter_style, lx_math_latin_letter) => todo!(),
-            LxMathLetter::DistinctUpperGreek(lx_math_upper_greek_letter) => todo!(),
-            LxMathLetter::DistinctLowerGreek(lx_math_lower_greek_letter) => todo!(),
+            LxMathLetter::UpperLatin(l) => Ok(LxMathLetter::StyledUpperLatin(self, l)),
+            LxMathLetter::LowerLatin(l) => Ok(LxMathLetter::StyledLowerLatin(self, l)),
+            LxMathLetter::StyledUpperLatin(_, _) => todo!(),
+            LxMathLetter::StyledLowerLatin(_, _) => todo!(),
+            LxMathLetter::DistinctUpperGreek(_) => todo!(),
+            LxMathLetter::DistinctLowerGreek(_) => todo!(),
         }
     }
 }

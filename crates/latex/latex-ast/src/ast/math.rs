@@ -25,7 +25,15 @@ use smallvec::{smallvec, SmallVec};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxMathAstData {
-    Letter(LxMathTokenIdx, LxMathLetter),
+    PlainLetter(LxMathTokenIdx, LxMathLetter),
+    StyledLetter {
+        style_command_token_idx: LxMathTokenIdx,
+        style_lcurl_token_idx: LxMathTokenIdx,
+        plain_letter_token_idx: LxMathTokenIdx,
+        style_rcurl_token_idx: LxMathTokenIdx,
+        style: LxMathLetterStyle,
+        styled_letter: LxMathLetter,
+    },
     Punctuation(LxMathTokenIdx, LxMathPunctuation),
     Digit(LxMathTokenIdx, LxMathDigit),
     /// not obtained through parsing, but through ui
@@ -173,7 +181,15 @@ impl<'a> LxAstParser<'a> {
                 let Ok(command_name) = command_name else {
                     todo!()
                 };
-                let command_signature = &self.command_signature_table()[command_name];
+                let Some(command_signature) =
+                    self.command_signature_table().signature(command_name)
+                else {
+                    use salsa::DisplayWithDb;
+                    todo!(
+                        "handle command `{}` not found in command signature table",
+                        command_name.display(self.db())
+                    )
+                };
                 match *command_signature {
                     LxCommandSignature::Complete(ref command_signature) => {
                         let command_path = command_signature.path();
@@ -196,7 +212,7 @@ impl<'a> LxAstParser<'a> {
             }
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
             LxMathTokenData::RightDelimiter(_) => unreachable!(),
-            LxMathTokenData::Letter(letter) => LxMathAstData::Letter(idx, letter),
+            LxMathTokenData::Letter(letter) => LxMathAstData::PlainLetter(idx, letter),
             LxMathTokenData::Punctuation(opr) => LxMathAstData::Punctuation(idx, opr), // it's not constructed into a tree yet in the ast stage
             LxMathTokenData::Digit(digit) => LxMathAstData::Digit(idx, digit),
             LxMathTokenData::Other(c) => todo!("c: {}", c),
@@ -354,7 +370,7 @@ impl<'a> LxAstParser<'a> {
 
     fn parse_styled_letter(
         &mut self,
-        letter_token_idx: LxMathTokenIdx,
+        style_command_token_idx: LxMathTokenIdx,
         style: LxMathLetterStyle,
     ) -> LxMathAstData {
         let Some((style_lcurl_token_idx, style_lcurl_token)) = self.next_math_token() else {
@@ -364,10 +380,10 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => (),
             _ => todo!(),
         };
-        let Some((letter_token_idx, letter_token)) = self.next_math_token() else {
+        let Some((plain_letter_token_idx, plain_letter_token)) = self.next_math_token() else {
             todo!()
         };
-        let LxMathTokenData::Letter(letter) = letter_token else {
+        let LxMathTokenData::Letter(plain_letter) = plain_letter_token else {
             todo!()
         };
         let Some((style_rcurl_token_idx, style_rcurl_token)) = self.next_math_token() else {
@@ -377,7 +393,17 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
             _ => todo!(),
         };
-        let styled_letter = style.apply(letter);
-        todo!()
+        let styled_letter = match style.apply(plain_letter) {
+            Ok(styled_letter) => styled_letter,
+            Err(e) => todo!("{}", e),
+        };
+        LxMathAstData::StyledLetter {
+            style_command_token_idx,
+            style_lcurl_token_idx,
+            plain_letter_token_idx,
+            style_rcurl_token_idx,
+            style,
+            styled_letter,
+        }
     }
 }

@@ -18,7 +18,8 @@ impl LxMathAstData {
                 .chain(scripts.iter().map(|&(_, ast)| ast))
                 .map(LxMathAstChild::Ast)
                 .collect(),
-            LxMathAstData::Letter(_, _) => vec![],
+            LxMathAstData::PlainLetter(_, _) => vec![],
+            LxMathAstData::StyledLetter { .. } => vec![],
             LxMathAstData::Punctuation(_, _) => vec![],
             LxMathAstData::Digit(_, _) => vec![],
             LxMathAstData::TextEdit { ref buffer } => vec![],
