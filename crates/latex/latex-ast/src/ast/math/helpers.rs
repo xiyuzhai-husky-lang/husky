@@ -23,7 +23,7 @@ impl LxMathAstData {
             LxMathAstData::Punctuation(_, _) => vec![],
             LxMathAstData::Digit(_, _) => vec![],
             LxMathAstData::TextEdit { ref buffer } => vec![],
-            LxMathAstData::Command {
+            LxMathAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
                 ref arguments,

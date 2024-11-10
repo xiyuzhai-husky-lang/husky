@@ -105,22 +105,10 @@ fn lx_math_punctuation_standard_resolution(
 
 fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterResolutionMap {
     [
-        (
-            LxMathLetter::MATHBB_N,
-            Some(VdLetterResolution::NATURAL_NUMBER),
-        ),
-        (
-            LxMathLetter::MATHBB_Q,
-            Some(VdLetterResolution::RATIONAL_NUMBER),
-        ),
-        (
-            LxMathLetter::MATHBB_R,
-            Some(VdLetterResolution::REAL_NUMBER),
-        ),
-        (
-            LxMathLetter::MATHBB_C,
-            Some(VdLetterResolution::COMPLEX_NUMBER),
-        ),
+        (LxMathLetter::MATHBB_N, VdLetterResolution::NATURAL_NUMBER),
+        (LxMathLetter::MATHBB_Q, VdLetterResolution::RATIONAL_NUMBER),
+        (LxMathLetter::MATHBB_R, VdLetterResolution::REAL_NUMBER),
+        (LxMathLetter::MATHBB_C, VdLetterResolution::COMPLEX_NUMBER),
     ]
     .into_iter()
     .collect()

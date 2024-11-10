@@ -7,7 +7,7 @@ pub enum VdLetterResolution {
     Item(VdItemPath),
 }
 
-pub type VdLetterResolutionMap = FxHashMap<LxMathLetter, Option<VdLetterResolution>>;
+pub type VdLetterResolutionMap = FxHashMap<LxMathLetter, VdLetterResolution>;
 
 impl VdLetterResolution {
     pub const NATURAL_NUMBER: Self = Self::Item(VdItemPath::NATURAL_NUMBER);

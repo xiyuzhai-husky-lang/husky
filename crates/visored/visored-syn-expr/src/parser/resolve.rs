@@ -72,7 +72,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 {
                     return todo!();
                 }
-                match self.builder.default_resolution_table()[punctuation] {
+                match self
+                    .builder
+                    .default_resolution_table()
+                    .resolve_punctuation(punctuation)
+                {
                     Some(resolution) => match resolution {
                         VdPunctuationResolution::Opr(opr) => ResolvedToken::Opr(token_idx, opr),
                         VdPunctuationResolution::Separator(separator) => {
@@ -162,16 +166,16 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 },
                 VdSynExprClass::ATOM,
             ),
-            LxMathAstData::Command {
+            LxMathAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
                 ref arguments,
-            } => self.resolve_command(command_token_idx, command_path, arguments),
+            } => self.resolve_complete_command(command_token_idx, command_path, arguments),
             LxMathAstData::Environment { .. } => todo!(),
         }
     }
 
-    fn resolve_command(
+    fn resolve_complete_command(
         &mut self,
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
@@ -179,7 +183,14 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     ) -> ResolvedToken {
         use crate::builder::ToVdSyn;
 
-        match self.builder.default_resolution_table()[command_path] {
+        let Some(resolve_complete_command) = self
+            .builder
+            .default_resolution_table()
+            .resolve_complete_command(command_path)
+        else {
+            todo!()
+        };
+        match *resolve_complete_command {
             VdCompleteCommandResolution::Letter(letter) => {
                 let token_idx_range = match arguments.last() {
                     Some(argument) => {
