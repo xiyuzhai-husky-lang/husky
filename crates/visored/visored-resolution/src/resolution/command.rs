@@ -24,8 +24,8 @@ impl VdCompleteCommandResolution {
     pub const PROD: Self = Self::Opr(VdBaseOpr::PROD);
     pub const TIMES: Self = Self::Opr(VdBaseOpr::TIMES);
     pub const OTIMES: Self = Self::Opr(VdBaseOpr::OTIMES);
-    pub const ALPHA: Self = Self::Letter(LxMathLetter::LowerAlpha);
-    pub const BETA: Self = Self::Letter(LxMathLetter::LowerBeta);
-    pub const GAMMA: Self = Self::Letter(LxMathLetter::LowerGamma);
-    pub const PI: Self = Self::Letter(LxMathLetter::LowerPi);
+    pub const LOWER_ALPHA: Self = Self::Letter(LxMathLetter::LOWER_ALPHA);
+    pub const LOWER_BETA: Self = Self::Letter(LxMathLetter::LOWER_BETA);
+    pub const LOWER_GAMMA: Self = Self::Letter(LxMathLetter::LOWER_GAMMA);
+    pub const LOWER_PI: Self = Self::Letter(LxMathLetter::LOWER_PI);
 }
