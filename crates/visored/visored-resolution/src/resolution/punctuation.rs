@@ -1,3 +1,4 @@
+use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_opr::{
     delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
     opr::VdBaseOpr,
@@ -12,6 +13,8 @@ pub enum VdPunctuationResolution {
     RightDelimiter(VdBaseRightDelimiter),
     Todo,
 }
+
+pub type VdPunctuationResolutionMap = LxMathPunctuationMap<Option<VdPunctuationResolution>>;
 
 impl VdPunctuationResolution {
     pub const SEPARATOR_ADD: Self = Self::Separator(VdBaseSeparator::ADD);

@@ -16,7 +16,7 @@ use latex_command::{
     signature::table::LxCommandSignatureTable,
 };
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
-use latex_math_letter::LxMathLetter;
+use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{

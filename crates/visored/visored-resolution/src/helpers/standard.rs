@@ -1,10 +1,12 @@
 use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
-use latex_math_punctuation::{LxMathPunctationMap, LxMathPunctuation};
-use visored_item_path::VdItemPath;
+use latex_math_letter::letter::LxMathLetter;
+use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
+use visored_item_path::path::VdItemPath;
 
 use crate::{
     resolution::{
         command::{VdCompleteCommandResolution, VdCompleteCommandResolutionMap},
+        letter::{VdLetterResolution, VdLetterResolutionMap},
         punctuation::VdPunctuationResolution,
     },
     table::VdDefaultResolutionTable,
@@ -13,9 +15,14 @@ use crate::{
 impl VdDefaultResolutionTable {
     pub fn new_standard(db: &salsa::Db) -> Self {
         let punctuation_resolution_map =
-            LxMathPunctationMap::new(lx_math_punctuation_standard_resolution);
+            LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
         let command_resolution_map = standard_command_resolution_map(db);
-        Self::new(punctuation_resolution_map, command_resolution_map, db)
+        let letter_resolution_map = standard_letter_resolution_map(db);
+        Self::new(
+            punctuation_resolution_map,
+            command_resolution_map,
+            letter_resolution_map,
+        )
     }
 }
 
@@ -94,4 +101,27 @@ fn lx_math_punctuation_standard_resolution(
         LxMathPunctuation::EscapedLcurl => Some(VdPunctuationResolution::Todo),
         LxMathPunctuation::EscapedRcurl => Some(VdPunctuationResolution::Todo),
     }
+}
+
+fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterResolutionMap {
+    [
+        (
+            LxMathLetter::MATHBB_N,
+            Some(VdLetterResolution::NATURAL_NUMBER),
+        ),
+        (
+            LxMathLetter::MATHBB_Q,
+            Some(VdLetterResolution::RATIONAL_NUMBER),
+        ),
+        (
+            LxMathLetter::MATHBB_R,
+            Some(VdLetterResolution::REAL_NUMBER),
+        ),
+        (
+            LxMathLetter::MATHBB_C,
+            Some(VdLetterResolution::COMPLEX_NUMBER),
+        ),
+    ]
+    .into_iter()
+    .collect()
 }

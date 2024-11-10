@@ -6,7 +6,7 @@ use latex_ast::ast::math::{
     LxMathAstData, LxMathAstIdx, LxMathCommandArgument, LxMathCommandArgumentData,
 };
 use latex_command::path::LxCommandPath;
-use latex_math_letter::LxMathLetter;
+use latex_math_letter::letter::LxMathLetter;
 use latex_token::{
     data::math::digit::LxMathDigit,
     idx::{LxMathTokenIdx, LxTokenIdxRange},
