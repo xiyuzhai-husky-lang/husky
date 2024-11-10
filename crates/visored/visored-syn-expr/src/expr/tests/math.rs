@@ -405,3 +405,15 @@ fn attach_vd_syn_expr_parsing_works() {
         "#]],
     );
 }
+
+#[test]
+fn styled_letter_vd_syn_expr_parsing_works() {
+    t(
+        "\\mathbb{N}",
+        &[],
+        &[],
+        &expect![[r#"
+            "\\mathbb{N}" expr.letter
+        "#]],
+    );
+}

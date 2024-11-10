@@ -65,7 +65,39 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            LxMathAstData::StyledLetter { .. } => todo!(),
+            LxMathAstData::StyledLetter {
+                style_command_token_idx,
+                style_lcurl_token_idx,
+                plain_letter_token_idx,
+                style_rcurl_token_idx,
+                style,
+                styled_letter,
+            } => {
+                if let Some(token_annotation) = self
+                    .builder
+                    .annotations()
+                    .token_annotation(*style_command_token_idx)
+                {
+                    return todo!();
+                }
+                if let Some(token_annotation) = self
+                    .builder
+                    .annotations()
+                    .token_annotation(*plain_letter_token_idx)
+                {
+                    return todo!();
+                }
+                ResolvedToken::Expr(
+                    VdSynExprData::Letter {
+                        token_idx_range: LxTokenIdxRange::new_closed(
+                            *style_command_token_idx,
+                            *style_rcurl_token_idx,
+                        ),
+                        letter: styled_letter,
+                    },
+                    VdSynExprClass::ATOM,
+                )
+            }
             LxMathAstData::Punctuation(token_idx, punctuation) => {
                 if let Some(token_annotation) =
                     self.builder.annotations().token_annotation(*token_idx)
