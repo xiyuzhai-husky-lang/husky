@@ -8174,6 +8174,7 @@ name = "latex-command"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "latex-math-letter",
  "latex-prelude",
  "rustc-hash 2.0.0",
  "salsa",
@@ -8203,6 +8204,9 @@ dependencies = [
 [[package]]
 name = "latex-math-letter"
 version = "0.1.0"
+dependencies = [
+ "thiserror",
+]
 
 [[package]]
 name = "latex-math-punctuation"

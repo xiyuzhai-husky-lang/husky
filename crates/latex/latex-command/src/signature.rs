@@ -3,11 +3,13 @@ pub mod table;
 
 use self::parameter::LxCommandParameters;
 use crate::path::LxCommandPath;
+use latex_math_letter::LxMathLetterStyle;
 use parameter::LxCommandParameter;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxCommandSignature {
     Complete(LxCompleteCommandSignature),
+    MathLetterStyle(LxMathLetterStyle),
     Begin,
     End,
 }

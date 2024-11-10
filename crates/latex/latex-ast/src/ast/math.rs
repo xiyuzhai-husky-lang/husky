@@ -12,6 +12,7 @@ use latex_environment::{
     path::{LxEnvironmentName, LxEnvironmentPath},
     signature::LxEnvironmentSignature,
 };
+use latex_math_letter::LxMathLetterStyle;
 use latex_token::{
     data::{
         code::LxCodeTokenData,
@@ -173,8 +174,8 @@ impl<'a> LxAstParser<'a> {
                     todo!()
                 };
                 let command_signature = &self.command_signature_table()[command_name];
-                match command_signature {
-                    LxCommandSignature::Complete(command_signature) => {
+                match *command_signature {
+                    LxCommandSignature::Complete(ref command_signature) => {
                         let command_path = command_signature.path();
                         let mut arguments: SmallVec<[LxMathCommandArgument; 2]> = smallvec![];
                         for parameter in command_signature.parameters() {
@@ -188,6 +189,9 @@ impl<'a> LxAstParser<'a> {
                     }
                     LxCommandSignature::Begin => self.parse_environment(idx),
                     LxCommandSignature::End => unreachable!(),
+                    LxCommandSignature::MathLetterStyle(style) => {
+                        self.parse_styled_letter(idx, style)
+                    }
                 }
             }
             LxMathTokenData::LeftDelimiter(delimiter) => self.parse_delimited(idx, delimiter),
@@ -346,5 +350,34 @@ impl<'a> LxAstParser<'a> {
             end_rcurl_token_idx,
             environment_signature,
         }
+    }
+
+    fn parse_styled_letter(
+        &mut self,
+        letter_token_idx: LxMathTokenIdx,
+        style: LxMathLetterStyle,
+    ) -> LxMathAstData {
+        let Some((style_lcurl_token_idx, style_lcurl_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match style_lcurl_token {
+            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => (),
+            _ => todo!(),
+        };
+        let Some((letter_token_idx, letter_token)) = self.next_math_token() else {
+            todo!()
+        };
+        let LxMathTokenData::Letter(letter) = letter_token else {
+            todo!()
+        };
+        let Some((style_rcurl_token_idx, style_rcurl_token)) = self.next_math_token() else {
+            todo!()
+        };
+        match style_rcurl_token {
+            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
+            _ => todo!(),
+        };
+        let styled_letter = style.apply(letter);
+        todo!()
     }
 }

@@ -119,19 +119,29 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Letter(
-                    LowerH,
+                    LowerLatin(
+                        H,
+                    ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerE,
+                    LowerLatin(
+                        E,
+                    ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerL,
+                    LowerLatin(
+                        L,
+                    ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerL,
+                    LowerLatin(
+                        L,
+                    ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerO,
+                    LowerLatin(
+                        O,
+                    ),
                 ),
             ]
         "#]],
@@ -293,7 +303,9 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Letter(
-                    LowerX,
+                    LowerLatin(
+                        X,
+                    ),
                 ),
                 LxMathTokenData::Punctuation(
                     Add,
@@ -309,7 +321,9 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Letter(
-                    LowerX,
+                    LowerLatin(
+                        X,
+                    ),
                 ),
                 LxMathTokenData::Subscript,
                 LxMathTokenData::Digit(
@@ -317,7 +331,9 @@ fn next_text_token_data_works() {
                 ),
                 LxMathTokenData::Superscript,
                 LxMathTokenData::Letter(
-                    LowerA,
+                    LowerLatin(
+                        A,
+                    ),
                 ),
                 LxMathTokenData::Punctuation(
                     Add,
@@ -362,7 +378,9 @@ fn next_text_token_data_works() {
                     ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerX,
+                    LowerLatin(
+                        X,
+                    ),
                 ),
                 LxMathTokenData::Superscript,
                 LxMathTokenData::Digit(
@@ -384,13 +402,19 @@ fn next_text_token_data_works() {
                     Three,
                 ),
                 LxMathTokenData::Letter(
-                    LowerX,
+                    LowerLatin(
+                        X,
+                    ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerD,
+                    LowerLatin(
+                        D,
+                    ),
                 ),
                 LxMathTokenData::Letter(
-                    LowerX,
+                    LowerLatin(
+                        X,
+                    ),
                 ),
             ]
         "#]],

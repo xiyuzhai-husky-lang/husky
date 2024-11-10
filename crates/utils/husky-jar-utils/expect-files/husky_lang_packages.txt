@@ -3572,9 +3572,17 @@
         relative_path: "crates/latex/latex-command",
         dependencies: [
             "husky-coword",
+            "latex-math-letter",
             "latex-prelude",
             "rustc-hash",
             "salsa",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "latex-math-letter",
+        relative_path: "crates/latex/latex-math-letter",
+        dependencies: [
             "thiserror",
         ],
     },
@@ -3595,11 +3603,6 @@
             "salsa",
             "thiserror",
         ],
-    },
-    PackageSummary {
-        name: "latex-math-letter",
-        relative_path: "crates/latex/latex-math-letter",
-        dependencies: [],
     },
     PackageSummary {
         name: "latex-math-punctuation",
