@@ -126,8 +126,6 @@ pub enum LxMathLetterStyle {
     Mathcal,
     Mathscr,
     Mathsf,
-    Mathsl,
-    Mathss,
 }
 
 impl LxMathLetterStyle {
@@ -136,8 +134,6 @@ impl LxMathLetterStyle {
     pub const MATHCAL: Self = Self::Mathcal;
     pub const MATHSCR: Self = Self::Mathscr;
     pub const MATHSF: Self = Self::Mathsf;
-    pub const MATHSL: Self = Self::Mathsl;
-    pub const MATHSS: Self = Self::Mathss;
 }
 
 impl LxMathLetterStyle {
