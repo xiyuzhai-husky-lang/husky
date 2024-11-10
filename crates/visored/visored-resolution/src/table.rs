@@ -1,9 +1,10 @@
 use crate::resolution::{
     command::{VdCompleteCommandResolution, VdCompleteCommandResolutionMap},
-    letter::VdLetterResolutionMap,
+    letter::{VdLetterResolution, VdLetterResolutionMap},
     punctuation::{VdPunctuationResolution, VdPunctuationResolutionMap},
 };
 use latex_command::path::LxCommandPath;
+use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 
 pub struct VdDefaultResolutionTable {
@@ -26,18 +27,22 @@ impl VdDefaultResolutionTable {
     }
 }
 
-impl std::ops::Index<LxMathPunctuation> for VdDefaultResolutionTable {
-    type Output = Option<VdPunctuationResolution>;
-
-    fn index(&self, index: LxMathPunctuation) -> &Self::Output {
-        &self.punctuation_resolution_map[index]
+impl VdDefaultResolutionTable {
+    pub fn resolve_punctuation(
+        &self,
+        punctuation: LxMathPunctuation,
+    ) -> Option<VdPunctuationResolution> {
+        self.punctuation_resolution_map[punctuation]
     }
-}
 
-impl std::ops::Index<LxCommandPath> for VdDefaultResolutionTable {
-    type Output = VdCompleteCommandResolution;
+    pub fn resolve_complete_command(
+        &self,
+        command_path: LxCommandPath,
+    ) -> Option<&VdCompleteCommandResolution> {
+        self.complete_command_resolution_map.get(&command_path)
+    }
 
-    fn index(&self, index: LxCommandPath) -> &Self::Output {
-        &self.complete_command_resolution_map[&index]
+    pub fn resolve_letter(&self, letter: LxMathLetter) -> Option<VdLetterResolution> {
+        self.letter_resolution_map.get(&letter).copied()
     }
 }
