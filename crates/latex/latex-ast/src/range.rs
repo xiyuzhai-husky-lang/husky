@@ -82,7 +82,12 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
 
     fn calc_math_ast(&mut self, data: &LxMathAstData) -> LxTokenIdxRange {
         match *data {
-            LxMathAstData::Letter(idx, _) => LxTokenIdxRange::new_single(*idx),
+            LxMathAstData::PlainLetter(idx, _) => LxTokenIdxRange::new_single(*idx),
+            LxMathAstData::StyledLetter {
+                style_command_token_idx,
+                style_rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*style_command_token_idx, *style_rcurl_token_idx),
             LxMathAstData::Punctuation(idx, _) => LxTokenIdxRange::new_single(*idx),
             LxMathAstData::Digit(idx, _) => LxTokenIdxRange::new_single(*idx),
             LxMathAstData::TextEdit { ref buffer } => todo!(),

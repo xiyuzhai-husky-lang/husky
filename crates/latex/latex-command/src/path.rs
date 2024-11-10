@@ -91,6 +91,19 @@ impl LxCommandName {
     }
 }
 
+impl salsa::DisplayWithDb for LxCommandName {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        match self {
+            Self::LettersOnly(LettersOnlyLxCommandName(c)) => write!(f, "{}", c.data(db)),
+            Self::Escape(OneDigitNonLetterLxCommandName(c)) => write!(f, "{}", c),
+        }
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum LxCommandNameError {
