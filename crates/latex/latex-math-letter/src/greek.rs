@@ -2,7 +2,7 @@ use super::*;
 
 /// only those visually different from the latin letters are listed here
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum LxMathUpperGreekLetter {
+pub enum LxMathDistinctUpperGreekLetter {
     Gamma,
     Delta,
     Theta,
@@ -16,7 +16,7 @@ pub enum LxMathUpperGreekLetter {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum LxMathLowerGreekLetter {
+pub enum LxMathDistinctLowerGreekLetter {
     Alpha,
     Beta,
     Gamma,
@@ -44,39 +44,67 @@ pub enum LxMathLowerGreekLetter {
 }
 
 impl LxMathLetter {
-    pub const UPPER_GAMMA: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Gamma);
-    pub const UPPER_DELTA: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Delta);
-    pub const UPPER_THETA: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Theta);
-    pub const UPPER_LAMBDA: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Lambda);
-    pub const UPPER_XI: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Xi);
-    pub const UPPER_PI: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Pi);
-    pub const UPPER_SIGMA: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Sigma);
-    pub const UPPER_PHI: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Phi);
-    pub const UPPER_PSI: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Psi);
-    pub const UPPER_OMEGA: Self = LxMathLetter::UpperGreek(LxMathUpperGreekLetter::Omega);
+    pub const UPPER_GAMMA: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Gamma);
+    pub const UPPER_DELTA: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Delta);
+    pub const UPPER_THETA: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Theta);
+    pub const UPPER_LAMBDA: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Lambda);
+    pub const UPPER_XI: Self = LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Xi);
+    pub const UPPER_PI: Self = LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Pi);
+    pub const UPPER_SIGMA: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Sigma);
+    pub const UPPER_PHI: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Phi);
+    pub const UPPER_PSI: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Psi);
+    pub const UPPER_OMEGA: Self =
+        LxMathLetter::DistinctUpperGreek(LxMathDistinctUpperGreekLetter::Omega);
 
-    pub const LOWER_ALPHA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Alpha);
-    pub const LOWER_BETA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Beta);
-    pub const LOWER_GAMMA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Gamma);
-    pub const LOWER_DELTA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Delta);
-    pub const LOWER_EPSILON: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Epsilon);
-    pub const LOWER_ZETA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Zeta);
-    pub const LOWER_ETA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Eta);
-    pub const LOWER_THETA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Theta);
-    pub const LOWER_IOTA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Iota);
-    pub const LOWER_KAPPA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Kappa);
-    pub const LOWER_LAMBDA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Lambda);
-    pub const LOWER_MU: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Mu);
-    pub const LOWER_NU: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Nu);
-    pub const LOWER_XI: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Xi);
-    pub const LOWER_OMICRON: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Omicron);
-    pub const LOWER_PI: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Pi);
-    pub const LOWER_RHO: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Rho);
-    pub const LOWER_SIGMA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Sigma);
-    pub const LOWER_TAU: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Tau);
-    pub const LOWER_UPSILON: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Upsilon);
-    pub const LOWER_PHI: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Phi);
-    pub const LOWER_CHI: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Chi);
-    pub const LOWER_PSI: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Psi);
-    pub const LOWER_OMEGA: Self = LxMathLetter::LowerGreek(LxMathLowerGreekLetter::Omega);
+    pub const LOWER_ALPHA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Alpha);
+    pub const LOWER_BETA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Beta);
+    pub const LOWER_GAMMA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Gamma);
+    pub const LOWER_DELTA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Delta);
+    pub const LOWER_EPSILON: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Epsilon);
+    pub const LOWER_ZETA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Zeta);
+    pub const LOWER_ETA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Eta);
+    pub const LOWER_THETA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Theta);
+    pub const LOWER_IOTA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Iota);
+    pub const LOWER_KAPPA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Kappa);
+    pub const LOWER_LAMBDA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Lambda);
+    pub const LOWER_MU: Self = LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Mu);
+    pub const LOWER_NU: Self = LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Nu);
+    pub const LOWER_XI: Self = LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Xi);
+    pub const LOWER_OMICRON: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Omicron);
+    pub const LOWER_PI: Self = LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Pi);
+    pub const LOWER_RHO: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Rho);
+    pub const LOWER_SIGMA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Sigma);
+    pub const LOWER_TAU: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Tau);
+    pub const LOWER_UPSILON: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Upsilon);
+    pub const LOWER_PHI: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Phi);
+    pub const LOWER_CHI: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Chi);
+    pub const LOWER_PSI: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Psi);
+    pub const LOWER_OMEGA: Self =
+        LxMathLetter::DistinctLowerGreek(LxMathDistinctLowerGreekLetter::Omega);
 }
