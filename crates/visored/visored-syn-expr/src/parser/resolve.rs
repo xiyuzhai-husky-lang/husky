@@ -45,7 +45,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         let ast_data = &self.builder.ast_arena()[*next];
         *next += 1;
         match *ast_data {
-            LxMathAstData::Letter(token_idx, letter) => {
+            LxMathAstData::PlainLetter(token_idx, letter) => {
                 if let Some(token_annotation) =
                     self.builder.annotations().token_annotation(*token_idx)
                 {
@@ -65,6 +65,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
+            LxMathAstData::StyledLetter { .. } => todo!(),
             LxMathAstData::Punctuation(token_idx, punctuation) => {
                 if let Some(token_annotation) =
                     self.builder.annotations().token_annotation(*token_idx)

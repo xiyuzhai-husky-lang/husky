@@ -273,7 +273,7 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
@@ -359,7 +359,7 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
@@ -459,7 +459,7 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
@@ -560,7 +560,7 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
@@ -727,7 +727,7 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
@@ -737,7 +737,7 @@ fn parse_tex_input_into_asts_works() {
                                     X,
                                 ),
                             ),
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         3,

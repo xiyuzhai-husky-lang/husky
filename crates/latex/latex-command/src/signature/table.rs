@@ -13,11 +13,10 @@ pub struct LxCommandSignatureTable {
     pub signatures: FxHashMap<LxCommandName, LxCommandSignature>,
 }
 
-impl std::ops::Index<LxCommandName> for LxCommandSignatureTable {
-    type Output = LxCommandSignature;
-
-    fn index(&self, index: LxCommandName) -> &Self::Output {
-        &self.signatures[&index]
+impl LxCommandSignatureTable {
+    // TODO: return a closest match if the command is not found
+    pub fn signature(&self, index: LxCommandName) -> Option<&LxCommandSignature> {
+        self.signatures.get(&index)
     }
 }
 
@@ -25,6 +24,7 @@ impl LxCommandSignatureTable {
     fn new(
         begin: LxCommandPath,
         end: LxCommandPath,
+        letter_style_commands: &[(LxCommandPath, LxMathLetterStyle)],
         complete_commands: &[(LxCommandPath, &[LxCommandParameterMode])],
     ) -> Self {
         Self {
@@ -33,6 +33,12 @@ impl LxCommandSignatureTable {
                 (end.name(), LxCommandSignature::End),
             ]
             .into_iter()
+            .chain(
+                letter_style_commands
+                    .iter()
+                    .copied()
+                    .map(|(path, style)| (path.name(), LxCommandSignature::MathLetterStyle(style))),
+            )
             .chain(
                 complete_commands
                     .into_iter()
@@ -71,6 +77,13 @@ impl LxCommandSignatureTable {
         let LxCommandPathMenu {
             begin,
             end,
+            mathbb,
+            mathbf,
+            mathcal,
+            mathit,
+            mathrm,
+            mathsf,
+            mathscr,
             int,
             sum,
             prod,
@@ -89,6 +102,15 @@ impl LxCommandSignatureTable {
         Self::new(
             begin,
             end,
+            &[
+                (mathbb, LxMathLetterStyle::MATHBB),
+                (mathbf, LxMathLetterStyle::MATHFRAK),
+                (mathcal, LxMathLetterStyle::MATHCAL),
+                (mathit, LxMathLetterStyle::MATHIT),
+                (mathrm, LxMathLetterStyle::MATHRM),
+                (mathsf, LxMathLetterStyle::MATHSF),
+                (mathscr, LxMathLetterStyle::MATHSCR),
+            ],
             &[
                 (int, &[]),
                 (sum, &[]),

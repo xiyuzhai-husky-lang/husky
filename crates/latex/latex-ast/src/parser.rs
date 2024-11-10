@@ -55,6 +55,10 @@ impl<'a> LxAstParser<'a> {
 }
 
 impl<'a> LxAstParser<'a> {
+    pub(crate) fn db(&self) -> &'a salsa::Db {
+        self.db
+    }
+
     pub(crate) fn mode(&self) -> LxMode {
         self.mode
     }

@@ -5,6 +5,14 @@ pub struct LxCommandPathMenu {
     pub begin: LxCommandPath,
     pub end: LxCommandPath,
     // maths
+    // - letter style
+    pub mathbb: LxCommandPath,
+    pub mathbf: LxCommandPath,
+    pub mathcal: LxCommandPath,
+    pub mathit: LxCommandPath,
+    pub mathrm: LxCommandPath,
+    pub mathsf: LxCommandPath,
+    pub mathscr: LxCommandPath,
     // - operators
     pub int: LxCommandPath,
     pub sum: LxCommandPath,
@@ -33,6 +41,13 @@ impl LxCommandPathMenu {
         Self {
             begin: p("begin"),
             end: p("end"),
+            mathbb: p("mathbb"),
+            mathbf: p("mathbf"),
+            mathcal: p("mathcal"),
+            mathit: p("mathit"),
+            mathrm: p("mathrm"),
+            mathsf: p("mathsf"),
+            mathscr: p("mathscr"),
             int: p("int"),
             sum: p("sum"),
             times: p("times"),
