@@ -25,7 +25,7 @@ use latex_ast::ast::{
     math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
     LxAstIdxRange,
 };
-use latex_math_letter::LxMathLetter;
+use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::{
     data::math::LxMathDelimiter,

@@ -16,7 +16,7 @@ use self::{attach::AttachDispatch, binary::VdSemBinaryDispatch};
 use crate::*;
 use either::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_math_letter::LxMathLetter;
+use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
 use separated_list::VdSemSeparatedListDispatch;

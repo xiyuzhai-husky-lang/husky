@@ -1,24 +1,27 @@
 use crate::resolution::{
     command::{VdCompleteCommandResolution, VdCompleteCommandResolutionMap},
-    punctuation::VdPunctuationResolution,
+    letter::VdLetterResolutionMap,
+    punctuation::{VdPunctuationResolution, VdPunctuationResolutionMap},
 };
 use latex_command::path::LxCommandPath;
-use latex_math_punctuation::{LxMathPunctationMap, LxMathPunctuation};
+use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 
 pub struct VdDefaultResolutionTable {
-    punctuation_resolution_map: LxMathPunctationMap<Option<VdPunctuationResolution>>,
+    punctuation_resolution_map: VdPunctuationResolutionMap,
     complete_command_resolution_map: VdCompleteCommandResolutionMap,
+    letter_resolution_map: VdLetterResolutionMap,
 }
 
 impl VdDefaultResolutionTable {
     pub fn new(
-        punctuation_resolution_map: LxMathPunctationMap<Option<VdPunctuationResolution>>,
-        command_resolution_map: VdCompleteCommandResolutionMap,
-        db: &salsa::Db,
+        punctuation_resolution_map: VdPunctuationResolutionMap,
+        complete_command_resolution_map: VdCompleteCommandResolutionMap,
+        letter_resolution_map: VdLetterResolutionMap,
     ) -> Self {
         Self {
             punctuation_resolution_map,
-            complete_command_resolution_map: command_resolution_map,
+            complete_command_resolution_map,
+            letter_resolution_map,
         }
     }
 }
