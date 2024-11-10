@@ -196,7 +196,7 @@ fn lx_parse_environment_works() {
 }
 
 #[test]
-fn parse_stylized_letter_works() {
+fn parse_styled_letter_works() {
     t(
         "\\mathbf{X}",
         expect![[r#"
