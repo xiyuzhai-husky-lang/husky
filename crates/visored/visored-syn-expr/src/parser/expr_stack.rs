@@ -6,6 +6,7 @@ use super::{
 };
 use crate::expr::VdSynExprClass;
 use either::*;
+use latex_token::idx::LxTokenIdxRange;
 use smallvec::{smallvec, SmallVec};
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
@@ -39,24 +40,9 @@ pub(super) enum TopVdSynExpr {
     Complete(VdSynExprData),
 }
 
-pub(super) enum TopExprRef<'a> {
-    Incomplete(&'a IncompleteVdSynExprData),
-    Finished(&'a VdSynExprData),
-    None,
-}
-
-impl From<VdSynExprResult<VdSynExprData>> for TopVdSynExpr {
-    fn from(result: VdSynExprResult<VdSynExprData>) -> Self {
-        TopVdSynExpr::Complete(match result {
-            Ok(data) => data,
-            Err(e) => VdSynExprData::Err(e),
-        })
-    }
-}
-
 impl From<VdSynExprData> for TopVdSynExpr {
-    fn from(v: VdSynExprData) -> Self {
-        TopVdSynExpr::Complete(v)
+    fn from(expr: VdSynExprData) -> Self {
+        TopVdSynExpr::Complete(expr)
     }
 }
 
@@ -107,7 +93,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     /// - if there is already a finished expression, interpret it as a function,
     /// and `top_expr` as an argument;
     /// - otherwise just adds it in the trivial way
-    pub(super) fn push_top_syn_expr(
+    pub(super) fn push_top_expr(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
         top_expr: TopVdSynExpr,
@@ -127,24 +113,16 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 _ => self.push_incomplete_expr(IncompleteVdSynExprData::SeparatedList {
                     separator_class: VdSeparatorClass::SPACE,
                     items: smallvec![expr],
-                    separators: smallvec![],
+                    separators: smallvec![VdSynSeparator::Base(
+                        LxTokenIdxRange::new_single(self.calc_top_expr_first_token_idx(&top_expr)),
+                        VdBaseSeparator::Space,
+                    )],
                 }),
             }
         }
         match top_expr {
             TopVdSynExpr::Incomplete(incomplete_expr) => self.push_incomplete_expr(incomplete_expr),
-            TopVdSynExpr::Complete(finished_expr) => self.stack.complete_expr = Some(finished_expr),
-        }
-    }
-
-    /// if there's no need for the information of unfinished expressions, call `finished_expr` would be faster
-    pub(super) fn top_expr<'d>(&'d self) -> TopExprRef<'d> {
-        if let Some(ref finished_expr) = self.stack.complete_expr {
-            TopExprRef::Finished(finished_expr)
-        } else if let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.last() {
-            TopExprRef::Incomplete(incomplete_expr)
-        } else {
-            TopExprRef::None
+            TopVdSynExpr::Complete(expr) => self.set_complete_expr(expr),
         }
     }
 
@@ -166,7 +144,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     //         unreachable!()
     //     };
     //     let top_expr = f(self, complete_expr, incomplete_expr);
-    //     self.push_top_syn_expr(top_expr)
+    //     self.push_top_expr(top_expr)
     // }
 
     pub(super) fn reduce(
@@ -236,21 +214,33 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         &mut self,
         separator_class: VdSeparatorClass,
         mut items: SmallVec<[VdSynExprData; 4]>,
-        separators: SmallVec<[VdSynSeparator; 4]>,
+        mut separators: SmallVec<[VdSynSeparator; 4]>,
         incoming_separator_class: Option<VdSeparatorClass>,
     ) -> TopVdSynExpr {
-        let expr = self.take_complete_expr();
-        if let Some(expr) = expr {
+        let complete_expr = self.take_complete_expr();
+        if let Some(expr) = complete_expr {
             match expr.class() {
                 VdSynExprClass::Complete(_) => {
-                    let last_fragment_is_separator = items.len() == separators.len()
-                        || separator_class == VdSeparatorClass::SPACE;
+                    debug_assert!(
+                        items.len() == separators.len() || items.len() == separators.len() + 1
+                    );
+                    let last_fragment_is_separator = items.len() == separators.len();
                     if last_fragment_is_separator {
                         items.push(expr);
                     } else {
-                        use husky_print_utils::p;
-                        p!(self.show(), items, separators, expr);
-                        todo!()
+                        if separator_class == VdSeparatorClass::SPACE {
+                            separators.push(VdSynSeparator::Base(
+                                LxTokenIdxRange::new_single(
+                                    self.calc_expr_data_first_token_idx(&expr),
+                                ),
+                                VdBaseSeparator::Space,
+                            ));
+                            items.push(expr);
+                        } else {
+                            use husky_print_utils::p;
+                            p!(self.show(), items, separators, expr, separator_class);
+                            todo!("report error")
+                        }
                     }
                 }
                 VdSynExprClass::PrefixOpr => todo!(),
@@ -290,7 +280,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     ) {
         let complete_expr = self.take_complete_expr();
         let top_expr = f(self, complete_expr);
-        self.push_top_syn_expr(None, top_expr)
+        self.push_top_expr(None, top_expr)
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<VdSynExprIdx> {

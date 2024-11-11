@@ -180,7 +180,7 @@ where
     /// - if there is already a finished expression, interpret it as a function,
     /// and `top_expr` as an argument;
     /// - otherwise just adds it in the trivial way
-    pub(super) fn push_top_syn_expr(&mut self, top_expr: TopSynExpr) {
+    pub(super) fn push_top_expr(&mut self, top_expr: TopSynExpr) {
         // this is for guaranteeing that application is left associative
         if self.complete_expr().is_some() {
             self.reduce(Precedence::Application)
@@ -190,14 +190,14 @@ where
         }
         match top_expr {
             TopSynExpr::Incomplete(incomplete_expr) => self.push_incomplete_expr(incomplete_expr),
-            TopSynExpr::Complete(finished_expr) => self.stack.complete_expr = Some(finished_expr),
+            TopSynExpr::Complete(complete_expr) => self.stack.complete_expr = Some(complete_expr),
         }
     }
 
-    /// if there's no need for the information of unfinished expressions, call `finished_expr` would be faster
+    /// if there's no need for the information of unfinished expressions, call `complete_expr` would be faster
     pub(super) fn top_expr<'d>(&'d self) -> TopExprRef<'d> {
-        if let Some(ref finished_expr) = self.stack.complete_expr {
-            TopExprRef::Finished(finished_expr)
+        if let Some(ref complete_expr) = self.stack.complete_expr {
+            TopExprRef::Finished(complete_expr)
         } else if let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.last() {
             TopExprRef::Incomplete(incomplete_expr)
         } else {
@@ -223,7 +223,7 @@ where
             unreachable!()
         };
         let top_expr = f(self, complete_expr, incomplete_expr);
-        self.push_top_syn_expr(top_expr)
+        self.push_top_expr(top_expr)
     }
 
     pub(super) fn reduce(&mut self, next_precedence: Precedence) {
@@ -242,8 +242,8 @@ where
                     punctuation_regional_token_idx,
                 } => {
                     let lopd = self.context_mut().alloc_expr(lopd);
-                    let finished_expr = self.take_complete_expr();
-                    self.stack.complete_expr = Some(match finished_expr {
+                    let complete_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match complete_expr {
                         Some(ropd) => SynExprData::Binary {
                             lopd,
                             opr: punctuation,
@@ -272,8 +272,8 @@ where
                     punctuation,
                     punctuation_regional_token_idx,
                 } => {
-                    let finished_expr = self.take_complete_expr();
-                    self.stack.complete_expr = Some(match finished_expr {
+                    let complete_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match complete_expr {
                         Some(opd) => SynExprData::Prefix {
                             opr: punctuation,
                             opr_regional_token_idx: punctuation_regional_token_idx,
@@ -308,8 +308,8 @@ where
                     rpar_regional_token_idx,
                     light_arrow_token,
                 } => {
-                    let finished_expr = self.take_complete_expr();
-                    self.stack.complete_expr = Some(match finished_expr {
+                    let complete_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match complete_expr {
                         Some(return_ty) => SynExprData::Ritchie {
                             ritchie_kind_regional_token_idx,
                             ritchie_kind,
@@ -391,7 +391,7 @@ where
     ) {
         let complete_expr = self.take_complete_expr();
         let top_expr = f(self, complete_expr);
-        self.push_top_syn_expr(top_expr)
+        self.push_top_expr(top_expr)
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<SynExprIdx> {

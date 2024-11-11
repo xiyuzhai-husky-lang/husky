@@ -3,7 +3,9 @@ use expr::{VdSynExprData, VdSynExprIdxRange, VdSynSeparator};
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum LetStmtResolution {}
+pub enum LetStmtResolution {
+    Todo,
+}
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn build_let_stmt_resolution(&self, formula: VdSynExprIdx) -> LetStmtResolution {
@@ -64,7 +66,10 @@ impl<'db> VdSynExprBuilder<'db> {
     ) -> LetStmtResolution {
         match items.len() {
             0 | 1 => unreachable!(),
-            2 => todo!(),
+            2 => {
+                debug_assert_eq!(separators.len(), 1);
+                self.build_let_stmt_resolution_from_size_two_separated_list(items, separators[0])
+            }
             _ => todo!(),
         }
     }
@@ -72,8 +77,9 @@ impl<'db> VdSynExprBuilder<'db> {
     fn build_let_stmt_resolution_from_size_two_separated_list(
         &self,
         items: VdSynExprIdxRange,
-        separator: Option<VdSynSeparator>, // None means space
+        separator: VdSynSeparator, // None means space
     ) -> LetStmtResolution {
-        todo!()
+        LetStmtResolution::Todo
+        // todo!()
     }
 }
