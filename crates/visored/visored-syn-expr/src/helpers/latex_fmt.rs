@@ -1,6 +1,4 @@
 use super::*;
-#[cfg(test)]
-use crate::test_helpers::builder::VdSynExprTestBuilder;
 use crate::{
     clause::{VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx},
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx},
@@ -164,23 +162,23 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 #[test]
 #[ignore]
 fn latex_fmt_works() {
-    let db = &DB::default();
-    let menu = vd_zfc_ty_menu(db);
-    let mut builder = VdSynExprTestBuilder::new(db);
-    let one = builder.new_expr_checked(
-        VdSynExprData::Literal {
-            literal: menu.one_literal(),
-            token_idx_range: todo!(),
-        },
-        "1",
-    );
-    let one_add_one = builder.new_expr_checked(
-        VdSynExprData::Binary {
-            lopd: one,
-            opr: todo!(),
-            // (VdBaseBinaryOpr::Add),
-            ropd: one,
-        },
-        "1+1",
-    );
+    // let db = &DB::default();
+    // let menu = vd_zfc_ty_menu(db);
+    // let mut builder = VdSynExprTestBuilder::new(db);
+    // let one = builder.new_expr_checked(
+    //     VdSynExprData::Literal {
+    //         literal: menu.one_literal(),
+    //         token_idx_range: todo!(),
+    //     },
+    //     "1",
+    // );
+    // let one_add_one = builder.new_expr_checked(
+    //     VdSynExprData::Binary {
+    //         lopd: one,
+    //         opr: todo!(),
+    //         // (VdBaseBinaryOpr::Add),
+    //         ropd: one,
+    //     },
+    //     "1+1",
+    // );
 }

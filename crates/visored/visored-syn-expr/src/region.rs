@@ -1,8 +1,11 @@
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseArenaRef},
+    division::{VdSynDivisionArena, VdSynDivisionArenaRef},
     expr::{VdSynExprArena, VdSynExprArenaRef, VdSynExprData, VdSynExprIdx},
     phrase::{VdSynPhraseArena, VdSynPhraseArenaRef, VdSynPhraseData, VdSynPhraseIdx},
     sentence::{VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx},
+    stmt::{VdSynStmtArena, VdSynStmtArenaRef},
+    symbol::{defn::VdSynSymbolDefns, resolution::VdSynSymbolResolutions},
 };
 
 pub struct VdSynExprRegionData {
@@ -10,6 +13,10 @@ pub struct VdSynExprRegionData {
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
     sentence_arena: VdSynSentenceArena,
+    stmt_arena: VdSynStmtArena,
+    division_arena: VdSynDivisionArena,
+    symbol_defns: VdSynSymbolDefns,
+    symbol_resolutions: VdSynSymbolResolutions,
 }
 
 impl VdSynExprRegionData {
@@ -18,12 +25,20 @@ impl VdSynExprRegionData {
         phrase_arena: VdSynPhraseArena,
         clause_arena: VdSynClauseArena,
         sentence_arena: VdSynSentenceArena,
+        stmt_arena: VdSynStmtArena,
+        division_arena: VdSynDivisionArena,
+        symbol_defns: VdSynSymbolDefns,
+        symbol_resolutions: VdSynSymbolResolutions,
     ) -> Self {
         Self {
             expr_arena,
             phrase_arena,
             clause_arena,
             sentence_arena,
+            stmt_arena,
+            division_arena,
+            symbol_defns,
+            symbol_resolutions,
         }
     }
 
@@ -41,5 +56,21 @@ impl VdSynExprRegionData {
 
     pub fn sentence_arena(&self) -> VdSynSentenceArenaRef {
         self.sentence_arena.as_arena_ref()
+    }
+
+    pub fn stmt_arena(&self) -> VdSynStmtArenaRef {
+        self.stmt_arena.as_arena_ref()
+    }
+
+    pub fn division_arena(&self) -> VdSynDivisionArenaRef {
+        self.division_arena.as_arena_ref()
+    }
+
+    pub fn symbol_defns(&self) -> &VdSynSymbolDefns {
+        &self.symbol_defns
+    }
+
+    pub fn symbol_resolutions(&self) -> &VdSynSymbolResolutions {
+        &self.symbol_resolutions
     }
 }
