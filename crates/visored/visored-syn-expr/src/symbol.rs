@@ -9,6 +9,7 @@ use crate::{
     phrase::VdSynPhraseArenaRef, sentence::VdSynSentenceArenaRef, stmt::VdSynStmtArenaRef, *,
 };
 use latex_math_letter::letter::LxMathLetter;
+use stmt::VdSynStmtIdxRange;
 
 pub enum VdSynSymbol {
     Letter(LxMathLetter),
@@ -18,7 +19,7 @@ pub struct VdSynExprVariableIdx {}
 
 pub struct VdSynExprVariableData {}
 
-pub(crate) fn build_symbol_defns_and_resolutions(
+pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
     db: &::salsa::Db,
     token_storage: &LxTokenStorage,
     ast_arena: LxAstArenaRef,
@@ -31,6 +32,7 @@ pub(crate) fn build_symbol_defns_and_resolutions(
     sentence_arena: VdSynSentenceArenaRef,
     stmt_arena: VdSynStmtArenaRef,
     division_arena: VdSynDivisionArenaRef,
+    stmts: VdSynStmtIdxRange,
 ) -> (VdSynSymbolDefns, VdSynSymbolResolutions) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
@@ -46,6 +48,6 @@ pub(crate) fn build_symbol_defns_and_resolutions(
         stmt_arena,
         division_arena,
     );
-    symbol_builder.build_all();
+    symbol_builder.build_stmts(stmts);
     symbol_builder.finish()
 }
