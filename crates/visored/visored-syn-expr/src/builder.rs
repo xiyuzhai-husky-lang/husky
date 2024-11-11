@@ -11,7 +11,7 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
-        build_symbol_defns_and_resolutions, defn::VdSynSymbolDefns,
+        build_all_symbol_defns_and_resolutions_in_stmts, defn::VdSynSymbolDefns,
         resolution::VdSynSymbolResolutions,
     },
 };
@@ -215,7 +215,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 Default::default(),
                 VdSynSymbolResolutions::new(self.expr_arena.as_arena_ref()),
             ),
-            Right(stmts) => build_symbol_defns_and_resolutions(
+            Right(stmts) => build_all_symbol_defns_and_resolutions_in_stmts(
                 self.db,
                 self.token_storage,
                 self.ast_arena,
@@ -228,6 +228,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 self.sentence_arena.as_arena_ref(),
                 self.stmt_arena.as_arena_ref(),
                 self.division_arena.as_arena_ref(),
+                stmts,
             ),
         };
         (
