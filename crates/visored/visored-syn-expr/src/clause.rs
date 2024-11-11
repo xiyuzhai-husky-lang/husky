@@ -1,5 +1,6 @@
-use std::iter::Peekable;
+mod r#let;
 
+use self::r#let::*;
 use super::*;
 use builder::VdSynExprBuilder;
 use expr::VdSynExprIdx;
@@ -12,14 +13,16 @@ use latex_ast::ast::{
     rose::{LxRoseAstData, LxRoseAstIdx},
 };
 use latex_token::idx::LxRoseTokenIdx;
+use std::iter::Peekable;
 
-// TODO: this is just an ad hoc placeholder implementation
+#[derive(Debug, PartialEq, Eq)]
 pub enum VdSynClauseData {
     Let {
         let_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
+        resolution: LetStmtResolution,
     },
     Assume {
         assume_token_idx: LxRoseTokenIdx,
@@ -71,16 +74,21 @@ impl<'db> VdSynExprBuilder<'db> {
                         left_dollar_token_idx,
                         math_asts,
                         right_dollar_token_idx,
-                    } => VdSynClauseData::Let {
-                        let_token_idx: token_idx,
-                        left_dollar_token_idx,
-                        formula: (
+                    } => {
+                        let formula = (
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
-                        right_dollar_token_idx,
-                    },
+                            .to_vd_syn(self);
+                        let resolution = self.build_let_stmt_resolution(formula);
+                        VdSynClauseData::Let {
+                            let_token_idx: token_idx,
+                            left_dollar_token_idx,
+                            formula,
+                            right_dollar_token_idx,
+                            resolution,
+                        }
+                    }
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
