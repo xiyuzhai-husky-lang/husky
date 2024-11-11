@@ -3,14 +3,7 @@ use super::{
     resolution::{VdSynSymbolResolution, VdSynSymbolResolutions},
     *,
 };
-use crate::{
-    clause::{VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
-    division::{VdSynDivisionArenaRef, VdSynDivisionData, VdSynDivisionIdx, VdSynDivisionIdxRange},
-    expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange, VdSynExprMap},
-    phrase::{VdSynPhraseArenaRef, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
-    sentence::{VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
-    stmt::{VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
-};
+use crate::{clause::*, division::*, expr::*, phrase::*, range::*, sentence::*, stmt::*};
 use smallvec::{smallvec, SmallVec};
 
 pub struct VdSynSymbolBuilder<'a> {
@@ -50,6 +43,12 @@ impl<'a> VdSynSymbolBuilder<'a> {
         sentence_arena: VdSynSentenceArenaRef<'a>,
         stmt_arena: VdSynStmtArenaRef<'a>,
         division_arena: VdSynDivisionArenaRef<'a>,
+        expr_range_map: &'a VdSynExprTokenIdxRangeMap,
+        phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
+        clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
+        sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
+        stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+        division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
     ) -> Self {
         Self {
             db,

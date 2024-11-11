@@ -6,7 +6,8 @@ pub mod scope;
 use self::{builder::*, defn::*, resolution::*};
 use crate::{
     clause::VdSynClauseArenaRef, division::VdSynDivisionArenaRef, expr::VdSynExprArenaRef,
-    phrase::VdSynPhraseArenaRef, sentence::VdSynSentenceArenaRef, stmt::VdSynStmtArenaRef, *,
+    phrase::VdSynPhraseArenaRef, range::*, sentence::VdSynSentenceArenaRef,
+    stmt::VdSynStmtArenaRef, *,
 };
 use latex_math_letter::letter::LxMathLetter;
 use stmt::VdSynStmtIdxRange;
@@ -32,6 +33,12 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
     sentence_arena: VdSynSentenceArenaRef,
     stmt_arena: VdSynStmtArenaRef,
     division_arena: VdSynDivisionArenaRef,
+    expr_range_map: &VdSynExprTokenIdxRangeMap,
+    phrase_range_map: &VdSynPhraseTokenIdxRangeMap,
+    clause_range_map: &VdSynClauseTokenIdxRangeMap,
+    sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
+    stmt_range_map: &VdSynStmtTokenIdxRangeMap,
+    division_range_map: &VdSynDivisionTokenIdxRangeMap,
     stmts: VdSynStmtIdxRange,
 ) -> (VdSynSymbolDefns, VdSynSymbolResolutions) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
@@ -47,6 +54,12 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
         sentence_arena,
         stmt_arena,
         division_arena,
+        expr_range_map,
+        phrase_range_map,
+        clause_range_map,
+        sentence_range_map,
+        stmt_range_map,
+        division_range_map,
     );
     symbol_builder.build_stmts(stmts);
     symbol_builder.finish()
