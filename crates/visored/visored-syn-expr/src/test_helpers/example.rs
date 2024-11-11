@@ -23,6 +23,7 @@ use latex_prelude::mode::LxMode;
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use stmt::{VdSynStmtArena, VdSynStmtIdxRange};
+use symbol::{defn::VdSynSymbolDefns, resolution::VdSynSymbolResolutions};
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
@@ -51,6 +52,8 @@ pub struct VdSynExprExample {
     pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
     pub stmt_range_map: VdSynStmtTokenIdxRangeMap,
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
+    pub symbol_defns: VdSynSymbolDefns,
+    pub symbol_resolutions: VdSynSymbolResolutions,
 }
 
 impl VdSynExprExample {
@@ -93,8 +96,16 @@ impl VdSynExprExample {
             &default_resolution_table,
         );
         let result = (whole_token_range, asts).to_vd_syn(&mut builder);
-        let (expr_arena, phrase_arena, clause_arena, sentence_arena, stmt_arena, division_arena) =
-            builder.finish();
+        let (
+            expr_arena,
+            phrase_arena,
+            clause_arena,
+            sentence_arena,
+            stmt_arena,
+            division_arena,
+            symbol_defns,
+            symbol_resolutions,
+        ) = builder.finish_with_expr_or_stmts(result);
         let (
             expr_range_map,
             phrase_range_map,
@@ -133,6 +144,8 @@ impl VdSynExprExample {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
+            symbol_defns,
+            symbol_resolutions,
         }
     }
 

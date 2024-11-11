@@ -10,6 +10,10 @@ use crate::{
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
+    symbol::{
+        build_symbol_defns_and_resolutions, defn::VdSynSymbolDefns,
+        resolution::VdSynSymbolResolutions,
+    },
 };
 use either::*;
 use latex_ast::{
@@ -150,16 +154,30 @@ impl<'db> VdSynExprBuilder<'db> {
         self.stmt_arena.alloc_batch(data)
     }
 
-    pub fn finish_to_region_data(self) -> VdSynExprRegionData {
-        VdSynExprRegionData::new(
-            self.expr_arena,
-            self.phrase_arena,
-            self.clause_arena,
-            self.sentence_arena,
-        )
-    }
+    // pub fn finish_to_region_data(self) -> VdSynExprRegionData {
+    //     let (
+    //         expr_arena,
+    //         phrase_arena,
+    //         clause_arena,
+    //         sentence_arena,
+    //         stmt_arena,
+    //         division_arena,
+    //         symbol_defns,
+    //         symbol_resolutions,
+    //     ) = self.finish_with_symbols();
+    //     VdSynExprRegionData::new(
+    //         expr_arena,
+    //         phrase_arena,
+    //         clause_arena,
+    //         sentence_arena,
+    //         stmt_arena,
+    //         division_arena,
+    //         symbol_defns,
+    //         symbol_resolutions,
+    //     )
+    // }
 
-    pub fn finish(
+    pub(crate) fn finish_without_symbols(
         self,
     ) -> (
         VdSynExprArena,
@@ -176,6 +194,51 @@ impl<'db> VdSynExprBuilder<'db> {
             self.sentence_arena,
             self.stmt_arena,
             self.division_arena,
+        )
+    }
+
+    pub(crate) fn finish_with_expr_or_stmts(
+        self,
+        root: Either<VdSynExprIdx, VdSynStmtIdxRange>,
+    ) -> (
+        VdSynExprArena,
+        VdSynPhraseArena,
+        VdSynClauseArena,
+        VdSynSentenceArena,
+        VdSynStmtArena,
+        VdSynDivisionArena,
+        VdSynSymbolDefns,
+        VdSynSymbolResolutions,
+    ) {
+        let (symbol_defns, symbol_resolutions) = match root {
+            Left(_) => (
+                Default::default(),
+                VdSynSymbolResolutions::new(self.expr_arena.as_arena_ref()),
+            ),
+            Right(stmts) => build_symbol_defns_and_resolutions(
+                self.db,
+                self.token_storage,
+                self.ast_arena,
+                self.ast_token_idx_range_map,
+                self.annotations,
+                self.default_resolution_table,
+                self.expr_arena.as_arena_ref(),
+                self.phrase_arena.as_arena_ref(),
+                self.clause_arena.as_arena_ref(),
+                self.sentence_arena.as_arena_ref(),
+                self.stmt_arena.as_arena_ref(),
+                self.division_arena.as_arena_ref(),
+            ),
+        };
+        (
+            self.expr_arena,
+            self.phrase_arena,
+            self.clause_arena,
+            self.sentence_arena,
+            self.stmt_arena,
+            self.division_arena,
+            symbol_defns,
+            symbol_resolutions,
         )
     }
 }
