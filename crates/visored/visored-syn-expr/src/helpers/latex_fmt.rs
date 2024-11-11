@@ -64,12 +64,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 
     pub fn fmt_clause(&mut self, clause_idx: VdSynClauseIdx) {
         match self.clause_arena[clause_idx] {
-            VdSynClauseData::Let {
-                let_token_idx,
-                left_dollar_token_idx,
-                formula,
-                right_dollar_token_idx,
-            } => todo!(),
+            VdSynClauseData::Let { .. } => todo!(),
             VdSynClauseData::Assume {
                 assume_token_idx,
                 left_dollar_token_idx,

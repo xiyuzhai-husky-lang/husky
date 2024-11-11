@@ -50,6 +50,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,
+                ref resolution,
             } => VdSemClauseData::Let {
                 let_token_idx,
                 left_dollar_token_idx,
