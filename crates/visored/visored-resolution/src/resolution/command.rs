@@ -3,13 +3,17 @@ use latex_command::path::LxCommandPath;
 use latex_math_letter::letter::LxMathLetter;
 use rustc_hash::FxHashMap;
 use visored_item_path::path::VdItemPath;
-use visored_opr::opr::VdBaseOpr;
+use visored_opr::{
+    opr::VdBaseOpr,
+    separator::{VdBaseSeparator, VdSeparator},
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdCompleteCommandResolution {
     Letter(LxMathLetter),
     Item(VdItemPath),
     Opr(VdBaseOpr),
+    Separator(VdBaseSeparator),
     Frac,
     Sqrt,
     Text,
@@ -19,6 +23,20 @@ pub enum VdCompleteCommandResolution {
 pub type VdCompleteCommandResolutionMap = FxHashMap<LxCommandPath, VdCompleteCommandResolution>;
 
 impl VdCompleteCommandResolution {
+    // - operators
+    // -- relations
+    pub const EQ: Self = Self::Separator(VdBaseSeparator::Eq);
+    pub const NE: Self = Self::Separator(VdBaseSeparator::Ne);
+    pub const IN: Self = Self::Separator(VdBaseSeparator::In);
+    pub const SUBSET: Self = Self::Separator(VdBaseSeparator::Subset);
+    pub const SUPSET: Self = Self::Separator(VdBaseSeparator::Supset);
+    pub const SUBSETEQ: Self = Self::Separator(VdBaseSeparator::Subseteq);
+    pub const SUPSETEQ: Self = Self::Separator(VdBaseSeparator::Supseteq);
+    pub const SUBSETEQQ: Self = Self::Separator(VdBaseSeparator::Subseteqq);
+    pub const SUPSETEQQ: Self = Self::Separator(VdBaseSeparator::Supseteqq);
+    pub const SUBSETNEQ: Self = Self::Separator(VdBaseSeparator::Subsetneq);
+    pub const SUPSETNEQ: Self = Self::Separator(VdBaseSeparator::Supsetneq);
+    // -- arithmetic
     pub const INT: Self = Self::Opr(VdBaseOpr::INTEGRAL);
     pub const SUM: Self = Self::Opr(VdBaseOpr::SUM);
     pub const PROD: Self = Self::Opr(VdBaseOpr::PROD);

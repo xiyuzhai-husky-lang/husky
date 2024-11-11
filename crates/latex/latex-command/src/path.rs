@@ -111,7 +111,7 @@ pub enum LxCommandNameError {
     #[error("empty identifier")]
     Empty,
     /// for an identifier with len > 1, all characters must be alphabetic
-    #[error("non alphabetic character: `{0}`")]
+    #[error("non alphabetic character `{0}` in command name is not allowed")]
     NonAlphabeticCharater(char),
 }
 

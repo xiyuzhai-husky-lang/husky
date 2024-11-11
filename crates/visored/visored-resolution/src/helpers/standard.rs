@@ -34,28 +34,65 @@ fn standard_command_resolution_map(
     rustc_hash::FxBuildHasher,
 > {
     let LxCommandPathMenu {
+        begin: _,
+        end: _,
+        // maths
+        // - letter style
+        mathbb,
+        mathbf,
+        mathcal,
+        mathit,
+        mathrm,
+        mathsf,
+        mathscr,
+        // - operators
+        // -- relations
+        eq,
+        ne,
+        r#in,
+        subset,
+        supset,
+        subseteq,
+        supseteq,
+        subseteqq,
+        supseteqq,
+        subsetneq,
+        supsetneq,
+        // -- arithmetic
         int,
         sum,
-        prod,
         times,
         otimes,
+        prod,
+        // - extended letters
         alpha,
         beta,
         gamma,
         pi,
+        // - functions
         sin,
         cos,
+        // - layouts
         sqrt,
         frac,
+        // - environments
         text,
-        ..
     } = *command_path_menu(db);
     VdCompleteCommandResolutionMap::from_iter([
+        // - operators
+        // -- relations
+        (eq, VdCompleteCommandResolution::EQ),
+        (ne, VdCompleteCommandResolution::NE),
+        (r#in, VdCompleteCommandResolution::IN),
+        (subset, VdCompleteCommandResolution::SUBSET),
+        (supset, VdCompleteCommandResolution::SUPSET),
+        // -- arithmetic
         (int, VdCompleteCommandResolution::INT),
         (sum, VdCompleteCommandResolution::SUM),
         (prod, VdCompleteCommandResolution::PROD),
         (times, VdCompleteCommandResolution::TIMES),
         (otimes, VdCompleteCommandResolution::OTIMES),
+        // - extended letters
         (alpha, VdCompleteCommandResolution::LOWER_ALPHA),
         (beta, VdCompleteCommandResolution::LOWER_BETA),
         (gamma, VdCompleteCommandResolution::LOWER_GAMMA),
