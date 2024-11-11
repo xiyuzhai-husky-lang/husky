@@ -220,7 +220,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             .default_resolution_table()
             .resolve_complete_command(command_path)
         else {
-            todo!()
+            todo!("command_path = {:?}", command_path.debug(self.builder.db()))
         };
         match *resolve_complete_command {
             VdCompleteCommandResolution::Letter(letter) => {

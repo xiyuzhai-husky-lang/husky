@@ -86,6 +86,12 @@ fn standard_command_resolution_map(
         (r#in, VdCompleteCommandResolution::IN),
         (subset, VdCompleteCommandResolution::SUBSET),
         (supset, VdCompleteCommandResolution::SUPSET),
+        (subseteq, VdCompleteCommandResolution::SUBSETEQ),
+        (supseteq, VdCompleteCommandResolution::SUPSETEQ),
+        (subseteqq, VdCompleteCommandResolution::SUBSETEQQ),
+        (supseteqq, VdCompleteCommandResolution::SUPSETEQQ),
+        (subsetneq, VdCompleteCommandResolution::SUBSETNEQ),
+        (supsetneq, VdCompleteCommandResolution::SUPSETNEQ),
         // -- arithmetic
         (int, VdCompleteCommandResolution::INT),
         (sum, VdCompleteCommandResolution::SUM),
