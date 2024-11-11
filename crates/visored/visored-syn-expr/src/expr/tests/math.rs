@@ -269,6 +269,76 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
             └─ "\\mathbb{N}" expr.letter
         "#]],
     );
+    t(
+        "A\\subset B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\subset B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
+    t(
+        "A\\subseteq B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\subseteq B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
+    t(
+        "A\\subseteqq B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\subseteqq B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
+    t(
+        "A\\supseteq B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\supseteq B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
+    t(
+        "A\\supseteqq B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\supseteqq B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
+    t(
+        "A\\subsetneq B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\subsetneq B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
+    t(
+        "A\\supsetneq B",
+        &[],
+        &[],
+        &expect![[r#"
+            "A\\supsetneq B" expr.separated_list
+            ├─ "A" expr.letter
+            └─ "B" expr.letter
+        "#]],
+    );
 }
 
 #[test]
