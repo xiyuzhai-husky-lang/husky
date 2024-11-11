@@ -31,7 +31,7 @@ use visored_opr::{
         suffix::{VdBaseSuffixOpr, VdCompositeSuffixOpr},
         VdBaseOpr,
     },
-    separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
+    separator::{VdBaseSeparator, VdSeparatorClass},
 };
 use visored_syn_expr::expr::{VdSynExprData, VdSynSeparator};
 use visored_zfc_ty::term::literal::VdZfcLiteral;
@@ -74,7 +74,7 @@ pub enum VdSemExprData {
         dispatch: AttachDispatch,
     },
     SeparatedList {
-        separator: VdSeparator,
+        separator_class: VdSeparatorClass,
         items: VdSemExprIdxRange,
         dispatch: VdSemSeparatedListDispatch,
     },
@@ -206,7 +206,7 @@ pub enum VdSemRightDelimiter {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSemSeparator {
     Base(LxTokenIdxRange, VdBaseSeparator),
-    Composite(VdSemExprIdx, VdCompositeSeparator),
+    Composite(VdSemExprIdx, VdSeparatorClass),
 }
 
 pub type VdSemExprIdx = ArenaIdx<VdSemExprData>;
@@ -217,7 +217,7 @@ pub type VdSemExprMap<T> = ArenaMap<VdSemExprData, T>;
 
 impl<I> ToVdSem<VdSemExprIdxRange> for I
 where
-    I: Iterator<Item = VdSynExprIdx> + Clone,
+    I: IntoIterator<Item = VdSynExprIdx> + Clone,
 {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemExprIdxRange {
         let mut exprs: Vec<VdSemExprData> = vec![];
@@ -260,9 +260,10 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSynExprData::Prefix { opr, opd } => todo!(),
             VdSynExprData::Suffix { opd, opr } => todo!(),
             VdSynExprData::SeparatedList {
-                separator,
-                ref fragments,
-            } => self.build_separated_list(separator, fragments),
+                separator_class,
+                items,
+                ref separators,
+            } => self.build_separated_list(separator_class, items, separators),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,

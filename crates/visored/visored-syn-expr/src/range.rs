@@ -179,18 +179,17 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(ref e) => VdSynExprTokenIdxRange::Standard(e.token_idx_range()),
-            VdSynExprData::SeparatedList { ref fragments, .. } => {
+            VdSynExprData::SeparatedList {
+                items,
+                ref separators,
+                ..
+            } => {
+                debug_assert!(items.len() > separators.len());
                 // use the first and the last fragment's range
-                let mut t = |fragment: Either<VdSynExprIdx, VdSynSeparator>| match fragment {
-                    Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => self.get_expr(expr),
-                    Right(VdSynSeparator::Base(token_idx_range, _)) => {
-                        VdSynExprTokenIdxRange::Standard(token_idx_range)
-                    }
-                };
-                let first = *fragments.first().expect("fragments are always non-empty");
-                let last = *fragments.last().expect("fragments are always non-empty");
-                let first_range = t(first);
-                let last_range = t(last);
+                let first_range =
+                    self.get_expr(items.first().expect("fragments are always non-empty"));
+                let last_range =
+                    self.get_expr(items.last().expect("fragments are always non-empty"));
                 first_range.join(last_range)
             }
             VdSynExprData::LxDelimited {

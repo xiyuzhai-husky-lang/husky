@@ -1,59 +1,7 @@
 use crate::precedence::{VdPrecedence, VdPrecedenceRange};
+use enum_index::IsEnumIndex;
 
-#[enum_class::from_variants]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum VdSeparator {
-    Base(VdBaseSeparator),
-    Composite(VdCompositeSeparator),
-}
-
-impl VdSeparator {
-    pub const EQ: Self = VdSeparator::Base(VdBaseSeparator::Eq);
-    pub const NE: Self = VdSeparator::Base(VdBaseSeparator::Ne);
-    pub const SUBSET: Self = VdSeparator::Base(VdBaseSeparator::Subset);
-    pub const SUPSET: Self = VdSeparator::Base(VdBaseSeparator::Supset);
-    pub const SUBSETEQ: Self = VdSeparator::Base(VdBaseSeparator::Subseteq);
-    pub const SUPSETEQ: Self = VdSeparator::Base(VdBaseSeparator::Supseteq);
-    pub const SUBSETEQQ: Self = VdSeparator::Base(VdBaseSeparator::Subseteqq);
-    pub const SUPSETEQQ: Self = VdSeparator::Base(VdBaseSeparator::Supseteqq);
-    pub const SUBSETNEQ: Self = VdSeparator::Base(VdBaseSeparator::Subsetneq);
-    pub const SUPSETNEQ: Self = VdSeparator::Base(VdBaseSeparator::Supsetneq);
-    pub const IN: Self = VdSeparator::Base(VdBaseSeparator::In);
-    pub const SPACE: Self = VdSeparator::Base(VdBaseSeparator::Space);
-    pub const COMMA: Self = VdSeparator::Base(VdBaseSeparator::Comma);
-}
-
-impl VdSeparator {
-    pub fn precedence(self) -> VdPrecedence {
-        match self {
-            VdSeparator::Base(sep) => sep.precedence(),
-            VdSeparator::Composite(sep) => sep.precedence(),
-        }
-    }
-
-    pub fn left_precedence_range(self) -> VdPrecedenceRange {
-        match self {
-            VdSeparator::Base(slf) => slf.left_precedence_range(),
-            VdSeparator::Composite(slf) => slf.left_precedence_range(),
-        }
-    }
-
-    pub fn right_precedence_range(self) -> VdPrecedenceRange {
-        match self {
-            VdSeparator::Base(slf) => slf.right_precedence_range(),
-            VdSeparator::Composite(slf) => slf.right_precedence_range(),
-        }
-    }
-
-    pub fn latex_code(self) -> &'static str {
-        match self {
-            VdSeparator::Base(slf) => slf.latex_code(),
-            VdSeparator::Composite(slf) => slf.latex_code(),
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, IsEnumIndex)]
 pub enum VdBaseSeparator {
     Space,
     Comma,
@@ -85,16 +33,19 @@ impl VdBaseSeparator {
     pub const MUL: Self = Self::Mul;
     pub const DOT: Self = Self::Dot;
     pub const EQ: Self = Self::Eq;
+}
 
-    fn left_precedence_range(self) -> VdPrecedenceRange {
+impl VdBaseSeparator {
+    pub fn class(self) -> VdSeparatorClass {
         match self {
-            VdBaseSeparator::Space => VdPrecedenceRange::NoLess(VdPrecedence::SPACE),
-            VdBaseSeparator::Comma => VdPrecedenceRange::NoLess(VdPrecedence::COMMA),
-            VdBaseSeparator::Semicolon => VdPrecedenceRange::NoLess(VdPrecedence::SEMICOLON),
-            VdBaseSeparator::Add => VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB),
-            VdBaseSeparator::Mul | VdBaseSeparator::Dot => {
-                VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV)
+            VdBaseSeparator::Space => VdSeparatorClass::Space,
+            VdBaseSeparator::Comma => VdSeparatorClass::Comma,
+            VdBaseSeparator::Semicolon => VdSeparatorClass::Space,
+            VdBaseSeparator::Add => VdSeparatorClass::Add,
+            VdBaseSeparator::Mul | VdBaseSeparator::Times | VdBaseSeparator::Otimes => {
+                VdSeparatorClass::Mul
             }
+            VdBaseSeparator::Dot => VdSeparatorClass::Mul,
             VdBaseSeparator::Eq
             | VdBaseSeparator::Ne
             | VdBaseSeparator::Subset
@@ -106,35 +57,16 @@ impl VdBaseSeparator {
             | VdBaseSeparator::Subsetneq
             | VdBaseSeparator::Supsetneq
             | VdBaseSeparator::In
-            | VdBaseSeparator::Notin => VdPrecedenceRange::NoLess(VdPrecedence::RELATION),
-            VdBaseSeparator::Times => todo!(),
-            VdBaseSeparator::Otimes => todo!(),
+            | VdBaseSeparator::Notin => VdSeparatorClass::Relation,
         }
     }
 
-    fn right_precedence_range(self) -> VdPrecedenceRange {
-        match self {
-            VdBaseSeparator::Space => VdPrecedenceRange::Greater(VdPrecedence::SPACE),
-            VdBaseSeparator::Comma => VdPrecedenceRange::Greater(VdPrecedence::COMMA),
-            VdBaseSeparator::Semicolon => VdPrecedenceRange::Greater(VdPrecedence::SEMICOLON),
-            VdBaseSeparator::Add => VdPrecedenceRange::Greater(VdPrecedence::ADD_SUB),
-            VdBaseSeparator::Mul => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
-            VdBaseSeparator::Dot => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
-            VdBaseSeparator::Eq => VdPrecedenceRange::Greater(VdPrecedence::RELATION),
-            VdBaseSeparator::Subset => todo!(),
-            VdBaseSeparator::Supset => todo!(),
-            VdBaseSeparator::Subseteq => todo!(),
-            VdBaseSeparator::Supseteq => todo!(),
-            VdBaseSeparator::Subseteqq => todo!(),
-            VdBaseSeparator::Supseteqq => todo!(),
-            VdBaseSeparator::Subsetneq => todo!(),
-            VdBaseSeparator::Supsetneq => todo!(),
-            VdBaseSeparator::In => todo!(),
-            VdBaseSeparator::Notin => todo!(),
-            VdBaseSeparator::Times => todo!(),
-            VdBaseSeparator::Otimes => todo!(),
-            VdBaseSeparator::Ne => todo!(),
-        }
+    pub fn left_precedence_range(self) -> VdPrecedenceRange {
+        self.class().left_precedence_range()
+    }
+
+    pub fn right_precedence_range(self) -> VdPrecedenceRange {
+        self.class().right_precedence_range()
     }
 }
 
@@ -191,22 +123,59 @@ impl VdBaseSeparator {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum VdCompositeSeparator {}
+pub enum VdSeparatorClass {
+    Relation,
+    Space,
+    Comma,
+    Semicolon,
+    Mul,
+    Add,
+}
 
-impl VdCompositeSeparator {
+impl VdSeparatorClass {
+    pub const RELATION: Self = Self::Relation;
+    pub const SPACE: Self = Self::Space;
+    pub const COMMA: Self = Self::Comma;
+    pub const SEMICOLON: Self = Self::Semicolon;
+    pub const MUL: Self = Self::Mul;
+    pub const ADD: Self = Self::Add;
+}
+
+impl VdSeparatorClass {
     pub fn precedence(self) -> VdPrecedence {
-        todo!()
+        match self {
+            VdSeparatorClass::Space => VdPrecedence::SPACE,
+            VdSeparatorClass::Comma => VdPrecedence::COMMA,
+            VdSeparatorClass::Semicolon => VdPrecedence::SEMICOLON,
+            VdSeparatorClass::Add => VdPrecedence::ADD_SUB,
+            VdSeparatorClass::Mul => VdPrecedence::MUL_DIV,
+            VdSeparatorClass::Relation => VdPrecedence::RELATION,
+        }
     }
 
     pub fn latex_code(self) -> &'static str {
         todo!()
     }
 
-    fn left_precedence_range(self) -> VdPrecedenceRange {
-        match self {}
+    pub fn left_precedence_range(self) -> VdPrecedenceRange {
+        match self {
+            VdSeparatorClass::Space => VdPrecedenceRange::NoLess(VdPrecedence::SPACE),
+            VdSeparatorClass::Comma => VdPrecedenceRange::NoLess(VdPrecedence::COMMA),
+            VdSeparatorClass::Semicolon => VdPrecedenceRange::NoLess(VdPrecedence::SEMICOLON),
+            VdSeparatorClass::Add => VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB),
+            VdSeparatorClass::Mul => VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV),
+            VdSeparatorClass::Relation => VdPrecedenceRange::NoLess(VdPrecedence::RELATION),
+        }
     }
 
-    fn right_precedence_range(self) -> VdPrecedenceRange {
-        match self {}
+    pub fn right_precedence_range(self) -> VdPrecedenceRange {
+        match self {
+            VdSeparatorClass::Space => VdPrecedenceRange::Greater(VdPrecedence::SPACE),
+            VdSeparatorClass::Comma => VdPrecedenceRange::Greater(VdPrecedence::COMMA),
+            VdSeparatorClass::Semicolon => VdPrecedenceRange::Greater(VdPrecedence::SEMICOLON),
+            VdSeparatorClass::Add => VdPrecedenceRange::Greater(VdPrecedence::ADD_SUB),
+            VdSeparatorClass::Mul => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
+            VdSeparatorClass::Relation => VdPrecedenceRange::Greater(VdPrecedence::RELATION),
+        }
     }
 }

@@ -44,7 +44,7 @@ use visored_opr::{
         VdBaseOpr,
     },
     precedence::{VdPrecedence, VdPrecedenceRange},
-    separator::{VdBaseSeparator, VdCompositeSeparator, VdSeparator},
+    separator::{VdBaseSeparator, VdSeparatorClass},
 };
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
@@ -77,8 +77,11 @@ pub enum VdSynExprData {
         opr: VdSynSuffixOpr,
     },
     SeparatedList {
-        separator: VdSeparator,
-        fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
+        separator_class: VdSeparatorClass,
+        items: VdSynExprIdxRange,
+        // Spaces are not included here.
+        // For example, for `xyz` the separators are empty.
+        separators: SmallVec<[VdSynSeparator; 4]>,
     },
     LxDelimited {
         left_delimiter_token_idx: LxMathTokenIdx,
@@ -186,7 +189,7 @@ impl VdSynBinaryOpr {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSeparator {
     Base(LxTokenIdxRange, VdBaseSeparator),
-    Composite(VdSynExprIdx, VdCompositeSeparator),
+    Composite(VdSynExprIdx, VdSeparatorClass),
 }
 
 impl VdSynSeparator {
@@ -197,15 +200,15 @@ impl VdSynSeparator {
         }
     }
 
-    pub(crate) fn separator(self) -> VdSeparator {
+    pub(crate) fn class(self) -> VdSeparatorClass {
         match self {
-            VdSynSeparator::Base(_, separator) => separator.into(),
-            VdSynSeparator::Composite(_, separator) => separator.into(),
+            VdSynSeparator::Base(_, separator) => separator.class(),
+            VdSynSeparator::Composite(_, separator_class) => separator_class,
         }
     }
 
     pub(crate) fn left_precedence_range(self) -> VdPrecedenceRange {
-        self.separator().left_precedence_range()
+        self.class().left_precedence_range()
     }
 }
 
@@ -281,13 +284,23 @@ impl VdSynExprData {
             // ad hoc
             VdSynExprData::VariadicArray => vec![],
             VdSynExprData::Err(..) => vec![],
-            VdSynExprData::SeparatedList { ref fragments, .. } => fragments
-                .iter()
-                .filter_map(|fragment| match *fragment {
-                    Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => Some(expr),
-                    Right(VdSynSeparator::Base(_, _)) => None,
-                })
-                .collect(),
+            VdSynExprData::SeparatedList {
+                items,
+                ref separators,
+                ..
+            } => {
+                let mut children = vec![];
+                for (i, item) in items.into_iter().enumerate() {
+                    children.push(item);
+                    if i < separators.len() {
+                        match separators[i] {
+                            VdSynSeparator::Base(..) => (),
+                            VdSynSeparator::Composite(separator, _) => children.push(separator),
+                        }
+                    }
+                }
+                children
+            }
             VdSynExprData::LxDelimited { item, .. } => vec![item],
             VdSynExprData::Delimited {
                 left_delimiter,
@@ -324,9 +337,9 @@ impl VdSynExprData {
             | VdSynExprData::Fraction { .. }
             | VdSynExprData::Sqrt { .. } => VdSynExprClass::Complete(VdPrecedence::ATOM),
             VdSynExprData::BaseOpr { opr } => match opr {
-                VdBaseOpr::Prefix(opr) => VdSynExprClass::Prefix,
-                VdBaseOpr::Suffix(opr) => VdSynExprClass::Suffix,
-                VdBaseOpr::Binary(opr) => VdSynExprClass::Binary,
+                VdBaseOpr::Prefix(opr) => VdSynExprClass::PrefixOpr,
+                VdBaseOpr::Suffix(opr) => VdSynExprClass::SuffixOpr,
+                VdBaseOpr::Binary(opr) => VdSynExprClass::BinaryOpr,
             },
             VdSynExprData::Binary { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
             VdSynExprData::Prefix { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
@@ -337,9 +350,9 @@ impl VdSynExprData {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(..) => todo!(),
-            VdSynExprData::SeparatedList { separator, .. } => {
-                VdSynExprClass::Complete(separator.precedence())
-            }
+            VdSynExprData::SeparatedList {
+                separator_class, ..
+            } => VdSynExprClass::Complete(separator_class.precedence()),
         }
     }
 }
@@ -347,10 +360,10 @@ impl VdSynExprData {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynExprClass {
     Complete(VdPrecedence),
-    Prefix,
-    Suffix,
+    PrefixOpr,
+    SuffixOpr,
+    BinaryOpr,
     Separator,
-    Binary,
 }
 
 impl VdSynExprClass {
@@ -405,16 +418,21 @@ impl VdSynExprData {
             VdSynExprData::Prefix { opr, opd } => todo!(),
             VdSynExprData::Suffix { opd, opr } => todo!(),
             VdSynExprData::SeparatedList {
-                separator,
-                ref fragments,
-            } => fragments
-                .iter()
-                .map(|fragment| match fragment {
-                    Left(expr) => arena[*expr].show(db, arena),
-                    Right(separator) => separator.show(db, arena),
-                })
-                .collect::<Vec<_>>()
-                .join(" "),
+                items,
+                ref separators,
+                ..
+            } => {
+                let mut result = String::new();
+                for (i, item) in items.into_iter().enumerate() {
+                    if i > 0 && i - 1 < separators.len() {
+                        result.push_str(" ");
+                        result.push_str(&separators[i - 1].show(db, arena));
+                        result.push_str(" ");
+                    }
+                    result.push_str(&arena[item].show(db, arena));
+                }
+                result
+            }
             VdSynExprData::Attach { base, ref scripts } => todo!(),
             VdSynExprData::LxDelimited {
                 left_delimiter,

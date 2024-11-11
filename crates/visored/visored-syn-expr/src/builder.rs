@@ -112,7 +112,10 @@ impl<'db> VdSynExprBuilder<'db> {
         self.expr_arena.alloc_one(data)
     }
 
-    pub(crate) fn alloc_exprs(&mut self, data: Vec<VdSynExprData>) -> VdSynExprIdxRange {
+    pub(crate) fn alloc_exprs(
+        &mut self,
+        data: impl IntoIterator<Item = VdSynExprData>,
+    ) -> VdSynExprIdxRange {
         self.expr_arena.alloc_batch(data)
     }
 
