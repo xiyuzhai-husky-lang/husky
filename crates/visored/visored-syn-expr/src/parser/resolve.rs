@@ -30,7 +30,7 @@ pub struct DisambiguatedMathAst {
 }
 
 #[derive(Debug)]
-pub enum ResolvedToken {
+pub enum ResolvedAst {
     Expr(VdSynExprData, VdSynExprClass),
     Opr(VdBaseOpr),
     Separator(VdBaseSeparator),
@@ -39,7 +39,7 @@ pub enum ResolvedToken {
 }
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub fn resolve_token(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) -> ResolvedToken {
+    pub fn resolve_token(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) -> ResolvedAst {
         use crate::builder::ToVdSyn;
 
         let ast_data = &self.builder.ast_arena()[*next];
@@ -53,11 +53,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         VdTokenAnnotation::Integral(lx_integral_annotation) => todo!(),
                         VdTokenAnnotation::Variable(lx_variable_annotation) => todo!(),
                         VdTokenAnnotation::Differential => {
-                            return ResolvedToken::Opr(VdBaseOpr::DIFFERENTIAL)
+                            return ResolvedAst::Opr(VdBaseOpr::DIFFERENTIAL)
                         }
                     }
                 }
-                ResolvedToken::Expr(
+                ResolvedAst::Expr(
                     VdSynExprData::Letter {
                         token_idx_range: LxTokenIdxRange::new_single(*token_idx),
                         letter,
@@ -87,7 +87,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 {
                     return todo!();
                 }
-                ResolvedToken::Expr(
+                ResolvedAst::Expr(
                     VdSynExprData::Letter {
                         token_idx_range: LxTokenIdxRange::new_closed(
                             *style_command_token_idx,
@@ -110,15 +110,15 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     .resolve_punctuation(punctuation)
                 {
                     Some(resolution) => match resolution {
-                        VdPunctuationResolution::Opr(opr) => ResolvedToken::Opr(opr),
+                        VdPunctuationResolution::Opr(opr) => ResolvedAst::Opr(opr),
                         VdPunctuationResolution::Separator(separator) => {
-                            ResolvedToken::Separator(separator)
+                            ResolvedAst::Separator(separator)
                         }
                         VdPunctuationResolution::LeftDelimiter(left_delimiter) => {
-                            ResolvedToken::LeftDelimiter(left_delimiter)
+                            ResolvedAst::LeftDelimiter(left_delimiter)
                         }
                         VdPunctuationResolution::RightDelimiter(right_delimiter) => {
-                            ResolvedToken::RightDelimiter(right_delimiter)
+                            ResolvedAst::RightDelimiter(right_delimiter)
                         }
                         VdPunctuationResolution::Todo => todo!("punctuation = {:?}", punctuation),
                     },
@@ -163,7 +163,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         self.builder.db(),
                     ),
                 };
-                ResolvedToken::Expr(expr_data, VdSynExprClass::ATOM)
+                ResolvedAst::Expr(expr_data, VdSynExprClass::ATOM)
             }
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => {
@@ -173,7 +173,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     .copied()
                     .map(|(script_kind, script)| (script_kind, script.to_vd_syn(self.builder)))
                     .collect();
-                ResolvedToken::Expr(
+                ResolvedAst::Expr(
                     VdSynExprData::Attach { base, scripts },
                     VdSynExprClass::ATOM,
                 )
@@ -184,7 +184,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 asts,
                 right_delimiter_token_idx,
                 right_delimiter,
-            } => ResolvedToken::Expr(
+            } => ResolvedAst::Expr(
                 VdSynExprData::LxDelimited {
                     left_delimiter_token_idx,
                     left_delimiter,
@@ -212,7 +212,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
         arguments: &[LxMathCommandArgument],
-    ) -> ResolvedToken {
+    ) -> ResolvedAst {
         use crate::builder::ToVdSyn;
 
         let Some(resolve_complete_command) = self
@@ -230,7 +230,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     }
                     None => LxTokenIdxRange::new_single(*command_token_idx),
                 };
-                ResolvedToken::Expr(
+                ResolvedAst::Expr(
                     VdSynExprData::Letter {
                         token_idx_range,
                         letter,
@@ -258,7 +258,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 };
                 let denominator = (denominator_arg.asts_token_idx_range(), denominator_asts)
                     .to_vd_syn(self.builder);
-                ResolvedToken::Expr(
+                ResolvedAst::Expr(
                     VdSynExprData::Fraction {
                         command_token_idx,
                         numerator,
@@ -278,7 +278,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 };
                 let radicand =
                     (radicand_arg.asts_token_idx_range(), radicand_asts).to_vd_syn(self.builder);
-                ResolvedToken::Expr(
+                ResolvedAst::Expr(
                     VdSynExprData::Sqrt {
                         command_token_idx,
                         radicand,
@@ -288,9 +288,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 )
             }
             VdCompleteCommandResolution::Text => todo!(),
-            VdCompleteCommandResolution::Opr(vd_base_opr) => ResolvedToken::Opr(vd_base_opr),
+            VdCompleteCommandResolution::Opr(vd_base_opr) => ResolvedAst::Opr(vd_base_opr),
             VdCompleteCommandResolution::Separator(vd_separator) => {
-                ResolvedToken::Separator(vd_separator)
+                ResolvedAst::Separator(vd_separator)
             }
         }
     }
