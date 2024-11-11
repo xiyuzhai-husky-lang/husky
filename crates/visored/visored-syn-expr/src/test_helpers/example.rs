@@ -103,25 +103,15 @@ impl VdSynExprExample {
             sentence_arena,
             stmt_arena,
             division_arena,
-            symbol_defns,
-            symbol_resolutions,
-        ) = builder.finish_with_expr_or_stmts(result);
-        let (
             expr_range_map,
             phrase_range_map,
             clause_range_map,
             sentence_range_map,
             stmt_range_map,
             division_range_map,
-        ) = calc_expr_range_map(
-            db,
-            &expr_arena,
-            &phrase_arena,
-            &clause_arena,
-            &sentence_arena,
-            &stmt_arena,
-            &division_arena,
-        );
+            symbol_defns,
+            symbol_resolutions,
+        ) = builder.finish_with_expr_or_stmts(result);
         Self {
             input: input.to_string(),
             root_mode,
