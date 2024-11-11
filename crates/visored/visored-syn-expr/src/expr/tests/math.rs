@@ -248,6 +248,30 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
 }
 
 #[test]
+fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
+    t(
+        "0\\ne1",
+        &[],
+        &[],
+        &expect![[r#"
+            "0\\ne1" expr.separated_list
+            ├─ "0" expr.literal
+            └─ "1" expr.literal
+        "#]],
+    );
+    t(
+        "0\\in\\mathbb{N}",
+        &[],
+        &[],
+        &expect![[r#"
+            "0\\in\\mathbb{N}" expr.separated_list
+            ├─ "0" expr.literal
+            └─ "\\mathbb{N}" expr.letter
+        "#]],
+    );
+}
+
+#[test]
 fn delimiters_vd_syn_expr_parsing_works() {
     t(
         "(1)",

@@ -14,6 +14,19 @@ pub struct LxCommandPathMenu {
     pub mathsf: LxCommandPath,
     pub mathscr: LxCommandPath,
     // - operators
+    // -- relations
+    pub r#eq: LxCommandPath,
+    pub r#ne: LxCommandPath,
+    pub r#in: LxCommandPath,
+    pub r#subset: LxCommandPath,
+    pub r#supset: LxCommandPath,
+    pub r#subseteq: LxCommandPath,
+    pub r#supseteq: LxCommandPath,
+    pub r#subseteqq: LxCommandPath,
+    pub r#supseteqq: LxCommandPath,
+    pub r#subsetneq: LxCommandPath,
+    pub r#supsetneq: LxCommandPath,
+    // -- arithmetic
     pub int: LxCommandPath,
     pub sum: LxCommandPath,
     pub times: LxCommandPath,
@@ -23,7 +36,6 @@ pub struct LxCommandPathMenu {
     pub alpha: LxCommandPath,
     pub beta: LxCommandPath,
     pub gamma: LxCommandPath,
-    // - constants
     pub pi: LxCommandPath,
     // - functions
     pub sin: LxCommandPath,
@@ -48,6 +60,20 @@ impl LxCommandPathMenu {
             mathrm: p("mathrm"),
             mathsf: p("mathsf"),
             mathscr: p("mathscr"),
+            // - operators
+            // -- relations
+            eq: p("eq"),
+            ne: p("ne"),
+            r#in: p("in"),
+            subset: p("subset"),
+            supset: p("supset"),
+            subseteq: p("subseteq"),
+            supseteq: p("supseteq"),
+            subseteqq: p("subseteqq"),
+            supseteqq: p("supseteqq"),
+            subsetneq: p("subsetneq"),
+            supsetneq: p("supsetneq"),
+            // -- arithmetic
             int: p("int"),
             sum: p("sum"),
             times: p("times"),

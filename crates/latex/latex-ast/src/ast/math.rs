@@ -178,8 +178,9 @@ impl<'a> LxAstParser<'a> {
         let (idx, token) = self.next_math_token()?;
         Some(match token {
             LxMathTokenData::Command(command_name) => {
-                let Ok(command_name) = command_name else {
-                    todo!()
+                let command_name = match command_name {
+                    Ok(command_name) => command_name,
+                    Err(e) => todo!("{e}"),
                 };
                 let Some(command_signature) =
                     self.command_signature_table().signature(command_name)

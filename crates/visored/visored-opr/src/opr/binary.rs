@@ -93,7 +93,7 @@ impl VdCompositeBinaryOpr {
     pub fn precedence(self) -> VdPrecedence {
         match self {
             VdCompositeBinaryOpr::Add => VdPrecedence::ADD_SUB,
-            VdCompositeBinaryOpr::Eq => VdPrecedence::COMPARISON,
+            VdCompositeBinaryOpr::Eq => VdPrecedence::RELATION,
         }
     }
 }
