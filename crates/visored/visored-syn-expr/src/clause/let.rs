@@ -1,9 +1,11 @@
-use expr::{VdSynExprData, VdSynSeparator};
+use expr::{VdSynExprData, VdSynExprIdxRange, VdSynSeparator};
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum LetStmtResolution {}
+pub enum LetStmtResolution {
+    Todo,
+}
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn build_let_stmt_resolution(&self, formula: VdSynExprIdx) -> LetStmtResolution {
@@ -21,9 +23,10 @@ impl<'db> VdSynExprBuilder<'db> {
             VdSynExprData::Prefix { opr, opd } => todo!(),
             VdSynExprData::Suffix { opd, opr } => todo!(),
             VdSynExprData::SeparatedList {
-                separator,
-                ref fragments,
-            } => self.build_let_stmt_resolution_from_separated_list(fragments),
+                separator_class,
+                items,
+                ref separators,
+            } => self.build_let_stmt_resolution_from_separated_list(items, separators),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -58,8 +61,13 @@ impl<'db> VdSynExprBuilder<'db> {
 
     fn build_let_stmt_resolution_from_separated_list(
         &self,
-        fragments: &[Either<VdSynExprIdx, VdSynSeparator>],
+        items: VdSynExprIdxRange,
+        separators: &[VdSynSeparator],
     ) -> LetStmtResolution {
-        todo!()
+        LetStmtResolution::Todo
+        // match fragments.len() {
+        //     3 => todo!(),
+        //     _ => todo!(),
+        // }
     }
 }

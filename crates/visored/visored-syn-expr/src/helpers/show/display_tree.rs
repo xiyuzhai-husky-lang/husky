@@ -119,10 +119,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynExprData::Binary { lopd, opr, ropd } => format!("{:?} expr.binary", source),
             VdSynExprData::Prefix { opr, opd } => format!("{:?} expr.prefix", source),
             VdSynExprData::Suffix { opd, opr } => format!("{:?} expr.suffix", source),
-            VdSynExprData::SeparatedList {
-                separator,
-                ref fragments,
-            } => format!("{:?} expr.separated_list", source),
+            VdSynExprData::SeparatedList { .. } => format!("{:?} expr.separated_list", source),
             VdSynExprData::Attach { base, ref scripts } => format!("{:?} expr.attach", source),
             VdSynExprData::UniadicChain => format!("{:?} expr.uniadic_chain", source),
             VdSynExprData::VariadicChain => format!("{:?} expr.variadic_chain", source),

@@ -20,8 +20,8 @@ pub enum LxMathLetter {
 impl LxMathLetter {
     pub fn latex_code(self) -> &'static str {
         match self {
-            LxMathLetter::UpperLatin(lx_math_latin_letter) => todo!(),
-            LxMathLetter::LowerLatin(lx_math_latin_letter) => todo!(),
+            LxMathLetter::UpperLatin(l) => l.upper_case_latex_code(),
+            LxMathLetter::LowerLatin(l) => l.lower_case_latex_code(),
             LxMathLetter::StyledUpperLatin(lx_math_letter_style, lx_math_latin_letter) => todo!(),
             LxMathLetter::StyledLowerLatin(lx_math_letter_style, lx_math_latin_letter) => todo!(),
             LxMathLetter::DistinctUpperGreek(lx_math_upper_greek_letter) => todo!(),

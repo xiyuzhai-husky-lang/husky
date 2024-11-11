@@ -16,7 +16,7 @@ use visored_opr::{
     delimiter::VdBaseLeftDelimiter,
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     precedence::VdPrecedence,
-    separator::{VdBaseSeparator, VdSeparator},
+    separator::{VdBaseSeparator, VdSeparatorClass},
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -33,8 +33,9 @@ pub(super) enum IncompleteVdSynExprData {
     /// A(a, b, c)
     /// ```
     SeparatedList {
-        separator: VdSeparator,
-        fragments: SmallVec<[Either<VdSynExprIdx, VdSynSeparator>; 4]>,
+        separator_class: VdSeparatorClass,
+        items: SmallVec<[VdSynExprData; 4]>,
+        separators: SmallVec<[VdSynSeparator; 4]>,
     },
     Delimited {
         left_delimiter: VdSynLeftDelimiter,
@@ -46,7 +47,9 @@ impl IncompleteVdSynExprData {
         match self {
             IncompleteVdSynExprData::Binary { opr, .. } => opr.precedence(),
             IncompleteVdSynExprData::Prefix { opr, .. } => opr.precedence(),
-            IncompleteVdSynExprData::SeparatedList { separator, .. } => separator.precedence(),
+            IncompleteVdSynExprData::SeparatedList {
+                separator_class, ..
+            } => separator_class.precedence(),
             IncompleteVdSynExprData::Delimited { .. } => VdPrecedence::INCOMPLTE_DELIMITED,
         }
     }
@@ -60,17 +63,23 @@ impl IncompleteVdSynExprData {
             }
             IncompleteVdSynExprData::Prefix { opr } => opr.show(db, arena),
             IncompleteVdSynExprData::SeparatedList {
-                separator,
-                ref fragments,
+                separator_class,
+                ref items,
+                ref separators,
             } => {
-                let mut s = "".to_string();
-                for fragment in fragments.iter() {
+                let mut s = String::new();
+
+                // Interleave items and separators
+                for (i, item) in items.iter().enumerate() {
                     if !s.is_empty() {
                         s += " ";
                     }
-                    match fragment {
-                        Left(expr) => s += &arena[*expr].show(db, arena),
-                        Right(sep) => s += &sep.show(db, arena),
+                    s += &item.show(db, arena);
+
+                    // Add separator if there is one
+                    if i < separators.len() {
+                        s += " ";
+                        s += &separators[i].show(db, arena);
                     }
                 }
                 s

@@ -125,21 +125,22 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
-        match self.clause_arena[clause] {
-            VdSynClauseData::Let { .. } => todo!(),
-            VdSynClauseData::Assume {
-                assume_token_idx,
-                left_dollar_token_idx,
-                formula,
-                right_dollar_token_idx,
-            } => todo!(),
-            VdSynClauseData::Then {
-                then_token_idx,
-                left_dollar_token_idx,
-                formula,
-                right_dollar_token_idx,
-            } => todo!(),
-        }
+        // TODO
+        // match self.clause_arena[clause] {
+        //     VdSynClauseData::Let { .. } => todo!(),
+        //     VdSynClauseData::Assume {
+        //         assume_token_idx,
+        //         left_dollar_token_idx,
+        //         formula,
+        //         right_dollar_token_idx,
+        //     } => todo!(),
+        //     VdSynClauseData::Then {
+        //         then_token_idx,
+        //         left_dollar_token_idx,
+        //         formula,
+        //         right_dollar_token_idx,
+        //     } => todo!(),
+        // }
     }
 
     pub(super) fn finish(self) -> (VdSynSymbolDefns, VdSynSymbolResolutions) {
