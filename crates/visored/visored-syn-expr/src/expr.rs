@@ -186,9 +186,9 @@ impl VdSynBinaryOpr {
     }
 }
 
-/// space is not included
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSeparator {
+    /// for space, the range is that of the next token
     Base(LxTokenIdxRange, VdBaseSeparator),
     Composite(VdSynExprIdx, VdSeparatorClass),
 }
