@@ -98,6 +98,8 @@ impl VdSemExprExample {
             sentence_range_map: syn_sentence_range_map,
             stmt_range_map: syn_stmt_range_map,
             division_range_map: syn_division_range_map,
+            symbol_defns,
+            symbol_resolutions,
         } = VdSynExprExample::new(input, root_mode, token_annotations, space_annotations, db);
         let mut builder = VdSemExprBuilder::new(
             db,
