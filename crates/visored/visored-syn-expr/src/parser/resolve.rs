@@ -32,7 +32,7 @@ pub struct DisambiguatedMathAst {
 #[derive(Debug)]
 pub enum ResolvedToken {
     Expr(VdSynExprData, VdSynExprClass),
-    Opr(LxMathTokenIdx, VdBaseOpr),
+    Opr(VdBaseOpr),
     Separator(VdBaseSeparator),
     LeftDelimiter(VdBaseLeftDelimiter),
     RightDelimiter(VdBaseRightDelimiter),
@@ -53,7 +53,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         VdTokenAnnotation::Integral(lx_integral_annotation) => todo!(),
                         VdTokenAnnotation::Variable(lx_variable_annotation) => todo!(),
                         VdTokenAnnotation::Differential => {
-                            return ResolvedToken::Opr(token_idx, VdBaseOpr::DIFFERENTIAL)
+                            return ResolvedToken::Opr(VdBaseOpr::DIFFERENTIAL)
                         }
                     }
                 }
@@ -110,7 +110,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     .resolve_punctuation(punctuation)
                 {
                     Some(resolution) => match resolution {
-                        VdPunctuationResolution::Opr(opr) => ResolvedToken::Opr(token_idx, opr),
+                        VdPunctuationResolution::Opr(opr) => ResolvedToken::Opr(opr),
                         VdPunctuationResolution::Separator(separator) => {
                             ResolvedToken::Separator(separator)
                         }
@@ -288,8 +288,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 )
             }
             VdCompleteCommandResolution::Text => todo!(),
-            VdCompleteCommandResolution::Opr(vd_base_opr) => {
-                ResolvedToken::Opr(command_token_idx, vd_base_opr)
+            VdCompleteCommandResolution::Opr(vd_base_opr) => ResolvedToken::Opr(vd_base_opr),
+            VdCompleteCommandResolution::Separator(vd_separator) => {
+                ResolvedToken::Separator(vd_separator)
             }
         }
     }

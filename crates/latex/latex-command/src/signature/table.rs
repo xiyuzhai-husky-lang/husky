@@ -84,6 +84,20 @@ impl LxCommandSignatureTable {
             mathrm,
             mathsf,
             mathscr,
+            // - operators
+            // -- relations
+            eq,
+            ne,
+            r#in,
+            subset,
+            supset,
+            subseteq,
+            supseteq,
+            subseteqq,
+            supseteqq,
+            subsetneq,
+            supsetneq,
+            // -- arithmetic
             int,
             sum,
             prod,
@@ -112,6 +126,20 @@ impl LxCommandSignatureTable {
                 (mathscr, LxMathLetterStyle::MATHSCR),
             ],
             &[
+                // - operators
+                // -- relations
+                (eq, &[]),
+                (ne, &[]),
+                (r#in, &[]),
+                (subset, &[]),
+                (supset, &[]),
+                (subseteq, &[]),
+                (supseteq, &[]),
+                (subseteqq, &[]),
+                (supseteqq, &[]),
+                (subsetneq, &[]),
+                (supsetneq, &[]),
+                // -- arithmetic
                 (int, &[]),
                 (sum, &[]),
                 (prod, &[]),

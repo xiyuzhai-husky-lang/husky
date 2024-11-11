@@ -8,6 +8,17 @@ pub enum VdSeparator {
 }
 
 impl VdSeparator {
+    pub const EQ: Self = VdSeparator::Base(VdBaseSeparator::Eq);
+    pub const NE: Self = VdSeparator::Base(VdBaseSeparator::Ne);
+    pub const SUBSET: Self = VdSeparator::Base(VdBaseSeparator::Subset);
+    pub const SUPSET: Self = VdSeparator::Base(VdBaseSeparator::Supset);
+    pub const SUBSETEQ: Self = VdSeparator::Base(VdBaseSeparator::Subseteq);
+    pub const SUPSETEQ: Self = VdSeparator::Base(VdBaseSeparator::Supseteq);
+    pub const SUBSETEQQ: Self = VdSeparator::Base(VdBaseSeparator::Subseteqq);
+    pub const SUPSETEQQ: Self = VdSeparator::Base(VdBaseSeparator::Supseteqq);
+    pub const SUBSETNEQ: Self = VdSeparator::Base(VdBaseSeparator::Subsetneq);
+    pub const SUPSETNEQ: Self = VdSeparator::Base(VdBaseSeparator::Supsetneq);
+    pub const IN: Self = VdSeparator::Base(VdBaseSeparator::In);
     pub const SPACE: Self = VdSeparator::Base(VdBaseSeparator::Space);
     pub const COMMA: Self = VdSeparator::Base(VdBaseSeparator::Comma);
 }
@@ -51,6 +62,19 @@ pub enum VdBaseSeparator {
     Mul,
     Dot,
     Eq,
+    Subset,
+    Supset,
+    Subseteq,
+    Supseteq,
+    Subseteqq,
+    Supseteqq,
+    Subsetneq,
+    Supsetneq,
+    In,
+    Notin,
+    Times,
+    Otimes,
+    Ne,
 }
 
 impl VdBaseSeparator {
@@ -71,7 +95,20 @@ impl VdBaseSeparator {
             VdBaseSeparator::Mul | VdBaseSeparator::Dot => {
                 VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV)
             }
-            VdBaseSeparator::Eq => VdPrecedenceRange::NoLess(VdPrecedence::COMPARISON),
+            VdBaseSeparator::Eq
+            | VdBaseSeparator::Ne
+            | VdBaseSeparator::Subset
+            | VdBaseSeparator::Supset
+            | VdBaseSeparator::Subseteq
+            | VdBaseSeparator::Supseteq
+            | VdBaseSeparator::Subseteqq
+            | VdBaseSeparator::Supseteqq
+            | VdBaseSeparator::Subsetneq
+            | VdBaseSeparator::Supsetneq
+            | VdBaseSeparator::In
+            | VdBaseSeparator::Notin => VdPrecedenceRange::NoLess(VdPrecedence::RELATION),
+            VdBaseSeparator::Times => todo!(),
+            VdBaseSeparator::Otimes => todo!(),
         }
     }
 
@@ -83,7 +120,20 @@ impl VdBaseSeparator {
             VdBaseSeparator::Add => VdPrecedenceRange::Greater(VdPrecedence::ADD_SUB),
             VdBaseSeparator::Mul => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
             VdBaseSeparator::Dot => VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV),
-            VdBaseSeparator::Eq => VdPrecedenceRange::Greater(VdPrecedence::COMPARISON),
+            VdBaseSeparator::Eq => VdPrecedenceRange::Greater(VdPrecedence::RELATION),
+            VdBaseSeparator::Subset => todo!(),
+            VdBaseSeparator::Supset => todo!(),
+            VdBaseSeparator::Subseteq => todo!(),
+            VdBaseSeparator::Supseteq => todo!(),
+            VdBaseSeparator::Subseteqq => todo!(),
+            VdBaseSeparator::Supseteqq => todo!(),
+            VdBaseSeparator::Subsetneq => todo!(),
+            VdBaseSeparator::Supsetneq => todo!(),
+            VdBaseSeparator::In => todo!(),
+            VdBaseSeparator::Notin => todo!(),
+            VdBaseSeparator::Times => todo!(),
+            VdBaseSeparator::Otimes => todo!(),
+            VdBaseSeparator::Ne => todo!(),
         }
     }
 }
@@ -95,9 +145,22 @@ impl VdBaseSeparator {
             VdBaseSeparator::Comma => todo!(),
             VdBaseSeparator::Semicolon => VdPrecedence::SEMICOLON,
             VdBaseSeparator::Add => VdPrecedence::ADD_SUB,
-            VdBaseSeparator::Mul => VdPrecedence::MUL_DIV,
+            VdBaseSeparator::Mul | VdBaseSeparator::Times | VdBaseSeparator::Otimes => {
+                VdPrecedence::MUL_DIV
+            }
             VdBaseSeparator::Dot => VdPrecedence::MUL_DIV,
-            VdBaseSeparator::Eq => VdPrecedence::COMPARISON,
+            VdBaseSeparator::Eq
+            | VdBaseSeparator::Subset
+            | VdBaseSeparator::Supset
+            | VdBaseSeparator::Subseteq
+            | VdBaseSeparator::Supseteq
+            | VdBaseSeparator::Subseteqq
+            | VdBaseSeparator::Supseteqq
+            | VdBaseSeparator::Subsetneq
+            | VdBaseSeparator::Supsetneq
+            | VdBaseSeparator::In
+            | VdBaseSeparator::Notin
+            | VdBaseSeparator::Ne => VdPrecedence::RELATION,
         }
     }
 
@@ -110,6 +173,19 @@ impl VdBaseSeparator {
             VdBaseSeparator::Mul => "\\times",
             VdBaseSeparator::Dot => "\\cdot",
             VdBaseSeparator::Eq => "=",
+            VdBaseSeparator::Subset => "\\subseteq",
+            VdBaseSeparator::Supset => "\\supseteq",
+            VdBaseSeparator::Subseteq => "\\subseteqq",
+            VdBaseSeparator::Supseteq => "\\supseteqq",
+            VdBaseSeparator::Subseteqq => "\\subseteqqq",
+            VdBaseSeparator::Supseteqq => "\\supseteqqq",
+            VdBaseSeparator::Subsetneq => "\\subsetneq",
+            VdBaseSeparator::Supsetneq => "\\supsetneq",
+            VdBaseSeparator::In => "\\in",
+            VdBaseSeparator::Notin => "\\notin",
+            VdBaseSeparator::Times => "\\times",
+            VdBaseSeparator::Otimes => "\\otimes",
+            VdBaseSeparator::Ne => "\\neq",
         }
     }
 }

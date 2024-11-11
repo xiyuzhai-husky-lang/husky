@@ -56,9 +56,9 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphanumeric() => {
+                        c if c.is_alphabetic() => {
                             Some(LxMathTokenData::Command(LxCommandName::new2(
-                                self.chars.next_str_slice_while(|c| c.is_alphanumeric()),
+                                self.chars.next_str_slice_while(|c| c.is_alphabetic()),
                                 db,
                             )))
                         }
@@ -71,6 +71,8 @@ impl<'a> LxLexer<'a> {
                                 '}' => Some(LxMathTokenData::Punctuation(
                                     LxMathPunctuation::EscapedRcurl,
                                 )),
+                                // TODO: handle `@` and others seen as command names
+                                // latex really sucks
                                 _ => todo!(),
                             }
                         }
