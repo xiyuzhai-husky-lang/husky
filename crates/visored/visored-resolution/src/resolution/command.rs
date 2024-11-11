@@ -3,10 +3,7 @@ use latex_command::path::LxCommandPath;
 use latex_math_letter::letter::LxMathLetter;
 use rustc_hash::FxHashMap;
 use visored_item_path::path::VdItemPath;
-use visored_opr::{
-    opr::VdBaseOpr,
-    separator::{VdBaseSeparator, VdSeparator},
-};
+use visored_opr::{opr::VdBaseOpr, separator::VdBaseSeparator};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdCompleteCommandResolution {

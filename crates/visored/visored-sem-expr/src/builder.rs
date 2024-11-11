@@ -151,7 +151,7 @@ impl<'db> VdSemExprBuilder<'db> {
     pub(crate) fn alloc_exprs(
         &mut self,
         exprs: Vec<VdSemExprData>,
-        srcs: impl Iterator<Item = VdSynExprIdx>,
+        srcs: impl IntoIterator<Item = VdSynExprIdx>,
     ) -> VdSemExprIdxRange {
         let exprs = self.expr_arena.alloc_batch(exprs);
         for (expr, src) in exprs.into_iter().zip(srcs) {

@@ -97,13 +97,14 @@ impl<'db> VdHirExprBuilder<'db> {
             } => todo!(),
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {
-                separator,
                 items,
                 ref dispatch,
+                ..
             } => VdHirExprData::Application {
                 function: match dispatch {
                     VdSemSeparatedListDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
                     VdSemSeparatedListDispatch::Eq => VdHirApplicationFunction::TrivialEq,
+                    VdSemSeparatedListDispatch::IntMul => todo!(),
                 },
                 arguments: items.to_vd_hir(self),
             },

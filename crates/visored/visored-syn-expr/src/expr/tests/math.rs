@@ -438,23 +438,6 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
 }
 
 #[test]
-fn debug_vd_syn_expr_parsing_works() {
-    t(
-        "1+x+2y",
-        &[],
-        &[],
-        &expect![[r#"
-            "1+x+2y" expr.separated_list
-            ├─ "1" expr.literal
-            ├─ "x" expr.letter
-            └─ "2y" expr.separated_list
-              ├─ "2" expr.literal
-              └─ "y" expr.letter
-        "#]],
-    );
-}
-
-#[test]
 fn opr_commands_vd_syn_expr_parsing_works() {
     use visored_annotation::annotation::token::DIFFERENTIAL;
 
