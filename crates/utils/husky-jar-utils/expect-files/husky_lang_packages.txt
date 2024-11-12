@@ -4276,6 +4276,36 @@
         ],
     },
     PackageSummary {
+        name: "visored-global-resolution",
+        relative_path: "crates/visored/visored-global-resolution",
+        dependencies: [
+            "enum-index",
+            "latex-command",
+            "latex-math-letter",
+            "latex-math-punctuation",
+            "rustc-hash",
+            "salsa",
+            "visored-item-path",
+            "visored-opr",
+        ],
+    },
+    PackageSummary {
+        name: "visored-item-path",
+        relative_path: "crates/visored/visored-item-path",
+        dependencies: [
+            "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "visored-opr",
+        relative_path: "crates/visored/visored-opr",
+        dependencies: [
+            "enum-class",
+            "enum-index",
+            "salsa",
+        ],
+    },
+    PackageSummary {
         name: "visored-hir-expr",
         relative_path: "crates/visored/visored-hir-expr",
         dependencies: [
@@ -4285,6 +4315,8 @@
             "latex-prelude",
             "salsa",
             "visored-annotation",
+            "visored-global-resolution",
+            "visored-item-path",
             "visored-opr",
             "visored-sem-expr",
             "visored-zfc-ty",
@@ -4295,15 +4327,6 @@
             "latex-environment",
             "visored-sem-expr",
             "visored-syn-expr",
-        ],
-    },
-    PackageSummary {
-        name: "visored-opr",
-        relative_path: "crates/visored/visored-opr",
-        dependencies: [
-            "enum-class",
-            "enum-index",
-            "salsa",
         ],
     },
     PackageSummary {
@@ -4325,35 +4348,14 @@
             "smallvec",
             "thiserror",
             "visored-annotation",
+            "visored-global-resolution",
             "visored-opr",
-            "visored-resolution",
             "visored-syn-expr",
             "visored-zfc-ty",
             "expect-test",
             "husky-coword",
             "latex-command",
             "latex-environment",
-        ],
-    },
-    PackageSummary {
-        name: "visored-resolution",
-        relative_path: "crates/visored/visored-resolution",
-        dependencies: [
-            "enum-index",
-            "latex-command",
-            "latex-math-letter",
-            "latex-math-punctuation",
-            "rustc-hash",
-            "salsa",
-            "visored-item-path",
-            "visored-opr",
-        ],
-    },
-    PackageSummary {
-        name: "visored-item-path",
-        relative_path: "crates/visored/visored-item-path",
-        dependencies: [
-            "salsa",
         ],
     },
     PackageSummary {
@@ -4379,8 +4381,8 @@
             "smallvec",
             "thiserror",
             "visored-annotation",
+            "visored-global-resolution",
             "visored-opr",
-            "visored-resolution",
             "visored-zfc-ty",
             "expect-test",
             "husky-coword",

@@ -5,14 +5,16 @@ pub mod tests;
 use crate::*;
 use application::VdHirApplicationFunction;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
+use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
-    binary::VdSemBinaryDispatch, separated_list::VdSemSeparatedListDispatch, VdSemExprData,
-    VdSemExprIdx, VdSemExprIdxRange,
+    binary::VdSemBinaryDispatch, letter::VdSemLetterDispatch,
+    separated_list::VdSemSeparatedListDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_zfc_ty::term::literal::VdZfcLiteral;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VdHirExprData {
     Literal(VdZfcLiteral),
     Variable(VdHirVariable),
@@ -20,6 +22,7 @@ pub enum VdHirExprData {
         function: VdHirApplicationFunction,
         arguments: VdHirExprIdxRange,
     },
+    ItemPath(VdItemPath),
 }
 
 pub type VdHirExprArena = Arena<VdHirExprData>;
@@ -95,7 +98,14 @@ impl<'db> VdHirExprBuilder<'db> {
                 token_idx_range,
                 letter,
                 ref dispatch,
-            } => todo!(),
+            } => match dispatch {
+                VdSemLetterDispatch::Global(global_resolution) => match *global_resolution {
+                    VdLetterGlobalResolution::Item(vd_item_path) => {
+                        VdHirExprData::ItemPath(vd_item_path)
+                    }
+                },
+                VdSemLetterDispatch::Local(local_defn) => VdHirExprData::Variable(VdHirVariable {}),
+            },
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {
                 items,

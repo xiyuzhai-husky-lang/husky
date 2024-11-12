@@ -1314,6 +1314,10 @@
         dependencies: [],
     },
     JarPackageSummary {
+        name: "visored-opr",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "visored-hir-expr",
         dependencies: [
             "visored-opr",
@@ -1326,10 +1330,6 @@
             "visored-sem-expr",
             "visored-syn-expr",
         ],
-    },
-    JarPackageSummary {
-        name: "visored-opr",
-        dependencies: [],
     },
     JarPackageSummary {
         name: "visored-sem-expr",

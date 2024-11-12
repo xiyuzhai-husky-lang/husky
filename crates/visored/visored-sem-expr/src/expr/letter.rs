@@ -1,6 +1,6 @@
 use super::*;
 use symbol::local_defn::VdSemSymbolLocalDefnIdx;
-use visored_resolution::resolution::letter::VdLetterGlobalResolution;
+use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_syn_expr::symbol::resolution::{
     letter::VdSynLetterSymbolResolution, VdSynSymbolResolution,
 };
@@ -18,6 +18,8 @@ impl<'a> VdSemExprBuilder<'a> {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
     ) -> VdSemExprData {
+        use husky_print_utils::p;
+        p!(token_idx_range, self.syn_expr_arena()[syn_expr]);
         let resolution = &self.symbol_resolution_table()[syn_expr];
         let dispatch = match resolution {
             Ok(resolution) => {

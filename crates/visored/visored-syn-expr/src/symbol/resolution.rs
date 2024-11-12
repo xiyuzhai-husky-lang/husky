@@ -2,7 +2,7 @@ pub mod error;
 pub mod letter;
 pub mod punctuation;
 
-use visored_resolution::resolution::letter::VdLetterGlobalResolution;
+use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 
 use self::{error::*, letter::*, punctuation::*};
 use super::*;
