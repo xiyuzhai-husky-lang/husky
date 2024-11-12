@@ -1,12 +1,25 @@
-use expr::{VdSynExprData, VdSynExprIdxRange, VdSynSeparator};
+pub mod assigned;
+pub mod placeholder;
 
+use self::{
+    assigned::VdSynLetStmtAssignedResolution, placeholder::VdSynLetStmtPlaceholderResolution,
+};
 use super::*;
+use expr::{VdSynExprData, VdSynExprIdxRange, VdSynSeparator};
+use visored_opr::separator::VdBaseSeparator;
 
+#[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq)]
-pub enum LetStmtResolution {}
+pub enum VdSynLetStmtResolution {
+    Assigned(VdSynLetStmtAssignedResolution),
+    Placeholder(VdSynLetStmtPlaceholderResolution),
+}
 
 impl<'db> VdSynExprBuilder<'db> {
-    pub(crate) fn build_let_stmt_resolution(&self, formula: VdSynExprIdx) -> LetStmtResolution {
+    pub(crate) fn build_let_stmt_resolution(
+        &self,
+        formula: VdSynExprIdx,
+    ) -> VdSynLetStmtResolution {
         match self.expr_arena()[formula] {
             VdSynExprData::Literal {
                 token_idx_range,
@@ -61,22 +74,51 @@ impl<'db> VdSynExprBuilder<'db> {
         &self,
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
-    ) -> LetStmtResolution {
+    ) -> VdSynLetStmtResolution {
         match items.len() {
             0 | 1 => unreachable!(),
             2 => {
                 debug_assert_eq!(separators.len(), 1);
-                self.build_let_stmt_resolution_from_size_two_separated_list(items, separators[0])
+                self.build_let_stmt_resolution_from_separated_two_items(
+                    items.first().unwrap(),
+                    items.last().unwrap(),
+                    separators[0],
+                )
             }
             _ => todo!(),
         }
     }
 
-    fn build_let_stmt_resolution_from_size_two_separated_list(
+    fn build_let_stmt_resolution_from_separated_two_items(
         &self,
-        items: VdSynExprIdxRange,
-        separator: VdSynSeparator, // None means space
-    ) -> LetStmtResolution {
-        todo!()
+        fst: VdSynExprIdx,
+        snd: VdSynExprIdx,
+        separator: VdSynSeparator,
+    ) -> VdSynLetStmtResolution {
+        match separator {
+            VdSynSeparator::Base(_, base_separator) => match base_separator {
+                VdBaseSeparator::Space => todo!(),
+                VdBaseSeparator::Comma => todo!(),
+                VdBaseSeparator::Semicolon => todo!(),
+                VdBaseSeparator::Add => todo!(),
+                VdBaseSeparator::Mul => todo!(),
+                VdBaseSeparator::Dot => todo!(),
+                VdBaseSeparator::Eq => self.build_let_assigned_resolution(fst, snd).into(),
+                VdBaseSeparator::Subset => todo!(),
+                VdBaseSeparator::Supset => todo!(),
+                VdBaseSeparator::Subseteq => todo!(),
+                VdBaseSeparator::Supseteq => todo!(),
+                VdBaseSeparator::Subseteqq => todo!(),
+                VdBaseSeparator::Supseteqq => todo!(),
+                VdBaseSeparator::Subsetneq => todo!(),
+                VdBaseSeparator::Supsetneq => todo!(),
+                VdBaseSeparator::In => todo!(),
+                VdBaseSeparator::Notin => todo!(),
+                VdBaseSeparator::Times => todo!(),
+                VdBaseSeparator::Otimes => todo!(),
+                VdBaseSeparator::Ne => todo!(),
+            },
+            VdSynSeparator::Composite(_, separator_class) => todo!(),
+        }
     }
 }
