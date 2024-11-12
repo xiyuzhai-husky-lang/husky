@@ -1,5 +1,5 @@
-mod math;
-mod rose;
+mod clause;
+mod expr;
 
 use crate::test_helpers::example::VdLeanTranspilationExample;
 use crate::{builder::VdLeanTranspilationBuilder, TranspileToLean, *};

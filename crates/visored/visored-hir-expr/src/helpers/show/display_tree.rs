@@ -38,6 +38,7 @@ impl<'a> VdHirExprDisplayTreeBuilder<'a> {
                 let value = match function {
                     VdHirApplicationFunction::IntAdd => "separator list int add".to_string(),
                     VdHirApplicationFunction::TrivialEq => "separator list eq".to_string(),
+                    VdHirApplicationFunction::In => "separator list in".to_string(),
                 };
                 (
                     value,

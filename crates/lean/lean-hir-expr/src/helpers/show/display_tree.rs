@@ -46,6 +46,7 @@ impl<'a> LnHirExprDisplayTreeBuilder<'a> {
             LnHirExprData::Application {
                 function_and_arguments,
             } => todo!(),
+            LnHirExprData::Sorry => "sorry".to_string(),
         };
         let children = self.expr_arena[expr].children();
         DisplayTree::new(

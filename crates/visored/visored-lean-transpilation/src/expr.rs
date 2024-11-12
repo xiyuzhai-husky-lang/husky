@@ -53,6 +53,8 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                         ropd: ropd.to_lean(self),
                     }
                 }
+                // TODO: implement this
+                VdHirApplicationFunction::In => LnHirExprData::Sorry,
             },
         }
     }

@@ -116,7 +116,7 @@ impl<'db> VdHirExprBuilder<'db> {
                     VdSemSeparatedListDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
                     VdSemSeparatedListDispatch::Eq => VdHirApplicationFunction::TrivialEq,
                     VdSemSeparatedListDispatch::IntMul => todo!(),
-                    VdSemSeparatedListDispatch::In => todo!(),
+                    VdSemSeparatedListDispatch::In => VdHirApplicationFunction::In,
                 },
                 arguments: items.to_vd_hir(self),
             },
