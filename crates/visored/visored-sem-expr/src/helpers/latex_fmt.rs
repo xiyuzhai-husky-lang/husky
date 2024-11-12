@@ -1,10 +1,8 @@
-use expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch};
+use expr::binary::VdSemBinaryDispatch;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
 
 use super::*;
-#[cfg(test)]
-use crate::test_helpers::builder::VdSemExprTestBuilder;
 use crate::{
     clause::{VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx},
     expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
@@ -51,7 +49,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 
     pub fn fmt_sentence(&mut self, sentence_idx: VdSemSentenceIdx) {
         match self.sentence_arena[sentence_idx] {
-            VdSemSentenceData::Clauses(clauses) => {
+            VdSemSentenceData::Clauses { clauses, end } => {
                 for (index, clause_idx) in clauses.into_iter().enumerate() {
                     self.fmt_clause(clause_idx);
                     if index < clauses.len() - 1 {
@@ -67,6 +65,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn fmt_clause(&mut self, clause_idx: VdSemClauseIdx) {
         match self.clause_arena[clause_idx] {
             VdSemClauseData::Verb => todo!(),
+            _ => todo!(),
         }
     }
 
@@ -87,11 +86,8 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         let db = self.db;
-        match self.expr_arena[expr_idx] {
-            VdSemExprData::Literal {
-                literal,
-                ref dispatch,
-            } => match literal.data(db) {
+        match *self.expr_arena[expr_idx].data() {
+            VdSemExprData::Literal { literal, .. } => match literal.data(db) {
                 VdZfcLiteralData::NaturalNumber(s) => {
                     if self
                         .result
@@ -109,7 +105,9 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                 }
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
-            VdSemExprData::Notation => todo!(),
+            VdSemExprData::Letter { .. } => todo!(),
+            VdSemExprData::BaseOpr { .. } => todo!(),
+            VdSemExprData::SeparatedList { .. } => todo!(),
             VdSemExprData::Binary {
                 lopd,
                 opr,
@@ -118,7 +116,8 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                 ..
             } => {
                 self.fmt_expr(lopd);
-                self.result += opr.latex_code();
+                self.result += todo!();
+                // opr.latex_code();
                 self.fmt_expr(ropd);
             }
             VdSemExprData::Prefix {
@@ -136,6 +135,18 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),
             VdSemExprData::VariadicArray => todo!(),
+            VdSemExprData::LxDelimited { .. } => todo!(),
+            VdSemExprData::Delimited { .. } => todo!(),
+            VdSemExprData::Fraction {
+                command_token_idx,
+                denominator_rcurl_token_idx,
+                ..
+            } => todo!(),
+            VdSemExprData::Sqrt {
+                command_token_idx,
+                radicand_rcurl_token_idx,
+                ..
+            } => todo!(),
         }
     }
 

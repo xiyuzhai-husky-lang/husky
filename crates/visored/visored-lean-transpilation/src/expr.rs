@@ -1,15 +1,13 @@
-use super::ToLean;
-use crate::builder::VdLeanTranspilationBuilder;
+use super::VdTranspileToLean;
+use crate::{builder::VdLeanTranspilationBuilder, dictionary::item_path::VdItemPathTranslation};
 use lean_hir_expr::expr::{LnHirExprData, LnHirExprIdx};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::term::literal::{LnLiteral, LnLiteralData};
 use visored_hir_expr::expr::{application::VdHirApplicationFunction, VdHirExprData, VdHirExprIdx};
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
-impl ToLean for VdHirExprIdx {
-    type Target = LnHirExprIdx;
-
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> Self::Target {
+impl VdTranspileToLean<LnHirExprIdx> for VdHirExprIdx {
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnHirExprIdx {
         let data = builder.build_expr(self);
         builder.alloc_expr(data)
     }
@@ -20,6 +18,16 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         let db = self.db();
         match self.expr_arena()[expr] {
             VdHirExprData::Literal(literal) => LnHirExprData::Literal(to_lean_literal(db, literal)),
+            VdHirExprData::ItemPath(item_path) => {
+                let Some(translation) = self.dictionary().item_path_translation(item_path) else {
+                    todo!()
+                };
+                match *translation {
+                    VdItemPathTranslation::ItemPath(item_path) => {
+                        LnHirExprData::ItemPath(item_path)
+                    }
+                }
+            }
             VdHirExprData::Variable(ref vd_hir_variable) => todo!(),
             VdHirExprData::Application {
                 function,
@@ -45,6 +53,8 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                         ropd: ropd.to_lean(self),
                     }
                 }
+                // TODO: implement this
+                VdHirApplicationFunction::In => LnHirExprData::Sorry,
             },
         }
     }

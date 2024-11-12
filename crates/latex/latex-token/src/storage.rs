@@ -1,6 +1,6 @@
 use crate::{
-    data::LxTokenData,
-    idx::{LxRoseTokenIdx, LxTokenIdxRange},
+    data::{code::LxCodeTokenData, LxTokenData},
+    idx::{LxCodeTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
 };
 use crate::{
     data::{math::LxMathTokenData, rose::LxRoseTokenData},
@@ -97,6 +97,18 @@ impl LxTokenStorage {
         token_data: LxRoseTokenData,
     ) -> LxRoseTokenIdx {
         let idx = LxRoseTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        self.ranged_tokens
+            .push((offset_range, range, token_data.into()));
+        idx
+    }
+
+    pub(crate) fn alloc_code_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxCodeTokenData,
+    ) -> LxCodeTokenIdx {
+        let idx = LxCodeTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
         self.ranged_tokens
             .push((offset_range, range, token_data.into()));
         idx

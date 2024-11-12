@@ -182,3 +182,26 @@ fn parse_attach_works() {
         "#]],
     );
 }
+
+#[test]
+fn lx_parse_environment_works() {
+    t(
+        "\\begin{align}x\\end{align}",
+        expect![[r#"
+        \begin{align}x\end{align}
+        └─ \begin{align}x\end{align}
+          └─ x
+    "#]],
+    );
+}
+
+#[test]
+fn parse_styled_letter_works() {
+    t(
+        "\\mathbf{X}",
+        expect![[r#"
+            \mathbf{X}
+            └─ \mathbf{X}
+        "#]],
+    );
+}

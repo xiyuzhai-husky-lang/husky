@@ -1,3 +1,4 @@
+#![feature(if_let_guard)]
 #![feature(step_trait)]
 pub mod data;
 pub mod idx;

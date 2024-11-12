@@ -1,6 +1,4 @@
 use super::*;
-#[cfg(test)]
-use crate::test_helpers::builder::VdSynExprTestBuilder;
 use crate::{
     clause::{VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx},
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx},
@@ -13,6 +11,7 @@ use crate::{
 use either::*;
 use expr::VdSynBinaryOpr;
 use latex_token::idx::LxTokenIdxRange;
+use sentence::VdSynSentenceEnd;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
 
@@ -52,14 +51,12 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 
     pub fn fmt_sentence(&mut self, sentence_idx: VdSynSentenceIdx) {
         match self.sentence_arena[sentence_idx] {
-            VdSynSentenceData::Clauses(clauses) => {
+            VdSynSentenceData::Clauses { clauses, end } => {
                 for (index, clause_idx) in clauses.into_iter().enumerate() {
                     self.fmt_clause(clause_idx);
-                    if index < clauses.len() - 1 {
-                        self.result.push_str(", ");
-                    } else {
-                        self.result.push_str(". ");
-                    }
+                }
+                match end {
+                    VdSynSentenceEnd::Period(_) => self.result += ".",
                 }
             }
         }
@@ -67,7 +64,14 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 
     pub fn fmt_clause(&mut self, clause_idx: VdSynClauseIdx) {
         match self.clause_arena[clause_idx] {
-            VdSynClauseData::Verb => todo!(),
+            VdSynClauseData::Let { .. } => todo!(),
+            VdSynClauseData::Assume {
+                assume_token_idx,
+                left_dollar_token_idx,
+                formula,
+                right_dollar_token_idx,
+            } => todo!(),
+            VdSynClauseData::Then { formula, .. } => todo!(),
         }
     }
 
@@ -107,7 +111,6 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 }
                 VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
             },
-            VdSynExprData::Notation => todo!(),
             VdSynExprData::Letter { letter, .. } => {
                 self.result += letter.latex_code();
             }
@@ -154,23 +157,23 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 #[test]
 #[ignore]
 fn latex_fmt_works() {
-    let db = &DB::default();
-    let menu = vd_zfc_ty_menu(db);
-    let mut builder = VdSynExprTestBuilder::new(db);
-    let one = builder.new_expr_checked(
-        VdSynExprData::Literal {
-            literal: menu.one_literal(),
-            token_idx_range: todo!(),
-        },
-        "1",
-    );
-    let one_add_one = builder.new_expr_checked(
-        VdSynExprData::Binary {
-            lopd: one,
-            opr: todo!(),
-            // (VdBaseBinaryOpr::Add),
-            ropd: one,
-        },
-        "1+1",
-    );
+    // let db = &DB::default();
+    // let menu = vd_zfc_ty_menu(db);
+    // let mut builder = VdSynExprTestBuilder::new(db);
+    // let one = builder.new_expr_checked(
+    //     VdSynExprData::Literal {
+    //         literal: menu.one_literal(),
+    //         token_idx_range: todo!(),
+    //     },
+    //     "1",
+    // );
+    // let one_add_one = builder.new_expr_checked(
+    //     VdSynExprData::Binary {
+    //         lopd: one,
+    //         opr: todo!(),
+    //         // (VdBaseBinaryOpr::Add),
+    //         ropd: one,
+    //     },
+    //     "1+1",
+    // );
 }

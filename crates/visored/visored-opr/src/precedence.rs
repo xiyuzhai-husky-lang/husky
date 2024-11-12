@@ -13,7 +13,7 @@ impl std::fmt::Debug for VdPrecedence {
             Self::MIN => write!(f, "VdPrecedence::MIN"),
             Self::SEMICOLON => write!(f, "VdPrecedence::SEMICOLON"),
             Self::COMMA => write!(f, "VdPrecedence::COMMA"),
-            Self::COMPARISON => write!(f, "VdPrecedence::EQ"),
+            Self::RELATION => write!(f, "VdPrecedence::EQ"),
             Self::ADD_SUB => write!(f, "VdPrecedence::ADD"),
             Self::MUL_DIV => write!(f, "VdPrecedence::MUL"),
             Self::SPACE => write!(f, "VdPrecedence::SPACE"),
@@ -30,7 +30,7 @@ impl std::fmt::Display for VdPrecedence {
             Self::MIN => write!(f, "VdPrecedence::MIN"),
             Self::SEMICOLON => write!(f, "VdPrecedence::SEMICOLON"),
             Self::COMMA => write!(f, "VdPrecedence::COMMA"),
-            Self::COMPARISON => write!(f, "VdPrecedence::EQ"),
+            Self::RELATION => write!(f, "VdPrecedence::EQ"),
             Self::ADD_SUB => write!(f, "VdPrecedence::ADD"),
             Self::MUL_DIV => write!(f, "VdPrecedence::MUL"),
             Self::SPACE => write!(f, "VdPrecedence::SPACE"),
@@ -44,7 +44,7 @@ impl std::fmt::Display for VdPrecedence {
 impl VdPrecedence {
     pub const MIN: Self = VdPrecedence(0);
     pub const INCOMPLTE_DELIMITED: Self = VdPrecedence(10);
-    pub const COMPARISON: Self = VdPrecedence(500);
+    pub const RELATION: Self = VdPrecedence(500);
     pub const SEMICOLON: Self = VdPrecedence(1000);
     pub const COMMA: Self = VdPrecedence(5000);
     pub const ADD_SUB: Self = VdPrecedence(20000);
@@ -61,7 +61,7 @@ fn vd_precedence_works() {
     // (a; b
     assert!(VdPrecedence::INCOMPLTE_DELIMITED < VdPrecedence::SEMICOLON);
     // a, b < 1
-    assert!(VdPrecedence::COMPARISON < VdPrecedence::COMMA);
+    assert!(VdPrecedence::RELATION < VdPrecedence::COMMA);
     // \sum a+ b
     assert!(VdPrecedence::ADD_SUB < VdPrecedence::REDUCE_PREFIX);
     // \sum a b
@@ -86,7 +86,7 @@ impl VdPrecedenceRange {
     pub const SPACE_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::SPACE);
     pub const ADD_SUB_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB);
     pub const MUL_DIV_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV);
-    pub const COMPARISON_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::COMPARISON);
+    pub const COMPARISON_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::RELATION);
 }
 
 /// # methods
