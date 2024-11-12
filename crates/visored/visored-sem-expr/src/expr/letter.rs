@@ -1,10 +1,15 @@
 use super::*;
+use symbol::local_defn::VdSemSymbolLocalDefnIdx;
+use visored_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_syn_expr::symbol::resolution::{
     letter::VdSynLetterSymbolResolution, VdSynSymbolResolution,
 };
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdSemLetterDispatch {}
+pub enum VdSemLetterDispatch {
+    Global(VdLetterGlobalResolution),
+    Local(VdSemSymbolLocalDefnIdx),
+}
 
 impl<'a> VdSemExprBuilder<'a> {
     pub(super) fn build_letter(
@@ -21,12 +26,12 @@ impl<'a> VdSemExprBuilder<'a> {
                 };
                 self.build_letter_dispatch(resolution)
             }
-            Err(_) => todo!(),
+            Err(e) => todo!("letter = `{letter}`, e = {e}"),
         };
         VdSemExprData::Letter {
             token_idx_range,
             letter,
-            dispatch: todo!(),
+            dispatch,
         }
     }
 
@@ -34,9 +39,13 @@ impl<'a> VdSemExprBuilder<'a> {
         &mut self,
         resolution: &VdSynLetterSymbolResolution,
     ) -> VdSemLetterDispatch {
-        match resolution {
-            VdSynLetterSymbolResolution::Global(vd_letter_global_resolution) => todo!(),
-            VdSynLetterSymbolResolution::Local(arena_idx) => todo!(),
+        match *resolution {
+            VdSynLetterSymbolResolution::Global(global_resolution) => {
+                VdSemLetterDispatch::Global(global_resolution)
+            }
+            VdSynLetterSymbolResolution::Local(local_defn_idx) => {
+                VdSemLetterDispatch::Local(local_defn_idx.to_vd_sem(self))
+            }
         }
     }
 }

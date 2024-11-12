@@ -5,6 +5,7 @@ use symbol::local_defn::{VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead};
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSynLetPlaceholderResolution {
     pattern: VdSynPattern,
+    pattern_expr: VdSynExprIdx,
     ty: VdSynLetClausePlaceholderType,
 }
 
@@ -17,11 +18,12 @@ pub enum VdSynLetClausePlaceholderType {
 impl<'db> VdSynExprBuilder<'db> {
     pub fn build_let_placeholder_resolution(
         &self,
-        pattern: VdSynExprIdx,
+        pattern_expr: VdSynExprIdx,
         ty: VdSynLetClausePlaceholderType,
     ) -> VdSynLetPlaceholderResolution {
         VdSynLetPlaceholderResolution {
-            pattern: self.build_pattern(pattern),
+            pattern: self.build_pattern(pattern_expr),
+            pattern_expr,
             ty,
         }
     }
@@ -47,6 +49,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 );
             }
         }
+        self.build_expr(resolution.pattern_expr);
     }
 
     fn build_let_clause_placeholder_ty(&mut self, ty: VdSynLetClausePlaceholderType) {

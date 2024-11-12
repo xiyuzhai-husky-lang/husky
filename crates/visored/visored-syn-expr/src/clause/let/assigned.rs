@@ -60,5 +60,6 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 );
             }
         }
+        self.build_expr(resolution.pattern_expr);
     }
 }

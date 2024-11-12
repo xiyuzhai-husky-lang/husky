@@ -17,6 +17,12 @@ pub enum LxMathLetter {
     DistinctLowerGreek(LxMathDistinctLowerGreekLetter),
 }
 
+impl std::fmt::Display for LxMathLetter {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.latex_code())
+    }
+}
+
 impl LxMathLetter {
     pub fn latex_code(self) -> &'static str {
         match self {

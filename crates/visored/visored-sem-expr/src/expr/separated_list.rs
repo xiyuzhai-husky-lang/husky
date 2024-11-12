@@ -7,6 +7,7 @@ pub enum VdSemSeparatedListDispatch {
     IntAdd,
     IntMul,
     Eq,
+    In,
 }
 
 impl<'db> VdSemExprBuilder<'db> {
@@ -36,7 +37,7 @@ impl<'db> VdSemExprBuilder<'db> {
                     VdBaseSeparator::Supseteqq => todo!(),
                     VdBaseSeparator::Subsetneq => todo!(),
                     VdBaseSeparator::Supsetneq => todo!(),
-                    VdBaseSeparator::In => todo!(),
+                    VdBaseSeparator::In => VdSemSeparatedListDispatch::In,
                     VdBaseSeparator::Notin => todo!(),
                     VdBaseSeparator::Times => todo!(),
                     VdBaseSeparator::Otimes => todo!(),
