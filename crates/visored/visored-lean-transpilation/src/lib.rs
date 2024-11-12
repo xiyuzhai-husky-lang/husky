@@ -13,6 +13,6 @@ mod tests;
 use self::tests::*;
 use self::{builder::VdLeanTranspilationBuilder, jar::VdLeanTranspilationJar as Jar};
 
-pub trait TranspileToLean<T>: Copy {
+pub trait VdTranspileToLean<T>: Copy {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> T;
 }

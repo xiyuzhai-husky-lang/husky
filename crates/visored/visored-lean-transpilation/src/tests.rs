@@ -2,7 +2,7 @@ mod clause;
 mod expr;
 
 use crate::test_helpers::example::VdLeanTranspilationExample;
-use crate::{builder::VdLeanTranspilationBuilder, TranspileToLean, *};
+use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
 use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;

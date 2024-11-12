@@ -10,6 +10,7 @@ use lean_hir_expr::{
         fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
         show::display_tree::LnHirExprDisplayTreeBuilder,
     },
+    item_defn::LnItemDefnIdxRange,
     stmt::{LnHirStmtArena, LnHirStmtIdxRange},
     tactic::LnHirTacticArena,
 };
@@ -22,7 +23,7 @@ pub struct VdLeanTranspilationExample {
     expr_arena: LnHirExprArena,
     stmt_arena: LnHirStmtArena,
     tactic_arena: LnHirTacticArena,
-    result: Either<LnHirExprIdx, LnHirStmtIdxRange>,
+    result: Either<LnHirExprIdx, LnItemDefnIdxRange>,
 }
 
 impl VdLeanTranspilationExample {
@@ -47,7 +48,7 @@ impl VdLeanTranspilationExample {
         );
         let result = match result {
             Left(expr) => Left(expr.to_lean(&mut builder)),
-            Right(stmts) => todo!(),
+            Right(stmts) => Right(stmts.to_lean(&mut builder)),
         };
         let (expr_arena, stmt_arena, tactic_arena) = builder.finish();
         Self {
