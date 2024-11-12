@@ -1,4 +1,4 @@
-mod r#let;
+pub mod r#let;
 #[cfg(test)]
 mod tests;
 
@@ -24,7 +24,7 @@ pub enum VdSynClauseData {
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
-        resolution: VdSynLetStmtResolution,
+        resolution: VdSynLetClauseResolution,
     },
     Assume {
         assume_token_idx: LxRoseTokenIdx,

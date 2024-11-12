@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdSynLetStmtAssignedResolution {
+pub struct VdSynLetAssignedResolution {
     pattern: VdSynExprIdx,
     assignment: VdSynExprIdx,
 }
@@ -11,8 +11,8 @@ impl<'db> VdSynExprBuilder<'db> {
         &self,
         pattern: VdSynExprIdx,
         assignment: VdSynExprIdx,
-    ) -> VdSynLetStmtAssignedResolution {
-        VdSynLetStmtAssignedResolution {
+    ) -> VdSynLetAssignedResolution {
+        VdSynLetAssignedResolution {
             pattern,
             assignment,
         }
