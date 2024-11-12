@@ -19,9 +19,10 @@ salsa.workspace = true
 # latex
 latex-prelude = { workspace = true, optional = true }
 # lean
-lean-opr.workspace = true
+lean-coword.workspace = true
 lean-hir-expr.workspace = true
 lean-item-path.workspace = true
+lean-opr.workspace = true
 lean-term.workspace = true
 # utils
 husky-tree-utils = { workspace = true, optional = true }

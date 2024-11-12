@@ -8,39 +8,59 @@ use visored_zfc_ty::{term::VdZfcTerm, ty::VdZfcType};
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSemLetPlaceholderDispatch {
     pattern: VdSemPattern,
-    ty: VdSemLetClausePlaceholderType,
+    ty_repr: VdSemLetClausePlaceholderTypeRepr,
+    ty: VdZfcType,
 }
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdSemLetClausePlaceholderType {
+pub enum VdSemLetClausePlaceholderTypeRepr {
     Expr(VdSemExprIdx),
+}
+
+impl VdSemLetPlaceholderDispatch {
+    pub fn pattern(&self) -> &VdSemPattern {
+        &self.pattern
+    }
+
+    pub fn ty_repr(&self) -> &VdSemLetClausePlaceholderTypeRepr {
+        &self.ty_repr
+    }
+
+    pub fn ty(&self) -> VdZfcType {
+        self.ty
+    }
 }
 
 impl ToVdSem<VdSemLetPlaceholderDispatch> for &VdSynLetPlaceholderResolution {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemLetPlaceholderDispatch {
         let pattern = self.pattern().to_vd_sem(builder);
-        let ty = self.ty().to_vd_sem(builder);
-        let ty_term = builder.infer_pattern_ty_term(ty);
-        builder.infer_pattern_symbol_tys(&pattern, ty_term.to_ty(builder.db()));
-        VdSemLetPlaceholderDispatch { pattern, ty }
+        let ty_repr = self.ty().to_vd_sem(builder);
+        let ty_term = builder.infer_pattern_ty_term(ty_repr);
+        let ty = ty_term.to_ty(builder.db());
+        builder.infer_pattern_symbol_tys(&pattern, ty);
+        VdSemLetPlaceholderDispatch {
+            pattern,
+            ty_repr,
+            ty,
+        }
     }
 }
 
-impl ToVdSem<VdSemLetClausePlaceholderType> for VdSynLetClausePlaceholderType {
-    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemLetClausePlaceholderType {
+impl ToVdSem<VdSemLetClausePlaceholderTypeRepr> for VdSynLetClausePlaceholderType {
+    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemLetClausePlaceholderTypeRepr {
         match self {
             VdSynLetClausePlaceholderType::Expr(expr) => {
-                VdSemLetClausePlaceholderType::Expr(expr.to_vd_sem(builder))
+                VdSemLetClausePlaceholderTypeRepr::Expr(expr.to_vd_sem(builder))
             }
         }
     }
 }
 
 impl<'db> VdSemExprBuilder<'db> {
-    fn infer_pattern_ty_term(&mut self, ty: VdSemLetClausePlaceholderType) -> VdZfcTerm {
+    fn infer_pattern_ty_term(&mut self, ty: VdSemLetClausePlaceholderTypeRepr) -> VdZfcTerm {
         match ty {
-            VdSemLetClausePlaceholderType::Expr(expr) => self.infer_expr_term(expr),
+            VdSemLetClausePlaceholderTypeRepr::Expr(expr) => self.infer_expr_term(expr),
         }
     }
 

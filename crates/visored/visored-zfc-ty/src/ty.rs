@@ -6,8 +6,8 @@ use visored_item_path::path::VdItemPath;
 
 #[salsa::interned]
 pub struct VdZfcType {
-    data: VdZfcTypeData,
-    refinements: SmallVec<[(); 2]>,
+    pub data: VdZfcTypeData,
+    pub refinements: SmallVec<[(); 2]>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
