@@ -20,7 +20,7 @@ use visored_opr::{
     separator::VdBaseSeparator,
 };
 use visored_resolution::resolution::{
-    command::VdCompleteCommandResolution, punctuation::VdPunctuationResolution,
+    command::VdCompleteCommandGlobalResolution, punctuation::VdPunctuationGlobalResolution,
 };
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
@@ -110,17 +110,19 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     .resolve_punctuation(punctuation)
                 {
                     Some(resolution) => match resolution {
-                        VdPunctuationResolution::Opr(opr) => ResolvedAst::Opr(opr),
-                        VdPunctuationResolution::Separator(separator) => {
+                        VdPunctuationGlobalResolution::Opr(opr) => ResolvedAst::Opr(opr),
+                        VdPunctuationGlobalResolution::Separator(separator) => {
                             ResolvedAst::Separator(separator)
                         }
-                        VdPunctuationResolution::LeftDelimiter(left_delimiter) => {
+                        VdPunctuationGlobalResolution::LeftDelimiter(left_delimiter) => {
                             ResolvedAst::LeftDelimiter(left_delimiter)
                         }
-                        VdPunctuationResolution::RightDelimiter(right_delimiter) => {
+                        VdPunctuationGlobalResolution::RightDelimiter(right_delimiter) => {
                             ResolvedAst::RightDelimiter(right_delimiter)
                         }
-                        VdPunctuationResolution::Todo => todo!("punctuation = {:?}", punctuation),
+                        VdPunctuationGlobalResolution::Todo => {
+                            todo!("punctuation = {:?}", punctuation)
+                        }
                     },
                     None => todo!(),
                 }
@@ -223,7 +225,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             todo!("command_path = {:?}", command_path.debug(self.builder.db()))
         };
         match *resolve_complete_command {
-            VdCompleteCommandResolution::Letter(letter) => {
+            VdCompleteCommandGlobalResolution::Letter(letter) => {
                 let token_idx_range = match arguments.last() {
                     Some(argument) => {
                         LxTokenIdxRange::new_closed(*command_token_idx, *argument.rcurl_token_idx())
@@ -238,11 +240,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            VdCompleteCommandResolution::Todo => {
+            VdCompleteCommandGlobalResolution::Todo => {
                 todo!("command_path = {:?}", command_path.debug(self.builder.db()))
             }
-            VdCompleteCommandResolution::Item(_) => todo!(),
-            VdCompleteCommandResolution::Frac => {
+            VdCompleteCommandGlobalResolution::Item(_) => todo!(),
+            VdCompleteCommandGlobalResolution::Frac => {
                 debug_assert!(arguments.len() == 2);
                 let [numerator_arg, denominator_arg] = arguments else {
                     unreachable!()
@@ -268,7 +270,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            VdCompleteCommandResolution::Sqrt => {
+            VdCompleteCommandGlobalResolution::Sqrt => {
                 debug_assert!(arguments.len() == 1);
                 let [radicand_arg] = arguments else {
                     unreachable!()
@@ -287,9 +289,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     VdSynExprClass::ATOM,
                 )
             }
-            VdCompleteCommandResolution::Text => todo!(),
-            VdCompleteCommandResolution::Opr(vd_base_opr) => ResolvedAst::Opr(vd_base_opr),
-            VdCompleteCommandResolution::Separator(vd_separator) => {
+            VdCompleteCommandGlobalResolution::Text => todo!(),
+            VdCompleteCommandGlobalResolution::Opr(vd_base_opr) => ResolvedAst::Opr(vd_base_opr),
+            VdCompleteCommandGlobalResolution::Separator(vd_separator) => {
                 ResolvedAst::Separator(vd_separator)
             }
         }

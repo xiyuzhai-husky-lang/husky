@@ -1,6 +1,7 @@
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     sentence::{VdSynSentenceIdx, VdSynSentenceIdxRange},
+    symbol::builder::VdSynSymbolBuilder,
 };
 use husky_coword::Coword;
 use idx_arena::{
@@ -99,6 +100,15 @@ impl VdSynStmtData {
             VdSynStmtData::Block { stmts, .. } => {
                 stmts.into_iter().map(VdSynStmtChild::Stmt).collect()
             }
+        }
+    }
+}
+
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub(crate) fn build_stmt_aux(&mut self, stmt: VdSynStmtIdx) {
+        match self.stmt_arena()[stmt] {
+            VdSynStmtData::Paragraph(sentences) => self.build_sentences(sentences),
+            VdSynStmtData::Block { environment, stmts } => self.build_stmts(stmts),
         }
     }
 }

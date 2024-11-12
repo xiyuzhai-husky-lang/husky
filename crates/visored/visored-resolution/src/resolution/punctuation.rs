@@ -6,7 +6,7 @@ use visored_opr::{
 };
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdPunctuationResolution {
+pub enum VdPunctuationGlobalResolution {
     Opr(VdBaseOpr),
     Separator(VdBaseSeparator),
     LeftDelimiter(VdBaseLeftDelimiter),
@@ -14,9 +14,10 @@ pub enum VdPunctuationResolution {
     Todo,
 }
 
-pub type VdPunctuationResolutionMap = LxMathPunctuationMap<Option<VdPunctuationResolution>>;
+pub type VdPunctuationGlobalResolutionMap =
+    LxMathPunctuationMap<Option<VdPunctuationGlobalResolution>>;
 
-impl VdPunctuationResolution {
+impl VdPunctuationGlobalResolution {
     pub const SEPARATOR_ADD: Self = Self::Separator(VdBaseSeparator::ADD);
     pub const SUB: Self = Self::Opr(VdBaseOpr::SUB);
     pub const SEPARATOR_MUL: Self = Self::Separator(VdBaseSeparator::MUL);

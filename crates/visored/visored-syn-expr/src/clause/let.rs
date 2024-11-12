@@ -1,7 +1,7 @@
 pub mod assigned;
 pub mod placeholder;
 
-use self::{assigned::VdSynLetAssignedResolution, placeholder::VdSynPlaceholderResolution};
+use self::{assigned::VdSynLetAssignedResolution, placeholder::VdSynLetPlaceholderResolution};
 use super::*;
 use expr::{VdSynExprData, VdSynExprIdxRange, VdSynSeparator};
 use visored_opr::separator::VdBaseSeparator;
@@ -10,7 +10,7 @@ use visored_opr::separator::VdBaseSeparator;
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynLetClauseResolution {
     Assigned(VdSynLetAssignedResolution),
-    Placeholder(VdSynPlaceholderResolution),
+    Placeholder(VdSynLetPlaceholderResolution),
 }
 
 impl<'db> VdSynExprBuilder<'db> {

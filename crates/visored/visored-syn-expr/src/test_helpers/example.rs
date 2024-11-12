@@ -23,18 +23,18 @@ use latex_prelude::mode::LxMode;
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use stmt::{VdSynStmtArena, VdSynStmtIdxRange};
-use symbol::{defn::VdSynSymbolDefns, resolution::VdSynSymbolResolutionTable};
+use symbol::{local_defn::VdSynSymbolLocalDefnTable, resolution::VdSynSymbolResolutionsTable};
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
-use visored_resolution::table::VdDefaultResolutionTable;
+use visored_resolution::table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynExprExample {
     pub input: String,
     pub root_mode: LxMode,
     pub annotations: VdAnnotations,
-    pub default_resolution_table: VdDefaultResolutionTable,
+    pub default_resolution_table: VdDefaultGlobalResolutionTable,
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
     pub asts: LxAstIdxRange,
@@ -52,8 +52,8 @@ pub struct VdSynExprExample {
     pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
     pub stmt_range_map: VdSynStmtTokenIdxRangeMap,
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
-    pub symbol_defns: VdSynSymbolDefns,
-    pub symbol_resolution_table: VdSynSymbolResolutionTable,
+    pub symbol_defns: VdSynSymbolLocalDefnTable,
+    pub symbol_resolution_table: VdSynSymbolResolutionsTable,
 }
 
 impl VdSynExprExample {
@@ -86,7 +86,7 @@ impl VdSynExprExample {
             space_annotations.iter().copied(),
             &token_storage,
         );
-        let default_resolution_table = VdDefaultResolutionTable::new_standard(db);
+        let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard(db);
         let mut builder = VdSynExprBuilder::new(
             db,
             &token_storage,
