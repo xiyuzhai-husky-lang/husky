@@ -12728,6 +12728,7 @@ name = "visored-zfc-ty"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "rustc-hash 2.0.0",
  "salsa",
  "smallvec",
  "visored-coword",

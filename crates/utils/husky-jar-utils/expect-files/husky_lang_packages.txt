@@ -4402,6 +4402,7 @@
         relative_path: "crates/visored/visored-zfc-ty",
         dependencies: [
             "enum-class",
+            "rustc-hash",
             "salsa",
             "smallvec",
             "visored-coword",

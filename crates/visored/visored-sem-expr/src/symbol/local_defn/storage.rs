@@ -19,8 +19,12 @@ impl VdSemSymbolLocalDefnStorage {
         }
     }
 
-    pub(crate) fn set(&mut self, defns: Vec<VdSemSymbolLocalDefnData>) {
+    pub(crate) fn set_defns(&mut self, defns: Vec<VdSemSymbolLocalDefnData>) {
         debug_assert!(self.arena.is_empty());
         self.arena = unsafe { VdSemSymbolLocalDefnArena::new_ext(defns) };
+    }
+
+    pub(crate) fn set_local_defn_ty(&mut self, local_defn: VdSemSymbolLocalDefnIdx, ty: VdZfcType) {
+        self.arena.update(local_defn, |data| data.set_ty(ty));
     }
 }

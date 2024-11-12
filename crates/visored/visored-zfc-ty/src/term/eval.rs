@@ -1,9 +1,12 @@
 use super::*;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[salsa::derive_debug_with_db]
+#[salsa::as_id]
+#[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdZfcEval(VdZfcTermId);
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct VdZfcEvalData {
     // Add appropriate fields here
 }

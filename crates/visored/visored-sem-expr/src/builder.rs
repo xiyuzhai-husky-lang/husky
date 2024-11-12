@@ -10,7 +10,11 @@ use visored_syn_expr::{
     stmt::{VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
-use visored_zfc_ty::ty::VdZfcType;
+use visored_zfc_ty::{
+    menu::{vd_zfc_ty_menu, VdZfcTypeMenu},
+    term::VdZfcTerm,
+    ty::{table::VdItemPathZfcTypeTable, VdZfcType},
+};
 
 use crate::{
     clause::{
@@ -29,7 +33,9 @@ use crate::{
         VdSemSentenceIdxRange,
     },
     stmt::{VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
-    symbol::local_defn::{storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData},
+    symbol::local_defn::{
+        storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData, VdSemSymbolLocalDefnIdx,
+    },
 };
 
 pub(crate) struct VdSemExprBuilder<'a> {
@@ -44,6 +50,8 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_stmt_arena: VdSynStmtArenaRef<'a>,
     syn_division_arena: VdSynDivisionArenaRef<'a>,
     syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
+    zfc_ty_menu: &'a VdZfcTypeMenu,
+    item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
@@ -55,20 +63,21 @@ pub(crate) struct VdSemExprBuilder<'a> {
     symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
 }
 
-impl<'db> VdSemExprBuilder<'db> {
+impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn new(
-        db: &'db ::salsa::Db,
-        token_storage: &'db LxTokenStorage,
-        annotations: &'db VdAnnotations,
-        default_resolution_table: &'db VdDefaultGlobalResolutionTable,
-        syn_expr_arena: VdSynExprArenaRef<'db>,
-        syn_phrase_arena: VdSynPhraseArenaRef<'db>,
-        syn_clause_arena: VdSynClauseArenaRef<'db>,
-        syn_sentence_arena: VdSynSentenceArenaRef<'db>,
-        syn_stmt_arena: VdSynStmtArenaRef<'db>,
-        syn_division_arena: VdSynDivisionArenaRef<'db>,
-        syn_symbol_local_defn_storage: &'db VdSynSymbolLocalDefnStorage,
-        syn_symbol_resolution_table: &'db VdSynSymbolResolutionsTable,
+        db: &'a ::salsa::Db,
+        token_storage: &'a LxTokenStorage,
+        annotations: &'a VdAnnotations,
+        default_resolution_table: &'a VdDefaultGlobalResolutionTable,
+        syn_expr_arena: VdSynExprArenaRef<'a>,
+        syn_phrase_arena: VdSynPhraseArenaRef<'a>,
+        syn_clause_arena: VdSynClauseArenaRef<'a>,
+        syn_sentence_arena: VdSynSentenceArenaRef<'a>,
+        syn_stmt_arena: VdSynStmtArenaRef<'a>,
+        syn_division_arena: VdSynDivisionArenaRef<'a>,
+        syn_symbol_local_defn_storage: &'a VdSynSymbolLocalDefnStorage,
+        syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
+        item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
     ) -> Self {
         let mut slf = Self {
             db,
@@ -83,6 +92,8 @@ impl<'db> VdSemExprBuilder<'db> {
             syn_division_arena,
             symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
             syn_symbol_resolution_table,
+            zfc_ty_menu: vd_zfc_ty_menu(db),
+            item_path_zfc_ty_table,
             expr_arena: VdSemExprArena::default(),
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
@@ -137,38 +148,51 @@ impl<'a> VdSemExprBuilder<'a> {
         &self.symbol_local_defn_storage
     }
 
-    pub fn expr_arena(&self) -> VdSemExprArenaRef {
+    pub(crate) fn item_path_zfc_type_table(&self) -> &'a VdItemPathZfcTypeTable {
+        self.item_path_zfc_ty_table
+    }
+
+    pub(crate) fn zfc_ty_menu(&self) -> &'a VdZfcTypeMenu {
+        self.zfc_ty_menu
+    }
+
+    pub(crate) fn expr_arena(&self) -> VdSemExprArenaRef {
         self.expr_arena.as_arena_ref()
     }
 
-    pub fn phrase_arena(&self) -> VdSemPhraseArenaRef {
+    pub(crate) fn phrase_arena(&self) -> VdSemPhraseArenaRef {
         self.phrase_arena.as_arena_ref()
     }
 
-    pub fn clause_arena(&self) -> VdSemClauseArenaRef {
+    pub(crate) fn clause_arena(&self) -> VdSemClauseArenaRef {
         self.clause_arena.as_arena_ref()
     }
 
-    pub fn sentence_arena(&self) -> VdSemSentenceArenaRef {
+    pub(crate) fn sentence_arena(&self) -> VdSemSentenceArenaRef {
         self.sentence_arena.as_arena_ref()
     }
 
-    pub fn stmt_arena(&self) -> VdSemStmtArenaRef {
+    pub(crate) fn stmt_arena(&self) -> VdSemStmtArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 
-    pub fn division_arena(&self) -> VdSemDivisionArenaRef {
+    pub(crate) fn division_arena(&self) -> VdSemDivisionArenaRef {
         self.division_arena.as_arena_ref()
     }
 
-    pub fn syn_to_sem_expr_map(&self) -> &VdSynExprMap<VdSemExprIdx> {
+    pub(crate) fn syn_to_sem_expr_map(&self) -> &VdSynExprMap<VdSemExprIdx> {
         &self.syn_to_sem_expr_map
     }
 }
 
 impl<'db> VdSemExprBuilder<'db> {
     pub(crate) fn alloc_local_defns(&mut self, defns: Vec<VdSemSymbolLocalDefnData>) {
-        self.symbol_local_defn_storage.set(defns);
+        self.symbol_local_defn_storage.set_defns(defns);
+    }
+
+    pub(crate) fn set_local_defn_ty(&mut self, local_defn: VdSemSymbolLocalDefnIdx, ty: VdZfcType) {
+        self.symbol_local_defn_storage
+            .set_local_defn_ty(local_defn, ty);
     }
 
     pub(crate) fn alloc_expr(
@@ -222,6 +246,12 @@ impl<'db> VdSemExprBuilder<'db> {
         data: VdSemDivisionData,
     ) -> VdSemDivisionIdx {
         self.division_arena.alloc_one(data)
+    }
+
+    pub(crate) fn infer_expr_term(&mut self, expr: VdSemExprIdx) -> VdZfcTerm {
+        let term = self.calc_expr_term(expr);
+        self.expr_arena.update(expr, |entry| entry.set_term(term));
+        term
     }
 
     pub(crate) fn finish_into_region_data(self) -> VdSemExprRegionData {
