@@ -23,7 +23,7 @@ use latex_prelude::mode::LxMode;
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use stmt::{VdSynStmtArena, VdSynStmtIdxRange};
-use symbol::{defn::VdSynSymbolDefns, resolution::VdSynSymbolResolutions};
+use symbol::{defn::VdSynSymbolDefns, resolution::VdSynSymbolResolutionTable};
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
@@ -53,7 +53,7 @@ pub struct VdSynExprExample {
     pub stmt_range_map: VdSynStmtTokenIdxRangeMap,
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
     pub symbol_defns: VdSynSymbolDefns,
-    pub symbol_resolutions: VdSynSymbolResolutions,
+    pub symbol_resolution_table: VdSynSymbolResolutionTable,
 }
 
 impl VdSynExprExample {
@@ -135,7 +135,7 @@ impl VdSynExprExample {
             stmt_range_map,
             division_range_map,
             symbol_defns,
-            symbol_resolutions,
+            symbol_resolution_table: symbol_resolutions,
         }
     }
 

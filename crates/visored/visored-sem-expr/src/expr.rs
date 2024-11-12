@@ -1,7 +1,7 @@
 pub mod attach;
 pub mod binary;
+pub mod letter;
 pub mod literal;
-pub mod notation;
 pub mod prefix;
 pub mod separated_list;
 pub mod suffix;
@@ -19,6 +19,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
+use letter::VdSemLetterDispatch;
 use separated_list::VdSemSeparatedListDispatch;
 use visored_opr::{
     delimiter::{
@@ -47,6 +48,7 @@ pub enum VdSemExprData {
     Letter {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
+        dispatch: VdSemLetterDispatch,
     },
     BaseOpr {
         opr: VdBaseOpr,
@@ -238,7 +240,7 @@ impl ToVdSem<VdSemExprIdx> for VdSynExprIdx {
     }
 }
 
-impl<'db> VdSemExprBuilder<'db> {
+impl<'a> VdSemExprBuilder<'a> {
     fn build_expr(&mut self, syn_expr: VdSynExprIdx) -> VdSemExprData {
         match self.syn_expr_arena()[syn_expr] {
             VdSynExprData::Literal {
@@ -251,10 +253,7 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSynExprData::Letter {
                 token_idx_range,
                 letter,
-            } => VdSemExprData::Letter {
-                token_idx_range,
-                letter,
-            },
+            } => self.build_letter(syn_expr, token_idx_range, letter),
             VdSynExprData::BaseOpr { opr } => VdSemExprData::BaseOpr { opr },
             VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
             VdSynExprData::Prefix { opr, opd } => todo!(),
