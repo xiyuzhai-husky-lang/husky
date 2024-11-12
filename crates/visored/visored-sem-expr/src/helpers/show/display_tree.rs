@@ -93,7 +93,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
                 .token_idx_range_offset_range(token_idx_range),
         };
         let source = &self.input[offset_range];
-        let value = match self.expr_arena[expr] {
+        let value = match *self.expr_arena[expr].data() {
             VdSemExprData::Literal {
                 token_idx_range,
                 literal,
@@ -124,7 +124,10 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             } => format!("{:?} fraction", source),
             VdSemExprData::Sqrt { radicand, .. } => format!("{:?} sqrt", source),
         };
-        DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
+        DisplayTree::new(
+            value,
+            self.render_exprs(self.expr_arena[expr].data().children()),
+        )
     }
 
     pub fn render_all_stmts(&self, stmts: VdSemStmtIdxRange) -> DisplayTree {

@@ -65,7 +65,7 @@ impl<const N: usize> ToVdHir<VdHirExprIdxRange> for [VdSemExprIdx; N] {
 
 impl<'db> VdHirExprBuilder<'db> {
     fn build_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdHirExprData {
-        match self.sem_expr_arena()[sem_expr_idx] {
+        match *self.sem_expr_arena()[sem_expr_idx].data() {
             VdSemExprData::Literal { literal, .. } => VdHirExprData::Literal(literal),
             VdSemExprData::Binary {
                 lopd,

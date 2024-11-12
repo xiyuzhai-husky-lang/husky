@@ -1,5 +1,5 @@
 use super::{
-    local_defn::VdSynSymbolLocalDefnTable,
+    local_defn::VdSynSymbolLocalDefnStorage,
     resolution::{VdSynSymbolResolution, VdSynSymbolResolutionsTable},
     *,
 };
@@ -23,7 +23,7 @@ pub struct VdSynSymbolBuilder<'a> {
     sentence_arena: VdSynSentenceArenaRef<'a>,
     stmt_arena: VdSynStmtArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
-    symbol_local_defn_table: VdSynSymbolLocalDefnTable,
+    symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
     symbol_resolutions_table: VdSynSymbolResolutionsTable,
     // the order is from outer to inner
     current_divisions: SmallVec<[VdSynDivisionIdx; 8]>,
@@ -68,7 +68,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
             sentence_arena,
             stmt_arena,
             division_arena,
-            symbol_local_defn_table: VdSynSymbolLocalDefnTable::default(),
+            symbol_local_defn_table: VdSynSymbolLocalDefnStorage::default(),
             symbol_resolutions_table: VdSynSymbolResolutionsTable::new(expr_arena),
             current_divisions: smallvec![],
             current_stmts: smallvec![],
@@ -86,7 +86,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         self.default_global_resolution_table
     }
 
-    pub(crate) fn symbol_local_defn_table(&self) -> &VdSynSymbolLocalDefnTable {
+    pub(crate) fn symbol_local_defn_table(&self) -> &VdSynSymbolLocalDefnStorage {
         &self.symbol_local_defn_table
     }
 
@@ -184,7 +184,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         self.symbol_local_defn_table.define_symbol(head, body, src);
     }
 
-    pub(super) fn finish(self) -> (VdSynSymbolLocalDefnTable, VdSynSymbolResolutionsTable) {
+    pub(super) fn finish(self) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
         (self.symbol_local_defn_table, self.symbol_resolutions_table)
     }
 }

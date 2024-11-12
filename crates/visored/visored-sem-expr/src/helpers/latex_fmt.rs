@@ -3,8 +3,6 @@ use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
 
 use super::*;
-#[cfg(test)]
-use crate::test_helpers::builder::VdSemExprTestBuilder;
 use crate::{
     clause::{VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx},
     expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
@@ -88,7 +86,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         let db = self.db;
-        match self.expr_arena[expr_idx] {
+        match *self.expr_arena[expr_idx].data() {
             VdSemExprData::Literal { literal, .. } => match literal.data(db) {
                 VdZfcLiteralData::NaturalNumber(s) => {
                     if self

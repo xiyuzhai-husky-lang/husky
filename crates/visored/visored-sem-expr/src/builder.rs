@@ -8,15 +8,19 @@ use visored_syn_expr::{
     phrase::{VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
     stmt::{VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
-    symbol::resolution::VdSynSymbolResolutionsTable,
+    symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
+use visored_zfc_ty::ty::VdZfcType;
 
 use crate::{
     clause::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
     division::{VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx},
-    expr::{VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange},
+    expr::{
+        VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprEntry, VdSemExprIdx,
+        VdSemExprIdxRange,
+    },
     helpers::latex_fmt::VdSemExprLaTeXFormatter,
     phrase::{VdSemPhraseArena, VdSemPhraseArenaRef, VdSemPhraseData, VdSemPhraseIdx},
     region::VdSemExprRegionData,
@@ -25,6 +29,7 @@ use crate::{
         VdSemSentenceIdxRange,
     },
     stmt::{VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
+    symbol::local_defn::{storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData},
 };
 
 pub(crate) struct VdSemExprBuilder<'a> {
@@ -38,7 +43,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_sentence_arena: VdSynSentenceArenaRef<'a>,
     syn_stmt_arena: VdSynStmtArenaRef<'a>,
     syn_division_arena: VdSynDivisionArenaRef<'a>,
-    symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
+    syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
@@ -47,6 +52,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     division_arena: VdSemDivisionArena,
     /// only needs to keep track of syn to sem expr map because of possible repetition
     syn_to_sem_expr_map: VdSynExprMap<VdSemExprIdx>,
+    symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
 }
 
 impl<'db> VdSemExprBuilder<'db> {
@@ -61,9 +67,10 @@ impl<'db> VdSemExprBuilder<'db> {
         syn_sentence_arena: VdSynSentenceArenaRef<'db>,
         syn_stmt_arena: VdSynStmtArenaRef<'db>,
         syn_division_arena: VdSynDivisionArenaRef<'db>,
-        symbol_resolution_table: &'db VdSynSymbolResolutionsTable,
+        syn_symbol_local_defn_storage: &'db VdSynSymbolLocalDefnStorage,
+        syn_symbol_resolution_table: &'db VdSynSymbolResolutionsTable,
     ) -> Self {
-        Self {
+        let mut slf = Self {
             db,
             token_storage,
             annotations,
@@ -74,7 +81,8 @@ impl<'db> VdSemExprBuilder<'db> {
             syn_sentence_arena,
             syn_stmt_arena,
             syn_division_arena,
-            symbol_resolution_table,
+            symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
+            syn_symbol_resolution_table,
             expr_arena: VdSemExprArena::default(),
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
@@ -82,12 +90,21 @@ impl<'db> VdSemExprBuilder<'db> {
             stmt_arena: VdSemStmtArena::default(),
             division_arena: VdSemDivisionArena::default(),
             syn_to_sem_expr_map: VdSynExprMap::new2(syn_expr_arena),
-        }
+        };
+        // make sure symbols are built
+        // expressions needed will be built in the process
+        // be careful, bugs could lead to infinite loops
+        slf.build_symbol_local_defns(syn_symbol_local_defn_storage);
+        slf
     }
 }
 
 /// # getters
 impl<'a> VdSemExprBuilder<'a> {
+    pub fn db(&self) -> &'a ::salsa::Db {
+        self.db
+    }
+
     pub fn syn_expr_arena(&self) -> VdSynExprArenaRef<'a> {
         self.syn_expr_arena
     }
@@ -112,8 +129,12 @@ impl<'a> VdSemExprBuilder<'a> {
         self.syn_division_arena
     }
 
-    pub fn symbol_resolution_table(&self) -> &'a VdSynSymbolResolutionsTable {
-        self.symbol_resolution_table
+    pub fn syn_symbol_resolution_table(&self) -> &'a VdSynSymbolResolutionsTable {
+        self.syn_symbol_resolution_table
+    }
+
+    pub fn symbol_local_defn_storage(&self) -> &VdSemSymbolLocalDefnStorage {
+        &self.symbol_local_defn_storage
     }
 
     pub fn expr_arena(&self) -> VdSemExprArenaRef {
@@ -146,19 +167,23 @@ impl<'a> VdSemExprBuilder<'a> {
 }
 
 impl<'db> VdSemExprBuilder<'db> {
+    pub(crate) fn alloc_local_defns(&mut self, defns: Vec<VdSemSymbolLocalDefnData>) {
+        self.symbol_local_defn_storage.set(defns);
+    }
+
     pub(crate) fn alloc_expr(
         &mut self,
         syn_expr: VdSynExprIdx,
-        data: VdSemExprData,
+        entry: VdSemExprEntry,
     ) -> VdSemExprIdx {
-        let expr = self.expr_arena.alloc_one(data);
+        let expr = self.expr_arena.alloc_one(entry);
         self.syn_to_sem_expr_map.insert(syn_expr, expr);
         expr
     }
 
     pub(crate) fn alloc_exprs(
         &mut self,
-        exprs: Vec<VdSemExprData>,
+        exprs: Vec<VdSemExprEntry>,
         srcs: impl IntoIterator<Item = VdSynExprIdx>,
     ) -> VdSemExprIdxRange {
         let exprs = self.expr_arena.alloc_batch(exprs);

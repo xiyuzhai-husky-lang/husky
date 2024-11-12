@@ -2,6 +2,12 @@ use super::*;
 use smallvec::{smallvec, SmallVec};
 use visored_syn_expr::expr::VdSynExprIdxRange;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSemSeparator {
+    Base(LxTokenIdxRange, VdBaseSeparator),
+    Composite(VdSemExprIdx, VdSeparatorClass),
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSemSeparatedListDispatch {
     IntAdd,
@@ -16,7 +22,7 @@ impl<'db> VdSemExprBuilder<'db> {
         separator_class: VdSeparatorClass,
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
-    ) -> VdSemExprData {
+    ) -> (VdSemExprData, VdZfcType) {
         // TODO: ad hoc,should consider more based on type information, especially space.
         let dispatch = match separators.len() {
             0 => todo!(),
@@ -55,12 +61,14 @@ impl<'db> VdSemExprBuilder<'db> {
             }
             _ => todo!(),
         };
-        VdSemExprData::SeparatedList {
+        let data = VdSemExprData::SeparatedList {
             separator_class,
             // TODO: ad hoc, what to do for separators?
             items: items.to_vd_sem(self),
             // TODO: ad hoc, should consider much more based on type information, especially space.
             dispatch,
-        }
+        };
+        let ty = todo!();
+        (data, ty)
     }
 }

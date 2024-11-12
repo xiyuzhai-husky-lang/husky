@@ -4405,6 +4405,7 @@
             "salsa",
             "smallvec",
             "visored-coword",
+            "visored-item-path",
         ],
     },
     PackageSummary {
