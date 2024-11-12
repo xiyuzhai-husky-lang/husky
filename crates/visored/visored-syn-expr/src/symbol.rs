@@ -1,9 +1,9 @@
-mod builder;
-pub mod defn;
+pub(crate) mod builder;
+pub mod local_defn;
 pub mod resolution;
 pub mod scope;
 
-use self::{builder::*, defn::*, resolution::*};
+use self::{builder::*, local_defn::*, resolution::*};
 use crate::{
     clause::VdSynClauseArenaRef, division::VdSynDivisionArenaRef, expr::VdSynExprArenaRef,
     phrase::VdSynPhraseArenaRef, range::*, sentence::VdSynSentenceArenaRef,
@@ -26,7 +26,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
     ast_arena: LxAstArenaRef,
     ast_token_idx_range_map: &LxAstTokenIdxRangeMap,
     annotations: &VdAnnotations,
-    default_resolution_table: &VdDefaultResolutionTable,
+    default_resolution_table: &VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArenaRef,
     phrase_arena: VdSynPhraseArenaRef,
     clause_arena: VdSynClauseArenaRef,
@@ -40,7 +40,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
     stmts: VdSynStmtIdxRange,
-) -> (VdSynSymbolDefns, VdSynSymbolResolutionTable) {
+) -> (VdSynSymbolLocalDefnTable, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
         &token_storage,

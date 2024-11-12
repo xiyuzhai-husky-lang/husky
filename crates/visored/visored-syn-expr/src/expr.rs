@@ -12,8 +12,6 @@ pub mod uniadic_chain;
 pub mod variadic_array;
 pub mod variadic_chain;
 
-use std::fmt::Formatter;
-
 use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
 use either::*;
@@ -32,6 +30,15 @@ use latex_token::{
     idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange},
 };
 use range::VdSynExprTokenIdxRange;
+use smallvec::{smallvec, SmallVec};
+use std::fmt::Formatter;
+use symbol::{
+    builder::VdSynSymbolBuilder,
+    resolution::{
+        error::VdSynSymbolResolutionResult, letter::VdSynLetterSymbolResolution,
+        VdSynSymbolResolution, VdSynSymbolResolutions,
+    },
+};
 use visored_opr::{
     delimiter::{
         VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
@@ -474,5 +481,80 @@ impl VdSynExprData {
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(ref error) => error.to_string(),
         }
+    }
+}
+
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub(crate) fn build_expr_aux(
+        &mut self,
+        expr: VdSynExprIdx,
+    ) -> VdSynSymbolResolutionResult<Option<VdSynSymbolResolutions>> {
+        match self.expr_arena()[expr] {
+            VdSynExprData::Literal {
+                token_idx_range,
+                literal,
+            } => Ok(None),
+            VdSynExprData::Letter {
+                token_idx_range,
+                letter,
+            } => self.build_letter(token_idx_range, letter).map(Some),
+            VdSynExprData::BaseOpr { opr } => todo!(),
+            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
+            VdSynExprData::Prefix { opr, opd } => todo!(),
+            VdSynExprData::Suffix { opd, opr } => todo!(),
+            VdSynExprData::SeparatedList {
+                separator_class,
+                items,
+                ref separators,
+            } => todo!(),
+            VdSynExprData::LxDelimited {
+                left_delimiter_token_idx,
+                left_delimiter,
+                item,
+                right_delimiter_token_idx,
+                right_delimiter,
+            } => todo!(),
+            VdSynExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => todo!(),
+            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::Fraction {
+                command_token_idx,
+                numerator,
+                denominator,
+                denominator_rcurl_token_idx,
+            } => todo!(),
+            VdSynExprData::Sqrt {
+                command_token_idx,
+                radicand,
+                radicand_rcurl_token_idx,
+            } => todo!(),
+            VdSynExprData::UniadicChain => todo!(),
+            VdSynExprData::VariadicChain => todo!(),
+            VdSynExprData::UniadicArray => todo!(),
+            VdSynExprData::VariadicArray => todo!(),
+            VdSynExprData::Err(ref error) => todo!(),
+        }
+    }
+
+    fn build_letter(
+        &mut self,
+        token_idx_range: LxTokenIdxRange,
+        letter: LxMathLetter,
+    ) -> VdSynSymbolResolutionResult<VdSynSymbolResolutions> {
+        let default_resolution = self
+            .default_global_resolution_table()
+            .resolve_letter(letter);
+        let mut resolutions: VdSynSymbolResolutions =
+            default_resolution.into_iter().map(Into::into).collect();
+        resolutions.extend(
+            self.symbol_local_defn_table()
+                .resolve_letter(token_idx_range, letter)
+                .map(|idx| VdSynLetterSymbolResolution::Local(idx).into()),
+        );
+        // TODO: check other things
+        Ok(resolutions)
     }
 }

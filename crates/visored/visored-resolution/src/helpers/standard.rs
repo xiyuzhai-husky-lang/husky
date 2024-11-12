@@ -5,14 +5,14 @@ use visored_item_path::path::VdItemPath;
 
 use crate::{
     resolution::{
-        command::{VdCompleteCommandResolution, VdCompleteCommandResolutionMap},
-        letter::{VdLetterResolution, VdLetterResolutionMap},
-        punctuation::VdPunctuationResolution,
+        command::{VdCompleteCommandGlobalResolution, VdCompleteCommandGlobalResolutionMap},
+        letter::{VdLetterGlobalResolution, VdLetterGlobalResolutionMap},
+        punctuation::VdPunctuationGlobalResolution,
     },
-    table::VdDefaultResolutionTable,
+    table::VdDefaultGlobalResolutionTable,
 };
 
-impl VdDefaultResolutionTable {
+impl VdDefaultGlobalResolutionTable {
     pub fn new_standard(db: &salsa::Db) -> Self {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
@@ -30,7 +30,7 @@ fn standard_command_resolution_map(
     db: &salsa::Db,
 ) -> std::collections::HashMap<
     latex_command::path::LxCommandPath,
-    crate::resolution::command::VdCompleteCommandResolution,
+    crate::resolution::command::VdCompleteCommandGlobalResolution,
     rustc_hash::FxBuildHasher,
 > {
     let LxCommandPathMenu {
@@ -78,80 +78,98 @@ fn standard_command_resolution_map(
         // - environments
         text,
     } = *command_path_menu(db);
-    VdCompleteCommandResolutionMap::from_iter([
+    VdCompleteCommandGlobalResolutionMap::from_iter([
         // - operators
         // -- relations
-        (eq, VdCompleteCommandResolution::EQ),
-        (ne, VdCompleteCommandResolution::NE),
-        (r#in, VdCompleteCommandResolution::IN),
-        (subset, VdCompleteCommandResolution::SUBSET),
-        (supset, VdCompleteCommandResolution::SUPSET),
-        (subseteq, VdCompleteCommandResolution::SUBSETEQ),
-        (supseteq, VdCompleteCommandResolution::SUPSETEQ),
-        (subseteqq, VdCompleteCommandResolution::SUBSETEQQ),
-        (supseteqq, VdCompleteCommandResolution::SUPSETEQQ),
-        (subsetneq, VdCompleteCommandResolution::SUBSETNEQ),
-        (supsetneq, VdCompleteCommandResolution::SUPSETNEQ),
+        (eq, VdCompleteCommandGlobalResolution::EQ),
+        (ne, VdCompleteCommandGlobalResolution::NE),
+        (r#in, VdCompleteCommandGlobalResolution::IN),
+        (subset, VdCompleteCommandGlobalResolution::SUBSET),
+        (supset, VdCompleteCommandGlobalResolution::SUPSET),
+        (subseteq, VdCompleteCommandGlobalResolution::SUBSETEQ),
+        (supseteq, VdCompleteCommandGlobalResolution::SUPSETEQ),
+        (subseteqq, VdCompleteCommandGlobalResolution::SUBSETEQQ),
+        (supseteqq, VdCompleteCommandGlobalResolution::SUPSETEQQ),
+        (subsetneq, VdCompleteCommandGlobalResolution::SUBSETNEQ),
+        (supsetneq, VdCompleteCommandGlobalResolution::SUPSETNEQ),
         // -- arithmetic
-        (int, VdCompleteCommandResolution::INT),
-        (sum, VdCompleteCommandResolution::SUM),
-        (prod, VdCompleteCommandResolution::PROD),
-        (times, VdCompleteCommandResolution::TIMES),
-        (otimes, VdCompleteCommandResolution::OTIMES),
+        (int, VdCompleteCommandGlobalResolution::INT),
+        (sum, VdCompleteCommandGlobalResolution::SUM),
+        (prod, VdCompleteCommandGlobalResolution::PROD),
+        (times, VdCompleteCommandGlobalResolution::TIMES),
+        (otimes, VdCompleteCommandGlobalResolution::OTIMES),
         // - extended letters
-        (alpha, VdCompleteCommandResolution::LOWER_ALPHA),
-        (beta, VdCompleteCommandResolution::LOWER_BETA),
-        (gamma, VdCompleteCommandResolution::LOWER_GAMMA),
-        (pi, VdCompleteCommandResolution::LOWER_PI),
-        (sin, VdCompleteCommandResolution::Item(VdItemPath::SIN)),
-        (cos, VdCompleteCommandResolution::Item(VdItemPath::COS)),
-        (sqrt, VdCompleteCommandResolution::Sqrt),
-        (frac, VdCompleteCommandResolution::Frac),
-        (text, VdCompleteCommandResolution::Text),
+        (alpha, VdCompleteCommandGlobalResolution::LOWER_ALPHA),
+        (beta, VdCompleteCommandGlobalResolution::LOWER_BETA),
+        (gamma, VdCompleteCommandGlobalResolution::LOWER_GAMMA),
+        (pi, VdCompleteCommandGlobalResolution::LOWER_PI),
+        (
+            sin,
+            VdCompleteCommandGlobalResolution::Item(VdItemPath::SIN),
+        ),
+        (
+            cos,
+            VdCompleteCommandGlobalResolution::Item(VdItemPath::COS),
+        ),
+        (sqrt, VdCompleteCommandGlobalResolution::Sqrt),
+        (frac, VdCompleteCommandGlobalResolution::Frac),
+        (text, VdCompleteCommandGlobalResolution::Text),
     ])
 }
 
 fn lx_math_punctuation_standard_resolution(
     punctuation: LxMathPunctuation,
-) -> Option<VdPunctuationResolution> {
+) -> Option<VdPunctuationGlobalResolution> {
     match punctuation {
-        LxMathPunctuation::Add => Some(VdPunctuationResolution::SEPARATOR_ADD),
-        LxMathPunctuation::Sub => Some(VdPunctuationResolution::SUB),
-        LxMathPunctuation::Mul => Some(VdPunctuationResolution::SEPARATOR_MUL),
-        LxMathPunctuation::Div => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::In => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::NotIn => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Subset => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Superset => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::SubsetEq => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::SupersetEq => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::ForAll => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Exists => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::NotExists => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Infinity => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Equals => Some(VdPunctuationResolution::EQ),
-        LxMathPunctuation::NotEquals => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::LessThan => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::GreaterThan => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::LessEq => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::GreaterEq => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::PlusMinus => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Times => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Lpar => Some(VdPunctuationResolution::LPAR),
-        LxMathPunctuation::Rpar => Some(VdPunctuationResolution::RPAR),
-        LxMathPunctuation::Lbox => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::Rbox => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::EscapedLcurl => Some(VdPunctuationResolution::Todo),
-        LxMathPunctuation::EscapedRcurl => Some(VdPunctuationResolution::Todo),
+        LxMathPunctuation::Add => Some(VdPunctuationGlobalResolution::SEPARATOR_ADD),
+        LxMathPunctuation::Sub => Some(VdPunctuationGlobalResolution::SUB),
+        LxMathPunctuation::Mul => Some(VdPunctuationGlobalResolution::SEPARATOR_MUL),
+        LxMathPunctuation::Div => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::In => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::NotIn => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Subset => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Superset => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::SubsetEq => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::SupersetEq => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::ForAll => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Exists => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::NotExists => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Infinity => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Equals => Some(VdPunctuationGlobalResolution::EQ),
+        LxMathPunctuation::NotEquals => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::LessThan => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::GreaterThan => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::LessEq => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::GreaterEq => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::PlusMinus => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Times => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Lpar => Some(VdPunctuationGlobalResolution::LPAR),
+        LxMathPunctuation::Rpar => Some(VdPunctuationGlobalResolution::RPAR),
+        LxMathPunctuation::Lbox => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Rbox => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::EscapedLcurl => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::EscapedRcurl => Some(VdPunctuationGlobalResolution::Todo),
     }
 }
 
-fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterResolutionMap {
+fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterGlobalResolutionMap {
     [
-        (LxMathLetter::MATHBB_N, VdLetterResolution::NATURAL_NUMBER),
-        (LxMathLetter::MATHBB_Q, VdLetterResolution::RATIONAL_NUMBER),
-        (LxMathLetter::MATHBB_R, VdLetterResolution::REAL_NUMBER),
-        (LxMathLetter::MATHBB_C, VdLetterResolution::COMPLEX_NUMBER),
+        (
+            LxMathLetter::MATHBB_N,
+            VdLetterGlobalResolution::NATURAL_NUMBER,
+        ),
+        (
+            LxMathLetter::MATHBB_Q,
+            VdLetterGlobalResolution::RATIONAL_NUMBER,
+        ),
+        (
+            LxMathLetter::MATHBB_R,
+            VdLetterGlobalResolution::REAL_NUMBER,
+        ),
+        (
+            LxMathLetter::MATHBB_C,
+            VdLetterGlobalResolution::COMPLEX_NUMBER,
+        ),
     ]
     .into_iter()
     .collect()
