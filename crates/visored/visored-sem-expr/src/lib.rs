@@ -5,6 +5,7 @@ pub mod error;
 pub mod expr;
 pub mod helpers;
 pub mod jar;
+pub mod pattern;
 pub mod phrase;
 pub mod range;
 pub mod region;

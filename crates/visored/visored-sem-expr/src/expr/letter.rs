@@ -65,7 +65,7 @@ impl<'a> VdSemExprBuilder<'a> {
         global_resolution: VdLetterGlobalResolution,
     ) -> VdZfcType {
         match global_resolution {
-            VdLetterGlobalResolution::Item(item_path) => todo!(),
+            VdLetterGlobalResolution::Item(item_path) => self.item_path_zfc_type_table()[item_path],
         }
     }
 
@@ -73,7 +73,51 @@ impl<'a> VdSemExprBuilder<'a> {
         &mut self,
         local_defn: VdSemSymbolLocalDefnIdx,
     ) -> VdZfcType {
-        // self.symbol_local_defn_storage()[local_defn].ty()
+        self.symbol_local_defn_storage()[local_defn].ty()
+    }
+
+    pub(super) fn calc_letter_term(
+        &self,
+        expr: VdSemExprIdx,
+        token_idx_range: LxTokenIdxRange,
+        letter: LxMathLetter,
+        dispatch: &VdSemLetterDispatch,
+    ) -> VdZfcTerm {
+        match *dispatch {
+            VdSemLetterDispatch::Global(global_resolution) => self
+                .calc_letter_term_from_global_resolution(
+                    expr,
+                    token_idx_range,
+                    letter,
+                    global_resolution,
+                ),
+            VdSemLetterDispatch::Local(local_defn) => {
+                self.calc_letter_term_from_local_defn(expr, token_idx_range, letter, local_defn)
+            }
+        }
+    }
+
+    fn calc_letter_term_from_global_resolution(
+        &self,
+        expr: VdSemExprIdx,
+        token_idx_range: LxTokenIdxRange,
+        letter: LxMathLetter,
+        global_resolution: VdLetterGlobalResolution,
+    ) -> VdZfcTerm {
+        match global_resolution {
+            VdLetterGlobalResolution::Item(item_path) => {
+                VdZfcTerm::new_item_path(item_path, self.db())
+            }
+        }
+    }
+
+    fn calc_letter_term_from_local_defn(
+        &self,
+        expr: VdSemExprIdx,
+        token_idx_range: LxTokenIdxRange,
+        letter: LxMathLetter,
+        local_defn: VdSemSymbolLocalDefnIdx,
+    ) -> VdZfcTerm {
         todo!()
     }
 }

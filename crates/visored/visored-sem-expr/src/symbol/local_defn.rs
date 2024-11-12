@@ -13,6 +13,9 @@ use visored_zfc_ty::ty::VdZfcType;
 pub struct VdSemSymbolLocalDefnData {
     head: VdSemSymbolLocalDefnHead,
     body: VdSemSymbolLocalDefnBody,
+    /// initialized to be `None`
+    /// and will be set to the inferred type when the type is inferred
+    ty: Option<VdZfcType>,
 }
 
 impl VdSemSymbolLocalDefnData {
@@ -22,6 +25,10 @@ impl VdSemSymbolLocalDefnData {
 
     pub fn body(&self) -> &VdSemSymbolLocalDefnBody {
         &self.body
+    }
+
+    pub(crate) fn ty(&self) -> VdZfcType {
+        self.ty.expect("all local defns' types are inferred")
     }
 }
 
@@ -46,6 +53,13 @@ impl ToVdSem<VdSemSymbolLocalDefnIdx> for VdSynSymbolLocalDefnIdx {
     }
 }
 
+impl VdSemSymbolLocalDefnData {
+    pub(crate) fn set_ty(&mut self, ty: VdZfcType) {
+        debug_assert!(self.ty.is_none(), "local defn's type is already inferred");
+        self.ty = Some(ty);
+    }
+}
+
 impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn build_symbol_local_defns(
         &mut self,
@@ -64,7 +78,11 @@ impl<'a> VdSemExprBuilder<'a> {
     ) -> VdSemSymbolLocalDefnData {
         let head = self.build_symbol_local_defn_head(defn.head());
         let body = self.build_symbol_local_defn_body(defn.body());
-        VdSemSymbolLocalDefnData { head, body }
+        VdSemSymbolLocalDefnData {
+            head,
+            body,
+            ty: None,
+        }
     }
 
     fn build_symbol_local_defn_head(

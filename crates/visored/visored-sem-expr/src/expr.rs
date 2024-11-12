@@ -35,7 +35,10 @@ use visored_opr::{
     separator::{VdBaseSeparator, VdSeparatorClass},
 };
 use visored_syn_expr::expr::{VdSynExprData, VdSynSeparator};
-use visored_zfc_ty::{term::literal::VdZfcLiteral, ty::VdZfcType};
+use visored_zfc_ty::{
+    term::{literal::VdZfcLiteral, VdZfcTerm},
+    ty::VdZfcType,
+};
 
 /// It's a tree of both form and meaning
 #[derive(Debug, PartialEq, Eq)]
@@ -115,6 +118,10 @@ pub enum VdSemExprData {
 pub struct VdSemExprEntry {
     data: VdSemExprData,
     ty: VdZfcType,
+    /// `None` if not inferred
+    ///
+    /// Note that all terms are inferred.
+    term: Option<VdZfcTerm>,
     // todo: var deps
 }
 
@@ -126,7 +133,11 @@ pub type VdSemExprMap<T> = ArenaMap<VdSemExprEntry, T>;
 
 impl VdSemExprEntry {
     pub fn new(data: VdSemExprData, ty: VdZfcType) -> Self {
-        Self { data, ty }
+        Self {
+            data,
+            ty,
+            term: None,
+        }
     }
 
     pub fn data(&self) -> &VdSemExprData {
@@ -135,6 +146,13 @@ impl VdSemExprEntry {
 
     pub fn ty(&self) -> VdZfcType {
         self.ty
+    }
+}
+
+impl VdSemExprEntry {
+    pub(crate) fn set_term(&mut self, term: VdZfcTerm) {
+        debug_assert!(self.term.is_none());
+        self.term = Some(term);
     }
 }
 
@@ -292,6 +310,70 @@ impl VdSemExprData {
                 ..
             } => vec![numerator, denominator],
             VdSemExprData::Sqrt { radicand, .. } => vec![radicand],
+        }
+    }
+}
+
+impl<'db> VdSemExprBuilder<'db> {
+    pub fn calc_expr_term(&mut self, expr: VdSemExprIdx) -> VdZfcTerm {
+        match *self.expr_arena()[expr].data() {
+            VdSemExprData::Literal {
+                token_idx_range,
+                literal,
+            } => todo!(),
+            VdSemExprData::Letter {
+                token_idx_range,
+                letter,
+                ref dispatch,
+            } => self.calc_letter_term(expr, token_idx_range, letter, dispatch),
+            VdSemExprData::BaseOpr { opr } => todo!(),
+            VdSemExprData::Binary {
+                lopd,
+                opr,
+                ropd,
+                ref dispatch,
+            } => todo!(),
+            VdSemExprData::Prefix { opr, opd, dispatch } => todo!(),
+            VdSemExprData::Suffix { opd, opr, dispatch } => todo!(),
+            VdSemExprData::Attach {
+                base,
+                ref scripts,
+                ref dispatch,
+            } => todo!(),
+            VdSemExprData::SeparatedList {
+                separator_class,
+                items,
+                dispatch,
+            } => todo!(),
+            VdSemExprData::UniadicChain => todo!(),
+            VdSemExprData::VariadicChain => todo!(),
+            VdSemExprData::UniadicArray => todo!(),
+            VdSemExprData::VariadicArray => todo!(),
+            VdSemExprData::LxDelimited {
+                left_delimiter_token_idx,
+                item,
+                right_delimiter_token_idx,
+            } => todo!(),
+            VdSemExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => todo!(),
+            VdSemExprData::Fraction {
+                command_token_idx,
+                numerator_lcurl_token_idx,
+                numerator,
+                numerator_rcurl_token_idx,
+                denominator_lcurl_token_idx,
+                denominator,
+                denominator_rcurl_token_idx,
+            } => todo!(),
+            VdSemExprData::Sqrt {
+                command_token_idx,
+                radicand_lcurl_token_idx,
+                radicand,
+                radicand_rcurl_token_idx,
+            } => todo!(),
         }
     }
 }

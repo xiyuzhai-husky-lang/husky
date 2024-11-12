@@ -43,6 +43,7 @@ use visored_syn_expr::{
     stmt::VdSynStmtArena,
     test_helpers::example::VdSynExprExample,
 };
+use visored_zfc_ty::ty::table::VdItemPathZfcTypeTable;
 
 pub struct VdSemExprExample {
     pub input: String,
@@ -101,6 +102,7 @@ impl VdSemExprExample {
             symbol_local_defn_storage: syn_symbol_local_defn_storage,
             symbol_resolution_table: syn_symbol_resolution_table,
         } = VdSynExprExample::new(input, root_mode, token_annotations, space_annotations, db);
+        let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
         let mut builder = VdSemExprBuilder::new(
             db,
             &token_storage,
@@ -114,6 +116,7 @@ impl VdSemExprExample {
             syn_division_arena.as_arena_ref(),
             &syn_symbol_local_defn_storage,
             &syn_symbol_resolution_table,
+            &item_path_zfc_ty_table,
         );
         let result = syn_result.to_vd_sem(&mut builder);
         let (expr_arena, phrase_arena, clause_arena, sentence_arena, stmt_arena, division_arena) =
