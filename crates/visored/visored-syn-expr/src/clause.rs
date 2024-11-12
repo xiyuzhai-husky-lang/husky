@@ -22,7 +22,7 @@ pub enum VdSynClauseData {
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
-        resolution: LetStmtResolution,
+        resolution: VdSynLetStmtResolution,
     },
     Assume {
         assume_token_idx: LxRoseTokenIdx,
