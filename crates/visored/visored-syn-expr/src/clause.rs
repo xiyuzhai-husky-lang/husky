@@ -1,4 +1,6 @@
 mod r#let;
+#[cfg(test)]
+mod tests;
 
 use self::r#let::*;
 use super::*;
