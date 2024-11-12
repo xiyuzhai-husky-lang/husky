@@ -17,8 +17,8 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_expr: VdSynExprIdx,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
-    ) -> VdSemExprData {
-        let resolution = &self.symbol_resolution_table()[syn_expr];
+    ) -> (VdSemExprData, VdZfcType) {
+        let resolution = &self.syn_symbol_resolution_table()[syn_expr];
         let dispatch = match resolution {
             Ok(resolution) => {
                 let VdSynSymbolResolution::Letter(resolution) = resolution else {
@@ -28,11 +28,22 @@ impl<'a> VdSemExprBuilder<'a> {
             }
             Err(e) => todo!("letter = `{letter}`, e = {e}"),
         };
-        VdSemExprData::Letter {
-            token_idx_range,
-            letter,
-            dispatch,
-        }
+        let ty = match dispatch {
+            VdSemLetterDispatch::Global(global_resolution) => {
+                self.infer_letter_ty_from_global_resolution(global_resolution)
+            }
+            VdSemLetterDispatch::Local(local_defn) => {
+                self.infer_letter_ty_from_local_defn(local_defn)
+            }
+        };
+        (
+            VdSemExprData::Letter {
+                token_idx_range,
+                letter,
+                dispatch,
+            },
+            ty,
+        )
     }
 
     fn build_letter_dispatch(
@@ -47,5 +58,22 @@ impl<'a> VdSemExprBuilder<'a> {
                 VdSemLetterDispatch::Local(local_defn_idx.to_vd_sem(self))
             }
         }
+    }
+
+    fn infer_letter_ty_from_global_resolution(
+        &mut self,
+        global_resolution: VdLetterGlobalResolution,
+    ) -> VdZfcType {
+        match global_resolution {
+            VdLetterGlobalResolution::Item(item_path) => todo!(),
+        }
+    }
+
+    fn infer_letter_ty_from_local_defn(
+        &mut self,
+        local_defn: VdSemSymbolLocalDefnIdx,
+    ) -> VdZfcType {
+        // self.symbol_local_defn_storage()[local_defn].ty()
+        todo!()
     }
 }
