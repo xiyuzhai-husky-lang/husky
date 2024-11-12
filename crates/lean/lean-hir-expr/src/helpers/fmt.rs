@@ -83,10 +83,7 @@ impl<'a> LnHirExprFormatter<'a> {
                 self.result += &item_path.show(db);
             }
             LnHirExprData::Variable { ident } => {
-                if !self.result.ends_with(['(', ' ']) {
-                    self.result.push(' ');
-                }
-                self.result += ident.data(db)
+                self.write_word(ident.data(db));
             }
             LnHirExprData::Prefix { opr, opd } => {
                 self.result += opr.fmt_str();
@@ -141,7 +138,15 @@ impl<'a> LnHirExprFormatter<'a> {
                     LnLiteralData::Nat(s) => s,
                 }
             }
+            LnHirExprData::Sorry => self.write_word("sorry"),
         }
+    }
+
+    fn write_word(&mut self, s: &str) {
+        if !(self.result.ends_with(['(', ' ', '\n']) || self.result.is_empty()) {
+            self.result.push(' ');
+        }
+        self.result += s;
     }
 
     fn check_lines(&self, prev_len: usize) -> bool {

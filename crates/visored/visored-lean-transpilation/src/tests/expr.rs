@@ -9,7 +9,7 @@ fn t(input: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 }
 
 #[test]
-fn basic_visored_to_lean_works() {
+fn basic_visored_expr_to_lean_works() {
     t(
         "1 + 1",
         &expect![[r#"
@@ -19,10 +19,17 @@ fn basic_visored_to_lean_works() {
     "#]],
         &expect!["1 + 1"],
     );
+    t(
+        "1\\in\\mathbb{N}",
+        &expect![[r#"
+            sorry
+        "#]],
+        &expect!["sorry"],
+    );
 }
 
 #[test]
-fn item_to_lean_works() {
+fn item_path_to_lean_works() {
     t(
         "\\mathbb{N}",
         &expect![[r#"
