@@ -1,16 +1,19 @@
 use crate::{
     expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx},
+    item_defn::{LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange},
     stmt::LnHirStmtArenaRef,
     tactic::LnHirTacticArenaRef,
 };
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
+use std::fmt::Write;
 
 pub struct LnHirExprFormatter<'a> {
     db: &'a ::salsa::Db,
     expr_arena: LnHirExprArenaRef<'a>,
     stmt_arena: LnHirStmtArenaRef<'a>,
     tactic_arena: LnHirTacticArenaRef<'a>,
+    defn_arena: LnItemDefnArenaRef<'a>,
     config: &'a LnHirExprFormatterConfig,
     result: String,
 }
@@ -30,6 +33,7 @@ impl<'a> LnHirExprFormatter<'a> {
         expr_arena: LnHirExprArenaRef<'a>,
         stmt_arena: LnHirStmtArenaRef<'a>,
         tactic_arena: LnHirTacticArenaRef<'a>,
+        defn_arena: LnItemDefnArenaRef<'a>,
         config: &'a LnHirExprFormatterConfig,
         db: &'a ::salsa::Db,
     ) -> Self {
@@ -38,6 +42,7 @@ impl<'a> LnHirExprFormatter<'a> {
             expr_arena,
             stmt_arena,
             tactic_arena,
+            defn_arena,
             config,
             result: Default::default(),
         }
@@ -160,6 +165,41 @@ impl<'a> LnHirExprFormatter<'a> {
         self.result[prev_line_end_offset..]
             .lines()
             .all(|line| line.len() <= self.config.line_max_len)
+    }
+
+    pub fn format_defns(&mut self, defns: LnItemDefnIdxRange) {
+        for (i, defn) in defns.into_iter().enumerate() {
+            if i > 0 {
+                self.result += "\n";
+            }
+            self.format_defn(defn);
+        }
+    }
+
+    pub fn format_defn(&mut self, defn: LnItemDefnIdx) {
+        self.make_sure_new_paragraph();
+        match self.defn_arena[defn] {
+            LnItemDefnData::Variable { symbol, ty } => {
+                write!(
+                    self.result,
+                    "variable {} : {}",
+                    symbol.data(self.db),
+                    ty.show(self.db)
+                );
+            }
+            LnItemDefnData::Group { defns, ref meta } => {
+                self.format_defns(defns);
+            }
+        }
+    }
+
+    fn make_sure_new_paragraph(&mut self) {
+        if !self.result.is_empty() && !self.result.ends_with('\n') {
+            self.result += "\n";
+        }
+        if !self.result.is_empty() && !self.result.ends_with("\n\n") {
+            self.result += "\n";
+        }
     }
 
     pub fn finish(self) -> String {

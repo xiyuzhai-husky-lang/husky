@@ -8336,6 +8336,7 @@ name = "lean-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "lean-item-path",
  "salsa",
 ]
 
@@ -12594,6 +12595,7 @@ dependencies = [
  "latex-ast",
  "latex-command",
  "latex-environment",
+ "latex-math-letter",
  "latex-prelude",
  "salsa",
  "visored-annotation",
@@ -12632,6 +12634,7 @@ dependencies = [
  "latex-command",
  "latex-environment",
  "latex-prelude",
+ "lean-coword",
  "lean-hir-expr",
  "lean-item-path",
  "lean-opr",

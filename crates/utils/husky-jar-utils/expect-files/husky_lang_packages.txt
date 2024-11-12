@@ -3953,6 +3953,7 @@
         relative_path: "crates/lean/lean-term",
         dependencies: [
             "enum-class",
+            "lean-item-path",
             "salsa",
         ],
     },
@@ -4320,6 +4321,7 @@
             "either",
             "husky-tree-utils",
             "idx-arena",
+            "latex-math-letter",
             "latex-prelude",
             "salsa",
             "visored-annotation",
@@ -4423,6 +4425,7 @@
             "either",
             "husky-tree-utils",
             "latex-prelude",
+            "lean-coword",
             "lean-hir-expr",
             "lean-item-path",
             "lean-opr",

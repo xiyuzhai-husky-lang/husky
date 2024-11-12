@@ -2,11 +2,12 @@ use crate::{
     expr::{VdHirExprArena, VdHirExprArenaRef, VdHirExprData, VdHirExprIdx, VdHirExprIdxRange},
     region::VdHirExprRegionData,
     stmt::{VdHirStmtArena, VdHirStmtArenaRef, VdHirStmtData, VdHirStmtIdxRange},
+    symbol::local_defn::{storage::VdHirSymbolLocalDefnStorage, VdHirSymbolLocalDefnData},
 };
 use visored_sem_expr::{
     clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef, expr::VdSemExprArenaRef,
     phrase::VdSemPhraseArenaRef, region::VdSemExprRegionData, sentence::VdSemSentenceArenaRef,
-    stmt::VdSemStmtArenaRef,
+    stmt::VdSemStmtArenaRef, symbol::local_defn::storage::VdSemSymbolLocalDefnStorage,
 };
 
 pub struct VdHirExprBuilder<'db> {
@@ -19,21 +20,21 @@ pub struct VdHirExprBuilder<'db> {
     sem_division_arena: VdSemDivisionArenaRef<'db>,
     expr_arena: VdHirExprArena,
     stmt_arena: VdHirStmtArena,
+    symbol_local_defn_storage: VdHirSymbolLocalDefnStorage,
 }
 
 impl<'db> VdHirExprBuilder<'db> {
     pub fn new0(db: &'db ::salsa::Db, vd_sem_expr_region_data: &'db VdSemExprRegionData) -> Self {
-        Self {
+        Self::new(
             db,
-            sem_expr_arena: vd_sem_expr_region_data.expr_arena(),
-            sem_phrase_arena: vd_sem_expr_region_data.phrase_arena(),
-            sem_clause_arena: vd_sem_expr_region_data.clause_arena(),
-            sem_sentence_arena: vd_sem_expr_region_data.sentence_arena(),
-            sem_stmt_arena: vd_sem_expr_region_data.stmt_arena(),
-            sem_division_arena: vd_sem_expr_region_data.division_arena(),
-            expr_arena: VdHirExprArena::default(),
-            stmt_arena: VdHirStmtArena::default(),
-        }
+            vd_sem_expr_region_data.expr_arena(),
+            vd_sem_expr_region_data.phrase_arena(),
+            vd_sem_expr_region_data.clause_arena(),
+            vd_sem_expr_region_data.sentence_arena(),
+            vd_sem_expr_region_data.stmt_arena(),
+            vd_sem_expr_region_data.division_arena(),
+            vd_sem_expr_region_data.sem_symbol_local_defn_storage(),
+        )
     }
 
     pub fn new(
@@ -44,8 +45,9 @@ impl<'db> VdHirExprBuilder<'db> {
         sem_sentence_arena: VdSemSentenceArenaRef<'db>,
         sem_stmt_arena: VdSemStmtArenaRef<'db>,
         sem_division_arena: VdSemDivisionArenaRef<'db>,
+        sem_symbol_local_defn_storage: &VdSemSymbolLocalDefnStorage,
     ) -> Self {
-        Self {
+        let mut slf = Self {
             db,
             sem_expr_arena,
             sem_phrase_arena,
@@ -55,9 +57,14 @@ impl<'db> VdHirExprBuilder<'db> {
             sem_division_arena,
             expr_arena: VdHirExprArena::default(),
             stmt_arena: VdHirStmtArena::default(),
-        }
+            symbol_local_defn_storage: VdHirSymbolLocalDefnStorage::new_empty(),
+        };
+        slf.build_symbol_local_defns(sem_symbol_local_defn_storage);
+        slf
     }
+}
 
+impl<'db> VdHirExprBuilder<'db> {
     pub fn sem_expr_arena(&self) -> VdSemExprArenaRef<'db> {
         self.sem_expr_arena
     }
@@ -111,11 +118,23 @@ impl<'db> VdHirExprBuilder<'db> {
         self.stmt_arena.alloc_batch(data)
     }
 
-    pub fn finish_to_region_data(self) -> VdHirExprRegionData {
-        VdHirExprRegionData::new(self.expr_arena, self.stmt_arena)
+    pub(crate) fn alloc_symbol_local_defns(&mut self, data: Vec<VdHirSymbolLocalDefnData>) {
+        self.symbol_local_defn_storage.set_defns(data);
     }
 
-    pub fn finish(self) -> (VdHirExprArena, VdHirStmtArena) {
-        (self.expr_arena, self.stmt_arena)
+    pub fn finish_to_region_data(self) -> VdHirExprRegionData {
+        VdHirExprRegionData::new(
+            self.expr_arena,
+            self.stmt_arena,
+            self.symbol_local_defn_storage,
+        )
+    }
+
+    pub fn finish(self) -> (VdHirExprArena, VdHirStmtArena, VdHirSymbolLocalDefnStorage) {
+        (
+            self.expr_arena,
+            self.stmt_arena,
+            self.symbol_local_defn_storage,
+        )
     }
 }

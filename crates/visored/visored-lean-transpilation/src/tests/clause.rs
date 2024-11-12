@@ -13,10 +13,11 @@ fn basic_visored_clause_to_lean_works() {
     t(
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
-        binary: `+`
-        ├─ literal: `1`
-        └─ literal: `1`
-    "#]],
-        &expect!["1 + 1"],
+            defns
+            └─ group: `paragraph`
+              └─ group: `sentence`
+                └─ variable: `x`
+        "#]],
+        &expect!["variable x : Nat"],
     );
 }
