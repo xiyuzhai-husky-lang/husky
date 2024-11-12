@@ -13,6 +13,8 @@ pub enum VdSynSymbolResolutionError {
 pub enum OriginalVdSynSymbolResolutionError {
     #[error("Visored Symbol Resolution Error: ambiguous resolutions")]
     AmbiguousResolutions { resolutions: VdSynSymbolResolutions },
+    #[error("Visored Symbol Resolution Error: no resolution")]
+    NoResolution,
 }
 
 #[derive(Debug, PartialEq, Eq, Error)]
