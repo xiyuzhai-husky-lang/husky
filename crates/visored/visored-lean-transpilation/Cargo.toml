@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 either.workspace = true
+rustc-hash.workspace = true
 # abstractions
 salsa.workspace = true
 # latex
@@ -20,12 +21,14 @@ latex-prelude = { workspace = true, optional = true }
 # lean
 lean-opr.workspace = true
 lean-hir-expr.workspace = true
+lean-item-path.workspace = true
 lean-term.workspace = true
 # utils
 husky-tree-utils = { workspace = true, optional = true }
 # visored
 visored-annotation = { workspace = true, optional = true }
 visored-hir-expr.workspace = true
+visored-item-path.workspace = true
 visored-opr.workspace = true
 visored-zfc-ty.workspace = true
 

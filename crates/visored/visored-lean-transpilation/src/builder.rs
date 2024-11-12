@@ -8,18 +8,26 @@ use visored_hir_expr::{
     expr::VdHirExprArenaRef, region::VdHirExprRegionData, stmt::VdHirStmtArenaRef,
 };
 
-pub struct VdLeanTranspilationBuilder<'db> {
-    lean_hir_expr_builder: LeanHirExprBuilder<'db>,
-    expr_arena: VdHirExprArenaRef<'db>,
-    stmt_arena: VdHirStmtArenaRef<'db>,
+use crate::dictionary::VdLeanTranspilationDictionary;
+
+pub struct VdLeanTranspilationBuilder<'a> {
+    lean_hir_expr_builder: LeanHirExprBuilder<'a>,
+    expr_arena: VdHirExprArenaRef<'a>,
+    stmt_arena: VdHirStmtArenaRef<'a>,
+    dictionary: &'a VdLeanTranspilationDictionary,
 }
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
-    pub fn new0(db: &'db ::salsa::Db, vd_hir_expr_region_data: &'db VdHirExprRegionData) -> Self {
+    pub fn new0(
+        db: &'db ::salsa::Db,
+        vd_hir_expr_region_data: &'db VdHirExprRegionData,
+        dictionary: &'db VdLeanTranspilationDictionary,
+    ) -> Self {
         Self {
             lean_hir_expr_builder: LeanHirExprBuilder::new(db),
             expr_arena: vd_hir_expr_region_data.expr_arena(),
             stmt_arena: vd_hir_expr_region_data.stmt_arena(),
+            dictionary,
         }
     }
 
@@ -27,11 +35,13 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         db: &'db ::salsa::Db,
         expr_arena: VdHirExprArenaRef<'db>,
         stmt_arena: VdHirStmtArenaRef<'db>,
+        dictionary: &'db VdLeanTranspilationDictionary,
     ) -> Self {
         Self {
             lean_hir_expr_builder: LeanHirExprBuilder::new(db),
             expr_arena,
             stmt_arena,
+            dictionary,
         }
     }
 }
@@ -43,6 +53,10 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
 
     pub fn stmt_arena(&self) -> VdHirStmtArenaRef<'db> {
         self.stmt_arena
+    }
+
+    pub fn dictionary(&self) -> &VdLeanTranspilationDictionary {
+        self.dictionary
     }
 }
 

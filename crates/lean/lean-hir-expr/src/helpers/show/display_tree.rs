@@ -34,6 +34,7 @@ impl<'a> LnHirExprDisplayTreeBuilder<'a> {
         let db = self.db;
         let value = match self.expr_arena[expr] {
             LnHirExprData::Literal(literal) => format!("literal: `{}`", literal.data(db)),
+            LnHirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
             LnHirExprData::Variable { ident } => todo!(),
             LnHirExprData::Prefix { opr, opd } => todo!(),
             LnHirExprData::Suffix { opd, opr } => todo!(),

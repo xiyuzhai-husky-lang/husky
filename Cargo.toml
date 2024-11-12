@@ -332,10 +332,11 @@ lean-coword = { path = "crates/lean/lean-coword" }
 lean-hir-expr = { path = "crates/lean/lean-hir-expr" }
 lean-hir-decl = { path = "crates/lean/lean-hir-decl" }
 lean-hir-defn = { path = "crates/lean/lean-hir-defn" }
-lean-term = { path = "crates/lean/lean-term" }
+lean-item-path = { path = "crates/lean/lean-item-path" }
 lean-opr = { path = "crates/lean/lean-opr" }
 lean-sem-expr = { path = "crates/lean/lean-sem-expr" }
 lean-syn-expr = { path = "crates/lean/lean-syn-expr" }
+lean-term = { path = "crates/lean/lean-term" }
 lean-token = { path = "crates/lean/lean-token" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }

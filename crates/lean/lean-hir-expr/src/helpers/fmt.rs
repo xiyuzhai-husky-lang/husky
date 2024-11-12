@@ -79,6 +79,9 @@ impl<'a> LnHirExprFormatter<'a> {
         let db = self.db;
         let arena = self.expr_arena;
         match arena[expr] {
+            LnHirExprData::ItemPath(item_path) => {
+                self.result += &item_path.show(db);
+            }
             LnHirExprData::Variable { ident } => {
                 if !self.result.ends_with(['(', ' ']) {
                     self.result.push(' ');
