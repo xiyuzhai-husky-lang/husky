@@ -9,7 +9,7 @@ use crate::{
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
         build_all_symbol_defns_and_resolutions_in_stmts, defn::VdSynSymbolDefns,
-        resolution::VdSynSymbolResolutions,
+        resolution::VdSynSymbolResolutionTable,
     },
 };
 use either::*;
@@ -214,7 +214,7 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
         VdSynSymbolDefns,
-        VdSynSymbolResolutions,
+        VdSynSymbolResolutionTable,
     ) {
         let (
             expr_range_map,
@@ -235,7 +235,7 @@ impl<'db> VdSynExprBuilder<'db> {
         let (symbol_defns, symbol_resolutions) = match root {
             Left(_) => (
                 Default::default(),
-                VdSynSymbolResolutions::new(self.expr_arena.as_arena_ref()),
+                VdSynSymbolResolutionTable::new(self.expr_arena.as_arena_ref()),
             ),
             Right(stmts) => build_all_symbol_defns_and_resolutions_in_stmts(
                 self.db,

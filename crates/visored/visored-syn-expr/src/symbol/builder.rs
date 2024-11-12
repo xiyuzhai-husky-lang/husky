@@ -1,6 +1,6 @@
 use super::{
     defn::VdSynSymbolDefns,
-    resolution::{VdSynSymbolResolution, VdSynSymbolResolutions},
+    resolution::{VdSynSymbolResolution, VdSynSymbolResolutionTable},
     *,
 };
 use crate::{clause::*, division::*, expr::*, phrase::*, range::*, sentence::*, stmt::*};
@@ -20,7 +20,7 @@ pub struct VdSynSymbolBuilder<'a> {
     stmt_arena: VdSynStmtArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
     symbol_defns: VdSynSymbolDefns,
-    symbol_resolutions: VdSynSymbolResolutions,
+    symbol_resolutions: VdSynSymbolResolutionTable,
     // the order is from outer to inner
     current_divisions: SmallVec<[VdSynDivisionIdx; 8]>,
     current_stmts: SmallVec<[VdSynStmtIdx; 8]>,
@@ -64,7 +64,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
             stmt_arena,
             division_arena,
             symbol_defns: VdSynSymbolDefns::default(),
-            symbol_resolutions: VdSynSymbolResolutions::new(expr_arena),
+            symbol_resolutions: VdSynSymbolResolutionTable::new(expr_arena),
             current_divisions: smallvec![],
             current_stmts: smallvec![],
             current_sentences: smallvec![],
@@ -143,7 +143,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         // }
     }
 
-    pub(super) fn finish(self) -> (VdSynSymbolDefns, VdSynSymbolResolutions) {
+    pub(super) fn finish(self) -> (VdSynSymbolDefns, VdSynSymbolResolutionTable) {
         (self.symbol_defns, self.symbol_resolutions)
     }
 }

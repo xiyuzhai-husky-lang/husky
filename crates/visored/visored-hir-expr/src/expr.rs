@@ -94,6 +94,7 @@ impl<'db> VdHirExprBuilder<'db> {
             VdSemExprData::Letter {
                 token_idx_range,
                 letter,
+                ref dispatch,
             } => todo!(),
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {

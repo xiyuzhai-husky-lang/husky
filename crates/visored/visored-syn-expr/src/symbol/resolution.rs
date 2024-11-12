@@ -8,11 +8,11 @@ use crate::expr::VdSynExprMap;
 
 pub enum VdSynSymbolResolution {}
 
-pub struct VdSynSymbolResolutions {
+pub struct VdSynSymbolResolutionTable {
     expr_resolutions: VdSynExprMap<VdSynSymbolResolution>,
 }
 
-impl VdSynSymbolResolutions {
+impl VdSynSymbolResolutionTable {
     pub fn new(expr_arena: VdSynExprArenaRef) -> Self {
         Self {
             expr_resolutions: VdSynExprMap::new2(expr_arena),

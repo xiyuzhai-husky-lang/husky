@@ -20,3 +20,16 @@ fn basic_visored_to_lean_works() {
         &expect!["1 + 1"],
     );
 }
+
+#[test]
+fn item_to_lean_works() {
+    t(
+        "\\mathbb{N}",
+        &expect![[r#"
+        binary: `+`
+        ├─ literal: `1`
+        └─ literal: `1`
+    "#]],
+        &expect!["1 + 1"],
+    );
+}
