@@ -145,6 +145,14 @@ impl<T> ArenaIdxRange<T> {
         self.start <= idx && self.end > idx
     }
 
+    pub fn first(&self) -> Option<ArenaIdx<T>> {
+        if self.start < self.end {
+            Some(self.start)
+        } else {
+            None
+        }
+    }
+
     pub fn last(&self) -> Option<ArenaIdx<T>> {
         if self.start < self.end {
             Some(self.end - 1)

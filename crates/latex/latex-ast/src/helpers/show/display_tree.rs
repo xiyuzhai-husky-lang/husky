@@ -4,7 +4,7 @@ use crate::{
             helpers::LxMathAstChild, LxMathAstIdx, LxMathAstIdxRange, LxMathCommandArgument,
             LxMathCommandArgumentData,
         },
-        rose::LxRoseAstIdx,
+        rose::{helpers::LxRoseAstChild, LxRoseAstIdx},
         LxAstArenaRef, LxAstIdx, LxAstIdxRange,
     },
     range::LxAstTokenIdxRangeMap,
@@ -114,6 +114,31 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
     }
 
     fn render_rose_ast(&self, ast: LxRoseAstIdx) -> DisplayTree {
-        todo!()
+        let ast_token_idx_range = self.ast_token_idx_range_map[ast];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(ast_token_idx_range);
+        let value = self.input[offset_range].to_string();
+        DisplayTree::new(
+            value,
+            self.render_rose_children(self.ast_arena.rose()[ast].children()),
+        )
+    }
+
+    fn render_rose_children(
+        &self,
+        children: impl IntoIterator<Item = LxRoseAstChild>,
+    ) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| self.render_rose_child(child))
+            .collect()
+    }
+
+    fn render_rose_child(&self, child: LxRoseAstChild) -> DisplayTree {
+        match child {
+            LxRoseAstChild::RoseAst(ast) => self.render_rose_ast(ast),
+            LxRoseAstChild::MathAst(ast) => self.render_math_ast(ast),
+        }
     }
 }

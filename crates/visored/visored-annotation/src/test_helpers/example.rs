@@ -8,6 +8,7 @@ use crate::{
 };
 use latex_ast::ast::{parse_latex_input_into_asts, LxAstArena};
 use latex_command::signature::table::LxCommandSignatureTable;
+use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::storage::LxTokenStorage;
 use lazy_static::lazy_static;
@@ -30,6 +31,7 @@ impl VdAnnotationsExample {
         db: &::salsa::Db,
     ) -> Vec<Self> {
         let command_signature_table = LxCommandSignatureTable::new_default(db);
+        let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
         examples
             .iter()
             .map(
@@ -39,6 +41,7 @@ impl VdAnnotationsExample {
                     let asts = parse_latex_input_into_asts(
                         &db,
                         &command_signature_table,
+                        &environment_signature_table,
                         &input,
                         LxMode::Math,
                         &mut token_storage,
@@ -48,6 +51,7 @@ impl VdAnnotationsExample {
                     let asts = parse_latex_input_into_asts(
                         &db,
                         &command_signature_table,
+                        &environment_signature_table,
                         &input,
                         LxMode::Math,
                         &mut token_storage,

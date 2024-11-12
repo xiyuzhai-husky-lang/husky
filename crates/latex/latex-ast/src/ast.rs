@@ -1,5 +1,7 @@
 pub mod math;
 pub mod rose;
+#[cfg(test)]
+pub mod tests;
 
 use self::{
     math::{LxMathAstArena, LxMathAstArenaMap, LxMathAstArenaRef, LxMathAstData},
@@ -9,8 +11,12 @@ use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_command::signature::table::LxCommandSignatureTable;
-use latex_math_letter::LxMathLetter;
+use latex_command::{
+    path::menu::{command_path_menu, LxCommandPathMenu},
+    signature::table::LxCommandSignatureTable,
+};
+use latex_environment::signature::table::LxEnvironmentSignatureTable;
+use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
@@ -114,6 +120,7 @@ pub enum LxAstIdxRange {
 pub fn parse_latex_input_into_asts<'a>(
     db: &'a ::salsa::Db,
     command_signature_table: &'a LxCommandSignatureTable,
+    environment_signature_table: &'a LxEnvironmentSignatureTable,
     input: &'a str,
     mode: LxMode,
     token_storage: &'a mut LxTokenStorage,
@@ -122,6 +129,7 @@ pub fn parse_latex_input_into_asts<'a>(
     let mut parser = LxAstParser::new(
         db,
         command_signature_table,
+        environment_signature_table,
         input,
         mode,
         token_storage,
@@ -133,63 +141,9 @@ pub fn parse_latex_input_into_asts<'a>(
 impl<'a> LxAstParser<'a> {
     pub(crate) fn parse_asts(&mut self) -> LxAstIdxRange {
         match self.mode() {
-            LxMode::Rose => todo!(),
+            LxMode::Rose => self.parse_rose_asts().into(),
             LxMode::Math => self.parse_math_asts().into(),
         }
-    }
-
-    pub(crate) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
-        let mut asts = vec![];
-        while let Some(ast) = self.parse_math_ast() {
-            asts.push(ast)
-        }
-        self.alloc_math_asts(asts)
-    }
-
-    fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
-        let mut ast = self.parse_atomic_math_ast()?;
-        if let Some(token_data) = self.peek_math_token_data() {
-            match token_data {
-                // TODO include more cases, like \limits
-                LxMathTokenData::Subscript | LxMathTokenData::Superscript => {
-                    let (idx, token) = self.next_math_token().unwrap();
-                    ast = match ast {
-                        LxMathAstData::Attach { .. } => ast,
-                        base => {
-                            let base = self.alloc_math_ast(base);
-                            LxMathAstData::Attach {
-                                base,
-                                scripts: Default::default(),
-                            }
-                            .into()
-                        }
-                        _ => todo!(),
-                    };
-                    let LxMathAstData::Attach {
-                        ref mut scripts, ..
-                    } = ast
-                    else {
-                        unreachable!()
-                    };
-                    let script_kind = match token {
-                        LxMathTokenData::Subscript => LxScriptKind::Subscript,
-                        LxMathTokenData::Superscript => LxScriptKind::Superscript,
-                        _ => todo!(),
-                    };
-                    let ast = match self.parse_atomic_math_ast() {
-                        Some(new_subscript) => self.alloc_math_ast(new_subscript),
-                        None => todo!("err: expected subscript"),
-                    };
-                    scripts.push((script_kind, ast));
-                }
-                _ => (),
-            }
-        }
-        Some(ast)
-    }
-
-    pub(crate) fn parse_rose_asts(&mut self) -> LxRoseAstIdxRange {
-        todo!()
     }
 }
 
@@ -203,9 +157,11 @@ fn parse_tex_input_into_asts_works() {
         let mut arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
         let command_signature_table = &LxCommandSignatureTable::new_default(db);
+        let environment_signature_table = &LxEnvironmentSignatureTable::new_default(db);
         let asts = parse_latex_input_into_asts(
             db,
             command_signature_table,
+            environment_signature_table,
             input,
             mode,
             &mut token_storage,
@@ -306,7 +262,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -315,13 +273,15 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                         ],
                     },
@@ -356,7 +316,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -397,13 +359,15 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Punctuation(
                                 LxMathTokenIdx(
@@ -454,7 +418,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -493,13 +459,15 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
@@ -551,7 +519,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -590,13 +560,15 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
                             LxMathAstData::Digit(
                                 LxMathTokenIdx(
@@ -648,7 +620,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:1, 1:2),
                             Math(
                                 Letter(
-                                    LowerX,
+                                    LowerLatin(
+                                        X,
+                                    ),
                                 ),
                             ),
                         ),
@@ -694,7 +668,9 @@ fn parse_tex_input_into_asts_works() {
                             [1:4, 1:5),
                             Math(
                                 Letter(
-                                    LowerI,
+                                    LowerLatin(
+                                        I,
+                                    ),
                                 ),
                             ),
                         ),
@@ -751,21 +727,25 @@ fn parse_tex_input_into_asts_works() {
                 LxAstArena {
                     math: Arena {
                         data: [
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         0,
                                     ),
                                 ),
-                                LowerX,
+                                LowerLatin(
+                                    X,
+                                ),
                             ),
-                            LxMathAstData::Letter(
+                            LxMathAstData::PlainLetter(
                                 LxMathTokenIdx(
                                     LxTokenIdx(
                                         3,
                                     ),
                                 ),
-                                LowerI,
+                                LowerLatin(
+                                    I,
+                                ),
                             ),
                             LxMathAstData::Punctuation(
                                 LxMathTokenIdx(

@@ -12,6 +12,10 @@ impl LnLiteral {
     pub fn new(data: LnLiteralData, db: &::salsa::Db) -> Self {
         Self(LnTermId::new(db, data.into()))
     }
+
+    pub(crate) fn show(&self, db: &salsa::Db) -> String {
+        todo!()
+    }
 }
 
 impl LnLiteral {
@@ -20,5 +24,25 @@ impl LnLiteral {
             LnTermData::Literal(data) => data,
             _ => unreachable!(),
         }
+    }
+}
+
+impl LnLiteralData {
+    pub fn str(&self) -> &str {
+        match self {
+            LnLiteralData::Nat(s) => s,
+        }
+    }
+}
+
+impl AsRef<str> for LnLiteralData {
+    fn as_ref(&self) -> &str {
+        self.str()
+    }
+}
+
+impl std::fmt::Display for LnLiteralData {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.str())
     }
 }

@@ -1,9 +1,12 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[salsa::derive_debug_with_db]
+#[salsa::as_id]
+#[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdZfcExists(VdZfcTermId);
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct VdZfcExistsData {
     // Add appropriate fields here
 }

@@ -1,11 +1,18 @@
 use crate::{
-    clause::{VdSynClauseArena, VdSynClauseIdx, VdSynClauseMap},
-    expr::{
-        VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprMap, VdSynLeftDelimiter,
-        VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
+    clause::{
+        VdSynClauseArena, VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx, VdSynClauseMap,
     },
-    phrase::{VdSynPhraseArena, VdSynPhraseIdx, VdSynPhraseMap},
-    sentence::{VdSynSentenceArena, VdSynSentenceIdx, VdSynSentenceMap},
+    division::{VdSynDivisionArena, VdSynDivisionMap},
+    expr::{
+        VdSynExprArena, VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprMap,
+        VdSynLeftDelimiter, VdSynPrefixOpr, VdSynRightDelimiter, VdSynSeparator,
+    },
+    phrase::{VdSynPhraseArena, VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
+    sentence::{
+        VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceEnd,
+        VdSynSentenceIdx, VdSynSentenceMap,
+    },
+    stmt::{VdSynStmtArena, VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtMap},
 };
 use either::*;
 use latex_token::idx::LxTokenIdxRange;
@@ -27,11 +34,14 @@ impl VdSynExprTokenIdxRange {
 pub type VdSynPhraseTokenIdxRange = LxTokenIdxRange;
 pub type VdSynClauseTokenIdxRange = LxTokenIdxRange;
 pub type VdSynSentenceTokenIdxRange = LxTokenIdxRange;
-
+pub type VdSynStmtTokenIdxRange = LxTokenIdxRange;
+pub type VdSynDivisionTokenIdxRange = LxTokenIdxRange;
 pub type VdSynExprTokenIdxRangeMap = VdSynExprMap<VdSynExprTokenIdxRange>;
 pub type VdSynPhraseTokenIdxRangeMap = VdSynPhraseMap<VdSynPhraseTokenIdxRange>;
 pub type VdSynClauseTokenIdxRangeMap = VdSynClauseMap<VdSynClauseTokenIdxRange>;
 pub type VdSynSentenceTokenIdxRangeMap = VdSynSentenceMap<VdSynSentenceTokenIdxRange>;
+pub type VdSynStmtTokenIdxRangeMap = VdSynStmtMap<VdSynStmtTokenIdxRange>;
+pub type VdSynDivisionTokenIdxRangeMap = VdSynDivisionMap<VdSynDivisionTokenIdxRange>;
 
 pub fn calc_expr_range_map(
     db: &::salsa::Db,
@@ -39,28 +49,42 @@ pub fn calc_expr_range_map(
     phrase_arena: &VdSynPhraseArena,
     clause_arena: &VdSynClauseArena,
     sentence_arena: &VdSynSentenceArena,
+    stmt_arena: &VdSynStmtArena,
+    division_arena: &VdSynDivisionArena,
 ) -> (
     VdSynExprTokenIdxRangeMap,
     VdSynPhraseTokenIdxRangeMap,
     VdSynClauseTokenIdxRangeMap,
     VdSynSentenceTokenIdxRangeMap,
+    VdSynStmtTokenIdxRangeMap,
+    VdSynDivisionTokenIdxRangeMap,
 ) {
-    let mut calculator =
-        VdSynExprRangeCalculator::new(db, expr_arena, phrase_arena, clause_arena, sentence_arena);
+    let mut calculator = VdSynExprRangeCalculator::new(
+        db,
+        expr_arena,
+        phrase_arena,
+        clause_arena,
+        sentence_arena,
+        stmt_arena,
+        division_arena,
+    );
     calculator.infer_all_ranges();
     calculator.finish()
 }
 
 struct VdSynExprRangeCalculator<'db> {
     db: &'db ::salsa::Db,
-    expr_arena: &'db VdSynExprArena,
-    phrase_arena: &'db VdSynPhraseArena,
-    clause_arena: &'db VdSynClauseArena,
-    sentence_arena: &'db VdSynSentenceArena,
+    expr_arena: VdSynExprArenaRef<'db>,
+    phrase_arena: VdSynPhraseArenaRef<'db>,
+    clause_arena: VdSynClauseArenaRef<'db>,
+    sentence_arena: VdSynSentenceArenaRef<'db>,
+    stmt_arena: VdSynStmtArenaRef<'db>,
     expr_range_map: VdSynExprTokenIdxRangeMap,
     phrase_range_map: VdSynPhraseTokenIdxRangeMap,
     clause_range_map: VdSynClauseTokenIdxRangeMap,
     sentence_range_map: VdSynSentenceTokenIdxRangeMap,
+    stmt_range_map: VdSynStmtTokenIdxRangeMap,
+    division_range_map: VdSynDivisionTokenIdxRangeMap,
 }
 
 impl<'db> VdSynExprRangeCalculator<'db> {
@@ -70,34 +94,42 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         phrase_arena: &'db VdSynPhraseArena,
         clause_arena: &'db VdSynClauseArena,
         sentence_arena: &'db VdSynSentenceArena,
+        stmt_arena: &'db VdSynStmtArena,
+        division_arena: &'db VdSynDivisionArena,
     ) -> Self {
         Self {
             db,
-            expr_arena,
-            phrase_arena,
-            clause_arena,
-            sentence_arena,
+            expr_arena: expr_arena.as_arena_ref(),
+            phrase_arena: phrase_arena.as_arena_ref(),
+            clause_arena: clause_arena.as_arena_ref(),
+            sentence_arena: sentence_arena.as_arena_ref(),
+            stmt_arena: stmt_arena.as_arena_ref(),
             expr_range_map: VdSynExprTokenIdxRangeMap::new(expr_arena),
             phrase_range_map: VdSynPhraseTokenIdxRangeMap::new(phrase_arena),
             clause_range_map: VdSynClauseTokenIdxRangeMap::new(clause_arena),
             sentence_range_map: VdSynSentenceTokenIdxRangeMap::new(sentence_arena),
+            stmt_range_map: VdSynStmtTokenIdxRangeMap::new(stmt_arena),
+            division_range_map: VdSynDivisionTokenIdxRangeMap::new(division_arena),
         }
     }
 }
 
 impl<'db> VdSynExprRangeCalculator<'db> {
     fn infer_all_ranges(&mut self) {
-        for expr in self.expr_arena.indices() {
+        for expr in self.expr_arena.index_iter() {
             self.infer_expr(expr);
         }
-        for phrase in self.phrase_arena.indices() {
+        for phrase in self.phrase_arena.index_iter() {
             self.infer_phrase(phrase);
         }
-        for clause in self.clause_arena.indices() {
+        for clause in self.clause_arena.index_iter() {
             self.infer_clause(clause);
         }
-        for sentence in self.sentence_arena.indices() {
+        for sentence in self.sentence_arena.index_iter() {
             self.infer_sentence(sentence);
+        }
+        for stmt in self.stmt_arena.index_iter() {
+            self.infer_stmt(stmt);
         }
     }
 
@@ -110,14 +142,14 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn calc_expr(&mut self, expr: VdSynExprIdx) -> VdSynExprTokenIdxRange {
-        match self.expr_arena[expr] {
+        let expr_arena = self.expr_arena;
+        match expr_arena[expr] {
             VdSynExprData::Literal {
                 token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
             VdSynExprData::Letter {
                 token_idx_range, ..
             } => VdSynExprTokenIdxRange::Standard(token_idx_range),
-            VdSynExprData::Notation => todo!(),
             VdSynExprData::BaseOpr { opr } => todo!(),
             VdSynExprData::Binary { lopd, ropd, .. } => {
                 let lopd_range = self.get_expr(lopd);
@@ -147,18 +179,17 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
             VdSynExprData::Err(ref e) => VdSynExprTokenIdxRange::Standard(e.token_idx_range()),
-            VdSynExprData::SeparatedList { ref fragments, .. } => {
+            VdSynExprData::SeparatedList {
+                items,
+                ref separators,
+                ..
+            } => {
+                debug_assert!(items.len() > separators.len());
                 // use the first and the last fragment's range
-                let mut t = |fragment: Either<VdSynExprIdx, VdSynSeparator>| match fragment {
-                    Left(expr) | Right(VdSynSeparator::Composite(expr, _)) => self.get_expr(expr),
-                    Right(VdSynSeparator::Base(token_idx_range, _)) => {
-                        VdSynExprTokenIdxRange::Standard(token_idx_range)
-                    }
-                };
-                let first = *fragments.first().expect("fragments are always non-empty");
-                let last = *fragments.last().expect("fragments are always non-empty");
-                let first_range = t(first);
-                let last_range = t(last);
+                let first_range =
+                    self.get_expr(items.first().expect("fragments are always non-empty"));
+                let last_range =
+                    self.get_expr(items.last().expect("fragments are always non-empty"));
                 first_range.join(last_range)
             }
             VdSynExprData::LxDelimited {
@@ -214,7 +245,11 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_phrase(&mut self, phrase: VdSynPhraseIdx) {
-        todo!()
+        if self.phrase_range_map.has(phrase) {
+            return;
+        }
+        let range = self.calc_phrase(phrase);
+        self.phrase_range_map.insert(phrase, range);
     }
 
     fn calc_phrase(&mut self, phrase: VdSynPhraseIdx) -> VdSynPhraseTokenIdxRange {
@@ -227,11 +262,31 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_clause(&mut self, clause: VdSynClauseIdx) {
-        todo!()
+        if self.clause_range_map.has(clause) {
+            return;
+        }
+        let range = self.calc_clause(clause);
+        self.clause_range_map.insert(clause, range);
     }
 
     fn calc_clause(&mut self, clause: VdSynClauseIdx) -> VdSynClauseTokenIdxRange {
-        todo!()
+        match self.clause_arena[clause] {
+            VdSynClauseData::Let {
+                let_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
+            VdSynClauseData::Assume {
+                assume_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*assume_token_idx, *right_dollar_token_idx),
+            VdSynClauseData::Then {
+                then_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
+        }
     }
 
     fn get_clause(&mut self, clause: VdSynClauseIdx) -> VdSynClauseTokenIdxRange {
@@ -240,16 +295,52 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn infer_sentence(&mut self, sentence: VdSynSentenceIdx) {
-        todo!()
+        if self.sentence_range_map.has(sentence) {
+            return;
+        }
+        let range = self.calc_sentence(sentence);
+        self.sentence_range_map.insert(sentence, range);
     }
 
     fn calc_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSynSentenceTokenIdxRange {
-        todo!()
+        match self.sentence_arena[sentence] {
+            VdSynSentenceData::Clauses { clauses, end } => {
+                let clauses_range = self.get_clause(clauses.start());
+                match end {
+                    VdSynSentenceEnd::Period(token_idx) => clauses_range.to_included(*token_idx),
+                }
+            }
+        }
     }
 
     fn get_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSynSentenceTokenIdxRange {
         self.infer_sentence(sentence);
         self.sentence_range_map[sentence]
+    }
+
+    fn infer_stmt(&mut self, stmt: VdSynStmtIdx) {
+        if self.stmt_range_map.has(stmt) {
+            return;
+        }
+        let range = self.calc_stmt(stmt);
+        self.stmt_range_map.insert(stmt, range);
+    }
+
+    fn calc_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSynStmtTokenIdxRange {
+        match self.stmt_arena[stmt] {
+            VdSynStmtData::Paragraph(sentences) => {
+                let first = self.get_sentence(sentences.start());
+                let last =
+                    self.get_sentence(sentences.last().expect("sentences are always non-empty"));
+                first.join(last)
+            }
+            VdSynStmtData::Block { environment, stmts } => todo!(),
+        }
+    }
+
+    fn get_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSynStmtTokenIdxRange {
+        self.infer_stmt(stmt);
+        self.stmt_range_map[stmt]
     }
 
     fn finish(
@@ -259,12 +350,16 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         VdSynPhraseTokenIdxRangeMap,
         VdSynClauseTokenIdxRangeMap,
         VdSynSentenceTokenIdxRangeMap,
+        VdSynStmtTokenIdxRangeMap,
+        VdSynDivisionTokenIdxRangeMap,
     ) {
         (
             self.expr_range_map,
             self.phrase_range_map,
             self.clause_range_map,
             self.sentence_range_map,
+            self.stmt_range_map,
+            self.division_range_map,
         )
     }
 }

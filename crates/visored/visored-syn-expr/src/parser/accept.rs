@@ -8,46 +8,46 @@ use expr::{
 use expr_stack::TopVdSynExpr;
 use incomplete_expr::{IncompleteCallListOpr, IncompleteSeparatedListOpr, IncompleteVdSynExprData};
 use latex_token::idx::{LxTokenIdx, LxTokenIdxRange};
-use resolve::ResolvedToken;
+use resolve::ResolvedAst;
 use smallvec::smallvec;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_opr::{
     delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr, suffix::VdBaseSuffixOpr, VdBaseOpr},
     precedence::VdPrecedence,
-    separator::{VdBaseSeparator, VdSeparator},
+    separator::{VdBaseSeparator, VdSeparatorClass},
 };
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub(crate) fn accept_token(
+    pub(crate) fn accept_ast(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
         token_idx_range: LxTokenIdxRange,
-        token: ResolvedToken,
+        ast: ResolvedAst,
     ) {
-        match token {
-            ResolvedToken::Expr(expr, class) => match class {
+        match ast {
+            ResolvedAst::Expr(expr, class) => match class {
                 VdSynExprClass::Complete(_) => {
                     self.accept_complete_expr(preceding_space_annotation, expr)
                 }
-                VdSynExprClass::Prefix => todo!(),
-                VdSynExprClass::Suffix => todo!(),
+                VdSynExprClass::PrefixOpr => todo!(),
+                VdSynExprClass::SuffixOpr => todo!(),
                 VdSynExprClass::Separator => todo!(),
-                VdSynExprClass::Binary => todo!(),
+                VdSynExprClass::BinaryOpr => todo!(),
             },
-            ResolvedToken::Opr(lx_math_token_idx, opr) => {
+            ResolvedAst::Opr(opr) => {
                 self.accept_opr(preceding_space_annotation, token_idx_range, opr)
             }
-            ResolvedToken::Separator(sep) => self.accept_separator(
-                preceding_space_annotation,
-                VdSynSeparator::Base(token_idx_range, sep),
-            ),
-            ResolvedToken::LeftDelimiter(left_delimiter) => self.accept_left_delimiter(
+            ResolvedAst::Separator(sep) => self.accept_separator(
                 preceding_space_annotation,
                 token_idx_range,
+                VdSynSeparator::Base(token_idx_range, sep),
+            ),
+            ResolvedAst::LeftDelimiter(left_delimiter) => self.accept_left_delimiter(
+                preceding_space_annotation,
                 VdSynLeftDelimiter::Base(token_idx_range, left_delimiter),
             ),
-            ResolvedToken::RightDelimiter(right_delimiter) => self.accept_right_delimiter(
+            ResolvedAst::RightDelimiter(right_delimiter) => self.accept_right_delimiter(
                 preceding_space_annotation,
                 VdSynRightDelimiter::Base(token_idx_range, right_delimiter),
             ),
@@ -59,7 +59,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         preceding_space_annotation: Option<VdSpaceAnnotation>,
         expr: VdSynExprData,
     ) {
-        self.push_top_syn_expr(preceding_space_annotation, expr.into())
+        self.push_top_expr(preceding_space_annotation, expr.into())
     }
 
     fn accept_opr(
@@ -92,7 +92,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         if let Some(annotation) = preceding_space_annotation {
             todo!()
         }
-        self.push_top_syn_expr(
+        self.push_top_expr(
             preceding_space_annotation,
             IncompleteVdSynExprData::Prefix { opr }.into(),
         )
@@ -119,59 +119,60 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     fn accept_separator(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
+        token_idx_range: LxTokenIdxRange,
         separator: VdSynSeparator,
     ) {
         if let Some(annotation) = preceding_space_annotation {
             todo!()
         }
-        self.reduce(
-            separator.left_precedence_range(),
-            Some(separator.separator()),
-        );
-        if separator.separator() == VdSeparator::SPACE {
+        self.reduce(separator.left_precedence_range(), Some(separator.class()));
+        if separator.class() == VdSeparatorClass::SPACE {
             todo!()
         }
         match self.take_complete_expr() {
             Some(item) => {
-                let item = self.builder.alloc_expr(item);
                 match self.last_incomplete_expr_mut() {
-                    Some(IncompleteVdSynExprData::SeparatedList {
-                        separator: separator0,
-                        fragments,
-                    }) if separator.separator() == *separator0 => {
-                        match fragments.last().unwrap() {
-                            Left(_) => fragments.push(Right(separator)),
+                    Some(&mut IncompleteVdSynExprData::SeparatedList {
+                        separator_class,
+                        ref items,
+                        ref mut separators,
+                    }) if separator.class() == separator_class => {
+                        match items.len() > separators.len() {
+                            true => separators.push(separator),
                             // `,,`
-                            Right(_) => todo!("repeated separator"),
+                            false => todo!("repeated separator"),
                         }
                     }
-                    _ => self.push_top_syn_expr(
+                    _ => self.push_top_expr(
                         preceding_space_annotation,
                         IncompleteVdSynExprData::SeparatedList {
-                            separator: separator.separator(),
-                            fragments: smallvec![Left(item), Right(separator)],
+                            separator_class: separator.class(),
+                            items: smallvec![item],
+                            separators: smallvec![separator],
                         }
                         .into(),
                     ),
                 }
             }
             None => match self.last_incomplete_expr_mut() {
-                Some(expr) => match expr {
+                Some(expr) => match *expr {
                     IncompleteVdSynExprData::Binary { lopd, opr } => todo!(),
                     IncompleteVdSynExprData::Prefix { opr } => todo!(),
                     IncompleteVdSynExprData::SeparatedList {
-                        separator: separator0,
-                        fragments,
-                    } => match fragments.last().unwrap() {
-                        Left(_) => {
-                            if *separator0 == separator.separator() {
-                                fragments.push(Right(separator));
+                        separator_class,
+                        ref items,
+                        ref mut separators,
+                    } => {
+                        if items.len() > separators.len() {
+                            if separator_class == separator.class() {
+                                separators.push(separator);
                             } else {
                                 todo!()
                             }
+                        } else {
+                            todo!()
                         }
-                        Right(_) => todo!(),
-                    },
+                    }
                     IncompleteVdSynExprData::Delimited {
                         left_delimiter: bra,
                     } => todo!(),
@@ -195,16 +196,15 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         ));
         let lopd = self.builder.alloc_expr(lopd);
         let incomplete_expr = IncompleteVdSynExprData::Binary { lopd, opr };
-        self.push_top_syn_expr(None, incomplete_expr.into());
+        self.push_top_expr(None, incomplete_expr.into());
     }
 
     fn accept_left_delimiter(
         &mut self,
         preceding_space_annotation: Option<VdSpaceAnnotation>,
-        token_idx_range: LxTokenIdxRange,
         left_delimiter: VdSynLeftDelimiter,
     ) {
-        self.push_top_syn_expr(
+        self.push_top_expr(
             preceding_space_annotation,
             IncompleteVdSynExprData::Delimited { left_delimiter }.into(),
         );

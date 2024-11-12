@@ -318,8 +318,10 @@ husky-ki-repr-interface = { path = "crates/ki/husky-ki-repr-interface" }
 # latex
 latex-ast = { path = "crates/latex/latex-ast" }
 latex-command = { path = "crates/latex/latex-command" }
+latex-environment = { path = "crates/latex/latex-environment" }
 latex-math-letter = { path = "crates/latex/latex-math-letter" }
 latex-math-punctuation = { path = "crates/latex/latex-math-punctuation" }
+latex-rose-punctuation = { path = "crates/latex/latex-rose-punctuation" }
 latex-prelude = { path = "crates/latex/latex-prelude" }
 latex-sem-expr = { path = "crates/latex/latex-sem-expr" }
 latex-text = { path = "crates/latex/latex-text" }
@@ -330,10 +332,11 @@ lean-coword = { path = "crates/lean/lean-coword" }
 lean-hir-expr = { path = "crates/lean/lean-hir-expr" }
 lean-hir-decl = { path = "crates/lean/lean-hir-decl" }
 lean-hir-defn = { path = "crates/lean/lean-hir-defn" }
-lean-term = { path = "crates/lean/lean-term" }
+lean-item-path = { path = "crates/lean/lean-item-path" }
 lean-opr = { path = "crates/lean/lean-opr" }
 lean-sem-expr = { path = "crates/lean/lean-sem-expr" }
 lean-syn-expr = { path = "crates/lean/lean-syn-expr" }
+lean-term = { path = "crates/lean/lean-term" }
 lean-token = { path = "crates/lean/lean-token" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
@@ -432,7 +435,7 @@ visored-hir-expr = { path = "crates/visored/visored-hir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-item-path = { path = "crates/visored/visored-item-path" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
-visored-resolution = { path = "crates/visored/visored-resolution" }
+visored-global-resolution = { path = "crates/visored/visored-global-resolution" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }

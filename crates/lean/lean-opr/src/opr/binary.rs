@@ -35,3 +35,9 @@ impl LnBinaryOpr {
         }
     }
 }
+
+impl std::fmt::Display for LnBinaryOpr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.fmt_str())
+    }
+}

@@ -82,7 +82,12 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
 
     fn calc_math_ast(&mut self, data: &LxMathAstData) -> LxTokenIdxRange {
         match *data {
-            LxMathAstData::Letter(idx, _) => LxTokenIdxRange::new_single(*idx),
+            LxMathAstData::PlainLetter(idx, _) => LxTokenIdxRange::new_single(*idx),
+            LxMathAstData::StyledLetter {
+                style_command_token_idx,
+                style_rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*style_command_token_idx, *style_rcurl_token_idx),
             LxMathAstData::Punctuation(idx, _) => LxTokenIdxRange::new_single(*idx),
             LxMathAstData::Digit(idx, _) => LxTokenIdxRange::new_single(*idx),
             LxMathAstData::TextEdit { ref buffer } => todo!(),
@@ -101,7 +106,7 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 right_delimiter_token_idx,
                 right_delimiter,
             } => LxTokenIdxRange::new_closed(*left_delimiter_token_idx, *right_delimiter_token_idx),
-            LxMathAstData::Command {
+            LxMathAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
                 ref arguments,
@@ -112,6 +117,11 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 ),
                 None => LxTokenIdxRange::new_single(*command_token_idx),
             },
+            LxMathAstData::Environment {
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
         }
     }
 
@@ -128,7 +138,16 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     }
 
     fn calc_rose_ast(&self, data: &LxRoseAstData) -> LxTokenIdxRange {
-        todo!()
+        match *data {
+            LxRoseAstData::TextEdit { ref buffer } => todo!(),
+            LxRoseAstData::Word(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+            LxRoseAstData::Punctuation(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+            LxRoseAstData::Math {
+                left_dollar_token_idx,
+                math_asts,
+                right_dollar_token_idx,
+            } => LxTokenIdxRange::new_closed(*left_dollar_token_idx, *right_dollar_token_idx),
+        }
     }
 
     fn get_rose_ast_range(&mut self, idx: LxRoseAstIdx) -> LxTokenIdxRange {
