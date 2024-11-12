@@ -4,8 +4,9 @@ use crate::{
     },
     division::{VdSemDivisionArena, VdSemDivisionMap},
     expr::{
+        delimited::{VdSemLeftDelimiter, VdSemRightDelimiter},
+        prefix::VdSemPrefixOpr,
         VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprIdx, VdSemExprMap,
-        VdSemLeftDelimiter, VdSemPrefixOpr, VdSemRightDelimiter, VdSemSeparator,
     },
     phrase::{VdSemPhraseArena, VdSemPhraseArenaRef, VdSemPhraseIdx, VdSemPhraseMap},
     sentence::{
@@ -143,7 +144,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
 
     fn calc_expr(&mut self, expr: VdSemExprIdx) -> VdSemExprTokenIdxRange {
         let expr_arena = self.expr_arena;
-        match expr_arena[expr] {
+        match *expr_arena[expr].data() {
             VdSemExprData::Literal {
                 token_idx_range, ..
             } => VdSemExprTokenIdxRange::Standard(token_idx_range),

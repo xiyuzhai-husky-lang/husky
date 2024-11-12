@@ -2,6 +2,7 @@ pub mod special_constant;
 
 use self::special_constant::VdZfcSpecialConstant;
 use super::*;
+use crate::{menu::vd_zfc_ty_menu, ty::VdZfcType};
 
 #[salsa::derive_debug_with_db]
 #[salsa::as_id]
@@ -19,13 +20,6 @@ pub enum VdZfcLiteralData {
 }
 
 impl VdZfcLiteral {
-    pub fn data(self, db: &::salsa::Db) -> &VdZfcLiteralData {
-        match self.0.data(db) {
-            VdZfcTermData::Literal(data) => data,
-            _ => unreachable!(),
-        }
-    }
-
     pub fn new(data: VdZfcLiteralData, db: &::salsa::Db) -> Self {
         #[cfg(test)]
         {
@@ -40,6 +34,29 @@ impl VdZfcLiteral {
             }
         }
         Self(VdZfcTermId::new(db, data.into()))
+    }
+
+    pub fn data(self, db: &::salsa::Db) -> &VdZfcLiteralData {
+        match self.0.data(db) {
+            VdZfcTermData::Literal(data) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn ty(self, db: &::salsa::Db) -> VdZfcType {
+        zfc_literal_ty(db, self)
+    }
+}
+
+#[salsa::tracked]
+fn zfc_literal_ty(db: &::salsa::Db, literal: VdZfcLiteral) -> VdZfcType {
+    let data = literal.data(db);
+    let menu = vd_zfc_ty_menu(db);
+    match data {
+        VdZfcLiteralData::NaturalNumber(_) => menu.natural_number_ty(),
+        VdZfcLiteralData::NegativeInteger(_) => todo!(),
+        VdZfcLiteralData::FiniteDecimalRepresentation(_) => todo!(),
+        VdZfcLiteralData::SpecialConstant(special_constant) => todo!(),
     }
 }
 

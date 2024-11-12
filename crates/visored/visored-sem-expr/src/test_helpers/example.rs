@@ -98,8 +98,8 @@ impl VdSemExprExample {
             sentence_range_map: syn_sentence_range_map,
             stmt_range_map: syn_stmt_range_map,
             division_range_map: syn_division_range_map,
-            symbol_defns,
-            symbol_resolution_table,
+            symbol_local_defn_storage: syn_symbol_local_defn_storage,
+            symbol_resolution_table: syn_symbol_resolution_table,
         } = VdSynExprExample::new(input, root_mode, token_annotations, space_annotations, db);
         let mut builder = VdSemExprBuilder::new(
             db,
@@ -112,7 +112,8 @@ impl VdSemExprExample {
             syn_sentence_arena.as_arena_ref(),
             syn_stmt_arena.as_arena_ref(),
             syn_division_arena.as_arena_ref(),
-            &symbol_resolution_table,
+            &syn_symbol_local_defn_storage,
+            &syn_symbol_resolution_table,
         );
         let result = syn_result.to_vd_sem(&mut builder);
         let (expr_arena, phrase_arena, clause_arena, sentence_arena, stmt_arena, division_arena) =

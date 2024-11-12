@@ -12731,6 +12731,7 @@ dependencies = [
  "salsa",
  "smallvec",
  "visored-coword",
+ "visored-item-path",
 ]
 
 [[package]]

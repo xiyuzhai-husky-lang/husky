@@ -1,13 +1,28 @@
+pub mod storage;
+
 use super::*;
-use idx_arena::ArenaIdx;
+use idx_arena::{Arena, ArenaIdx};
 use latex_math_letter::letter::LxMathLetter;
 use latex_token::idx::LxTokenIdxRange;
-use visored_syn_expr::symbol::local_defn::VdSynSymbolLocalDefnIdx;
+use visored_syn_expr::symbol::local_defn::{
+    VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead, VdSynSymbolLocalDefnIdx,
+};
+use visored_zfc_ty::ty::VdZfcType;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdSemSymbolLocalDefn {
-    pub head: VdSemSymbolLocalDefnHead,
-    pub body: VdSemSymbolLocalDefnBody,
+pub struct VdSemSymbolLocalDefnData {
+    head: VdSemSymbolLocalDefnHead,
+    body: VdSemSymbolLocalDefnBody,
+}
+
+impl VdSemSymbolLocalDefnData {
+    pub fn head(&self) -> &VdSemSymbolLocalDefnHead {
+        &self.head
+    }
+
+    pub fn body(&self) -> &VdSemSymbolLocalDefnBody {
+        &self.body
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -21,11 +36,56 @@ pub enum VdSemSymbolLocalDefnBody {
     Placeholder,
 }
 
-pub type VdSemSymbolLocalDefnIdx = ArenaIdx<VdSemSymbolLocalDefn>;
+pub type VdSemSymbolLocalDefnArena = Arena<VdSemSymbolLocalDefnData>;
+pub type VdSemSymbolLocalDefnIdx = ArenaIdx<VdSemSymbolLocalDefnData>;
 
 impl ToVdSem<VdSemSymbolLocalDefnIdx> for VdSynSymbolLocalDefnIdx {
     fn to_vd_sem(self, _: &mut VdSemExprBuilder) -> VdSemSymbolLocalDefnIdx {
         // INVARIANCE: the index is always the same as the syn index
         unsafe { VdSemSymbolLocalDefnIdx::new_ext(self.index()) }
+    }
+}
+
+impl<'a> VdSemExprBuilder<'a> {
+    pub(crate) fn build_symbol_local_defns(
+        &mut self,
+        syn_symbol_local_defn_storage: &VdSynSymbolLocalDefnStorage,
+    ) {
+        let mut defns = vec![];
+        for defn in syn_symbol_local_defn_storage.defn_arena() {
+            defns.push(self.build_symbol_local_defn(defn));
+        }
+        self.alloc_local_defns(defns);
+    }
+
+    fn build_symbol_local_defn(
+        &mut self,
+        defn: &VdSynSymbolLocalDefnData,
+    ) -> VdSemSymbolLocalDefnData {
+        let head = self.build_symbol_local_defn_head(defn.head());
+        let body = self.build_symbol_local_defn_body(defn.body());
+        VdSemSymbolLocalDefnData { head, body }
+    }
+
+    fn build_symbol_local_defn_head(
+        &mut self,
+        head: &VdSynSymbolLocalDefnHead,
+    ) -> VdSemSymbolLocalDefnHead {
+        match *head {
+            VdSynSymbolLocalDefnHead::Letter {
+                token_idx_range,
+                letter,
+            } => VdSemSymbolLocalDefnHead::Letter(token_idx_range, letter),
+        }
+    }
+
+    fn build_symbol_local_defn_body(
+        &mut self,
+        body: &VdSynSymbolLocalDefnBody,
+    ) -> VdSemSymbolLocalDefnBody {
+        match *body {
+            VdSynSymbolLocalDefnBody::Assigned => VdSemSymbolLocalDefnBody::Assigned,
+            VdSynSymbolLocalDefnBody::Placeholder => VdSemSymbolLocalDefnBody::Placeholder,
+        }
     }
 }

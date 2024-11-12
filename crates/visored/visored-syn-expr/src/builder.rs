@@ -9,7 +9,7 @@ use crate::{
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
         build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
-        local_defn::VdSynSymbolLocalDefnTable, resolution::VdSynSymbolResolutionsTable,
+        local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
 use either::*;
@@ -213,7 +213,7 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynSentenceTokenIdxRangeMap,
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
-        VdSynSymbolLocalDefnTable,
+        VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,
     ) {
         let (
