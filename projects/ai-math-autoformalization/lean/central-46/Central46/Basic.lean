@@ -11,6 +11,7 @@ variable (a b c : Nat)
 example : a + b + c = a + c + b := sorry
 def x := a + b + c
 def y := x
+def d := b
 #check x
 #check y
 
@@ -21,3 +22,9 @@ end example1
 
 def z := x
 #check z
+
+-- nested sections are allowed
+section layer1
+section layer2
+end layer2
+end layer1
