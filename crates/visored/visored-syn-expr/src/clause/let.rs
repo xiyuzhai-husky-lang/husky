@@ -1,25 +1,23 @@
 pub mod assigned;
 pub mod placeholder;
 
-use self::{
-    assigned::VdSynLetStmtAssignedResolution, placeholder::VdSynLetStmtPlaceholderResolution,
-};
+use self::{assigned::VdSynLetAssignedResolution, placeholder::VdSynPlaceholderResolution};
 use super::*;
 use expr::{VdSynExprData, VdSynExprIdxRange, VdSynSeparator};
 use visored_opr::separator::VdBaseSeparator;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdSynLetStmtResolution {
-    Assigned(VdSynLetStmtAssignedResolution),
-    Placeholder(VdSynLetStmtPlaceholderResolution),
+pub enum VdSynLetClauseResolution {
+    Assigned(VdSynLetAssignedResolution),
+    Placeholder(VdSynPlaceholderResolution),
 }
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn build_let_stmt_resolution(
         &self,
         formula: VdSynExprIdx,
-    ) -> VdSynLetStmtResolution {
+    ) -> VdSynLetClauseResolution {
         match self.expr_arena()[formula] {
             VdSynExprData::Literal {
                 token_idx_range,
@@ -74,7 +72,7 @@ impl<'db> VdSynExprBuilder<'db> {
         &self,
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
-    ) -> VdSynLetStmtResolution {
+    ) -> VdSynLetClauseResolution {
         match items.len() {
             0 | 1 => unreachable!(),
             2 => {
@@ -94,7 +92,7 @@ impl<'db> VdSynExprBuilder<'db> {
         fst: VdSynExprIdx,
         snd: VdSynExprIdx,
         separator: VdSynSeparator,
-    ) -> VdSynLetStmtResolution {
+    ) -> VdSynLetClauseResolution {
         match separator {
             VdSynSeparator::Base(_, base_separator) => match base_separator {
                 VdBaseSeparator::Space => todo!(),

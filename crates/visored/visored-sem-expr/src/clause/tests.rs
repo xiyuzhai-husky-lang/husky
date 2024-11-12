@@ -1,4 +1,7 @@
 use super::*;
+use crate::test_helpers::example::VdSemExprExample;
+use expect_test::{expect, Expect};
+use latex_prelude::mode::LxMode;
 
 pub(crate) fn t(input: &str, expected: &Expect) {
     let db = &DB::default();

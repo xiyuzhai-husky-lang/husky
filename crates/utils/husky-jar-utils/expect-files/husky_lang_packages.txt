@@ -4311,6 +4311,7 @@
         relative_path: "crates/visored/visored-sem-expr",
         dependencies: [
             "either",
+            "enum-class",
             "husky-coword",
             "husky-tree-utils",
             "idx-arena",
