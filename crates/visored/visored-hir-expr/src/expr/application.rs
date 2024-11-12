@@ -1,5 +1,6 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdHirApplicationFunction {
     IntAdd,
-    TrivialEq, // ad hoc
+    TrivialEq,
+    In, // ad hoc
 }

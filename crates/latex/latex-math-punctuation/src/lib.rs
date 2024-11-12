@@ -61,7 +61,7 @@ pub enum LxMathPunctuation {
     EscapedRcurl,
 }
 
-pub type LxMathPunctationMap<T> = EnumFullVecMap<LxMathPunctuation, T>;
+pub type LxMathPunctuationMap<T> = EnumFullVecMap<LxMathPunctuation, T>;
 
 impl LxMathPunctuation {
     pub fn to_str(self) -> &'static str {

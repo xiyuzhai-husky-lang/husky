@@ -3,5 +3,10 @@ pub(crate) use salsa::DebugWithDb;
 
 use husky_coword::jar::CowordJar;
 
-#[salsa::db(CowordJar, crate::jar::LxAstJar, latex_command::jar::LxCommandJar)]
+#[salsa::db(
+    CowordJar,
+    crate::jar::LxAstJar,
+    latex_command::jar::LxCommandJar,
+    latex_environment::jar::LxEnvironmentJar
+)]
 pub struct DB {}

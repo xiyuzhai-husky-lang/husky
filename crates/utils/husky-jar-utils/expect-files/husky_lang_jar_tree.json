@@ -1163,9 +1163,13 @@
   ],
   "latex-ast": [
     "husky-coword",
-    "latex-command"
+    "latex-command",
+    "latex-environment"
   ],
   "latex-command": [
+    "husky-coword"
+  ],
+  "latex-environment": [
     "husky-coword"
   ],
   "lean-hir-expr": [
@@ -1178,6 +1182,7 @@
     "husky-coword",
     "latex-ast",
     "latex-command",
+    "latex-environment",
     "visored-opr",
     "visored-sem-expr",
     "visored-syn-expr",
@@ -1187,6 +1192,7 @@
     "husky-coword",
     "latex-ast",
     "latex-command",
+    "latex-environment",
     "lean-hir-expr",
     "lean-sem-expr",
     "lean-term",
@@ -1201,6 +1207,7 @@
     "husky-coword",
     "latex-ast",
     "latex-command",
+    "latex-environment",
     "visored-opr",
     "visored-syn-expr",
     "visored-zfc-ty"
@@ -1209,6 +1216,7 @@
     "husky-coword",
     "latex-ast",
     "latex-command",
+    "latex-environment",
     "visored-opr",
     "visored-zfc-ty"
   ],

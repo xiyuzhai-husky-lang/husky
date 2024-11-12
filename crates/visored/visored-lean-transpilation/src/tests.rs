@@ -1,17 +1,19 @@
+mod clause;
+mod expr;
+
+use crate::test_helpers::example::VdLeanTranspilationExample;
+use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
+use expect_test::{expect, Expect};
 use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_sem_expr::{
-    expr::{binary::VdSemBinaryDispatch, literal::VdSemLiteralDispatch, VdSemExprData},
-    test_helpers::builder::VdSemExprTestBuilder,
-};
+use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData};
 use visored_zfc_ty::menu::vd_zfc_ty_menu;
-
-use crate::{builder::VdLeanTranspilationBuilder, ToLean};
 
 #[salsa::db(
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
+    latex_environment::jar::LxEnvironmentJar,
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
     lean_hir_expr::jar::LnHirExprJar,

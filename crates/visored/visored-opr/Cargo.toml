@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 enum-class.workspace = true
+enum-index.workspace = true
 salsa.workspace = true
 
 [lints]
