@@ -1,7 +1,7 @@
 use crate::{
     expr::{VdHirExprArena, VdHirExprArenaRef, VdHirExprData, VdHirExprIdx, VdHirExprIdxRange},
     region::VdHirExprRegionData,
-    stmt::{VdHirStmtArena, VdHirStmtArenaRef},
+    stmt::{VdHirStmtArena, VdHirStmtArenaRef, VdHirStmtData, VdHirStmtIdxRange},
 };
 use visored_sem_expr::{
     clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef, expr::VdSemExprArenaRef,
@@ -102,6 +102,13 @@ impl<'db> VdHirExprBuilder<'db> {
         data: impl IntoIterator<Item = VdHirExprData>,
     ) -> VdHirExprIdxRange {
         self.expr_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_stmts(
+        &mut self,
+        data: impl IntoIterator<Item = VdHirStmtData>,
+    ) -> VdHirStmtIdxRange {
+        self.stmt_arena.alloc_batch(data)
     }
 
     pub fn finish_to_region_data(self) -> VdHirExprRegionData {
