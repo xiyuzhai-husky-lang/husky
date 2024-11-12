@@ -125,7 +125,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
-        // TODO
+        todo!()
         // match self.clause_arena[clause] {
         //     VdSynClauseData::Let { .. } => todo!(),
         //     VdSynClauseData::Assume {
