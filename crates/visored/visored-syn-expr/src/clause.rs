@@ -153,12 +153,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 self.build_let_resolution(clause, resolution)
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
-            VdSynClauseData::Then {
-                then_token_idx,
-                left_dollar_token_idx,
-                formula,
-                right_dollar_token_idx,
-            } => todo!(),
+            VdSynClauseData::Then { formula, .. } => self.build_expr(formula),
         }
     }
 

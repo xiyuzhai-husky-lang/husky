@@ -506,7 +506,18 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 separator_class,
                 items,
                 ref separators,
-            } => todo!(),
+            } => {
+                for item in items {
+                    self.build_expr(item);
+                }
+                for &separator in separators {
+                    match separator {
+                        VdSynSeparator::Base(..) => (),
+                        VdSynSeparator::Composite(separator, _) => self.build_expr(separator),
+                    }
+                }
+                Ok(None)
+            }
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,

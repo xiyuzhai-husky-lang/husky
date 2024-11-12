@@ -12660,6 +12660,7 @@ dependencies = [
  "enum-class",
  "expect-test",
  "husky-coword",
+ "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
  "latex-ast",

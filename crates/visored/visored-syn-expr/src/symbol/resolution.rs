@@ -54,7 +54,7 @@ impl VdSynSymbolResolutionsTable {
         let resolution = match resolutions {
             Ok(None) => return,
             Ok(Some(resolutions)) => match resolutions.len() {
-                0 => todo!(),
+                0 => Err(OriginalVdSynSymbolResolutionError::NoResolution.into()),
                 1 => Ok(resolutions.into_iter().next().unwrap()),
                 _ => Err(
                     OriginalVdSynSymbolResolutionError::AmbiguousResolutions { resolutions }.into(),
