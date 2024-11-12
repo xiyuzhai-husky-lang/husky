@@ -112,7 +112,9 @@ impl<'db> VdSynExprBuilder<'db> {
                 VdBaseSeparator::Supseteqq => todo!(),
                 VdBaseSeparator::Subsetneq => todo!(),
                 VdBaseSeparator::Supsetneq => todo!(),
-                VdBaseSeparator::In => todo!(),
+                VdBaseSeparator::In => self
+                    .build_let_placeholder_resolution(fst, snd.into())
+                    .into(),
                 VdBaseSeparator::Notin => todo!(),
                 VdBaseSeparator::Times => todo!(),
                 VdBaseSeparator::Otimes => todo!(),
