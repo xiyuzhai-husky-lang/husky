@@ -1,5 +1,5 @@
 [package]
-name = "visored-resolution"
+name = "visored-global-resolution"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

@@ -1,8 +1,8 @@
 pub mod attach;
 pub mod binary;
+pub mod letter;
 pub mod list_item;
 pub mod literal;
-pub mod notation;
 pub mod prefix;
 pub mod suffix;
 #[cfg(test)]
@@ -114,6 +114,7 @@ pub enum VdSynExprData {
         denominator_rcurl_token_idx: LxMathTokenIdx,
     },
     Sqrt {
+        // TODO: add field for the index or degree
         command_token_idx: LxMathTokenIdx,
         radicand: VdSynExprIdx,
         radicand_rcurl_token_idx: LxMathTokenIdx,
@@ -132,10 +133,10 @@ pub enum VdSynPrefixOpr {
 }
 
 impl VdSynPrefixOpr {
-    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+    pub fn expr(self) -> Option<VdSynExprIdx> {
         match self {
-            VdSynPrefixOpr::Base(_, opr) => opr.latex_code().to_string(),
-            VdSynPrefixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
+            VdSynPrefixOpr::Base(..) => None,
+            VdSynPrefixOpr::Composite(expr, _) => Some(expr),
         }
     }
 
@@ -143,6 +144,13 @@ impl VdSynPrefixOpr {
         match self {
             VdSynPrefixOpr::Base(_, opr) => opr.precedence(),
             VdSynPrefixOpr::Composite(_, opr) => opr.precedence(),
+        }
+    }
+
+    pub(crate) fn show(self, db: &::salsa::Db, arena: VdSynExprArenaRef) -> String {
+        match self {
+            VdSynPrefixOpr::Base(_, opr) => opr.latex_code().to_string(),
+            VdSynPrefixOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
         }
     }
 }
@@ -154,6 +162,13 @@ pub enum VdSynSuffixOpr {
 }
 
 impl VdSynSuffixOpr {
+    pub fn expr(self) -> Option<VdSynExprIdx> {
+        match self {
+            VdSynSuffixOpr::Base(..) => None,
+            VdSynSuffixOpr::Composite(expr, _) => Some(expr),
+        }
+    }
+
     pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
         match *self {
             VdSynSuffixOpr::Base(_, opr) => opr.latex_code().to_string(),
@@ -180,6 +195,13 @@ impl VdSynBinaryOpr {
         match self {
             VdSynBinaryOpr::Base(_, opr) => opr.precedence(),
             VdSynBinaryOpr::Composite(_, opr) => opr.precedence(),
+        }
+    }
+
+    pub fn expr(self) -> Option<VdSynExprIdx> {
+        match self {
+            VdSynBinaryOpr::Base(..) => None,
+            VdSynBinaryOpr::Composite(expr, _) => Some(expr),
         }
     }
 }
@@ -489,83 +511,16 @@ impl<'db> VdSynSymbolBuilder<'db> {
         &mut self,
         expr: VdSynExprIdx,
     ) -> VdSynSymbolResolutionResult<Option<VdSynSymbolResolutions>> {
+        for expr in self.expr_arena()[expr].children() {
+            self.build_expr(expr);
+        }
         match self.expr_arena()[expr] {
-            VdSynExprData::Literal {
-                token_idx_range,
-                literal,
-            } => Ok(None),
             VdSynExprData::Letter {
                 token_idx_range,
                 letter,
             } => self.build_letter(token_idx_range, letter).map(Some),
             VdSynExprData::BaseOpr { opr } => todo!(),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
-            VdSynExprData::Prefix { opr, opd } => todo!(),
-            VdSynExprData::Suffix { opd, opr } => todo!(),
-            VdSynExprData::SeparatedList {
-                separator_class,
-                items,
-                ref separators,
-            } => {
-                for item in items {
-                    self.build_expr(item);
-                }
-                for &separator in separators {
-                    match separator {
-                        VdSynSeparator::Base(..) => (),
-                        VdSynSeparator::Composite(separator, _) => self.build_expr(separator),
-                    }
-                }
-                Ok(None)
-            }
-            VdSynExprData::LxDelimited {
-                left_delimiter_token_idx,
-                left_delimiter,
-                item,
-                right_delimiter_token_idx,
-                right_delimiter,
-            } => todo!(),
-            VdSynExprData::Delimited {
-                left_delimiter,
-                item,
-                right_delimiter,
-            } => todo!(),
-            VdSynExprData::Attach { base, ref scripts } => todo!(),
-            VdSynExprData::Fraction {
-                command_token_idx,
-                numerator,
-                denominator,
-                denominator_rcurl_token_idx,
-            } => todo!(),
-            VdSynExprData::Sqrt {
-                command_token_idx,
-                radicand,
-                radicand_rcurl_token_idx,
-            } => todo!(),
-            VdSynExprData::UniadicChain => todo!(),
-            VdSynExprData::VariadicChain => todo!(),
-            VdSynExprData::UniadicArray => todo!(),
-            VdSynExprData::VariadicArray => todo!(),
-            VdSynExprData::Err(ref error) => todo!(),
+            _ => Ok(None),
         }
-    }
-
-    fn build_letter(
-        &mut self,
-        token_idx_range: LxTokenIdxRange,
-        letter: LxMathLetter,
-    ) -> VdSynSymbolResolutionResult<VdSynSymbolResolutions> {
-        let default_resolution = self
-            .default_global_resolution_table()
-            .resolve_letter(letter);
-        let mut resolutions: VdSynSymbolResolutions =
-            default_resolution.into_iter().map(Into::into).collect();
-        resolutions.extend(
-            self.symbol_local_defn_table()
-                .resolve_letter(token_idx_range, letter)
-                .map(|idx| VdSynLetterSymbolResolution::Local(idx).into()),
-        );
-        // TODO: check other things
-        Ok(resolutions)
     }
 }
