@@ -1,9 +1,13 @@
 use super::{
-    defn::VdSynSymbolDefns,
-    resolution::{VdSynSymbolResolution, VdSynSymbolResolutionTable},
+    local_defn::VdSynSymbolLocalDefnTable,
+    resolution::{VdSynSymbolResolution, VdSynSymbolResolutionsTable},
     *,
 };
 use crate::{clause::*, division::*, expr::*, phrase::*, range::*, sentence::*, stmt::*};
+use r#let::{
+    assigned::VdSynLetAssignedResolution, placeholder::VdSynLetPlaceholderResolution,
+    VdSynLetClauseResolution,
+};
 use smallvec::{smallvec, SmallVec};
 
 pub struct VdSynSymbolBuilder<'a> {
@@ -12,21 +16,22 @@ pub struct VdSynSymbolBuilder<'a> {
     ast_arena: LxAstArenaRef<'a>,
     ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
     annotations: &'a VdAnnotations,
-    default_resolution_table: &'a VdDefaultResolutionTable,
+    default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArenaRef<'a>,
     phrase_arena: VdSynPhraseArenaRef<'a>,
     clause_arena: VdSynClauseArenaRef<'a>,
     sentence_arena: VdSynSentenceArenaRef<'a>,
     stmt_arena: VdSynStmtArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
-    symbol_defns: VdSynSymbolDefns,
-    symbol_resolutions: VdSynSymbolResolutionTable,
+    symbol_local_defn_table: VdSynSymbolLocalDefnTable,
+    symbol_resolutions_table: VdSynSymbolResolutionsTable,
     // the order is from outer to inner
     current_divisions: SmallVec<[VdSynDivisionIdx; 8]>,
     current_stmts: SmallVec<[VdSynStmtIdx; 8]>,
-    current_sentences: SmallVec<[VdSynSentenceIdx; 8]>,
-    current_clauses: SmallVec<[VdSynClauseIdx; 8]>,
+    current_sentence: Option<VdSynSentenceIdx>,
+    current_clause: Option<VdSynClauseIdx>,
     current_phrases: SmallVec<[VdSynPhraseIdx; 8]>,
+    current_exprs: SmallVec<[VdSynExprIdx; 8]>,
 }
 
 impl<'a> VdSynSymbolBuilder<'a> {
@@ -36,7 +41,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         ast_arena: LxAstArenaRef<'a>,
         ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
         annotations: &'a VdAnnotations,
-        default_resolution_table: &'a VdDefaultResolutionTable,
+        default_resolution_table: &'a VdDefaultGlobalResolutionTable,
         expr_arena: VdSynExprArenaRef<'a>,
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
@@ -56,94 +61,130 @@ impl<'a> VdSynSymbolBuilder<'a> {
             ast_arena,
             ast_token_idx_range_map,
             annotations,
-            default_resolution_table,
+            default_global_resolution_table: default_resolution_table,
             expr_arena,
             phrase_arena,
             clause_arena,
             sentence_arena,
             stmt_arena,
             division_arena,
-            symbol_defns: VdSynSymbolDefns::default(),
-            symbol_resolutions: VdSynSymbolResolutionTable::new(expr_arena),
+            symbol_local_defn_table: VdSynSymbolLocalDefnTable::default(),
+            symbol_resolutions_table: VdSynSymbolResolutionsTable::new(expr_arena),
             current_divisions: smallvec![],
             current_stmts: smallvec![],
-            current_sentences: smallvec![],
-            current_clauses: smallvec![],
+            current_sentence: None,
+            current_clause: None,
             current_phrases: smallvec![],
+            current_exprs: smallvec![],
         }
     }
 }
 
+/// # getters
 impl<'a> VdSynSymbolBuilder<'a> {
-    pub(super) fn build_stmts(&mut self, stmts: VdSynStmtIdxRange) {
+    pub(crate) fn default_global_resolution_table(&self) -> &VdDefaultGlobalResolutionTable {
+        self.default_global_resolution_table
+    }
+
+    pub(crate) fn symbol_local_defn_table(&self) -> &VdSynSymbolLocalDefnTable {
+        &self.symbol_local_defn_table
+    }
+
+    pub(crate) fn expr_arena(&self) -> VdSynExprArenaRef<'a> {
+        self.expr_arena
+    }
+
+    pub(crate) fn phrase_arena(&self) -> VdSynPhraseArenaRef<'a> {
+        self.phrase_arena
+    }
+
+    pub(crate) fn clause_arena(&self) -> VdSynClauseArenaRef<'a> {
+        self.clause_arena
+    }
+
+    pub(crate) fn sentence_arena(&self) -> VdSynSentenceArenaRef<'a> {
+        self.sentence_arena
+    }
+
+    pub(crate) fn stmt_arena(&self) -> VdSynStmtArenaRef<'a> {
+        self.stmt_arena
+    }
+
+    pub(crate) fn division_arena(&self) -> VdSynDivisionArenaRef<'a> {
+        self.division_arena
+    }
+}
+
+/// # actions
+impl<'a> VdSynSymbolBuilder<'a> {
+    pub(crate) fn build_stmts(&mut self, stmts: VdSynStmtIdxRange) {
         for stmt in stmts {
             self.build_stmt(stmt);
         }
     }
 
-    fn build_stmt(&mut self, stmt: VdSynStmtIdx) {
+    pub(crate) fn build_stmt(&mut self, stmt: VdSynStmtIdx) {
         self.current_stmts.push(stmt);
         self.build_stmt_aux(stmt);
         self.current_stmts.pop();
     }
 
-    fn build_stmt_aux(&mut self, stmt: VdSynStmtIdx) {
-        match self.stmt_arena[stmt] {
-            VdSynStmtData::Paragraph(sentences) => self.build_sentences(sentences),
-            VdSynStmtData::Block { environment, stmts } => self.build_stmts(stmts),
-        }
-    }
-
-    fn build_sentences(&mut self, sentences: VdSynSentenceIdxRange) {
+    pub(crate) fn build_sentences(&mut self, sentences: VdSynSentenceIdxRange) {
         for sentence in sentences {
             self.build_sentence(sentence);
         }
     }
 
-    fn build_sentence(&mut self, sentence: VdSynSentenceIdx) {
-        self.current_sentences.push(sentence);
+    pub(crate) fn build_sentence(&mut self, sentence: VdSynSentenceIdx) {
+        debug_assert!(self.current_sentence.is_none());
+        self.current_sentence = Some(sentence);
         self.build_sentence_aux(sentence);
-        self.current_sentences.pop();
+        self.current_sentence = None;
     }
 
-    fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
+    pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
         match self.sentence_arena[sentence] {
             VdSynSentenceData::Clauses { clauses, .. } => self.build_clauses(clauses),
         }
     }
 
-    fn build_clauses(&mut self, clauses: VdSynClauseIdxRange) {
+    pub(crate) fn build_clauses(&mut self, clauses: VdSynClauseIdxRange) {
         for clause in clauses {
             self.build_clause(clause);
         }
     }
 
-    fn build_clause(&mut self, clause: VdSynClauseIdx) {
-        self.current_clauses.push(clause);
+    pub(crate) fn build_clause(&mut self, clause: VdSynClauseIdx) {
+        debug_assert!(self.current_clause.is_none());
+        self.current_clause = Some(clause);
         self.build_clause_aux(clause);
-        self.current_clauses.pop();
+        self.current_clause = None;
     }
 
-    fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
-        todo!()
-        // match self.clause_arena[clause] {
-        //     VdSynClauseData::Let { .. } => todo!(),
-        //     VdSynClauseData::Assume {
-        //         assume_token_idx,
-        //         left_dollar_token_idx,
-        //         formula,
-        //         right_dollar_token_idx,
-        //     } => todo!(),
-        //     VdSynClauseData::Then {
-        //         then_token_idx,
-        //         left_dollar_token_idx,
-        //         formula,
-        //         right_dollar_token_idx,
-        //     } => todo!(),
-        // }
+    pub(crate) fn build_phrase(&mut self, phrase: VdSynPhraseIdx) {
+        self.current_phrases.push(phrase);
+        self.build_phrase_aux(phrase);
+        self.current_phrases.pop();
     }
 
-    pub(super) fn finish(self) -> (VdSynSymbolDefns, VdSynSymbolResolutionTable) {
-        (self.symbol_defns, self.symbol_resolutions)
+    pub(crate) fn build_expr(&mut self, expr: VdSynExprIdx) {
+        self.current_exprs.push(expr);
+        let resolutions_result = self.build_expr_aux(expr);
+        self.symbol_resolutions_table
+            .add_expr_symbol_resolutions(expr, resolutions_result);
+        self.current_exprs.pop();
+    }
+
+    pub(crate) fn define_symbol(
+        &mut self,
+        head: VdSynSymbolLocalDefnHead,
+        body: VdSynSymbolLocalDefnBody,
+        src: VdSynSymbolLocalDefnSrc,
+    ) {
+        self.symbol_local_defn_table.define_symbol(head, body, src);
+    }
+
+    pub(super) fn finish(self) -> (VdSynSymbolLocalDefnTable, VdSynSymbolResolutionsTable) {
+        (self.symbol_local_defn_table, self.symbol_resolutions_table)
     }
 }

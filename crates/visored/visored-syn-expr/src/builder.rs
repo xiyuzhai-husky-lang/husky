@@ -8,8 +8,8 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
-        build_all_symbol_defns_and_resolutions_in_stmts, defn::VdSynSymbolDefns,
-        resolution::VdSynSymbolResolutionTable,
+        build_all_symbol_defns_and_resolutions_in_stmts, local_defn::VdSynSymbolLocalDefnTable,
+        resolution::VdSynSymbolResolutionsTable,
     },
 };
 use either::*;
@@ -19,7 +19,7 @@ use latex_ast::{
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
-use visored_resolution::table::VdDefaultResolutionTable;
+use visored_resolution::table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -27,7 +27,7 @@ pub struct VdSynExprBuilder<'db> {
     ast_arena: LxAstArenaRef<'db>,
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
     annotations: &'db VdAnnotations,
-    default_resolution_table: &'db VdDefaultResolutionTable,
+    default_resolution_table: &'db VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArena,
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
@@ -44,7 +44,7 @@ impl<'db> VdSynExprBuilder<'db> {
         ast_arena: LxAstArenaRef<'db>,
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
         annotations: &'db VdAnnotations,
-        default_resolution_table: &'db VdDefaultResolutionTable,
+        default_resolution_table: &'db VdDefaultGlobalResolutionTable,
     ) -> Self {
         Self {
             db,
@@ -85,7 +85,7 @@ impl<'db> VdSynExprBuilder<'db> {
         self.annotations
     }
 
-    pub(crate) fn default_resolution_table(&self) -> &VdDefaultResolutionTable {
+    pub(crate) fn default_resolution_table(&self) -> &VdDefaultGlobalResolutionTable {
         self.default_resolution_table
     }
 
@@ -213,8 +213,8 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynSentenceTokenIdxRangeMap,
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
-        VdSynSymbolDefns,
-        VdSynSymbolResolutionTable,
+        VdSynSymbolLocalDefnTable,
+        VdSynSymbolResolutionsTable,
     ) {
         let (
             expr_range_map,
@@ -235,7 +235,7 @@ impl<'db> VdSynExprBuilder<'db> {
         let (symbol_defns, symbol_resolutions) = match root {
             Left(_) => (
                 Default::default(),
-                VdSynSymbolResolutionTable::new(self.expr_arena.as_arena_ref()),
+                VdSynSymbolResolutionsTable::new(self.expr_arena.as_arena_ref()),
             ),
             Right(stmts) => build_all_symbol_defns_and_resolutions_in_stmts(
                 self.db,

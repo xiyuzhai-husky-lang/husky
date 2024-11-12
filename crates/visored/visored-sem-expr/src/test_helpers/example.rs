@@ -29,7 +29,7 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
-use visored_resolution::table::VdDefaultResolutionTable;
+use visored_resolution::table::VdDefaultGlobalResolutionTable;
 use visored_syn_expr::{
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,
@@ -48,7 +48,7 @@ pub struct VdSemExprExample {
     pub input: String,
     pub root_mode: LxMode,
     pub annotations: VdAnnotations,
-    pub default_resolution_table: VdDefaultResolutionTable,
+    pub default_resolution_table: VdDefaultGlobalResolutionTable,
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
     pub asts: LxAstIdxRange,

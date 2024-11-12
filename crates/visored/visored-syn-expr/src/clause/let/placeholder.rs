@@ -1,8 +1,10 @@
 use super::*;
+use pattern::VdSynPattern;
+use symbol::local_defn::{VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdSynPlaceholderResolution {
-    pattern: VdSynExprIdx,
+pub struct VdSynLetPlaceholderResolution {
+    pattern: VdSynPattern,
     ty: VdSynLetClausePlaceholderType,
 }
 
@@ -17,7 +19,39 @@ impl<'db> VdSynExprBuilder<'db> {
         &self,
         pattern: VdSynExprIdx,
         ty: VdSynLetClausePlaceholderType,
-    ) -> VdSynPlaceholderResolution {
-        VdSynPlaceholderResolution { pattern, ty }
+    ) -> VdSynLetPlaceholderResolution {
+        VdSynLetPlaceholderResolution {
+            pattern: self.build_pattern(pattern),
+            ty,
+        }
+    }
+}
+
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub(crate) fn build_let_placeholder_resolution(
+        &mut self,
+        clause: VdSynClauseIdx,
+        resolution: &VdSynLetPlaceholderResolution,
+    ) {
+        // Order matters!
+        self.build_let_clause_placeholder_ty(resolution.ty);
+        match resolution.pattern {
+            VdSynPattern::Letter(token_idx_range, letter) => {
+                self.define_symbol(
+                    VdSynSymbolLocalDefnHead::Letter {
+                        token_idx_range,
+                        letter,
+                    },
+                    VdSynSymbolLocalDefnBody::Placeholder,
+                    clause.into(),
+                );
+            }
+        }
+    }
+
+    fn build_let_clause_placeholder_ty(&mut self, ty: VdSynLetClausePlaceholderType) {
+        match ty {
+            VdSynLetClausePlaceholderType::Expr(expr) => self.build_expr(expr),
+        }
     }
 }

@@ -16,6 +16,7 @@ use latex_ast::ast::{
 };
 use latex_token::idx::LxRoseTokenIdx;
 use std::iter::Peekable;
+use symbol::builder::VdSynSymbolBuilder;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynClauseData {
@@ -141,6 +142,38 @@ impl<'db> VdSynExprBuilder<'db> {
                 }
             }
             _ => todo!(),
+        }
+    }
+}
+
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub(crate) fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
+        match self.clause_arena()[clause] {
+            VdSynClauseData::Let { ref resolution, .. } => {
+                self.build_let_resolution(clause, resolution)
+            }
+            VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Then {
+                then_token_idx,
+                left_dollar_token_idx,
+                formula,
+                right_dollar_token_idx,
+            } => todo!(),
+        }
+    }
+
+    pub(crate) fn build_let_resolution(
+        &mut self,
+        clause: VdSynClauseIdx,
+        resolution: &VdSynLetClauseResolution,
+    ) {
+        match *resolution {
+            VdSynLetClauseResolution::Assigned(ref resolution) => {
+                self.build_let_assigned_resolution(clause, resolution)
+            }
+            VdSynLetClauseResolution::Placeholder(ref resolution) => {
+                self.build_let_placeholder_resolution(clause, resolution)
+            }
         }
     }
 }

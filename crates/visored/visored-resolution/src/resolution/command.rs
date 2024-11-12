@@ -6,7 +6,7 @@ use visored_item_path::path::VdItemPath;
 use visored_opr::{opr::VdBaseOpr, separator::VdBaseSeparator};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdCompleteCommandResolution {
+pub enum VdCompleteCommandGlobalResolution {
     Letter(LxMathLetter),
     Item(VdItemPath),
     Opr(VdBaseOpr),
@@ -17,9 +17,10 @@ pub enum VdCompleteCommandResolution {
     Todo,
 }
 
-pub type VdCompleteCommandResolutionMap = FxHashMap<LxCommandPath, VdCompleteCommandResolution>;
+pub type VdCompleteCommandGlobalResolutionMap =
+    FxHashMap<LxCommandPath, VdCompleteCommandGlobalResolution>;
 
-impl VdCompleteCommandResolution {
+impl VdCompleteCommandGlobalResolution {
     // - operators
     // -- relations
     pub const EQ: Self = Self::Separator(VdBaseSeparator::Eq);
