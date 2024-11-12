@@ -8,6 +8,7 @@ use visored_syn_expr::{
     phrase::{VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
     stmt::{VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
+    symbol::resolution::VdSynSymbolResolutionTable,
 };
 
 use crate::{
@@ -26,17 +27,18 @@ use crate::{
     stmt::{VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
 
-pub(crate) struct VdSemExprBuilder<'db> {
-    db: &'db ::salsa::Db,
-    token_storage: &'db LxTokenStorage,
-    annotations: &'db VdAnnotations,
-    default_resolution_table: &'db VdDefaultResolutionTable,
-    syn_expr_arena: VdSynExprArenaRef<'db>,
-    syn_phrase_arena: VdSynPhraseArenaRef<'db>,
-    syn_clause_arena: VdSynClauseArenaRef<'db>,
-    syn_sentence_arena: VdSynSentenceArenaRef<'db>,
-    syn_stmt_arena: VdSynStmtArenaRef<'db>,
-    syn_division_arena: VdSynDivisionArenaRef<'db>,
+pub(crate) struct VdSemExprBuilder<'a> {
+    db: &'a ::salsa::Db,
+    token_storage: &'a LxTokenStorage,
+    annotations: &'a VdAnnotations,
+    default_resolution_table: &'a VdDefaultResolutionTable,
+    syn_expr_arena: VdSynExprArenaRef<'a>,
+    syn_phrase_arena: VdSynPhraseArenaRef<'a>,
+    syn_clause_arena: VdSynClauseArenaRef<'a>,
+    syn_sentence_arena: VdSynSentenceArenaRef<'a>,
+    syn_stmt_arena: VdSynStmtArenaRef<'a>,
+    syn_division_arena: VdSynDivisionArenaRef<'a>,
+    symbol_resolution_table: &'a VdSynSymbolResolutionTable,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
@@ -59,6 +61,7 @@ impl<'db> VdSemExprBuilder<'db> {
         syn_sentence_arena: VdSynSentenceArenaRef<'db>,
         syn_stmt_arena: VdSynStmtArenaRef<'db>,
         syn_division_arena: VdSynDivisionArenaRef<'db>,
+        symbol_resolution_table: &'db VdSynSymbolResolutionTable,
     ) -> Self {
         Self {
             db,
@@ -71,6 +74,7 @@ impl<'db> VdSemExprBuilder<'db> {
             syn_sentence_arena,
             syn_stmt_arena,
             syn_division_arena,
+            symbol_resolution_table,
             expr_arena: VdSemExprArena::default(),
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
@@ -106,6 +110,10 @@ impl<'db> VdSemExprBuilder<'db> {
 
     pub fn syn_division_arena(&self) -> VdSynDivisionArenaRef<'db> {
         self.syn_division_arena
+    }
+
+    pub fn symbol_resolution_table(&self) -> &VdSynSymbolResolutionTable {
+        self.symbol_resolution_table
     }
 
     pub fn expr_arena(&self) -> VdSemExprArenaRef {

@@ -40,7 +40,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
     stmts: VdSynStmtIdxRange,
-) -> (VdSynSymbolDefns, VdSynSymbolResolutions) {
+) -> (VdSynSymbolDefns, VdSynSymbolResolutionTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
         &token_storage,
