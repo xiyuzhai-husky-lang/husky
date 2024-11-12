@@ -1,16 +1,22 @@
+pub mod r#let;
+#[cfg(test)]
+mod tests;
+
+use self::r#let::VdSemLetClauseDispatch;
 use super::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_token::idx::{LxMathTokenIdx, LxRoseTokenIdx};
 use visored_syn_expr::clause::{VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange};
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum VdSemClauseData {
     Verb,
     Let {
         let_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
-        // TODO: variable introduction
         formula: VdSemExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
+        dispatch: VdSemLetClauseDispatch,
     },
     Assume {
         assume_token_idx: LxRoseTokenIdx,
@@ -51,12 +57,13 @@ impl<'a> VdSemExprBuilder<'a> {
                 formula,
                 right_dollar_token_idx,
                 ref resolution,
-            } => VdSemClauseData::Let {
+            } => self.build_let_clause(
                 let_token_idx,
                 left_dollar_token_idx,
-                formula: formula.to_vd_sem(self),
+                formula,
                 right_dollar_token_idx,
-            },
+                resolution,
+            ),
             VdSynClauseData::Assume {
                 assume_token_idx,
                 left_dollar_token_idx,
@@ -94,8 +101,9 @@ impl VdSemClauseData {
             VdSemClauseData::Let {
                 let_token_idx,
                 left_dollar_token_idx,
-                formula,
                 right_dollar_token_idx,
+                formula,
+                ..
             } => vec![VdSemClauseChild::Expr(formula)],
             VdSemClauseData::Assume {
                 assume_token_idx,

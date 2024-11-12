@@ -12657,6 +12657,7 @@ name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
  "either",
+ "enum-class",
  "expect-test",
  "husky-coword",
  "husky-tree-utils",

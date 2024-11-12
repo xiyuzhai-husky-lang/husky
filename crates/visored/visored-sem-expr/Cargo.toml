@@ -16,8 +16,9 @@ either.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
-salsa.workspace = true
+enum-class.workspace = true
 idx-arena.workspace = true
+salsa.workspace = true
 # latex
 latex-ast.workspace = true
 # kernel
