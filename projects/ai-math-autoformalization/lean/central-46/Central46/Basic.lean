@@ -12,6 +12,7 @@ example : a + b + c = a + c + b := sorry
 def x := a + b + c
 def y := x
 def d := b
+def e := x 1 2 3
 #check x
 #check y
 
