@@ -1,51 +1,63 @@
+use lean_coword::ident::LnIdent;
 use lean_hir_expr::{
     builder::LeanHirExprBuilder,
     expr::LnHirExprArena,
-    item_defn::{LnItemDefnData, LnItemDefnIdxRange},
+    item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::LnHirStmtArena,
     tactic::LnHirTacticArena,
 };
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
 use visored_hir_expr::{
-    expr::VdHirExprArenaRef, region::VdHirExprRegionData, stmt::VdHirStmtArenaRef,
+    expr::VdHirExprArenaRef,
+    region::VdHirExprRegionData,
+    stmt::VdHirStmtArenaRef,
+    symbol::local_defn::{storage::VdHirSymbolLocalDefnStorage, VdHirSymbolLocalDefnIdx},
 };
 
-use crate::dictionary::VdLeanTranspilationDictionary;
+use crate::{dictionary::VdLeanTranspilationDictionary, mangle::VdLeanTranspilationMangler};
 
 pub struct VdLeanTranspilationBuilder<'a> {
     lean_hir_expr_builder: LeanHirExprBuilder<'a>,
     expr_arena: VdHirExprArenaRef<'a>,
     stmt_arena: VdHirStmtArenaRef<'a>,
     dictionary: &'a VdLeanTranspilationDictionary,
+    mangler: VdLeanTranspilationMangler,
 }
 
-impl<'db> VdLeanTranspilationBuilder<'db> {
+impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
-        db: &'db ::salsa::Db,
-        vd_hir_expr_region_data: &'db VdHirExprRegionData,
-        dictionary: &'db VdLeanTranspilationDictionary,
+        db: &'a ::salsa::Db,
+        vd_hir_expr_region_data: &'a VdHirExprRegionData,
+        dictionary: &'a VdLeanTranspilationDictionary,
     ) -> Self {
-        Self {
-            lean_hir_expr_builder: LeanHirExprBuilder::new(db),
-            expr_arena: vd_hir_expr_region_data.expr_arena(),
-            stmt_arena: vd_hir_expr_region_data.stmt_arena(),
+        Self::new(
+            db,
+            vd_hir_expr_region_data.expr_arena(),
+            vd_hir_expr_region_data.stmt_arena(),
+            vd_hir_expr_region_data.symbol_local_defn_storage(),
             dictionary,
-        }
+        )
     }
 
     pub fn new(
-        db: &'db ::salsa::Db,
-        expr_arena: VdHirExprArenaRef<'db>,
-        stmt_arena: VdHirStmtArenaRef<'db>,
-        dictionary: &'db VdLeanTranspilationDictionary,
+        db: &'a ::salsa::Db,
+        expr_arena: VdHirExprArenaRef<'a>,
+        stmt_arena: VdHirStmtArenaRef<'a>,
+        symbol_local_defn_storage: &'a VdHirSymbolLocalDefnStorage,
+        dictionary: &'a VdLeanTranspilationDictionary,
     ) -> Self {
         Self {
             lean_hir_expr_builder: LeanHirExprBuilder::new(db),
             expr_arena,
             stmt_arena,
             dictionary,
+            mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage, db),
         }
+    }
+
+    pub(crate) fn mangled_symbol(&mut self, symbol_local_defn: VdHirSymbolLocalDefnIdx) -> LnIdent {
+        self.mangler.mangled_symbol(symbol_local_defn)
     }
 }
 
@@ -78,7 +90,14 @@ impl<'db> DerefMut for VdLeanTranspilationBuilder<'db> {
 }
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
-    pub fn finish(self) -> (LnHirExprArena, LnHirStmtArena, LnHirTacticArena) {
+    pub fn finish(
+        self,
+    ) -> (
+        LnHirExprArena,
+        LnHirStmtArena,
+        LnHirTacticArena,
+        LnItemDefnArena,
+    ) {
         self.lean_hir_expr_builder.finish()
     }
 }

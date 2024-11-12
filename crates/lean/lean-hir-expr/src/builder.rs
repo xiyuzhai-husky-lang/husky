@@ -36,6 +36,7 @@ impl<'db> LeanHirExprBuilder<'db> {
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
+            self.item_defn_arena.as_arena_ref(),
             config,
             self.db,
         )
@@ -80,7 +81,19 @@ impl<'db> LeanHirExprBuilder<'db> {
         self.item_defn_arena.alloc_batch(item_defns)
     }
 
-    pub fn finish(self) -> (LnHirExprArena, LnHirStmtArena, LnHirTacticArena) {
-        (self.expr_arena, self.stmt_arena, self.tactic_arena)
+    pub fn finish(
+        self,
+    ) -> (
+        LnHirExprArena,
+        LnHirStmtArena,
+        LnHirTacticArena,
+        LnItemDefnArena,
+    ) {
+        (
+            self.expr_arena,
+            self.stmt_arena,
+            self.tactic_arena,
+            self.item_defn_arena,
+        )
     }
 }

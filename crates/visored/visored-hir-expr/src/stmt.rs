@@ -1,13 +1,14 @@
 pub mod block;
 
 use self::block::*;
-use crate::{expr::VdHirExprIdx, *};
+use crate::{expr::VdHirExprIdx, pattern::VdHirPattern, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use visored_sem_expr::{
-    clause::{VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},
+    clause::{r#let::VdSemLetClauseDispatch, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},
     sentence::{VdSemSentenceData, VdSemSentenceIdx, VdSemSentenceIdxRange},
     stmt::{VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
+use visored_zfc_ty::ty::VdZfcType;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdHirStmtData {
@@ -17,7 +18,14 @@ pub enum VdHirStmtData {
         stmts: VdHirStmtIdxRange,
         meta: VdHirBlockMeta,
     },
-    Let,
+    LetPlaceholder {
+        pattern: VdHirPattern,
+        ty: VdZfcType,
+    },
+    LetAssigned {
+        pattern: VdHirPattern,
+        assignment: VdHirExprIdx,
+    },
     // Add more variants as needed
 }
 
@@ -89,7 +97,13 @@ impl<'db> VdHirExprBuilder<'db> {
                 formula,
                 right_dollar_token_idx,
                 ref dispatch,
-            } => VdHirStmtData::Let,
+            } => match dispatch {
+                VdSemLetClauseDispatch::Assigned(dispatch) => todo!(),
+                VdSemLetClauseDispatch::Placeholder(dispatch) => VdHirStmtData::LetPlaceholder {
+                    pattern: dispatch.pattern().to_vd_hir(self),
+                    ty: dispatch.ty(),
+                },
+            },
             VdSemClauseData::Assume {
                 assume_token_idx,
                 left_dollar_token_idx,

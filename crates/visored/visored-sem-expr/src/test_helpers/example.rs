@@ -25,6 +25,7 @@ use latex_ast::{
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
+use symbol::local_defn::storage::VdSemSymbolLocalDefnStorage;
 use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
@@ -66,6 +67,7 @@ pub struct VdSemExprExample {
     pub sentence_range_map: VdSemSentenceTokenIdxRangeMap,
     pub stmt_range_map: VdSemStmtTokenIdxRangeMap,
     pub division_range_map: VdSemDivisionTokenIdxRangeMap,
+    pub symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
     pub result: Either<VdSemExprIdx, VdSemStmtIdxRange>,
 }
 
@@ -119,8 +121,15 @@ impl VdSemExprExample {
             &item_path_zfc_ty_table,
         );
         let result = syn_result.to_vd_sem(&mut builder);
-        let (expr_arena, phrase_arena, clause_arena, sentence_arena, stmt_arena, division_arena) =
-            builder.finish();
+        let (
+            expr_arena,
+            phrase_arena,
+            clause_arena,
+            sentence_arena,
+            stmt_arena,
+            division_arena,
+            symbol_local_defn_storage,
+        ) = builder.finish();
         let (
             expr_range_map,
             phrase_range_map,
@@ -153,6 +162,7 @@ impl VdSemExprExample {
             sentence_arena,
             stmt_arena,
             division_arena,
+            symbol_local_defn_storage,
             expr_range_map,
             phrase_range_map,
             clause_range_map,

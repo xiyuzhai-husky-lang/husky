@@ -262,6 +262,7 @@ impl<'db> VdSemExprBuilder<'db> {
             self.sentence_arena,
             self.stmt_arena,
             self.division_arena,
+            self.symbol_local_defn_storage,
         )
     }
 
@@ -274,6 +275,7 @@ impl<'db> VdSemExprBuilder<'db> {
         VdSemSentenceArena,
         VdSemStmtArena,
         VdSemDivisionArena,
+        VdSemSymbolLocalDefnStorage,
     ) {
         (
             self.expr_arena,
@@ -282,6 +284,7 @@ impl<'db> VdSemExprBuilder<'db> {
             self.sentence_arena,
             self.stmt_arena,
             self.division_arena,
+            self.symbol_local_defn_storage,
         )
     }
 }

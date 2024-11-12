@@ -10,7 +10,7 @@ use lean_hir_expr::{
         fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
         show::display_tree::LnHirExprDisplayTreeBuilder,
     },
-    item_defn::LnItemDefnIdxRange,
+    item_defn::{LnItemDefnArena, LnItemDefnIdxRange},
     stmt::{LnHirStmtArena, LnHirStmtIdxRange},
     tactic::LnHirTacticArena,
 };
@@ -23,6 +23,7 @@ pub struct VdLeanTranspilationExample {
     expr_arena: LnHirExprArena,
     stmt_arena: LnHirStmtArena,
     tactic_arena: LnHirTacticArena,
+    defn_arena: LnItemDefnArena,
     result: Either<LnHirExprIdx, LnItemDefnIdxRange>,
 }
 
@@ -37,6 +38,7 @@ impl VdLeanTranspilationExample {
         let VdHirExprExample {
             expr_arena: vd_hir_expr_arena,
             stmt_arena: vd_hir_stmt_arena,
+            symbol_local_defn_storage: vd_hir_symbol_local_defn_storage,
             result,
         } = VdHirExprExample::new(input, root_mode, &[], &[], db);
         let dictionary = &VdLeanTranspilationDictionary::new_standard();
@@ -44,17 +46,19 @@ impl VdLeanTranspilationExample {
             db,
             vd_hir_expr_arena.as_arena_ref(),
             vd_hir_stmt_arena.as_arena_ref(),
+            &vd_hir_symbol_local_defn_storage,
             dictionary,
         );
         let result = match result {
             Left(expr) => Left(expr.to_lean(&mut builder)),
             Right(stmts) => Right(stmts.to_lean(&mut builder)),
         };
-        let (expr_arena, stmt_arena, tactic_arena) = builder.finish();
+        let (expr_arena, stmt_arena, tactic_arena, defn_arena) = builder.finish();
         Self {
             expr_arena,
             stmt_arena,
             tactic_arena,
+            defn_arena,
             result,
         }
     }
@@ -69,10 +73,11 @@ impl VdLeanTranspilationExample {
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
+            self.defn_arena.as_arena_ref(),
         );
         match self.result {
             Left(expr) => builder.render_expr(expr),
-            Right(_) => todo!(),
+            Right(defns) => builder.render_defns_together(defns),
         }
     }
 
@@ -81,7 +86,7 @@ impl VdLeanTranspilationExample {
         let mut formatter = self.formatter(db, &fmt_config);
         match self.result {
             Left(expr) => formatter.format_expr_ext(expr),
-            Right(_) => todo!(),
+            Right(defns) => formatter.format_defns(defns),
         }
         formatter.finish()
     }
@@ -95,6 +100,7 @@ impl VdLeanTranspilationExample {
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
+            self.defn_arena.as_arena_ref(),
             config,
             db,
         )
