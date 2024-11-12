@@ -1,5 +1,6 @@
 use super::*;
 use crate::builder::VdLeanTranspilationBuilder;
+use dictionary::VdLeanTranspilationDictionary;
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
@@ -37,10 +38,12 @@ impl VdLeanTranspilationExample {
             stmt_arena: vd_hir_stmt_arena,
             result,
         } = VdHirExprExample::new(input, LxMode::Math, &[], &[], db);
+        let dictionary = &VdLeanTranspilationDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
             vd_hir_expr_arena.as_arena_ref(),
             vd_hir_stmt_arena.as_arena_ref(),
+            dictionary,
         );
         let result = match result {
             Left(expr) => Left(expr.to_lean(&mut builder)),

@@ -1,5 +1,6 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use lean_coword::ident::LnIdent;
+use lean_item_path::LnItemPath;
 use lean_opr::{
     opr::{binary::LnBinaryOpr, prefix::LnPrefixOpr, suffix::LnSuffixOpr},
     precedence::LnPrecedence,
@@ -10,6 +11,7 @@ use smallvec::SmallVec;
 #[derive(Debug, PartialEq, Eq)]
 pub enum LnHirExprData {
     Literal(LnLiteral),
+    ItemPath(LnItemPath),
     Variable {
         ident: LnIdent,
     },
@@ -43,6 +45,7 @@ pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
 impl LnHirExprData {
     pub(crate) fn outer_precedence(&self) -> LnPrecedence {
         match self {
+            LnHirExprData::ItemPath(_) => LnPrecedence::Atom,
             LnHirExprData::Variable { ident } => todo!(),
             LnHirExprData::Prefix { opr, opd } => todo!(),
             LnHirExprData::Suffix { opd, opr } => todo!(),
@@ -57,7 +60,7 @@ impl LnHirExprData {
 
     pub(crate) fn children(&self) -> Vec<LnHirExprIdx> {
         match *self {
-            LnHirExprData::Literal(_) => vec![],
+            LnHirExprData::ItemPath(_) | LnHirExprData::Literal(_) => vec![],
             LnHirExprData::Variable { ident } => todo!(),
             LnHirExprData::Prefix { opr, opd } => todo!(),
             LnHirExprData::Suffix { opd, opr } => todo!(),
