@@ -13,14 +13,14 @@ use latex_token::{
 };
 use salsa::DebugWithDb;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
+use visored_global_resolution::resolution::{
+    command::VdCompleteCommandGlobalResolution, punctuation::VdPunctuationGlobalResolution,
+};
 use visored_opr::{
     delimiter::{VdBaseLeftDelimiter, VdBaseRightDelimiter},
     opr::VdBaseOpr,
     precedence::VdPrecedence,
     separator::VdBaseSeparator,
-};
-use visored_resolution::resolution::{
-    command::VdCompleteCommandGlobalResolution, punctuation::VdPunctuationGlobalResolution,
 };
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 

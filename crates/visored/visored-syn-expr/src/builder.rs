@@ -8,8 +8,8 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
-        build_all_symbol_defns_and_resolutions_in_stmts, local_defn::VdSynSymbolLocalDefnTable,
-        resolution::VdSynSymbolResolutionsTable,
+        build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
+        local_defn::VdSynSymbolLocalDefnTable, resolution::VdSynSymbolResolutionsTable,
     },
 };
 use either::*;
@@ -19,7 +19,7 @@ use latex_ast::{
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
-use visored_resolution::table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -232,12 +232,8 @@ impl<'db> VdSynExprBuilder<'db> {
             &self.stmt_arena,
             &self.division_arena,
         );
-        let (symbol_defns, symbol_resolutions) = match root {
-            Left(_) => (
-                Default::default(),
-                VdSynSymbolResolutionsTable::new(self.expr_arena.as_arena_ref()),
-            ),
-            Right(stmts) => build_all_symbol_defns_and_resolutions_in_stmts(
+        let (symbol_defns, symbol_resolutions) =
+            build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
                 self.db,
                 self.token_storage,
                 self.ast_arena,
@@ -256,9 +252,8 @@ impl<'db> VdSynExprBuilder<'db> {
                 &sentence_range_map,
                 &stmt_range_map,
                 &division_range_map,
-                stmts,
-            ),
-        };
+                root,
+            );
         (
             self.expr_arena,
             self.phrase_arena,

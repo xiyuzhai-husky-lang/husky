@@ -20,7 +20,7 @@ pub struct VdSynExprVariableIdx {}
 
 pub struct VdSynExprVariableData {}
 
-pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
+pub(crate) fn build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
     db: &::salsa::Db,
     token_storage: &LxTokenStorage,
     ast_arena: LxAstArenaRef,
@@ -39,7 +39,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
     sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
-    stmts: VdSynStmtIdxRange,
+    expr_or_stmts: Either<VdSynExprIdx, VdSynStmtIdxRange>,
 ) -> (VdSynSymbolLocalDefnTable, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
@@ -61,6 +61,9 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_stmts(
         stmt_range_map,
         division_range_map,
     );
-    symbol_builder.build_stmts(stmts);
+    match expr_or_stmts {
+        Left(expr) => symbol_builder.build_expr(expr),
+        Right(stmts) => symbol_builder.build_stmts(stmts),
+    };
     symbol_builder.finish()
 }

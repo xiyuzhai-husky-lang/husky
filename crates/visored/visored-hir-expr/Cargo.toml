@@ -20,6 +20,8 @@ salsa.workspace = true
 latex-prelude = { workspace = true, optional = true }
 # visored
 visored-annotation = { workspace = true, optional = true }
+visored-global-resolution.workspace = true
+visored-item-path.workspace = true
 visored-sem-expr.workspace = true
 visored-opr.workspace = true
 visored-zfc-ty.workspace = true

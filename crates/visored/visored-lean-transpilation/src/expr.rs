@@ -18,6 +18,7 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         let db = self.db();
         match self.expr_arena()[expr] {
             VdHirExprData::Literal(literal) => LnHirExprData::Literal(to_lean_literal(db, literal)),
+            VdHirExprData::ItemPath(item_path) => todo!(),
             VdHirExprData::Variable(ref vd_hir_variable) => todo!(),
             VdHirExprData::Application {
                 function,
