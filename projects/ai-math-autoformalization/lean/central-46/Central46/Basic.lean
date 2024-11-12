@@ -2,4 +2,22 @@ def hello := "world"
 
 #eval 1
 
+def f (x : Nat) := x + 1
+
 example : 1 + 1 = 2:= by simp
+
+section example1
+variable (a b c : Nat)
+example : a + b + c = a + c + b := sorry
+def x := a + b + c
+def y := x
+#check x
+#check y
+
+#check f (x a b c)
+end example1
+
+#check x
+
+def z := x
+#check z
