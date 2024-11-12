@@ -7,11 +7,11 @@ use crate::{menu::vd_zfc_ty_menu, ty::VdZfcType};
 #[salsa::derive_debug_with_db]
 #[salsa::as_id]
 #[salsa::deref_id]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdZfcLiteral(VdZfcTermId);
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum VdZfcLiteralData {
     NaturalNumber(String),
     NegativeInteger(String),

@@ -1,15 +1,20 @@
+pub mod category;
 pub mod function;
 pub mod set;
 
-use self::{function::*, set::*};
+use self::{category::*, function::*, set::*};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdItemPath {
+    Category(VdCategoryPath),
     Set(VdSetPath),
     Function(VdFunctionPath),
 }
 
 impl VdItemPath {
+    // # categories
+    pub const SET: Self = VdItemPath::Category(VdCategoryPath::SET);
+    pub const PROPOSITION: Self = VdItemPath::Category(VdCategoryPath::PROPOSITION);
     // # sets
     pub const NATURAL_NUMBER: Self = VdItemPath::Set(VdSetPath::NATURAL_NUMBER);
     pub const RATIONAL_NUMBER: Self = VdItemPath::Set(VdSetPath::RATIONAL_NUMBER);

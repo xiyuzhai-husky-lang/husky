@@ -10,8 +10,8 @@ pub enum VdSemSeparator {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSemSeparatedListDispatch {
-    IntAdd,
-    IntMul,
+    NatAdd,
+    NatMul,
     Eq,
     In,
 }
@@ -28,11 +28,11 @@ impl<'db> VdSemExprBuilder<'db> {
             0 => todo!(),
             1 => match separators[0] {
                 VdSynSeparator::Base(_, base_separator) => match base_separator {
-                    VdBaseSeparator::Space => VdSemSeparatedListDispatch::IntMul,
+                    VdBaseSeparator::Space => VdSemSeparatedListDispatch::NatMul,
                     VdBaseSeparator::Comma => todo!(),
                     VdBaseSeparator::Semicolon => todo!(),
-                    VdBaseSeparator::Add => VdSemSeparatedListDispatch::IntAdd,
-                    VdBaseSeparator::Mul => VdSemSeparatedListDispatch::IntMul,
+                    VdBaseSeparator::Add => VdSemSeparatedListDispatch::NatAdd,
+                    VdBaseSeparator::Mul => VdSemSeparatedListDispatch::NatMul,
                     VdBaseSeparator::Dot => todo!(),
                     VdBaseSeparator::Eq => VdSemSeparatedListDispatch::Eq,
                     VdBaseSeparator::Subset => todo!(),
@@ -68,7 +68,17 @@ impl<'db> VdSemExprBuilder<'db> {
             // TODO: ad hoc, should consider much more based on type information, especially space.
             dispatch,
         };
-        let ty = todo!();
+        let ty = self.infer_separated_list_ty(dispatch);
         (data, ty)
+    }
+
+    fn infer_separated_list_ty(&mut self, dispatch: VdSemSeparatedListDispatch) -> VdZfcType {
+        match dispatch {
+            VdSemSeparatedListDispatch::NatAdd => self.zfc_ty_menu().natural_number_ty(),
+            VdSemSeparatedListDispatch::NatMul => todo!(),
+            VdSemSeparatedListDispatch::Eq | VdSemSeparatedListDispatch::In => {
+                self.zfc_ty_menu().natural_number_ty()
+            }
+        }
     }
 }
