@@ -1,6 +1,7 @@
 use crate::{
     expr::{LnHirExprArena, LnHirExprData, LnHirExprIdx, LnHirExprIdxRange},
     helpers::fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
+    item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::{LnHirStmtArena, LnHirStmtData, LnHirStmtIdx, LnHirStmtIdxRange},
     tactic::{LnHirTacticArena, LnHirTacticData, LnHirTacticIdx, LnHirTacticIdxRange},
 };
@@ -10,6 +11,7 @@ pub struct LeanHirExprBuilder<'db> {
     expr_arena: LnHirExprArena,
     stmt_arena: LnHirStmtArena,
     tactic_arena: LnHirTacticArena,
+    item_defn_arena: LnItemDefnArena,
 }
 
 impl<'db> LeanHirExprBuilder<'db> {
@@ -19,6 +21,7 @@ impl<'db> LeanHirExprBuilder<'db> {
             expr_arena: Default::default(),
             stmt_arena: Default::default(),
             tactic_arena: Default::default(),
+            item_defn_arena: Default::default(),
         }
     }
 }
@@ -71,6 +74,10 @@ impl<'db> LeanHirExprBuilder<'db> {
         data: impl IntoIterator<Item = LnHirTacticData>,
     ) -> LnHirTacticIdxRange {
         self.tactic_arena.alloc_batch(data)
+    }
+
+    pub fn alloc_item_defns(&mut self, item_defns: Vec<LnItemDefnData>) -> LnItemDefnIdxRange {
+        self.item_defn_arena.alloc_batch(item_defns)
     }
 
     pub fn finish(self) -> (LnHirExprArena, LnHirStmtArena, LnHirTacticArena) {

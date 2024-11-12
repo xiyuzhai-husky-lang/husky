@@ -1,5 +1,8 @@
 use lean_hir_expr::{
-    builder::LeanHirExprBuilder, expr::LnHirExprArena, stmt::LnHirStmtArena,
+    builder::LeanHirExprBuilder,
+    expr::LnHirExprArena,
+    item_defn::{LnItemDefnData, LnItemDefnIdxRange},
+    stmt::LnHirStmtArena,
     tactic::LnHirTacticArena,
 };
 use salsa::Db;
