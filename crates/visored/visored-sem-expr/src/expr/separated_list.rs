@@ -45,7 +45,14 @@ impl<'db> VdSemExprBuilder<'db> {
                 },
                 VdSynSeparator::Composite(arena_idx, vd_separator_class) => todo!(),
             },
-            2 => todo!(),
+            2 => {
+                use husky_print_utils::p;
+                p!(separators);
+                for item in items {
+                    p!(self.syn_expr_arena()[item]);
+                }
+                todo!()
+            }
             _ => todo!(),
         };
         VdSemExprData::SeparatedList {

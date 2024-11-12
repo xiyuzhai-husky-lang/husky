@@ -35,6 +35,7 @@ pub enum LnHirExprData {
     Application {
         function_and_arguments: LnHirExprIdxRange,
     },
+    Sorry,
 }
 
 pub type LnHirExprArena = Arena<LnHirExprData>;
@@ -45,8 +46,10 @@ pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
 impl LnHirExprData {
     pub(crate) fn outer_precedence(&self) -> LnPrecedence {
         match self {
-            LnHirExprData::ItemPath(_) => LnPrecedence::Atom,
-            LnHirExprData::Variable { ident } => todo!(),
+            LnHirExprData::ItemPath(_)
+            | LnHirExprData::Variable { .. }
+            | LnHirExprData::Literal(_)
+            | LnHirExprData::Sorry => LnPrecedence::Atom,
             LnHirExprData::Prefix { opr, opd } => todo!(),
             LnHirExprData::Suffix { opd, opr } => todo!(),
             LnHirExprData::Binary { lopd, opr, ropd } => opr.outer_precedence(),
@@ -54,13 +57,12 @@ impl LnHirExprData {
             LnHirExprData::Application {
                 function_and_arguments,
             } => todo!(),
-            LnHirExprData::Literal(_) => LnPrecedence::Atom,
         }
     }
 
     pub(crate) fn children(&self) -> Vec<LnHirExprIdx> {
         match *self {
-            LnHirExprData::ItemPath(_) | LnHirExprData::Literal(_) => vec![],
+            LnHirExprData::ItemPath(_) | LnHirExprData::Literal(_) | LnHirExprData::Sorry => vec![],
             LnHirExprData::Variable { ident } => todo!(),
             LnHirExprData::Prefix { opr, opd } => todo!(),
             LnHirExprData::Suffix { opd, opr } => todo!(),

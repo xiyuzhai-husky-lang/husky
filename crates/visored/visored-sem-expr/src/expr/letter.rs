@@ -18,8 +18,6 @@ impl<'a> VdSemExprBuilder<'a> {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
     ) -> VdSemExprData {
-        use husky_print_utils::p;
-        p!(token_idx_range, self.syn_expr_arena()[syn_expr]);
         let resolution = &self.symbol_resolution_table()[syn_expr];
         let dispatch = match resolution {
             Ok(resolution) => {

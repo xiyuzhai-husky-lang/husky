@@ -1,8 +1,7 @@
 pub mod item_path;
 
-use visored_item_path::path::VdItemPath;
-
 use self::item_path::*;
+use visored_item_path::path::VdItemPath;
 
 pub struct VdLeanTranspilationDictionary {
     item_path_translation_table: VdItemPathTranslationTable,

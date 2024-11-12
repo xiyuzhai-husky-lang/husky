@@ -37,7 +37,7 @@ impl VdLeanTranspilationExample {
             expr_arena: vd_hir_expr_arena,
             stmt_arena: vd_hir_stmt_arena,
             result,
-        } = VdHirExprExample::new(input, LxMode::Math, &[], &[], db);
+        } = VdHirExprExample::new(input, root_mode, &[], &[], db);
         let dictionary = &VdLeanTranspilationDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
