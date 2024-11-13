@@ -30,7 +30,7 @@ fn parse_basic_lisp_latex_input_into_asts_works() {
 }
 
 #[test]
-fn parse_bracketed_lisp_latex_input_into_asts_works() {
+fn parse_parenthesized_lisp_latex_input_into_asts_works() {
     t(
         "(x)",
         expect![[r#"
@@ -48,6 +48,30 @@ fn parse_bracketed_lisp_latex_input_into_asts_works() {
             │ ├─ g
             │ └─ x
             └─ y
+        "#]],
+    );
+}
+
+#[test]
+fn parse_boxed_lisp_latex_input_into_asts_works() {
+    t(
+        "[x]",
+        expect![[r#"
+            [x]
+            └─ [x]
+              └─ item
+                └─ x
+        "#]],
+    );
+    t(
+        "[x, y]",
+        expect![[r#"
+            [x, y]
+            └─ [x, y]
+              ├─ item
+              │ └─ x
+              └─ item
+                └─ y
         "#]],
     );
 }

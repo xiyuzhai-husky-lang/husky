@@ -2,6 +2,7 @@ use super::*;
 
 pub enum LxLispAstChild {
     LispAst(LxLispAstIdx),
+    Item(LxLispAstIdxRange),
 }
 
 impl LxLispAstData {
@@ -18,6 +19,11 @@ impl LxLispAstData {
                 asts,
                 rpar_token_idx,
             } => asts.into_iter().map(LxLispAstChild::LispAst).collect(),
+            LxLispAstData::BoxedList {
+                lbox_token_idx,
+                ref items,
+                rbox_token_idx,
+            } => items.iter().copied().map(LxLispAstChild::Item).collect(),
         }
     }
 }
