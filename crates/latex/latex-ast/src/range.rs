@@ -191,6 +191,11 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 rpar_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*lpar_token_idx, *rpar_token_idx),
+            LxLispAstData::BoxedList {
+                lbox_token_idx,
+                rbox_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*lbox_token_idx, *rbox_token_idx),
         }
     }
 
