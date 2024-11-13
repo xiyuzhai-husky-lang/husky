@@ -1,10 +1,10 @@
 use crate::{
     data::{
-        code::LxCodeTokenData,
+        coword::LxCowordTokenData,
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
     },
-    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     storage::LxTokenStorage,
     stream::{code::LxCodeTokenStream, math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
@@ -113,16 +113,16 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
-    pub fn next_code_token(&mut self) -> Option<(LxCodeTokenIdx, LxCodeTokenData)> {
+    pub fn next_code_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
         let (offset_range, range, token_data) = self.next_code_token_aux()?;
         Some((
             self.storage
-                .alloc_code_token(offset_range, range, token_data),
+                .alloc_coword_token(offset_range, range, token_data),
             token_data,
         ))
     }
 
-    fn next_code_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxCodeTokenData)> {
+    fn next_code_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxCowordTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();

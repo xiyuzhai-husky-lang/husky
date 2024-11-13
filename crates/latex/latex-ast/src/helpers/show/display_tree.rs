@@ -47,8 +47,9 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
     pub fn render_asts(&self, asts: LxAstIdxRange) -> Vec<DisplayTree> {
         match asts {
-            LxAstIdxRange::Math(range) => self.render_math_asts(range),
-            LxAstIdxRange::Rose(range) => self.render_rose_asts(range),
+            LxAstIdxRange::Math(asts) => self.render_math_asts(asts),
+            LxAstIdxRange::Rose(asts) => self.render_rose_asts(asts),
+            LxAstIdxRange::Lisp(asts) => todo!(),
         }
     }
 

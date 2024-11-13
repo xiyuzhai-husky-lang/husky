@@ -2,4 +2,6 @@
 pub enum LxMode {
     Rose,
     Math,
+    Coword,
+    Lisp,
 }

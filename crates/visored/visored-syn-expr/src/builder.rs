@@ -285,6 +285,7 @@ where
         match asts {
             LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
             LxAstIdxRange::Rose(asts) => Either::Right((token_range, asts).to_vd_syn(builder)),
+            LxAstIdxRange::Lisp(asts) => todo!(),
         }
     }
 }

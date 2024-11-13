@@ -35,6 +35,7 @@ impl LxMathAstData {
             LxMathAstData::Environment { asts, .. } => match asts {
                 LxAstIdxRange::Math(asts) => asts.into_iter().map(LxMathAstChild::Ast).collect(),
                 LxAstIdxRange::Rose(asts) => todo!(),
+                LxAstIdxRange::Lisp(asts) => todo!(),
             },
         }
     }

@@ -13,8 +13,8 @@ use latex_command::{
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::{code::LxCodeTokenData, math::LxMathTokenData, rose::LxRoseTokenData},
-    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    data::{coword::LxCowordTokenData, math::LxMathTokenData, rose::LxRoseTokenData},
+    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
 };
@@ -110,7 +110,7 @@ impl<'a> LxAstParser<'a> {
         self.lexer.next_rose_token()
     }
 
-    pub(crate) fn next_code_token(&mut self) -> Option<(LxCodeTokenIdx, LxCodeTokenData)> {
+    pub(crate) fn next_code_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
         self.lexer.next_code_token()
     }
 }

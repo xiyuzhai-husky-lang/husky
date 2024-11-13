@@ -1,6 +1,6 @@
 use crate::{
-    data::{code::LxCodeTokenData, LxTokenData},
-    idx::{LxCodeTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
+    data::{coword::LxCowordTokenData, lisp::LxLispTokenData, LxTokenData},
+    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
 };
 use crate::{
     data::{math::LxMathTokenData, rose::LxRoseTokenData},
@@ -102,13 +102,25 @@ impl LxTokenStorage {
         idx
     }
 
-    pub(crate) fn alloc_code_token(
+    pub(crate) fn alloc_coword_token(
         &mut self,
         offset_range: TextOffsetRange,
         range: TextRange,
-        token_data: LxCodeTokenData,
-    ) -> LxCodeTokenIdx {
-        let idx = LxCodeTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        token_data: LxCowordTokenData,
+    ) -> LxCowordTokenIdx {
+        let idx = LxCowordTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        self.ranged_tokens
+            .push((offset_range, range, token_data.into()));
+        idx
+    }
+
+    pub(crate) fn alloc_lisp_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxLispTokenData,
+    ) -> LxLispTokenIdx {
+        let idx = LxLispTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
         self.ranged_tokens
             .push((offset_range, range, token_data.into()));
         idx
