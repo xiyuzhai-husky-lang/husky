@@ -33,8 +33,8 @@ fn item_path_to_lean_works() {
     t(
         "\\mathbb{N}",
         &expect![[r#"
-            item path: `Nat`
+            item path: `ℕ`
         "#]],
-        &expect!["Nat"],
+        &expect!["ℕ"],
     );
 }
