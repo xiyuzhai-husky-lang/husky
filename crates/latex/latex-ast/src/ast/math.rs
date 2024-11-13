@@ -15,10 +15,10 @@ use latex_environment::{
 use latex_math_letter::letter::styled::LxMathLetterStyle;
 use latex_token::{
     data::{
-        code::LxCodeTokenData,
+        coword::LxCowordTokenData,
         math::{digit::LxMathDigit, LxMathDelimiter},
     },
-    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
+    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
 };
 use smallvec::{smallvec, SmallVec};
 
@@ -59,12 +59,12 @@ pub enum LxMathAstData {
     Environment {
         begin_command_token_idx: LxMathTokenIdx,
         begin_lcurl_token_idx: LxMathTokenIdx,
-        begin_environment_name_token_idx: LxCodeTokenIdx,
+        begin_environment_name_token_idx: LxCowordTokenIdx,
         begin_rcurl_token_idx: LxMathTokenIdx,
         asts: LxAstIdxRange,
         end_command_token_idx: LxMathTokenIdx,
         end_lcurl_token_idx: LxMathTokenIdx,
-        end_environment_name_token_idx: LxCodeTokenIdx,
+        end_environment_name_token_idx: LxCowordTokenIdx,
         end_rcurl_token_idx: LxMathTokenIdx,
         environment_signature: LxEnvironmentSignature,
     },
@@ -77,6 +77,20 @@ pub struct LxMathCommandArgument {
     data: LxMathCommandArgumentData,
     rcurl_token_idx: LxMathTokenIdx,
 }
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LxMathCommandArgumentData {
+    Math(LxMathAstIdxRange),
+    Rose(LxRoseAstIdxRange),
+    Letter(LxMathTokenIdx, LxMathLetter),
+}
+
+pub type LxMathAstArena = Arena<LxMathAstData>;
+pub type LxMathAstArenaRef<'a> = ArenaRef<'a, LxMathAstData>;
+pub type LxMathAstArenaMap<T> = ArenaMap<LxMathAstData, T>;
+pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
+pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
 impl LxMathCommandArgument {
     pub fn lcurl_token_idx(&self) -> LxMathTokenIdx {
@@ -95,20 +109,6 @@ impl LxMathCommandArgument {
         ((*self.lcurl_token_idx + 1)..*self.rcurl_token_idx).into()
     }
 }
-
-#[salsa::derive_debug_with_db]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LxMathCommandArgumentData {
-    Math(LxMathAstIdxRange),
-    Rose(LxRoseAstIdxRange),
-    Letter(LxMathTokenIdx, LxMathLetter),
-}
-
-pub type LxMathAstArena = Arena<LxMathAstData>;
-pub type LxMathAstArenaRef<'a> = ArenaRef<'a, LxMathAstData>;
-pub type LxMathAstArenaMap<T> = ArenaMap<LxMathAstData, T>;
-pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
-pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
 impl<'a> LxAstParser<'a> {
     pub(super) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
@@ -168,7 +168,7 @@ impl<'a> LxAstParser<'a> {
     fn parse_atomic_math_ast(&mut self) -> Option<LxMathAstData> {
         match self.peek_math_token_data()? {
             LxMathTokenData::RightDelimiter(_) | LxMathTokenData::MathModeEnd => return None,
-            LxMathTokenData::Command(Ok(command_name))
+            LxMathTokenData::Command(command_name)
                 if command_name == self.command_path_menu().end.name() =>
             {
                 return None
@@ -178,10 +178,6 @@ impl<'a> LxAstParser<'a> {
         let (idx, token) = self.next_math_token()?;
         Some(match token {
             LxMathTokenData::Command(command_name) => {
-                let command_name = match command_name {
-                    Ok(command_name) => command_name,
-                    Err(e) => todo!("{e}"),
-                };
                 let Some(command_signature) =
                     self.command_signature_table().signature(command_name)
                 else {
@@ -298,7 +294,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        let LxCodeTokenData::Word(begin_environment_name) = begin_environment_name_token else {
+        let LxCowordTokenData::Word(begin_environment_name) = begin_environment_name_token else {
             todo!()
         };
         let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_math_token() else {
@@ -321,12 +317,14 @@ impl<'a> LxAstParser<'a> {
         let asts = match environment_signature.body_mode() {
             LxMode::Math => self.parse_math_asts().into(),
             LxMode::Rose => self.parse_rose_asts().into(),
+            LxMode::Coword => todo!(),
+            LxMode::Lisp => todo!(),
         };
         let Some((end_command_token_idx, end_command_token)) = self.next_math_token() else {
             todo!()
         };
         match end_command_token {
-            LxMathTokenData::Command(Ok(command_name))
+            LxMathTokenData::Command(command_name)
                 if command_name == self.command_path_menu().end.name() => {}
             _ => todo!(),
         };
@@ -342,7 +340,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        let LxCodeTokenData::Word(end_environment_name) = end_environment_name_token else {
+        let LxCowordTokenData::Word(end_environment_name) = end_environment_name_token else {
             todo!()
         };
         let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_math_token() else {
