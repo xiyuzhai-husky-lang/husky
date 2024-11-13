@@ -158,6 +158,7 @@ fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterGlobalResolutionMap
             LxMathLetter::MATHBB_N,
             VdLetterGlobalResolution::NATURAL_NUMBER,
         ),
+        (LxMathLetter::MATHBB_Z, VdLetterGlobalResolution::INTEGER),
         (
             LxMathLetter::MATHBB_Q,
             VdLetterGlobalResolution::RATIONAL_NUMBER,

@@ -18,6 +18,46 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable x : Nat"],
+        &expect!["variable x : ℕ"],
+    );
+    t(
+        "Let $x\\in\\mathbb{Z}$.",
+        &expect![[r#"
+            defns
+            └─ group: `paragraph`
+              └─ group: `sentence`
+                └─ variable: `x`
+        "#]],
+        &expect!["variable x : ℤ"],
+    );
+    t(
+        "Let $x\\in\\mathbb{Q}$.",
+        &expect![[r#"
+            defns
+            └─ group: `paragraph`
+              └─ group: `sentence`
+                └─ variable: `x`
+        "#]],
+        &expect!["variable x : ℚ"],
+    );
+    t(
+        "Let $x\\in\\mathbb{R}$.",
+        &expect![[r#"
+            defns
+            └─ group: `paragraph`
+              └─ group: `sentence`
+                └─ variable: `x`
+        "#]],
+        &expect!["variable x : ℝ"],
+    );
+    t(
+        "Let $x\\in\\mathbb{C}$.",
+        &expect![[r#"
+            defns
+            └─ group: `paragraph`
+              └─ group: `sentence`
+                └─ variable: `x`
+        "#]],
+        &expect!["variable x : ℂ"],
     );
 }
