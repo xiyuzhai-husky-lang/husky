@@ -1,5 +1,6 @@
 use crate::{
     ast::{
+        lisp::{LxLispAstData, LxLispAstIdxRange},
         math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
         rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
         LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange,
@@ -13,8 +14,11 @@ use latex_command::{
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::{coword::LxCowordTokenData, math::LxMathTokenData, rose::LxRoseTokenData},
-    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    data::{
+        coword::LxCowordTokenData, lisp::LxLispTokenData, math::LxMathTokenData,
+        rose::LxRoseTokenData,
+    },
+    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
 };
@@ -94,6 +98,10 @@ impl<'a> LxAstParser<'a> {
         self.arena.rose.alloc_batch(asts)
     }
 
+    pub(crate) fn alloc_lisp_asts(&mut self, asts: Vec<LxLispAstData>) -> LxLispAstIdxRange {
+        self.arena.lisp.alloc_batch(asts)
+    }
+
     pub(crate) fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
         self.lexer.peek_math_token_data()
     }
@@ -110,7 +118,15 @@ impl<'a> LxAstParser<'a> {
         self.lexer.next_rose_token()
     }
 
-    pub(crate) fn next_code_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
-        self.lexer.next_code_token()
+    pub(crate) fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
+        self.lexer.next_coword_token()
+    }
+
+    pub(crate) fn next_lisp_token(&mut self) -> Option<(LxLispTokenIdx, LxLispTokenData)> {
+        self.lexer.next_lisp_token()
+    }
+
+    pub(crate) fn peek_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
+        self.lexer.peek_lisp_token_data()
     }
 }

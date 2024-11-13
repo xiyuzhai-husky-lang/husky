@@ -1,5 +1,6 @@
 use crate::{
     ast::{
+        lisp::{helpers::LxLispAstChild, LxLispAstIdx},
         math::{
             helpers::LxMathAstChild, LxMathAstIdx, LxMathAstIdxRange, LxMathCommandArgument,
             LxMathCommandArgumentData,
@@ -49,19 +50,13 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         match asts {
             LxAstIdxRange::Math(asts) => self.render_math_asts(asts),
             LxAstIdxRange::Rose(asts) => self.render_rose_asts(asts),
-            LxAstIdxRange::Lisp(asts) => todo!(),
+            LxAstIdxRange::Lisp(asts) => self.render_lisp_asts(asts),
         }
     }
 
     fn render_math_asts(&self, asts: impl IntoIterator<Item = LxMathAstIdx>) -> Vec<DisplayTree> {
         asts.into_iter()
             .map(|ast| self.render_math_ast(ast))
-            .collect()
-    }
-
-    fn render_rose_asts(&self, asts: impl IntoIterator<Item = LxRoseAstIdx>) -> Vec<DisplayTree> {
-        asts.into_iter()
-            .map(|ast| self.render_rose_ast(ast))
             .collect()
     }
 
@@ -114,6 +109,12 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
+    fn render_rose_asts(&self, asts: impl IntoIterator<Item = LxRoseAstIdx>) -> Vec<DisplayTree> {
+        asts.into_iter()
+            .map(|ast| self.render_rose_ast(ast))
+            .collect()
+    }
+
     fn render_rose_ast(&self, ast: LxRoseAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let offset_range = self
@@ -122,24 +123,52 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let value = self.input[offset_range].to_string();
         DisplayTree::new(
             value,
-            self.render_rose_children(self.ast_arena.rose()[ast].children()),
+            self.ast_arena.rose()[ast]
+                .children()
+                .into_iter()
+                .map(|child| self.render_rose_child(child))
+                .collect(),
         )
-    }
-
-    fn render_rose_children(
-        &self,
-        children: impl IntoIterator<Item = LxRoseAstChild>,
-    ) -> Vec<DisplayTree> {
-        children
-            .into_iter()
-            .map(|child| self.render_rose_child(child))
-            .collect()
     }
 
     fn render_rose_child(&self, child: LxRoseAstChild) -> DisplayTree {
         match child {
             LxRoseAstChild::RoseAst(ast) => self.render_rose_ast(ast),
             LxRoseAstChild::MathAst(ast) => self.render_math_ast(ast),
+        }
+    }
+
+    fn render_lisp_asts(&self, asts: impl IntoIterator<Item = LxLispAstIdx>) -> Vec<DisplayTree> {
+        asts.into_iter()
+            .map(|ast| self.render_lisp_ast(ast))
+            .collect()
+    }
+
+    fn render_lisp_ast(&self, ast: LxLispAstIdx) -> DisplayTree {
+        let ast_token_idx_range = self.ast_token_idx_range_map[ast];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(ast_token_idx_range);
+        let value = self.input[offset_range].to_string();
+        DisplayTree::new(
+            value,
+            self.render_lisp_children(self.ast_arena.lisp()[ast].children()),
+        )
+    }
+
+    fn render_lisp_children(
+        &self,
+        children: impl IntoIterator<Item = LxLispAstChild>,
+    ) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| self.render_lisp_child(child))
+            .collect()
+    }
+
+    fn render_lisp_child(&self, child: LxLispAstChild) -> DisplayTree {
+        match child {
+            LxLispAstChild::LispAst(ast) => self.render_lisp_ast(ast),
         }
     }
 }
