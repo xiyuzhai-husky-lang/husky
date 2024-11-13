@@ -64,6 +64,7 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
+    #[track_caller]
     pub fn eat_char(&mut self) {
         self.next().expect("what");
     }

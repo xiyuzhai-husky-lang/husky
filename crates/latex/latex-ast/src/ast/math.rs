@@ -290,7 +290,7 @@ impl<'a> LxAstParser<'a> {
             _ => todo!(),
         };
         let Some((begin_environment_name_token_idx, begin_environment_name_token)) =
-            self.next_code_token()
+            self.next_coword_token()
         else {
             todo!()
         };
@@ -336,7 +336,7 @@ impl<'a> LxAstParser<'a> {
             _ => todo!(),
         };
         let Some((end_environment_name_token_idx, end_environment_name_token)) =
-            self.next_code_token()
+            self.next_coword_token()
         else {
             todo!()
         };

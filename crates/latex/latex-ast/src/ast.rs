@@ -51,12 +51,14 @@ pub enum LxAstData {
 pub struct LxAstArena {
     pub(crate) math: LxMathAstArena,
     pub(crate) rose: LxRoseAstArena,
+    pub(crate) lisp: LxLispAstArena,
 }
 impl LxAstArena {
     pub fn as_arena_ref(&self) -> LxAstArenaRef {
         LxAstArenaRef {
             math: self.math.as_arena_ref(),
             rose: self.rose.as_arena_ref(),
+            lisp: self.lisp.as_arena_ref(),
         }
     }
 }
@@ -66,6 +68,7 @@ impl LxAstArena {
 pub struct LxAstArenaRef<'a> {
     math: LxMathAstArenaRef<'a>,
     rose: LxRoseAstArenaRef<'a>,
+    lisp: LxLispAstArenaRef<'a>,
 }
 
 impl<'a> std::ops::Index<LxMathAstIdx> for LxAstArenaRef<'a> {
@@ -91,6 +94,10 @@ impl<'a> LxAstArenaRef<'a> {
 
     pub fn rose(&self) -> LxRoseAstArenaRef<'a> {
         self.rose
+    }
+
+    pub fn lisp(&self) -> LxLispAstArenaRef<'a> {
+        self.lisp
     }
 }
 
@@ -196,6 +203,9 @@ fn parse_tex_input_into_asts_works() {
                     rose: Arena {
                         data: [],
                     },
+                    lisp: Arena {
+                        data: [],
+                    },
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
@@ -244,6 +254,9 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
                         data: [],
                     },
                 },
@@ -298,6 +311,9 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
                         data: [],
                     },
                 },
@@ -402,6 +418,9 @@ fn parse_tex_input_into_asts_works() {
                     rose: Arena {
                         data: [],
                     },
+                    lisp: Arena {
+                        data: [],
+                    },
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
@@ -503,6 +522,9 @@ fn parse_tex_input_into_asts_works() {
                     rose: Arena {
                         data: [],
                     },
+                    lisp: Arena {
+                        data: [],
+                    },
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
@@ -602,6 +624,9 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
                         data: [],
                     },
                 },
@@ -804,6 +829,9 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
                         data: [],
                     },
                 },

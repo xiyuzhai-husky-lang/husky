@@ -1,6 +1,7 @@
 use latex_token::idx::LxTokenIdxRange;
 
 use crate::ast::{
+    lisp::{LxLispAstArenaMap, LxLispAstData, LxLispAstIdx},
     math::{
         LxMathAstArenaMap, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange, LxMathCommandArgument,
     },
@@ -12,6 +13,7 @@ use crate::ast::{
 pub struct LxAstTokenIdxRangeMap {
     pub(crate) math: LxMathAstArenaMap<LxTokenIdxRange>,
     pub(crate) rose: LxRoseAstArenaMap<LxTokenIdxRange>,
+    pub(crate) lisp: LxLispAstArenaMap<LxTokenIdxRange>,
 }
 
 impl std::ops::Index<LxMathAstIdx> for LxAstTokenIdxRangeMap {
@@ -30,6 +32,14 @@ impl std::ops::Index<LxRoseAstIdx> for LxAstTokenIdxRangeMap {
     }
 }
 
+impl std::ops::Index<LxLispAstIdx> for LxAstTokenIdxRangeMap {
+    type Output = LxTokenIdxRange;
+
+    fn index(&self, index: LxLispAstIdx) -> &Self::Output {
+        &self.lisp[index]
+    }
+}
+
 impl LxAstTokenIdxRangeMap {
     pub fn math_asts_token_idx_range(&self, asts: LxMathAstIdxRange) -> LxTokenIdxRange {
         todo!()
@@ -42,6 +52,7 @@ pub fn calc_ast_token_idx_range_map(db: &salsa::Db, arena: &LxAstArena) -> LxAst
     LxAstTokenIdxRangeMap {
         math: calculator.math_data,
         rose: calculator.rose_data,
+        lisp: calculator.lisp_data,
     }
 }
 
@@ -50,6 +61,7 @@ struct LxAstTokenIdxRangeCalculator<'a> {
     ast_arena: LxAstArenaRef<'a>,
     math_data: LxMathAstArenaMap<LxTokenIdxRange>,
     rose_data: LxRoseAstArenaMap<LxTokenIdxRange>,
+    lisp_data: LxLispAstArenaMap<LxTokenIdxRange>,
 }
 
 impl<'a> LxAstTokenIdxRangeCalculator<'a> {
@@ -59,6 +71,7 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
             ast_arena: arena.as_arena_ref(),
             math_data: LxMathAstArenaMap::new(&arena.math),
             rose_data: LxRoseAstArenaMap::new(&arena.rose),
+            lisp_data: LxLispAstArenaMap::new(&arena.lisp),
         }
     }
 }
@@ -70,6 +83,9 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
         });
         self.ast_arena.rose().indexed_iter().for_each(|(idx, ast)| {
             self.rose_data.insert_new(idx, self.calc_rose_ast(ast));
+        });
+        self.ast_arena.lisp().indexed_iter().for_each(|(idx, ast)| {
+            self.lisp_data.insert_new(idx, self.calc_lisp_ast(ast));
         });
     }
 
@@ -153,5 +169,33 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     fn get_rose_ast_range(&mut self, idx: LxRoseAstIdx) -> LxTokenIdxRange {
         self.infer_rose_ast(idx, &self.ast_arena.rose()[idx]);
         self.rose_data[idx]
+    }
+
+    fn infer_lisp_ast(&mut self, idx: LxLispAstIdx, ast: &LxLispAstData) {
+        if !self.lisp_data.has(idx) {
+            let range = self.calc_lisp_ast(ast);
+            self.lisp_data.insert_new(idx, range);
+        }
+    }
+
+    fn calc_lisp_ast(&self, data: &LxLispAstData) -> LxTokenIdxRange {
+        match *data {
+            LxLispAstData::Ident(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+            LxLispAstData::CompleteCommand {
+                command_token_idx,
+                command_path,
+                ref arguments,
+            } => todo!(),
+            LxLispAstData::Parenthesized {
+                lpar_token_idx,
+                rpar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*lpar_token_idx, *rpar_token_idx),
+        }
+    }
+
+    fn get_lisp_ast_range(&mut self, idx: LxLispAstIdx) -> LxTokenIdxRange {
+        self.infer_lisp_ast(idx, &self.ast_arena.lisp()[idx]);
+        self.lisp_data[idx]
     }
 }

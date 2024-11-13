@@ -1,10 +1,11 @@
 use crate::{
     data::{
         coword::LxCowordTokenData,
+        lisp::LxLispTokenData,
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
     },
-    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     storage::LxTokenStorage,
     stream::{code::LxCodeTokenStream, math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
@@ -113,8 +114,8 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
-    pub fn next_code_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
-        let (offset_range, range, token_data) = self.next_code_token_aux()?;
+    pub fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
+        let (offset_range, range, token_data) = self.next_coword_token_aux()?;
         Some((
             self.storage
                 .alloc_coword_token(offset_range, range, token_data),
@@ -122,7 +123,7 @@ impl<'a> LxLexer<'a> {
         ))
     }
 
-    fn next_code_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxCowordTokenData)> {
+    fn next_coword_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxCowordTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
@@ -145,6 +146,36 @@ impl<'a> LxLexer<'a> {
             end: self.chars.current_position(),
         };
         Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
+    pub fn next_lisp_token(&mut self) -> Option<(LxLispTokenIdx, LxLispTokenData)> {
+        let (offset_range, range, token_data) = self.next_lisp_token_aux()?;
+        Some((
+            self.storage
+                .alloc_lisp_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_lisp_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxLispTokenData)> {
+        self.chars
+            .eat_chars_while(|c| c == ' ' || c == '\n' || c == '\t');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = self.next_lisp_token_data()?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
+    pub fn peek_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
+        let chars = self.chars.clone();
+        let (_, _, token_data) = self.next_lisp_token_aux()?;
+        self.chars = chars;
+        Some(token_data)
     }
 
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
