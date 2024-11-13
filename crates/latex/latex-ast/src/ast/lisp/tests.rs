@@ -10,7 +10,25 @@ fn t(input: &str, expected: Expect) {
 }
 
 #[test]
-fn parse_basic_lisp_latex_input_into_asts_works() {
+fn parse_literal_lisp_latex_input_into_asts_works() {
+    t(
+        "0",
+        expect![[r#"
+            0
+            └─ 0
+        "#]],
+    );
+    t(
+        "0.0",
+        expect![[r#"
+            0.0
+            └─ 0.0
+        "#]],
+    );
+}
+
+#[test]
+fn parse_ident_lisp_latex_input_into_asts_works() {
     t(
         "x",
         expect![[r#"
@@ -19,16 +37,52 @@ fn parse_basic_lisp_latex_input_into_asts_works() {
         "#]],
     );
     t(
-        "f x y",
+        "x_1",
         expect![[r#"
-            f x y
-            ├─ f
-            ├─ x
-            └─ y
+            x_1
+            └─ x_1
+        "#]],
+    );
+    t(
+        "apply",
+        expect![[r#"
+            apply
+            └─ apply
+        "#]],
+    );
+    t(
+        "apply_to_all",
+        expect![[r#"
+            apply_to_all
+            └─ apply_to_all
         "#]],
     );
 }
 
+#[test]
+fn parse_xlabel_lisp_latex_input_into_asts_works() {
+    t(
+        "'1",
+        expect![[r#"
+            '1
+            └─ '1
+        "#]],
+    );
+    t(
+        "'x",
+        expect![[r#"
+            'x
+            └─ 'x
+        "#]],
+    );
+    t(
+        "'eq:1",
+        expect![[r#"
+            'eq:1
+            └─ 'eq:1
+        "#]],
+    );
+}
 #[test]
 fn parse_parenthesized_lisp_latex_input_into_asts_works() {
     t(
@@ -47,6 +101,26 @@ fn parse_parenthesized_lisp_latex_input_into_asts_works() {
             ├─ (g x)
             │ ├─ g
             │ └─ x
+            └─ y
+        "#]],
+    );
+}
+
+#[test]
+fn parse_basic_lisp_latex_input_into_asts_works() {
+    t(
+        "x",
+        expect![[r#"
+            x
+            └─ x
+        "#]],
+    );
+    t(
+        "f x y",
+        expect![[r#"
+            f x y
+            ├─ f
+            ├─ x
             └─ y
         "#]],
     );

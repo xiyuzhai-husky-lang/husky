@@ -5,7 +5,10 @@ mod tests;
 use super::*;
 use latex_command::path::LxCommandPath;
 use latex_token::{
-    data::lisp::{LxLispDelimiter, LxLispIdent, LxLispTokenData},
+    data::lisp::{
+        delimiter::LxLispDelimiter, ident::LxLispIdent, label::LxLispXlabel,
+        literal::LxLispLiteral, LxLispTokenData,
+    },
     idx::LxLispTokenIdx,
 };
 use smallvec::{smallvec, SmallVec};
@@ -13,7 +16,9 @@ use smallvec::{smallvec, SmallVec};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxLispAstData {
+    Literal(LxLispTokenIdx, LxLispLiteral),
     Ident(LxLispTokenIdx, LxLispIdent),
+    Xlabel(LxLispTokenIdx, LxLispXlabel),
     CompleteCommand {
         command_token_idx: LxLispTokenIdx,
         command_path: LxCommandPath,
@@ -60,8 +65,9 @@ impl<'a> LxAstParser<'a> {
 
     fn parse_lisp_ast(&mut self) -> Option<LxLispAstData> {
         match self.peek_lisp_token_data()? {
-            LxLispTokenData::Literal => (),
             LxLispTokenData::Ident(ident) => (),
+            LxLispTokenData::Literal(_) => (),
+            LxLispTokenData::Xlabel(label) => (),
             LxLispTokenData::LeftDelimiter(delimiter) => (),
             LxLispTokenData::RightDelimiter(delimiter) => return None,
             LxLispTokenData::Command(command_name) => (),
@@ -69,8 +75,9 @@ impl<'a> LxAstParser<'a> {
         }
         let (token_idx, token_data) = self.next_lisp_token()?;
         match token_data {
-            LxLispTokenData::Literal => todo!(),
+            LxLispTokenData::Literal(literal) => Some(LxLispAstData::Literal(token_idx, literal)),
             LxLispTokenData::Ident(ident) => Some(LxLispAstData::Ident(token_idx, ident)),
+            LxLispTokenData::Xlabel(label) => Some(LxLispAstData::Xlabel(token_idx, label)),
             LxLispTokenData::LeftDelimiter(delimiter) => {
                 self.parse_delimited_lisp_ast(token_idx, delimiter)
             }

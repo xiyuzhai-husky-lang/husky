@@ -8,7 +8,9 @@ pub enum LxLispAstChild {
 impl LxLispAstData {
     pub fn children(&self) -> Vec<LxLispAstChild> {
         match *self {
-            LxLispAstData::Ident(_, _) => vec![],
+            LxLispAstData::Ident(_, _)
+            | LxLispAstData::Literal(_, _)
+            | LxLispAstData::Xlabel(_, _) => vec![],
             LxLispAstData::CompleteCommand {
                 command_token_idx,
                 command_path,

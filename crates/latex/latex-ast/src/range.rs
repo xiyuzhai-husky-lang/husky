@@ -181,6 +181,8 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
     fn calc_lisp_ast(&self, data: &LxLispAstData) -> LxTokenIdxRange {
         match *data {
             LxLispAstData::Ident(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+            LxLispAstData::Literal(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
+            LxLispAstData::Xlabel(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
             LxLispAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
