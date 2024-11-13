@@ -1,5 +1,6 @@
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
+import Mathlib.Data.Real.Basic
 
 def hello := "world"
 
@@ -40,3 +41,21 @@ example : x^2 + 1 >= 2 * x := by
   have h2 : 0 ≤ (x-1)^2 := sq_nonneg (x-1)
   rw [←h] at h2
   linarith
+
+-- example (x: Nat): x^2 + 1 >= 2 * x := by
+--   have h : (x:Int)^2 - 2*(x:Int) + 1 = ((x:Int)-1)^2 := by ring
+--   have h2 : 0 ≤ ((x:Int)-1)^2 := sq_nonneg (x-1)
+--   rw [←h] at h2
+--   linarith
+
+example (x y: Nat) (f: Int -> Prop) (h:f (x+y)) : f ((x:Int)+(y:Int)):= by
+  have h2 : (x+y:Int) = (x:Int) + (y:Int) := by ring
+  rw [h2] at h
+  exact h
+
+theorem inequality_example (x : ℝ) : x^2 + 1 ≥ 2 * x := by
+  have h : (x - 1)^2 ≥ 0 := sq_nonneg (x-1)
+  calc
+    x^2 + 1
+        = (x - 1)^2 + 2 * x := by ring
+    _ ≥ 2 * x := by linarith
