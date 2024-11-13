@@ -9,7 +9,7 @@ use latex_math_punctuation::LxMathPunctuation;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenData {
-    Command(LxCommandNameResult<LxCommandName>),
+    Command(LxCommandName),
     LeftDelimiter(LxMathDelimiter),
     RightDelimiter(LxMathDelimiter),
     Letter(LxMathLetter),
@@ -57,10 +57,13 @@ impl<'a> LxLexer<'a> {
                 match self.chars.peek() {
                     Some(c) => match c {
                         c if c.is_alphabetic() => {
-                            Some(LxMathTokenData::Command(LxCommandName::new2(
+                            let Ok(command_name) = LxCommandName::new2(
                                 self.chars.next_str_slice_while(|c| c.is_alphabetic()),
                                 db,
-                            )))
+                            ) else {
+                                todo!()
+                            };
+                            Some(LxMathTokenData::Command(command_name))
                         }
                         c => {
                             self.chars.eat_char();
@@ -351,12 +354,10 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Command(
-                    Ok(
-                        LxCommandName::LettersOnly(
-                            LettersOnlyLxCommandName(
-                                Coword(
-                                    "int",
-                                ),
+                    LxCommandName::LettersOnly(
+                        LettersOnlyLxCommandName(
+                            Coword(
+                                "int",
                             ),
                         ),
                     ),
@@ -369,12 +370,10 @@ fn next_text_token_data_works() {
         &expect![[r#"
             [
                 LxMathTokenData::Command(
-                    Ok(
-                        LxCommandName::LettersOnly(
-                            LettersOnlyLxCommandName(
-                                Coword(
-                                    "int",
-                                ),
+                    LxCommandName::LettersOnly(
+                        LettersOnlyLxCommandName(
+                            Coword(
+                                "int",
                             ),
                         ),
                     ),
@@ -389,12 +388,10 @@ fn next_text_token_data_works() {
                     Three,
                 ),
                 LxMathTokenData::Command(
-                    Ok(
-                        LxCommandName::LettersOnly(
-                            LettersOnlyLxCommandName(
-                                Coword(
-                                    "sin",
-                                ),
+                    LxCommandName::LettersOnly(
+                        LettersOnlyLxCommandName(
+                            Coword(
+                                "sin",
                             ),
                         ),
                     ),

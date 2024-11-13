@@ -1,4 +1,4 @@
-use crate::{data::code::LxCodeTokenData, idx::LxCodeTokenIdx, lexer::LxLexer};
+use crate::{data::coword::LxCowordTokenData, idx::LxCowordTokenIdx, lexer::LxLexer};
 
 pub struct LxCodeTokenStream<'a> {
     lexer: LxLexer<'a>,
@@ -11,7 +11,7 @@ impl<'a> LxCodeTokenStream<'a> {
 }
 
 impl<'a> Iterator for LxCodeTokenStream<'a> {
-    type Item = (LxCodeTokenIdx, LxCodeTokenData);
+    type Item = (LxCowordTokenIdx, LxCowordTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.lexer.next_code_token()

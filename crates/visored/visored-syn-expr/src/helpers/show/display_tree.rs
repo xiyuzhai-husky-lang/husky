@@ -254,6 +254,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         match asts {
             LxAstIdxRange::Math(asts) => self.math_asts_offset_range(asts),
             LxAstIdxRange::Rose(asts) => self.rose_asts_offset_range(asts),
+            LxAstIdxRange::Lisp(asts) => todo!(),
         }
     }
 
