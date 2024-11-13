@@ -1,3 +1,6 @@
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
 def hello := "world"
 
 #eval 1
@@ -29,3 +32,11 @@ section layer1
 section layer2
 end layer2
 end layer1
+
+variable (x: Int)
+
+example : x^2 + 1 >= 2 * x := by
+  have h : x^2 - 2*x + 1 = (x-1)^2 := by ring
+  have h2 : 0 ≤ (x-1)^2 := sq_nonneg (x-1)
+  rw [←h] at h2
+  linarith
