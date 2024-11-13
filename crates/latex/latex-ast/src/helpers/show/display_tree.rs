@@ -169,6 +169,9 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
     fn render_lisp_child(&self, child: LxLispAstChild) -> DisplayTree {
         match child {
             LxLispAstChild::LispAst(ast) => self.render_lisp_ast(ast),
+            LxLispAstChild::Item(asts) => {
+                DisplayTree::new("item".to_string(), self.render_lisp_asts(asts.into_iter()))
+            }
         }
     }
 }

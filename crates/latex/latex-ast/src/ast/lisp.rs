@@ -24,6 +24,11 @@ pub enum LxLispAstData {
         asts: LxLispAstIdxRange,
         rpar_token_idx: LxLispTokenIdx,
     },
+    BoxedList {
+        lbox_token_idx: LxLispTokenIdx,
+        items: SmallVec<[LxLispAstIdxRange; 4]>,
+        rbox_token_idx: LxLispTokenIdx,
+    },
 }
 
 #[salsa::derive_debug_with_db]
@@ -82,7 +87,7 @@ impl<'a> LxAstParser<'a> {
     ) -> Option<LxLispAstData> {
         match delimiter {
             LxLispDelimiter::Parenthesis => self.parse_parenthesized_lisp_ast(token_idx),
-            LxLispDelimiter::Box => todo!(),
+            LxLispDelimiter::Box => self.parse_boxed_list_lisp_ast(token_idx),
         }
     }
 
@@ -105,7 +110,25 @@ impl<'a> LxAstParser<'a> {
         })
     }
 
-    fn parse_bracketed_lisp_ast(&mut self, token_idx: LxLispTokenIdx) -> Option<LxLispAstData> {
-        todo!()
+    fn parse_boxed_list_lisp_ast(
+        &mut self,
+        lbox_token_idx: LxLispTokenIdx,
+    ) -> Option<LxLispAstData> {
+        let mut items: SmallVec<[LxLispAstIdxRange; 4]> = smallvec![self.parse_lisp_asts()];
+        let rbox_token_idx = loop {
+            match self.next_lisp_token() {
+                Some((token_idx, token_data)) => match token_data {
+                    LxLispTokenData::RightDelimiter(LxLispDelimiter::Box) => break token_idx,
+                    LxLispTokenData::Comma => items.push(self.parse_lisp_asts()),
+                    _ => todo!(),
+                },
+                None => todo!(),
+            }
+        };
+        Some(LxLispAstData::BoxedList {
+            lbox_token_idx,
+            items,
+            rbox_token_idx,
+        })
     }
 }
