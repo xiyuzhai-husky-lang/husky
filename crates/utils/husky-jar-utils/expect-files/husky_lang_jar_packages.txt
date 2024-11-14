@@ -1314,12 +1314,17 @@
         dependencies: [],
     },
     JarPackageSummary {
+        name: "visored-item-path",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "visored-opr",
         dependencies: [],
     },
     JarPackageSummary {
         name: "visored-hir-expr",
         dependencies: [
+            "visored-item-path",
             "visored-opr",
             "visored-sem-expr",
             "visored-zfc-ty",
@@ -1327,6 +1332,7 @@
             "latex-ast",
             "latex-command",
             "latex-environment",
+            "visored-item-path",
             "visored-sem-expr",
             "visored-syn-expr",
         ],
@@ -1343,6 +1349,7 @@
             "husky-coword",
             "latex-command",
             "latex-environment",
+            "visored-item-path",
         ],
     },
     JarPackageSummary {
@@ -1356,11 +1363,14 @@
             "visored-zfc-ty",
             "husky-coword",
             "latex-command",
+            "visored-item-path",
         ],
     },
     JarPackageSummary {
         name: "visored-zfc-ty",
-        dependencies: [],
+        dependencies: [
+            "visored-item-path",
+        ],
     },
     JarPackageSummary {
         name: "visored-lean-transpilation",
@@ -1368,6 +1378,7 @@
             "lean-hir-expr",
             "lean-term",
             "visored-hir-expr",
+            "visored-item-path",
             "visored-opr",
             "visored-zfc-ty",
             "husky-coword",

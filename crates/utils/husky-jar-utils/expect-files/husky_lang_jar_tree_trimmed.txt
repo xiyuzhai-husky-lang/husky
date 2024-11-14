@@ -188,6 +188,7 @@
     "visored-hir-expr": {
         "visored-sem-expr",
     },
+    "visored-item-path": {},
     "visored-lean-transpilation": {
         "lean-hir-expr",
         "lean-sem-expr",
@@ -205,5 +206,7 @@
         "visored-opr",
         "visored-zfc-ty",
     },
-    "visored-zfc-ty": {},
+    "visored-zfc-ty": {
+        "visored-item-path",
+    },
 }

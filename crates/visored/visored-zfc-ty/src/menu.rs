@@ -30,26 +30,10 @@ impl VdZfcTypeMenu {
             zero_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("0".to_string()), db),
             one_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("1".to_string()), db),
             two_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("2".to_string()), db),
-            nat_ty: VdZfcType::new(
-                db,
-                VdZfcTypeData::ItemPath(VdItemPath::NATURAL_NUMBER),
-                smallvec![],
-            ),
-            int_ty: VdZfcType::new(
-                db,
-                VdZfcTypeData::ItemPath(VdItemPath::INTEGER),
-                smallvec![],
-            ),
-            rat_ty: VdZfcType::new(
-                db,
-                VdZfcTypeData::ItemPath(VdItemPath::RATIONAL_NUMBER),
-                smallvec![],
-            ),
-            real_ty: VdZfcType::new(
-                db,
-                VdZfcTypeData::ItemPath(VdItemPath::REAL_NUMBER),
-                smallvec![],
-            ),
+            nat_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::NAT), smallvec![]),
+            int_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::INT), smallvec![]),
+            rat_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::RAT), smallvec![]),
+            real_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::REAL), smallvec![]),
             set_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::SET), smallvec![]),
             prop_ty: VdZfcType::new(
                 db,

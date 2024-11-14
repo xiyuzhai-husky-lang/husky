@@ -25,23 +25,23 @@ impl VdItemPathTranslationTable {
     pub(crate) fn new_standard() -> Self {
         Self::new([
             (
-                VdItemPath::NATURAL_NUMBER,
+                VdItemPath::NAT,
                 VdItemPathTranslation::ItemPath(LnItemPath::NAT),
             ),
             (
-                VdItemPath::INTEGER,
+                VdItemPath::INT,
                 VdItemPathTranslation::ItemPath(LnItemPath::INT),
             ),
             (
-                VdItemPath::RATIONAL_NUMBER,
+                VdItemPath::RAT,
                 VdItemPathTranslation::ItemPath(LnItemPath::RAT),
             ),
             (
-                VdItemPath::REAL_NUMBER,
+                VdItemPath::REAL,
                 VdItemPathTranslation::ItemPath(LnItemPath::REAL),
             ),
             (
-                VdItemPath::COMPLEX_NUMBER,
+                VdItemPath::COMPLEX,
                 VdItemPathTranslation::ItemPath(LnItemPath::COMPLEX),
             ),
         ])
