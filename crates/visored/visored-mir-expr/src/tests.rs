@@ -15,6 +15,6 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     visored_syn_expr::jar::VdSynExprJar,
     visored_global_dispatch::jar::VdGlobalDispatchJar,
     visored_signature::jar::VdSignatureJar,
-    crate::jar::VdHirExprJar
+    crate::jar::VdMirExprJar
 )]
 pub(crate) struct DB {}

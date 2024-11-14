@@ -1,7 +1,7 @@
 use crate::*;
-use lean_hir_expr::item_defn::{LnHirItemDefnGroupMeta, LnItemDefnData, LnItemDefnIdxRange};
+use lean_mir_expr::item_defn::{LnHirItemDefnGroupMeta, LnItemDefnData, LnItemDefnIdxRange};
 use ty::VdZfcTypeLeanTranspilation;
-use visored_hir_expr::{
+use visored_mir_expr::{
     pattern::VdHirPattern,
     stmt::{block::VdHirBlockMeta, VdHirStmtData, VdHirStmtIdx, VdHirStmtIdxRange},
 };

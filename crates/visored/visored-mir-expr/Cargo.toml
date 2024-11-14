@@ -1,5 +1,5 @@
 [package]
-name = "visored-hir-expr"
+name = "visored-mir-expr"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -43,7 +43,7 @@ visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
 visored-global-dispatch.workspace = true
 visored-signature.workspace = true
-visored-hir-expr = { workspace = true, features = ["test_helpers"] }
+visored-mir-expr = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true

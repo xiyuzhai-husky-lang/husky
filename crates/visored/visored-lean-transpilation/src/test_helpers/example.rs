@@ -4,7 +4,7 @@ use dictionary::VdLeanTranspilationDictionary;
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
-use lean_hir_expr::{
+use lean_mir_expr::{
     expr::{LnHirExprArena, LnHirExprIdx},
     helpers::{
         fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
@@ -15,7 +15,7 @@ use lean_hir_expr::{
     tactic::LnHirTacticArena,
 };
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
-use visored_hir_expr::{
+use visored_mir_expr::{
     expr::VdHirExprIdx, stmt::VdHirStmtIdxRange, test_helpers::example::VdHirExprExample,
 };
 
