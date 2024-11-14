@@ -1,15 +1,30 @@
 use crate::{
-    term::literal::{VdZfcLiteral, VdZfcLiteralData},
+    instantiation::VdInstantiation,
+    term::{
+        literal::{VdZfcLiteral, VdZfcLiteralData},
+        VdZfcTerm,
+    },
     ty::{VdZfcType, VdZfcTypeData},
 };
 use smallvec::{smallvec, SmallVec};
-use visored_item_path::path::VdItemPath;
+use visored_item_path::{
+    menu::{vd_item_path_menu, VdItemPathMenu},
+    path::VdItemPath,
+};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdZfcTypeMenu {
+    /// # terms
+    /// ## literals
     pub zero_literal: VdZfcLiteral,
     pub one_literal: VdZfcLiteral,
     pub two_literal: VdZfcLiteral,
+    /// ## types as terms
+    pub nat_term: VdZfcTerm,
+    pub int_term: VdZfcTerm,
+    pub rat_term: VdZfcTerm,
+    pub real_term: VdZfcTerm,
+    /// # types
     /// natural numbers as a type
     pub nat_ty: VdZfcType,
     /// integers as a type
@@ -18,28 +33,70 @@ pub struct VdZfcTypeMenu {
     pub rat_ty: VdZfcType,
     /// real numbers as a type
     pub real_ty: VdZfcType,
-    /// the category of sets as a type
+    /// - the category of sets as a type
     pub set_ty: VdZfcType,
-    /// the category of propositions as a type
+    /// - the category of propositions as a type
     pub prop_ty: VdZfcType,
+    /// # instantiations
+    pub int_add_instantiation: VdInstantiation,
+    pub rat_add_instantiation: VdInstantiation,
+    pub real_add_instantiation: VdInstantiation,
 }
 
 impl VdZfcTypeMenu {
     fn new(db: &::salsa::Db) -> Self {
+        let VdItemPathMenu {
+            set,
+            proposition,
+            nat,
+            rat,
+            int,
+            real,
+            complex,
+            sin,
+            cos,
+            group,
+            ring,
+            group_mul,
+            abelian_group_add,
+            ring_add,
+            ring_mul,
+        } = *vd_item_path_menu(db);
+
+        let zero_literal = VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("0".to_string()), db);
+        let one_literal = VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("1".to_string()), db);
+        let two_literal = VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("2".to_string()), db);
+        let nat_term = VdZfcTerm::new_item_path(nat.into(), db);
+        let int_term = VdZfcTerm::new_item_path(int.into(), db);
+        let rat_term = VdZfcTerm::new_item_path(rat.into(), db);
+        let real_term = VdZfcTerm::new_item_path(real.into(), db);
+        let nat_ty = VdZfcType::new_item_path(nat.into(), db);
+        let int_ty = VdZfcType::new_item_path(int.into(), db);
+        let rat_ty = VdZfcType::new_item_path(rat.into(), db);
+        let real_ty = VdZfcType::new_item_path(real.into(), db);
+        let set_ty = VdZfcType::new_item_path(set.into(), db);
+        let prop_ty = VdZfcType::new_item_path(proposition.into(), db);
+        let int_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![int_term]);
+        let rat_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![rat_term]);
+        let real_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![real_term]);
+
         Self {
-            zero_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("0".to_string()), db),
-            one_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("1".to_string()), db),
-            two_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("2".to_string()), db),
-            nat_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::NAT), smallvec![]),
-            int_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::INT), smallvec![]),
-            rat_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::RAT), smallvec![]),
-            real_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::REAL), smallvec![]),
-            set_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::SET), smallvec![]),
-            prop_ty: VdZfcType::new(
-                db,
-                VdZfcTypeData::ItemPath(VdItemPath::PROPOSITION),
-                smallvec![],
-            ),
+            zero_literal,
+            one_literal,
+            two_literal,
+            nat_term,
+            int_term,
+            rat_term,
+            real_term,
+            nat_ty,
+            int_ty,
+            rat_ty,
+            real_ty,
+            set_ty,
+            prop_ty,
+            int_add_instantiation,
+            rat_add_instantiation,
+            real_add_instantiation,
         }
     }
 }

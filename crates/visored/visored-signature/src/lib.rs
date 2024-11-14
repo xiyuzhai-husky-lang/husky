@@ -6,4 +6,4 @@ pub mod table;
 mod tests;
 
 use crate::jar::VdSignatureJar as Jar;
-use visored_zfc_ty::{term::*, ty::*, *};
+use visored_zfc_ty::{instantiation::*, term::*, ty::*, *};
