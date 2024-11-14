@@ -197,6 +197,9 @@
     "visored-sem-expr": {
         "visored-syn-expr",
     },
+    "visored-signature": {
+        "visored-zfc-ty",
+    },
     "visored-syn-expr": {
         "latex-ast",
         "visored-opr",

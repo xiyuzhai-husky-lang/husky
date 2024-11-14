@@ -12698,6 +12698,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-signature"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+ "visored-zfc-ty",
+]
+
+[[package]]
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
