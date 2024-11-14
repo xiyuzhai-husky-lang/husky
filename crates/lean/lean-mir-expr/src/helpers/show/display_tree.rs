@@ -1,26 +1,26 @@
 use super::*;
 use crate::{
-    expr::{LnHirExprArena, LnHirExprArenaRef, LnHirExprData, LnHirExprIdx},
+    expr::{LnMirExprArena, LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
     item_defn::{LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange},
-    stmt::{LnHirStmtArena, LnHirStmtArenaRef},
-    tactic::{LnHirTacticArena, LnHirTacticArenaRef},
+    stmt::{LnMirStmtArena, LnMirStmtArenaRef},
+    tactic::{LnMirTacticArena, LnMirTacticArenaRef},
 };
 use husky_tree_utils::display::DisplayTree;
 
-pub struct LnHirExprDisplayTreeBuilder<'a> {
+pub struct LnMirExprDisplayTreeBuilder<'a> {
     db: &'a ::salsa::Db,
-    expr_arena: LnHirExprArenaRef<'a>,
-    stmt_arena: LnHirStmtArenaRef<'a>,
-    tactic_arena: LnHirTacticArenaRef<'a>,
+    expr_arena: LnMirExprArenaRef<'a>,
+    stmt_arena: LnMirStmtArenaRef<'a>,
+    tactic_arena: LnMirTacticArenaRef<'a>,
     defn_arena: LnItemDefnArenaRef<'a>,
 }
 
-impl<'a> LnHirExprDisplayTreeBuilder<'a> {
+impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn new(
         db: &'a ::salsa::Db,
-        expr_arena: LnHirExprArenaRef<'a>,
-        stmt_arena: LnHirStmtArenaRef<'a>,
-        tactic_arena: LnHirTacticArenaRef<'a>,
+        expr_arena: LnMirExprArenaRef<'a>,
+        stmt_arena: LnMirStmtArenaRef<'a>,
+        tactic_arena: LnMirTacticArenaRef<'a>,
         defn_arena: LnItemDefnArenaRef<'a>,
     ) -> Self {
         Self {
@@ -33,24 +33,24 @@ impl<'a> LnHirExprDisplayTreeBuilder<'a> {
     }
 }
 
-impl<'a> LnHirExprDisplayTreeBuilder<'a> {
-    pub fn render_expr(&self, expr: LnHirExprIdx) -> DisplayTree {
+impl<'a> LnMirExprDisplayTreeBuilder<'a> {
+    pub fn render_expr(&self, expr: LnMirExprIdx) -> DisplayTree {
         let db = self.db;
         let value = match self.expr_arena[expr] {
-            LnHirExprData::Literal(literal) => format!("literal: `{}`", literal.data(db)),
-            LnHirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
-            LnHirExprData::Variable { ident } => todo!(),
-            LnHirExprData::Prefix { opr, opd } => todo!(),
-            LnHirExprData::Suffix { opd, opr } => todo!(),
-            LnHirExprData::Binary { lopd, opr, ropd } => format!("binary: `{}`", opr),
-            LnHirExprData::Lambda {
+            LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data(db)),
+            LnMirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
+            LnMirExprData::Variable { ident } => todo!(),
+            LnMirExprData::Prefix { opr, opd } => todo!(),
+            LnMirExprData::Suffix { opd, opr } => todo!(),
+            LnMirExprData::Binary { lopd, opr, ropd } => format!("binary: `{}`", opr),
+            LnMirExprData::Lambda {
                 ref parameters,
                 body,
             } => todo!(),
-            LnHirExprData::Application {
+            LnMirExprData::Application {
                 function_and_arguments,
             } => todo!(),
-            LnHirExprData::Sorry => "sorry".to_string(),
+            LnMirExprData::Sorry => "sorry".to_string(),
         };
         let children = self.expr_arena[expr].children();
         DisplayTree::new(

@@ -4,7 +4,7 @@ mod expr;
 use crate::test_helpers::example::VdLeanTranspilationExample;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
-use visored_mir_expr::{builder::VdHirExprBuilder, ToVdHir};
+use visored_mir_expr::{builder::VdMirExprBuilder, ToVdMir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData};
 use visored_zfc_ty::menu::vd_zfc_ty_menu;
@@ -51,7 +51,7 @@ pub(crate) struct DB {}
 //         "1+1",
 //     );
 //     let vd_sem_expr_region_data = &builder.finish();
-//     let mut builder = VdHirExprBuilder::new(db, vd_sem_expr_region_data);
+//     let mut builder = VdMirExprBuilder::new(db, vd_sem_expr_region_data);
 //     let one_add_one = one_add_one.to_hir(&mut builder);
 //     let vd_hir_expr_region_data = &builder.finish();
 //     let mut builder = VdLeanTranspilationBuilder::new(db, vd_hir_expr_region_data);
@@ -99,7 +99,7 @@ pub(crate) struct DB {}
 //         "1+1=2",
 //     );
 //     let vd_sem_expr_region_data = &builder.finish();
-//     let mut builder = VdHirExprBuilder::new(db, vd_sem_expr_region_data);
+//     let mut builder = VdMirExprBuilder::new(db, vd_sem_expr_region_data);
 //     let one_add_one = one_add_one_eqs_two.to_hir(&mut builder);
 //     let vd_hir_expr_region_data = &builder.finish();
 //     let mut builder = VdLeanTranspilationBuilder::new(db, vd_hir_expr_region_data);

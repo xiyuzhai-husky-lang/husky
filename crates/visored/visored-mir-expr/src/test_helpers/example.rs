@@ -1,26 +1,26 @@
 use crate::{
-    builder::VdHirExprBuilder,
-    expr::{VdHirExprArena, VdHirExprIdx},
-    stmt::{VdHirStmtArena, VdHirStmtIdxRange},
+    builder::VdMirExprBuilder,
+    expr::{VdMirExprArena, VdMirExprIdx},
+    stmt::{VdMirStmtArena, VdMirStmtIdxRange},
     *,
 };
 use either::*;
-use expr::{application::VdHirApplicationFunction, VdHirExprData};
-use helpers::show::display_tree::VdHirExprDisplayTreeBuilder;
+use expr::{application::VdMirApplicationFunction, VdMirExprData};
+use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
-use symbol::local_defn::storage::VdHirSymbolLocalDefnStorage;
+use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_sem_expr::test_helpers::example::VdSemExprExample;
 
-pub struct VdHirExprExample {
-    pub expr_arena: VdHirExprArena,
-    pub stmt_arena: VdHirStmtArena,
-    pub symbol_local_defn_storage: VdHirSymbolLocalDefnStorage,
-    pub result: Either<VdHirExprIdx, VdHirStmtIdxRange>,
+pub struct VdMirExprExample {
+    pub expr_arena: VdMirExprArena,
+    pub stmt_arena: VdMirStmtArena,
+    pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
+    pub result: Either<VdMirExprIdx, VdMirStmtIdxRange>,
 }
 
-impl VdHirExprExample {
+impl VdMirExprExample {
     pub fn new(
         input: &str,
         root_mode: LxMode,
@@ -52,7 +52,7 @@ impl VdHirExprExample {
             symbol_local_defn_storage: sem_symbol_local_defn_storage,
             result,
         } = VdSemExprExample::new(input, root_mode, token_annotations, space_annotations, db);
-        let mut builder = VdHirExprBuilder::new(
+        let mut builder = VdMirExprBuilder::new(
             db,
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),
@@ -84,8 +84,8 @@ impl VdHirExprExample {
         }
     }
 
-    fn display_tree_builder<'a>(&'a self, db: &'a ::salsa::Db) -> VdHirExprDisplayTreeBuilder<'a> {
-        VdHirExprDisplayTreeBuilder::new(
+    fn display_tree_builder<'a>(&'a self, db: &'a ::salsa::Db) -> VdMirExprDisplayTreeBuilder<'a> {
+        VdMirExprDisplayTreeBuilder::new(
             db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),

@@ -3,7 +3,7 @@ pub mod application;
 pub mod tests;
 
 use crate::*;
-use application::VdHirApplicationFunction;
+use application::VdMirApplicationFunction;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_item_path::path::VdItemPath;
@@ -15,30 +15,30 @@ use visored_sem_expr::expr::{
 use visored_zfc_ty::term::literal::VdZfcLiteral;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum VdHirExprData {
+pub enum VdMirExprData {
     Literal(VdZfcLiteral),
-    Variable(VdHirVariable),
+    Variable(VdMirVariable),
     Application {
-        function: VdHirApplicationFunction,
-        arguments: VdHirExprIdxRange,
+        function: VdMirApplicationFunction,
+        arguments: VdMirExprIdxRange,
     },
     ItemPath(VdItemPath),
 }
 
-pub type VdHirExprArena = Arena<VdHirExprData>;
-pub type VdHirExprArenaRef<'a> = ArenaRef<'a, VdHirExprData>;
-pub type VdHirExprIdx = ArenaIdx<VdHirExprData>;
-pub type VdHirExprIdxRange = ArenaIdxRange<VdHirExprData>;
+pub type VdMirExprArena = Arena<VdMirExprData>;
+pub type VdMirExprArenaRef<'a> = ArenaRef<'a, VdMirExprData>;
+pub type VdMirExprIdx = ArenaIdx<VdMirExprData>;
+pub type VdMirExprIdxRange = ArenaIdxRange<VdMirExprData>;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VdHirLiteral {}
+pub struct VdMirLiteral {}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub struct VdHirVariable {}
+pub struct VdMirVariable {}
 
-impl ToVdHir<VdHirExprIdxRange> for VdSemExprIdxRange {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdxRange {
-        let mut exprs: Vec<VdHirExprData> = Vec::with_capacity(self.len());
+impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+        let mut exprs: Vec<VdMirExprData> = Vec::with_capacity(self.len());
         for expr in self {
             exprs.push(builder.build_expr(expr));
         }
@@ -46,15 +46,15 @@ impl ToVdHir<VdHirExprIdxRange> for VdSemExprIdxRange {
     }
 }
 
-impl ToVdHir<VdHirExprIdx> for VdSemExprIdx {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdx {
+impl ToVdMir<VdMirExprIdx> for VdSemExprIdx {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdx {
         let data = builder.build_expr(self);
         builder.alloc_expr(data)
     }
 }
 
-impl<const N: usize> ToVdHir<VdHirExprIdxRange> for [VdSemExprIdx; N] {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirExprIdxRange {
+impl<const N: usize> ToVdMir<VdMirExprIdxRange> for [VdSemExprIdx; N] {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
         let data = self
             .into_iter()
             .map(|expr| builder.build_expr(expr))
@@ -63,19 +63,19 @@ impl<const N: usize> ToVdHir<VdHirExprIdxRange> for [VdSemExprIdx; N] {
     }
 }
 
-impl<'db> VdHirExprBuilder<'db> {
-    fn build_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdHirExprData {
+impl<'db> VdMirExprBuilder<'db> {
+    fn build_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprData {
         match *self.sem_expr_arena()[sem_expr_idx].data() {
-            VdSemExprData::Literal { literal, .. } => VdHirExprData::Literal(literal),
+            VdSemExprData::Literal { literal, .. } => VdMirExprData::Literal(literal),
             VdSemExprData::Binary {
                 lopd,
                 opr,
                 ropd,
                 ref dispatch,
-            } => VdHirExprData::Application {
+            } => VdMirExprData::Application {
                 function: match dispatch {
-                    VdSemBinaryDispatch::IntAdd => VdHirApplicationFunction::IntAdd,
-                    VdSemBinaryDispatch::TrivialEq => VdHirApplicationFunction::TrivialEq,
+                    VdSemBinaryDispatch::IntAdd => VdMirApplicationFunction::IntAdd,
+                    VdSemBinaryDispatch::TrivialEq => VdMirApplicationFunction::TrivialEq,
                 },
                 arguments: [lopd, ropd].to_vd_hir(self),
             },
@@ -101,17 +101,17 @@ impl<'db> VdHirExprBuilder<'db> {
             } => match dispatch {
                 VdSemLetterDispatch::Global(global_resolution) => match *global_resolution {
                     VdLetterGlobalResolution::Item(vd_item_path) => {
-                        VdHirExprData::ItemPath(vd_item_path)
+                        VdMirExprData::ItemPath(vd_item_path)
                     }
                 },
-                VdSemLetterDispatch::Local(local_defn) => VdHirExprData::Variable(VdHirVariable {}),
+                VdSemLetterDispatch::Local(local_defn) => VdMirExprData::Variable(VdMirVariable {}),
             },
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {
                 items,
                 ref dispatch,
                 ..
-            } => VdHirExprData::Application {
+            } => VdMirExprData::Application {
                 function: match dispatch {
                     VdSemSeparatedListDispatch::Normal {
                         base_separator,

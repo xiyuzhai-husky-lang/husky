@@ -11,22 +11,22 @@ pub mod test_helpers;
 #[cfg(test)]
 mod tests;
 
-use self::builder::VdHirExprBuilder;
+use self::builder::VdMirExprBuilder;
 use self::jar::VdMirExprJar as Jar;
 #[cfg(test)]
 use self::tests::*;
 use either::*;
 
-pub trait ToVdHir<T>: Copy {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> T;
+pub trait ToVdMir<T>: Copy {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> T;
 }
 
-impl<L, R, S, T> ToVdHir<Either<S, T>> for Either<L, R>
+impl<L, R, S, T> ToVdMir<Either<S, T>> for Either<L, R>
 where
-    L: ToVdHir<S>,
-    R: ToVdHir<T>,
+    L: ToVdMir<S>,
+    R: ToVdMir<T>,
 {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> Either<S, T> {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> Either<S, T> {
         match self {
             Either::Left(l) => Either::Left(l.to_vd_hir(builder)),
             Either::Right(r) => Either::Right(r.to_vd_hir(builder)),

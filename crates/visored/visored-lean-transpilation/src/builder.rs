@@ -1,26 +1,26 @@
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
     builder::LeanHirExprBuilder,
-    expr::LnHirExprArena,
+    expr::LnMirExprArena,
     item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
-    stmt::LnHirStmtArena,
-    tactic::LnHirTacticArena,
+    stmt::LnMirStmtArena,
+    tactic::LnMirTacticArena,
 };
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
 use visored_mir_expr::{
-    expr::VdHirExprArenaRef,
-    region::VdHirExprRegionData,
-    stmt::VdHirStmtArenaRef,
-    symbol::local_defn::{storage::VdHirSymbolLocalDefnStorage, VdHirSymbolLocalDefnIdx},
+    expr::VdMirExprArenaRef,
+    region::VdMirExprRegionData,
+    stmt::VdMirStmtArenaRef,
+    symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
 };
 
 use crate::{dictionary::VdLeanTranspilationDictionary, mangle::VdLeanTranspilationMangler};
 
 pub struct VdLeanTranspilationBuilder<'a> {
     lean_hir_expr_builder: LeanHirExprBuilder<'a>,
-    expr_arena: VdHirExprArenaRef<'a>,
-    stmt_arena: VdHirStmtArenaRef<'a>,
+    expr_arena: VdMirExprArenaRef<'a>,
+    stmt_arena: VdMirStmtArenaRef<'a>,
     dictionary: &'a VdLeanTranspilationDictionary,
     mangler: VdLeanTranspilationMangler,
 }
@@ -28,7 +28,7 @@ pub struct VdLeanTranspilationBuilder<'a> {
 impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
         db: &'a ::salsa::Db,
-        vd_hir_expr_region_data: &'a VdHirExprRegionData,
+        vd_hir_expr_region_data: &'a VdMirExprRegionData,
         dictionary: &'a VdLeanTranspilationDictionary,
     ) -> Self {
         Self::new(
@@ -42,9 +42,9 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
 
     pub fn new(
         db: &'a ::salsa::Db,
-        expr_arena: VdHirExprArenaRef<'a>,
-        stmt_arena: VdHirStmtArenaRef<'a>,
-        symbol_local_defn_storage: &'a VdHirSymbolLocalDefnStorage,
+        expr_arena: VdMirExprArenaRef<'a>,
+        stmt_arena: VdMirStmtArenaRef<'a>,
+        symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
         dictionary: &'a VdLeanTranspilationDictionary,
     ) -> Self {
         Self {
@@ -56,17 +56,17 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         }
     }
 
-    pub(crate) fn mangled_symbol(&mut self, symbol_local_defn: VdHirSymbolLocalDefnIdx) -> LnIdent {
+    pub(crate) fn mangled_symbol(&mut self, symbol_local_defn: VdMirSymbolLocalDefnIdx) -> LnIdent {
         self.mangler.mangled_symbol(symbol_local_defn)
     }
 }
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
-    pub fn expr_arena(&self) -> VdHirExprArenaRef<'db> {
+    pub fn expr_arena(&self) -> VdMirExprArenaRef<'db> {
         self.expr_arena
     }
 
-    pub fn stmt_arena(&self) -> VdHirStmtArenaRef<'db> {
+    pub fn stmt_arena(&self) -> VdMirStmtArenaRef<'db> {
         self.stmt_arena
     }
 
@@ -93,9 +93,9 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
     pub fn finish(
         self,
     ) -> (
-        LnHirExprArena,
-        LnHirStmtArena,
-        LnHirTacticArena,
+        LnMirExprArena,
+        LnMirStmtArena,
+        LnMirTacticArena,
         LnItemDefnArena,
     ) {
         self.lean_hir_expr_builder.finish()

@@ -9,7 +9,7 @@ use lean_term::term::literal::LnLiteral;
 use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum LnHirExprData {
+pub enum LnMirExprData {
     Literal(LnLiteral),
     ItemPath(LnItemPath),
     Variable {
@@ -17,61 +17,61 @@ pub enum LnHirExprData {
     },
     Prefix {
         opr: LnPrefixOpr,
-        opd: LnHirExprIdx,
+        opd: LnMirExprIdx,
     },
     Suffix {
-        opd: LnHirExprIdx,
+        opd: LnMirExprIdx,
         opr: LnSuffixOpr,
     },
     Binary {
-        lopd: LnHirExprIdx,
+        lopd: LnMirExprIdx,
         opr: LnBinaryOpr,
-        ropd: LnHirExprIdx,
+        ropd: LnMirExprIdx,
     },
     Lambda {
-        parameters: LnHirLambdaParameters,
-        body: LnHirExprIdx,
+        parameters: LnMirLambdaParameters,
+        body: LnMirExprIdx,
     },
     Application {
-        function_and_arguments: LnHirExprIdxRange,
+        function_and_arguments: LnMirExprIdxRange,
     },
     Sorry,
 }
 
-pub type LnHirExprArena = Arena<LnHirExprData>;
-pub type LnHirExprArenaRef<'a> = ArenaRef<'a, LnHirExprData>;
-pub type LnHirExprIdx = ArenaIdx<LnHirExprData>;
-pub type LnHirExprIdxRange = ArenaIdxRange<LnHirExprData>;
+pub type LnMirExprArena = Arena<LnMirExprData>;
+pub type LnMirExprArenaRef<'a> = ArenaRef<'a, LnMirExprData>;
+pub type LnMirExprIdx = ArenaIdx<LnMirExprData>;
+pub type LnMirExprIdxRange = ArenaIdxRange<LnMirExprData>;
 
-impl LnHirExprData {
+impl LnMirExprData {
     pub(crate) fn outer_precedence(&self) -> LnPrecedence {
         match self {
-            LnHirExprData::ItemPath(_)
-            | LnHirExprData::Variable { .. }
-            | LnHirExprData::Literal(_)
-            | LnHirExprData::Sorry => LnPrecedence::Atom,
-            LnHirExprData::Prefix { opr, opd } => todo!(),
-            LnHirExprData::Suffix { opd, opr } => todo!(),
-            LnHirExprData::Binary { lopd, opr, ropd } => opr.outer_precedence(),
-            LnHirExprData::Lambda { parameters, body } => todo!(),
-            LnHirExprData::Application {
+            LnMirExprData::ItemPath(_)
+            | LnMirExprData::Variable { .. }
+            | LnMirExprData::Literal(_)
+            | LnMirExprData::Sorry => LnPrecedence::Atom,
+            LnMirExprData::Prefix { opr, opd } => todo!(),
+            LnMirExprData::Suffix { opd, opr } => todo!(),
+            LnMirExprData::Binary { lopd, opr, ropd } => opr.outer_precedence(),
+            LnMirExprData::Lambda { parameters, body } => todo!(),
+            LnMirExprData::Application {
                 function_and_arguments,
             } => todo!(),
         }
     }
 
-    pub(crate) fn children(&self) -> Vec<LnHirExprIdx> {
+    pub(crate) fn children(&self) -> Vec<LnMirExprIdx> {
         match *self {
-            LnHirExprData::ItemPath(_) | LnHirExprData::Literal(_) | LnHirExprData::Sorry => vec![],
-            LnHirExprData::Variable { ident } => todo!(),
-            LnHirExprData::Prefix { opr, opd } => todo!(),
-            LnHirExprData::Suffix { opd, opr } => todo!(),
-            LnHirExprData::Binary { lopd, opr, ropd } => vec![lopd, ropd],
-            LnHirExprData::Lambda {
+            LnMirExprData::ItemPath(_) | LnMirExprData::Literal(_) | LnMirExprData::Sorry => vec![],
+            LnMirExprData::Variable { ident } => todo!(),
+            LnMirExprData::Prefix { opr, opd } => todo!(),
+            LnMirExprData::Suffix { opd, opr } => todo!(),
+            LnMirExprData::Binary { lopd, opr, ropd } => vec![lopd, ropd],
+            LnMirExprData::Lambda {
                 ref parameters,
                 body,
             } => todo!(),
-            LnHirExprData::Application {
+            LnMirExprData::Application {
                 function_and_arguments,
             } => todo!(),
         }
@@ -79,19 +79,19 @@ impl LnHirExprData {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct LnHirLambdaParameter {
+pub struct LnMirLambdaParameter {
     ident: LnIdent,
-    ty: LnHirExprIdx,
+    ty: LnMirExprIdx,
 }
 
-impl LnHirLambdaParameter {
+impl LnMirLambdaParameter {
     pub fn ident(&self) -> LnIdent {
         self.ident
     }
 
-    pub fn ty(&self) -> LnHirExprIdx {
+    pub fn ty(&self) -> LnMirExprIdx {
         self.ty
     }
 }
 
-pub type LnHirLambdaParameters = SmallVec<[LnHirLambdaParameter; 4]>;
+pub type LnMirLambdaParameters = SmallVec<[LnMirLambdaParameter; 4]>;

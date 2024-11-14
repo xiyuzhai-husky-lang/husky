@@ -1,16 +1,16 @@
 use crate::{
-    expr::{LnHirExprArena, LnHirExprData, LnHirExprIdx, LnHirExprIdxRange},
-    helpers::fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
+    expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
+    helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
     item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
-    stmt::{LnHirStmtArena, LnHirStmtData, LnHirStmtIdx, LnHirStmtIdxRange},
-    tactic::{LnHirTacticArena, LnHirTacticData, LnHirTacticIdx, LnHirTacticIdxRange},
+    stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
+    tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
 
 pub struct LeanHirExprBuilder<'db> {
     db: &'db ::salsa::Db,
-    expr_arena: LnHirExprArena,
-    stmt_arena: LnHirStmtArena,
-    tactic_arena: LnHirTacticArena,
+    expr_arena: LnMirExprArena,
+    stmt_arena: LnMirStmtArena,
+    tactic_arena: LnMirTacticArena,
     item_defn_arena: LnItemDefnArena,
 }
 
@@ -31,8 +31,8 @@ impl<'db> LeanHirExprBuilder<'db> {
         self.db
     }
 
-    pub fn formatter<'a>(&'a self, config: &'a LnHirExprFormatterConfig) -> LnHirExprFormatter<'a> {
-        LnHirExprFormatter::new(
+    pub fn formatter<'a>(&'a self, config: &'a LnMirExprFormatterConfig) -> LnMirExprFormatter<'a> {
+        LnMirExprFormatter::new(
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
@@ -44,36 +44,36 @@ impl<'db> LeanHirExprBuilder<'db> {
 }
 
 impl<'db> LeanHirExprBuilder<'db> {
-    pub fn alloc_expr(&mut self, data: LnHirExprData) -> LnHirExprIdx {
+    pub fn alloc_expr(&mut self, data: LnMirExprData) -> LnMirExprIdx {
         self.expr_arena.alloc_one(data)
     }
 
     pub fn alloc_exprs(
         &mut self,
-        data: impl IntoIterator<Item = LnHirExprData>,
-    ) -> LnHirExprIdxRange {
+        data: impl IntoIterator<Item = LnMirExprData>,
+    ) -> LnMirExprIdxRange {
         self.expr_arena.alloc_batch(data)
     }
 
-    pub fn alloc_stmt(&mut self, data: LnHirStmtData) -> LnHirStmtIdx {
+    pub fn alloc_stmt(&mut self, data: LnMirStmtData) -> LnMirStmtIdx {
         self.stmt_arena.alloc_one(data)
     }
 
     pub fn alloc_stmts(
         &mut self,
-        data: impl IntoIterator<Item = LnHirStmtData>,
-    ) -> LnHirStmtIdxRange {
+        data: impl IntoIterator<Item = LnMirStmtData>,
+    ) -> LnMirStmtIdxRange {
         self.stmt_arena.alloc_batch(data)
     }
 
-    pub fn alloc_tactic(&mut self, data: LnHirTacticData) -> LnHirTacticIdx {
+    pub fn alloc_tactic(&mut self, data: LnMirTacticData) -> LnMirTacticIdx {
         self.tactic_arena.alloc_one(data)
     }
 
     pub fn alloc_tactics(
         &mut self,
-        data: impl IntoIterator<Item = LnHirTacticData>,
-    ) -> LnHirTacticIdxRange {
+        data: impl IntoIterator<Item = LnMirTacticData>,
+    ) -> LnMirTacticIdxRange {
         self.tactic_arena.alloc_batch(data)
     }
 
@@ -84,9 +84,9 @@ impl<'db> LeanHirExprBuilder<'db> {
     pub fn finish(
         self,
     ) -> (
-        LnHirExprArena,
-        LnHirStmtArena,
-        LnHirTacticArena,
+        LnMirExprArena,
+        LnMirStmtArena,
+        LnMirTacticArena,
         LnItemDefnArena,
     ) {
         (
