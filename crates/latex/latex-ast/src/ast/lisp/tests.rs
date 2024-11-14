@@ -25,6 +25,27 @@ fn parse_literal_lisp_latex_input_into_asts_works() {
             └─ 0.0
         "#]],
     );
+    t(
+        "\"hilbert nullstellensatz\"",
+        expect![[r#"
+            "hilbert nullstellensatz"
+            └─ "hilbert nullstellensatz"
+        "#]],
+    );
+    t(
+        "\"\\\"\"",
+        expect![[r#"
+            "\""
+            └─ "\""
+        "#]],
+    );
+    t(
+        "\"\\\\\"",
+        expect![[r#"
+            "\\"
+            └─ "\\"
+        "#]],
+    );
 }
 
 #[test]

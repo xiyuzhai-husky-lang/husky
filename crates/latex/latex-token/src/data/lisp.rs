@@ -95,6 +95,25 @@ impl<'a> LxLexer<'a> {
                 );
                 LxLispTokenData::Xlabel(label)
             }
+            '"' => {
+                let mut data = String::new();
+                self.chars.eat_char();
+                loop {
+                    let Some(c) = self.chars.next() else { todo!() };
+                    match c {
+                        '"' => break,
+                        '\\' => {
+                            let Some(c) = self.chars.next() else { todo!() };
+                            match c {
+                                '\\' | '"' => data.push(c),
+                                _ => todo!(),
+                            }
+                        }
+                        c => data.push(c),
+                    }
+                }
+                LxLispTokenData::Literal(LxLispLiteral::String(Coword::from_owned(db, data)))
+            }
             c => {
                 self.chars.eat_char();
                 match c {
