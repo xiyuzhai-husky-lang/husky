@@ -1,20 +1,20 @@
 use crate::{
-    expr::{VdHirExprArena, VdHirExprArenaRef},
-    stmt::{VdHirStmtArena, VdHirStmtArenaRef},
-    symbol::local_defn::storage::VdHirSymbolLocalDefnStorage,
+    expr::{VdMirExprArena, VdMirExprArenaRef},
+    stmt::{VdMirStmtArena, VdMirStmtArenaRef},
+    symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
 };
 
-pub struct VdHirExprRegionData {
-    expr_arena: VdHirExprArena,
-    stmt_arena: VdHirStmtArena,
-    symbol_local_defn_storage: VdHirSymbolLocalDefnStorage,
+pub struct VdMirExprRegionData {
+    expr_arena: VdMirExprArena,
+    stmt_arena: VdMirStmtArena,
+    symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
 }
 
-impl VdHirExprRegionData {
+impl VdMirExprRegionData {
     pub fn new(
-        expr_arena: VdHirExprArena,
-        stmt_arena: VdHirStmtArena,
-        symbol_local_defn_storage: VdHirSymbolLocalDefnStorage,
+        expr_arena: VdMirExprArena,
+        stmt_arena: VdMirStmtArena,
+        symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     ) -> Self {
         Self {
             expr_arena,
@@ -24,16 +24,16 @@ impl VdHirExprRegionData {
     }
 }
 
-impl VdHirExprRegionData {
-    pub fn expr_arena(&self) -> VdHirExprArenaRef {
+impl VdMirExprRegionData {
+    pub fn expr_arena(&self) -> VdMirExprArenaRef {
         self.expr_arena.as_arena_ref()
     }
 
-    pub fn stmt_arena(&self) -> VdHirStmtArenaRef {
+    pub fn stmt_arena(&self) -> VdMirStmtArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 
-    pub fn symbol_local_defn_storage(&self) -> &VdHirSymbolLocalDefnStorage {
+    pub fn symbol_local_defn_storage(&self) -> &VdMirSymbolLocalDefnStorage {
         &self.symbol_local_defn_storage
     }
 }

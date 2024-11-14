@@ -1,7 +1,7 @@
 pub mod block;
 
 use self::block::*;
-use crate::{expr::VdHirExprIdx, pattern::VdHirPattern, *};
+use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use visored_sem_expr::{
     clause::{r#let::VdSemLetClauseDispatch, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},
@@ -11,31 +11,31 @@ use visored_sem_expr::{
 use visored_zfc_ty::ty::VdZfcType;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdHirStmtData {
+pub enum VdMirStmtData {
     // Add appropriate variants here, for example:
-    Expression(VdHirExprIdx),
+    Expression(VdMirExprIdx),
     Block {
-        stmts: VdHirStmtIdxRange,
-        meta: VdHirBlockMeta,
+        stmts: VdMirStmtIdxRange,
+        meta: VdMirBlockMeta,
     },
     LetPlaceholder {
-        pattern: VdHirPattern,
+        pattern: VdMirPattern,
         ty: VdZfcType,
     },
     LetAssigned {
-        pattern: VdHirPattern,
-        assignment: VdHirExprIdx,
+        pattern: VdMirPattern,
+        assignment: VdMirExprIdx,
     },
     // Add more variants as needed
 }
 
-pub type VdHirStmtArena = Arena<VdHirStmtData>;
-pub type VdHirStmtArenaRef<'a> = ArenaRef<'a, VdHirStmtData>;
-pub type VdHirStmtIdx = ArenaIdx<VdHirStmtData>;
-pub type VdHirStmtIdxRange = ArenaIdxRange<VdHirStmtData>;
+pub type VdMirStmtArena = Arena<VdMirStmtData>;
+pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
+pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
+pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
 
-impl ToVdHir<VdHirStmtIdxRange> for VdSemStmtIdxRange {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirStmtIdxRange {
+impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
             .map(|stmt| builder.build_stmt_from_sem_stmt(stmt))
@@ -44,20 +44,20 @@ impl ToVdHir<VdHirStmtIdxRange> for VdSemStmtIdxRange {
     }
 }
 
-impl<'db> VdHirExprBuilder<'db> {
-    fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemStmtIdx) -> VdHirStmtData {
+impl<'db> VdMirExprBuilder<'db> {
+    fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemStmtIdx) -> VdMirStmtData {
         match self.sem_stmt_arena()[stmt] {
-            VdSemStmtData::Paragraph(sentences) => VdHirStmtData::Block {
+            VdSemStmtData::Paragraph(sentences) => VdMirStmtData::Block {
                 stmts: sentences.to_vd_hir(self),
-                meta: VdHirBlockMeta::Paragraph,
+                meta: VdMirBlockMeta::Paragraph,
             },
             VdSemStmtData::Block { environment, stmts } => todo!(),
         }
     }
 }
 
-impl ToVdHir<VdHirStmtIdxRange> for VdSemSentenceIdxRange {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirStmtIdxRange {
+impl ToVdMir<VdMirStmtIdxRange> for VdSemSentenceIdxRange {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
             .map(|sentence| builder.build_stmt_from_sem_sentence(sentence))
@@ -66,19 +66,19 @@ impl ToVdHir<VdHirStmtIdxRange> for VdSemSentenceIdxRange {
     }
 }
 
-impl<'db> VdHirExprBuilder<'db> {
-    fn build_stmt_from_sem_sentence(&mut self, sentence: VdSemSentenceIdx) -> VdHirStmtData {
+impl<'db> VdMirExprBuilder<'db> {
+    fn build_stmt_from_sem_sentence(&mut self, sentence: VdSemSentenceIdx) -> VdMirStmtData {
         match self.sem_sentence_arena()[sentence] {
-            VdSemSentenceData::Clauses { clauses, end } => VdHirStmtData::Block {
+            VdSemSentenceData::Clauses { clauses, end } => VdMirStmtData::Block {
                 stmts: clauses.to_vd_hir(self),
-                meta: VdHirBlockMeta::Sentence,
+                meta: VdMirBlockMeta::Sentence,
             },
         }
     }
 }
 
-impl ToVdHir<VdHirStmtIdxRange> for VdSemClauseIdxRange {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirStmtIdxRange {
+impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
             .map(|clause| builder.build_stmt_from_sem_clause(clause))
@@ -87,8 +87,8 @@ impl ToVdHir<VdHirStmtIdxRange> for VdSemClauseIdxRange {
     }
 }
 
-impl<'db> VdHirExprBuilder<'db> {
-    fn build_stmt_from_sem_clause(&mut self, clause: VdSemClauseIdx) -> VdHirStmtData {
+impl<'db> VdMirExprBuilder<'db> {
+    fn build_stmt_from_sem_clause(&mut self, clause: VdSemClauseIdx) -> VdMirStmtData {
         match self.sem_clause_arena()[clause] {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
@@ -99,7 +99,7 @@ impl<'db> VdHirExprBuilder<'db> {
                 ref dispatch,
             } => match dispatch {
                 VdSemLetClauseDispatch::Assigned(dispatch) => todo!(),
-                VdSemLetClauseDispatch::Placeholder(dispatch) => VdHirStmtData::LetPlaceholder {
+                VdSemLetClauseDispatch::Placeholder(dispatch) => VdMirStmtData::LetPlaceholder {
                     pattern: dispatch.pattern().to_vd_hir(self),
                     ty: dispatch.ty(),
                 },

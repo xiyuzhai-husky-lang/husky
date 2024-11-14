@@ -3,9 +3,9 @@ use lean_coword::ident::LnIdent;
 use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum LnHirStmtData {}
+pub enum LnMirStmtData {}
 
-pub type LnHirStmtArena = Arena<LnHirStmtData>;
-pub type LnHirStmtArenaRef<'a> = ArenaRef<'a, LnHirStmtData>;
-pub type LnHirStmtIdx = ArenaIdx<LnHirStmtData>;
-pub type LnHirStmtIdxRange = ArenaIdxRange<LnHirStmtData>;
+pub type LnMirStmtArena = Arena<LnMirStmtData>;
+pub type LnMirStmtArenaRef<'a> = ArenaRef<'a, LnMirStmtData>;
+pub type LnMirStmtIdx = ArenaIdx<LnMirStmtData>;
+pub type LnMirStmtIdxRange = ArenaIdxRange<LnMirStmtData>;
