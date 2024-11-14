@@ -30,7 +30,7 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
-use visored_global_resolution::table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 use visored_syn_expr::{
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,

@@ -4,12 +4,12 @@ use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_item_path::path::VdItemPath;
 
 use crate::{
+    default_table::VdDefaultGlobalResolutionTable,
     resolution::{
         command::{VdCompleteCommandGlobalResolution, VdCompleteCommandGlobalResolutionMap},
         letter::{VdLetterGlobalResolution, VdLetterGlobalResolutionMap},
         punctuation::VdPunctuationGlobalResolution,
     },
-    table::VdDefaultGlobalResolutionTable,
 };
 
 impl VdDefaultGlobalResolutionTable {
