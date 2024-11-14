@@ -8297,7 +8297,14 @@ name = "lean-hir-defn"
 version = "0.1.0"
 
 [[package]]
-name = "lean-hir-expr"
+name = "lean-item-path"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+]
+
+[[package]]
+name = "lean-mir-expr"
 version = "0.1.0"
 dependencies = [
  "husky-tree-utils",
@@ -8308,13 +8315,6 @@ dependencies = [
  "lean-term",
  "salsa",
  "smallvec",
-]
-
-[[package]]
-name = "lean-item-path"
-version = "0.1.0"
-dependencies = [
- "salsa",
 ]
 
 [[package]]
@@ -12596,33 +12596,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-hir-expr"
-version = "0.1.0"
-dependencies = [
- "either",
- "expect-test",
- "husky-coword",
- "husky-tree-utils",
- "idx-arena",
- "latex-ast",
- "latex-command",
- "latex-environment",
- "latex-math-letter",
- "latex-prelude",
- "salsa",
- "visored-annotation",
- "visored-global-dispatch",
- "visored-global-resolution",
- "visored-hir-expr",
- "visored-item-path",
- "visored-opr",
- "visored-sem-expr",
- "visored-signature",
- "visored-syn-expr",
- "visored-zfc-ty",
-]
-
-[[package]]
 name = "visored-isabelle-hol-transpilation"
 version = "0.1.0"
 dependencies = [
@@ -12650,8 +12623,8 @@ dependencies = [
  "latex-environment",
  "latex-prelude",
  "lean-coword",
- "lean-hir-expr",
  "lean-item-path",
+ "lean-mir-expr",
  "lean-opr",
  "lean-sem-expr",
  "lean-term",
@@ -12659,9 +12632,36 @@ dependencies = [
  "salsa",
  "visored-annotation",
  "visored-global-dispatch",
- "visored-hir-expr",
  "visored-item-path",
  "visored-lean-transpilation",
+ "visored-mir-expr",
+ "visored-opr",
+ "visored-sem-expr",
+ "visored-signature",
+ "visored-syn-expr",
+ "visored-zfc-ty",
+]
+
+[[package]]
+name = "visored-mir-expr"
+version = "0.1.0"
+dependencies = [
+ "either",
+ "expect-test",
+ "husky-coword",
+ "husky-tree-utils",
+ "idx-arena",
+ "latex-ast",
+ "latex-command",
+ "latex-environment",
+ "latex-math-letter",
+ "latex-prelude",
+ "salsa",
+ "visored-annotation",
+ "visored-global-dispatch",
+ "visored-global-resolution",
+ "visored-item-path",
+ "visored-mir-expr",
  "visored-opr",
  "visored-sem-expr",
  "visored-signature",

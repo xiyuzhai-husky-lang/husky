@@ -1,7 +1,7 @@
 use crate::*;
 use lean_coword::ident::LnIdent;
 use rustc_hash::FxHashMap;
-use visored_hir_expr::symbol::local_defn::{
+use visored_mir_expr::symbol::local_defn::{
     storage::VdHirSymbolLocalDefnStorage, VdHirSymbolLocalDefnHead, VdHirSymbolLocalDefnIdx,
     VdHirSymbolLocalDefnOrderedMap,
 };

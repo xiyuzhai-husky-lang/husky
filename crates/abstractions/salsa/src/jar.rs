@@ -161,7 +161,7 @@ pub enum JarIndex {
     // lean
     LnTermJar,
     LnSemExprJar,
-    LnHirExprJar,
+    LnMirExprJar,
     // lex
     TextJar,
     TokenJar,
@@ -198,7 +198,7 @@ pub enum JarIndex {
     VdOprJar,
     VdSynExprJar,
     VdSemExprJar,
-    VdHirExprJar,
+    VdMirExprJar,
     VdLeanTranspilationJar,
     VdItemPathJar,
     VdSignatureJar,

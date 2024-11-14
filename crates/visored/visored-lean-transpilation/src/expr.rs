@@ -1,9 +1,9 @@
 use super::VdTranspileToLean;
 use crate::{builder::VdLeanTranspilationBuilder, dictionary::item_path::VdItemPathTranslation};
-use lean_hir_expr::expr::{LnHirExprData, LnHirExprIdx};
+use lean_mir_expr::expr::{LnHirExprData, LnHirExprIdx};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::term::literal::{LnLiteral, LnLiteralData};
-use visored_hir_expr::expr::{application::VdHirApplicationFunction, VdHirExprData, VdHirExprIdx};
+use visored_mir_expr::expr::{application::VdHirApplicationFunction, VdHirExprData, VdHirExprIdx};
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 impl VdTranspileToLean<LnHirExprIdx> for VdHirExprIdx {
