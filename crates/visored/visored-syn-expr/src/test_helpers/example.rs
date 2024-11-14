@@ -28,7 +28,7 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
-use visored_global_resolution::table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynExprExample {
     pub input: String,

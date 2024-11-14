@@ -12571,6 +12571,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-global-dispatch"
+version = "0.1.0"
+
+[[package]]
 name = "visored-global-resolution"
 version = "0.1.0"
 dependencies = [
