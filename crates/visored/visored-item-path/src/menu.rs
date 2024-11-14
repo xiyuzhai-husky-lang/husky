@@ -7,7 +7,7 @@ use crate::path::{
 pub struct VdItemPathMenu {
     // # categories
     pub set: VdCategoryPath,
-    pub proposition: VdCategoryPath,
+    pub prop: VdCategoryPath,
     // # sets
     pub nat: VdSetPath,
     pub rat: VdSetPath,
@@ -32,7 +32,7 @@ impl VdItemPathMenu {
         Self {
             // # categories
             set: VdCategoryPath::SET,
-            proposition: VdCategoryPath::PROPOSITION,
+            prop: VdCategoryPath::PROPOSITION,
             // # sets
             nat: VdSetPath::NATURAL_NUMBER,
             rat: VdSetPath::RATIONAL_NUMBER,
