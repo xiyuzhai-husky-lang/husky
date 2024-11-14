@@ -17,6 +17,7 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
     lean_hir_expr::jar::LnHirExprJar,
+    visored_item_path::jar::VdItemPathJar,
     visored_zfc_ty::jar::VdZfcTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,

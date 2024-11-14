@@ -1183,11 +1183,13 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "visored-item-path",
     "visored-opr",
     "visored-sem-expr",
     "visored-syn-expr",
     "visored-zfc-ty"
   ],
+  "visored-item-path": [],
   "visored-lean-transpilation": [
     "husky-coword",
     "latex-ast",
@@ -1197,6 +1199,7 @@
     "lean-sem-expr",
     "lean-term",
     "visored-hir-expr",
+    "visored-item-path",
     "visored-opr",
     "visored-sem-expr",
     "visored-syn-expr",
@@ -1208,11 +1211,13 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "visored-item-path",
     "visored-opr",
     "visored-syn-expr",
     "visored-zfc-ty"
   ],
   "visored-signature": [
+    "visored-item-path",
     "visored-zfc-ty"
   ],
   "visored-syn-expr": [
@@ -1220,8 +1225,11 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "visored-item-path",
     "visored-opr",
     "visored-zfc-ty"
   ],
-  "visored-zfc-ty": []
+  "visored-zfc-ty": [
+    "visored-item-path"
+  ]
 }

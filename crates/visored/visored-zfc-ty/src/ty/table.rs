@@ -18,11 +18,11 @@ impl VdItemPathZfcTypeTable {
         // let vd_item_path_menu = todo!();
         let zfc_ty_menu = vd_zfc_ty_menu(db);
         Self::new([
-            (VdItemPath::NATURAL_NUMBER, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::RATIONAL_NUMBER, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::INTEGER, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::REAL_NUMBER, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::COMPLEX_NUMBER, zfc_ty_menu.set_category_ty()),
+            (VdItemPath::NAT, zfc_ty_menu.set_category_ty()),
+            (VdItemPath::RAT, zfc_ty_menu.set_category_ty()),
+            (VdItemPath::INT, zfc_ty_menu.set_category_ty()),
+            (VdItemPath::REAL, zfc_ty_menu.set_category_ty()),
+            (VdItemPath::COMPLEX, zfc_ty_menu.set_category_ty()),
         ])
     }
 }

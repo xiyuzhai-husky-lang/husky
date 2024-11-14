@@ -8,6 +8,7 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
+    visored_item_path::jar::VdItemPathJar,
     visored_zfc_ty::jar::VdZfcTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
