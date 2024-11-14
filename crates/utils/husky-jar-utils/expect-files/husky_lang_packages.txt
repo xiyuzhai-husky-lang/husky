@@ -4336,6 +4336,7 @@
             "latex-ast",
             "latex-command",
             "latex-environment",
+            "visored-item-path",
             "visored-sem-expr",
             "visored-syn-expr",
         ],
@@ -4367,6 +4368,7 @@
             "husky-coword",
             "latex-command",
             "latex-environment",
+            "visored-item-path",
         ],
     },
     PackageSummary {
@@ -4398,6 +4400,7 @@
             "expect-test",
             "husky-coword",
             "latex-command",
+            "visored-item-path",
         ],
     },
     PackageSummary {

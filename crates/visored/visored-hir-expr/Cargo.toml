@@ -38,6 +38,7 @@ latex-environment.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored
+visored-item-path.workspace = true
 visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
 visored-hir-expr = { workspace = true, features = ["test_helpers"] }
