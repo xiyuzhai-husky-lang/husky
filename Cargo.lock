@@ -12620,6 +12620,7 @@ dependencies = [
 name = "visored-item-path"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "salsa",
 ]
 
