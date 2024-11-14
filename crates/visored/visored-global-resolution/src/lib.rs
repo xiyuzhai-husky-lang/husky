@@ -1,3 +1,3 @@
 pub mod helpers;
 pub mod resolution;
-pub mod table;
+pub mod default_table;

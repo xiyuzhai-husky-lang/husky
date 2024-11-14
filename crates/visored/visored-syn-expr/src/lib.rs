@@ -35,4 +35,4 @@ use sentence::VdSynSentenceArena;
 use smallvec::SmallVec;
 use stmt::VdSynStmtArena;
 use visored_annotation::annotations::VdAnnotations;
-use visored_global_resolution::table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
