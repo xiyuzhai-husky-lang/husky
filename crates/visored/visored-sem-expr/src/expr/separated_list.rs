@@ -1,6 +1,7 @@
 use super::*;
 use smallvec::{smallvec, SmallVec};
 use visored_global_dispatch::dispatch::separator::VdSeparatorGlobalDispatch;
+use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_syn_expr::expr::VdSynExprIdxRange;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -9,16 +10,40 @@ pub enum VdSemSeparator {
     Composite(VdSemExprIdx, VdSeparatorClass),
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum VdSemSeparatedListDispatch {
-    NatAdd,
-    NatMul,
-    Eq,
-    In,
+    Normal {
+        base_separator: VdBaseSeparator,
+        signature: VdBaseSeparatorSignature,
+    },
+    InSet {
+        expr_ty: VdZfcType,
+    },
 }
 impl VdSemSeparatedListDispatch {
     fn expr_ty(&self) -> VdZfcType {
-        todo!()
+        match *self {
+            VdSemSeparatedListDispatch::Normal {
+                base_separator,
+                ref signature,
+            } => signature.expr_ty(),
+            VdSemSeparatedListDispatch::InSet { expr_ty } => expr_ty,
+        }
+    }
+
+    fn from_global(dispatch: &VdSeparatorGlobalDispatch) -> VdSemSeparatedListDispatch {
+        match *dispatch {
+            VdSeparatorGlobalDispatch::Normal {
+                base_separator,
+                ref signature,
+            } => VdSemSeparatedListDispatch::Normal {
+                base_separator,
+                signature: signature.clone(),
+            },
+            VdSeparatorGlobalDispatch::InSet { expr_ty } => {
+                VdSemSeparatedListDispatch::InSet { expr_ty }
+            }
+        }
     }
 }
 
@@ -94,7 +119,7 @@ impl<'db> VdSemExprBuilder<'db> {
             // TODO: should we check compatibility?
             dispatch = self.calc_separated_list_dispatch_step(prev_item_ty, separator, expr.ty());
         }
-        todo!()
+        VdSemSeparatedListDispatch::from_global(dispatch)
     }
 
     fn calc_separated_list_dispatch_step(
@@ -120,15 +145,5 @@ impl<'db> VdSemExprBuilder<'db> {
             separator,
             next_item_ty.debug(self.db())
         )
-    }
-
-    fn infer_separated_list_ty(&mut self, dispatch: VdSemSeparatedListDispatch) -> VdZfcType {
-        match dispatch {
-            VdSemSeparatedListDispatch::NatAdd => self.zfc_ty_menu().natural_number_ty(),
-            VdSemSeparatedListDispatch::NatMul => todo!(),
-            VdSemSeparatedListDispatch::Eq | VdSemSeparatedListDispatch::In => {
-                self.zfc_ty_menu().natural_number_ty()
-            }
-        }
     }
 }

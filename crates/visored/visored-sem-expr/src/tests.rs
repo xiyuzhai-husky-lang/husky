@@ -7,6 +7,8 @@
     latex_environment::jar::LxEnvironmentJar,
     crate::jar::VdSemExprJar,
     visored_syn_expr::jar::VdSynExprJar,
-    visored_item_path::jar::VdItemPathJar
+    visored_item_path::jar::VdItemPathJar,
+    visored_global_dispatch::jar::VdGlobalDispatchJar,
+    visored_signature::jar::VdSignatureJar
 )]
 pub(crate) struct DB {}

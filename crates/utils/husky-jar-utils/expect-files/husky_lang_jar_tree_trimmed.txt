@@ -185,6 +185,10 @@
     "lean-sem-expr": {},
     "lean-term": {},
     "namekian-ast": {},
+    "visored-global-dispatch": {
+        "visored-opr",
+        "visored-signature",
+    },
     "visored-hir-expr": {
         "visored-sem-expr",
     },
@@ -196,6 +200,7 @@
     },
     "visored-opr": {},
     "visored-sem-expr": {
+        "visored-global-dispatch",
         "visored-syn-expr",
     },
     "visored-signature": {
