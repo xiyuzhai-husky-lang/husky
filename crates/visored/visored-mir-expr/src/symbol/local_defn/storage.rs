@@ -1,22 +1,22 @@
 use super::*;
 
-pub struct VdHirSymbolLocalDefnStorage {
-    defn_arena: VdHirSymbolLocalDefnArena,
+pub struct VdMirSymbolLocalDefnStorage {
+    defn_arena: VdMirSymbolLocalDefnArena,
 }
-impl VdHirSymbolLocalDefnStorage {
+impl VdMirSymbolLocalDefnStorage {
     pub(crate) fn new_empty() -> Self {
         Self {
-            defn_arena: VdHirSymbolLocalDefnArena::default(),
+            defn_arena: VdMirSymbolLocalDefnArena::default(),
         }
     }
 
-    pub fn defn_arena(&self) -> &VdHirSymbolLocalDefnArena {
+    pub fn defn_arena(&self) -> &VdMirSymbolLocalDefnArena {
         &self.defn_arena
     }
 }
 
-impl VdHirSymbolLocalDefnStorage {
-    pub(crate) fn set_defns(&mut self, data: Vec<VdHirSymbolLocalDefnData>) {
-        self.defn_arena = unsafe { VdHirSymbolLocalDefnArena::new_ext(data) };
+impl VdMirSymbolLocalDefnStorage {
+    pub(crate) fn set_defns(&mut self, data: Vec<VdMirSymbolLocalDefnData>) {
+        self.defn_arena = unsafe { VdMirSymbolLocalDefnArena::new_ext(data) };
     }
 }

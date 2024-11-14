@@ -1,8 +1,8 @@
 use crate::{
-    expr::{VdHirExprArena, VdHirExprArenaRef, VdHirExprData, VdHirExprIdx, VdHirExprIdxRange},
-    region::VdHirExprRegionData,
-    stmt::{VdHirStmtArena, VdHirStmtArenaRef, VdHirStmtData, VdHirStmtIdxRange},
-    symbol::local_defn::{storage::VdHirSymbolLocalDefnStorage, VdHirSymbolLocalDefnData},
+    expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange},
+    region::VdMirExprRegionData,
+    stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdxRange},
+    symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
 };
 use visored_sem_expr::{
     clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef, expr::VdSemExprArenaRef,
@@ -10,7 +10,7 @@ use visored_sem_expr::{
     stmt::VdSemStmtArenaRef, symbol::local_defn::storage::VdSemSymbolLocalDefnStorage,
 };
 
-pub struct VdHirExprBuilder<'db> {
+pub struct VdMirExprBuilder<'db> {
     db: &'db ::salsa::Db,
     sem_expr_arena: VdSemExprArenaRef<'db>,
     sem_phrase_arena: VdSemPhraseArenaRef<'db>,
@@ -18,12 +18,12 @@ pub struct VdHirExprBuilder<'db> {
     sem_sentence_arena: VdSemSentenceArenaRef<'db>,
     sem_stmt_arena: VdSemStmtArenaRef<'db>,
     sem_division_arena: VdSemDivisionArenaRef<'db>,
-    expr_arena: VdHirExprArena,
-    stmt_arena: VdHirStmtArena,
-    symbol_local_defn_storage: VdHirSymbolLocalDefnStorage,
+    expr_arena: VdMirExprArena,
+    stmt_arena: VdMirStmtArena,
+    symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
 }
 
-impl<'db> VdHirExprBuilder<'db> {
+impl<'db> VdMirExprBuilder<'db> {
     pub fn new0(db: &'db ::salsa::Db, vd_sem_expr_region_data: &'db VdSemExprRegionData) -> Self {
         Self::new(
             db,
@@ -55,16 +55,16 @@ impl<'db> VdHirExprBuilder<'db> {
             sem_sentence_arena,
             sem_stmt_arena,
             sem_division_arena,
-            expr_arena: VdHirExprArena::default(),
-            stmt_arena: VdHirStmtArena::default(),
-            symbol_local_defn_storage: VdHirSymbolLocalDefnStorage::new_empty(),
+            expr_arena: VdMirExprArena::default(),
+            stmt_arena: VdMirStmtArena::default(),
+            symbol_local_defn_storage: VdMirSymbolLocalDefnStorage::new_empty(),
         };
         slf.build_symbol_local_defns(sem_symbol_local_defn_storage);
         slf
     }
 }
 
-impl<'db> VdHirExprBuilder<'db> {
+impl<'db> VdMirExprBuilder<'db> {
     pub fn sem_expr_arena(&self) -> VdSemExprArenaRef<'db> {
         self.sem_expr_arena
     }
@@ -89,48 +89,48 @@ impl<'db> VdHirExprBuilder<'db> {
         self.sem_division_arena
     }
 
-    pub fn expr_arena(&self) -> VdHirExprArenaRef {
+    pub fn expr_arena(&self) -> VdMirExprArenaRef {
         self.expr_arena.as_arena_ref()
     }
 
-    pub fn stmt_arena(&self) -> VdHirStmtArenaRef {
+    pub fn stmt_arena(&self) -> VdMirStmtArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 }
 
 /// # actions
-impl<'db> VdHirExprBuilder<'db> {
-    pub(crate) fn alloc_expr(&mut self, data: VdHirExprData) -> VdHirExprIdx {
+impl<'db> VdMirExprBuilder<'db> {
+    pub(crate) fn alloc_expr(&mut self, data: VdMirExprData) -> VdMirExprIdx {
         self.expr_arena.alloc_one(data)
     }
 
     pub(crate) fn alloc_exprs(
         &mut self,
-        data: impl IntoIterator<Item = VdHirExprData>,
-    ) -> VdHirExprIdxRange {
+        data: impl IntoIterator<Item = VdMirExprData>,
+    ) -> VdMirExprIdxRange {
         self.expr_arena.alloc_batch(data)
     }
 
     pub(crate) fn alloc_stmts(
         &mut self,
-        data: impl IntoIterator<Item = VdHirStmtData>,
-    ) -> VdHirStmtIdxRange {
+        data: impl IntoIterator<Item = VdMirStmtData>,
+    ) -> VdMirStmtIdxRange {
         self.stmt_arena.alloc_batch(data)
     }
 
-    pub(crate) fn alloc_symbol_local_defns(&mut self, data: Vec<VdHirSymbolLocalDefnData>) {
+    pub(crate) fn alloc_symbol_local_defns(&mut self, data: Vec<VdMirSymbolLocalDefnData>) {
         self.symbol_local_defn_storage.set_defns(data);
     }
 
-    pub fn finish_to_region_data(self) -> VdHirExprRegionData {
-        VdHirExprRegionData::new(
+    pub fn finish_to_region_data(self) -> VdMirExprRegionData {
+        VdMirExprRegionData::new(
             self.expr_arena,
             self.stmt_arena,
             self.symbol_local_defn_storage,
         )
     }
 
-    pub fn finish(self) -> (VdHirExprArena, VdHirStmtArena, VdHirSymbolLocalDefnStorage) {
+    pub fn finish(self) -> (VdMirExprArena, VdMirStmtArena, VdMirSymbolLocalDefnStorage) {
         (
             self.expr_arena,
             self.stmt_arena,

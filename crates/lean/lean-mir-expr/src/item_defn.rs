@@ -14,7 +14,7 @@ pub enum LnItemDefnData {
     },
     Group {
         defns: LnItemDefnIdxRange,
-        meta: LnHirItemDefnGroupMeta,
+        meta: LnMirItemDefnGroupMeta,
     },
 }
 impl LnItemDefnData {
@@ -26,7 +26,7 @@ impl LnItemDefnData {
     }
 }
 
-pub enum LnHirItemDefnGroupMeta {
+pub enum LnMirItemDefnGroupMeta {
     Paragraph,
     Sentence,
 }
@@ -36,11 +36,11 @@ pub type LnItemDefnArenaRef<'a> = ArenaRef<'a, LnItemDefnData>;
 pub type LnItemDefnIdx = ArenaIdx<LnItemDefnData>;
 pub type LnItemDefnIdxRange = ArenaIdxRange<LnItemDefnData>;
 
-impl std::fmt::Display for LnHirItemDefnGroupMeta {
+impl std::fmt::Display for LnMirItemDefnGroupMeta {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            LnHirItemDefnGroupMeta::Paragraph => write!(f, "paragraph"),
-            LnHirItemDefnGroupMeta::Sentence => write!(f, "sentence"),
+            LnMirItemDefnGroupMeta::Paragraph => write!(f, "paragraph"),
+            LnMirItemDefnGroupMeta::Sentence => write!(f, "sentence"),
         }
     }
 }

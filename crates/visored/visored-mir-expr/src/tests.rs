@@ -1,4 +1,4 @@
-use crate::{builder::VdHirExprBuilder, ToVdHir};
+use crate::{builder::VdMirExprBuilder, ToVdMir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData};
 use visored_zfc_ty::menu::vd_zfc_ty_menu;

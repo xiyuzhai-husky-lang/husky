@@ -1,40 +1,40 @@
 use crate::{
-    expr::{LnHirExprArenaRef, LnHirExprData, LnHirExprIdx},
+    expr::{LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
     item_defn::{LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange},
-    stmt::LnHirStmtArenaRef,
-    tactic::LnHirTacticArenaRef,
+    stmt::LnMirStmtArenaRef,
+    tactic::LnMirTacticArenaRef,
 };
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
 use std::fmt::Write;
 
-pub struct LnHirExprFormatter<'a> {
+pub struct LnMirExprFormatter<'a> {
     db: &'a ::salsa::Db,
-    expr_arena: LnHirExprArenaRef<'a>,
-    stmt_arena: LnHirStmtArenaRef<'a>,
-    tactic_arena: LnHirTacticArenaRef<'a>,
+    expr_arena: LnMirExprArenaRef<'a>,
+    stmt_arena: LnMirStmtArenaRef<'a>,
+    tactic_arena: LnMirTacticArenaRef<'a>,
     defn_arena: LnItemDefnArenaRef<'a>,
-    config: &'a LnHirExprFormatterConfig,
+    config: &'a LnMirExprFormatterConfig,
     result: String,
 }
 
-pub struct LnHirExprFormatterConfig {
+pub struct LnMirExprFormatterConfig {
     line_max_len: usize,
 }
 
-impl Default for LnHirExprFormatterConfig {
+impl Default for LnMirExprFormatterConfig {
     fn default() -> Self {
         Self { line_max_len: 80 }
     }
 }
 
-impl<'a> LnHirExprFormatter<'a> {
+impl<'a> LnMirExprFormatter<'a> {
     pub fn new(
-        expr_arena: LnHirExprArenaRef<'a>,
-        stmt_arena: LnHirStmtArenaRef<'a>,
-        tactic_arena: LnHirTacticArenaRef<'a>,
+        expr_arena: LnMirExprArenaRef<'a>,
+        stmt_arena: LnMirStmtArenaRef<'a>,
+        tactic_arena: LnMirTacticArenaRef<'a>,
         defn_arena: LnItemDefnArenaRef<'a>,
-        config: &'a LnHirExprFormatterConfig,
+        config: &'a LnMirExprFormatterConfig,
         db: &'a ::salsa::Db,
     ) -> Self {
         Self {
@@ -49,14 +49,14 @@ impl<'a> LnHirExprFormatter<'a> {
     }
 }
 
-impl<'a> LnHirExprFormatter<'a> {
-    pub fn format_expr_ext(&mut self, expr: LnHirExprIdx) {
+impl<'a> LnMirExprFormatter<'a> {
+    pub fn format_expr_ext(&mut self, expr: LnMirExprIdx) {
         self.format_expr(expr, false, LnPrecedenceRange::Any);
     }
 
     fn format_expr(
         &mut self,
-        expr: LnHirExprIdx,
+        expr: LnMirExprIdx,
         try_multiline: bool,
         precedence_range: LnPrecedenceRange,
     ) {
@@ -77,28 +77,28 @@ impl<'a> LnHirExprFormatter<'a> {
         }
     }
 
-    fn format_expr_inner(&mut self, expr: LnHirExprIdx, multiline: bool) {
+    fn format_expr_inner(&mut self, expr: LnMirExprIdx, multiline: bool) {
         // Lean formatter rule: outer expressions should multiline prior to inner expressions.
         // This ensures that subexpressions only attempt multiline formatting if the parent is already multiline.
         let subexpr_try_multiline = multiline;
         let db = self.db;
         let arena = self.expr_arena;
         match arena[expr] {
-            LnHirExprData::ItemPath(item_path) => {
+            LnMirExprData::ItemPath(item_path) => {
                 self.result += &item_path.show(db);
             }
-            LnHirExprData::Variable { ident } => {
+            LnMirExprData::Variable { ident } => {
                 self.write_word(ident.data(db));
             }
-            LnHirExprData::Prefix { opr, opd } => {
+            LnMirExprData::Prefix { opr, opd } => {
                 self.result += opr.fmt_str();
                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
             }
-            LnHirExprData::Suffix { opd, opr } => {
+            LnMirExprData::Suffix { opd, opr } => {
                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
                 self.result += opr.fmt_str();
             }
-            LnHirExprData::Binary { lopd, opr, ropd } => {
+            LnMirExprData::Binary { lopd, opr, ropd } => {
                 self.format_expr(lopd, subexpr_try_multiline, opr.left_precedence_range());
                 if !self.result.ends_with(' ') {
                     self.result.push(' ');
@@ -107,7 +107,7 @@ impl<'a> LnHirExprFormatter<'a> {
                 self.result.push(' ');
                 self.format_expr(ropd, subexpr_try_multiline, opr.right_precedence_range());
             }
-            LnHirExprData::Lambda {
+            LnMirExprData::Lambda {
                 ref parameters,
                 body,
             } => {
@@ -127,7 +127,7 @@ impl<'a> LnHirExprFormatter<'a> {
                 }
                 self.format_expr(body, multiline, LnPrecedenceRange::Any);
             }
-            LnHirExprData::Application {
+            LnMirExprData::Application {
                 function_and_arguments,
             } => {
                 for expr in function_and_arguments {
@@ -138,12 +138,12 @@ impl<'a> LnHirExprFormatter<'a> {
                     );
                 }
             }
-            LnHirExprData::Literal(lit) => {
+            LnMirExprData::Literal(lit) => {
                 self.result += match lit.data(db) {
                     LnLiteralData::Nat(s) => s,
                 }
             }
-            LnHirExprData::Sorry => self.write_word("sorry"),
+            LnMirExprData::Sorry => self.write_word("sorry"),
         }
     }
 

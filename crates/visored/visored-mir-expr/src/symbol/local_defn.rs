@@ -10,38 +10,38 @@ use visored_sem_expr::symbol::local_defn::{
     VdSemSymbolLocalDefnHead, VdSemSymbolLocalDefnIdx,
 };
 
-pub struct VdHirSymbolLocalDefnData {
-    head: VdHirSymbolLocalDefnHead,
-    body: VdHirSymbolLocalDefnBody,
+pub struct VdMirSymbolLocalDefnData {
+    head: VdMirSymbolLocalDefnHead,
+    body: VdMirSymbolLocalDefnBody,
 }
 
-pub enum VdHirSymbolLocalDefnHead {
+pub enum VdMirSymbolLocalDefnHead {
     Letter(LxMathLetter),
 }
 
-pub enum VdHirSymbolLocalDefnBody {
+pub enum VdMirSymbolLocalDefnBody {
     Assigned,
     Placeholder,
 }
 
-pub type VdHirSymbolLocalDefnArena = Arena<VdHirSymbolLocalDefnData>;
-pub type VdHirSymbolLocalDefnArenaRef<'a> = ArenaRef<'a, VdHirSymbolLocalDefnData>;
-pub type VdHirSymbolLocalDefnIdx = ArenaIdx<VdHirSymbolLocalDefnData>;
-pub type VdHirSymbolLocalDefnIdxRange = ArenaIdxRange<VdHirSymbolLocalDefnData>;
-pub type VdHirSymbolLocalDefnMap<T> = ArenaMap<VdHirSymbolLocalDefnData, T>;
-pub type VdHirSymbolLocalDefnOrderedMap<T> = ArenaOrderedMap<VdHirSymbolLocalDefnData, T>;
+pub type VdMirSymbolLocalDefnArena = Arena<VdMirSymbolLocalDefnData>;
+pub type VdMirSymbolLocalDefnArenaRef<'a> = ArenaRef<'a, VdMirSymbolLocalDefnData>;
+pub type VdMirSymbolLocalDefnIdx = ArenaIdx<VdMirSymbolLocalDefnData>;
+pub type VdMirSymbolLocalDefnIdxRange = ArenaIdxRange<VdMirSymbolLocalDefnData>;
+pub type VdMirSymbolLocalDefnMap<T> = ArenaMap<VdMirSymbolLocalDefnData, T>;
+pub type VdMirSymbolLocalDefnOrderedMap<T> = ArenaOrderedMap<VdMirSymbolLocalDefnData, T>;
 
-impl VdHirSymbolLocalDefnData {
-    pub fn head(&self) -> &VdHirSymbolLocalDefnHead {
+impl VdMirSymbolLocalDefnData {
+    pub fn head(&self) -> &VdMirSymbolLocalDefnHead {
         &self.head
     }
 
-    pub fn body(&self) -> &VdHirSymbolLocalDefnBody {
+    pub fn body(&self) -> &VdMirSymbolLocalDefnBody {
         &self.body
     }
 }
 
-impl<'a> VdHirExprBuilder<'a> {
+impl<'a> VdMirExprBuilder<'a> {
     pub(crate) fn build_symbol_local_defns(
         &mut self,
         sem_symbol_local_defn_storage: &VdSemSymbolLocalDefnStorage,
@@ -56,34 +56,34 @@ impl<'a> VdHirExprBuilder<'a> {
     fn build_symbol_local_defn(
         &mut self,
         defn: &VdSemSymbolLocalDefnData,
-    ) -> VdHirSymbolLocalDefnData {
-        VdHirSymbolLocalDefnData {
+    ) -> VdMirSymbolLocalDefnData {
+        VdMirSymbolLocalDefnData {
             head: defn.head().to_vd_hir(self),
             body: defn.body().to_vd_hir(self),
         }
     }
 }
 
-impl ToVdHir<VdHirSymbolLocalDefnIdx> for VdSemSymbolLocalDefnIdx {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirSymbolLocalDefnIdx {
+impl ToVdMir<VdMirSymbolLocalDefnIdx> for VdSemSymbolLocalDefnIdx {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnIdx {
         // INVARIANCE: the index is always the same as the syn index
-        unsafe { VdHirSymbolLocalDefnIdx::new_ext(self.index()) }
+        unsafe { VdMirSymbolLocalDefnIdx::new_ext(self.index()) }
     }
 }
 
-impl ToVdHir<VdHirSymbolLocalDefnHead> for &VdSemSymbolLocalDefnHead {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirSymbolLocalDefnHead {
+impl ToVdMir<VdMirSymbolLocalDefnHead> for &VdSemSymbolLocalDefnHead {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnHead {
         match *self {
-            VdSemSymbolLocalDefnHead::Letter(_, letter) => VdHirSymbolLocalDefnHead::Letter(letter),
+            VdSemSymbolLocalDefnHead::Letter(_, letter) => VdMirSymbolLocalDefnHead::Letter(letter),
         }
     }
 }
 
-impl ToVdHir<VdHirSymbolLocalDefnBody> for &VdSemSymbolLocalDefnBody {
-    fn to_vd_hir(self, builder: &mut VdHirExprBuilder) -> VdHirSymbolLocalDefnBody {
+impl ToVdMir<VdMirSymbolLocalDefnBody> for &VdSemSymbolLocalDefnBody {
+    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnBody {
         match self {
-            VdSemSymbolLocalDefnBody::Assigned => VdHirSymbolLocalDefnBody::Assigned,
-            VdSemSymbolLocalDefnBody::Placeholder => VdHirSymbolLocalDefnBody::Placeholder,
+            VdSemSymbolLocalDefnBody::Assigned => VdMirSymbolLocalDefnBody::Assigned,
+            VdSemSymbolLocalDefnBody::Placeholder => VdMirSymbolLocalDefnBody::Placeholder,
         }
     }
 }

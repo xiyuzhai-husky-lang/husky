@@ -5,26 +5,26 @@ use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
 use lean_mir_expr::{
-    expr::{LnHirExprArena, LnHirExprIdx},
+    expr::{LnMirExprArena, LnMirExprIdx},
     helpers::{
-        fmt::{LnHirExprFormatter, LnHirExprFormatterConfig},
-        show::display_tree::LnHirExprDisplayTreeBuilder,
+        fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
+        show::display_tree::LnMirExprDisplayTreeBuilder,
     },
     item_defn::{LnItemDefnArena, LnItemDefnIdxRange},
-    stmt::{LnHirStmtArena, LnHirStmtIdxRange},
-    tactic::LnHirTacticArena,
+    stmt::{LnMirStmtArena, LnMirStmtIdxRange},
+    tactic::LnMirTacticArena,
 };
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_mir_expr::{
-    expr::VdHirExprIdx, stmt::VdHirStmtIdxRange, test_helpers::example::VdHirExprExample,
+    expr::VdMirExprIdx, stmt::VdMirStmtIdxRange, test_helpers::example::VdMirExprExample,
 };
 
 pub struct VdLeanTranspilationExample {
-    expr_arena: LnHirExprArena,
-    stmt_arena: LnHirStmtArena,
-    tactic_arena: LnHirTacticArena,
+    expr_arena: LnMirExprArena,
+    stmt_arena: LnMirStmtArena,
+    tactic_arena: LnMirTacticArena,
     defn_arena: LnItemDefnArena,
-    result: Either<LnHirExprIdx, LnItemDefnIdxRange>,
+    result: Either<LnMirExprIdx, LnItemDefnIdxRange>,
 }
 
 impl VdLeanTranspilationExample {
@@ -35,12 +35,12 @@ impl VdLeanTranspilationExample {
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         db: &::salsa::Db,
     ) -> Self {
-        let VdHirExprExample {
+        let VdMirExprExample {
             expr_arena: vd_hir_expr_arena,
             stmt_arena: vd_hir_stmt_arena,
             symbol_local_defn_storage: vd_hir_symbol_local_defn_storage,
             result,
-        } = VdHirExprExample::new(input, root_mode, &[], &[], db);
+        } = VdMirExprExample::new(input, root_mode, &[], &[], db);
         let dictionary = &VdLeanTranspilationDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
@@ -68,7 +68,7 @@ impl VdLeanTranspilationExample {
     }
 
     fn display_tree(&self, db: &::salsa::Db) -> DisplayTree {
-        let builder = LnHirExprDisplayTreeBuilder::new(
+        let builder = LnMirExprDisplayTreeBuilder::new(
             db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
@@ -94,9 +94,9 @@ impl VdLeanTranspilationExample {
     fn formatter<'a>(
         &'a self,
         db: &'a ::salsa::Db,
-        config: &'a LnHirExprFormatterConfig,
-    ) -> LnHirExprFormatter<'a> {
-        LnHirExprFormatter::new(
+        config: &'a LnMirExprFormatterConfig,
+    ) -> LnMirExprFormatter<'a> {
+        LnMirExprFormatter::new(
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
