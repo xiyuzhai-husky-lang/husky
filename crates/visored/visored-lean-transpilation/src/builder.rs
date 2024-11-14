@@ -1,5 +1,5 @@
 use lean_coword::ident::LnIdent;
-use lean_hir_expr::{
+use lean_mir_expr::{
     builder::LeanHirExprBuilder,
     expr::LnHirExprArena,
     item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
@@ -8,7 +8,7 @@ use lean_hir_expr::{
 };
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
-use visored_hir_expr::{
+use visored_mir_expr::{
     expr::VdHirExprArenaRef,
     region::VdHirExprRegionData,
     stmt::VdHirStmtArenaRef,

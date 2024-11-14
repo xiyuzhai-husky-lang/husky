@@ -20,7 +20,7 @@ salsa.workspace = true
 latex-prelude = { workspace = true, optional = true }
 # lean
 lean-coword.workspace = true
-lean-hir-expr.workspace = true
+lean-mir-expr.workspace = true
 lean-item-path.workspace = true
 lean-opr.workspace = true
 lean-term.workspace = true
@@ -28,7 +28,7 @@ lean-term.workspace = true
 husky-tree-utils = { workspace = true, optional = true }
 # visored
 visored-annotation = { workspace = true, optional = true }
-visored-hir-expr.workspace = true
+visored-mir-expr.workspace = true
 visored-item-path.workspace = true
 visored-opr.workspace = true
 visored-zfc-ty.workspace = true
@@ -60,5 +60,5 @@ test_helpers = [
     "dep:latex-prelude",
     "dep:husky-tree-utils",
     "visored-annotation",
-    "visored-hir-expr/test_helpers"
+    "visored-mir-expr/test_helpers"
 ]

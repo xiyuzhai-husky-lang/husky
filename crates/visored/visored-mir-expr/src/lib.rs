@@ -12,7 +12,7 @@ pub mod test_helpers;
 mod tests;
 
 use self::builder::VdHirExprBuilder;
-use self::jar::VdHirExprJar as Jar;
+use self::jar::VdMirExprJar as Jar;
 #[cfg(test)]
 use self::tests::*;
 use either::*;

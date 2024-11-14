@@ -179,7 +179,7 @@
   "latex-environment": [
     "husky-coword"
   ],
-  "lean-hir-expr": [
+  "lean-mir-expr": [
     "lean-term"
   ],
   "lean-sem-expr": [],
@@ -189,14 +189,14 @@
     "visored-opr",
     "visored-signature"
   ],
-  "visored-hir-expr": [
-    "visored-sem-expr"
-  ],
   "visored-item-path": [],
   "visored-lean-transpilation": [
-    "lean-hir-expr",
+    "lean-mir-expr",
     "lean-sem-expr",
-    "visored-hir-expr"
+    "visored-mir-expr"
+  ],
+  "visored-mir-expr": [
+    "visored-sem-expr"
   ],
   "visored-opr": [],
   "visored-sem-expr": [

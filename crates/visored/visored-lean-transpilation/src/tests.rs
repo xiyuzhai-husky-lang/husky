@@ -4,7 +4,7 @@ mod expr;
 use crate::test_helpers::example::VdLeanTranspilationExample;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
-use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
+use visored_mir_expr::{builder::VdHirExprBuilder, ToVdHir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData};
 use visored_zfc_ty::menu::vd_zfc_ty_menu;
@@ -16,12 +16,12 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     latex_environment::jar::LxEnvironmentJar,
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
-    lean_hir_expr::jar::LnHirExprJar,
+    lean_mir_expr::jar::LnMirExprJar,
     visored_item_path::jar::VdItemPathJar,
     visored_zfc_ty::jar::VdZfcTypeJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
-    visored_hir_expr::jar::VdHirExprJar,
+    visored_mir_expr::jar::VdMirExprJar,
     visored_syn_expr::jar::VdSynExprJar,
     visored_global_dispatch::jar::VdGlobalDispatchJar,
     visored_signature::jar::VdSignatureJar,
