@@ -7,15 +7,21 @@ use visored_item_path::path::VdItemPath;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdZfcTypeMenu {
-    zero_literal: VdZfcLiteral,
-    one_literal: VdZfcLiteral,
-    two_literal: VdZfcLiteral,
+    pub zero_literal: VdZfcLiteral,
+    pub one_literal: VdZfcLiteral,
+    pub two_literal: VdZfcLiteral,
     /// natural numbers as a type
-    natural_number_ty: VdZfcType,
+    pub nat_ty: VdZfcType,
+    /// integers as a type
+    pub int_ty: VdZfcType,
+    /// rational numbers as a type
+    pub rat_ty: VdZfcType,
+    /// real numbers as a type
+    pub real_ty: VdZfcType,
     /// the category of sets as a type
-    set_category_ty: VdZfcType,
+    pub set_ty: VdZfcType,
     /// the category of propositions as a type
-    proposition_ty: VdZfcType,
+    pub prop_ty: VdZfcType,
 }
 
 impl VdZfcTypeMenu {
@@ -24,17 +30,28 @@ impl VdZfcTypeMenu {
             zero_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("0".to_string()), db),
             one_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("1".to_string()), db),
             two_literal: VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("2".to_string()), db),
-            natural_number_ty: VdZfcType::new(
+            nat_ty: VdZfcType::new(
                 db,
                 VdZfcTypeData::ItemPath(VdItemPath::NATURAL_NUMBER),
                 smallvec![],
             ),
-            set_category_ty: VdZfcType::new(
+            int_ty: VdZfcType::new(
                 db,
-                VdZfcTypeData::ItemPath(VdItemPath::SET),
+                VdZfcTypeData::ItemPath(VdItemPath::INTEGER),
                 smallvec![],
             ),
-            proposition_ty: VdZfcType::new(
+            rat_ty: VdZfcType::new(
+                db,
+                VdZfcTypeData::ItemPath(VdItemPath::RATIONAL_NUMBER),
+                smallvec![],
+            ),
+            real_ty: VdZfcType::new(
+                db,
+                VdZfcTypeData::ItemPath(VdItemPath::REAL_NUMBER),
+                smallvec![],
+            ),
+            set_ty: VdZfcType::new(db, VdZfcTypeData::ItemPath(VdItemPath::SET), smallvec![]),
+            prop_ty: VdZfcType::new(
                 db,
                 VdZfcTypeData::ItemPath(VdItemPath::PROPOSITION),
                 smallvec![],
@@ -57,15 +74,15 @@ impl VdZfcTypeMenu {
     }
 
     pub fn natural_number_ty(&self) -> VdZfcType {
-        self.natural_number_ty
+        self.nat_ty
     }
 
     pub fn proposition_ty(&self) -> VdZfcType {
-        self.proposition_ty
+        self.prop_ty
     }
 
     pub fn set_category_ty(&self) -> VdZfcType {
-        self.set_category_ty
+        self.set_ty
     }
 }
 

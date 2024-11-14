@@ -4458,6 +4458,14 @@
         ],
     },
     PackageSummary {
+        name: "visored-signature",
+        relative_path: "crates/visored/visored-signature",
+        dependencies: [
+            "salsa",
+            "visored-zfc-ty",
+        ],
+    },
+    PackageSummary {
         name: "cybertron-mini-lean-tokens",
         relative_path: "registry/cybertron-mini-lean-tokens-0.1.0",
         dependencies: [

@@ -1212,6 +1212,9 @@
     "visored-syn-expr",
     "visored-zfc-ty"
   ],
+  "visored-signature": [
+    "visored-zfc-ty"
+  ],
   "visored-syn-expr": [
     "husky-coword",
     "latex-ast",

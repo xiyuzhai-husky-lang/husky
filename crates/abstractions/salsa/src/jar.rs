@@ -200,6 +200,7 @@ pub enum JarIndex {
     VdSemExprJar,
     VdHirExprJar,
     VdLeanTranspilationJar,
+    VdSignatureJar,
     // vm
     VmirJar,
 }

@@ -1380,4 +1380,10 @@
             "visored-syn-expr",
         ],
     },
+    JarPackageSummary {
+        name: "visored-signature",
+        dependencies: [
+            "visored-zfc-ty",
+        ],
+    },
 ]
