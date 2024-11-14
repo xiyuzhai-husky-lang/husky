@@ -1,14 +1,23 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct VdBaseSeparatorSignature {
+    instantiation: VdInstantiation,
     item_ty: VdZfcType,
     output_ty: VdZfcType,
 }
 
 impl VdBaseSeparatorSignature {
-    pub(crate) fn new(item_ty: VdZfcType, output_ty: VdZfcType) -> Self {
-        Self { item_ty, output_ty }
+    pub(crate) fn new(
+        instantiation: VdInstantiation,
+        item_ty: VdZfcType,
+        output_ty: VdZfcType,
+    ) -> Self {
+        Self {
+            instantiation,
+            item_ty,
+            output_ty,
+        }
     }
 }
 

@@ -6,6 +6,7 @@ pub mod trai_item;
 
 use self::{category::*, function::*, set::*, trai::*, trai_item::*};
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdItemPath {
     Category(VdCategoryPath),
