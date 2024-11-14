@@ -1,5 +1,6 @@
 use super::*;
 use smallvec::{smallvec, SmallVec};
+use visored_global_dispatch::dispatch::separator::VdSeparatorGlobalDispatch;
 use visored_syn_expr::expr::VdSynExprIdxRange;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -15,6 +16,11 @@ pub enum VdSemSeparatedListDispatch {
     Eq,
     In,
 }
+impl VdSemSeparatedListDispatch {
+    fn expr_ty(&self) -> VdZfcType {
+        todo!()
+    }
+}
 
 impl<'db> VdSemExprBuilder<'db> {
     pub(super) fn build_separated_list(
@@ -22,54 +28,98 @@ impl<'db> VdSemExprBuilder<'db> {
         separator_class: VdSeparatorClass,
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
-    ) -> (VdSemExprData, VdZfcType) {
-        // TODO: ad hoc,should consider more based on type information, especially space.
-        let dispatch = match separators.len() {
-            0 => todo!(),
-            1 => match separators[0] {
-                VdSynSeparator::Base(_, base_separator) => match base_separator {
-                    VdBaseSeparator::Space => VdSemSeparatedListDispatch::NatMul,
-                    VdBaseSeparator::Comma => todo!(),
-                    VdBaseSeparator::Semicolon => todo!(),
-                    VdBaseSeparator::Add => VdSemSeparatedListDispatch::NatAdd,
-                    VdBaseSeparator::Mul => VdSemSeparatedListDispatch::NatMul,
-                    VdBaseSeparator::Dot => todo!(),
-                    VdBaseSeparator::Eq => VdSemSeparatedListDispatch::Eq,
-                    VdBaseSeparator::Subset => todo!(),
-                    VdBaseSeparator::Supset => todo!(),
-                    VdBaseSeparator::Subseteq => todo!(),
-                    VdBaseSeparator::Supseteq => todo!(),
-                    VdBaseSeparator::Subseteqq => todo!(),
-                    VdBaseSeparator::Supseteqq => todo!(),
-                    VdBaseSeparator::Subsetneq => todo!(),
-                    VdBaseSeparator::Supsetneq => todo!(),
-                    VdBaseSeparator::In => VdSemSeparatedListDispatch::In,
-                    VdBaseSeparator::Notin => todo!(),
-                    VdBaseSeparator::Times => todo!(),
-                    VdBaseSeparator::Otimes => todo!(),
-                    VdBaseSeparator::Ne => todo!(),
-                },
-                VdSynSeparator::Composite(arena_idx, vd_separator_class) => todo!(),
-            },
-            2 => {
-                use husky_print_utils::p;
-                p!(separators);
-                for item in items {
-                    p!(self.syn_expr_arena()[item]);
-                }
-                todo!()
-            }
-            _ => todo!(),
+    ) -> VdSemExprEntry {
+        let (fst, others) = match separator_class {
+            VdSeparatorClass::Space => self.build_space_separated_list_aux(items, separators),
+            _ => self.build_non_space_separated_list_aux(items, separators),
         };
+        if others.is_empty() {
+            return fst;
+        }
+        let dispatch = self.calc_separated_list_dispatch(&fst, &others);
+        let items = self.alloc_exprs(
+            [fst]
+                .into_iter()
+                .chain(others.into_iter().map(|(_, entry)| entry)),
+        );
+        let ty = dispatch.expr_ty();
         let data = VdSemExprData::SeparatedList {
             separator_class,
-            // TODO: ad hoc, what to do for separators?
-            items: items.to_vd_sem(self),
-            // TODO: ad hoc, should consider much more based on type information, especially space.
+            items,
             dispatch,
         };
-        let ty = self.infer_separated_list_ty(dispatch);
-        (data, ty)
+        VdSemExprEntry::new(data, ty)
+    }
+
+    fn build_space_separated_list_aux(
+        &mut self,
+        items: VdSynExprIdxRange,
+        separators: &[VdSynSeparator],
+    ) -> (
+        VdSemExprEntry,
+        SmallVec<[(VdSemSeparator, VdSemExprEntry); 4]>,
+    ) {
+        todo!()
+    }
+
+    fn build_non_space_separated_list_aux(
+        &mut self,
+        items: VdSynExprIdxRange,
+        separators: &[VdSynSeparator],
+    ) -> (
+        VdSemExprEntry,
+        SmallVec<[(VdSemSeparator, VdSemExprEntry); 4]>,
+    ) {
+        let mut item_iter = items.into_iter();
+        let fst = self.build_expr_entry(item_iter.next().unwrap());
+        let others = separators
+            .iter()
+            .copied()
+            .zip(item_iter)
+            .map(|(sep, item)| (sep.to_vd_sem(self), self.build_expr_entry(item)))
+            .collect();
+        (fst, others)
+    }
+
+    fn calc_separated_list_dispatch(
+        &mut self,
+        fst: &VdSemExprEntry,
+        others: &[(VdSemSeparator, VdSemExprEntry)],
+    ) -> VdSemSeparatedListDispatch {
+        let mut prev_item_ty = fst.ty();
+        let (separator, ref expr) = others[0];
+        let mut dispatch =
+            self.calc_separated_list_dispatch_step(prev_item_ty, separator, expr.ty());
+        for &(separator, ref expr) in &others[1..] {
+            // TODO: should we check compatibility?
+            dispatch = self.calc_separated_list_dispatch_step(prev_item_ty, separator, expr.ty());
+        }
+        todo!()
+    }
+
+    fn calc_separated_list_dispatch_step(
+        &mut self,
+        prev_item_ty: VdZfcType,
+        separator: VdSemSeparator,
+        next_item_ty: VdZfcType,
+    ) -> &VdSeparatorGlobalDispatch {
+        let base_separator = match separator {
+            VdSemSeparator::Base(_, base_separator) => base_separator,
+            VdSemSeparator::Composite(_, _) => todo!(),
+        };
+        if let Some(default_dispatch) = self
+            .default_global_dispatch_table()
+            .base_separator_default_dispatch(base_separator, prev_item_ty, next_item_ty)
+        {
+            return default_dispatch;
+        }
+        use salsa::DebugWithDb;
+        todo!(
+            "no default dispatch for prev_item_ty = {:?}, separator = {:?}, next_item_ty = {:?}",
+            prev_item_ty.debug(self.db()),
+            separator,
+            next_item_ty.debug(self.db())
+        )
     }
 
     fn infer_separated_list_ty(&mut self, dispatch: VdSemSeparatedListDispatch) -> VdZfcType {

@@ -4,19 +4,19 @@ use super::*;
 pub struct VdBaseSeparatorSignature {
     instantiation: VdInstantiation,
     item_ty: VdZfcType,
-    output_ty: VdZfcType,
+    expr_ty: VdZfcType,
 }
 
 impl VdBaseSeparatorSignature {
     pub(crate) fn new(
         instantiation: VdInstantiation,
         item_ty: VdZfcType,
-        output_ty: VdZfcType,
+        expr_ty: VdZfcType,
     ) -> Self {
         Self {
             instantiation,
             item_ty,
-            output_ty,
+            expr_ty,
         }
     }
 }
@@ -26,7 +26,7 @@ impl VdBaseSeparatorSignature {
         self.item_ty
     }
 
-    pub fn output_ty(&self) -> VdZfcType {
-        self.output_ty
+    pub fn expr_ty(&self) -> VdZfcType {
+        self.expr_ty
     }
 }

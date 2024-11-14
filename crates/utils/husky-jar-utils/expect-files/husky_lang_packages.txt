@@ -4292,6 +4292,7 @@
             "rustc-hash",
             "salsa",
             "visored-opr",
+            "visored-signature",
             "visored-zfc-ty",
         ],
     },
@@ -4302,6 +4303,14 @@
             "enum-class",
             "enum-index",
             "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "visored-signature",
+        relative_path: "crates/visored/visored-signature",
+        dependencies: [
+            "salsa",
+            "visored-zfc-ty",
         ],
     },
     PackageSummary {
@@ -4470,14 +4479,6 @@
         relative_path: "crates/visored/visored-prototype",
         dependencies: [
             "idx-arena",
-        ],
-    },
-    PackageSummary {
-        name: "visored-signature",
-        relative_path: "crates/visored/visored-signature",
-        dependencies: [
-            "salsa",
-            "visored-zfc-ty",
         ],
     },
     PackageSummary {

@@ -1318,6 +1318,12 @@
         dependencies: [],
     },
     JarPackageSummary {
+        name: "visored-signature",
+        dependencies: [
+            "visored-zfc-ty",
+        ],
+    },
+    JarPackageSummary {
         name: "visored-zfc-ty",
         dependencies: [
             "visored-item-path",
@@ -1389,12 +1395,6 @@
             "lean-term",
             "visored-sem-expr",
             "visored-syn-expr",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-signature",
-        dependencies: [
-            "visored-zfc-ty",
         ],
     },
 ]

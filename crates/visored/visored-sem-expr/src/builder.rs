@@ -156,6 +156,10 @@ impl<'a> VdSemExprBuilder<'a> {
         self.item_path_zfc_ty_table
     }
 
+    pub(crate) fn default_global_dispatch_table(&self) -> &'a VdDefaultGlobalDispatchTable {
+        self.default_global_dispatch_table
+    }
+
     pub(crate) fn zfc_ty_menu(&self) -> &'a VdZfcTypeMenu {
         self.zfc_ty_menu
     }
@@ -209,16 +213,12 @@ impl<'db> VdSemExprBuilder<'db> {
         expr
     }
 
+    /// no need to keep track of syn to sem expr map
     pub(crate) fn alloc_exprs(
         &mut self,
-        exprs: Vec<VdSemExprEntry>,
-        srcs: impl IntoIterator<Item = VdSynExprIdx>,
+        exprs: impl IntoIterator<Item = VdSemExprEntry>,
     ) -> VdSemExprIdxRange {
-        let exprs = self.expr_arena.alloc_batch(exprs);
-        for (expr, src) in exprs.into_iter().zip(srcs) {
-            self.syn_to_sem_expr_map.insert(src, expr);
-        }
-        exprs
+        self.expr_arena.alloc_batch(exprs)
     }
 
     pub(crate) fn alloc_phrase(
