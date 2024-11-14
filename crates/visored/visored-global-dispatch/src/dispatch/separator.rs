@@ -43,12 +43,16 @@ impl VdSeparatorGlobalDispatch {
             prop_ty,
             ..
         } = *zfc_ty_menu;
-        let VdOprMenu { add, r#in } = *vd_opr_menu;
+        let VdOprMenu { add, eq, r#in } = *vd_opr_menu;
         let VdGlobalDispatchMenu {
             nat_add,
             int_add,
             rat_add,
             real_add,
+            nat_eq,
+            int_eq,
+            rat_eq,
+            real_eq,
             in_set,
         } = global_dispatch_menu;
         [
@@ -69,6 +73,23 @@ impl VdSeparatorGlobalDispatch {
             ((real_ty, add, int_ty), real_add),
             ((real_ty, add, rat_ty), real_add),
             ((real_ty, add, real_ty), real_add),
+            // ## eq
+            ((nat_ty, eq, nat_ty), nat_eq),
+            ((nat_ty, eq, int_ty), int_eq),
+            ((int_ty, eq, nat_ty), int_eq),
+            ((int_ty, eq, int_ty), int_eq),
+            ((nat_ty, eq, rat_ty), rat_eq),
+            ((int_ty, eq, rat_ty), rat_eq),
+            ((rat_ty, eq, nat_ty), rat_eq),
+            ((rat_ty, eq, int_ty), rat_eq),
+            ((rat_ty, eq, rat_ty), rat_eq),
+            ((nat_ty, eq, real_ty), real_eq),
+            ((rat_ty, eq, real_ty), real_eq),
+            ((int_ty, eq, real_ty), real_eq),
+            ((real_ty, eq, nat_ty), real_eq),
+            ((real_ty, eq, int_ty), real_eq),
+            ((real_ty, eq, rat_ty), real_eq),
+            ((real_ty, eq, real_ty), real_eq),
             // ## in
             ((nat_ty, r#in, set_ty), in_set),
             ((int_ty, r#in, set_ty), in_set),
