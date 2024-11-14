@@ -13,6 +13,8 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
     visored_syn_expr::jar::VdSynExprJar,
+    visored_global_dispatch::jar::VdGlobalDispatchJar,
+    visored_signature::jar::VdSignatureJar,
     crate::jar::VdHirExprJar
 )]
 pub(crate) struct DB {}

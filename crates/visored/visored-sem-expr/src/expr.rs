@@ -343,7 +343,7 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSemExprData::SeparatedList {
                 separator_class,
                 items,
-                dispatch,
+                ref dispatch,
             } => todo!(),
             VdSemExprData::UniadicChain => todo!(),
             VdSemExprData::VariadicChain => todo!(),

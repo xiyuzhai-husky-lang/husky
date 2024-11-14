@@ -113,10 +113,15 @@ impl<'db> VdHirExprBuilder<'db> {
                 ..
             } => VdHirExprData::Application {
                 function: match dispatch {
-                    VdSemSeparatedListDispatch::NatAdd => VdHirApplicationFunction::IntAdd,
-                    VdSemSeparatedListDispatch::Eq => VdHirApplicationFunction::TrivialEq,
-                    VdSemSeparatedListDispatch::NatMul => todo!(),
-                    VdSemSeparatedListDispatch::In => VdHirApplicationFunction::In,
+                    VdSemSeparatedListDispatch::Normal {
+                        base_separator,
+                        signature,
+                    } => todo!(),
+                    VdSemSeparatedListDispatch::InSet { expr_ty } => todo!(),
+                    // VdSemSeparatedListDispatch::NatAdd => VdHirApplicationFunction::IntAdd,
+                    // VdSemSeparatedListDispatch::Eq => VdHirApplicationFunction::TrivialEq,
+                    // VdSemSeparatedListDispatch::NatMul => todo!(),
+                    // VdSemSeparatedListDispatch::In => VdHirApplicationFunction::In,
                 },
                 arguments: items.to_vd_hir(self),
             },

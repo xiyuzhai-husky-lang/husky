@@ -1,9 +1,11 @@
-use crate::dispatch::{
-    binary_opr::VdBinaryOprGlobalDispatch, separator::VdSeparatorGlobalDispatch,
+use crate::{
+    dispatch::{binary_opr::VdBinaryOprGlobalDispatch, separator::VdSeparatorGlobalDispatch},
+    menu::vd_global_dispatch_menu,
 };
 use rustc_hash::FxHashMap;
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
-use visored_zfc_ty::ty::VdZfcType;
+use visored_opr::{menu::vd_opr_menu, opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_signature::menu::vd_signature_menu;
+use visored_zfc_ty::{menu::vd_zfc_ty_menu, ty::VdZfcType};
 
 pub struct VdDefaultGlobalDispatchTable {
     base_binary_opr_default_dispatch_table:
@@ -13,8 +15,8 @@ pub struct VdDefaultGlobalDispatchTable {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseBinaryOprKey {
-    base_binary_opr: VdBaseBinaryOpr,
     lopd_ty: VdZfcType,
+    base_binary_opr: VdBaseBinaryOpr,
     ropd_ty: VdZfcType,
 }
 
@@ -45,7 +47,45 @@ impl VdDefaultGlobalDispatchTable {
     }
 
     pub fn new_standard(db: &::salsa::Db) -> Self {
-        Self::new([], [])
+        let zfc_ty_menu = vd_zfc_ty_menu(db);
+        let opr_menu = vd_opr_menu(db);
+        let global_dispatch_menu = vd_global_dispatch_menu(db);
+        Self::new(
+            VdBinaryOprGlobalDispatch::standard_defaults(
+                zfc_ty_menu,
+                opr_menu,
+                global_dispatch_menu,
+            )
+            .into_iter()
+            .map(|((lopd_ty, base_binary_opr, ropd_ty), dispatch)| {
+                (
+                    VdBaseBinaryOprKey {
+                        lopd_ty,
+                        base_binary_opr,
+                        ropd_ty,
+                    }
+                    .into(),
+                    dispatch.clone(),
+                )
+            }),
+            VdSeparatorGlobalDispatch::standard_defaults(
+                zfc_ty_menu,
+                opr_menu,
+                global_dispatch_menu,
+            )
+            .into_iter()
+            .map(|((prev_item_ty, base_separator, next_item_ty), dispatch)| {
+                (
+                    VdBaseSeparatorKey {
+                        prev_item_ty,
+                        base_separator,
+                        next_item_ty,
+                    }
+                    .into(),
+                    dispatch.clone(),
+                )
+            }),
+        )
     }
 }
 

@@ -38,6 +38,7 @@ pub struct VdZfcTypeMenu {
     /// - the category of propositions as a type
     pub prop_ty: VdZfcType,
     /// # instantiations
+    pub nat_add_instantiation: VdInstantiation,
     pub int_add_instantiation: VdInstantiation,
     pub rat_add_instantiation: VdInstantiation,
     pub real_add_instantiation: VdInstantiation,
@@ -76,6 +77,7 @@ impl VdZfcTypeMenu {
         let real_ty = VdZfcType::new_item_path(real.into(), db);
         let set_ty = VdZfcType::new_item_path(set.into(), db);
         let prop_ty = VdZfcType::new_item_path(proposition.into(), db);
+        let nat_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![nat_term]);
         let int_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![int_term]);
         let rat_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![rat_term]);
         let real_add_instantiation = VdInstantiation::new(ring_add.into(), smallvec![real_term]);
@@ -94,6 +96,7 @@ impl VdZfcTypeMenu {
             real_ty,
             set_ty,
             prop_ty,
+            nat_add_instantiation,
             int_add_instantiation,
             rat_add_instantiation,
             real_add_instantiation,
