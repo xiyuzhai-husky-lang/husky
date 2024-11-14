@@ -1314,11 +1314,17 @@
         dependencies: [],
     },
     JarPackageSummary {
-        name: "visored-item-path",
+        name: "visored-opr",
         dependencies: [],
     },
     JarPackageSummary {
-        name: "visored-opr",
+        name: "visored-zfc-ty",
+        dependencies: [
+            "visored-item-path",
+        ],
+    },
+    JarPackageSummary {
+        name: "visored-item-path",
         dependencies: [],
     },
     JarPackageSummary {
@@ -1363,12 +1369,6 @@
             "visored-zfc-ty",
             "husky-coword",
             "latex-command",
-            "visored-item-path",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-zfc-ty",
-        dependencies: [
             "visored-item-path",
         ],
     },

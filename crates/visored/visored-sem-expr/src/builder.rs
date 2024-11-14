@@ -1,5 +1,6 @@
 use latex_token::storage::LxTokenStorage;
 use visored_annotation::annotations::VdAnnotations;
+use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 use visored_syn_expr::{
     clause::{VdSynClauseArenaRef, VdSynClauseIdx, VdSynClauseMap},
@@ -52,6 +53,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
     zfc_ty_menu: &'a VdZfcTypeMenu,
     item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
+    default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
@@ -78,6 +80,7 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_symbol_local_defn_storage: &'a VdSynSymbolLocalDefnStorage,
         syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
         item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
+        default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
     ) -> Self {
         let mut slf = Self {
             db,
@@ -94,6 +97,7 @@ impl<'a> VdSemExprBuilder<'a> {
             syn_symbol_resolution_table,
             zfc_ty_menu: vd_zfc_ty_menu(db),
             item_path_zfc_ty_table,
+            default_global_dispatch_table,
             expr_arena: VdSemExprArena::default(),
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
