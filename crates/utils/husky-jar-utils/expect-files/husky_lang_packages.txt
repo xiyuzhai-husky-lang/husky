@@ -4286,6 +4286,45 @@
         ],
     },
     PackageSummary {
+        name: "visored-global-dispatch",
+        relative_path: "crates/visored/visored-global-dispatch",
+        dependencies: [
+            "rustc-hash",
+            "salsa",
+            "visored-opr",
+            "visored-zfc-ty",
+        ],
+    },
+    PackageSummary {
+        name: "visored-opr",
+        relative_path: "crates/visored/visored-opr",
+        dependencies: [
+            "enum-class",
+            "enum-index",
+            "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "visored-zfc-ty",
+        relative_path: "crates/visored/visored-zfc-ty",
+        dependencies: [
+            "enum-class",
+            "rustc-hash",
+            "salsa",
+            "smallvec",
+            "visored-coword",
+            "visored-item-path",
+        ],
+    },
+    PackageSummary {
+        name: "visored-item-path",
+        relative_path: "crates/visored/visored-item-path",
+        dependencies: [
+            "enum-class",
+            "salsa",
+        ],
+    },
+    PackageSummary {
         name: "visored-global-resolution",
         relative_path: "crates/visored/visored-global-resolution",
         dependencies: [
@@ -4297,22 +4336,6 @@
             "salsa",
             "visored-item-path",
             "visored-opr",
-        ],
-    },
-    PackageSummary {
-        name: "visored-item-path",
-        relative_path: "crates/visored/visored-item-path",
-        dependencies: [
-            "salsa",
-        ],
-    },
-    PackageSummary {
-        name: "visored-opr",
-        relative_path: "crates/visored/visored-opr",
-        dependencies: [
-            "enum-class",
-            "enum-index",
-            "salsa",
         ],
     },
     PackageSummary {
@@ -4360,6 +4383,7 @@
             "smallvec",
             "thiserror",
             "visored-annotation",
+            "visored-global-dispatch",
             "visored-global-resolution",
             "visored-opr",
             "visored-syn-expr",
@@ -4400,18 +4424,6 @@
             "expect-test",
             "husky-coword",
             "latex-command",
-            "visored-item-path",
-        ],
-    },
-    PackageSummary {
-        name: "visored-zfc-ty",
-        relative_path: "crates/visored/visored-zfc-ty",
-        dependencies: [
-            "enum-class",
-            "rustc-hash",
-            "salsa",
-            "smallvec",
-            "visored-coword",
             "visored-item-path",
         ],
     },
