@@ -7,6 +7,7 @@ pub mod forall;
 pub mod item_path;
 pub mod limit;
 pub mod literal;
+pub mod menu;
 pub mod stack_variable;
 pub mod symbolic_variable;
 
