@@ -33,28 +33,30 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                 function,
                 arguments,
             } => match function {
-                VdMirApplicationFunction::IntAdd => {
-                    debug_assert_eq!(arguments.len(), 2);
-                    let lopd = arguments.start();
-                    let ropd = lopd + 1;
-                    LnMirExprData::Binary {
-                        lopd: lopd.to_lean(self),
-                        opr: LnBinaryOpr::Add,
-                        ropd: ropd.to_lean(self),
-                    }
-                }
-                VdMirApplicationFunction::TrivialEq => {
-                    debug_assert_eq!(arguments.len(), 2);
-                    let lopd = arguments.start();
-                    let ropd = lopd + 1;
-                    LnMirExprData::Binary {
-                        lopd: lopd.to_lean(self),
-                        opr: LnBinaryOpr::Eq,
-                        ropd: ropd.to_lean(self),
-                    }
-                }
-                // TODO: implement this
-                VdMirApplicationFunction::In => LnMirExprData::Sorry,
+                VdMirApplicationFunction::NormalSeparator => todo!(),
+                VdMirApplicationFunction::InSet => todo!(),
+                // VdMirApplicationFunction::IntAdd => {
+                //     debug_assert_eq!(arguments.len(), 2);
+                //     let lopd = arguments.start();
+                //     let ropd = lopd + 1;
+                //     LnMirExprData::Binary {
+                //         lopd: lopd.to_lean(self),
+                //         opr: LnBinaryOpr::Add,
+                //         ropd: ropd.to_lean(self),
+                //     }
+                // }
+                // VdMirApplicationFunction::TrivialEq => {
+                //     debug_assert_eq!(arguments.len(), 2);
+                //     let lopd = arguments.start();
+                //     let ropd = lopd + 1;
+                //     LnMirExprData::Binary {
+                //         lopd: lopd.to_lean(self),
+                //         opr: LnBinaryOpr::Eq,
+                //         ropd: ropd.to_lean(self),
+                //     }
+                // }
+                // // TODO: implement this
+                // VdMirApplicationFunction::In => LnMirExprData::Sorry,
             },
         }
     }

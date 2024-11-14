@@ -53,7 +53,7 @@ fn zfc_literal_ty(db: &::salsa::Db, literal: VdZfcLiteral) -> VdZfcType {
     let data = literal.data(db);
     let menu = vd_zfc_ty_menu(db);
     match data {
-        VdZfcLiteralData::NaturalNumber(_) => menu.natural_number_ty(),
+        VdZfcLiteralData::NaturalNumber(_) => menu.nat,
         VdZfcLiteralData::NegativeInteger(_) => todo!(),
         VdZfcLiteralData::FiniteDecimalRepresentation(_) => todo!(),
         VdZfcLiteralData::SpecialConstant(special_constant) => todo!(),

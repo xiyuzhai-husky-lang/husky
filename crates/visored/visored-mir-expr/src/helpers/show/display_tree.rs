@@ -36,9 +36,11 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 arguments,
             } => {
                 let value = match function {
-                    VdMirApplicationFunction::IntAdd => "separator list int add".to_string(),
-                    VdMirApplicationFunction::TrivialEq => "separator list eq".to_string(),
-                    VdMirApplicationFunction::In => "separator list in".to_string(),
+                    VdMirApplicationFunction::NormalSeparator => "separator".to_string(),
+                    VdMirApplicationFunction::InSet => "in set".to_string(),
+                    // VdMirApplicationFunction::IntAdd => "separator list int add".to_string(),
+                    // VdMirApplicationFunction::TrivialEq => "separator list eq".to_string(),
+                    // VdMirApplicationFunction::In => "separator list in".to_string(),
                 };
                 (
                     value,

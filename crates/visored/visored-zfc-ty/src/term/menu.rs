@@ -12,13 +12,14 @@ pub struct VdZfcTermMenu {
     pub int: VdZfcTerm,
     pub rat: VdZfcTerm,
     pub real: VdZfcTerm,
+    pub complex: VdZfcTerm,
 }
 
 impl VdZfcTermMenu {
     fn new(db: &::salsa::Db) -> Self {
         let VdItemPathMenu {
             set,
-            proposition,
+            prop,
             nat,
             rat,
             int,
@@ -41,7 +42,7 @@ impl VdZfcTermMenu {
         let int = VdZfcTerm::new_item_path(int.into(), db);
         let rat = VdZfcTerm::new_item_path(rat.into(), db);
         let real = VdZfcTerm::new_item_path(real.into(), db);
-
+        let complex = VdZfcTerm::new_item_path(complex.into(), db);
         Self {
             zero,
             one,
@@ -50,6 +51,7 @@ impl VdZfcTermMenu {
             int,
             rat,
             real,
+            complex,
         }
     }
 }

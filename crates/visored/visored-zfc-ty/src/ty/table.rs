@@ -1,6 +1,12 @@
-use crate::{menu::vd_zfc_ty_menu, ty::VdZfcType};
+use crate::{
+    menu::{vd_zfc_ty_menu, VdZfcTypeMenu},
+    ty::VdZfcType,
+};
 use rustc_hash::FxHashMap;
-use visored_item_path::path::VdItemPath;
+use visored_item_path::{
+    menu::{vd_item_path_menu, VdItemPathMenu},
+    path::VdItemPath,
+};
 
 pub struct VdItemPathZfcTypeTable {
     tys: FxHashMap<VdItemPath, VdZfcType>,
@@ -15,14 +21,38 @@ impl VdItemPathZfcTypeTable {
 
     pub fn new_standard(db: &::salsa::Db) -> Self {
         // TODO: use menu?
-        // let vd_item_path_menu = todo!();
-        let zfc_ty_menu = vd_zfc_ty_menu(db);
+        let VdItemPathMenu {
+            nat: nat_path,
+            int: int_path,
+            rat: rat_path,
+            real: real_path,
+            complex: complex_path,
+            set: set_path,
+            prop: prop_path,
+            sin: sin_path,
+            cos: cos_path,
+            group: group_path,
+            ring: ring_path,
+            group_mul: group_mul_path,
+            abelian_group_add: abelian_group_add_path,
+            ring_add: ring_add_path,
+            ring_mul: ring_mul_path,
+        } = *vd_item_path_menu(db);
+        let VdZfcTypeMenu {
+            nat,
+            int,
+            rat,
+            real,
+            complex,
+            set,
+            prop,
+        } = *vd_zfc_ty_menu(db);
         Self::new([
-            (VdItemPath::NAT, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::RAT, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::INT, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::REAL, zfc_ty_menu.set_category_ty()),
-            (VdItemPath::COMPLEX, zfc_ty_menu.set_category_ty()),
+            (nat_path.into(), set),
+            (rat_path.into(), set),
+            (int_path.into(), set),
+            (real_path.into(), set),
+            (complex_path.into(), set),
         ])
     }
 }

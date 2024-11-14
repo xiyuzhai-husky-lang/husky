@@ -26,19 +26,13 @@ pub struct VdGlobalDispatchMenu {
 #[salsa::tracked(return_ref)]
 pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
     let VdZfcTypeMenu {
-        zero_literal,
-        one_literal,
-        two_literal,
-        nat_term,
-        int_term,
-        rat_term,
-        real_term,
-        nat_ty,
-        int_ty,
-        rat_ty,
-        real_ty,
-        set_ty,
-        prop_ty,
+        nat,
+        int,
+        rat,
+        real,
+        complex,
+        set,
+        prop,
     } = *vd_zfc_ty_menu(db);
     let VdSignatureMenu {
         nat_add,
@@ -83,6 +77,6 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
             base_separator: VdBaseSeparator::Eq,
             signature: real_eq.clone(),
         },
-        in_set: VdSeparatorGlobalDispatch::InSet { expr_ty: prop_ty },
+        in_set: VdSeparatorGlobalDispatch::InSet { expr_ty: prop },
     }
 }
