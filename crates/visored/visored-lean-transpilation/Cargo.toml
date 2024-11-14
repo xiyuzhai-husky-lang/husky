@@ -47,6 +47,8 @@ lean-sem-expr.workspace = true
 # visored
 visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
+visored-global-dispatch.workspace = true
+visored-signature.workspace = true
 visored-annotation.workspace = true
 visored-lean-transpilation = { workspace = true, features = ["test_helpers"] }
 
