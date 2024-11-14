@@ -158,14 +158,14 @@ impl VdSemExprEntry {
 
 impl<I> ToVdSem<VdSemExprIdxRange> for I
 where
-    I: IntoIterator<Item = VdSynExprIdx> + Clone,
+    I: IntoIterator<Item = VdSynExprIdx>,
 {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemExprIdxRange {
         let mut exprs: Vec<VdSemExprEntry> = vec![];
-        for expr in self.clone() {
-            exprs.push(builder.build_expr(expr));
+        for expr in self {
+            exprs.push(builder.build_expr_entry(expr));
         }
-        builder.alloc_exprs(exprs, self)
+        builder.alloc_exprs(exprs)
     }
 }
 
@@ -174,13 +174,13 @@ impl ToVdSem<VdSemExprIdx> for VdSynExprIdx {
         if let Some(&idx) = builder.syn_to_sem_expr_map().get(self) {
             return idx;
         }
-        let entry = builder.build_expr(self);
+        let entry = builder.build_expr_entry(self);
         builder.alloc_expr(self, entry)
     }
 }
 
 impl<'a> VdSemExprBuilder<'a> {
-    fn build_expr(&mut self, syn_expr: VdSynExprIdx) -> VdSemExprEntry {
+    fn build_expr_entry(&mut self, syn_expr: VdSynExprIdx) -> VdSemExprEntry {
         let db = self.db();
         let (data, ty) = match self.syn_expr_arena()[syn_expr] {
             VdSynExprData::Literal {
@@ -205,7 +205,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 separator_class,
                 items,
                 ref separators,
-            } => self.build_separated_list(separator_class, items, separators),
+            } => return self.build_separated_list(separator_class, items, separators),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,

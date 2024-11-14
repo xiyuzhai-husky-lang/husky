@@ -21,7 +21,8 @@ pub struct VdBaseBinaryOprKey {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseSeparatorKey {
     base_separator: VdBaseSeparator,
-    item_ty: VdZfcType,
+    prev_item_ty: VdZfcType,
+    next_item_ty: VdZfcType,
 }
 
 impl VdDefaultGlobalDispatchTable {
@@ -66,12 +67,14 @@ impl VdDefaultGlobalDispatchTable {
     pub fn base_separator_default_dispatch(
         &self,
         base_separator: VdBaseSeparator,
-        item_ty: VdZfcType,
+        prev_item_ty: VdZfcType,
+        next_item_ty: VdZfcType,
     ) -> Option<&VdSeparatorGlobalDispatch> {
         self.base_separator_default_dispatch_table
             .get(&VdBaseSeparatorKey {
                 base_separator,
-                item_ty,
+                prev_item_ty,
+                next_item_ty,
             })
     }
 }
