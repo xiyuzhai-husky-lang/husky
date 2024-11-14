@@ -11,9 +11,9 @@ fn basic_to_vd_hir_works() {
     t(
         "1 + 1",
         &expect![[r#"
-        separator list int add
-        ├─ 1
-        └─ 1
-    "#]],
+            separator
+            ├─ 1
+            └─ 1
+        "#]],
     );
 }

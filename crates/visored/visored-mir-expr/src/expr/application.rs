@@ -1,6 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirApplicationFunction {
-    IntAdd,
-    TrivialEq,
-    In, // ad hoc
+    NormalSeparator,
+    InSet,
 }

@@ -74,8 +74,10 @@ impl<'db> VdMirExprBuilder<'db> {
                 ref dispatch,
             } => VdMirExprData::Application {
                 function: match dispatch {
-                    VdSemBinaryDispatch::IntAdd => VdMirApplicationFunction::IntAdd,
-                    VdSemBinaryDispatch::TrivialEq => VdMirApplicationFunction::TrivialEq,
+                    VdSemBinaryDispatch::IntAdd => todo!(),
+                    VdSemBinaryDispatch::TrivialEq => todo!(),
+                    // VdSemBinaryDispatch::IntAdd => VdMirApplicationFunction::IntAdd,
+                    // VdSemBinaryDispatch::TrivialEq => VdMirApplicationFunction::TrivialEq,
                 },
                 arguments: [lopd, ropd].to_vd_hir(self),
             },
@@ -116,8 +118,10 @@ impl<'db> VdMirExprBuilder<'db> {
                     VdSemSeparatedListDispatch::Normal {
                         base_separator,
                         signature,
-                    } => todo!(),
-                    VdSemSeparatedListDispatch::InSet { expr_ty } => todo!(),
+                    } => VdMirApplicationFunction::NormalSeparator,
+                    VdSemSeparatedListDispatch::InSet { expr_ty } => {
+                        VdMirApplicationFunction::InSet
+                    }
                 },
                 arguments: items.to_vd_hir(self),
             },
