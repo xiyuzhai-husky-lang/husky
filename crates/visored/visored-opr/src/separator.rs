@@ -1,7 +1,7 @@
 use crate::precedence::{VdPrecedence, VdPrecedenceRange};
 use enum_index::IsEnumIndex;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, IsEnumIndex)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, IsEnumIndex, Hash)]
 pub enum VdBaseSeparator {
     Space,
     Comma,

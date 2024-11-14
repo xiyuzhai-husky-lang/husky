@@ -35,6 +35,7 @@ husky-tree-utils.workspace = true
 visored-annotation.workspace = true
 visored-opr.workspace = true
 visored-global-resolution.workspace = true
+visored-global-dispatch.workspace = true
 visored-zfc-ty.workspace = true
 visored-syn-expr.workspace = true
 
