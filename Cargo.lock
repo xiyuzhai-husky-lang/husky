@@ -12577,6 +12577,7 @@ dependencies = [
  "rustc-hash 2.0.0",
  "salsa",
  "visored-opr",
+ "visored-signature",
  "visored-zfc-ty",
 ]
 
