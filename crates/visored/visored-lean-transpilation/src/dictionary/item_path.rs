@@ -5,16 +5,16 @@ use rustc_hash::FxHashMap;
 use visored_item_path::path::VdItemPath;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdItemPathTranslationTable {
-    translations: FxHashMap<VdItemPath, VdItemPathTranslation>,
-}
-
-#[derive(Debug, PartialEq, Eq)]
 pub enum VdItemPathTranslation {
     ItemPath(LnItemPath),
 }
 
-impl VdItemPathTranslationTable {
+#[derive(Debug, PartialEq, Eq)]
+pub struct VdItemPathDictionary {
+    translations: FxHashMap<VdItemPath, VdItemPathTranslation>,
+}
+
+impl VdItemPathDictionary {
     pub fn new(
         translations: impl IntoIterator<Item = (VdItemPath, VdItemPathTranslation)>,
     ) -> Self {
@@ -22,7 +22,8 @@ impl VdItemPathTranslationTable {
             translations: translations.into_iter().collect(),
         }
     }
-    pub(crate) fn new_standard() -> Self {
+
+    pub fn new_standard() -> Self {
         Self::new([
             (
                 VdItemPath::NAT,
@@ -46,7 +47,9 @@ impl VdItemPathTranslationTable {
             ),
         ])
     }
+}
 
+impl VdItemPathDictionary {
     pub(crate) fn get(&self, item_path: VdItemPath) -> Option<&VdItemPathTranslation> {
         self.translations.get(&item_path)
     }

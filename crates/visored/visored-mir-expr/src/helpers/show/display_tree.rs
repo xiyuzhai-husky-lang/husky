@@ -1,7 +1,7 @@
 use husky_tree_utils::display::DisplayTree;
 
 use crate::{
-    expr::{application::VdMirApplicationFunction, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
+    expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
     stmt::VdMirStmtArenaRef,
 };
 
@@ -36,8 +36,8 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 arguments,
             } => {
                 let value = match function {
-                    VdMirApplicationFunction::NormalSeparator => "separator".to_string(),
-                    VdMirApplicationFunction::InSet => "in set".to_string(),
+                    VdMirFunc::NormalBaseSeparator { .. } => "separator".to_string(),
+                    VdMirFunc::InSet => "in set".to_string(),
                     // VdMirApplicationFunction::IntAdd => "separator list int add".to_string(),
                     // VdMirApplicationFunction::TrivialEq => "separator list eq".to_string(),
                     // VdMirApplicationFunction::In => "separator list in".to_string(),

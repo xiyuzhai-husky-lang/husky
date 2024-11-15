@@ -67,15 +67,17 @@ impl VdSeparatorGlobalDispatch {
             ((real, add, rat), real_add),
             ((real, add, real), real_add),
             // ## eq
+            // ### nat
             ((nat, eq, nat), nat_eq),
-            ((nat, eq, int), int_eq),
             ((int, eq, nat), int_eq),
             ((int, eq, int), int_eq),
+            // ### rat
             ((nat, eq, rat), rat_eq),
             ((int, eq, rat), rat_eq),
             ((rat, eq, nat), rat_eq),
             ((rat, eq, int), rat_eq),
             ((rat, eq, rat), rat_eq),
+            // ### real
             ((nat, eq, real), real_eq),
             ((rat, eq, real), real_eq),
             ((int, eq, real), real_eq),
@@ -83,11 +85,22 @@ impl VdSeparatorGlobalDispatch {
             ((real, eq, int), real_eq),
             ((real, eq, rat), real_eq),
             ((real, eq, real), real_eq),
+            // ### complex
+            ((nat, eq, complex), real_eq),
+            ((rat, eq, complex), real_eq),
+            ((int, eq, complex), real_eq),
+            ((real, eq, complex), real_eq),
+            ((complex, eq, nat), real_eq),
+            ((complex, eq, rat), real_eq),
+            ((complex, eq, int), real_eq),
+            ((complex, eq, real), real_eq),
+            ((complex, eq, complex), real_eq),
             // ## in
             ((nat, r#in, set), in_set),
             ((int, r#in, set), in_set),
             ((rat, r#in, set), in_set),
             ((real, r#in, set), in_set),
+            ((complex, r#in, set), in_set),
         ]
     }
 }

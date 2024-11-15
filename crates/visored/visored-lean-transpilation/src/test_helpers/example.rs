@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::VdLeanTranspilationBuilder;
-use dictionary::VdLeanTranspilationDictionary;
+use dictionary::VdLeanDictionary;
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;
@@ -41,7 +41,7 @@ impl VdLeanTranspilationExample {
             symbol_local_defn_storage: vd_hir_symbol_local_defn_storage,
             result,
         } = VdMirExprExample::new(input, root_mode, &[], &[], db);
-        let dictionary = &VdLeanTranspilationDictionary::new_standard();
+        let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
             vd_hir_expr_arena.as_arena_ref(),

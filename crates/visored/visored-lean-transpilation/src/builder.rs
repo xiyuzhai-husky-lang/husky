@@ -15,13 +15,13 @@ use visored_mir_expr::{
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
 };
 
-use crate::{dictionary::VdLeanTranspilationDictionary, mangle::VdLeanTranspilationMangler};
+use crate::{dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler};
 
 pub struct VdLeanTranspilationBuilder<'a> {
     lean_hir_expr_builder: LeanHirExprBuilder<'a>,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
-    dictionary: &'a VdLeanTranspilationDictionary,
+    dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
 }
 
@@ -29,7 +29,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
         db: &'a ::salsa::Db,
         vd_hir_expr_region_data: &'a VdMirExprRegionData,
-        dictionary: &'a VdLeanTranspilationDictionary,
+        dictionary: &'a VdLeanDictionary,
     ) -> Self {
         Self::new(
             db,
@@ -45,7 +45,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
-        dictionary: &'a VdLeanTranspilationDictionary,
+        dictionary: &'a VdLeanDictionary,
     ) -> Self {
         Self {
             lean_hir_expr_builder: LeanHirExprBuilder::new(db),
@@ -70,7 +70,7 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         self.stmt_arena
     }
 
-    pub fn dictionary(&self) -> &VdLeanTranspilationDictionary {
+    pub fn dictionary(&self) -> &VdLeanDictionary {
         self.dictionary
     }
 }

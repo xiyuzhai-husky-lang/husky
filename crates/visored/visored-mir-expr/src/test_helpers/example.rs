@@ -5,7 +5,7 @@ use crate::{
     *,
 };
 use either::*;
-use expr::{application::VdMirApplicationFunction, VdMirExprData};
+use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::mode::LxMode;

@@ -43,14 +43,14 @@ impl VdSignatureMenu {
             real_eq,
         } = *vd_zfc_instantiation_menu(db);
         Self {
-            nat_add: VdBaseSeparatorSignature::new(nat_add.clone(), nat, nat),
-            int_add: VdBaseSeparatorSignature::new(int_add.clone(), int, int),
-            rat_add: VdBaseSeparatorSignature::new(rat_add.clone(), rat, rat),
-            real_add: VdBaseSeparatorSignature::new(real_add.clone(), real, real),
-            nat_eq: VdBaseSeparatorSignature::new(nat_eq.clone(), nat, nat),
-            int_eq: VdBaseSeparatorSignature::new(int_eq.clone(), int, int),
-            rat_eq: VdBaseSeparatorSignature::new(rat_eq.clone(), rat, rat),
-            real_eq: VdBaseSeparatorSignature::new(real_eq.clone(), real, real),
+            nat_add: VdBaseSeparatorSignature::new(db, nat_add.clone(), nat, nat),
+            int_add: VdBaseSeparatorSignature::new(db, int_add.clone(), int, int),
+            rat_add: VdBaseSeparatorSignature::new(db, rat_add.clone(), rat, rat),
+            real_add: VdBaseSeparatorSignature::new(db, real_add.clone(), real, real),
+            nat_eq: VdBaseSeparatorSignature::new(db, nat_eq.clone(), nat, nat),
+            int_eq: VdBaseSeparatorSignature::new(db, int_eq.clone(), int, int),
+            rat_eq: VdBaseSeparatorSignature::new(db, rat_eq.clone(), rat, rat),
+            real_eq: VdBaseSeparatorSignature::new(db, real_eq.clone(), real, real),
         }
     }
 }

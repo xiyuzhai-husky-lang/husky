@@ -3,7 +3,7 @@ pub mod application;
 pub mod tests;
 
 use crate::*;
-use application::VdMirApplicationFunction;
+use application::VdMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_item_path::path::VdItemPath;
@@ -19,7 +19,7 @@ pub enum VdMirExprData {
     Literal(VdZfcLiteral),
     Variable(VdMirVariable),
     Application {
-        function: VdMirApplicationFunction,
+        function: VdMirFunc,
         arguments: VdMirExprIdxRange,
     },
     ItemPath(VdItemPath),
@@ -110,18 +110,14 @@ impl<'db> VdMirExprBuilder<'db> {
             },
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {
-                items,
-                ref dispatch,
-                ..
+                items, dispatch, ..
             } => VdMirExprData::Application {
                 function: match dispatch {
                     VdSemSeparatedListDispatch::Normal {
                         base_separator,
                         signature,
-                    } => VdMirApplicationFunction::NormalSeparator,
-                    VdSemSeparatedListDispatch::InSet { expr_ty } => {
-                        VdMirApplicationFunction::InSet
-                    }
+                    } => VdMirFunc::NormalBaseSeparator(signature),
+                    VdSemSeparatedListDispatch::InSet { expr_ty } => VdMirFunc::InSet,
                 },
                 arguments: items.to_vd_hir(self),
             },
