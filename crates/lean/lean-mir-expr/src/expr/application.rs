@@ -43,6 +43,7 @@ impl LnMirFunc {
     }
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LnMirFuncKey {
     PrefixOpr {

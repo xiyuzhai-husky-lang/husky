@@ -77,7 +77,7 @@ fn basic_visored_clause_to_lean_works() {
         &expect![[r#"
             variable x : ℝ
 
-            def h : x ≥ x := sorry"#]],
+            def h : x = x := sorry"#]],
     );
     t(
         "Let $x\\in\\mathbb{N}$. Then $2x\\ge x$.",
@@ -149,8 +149,8 @@ fn basic_visored_clause_to_lean_works() {
 
             def h : (x - 1) ^ 2 ≥ 0 := sorry
 
-            def h1 : x ^ 2 - 2 * x ≥ 1 ≥ 0 := sorry
+            def h1 : x ^ 2 - 2 * x + 1 ≥ 0 := sorry
 
-            def h2 : x ^ 2 ≥ 1 ≥ 2 * x := sorry"#]],
+            def h2 : x ^ 2 + 1 ≥ 2 * x := sorry"#]],
     );
 }

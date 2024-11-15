@@ -34,6 +34,9 @@ impl VdZfcTermMenu {
             ring_add,
             ring_mul,
             ring_power,
+            eq,
+            le,
+            ge,
         } = *vd_item_path_menu(db);
 
         let zero = VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("0".to_string()), db);

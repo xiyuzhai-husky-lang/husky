@@ -49,6 +49,9 @@ impl VdZfcTypeMenu {
             ring_add,
             ring_mul,
             ring_power,
+            eq,
+            le,
+            ge,
         } = *vd_item_path_menu(db);
 
         let nat = VdZfcType::new_item_path(nat.into(), db);
