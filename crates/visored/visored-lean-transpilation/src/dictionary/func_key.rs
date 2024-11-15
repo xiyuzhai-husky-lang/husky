@@ -5,6 +5,7 @@ use visored_mir_expr::expr::application::{
     VdMirFunc, VdMirFuncKey,
 };
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdFuncKeyTranslation {
     BinaryOprAsSeparator(LnMirFuncKey),
@@ -131,8 +132,21 @@ impl VdFuncKeyDictionary {
     }
 
     pub fn new(
-        translations: impl IntoIterator<Item = (VdMirFuncKey, VdFuncKeyTranslation)>,
+        translations: impl IntoIterator<Item = (VdMirFuncKey, VdFuncKeyTranslation)> + Clone,
     ) -> Self {
+        #[cfg(debug_assertions)]
+        {
+            let translations_vec: Vec<_> = translations.clone().into_iter().collect();
+            let mut seen = std::collections::HashMap::new();
+            for (idx, (key, _)) in translations_vec.iter().enumerate() {
+                if let Some(prev_idx) = seen.insert(key, idx) {
+                    panic!(
+                        "Duplicate key {:?} found at positions {} and {}",
+                        key, prev_idx, idx
+                    );
+                }
+            }
+        }
         Self {
             translations: translations.into_iter().collect(),
         }

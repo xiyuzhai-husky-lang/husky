@@ -4360,6 +4360,7 @@
         relative_path: "crates/visored/visored-lean-transpilation",
         dependencies: [
             "either",
+            "husky-print-utils",
             "husky-tree-utils",
             "latex-prelude",
             "lean-coword",

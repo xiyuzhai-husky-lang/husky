@@ -70,6 +70,9 @@ impl VdZfcInstantiationMenu {
             ring_add,
             ring_mul,
             ring_power,
+            eq,
+            le,
+            ge,
         } = *vd_item_path_menu(db);
         let VdZfcTermMenu {
             zero,
@@ -105,19 +108,19 @@ impl VdZfcInstantiationMenu {
             VdInstantiation::new(db, ring_power.into(), smallvec![real, nat]);
         let complex_to_the_power_of_nat =
             VdInstantiation::new(db, ring_power.into(), smallvec![complex, nat]);
-        let nat_eq = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
-        let int_eq = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
-        let rat_eq = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
-        let real_eq = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
-        let complex_eq = VdInstantiation::new(db, ring_add.into(), smallvec![complex]);
-        let nat_le = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
-        let int_le = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
-        let rat_le = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
-        let real_le = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
-        let nat_ge = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
-        let int_ge = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
-        let rat_ge = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
-        let real_ge = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
+        let nat_eq = VdInstantiation::new(db, eq.into(), smallvec![nat]);
+        let int_eq = VdInstantiation::new(db, eq.into(), smallvec![int]);
+        let rat_eq = VdInstantiation::new(db, eq.into(), smallvec![rat]);
+        let real_eq = VdInstantiation::new(db, eq.into(), smallvec![real]);
+        let complex_eq = VdInstantiation::new(db, eq.into(), smallvec![complex]);
+        let nat_le = VdInstantiation::new(db, le.into(), smallvec![nat]);
+        let int_le = VdInstantiation::new(db, le.into(), smallvec![int]);
+        let rat_le = VdInstantiation::new(db, le.into(), smallvec![rat]);
+        let real_le = VdInstantiation::new(db, le.into(), smallvec![real]);
+        let nat_ge = VdInstantiation::new(db, ge.into(), smallvec![nat]);
+        let int_ge = VdInstantiation::new(db, ge.into(), smallvec![int]);
+        let rat_ge = VdInstantiation::new(db, ge.into(), smallvec![rat]);
+        let real_ge = VdInstantiation::new(db, ge.into(), smallvec![real]);
         Self {
             int_sub,
             rat_sub,
