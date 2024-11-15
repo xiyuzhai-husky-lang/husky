@@ -36,17 +36,17 @@ impl VdLeanTranspilationExample {
         db: &::salsa::Db,
     ) -> Self {
         let VdMirExprExample {
-            expr_arena: vd_hir_expr_arena,
-            stmt_arena: vd_hir_stmt_arena,
-            symbol_local_defn_storage: vd_hir_symbol_local_defn_storage,
+            expr_arena: vd_mir_expr_arena,
+            stmt_arena: vd_mir_stmt_arena,
+            symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
             result,
         } = VdMirExprExample::new(input, root_mode, &[], &[], db);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
-            vd_hir_expr_arena.as_arena_ref(),
-            vd_hir_stmt_arena.as_arena_ref(),
-            &vd_hir_symbol_local_defn_storage,
+            vd_mir_expr_arena.as_arena_ref(),
+            vd_mir_stmt_arena.as_arena_ref(),
+            &vd_mir_symbol_local_defn_storage,
             dictionary,
         );
         let result = match result {

@@ -62,7 +62,7 @@ impl VdMirExprExample {
             sem_division_arena.as_arena_ref(),
             &sem_symbol_local_defn_storage,
         );
-        let result = result.to_vd_hir(&mut builder);
+        let result = result.to_vd_mir(&mut builder);
         let (expr_arena, stmt_arena, symbol_local_defn_storage) = builder.finish();
         Self {
             expr_arena,
