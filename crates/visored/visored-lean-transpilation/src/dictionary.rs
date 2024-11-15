@@ -11,7 +11,7 @@ use visored_zfc_ty::instantiation::VdInstantiation;
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdLeanDictionary {
     item_path_translation_table: VdItemPathDictionary,
-    func_translation_table: VdFuncKeyDictionary,
+    func_key_translation_table: VdFuncKeyDictionary,
 }
 
 impl VdLeanDictionary {
@@ -22,7 +22,7 @@ impl VdLeanDictionary {
     pub fn new_standard(db: &::salsa::Db) -> Self {
         Self {
             item_path_translation_table: VdItemPathDictionary::new_standard(),
-            func_translation_table: VdFuncKeyDictionary::new_standard(db),
+            func_key_translation_table: VdFuncKeyDictionary::new_standard(db),
         }
     }
 }
@@ -32,7 +32,7 @@ impl VdLeanDictionary {
         self.item_path_translation_table.get(item_path)
     }
 
-    pub fn func_translation(&self, func_key: VdMirFuncKey) -> Option<&VdFuncKeyTranslation> {
-        self.func_translation_table.get(func_key)
+    pub fn func_key_translation(&self, func_key: VdMirFuncKey) -> Option<&VdFuncKeyTranslation> {
+        self.func_key_translation_table.get(func_key)
     }
 }

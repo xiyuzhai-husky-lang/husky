@@ -10,6 +10,8 @@ pub enum VdBaseSeparator {
     Mul,
     Dot,
     Eq,
+    Le,
+    Ge,
     Subset,
     Supset,
     Subseteq,
@@ -33,6 +35,9 @@ impl VdBaseSeparator {
     pub const MUL: Self = Self::Mul;
     pub const DOT: Self = Self::Dot;
     pub const EQ: Self = Self::Eq;
+    pub const LE: Self = Self::Le;
+    pub const GE: Self = Self::Ge;
+    pub const IN: Self = Self::In;
 }
 
 impl VdBaseSeparator {
@@ -48,6 +53,8 @@ impl VdBaseSeparator {
             VdBaseSeparator::Dot => VdSeparatorClass::Mul,
             VdBaseSeparator::Eq
             | VdBaseSeparator::Ne
+            | VdBaseSeparator::Le
+            | VdBaseSeparator::Ge
             | VdBaseSeparator::Subset
             | VdBaseSeparator::Supset
             | VdBaseSeparator::Subseteq
@@ -82,6 +89,8 @@ impl VdBaseSeparator {
             }
             VdBaseSeparator::Dot => VdPrecedence::MUL_DIV,
             VdBaseSeparator::Eq
+            | VdBaseSeparator::Le
+            | VdBaseSeparator::Ge
             | VdBaseSeparator::Subset
             | VdBaseSeparator::Supset
             | VdBaseSeparator::Subseteq
@@ -105,6 +114,8 @@ impl VdBaseSeparator {
             VdBaseSeparator::Mul => "\\times",
             VdBaseSeparator::Dot => "\\cdot",
             VdBaseSeparator::Eq => "=",
+            VdBaseSeparator::Le => "\\le",
+            VdBaseSeparator::Ge => "\\ge",
             VdBaseSeparator::Subset => "\\subseteq",
             VdBaseSeparator::Supset => "\\supseteq",
             VdBaseSeparator::Subseteq => "\\subseteqq",
