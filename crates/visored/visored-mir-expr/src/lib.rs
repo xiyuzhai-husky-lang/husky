@@ -18,7 +18,7 @@ use self::tests::*;
 use either::*;
 
 pub trait ToVdMir<T>: Copy {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> T;
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> T;
 }
 
 impl<L, R, S, T> ToVdMir<Either<S, T>> for Either<L, R>
@@ -26,10 +26,10 @@ where
     L: ToVdMir<S>,
     R: ToVdMir<T>,
 {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> Either<S, T> {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> Either<S, T> {
         match self {
-            Either::Left(l) => Either::Left(l.to_vd_hir(builder)),
-            Either::Right(r) => Either::Right(r.to_vd_hir(builder)),
+            Either::Left(l) => Either::Left(l.to_vd_mir(builder)),
+            Either::Right(r) => Either::Right(r.to_vd_mir(builder)),
         }
     }
 }

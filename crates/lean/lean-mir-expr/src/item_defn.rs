@@ -2,26 +2,44 @@
 pub mod def;
 pub mod variable;
 
+use self::{def::*, variable::*};
 use crate::*;
+use expr::LnMirExprIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use lean_coword::ident::LnIdent;
-use lean_term::ty::LnType;
 
 pub enum LnItemDefnData {
     Variable {
         symbol: LnIdent,
-        ty: LnType,
+        ty: LnMirExprIdx,
+    },
+    Def {
+        symbol: LnIdent,
+        ty: LnMirExprIdx,
+        body: LnMirDefBody,
     },
     Group {
         defns: LnItemDefnIdxRange,
         meta: LnMirItemDefnGroupMeta,
     },
 }
+
+pub enum LnItemDefnChild {
+    Expr(LnMirExprIdx),
+    Defn(LnItemDefnIdx),
+    DefBody(LnMirDefBody),
+}
+
 impl LnItemDefnData {
-    pub(crate) fn children(&self) -> Vec<LnItemDefnIdx> {
-        match self {
+    pub(crate) fn children(&self) -> Vec<LnItemDefnChild> {
+        match *self {
             LnItemDefnData::Variable { .. } => vec![],
-            LnItemDefnData::Group { defns, .. } => defns.into_iter().collect(),
+            LnItemDefnData::Group { defns, .. } => {
+                defns.into_iter().map(LnItemDefnChild::Defn).collect()
+            }
+            LnItemDefnData::Def { symbol, ty, body } => {
+                vec![LnItemDefnChild::Expr(ty), LnItemDefnChild::DefBody(body)]
+            }
         }
     }
 }

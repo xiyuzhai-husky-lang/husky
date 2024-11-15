@@ -7,7 +7,7 @@ fn t(input: &str, expect: &Expect) {
 }
 
 #[test]
-fn basic_to_vd_hir_works() {
+fn basic_to_vd_mir_works() {
     t(
         "1 + 1",
         &expect![[r#"

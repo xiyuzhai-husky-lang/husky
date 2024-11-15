@@ -1,8 +1,10 @@
 use crate::{
     expr::{application::LnMirFunc, LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
-    item_defn::{LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange},
+    item_defn::{
+        def::LnMirDefBody, LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange,
+    },
     stmt::LnMirStmtArenaRef,
-    tactic::LnMirTacticArenaRef,
+    tactic::{LnMirTacticArenaRef, LnMirTacticIdxRange},
 };
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
@@ -190,17 +192,32 @@ impl<'a> LnMirExprFormatter<'a> {
         self.make_sure_new_paragraph();
         match self.defn_arena[defn] {
             LnItemDefnData::Variable { symbol, ty } => {
-                write!(
-                    self.result,
-                    "variable {} : {}",
-                    symbol.data(self.db),
-                    ty.show(self.db)
-                );
+                write!(self.result, "variable {} : ", symbol.data(self.db));
+                self.format_expr_ext(ty);
             }
             LnItemDefnData::Group { defns, ref meta } => {
                 self.format_defns(defns);
             }
+            LnItemDefnData::Def { symbol, ty, body } => {
+                write!(self.result, "def {} : ", symbol.data(self.db));
+                self.format_expr_ext(ty);
+                self.result += " := ";
+                self.format_def_body(body);
+            }
         }
+    }
+
+    pub fn format_def_body(&mut self, body: LnMirDefBody) {
+        match body {
+            LnMirDefBody::Expr(expr) => self.format_expr_ext(expr),
+            LnMirDefBody::Tactics(tactics) => todo!(),
+            LnMirDefBody::Stmts(stmts) => todo!(),
+        }
+    }
+
+    pub fn format_tactics(&mut self, tactics: LnMirTacticIdxRange) {
+        self.result += "by ";
+        todo!()
     }
 
     fn make_sure_new_paragraph(&mut self) {

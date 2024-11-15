@@ -54,8 +54,10 @@ impl LnMirExprData {
 
     pub(crate) fn children(&self) -> Vec<LnMirExprIdx> {
         match *self {
-            LnMirExprData::ItemPath(_) | LnMirExprData::Literal(_) | LnMirExprData::Sorry => vec![],
-            LnMirExprData::Variable { ident } => todo!(),
+            LnMirExprData::ItemPath(_)
+            | LnMirExprData::Literal(_)
+            | LnMirExprData::Sorry
+            | LnMirExprData::Variable { .. } => vec![],
             LnMirExprData::Lambda {
                 ref parameters,
                 body,

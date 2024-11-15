@@ -54,8 +54,8 @@ pub(crate) struct DB {}
 //     let vd_sem_expr_region_data = &builder.finish();
 //     let mut builder = VdMirExprBuilder::new(db, vd_sem_expr_region_data);
 //     let one_add_one = one_add_one.to_hir(&mut builder);
-//     let vd_hir_expr_region_data = &builder.finish();
-//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_hir_expr_region_data);
+//     let vd_mir_expr_region_data = &builder.finish();
+//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_mir_expr_region_data);
 //     let one_add_one = one_add_one.to_lean(&mut builder);
 //     let mut formatter = builder.formatter(80);
 //     formatter.format_expr_ext(one_add_one);
@@ -102,8 +102,8 @@ pub(crate) struct DB {}
 //     let vd_sem_expr_region_data = &builder.finish();
 //     let mut builder = VdMirExprBuilder::new(db, vd_sem_expr_region_data);
 //     let one_add_one = one_add_one_eqs_two.to_hir(&mut builder);
-//     let vd_hir_expr_region_data = &builder.finish();
-//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_hir_expr_region_data);
+//     let vd_mir_expr_region_data = &builder.finish();
+//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_mir_expr_region_data);
 //     let one_add_one = one_add_one.to_lean(&mut builder);
 //     let mut formatter = builder.formatter(80);
 //     formatter.format_expr_ext(one_add_one);

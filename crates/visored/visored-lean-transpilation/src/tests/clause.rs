@@ -60,4 +60,23 @@ fn basic_visored_clause_to_lean_works() {
         "#]],
         &expect!["variable x : ℂ"],
     );
+    t(
+        "Let $x\\in\\mathbb{R}$. Then $x=x$.",
+        &expect![[r#"
+            defns
+            └─ group: `paragraph`
+              ├─ group: `sentence`
+              │ └─ variable: `x`
+              └─ group: `sentence`
+                └─ def: `h`
+                  ├─ application
+                  │ ├─ variable: `x`
+                  │ └─ variable: `x`
+                  └─ sorry
+        "#]],
+        &expect![[r#"
+            variable x : ℝ
+
+            def h : x = x := sorry"#]],
+    );
 }

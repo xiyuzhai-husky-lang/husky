@@ -1,10 +1,11 @@
 use crate::*;
 use dictionary::item_path::VdItemPathTranslation;
+use lean_mir_expr::expr::{LnMirExprData, LnMirExprIdx};
 use lean_term::ty::LnType;
 use visored_zfc_ty::ty::{VdZfcType, VdZfcTypeData};
 
 pub enum VdZfcTypeLeanTranspilation {
-    Type(LnType),
+    Type(LnMirExprIdx),
 }
 
 impl VdTranspileToLean<VdZfcTypeLeanTranspilation> for VdZfcType {
@@ -21,19 +22,20 @@ impl VdTranspileToLean<VdZfcTypeLeanTranspilation> for VdZfcType {
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
-    fn build_ln_ty_from_vd_zfc_ty_without_refinements(&self, ty: VdZfcType) -> LnType {
+    fn build_ln_ty_from_vd_zfc_ty_without_refinements(&mut self, ty: VdZfcType) -> LnMirExprIdx {
         debug_assert!(ty.refinements(self.db()).is_empty());
-        match ty.data(self.db()) {
+        let data = match ty.data(self.db()) {
             VdZfcTypeData::ItemPath(path) => {
                 let Some(translation) = self.dictionary().item_path_translation(path) else {
                     todo!()
                 };
                 match *translation {
                     VdItemPathTranslation::ItemPath(ln_item_path) => {
-                        LnType::new_item_path(ln_item_path)
+                        LnMirExprData::ItemPath(ln_item_path)
                     }
                 }
             }
-        }
+        };
+        self.alloc_expr(data)
     }
 }
