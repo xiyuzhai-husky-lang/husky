@@ -1296,14 +1296,21 @@
         ],
     },
     JarPackageSummary {
+        name: "lean-item-path",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "lean-mir-expr",
         dependencies: [
+            "lean-item-path",
             "lean-term",
         ],
     },
     JarPackageSummary {
         name: "lean-term",
-        dependencies: [],
+        dependencies: [
+            "lean-item-path",
+        ],
     },
     JarPackageSummary {
         name: "lean-sem-expr",
@@ -1344,6 +1351,7 @@
     JarPackageSummary {
         name: "visored-lean-transpilation",
         dependencies: [
+            "lean-item-path",
             "lean-mir-expr",
             "lean-term",
             "visored-item-path",

@@ -14,6 +14,7 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
+    lean_item_path::jar::LnItemPathJar,
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
     lean_mir_expr::jar::LnMirExprJar,

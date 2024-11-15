@@ -11,6 +11,7 @@ pub struct VdMirFuncKeyMenu {
     pub int_eq: VdMirFuncKey,
     pub rat_eq: VdMirFuncKey,
     pub real_eq: VdMirFuncKey,
+    pub complex_eq: VdMirFuncKey,
     pub in_set: VdMirFuncKey,
 }
 
@@ -21,10 +22,12 @@ impl VdMirFuncKeyMenu {
             int_add,
             rat_add,
             real_add,
+            complex_add,
             nat_eq,
             int_eq,
             rat_eq,
             real_eq,
+            complex_eq,
         } = *vd_zfc_instantiation_menu(db);
         Self {
             nat_add: VdMirFuncKey::NormalBaseSeparator(nat_add),
@@ -35,6 +38,7 @@ impl VdMirFuncKeyMenu {
             int_eq: VdMirFuncKey::NormalBaseSeparator(int_eq),
             rat_eq: VdMirFuncKey::NormalBaseSeparator(rat_eq),
             real_eq: VdMirFuncKey::NormalBaseSeparator(real_eq),
+            complex_eq: VdMirFuncKey::NormalBaseSeparator(complex_eq),
             in_set: VdMirFuncKey::InSet,
         }
     }

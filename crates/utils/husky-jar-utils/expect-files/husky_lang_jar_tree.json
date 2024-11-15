@@ -1172,11 +1172,15 @@
   "latex-environment": [
     "husky-coword"
   ],
+  "lean-item-path": [],
   "lean-mir-expr": [
+    "lean-item-path",
     "lean-term"
   ],
   "lean-sem-expr": [],
-  "lean-term": [],
+  "lean-term": [
+    "lean-item-path"
+  ],
   "namekian-ast": [],
   "visored-global-dispatch": [
     "visored-item-path",
@@ -1190,6 +1194,7 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "lean-item-path",
     "lean-mir-expr",
     "lean-sem-expr",
     "lean-term",

@@ -40,16 +40,14 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
             LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data(db)),
             LnMirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
             LnMirExprData::Variable { ident } => todo!(),
-            LnMirExprData::Prefix { opr, opd } => todo!(),
-            LnMirExprData::Suffix { opd, opr } => todo!(),
-            LnMirExprData::Binary { lopd, opr, ropd } => format!("binary: `{}`", opr),
             LnMirExprData::Lambda {
                 ref parameters,
                 body,
             } => todo!(),
             LnMirExprData::Application {
-                function_and_arguments,
-            } => todo!(),
+                function,
+                arguments,
+            } => format!("application"),
             LnMirExprData::Sorry => "sorry".to_string(),
         };
         let children = self.expr_arena[expr].children();
