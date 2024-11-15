@@ -1,11 +1,14 @@
 use visored_opr::separator::VdBaseSeparator;
 use visored_signature::{
     menu::{vd_signature_menu, VdSignatureMenu},
-    signature::separator::base::VdBaseSeparatorSignature,
+    signature::{
+        attach::{VdAttachSignature, VdPowerSignature},
+        separator::base::VdBaseSeparatorSignature,
+    },
 };
 use visored_zfc_ty::menu::{vd_zfc_ty_menu, VdZfcTypeMenu};
 
-use crate::dispatch::separator::VdSeparatorGlobalDispatch;
+use crate::dispatch::{attach::VdAttachGlobalDispatch, separator::VdSeparatorGlobalDispatch};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdGlobalDispatchMenu {
@@ -21,6 +24,12 @@ pub struct VdGlobalDispatchMenu {
     pub rat_space_mul: VdSeparatorGlobalDispatch,
     pub real_space_mul: VdSeparatorGlobalDispatch,
     pub complex_space_mul: VdSeparatorGlobalDispatch,
+    // ## power
+    pub nat_to_the_power_of_nat: VdAttachGlobalDispatch,
+    pub int_to_the_power_of_nat: VdAttachGlobalDispatch,
+    pub rat_to_the_power_of_nat: VdAttachGlobalDispatch,
+    pub real_to_the_power_of_nat: VdAttachGlobalDispatch,
+    pub complex_to_the_power_of_nat: VdAttachGlobalDispatch,
     // ## eq
     pub nat_eq: VdSeparatorGlobalDispatch,
     pub int_eq: VdSeparatorGlobalDispatch,
@@ -63,6 +72,11 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         rat_mul,
         real_mul,
         complex_mul,
+        nat_to_the_power_of_nat,
+        int_to_the_power_of_nat,
+        rat_to_the_power_of_nat,
+        real_to_the_power_of_nat,
+        complex_to_the_power_of_nat,
         nat_eq,
         int_eq,
         rat_eq,
@@ -76,7 +90,10 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         int_ge,
         rat_ge,
         real_ge,
-    } = vd_signature_menu(db);
+    } = *vd_signature_menu(db);
+    let pow = |signature: VdPowerSignature| VdAttachGlobalDispatch::Normal {
+        signature: VdAttachSignature::Power(signature),
+    };
     VdGlobalDispatchMenu {
         nat_add: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Add,
@@ -118,6 +135,11 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
             base_separator: VdBaseSeparator::Space,
             signature: complex_mul.clone(),
         },
+        nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat),
+        int_to_the_power_of_nat: pow(int_to_the_power_of_nat),
+        rat_to_the_power_of_nat: pow(rat_to_the_power_of_nat),
+        real_to_the_power_of_nat: pow(real_to_the_power_of_nat),
+        complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat),
         nat_eq: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Eq,
             signature: nat_eq.clone(),

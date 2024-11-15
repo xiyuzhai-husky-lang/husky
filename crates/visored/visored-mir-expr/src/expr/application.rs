@@ -21,9 +21,9 @@ pub enum VdMirFuncKey {
 impl VdMirFunc {
     pub fn key_or_expr(self, db: &::salsa::Db) -> Either<VdMirFuncKey, VdMirExprIdx> {
         match self {
-            VdMirFunc::NormalBaseSeparator(signature) => Left(VdMirFuncKey::NormalBaseSeparator(
-                signature.instantiation(db),
-            )),
+            VdMirFunc::NormalBaseSeparator(signature) => {
+                Left(VdMirFuncKey::NormalBaseSeparator(signature.instantiation()))
+            }
             VdMirFunc::InSet => Left(VdMirFuncKey::InSet),
         }
     }
