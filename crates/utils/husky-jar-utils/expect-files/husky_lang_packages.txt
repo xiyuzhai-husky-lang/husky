@@ -3956,6 +3956,7 @@
             "enum-class",
             "lean-item-path",
             "salsa",
+            "smallvec",
         ],
     },
     PackageSummary {

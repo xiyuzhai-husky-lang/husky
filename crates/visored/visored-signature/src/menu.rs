@@ -37,10 +37,12 @@ impl VdSignatureMenu {
             int_add,
             rat_add,
             real_add,
+            complex_add,
             nat_eq,
             int_eq,
             rat_eq,
             real_eq,
+            complex_eq,
         } = *vd_zfc_instantiation_menu(db);
         Self {
             nat_add: VdBaseSeparatorSignature::new(db, nat_add.clone(), nat, nat),

@@ -1,5 +1,5 @@
 use crate::{
-    expr::{LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
+    expr::{application::LnMirFunc, LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
     item_defn::{LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange},
     stmt::LnMirStmtArenaRef,
     tactic::LnMirTacticArenaRef,
@@ -90,23 +90,7 @@ impl<'a> LnMirExprFormatter<'a> {
             LnMirExprData::Variable { ident } => {
                 self.write_word(ident.data(db));
             }
-            LnMirExprData::Prefix { opr, opd } => {
-                self.result += opr.fmt_str();
-                self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
-            }
-            LnMirExprData::Suffix { opd, opr } => {
-                self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
-                self.result += opr.fmt_str();
-            }
-            LnMirExprData::Binary { lopd, opr, ropd } => {
-                self.format_expr(lopd, subexpr_try_multiline, opr.left_precedence_range());
-                if !self.result.ends_with(' ') {
-                    self.result.push(' ');
-                }
-                self.result += opr.fmt_str();
-                self.result.push(' ');
-                self.format_expr(ropd, subexpr_try_multiline, opr.right_precedence_range());
-            }
+
             LnMirExprData::Lambda {
                 ref parameters,
                 body,
@@ -128,15 +112,41 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.format_expr(body, multiline, LnPrecedenceRange::Any);
             }
             LnMirExprData::Application {
-                function_and_arguments,
+                function,
+                arguments,
             } => {
-                for expr in function_and_arguments {
-                    self.format_expr(
-                        expr,
-                        subexpr_try_multiline,
-                        LnPrecedenceRange::APPLICATION_SUBEXPR,
-                    );
+                match function {
+                    LnMirFunc::BinaryOpr { opr, instantiation } => {
+                        debug_assert_eq!(arguments.len(), 2);
+                        let lopd = arguments.first().unwrap();
+                        let ropd = arguments.last().unwrap();
+                        self.format_expr(lopd, subexpr_try_multiline, opr.left_precedence_range());
+                        if !self.result.ends_with(' ') {
+                            self.result.push(' ');
+                        }
+                        self.result += opr.fmt_str();
+                        self.result.push(' ');
+                        self.format_expr(ropd, subexpr_try_multiline, opr.right_precedence_range());
+                    }
+                    LnMirFunc::PrefixOpr { opr, instantiation } => todo!(),
+                    LnMirFunc::SuffixOpr { opr, instantiation } => todo!(),
+                    LnMirFunc::Expr(arena_idx) => todo!(),
                 }
+                // for expr in arguments {
+                //     self.format_expr(
+                //         expr,
+                //         subexpr_try_multiline,
+                //         LnPrecedenceRange::APPLICATION_SUBEXPR,
+                //     );
+                // }
+                // LnMirExprData::Prefix { opr, opd } => {
+                //                 self.result += opr.fmt_str();
+                //                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
+                //             }
+                //             LnMirExprData::Suffix { opd, opr } => {
+                //                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
+                //                 self.result += opr.fmt_str();
+                //             }
             }
             LnMirExprData::Literal(lit) => {
                 self.result += match lit.data(db) {

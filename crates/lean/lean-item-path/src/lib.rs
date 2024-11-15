@@ -1,3 +1,8 @@
+pub mod jar;
+pub mod menu;
+
+use self::jar::LnItemPathJar as Jar;
+
 // TODO: ad hoc
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum LnItemPath {
@@ -6,6 +11,8 @@ pub enum LnItemPath {
     Int,
     Real,
     Complex,
+    RingAdd,
+    Eq,
 }
 
 // TODO: maybe use menu?
@@ -15,6 +22,8 @@ impl LnItemPath {
     pub const INT: Self = Self::Int;
     pub const REAL: Self = Self::Real;
     pub const COMPLEX: Self = Self::Complex;
+    pub const RING_ADD: Self = Self::RingAdd;
+    pub const EQ: Self = Self::Eq;
 }
 
 impl LnItemPath {
@@ -25,6 +34,8 @@ impl LnItemPath {
             LnItemPath::Int => "ℤ".to_string(),
             LnItemPath::Real => "ℝ".to_string(),
             LnItemPath::Complex => "ℂ".to_string(),
+            LnItemPath::RingAdd => "+".to_string(),
+            LnItemPath::Eq => "=".to_string(),
         }
     }
 }

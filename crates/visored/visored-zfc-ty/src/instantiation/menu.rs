@@ -13,11 +13,13 @@ pub struct VdZfcInstantiationMenu {
     pub int_add: VdInstantiation,
     pub rat_add: VdInstantiation,
     pub real_add: VdInstantiation,
+    pub complex_add: VdInstantiation,
     /// ## eq
     pub nat_eq: VdInstantiation,
     pub int_eq: VdInstantiation,
     pub rat_eq: VdInstantiation,
     pub real_eq: VdInstantiation,
+    pub complex_eq: VdInstantiation,
 }
 
 impl VdZfcInstantiationMenu {
@@ -53,19 +55,23 @@ impl VdZfcInstantiationMenu {
         let int_add = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
         let rat_add = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
         let real_add = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
+        let complex_add = VdInstantiation::new(db, ring_add.into(), smallvec![complex]);
         let nat_eq = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
         let int_eq = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
         let rat_eq = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
         let real_eq = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
+        let complex_eq = VdInstantiation::new(db, ring_add.into(), smallvec![complex]);
         Self {
             nat_add,
             int_add,
             rat_add,
             real_add,
+            complex_add,
             nat_eq,
             int_eq,
             rat_eq,
             real_eq,
+            complex_eq,
         }
     }
 }
