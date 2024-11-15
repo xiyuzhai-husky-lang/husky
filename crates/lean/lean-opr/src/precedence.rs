@@ -1,9 +1,10 @@
 // TODO: change to LnPrecedence(usize)
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum LnPrecedence {
-    Application,
     EqNe,
+    Application,
     AddSub,
+    MulDiv,
     Atom,
 }
 

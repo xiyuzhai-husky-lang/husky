@@ -102,6 +102,8 @@ impl<'db> VdSynExprBuilder<'db> {
                 VdBaseSeparator::Mul => todo!(),
                 VdBaseSeparator::Dot => todo!(),
                 VdBaseSeparator::Eq => self.build_let_assigned_resolution(fst, snd).into(),
+                VdBaseSeparator::Le => todo!(),
+                VdBaseSeparator::Ge => todo!(),
                 VdBaseSeparator::Subset => todo!(),
                 VdBaseSeparator::Supset => todo!(),
                 VdBaseSeparator::Subseteq => todo!(),

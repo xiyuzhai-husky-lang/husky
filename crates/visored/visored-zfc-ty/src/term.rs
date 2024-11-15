@@ -29,6 +29,7 @@ use item_path::VdZfcItemPathData;
 use smallvec::SmallVec;
 use visored_item_path::path::VdItemPath;
 
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdZfcTerm {

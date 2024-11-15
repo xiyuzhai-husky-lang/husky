@@ -85,7 +85,29 @@ impl<'db> VdSemExprBuilder<'db> {
         VdSemExprEntry,
         SmallVec<[(VdSemSeparator, VdSemExprEntry); 4]>,
     ) {
-        todo!()
+        let db = self.db();
+        debug_assert_eq!(items.len(), separators.len() + 1);
+        let mut item_iter = items.into_iter().enumerate();
+        let mut t = || -> Option<(usize, VdSemExprEntry)> {
+            let (i, item) = item_iter.next()?;
+            let mut item = self.build_expr_entry(item);
+            while item.ty.is_function_like(db) {
+                todo!()
+            }
+            Some((i, item))
+        };
+        let (_, fst) = t().unwrap();
+        let mut others = smallvec![];
+        while let Some((i, item)) = t() {
+            let separator = match separators[i - 1] {
+                VdSynSeparator::Base(token_idx_range, VdBaseSeparator::Space) => {
+                    VdSemSeparator::Base(token_idx_range, VdBaseSeparator::Space)
+                }
+                _ => unreachable!(),
+            };
+            others.push((separator, item));
+        }
+        (fst, others)
     }
 
     fn build_non_space_separated_list_aux(

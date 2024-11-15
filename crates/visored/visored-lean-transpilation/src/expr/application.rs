@@ -14,8 +14,12 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
     ) -> LnMirExprData {
         match func.key_or_expr(self.db()) {
             Left(func_key) => {
-                let Some(translation) = self.dictionary().func_translation(func_key) else {
-                    todo!("no translation for func key `{func_key:?}`")
+                let Some(translation) = self.dictionary().func_key_translation(func_key) else {
+                    use salsa::DebugWithDb;
+                    todo!(
+                        "no translation for func key `{:?}`",
+                        func_key.debug(self.db())
+                    )
                 };
                 match *translation {
                     VdFuncKeyTranslation::BinaryOprAsSeparator(func_key) => {
