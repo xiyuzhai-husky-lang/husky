@@ -10,7 +10,7 @@ pub enum VdSemSeparator {
     Composite(VdSemExprIdx, VdSeparatorClass),
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSemSeparatedListDispatch {
     Normal {
         base_separator: VdBaseSeparator,
@@ -21,12 +21,12 @@ pub enum VdSemSeparatedListDispatch {
     },
 }
 impl VdSemSeparatedListDispatch {
-    fn expr_ty(&self) -> VdZfcType {
+    fn expr_ty(&self, db: &::salsa::Db) -> VdZfcType {
         match *self {
             VdSemSeparatedListDispatch::Normal {
                 base_separator,
                 ref signature,
-            } => signature.expr_ty(),
+            } => signature.expr_ty(db),
             VdSemSeparatedListDispatch::InSet { expr_ty } => expr_ty,
         }
     }
@@ -54,6 +54,7 @@ impl<'db> VdSemExprBuilder<'db> {
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
     ) -> VdSemExprEntry {
+        let db = self.db();
         let (fst, others) = match separator_class {
             VdSeparatorClass::Space => self.build_space_separated_list_aux(items, separators),
             _ => self.build_non_space_separated_list_aux(items, separators),
@@ -67,7 +68,7 @@ impl<'db> VdSemExprBuilder<'db> {
                 .into_iter()
                 .chain(others.into_iter().map(|(_, entry)| entry)),
         );
-        let ty = dispatch.expr_ty();
+        let ty = dispatch.expr_ty(db);
         let data = VdSemExprData::SeparatedList {
             separator_class,
             items,

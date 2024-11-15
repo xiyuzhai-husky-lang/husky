@@ -12630,6 +12630,7 @@ dependencies = [
  "lean-term",
  "rustc-hash 2.0.0",
  "salsa",
+ "smallvec",
  "visored-annotation",
  "visored-global-dispatch",
  "visored-item-path",

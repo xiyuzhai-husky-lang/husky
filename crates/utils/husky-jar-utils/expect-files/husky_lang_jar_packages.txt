@@ -1368,6 +1368,7 @@
             "visored-item-path",
             "visored-opr",
             "visored-sem-expr",
+            "visored-signature",
             "visored-zfc-ty",
             "husky-coword",
             "latex-ast",
