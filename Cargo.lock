@@ -12618,6 +12618,7 @@ dependencies = [
  "either",
  "expect-test",
  "husky-coword",
+ "husky-print-utils",
  "husky-tree-utils",
  "latex-ast",
  "latex-command",

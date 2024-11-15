@@ -26,6 +26,9 @@ pub struct VdItemPathMenu {
     pub ring_add: VdTraitItemPath,
     pub ring_mul: VdTraitItemPath,
     pub ring_power: VdTraitItemPath,
+    pub eq: VdTraitItemPath,
+    pub le: VdTraitItemPath,
+    pub ge: VdTraitItemPath,
 }
 
 impl VdItemPathMenu {
@@ -52,6 +55,9 @@ impl VdItemPathMenu {
             ring_add: VdTraitItemPath::RING_ADD,
             ring_mul: VdTraitItemPath::RING_MUL,
             ring_power: VdTraitItemPath::RING_POWER,
+            eq: VdTraitItemPath::EQ,
+            le: VdTraitItemPath::LE,
+            ge: VdTraitItemPath::GE,
         }
     }
 }
