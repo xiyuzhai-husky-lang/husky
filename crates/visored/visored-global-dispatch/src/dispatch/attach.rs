@@ -1,6 +1,6 @@
 use crate::{default_table::VdAttachKey, menu::VdGlobalDispatchMenu};
 use visored_signature::signature::attach::VdAttachSignature;
-use visored_zfc_ty::{instantiation::VdInstantiation, menu::VdZfcTypeMenu};
+use visored_zfc_ty::{instantiation::VdInstantiation, menu::VdZfcTypeMenu, ty::VdZfcType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdAttachGlobalDispatch {
@@ -39,5 +39,11 @@ impl VdAttachGlobalDispatch {
             (power(real, nat), real_to_the_power_of_nat),
             (power(complex, nat), complex_to_the_power_of_nat),
         ]
+    }
+
+    pub fn expr_ty(self) -> VdZfcType {
+        match self {
+            VdAttachGlobalDispatch::Normal { signature } => signature.expr_ty(),
+        }
     }
 }

@@ -71,6 +71,10 @@ impl From<LnMirFuncKey> for LnMirFunc {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LnMirFuncKeyMenu {
+    pub int_sub: LnMirFuncKey,
+    pub rat_sub: LnMirFuncKey,
+    pub real_sub: LnMirFuncKey,
+    pub complex_sub: LnMirFuncKey,
     pub nat_add: LnMirFuncKey,
     pub int_add: LnMirFuncKey,
     pub rat_add: LnMirFuncKey,
@@ -81,6 +85,11 @@ pub struct LnMirFuncKeyMenu {
     pub rat_mul: LnMirFuncKey,
     pub real_mul: LnMirFuncKey,
     pub complex_mul: LnMirFuncKey,
+    pub nat_to_the_power_of_nat: LnMirFuncKey,
+    pub int_to_the_power_of_nat: LnMirFuncKey,
+    pub rat_to_the_power_of_nat: LnMirFuncKey,
+    pub real_to_the_power_of_nat: LnMirFuncKey,
+    pub complex_to_the_power_of_nat: LnMirFuncKey,
     pub nat_eq: LnMirFuncKey,
     pub int_eq: LnMirFuncKey,
     pub rat_eq: LnMirFuncKey,
@@ -101,6 +110,10 @@ impl LnMirFuncKeyMenu {
         use LnBinaryOpr::*;
 
         let LnInstantiationMenu {
+            int_sub,
+            rat_sub,
+            real_sub,
+            complex_sub,
             nat_add,
             int_add,
             rat_add,
@@ -111,6 +124,11 @@ impl LnMirFuncKeyMenu {
             rat_mul,
             real_mul,
             complex_mul,
+            nat_to_the_power_of_nat,
+            int_to_the_power_of_nat,
+            rat_to_the_power_of_nat,
+            real_to_the_power_of_nat,
+            complex_to_the_power_of_nat,
             nat_eq,
             int_eq,
             rat_eq,
@@ -127,6 +145,10 @@ impl LnMirFuncKeyMenu {
         } = *ln_instantiation_menu(db);
         let b = |opr, instantiation| LnMirFuncKey::BinaryOpr { opr, instantiation };
         Self {
+            int_sub: b(Sub, int_sub),
+            rat_sub: b(Sub, rat_sub),
+            real_sub: b(Sub, real_sub),
+            complex_sub: b(Sub, complex_sub),
             nat_add: b(Add, nat_add),
             int_add: b(Add, int_add),
             rat_add: b(Add, rat_add),
@@ -137,6 +159,11 @@ impl LnMirFuncKeyMenu {
             rat_mul: b(Mul, rat_mul),
             real_mul: b(Mul, real_mul),
             complex_mul: b(Mul, complex_mul),
+            nat_to_the_power_of_nat: b(Pow, nat_to_the_power_of_nat),
+            int_to_the_power_of_nat: b(Pow, int_to_the_power_of_nat),
+            rat_to_the_power_of_nat: b(Pow, rat_to_the_power_of_nat),
+            real_to_the_power_of_nat: b(Pow, real_to_the_power_of_nat),
+            complex_to_the_power_of_nat: b(Pow, complex_to_the_power_of_nat),
             nat_eq: b(Eq, nat_eq),
             int_eq: b(Eq, int_eq),
             rat_eq: b(Eq, rat_eq),

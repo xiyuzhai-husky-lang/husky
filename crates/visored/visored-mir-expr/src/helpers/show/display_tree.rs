@@ -37,10 +37,11 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
             } => {
                 let value = match function {
                     VdMirFunc::NormalBaseSeparator { .. } => "separator".to_string(),
+                    VdMirFunc::NormalBaseBinaryOpr { .. } => "binary opr".to_string(),
                     VdMirFunc::InSet => "in set".to_string(),
-                    // VdMirApplicationFunction::IntAdd => "separator list int add".to_string(),
-                    // VdMirApplicationFunction::TrivialEq => "separator list eq".to_string(),
-                    // VdMirApplicationFunction::In => "separator list in".to_string(),
+                    VdMirFunc::Power(vd_power_signature) => {
+                        format!("power")
+                    }
                 };
                 (
                     value,

@@ -8,6 +8,13 @@ use visored_item_path::menu::{vd_item_path_menu, VdItemPathMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdZfcInstantiationMenu {
+    /// # binary operators
+    /// ## sub
+    pub int_sub: VdInstantiation,
+    pub rat_sub: VdInstantiation,
+    pub real_sub: VdInstantiation,
+    pub complex_sub: VdInstantiation,
+    /// # separators
     /// ## add
     pub nat_add: VdInstantiation,
     pub int_add: VdInstantiation,
@@ -74,6 +81,10 @@ impl VdZfcInstantiationMenu {
             real,
             complex,
         } = *vd_zfc_term_menu(db);
+        let int_sub = VdInstantiation::new(db, ring_add.into(), smallvec![int, int]);
+        let rat_sub = VdInstantiation::new(db, ring_add.into(), smallvec![rat, rat]);
+        let real_sub = VdInstantiation::new(db, ring_add.into(), smallvec![real, real]);
+        let complex_sub = VdInstantiation::new(db, ring_add.into(), smallvec![complex, complex]);
         let nat_add = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
         let int_add = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
         let rat_add = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
@@ -108,6 +119,10 @@ impl VdZfcInstantiationMenu {
         let rat_ge = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
         let real_ge = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
         Self {
+            int_sub,
+            rat_sub,
+            real_sub,
+            complex_sub,
             nat_add,
             int_add,
             rat_add,

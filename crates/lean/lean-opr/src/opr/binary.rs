@@ -3,7 +3,9 @@ use crate::precedence::{LnPrecedence, LnPrecedenceRange};
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum LnBinaryOpr {
     Add,
+    Sub,
     Mul,
+    Pow,
     Eq,
     Le,
     Ge,
@@ -13,7 +15,9 @@ impl LnBinaryOpr {
     pub fn fmt_str(self) -> &'static str {
         match self {
             LnBinaryOpr::Add => "+",
+            LnBinaryOpr::Sub => "-",
             LnBinaryOpr::Mul => "*",
+            LnBinaryOpr::Pow => "^",
             LnBinaryOpr::Eq => "=",
             LnBinaryOpr::Le => "≤",
             LnBinaryOpr::Ge => "≥",
@@ -23,7 +27,9 @@ impl LnBinaryOpr {
     pub fn left_precedence_range(self) -> LnPrecedenceRange {
         match self {
             LnBinaryOpr::Add => LnPrecedenceRange::NoLess(LnPrecedence::AddSub),
+            LnBinaryOpr::Sub => LnPrecedenceRange::NoLess(LnPrecedence::AddSub),
             LnBinaryOpr::Mul => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
+            LnBinaryOpr::Pow => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
             LnBinaryOpr::Eq => LnPrecedenceRange::NoLess(LnPrecedence::EqNe),
             LnBinaryOpr::Le => LnPrecedenceRange::NoLess(LnPrecedence::EqNe),
             LnBinaryOpr::Ge => LnPrecedenceRange::NoLess(LnPrecedence::EqNe),
@@ -33,7 +39,9 @@ impl LnBinaryOpr {
     pub fn right_precedence_range(self) -> LnPrecedenceRange {
         match self {
             LnBinaryOpr::Add => LnPrecedenceRange::Greater(LnPrecedence::AddSub),
+            LnBinaryOpr::Sub => LnPrecedenceRange::Greater(LnPrecedence::AddSub),
             LnBinaryOpr::Mul => LnPrecedenceRange::Greater(LnPrecedence::MulDiv),
+            LnBinaryOpr::Pow => LnPrecedenceRange::Greater(LnPrecedence::MulDiv),
             LnBinaryOpr::Eq => LnPrecedenceRange::Greater(LnPrecedence::EqNe),
             LnBinaryOpr::Le => LnPrecedenceRange::Greater(LnPrecedence::EqNe),
             LnBinaryOpr::Ge => LnPrecedenceRange::Greater(LnPrecedence::EqNe),
@@ -43,7 +51,9 @@ impl LnBinaryOpr {
     pub fn outer_precedence(self) -> LnPrecedence {
         match self {
             LnBinaryOpr::Add => LnPrecedence::AddSub,
+            LnBinaryOpr::Sub => LnPrecedence::AddSub,
             LnBinaryOpr::Mul => LnPrecedence::MulDiv,
+            LnBinaryOpr::Pow => LnPrecedence::MulDiv,
             LnBinaryOpr::Eq => LnPrecedence::EqNe,
             LnBinaryOpr::Le => LnPrecedence::EqNe,
             LnBinaryOpr::Ge => LnPrecedence::EqNe,

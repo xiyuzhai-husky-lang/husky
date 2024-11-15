@@ -1,4 +1,5 @@
 pub mod application;
+pub mod attach;
 #[cfg(test)]
 pub mod tests;
 
@@ -6,6 +7,7 @@ use crate::*;
 use application::VdMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use symbol::local_defn::VdMirSymbolLocalDefnIdx;
+use visored_global_dispatch::dispatch::binary_opr::VdBinaryOprGlobalDispatch;
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
@@ -72,11 +74,15 @@ impl<'db> VdMirExprBuilder<'db> {
                 lopd,
                 opr,
                 ropd,
-                ref dispatch,
+                dispatch,
             } => VdMirExprData::Application {
                 function: match dispatch {
-                    VdSemBinaryDispatch::IntAdd => todo!(),
-                    VdSemBinaryDispatch::TrivialEq => todo!(),
+                    VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
+                        VdBinaryOprGlobalDispatch::Normal {
+                            base_binary_opr,
+                            signature,
+                        } => VdMirFunc::NormalBaseBinaryOpr(signature),
+                    },
                     // VdSemBinaryDispatch::IntAdd => VdMirApplicationFunction::IntAdd,
                     // VdSemBinaryDispatch::TrivialEq => VdMirApplicationFunction::TrivialEq,
                 },
@@ -92,7 +98,11 @@ impl<'db> VdMirExprBuilder<'db> {
                 opr,
                 ref dispatch,
             } => todo!(),
-            VdSemExprData::Attach { .. } => todo!(),
+            VdSemExprData::Attach {
+                base,
+                ref scripts,
+                dispatch,
+            } => self.build_attach(base, scripts, dispatch),
             VdSemExprData::UniadicChain => todo!(),
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),

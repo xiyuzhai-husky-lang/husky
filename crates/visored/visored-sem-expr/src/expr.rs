@@ -76,7 +76,7 @@ pub enum VdSemExprData {
         base: VdSemExprIdx,
         // INVARIANCE: at least one of these are some
         scripts: Vec<(LxScriptKind, VdSemExprIdx)>,
-        dispatch: AttachDispatch,
+        dispatch: VdSemAttachDispatch,
     },
     SeparatedList {
         separator_class: VdSeparatorClass,
@@ -198,7 +198,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 letter,
             } => self.build_letter(syn_expr, token_idx_range, letter),
             VdSynExprData::BaseOpr { opr } => todo!("opr = {:?}", opr),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!("opr = {:?}", opr),
+            VdSynExprData::Binary { lopd, opr, ropd } => self.build_binary(lopd, opr, ropd),
             VdSynExprData::Prefix { opr, opd } => todo!("opr = {:?}", opr),
             VdSynExprData::Suffix { opd, opr } => todo!("opr = {:?}", opr),
             VdSynExprData::SeparatedList {

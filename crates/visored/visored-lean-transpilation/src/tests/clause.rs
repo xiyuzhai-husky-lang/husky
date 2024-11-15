@@ -107,18 +107,50 @@ fn basic_visored_clause_to_lean_works() {
             └─ group: `paragraph`
               ├─ group: `sentence`
               │ └─ variable: `x`
+              ├─ group: `sentence`
+              │ └─ def: `h`
+              │   ├─ application
+              │   │ ├─ application
+              │   │ │ ├─ application
+              │   │ │ │ ├─ variable: `x`
+              │   │ │ │ └─ literal: `1`
+              │   │ │ └─ literal: `2`
+              │   │ └─ literal: `0`
+              │   └─ sorry
+              ├─ group: `sentence`
+              │ └─ def: `h1`
+              │   ├─ application
+              │   │ ├─ application
+              │   │ │ ├─ application
+              │   │ │ │ ├─ application
+              │   │ │ │ │ ├─ variable: `x`
+              │   │ │ │ │ └─ literal: `2`
+              │   │ │ │ └─ application
+              │   │ │ │   ├─ literal: `2`
+              │   │ │ │   └─ variable: `x`
+              │   │ │ └─ literal: `1`
+              │   │ └─ literal: `0`
+              │   └─ sorry
               └─ group: `sentence`
-                └─ def: `h`
+                └─ def: `h2`
                   ├─ application
                   │ ├─ application
-                  │ │ ├─ literal: `2`
-                  │ │ └─ variable: `x`
-                  │ └─ variable: `x`
+                  │ │ ├─ application
+                  │ │ │ ├─ variable: `x`
+                  │ │ │ └─ literal: `2`
+                  │ │ └─ literal: `1`
+                  │ └─ application
+                  │   ├─ literal: `2`
+                  │   └─ variable: `x`
                   └─ sorry
         "#]],
         &expect![[r#"
-            variable x : ℕ
+            variable x : ℝ
 
-            def h : 2 * x ≥ x := sorry"#]],
+            def h : (x - 1) ^ 2 ≥ 0 := sorry
+
+            def h1 : x ^ 2 - 2 * x ≥ 1 ≥ 0 := sorry
+
+            def h2 : x ^ 2 ≥ 1 ≥ 2 * x := sorry"#]],
     );
 }

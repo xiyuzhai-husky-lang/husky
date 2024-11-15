@@ -1,4 +1,4 @@
-use visored_opr::separator::VdBaseSeparator;
+use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::{
     menu::{vd_signature_menu, VdSignatureMenu},
     signature::{
@@ -8,10 +8,20 @@ use visored_signature::{
 };
 use visored_zfc_ty::menu::{vd_zfc_ty_menu, VdZfcTypeMenu};
 
-use crate::dispatch::{attach::VdAttachGlobalDispatch, separator::VdSeparatorGlobalDispatch};
+use crate::dispatch::{
+    attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
+    separator::VdSeparatorGlobalDispatch,
+};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdGlobalDispatchMenu {
+    // binary oprs
+    // ## sub
+    pub int_sub: VdBinaryOprGlobalDispatch,
+    pub rat_sub: VdBinaryOprGlobalDispatch,
+    pub real_sub: VdBinaryOprGlobalDispatch,
+    pub complex_sub: VdBinaryOprGlobalDispatch,
+    // # separators
     // ## add
     pub nat_add: VdSeparatorGlobalDispatch,
     pub int_add: VdSeparatorGlobalDispatch,
@@ -62,6 +72,10 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         prop,
     } = *vd_zfc_ty_menu(db);
     let VdSignatureMenu {
+        int_sub,
+        rat_sub,
+        real_sub,
+        complex_sub,
         nat_add,
         int_add,
         rat_add,
@@ -95,9 +109,25 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         signature: VdAttachSignature::Power(signature),
     };
     VdGlobalDispatchMenu {
+        int_sub: VdBinaryOprGlobalDispatch::Normal {
+            base_binary_opr: VdBaseBinaryOpr::Sub,
+            signature: int_sub,
+        },
+        rat_sub: VdBinaryOprGlobalDispatch::Normal {
+            base_binary_opr: VdBaseBinaryOpr::Sub,
+            signature: rat_sub,
+        },
+        real_sub: VdBinaryOprGlobalDispatch::Normal {
+            base_binary_opr: VdBaseBinaryOpr::Sub,
+            signature: real_sub,
+        },
+        complex_sub: VdBinaryOprGlobalDispatch::Normal {
+            base_binary_opr: VdBaseBinaryOpr::Sub,
+            signature: complex_sub,
+        },
         nat_add: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Add,
-            signature: nat_add.clone(),
+            signature: nat_add,
         },
         int_add: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Add,
@@ -105,35 +135,35 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         },
         rat_add: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Add,
-            signature: rat_add.clone(),
+            signature: rat_add,
         },
         real_add: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Add,
-            signature: real_add.clone(),
+            signature: real_add,
         },
         complex_add: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Add,
-            signature: complex_add.clone(),
+            signature: complex_add,
         },
         nat_space_mul: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Space,
-            signature: nat_mul.clone(),
+            signature: nat_mul,
         },
         int_space_mul: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Space,
-            signature: int_mul.clone(),
+            signature: int_mul,
         },
         rat_space_mul: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Space,
-            signature: rat_mul.clone(),
+            signature: rat_mul,
         },
         real_space_mul: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Space,
-            signature: real_mul.clone(),
+            signature: real_mul,
         },
         complex_space_mul: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Space,
-            signature: complex_mul.clone(),
+            signature: complex_mul,
         },
         nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat),
         int_to_the_power_of_nat: pow(int_to_the_power_of_nat),
@@ -142,55 +172,55 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat),
         nat_eq: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Eq,
-            signature: nat_eq.clone(),
+            signature: nat_eq,
         },
         int_eq: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Eq,
-            signature: int_eq.clone(),
+            signature: int_eq,
         },
         rat_eq: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Eq,
-            signature: rat_eq.clone(),
+            signature: rat_eq,
         },
         real_eq: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Eq,
-            signature: real_eq.clone(),
+            signature: real_eq,
         },
         complex_eq: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Eq,
-            signature: complex_eq.clone(),
+            signature: complex_eq,
         },
         nat_le: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Le,
-            signature: nat_le.clone(),
+            signature: nat_le,
         },
         int_le: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Le,
-            signature: int_le.clone(),
+            signature: int_le,
         },
         rat_le: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Le,
-            signature: rat_le.clone(),
+            signature: rat_le,
         },
         real_le: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Le,
-            signature: real_le.clone(),
+            signature: real_le,
         },
         nat_ge: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Ge,
-            signature: nat_ge.clone(),
+            signature: nat_ge,
         },
         int_ge: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Ge,
-            signature: int_ge.clone(),
+            signature: int_ge,
         },
         rat_ge: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Ge,
-            signature: rat_ge.clone(),
+            signature: rat_ge,
         },
         real_ge: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Ge,
-            signature: real_ge.clone(),
+            signature: real_ge,
         },
         in_set: VdSeparatorGlobalDispatch::InSet { expr_ty: prop },
     }
