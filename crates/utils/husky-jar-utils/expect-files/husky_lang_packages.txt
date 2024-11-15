@@ -4400,6 +4400,7 @@
             "latex-prelude",
             "salsa",
             "visored-annotation",
+            "visored-global-dispatch",
             "visored-global-resolution",
             "visored-item-path",
             "visored-opr",

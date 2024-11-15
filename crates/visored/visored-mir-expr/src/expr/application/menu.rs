@@ -3,6 +3,13 @@ use visored_zfc_ty::instantiation::menu::{vd_zfc_instantiation_menu, VdZfcInstan
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdMirFuncKeyMenu {
+    /// # binary operators
+    /// ## sub
+    pub int_sub: VdMirFuncKey,
+    pub rat_sub: VdMirFuncKey,
+    pub real_sub: VdMirFuncKey,
+    pub complex_sub: VdMirFuncKey,
+    /// # separators
     /// ## add  
     pub nat_add: VdMirFuncKey,
     pub int_add: VdMirFuncKey,
@@ -44,6 +51,10 @@ pub struct VdMirFuncKeyMenu {
 impl VdMirFuncKeyMenu {
     pub fn new(db: &::salsa::Db) -> Self {
         let VdZfcInstantiationMenu {
+            int_sub,
+            rat_sub,
+            real_sub,
+            complex_sub,
             nat_add,
             int_add,
             rat_add,
@@ -74,6 +85,10 @@ impl VdMirFuncKeyMenu {
             real_ge,
         } = *vd_zfc_instantiation_menu(db);
         Self {
+            int_sub: VdMirFuncKey::NormalBaseBinaryOpr(int_sub),
+            rat_sub: VdMirFuncKey::NormalBaseBinaryOpr(rat_sub),
+            real_sub: VdMirFuncKey::NormalBaseBinaryOpr(real_sub),
+            complex_sub: VdMirFuncKey::NormalBaseBinaryOpr(complex_sub),
             nat_add: VdMirFuncKey::NormalBaseSeparator(nat_add),
             int_add: VdMirFuncKey::NormalBaseSeparator(int_add),
             rat_add: VdMirFuncKey::NormalBaseSeparator(rat_add),
@@ -84,13 +99,11 @@ impl VdMirFuncKeyMenu {
             rat_mul: VdMirFuncKey::NormalBaseSeparator(rat_mul),
             real_mul: VdMirFuncKey::NormalBaseSeparator(real_mul),
             complex_mul: VdMirFuncKey::NormalBaseSeparator(complex_mul),
-            nat_to_the_power_of_nat: VdMirFuncKey::NormalBaseSeparator(nat_to_the_power_of_nat),
-            int_to_the_power_of_nat: VdMirFuncKey::NormalBaseSeparator(int_to_the_power_of_nat),
-            rat_to_the_power_of_nat: VdMirFuncKey::NormalBaseSeparator(rat_to_the_power_of_nat),
-            real_to_the_power_of_nat: VdMirFuncKey::NormalBaseSeparator(real_to_the_power_of_nat),
-            complex_to_the_power_of_nat: VdMirFuncKey::NormalBaseSeparator(
-                complex_to_the_power_of_nat,
-            ),
+            nat_to_the_power_of_nat: VdMirFuncKey::Power(nat_to_the_power_of_nat),
+            int_to_the_power_of_nat: VdMirFuncKey::Power(int_to_the_power_of_nat),
+            rat_to_the_power_of_nat: VdMirFuncKey::Power(rat_to_the_power_of_nat),
+            real_to_the_power_of_nat: VdMirFuncKey::Power(real_to_the_power_of_nat),
+            complex_to_the_power_of_nat: VdMirFuncKey::Power(complex_to_the_power_of_nat),
             nat_eq: VdMirFuncKey::NormalBaseSeparator(nat_eq),
             int_eq: VdMirFuncKey::NormalBaseSeparator(int_eq),
             rat_eq: VdMirFuncKey::NormalBaseSeparator(rat_eq),

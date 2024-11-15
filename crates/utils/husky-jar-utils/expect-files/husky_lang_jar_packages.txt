@@ -1373,6 +1373,7 @@
     JarPackageSummary {
         name: "visored-mir-expr",
         dependencies: [
+            "visored-global-dispatch",
             "visored-item-path",
             "visored-opr",
             "visored-sem-expr",

@@ -79,7 +79,7 @@ impl VdDefaultGlobalDispatchTable {
                         ropd_ty,
                     }
                     .into(),
-                    dispatch.clone(),
+                    dispatch,
                 )
             }),
             VdSeparatorGlobalDispatch::standard_defaults(
@@ -96,12 +96,12 @@ impl VdDefaultGlobalDispatchTable {
                         next_item_ty,
                     }
                     .into(),
-                    dispatch.clone(),
+                    dispatch,
                 )
             }),
             VdAttachGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
                 .into_iter()
-                .map(|(key, dispatch)| (key.into(), dispatch.clone())),
+                .map(|(key, dispatch)| (key.into(), dispatch)),
         )
     }
 }
@@ -112,13 +112,14 @@ impl VdDefaultGlobalDispatchTable {
         base_binary_opr: VdBaseBinaryOpr,
         lopd_ty: VdZfcType,
         ropd_ty: VdZfcType,
-    ) -> Option<&VdBinaryOprGlobalDispatch> {
+    ) -> Option<VdBinaryOprGlobalDispatch> {
         self.base_binary_opr_default_dispatch_table
             .get(&VdBaseBinaryOprKey {
                 base_binary_opr,
                 lopd_ty,
                 ropd_ty,
             })
+            .copied()
     }
 
     pub fn base_separator_default_dispatch(
@@ -126,23 +127,26 @@ impl VdDefaultGlobalDispatchTable {
         base_separator: VdBaseSeparator,
         prev_item_ty: VdZfcType,
         next_item_ty: VdZfcType,
-    ) -> Option<&VdSeparatorGlobalDispatch> {
+    ) -> Option<VdSeparatorGlobalDispatch> {
         self.base_separator_default_dispatch_table
             .get(&VdBaseSeparatorKey {
                 base_separator,
                 prev_item_ty,
                 next_item_ty,
             })
+            .copied()
     }
 
     pub fn power_default_dispatch(
         &self,
         base_ty: VdZfcType,
         exponent_ty: VdZfcType,
-    ) -> Option<&VdAttachGlobalDispatch> {
-        self.attach_default_dispatch_table.get(&VdAttachKey::Power {
-            base_ty,
-            exponent_ty,
-        })
+    ) -> Option<VdAttachGlobalDispatch> {
+        self.attach_default_dispatch_table
+            .get(&VdAttachKey::Power {
+                base_ty,
+                exponent_ty,
+            })
+            .copied()
     }
 }
