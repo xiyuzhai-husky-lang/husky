@@ -33,6 +33,7 @@ impl VdZfcTermMenu {
             abelian_group_add,
             ring_add,
             ring_mul,
+            ring_power,
         } = *vd_item_path_menu(db);
 
         let zero = VdZfcLiteral::new(VdZfcLiteralData::NaturalNumber("0".to_string()), db);

@@ -4,7 +4,8 @@ use visored_zfc_ty::{
 };
 
 use crate::signature::{
-    binary_opr::base::VdBaseBinaryOprSignature, separator::base::VdBaseSeparatorSignature,
+    attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
+    separator::base::VdBaseSeparatorSignature,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -21,6 +22,12 @@ pub struct VdSignatureMenu {
     pub rat_mul: VdBaseSeparatorSignature,
     pub real_mul: VdBaseSeparatorSignature,
     pub complex_mul: VdBaseSeparatorSignature,
+    // ## power
+    pub nat_to_the_power_of_nat: VdPowerSignature,
+    pub int_to_the_power_of_nat: VdPowerSignature,
+    pub rat_to_the_power_of_nat: VdPowerSignature,
+    pub real_to_the_power_of_nat: VdPowerSignature,
+    pub complex_to_the_power_of_nat: VdPowerSignature,
     // ## eq
     pub nat_eq: VdBaseSeparatorSignature,
     pub int_eq: VdBaseSeparatorSignature,
@@ -61,6 +68,11 @@ impl VdSignatureMenu {
             rat_mul,
             real_mul,
             complex_mul,
+            nat_to_the_power_of_nat,
+            int_to_the_power_of_nat,
+            rat_to_the_power_of_nat,
+            real_to_the_power_of_nat,
+            complex_to_the_power_of_nat,
             nat_eq,
             int_eq,
             rat_eq,
@@ -75,30 +87,37 @@ impl VdSignatureMenu {
             rat_ge,
             real_ge,
         } = *vd_zfc_instantiation_menu(db);
+        let sep = VdBaseSeparatorSignature::new;
+        let pow = VdPowerSignature::new;
         Self {
-            nat_add: VdBaseSeparatorSignature::new(db, nat_add.clone(), nat, nat),
-            int_add: VdBaseSeparatorSignature::new(db, int_add.clone(), int, int),
-            rat_add: VdBaseSeparatorSignature::new(db, rat_add.clone(), rat, rat),
-            real_add: VdBaseSeparatorSignature::new(db, real_add.clone(), real, real),
-            complex_add: VdBaseSeparatorSignature::new(db, complex_add.clone(), complex, complex),
-            nat_mul: VdBaseSeparatorSignature::new(db, nat_mul.clone(), nat, nat),
-            int_mul: VdBaseSeparatorSignature::new(db, int_mul.clone(), int, int),
-            rat_mul: VdBaseSeparatorSignature::new(db, rat_mul.clone(), rat, rat),
-            real_mul: VdBaseSeparatorSignature::new(db, real_mul.clone(), real, real),
-            complex_mul: VdBaseSeparatorSignature::new(db, complex_mul.clone(), complex, complex),
-            nat_eq: VdBaseSeparatorSignature::new(db, nat_eq.clone(), nat, nat),
-            int_eq: VdBaseSeparatorSignature::new(db, int_eq.clone(), int, int),
-            rat_eq: VdBaseSeparatorSignature::new(db, rat_eq.clone(), rat, rat),
-            real_eq: VdBaseSeparatorSignature::new(db, real_eq.clone(), real, real),
-            complex_eq: VdBaseSeparatorSignature::new(db, complex_eq.clone(), complex, complex),
-            nat_le: VdBaseSeparatorSignature::new(db, nat_le.clone(), nat, nat),
-            int_le: VdBaseSeparatorSignature::new(db, int_le.clone(), int, int),
-            rat_le: VdBaseSeparatorSignature::new(db, rat_le.clone(), rat, rat),
-            real_le: VdBaseSeparatorSignature::new(db, real_le.clone(), real, real),
-            nat_ge: VdBaseSeparatorSignature::new(db, nat_ge.clone(), nat, nat),
-            int_ge: VdBaseSeparatorSignature::new(db, int_ge.clone(), int, int),
-            rat_ge: VdBaseSeparatorSignature::new(db, rat_ge.clone(), rat, rat),
-            real_ge: VdBaseSeparatorSignature::new(db, real_ge.clone(), real, real),
+            nat_add: sep(nat_add, nat, nat),
+            int_add: sep(int_add, int, int),
+            rat_add: sep(rat_add, rat, rat),
+            real_add: sep(real_add, real, real),
+            complex_add: sep(complex_add, complex, complex),
+            nat_mul: sep(nat_mul, nat, nat),
+            int_mul: sep(int_mul, int, int),
+            rat_mul: sep(rat_mul, rat, rat),
+            real_mul: sep(real_mul, real, real),
+            complex_mul: sep(complex_mul, complex, complex),
+            nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat, nat, nat, nat),
+            int_to_the_power_of_nat: pow(int_to_the_power_of_nat, int, nat, int),
+            rat_to_the_power_of_nat: pow(rat_to_the_power_of_nat, rat, nat, rat),
+            real_to_the_power_of_nat: pow(real_to_the_power_of_nat, real, nat, real),
+            complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat, complex, nat, complex),
+            nat_eq: sep(nat_eq, nat, nat),
+            int_eq: sep(int_eq, int, int),
+            rat_eq: sep(rat_eq, rat, rat),
+            real_eq: sep(real_eq, real, real),
+            complex_eq: sep(complex_eq, complex, complex),
+            nat_le: sep(nat_le, nat, nat),
+            int_le: sep(int_le, int, int),
+            rat_le: sep(rat_le, rat, rat),
+            real_le: sep(real_le, real, real),
+            nat_ge: sep(nat_ge, nat, nat),
+            int_ge: sep(int_ge, int, int),
+            rat_ge: sep(rat_ge, rat, rat),
+            real_ge: sep(real_ge, real, real),
         }
     }
 }

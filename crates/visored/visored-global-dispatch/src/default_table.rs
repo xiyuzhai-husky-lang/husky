@@ -1,5 +1,8 @@
 use crate::{
-    dispatch::{binary_opr::VdBinaryOprGlobalDispatch, separator::VdSeparatorGlobalDispatch},
+    dispatch::{
+        attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
+        separator::VdSeparatorGlobalDispatch,
+    },
     menu::vd_global_dispatch_menu,
 };
 use rustc_hash::FxHashMap;
@@ -11,6 +14,7 @@ pub struct VdDefaultGlobalDispatchTable {
     base_binary_opr_default_dispatch_table:
         FxHashMap<VdBaseBinaryOprKey, VdBinaryOprGlobalDispatch>,
     base_separator_default_dispatch_table: FxHashMap<VdBaseSeparatorKey, VdSeparatorGlobalDispatch>,
+    attach_default_dispatch_table: FxHashMap<VdAttachKey, VdAttachGlobalDispatch>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -27,6 +31,14 @@ pub struct VdBaseSeparatorKey {
     next_item_ty: VdZfcType,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum VdAttachKey {
+    Power {
+        base_ty: VdZfcType,
+        exponent_ty: VdZfcType,
+    },
+}
+
 impl VdDefaultGlobalDispatchTable {
     pub fn new(
         base_binary_opr_default_dispatches: impl IntoIterator<
@@ -35,6 +47,7 @@ impl VdDefaultGlobalDispatchTable {
         base_separator_default_dispatches: impl IntoIterator<
             Item = (VdBaseSeparatorKey, VdSeparatorGlobalDispatch),
         >,
+        attach_default_dispatches: impl IntoIterator<Item = (VdAttachKey, VdAttachGlobalDispatch)>,
     ) -> Self {
         Self {
             base_binary_opr_default_dispatch_table: base_binary_opr_default_dispatches
@@ -43,6 +56,7 @@ impl VdDefaultGlobalDispatchTable {
             base_separator_default_dispatch_table: base_separator_default_dispatches
                 .into_iter()
                 .collect(),
+            attach_default_dispatch_table: attach_default_dispatches.into_iter().collect(),
         }
     }
 
@@ -85,6 +99,9 @@ impl VdDefaultGlobalDispatchTable {
                     dispatch.clone(),
                 )
             }),
+            VdAttachGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
+                .into_iter()
+                .map(|(key, dispatch)| (key.into(), dispatch.clone())),
         )
     }
 }
@@ -116,5 +133,16 @@ impl VdDefaultGlobalDispatchTable {
                 prev_item_ty,
                 next_item_ty,
             })
+    }
+
+    pub fn power_default_dispatch(
+        &self,
+        base_ty: VdZfcType,
+        exponent_ty: VdZfcType,
+    ) -> Option<&VdAttachGlobalDispatch> {
+        self.attach_default_dispatch_table.get(&VdAttachKey::Power {
+            base_ty,
+            exponent_ty,
+        })
     }
 }

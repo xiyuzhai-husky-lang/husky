@@ -197,10 +197,10 @@ impl<'a> VdSemExprBuilder<'a> {
                 token_idx_range,
                 letter,
             } => self.build_letter(syn_expr, token_idx_range, letter),
-            VdSynExprData::BaseOpr { opr } => todo!(),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
-            VdSynExprData::Prefix { opr, opd } => todo!(),
-            VdSynExprData::Suffix { opd, opr } => todo!(),
+            VdSynExprData::BaseOpr { opr } => todo!("opr = {:?}", opr),
+            VdSynExprData::Binary { lopd, opr, ropd } => todo!("opr = {:?}", opr),
+            VdSynExprData::Prefix { opr, opd } => todo!("opr = {:?}", opr),
+            VdSynExprData::Suffix { opd, opr } => todo!("opr = {:?}", opr),
             VdSynExprData::SeparatedList {
                 separator_class,
                 items,
@@ -209,16 +209,28 @@ impl<'a> VdSemExprBuilder<'a> {
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,
-                item,
+                item: syn_item,
                 right_delimiter_token_idx,
                 right_delimiter,
-            } => todo!(),
+            } => {
+                let item = self.build_expr_entry(syn_item);
+                let ty = item.ty();
+                let item = self.alloc_expr(syn_item, item);
+                (
+                    VdSemExprData::LxDelimited {
+                        left_delimiter_token_idx,
+                        item,
+                        right_delimiter_token_idx,
+                    },
+                    ty,
+                )
+            }
             VdSynExprData::Delimited {
                 left_delimiter,
                 item,
                 right_delimiter,
-            } => todo!(),
-            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            } => self.build_delimited(left_delimiter, item, right_delimiter),
+            VdSynExprData::Attach { base, ref scripts } => self.build_attach(base, scripts),
             VdSynExprData::Fraction {
                 command_token_idx,
                 numerator,

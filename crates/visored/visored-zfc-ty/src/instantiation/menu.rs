@@ -20,6 +20,12 @@ pub struct VdZfcInstantiationMenu {
     pub rat_mul: VdInstantiation,
     pub real_mul: VdInstantiation,
     pub complex_mul: VdInstantiation,
+    /// ## power
+    pub nat_to_the_power_of_nat: VdInstantiation,
+    pub int_to_the_power_of_nat: VdInstantiation,
+    pub rat_to_the_power_of_nat: VdInstantiation,
+    pub real_to_the_power_of_nat: VdInstantiation,
+    pub complex_to_the_power_of_nat: VdInstantiation,
     /// ## eq
     pub nat_eq: VdInstantiation,
     pub int_eq: VdInstantiation,
@@ -56,6 +62,7 @@ impl VdZfcInstantiationMenu {
             abelian_group_add,
             ring_add,
             ring_mul,
+            ring_power,
         } = *vd_item_path_menu(db);
         let VdZfcTermMenu {
             zero,
@@ -77,6 +84,16 @@ impl VdZfcInstantiationMenu {
         let rat_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![rat]);
         let real_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![real]);
         let complex_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![complex]);
+        let nat_to_the_power_of_nat =
+            VdInstantiation::new(db, ring_power.into(), smallvec![nat, nat]);
+        let int_to_the_power_of_nat =
+            VdInstantiation::new(db, ring_power.into(), smallvec![int, nat]);
+        let rat_to_the_power_of_nat =
+            VdInstantiation::new(db, ring_power.into(), smallvec![rat, nat]);
+        let real_to_the_power_of_nat =
+            VdInstantiation::new(db, ring_power.into(), smallvec![real, nat]);
+        let complex_to_the_power_of_nat =
+            VdInstantiation::new(db, ring_power.into(), smallvec![complex, nat]);
         let nat_eq = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
         let int_eq = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
         let rat_eq = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
@@ -101,6 +118,11 @@ impl VdZfcInstantiationMenu {
             rat_mul,
             real_mul,
             complex_mul,
+            nat_to_the_power_of_nat,
+            int_to_the_power_of_nat,
+            rat_to_the_power_of_nat,
+            real_to_the_power_of_nat,
+            complex_to_the_power_of_nat,
             nat_eq,
             int_eq,
             rat_eq,
