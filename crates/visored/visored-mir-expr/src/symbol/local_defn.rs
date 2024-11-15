@@ -58,21 +58,21 @@ impl<'a> VdMirExprBuilder<'a> {
         defn: &VdSemSymbolLocalDefnData,
     ) -> VdMirSymbolLocalDefnData {
         VdMirSymbolLocalDefnData {
-            head: defn.head().to_vd_hir(self),
-            body: defn.body().to_vd_hir(self),
+            head: defn.head().to_vd_mir(self),
+            body: defn.body().to_vd_mir(self),
         }
     }
 }
 
 impl ToVdMir<VdMirSymbolLocalDefnIdx> for VdSemSymbolLocalDefnIdx {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnIdx {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnIdx {
         // INVARIANCE: the index is always the same as the syn index
         unsafe { VdMirSymbolLocalDefnIdx::new_ext(self.index()) }
     }
 }
 
 impl ToVdMir<VdMirSymbolLocalDefnHead> for &VdSemSymbolLocalDefnHead {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnHead {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnHead {
         match *self {
             VdSemSymbolLocalDefnHead::Letter(_, letter) => VdMirSymbolLocalDefnHead::Letter(letter),
         }
@@ -80,7 +80,7 @@ impl ToVdMir<VdMirSymbolLocalDefnHead> for &VdSemSymbolLocalDefnHead {
 }
 
 impl ToVdMir<VdMirSymbolLocalDefnBody> for &VdSemSymbolLocalDefnBody {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnBody {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirSymbolLocalDefnBody {
         match self {
             VdSemSymbolLocalDefnBody::Assigned => VdMirSymbolLocalDefnBody::Assigned,
             VdSemSymbolLocalDefnBody::Placeholder => VdMirSymbolLocalDefnBody::Placeholder,

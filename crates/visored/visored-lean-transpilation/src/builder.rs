@@ -1,8 +1,8 @@
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
     builder::LeanHirExprBuilder,
-    expr::LnMirExprArena,
-    item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
+    expr::{LnMirExprArena, LnMirExprData},
+    item_defn::{def::LnMirDefBody, LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::LnMirStmtArena,
     tactic::LnMirTacticArena,
 };
@@ -28,14 +28,14 @@ pub struct VdLeanTranspilationBuilder<'a> {
 impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
         db: &'a ::salsa::Db,
-        vd_hir_expr_region_data: &'a VdMirExprRegionData,
+        vd_mir_expr_region_data: &'a VdMirExprRegionData,
         dictionary: &'a VdLeanDictionary,
     ) -> Self {
         Self::new(
             db,
-            vd_hir_expr_region_data.expr_arena(),
-            vd_hir_expr_region_data.stmt_arena(),
-            vd_hir_expr_region_data.symbol_local_defn_storage(),
+            vd_mir_expr_region_data.expr_arena(),
+            vd_mir_expr_region_data.stmt_arena(),
+            vd_mir_expr_region_data.symbol_local_defn_storage(),
             dictionary,
         )
     }
@@ -56,8 +56,16 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         }
     }
 
-    pub(crate) fn mangled_symbol(&mut self, symbol_local_defn: VdMirSymbolLocalDefnIdx) -> LnIdent {
-        self.mangler.mangled_symbol(symbol_local_defn)
+    pub(crate) fn mangle_symbol(&mut self, symbol_local_defn: VdMirSymbolLocalDefnIdx) -> LnIdent {
+        self.mangler.mangle_symbol(symbol_local_defn)
+    }
+
+    pub(crate) fn mangle_hypothesis(&mut self, db: &::salsa::Db) -> LnIdent {
+        self.mangler.mangle_hypothesis(db)
+    }
+
+    pub(crate) fn sorry(&mut self) -> LnMirDefBody {
+        LnMirDefBody::Expr(self.alloc_expr(LnMirExprData::Sorry))
     }
 }
 

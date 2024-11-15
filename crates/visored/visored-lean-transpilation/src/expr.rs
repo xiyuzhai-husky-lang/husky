@@ -30,7 +30,10 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                     }
                 }
             }
-            VdMirExprData::Variable(ref vd_hir_variable) => todo!(),
+            // TODO: consider variable deps
+            VdMirExprData::Variable(local_defn) => LnMirExprData::Variable {
+                ident: self.mangle_symbol(local_defn),
+            },
             VdMirExprData::Application {
                 function,
                 arguments,

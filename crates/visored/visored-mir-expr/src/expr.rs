@@ -5,6 +5,7 @@ pub mod tests;
 use crate::*;
 use application::VdMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use symbol::local_defn::VdMirSymbolLocalDefnIdx;
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
@@ -17,7 +18,7 @@ use visored_zfc_ty::term::literal::VdZfcLiteral;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VdMirExprData {
     Literal(VdZfcLiteral),
-    Variable(VdMirVariable),
+    Variable(VdMirSymbolLocalDefnIdx),
     Application {
         function: VdMirFunc,
         arguments: VdMirExprIdxRange,
@@ -37,7 +38,7 @@ pub struct VdMirLiteral {}
 pub struct VdMirVariable {}
 
 impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
         let mut exprs: Vec<VdMirExprData> = Vec::with_capacity(self.len());
         for expr in self {
             exprs.push(builder.build_expr(expr));
@@ -47,14 +48,14 @@ impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
 }
 
 impl ToVdMir<VdMirExprIdx> for VdSemExprIdx {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdx {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdx {
         let data = builder.build_expr(self);
         builder.alloc_expr(data)
     }
 }
 
 impl<const N: usize> ToVdMir<VdMirExprIdxRange> for [VdSemExprIdx; N] {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
         let data = self
             .into_iter()
             .map(|expr| builder.build_expr(expr))
@@ -79,7 +80,7 @@ impl<'db> VdMirExprBuilder<'db> {
                     // VdSemBinaryDispatch::IntAdd => VdMirApplicationFunction::IntAdd,
                     // VdSemBinaryDispatch::TrivialEq => VdMirApplicationFunction::TrivialEq,
                 },
-                arguments: [lopd, ropd].to_vd_hir(self),
+                arguments: [lopd, ropd].to_vd_mir(self),
             },
             VdSemExprData::Prefix {
                 opr,
@@ -106,7 +107,9 @@ impl<'db> VdMirExprBuilder<'db> {
                         VdMirExprData::ItemPath(vd_item_path)
                     }
                 },
-                VdSemLetterDispatch::Local(local_defn) => VdMirExprData::Variable(VdMirVariable {}),
+                VdSemLetterDispatch::Local(local_defn) => {
+                    VdMirExprData::Variable(local_defn.to_vd_mir(self))
+                }
             },
             VdSemExprData::BaseOpr { opr } => todo!(),
             VdSemExprData::SeparatedList {
@@ -119,7 +122,7 @@ impl<'db> VdMirExprBuilder<'db> {
                     } => VdMirFunc::NormalBaseSeparator(signature),
                     VdSemSeparatedListDispatch::InSet { expr_ty } => VdMirFunc::InSet,
                 },
-                arguments: items.to_vd_hir(self),
+                arguments: items.to_vd_mir(self),
             },
             VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
                 self.build_expr(item)

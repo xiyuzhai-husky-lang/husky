@@ -21,7 +21,7 @@ pub enum VdMirPattern {
 }
 
 impl ToVdMir<VdMirPattern> for &VdSemPattern {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirPattern {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirPattern {
         match *self {
             VdSemPattern::Letter {
                 token_idx_range,
@@ -29,7 +29,7 @@ impl ToVdMir<VdMirPattern> for &VdSemPattern {
                 local_defn,
             } => VdMirPattern::Letter {
                 letter,
-                symbol_local_defn: local_defn.to_vd_hir(builder),
+                symbol_local_defn: local_defn.to_vd_mir(builder),
             },
         }
     }

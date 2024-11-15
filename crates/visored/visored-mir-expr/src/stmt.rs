@@ -12,8 +12,6 @@ use visored_zfc_ty::ty::VdZfcType;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdMirStmtData {
-    // Add appropriate variants here, for example:
-    Expression(VdMirExprIdx),
     Block {
         stmts: VdMirStmtIdxRange,
         meta: VdMirBlockMeta,
@@ -26,7 +24,9 @@ pub enum VdMirStmtData {
         pattern: VdMirPattern,
         assignment: VdMirExprIdx,
     },
-    // Add more variants as needed
+    Then {
+        formula: VdMirExprIdx,
+    },
 }
 
 pub type VdMirStmtArena = Arena<VdMirStmtData>;
@@ -35,7 +35,7 @@ pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
 pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
             .map(|stmt| builder.build_stmt_from_sem_stmt(stmt))
@@ -48,7 +48,7 @@ impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemStmtIdx) -> VdMirStmtData {
         match self.sem_stmt_arena()[stmt] {
             VdSemStmtData::Paragraph(sentences) => VdMirStmtData::Block {
-                stmts: sentences.to_vd_hir(self),
+                stmts: sentences.to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,
             },
             VdSemStmtData::Block { environment, stmts } => todo!(),
@@ -57,7 +57,7 @@ impl<'db> VdMirExprBuilder<'db> {
 }
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemSentenceIdxRange {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
             .map(|sentence| builder.build_stmt_from_sem_sentence(sentence))
@@ -70,7 +70,7 @@ impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_sentence(&mut self, sentence: VdSemSentenceIdx) -> VdMirStmtData {
         match self.sem_sentence_arena()[sentence] {
             VdSemSentenceData::Clauses { clauses, end } => VdMirStmtData::Block {
-                stmts: clauses.to_vd_hir(self),
+                stmts: clauses.to_vd_mir(self),
                 meta: VdMirBlockMeta::Sentence,
             },
         }
@@ -78,7 +78,7 @@ impl<'db> VdMirExprBuilder<'db> {
 }
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
-    fn to_vd_hir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
             .map(|clause| builder.build_stmt_from_sem_clause(clause))
@@ -100,7 +100,7 @@ impl<'db> VdMirExprBuilder<'db> {
             } => match dispatch {
                 VdSemLetClauseDispatch::Assigned(dispatch) => todo!(),
                 VdSemLetClauseDispatch::Placeholder(dispatch) => VdMirStmtData::LetPlaceholder {
-                    pattern: dispatch.pattern().to_vd_hir(self),
+                    pattern: dispatch.pattern().to_vd_mir(self),
                     ty: dispatch.ty(),
                 },
             },
@@ -115,7 +115,9 @@ impl<'db> VdMirExprBuilder<'db> {
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,
-            } => todo!(),
+            } => VdMirStmtData::Then {
+                formula: formula.to_vd_mir(self),
+            },
         }
     }
 }
