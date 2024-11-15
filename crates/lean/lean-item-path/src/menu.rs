@@ -8,6 +8,9 @@ pub struct LnItemPathMenu {
     pub real: LnItemPath,
     pub complex: LnItemPath,
     pub ring_add: LnItemPath,
+    pub ring_mul: LnItemPath,
+    pub le: LnItemPath,
+    pub ge: LnItemPath,
     pub eq: LnItemPath,
 }
 
@@ -20,6 +23,9 @@ impl LnItemPathMenu {
             real: LnItemPath::REAL,
             complex: LnItemPath::COMPLEX,
             ring_add: LnItemPath::RING_ADD,
+            ring_mul: LnItemPath::RING_MUL,
+            le: LnItemPath::LE,
+            ge: LnItemPath::GE,
             eq: LnItemPath::EQ,
         }
     }

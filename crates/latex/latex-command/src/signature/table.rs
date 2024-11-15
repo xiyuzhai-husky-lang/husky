@@ -88,6 +88,8 @@ impl LxCommandSignatureTable {
             // -- relations
             eq,
             ne,
+            le,
+            ge,
             r#in,
             subset,
             supset,
@@ -130,6 +132,8 @@ impl LxCommandSignatureTable {
                 // -- relations
                 (eq, &[]),
                 (ne, &[]),
+                (le, &[]),
+                (ge, &[]),
                 (r#in, &[]),
                 (subset, &[]),
                 (supset, &[]),

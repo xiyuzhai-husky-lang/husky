@@ -11,6 +11,7 @@ pub enum VdMirFunc {
     InSet,
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirFuncKey {
     NormalBaseSeparator(VdInstantiation),

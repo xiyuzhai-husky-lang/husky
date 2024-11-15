@@ -21,6 +21,9 @@ impl LnTermMenu {
             real,
             complex,
             ring_add,
+            ring_mul,
+            le,
+            ge,
             eq,
         } = *ln_item_path_menu(db);
         Self {

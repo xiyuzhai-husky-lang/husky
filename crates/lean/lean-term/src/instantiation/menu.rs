@@ -11,16 +11,36 @@ pub struct LnInstantiationMenu {
     pub rat_add: LnInstantiation,
     pub real_add: LnInstantiation,
     pub complex_add: LnInstantiation,
+    pub nat_mul: LnInstantiation,
+    pub int_mul: LnInstantiation,
+    pub rat_mul: LnInstantiation,
+    pub real_mul: LnInstantiation,
+    pub complex_mul: LnInstantiation,
     pub nat_eq: LnInstantiation,
     pub int_eq: LnInstantiation,
     pub rat_eq: LnInstantiation,
     pub real_eq: LnInstantiation,
     pub complex_eq: LnInstantiation,
+    pub nat_le: LnInstantiation,
+    pub int_le: LnInstantiation,
+    pub rat_le: LnInstantiation,
+    pub real_le: LnInstantiation,
+    pub nat_ge: LnInstantiation,
+    pub int_ge: LnInstantiation,
+    pub rat_ge: LnInstantiation,
+    pub real_ge: LnInstantiation,
 }
 
 impl LnInstantiationMenu {
     pub fn new(db: &::salsa::Db) -> Self {
-        let LnItemPathMenu { ring_add, eq, .. } = *ln_item_path_menu(db);
+        let LnItemPathMenu {
+            ring_add,
+            ring_mul,
+            eq,
+            le,
+            ge,
+            ..
+        } = *ln_item_path_menu(db);
         let LnTermMenu {
             nat,
             int,
@@ -36,11 +56,24 @@ impl LnInstantiationMenu {
             rat_add: t(ring_add, smallvec![rat]),
             real_add: t(ring_add, smallvec![real]),
             complex_add: t(ring_add, smallvec![complex]),
+            nat_mul: t(ring_mul, smallvec![nat]),
+            int_mul: t(ring_mul, smallvec![int]),
+            rat_mul: t(ring_mul, smallvec![rat]),
+            real_mul: t(ring_mul, smallvec![real]),
+            complex_mul: t(ring_mul, smallvec![complex]),
             nat_eq: t(eq, smallvec![nat]),
             int_eq: t(eq, smallvec![int]),
             rat_eq: t(eq, smallvec![rat]),
             real_eq: t(eq, smallvec![real]),
             complex_eq: t(eq, smallvec![complex]),
+            nat_le: t(le, smallvec![nat]),
+            int_le: t(le, smallvec![int]),
+            rat_le: t(le, smallvec![rat]),
+            real_le: t(le, smallvec![real]),
+            nat_ge: t(ge, smallvec![nat]),
+            int_ge: t(ge, smallvec![int]),
+            rat_ge: t(ge, smallvec![rat]),
+            real_ge: t(ge, smallvec![real]),
         }
     }
 }

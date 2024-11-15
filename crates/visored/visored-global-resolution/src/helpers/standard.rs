@@ -49,6 +49,8 @@ fn standard_command_resolution_map(
         // -- relations
         eq,
         ne,
+        le,
+        ge,
         r#in,
         subset,
         supset,
@@ -83,6 +85,8 @@ fn standard_command_resolution_map(
         // -- relations
         (eq, VdCompleteCommandGlobalResolution::EQ),
         (ne, VdCompleteCommandGlobalResolution::NE),
+        (le, VdCompleteCommandGlobalResolution::LE),
+        (ge, VdCompleteCommandGlobalResolution::GE),
         (r#in, VdCompleteCommandGlobalResolution::IN),
         (subset, VdCompleteCommandGlobalResolution::SUBSET),
         (supset, VdCompleteCommandGlobalResolution::SUPSET),

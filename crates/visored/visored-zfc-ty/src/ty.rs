@@ -20,3 +20,17 @@ impl VdZfcType {
         VdZfcType::new(db, VdZfcTypeData::ItemPath(item_path).into(), smallvec![]).into()
     }
 }
+
+impl VdZfcType {
+    pub fn is_function_like(self, db: &::salsa::Db) -> bool {
+        is_vd_zfc_ty_function_like(db, self)
+    }
+}
+
+#[salsa::tracked]
+fn is_vd_zfc_ty_function_like(db: &::salsa::Db, ty: VdZfcType) -> bool {
+    // TODO: ad hoc implementation
+    match ty.data(db) {
+        VdZfcTypeData::ItemPath(vd_item_path) => false,
+    }
+}

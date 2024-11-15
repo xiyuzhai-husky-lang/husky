@@ -5,15 +5,21 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdOprMenu {
     pub add: VdBaseSeparator,
+    pub space: VdBaseSeparator,
     pub eq: VdBaseSeparator,
+    pub le: VdBaseSeparator,
+    pub ge: VdBaseSeparator,
     pub r#in: VdBaseSeparator,
 }
 
 #[salsa::tracked(return_ref)]
 pub fn vd_opr_menu(db: &::salsa::Db) -> VdOprMenu {
     VdOprMenu {
-        add: VdBaseSeparator::Add,
-        eq: VdBaseSeparator::Eq,
-        r#in: VdBaseSeparator::In,
+        add: VdBaseSeparator::ADD,
+        space: VdBaseSeparator::SPACE,
+        eq: VdBaseSeparator::EQ,
+        le: VdBaseSeparator::LE,
+        ge: VdBaseSeparator::GE,
+        r#in: VdBaseSeparator::IN,
     }
 }
