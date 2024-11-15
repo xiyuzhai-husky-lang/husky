@@ -21,12 +21,12 @@ pub enum VdSemSeparatedListDispatch {
     },
 }
 impl VdSemSeparatedListDispatch {
-    fn expr_ty(&self, db: &::salsa::Db) -> VdZfcType {
+    fn expr_ty(&self) -> VdZfcType {
         match *self {
             VdSemSeparatedListDispatch::Normal {
                 base_separator,
                 ref signature,
-            } => signature.expr_ty(db),
+            } => signature.expr_ty(),
             VdSemSeparatedListDispatch::InSet { expr_ty } => expr_ty,
         }
     }
@@ -68,7 +68,7 @@ impl<'db> VdSemExprBuilder<'db> {
                 .into_iter()
                 .chain(others.into_iter().map(|(_, entry)| entry)),
         );
-        let ty = dispatch.expr_ty(db);
+        let ty = dispatch.expr_ty();
         let data = VdSemExprData::SeparatedList {
             separator_class,
             items,

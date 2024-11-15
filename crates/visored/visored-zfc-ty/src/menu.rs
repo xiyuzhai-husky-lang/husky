@@ -48,6 +48,7 @@ impl VdZfcTypeMenu {
             abelian_group_add,
             ring_add,
             ring_mul,
+            ring_power,
         } = *vd_item_path_menu(db);
 
         let nat = VdZfcType::new_item_path(nat.into(), db);

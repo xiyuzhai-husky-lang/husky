@@ -37,6 +37,7 @@ impl VdItemPathZfcTypeTable {
             abelian_group_add: abelian_group_add_path,
             ring_add: ring_add_path,
             ring_mul: ring_mul_path,
+            ring_power: ring_power_path,
         } = *vd_item_path_menu(db);
         let VdZfcTypeMenu {
             nat,

@@ -220,6 +220,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         }
         self.reduce(VdPrecedenceRange::RIGHT_DELIMITER_LEFT, None);
         let Some(item) = self.take_complete_expr() else {
+            use husky_print_utils::{p, DisplayIt};
+            p!(self.show());
             todo!()
         };
         let Some(IncompleteVdSynExprData::Delimited { left_delimiter }) =

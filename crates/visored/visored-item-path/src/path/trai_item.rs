@@ -6,6 +6,7 @@ pub enum VdTraitItemPath {
     AbelianGroupAdd,
     RingAdd,
     RingMul,
+    RingPower,
 }
 
 impl VdTraitItemPath {
@@ -13,4 +14,5 @@ impl VdTraitItemPath {
     pub const ABELIAN_GROUP_ADD: Self = VdTraitItemPath::AbelianGroupAdd;
     pub const RING_ADD: Self = VdTraitItemPath::RingAdd;
     pub const RING_MUL: Self = VdTraitItemPath::RingMul;
+    pub const RING_POWER: Self = VdTraitItemPath::RingPower;
 }
