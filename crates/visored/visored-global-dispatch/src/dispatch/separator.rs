@@ -5,7 +5,7 @@ use visored_opr::{menu::VdOprMenu, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_zfc_ty::{menu::VdZfcTypeMenu, ty::VdZfcType};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSeparatorGlobalDispatch {
     Normal {
         base_separator: VdBaseSeparator,
@@ -17,14 +17,14 @@ pub enum VdSeparatorGlobalDispatch {
 }
 
 impl VdSeparatorGlobalDispatch {
-    pub(crate) fn standard_defaults<'db>(
-        zfc_ty_menu: &'db VdZfcTypeMenu,
-        vd_opr_menu: &'db VdOprMenu,
-        global_dispatch_menu: &'db VdGlobalDispatchMenu,
+    pub(crate) fn standard_defaults(
+        zfc_ty_menu: &VdZfcTypeMenu,
+        vd_opr_menu: &VdOprMenu,
+        global_dispatch_menu: &VdGlobalDispatchMenu,
     ) -> impl IntoIterator<
         Item = (
             (VdZfcType, VdBaseSeparator, VdZfcType),
-            &'db VdSeparatorGlobalDispatch,
+            VdSeparatorGlobalDispatch,
         ),
     > {
         let VdZfcTypeMenu {
@@ -37,6 +37,7 @@ impl VdSeparatorGlobalDispatch {
             prop,
         } = *zfc_ty_menu;
         let VdOprMenu {
+            sub,
             add,
             space,
             eq,
@@ -45,6 +46,10 @@ impl VdSeparatorGlobalDispatch {
             r#in,
         } = *vd_opr_menu;
         let VdGlobalDispatchMenu {
+            int_sub,
+            rat_sub,
+            real_sub,
+            complex_sub,
             nat_add,
             int_add,
             rat_add,
@@ -74,7 +79,7 @@ impl VdSeparatorGlobalDispatch {
             rat_ge,
             real_ge,
             in_set,
-        } = global_dispatch_menu;
+        } = *global_dispatch_menu;
         [
             // ## add
             // ### nat

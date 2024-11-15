@@ -31,14 +31,14 @@ impl VdSemSeparatedListDispatch {
         }
     }
 
-    fn from_global(dispatch: &VdSeparatorGlobalDispatch) -> VdSemSeparatedListDispatch {
-        match *dispatch {
+    fn from_global(dispatch: VdSeparatorGlobalDispatch) -> VdSemSeparatedListDispatch {
+        match dispatch {
             VdSeparatorGlobalDispatch::Normal {
                 base_separator,
-                ref signature,
+                signature,
             } => VdSemSeparatedListDispatch::Normal {
                 base_separator,
-                signature: signature.clone(),
+                signature,
             },
             VdSeparatorGlobalDispatch::InSet { expr_ty } => {
                 VdSemSeparatedListDispatch::InSet { expr_ty }
@@ -150,7 +150,7 @@ impl<'db> VdSemExprBuilder<'db> {
         prev_item_ty: VdZfcType,
         separator: VdSemSeparator,
         next_item_ty: VdZfcType,
-    ) -> &VdSeparatorGlobalDispatch {
+    ) -> VdSeparatorGlobalDispatch {
         let base_separator = match separator {
             VdSemSeparator::Base(_, base_separator) => base_separator,
             VdSemSeparator::Composite(_, _) => todo!(),

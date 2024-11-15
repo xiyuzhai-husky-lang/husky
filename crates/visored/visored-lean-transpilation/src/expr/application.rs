@@ -27,6 +27,10 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                     }
                     // TODO: implement
                     VdFuncKeyTranslation::InSet => LnMirExprData::Sorry,
+                    VdFuncKeyTranslation::Power(ln_mir_func_key) => LnMirExprData::Application {
+                        function: ln_mir_func_key.into(),
+                        arguments: arguments.to_lean(self),
+                    },
                 }
             }
             Right(_) => todo!(),

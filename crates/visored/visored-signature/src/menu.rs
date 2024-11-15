@@ -10,6 +10,11 @@ use crate::signature::{
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSignatureMenu {
+    // ## sub
+    pub int_sub: VdBaseBinaryOprSignature,
+    pub rat_sub: VdBaseBinaryOprSignature,
+    pub real_sub: VdBaseBinaryOprSignature,
+    pub complex_sub: VdBaseBinaryOprSignature,
     // ## add
     pub nat_add: VdBaseSeparatorSignature,
     pub int_add: VdBaseSeparatorSignature,
@@ -58,6 +63,10 @@ impl VdSignatureMenu {
             prop,
         } = *vd_zfc_ty_menu(db);
         let VdZfcInstantiationMenu {
+            int_sub,
+            rat_sub,
+            real_sub,
+            complex_sub,
             nat_add,
             int_add,
             rat_add,
@@ -87,9 +96,14 @@ impl VdSignatureMenu {
             rat_ge,
             real_ge,
         } = *vd_zfc_instantiation_menu(db);
+        let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
         let pow = VdPowerSignature::new;
         Self {
+            int_sub: bin(int_sub, int, int, int),
+            rat_sub: bin(rat_sub, rat, rat, rat),
+            real_sub: bin(real_sub, real, real, real),
+            complex_sub: bin(complex_sub, complex, complex, complex),
             nat_add: sep(nat_add, nat, nat),
             int_add: sep(int_add, int, int),
             rat_add: sep(rat_add, rat, rat),

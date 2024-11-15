@@ -2,16 +2,28 @@ pub mod application;
 
 use super::VdTranspileToLean;
 use crate::{builder::VdLeanTranspilationBuilder, dictionary::item_path::VdItemPathTranslation};
-use lean_mir_expr::expr::{LnMirExprData, LnMirExprIdx};
+use lean_mir_expr::expr::{LnMirExprData, LnMirExprIdx, LnMirExprIdxRange};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::term::literal::{LnLiteral, LnLiteralData};
-use visored_mir_expr::expr::{application::VdMirFunc, VdMirExprData, VdMirExprIdx};
+use visored_mir_expr::expr::{
+    application::VdMirFunc, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange,
+};
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
 impl VdTranspileToLean<LnMirExprIdx> for VdMirExprIdx {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnMirExprIdx {
         let data = builder.build_expr(self);
         builder.alloc_expr(data)
+    }
+}
+
+impl<'db> VdTranspileToLean<LnMirExprIdxRange> for VdMirExprIdxRange {
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnMirExprIdxRange {
+        let mut exprs = vec![];
+        for expr in self {
+            exprs.push(builder.build_expr(expr));
+        }
+        builder.alloc_exprs(exprs)
     }
 }
 

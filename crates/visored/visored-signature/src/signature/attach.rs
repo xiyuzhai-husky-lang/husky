@@ -4,6 +4,13 @@ use super::*;
 pub enum VdAttachSignature {
     Power(VdPowerSignature),
 }
+impl VdAttachSignature {
+    pub fn expr_ty(self) -> VdZfcType {
+        match self {
+            VdAttachSignature::Power(signature) => signature.expr_ty(),
+        }
+    }
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdPowerSignature {
