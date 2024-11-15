@@ -1,7 +1,8 @@
-use crate::dictionary::func_key::VdFuncKeyTranslation;
-
 use super::*;
+use crate::dictionary::func_key::VdFuncKeyTranslation;
 use either::*;
+use lean_mir_expr::expr::application::LnMirFuncKey;
+use smallvec::*;
 use visored_mir_expr::expr::VdMirExprIdxRange;
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
@@ -16,38 +17,39 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                 let Some(translation) = self.dictionary().func_translation(func_key) else {
                     todo!("no translation for func key `{func_key:?}`")
                 };
-                match translation {
-                    VdFuncKeyTranslation::NormalSeparator => todo!(),
-                    VdFuncKeyTranslation::InSet => todo!(),
+                match *translation {
+                    VdFuncKeyTranslation::BinaryOprAsSeparator(func_key) => {
+                        self.build_separated_list(expr, func_key, arguments)
+                    }
+                    // TODO: implement
+                    VdFuncKeyTranslation::InSet => LnMirExprData::Sorry,
                 }
             }
             Right(_) => todo!(),
         }
     }
+
+    fn build_separated_list(
+        &mut self,
+        expr: VdMirExprIdx,
+        func_key: LnMirFuncKey,
+        arguments: VdMirExprIdxRange,
+    ) -> LnMirExprData {
+        debug_assert!(arguments.len() >= 2);
+        let mut argument_iter = arguments.into_iter();
+        let fst = self.build_expr(argument_iter.next().unwrap());
+        let snd = self.build_expr(argument_iter.next().unwrap());
+        let mut result = LnMirExprData::Application {
+            function: func_key.into(),
+            arguments: self.alloc_exprs([fst, snd]),
+        };
+        for argument in argument_iter {
+            let argument = self.build_expr(argument);
+            result = LnMirExprData::Application {
+                function: func_key.into(),
+                arguments: self.alloc_exprs([result, argument]),
+            };
+        }
+        result
+    }
 }
-// match function {
-//                 VdMirFunc::NormalSeparator => todo!(),
-//                 VdMirFunc::InSet => todo!(),
-//                 // VdMirApplicationFunction::IntAdd => {
-//                 //     debug_assert_eq!(arguments.len(), 2);
-//                 //     let lopd = arguments.start();
-//                 //     let ropd = lopd + 1;
-//                 //     LnMirExprData::Binary {
-//                 //         lopd: lopd.to_lean(self),
-//                 //         opr: LnBinaryOpr::Add,
-//                 //         ropd: ropd.to_lean(self),
-//                 //     }
-//                 // }
-//                 // VdMirApplicationFunction::TrivialEq => {
-//                 //     debug_assert_eq!(arguments.len(), 2);
-//                 //     let lopd = arguments.start();
-//                 //     let ropd = lopd + 1;
-//                 //     LnMirExprData::Binary {
-//                 //         lopd: lopd.to_lean(self),
-//                 //         opr: LnBinaryOpr::Eq,
-//                 //         ropd: ropd.to_lean(self),
-//                 //     }
-//                 // }
-//                 // // TODO: implement this
-//                 // VdMirApplicationFunction::In => LnMirExprData::Sorry,
-//             }

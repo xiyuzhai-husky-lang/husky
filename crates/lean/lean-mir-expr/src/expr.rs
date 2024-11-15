@@ -1,3 +1,6 @@
+pub mod application;
+
+use application::LnMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use lean_coword::ident::LnIdent;
 use lean_item_path::LnItemPath;
@@ -15,25 +18,13 @@ pub enum LnMirExprData {
     Variable {
         ident: LnIdent,
     },
-    Prefix {
-        opr: LnPrefixOpr,
-        opd: LnMirExprIdx,
-    },
-    Suffix {
-        opd: LnMirExprIdx,
-        opr: LnSuffixOpr,
-    },
-    Binary {
-        lopd: LnMirExprIdx,
-        opr: LnBinaryOpr,
-        ropd: LnMirExprIdx,
-    },
     Lambda {
         parameters: LnMirLambdaParameters,
         body: LnMirExprIdx,
     },
     Application {
-        function_and_arguments: LnMirExprIdxRange,
+        function: LnMirFunc,
+        arguments: LnMirExprIdxRange,
     },
     Sorry,
 }
@@ -50,13 +41,14 @@ impl LnMirExprData {
             | LnMirExprData::Variable { .. }
             | LnMirExprData::Literal(_)
             | LnMirExprData::Sorry => LnPrecedence::Atom,
-            LnMirExprData::Prefix { opr, opd } => todo!(),
-            LnMirExprData::Suffix { opd, opr } => todo!(),
-            LnMirExprData::Binary { lopd, opr, ropd } => opr.outer_precedence(),
+            // LnMirExprData::Prefix { opr, opd } => todo!(),
+            // LnMirExprData::Suffix { opd, opr } => todo!(),
+            // LnMirExprData::Binary { lopd, opr, ropd } => opr.outer_precedence(),
             LnMirExprData::Lambda { parameters, body } => todo!(),
             LnMirExprData::Application {
-                function_and_arguments,
-            } => todo!(),
+                function,
+                arguments,
+            } => function.outer_precedence(),
         }
     }
 
@@ -64,16 +56,14 @@ impl LnMirExprData {
         match *self {
             LnMirExprData::ItemPath(_) | LnMirExprData::Literal(_) | LnMirExprData::Sorry => vec![],
             LnMirExprData::Variable { ident } => todo!(),
-            LnMirExprData::Prefix { opr, opd } => todo!(),
-            LnMirExprData::Suffix { opd, opr } => todo!(),
-            LnMirExprData::Binary { lopd, opr, ropd } => vec![lopd, ropd],
             LnMirExprData::Lambda {
                 ref parameters,
                 body,
             } => todo!(),
             LnMirExprData::Application {
-                function_and_arguments,
-            } => todo!(),
+                function,
+                arguments,
+            } => function.expr().into_iter().chain(arguments).collect(),
         }
     }
 }

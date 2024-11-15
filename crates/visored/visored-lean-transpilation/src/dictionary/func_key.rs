@@ -1,12 +1,13 @@
+use lean_mir_expr::expr::application::{ln_mir_func_key_menu, LnMirFuncKey, LnMirFuncKeyMenu};
 use rustc_hash::FxHashMap;
 use visored_mir_expr::expr::application::{
     menu::{vd_mir_func_key_menu, VdMirFuncKeyMenu},
     VdMirFunc, VdMirFuncKey,
 };
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdFuncKeyTranslation {
-    NormalSeparator,
+    BinaryOprAsSeparator(LnMirFuncKey),
     InSet,
 }
 
@@ -17,6 +18,8 @@ pub struct VdFuncKeyDictionary {
 
 impl VdFuncKeyDictionary {
     pub fn new_standard(db: &::salsa::Db) -> Self {
+        use VdFuncKeyTranslation::*;
+
         let VdMirFuncKeyMenu {
             nat_add,
             int_add,
@@ -26,18 +29,32 @@ impl VdFuncKeyDictionary {
             int_eq,
             rat_eq,
             real_eq,
+            complex_eq,
             in_set,
         } = *vd_mir_func_key_menu(db);
+        let LnMirFuncKeyMenu {
+            nat_add: ln_nat_add,
+            int_add: ln_int_add,
+            rat_add: ln_rat_add,
+            real_add: ln_real_add,
+            complex_add: ln_complex_add,
+            nat_eq: ln_nat_eq,
+            int_eq: ln_int_eq,
+            rat_eq: ln_rat_eq,
+            real_eq: ln_real_eq,
+            complex_eq: ln_complex_eq,
+        } = *ln_mir_func_key_menu(db);
         Self::new([
-            (nat_add, VdFuncKeyTranslation::NormalSeparator),
-            (int_add, VdFuncKeyTranslation::NormalSeparator),
-            (rat_add, VdFuncKeyTranslation::NormalSeparator),
-            (real_add, VdFuncKeyTranslation::NormalSeparator),
-            (nat_eq, VdFuncKeyTranslation::NormalSeparator),
-            (int_eq, VdFuncKeyTranslation::NormalSeparator),
-            (rat_eq, VdFuncKeyTranslation::NormalSeparator),
-            (real_eq, VdFuncKeyTranslation::NormalSeparator),
-            (in_set, VdFuncKeyTranslation::InSet),
+            (nat_add, BinaryOprAsSeparator(ln_nat_add)),
+            (int_add, BinaryOprAsSeparator(ln_int_add)),
+            (rat_add, BinaryOprAsSeparator(ln_rat_add)),
+            (real_add, BinaryOprAsSeparator(ln_real_add)),
+            (nat_eq, BinaryOprAsSeparator(ln_nat_eq)),
+            (int_eq, BinaryOprAsSeparator(ln_int_eq)),
+            (rat_eq, BinaryOprAsSeparator(ln_rat_eq)),
+            (real_eq, BinaryOprAsSeparator(ln_real_eq)),
+            (complex_eq, BinaryOprAsSeparator(ln_complex_eq)),
+            (in_set, InSet),
         ])
     }
 

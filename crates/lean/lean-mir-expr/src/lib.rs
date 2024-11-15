@@ -6,3 +6,5 @@ pub mod jar;
 pub mod region;
 pub mod stmt;
 pub mod tactic;
+
+use self::jar::LnMirExprJar as Jar;

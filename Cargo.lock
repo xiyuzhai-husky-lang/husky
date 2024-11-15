@@ -8339,6 +8339,7 @@ dependencies = [
  "enum-class",
  "lean-item-path",
  "salsa",
+ "smallvec",
 ]
 
 [[package]]
