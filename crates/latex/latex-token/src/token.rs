@@ -1,12 +1,12 @@
 pub mod lisp;
 pub mod math;
+pub mod name;
 pub mod root;
 pub mod rose;
-pub mod word;
 
 use self::{
-    lisp::LxLispTokenData, math::LxMathTokenData, root::LxRootTokenData, rose::LxRoseTokenData,
-    word::LxWordTokenData,
+    lisp::LxLispTokenData, math::LxMathTokenData, name::LxNameTokenData, root::LxRootTokenData,
+    rose::LxRoseTokenData,
 };
 use crate::lexer::LxLexer;
 #[cfg(test)]
@@ -19,7 +19,7 @@ use latex_prelude::mode::LxMode;
 pub enum LxTokenData {
     Lisp(LxLispTokenData),
     Math(LxMathTokenData),
+    Name(LxNameTokenData),
     Root(LxRootTokenData),
     Rose(LxRoseTokenData),
-    Word(LxWordTokenData),
 }

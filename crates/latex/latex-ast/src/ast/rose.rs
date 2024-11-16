@@ -11,8 +11,12 @@ use super::*;
 use helpers::LxRoseAstChild;
 use husky_coword::Coword;
 use latex_command::path::LxCommandPath;
+use latex_environment::signature::LxEnvironmentSignature;
 use latex_rose_punctuation::LxRosePunctuation;
-use latex_token::{idx::LxRoseTokenIdx, token::rose::LxRoseTokenData};
+use latex_token::{
+    idx::{LxNameTokenIdx, LxRoseTokenIdx},
+    token::rose::LxRoseTokenData,
+};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]
@@ -40,6 +44,18 @@ pub enum LxRoseAstData {
         command_token_idx: LxRoseTokenIdx,
         command_path: LxCommandPath,
         arguments: SmallVec<[LxRoseCompleteCommandArgument; 2]>,
+    },
+    Environment {
+        begin_command_token_idx: LxRoseTokenIdx,
+        begin_lcurl_token_idx: LxRoseTokenIdx,
+        begin_environment_name_token_idx: LxNameTokenIdx,
+        begin_rcurl_token_idx: LxRoseTokenIdx,
+        asts: LxRoseAstIdxRange,
+        end_command_token_idx: LxRoseTokenIdx,
+        end_lcurl_token_idx: LxRoseTokenIdx,
+        end_environment_name_token_idx: LxNameTokenIdx,
+        end_rcurl_token_idx: LxRoseTokenIdx,
+        environment_signature: LxEnvironmentSignature,
     },
 }
 
@@ -72,6 +88,7 @@ impl LxRoseAstData {
                 command_path,
                 ref arguments,
             } => todo!(),
+            LxRoseAstData::Environment { asts, .. } => todo!(),
         }
     }
 }

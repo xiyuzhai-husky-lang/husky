@@ -70,6 +70,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 command_path,
                 ref arguments,
             } => todo!(),
+            LxRoseAstData::Environment { .. } => todo!(),
         }
     }
 
@@ -105,6 +106,7 @@ impl<'db> VdSynExprBuilder<'db> {
                     command_path,
                     ref arguments,
                 } => todo!(),
+                LxRoseAstData::Environment { .. } => todo!(),
             }
         }
         Some(VdSynStmtData::Paragraph(self.alloc_sentences(sentences)))
