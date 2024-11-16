@@ -1,10 +1,10 @@
 use super::*;
-use latex_command::path::LxCommandPath;
+use latex_command::path::LxCommandName;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxRootTokenData {
-    Command(LxCommandPath),
+    Command(LxCommandName),
     LeftDelimiter(LxRootDelimiter),
     RightDelimiter(LxRootDelimiter),
 }
@@ -23,12 +23,13 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphabetic() => {
-                            Some(LxRootTokenData::Command(LxCommandPath::new_prelude(
+                        c if c.is_alphabetic() => Some(LxRootTokenData::Command(
+                            LxCommandName::new(
                                 self.next_coword_with(|c| c.is_alphabetic()).unwrap(),
                                 db,
-                            )))
-                        }
+                            )
+                            .unwrap(),
+                        )),
                         c if c.is_numeric() => todo!("latex might allow single digit command"),
                         _ => todo!("latex one digit non letter command"),
                     },
@@ -64,16 +65,13 @@ pub fn next_root_token_data_works() {
         &expect![[r#"
             [
                 LxRootTokenData::Command(
-                    LxCommandPath {
-                        package: Prelude,
-                        name: LxCommandName::LettersOnly(
-                            LettersOnlyLxCommandName(
-                                Coword(
-                                    "usepackage",
-                                ),
+                    LxCommandName::LettersOnly(
+                        LettersOnlyLxCommandName(
+                            Coword(
+                                "usepackage",
                             ),
                         ),
-                    },
+                    ),
                 ),
             ]
         "#]],

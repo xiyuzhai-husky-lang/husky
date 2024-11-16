@@ -36,6 +36,7 @@ fn standard_command_resolution_map(
     let LxCommandPathMenu {
         begin: _,
         end: _,
+        usepackage,
         // maths
         // - letter style
         mathbb,
@@ -81,6 +82,8 @@ fn standard_command_resolution_map(
         text,
     } = *command_path_menu(db);
     VdCompleteCommandGlobalResolutionMap::from_iter([
+        // - root
+        (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
         // - operators
         // -- relations
         (eq, VdCompleteCommandGlobalResolution::EQ),

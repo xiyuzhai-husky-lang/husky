@@ -313,6 +313,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             VdCompleteCommandGlobalResolution::Separator(vd_separator) => {
                 DisambiguatedAst::Separator(vd_separator)
             }
+            VdCompleteCommandGlobalResolution::UsePackage => todo!(),
         }
     }
 }

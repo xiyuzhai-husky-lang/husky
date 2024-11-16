@@ -1,7 +1,8 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxMode {
-    Rose,
-    Math,
-    Coword,
     Lisp,
+    Math,
+    Root,
+    Rose,
+    Word,
 }
