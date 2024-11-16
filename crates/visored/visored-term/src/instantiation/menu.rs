@@ -80,6 +80,8 @@ pub struct VdInstantiationMenu {
     pub int_ge: VdInstantiation,
     pub rat_ge: VdInstantiation,
     pub real_ge: VdInstantiation,
+    /// # sqrt
+    pub real_sqrt: VdInstantiation,
 }
 
 impl VdInstantiationMenu {
@@ -104,6 +106,7 @@ impl VdInstantiationMenu {
             ring_pos,
             ring_neg,
             field_div,
+            real_sqrt,
             eq,
             ne,
             lt,
@@ -122,7 +125,7 @@ impl VdInstantiationMenu {
             complex,
         } = *vd_term_menu(db);
         macro_rules! ins{
-            ($db: expr, $path: expr, $($args: expr),*) => {
+            ($db: expr, $path: expr $(, $args: expr)*) => {
                 VdInstantiation::new($db, $path.into(), smallvec![$($args),*])
             };
         }
@@ -160,94 +163,120 @@ impl VdInstantiationMenu {
         let rat_mul = ins!(db, ring_mul, rat);
         let real_mul = ins!(db, ring_mul, real);
         let complex_mul = ins!(db, ring_mul, complex);
+        // ## power
         let nat_to_the_power_of_nat = ins!(db, ring_power, nat, nat);
         let int_to_the_power_of_nat = ins!(db, ring_power, int, nat);
         let rat_to_the_power_of_nat = ins!(db, ring_power, rat, nat);
         let real_to_the_power_of_nat = ins!(db, ring_power, real, nat);
         let complex_to_the_power_of_nat = ins!(db, ring_power, complex, nat);
+        // ## eq
         let nat_eq = ins!(db, eq, nat);
         let int_eq = ins!(db, eq, int);
         let rat_eq = ins!(db, eq, rat);
         let real_eq = ins!(db, eq, real);
         let complex_eq = ins!(db, eq, complex);
+        // ## ne
         let nat_ne = ins!(db, ne, nat);
         let int_ne = ins!(db, ne, int);
         let rat_ne = ins!(db, ne, rat);
         let real_ne = ins!(db, ne, real);
         let complex_ne = ins!(db, ne, complex);
+        // ## lt
         let nat_lt = ins!(db, lt, nat);
         let int_lt = ins!(db, lt, int);
         let rat_lt = ins!(db, lt, rat);
         let real_lt = ins!(db, lt, real);
+        // ## gt
         let nat_gt = ins!(db, gt, nat);
         let int_gt = ins!(db, gt, int);
         let rat_gt = ins!(db, gt, rat);
         let real_gt = ins!(db, gt, real);
+        // ## le
         let nat_le = ins!(db, le, nat);
         let int_le = ins!(db, le, int);
         let rat_le = ins!(db, le, rat);
         let real_le = ins!(db, le, real);
+        // ## ge
         let nat_ge = ins!(db, ge, nat);
         let int_ge = ins!(db, ge, int);
         let rat_ge = ins!(db, ge, rat);
         let real_ge = ins!(db, ge, real);
+        // # sqrt
+        let real_sqrt = ins!(db, real_sqrt);
         Self {
+            // # prefix
+            // ## pos
             int_pos,
             rat_pos,
             real_pos,
             complex_pos,
+            // ## neg
             int_neg,
             rat_neg,
             real_neg,
             complex_neg,
+            // # binary operators
+            // ## sub
             int_sub,
             rat_sub,
             real_sub,
             complex_sub,
+            // ## div
             rat_div,
             real_div,
             complex_div,
+            // ## add
             nat_add,
             int_add,
             rat_add,
             real_add,
             complex_add,
+            // ## mul
             nat_mul,
             int_mul,
             rat_mul,
             real_mul,
             complex_mul,
+            // ## power
             nat_to_the_power_of_nat,
             int_to_the_power_of_nat,
             rat_to_the_power_of_nat,
             real_to_the_power_of_nat,
             complex_to_the_power_of_nat,
+            // ## eq
             nat_eq,
             int_eq,
             rat_eq,
             real_eq,
             complex_eq,
+            // ## ne
             nat_ne,
             int_ne,
             rat_ne,
             real_ne,
             complex_ne,
+            // ## lt
             nat_lt,
             int_lt,
             rat_lt,
             real_lt,
+            // ## gt
             nat_gt,
             int_gt,
             rat_gt,
             real_gt,
+            // ## le
             nat_le,
             int_le,
             rat_le,
             real_le,
+            // ## ge
             nat_ge,
             int_ge,
             rat_ge,
             real_ge,
+            // # sqrt
+            real_sqrt,
         }
     }
 }

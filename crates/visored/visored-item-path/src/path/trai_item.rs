@@ -16,6 +16,7 @@ pub enum VdTraitItemPath {
     Le,
     Ge,
     FieldDiv,
+    RealSqrt,
 }
 
 impl VdTraitItemPath {
@@ -27,6 +28,7 @@ impl VdTraitItemPath {
     pub const RING_POS: Self = VdTraitItemPath::RingPos;
     pub const RING_NEG: Self = VdTraitItemPath::RingNeg;
     pub const FIELD_DIV: Self = VdTraitItemPath::FieldDiv;
+    pub const REAL_SQRT: Self = VdTraitItemPath::RealSqrt;
     pub const EQ: Self = VdTraitItemPath::Eq;
     pub const NE: Self = VdTraitItemPath::Ne;
     pub const LT: Self = VdTraitItemPath::Lt;
