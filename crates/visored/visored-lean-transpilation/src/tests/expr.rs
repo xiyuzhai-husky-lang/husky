@@ -35,6 +35,15 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 + 1"],
     );
     t(
+        "1 < 2",
+        &expect![[r#"
+            application
+            ├─ literal: `1`
+            └─ literal: `1`
+        "#]],
+        &expect!["1 < 1"],
+    );
+    t(
         "1\\in\\mathbb{N}",
         &expect![[r#"
             sorry
