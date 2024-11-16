@@ -22,6 +22,10 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
                     )
                 };
                 match *translation {
+                    VdFuncKeyTranslation::PrefixOpr(func_key) => LnMirExprData::Application {
+                        function: func_key.into(),
+                        arguments: arguments.to_lean(self),
+                    },
                     VdFuncKeyTranslation::BinaryOprAsSeparator(func_key) => {
                         self.build_separated_list(expr, func_key, arguments)
                     }

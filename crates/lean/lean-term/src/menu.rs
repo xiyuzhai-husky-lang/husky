@@ -22,6 +22,8 @@ impl LnTermMenu {
             complex,
             ring_add,
             ring_mul,
+            ring_pos,
+            ring_neg,
             le,
             ge,
             eq,

@@ -6,6 +6,14 @@ use super::LnInstantiation;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LnInstantiationMenu {
+    pub int_pos: LnInstantiation,
+    pub rat_pos: LnInstantiation,
+    pub real_pos: LnInstantiation,
+    pub complex_pos: LnInstantiation,
+    pub int_neg: LnInstantiation,
+    pub rat_neg: LnInstantiation,
+    pub real_neg: LnInstantiation,
+    pub complex_neg: LnInstantiation,
     pub int_sub: LnInstantiation,
     pub rat_sub: LnInstantiation,
     pub real_sub: LnInstantiation,
@@ -45,6 +53,8 @@ impl LnInstantiationMenu {
         let LnItemPathMenu {
             ring_add,
             ring_mul,
+            ring_pos,
+            ring_neg,
             eq,
             le,
             ge,
@@ -60,6 +70,14 @@ impl LnInstantiationMenu {
         } = *ln_term_menu(db);
         let t = |path, arguments| LnInstantiation::new(db, path, arguments);
         Self {
+            int_pos: t(ring_pos, smallvec![int]),
+            rat_pos: t(ring_pos, smallvec![rat]),
+            real_pos: t(ring_pos, smallvec![real]),
+            complex_pos: t(ring_pos, smallvec![complex]),
+            int_neg: t(ring_neg, smallvec![int]),
+            rat_neg: t(ring_neg, smallvec![rat]),
+            real_neg: t(ring_neg, smallvec![real]),
+            complex_neg: t(ring_neg, smallvec![complex]),
             int_sub: t(ring_add, smallvec![int, int]),
             rat_sub: t(ring_add, smallvec![rat, rat]),
             real_sub: t(ring_add, smallvec![real, real]),

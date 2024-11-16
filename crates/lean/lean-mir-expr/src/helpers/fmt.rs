@@ -130,7 +130,14 @@ impl<'a> LnMirExprFormatter<'a> {
                         self.result.push(' ');
                         self.format_expr(ropd, subexpr_try_multiline, opr.right_precedence_range());
                     }
-                    LnMirFunc::PrefixOpr { opr, instantiation } => todo!(),
+                    LnMirFunc::PrefixOpr { opr, instantiation } => {
+                        self.result += opr.fmt_str();
+                        self.format_expr(
+                            arguments.first().unwrap(),
+                            subexpr_try_multiline,
+                            opr.precedence_range(),
+                        );
+                    }
                     LnMirFunc::SuffixOpr { opr, instantiation } => todo!(),
                     LnMirFunc::Expr(arena_idx) => todo!(),
                 }

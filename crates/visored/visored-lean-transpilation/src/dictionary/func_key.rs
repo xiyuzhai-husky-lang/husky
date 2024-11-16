@@ -8,6 +8,7 @@ use visored_mir_expr::expr::application::{
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdFuncKeyTranslation {
+    PrefixOpr(LnMirFuncKey),
     BinaryOprAsSeparator(LnMirFuncKey),
     Power(LnMirFuncKey),
     InSet,
@@ -23,6 +24,14 @@ impl VdFuncKeyDictionary {
         use VdFuncKeyTranslation::*;
 
         let VdMirFuncKeyMenu {
+            int_pos,
+            rat_pos,
+            real_pos,
+            complex_pos,
+            int_neg,
+            rat_neg,
+            real_neg,
+            complex_neg,
             int_sub,
             rat_sub,
             real_sub,
@@ -58,6 +67,14 @@ impl VdFuncKeyDictionary {
             in_set,
         } = *vd_mir_func_key_menu(db);
         let LnMirFuncKeyMenu {
+            int_pos: ln_int_pos,
+            rat_pos: ln_rat_pos,
+            real_pos: ln_real_pos,
+            complex_pos: ln_complex_pos,
+            int_neg: ln_int_neg,
+            rat_neg: ln_rat_neg,
+            real_neg: ln_real_neg,
+            complex_neg: ln_complex_neg,
             int_sub: ln_int_sub,
             rat_sub: ln_rat_sub,
             real_sub: ln_real_sub,
@@ -92,6 +109,14 @@ impl VdFuncKeyDictionary {
             real_ge: ln_real_ge,
         } = *ln_mir_func_key_menu(db);
         Self::new([
+            (int_pos, PrefixOpr(ln_int_pos)),
+            (rat_pos, PrefixOpr(ln_rat_pos)),
+            (real_pos, PrefixOpr(ln_real_pos)),
+            (complex_pos, PrefixOpr(ln_complex_pos)),
+            (int_neg, PrefixOpr(ln_int_neg)),
+            (rat_neg, PrefixOpr(ln_rat_neg)),
+            (real_neg, PrefixOpr(ln_real_neg)),
+            (complex_neg, BinaryOprAsSeparator(ln_complex_neg)),
             (int_sub, BinaryOprAsSeparator(ln_int_sub)),
             (rat_sub, BinaryOprAsSeparator(ln_rat_sub)),
             (real_sub, BinaryOprAsSeparator(ln_real_sub)),
