@@ -7,6 +7,9 @@ pub enum LnBinaryOpr {
     Mul,
     Pow,
     Eq,
+    Ne,
+    Lt,
+    Gt,
     Le,
     Ge,
 }
@@ -19,6 +22,9 @@ impl LnBinaryOpr {
             LnBinaryOpr::Mul => "*",
             LnBinaryOpr::Pow => "^",
             LnBinaryOpr::Eq => "=",
+            LnBinaryOpr::Ne => "≠",
+            LnBinaryOpr::Lt => "<",
+            LnBinaryOpr::Gt => ">",
             LnBinaryOpr::Le => "≤",
             LnBinaryOpr::Ge => "≥",
         }
@@ -30,9 +36,12 @@ impl LnBinaryOpr {
             LnBinaryOpr::Sub => LnPrecedenceRange::NoLess(LnPrecedence::AddSub),
             LnBinaryOpr::Mul => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
             LnBinaryOpr::Pow => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
-            LnBinaryOpr::Eq => LnPrecedenceRange::NoLess(LnPrecedence::EqNe),
-            LnBinaryOpr::Le => LnPrecedenceRange::NoLess(LnPrecedence::EqNe),
-            LnBinaryOpr::Ge => LnPrecedenceRange::NoLess(LnPrecedence::EqNe),
+            LnBinaryOpr::Eq => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
+            LnBinaryOpr::Ne => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
+            LnBinaryOpr::Lt => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
+            LnBinaryOpr::Gt => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
+            LnBinaryOpr::Le => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
+            LnBinaryOpr::Ge => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
         }
     }
 
@@ -42,9 +51,12 @@ impl LnBinaryOpr {
             LnBinaryOpr::Sub => LnPrecedenceRange::Greater(LnPrecedence::AddSub),
             LnBinaryOpr::Mul => LnPrecedenceRange::Greater(LnPrecedence::MulDiv),
             LnBinaryOpr::Pow => LnPrecedenceRange::Greater(LnPrecedence::MulDiv),
-            LnBinaryOpr::Eq => LnPrecedenceRange::Greater(LnPrecedence::EqNe),
-            LnBinaryOpr::Le => LnPrecedenceRange::Greater(LnPrecedence::EqNe),
-            LnBinaryOpr::Ge => LnPrecedenceRange::Greater(LnPrecedence::EqNe),
+            LnBinaryOpr::Eq => LnPrecedenceRange::Greater(LnPrecedence::Relation),
+            LnBinaryOpr::Ne => LnPrecedenceRange::Greater(LnPrecedence::Relation),
+            LnBinaryOpr::Lt => LnPrecedenceRange::Greater(LnPrecedence::Relation),
+            LnBinaryOpr::Gt => LnPrecedenceRange::Greater(LnPrecedence::Relation),
+            LnBinaryOpr::Le => LnPrecedenceRange::Greater(LnPrecedence::Relation),
+            LnBinaryOpr::Ge => LnPrecedenceRange::Greater(LnPrecedence::Relation),
         }
     }
 
@@ -54,9 +66,12 @@ impl LnBinaryOpr {
             LnBinaryOpr::Sub => LnPrecedence::AddSub,
             LnBinaryOpr::Mul => LnPrecedence::MulDiv,
             LnBinaryOpr::Pow => LnPrecedence::MulDiv,
-            LnBinaryOpr::Eq => LnPrecedence::EqNe,
-            LnBinaryOpr::Le => LnPrecedence::EqNe,
-            LnBinaryOpr::Ge => LnPrecedence::EqNe,
+            LnBinaryOpr::Eq => LnPrecedence::Relation,
+            LnBinaryOpr::Ne => LnPrecedence::Relation,
+            LnBinaryOpr::Lt => LnPrecedence::Relation,
+            LnBinaryOpr::Gt => LnPrecedence::Relation,
+            LnBinaryOpr::Le => LnPrecedence::Relation,
+            LnBinaryOpr::Ge => LnPrecedence::Relation,
         }
     }
 }
