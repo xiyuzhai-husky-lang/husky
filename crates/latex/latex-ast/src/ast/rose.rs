@@ -1,13 +1,19 @@
 //! means the prose mode
+pub mod complete_command;
+pub mod delimited;
+pub mod environment;
 pub mod helpers;
 #[cfg(test)]
 pub mod tests;
 
+use self::{complete_command::*, delimited::*, environment::*};
 use super::*;
 use helpers::LxRoseAstChild;
 use husky_coword::Coword;
+use latex_command::path::LxCommandPath;
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::{data::rose::LxRoseTokenData, idx::LxRoseTokenIdx};
+use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -21,6 +27,19 @@ pub enum LxRoseAstData {
         left_dollar_token_idx: LxRoseTokenIdx,
         math_asts: LxMathAstIdxRange,
         right_dollar_token_idx: LxRoseTokenIdx,
+    },
+    NewParagraph(LxRoseTokenIdx),
+    Delimited {
+        left_delimiter_token_idx: LxRoseTokenIdx,
+        left_delimiter: LxRoseDelimiter,
+        asts: LxRoseAstIdxRange,
+        right_delimiter_token_idx: LxRoseTokenIdx,
+        right_delimiter: LxRoseDelimiter,
+    },
+    CompleteCommand {
+        command_token_idx: LxRoseTokenIdx,
+        command_path: LxCommandPath,
+        arguments: SmallVec<[LxRoseCompleteCommandArgument; 2]>,
     },
 }
 
@@ -40,6 +59,19 @@ impl LxRoseAstData {
                 .into_iter()
                 .map(|ast| LxRoseAstChild::MathAst(ast))
                 .collect(),
+            LxRoseAstData::NewParagraph(_) => vec![],
+            LxRoseAstData::Delimited {
+                left_delimiter_token_idx,
+                left_delimiter,
+                asts,
+                right_delimiter_token_idx,
+                right_delimiter,
+            } => todo!(),
+            LxRoseAstData::CompleteCommand {
+                command_token_idx,
+                command_path,
+                ref arguments,
+            } => todo!(),
         }
     }
 }
@@ -62,7 +94,7 @@ impl<'a> LxAstParser<'a> {
             LxRoseTokenData::EscapedLpar => todo!(),
             LxRoseTokenData::EscapedLbox => todo!(),
             LxRoseTokenData::Nat32(_) => todo!(),
-            LxRoseTokenData::NewParagraph => todo!(),
+            LxRoseTokenData::NewParagraph => Some(LxRoseAstData::NewParagraph(token_idx)),
             LxRoseTokenData::Punctuation(lx_rose_punctuation) => {
                 Some(LxRoseAstData::Punctuation(token_idx, lx_rose_punctuation))
             }

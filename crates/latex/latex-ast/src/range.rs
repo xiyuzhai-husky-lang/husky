@@ -3,7 +3,8 @@ use latex_token::idx::LxTokenIdxRange;
 use crate::ast::{
     lisp::{LxLispAstArenaMap, LxLispAstData, LxLispAstIdx},
     math::{
-        LxMathAstArenaMap, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange, LxMathCommandArgument,
+        LxMathAstArenaMap, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange,
+        LxMathCompleteCommandArgument,
     },
     rose::{LxRoseAstArenaMap, LxRoseAstData, LxRoseAstIdx},
     LxAstArena, LxAstArenaMap, LxAstArenaRef, LxAstData, LxAstIdx,
@@ -163,6 +164,19 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 math_asts,
                 right_dollar_token_idx,
             } => LxTokenIdxRange::new_closed(*left_dollar_token_idx, *right_dollar_token_idx),
+            LxRoseAstData::NewParagraph(token_idx) => LxTokenIdxRange::new_single(*token_idx),
+            LxRoseAstData::Delimited {
+                left_delimiter_token_idx,
+                left_delimiter,
+                asts,
+                right_delimiter_token_idx,
+                right_delimiter,
+            } => todo!(),
+            LxRoseAstData::CompleteCommand {
+                command_token_idx,
+                command_path,
+                ref arguments,
+            } => todo!(),
         }
     }
 

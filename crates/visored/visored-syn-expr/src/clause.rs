@@ -95,6 +95,19 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        ref arguments,
+                    } => todo!(),
                 }
             }
             "Assume" | "assume" | "Suppose" | "suppose" => {
@@ -117,6 +130,19 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        ref arguments,
+                    } => todo!(),
                 }
             }
             "Then" | "then" => {
@@ -139,6 +165,19 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        ref arguments,
+                    } => todo!(),
                 }
             }
             _ => todo!(),
