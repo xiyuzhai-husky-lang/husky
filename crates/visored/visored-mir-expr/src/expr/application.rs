@@ -3,6 +3,7 @@ use either::*;
 use visored_signature::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
     prefix_opr::VdBasePrefixOprSignature, separator::base::VdBaseSeparatorSignature,
+    sqrt::VdBaseSqrtSignature,
 };
 use visored_term::instantiation::VdInstantiation;
 
@@ -15,6 +16,8 @@ pub enum VdMirFunc {
     NormalBaseBinaryOpr(VdBaseBinaryOprSignature),
     Power(VdPowerSignature),
     InSet,
+    NormalBaseSqrt(VdBaseSqrtSignature),
+    NormalBaseFrac(VdBaseBinaryOprSignature),
 }
 
 #[salsa::derive_debug_with_db]
@@ -25,6 +28,8 @@ pub enum VdMirFuncKey {
     NormalBaseBinaryOpr(VdInstantiation),
     InSet,
     Power(VdInstantiation),
+    NormalBaseSqrt(VdInstantiation),
+    NormalBaseFrac(VdInstantiation),
 }
 
 impl VdMirFunc {
@@ -41,6 +46,12 @@ impl VdMirFunc {
             }
             VdMirFunc::Power(signature) => Left(VdMirFuncKey::Power(signature.instantiation())),
             VdMirFunc::InSet => Left(VdMirFuncKey::InSet),
+            VdMirFunc::NormalBaseSqrt(signature) => {
+                Left(VdMirFuncKey::NormalBaseSqrt(signature.instantiation()))
+            }
+            VdMirFunc::NormalBaseFrac(signature) => {
+                Left(VdMirFuncKey::NormalBaseFrac(signature.instantiation()))
+            }
         }
     }
 }
