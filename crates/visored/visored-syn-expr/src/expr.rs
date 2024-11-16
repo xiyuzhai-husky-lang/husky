@@ -116,6 +116,7 @@ pub enum VdSynExprData {
     Sqrt {
         // TODO: add field for the index or degree
         command_token_idx: LxMathTokenIdx,
+        radicand_lcurl_token_idx: LxMathTokenIdx,
         radicand: VdSynExprIdx,
         radicand_rcurl_token_idx: LxMathTokenIdx,
     },

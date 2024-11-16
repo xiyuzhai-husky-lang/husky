@@ -6,6 +6,7 @@ pub mod letter;
 pub mod literal;
 pub mod prefix;
 pub mod separated_list;
+pub mod sqrt;
 pub mod suffix;
 #[cfg(test)]
 pub mod tests;
@@ -23,6 +24,7 @@ use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
 use letter::VdSemLetterDispatch;
+use sqrt::VdSemSqrtDispatch;
 use visored_opr::{
     delimiter::{
         VdBaseLeftDelimiter, VdBaseRightDelimiter, VdCompositeLeftDelimiter,
@@ -115,6 +117,7 @@ pub enum VdSemExprData {
         radicand_lcurl_token_idx: LxMathTokenIdx,
         radicand: VdSemExprIdx,
         radicand_rcurl_token_idx: LxMathTokenIdx,
+        dispatch: VdSemSqrtDispatch,
     },
 }
 
@@ -247,9 +250,15 @@ impl<'a> VdSemExprBuilder<'a> {
             ),
             VdSynExprData::Sqrt {
                 command_token_idx,
+                radicand_lcurl_token_idx,
                 radicand,
                 radicand_rcurl_token_idx,
-            } => todo!(),
+            } => self.build_sqrt(
+                command_token_idx,
+                radicand_lcurl_token_idx,
+                radicand,
+                radicand_rcurl_token_idx,
+            ),
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
@@ -385,6 +394,7 @@ impl<'db> VdSemExprBuilder<'db> {
                 radicand_lcurl_token_idx,
                 radicand,
                 radicand_rcurl_token_idx,
+                dispatch,
             } => todo!(),
         }
     }

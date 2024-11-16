@@ -299,6 +299,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 DisambiguatedAst::Expr(
                     VdSynExprData::Sqrt {
                         command_token_idx,
+                        radicand_lcurl_token_idx: radicand_arg.lcurl_token_idx(),
                         radicand,
                         radicand_rcurl_token_idx: radicand_arg.rcurl_token_idx(),
                     },
