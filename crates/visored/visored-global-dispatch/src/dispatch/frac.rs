@@ -1,10 +1,11 @@
 use super::*;
 use crate::menu::VdGlobalDispatchMenu;
+use visored_signature::signature::binary_opr::base::VdBaseBinaryOprSignature;
 use visored_term::{menu::VdTypeMenu, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdFracGlobalDispatch {
-    Normal {},
+    Div { signature: VdBaseBinaryOprSignature },
 }
 
 impl VdFracGlobalDispatch {
