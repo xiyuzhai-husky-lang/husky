@@ -1,4 +1,10 @@
-use super::LnMirExprIdx;
+use crate::builder::LnMirExprBuilder;
+
+use super::{LnMirExprData, LnMirExprIdx};
+use lean_item_path::{
+    menu::{ln_item_path_menu, LnItemPathMenu},
+    LnItemPath,
+};
 use lean_opr::{
     opr::{binary::LnBinaryOpr, prefix::LnPrefixOpr, suffix::LnSuffixOpr},
     precedence::LnPrecedence,
@@ -46,6 +52,7 @@ impl LnMirFunc {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LnMirFuncKey {
+    ItemPath(LnItemPath),
     PrefixOpr {
         opr: LnPrefixOpr,
         instantiation: LnInstantiation,
@@ -60,9 +67,12 @@ pub enum LnMirFuncKey {
     },
 }
 
-impl From<LnMirFuncKey> for LnMirFunc {
-    fn from(value: LnMirFuncKey) -> Self {
-        match value {
+impl<'a> LnMirExprBuilder<'a> {
+    pub fn build_func_from_key(&mut self, key: LnMirFuncKey) -> LnMirFunc {
+        match key {
+            LnMirFuncKey::ItemPath(item_path) => {
+                LnMirFunc::Expr(self.alloc_expr(LnMirExprData::ItemPath(item_path)))
+            }
             LnMirFuncKey::BinaryOpr { opr, instantiation } => {
                 LnMirFunc::BinaryOpr { opr, instantiation }
             }
@@ -90,6 +100,9 @@ pub struct LnMirFuncKeyMenu {
     pub rat_sub: LnMirFuncKey,
     pub real_sub: LnMirFuncKey,
     pub complex_sub: LnMirFuncKey,
+    pub rat_div: LnMirFuncKey,
+    pub real_div: LnMirFuncKey,
+    pub complex_div: LnMirFuncKey,
     pub nat_add: LnMirFuncKey,
     pub int_add: LnMirFuncKey,
     pub rat_add: LnMirFuncKey,
@@ -131,6 +144,7 @@ pub struct LnMirFuncKeyMenu {
     pub int_ge: LnMirFuncKey,
     pub rat_ge: LnMirFuncKey,
     pub real_ge: LnMirFuncKey,
+    pub real_sqrt: LnMirFuncKey,
 }
 
 impl LnMirFuncKeyMenu {
@@ -138,6 +152,7 @@ impl LnMirFuncKeyMenu {
         use LnBinaryOpr::*;
         use LnPrefixOpr::*;
 
+        let LnItemPathMenu { real_sqrt, .. } = *ln_item_path_menu(db);
         let LnInstantiationMenu {
             int_pos,
             rat_pos,
@@ -151,6 +166,9 @@ impl LnMirFuncKeyMenu {
             rat_sub,
             real_sub,
             complex_sub,
+            rat_div,
+            real_div,
+            complex_div,
             nat_add,
             int_add,
             rat_add,
@@ -193,6 +211,7 @@ impl LnMirFuncKeyMenu {
             rat_ge,
             real_ge,
         } = *ln_instantiation_menu(db);
+        let i = |instantiation| LnMirFuncKey::ItemPath(instantiation);
         let p = |opr, instantiation| LnMirFuncKey::PrefixOpr { opr, instantiation };
         let b = |opr, instantiation| LnMirFuncKey::BinaryOpr { opr, instantiation };
         Self {
@@ -208,6 +227,9 @@ impl LnMirFuncKeyMenu {
             rat_sub: b(Sub, rat_sub),
             real_sub: b(Sub, real_sub),
             complex_sub: b(Sub, complex_sub),
+            rat_div: b(Div, rat_div),
+            real_div: b(Div, real_div),
+            complex_div: b(Div, complex_div),
             nat_add: b(Add, nat_add),
             int_add: b(Add, int_add),
             rat_add: b(Add, rat_add),
@@ -249,6 +271,7 @@ impl LnMirFuncKeyMenu {
             int_ge: b(Ge, int_ge),
             rat_ge: b(Ge, rat_ge),
             real_ge: b(Ge, real_ge),
+            real_sqrt: i(real_sqrt),
         }
     }
 }
