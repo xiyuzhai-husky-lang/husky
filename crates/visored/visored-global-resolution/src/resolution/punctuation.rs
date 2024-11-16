@@ -25,6 +25,11 @@ impl VdPunctuationGlobalResolution {
     pub const SEPARATOR_MUL: Self = Self::Separator(VdBaseSeparator::MUL);
     pub const DIV: Self = Self::Opr(VdBaseOpr::DIV);
     pub const EQ: Self = Self::Separator(VdBaseSeparator::EQ);
+    pub const NE: Self = Self::Separator(VdBaseSeparator::NE);
+    pub const LT: Self = Self::Separator(VdBaseSeparator::LT);
+    pub const GT: Self = Self::Separator(VdBaseSeparator::GT);
+    pub const LE: Self = Self::Separator(VdBaseSeparator::LE);
+    pub const GE: Self = Self::Separator(VdBaseSeparator::GE);
     pub const LPAR: Self = Self::LeftDelimiter(VdBaseLeftDelimiter::LPAR);
     pub const RPAR: Self = Self::RightDelimiter(VdBaseRightDelimiter::RPAR);
 }
