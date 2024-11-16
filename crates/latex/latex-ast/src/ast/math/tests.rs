@@ -43,6 +43,24 @@ fn parse_basic_math_latex_input_into_asts_then_show_works() {
         "#]],
     );
     t(
+        "1<2",
+        expect![[r#"
+            1<2
+            ├─ 1
+            ├─ <
+            └─ 2
+        "#]],
+    );
+    t(
+        "1>2",
+        expect![[r#"
+            1>2
+            ├─ 1
+            ├─ >
+            └─ 2
+        "#]],
+    );
+    t(
         "x^2",
         expect![[r#"
             x^2
