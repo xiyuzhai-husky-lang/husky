@@ -4,10 +4,7 @@ use visored_signature::signature::binary_opr::base::VdBaseBinaryOprSignature;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSemFracDispatch {
-    Div {
-        signature: VdBaseBinaryOprSignature,
-        denominator: VdSemExprIdx,
-    },
+    Div { signature: VdBaseBinaryOprSignature },
 }
 
 impl<'a> VdSemExprBuilder<'a> {
@@ -33,10 +30,7 @@ impl<'a> VdSemExprBuilder<'a> {
                         denominator_rcurl_token_idx,
                         numerator,
                         denominator,
-                        dispatch: VdSemFracDispatch::Div {
-                            signature,
-                            denominator,
-                        },
+                        dispatch: VdSemFracDispatch::Div { signature },
                     },
                     signature.expr_ty(),
                 ),
