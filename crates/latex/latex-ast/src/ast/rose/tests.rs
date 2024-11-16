@@ -10,31 +10,64 @@ fn t(input: &str, expected: Expect) {
 }
 
 #[test]
-fn parse_basic_rose_latex_input_into_asts_then_show_works() {
+fn parse_basic_rose_latex_input_into_asts_works() {
     t(
         "Hello, world!",
         expect![[r#"
-            Hello, world!
-            ├─ Hello
-            ├─ ,
-            ├─ world
-            └─ !
+            "Hello, world!" all input
+            ├─ "Hello" word
+            ├─ "," punctuation
+            ├─ "world" word
+            └─ "!" punctuation
         "#]],
     );
 }
 
 #[test]
-fn parse_rose_with_math_latex_input_into_asts_then_show_works() {
+fn parse_rose_with_math_latex_input_into_asts_works() {
     t(
         "Let $x = 1$.",
         expect![[r#"
-            Let $x = 1$.
-            ├─ Let
-            ├─ $x = 1$
-            │ ├─ x
-            │ ├─ =
-            │ └─ 1
-            └─ .
+            "Let $x = 1$." all input
+            ├─ "Let" word
+            ├─ "$x = 1$" math
+            │ ├─ "x" plain letter
+            │ ├─ "=" punctuation
+            │ └─ "1" digit
+            └─ "." punctuation
+        "#]],
+    );
+}
+
+#[test]
+fn paragraph_latex_input_into_asts_works() {
+    t(
+        r#"Roses are red,
+Violets are blue.
+
+Code is my passion,
+And testing is too!"#,
+        expect![[r#"
+            "Roses are red,\nViolets are blue.\n\nCode is my passion,\nAnd testing is too!" all input
+            ├─ "Roses" word
+            ├─ "are" word
+            ├─ "red" word
+            ├─ "," punctuation
+            ├─ "Violets" word
+            ├─ "are" word
+            ├─ "blue" word
+            ├─ "." punctuation
+            ├─ "\n\n" new paragraph
+            ├─ "Code" word
+            ├─ "is" word
+            ├─ "my" word
+            ├─ "passion" word
+            ├─ "," punctuation
+            ├─ "And" word
+            ├─ "testing" word
+            ├─ "is" word
+            ├─ "too" word
+            └─ "!" punctuation
         "#]],
     );
 }

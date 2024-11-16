@@ -77,6 +77,19 @@ impl<'db> VdSynExprBuilder<'db> {
                         math_asts,
                         right_dollar_token_idx,
                     } => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        ref arguments,
+                    } => todo!(),
                 }
             } else {
                 todo!()

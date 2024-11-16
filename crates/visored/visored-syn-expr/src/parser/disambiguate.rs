@@ -3,7 +3,7 @@ use super::{
     VdSynExprParser,
 };
 use latex_ast::ast::math::{
-    LxMathAstData, LxMathAstIdx, LxMathCommandArgument, LxMathCommandArgumentData,
+    LxMathAstData, LxMathAstIdx, LxMathCommandArgumentData, LxMathCompleteCommandArgument,
 };
 use latex_command::path::LxCommandPath;
 use latex_math_letter::letter::LxMathLetter;
@@ -229,7 +229,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         &mut self,
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
-        arguments: &[LxMathCommandArgument],
+        arguments: &[LxMathCompleteCommandArgument],
     ) -> DisambiguatedAst {
         use crate::builder::ToVdSyn;
 

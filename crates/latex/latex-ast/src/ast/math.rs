@@ -54,7 +54,7 @@ pub enum LxMathAstData {
     CompleteCommand {
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
-        arguments: SmallVec<[LxMathCommandArgument; 2]>,
+        arguments: SmallVec<[LxMathCompleteCommandArgument; 2]>,
     },
     Environment {
         begin_command_token_idx: LxMathTokenIdx,
@@ -72,7 +72,7 @@ pub enum LxMathAstData {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxMathCommandArgument {
+pub struct LxMathCompleteCommandArgument {
     lcurl_token_idx: LxMathTokenIdx,
     data: LxMathCommandArgumentData,
     rcurl_token_idx: LxMathTokenIdx,
@@ -92,7 +92,7 @@ pub type LxMathAstArenaMap<T> = ArenaMap<LxMathAstData, T>;
 pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
 pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
 
-impl LxMathCommandArgument {
+impl LxMathCompleteCommandArgument {
     pub fn lcurl_token_idx(&self) -> LxMathTokenIdx {
         self.lcurl_token_idx
     }
@@ -190,7 +190,8 @@ impl<'a> LxAstParser<'a> {
                 match *command_signature {
                     LxCommandSignature::Complete(ref command_signature) => {
                         let command_path = command_signature.path();
-                        let mut arguments: SmallVec<[LxMathCommandArgument; 2]> = smallvec![];
+                        let mut arguments: SmallVec<[LxMathCompleteCommandArgument; 2]> =
+                            smallvec![];
                         for parameter in command_signature.parameters() {
                             arguments.push(self.parse_command_argument(parameter.mode())?);
                         }
@@ -223,7 +224,7 @@ impl<'a> LxAstParser<'a> {
     fn parse_command_argument(
         &mut self,
         mode: LxCommandParameterMode,
-    ) -> Option<LxMathCommandArgument> {
+    ) -> Option<LxMathCompleteCommandArgument> {
         match self.peek_math_token_data()? {
             LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => (),
             _ => return None,
@@ -243,7 +244,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!("report error properly")
         };
-        Some(LxMathCommandArgument {
+        Some(LxMathCompleteCommandArgument {
             lcurl_token_idx,
             data,
             rcurl_token_idx,
