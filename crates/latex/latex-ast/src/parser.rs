@@ -15,12 +15,15 @@ use latex_command::{
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    idx::{LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx},
+    idx::{
+        LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx,
+        LxSpecTokenIdx,
+    },
     lexer::LxLexer,
     storage::LxTokenStorage,
     token::{
         lisp::LxLispTokenData, math::LxMathTokenData, name::LxNameTokenData, root::LxRootTokenData,
-        rose::LxRoseTokenData,
+        rose::LxRoseTokenData, spec::LxSpecTokenData,
     },
 };
 use std::{borrow::BorrowMut, iter::Peekable};
@@ -141,5 +144,9 @@ impl<'a> LxAstParser<'a> {
 
     pub(crate) fn next_name_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
         self.lexer.next_name_token()
+    }
+
+    pub(crate) fn next_spec_token(&mut self) -> Option<(LxSpecTokenIdx, LxSpecTokenData)> {
+        self.lexer.next_spec_token()
     }
 }

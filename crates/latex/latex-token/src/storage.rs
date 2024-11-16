@@ -1,6 +1,12 @@
 use crate::{
-    idx::{LxLispTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
-    token::{lisp::LxLispTokenData, name::LxNameTokenData, root::LxRootTokenData, LxTokenData},
+    idx::{
+        LxLispTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx, LxSpecTokenIdx,
+        LxTokenIdxRange,
+    },
+    token::{
+        lisp::LxLispTokenData, name::LxNameTokenData, root::LxRootTokenData, spec::LxSpecTokenData,
+        LxTokenData,
+    },
 };
 use crate::{
     idx::{LxMathTokenIdx, LxTokenIdx},
@@ -133,6 +139,18 @@ impl LxTokenStorage {
         token_data: LxRootTokenData,
     ) -> LxRootTokenIdx {
         let idx = LxRootTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        self.ranged_tokens
+            .push((offset_range, range, token_data.into()));
+        idx
+    }
+
+    pub(crate) fn alloc_spec_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxSpecTokenData,
+    ) -> LxSpecTokenIdx {
+        let idx = LxSpecTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
         self.ranged_tokens
             .push((offset_range, range, token_data.into()));
         idx

@@ -3,6 +3,7 @@ pub mod math;
 pub mod name;
 pub mod root;
 pub mod rose;
+pub mod spec;
 
 use self::{
     lisp::LxLispTokenData, math::LxMathTokenData, name::LxNameTokenData, root::LxRootTokenData,
@@ -12,6 +13,7 @@ use crate::lexer::LxLexer;
 #[cfg(test)]
 use crate::*;
 use latex_prelude::mode::LxMode;
+use spec::LxSpecTokenData;
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
@@ -22,4 +24,5 @@ pub enum LxTokenData {
     Name(LxNameTokenData),
     Root(LxRootTokenData),
     Rose(LxRoseTokenData),
+    Spec(LxSpecTokenData),
 }

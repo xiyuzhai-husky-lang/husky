@@ -99,7 +99,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                         .result
                         .chars()
                         .last()
-                        .map_or(false, |c| c.is_alphanumeric())
+                        .map_or(false, |c| c.is_ascii_alphanumeric())
                     {
                         self.result.push(' ');
                     }
