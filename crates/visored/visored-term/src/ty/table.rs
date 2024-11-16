@@ -40,6 +40,7 @@ impl VdItemPathZfcTypeTable {
             ring_power: ring_power_path,
             ring_pos: ring_pos_path,
             ring_neg: ring_neg_path,
+            field_div: field_div_path,
             eq: eq_path,
             ne: ne_path,
             lt: lt_path,

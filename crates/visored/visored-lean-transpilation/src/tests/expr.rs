@@ -39,9 +39,9 @@ fn basic_visored_expr_to_lean_works() {
         &expect![[r#"
             application
             ├─ literal: `1`
-            └─ literal: `1`
+            └─ literal: `2`
         "#]],
-        &expect!["1 < 1"],
+        &expect!["1 < 2"],
     );
     t(
         "1\\in\\mathbb{N}",
