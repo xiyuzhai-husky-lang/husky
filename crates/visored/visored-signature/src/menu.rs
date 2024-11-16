@@ -169,8 +169,11 @@ impl VdSignatureMenu {
             rat_sub: bin(rat_sub, rat, rat, rat),
             real_sub: bin(real_sub, real, real, real),
             complex_sub: bin(complex_sub, complex, complex, complex),
+            // TODO: use nzrat, i.e., non-zero rational numbers
             rat_div: bin(rat_div, rat, rat, rat),
+            // TODO: use nzreal, i.e., non-zero real numbers
             real_div: bin(real_div, real, real, real),
+            // TODO: use nzcomplex, i.e., non-zero complex numbers
             complex_div: bin(complex_div, complex, complex, complex),
             nat_add: sep(nat_add, nat, nat),
             int_add: sep(int_add, int, int),
