@@ -26,8 +26,8 @@ use latex_ast::ast::{
 use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::{
-    data::math::LxMathDelimiter,
     idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange},
+    token::math::LxMathDelimiter,
 };
 use range::VdSynExprTokenIdxRange;
 use smallvec::{smallvec, SmallVec};

@@ -1,10 +1,10 @@
 use crate::{
-    data::{coword::LxCowordTokenData, lisp::LxLispTokenData, LxTokenData},
     idx::{LxCowordTokenIdx, LxLispTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
+    token::{coword::LxCowordTokenData, lisp::LxLispTokenData, LxTokenData},
 };
 use crate::{
-    data::{math::LxMathTokenData, rose::LxRoseTokenData},
     idx::{LxMathTokenIdx, LxTokenIdx},
+    token::{math::LxMathTokenData, rose::LxRoseTokenData},
 };
 use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
 
