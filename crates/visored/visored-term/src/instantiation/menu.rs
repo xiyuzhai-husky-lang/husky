@@ -25,6 +25,10 @@ pub struct VdInstantiationMenu {
     pub rat_sub: VdInstantiation,
     pub real_sub: VdInstantiation,
     pub complex_sub: VdInstantiation,
+    /// ## div
+    pub rat_div: VdInstantiation,
+    pub real_div: VdInstantiation,
+    pub complex_div: VdInstantiation,
     /// # separators
     /// ## add
     pub nat_add: VdInstantiation,
@@ -99,6 +103,7 @@ impl VdInstantiationMenu {
             ring_power,
             ring_pos,
             ring_neg,
+            field_div,
             eq,
             ne,
             lt,
@@ -116,64 +121,76 @@ impl VdInstantiationMenu {
             real,
             complex,
         } = *vd_term_menu(db);
-        let int_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![int]);
-        let rat_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![rat]);
-        let real_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![real]);
-        let complex_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![complex]);
-        let int_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![int]);
-        let rat_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![rat]);
-        let real_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![real]);
-        let complex_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![complex]);
-        let int_sub = VdInstantiation::new(db, ring_add.into(), smallvec![int, int]);
-        let rat_sub = VdInstantiation::new(db, ring_add.into(), smallvec![rat, rat]);
-        let real_sub = VdInstantiation::new(db, ring_add.into(), smallvec![real, real]);
-        let complex_sub = VdInstantiation::new(db, ring_add.into(), smallvec![complex, complex]);
-        let nat_add = VdInstantiation::new(db, ring_add.into(), smallvec![nat]);
-        let int_add = VdInstantiation::new(db, ring_add.into(), smallvec![int]);
-        let rat_add = VdInstantiation::new(db, ring_add.into(), smallvec![rat]);
-        let real_add = VdInstantiation::new(db, ring_add.into(), smallvec![real]);
-        let complex_add = VdInstantiation::new(db, ring_add.into(), smallvec![complex]);
-        let nat_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![nat]);
-        let int_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![int]);
-        let rat_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![rat]);
-        let real_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![real]);
-        let complex_mul = VdInstantiation::new(db, ring_mul.into(), smallvec![complex]);
-        let nat_to_the_power_of_nat =
-            VdInstantiation::new(db, ring_power.into(), smallvec![nat, nat]);
-        let int_to_the_power_of_nat =
-            VdInstantiation::new(db, ring_power.into(), smallvec![int, nat]);
-        let rat_to_the_power_of_nat =
-            VdInstantiation::new(db, ring_power.into(), smallvec![rat, nat]);
-        let real_to_the_power_of_nat =
-            VdInstantiation::new(db, ring_power.into(), smallvec![real, nat]);
-        let complex_to_the_power_of_nat =
-            VdInstantiation::new(db, ring_power.into(), smallvec![complex, nat]);
-        let nat_eq = VdInstantiation::new(db, eq.into(), smallvec![nat]);
-        let int_eq = VdInstantiation::new(db, eq.into(), smallvec![int]);
-        let rat_eq = VdInstantiation::new(db, eq.into(), smallvec![rat]);
-        let real_eq = VdInstantiation::new(db, eq.into(), smallvec![real]);
-        let complex_eq = VdInstantiation::new(db, eq.into(), smallvec![complex]);
-        let nat_ne = VdInstantiation::new(db, ne.into(), smallvec![nat]);
-        let int_ne = VdInstantiation::new(db, ne.into(), smallvec![int]);
-        let rat_ne = VdInstantiation::new(db, ne.into(), smallvec![rat]);
-        let real_ne = VdInstantiation::new(db, ne.into(), smallvec![real]);
-        let complex_ne = VdInstantiation::new(db, ne.into(), smallvec![complex]);
-        let nat_lt = VdInstantiation::new(db, lt.into(), smallvec![nat]);
-        let int_lt = VdInstantiation::new(db, lt.into(), smallvec![int]);
-        let rat_lt = VdInstantiation::new(db, lt.into(), smallvec![rat]);
-        let real_lt = VdInstantiation::new(db, lt.into(), smallvec![real]);
-        let nat_gt = VdInstantiation::new(db, gt.into(), smallvec![nat]);
-        let int_gt = VdInstantiation::new(db, gt.into(), smallvec![int]);
-        let rat_gt = VdInstantiation::new(db, gt.into(), smallvec![rat]);
-        let real_gt = VdInstantiation::new(db, gt.into(), smallvec![real]);
-        let nat_le = VdInstantiation::new(db, le.into(), smallvec![nat]);
-        let int_le = VdInstantiation::new(db, le.into(), smallvec![int]);
-        let rat_le = VdInstantiation::new(db, le.into(), smallvec![rat]);
-        let real_le = VdInstantiation::new(db, le.into(), smallvec![real]);
-        let nat_ge = VdInstantiation::new(db, ge.into(), smallvec![nat]);
-        let int_ge = VdInstantiation::new(db, ge.into(), smallvec![int]);
-        let rat_ge = VdInstantiation::new(db, ge.into(), smallvec![rat]);
-        let real_ge = VdInstantiation::new(db, ge.into(), smallvec![real]);
+        macro_rules! ins{
+            ($db: expr, $path: expr, $($args: expr),*) => {
+                VdInstantiation::new($db, $path.into(), smallvec![$($args),*])
+            };
+        }
+        // # prefix
+        // ## pos
+        let int_pos = ins!(db, ring_pos, int);
+        let rat_pos = ins!(db, ring_pos, rat);
+        let real_pos = ins!(db, ring_pos, real);
+        let complex_pos = ins!(db, ring_pos, complex);
+        // ## neg
+        let int_neg = ins!(db, ring_neg, int);
+        let rat_neg = ins!(db, ring_neg, rat);
+        let real_neg = ins!(db, ring_neg, real);
+        let complex_neg = ins!(db, ring_neg, complex);
+        // # binary operators
+        // ## sub
+        let int_sub = ins!(db, ring_add, int);
+        let rat_sub = ins!(db, ring_add, rat);
+        let real_sub = ins!(db, ring_add, real);
+        let complex_sub = ins!(db, ring_add, complex);
+        // ## div
+        let rat_div = ins!(db, field_div, rat);
+        let real_div = ins!(db, field_div, real);
+        let complex_div = ins!(db, field_div, complex);
+        // # separators
+        // ## add
+        let nat_add = ins!(db, ring_add, nat);
+        let int_add = ins!(db, ring_add, int);
+        let rat_add = ins!(db, ring_add, rat);
+        let real_add = ins!(db, ring_add, real);
+        let complex_add = ins!(db, ring_add, complex);
+        // ## mul
+        let nat_mul = ins!(db, ring_mul, nat);
+        let int_mul = ins!(db, ring_mul, int);
+        let rat_mul = ins!(db, ring_mul, rat);
+        let real_mul = ins!(db, ring_mul, real);
+        let complex_mul = ins!(db, ring_mul, complex);
+        let nat_to_the_power_of_nat = ins!(db, ring_power, nat, nat);
+        let int_to_the_power_of_nat = ins!(db, ring_power, int, nat);
+        let rat_to_the_power_of_nat = ins!(db, ring_power, rat, nat);
+        let real_to_the_power_of_nat = ins!(db, ring_power, real, nat);
+        let complex_to_the_power_of_nat = ins!(db, ring_power, complex, nat);
+        let nat_eq = ins!(db, eq, nat);
+        let int_eq = ins!(db, eq, int);
+        let rat_eq = ins!(db, eq, rat);
+        let real_eq = ins!(db, eq, real);
+        let complex_eq = ins!(db, eq, complex);
+        let nat_ne = ins!(db, ne, nat);
+        let int_ne = ins!(db, ne, int);
+        let rat_ne = ins!(db, ne, rat);
+        let real_ne = ins!(db, ne, real);
+        let complex_ne = ins!(db, ne, complex);
+        let nat_lt = ins!(db, lt, nat);
+        let int_lt = ins!(db, lt, int);
+        let rat_lt = ins!(db, lt, rat);
+        let real_lt = ins!(db, lt, real);
+        let nat_gt = ins!(db, gt, nat);
+        let int_gt = ins!(db, gt, int);
+        let rat_gt = ins!(db, gt, rat);
+        let real_gt = ins!(db, gt, real);
+        let nat_le = ins!(db, le, nat);
+        let int_le = ins!(db, le, int);
+        let rat_le = ins!(db, le, rat);
+        let real_le = ins!(db, le, real);
+        let nat_ge = ins!(db, ge, nat);
+        let int_ge = ins!(db, ge, int);
+        let rat_ge = ins!(db, ge, rat);
+        let real_ge = ins!(db, ge, real);
         Self {
             int_pos,
             rat_pos,
@@ -187,6 +204,9 @@ impl VdInstantiationMenu {
             rat_sub,
             real_sub,
             complex_sub,
+            rat_div,
+            real_div,
+            complex_div,
             nat_add,
             int_add,
             rat_add,

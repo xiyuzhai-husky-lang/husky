@@ -36,6 +36,7 @@ impl VdTermMenu {
             ring_power,
             ring_pos,
             ring_neg,
+            field_div,
             eq,
             ne,
             lt,
