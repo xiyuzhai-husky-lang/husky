@@ -108,6 +108,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         command_path,
                         ref arguments,
                     } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             }
             "Assume" | "assume" | "Suppose" | "suppose" => {
@@ -143,6 +144,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         command_path,
                         ref arguments,
                     } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             }
             "Then" | "then" => {
@@ -178,6 +180,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         command_path,
                         ref arguments,
                     } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             }
             _ => todo!(),

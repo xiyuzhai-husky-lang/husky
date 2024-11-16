@@ -1,5 +1,5 @@
 use crate::{
-    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRootTokenIdx, LxRoseTokenIdx},
+    idx::{LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx},
     storage::LxTokenStorage,
     stream::{
         lisp::LxLispTokenStream, math::LxMathTokenStream, root::LxRootTokenStream,
@@ -8,9 +8,9 @@ use crate::{
     token::{
         lisp::LxLispTokenData,
         math::{LxMathTokenData, LxMathTokenError},
+        name::LxNameTokenData,
         root::LxRootTokenData,
         rose::LxRoseTokenData,
-        word::LxWordTokenData,
     },
 };
 use husky_coword::Coword;
@@ -118,7 +118,7 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
-    pub fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxWordTokenData)> {
+    pub fn next_coword_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
         let (offset_range, range, token_data) = self.next_coword_token_aux()?;
         Some((
             self.storage
@@ -127,7 +127,7 @@ impl<'a> LxLexer<'a> {
         ))
     }
 
-    fn next_coword_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxWordTokenData)> {
+    fn next_coword_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxNameTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
