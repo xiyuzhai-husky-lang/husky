@@ -10,6 +10,9 @@ pub enum VdBaseSeparator {
     Mul,
     Dot,
     Eq,
+    Ne,
+    Lt,
+    Gt,
     Le,
     Ge,
     Subset,
@@ -24,7 +27,6 @@ pub enum VdBaseSeparator {
     Notin,
     Times,
     Otimes,
-    Ne,
 }
 
 impl VdBaseSeparator {
@@ -35,6 +37,9 @@ impl VdBaseSeparator {
     pub const MUL: Self = Self::Mul;
     pub const DOT: Self = Self::Dot;
     pub const EQ: Self = Self::Eq;
+    pub const NE: Self = Self::Ne;
+    pub const LT: Self = Self::Lt;
+    pub const GT: Self = Self::Gt;
     pub const LE: Self = Self::Le;
     pub const GE: Self = Self::Ge;
     pub const IN: Self = Self::In;
@@ -53,6 +58,8 @@ impl VdBaseSeparator {
             VdBaseSeparator::Dot => VdSeparatorClass::Mul,
             VdBaseSeparator::Eq
             | VdBaseSeparator::Ne
+            | VdBaseSeparator::Lt
+            | VdBaseSeparator::Gt
             | VdBaseSeparator::Le
             | VdBaseSeparator::Ge
             | VdBaseSeparator::Subset
@@ -89,6 +96,9 @@ impl VdBaseSeparator {
             }
             VdBaseSeparator::Dot => VdPrecedence::MUL_DIV,
             VdBaseSeparator::Eq
+            | VdBaseSeparator::Ne
+            | VdBaseSeparator::Lt
+            | VdBaseSeparator::Gt
             | VdBaseSeparator::Le
             | VdBaseSeparator::Ge
             | VdBaseSeparator::Subset
@@ -100,8 +110,7 @@ impl VdBaseSeparator {
             | VdBaseSeparator::Subsetneq
             | VdBaseSeparator::Supsetneq
             | VdBaseSeparator::In
-            | VdBaseSeparator::Notin
-            | VdBaseSeparator::Ne => VdPrecedence::RELATION,
+            | VdBaseSeparator::Notin => VdPrecedence::RELATION,
         }
     }
 
@@ -114,6 +123,9 @@ impl VdBaseSeparator {
             VdBaseSeparator::Mul => "\\times",
             VdBaseSeparator::Dot => "\\cdot",
             VdBaseSeparator::Eq => "=",
+            VdBaseSeparator::Ne => "\\neq",
+            VdBaseSeparator::Lt => "<",
+            VdBaseSeparator::Gt => ">",
             VdBaseSeparator::Le => "\\le",
             VdBaseSeparator::Ge => "\\ge",
             VdBaseSeparator::Subset => "\\subseteq",
@@ -128,7 +140,6 @@ impl VdBaseSeparator {
             VdBaseSeparator::Notin => "\\notin",
             VdBaseSeparator::Times => "\\times",
             VdBaseSeparator::Otimes => "\\otimes",
-            VdBaseSeparator::Ne => "\\neq",
         }
     }
 }
