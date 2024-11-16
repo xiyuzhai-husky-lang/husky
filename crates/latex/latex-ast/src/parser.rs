@@ -18,8 +18,7 @@ use latex_token::{
     lexer::LxLexer,
     storage::LxTokenStorage,
     token::{
-        coword::LxCowordTokenData, lisp::LxLispTokenData, math::LxMathTokenData,
-        rose::LxRoseTokenData,
+        lisp::LxLispTokenData, math::LxMathTokenData, rose::LxRoseTokenData, word::LxWordTokenData,
     },
 };
 use std::{borrow::BorrowMut, iter::Peekable};
@@ -118,7 +117,7 @@ impl<'a> LxAstParser<'a> {
         self.lexer.next_rose_token()
     }
 
-    pub(crate) fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
+    pub(crate) fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxWordTokenData)> {
         self.lexer.next_coword_token()
     }
 

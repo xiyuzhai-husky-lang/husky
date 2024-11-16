@@ -6,13 +6,13 @@ use latex_rose_punctuation::LxRosePunctuation;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum LxCowordTokenData {
+pub enum LxWordTokenData {
     Word(Coword),
     // Command(LxCommandPath),
 }
 
 impl<'a> LxLexer<'a> {
-    pub(crate) fn next_code_token_data(&mut self) -> Option<LxCowordTokenData> {
+    pub(crate) fn next_word_token_data(&mut self) -> Option<LxWordTokenData> {
         let db = self.db;
         match self.chars.peek()? {
             '\\' => {
@@ -60,12 +60,12 @@ impl<'a> LxLexer<'a> {
 
 #[test]
 #[ignore]
-fn next_code_token_data_works() {
+fn next_word_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
         let mut stream = LxLexer::new(db, input, &mut storage)
-            .into_code_stream()
+            .into_word_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();
         expected.assert_debug_eq(&(tokens.debug(db)));

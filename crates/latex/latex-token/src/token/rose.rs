@@ -74,7 +74,7 @@ impl<'a> LxLexer<'a> {
 }
 
 #[test]
-fn next_text_token_data_works() {
+fn next_rose_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
