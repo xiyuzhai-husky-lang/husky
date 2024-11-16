@@ -6,6 +6,7 @@ use visored_syn_expr::{
     pattern::VdSynPattern,
     symbol::resolution::{letter::VdSynLetterSymbolResolution, VdSynSymbolResolution},
 };
+use visored_term::ty::VdType;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSemPattern {
@@ -41,6 +42,18 @@ impl ToVdSem<VdSemPattern> for &VdSynPattern {
                     local_defn: syn_local_defn.to_vd_sem(builder),
                 }
             }
+        }
+    }
+}
+
+impl<'db> VdSemExprBuilder<'db> {
+    pub(crate) fn infer_pattern_symbol_tys(&mut self, pattern: &VdSemPattern, ty: VdType) {
+        match *pattern {
+            VdSemPattern::Letter {
+                token_idx_range,
+                letter,
+                local_defn,
+            } => self.set_local_defn_ty(local_defn, ty),
         }
     }
 }

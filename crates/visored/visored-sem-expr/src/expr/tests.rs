@@ -13,6 +13,26 @@ pub(crate) fn t(input: &str, expected: &Expect) {
 #[test]
 pub(crate) fn basic_vd_sem_expr_works() {
     t(
+        "1",
+        &expect![[r#"
+            "1" expr.literal
+        "#]],
+    );
+    t(
+        "+1",
+        &expect![[r#"
+            "+1" expr.prefix
+            └─ "1" expr.literal
+        "#]],
+    );
+    t(
+        "-1",
+        &expect![[r#"
+            "-1" expr.prefix
+            └─ "1" expr.literal
+        "#]],
+    );
+    t(
         "1+1",
         &expect![[r#"
         "1+1" expr.separated_list

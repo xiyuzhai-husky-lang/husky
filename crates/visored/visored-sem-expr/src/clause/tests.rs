@@ -11,18 +11,26 @@ pub(crate) fn t(input: &str, expected: &Expect) {
 
 #[test]
 pub(crate) fn basic_vd_sem_clause_works() {
-    // t(
-    //     "Let $x=1$.",
-    //     &expect![[r#"
-    //         Let $x=1$.
-    //         └─ "Let $x=1$." stmt.paragraph
-    //           └─ "Let $x=1$." sentence.clauses
-    //             └─ "Let $x=1$" clause.let
-    //               └─ "x=1" expr.separated_list
-    //                 ├─ "x" expr.letter
-    //                 └─ "1" expr.literal
-    //     "#]],
-    // );
+    t(
+        "Let $x=1$. Let $y=-2x$.",
+        &expect![[r#"
+            Let $x=1$. Let $y=-2x$.
+            └─ "Let $x=1$. Let $y=-2x$." stmt.paragraph
+              ├─ "Let $x=1$." sentence.clauses
+              │ └─ "Let $x=1$" clause.let
+              │   └─ "x=1" expr.separated_list
+              │     ├─ "x" expr.letter
+              │     └─ "1" expr.literal
+              └─ "Let $y=-2x$." sentence.clauses
+                └─ "Let $y=-2x$" clause.let
+                  └─ "y=-2x" expr.separated_list
+                    ├─ "y" expr.letter
+                    └─ "-2x" expr.prefix
+                      └─ "2x" expr.separated_list
+                        ├─ "2" expr.literal
+                        └─ "x" expr.letter
+        "#]],
+    );
     t(
         "Let $x\\in \\mathbb{N}$. Assume $x=1$.",
         &expect![[r#"

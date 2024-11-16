@@ -1,8 +1,12 @@
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_opr::{
+    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
+    separator::VdBaseSeparator,
+};
 use visored_signature::{
     menu::{vd_signature_menu, VdSignatureMenu},
     signature::{
         attach::{VdAttachSignature, VdPowerSignature},
+        prefix_opr::VdBasePrefixOprSignature,
         separator::base::VdBaseSeparatorSignature,
     },
 };
@@ -10,53 +14,64 @@ use visored_term::menu::{vd_ty_menu, VdTypeMenu};
 
 use crate::dispatch::{
     attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
-    separator::VdSeparatorGlobalDispatch,
+    prefix_opr::VdPrefixOprGlobalDispatch, separator::VdSeparatorGlobalDispatch,
 };
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdGlobalDispatchMenu {
-    // binary oprs
-    // ## sub
+    /// # prefix oprs
+    /// ## pos
+    pub int_pos: VdPrefixOprGlobalDispatch,
+    pub rat_pos: VdPrefixOprGlobalDispatch,
+    pub real_pos: VdPrefixOprGlobalDispatch,
+    pub complex_pos: VdPrefixOprGlobalDispatch,
+    /// ## neg
+    pub int_neg: VdPrefixOprGlobalDispatch,
+    pub rat_neg: VdPrefixOprGlobalDispatch,
+    pub real_neg: VdPrefixOprGlobalDispatch,
+    pub complex_neg: VdPrefixOprGlobalDispatch,
+    /// # binary oprs
+    /// ## sub
     pub int_sub: VdBinaryOprGlobalDispatch,
     pub rat_sub: VdBinaryOprGlobalDispatch,
     pub real_sub: VdBinaryOprGlobalDispatch,
     pub complex_sub: VdBinaryOprGlobalDispatch,
-    // # separators
-    // ## add
+    /// # separators
+    /// ## add
     pub nat_add: VdSeparatorGlobalDispatch,
     pub int_add: VdSeparatorGlobalDispatch,
     pub rat_add: VdSeparatorGlobalDispatch,
     pub real_add: VdSeparatorGlobalDispatch,
     pub complex_add: VdSeparatorGlobalDispatch,
-    // ## mul
+    /// ## mul
     pub nat_space_mul: VdSeparatorGlobalDispatch,
     pub int_space_mul: VdSeparatorGlobalDispatch,
     pub rat_space_mul: VdSeparatorGlobalDispatch,
     pub real_space_mul: VdSeparatorGlobalDispatch,
     pub complex_space_mul: VdSeparatorGlobalDispatch,
-    // ## power
+    /// ## power
     pub nat_to_the_power_of_nat: VdAttachGlobalDispatch,
     pub int_to_the_power_of_nat: VdAttachGlobalDispatch,
     pub rat_to_the_power_of_nat: VdAttachGlobalDispatch,
     pub real_to_the_power_of_nat: VdAttachGlobalDispatch,
     pub complex_to_the_power_of_nat: VdAttachGlobalDispatch,
-    // ## eq
+    /// ## eq
     pub nat_eq: VdSeparatorGlobalDispatch,
     pub int_eq: VdSeparatorGlobalDispatch,
     pub rat_eq: VdSeparatorGlobalDispatch,
     pub real_eq: VdSeparatorGlobalDispatch,
     pub complex_eq: VdSeparatorGlobalDispatch,
-    // ## le
+    /// ## le
     pub nat_le: VdSeparatorGlobalDispatch,
     pub int_le: VdSeparatorGlobalDispatch,
     pub rat_le: VdSeparatorGlobalDispatch,
     pub real_le: VdSeparatorGlobalDispatch,
-    // ## ge
+    /// ## ge
     pub nat_ge: VdSeparatorGlobalDispatch,
     pub int_ge: VdSeparatorGlobalDispatch,
     pub rat_ge: VdSeparatorGlobalDispatch,
     pub real_ge: VdSeparatorGlobalDispatch,
-    // ## in
+    /// ## in
     pub in_set: VdSeparatorGlobalDispatch,
 }
 
@@ -72,6 +87,14 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         prop,
     } = *vd_ty_menu(db);
     let VdSignatureMenu {
+        int_pos,
+        rat_pos,
+        real_pos,
+        complex_pos,
+        int_neg,
+        rat_neg,
+        real_neg,
+        complex_neg,
         int_sub,
         rat_sub,
         real_sub,
@@ -109,6 +132,39 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         signature: VdAttachSignature::Power(signature),
     };
     VdGlobalDispatchMenu {
+        // ## pos
+        int_pos: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::POS,
+            signature: int_pos,
+        },
+        rat_pos: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::POS,
+            signature: rat_pos,
+        },
+        real_pos: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::POS,
+            signature: real_pos,
+        },
+        complex_pos: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::POS,
+            signature: complex_pos,
+        },
+        int_neg: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::NEG,
+            signature: int_neg,
+        },
+        rat_neg: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::NEG,
+            signature: rat_neg,
+        },
+        real_neg: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::NEG,
+            signature: real_neg,
+        },
+        complex_neg: VdPrefixOprGlobalDispatch::Base {
+            base_opr: VdBasePrefixOpr::NEG,
+            signature: complex_neg,
+        },
         int_sub: VdBinaryOprGlobalDispatch::Normal {
             base_binary_opr: VdBaseBinaryOpr::Sub,
             signature: int_sub,

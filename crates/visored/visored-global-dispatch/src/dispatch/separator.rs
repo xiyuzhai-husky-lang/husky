@@ -33,6 +33,8 @@ impl VdSeparatorGlobalDispatch {
             prop,
         } = *zfc_ty_menu;
         let VdOprMenu {
+            pos,
+            neg,
             sub,
             add,
             space,
@@ -42,6 +44,14 @@ impl VdSeparatorGlobalDispatch {
             r#in,
         } = *vd_opr_menu;
         let VdGlobalDispatchMenu {
+            int_pos,
+            rat_pos,
+            real_pos,
+            complex_pos,
+            int_neg,
+            rat_neg,
+            real_neg,
+            complex_neg,
             int_sub,
             rat_sub,
             real_sub,
