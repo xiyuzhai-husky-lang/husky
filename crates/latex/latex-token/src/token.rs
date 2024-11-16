@@ -1,12 +1,12 @@
-pub mod coword;
 pub mod lisp;
 pub mod math;
 pub mod root;
 pub mod rose;
+pub mod word;
 
 use self::{
-    coword::LxCowordTokenData, lisp::LxLispTokenData, math::LxMathTokenData, root::LxRootTokenData,
-    rose::LxRoseTokenData,
+    lisp::LxLispTokenData, math::LxMathTokenData, root::LxRootTokenData, rose::LxRoseTokenData,
+    word::LxWordTokenData,
 };
 use crate::lexer::LxLexer;
 #[cfg(test)]
@@ -17,9 +17,9 @@ use latex_prelude::mode::LxMode;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxTokenData {
-    Coword(LxCowordTokenData),
     Lisp(LxLispTokenData),
     Math(LxMathTokenData),
     Root(LxRootTokenData),
     Rose(LxRoseTokenData),
+    Word(LxWordTokenData),
 }

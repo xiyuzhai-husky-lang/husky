@@ -16,8 +16,8 @@ use latex_math_letter::letter::styled::LxMathLetterStyle;
 use latex_token::{
     idx::{LxCowordTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
     token::{
-        coword::LxCowordTokenData,
         math::{digit::LxMathDigit, LxMathDelimiter},
+        word::LxWordTokenData,
     },
 };
 use smallvec::{smallvec, SmallVec};
@@ -295,7 +295,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        let LxCowordTokenData::Word(begin_environment_name) = begin_environment_name_token else {
+        let LxWordTokenData::Word(begin_environment_name) = begin_environment_name_token else {
             todo!()
         };
         let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_math_token() else {
@@ -341,7 +341,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        let LxCowordTokenData::Word(end_environment_name) = end_environment_name_token else {
+        let LxWordTokenData::Word(end_environment_name) = end_environment_name_token else {
             todo!()
         };
         let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_math_token() else {
