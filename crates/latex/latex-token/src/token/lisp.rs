@@ -31,9 +31,9 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphabetic() => {
+                        c if c.is_ascii_alphabetic() => {
                             let Ok(command_name) = LxCommandName::new2(
-                                self.chars.next_str_slice_while(|c| c.is_alphabetic()),
+                                self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
                                 db,
                             ) else {
                                 todo!()
@@ -78,10 +78,10 @@ impl<'a> LxLexer<'a> {
                 };
                 LxLispTokenData::Literal(literal)
             }
-            c if c.is_alphabetic() => {
+            c if c.is_ascii_alphabetic() => {
                 let ident = LxLispIdent::new(
                     self.chars
-                        .next_str_slice_while(|c| c.is_alphanumeric() || c == '_'),
+                        .next_str_slice_while(|c| c.is_ascii_alphanumeric() || c == '_'),
                     db,
                 );
                 LxLispTokenData::Ident(ident)
@@ -89,8 +89,9 @@ impl<'a> LxLexer<'a> {
             '\'' => {
                 self.chars.eat_char();
                 let label = LxLispXlabel::new(
-                    self.chars
-                        .next_str_slice_while(|c| c.is_alphanumeric() || c == '-' || c == ':'),
+                    self.chars.next_str_slice_while(|c| {
+                        c.is_ascii_alphanumeric() || c == '-' || c == ':'
+                    }),
                     db,
                 );
                 LxLispTokenData::Xlabel(label)

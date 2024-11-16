@@ -17,6 +17,7 @@ use latex_token::{
     token::{
         name::LxNameTokenData,
         root::{LxRootDelimiter, LxRootTokenData},
+        spec::{LxSpecDelimiter, LxSpecTokenData},
     },
 };
 use smallvec::{smallvec, SmallVec};
@@ -27,6 +28,8 @@ pub enum LxRootAstData {
     CompleteCommand {
         command_token_idx: LxRootTokenIdx,
         command_path: LxCommandPath,
+        // TODO: ad hoc
+        options: Option<()>,
         arguments: SmallVec<[LxRootCompleteCommandArgument; 2]>,
     },
     Environment(LxRootEnvironmentAstData),
@@ -127,14 +130,36 @@ impl<'a> LxAstParser<'a> {
     ) -> Option<LxRootAstData> {
         let command_path = command_signature.path();
         let mut arguments: SmallVec<[LxRootCompleteCommandArgument; 2]> = smallvec![];
+        let options = self.parse_options();
         for parameter in command_signature.parameters() {
             arguments.push(self.parse_root_complete_command_argument(parameter.mode()));
         }
         Some(LxRootAstData::CompleteCommand {
             command_token_idx,
             command_path,
+            options,
             arguments,
         })
+    }
+
+    fn parse_options(&mut self) -> Option<()> {
+        match self.peek_root_token_data()? {
+            LxRootTokenData::LeftDelimiter(LxRootDelimiter::Box) => (),
+            _ => return None,
+        }
+        let Some((lbox_token_idx, LxRootTokenData::LeftDelimiter(LxRootDelimiter::Box))) =
+            self.next_root_token()
+        else {
+            unreachable!("we just peeked a left box")
+        };
+        // TODO: ad hoc
+        while let Some((_, token)) = self.next_spec_token() {
+            match token {
+                LxSpecTokenData::RightDelimiter(LxSpecDelimiter::Box) => break,
+                _ => (),
+            }
+        }
+        Some(())
     }
 
     fn parse_root_complete_command_argument(

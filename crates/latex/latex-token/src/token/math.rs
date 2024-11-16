@@ -56,9 +56,9 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphabetic() => {
+                        c if c.is_ascii_alphabetic() => {
                             let Ok(command_name) = LxCommandName::new2(
-                                self.chars.next_str_slice_while(|c| c.is_alphabetic()),
+                                self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
                                 db,
                             ) else {
                                 todo!()

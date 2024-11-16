@@ -210,6 +210,7 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
             LxRootAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
+                options,
                 ref arguments,
             } => {
                 let last_argument = arguments.last().unwrap();

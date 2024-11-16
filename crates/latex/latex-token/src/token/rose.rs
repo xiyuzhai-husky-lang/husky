@@ -27,9 +27,9 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphabetic() => Some(LxRoseTokenData::Command(
+                        c if c.is_ascii_alphabetic() => Some(LxRoseTokenData::Command(
                             LxCommandName::new(
-                                self.next_coword_with(|c| c.is_alphabetic()).unwrap(),
+                                self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
                                 db,
                             )
                             .unwrap(),
@@ -47,9 +47,9 @@ impl<'a> LxLexer<'a> {
                     Err(_) => todo!(),
                 }
             }
-            a if a.is_alphabetic() => Some(LxRoseTokenData::Word(Coword::from_ref(
+            a if a.is_ascii_alphabetic() => Some(LxRoseTokenData::Word(Coword::from_ref(
                 self.db,
-                self.chars.next_str_slice_while(|c| c.is_alphabetic()),
+                self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
             ))),
             '$' => {
                 self.chars.eat_char();
