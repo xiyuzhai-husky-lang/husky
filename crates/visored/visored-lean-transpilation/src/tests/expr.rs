@@ -50,6 +50,24 @@ fn basic_visored_expr_to_lean_works() {
         "#]],
         &expect!["sorry"],
     );
+    t(
+        "\\frac{1}{2}",
+        &expect![[r#"
+            application
+            ├─ literal: `1`
+            └─ literal: `2`
+        "#]],
+        &expect!["1 / 2"],
+    );
+    t(
+        "\\sqrt{2}",
+        &expect![[r#"
+            application
+            ├─ item path: `√`
+            └─ literal: `2`
+        "#]],
+        &expect!["√ 2"],
+    );
 }
 
 #[test]

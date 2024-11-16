@@ -18,6 +18,10 @@ pub struct VdMirFuncKeyMenu {
     pub rat_sub: VdMirFuncKey,
     pub real_sub: VdMirFuncKey,
     pub complex_sub: VdMirFuncKey,
+    /// ## div
+    pub rat_div: VdMirFuncKey,
+    pub real_div: VdMirFuncKey,
+    pub complex_div: VdMirFuncKey,
     /// # separators
     /// ## add  
     pub nat_add: VdMirFuncKey,
@@ -71,6 +75,12 @@ pub struct VdMirFuncKeyMenu {
     pub real_ge: VdMirFuncKey,
     /// ## in
     pub in_set: VdMirFuncKey,
+    /// ## sqrt
+    pub real_sqrt: VdMirFuncKey,
+    /// ## frac
+    pub rat_frac: VdMirFuncKey,
+    pub real_frac: VdMirFuncKey,
+    pub complex_frac: VdMirFuncKey,
 }
 
 impl VdMirFuncKeyMenu {
@@ -147,6 +157,9 @@ impl VdMirFuncKeyMenu {
             rat_sub: VdMirFuncKey::NormalBaseBinaryOpr(rat_sub),
             real_sub: VdMirFuncKey::NormalBaseBinaryOpr(real_sub),
             complex_sub: VdMirFuncKey::NormalBaseBinaryOpr(complex_sub),
+            rat_div: VdMirFuncKey::NormalBaseBinaryOpr(rat_div),
+            real_div: VdMirFuncKey::NormalBaseBinaryOpr(real_div),
+            complex_div: VdMirFuncKey::NormalBaseBinaryOpr(complex_div),
             nat_add: VdMirFuncKey::NormalBaseSeparator(nat_add),
             int_add: VdMirFuncKey::NormalBaseSeparator(int_add),
             rat_add: VdMirFuncKey::NormalBaseSeparator(rat_add),
@@ -189,6 +202,10 @@ impl VdMirFuncKeyMenu {
             rat_ge: VdMirFuncKey::NormalBaseSeparator(rat_ge),
             real_ge: VdMirFuncKey::NormalBaseSeparator(real_ge),
             in_set: VdMirFuncKey::InSet,
+            real_sqrt: VdMirFuncKey::NormalBaseSqrt(real_sqrt),
+            rat_frac: VdMirFuncKey::NormalBaseFrac(rat_div),
+            real_frac: VdMirFuncKey::NormalBaseFrac(real_div),
+            complex_frac: VdMirFuncKey::NormalBaseFrac(complex_div),
         }
     }
 }

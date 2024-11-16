@@ -11,9 +11,11 @@ pub struct LnItemPathMenu {
     pub ring_mul: LnItemPath,
     pub ring_pos: LnItemPath,
     pub ring_neg: LnItemPath,
+    pub field_div: LnItemPath,
     pub le: LnItemPath,
     pub ge: LnItemPath,
     pub eq: LnItemPath,
+    pub real_sqrt: LnItemPath,
 }
 
 impl LnItemPathMenu {
@@ -28,9 +30,11 @@ impl LnItemPathMenu {
             ring_mul: LnItemPath::RING_MUL,
             ring_pos: LnItemPath::RING_POS,
             ring_neg: LnItemPath::RING_NEG,
+            field_div: LnItemPath::FIELD_DIV,
             le: LnItemPath::LE,
             ge: LnItemPath::GE,
             eq: LnItemPath::EQ,
+            real_sqrt: LnItemPath::REAL_SQRT,
         }
     }
 }
