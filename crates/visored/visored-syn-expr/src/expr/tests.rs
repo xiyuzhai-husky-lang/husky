@@ -97,6 +97,24 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
             └─ "2" expr.literal
         "#]],
     );
+    t(
+        "+1",
+        &[],
+        &[],
+        &expect![[r#"
+            "+1" expr.prefix
+            └─ "1" expr.literal
+        "#]],
+    );
+    t(
+        "-1",
+        &[],
+        &[],
+        &expect![[r#"
+            "-1" expr.prefix
+            └─ "1" expr.literal
+        "#]],
+    );
 }
 
 #[test]
