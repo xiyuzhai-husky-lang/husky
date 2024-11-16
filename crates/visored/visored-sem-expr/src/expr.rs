@@ -65,7 +65,7 @@ pub enum VdSemExprData {
     Prefix {
         opr: VdSemPrefixOpr,
         opd: VdSemExprIdx,
-        dispatch: (),
+        dispatch: VdSemPrefixDispatch,
     },
     Suffix {
         opd: VdSemExprIdx,
@@ -180,7 +180,7 @@ impl ToVdSem<VdSemExprIdx> for VdSynExprIdx {
 }
 
 impl<'a> VdSemExprBuilder<'a> {
-    fn build_expr_entry(&mut self, syn_expr: VdSynExprIdx) -> VdSemExprEntry {
+    pub(crate) fn build_expr_entry(&mut self, syn_expr: VdSynExprIdx) -> VdSemExprEntry {
         let db = self.db();
         let (data, ty) = match self.syn_expr_arena()[syn_expr] {
             VdSynExprData::Literal {
@@ -199,7 +199,7 @@ impl<'a> VdSemExprBuilder<'a> {
             } => self.build_letter(syn_expr, token_idx_range, letter),
             VdSynExprData::BaseOpr { opr } => todo!("opr = {:?}", opr),
             VdSynExprData::Binary { lopd, opr, ropd } => self.build_binary(lopd, opr, ropd),
-            VdSynExprData::Prefix { opr, opd } => todo!("opr = {:?}", opr),
+            VdSynExprData::Prefix { opr, opd } => self.build_prefix(opr, opd),
             VdSynExprData::Suffix { opd, opr } => todo!("opr = {:?}", opr),
             VdSynExprData::SeparatedList {
                 separator_class,

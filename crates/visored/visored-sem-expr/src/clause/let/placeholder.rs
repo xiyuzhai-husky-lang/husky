@@ -63,14 +63,4 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSemLetClausePlaceholderTypeRepr::Expr(expr) => self.infer_expr_term(expr),
         }
     }
-
-    fn infer_pattern_symbol_tys(&mut self, pattern: &VdSemPattern, ty: VdType) {
-        match *pattern {
-            VdSemPattern::Letter {
-                token_idx_range,
-                letter,
-                local_defn,
-            } => self.set_local_defn_ty(local_defn, ty),
-        }
-    }
 }

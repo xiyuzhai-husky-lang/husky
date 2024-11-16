@@ -36,6 +36,7 @@ impl VdBinaryOprGlobalDispatch {
             le,
             ge,
             r#in,
+            ..
         } = *vd_opr_menu;
         let VdGlobalDispatchMenu {
             int_sub,
