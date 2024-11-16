@@ -40,6 +40,18 @@ fn basic_to_vd_mir_works() {
 }
 
 #[test]
+fn frac_to_vd_mir_works() {
+    t(
+        "\\frac{1}{2}",
+        &expect![[r#"
+        frac
+        ├─ 1
+        └─ 2
+    "#]],
+    );
+}
+
+#[test]
 fn sqrt_to_vd_mir_works() {
     t(
         "\\sqrt{1}",

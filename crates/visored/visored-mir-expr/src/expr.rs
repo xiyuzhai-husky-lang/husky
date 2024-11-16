@@ -14,9 +14,9 @@ use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
-    binary::VdSemBinaryDispatch, letter::VdSemLetterDispatch, prefix::VdSemPrefixDispatch,
-    separated_list::VdSemSeparatedListDispatch, sqrt::VdSemSqrtDispatch, VdSemExprData,
-    VdSemExprIdx, VdSemExprIdxRange,
+    binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
+    prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListDispatch,
+    sqrt::VdSemSqrtDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_term::term::literal::VdLiteral;
 
@@ -149,8 +149,14 @@ impl<'db> VdMirExprBuilder<'db> {
             VdSemExprData::Frac {
                 numerator,
                 denominator,
+                dispatch,
                 ..
-            } => todo!(),
+            } => match dispatch {
+                VdSemFracDispatch::Div { signature } => VdMirExprData::Application {
+                    function: VdMirFunc::NormalBaseFrac(signature),
+                    arguments: [numerator, denominator].to_vd_mir(self),
+                },
+            },
             VdSemExprData::Sqrt {
                 command_token_idx,
                 radicand_lcurl_token_idx,
