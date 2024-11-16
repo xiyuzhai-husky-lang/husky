@@ -29,6 +29,9 @@ pub struct VdItemPathMenu {
     pub ring_pos: VdTraitItemPath,
     pub ring_neg: VdTraitItemPath,
     pub eq: VdTraitItemPath,
+    pub ne: VdTraitItemPath,
+    pub lt: VdTraitItemPath,
+    pub gt: VdTraitItemPath,
     pub le: VdTraitItemPath,
     pub ge: VdTraitItemPath,
 }
@@ -60,6 +63,9 @@ impl VdItemPathMenu {
             ring_pos: VdTraitItemPath::RING_POS,
             ring_neg: VdTraitItemPath::RING_NEG,
             eq: VdTraitItemPath::EQ,
+            ne: VdTraitItemPath::NE,
+            lt: VdTraitItemPath::LT,
+            gt: VdTraitItemPath::GT,
             le: VdTraitItemPath::LE,
             ge: VdTraitItemPath::GE,
         }

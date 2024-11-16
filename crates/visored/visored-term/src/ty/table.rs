@@ -41,6 +41,9 @@ impl VdItemPathZfcTypeTable {
             ring_pos: ring_pos_path,
             ring_neg: ring_neg_path,
             eq: eq_path,
+            ne: ne_path,
+            lt: lt_path,
+            gt: gt_path,
             le: le_path,
             ge: ge_path,
         } = *vd_item_path_menu(db);

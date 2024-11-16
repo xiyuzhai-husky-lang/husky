@@ -61,6 +61,22 @@ pub struct VdGlobalDispatchMenu {
     pub rat_eq: VdSeparatorGlobalDispatch,
     pub real_eq: VdSeparatorGlobalDispatch,
     pub complex_eq: VdSeparatorGlobalDispatch,
+    /// ## ne
+    pub nat_ne: VdSeparatorGlobalDispatch,
+    pub int_ne: VdSeparatorGlobalDispatch,
+    pub rat_ne: VdSeparatorGlobalDispatch,
+    pub real_ne: VdSeparatorGlobalDispatch,
+    pub complex_ne: VdSeparatorGlobalDispatch,
+    /// ## lt
+    pub nat_lt: VdSeparatorGlobalDispatch,
+    pub int_lt: VdSeparatorGlobalDispatch,
+    pub rat_lt: VdSeparatorGlobalDispatch,
+    pub real_lt: VdSeparatorGlobalDispatch,
+    /// ## gt
+    pub nat_gt: VdSeparatorGlobalDispatch,
+    pub int_gt: VdSeparatorGlobalDispatch,
+    pub rat_gt: VdSeparatorGlobalDispatch,
+    pub real_gt: VdSeparatorGlobalDispatch,
     /// ## le
     pub nat_le: VdSeparatorGlobalDispatch,
     pub int_le: VdSeparatorGlobalDispatch,
@@ -119,6 +135,19 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         rat_eq,
         real_eq,
         complex_eq,
+        nat_ne,
+        int_ne,
+        rat_ne,
+        real_ne,
+        complex_ne,
+        nat_lt,
+        int_lt,
+        rat_lt,
+        real_lt,
+        nat_gt,
+        int_gt,
+        rat_gt,
+        real_gt,
         nat_le,
         int_le,
         rat_le,
@@ -246,9 +275,61 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
             base_separator: VdBaseSeparator::Eq,
             signature: complex_eq,
         },
-        nat_le: VdSeparatorGlobalDispatch::Normal {
+        nat_ne: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Ne,
+            signature: nat_ne,
+        },
+        int_ne: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Ne,
+            signature: int_ne,
+        },
+        rat_ne: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Le,
             signature: nat_le,
+        },
+        real_ne: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Ne,
+            signature: real_ne,
+        },
+        complex_ne: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Ne,
+            signature: complex_ne,
+        },
+        nat_lt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Lt,
+            signature: nat_lt,
+        },
+        int_lt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Lt,
+            signature: int_lt,
+        },
+        rat_lt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Lt,
+            signature: rat_lt,
+        },
+        real_lt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Lt,
+            signature: real_lt,
+        },
+        nat_gt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Gt,
+            signature: nat_gt,
+        },
+        int_gt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Gt,
+            signature: int_gt,
+        },
+        rat_gt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Gt,
+            signature: rat_gt,
+        },
+        real_gt: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Gt,
+            signature: real_gt,
+        },
+        nat_le: VdSeparatorGlobalDispatch::Normal {
+            base_separator: VdBaseSeparator::Le,
+            signature: int_le,
         },
         int_le: VdSeparatorGlobalDispatch::Normal {
             base_separator: VdBaseSeparator::Le,
