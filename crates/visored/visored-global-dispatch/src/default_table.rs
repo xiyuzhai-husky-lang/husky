@@ -1,16 +1,22 @@
 use crate::{
     dispatch::{
         attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
-        separator::VdSeparatorGlobalDispatch,
+        prefix_opr::VdPrefixOprGlobalDispatch, separator::VdSeparatorGlobalDispatch,
     },
     menu::vd_global_dispatch_menu,
 };
 use rustc_hash::FxHashMap;
-use visored_opr::{menu::vd_opr_menu, opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_opr::{
+    menu::vd_opr_menu,
+    opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
+    separator::VdBaseSeparator,
+};
 use visored_signature::menu::vd_signature_menu;
 use visored_term::{menu::vd_ty_menu, ty::VdType};
 
 pub struct VdDefaultGlobalDispatchTable {
+    base_prefix_opr_default_dispatch_table:
+        FxHashMap<VdBasePrefixOprKey, VdPrefixOprGlobalDispatch>,
     base_binary_opr_default_dispatch_table:
         FxHashMap<VdBaseBinaryOprKey, VdBinaryOprGlobalDispatch>,
     base_separator_default_dispatch_table: FxHashMap<VdBaseSeparatorKey, VdSeparatorGlobalDispatch>,
@@ -32,6 +38,12 @@ pub struct VdBaseSeparatorKey {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct VdBasePrefixOprKey {
+    base_opr: VdBasePrefixOpr,
+    opd_ty: VdType,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdAttachKey {
     Power {
         base_ty: VdType,
@@ -41,6 +53,9 @@ pub enum VdAttachKey {
 
 impl VdDefaultGlobalDispatchTable {
     pub fn new(
+        base_prefix_opr_default_dispatches: impl IntoIterator<
+            Item = (VdBasePrefixOprKey, VdPrefixOprGlobalDispatch),
+        >,
         base_binary_opr_default_dispatches: impl IntoIterator<
             Item = (VdBaseBinaryOprKey, VdBinaryOprGlobalDispatch),
         >,
@@ -50,6 +65,9 @@ impl VdDefaultGlobalDispatchTable {
         attach_default_dispatches: impl IntoIterator<Item = (VdAttachKey, VdAttachGlobalDispatch)>,
     ) -> Self {
         Self {
+            base_prefix_opr_default_dispatch_table: base_prefix_opr_default_dispatches
+                .into_iter()
+                .collect(),
             base_binary_opr_default_dispatch_table: base_binary_opr_default_dispatches
                 .into_iter()
                 .collect(),
@@ -65,6 +83,15 @@ impl VdDefaultGlobalDispatchTable {
         let opr_menu = vd_opr_menu(db);
         let global_dispatch_menu = vd_global_dispatch_menu(db);
         Self::new(
+            VdPrefixOprGlobalDispatch::standard_defaults(
+                zfc_ty_menu,
+                opr_menu,
+                global_dispatch_menu,
+            )
+            .into_iter()
+            .map(|((base_opr, opd_ty), dispatch)| {
+                (VdBasePrefixOprKey { base_opr, opd_ty }.into(), dispatch)
+            }),
             VdBinaryOprGlobalDispatch::standard_defaults(
                 zfc_ty_menu,
                 opr_menu,
@@ -134,6 +161,16 @@ impl VdDefaultGlobalDispatchTable {
                 prev_item_ty,
                 next_item_ty,
             })
+            .copied()
+    }
+
+    pub fn base_prefix_opr_default_dispatch(
+        &self,
+        base_opr: VdBasePrefixOpr,
+        opd_ty: VdType,
+    ) -> Option<VdPrefixOprGlobalDispatch> {
+        self.base_prefix_opr_default_dispatch_table
+            .get(&VdBasePrefixOprKey { base_opr, opd_ty }.into())
             .copied()
     }
 

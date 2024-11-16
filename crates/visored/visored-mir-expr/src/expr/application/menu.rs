@@ -51,6 +51,14 @@ pub struct VdMirFuncKeyMenu {
 impl VdMirFuncKeyMenu {
     pub fn new(db: &::salsa::Db) -> Self {
         let VdInstantiationMenu {
+            int_pos,
+            rat_pos,
+            real_pos,
+            complex_pos,
+            int_neg,
+            rat_neg,
+            real_neg,
+            complex_neg,
             int_sub,
             rat_sub,
             real_sub,

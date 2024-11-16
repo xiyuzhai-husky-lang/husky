@@ -8,6 +8,17 @@ use visored_item_path::menu::{vd_item_path_menu, VdItemPathMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdInstantiationMenu {
+    /// # prefix
+    /// ## pos
+    pub int_pos: VdInstantiation,
+    pub rat_pos: VdInstantiation,
+    pub real_pos: VdInstantiation,
+    pub complex_pos: VdInstantiation,
+    /// ## neg
+    pub int_neg: VdInstantiation,
+    pub rat_neg: VdInstantiation,
+    pub real_neg: VdInstantiation,
+    pub complex_neg: VdInstantiation,
     /// # binary operators
     /// ## sub
     pub int_sub: VdInstantiation,
@@ -70,6 +81,8 @@ impl VdInstantiationMenu {
             ring_add,
             ring_mul,
             ring_power,
+            ring_pos,
+            ring_neg,
             eq,
             le,
             ge,
@@ -84,6 +97,14 @@ impl VdInstantiationMenu {
             real,
             complex,
         } = *vd_term_menu(db);
+        let int_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![int]);
+        let rat_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![rat]);
+        let real_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![real]);
+        let complex_pos = VdInstantiation::new(db, ring_pos.into(), smallvec![complex]);
+        let int_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![int]);
+        let rat_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![rat]);
+        let real_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![real]);
+        let complex_neg = VdInstantiation::new(db, ring_neg.into(), smallvec![complex]);
         let int_sub = VdInstantiation::new(db, ring_add.into(), smallvec![int, int]);
         let rat_sub = VdInstantiation::new(db, ring_add.into(), smallvec![rat, rat]);
         let real_sub = VdInstantiation::new(db, ring_add.into(), smallvec![real, real]);
@@ -122,6 +143,14 @@ impl VdInstantiationMenu {
         let rat_ge = VdInstantiation::new(db, ge.into(), smallvec![rat]);
         let real_ge = VdInstantiation::new(db, ge.into(), smallvec![real]);
         Self {
+            int_pos,
+            rat_pos,
+            real_pos,
+            complex_pos,
+            int_neg,
+            rat_neg,
+            real_neg,
+            complex_neg,
             int_sub,
             rat_sub,
             real_sub,

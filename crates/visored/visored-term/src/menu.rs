@@ -49,6 +49,8 @@ impl VdTypeMenu {
             ring_add,
             ring_mul,
             ring_power,
+            ring_pos,
+            ring_neg,
             eq,
             le,
             ge,

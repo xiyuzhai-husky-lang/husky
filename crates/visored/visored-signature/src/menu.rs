@@ -5,46 +5,58 @@ use visored_term::{
 
 use crate::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
-    separator::base::VdBaseSeparatorSignature,
+    prefix_opr::VdBasePrefixOprSignature, separator::base::VdBaseSeparatorSignature,
 };
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSignatureMenu {
-    // ## sub
+    /// # prefix
+    /// ## pos
+    pub int_pos: VdBasePrefixOprSignature,
+    pub rat_pos: VdBasePrefixOprSignature,
+    pub real_pos: VdBasePrefixOprSignature,
+    pub complex_pos: VdBasePrefixOprSignature,
+    /// ## neg
+    pub int_neg: VdBasePrefixOprSignature,
+    pub rat_neg: VdBasePrefixOprSignature,
+    pub real_neg: VdBasePrefixOprSignature,
+    pub complex_neg: VdBasePrefixOprSignature,
+    /// # binary
+    /// ## sub
     pub int_sub: VdBaseBinaryOprSignature,
     pub rat_sub: VdBaseBinaryOprSignature,
     pub real_sub: VdBaseBinaryOprSignature,
     pub complex_sub: VdBaseBinaryOprSignature,
-    // ## add
+    /// ## add
     pub nat_add: VdBaseSeparatorSignature,
     pub int_add: VdBaseSeparatorSignature,
     pub rat_add: VdBaseSeparatorSignature,
     pub real_add: VdBaseSeparatorSignature,
     pub complex_add: VdBaseSeparatorSignature,
-    // ## mul
+    /// ## mul
     pub nat_mul: VdBaseSeparatorSignature,
     pub int_mul: VdBaseSeparatorSignature,
     pub rat_mul: VdBaseSeparatorSignature,
     pub real_mul: VdBaseSeparatorSignature,
     pub complex_mul: VdBaseSeparatorSignature,
-    // ## power
+    /// ## power
     pub nat_to_the_power_of_nat: VdPowerSignature,
     pub int_to_the_power_of_nat: VdPowerSignature,
     pub rat_to_the_power_of_nat: VdPowerSignature,
     pub real_to_the_power_of_nat: VdPowerSignature,
     pub complex_to_the_power_of_nat: VdPowerSignature,
-    // ## eq
+    /// ## eq
     pub nat_eq: VdBaseSeparatorSignature,
     pub int_eq: VdBaseSeparatorSignature,
     pub rat_eq: VdBaseSeparatorSignature,
     pub real_eq: VdBaseSeparatorSignature,
     pub complex_eq: VdBaseSeparatorSignature,
-    // ## le
+    /// ## le
     pub nat_le: VdBaseSeparatorSignature,
     pub int_le: VdBaseSeparatorSignature,
     pub rat_le: VdBaseSeparatorSignature,
     pub real_le: VdBaseSeparatorSignature,
-    // ## ge
+    /// ## ge
     pub nat_ge: VdBaseSeparatorSignature,
     pub int_ge: VdBaseSeparatorSignature,
     pub rat_ge: VdBaseSeparatorSignature,
@@ -63,6 +75,14 @@ impl VdSignatureMenu {
             prop,
         } = *vd_ty_menu(db);
         let VdInstantiationMenu {
+            int_pos,
+            rat_pos,
+            real_pos,
+            complex_pos,
+            int_neg,
+            rat_neg,
+            real_neg,
+            complex_neg,
             int_sub,
             rat_sub,
             real_sub,
@@ -96,10 +116,19 @@ impl VdSignatureMenu {
             rat_ge,
             real_ge,
         } = *vd_instantiation_menu(db);
+        let pre = VdBasePrefixOprSignature::new;
         let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
         let pow = VdPowerSignature::new;
         Self {
+            int_pos: pre(int_pos, int, int, int),
+            rat_pos: pre(rat_pos, rat, rat, rat),
+            real_pos: pre(real_pos, real, real, real),
+            complex_pos: pre(complex_pos, complex, complex, complex),
+            int_neg: pre(int_neg, int, int, int),
+            rat_neg: pre(rat_neg, rat, rat, rat),
+            real_neg: pre(real_neg, real, real, real),
+            complex_neg: pre(complex_neg, complex, complex, complex),
             int_sub: bin(int_sub, int, int, int),
             rat_sub: bin(rat_sub, rat, rat, rat),
             real_sub: bin(real_sub, real, real, real),
