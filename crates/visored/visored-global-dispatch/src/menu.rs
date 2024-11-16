@@ -125,6 +125,9 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         rat_mul,
         real_mul,
         complex_mul,
+        rat_div,
+        real_div,
+        complex_div,
         nat_to_the_power_of_nat,
         int_to_the_power_of_nat,
         rat_to_the_power_of_nat,
@@ -157,208 +160,91 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         rat_ge,
         real_ge,
     } = *vd_signature_menu(db);
-    let pow = |signature: VdPowerSignature| VdAttachGlobalDispatch::Normal {
+    let pre = |base_opr, signature| VdPrefixOprGlobalDispatch::Base {
+        base_opr,
+        signature,
+    };
+    let bin = |base_binary_opr, signature| VdBinaryOprGlobalDispatch::Normal {
+        base_binary_opr,
+        signature,
+    };
+    let sep = |base_separator, signature| VdSeparatorGlobalDispatch::Normal {
+        base_separator,
+        signature,
+    };
+    let pow = |signature| VdAttachGlobalDispatch::Normal {
         signature: VdAttachSignature::Power(signature),
     };
     VdGlobalDispatchMenu {
+        // # prefix oprs
         // ## pos
-        int_pos: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::POS,
-            signature: int_pos,
-        },
-        rat_pos: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::POS,
-            signature: rat_pos,
-        },
-        real_pos: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::POS,
-            signature: real_pos,
-        },
-        complex_pos: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::POS,
-            signature: complex_pos,
-        },
-        int_neg: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::NEG,
-            signature: int_neg,
-        },
-        rat_neg: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::NEG,
-            signature: rat_neg,
-        },
-        real_neg: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::NEG,
-            signature: real_neg,
-        },
-        complex_neg: VdPrefixOprGlobalDispatch::Base {
-            base_opr: VdBasePrefixOpr::NEG,
-            signature: complex_neg,
-        },
-        int_sub: VdBinaryOprGlobalDispatch::Normal {
-            base_binary_opr: VdBaseBinaryOpr::Sub,
-            signature: int_sub,
-        },
-        rat_sub: VdBinaryOprGlobalDispatch::Normal {
-            base_binary_opr: VdBaseBinaryOpr::Sub,
-            signature: rat_sub,
-        },
-        real_sub: VdBinaryOprGlobalDispatch::Normal {
-            base_binary_opr: VdBaseBinaryOpr::Sub,
-            signature: real_sub,
-        },
-        complex_sub: VdBinaryOprGlobalDispatch::Normal {
-            base_binary_opr: VdBaseBinaryOpr::Sub,
-            signature: complex_sub,
-        },
-        nat_add: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Add,
-            signature: nat_add,
-        },
-        int_add: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Add,
-            signature: int_add.clone(),
-        },
-        rat_add: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Add,
-            signature: rat_add,
-        },
-        real_add: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Add,
-            signature: real_add,
-        },
-        complex_add: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Add,
-            signature: complex_add,
-        },
-        nat_space_mul: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Space,
-            signature: nat_mul,
-        },
-        int_space_mul: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Space,
-            signature: int_mul,
-        },
-        rat_space_mul: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Space,
-            signature: rat_mul,
-        },
-        real_space_mul: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Space,
-            signature: real_mul,
-        },
-        complex_space_mul: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Space,
-            signature: complex_mul,
-        },
+        int_pos: pre(VdBasePrefixOpr::POS, int_pos),
+        rat_pos: pre(VdBasePrefixOpr::POS, rat_pos),
+        real_pos: pre(VdBasePrefixOpr::POS, real_pos),
+        complex_pos: pre(VdBasePrefixOpr::POS, complex_pos),
+        // ## neg
+        int_neg: pre(VdBasePrefixOpr::NEG, int_neg),
+        rat_neg: pre(VdBasePrefixOpr::NEG, rat_neg),
+        real_neg: pre(VdBasePrefixOpr::NEG, real_neg),
+        complex_neg: pre(VdBasePrefixOpr::NEG, complex_neg),
+        // # binary oprs
+        // ## sub
+        int_sub: bin(VdBaseBinaryOpr::Sub, int_sub),
+        rat_sub: bin(VdBaseBinaryOpr::Sub, rat_sub),
+        real_sub: bin(VdBaseBinaryOpr::Sub, real_sub),
+        complex_sub: bin(VdBaseBinaryOpr::Sub, complex_sub),
+        // # separators
+        // ## add
+        nat_add: sep(VdBaseSeparator::Add, nat_add),
+        int_add: sep(VdBaseSeparator::Add, int_add),
+        rat_add: sep(VdBaseSeparator::Add, rat_add),
+        real_add: sep(VdBaseSeparator::Add, real_add),
+        complex_add: sep(VdBaseSeparator::Add, complex_add),
+        // ## mul
+        nat_space_mul: sep(VdBaseSeparator::Space, nat_mul),
+        int_space_mul: sep(VdBaseSeparator::Space, int_mul),
+        rat_space_mul: sep(VdBaseSeparator::Space, rat_mul),
+        real_space_mul: sep(VdBaseSeparator::Space, real_mul),
+        complex_space_mul: sep(VdBaseSeparator::Space, complex_mul),
+        // ## power
         nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat),
         int_to_the_power_of_nat: pow(int_to_the_power_of_nat),
         rat_to_the_power_of_nat: pow(rat_to_the_power_of_nat),
         real_to_the_power_of_nat: pow(real_to_the_power_of_nat),
         complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat),
-        nat_eq: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Eq,
-            signature: nat_eq,
-        },
-        int_eq: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Eq,
-            signature: int_eq,
-        },
-        rat_eq: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Eq,
-            signature: rat_eq,
-        },
-        real_eq: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Eq,
-            signature: real_eq,
-        },
-        complex_eq: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Eq,
-            signature: complex_eq,
-        },
-        nat_ne: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ne,
-            signature: nat_ne,
-        },
-        int_ne: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ne,
-            signature: int_ne,
-        },
-        rat_ne: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Le,
-            signature: nat_le,
-        },
-        real_ne: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ne,
-            signature: real_ne,
-        },
-        complex_ne: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ne,
-            signature: complex_ne,
-        },
-        nat_lt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Lt,
-            signature: nat_lt,
-        },
-        int_lt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Lt,
-            signature: int_lt,
-        },
-        rat_lt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Lt,
-            signature: rat_lt,
-        },
-        real_lt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Lt,
-            signature: real_lt,
-        },
-        nat_gt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Gt,
-            signature: nat_gt,
-        },
-        int_gt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Gt,
-            signature: int_gt,
-        },
-        rat_gt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Gt,
-            signature: rat_gt,
-        },
-        real_gt: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Gt,
-            signature: real_gt,
-        },
-        nat_le: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Le,
-            signature: int_le,
-        },
-        int_le: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Le,
-            signature: int_le,
-        },
-        rat_le: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Le,
-            signature: rat_le,
-        },
-        real_le: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Le,
-            signature: real_le,
-        },
-        nat_ge: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ge,
-            signature: nat_ge,
-        },
-        int_ge: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ge,
-            signature: int_ge,
-        },
-        rat_ge: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ge,
-            signature: rat_ge,
-        },
-        real_ge: VdSeparatorGlobalDispatch::Normal {
-            base_separator: VdBaseSeparator::Ge,
-            signature: real_ge,
-        },
+        // ## eq
+        nat_eq: sep(VdBaseSeparator::Eq, nat_eq),
+        int_eq: sep(VdBaseSeparator::Eq, int_eq),
+        rat_eq: sep(VdBaseSeparator::Eq, rat_eq),
+        real_eq: sep(VdBaseSeparator::Eq, real_eq),
+        complex_eq: sep(VdBaseSeparator::Eq, complex_eq),
+        // ## ne
+        nat_ne: sep(VdBaseSeparator::Ne, nat_ne),
+        int_ne: sep(VdBaseSeparator::Ne, int_ne),
+        rat_ne: sep(VdBaseSeparator::Ne, rat_ne),
+        real_ne: sep(VdBaseSeparator::Ne, real_ne),
+        complex_ne: sep(VdBaseSeparator::Ne, complex_ne),
+        // ## lt
+        nat_lt: sep(VdBaseSeparator::Lt, nat_lt),
+        int_lt: sep(VdBaseSeparator::Lt, int_lt),
+        rat_lt: sep(VdBaseSeparator::Lt, rat_lt),
+        real_lt: sep(VdBaseSeparator::Lt, real_lt),
+        // ## gt
+        nat_gt: sep(VdBaseSeparator::Gt, nat_gt),
+        int_gt: sep(VdBaseSeparator::Gt, int_gt),
+        rat_gt: sep(VdBaseSeparator::Gt, rat_gt),
+        real_gt: sep(VdBaseSeparator::Gt, real_gt),
+        // ## le
+        nat_le: sep(VdBaseSeparator::Le, nat_le),
+        int_le: sep(VdBaseSeparator::Le, int_le),
+        rat_le: sep(VdBaseSeparator::Le, rat_le),
+        real_le: sep(VdBaseSeparator::Le, real_le),
+        // ## ge
+        nat_ge: sep(VdBaseSeparator::Ge, nat_ge),
+        int_ge: sep(VdBaseSeparator::Ge, int_ge),
+        rat_ge: sep(VdBaseSeparator::Ge, rat_ge),
+        real_ge: sep(VdBaseSeparator::Ge, real_ge),
+        // ## in
         in_set: VdSeparatorGlobalDispatch::InSet { expr_ty: prop },
     }
 }

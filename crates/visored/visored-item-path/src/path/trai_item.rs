@@ -15,6 +15,7 @@ pub enum VdTraitItemPath {
     Gt,
     Le,
     Ge,
+    FieldDiv,
 }
 
 impl VdTraitItemPath {
@@ -25,6 +26,7 @@ impl VdTraitItemPath {
     pub const RING_POWER: Self = VdTraitItemPath::RingPower;
     pub const RING_POS: Self = VdTraitItemPath::RingPos;
     pub const RING_NEG: Self = VdTraitItemPath::RingNeg;
+    pub const FIELD_DIV: Self = VdTraitItemPath::FieldDiv;
     pub const EQ: Self = VdTraitItemPath::Eq;
     pub const NE: Self = VdTraitItemPath::Ne;
     pub const LT: Self = VdTraitItemPath::Lt;
