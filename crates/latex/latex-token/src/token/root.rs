@@ -13,6 +13,8 @@ pub enum LxRootTokenData {
 pub enum LxRootDelimiter {
     /// `{`,  `}`
     Curl,
+    /// `[`, `]`
+    Box,
 }
 
 impl<'a> LxLexer<'a> {
@@ -23,9 +25,9 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphabetic() => Some(LxRootTokenData::Command(
+                        c if c.is_ascii_alphabetic() => Some(LxRootTokenData::Command(
                             LxCommandName::new(
-                                self.next_coword_with(|c| c.is_alphabetic()).unwrap(),
+                                self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
                                 db,
                             )
                             .unwrap(),
@@ -43,6 +45,14 @@ impl<'a> LxLexer<'a> {
             '}' => {
                 self.chars.eat_char();
                 Some(LxRootTokenData::RightDelimiter(LxRootDelimiter::Curl))
+            }
+            '[' => {
+                self.chars.eat_char();
+                Some(LxRootTokenData::LeftDelimiter(LxRootDelimiter::Box))
+            }
+            ']' => {
+                self.chars.eat_char();
+                Some(LxRootTokenData::RightDelimiter(LxRootDelimiter::Box))
             }
             _ => todo!(),
         }

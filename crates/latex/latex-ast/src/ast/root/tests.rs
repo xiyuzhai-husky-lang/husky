@@ -20,4 +20,12 @@ fn parse_use_packages_into_lx_root_asts_works() {
               └─ amsmath
         "#]],
     );
+    t(
+        "\\usepackage[utf8]{inputenc}",
+        expect![[r#"
+            "\\usepackage[utf8]{inputenc}" all input
+            └─ "\\usepackage[utf8]{inputenc}" complete command
+              └─ inputenc
+        "#]],
+    );
 }

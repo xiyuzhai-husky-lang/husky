@@ -1,5 +1,8 @@
 use crate::{
-    idx::{LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx},
+    idx::{
+        LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx,
+        LxSpecTokenIdx,
+    },
     storage::LxTokenStorage,
     stream::{
         lisp::LxLispTokenStream, math::LxMathTokenStream, root::LxRootTokenStream,
@@ -11,6 +14,7 @@ use crate::{
         name::LxNameTokenData,
         root::LxRootTokenData,
         rose::LxRoseTokenData,
+        spec::LxSpecTokenData,
     },
 };
 use husky_coword::Coword;
@@ -212,8 +216,30 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
+    pub fn next_spec_token(&mut self) -> Option<(LxSpecTokenIdx, LxSpecTokenData)> {
+        let (offset_range, range, token_data) = self.next_spec_token_aux()?;
+        Some((
+            self.storage
+                .alloc_spec_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_spec_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxSpecTokenData)> {
+        self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = self.next_spec_token_data()?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
-        let coword_str_slice = self.chars.next_str_slice_while(|c| c.is_alphanumeric());
+        let coword_str_slice = self.chars.next_str_slice_while(predicate);
         if coword_str_slice.is_empty() {
             return None;
         }

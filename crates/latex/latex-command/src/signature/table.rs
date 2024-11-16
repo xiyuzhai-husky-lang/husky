@@ -48,6 +48,7 @@ impl LxCommandSignatureTable {
                             path.name(),
                             LxCommandSignature::Complete(LxCompleteCommandSignature {
                                 path,
+                                options: (),
                                 parameters: parameter_modes
                                     .into_iter()
                                     .copied()
