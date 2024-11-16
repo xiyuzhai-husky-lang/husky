@@ -38,3 +38,14 @@ fn basic_to_vd_mir_works() {
         "#]],
     );
 }
+
+#[test]
+fn sqrt_to_vd_mir_works() {
+    t(
+        "\\sqrt{1}",
+        &expect![[r#"
+        sqrt
+        └─ 1
+    "#]],
+    );
+}
