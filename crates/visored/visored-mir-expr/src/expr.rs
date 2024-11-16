@@ -15,7 +15,8 @@ use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, letter::VdSemLetterDispatch, prefix::VdSemPrefixDispatch,
-    separated_list::VdSemSeparatedListDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
+    separated_list::VdSemSeparatedListDispatch, sqrt::VdSemSqrtDispatch, VdSemExprData,
+    VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_term::term::literal::VdLiteral;
 
@@ -156,7 +157,12 @@ impl<'db> VdMirExprBuilder<'db> {
                 radicand,
                 radicand_rcurl_token_idx,
                 dispatch,
-            } => todo!(),
+            } => match dispatch {
+                VdSemSqrtDispatch::Base { signature } => VdMirExprData::Application {
+                    function: VdMirFunc::NormalBaseSqrt(signature),
+                    arguments: [radicand].to_vd_mir(self),
+                },
+            },
         }
     }
 }

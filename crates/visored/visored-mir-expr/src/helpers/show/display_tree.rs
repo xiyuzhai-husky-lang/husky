@@ -45,6 +45,12 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                     VdMirFunc::Power(vd_power_signature) => {
                         format!("power")
                     }
+                    VdMirFunc::NormalBaseSqrt(signature) => {
+                        format!("sqrt")
+                    }
+                    VdMirFunc::NormalBaseFrac(signature) => {
+                        format!("frac")
+                    }
                 };
                 (
                     value,
