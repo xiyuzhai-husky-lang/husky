@@ -19,6 +19,21 @@ fn parse_basic_math_latex_input_into_asts_then_show_works() {
         "#]],
     );
     t(
+        "1",
+        expect![[r#"
+            1
+            └─ 1
+        "#]],
+    );
+    t(
+        "-x",
+        expect![[r#"
+            -x
+            ├─ -
+            └─ x
+        "#]],
+    );
+    t(
         "x+1",
         expect![[r#"
             x+1

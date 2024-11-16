@@ -24,13 +24,8 @@ use visored_opr::{
 };
 use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 
-pub struct DisambiguatedMathAst {
-    ast: LxMathAstIdx,
-    preceding_space_annotation: Option<VdSpaceAnnotation>,
-}
-
 #[derive(Debug)]
-pub enum ResolvedAst {
+pub enum DisambiguatedAst {
     Expr(VdSynExprData, VdSynExprClass),
     Opr(VdBaseOpr),
     Separator(VdBaseSeparator),
@@ -39,7 +34,11 @@ pub enum ResolvedAst {
 }
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub fn resolve_token(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) -> ResolvedAst {
+    pub fn resolve_token(
+        &mut self,
+        next: &mut LxMathAstIdx,
+        end: LxMathAstIdx,
+    ) -> DisambiguatedAst {
         use crate::builder::ToVdSyn;
 
         let ast_data = &self.builder.ast_arena()[*next];
@@ -53,11 +52,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         VdTokenAnnotation::Integral(lx_integral_annotation) => todo!(),
                         VdTokenAnnotation::Variable(lx_variable_annotation) => todo!(),
                         VdTokenAnnotation::Differential => {
-                            return ResolvedAst::Opr(VdBaseOpr::DIFFERENTIAL)
+                            return DisambiguatedAst::Opr(VdBaseOpr::DIFFERENTIAL)
                         }
                     }
                 }
-                ResolvedAst::Expr(
+                DisambiguatedAst::Expr(
                     VdSynExprData::Letter {
                         token_idx_range: LxTokenIdxRange::new_single(*token_idx),
                         letter,
@@ -87,7 +86,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 {
                     return todo!();
                 }
-                ResolvedAst::Expr(
+                DisambiguatedAst::Expr(
                     VdSynExprData::Letter {
                         token_idx_range: LxTokenIdxRange::new_closed(
                             *style_command_token_idx,
@@ -110,18 +109,38 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     .resolve_punctuation(punctuation)
                 {
                     Some(resolution) => match resolution {
-                        VdPunctuationGlobalResolution::Opr(opr) => ResolvedAst::Opr(opr),
+                        VdPunctuationGlobalResolution::Opr(opr) => DisambiguatedAst::Opr(opr),
                         VdPunctuationGlobalResolution::Separator(separator) => {
-                            ResolvedAst::Separator(separator)
+                            DisambiguatedAst::Separator(separator)
                         }
                         VdPunctuationGlobalResolution::LeftDelimiter(left_delimiter) => {
-                            ResolvedAst::LeftDelimiter(left_delimiter)
+                            DisambiguatedAst::LeftDelimiter(left_delimiter)
                         }
                         VdPunctuationGlobalResolution::RightDelimiter(right_delimiter) => {
-                            ResolvedAst::RightDelimiter(right_delimiter)
+                            DisambiguatedAst::RightDelimiter(right_delimiter)
                         }
                         VdPunctuationGlobalResolution::Todo => {
                             todo!("punctuation = {:?}", punctuation)
+                        }
+                        VdPunctuationGlobalResolution::PrefixOrBinaryOpr(
+                            base_prefix_opr,
+                            base_binary_opr,
+                        ) => {
+                            if self.might_accept_new_binary_opr_or_non_space_separator() {
+                                DisambiguatedAst::Opr(base_binary_opr.into())
+                            } else {
+                                DisambiguatedAst::Opr(base_prefix_opr.into())
+                            }
+                        }
+                        VdPunctuationGlobalResolution::PrefixOprOrSeparator(
+                            base_prefix_opr,
+                            base_separator,
+                        ) => {
+                            if self.might_accept_new_binary_opr_or_non_space_separator() {
+                                DisambiguatedAst::Separator(base_separator)
+                            } else {
+                                DisambiguatedAst::Opr(base_prefix_opr.into())
+                            }
                         }
                     },
                     None => todo!(),
@@ -165,7 +184,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         self.builder.db(),
                     ),
                 };
-                ResolvedAst::Expr(expr_data, VdSynExprClass::ATOM)
+                DisambiguatedAst::Expr(expr_data, VdSynExprClass::ATOM)
             }
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => {
@@ -175,7 +194,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     .copied()
                     .map(|(script_kind, script)| (script_kind, script.to_vd_syn(self.builder)))
                     .collect();
-                ResolvedAst::Expr(
+                DisambiguatedAst::Expr(
                     VdSynExprData::Attach { base, scripts },
                     VdSynExprClass::ATOM,
                 )
@@ -186,7 +205,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 asts,
                 right_delimiter_token_idx,
                 right_delimiter,
-            } => ResolvedAst::Expr(
+            } => DisambiguatedAst::Expr(
                 VdSynExprData::LxDelimited {
                     left_delimiter_token_idx,
                     left_delimiter,
@@ -214,7 +233,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
         arguments: &[LxMathCommandArgument],
-    ) -> ResolvedAst {
+    ) -> DisambiguatedAst {
         use crate::builder::ToVdSyn;
 
         let Some(resolve_complete_command) = self
@@ -232,7 +251,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     }
                     None => LxTokenIdxRange::new_single(*command_token_idx),
                 };
-                ResolvedAst::Expr(
+                DisambiguatedAst::Expr(
                     VdSynExprData::Letter {
                         token_idx_range,
                         letter,
@@ -260,7 +279,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 };
                 let denominator = (denominator_arg.asts_token_idx_range(), denominator_asts)
                     .to_vd_syn(self.builder);
-                ResolvedAst::Expr(
+                DisambiguatedAst::Expr(
                     VdSynExprData::Fraction {
                         command_token_idx,
                         numerator,
@@ -280,7 +299,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 };
                 let radicand =
                     (radicand_arg.asts_token_idx_range(), radicand_asts).to_vd_syn(self.builder);
-                ResolvedAst::Expr(
+                DisambiguatedAst::Expr(
                     VdSynExprData::Sqrt {
                         command_token_idx,
                         radicand,
@@ -290,9 +309,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 )
             }
             VdCompleteCommandGlobalResolution::Text => todo!(),
-            VdCompleteCommandGlobalResolution::Opr(vd_base_opr) => ResolvedAst::Opr(vd_base_opr),
+            VdCompleteCommandGlobalResolution::Opr(vd_base_opr) => {
+                DisambiguatedAst::Opr(vd_base_opr)
+            }
             VdCompleteCommandGlobalResolution::Separator(vd_separator) => {
-                ResolvedAst::Separator(vd_separator)
+                DisambiguatedAst::Separator(vd_separator)
             }
         }
     }

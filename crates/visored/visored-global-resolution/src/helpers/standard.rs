@@ -125,7 +125,7 @@ fn lx_math_punctuation_standard_resolution(
     punctuation: LxMathPunctuation,
 ) -> Option<VdPunctuationGlobalResolution> {
     match punctuation {
-        LxMathPunctuation::Add => Some(VdPunctuationGlobalResolution::SEPARATOR_ADD),
+        LxMathPunctuation::Add => Some(VdPunctuationGlobalResolution::ADD),
         LxMathPunctuation::Sub => Some(VdPunctuationGlobalResolution::SUB),
         LxMathPunctuation::Mul => Some(VdPunctuationGlobalResolution::SEPARATOR_MUL),
         LxMathPunctuation::Div => Some(VdPunctuationGlobalResolution::Todo),
