@@ -155,6 +155,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 radicand_lcurl_token_idx,
                 radicand,
                 radicand_rcurl_token_idx,
+                dispatch,
             } => todo!(),
         }
     }

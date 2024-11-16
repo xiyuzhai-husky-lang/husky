@@ -1,10 +1,11 @@
 use super::*;
 use crate::menu::VdGlobalDispatchMenu;
+use visored_signature::signature::sqrt::VdBaseSqrtSignature;
 use visored_term::{menu::VdTypeMenu, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSqrtGlobalDispatch {
-    Normal {},
+    Base { signature: VdBaseSqrtSignature },
 }
 
 impl VdSqrtGlobalDispatch {
