@@ -43,6 +43,7 @@ impl VdTermMenu {
             gt,
             le,
             ge,
+            real_sqrt,
         } = *vd_item_path_menu(db);
 
         let zero = VdLiteral::new(VdLiteralData::NaturalNumber("0".to_string()), db);

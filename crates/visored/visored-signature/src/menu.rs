@@ -5,7 +5,8 @@ use visored_term::{
 
 use crate::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
-    prefix_opr::VdBasePrefixOprSignature, separator::base::VdBaseSeparatorSignature,
+    frac::VdBaseFracSignature, prefix_opr::VdBasePrefixOprSignature,
+    separator::base::VdBaseSeparatorSignature, sqrt::VdBaseSqrtSignature,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -81,6 +82,8 @@ pub struct VdSignatureMenu {
     pub int_ge: VdBaseSeparatorSignature,
     pub rat_ge: VdBaseSeparatorSignature,
     pub real_ge: VdBaseSeparatorSignature,
+    // # sqrt
+    pub real_sqrt: VdBaseSqrtSignature,
 }
 
 impl VdSignatureMenu {
@@ -151,71 +154,90 @@ impl VdSignatureMenu {
             int_ge,
             rat_ge,
             real_ge,
+            real_sqrt,
         } = *vd_instantiation_menu(db);
         let pre = VdBasePrefixOprSignature::new;
         let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
         let pow = VdPowerSignature::new;
         Self {
+            // # prefix operators
+            // ## pos
             int_pos: pre(int_pos, int, int),
             rat_pos: pre(rat_pos, rat, rat),
             real_pos: pre(real_pos, real, real),
             complex_pos: pre(complex_pos, complex, complex),
+            // ## neg
             int_neg: pre(int_neg, int, int),
             rat_neg: pre(rat_neg, rat, rat),
             real_neg: pre(real_neg, real, real),
             complex_neg: pre(complex_neg, complex, complex),
+            // # binary operators
+            // ## sub
             int_sub: bin(int_sub, int, int, int),
             rat_sub: bin(rat_sub, rat, rat, rat),
             real_sub: bin(real_sub, real, real, real),
             complex_sub: bin(complex_sub, complex, complex, complex),
+            // ## div
             // TODO: use nzrat, i.e., non-zero rational numbers
             rat_div: bin(rat_div, rat, rat, rat),
             // TODO: use nzreal, i.e., non-zero real numbers
             real_div: bin(real_div, real, real, real),
             // TODO: use nzcomplex, i.e., non-zero complex numbers
             complex_div: bin(complex_div, complex, complex, complex),
+            // # separators
+            // ## add
             nat_add: sep(nat_add, nat, nat),
             int_add: sep(int_add, int, int),
             rat_add: sep(rat_add, rat, rat),
             real_add: sep(real_add, real, real),
             complex_add: sep(complex_add, complex, complex),
+            // ## mul
             nat_mul: sep(nat_mul, nat, nat),
             int_mul: sep(int_mul, int, int),
             rat_mul: sep(rat_mul, rat, rat),
             real_mul: sep(real_mul, real, real),
             complex_mul: sep(complex_mul, complex, complex),
+            // ## power
             nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat, nat, nat, nat),
             int_to_the_power_of_nat: pow(int_to_the_power_of_nat, int, nat, int),
             rat_to_the_power_of_nat: pow(rat_to_the_power_of_nat, rat, nat, rat),
             real_to_the_power_of_nat: pow(real_to_the_power_of_nat, real, nat, real),
             complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat, complex, nat, complex),
+            // ## eq
             nat_eq: sep(nat_eq, nat, nat),
             int_eq: sep(int_eq, int, int),
             rat_eq: sep(rat_eq, rat, rat),
             real_eq: sep(real_eq, real, real),
             complex_eq: sep(complex_eq, complex, complex),
+            // ## ne
             nat_ne: sep(nat_ne, nat, nat),
             int_ne: sep(int_ne, int, int),
             rat_ne: sep(rat_ne, rat, rat),
             real_ne: sep(real_ne, real, real),
             complex_ne: sep(complex_ne, complex, complex),
+            // ## lt
             nat_lt: sep(nat_lt, nat, nat),
             int_lt: sep(int_lt, int, int),
             rat_lt: sep(rat_lt, rat, rat),
             real_lt: sep(real_lt, real, real),
+            // ## gt
             nat_gt: sep(nat_gt, nat, nat),
             int_gt: sep(int_gt, int, int),
             rat_gt: sep(rat_gt, rat, rat),
             real_gt: sep(real_gt, real, real),
+            // ## le
             nat_le: sep(nat_le, nat, nat),
             int_le: sep(int_le, int, int),
             rat_le: sep(rat_le, rat, rat),
             real_le: sep(real_le, real, real),
+            // ## ge
             nat_ge: sep(nat_ge, nat, nat),
             int_ge: sep(int_ge, int, int),
             rat_ge: sep(rat_ge, rat, rat),
             real_ge: sep(real_ge, real, real),
+            // # sqrt
+            real_sqrt: VdBaseSqrtSignature::new(real_sqrt, real, real),
         }
     }
 }

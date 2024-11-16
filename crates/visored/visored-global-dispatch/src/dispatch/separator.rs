@@ -1,6 +1,5 @@
-use crate::menu::VdGlobalDispatchMenu;
-
 use super::*;
+use crate::menu::VdGlobalDispatchMenu;
 use visored_opr::{menu::VdOprMenu, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_term::{menu::VdTypeMenu, ty::VdType};
@@ -104,6 +103,10 @@ impl VdSeparatorGlobalDispatch {
             rat_ge,
             real_ge,
             in_set,
+            real_sqrt,
+            rat_frac,
+            real_frac,
+            complex_frac,
         } = *global_dispatch_menu;
         [
             // ## add
