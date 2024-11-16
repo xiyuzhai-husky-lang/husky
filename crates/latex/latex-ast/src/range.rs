@@ -177,6 +177,7 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 command_path,
                 ref arguments,
             } => todo!(),
+            LxRoseAstData::Environment { .. } => todo!(),
         }
     }
 

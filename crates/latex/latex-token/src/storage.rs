@@ -1,6 +1,6 @@
 use crate::{
-    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxRootTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
-    token::{lisp::LxLispTokenData, root::LxRootTokenData, word::LxWordTokenData, LxTokenData},
+    idx::{LxLispTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
+    token::{lisp::LxLispTokenData, name::LxNameTokenData, root::LxRootTokenData, LxTokenData},
 };
 use crate::{
     idx::{LxMathTokenIdx, LxTokenIdx},
@@ -106,9 +106,9 @@ impl LxTokenStorage {
         &mut self,
         offset_range: TextOffsetRange,
         range: TextRange,
-        token_data: LxWordTokenData,
-    ) -> LxCowordTokenIdx {
-        let idx = LxCowordTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        token_data: LxNameTokenData,
+    ) -> LxNameTokenIdx {
+        let idx = LxNameTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
         self.ranged_tokens
             .push((offset_range, range, token_data.into()));
         idx

@@ -14,10 +14,10 @@ use latex_environment::{
 };
 use latex_math_letter::letter::styled::LxMathLetterStyle;
 use latex_token::{
-    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
+    idx::{LxMathTokenIdx, LxNameTokenIdx, LxTokenIdxRange},
     token::{
         math::{digit::LxMathDigit, LxMathDelimiter},
-        word::LxWordTokenData,
+        name::LxNameTokenData,
     },
 };
 use smallvec::{smallvec, SmallVec};
@@ -59,12 +59,12 @@ pub enum LxMathAstData {
     Environment {
         begin_command_token_idx: LxMathTokenIdx,
         begin_lcurl_token_idx: LxMathTokenIdx,
-        begin_environment_name_token_idx: LxCowordTokenIdx,
+        begin_environment_name_token_idx: LxNameTokenIdx,
         begin_rcurl_token_idx: LxMathTokenIdx,
         asts: LxAstIdxRange,
         end_command_token_idx: LxMathTokenIdx,
         end_lcurl_token_idx: LxMathTokenIdx,
-        end_environment_name_token_idx: LxCowordTokenIdx,
+        end_environment_name_token_idx: LxNameTokenIdx,
         end_rcurl_token_idx: LxMathTokenIdx,
         environment_signature: LxEnvironmentSignature,
     },
@@ -295,7 +295,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        let LxWordTokenData::Word(begin_environment_name) = begin_environment_name_token else {
+        let LxNameTokenData::Word(begin_environment_name) = begin_environment_name_token else {
             todo!()
         };
         let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_math_token() else {
@@ -341,7 +341,7 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        let LxWordTokenData::Word(end_environment_name) = end_environment_name_token else {
+        let LxNameTokenData::Word(end_environment_name) = end_environment_name_token else {
             todo!()
         };
         let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_math_token() else {

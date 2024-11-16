@@ -14,11 +14,11 @@ use latex_command::{
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    idx::{LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
     token::{
-        lisp::LxLispTokenData, math::LxMathTokenData, rose::LxRoseTokenData, word::LxWordTokenData,
+        lisp::LxLispTokenData, math::LxMathTokenData, name::LxNameTokenData, rose::LxRoseTokenData,
     },
 };
 use std::{borrow::BorrowMut, iter::Peekable};
@@ -117,7 +117,7 @@ impl<'a> LxAstParser<'a> {
         self.lexer.next_rose_token()
     }
 
-    pub(crate) fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxWordTokenData)> {
+    pub(crate) fn next_coword_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
         self.lexer.next_coword_token()
     }
 

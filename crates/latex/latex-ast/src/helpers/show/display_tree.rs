@@ -143,6 +143,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
             LxRoseAstData::NewParagraph(_) => format!("{:?} new paragraph", value),
             LxRoseAstData::Delimited { .. } => format!("{:?} delimited", value),
             LxRoseAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
+            LxRoseAstData::Environment { .. } => format!("{:?} environment", value),
         };
         DisplayTree::new(
             value,
