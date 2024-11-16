@@ -14,7 +14,8 @@ use visored_term::menu::{vd_ty_menu, VdTypeMenu};
 
 use crate::dispatch::{
     attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
-    prefix_opr::VdPrefixOprGlobalDispatch, separator::VdSeparatorGlobalDispatch,
+    frac::VdFracGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
+    separator::VdSeparatorGlobalDispatch, sqrt::VdSqrtGlobalDispatch,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -93,6 +94,12 @@ pub struct VdGlobalDispatchMenu {
     pub real_ge: VdSeparatorGlobalDispatch,
     /// ## in
     pub in_set: VdSeparatorGlobalDispatch,
+    /// # sqrt
+    pub real_sqrt: VdSqrtGlobalDispatch,
+    /// # frac
+    pub rat_frac: VdFracGlobalDispatch,
+    pub real_frac: VdFracGlobalDispatch,
+    pub complex_frac: VdFracGlobalDispatch,
 }
 
 #[salsa::tracked(return_ref)]
@@ -163,6 +170,7 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         int_ge,
         rat_ge,
         real_ge,
+        real_sqrt,
     } = *vd_signature_menu(db);
     let pre = |base_opr, signature| VdPrefixOprGlobalDispatch::Base {
         base_opr,
@@ -254,5 +262,11 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         real_ge: sep(VdBaseSeparator::Ge, real_ge),
         // ## in
         in_set: VdSeparatorGlobalDispatch::InSet { expr_ty: prop },
+        // # sqrt
+        real_sqrt: VdSqrtGlobalDispatch::Normal {},
+        // # frac
+        rat_frac: VdFracGlobalDispatch::Normal {},
+        real_frac: VdFracGlobalDispatch::Normal {},
+        complex_frac: VdFracGlobalDispatch::Normal {},
     }
 }

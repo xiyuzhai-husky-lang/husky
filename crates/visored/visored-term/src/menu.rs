@@ -58,6 +58,7 @@ impl VdTypeMenu {
             gt,
             le,
             ge,
+            real_sqrt,
         } = *vd_item_path_menu(db);
 
         let nat = VdType::new_item_path(nat.into(), db);

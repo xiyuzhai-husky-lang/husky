@@ -47,6 +47,7 @@ impl VdItemPathZfcTypeTable {
             gt: gt_path,
             le: le_path,
             ge: ge_path,
+            real_sqrt: real_sqrt_path,
         } = *vd_item_path_menu(db);
         let VdTypeMenu {
             nat,

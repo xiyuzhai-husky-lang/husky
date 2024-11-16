@@ -132,6 +132,7 @@ impl VdMirFuncKeyMenu {
             int_ge,
             rat_ge,
             real_ge,
+            real_sqrt,
         } = *vd_instantiation_menu(db);
         Self {
             int_pos: VdMirFuncKey::NormalBasePrefixOpr(int_pos),

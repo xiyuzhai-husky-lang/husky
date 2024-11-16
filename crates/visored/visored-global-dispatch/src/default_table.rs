@@ -1,7 +1,8 @@
 use crate::{
     dispatch::{
         attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
-        prefix_opr::VdPrefixOprGlobalDispatch, separator::VdSeparatorGlobalDispatch,
+        frac::VdFracGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
+        separator::VdSeparatorGlobalDispatch, sqrt::VdSqrtGlobalDispatch,
     },
     menu::vd_global_dispatch_menu,
 };
@@ -21,6 +22,8 @@ pub struct VdDefaultGlobalDispatchTable {
         FxHashMap<VdBaseBinaryOprKey, VdBinaryOprGlobalDispatch>,
     base_separator_default_dispatch_table: FxHashMap<VdBaseSeparatorKey, VdSeparatorGlobalDispatch>,
     attach_default_dispatch_table: FxHashMap<VdAttachKey, VdAttachGlobalDispatch>,
+    base_sqrt_default_dispatch_table: FxHashMap<VdBaseSqrtKey, VdSqrtGlobalDispatch>,
+    base_frac_default_dispatch_table: FxHashMap<VdBaseFracKey, VdFracGlobalDispatch>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -51,6 +54,17 @@ pub enum VdAttachKey {
     },
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct VdBaseSqrtKey {
+    base_ty: VdType,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct VdBaseFracKey {
+    numerator_ty: VdType,
+    denominator_ty: VdType,
+}
+
 impl VdDefaultGlobalDispatchTable {
     pub fn new(
         base_prefix_opr_default_dispatches: impl IntoIterator<
@@ -63,6 +77,8 @@ impl VdDefaultGlobalDispatchTable {
             Item = (VdBaseSeparatorKey, VdSeparatorGlobalDispatch),
         >,
         attach_default_dispatches: impl IntoIterator<Item = (VdAttachKey, VdAttachGlobalDispatch)>,
+        sqrt_default_dispatches: impl IntoIterator<Item = (VdBaseSqrtKey, VdSqrtGlobalDispatch)>,
+        frac_default_dispatches: impl IntoIterator<Item = (VdBaseFracKey, VdFracGlobalDispatch)>,
     ) -> Self {
         Self {
             base_prefix_opr_default_dispatch_table: base_prefix_opr_default_dispatches
@@ -75,6 +91,8 @@ impl VdDefaultGlobalDispatchTable {
                 .into_iter()
                 .collect(),
             attach_default_dispatch_table: attach_default_dispatches.into_iter().collect(),
+            base_sqrt_default_dispatch_table: sqrt_default_dispatches.into_iter().collect(),
+            base_frac_default_dispatch_table: frac_default_dispatches.into_iter().collect(),
         }
     }
 
@@ -129,6 +147,21 @@ impl VdDefaultGlobalDispatchTable {
             VdAttachGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
                 .into_iter()
                 .map(|(key, dispatch)| (key.into(), dispatch)),
+            VdSqrtGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
+                .into_iter()
+                .map(|(base_ty, dispatch)| (VdBaseSqrtKey { base_ty }, dispatch)),
+            VdFracGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
+                .into_iter()
+                .map(|((numerator_ty, denominator_ty), dispatch)| {
+                    (
+                        VdBaseFracKey {
+                            numerator_ty,
+                            denominator_ty,
+                        }
+                        .into(),
+                        dispatch,
+                    )
+                }),
         )
     }
 }
@@ -183,6 +216,25 @@ impl VdDefaultGlobalDispatchTable {
             .get(&VdAttachKey::Power {
                 base_ty,
                 exponent_ty,
+            })
+            .copied()
+    }
+
+    pub fn sqrt_default_dispatch(&self, base_ty: VdType) -> Option<VdSqrtGlobalDispatch> {
+        self.base_sqrt_default_dispatch_table
+            .get(&VdBaseSqrtKey { base_ty })
+            .copied()
+    }
+
+    pub fn frac_default_dispatch(
+        &self,
+        numerator_ty: VdType,
+        denominator_ty: VdType,
+    ) -> Option<VdFracGlobalDispatch> {
+        self.base_frac_default_dispatch_table
+            .get(&VdBaseFracKey {
+                numerator_ty,
+                denominator_ty,
             })
             .copied()
     }
