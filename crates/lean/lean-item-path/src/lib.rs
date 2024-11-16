@@ -13,6 +13,8 @@ pub enum LnItemPath {
     Complex,
     RingAdd,
     RingMul,
+    RingPos,
+    RingNeg,
     Le,
     Ge,
     Eq,
@@ -27,6 +29,8 @@ impl LnItemPath {
     pub const COMPLEX: Self = Self::Complex;
     pub const RING_ADD: Self = Self::RingAdd;
     pub const RING_MUL: Self = Self::RingMul;
+    pub const RING_POS: Self = Self::RingPos;
+    pub const RING_NEG: Self = Self::RingNeg;
     pub const LE: Self = Self::Le;
     pub const GE: Self = Self::Ge;
     pub const EQ: Self = Self::Eq;
@@ -42,6 +46,8 @@ impl LnItemPath {
             LnItemPath::Complex => "ℂ".to_string(),
             LnItemPath::RingAdd => "+".to_string(),
             LnItemPath::RingMul => "*".to_string(),
+            LnItemPath::RingPos => "+".to_string(),
+            LnItemPath::RingNeg => "-".to_string(),
             LnItemPath::Le => "≤".to_string(),
             LnItemPath::Ge => "≥".to_string(),
             LnItemPath::Eq => "=".to_string(),

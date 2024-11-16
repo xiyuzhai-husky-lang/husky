@@ -66,12 +66,26 @@ impl From<LnMirFuncKey> for LnMirFunc {
             LnMirFuncKey::BinaryOpr { opr, instantiation } => {
                 LnMirFunc::BinaryOpr { opr, instantiation }
             }
+            LnMirFuncKey::PrefixOpr { opr, instantiation } => {
+                LnMirFunc::PrefixOpr { opr, instantiation }
+            }
+            LnMirFuncKey::SuffixOpr { opr, instantiation } => {
+                LnMirFunc::SuffixOpr { opr, instantiation }
+            }
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LnMirFuncKeyMenu {
+    pub int_pos: LnMirFuncKey,
+    pub rat_pos: LnMirFuncKey,
+    pub real_pos: LnMirFuncKey,
+    pub complex_pos: LnMirFuncKey,
+    pub int_neg: LnMirFuncKey,
+    pub rat_neg: LnMirFuncKey,
+    pub real_neg: LnMirFuncKey,
+    pub complex_neg: LnMirFuncKey,
     pub int_sub: LnMirFuncKey,
     pub rat_sub: LnMirFuncKey,
     pub real_sub: LnMirFuncKey,
@@ -109,8 +123,17 @@ pub struct LnMirFuncKeyMenu {
 impl LnMirFuncKeyMenu {
     pub fn new(db: &::salsa::Db) -> Self {
         use LnBinaryOpr::*;
+        use LnPrefixOpr::*;
 
         let LnInstantiationMenu {
+            int_pos,
+            rat_pos,
+            real_pos,
+            complex_pos,
+            int_neg,
+            rat_neg,
+            real_neg,
+            complex_neg,
             int_sub,
             rat_sub,
             real_sub,
@@ -144,8 +167,17 @@ impl LnMirFuncKeyMenu {
             rat_ge,
             real_ge,
         } = *ln_instantiation_menu(db);
+        let p = |opr, instantiation| LnMirFuncKey::PrefixOpr { opr, instantiation };
         let b = |opr, instantiation| LnMirFuncKey::BinaryOpr { opr, instantiation };
         Self {
+            int_pos: p(Pos, int_pos),
+            rat_pos: p(Pos, rat_pos),
+            real_pos: p(Pos, real_pos),
+            complex_pos: p(Pos, complex_pos),
+            int_neg: p(Neg, int_neg),
+            rat_neg: p(Neg, rat_neg),
+            real_neg: p(Neg, real_neg),
+            complex_neg: p(Neg, complex_neg),
             int_sub: b(Sub, int_sub),
             rat_sub: b(Sub, rat_sub),
             real_sub: b(Sub, real_sub),
