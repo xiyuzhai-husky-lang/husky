@@ -6,7 +6,7 @@ use visored_signature::{
         separator::base::VdBaseSeparatorSignature,
     },
 };
-use visored_zfc_ty::menu::{vd_zfc_ty_menu, VdZfcTypeMenu};
+use visored_term::menu::{vd_ty_menu, VdTypeMenu};
 
 use crate::dispatch::{
     attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
@@ -62,7 +62,7 @@ pub struct VdGlobalDispatchMenu {
 
 #[salsa::tracked(return_ref)]
 pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
-    let VdZfcTypeMenu {
+    let VdTypeMenu {
         nat,
         int,
         rat,
@@ -70,7 +70,7 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         complex,
         set,
         prop,
-    } = *vd_zfc_ty_menu(db);
+    } = *vd_ty_menu(db);
     let VdSignatureMenu {
         int_sub,
         rat_sub,

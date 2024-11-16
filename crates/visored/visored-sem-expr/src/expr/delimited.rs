@@ -20,7 +20,7 @@ impl<'a> VdSemExprBuilder<'a> {
         left_delimiter: VdSynLeftDelimiter,
         syn_item: VdSynExprIdx,
         right_delimiter: VdSynRightDelimiter,
-    ) -> (VdSemExprData, VdZfcType) {
+    ) -> (VdSemExprData, VdType) {
         let left_delimiter = match left_delimiter {
             VdSynLeftDelimiter::Base(range, VdBaseLeftDelimiter::Lpar) => {
                 VdSemLeftDelimiter::Base(range, VdBaseLeftDelimiter::Lpar)

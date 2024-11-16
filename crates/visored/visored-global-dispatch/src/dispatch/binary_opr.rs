@@ -2,7 +2,7 @@ use super::*;
 use crate::{default_table::VdBaseBinaryOprKey, menu::VdGlobalDispatchMenu};
 use visored_opr::{menu::VdOprMenu, opr::binary::VdBaseBinaryOpr};
 use visored_signature::signature::binary_opr::base::VdBaseBinaryOprSignature;
-use visored_zfc_ty::{menu::VdZfcTypeMenu, ty::VdZfcType};
+use visored_term::{menu::VdTypeMenu, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdBinaryOprGlobalDispatch {
@@ -14,16 +14,12 @@ pub enum VdBinaryOprGlobalDispatch {
 
 impl VdBinaryOprGlobalDispatch {
     pub fn standard_defaults(
-        zfc_ty_menu: &VdZfcTypeMenu,
+        zfc_ty_menu: &VdTypeMenu,
         vd_opr_menu: &VdOprMenu,
         global_dispatch_menu: &VdGlobalDispatchMenu,
-    ) -> impl IntoIterator<
-        Item = (
-            (VdZfcType, VdBaseBinaryOpr, VdZfcType),
-            VdBinaryOprGlobalDispatch,
-        ),
-    > {
-        let VdZfcTypeMenu {
+    ) -> impl IntoIterator<Item = ((VdType, VdBaseBinaryOpr, VdType), VdBinaryOprGlobalDispatch)>
+    {
+        let VdTypeMenu {
             nat,
             int,
             rat,
@@ -81,7 +77,7 @@ impl VdBinaryOprGlobalDispatch {
         ]
     }
 
-    pub fn expr_ty(self) -> VdZfcType {
+    pub fn expr_ty(self) -> VdType {
         match self {
             VdBinaryOprGlobalDispatch::Normal { signature, .. } => signature.expr_ty(),
         }

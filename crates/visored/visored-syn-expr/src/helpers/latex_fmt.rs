@@ -13,7 +13,7 @@ use expr::VdSynBinaryOpr;
 use latex_token::idx::LxTokenIdxRange;
 use sentence::VdSynSentenceEnd;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_zfc_ty::{menu::vd_zfc_ty_menu, term::literal::VdZfcLiteralData};
+use visored_term::{menu::vd_ty_menu, term::literal::VdLiteralData};
 
 pub struct VdSynExprLaTeXFormatter<'a> {
     db: &'a ::salsa::Db,
@@ -94,7 +94,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
         let db = self.db;
         match self.expr_arena[expr_idx] {
             VdSynExprData::Literal { literal, .. } => match literal.data(db) {
-                VdZfcLiteralData::NaturalNumber(s) => {
+                VdLiteralData::NaturalNumber(s) => {
                     if self
                         .result
                         .chars()
@@ -105,11 +105,11 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                     }
                     self.result.push_str(s);
                 }
-                VdZfcLiteralData::NegativeInteger(_) => todo!(),
-                VdZfcLiteralData::FiniteDecimalRepresentation(_) => {
+                VdLiteralData::NegativeInteger(_) => todo!(),
+                VdLiteralData::FiniteDecimalRepresentation(_) => {
                     todo!()
                 }
-                VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
+                VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },
             VdSynExprData::Letter { letter, .. } => {
                 self.result += &letter.latex_code();
@@ -158,7 +158,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 #[ignore]
 fn latex_fmt_works() {
     // let db = &DB::default();
-    // let menu = vd_zfc_ty_menu(db);
+    // let menu = vd_ty_menu(db);
     // let mut builder = VdSynExprTestBuilder::new(db);
     // let one = builder.new_expr_checked(
     //     VdSynExprData::Literal {

@@ -1,6 +1,6 @@
 use crate::{
-    menu::{vd_zfc_ty_menu, VdZfcTypeMenu},
-    ty::VdZfcType,
+    menu::{vd_ty_menu, VdTypeMenu},
+    ty::VdType,
 };
 use rustc_hash::FxHashMap;
 use visored_item_path::{
@@ -9,11 +9,11 @@ use visored_item_path::{
 };
 
 pub struct VdItemPathZfcTypeTable {
-    tys: FxHashMap<VdItemPath, VdZfcType>,
+    tys: FxHashMap<VdItemPath, VdType>,
 }
 
 impl VdItemPathZfcTypeTable {
-    pub fn new(tys: impl IntoIterator<Item = (VdItemPath, VdZfcType)>) -> Self {
+    pub fn new(tys: impl IntoIterator<Item = (VdItemPath, VdType)>) -> Self {
         Self {
             tys: tys.into_iter().collect(),
         }
@@ -42,7 +42,7 @@ impl VdItemPathZfcTypeTable {
             le: le_path,
             ge: ge_path,
         } = *vd_item_path_menu(db);
-        let VdZfcTypeMenu {
+        let VdTypeMenu {
             nat,
             int,
             rat,
@@ -50,7 +50,7 @@ impl VdItemPathZfcTypeTable {
             complex,
             set,
             prop,
-        } = *vd_zfc_ty_menu(db);
+        } = *vd_ty_menu(db);
         Self::new([
             (nat_path.into(), set),
             (rat_path.into(), set),
@@ -62,7 +62,7 @@ impl VdItemPathZfcTypeTable {
 }
 
 impl std::ops::Index<VdItemPath> for VdItemPathZfcTypeTable {
-    type Output = VdZfcType;
+    type Output = VdType;
     fn index(&self, item_path: VdItemPath) -> &Self::Output {
         &self.tys[&item_path]
     }

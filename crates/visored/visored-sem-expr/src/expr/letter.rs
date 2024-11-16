@@ -17,7 +17,7 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_expr: VdSynExprIdx,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
-    ) -> (VdSemExprData, VdZfcType) {
+    ) -> (VdSemExprData, VdType) {
         let resolution = &self.syn_symbol_resolution_table()[syn_expr];
         let dispatch = match resolution {
             Ok(resolution) => {
@@ -63,16 +63,13 @@ impl<'a> VdSemExprBuilder<'a> {
     fn infer_letter_ty_from_global_resolution(
         &mut self,
         global_resolution: VdLetterGlobalResolution,
-    ) -> VdZfcType {
+    ) -> VdType {
         match global_resolution {
             VdLetterGlobalResolution::Item(item_path) => self.item_path_zfc_type_table()[item_path],
         }
     }
 
-    fn infer_letter_ty_from_local_defn(
-        &mut self,
-        local_defn: VdSemSymbolLocalDefnIdx,
-    ) -> VdZfcType {
+    fn infer_letter_ty_from_local_defn(&mut self, local_defn: VdSemSymbolLocalDefnIdx) -> VdType {
         self.symbol_local_defn_storage()[local_defn].ty()
     }
 
@@ -82,7 +79,7 @@ impl<'a> VdSemExprBuilder<'a> {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
         dispatch: &VdSemLetterDispatch,
-    ) -> VdZfcTerm {
+    ) -> VdTerm {
         match *dispatch {
             VdSemLetterDispatch::Global(global_resolution) => self
                 .calc_letter_term_from_global_resolution(
@@ -103,10 +100,10 @@ impl<'a> VdSemExprBuilder<'a> {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
         global_resolution: VdLetterGlobalResolution,
-    ) -> VdZfcTerm {
+    ) -> VdTerm {
         match global_resolution {
             VdLetterGlobalResolution::Item(item_path) => {
-                VdZfcTerm::new_item_path(item_path, self.db())
+                VdTerm::new_item_path(item_path, self.db())
             }
         }
     }
@@ -117,7 +114,7 @@ impl<'a> VdSemExprBuilder<'a> {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
         local_defn: VdSemSymbolLocalDefnIdx,
-    ) -> VdZfcTerm {
+    ) -> VdTerm {
         todo!()
     }
 }

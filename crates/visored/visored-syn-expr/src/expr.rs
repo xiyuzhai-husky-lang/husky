@@ -53,7 +53,7 @@ use visored_opr::{
     precedence::{VdPrecedence, VdPrecedenceRange},
     separator::{VdBaseSeparator, VdSeparatorClass},
 };
-use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
+use visored_term::term::literal::{VdLiteral, VdLiteralData};
 
 /// It's a tree of both form and meaning
 #[salsa::derive_debug_with_db]
@@ -61,7 +61,7 @@ use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
 pub enum VdSynExprData {
     Literal {
         token_idx_range: LxTokenIdxRange,
-        literal: VdZfcLiteral,
+        literal: VdLiteral,
     },
     Letter {
         token_idx_range: LxTokenIdxRange,
@@ -430,10 +430,10 @@ impl VdSynExprData {
                 token_idx_range,
                 literal,
             } => match literal.data(db) {
-                VdZfcLiteralData::NaturalNumber(n) => n.to_string(),
-                VdZfcLiteralData::NegativeInteger(n) => n.to_string(),
-                VdZfcLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
-                VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
+                VdLiteralData::NaturalNumber(n) => n.to_string(),
+                VdLiteralData::NegativeInteger(n) => n.to_string(),
+                VdLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
+                VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },
             VdSynExprData::Letter { letter, .. } => letter.latex_code().to_string(),
             VdSynExprData::BaseOpr { opr } => opr.latex_code().to_string(),

@@ -20,7 +20,7 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_lopd: VdSynExprIdx,
         syn_opr: VdSynBinaryOpr,
         syn_ropd: VdSynExprIdx,
-    ) -> (VdSemExprData, VdZfcType) {
+    ) -> (VdSemExprData, VdType) {
         match syn_opr {
             VdSynBinaryOpr::Base(range, opr) => {
                 self.build_base_binary(syn_lopd, range, opr, syn_ropd)
@@ -35,7 +35,7 @@ impl<'a> VdSemExprBuilder<'a> {
         range: LxTokenIdxRange,
         base_opr: VdBaseBinaryOpr,
         syn_ropd: VdSynExprIdx,
-    ) -> (VdSemExprData, VdZfcType) {
+    ) -> (VdSemExprData, VdType) {
         let opr = VdSemBinaryOpr::Base(range, base_opr);
         let lopd = self.build_expr_entry(syn_lopd);
         let ropd = self.build_expr_entry(syn_ropd);

@@ -4,9 +4,9 @@ use super::*;
 #[salsa::as_id]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VdZfcSymbolicVariable(VdZfcTermId);
+pub struct VdSymbolicVariable(VdTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct VdZfcSymbolicVariableData {
+pub struct VdSymbolicVariableData {
     // Add appropriate fields here
 }

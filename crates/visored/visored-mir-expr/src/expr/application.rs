@@ -4,7 +4,7 @@ use visored_signature::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
     separator::base::VdBaseSeparatorSignature,
 };
-use visored_zfc_ty::instantiation::VdInstantiation;
+use visored_term::instantiation::VdInstantiation;
 
 pub mod menu;
 

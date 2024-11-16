@@ -4,17 +4,17 @@ use super::*;
 #[salsa::as_id]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VdZfcAbstractVariable(VdZfcTermId);
+pub struct VdForAll(VdTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct VdZfcAbstractVariableData {
+pub struct VdForAllData {
     // Add appropriate fields here
 }
 
-impl VdZfcAbstractVariable {
-    pub fn data(self, db: &::salsa::Db) -> &VdZfcAbstractVariableData {
+impl VdForAll {
+    pub fn data(self, db: &::salsa::Db) -> &VdForAllData {
         match self.0.data(db) {
-            VdZfcTermData::AbstractVariable(data) => data,
+            VdTermData::ForAll(data) => data,
             _ => unreachable!(),
         }
     }

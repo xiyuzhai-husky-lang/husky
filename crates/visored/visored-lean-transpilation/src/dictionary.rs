@@ -6,7 +6,7 @@ use rustc_hash::FxHashMap;
 use smallvec::{smallvec, SmallVec};
 use visored_item_path::path::VdItemPath;
 use visored_mir_expr::expr::application::{VdMirFunc, VdMirFuncKey};
-use visored_zfc_ty::instantiation::VdInstantiation;
+use visored_term::instantiation::VdInstantiation;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdLeanDictionary {
