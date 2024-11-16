@@ -10,6 +10,9 @@ pub enum VdTraitItemPath {
     RingPos,
     RingNeg,
     Eq,
+    Ne,
+    Lt,
+    Gt,
     Le,
     Ge,
 }
@@ -23,6 +26,9 @@ impl VdTraitItemPath {
     pub const RING_POS: Self = VdTraitItemPath::RingPos;
     pub const RING_NEG: Self = VdTraitItemPath::RingNeg;
     pub const EQ: Self = VdTraitItemPath::Eq;
+    pub const NE: Self = VdTraitItemPath::Ne;
+    pub const LT: Self = VdTraitItemPath::Lt;
+    pub const GT: Self = VdTraitItemPath::Gt;
     pub const LE: Self = VdTraitItemPath::Le;
     pub const GE: Self = VdTraitItemPath::Ge;
 }

@@ -50,6 +50,22 @@ pub struct VdInstantiationMenu {
     pub rat_eq: VdInstantiation,
     pub real_eq: VdInstantiation,
     pub complex_eq: VdInstantiation,
+    /// ## ne
+    pub nat_ne: VdInstantiation,
+    pub int_ne: VdInstantiation,
+    pub rat_ne: VdInstantiation,
+    pub real_ne: VdInstantiation,
+    pub complex_ne: VdInstantiation,
+    /// ## lt
+    pub nat_lt: VdInstantiation,
+    pub int_lt: VdInstantiation,
+    pub rat_lt: VdInstantiation,
+    pub real_lt: VdInstantiation,
+    /// ## gt
+    pub nat_gt: VdInstantiation,
+    pub int_gt: VdInstantiation,
+    pub rat_gt: VdInstantiation,
+    pub real_gt: VdInstantiation,
     /// ## le
     pub nat_le: VdInstantiation,
     pub int_le: VdInstantiation,
@@ -84,6 +100,9 @@ impl VdInstantiationMenu {
             ring_pos,
             ring_neg,
             eq,
+            ne,
+            lt,
+            gt,
             le,
             ge,
         } = *vd_item_path_menu(db);
@@ -134,6 +153,19 @@ impl VdInstantiationMenu {
         let rat_eq = VdInstantiation::new(db, eq.into(), smallvec![rat]);
         let real_eq = VdInstantiation::new(db, eq.into(), smallvec![real]);
         let complex_eq = VdInstantiation::new(db, eq.into(), smallvec![complex]);
+        let nat_ne = VdInstantiation::new(db, ne.into(), smallvec![nat]);
+        let int_ne = VdInstantiation::new(db, ne.into(), smallvec![int]);
+        let rat_ne = VdInstantiation::new(db, ne.into(), smallvec![rat]);
+        let real_ne = VdInstantiation::new(db, ne.into(), smallvec![real]);
+        let complex_ne = VdInstantiation::new(db, ne.into(), smallvec![complex]);
+        let nat_lt = VdInstantiation::new(db, lt.into(), smallvec![nat]);
+        let int_lt = VdInstantiation::new(db, lt.into(), smallvec![int]);
+        let rat_lt = VdInstantiation::new(db, lt.into(), smallvec![rat]);
+        let real_lt = VdInstantiation::new(db, lt.into(), smallvec![real]);
+        let nat_gt = VdInstantiation::new(db, gt.into(), smallvec![nat]);
+        let int_gt = VdInstantiation::new(db, gt.into(), smallvec![int]);
+        let rat_gt = VdInstantiation::new(db, gt.into(), smallvec![rat]);
+        let real_gt = VdInstantiation::new(db, gt.into(), smallvec![real]);
         let nat_le = VdInstantiation::new(db, le.into(), smallvec![nat]);
         let int_le = VdInstantiation::new(db, le.into(), smallvec![int]);
         let rat_le = VdInstantiation::new(db, le.into(), smallvec![rat]);
@@ -175,6 +207,19 @@ impl VdInstantiationMenu {
             rat_eq,
             real_eq,
             complex_eq,
+            nat_ne,
+            int_ne,
+            rat_ne,
+            real_ne,
+            complex_ne,
+            nat_lt,
+            int_lt,
+            rat_lt,
+            real_lt,
+            nat_gt,
+            int_gt,
+            rat_gt,
+            real_gt,
             nat_le,
             int_le,
             rat_le,

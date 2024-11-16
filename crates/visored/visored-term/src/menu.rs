@@ -52,6 +52,9 @@ impl VdTypeMenu {
             ring_pos,
             ring_neg,
             eq,
+            ne,
+            lt,
+            gt,
             le,
             ge,
         } = *vd_item_path_menu(db);
