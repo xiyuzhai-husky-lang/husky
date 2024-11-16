@@ -5,11 +5,11 @@ mod tests;
 use super::*;
 use latex_command::path::LxCommandPath;
 use latex_token::{
-    data::lisp::{
+    idx::LxLispTokenIdx,
+    token::lisp::{
         delimiter::LxLispDelimiter, ident::LxLispIdent, label::LxLispXlabel,
         literal::LxLispLiteral, LxLispTokenData,
     },
-    idx::LxLispTokenIdx,
 };
 use smallvec::{smallvec, SmallVec};
 

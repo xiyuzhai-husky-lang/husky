@@ -1,5 +1,6 @@
 pub mod lisp;
 pub mod math;
+pub mod root;
 pub mod rose;
 #[cfg(test)]
 pub mod tests;
@@ -31,11 +32,11 @@ use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
-    data::{
+    storage::LxTokenStorage,
+    token::{
         math::{LxMathDelimiter, LxMathTokenData},
         rose::LxRoseTokenData,
     },
-    storage::LxTokenStorage,
 };
 
 #[enum_class::from_variants]

@@ -14,13 +14,13 @@ use latex_command::{
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::{
-        coword::LxCowordTokenData, lisp::LxLispTokenData, math::LxMathTokenData,
-        rose::LxRoseTokenData,
-    },
     idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
     lexer::LxLexer,
     storage::LxTokenStorage,
+    token::{
+        coword::LxCowordTokenData, lisp::LxLispTokenData, math::LxMathTokenData,
+        rose::LxRoseTokenData,
+    },
 };
 use std::{borrow::BorrowMut, iter::Peekable};
 

@@ -8,8 +8,8 @@ use latex_ast::ast::math::{
 use latex_command::path::LxCommandPath;
 use latex_math_letter::letter::LxMathLetter;
 use latex_token::{
-    data::math::digit::LxMathDigit,
     idx::{LxMathTokenIdx, LxTokenIdxRange},
+    token::math::digit::LxMathDigit,
 };
 use salsa::DebugWithDb;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
