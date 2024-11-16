@@ -1,11 +1,11 @@
 use crate::{
     ast::{
-        lisp::{helpers::LxLispAstChild, LxLispAstIdx},
+        lisp::{helpers::LxLispAstChild, LxLispAstData, LxLispAstIdx},
         math::{
-            helpers::LxMathAstChild, LxMathAstIdx, LxMathAstIdxRange, LxMathCommandArgument,
-            LxMathCommandArgumentData,
+            helpers::LxMathAstChild, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange,
+            LxMathCommandArgumentData, LxMathCompleteCommandArgument,
         },
-        rose::{helpers::LxRoseAstChild, LxRoseAstIdx},
+        rose::{helpers::LxRoseAstChild, LxRoseAstData, LxRoseAstIdx},
         LxAstArenaRef, LxAstIdx, LxAstIdxRange,
     },
     range::LxAstTokenIdxRangeMap,
@@ -43,7 +43,10 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 /// # actions
 impl<'a> LxAstDisplayTreeBuilder<'a> {
     pub fn render_all(&self, asts: LxAstIdxRange) -> DisplayTree {
-        DisplayTree::new(self.input.to_string(), self.render_asts(asts))
+        DisplayTree::new(
+            format!("{:?} all input", self.input),
+            self.render_asts(asts),
+        )
     }
 
     pub fn render_asts(&self, asts: LxAstIdxRange) -> Vec<DisplayTree> {
@@ -65,7 +68,18 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let offset_range = self
             .token_storage
             .token_idx_range_offset_range(ast_token_idx_range);
-        let value = self.input[offset_range].to_string();
+        let value = &self.input[offset_range];
+        let value = match self.ast_arena.math()[ast] {
+            LxMathAstData::TextEdit { .. } => format!("{:?} text edit", value),
+            LxMathAstData::Attach { .. } => format!("{:?} attach", value),
+            LxMathAstData::Delimited { .. } => format!("{:?} delimited", value),
+            LxMathAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
+            LxMathAstData::Environment { .. } => format!("{:?} environment", value),
+            LxMathAstData::PlainLetter(_, _) => format!("{:?} plain letter", value),
+            LxMathAstData::StyledLetter { .. } => format!("{:?} styled letter", value),
+            LxMathAstData::Punctuation(_, _) => format!("{:?} punctuation", value),
+            LxMathAstData::Digit(_, _) => format!("{:?} digit", value),
+        };
         DisplayTree::new(
             value,
             self.render_math_children(self.ast_arena.math()[ast].children()),
@@ -91,7 +105,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
-    fn render_math_command_argument(&self, argument: LxMathCommandArgument) -> DisplayTree {
+    fn render_math_command_argument(&self, argument: LxMathCompleteCommandArgument) -> DisplayTree {
         match argument.data() {
             LxMathCommandArgumentData::Math(range) => {
                 let value = if range.is_empty() {
@@ -120,7 +134,16 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let offset_range = self
             .token_storage
             .token_idx_range_offset_range(ast_token_idx_range);
-        let value = self.input[offset_range].to_string();
+        let value = &self.input[offset_range];
+        let value = match self.ast_arena.rose()[ast] {
+            LxRoseAstData::TextEdit { .. } => format!("{:?} text edit", value),
+            LxRoseAstData::Word(_, _) => format!("{:?} word", value),
+            LxRoseAstData::Punctuation(_, _) => format!("{:?} punctuation", value),
+            LxRoseAstData::Math { .. } => format!("{:?} math", value),
+            LxRoseAstData::NewParagraph(_) => format!("{:?} new paragraph", value),
+            LxRoseAstData::Delimited { .. } => format!("{:?} delimited", value),
+            LxRoseAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
+        };
         DisplayTree::new(
             value,
             self.ast_arena.rose()[ast]
@@ -149,7 +172,15 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let offset_range = self
             .token_storage
             .token_idx_range_offset_range(ast_token_idx_range);
-        let value = self.input[offset_range].to_string();
+        let value = &self.input[offset_range];
+        let value = match self.ast_arena.lisp()[ast] {
+            LxLispAstData::Literal(_, _) => format!("{:?} literal", value),
+            LxLispAstData::Ident(_, _) => format!("{:?} ident", value),
+            LxLispAstData::Xlabel(_, _) => format!("{:?} xlabel", value),
+            LxLispAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
+            LxLispAstData::Parenthesized { .. } => format!("{:?} parenthesized", value),
+            LxLispAstData::BoxedList { .. } => format!("{:?} boxed list", value),
+        };
         DisplayTree::new(
             value,
             self.render_lisp_children(self.ast_arena.lisp()[ast].children()),

@@ -2,7 +2,7 @@ use super::*;
 
 pub enum LxMathAstChild {
     Ast(LxMathAstIdx),
-    CommandArgument(LxMathCommandArgument),
+    CommandArgument(LxMathCompleteCommandArgument),
 }
 
 impl LxMathAstData {
