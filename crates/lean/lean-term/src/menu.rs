@@ -24,9 +24,11 @@ impl LnTermMenu {
             ring_mul,
             ring_pos,
             ring_neg,
+            field_div,
             le,
             ge,
             eq,
+            real_sqrt,
         } = *ln_item_path_menu(db);
         Self {
             nat: LnTerm::new_item_path(nat),

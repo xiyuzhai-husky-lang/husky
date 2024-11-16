@@ -6,7 +6,7 @@ use crate::{
     tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
 
-pub struct LeanHirExprBuilder<'db> {
+pub struct LnMirExprBuilder<'db> {
     db: &'db ::salsa::Db,
     expr_arena: LnMirExprArena,
     stmt_arena: LnMirStmtArena,
@@ -14,7 +14,7 @@ pub struct LeanHirExprBuilder<'db> {
     item_defn_arena: LnItemDefnArena,
 }
 
-impl<'db> LeanHirExprBuilder<'db> {
+impl<'db> LnMirExprBuilder<'db> {
     pub fn new(db: &'db ::salsa::Db) -> Self {
         Self {
             db,
@@ -26,7 +26,7 @@ impl<'db> LeanHirExprBuilder<'db> {
     }
 }
 
-impl<'db> LeanHirExprBuilder<'db> {
+impl<'db> LnMirExprBuilder<'db> {
     pub fn db(&self) -> &'db ::salsa::Db {
         self.db
     }
@@ -43,7 +43,7 @@ impl<'db> LeanHirExprBuilder<'db> {
     }
 }
 
-impl<'db> LeanHirExprBuilder<'db> {
+impl<'db> LnMirExprBuilder<'db> {
     pub fn alloc_expr(&mut self, data: LnMirExprData) -> LnMirExprIdx {
         self.expr_arena.alloc_one(data)
     }

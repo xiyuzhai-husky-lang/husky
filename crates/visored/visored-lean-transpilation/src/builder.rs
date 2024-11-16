@@ -1,6 +1,6 @@
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
-    builder::LeanHirExprBuilder,
+    builder::LnMirExprBuilder,
     expr::{LnMirExprArena, LnMirExprData},
     item_defn::{def::LnMirDefBody, LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::LnMirStmtArena,
@@ -18,7 +18,7 @@ use visored_mir_expr::{
 use crate::{dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler};
 
 pub struct VdLeanTranspilationBuilder<'a> {
-    lean_hir_expr_builder: LeanHirExprBuilder<'a>,
+    lean_hir_expr_builder: LnMirExprBuilder<'a>,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
@@ -48,7 +48,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         dictionary: &'a VdLeanDictionary,
     ) -> Self {
         Self {
-            lean_hir_expr_builder: LeanHirExprBuilder::new(db),
+            lean_hir_expr_builder: LnMirExprBuilder::new(db),
             expr_arena,
             stmt_arena,
             dictionary,
@@ -84,7 +84,7 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
 }
 
 impl<'db> Deref for VdLeanTranspilationBuilder<'db> {
-    type Target = LeanHirExprBuilder<'db>;
+    type Target = LnMirExprBuilder<'db>;
 
     fn deref(&self) -> &Self::Target {
         &self.lean_hir_expr_builder
