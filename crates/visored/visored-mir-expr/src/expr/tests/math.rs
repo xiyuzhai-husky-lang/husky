@@ -16,4 +16,17 @@ fn basic_to_vd_mir_works() {
             └─ 1
         "#]],
     );
+    t(
+        "1",
+        &expect![[r#"
+            1
+        "#]],
+    );
+    t(
+        "-1",
+        &expect![[r#"
+            prefix opr
+            └─ 1
+        "#]],
+    );
 }
