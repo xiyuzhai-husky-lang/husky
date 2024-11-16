@@ -45,7 +45,7 @@ use visored_syn_expr::{
     stmt::VdSynStmtArena,
     test_helpers::example::VdSynExprExample,
 };
-use visored_zfc_ty::ty::table::VdItemPathZfcTypeTable;
+use visored_term::ty::table::VdItemPathZfcTypeTable;
 
 pub struct VdSemExprExample {
     pub input: String,

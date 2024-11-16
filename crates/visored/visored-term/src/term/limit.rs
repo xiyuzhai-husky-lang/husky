@@ -4,17 +4,17 @@ use super::*;
 #[salsa::as_id]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VdZfcLimit(VdZfcTermId);
+pub struct VdLimit(VdTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct VdZfcLimitData {
+pub struct VdLimitData {
     // Add appropriate fields here
 }
 
-impl VdZfcLimit {
-    pub fn data(self, db: &::salsa::Db) -> &VdZfcLimitData {
+impl VdLimit {
+    pub fn data(self, db: &::salsa::Db) -> &VdLimitData {
         match self.0.data(db) {
-            VdZfcTermData::Limit(data) => data,
+            VdTermData::Limit(data) => data,
             _ => unreachable!(),
         }
     }

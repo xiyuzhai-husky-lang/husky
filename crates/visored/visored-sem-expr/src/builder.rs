@@ -11,10 +11,10 @@ use visored_syn_expr::{
     stmt::{VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
-use visored_zfc_ty::{
-    menu::{vd_zfc_ty_menu, VdZfcTypeMenu},
-    term::VdZfcTerm,
-    ty::{table::VdItemPathZfcTypeTable, VdZfcType},
+use visored_term::{
+    menu::{vd_ty_menu, VdTypeMenu},
+    term::VdTerm,
+    ty::{table::VdItemPathZfcTypeTable, VdType},
 };
 
 use crate::{
@@ -51,7 +51,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_stmt_arena: VdSynStmtArenaRef<'a>,
     syn_division_arena: VdSynDivisionArenaRef<'a>,
     syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
-    zfc_ty_menu: &'a VdZfcTypeMenu,
+    zfc_ty_menu: &'a VdTypeMenu,
     item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
     default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
     expr_arena: VdSemExprArena,
@@ -95,7 +95,7 @@ impl<'a> VdSemExprBuilder<'a> {
             syn_division_arena,
             symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
             syn_symbol_resolution_table,
-            zfc_ty_menu: vd_zfc_ty_menu(db),
+            zfc_ty_menu: vd_ty_menu(db),
             item_path_zfc_ty_table,
             default_global_dispatch_table,
             expr_arena: VdSemExprArena::default(),
@@ -160,7 +160,7 @@ impl<'a> VdSemExprBuilder<'a> {
         self.default_global_dispatch_table
     }
 
-    pub(crate) fn zfc_ty_menu(&self) -> &'a VdZfcTypeMenu {
+    pub(crate) fn zfc_ty_menu(&self) -> &'a VdTypeMenu {
         self.zfc_ty_menu
     }
 
@@ -198,7 +198,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.symbol_local_defn_storage.set_defns(defns);
     }
 
-    pub(crate) fn set_local_defn_ty(&mut self, local_defn: VdSemSymbolLocalDefnIdx, ty: VdZfcType) {
+    pub(crate) fn set_local_defn_ty(&mut self, local_defn: VdSemSymbolLocalDefnIdx, ty: VdType) {
         self.symbol_local_defn_storage
             .set_local_defn_ty(local_defn, ty);
     }
@@ -252,7 +252,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.division_arena.alloc_one(data)
     }
 
-    pub(crate) fn infer_expr_term(&mut self, expr: VdSemExprIdx) -> VdZfcTerm {
+    pub(crate) fn infer_expr_term(&mut self, expr: VdSemExprIdx) -> VdTerm {
         let term = self.calc_expr_term(expr);
         self.expr_arena.update(expr, |entry| entry.set_term(term));
         term

@@ -14,7 +14,7 @@ keywords.workspace = true
 [dependencies]
 salsa.workspace = true
 # visored
-visored-zfc-ty.workspace = true
+visored-term.workspace = true
 
 [lints]
 workspace = true

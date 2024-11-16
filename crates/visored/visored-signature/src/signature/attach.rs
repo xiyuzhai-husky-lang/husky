@@ -5,7 +5,7 @@ pub enum VdAttachSignature {
     Power(VdPowerSignature),
 }
 impl VdAttachSignature {
-    pub fn expr_ty(self) -> VdZfcType {
+    pub fn expr_ty(self) -> VdType {
         match self {
             VdAttachSignature::Power(signature) => signature.expr_ty(),
         }
@@ -15,17 +15,17 @@ impl VdAttachSignature {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdPowerSignature {
     instantiation: VdInstantiation,
-    base_ty: VdZfcType,
-    exponent_ty: VdZfcType,
-    expr_ty: VdZfcType,
+    base_ty: VdType,
+    exponent_ty: VdType,
+    expr_ty: VdType,
 }
 
 impl VdPowerSignature {
     pub fn new(
         instantiation: VdInstantiation,
-        base_ty: VdZfcType,
-        exponent_ty: VdZfcType,
-        expr_ty: VdZfcType,
+        base_ty: VdType,
+        exponent_ty: VdType,
+        expr_ty: VdType,
     ) -> Self {
         Self {
             instantiation,
@@ -41,15 +41,15 @@ impl VdPowerSignature {
         self.instantiation
     }
 
-    pub fn base_ty(self) -> VdZfcType {
+    pub fn base_ty(self) -> VdType {
         self.base_ty
     }
 
-    pub fn exponent_ty(self) -> VdZfcType {
+    pub fn exponent_ty(self) -> VdType {
         self.exponent_ty
     }
 
-    pub fn expr_ty(self) -> VdZfcType {
+    pub fn expr_ty(self) -> VdType {
         self.expr_ty
     }
 }

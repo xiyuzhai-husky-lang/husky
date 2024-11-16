@@ -8,7 +8,7 @@ use visored_sem_expr::{
     sentence::{VdSemSentenceData, VdSemSentenceIdx, VdSemSentenceIdxRange},
     stmt::{VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
-use visored_zfc_ty::ty::VdZfcType;
+use visored_term::ty::VdType;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdMirStmtData {
@@ -18,7 +18,7 @@ pub enum VdMirStmtData {
     },
     LetPlaceholder {
         pattern: VdMirPattern,
-        ty: VdZfcType,
+        ty: VdType,
     },
     LetAssigned {
         pattern: VdMirPattern,

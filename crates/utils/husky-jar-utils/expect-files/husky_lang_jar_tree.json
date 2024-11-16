@@ -1186,7 +1186,7 @@
     "visored-item-path",
     "visored-opr",
     "visored-signature",
-    "visored-zfc-ty"
+    "visored-term"
   ],
   "visored-item-path": [],
   "visored-lean-transpilation": [
@@ -1205,7 +1205,7 @@
     "visored-sem-expr",
     "visored-signature",
     "visored-syn-expr",
-    "visored-zfc-ty"
+    "visored-term"
   ],
   "visored-mir-expr": [
     "husky-coword",
@@ -1218,7 +1218,7 @@
     "visored-sem-expr",
     "visored-signature",
     "visored-syn-expr",
-    "visored-zfc-ty"
+    "visored-term"
   ],
   "visored-opr": [],
   "visored-sem-expr": [
@@ -1231,11 +1231,11 @@
     "visored-opr",
     "visored-signature",
     "visored-syn-expr",
-    "visored-zfc-ty"
+    "visored-term"
   ],
   "visored-signature": [
     "visored-item-path",
-    "visored-zfc-ty"
+    "visored-term"
   ],
   "visored-syn-expr": [
     "husky-coword",
@@ -1244,9 +1244,9 @@
     "latex-environment",
     "visored-item-path",
     "visored-opr",
-    "visored-zfc-ty"
+    "visored-term"
   ],
-  "visored-zfc-ty": [
+  "visored-term": [
     "visored-item-path"
   ]
 }

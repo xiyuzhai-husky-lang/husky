@@ -1,6 +1,6 @@
 use crate::{default_table::VdAttachKey, menu::VdGlobalDispatchMenu};
 use visored_signature::signature::attach::VdAttachSignature;
-use visored_zfc_ty::{instantiation::VdInstantiation, menu::VdZfcTypeMenu, ty::VdZfcType};
+use visored_term::{instantiation::VdInstantiation, menu::VdTypeMenu, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdAttachGlobalDispatch {
@@ -9,10 +9,10 @@ pub enum VdAttachGlobalDispatch {
 
 impl VdAttachGlobalDispatch {
     pub fn standard_defaults<'db>(
-        zfc_ty_menu: &'db VdZfcTypeMenu,
+        zfc_ty_menu: &'db VdTypeMenu,
         global_dispatch_menu: &'db VdGlobalDispatchMenu,
     ) -> impl IntoIterator<Item = (VdAttachKey, VdAttachGlobalDispatch)> {
-        let VdZfcTypeMenu {
+        let VdTypeMenu {
             nat,
             int,
             rat,
@@ -41,7 +41,7 @@ impl VdAttachGlobalDispatch {
         ]
     }
 
-    pub fn expr_ty(self) -> VdZfcType {
+    pub fn expr_ty(self) -> VdType {
         match self {
             VdAttachGlobalDispatch::Normal { signature } => signature.expr_ty(),
         }

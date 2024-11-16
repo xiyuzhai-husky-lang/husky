@@ -27,7 +27,7 @@ visored-item-path.workspace = true
 visored-sem-expr.workspace = true
 visored-signature.workspace = true
 visored-opr.workspace = true
-visored-zfc-ty.workspace = true
+visored-term.workspace = true
 # utils
 husky-tree-utils = { workspace = true, optional = true }
 

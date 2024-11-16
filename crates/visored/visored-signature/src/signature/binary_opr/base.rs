@@ -3,17 +3,17 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdBaseBinaryOprSignature {
     pub instantiation: VdInstantiation,
-    pub lopr_ty: VdZfcType,
-    pub ropr_ty: VdZfcType,
-    pub expr_ty: VdZfcType,
+    pub lopr_ty: VdType,
+    pub ropr_ty: VdType,
+    pub expr_ty: VdType,
 }
 
 impl VdBaseBinaryOprSignature {
     pub fn new(
         instantiation: VdInstantiation,
-        lopr_ty: VdZfcType,
-        ropr_ty: VdZfcType,
-        expr_ty: VdZfcType,
+        lopr_ty: VdType,
+        ropr_ty: VdType,
+        expr_ty: VdType,
     ) -> Self {
         Self {
             instantiation,
@@ -29,15 +29,15 @@ impl VdBaseBinaryOprSignature {
         self.instantiation
     }
 
-    pub fn lopr_ty(self) -> VdZfcType {
+    pub fn lopr_ty(self) -> VdType {
         self.lopr_ty
     }
 
-    pub fn ropr_ty(self) -> VdZfcType {
+    pub fn ropr_ty(self) -> VdType {
         self.ropr_ty
     }
 
-    pub fn expr_ty(self) -> VdZfcType {
+    pub fn expr_ty(self) -> VdType {
         self.expr_ty
     }
 }

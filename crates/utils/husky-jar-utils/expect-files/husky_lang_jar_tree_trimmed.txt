@@ -207,14 +207,14 @@
         "visored-syn-expr",
     },
     "visored-signature": {
-        "visored-zfc-ty",
+        "visored-term",
     },
     "visored-syn-expr": {
         "latex-ast",
         "visored-opr",
-        "visored-zfc-ty",
+        "visored-term",
     },
-    "visored-zfc-ty": {
+    "visored-term": {
         "visored-item-path",
     },
 }

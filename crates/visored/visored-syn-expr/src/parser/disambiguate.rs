@@ -22,7 +22,7 @@ use visored_opr::{
     precedence::VdPrecedence,
     separator::VdBaseSeparator,
 };
-use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
+use visored_term::term::literal::{VdLiteral, VdLiteralData};
 
 #[derive(Debug)]
 pub enum DisambiguatedAst {
@@ -179,10 +179,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 }
                 let expr_data = VdSynExprData::Literal {
                     token_idx_range: LxTokenIdxRange::new_closed(*first_token_idx, *last_token_idx),
-                    literal: VdZfcLiteral::new(
-                        VdZfcLiteralData::NaturalNumber(s),
-                        self.builder.db(),
-                    ),
+                    literal: VdLiteral::new(VdLiteralData::NaturalNumber(s), self.builder.db()),
                 };
                 DisambiguatedAst::Expr(expr_data, VdSynExprClass::ATOM)
             }

@@ -15,11 +15,11 @@ use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, letter::VdSemLetterDispatch,
     separated_list::VdSemSeparatedListDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
-use visored_zfc_ty::term::literal::VdZfcLiteral;
+use visored_term::term::literal::VdLiteral;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VdMirExprData {
-    Literal(VdZfcLiteral),
+    Literal(VdLiteral),
     Variable(VdMirSymbolLocalDefnIdx),
     Application {
         function: VdMirFunc,

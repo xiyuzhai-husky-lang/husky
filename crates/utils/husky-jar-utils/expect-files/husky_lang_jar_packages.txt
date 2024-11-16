@@ -1325,7 +1325,7 @@
         dependencies: [
             "visored-opr",
             "visored-signature",
-            "visored-zfc-ty",
+            "visored-term",
         ],
     },
     JarPackageSummary {
@@ -1335,11 +1335,11 @@
     JarPackageSummary {
         name: "visored-signature",
         dependencies: [
-            "visored-zfc-ty",
+            "visored-term",
         ],
     },
     JarPackageSummary {
-        name: "visored-zfc-ty",
+        name: "visored-term",
         dependencies: [
             "visored-item-path",
         ],
@@ -1357,7 +1357,7 @@
             "visored-item-path",
             "visored-mir-expr",
             "visored-opr",
-            "visored-zfc-ty",
+            "visored-term",
             "husky-coword",
             "latex-ast",
             "latex-command",
@@ -1378,7 +1378,7 @@
             "visored-opr",
             "visored-sem-expr",
             "visored-signature",
-            "visored-zfc-ty",
+            "visored-term",
             "husky-coword",
             "latex-ast",
             "latex-command",
@@ -1400,7 +1400,7 @@
             "visored-opr",
             "visored-signature",
             "visored-syn-expr",
-            "visored-zfc-ty",
+            "visored-term",
             "husky-coword",
             "latex-command",
             "latex-environment",
@@ -1415,7 +1415,7 @@
             "latex-command",
             "latex-environment",
             "visored-opr",
-            "visored-zfc-ty",
+            "visored-term",
             "husky-coword",
             "latex-command",
             "visored-item-path",

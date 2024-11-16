@@ -8,7 +8,7 @@ use lean_term::term::literal::{LnLiteral, LnLiteralData};
 use visored_mir_expr::expr::{
     application::VdMirFunc, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange,
 };
-use visored_zfc_ty::term::literal::{VdZfcLiteral, VdZfcLiteralData};
+use visored_term::term::literal::{VdLiteral, VdLiteralData};
 
 impl VdTranspileToLean<LnMirExprIdx> for VdMirExprIdx {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnMirExprIdx {
@@ -55,14 +55,14 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
 }
 
 #[salsa::tracked]
-fn to_lean_literal(db: &salsa::Db, literal: VdZfcLiteral) -> LnLiteral {
+fn to_lean_literal(db: &salsa::Db, literal: VdLiteral) -> LnLiteral {
     let data = match literal.data(db) {
-        VdZfcLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
-        VdZfcLiteralData::NegativeInteger(_) => todo!(),
-        VdZfcLiteralData::FiniteDecimalRepresentation(_) => {
+        VdLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
+        VdLiteralData::NegativeInteger(_) => todo!(),
+        VdLiteralData::FiniteDecimalRepresentation(_) => {
             todo!()
         }
-        VdZfcLiteralData::SpecialConstant(vd_zfc_special_constant) => todo!(),
+        VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };
     LnLiteral::new(data, db)
 }

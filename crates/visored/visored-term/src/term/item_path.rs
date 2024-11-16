@@ -4,21 +4,21 @@ use super::*;
 #[salsa::as_id]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VdZfcItemPath(VdZfcTermId);
+pub struct VdItemPathTerm(VdTermId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct VdZfcItemPathData {
+pub struct VdItemPathTermData {
     item_path: VdItemPath,
 }
 
-impl VdZfcItemPathData {
+impl VdItemPathTermData {
     pub fn item_path(&self) -> VdItemPath {
         self.item_path
     }
 }
 
-impl VdZfcTerm {
+impl VdTerm {
     pub fn new_item_path(item_path: VdItemPath, db: &::salsa::Db) -> Self {
-        VdZfcItemPath(VdZfcTermId::new(db, VdZfcItemPathData { item_path }.into())).into()
+        VdItemPathTerm(VdTermId::new(db, VdItemPathTermData { item_path }.into())).into()
     }
 }

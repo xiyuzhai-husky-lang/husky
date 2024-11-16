@@ -32,7 +32,7 @@ impl VdSemSymbolLocalDefnStorage {
         self.defn_arena = unsafe { VdSemSymbolLocalDefnArena::new_ext(defns) };
     }
 
-    pub(crate) fn set_local_defn_ty(&mut self, local_defn: VdSemSymbolLocalDefnIdx, ty: VdZfcType) {
+    pub(crate) fn set_local_defn_ty(&mut self, local_defn: VdSemSymbolLocalDefnIdx, ty: VdType) {
         self.defn_arena.update(local_defn, |data| data.set_ty(ty));
     }
 }

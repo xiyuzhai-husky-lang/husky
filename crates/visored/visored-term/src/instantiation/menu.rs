@@ -1,13 +1,13 @@
 use super::*;
 use crate::{
-    menu::{vd_zfc_ty_menu, VdZfcTypeMenu},
-    term::menu::{vd_zfc_term_menu, VdZfcTermMenu},
+    menu::{vd_ty_menu, VdTypeMenu},
+    term::menu::{vd_term_menu, VdTermMenu},
 };
 use smallvec::{smallvec, SmallVec};
 use visored_item_path::menu::{vd_item_path_menu, VdItemPathMenu};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdZfcInstantiationMenu {
+pub struct VdInstantiationMenu {
     /// # binary operators
     /// ## sub
     pub int_sub: VdInstantiation,
@@ -51,7 +51,7 @@ pub struct VdZfcInstantiationMenu {
     pub real_ge: VdInstantiation,
 }
 
-impl VdZfcInstantiationMenu {
+impl VdInstantiationMenu {
     pub fn new(db: &salsa::Db) -> Self {
         let VdItemPathMenu {
             set,
@@ -74,7 +74,7 @@ impl VdZfcInstantiationMenu {
             le,
             ge,
         } = *vd_item_path_menu(db);
-        let VdZfcTermMenu {
+        let VdTermMenu {
             zero,
             one,
             two,
@@ -83,7 +83,7 @@ impl VdZfcInstantiationMenu {
             rat,
             real,
             complex,
-        } = *vd_zfc_term_menu(db);
+        } = *vd_term_menu(db);
         let int_sub = VdInstantiation::new(db, ring_add.into(), smallvec![int, int]);
         let rat_sub = VdInstantiation::new(db, ring_add.into(), smallvec![rat, rat]);
         let real_sub = VdInstantiation::new(db, ring_add.into(), smallvec![real, real]);
@@ -159,6 +159,6 @@ impl VdZfcInstantiationMenu {
 }
 
 #[salsa::tracked(return_ref)]
-pub fn vd_zfc_instantiation_menu(db: &::salsa::Db) -> VdZfcInstantiationMenu {
-    VdZfcInstantiationMenu::new(db)
+pub fn vd_instantiation_menu(db: &::salsa::Db) -> VdInstantiationMenu {
+    VdInstantiationMenu::new(db)
 }

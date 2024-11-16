@@ -1,5 +1,5 @@
 use super::*;
-use visored_zfc_ty::instantiation::menu::{vd_zfc_instantiation_menu, VdZfcInstantiationMenu};
+use visored_term::instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdMirFuncKeyMenu {
@@ -50,7 +50,7 @@ pub struct VdMirFuncKeyMenu {
 
 impl VdMirFuncKeyMenu {
     pub fn new(db: &::salsa::Db) -> Self {
-        let VdZfcInstantiationMenu {
+        let VdInstantiationMenu {
             int_sub,
             rat_sub,
             real_sub,
@@ -83,7 +83,7 @@ impl VdMirFuncKeyMenu {
             int_ge,
             rat_ge,
             real_ge,
-        } = *vd_zfc_instantiation_menu(db);
+        } = *vd_instantiation_menu(db);
         Self {
             int_sub: VdMirFuncKey::NormalBaseBinaryOpr(int_sub),
             rat_sub: VdMirFuncKey::NormalBaseBinaryOpr(rat_sub),

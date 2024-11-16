@@ -2,19 +2,17 @@ use crate::*;
 use dictionary::item_path::VdItemPathTranslation;
 use lean_mir_expr::expr::{LnMirExprData, LnMirExprIdx};
 use lean_term::ty::LnType;
-use visored_zfc_ty::ty::{VdZfcType, VdZfcTypeData};
+use visored_term::ty::{VdType, VdTypeData};
 
-pub enum VdZfcTypeLeanTranspilation {
+pub enum VdTypeLeanTranspilation {
     Type(LnMirExprIdx),
 }
 
-impl VdTranspileToLean<VdZfcTypeLeanTranspilation> for VdZfcType {
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> VdZfcTypeLeanTranspilation {
+impl VdTranspileToLean<VdTypeLeanTranspilation> for VdType {
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> VdTypeLeanTranspilation {
         let db = builder.db();
         if self.refinements(db).is_empty() {
-            VdZfcTypeLeanTranspilation::Type(
-                builder.build_ln_ty_from_vd_zfc_ty_without_refinements(self),
-            )
+            VdTypeLeanTranspilation::Type(builder.build_ln_ty_from_vd_ty_without_refinements(self))
         } else {
             todo!()
         }
@@ -22,10 +20,10 @@ impl VdTranspileToLean<VdZfcTypeLeanTranspilation> for VdZfcType {
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
-    fn build_ln_ty_from_vd_zfc_ty_without_refinements(&mut self, ty: VdZfcType) -> LnMirExprIdx {
+    fn build_ln_ty_from_vd_ty_without_refinements(&mut self, ty: VdType) -> LnMirExprIdx {
         debug_assert!(ty.refinements(self.db()).is_empty());
         let data = match ty.data(self.db()) {
-            VdZfcTypeData::ItemPath(path) => {
+            VdTypeData::ItemPath(path) => {
                 let Some(translation) = self.dictionary().item_path_translation(path) else {
                     todo!()
                 };
