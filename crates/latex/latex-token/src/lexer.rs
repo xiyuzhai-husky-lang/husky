@@ -1,12 +1,16 @@
 use crate::{
-    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRootTokenIdx, LxRoseTokenIdx},
     storage::LxTokenStorage,
-    stream::{code::LxCodeTokenStream, math::LxMathTokenStream, rose::LxRoseTokenStream},
+    stream::{
+        lisp::LxLispTokenStream, math::LxMathTokenStream, root::LxRootTokenStream,
+        rose::LxRoseTokenStream, word::LxWordTokenStream,
+    },
     token::{
-        coword::LxCowordTokenData,
         lisp::LxLispTokenData,
         math::{LxMathTokenData, LxMathTokenError},
+        root::LxRootTokenData,
         rose::LxRoseTokenData,
+        word::LxWordTokenData,
     },
 };
 use husky_coword::Coword;
@@ -114,7 +118,7 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
-    pub fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxCowordTokenData)> {
+    pub fn next_coword_token(&mut self) -> Option<(LxCowordTokenIdx, LxWordTokenData)> {
         let (offset_range, range, token_data) = self.next_coword_token_aux()?;
         Some((
             self.storage
@@ -123,7 +127,7 @@ impl<'a> LxLexer<'a> {
         ))
     }
 
-    fn next_coword_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxCowordTokenData)> {
+    fn next_coword_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxWordTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
@@ -135,10 +139,10 @@ impl<'a> LxLexer<'a> {
                 //     LxCodeTokenError::UnexpectedNewParagraph,
                 // ))
             } else {
-                self.next_code_token_data()
+                self.next_word_token_data()
             }
         } else {
-            self.next_code_token_data()
+            self.next_word_token_data()
         }?;
         let end_offset = self.chars.current_offset();
         let range = TextRange {
@@ -178,6 +182,29 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
+    pub fn next_root_token(&mut self) -> Option<(LxRootTokenIdx, LxRootTokenData)> {
+        let (offset_range, range, token_data) = self.next_root_token_aux()?;
+        Some((
+            self.storage
+                .alloc_root_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_root_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxRootTokenData)> {
+        self.chars
+            .eat_chars_while(|c| c == ' ' || c == '\n' || c == '\t');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = self.next_root_token_data()?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
         let coword_str_slice = self.chars.next_str_slice_while(|c| c.is_alphanumeric());
         if coword_str_slice.is_empty() {
@@ -186,15 +213,23 @@ impl<'a> LxLexer<'a> {
         Some(Coword::from_ref(self.db, coword_str_slice))
     }
 
+    pub(crate) fn into_word_stream(self) -> LxWordTokenStream<'a> {
+        LxWordTokenStream::new(self)
+    }
+
     pub fn into_math_stream(self) -> LxMathTokenStream<'a> {
         LxMathTokenStream::new(self)
+    }
+
+    pub(crate) fn into_root_stream(self) -> LxRootTokenStream<'a> {
+        LxRootTokenStream::new(self)
     }
 
     pub(crate) fn into_rose_stream(self) -> LxRoseTokenStream<'a> {
         LxRoseTokenStream::new(self)
     }
 
-    pub(crate) fn into_code_stream(self) -> LxCodeTokenStream<'a> {
-        LxCodeTokenStream::new(self)
+    pub(crate) fn into_lisp_stream(self) -> LxLispTokenStream<'a> {
+        LxLispTokenStream::new(self)
     }
 }
