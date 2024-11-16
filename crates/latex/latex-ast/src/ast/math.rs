@@ -14,11 +14,11 @@ use latex_environment::{
 };
 use latex_math_letter::letter::styled::LxMathLetterStyle;
 use latex_token::{
-    data::{
+    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
+    token::{
         coword::LxCowordTokenData,
         math::{digit::LxMathDigit, LxMathDelimiter},
     },
-    idx::{LxCowordTokenIdx, LxMathTokenIdx, LxTokenIdxRange},
 };
 use smallvec::{smallvec, SmallVec};
 

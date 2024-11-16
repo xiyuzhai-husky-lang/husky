@@ -12,7 +12,7 @@ use helpers::LxRoseAstChild;
 use husky_coword::Coword;
 use latex_command::path::LxCommandPath;
 use latex_rose_punctuation::LxRosePunctuation;
-use latex_token::{data::rose::LxRoseTokenData, idx::LxRoseTokenIdx};
+use latex_token::{idx::LxRoseTokenIdx, token::rose::LxRoseTokenData};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]

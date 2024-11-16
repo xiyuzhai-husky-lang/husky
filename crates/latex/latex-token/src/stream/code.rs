@@ -1,4 +1,4 @@
-use crate::{data::coword::LxCowordTokenData, idx::LxCowordTokenIdx, lexer::LxLexer};
+use crate::{idx::LxCowordTokenIdx, lexer::LxLexer, token::coword::LxCowordTokenData};
 
 pub struct LxCodeTokenStream<'a> {
     lexer: LxLexer<'a>,

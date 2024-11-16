@@ -1,13 +1,13 @@
 use crate::{
-    data::{
+    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    storage::LxTokenStorage,
+    stream::{code::LxCodeTokenStream, math::LxMathTokenStream, rose::LxRoseTokenStream},
+    token::{
         coword::LxCowordTokenData,
         lisp::LxLispTokenData,
         math::{LxMathTokenData, LxMathTokenError},
         rose::LxRoseTokenData,
     },
-    idx::{LxCowordTokenIdx, LxLispTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
-    storage::LxTokenStorage,
-    stream::{code::LxCodeTokenStream, math::LxMathTokenStream, rose::LxRoseTokenStream},
 };
 use husky_coword::Coword;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextRange};
