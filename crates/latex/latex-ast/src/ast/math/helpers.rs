@@ -36,6 +36,7 @@ impl LxMathAstData {
                 LxAstIdxRange::Math(asts) => asts.into_iter().map(LxMathAstChild::Ast).collect(),
                 LxAstIdxRange::Rose(asts) => todo!(),
                 LxAstIdxRange::Lisp(asts) => todo!(),
+                LxAstIdxRange::Root(arena_idx_range) => todo!(),
             },
         }
     }

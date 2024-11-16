@@ -105,7 +105,7 @@ impl<'a> LxAstParser<'a> {
     fn parse_rose_ast(&mut self) -> Option<LxRoseAstData> {
         let (token_idx, token) = self.next_rose_token()?;
         match token {
-            LxRoseTokenData::Word(coword) => Some(LxRoseAstData::Word(token_idx, coword)),
+            LxRoseTokenData::Word(word) => Some(LxRoseAstData::Word(token_idx, word)),
             LxRoseTokenData::Command(_) => todo!(),
             LxRoseTokenData::Dollar => self.parse_embedded_math(token_idx),
             LxRoseTokenData::EscapedLpar => todo!(),

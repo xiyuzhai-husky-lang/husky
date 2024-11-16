@@ -5,6 +5,10 @@ use crate::{
             helpers::LxMathAstChild, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange,
             LxMathCommandArgumentData, LxMathCompleteCommandArgument,
         },
+        root::{
+            helpers::LxRootAstChild, LxRootAstData, LxRootAstIdx, LxRootCommandArgumentData,
+            LxRootCompleteCommandArgument,
+        },
         rose::{helpers::LxRoseAstChild, LxRoseAstData, LxRoseAstIdx},
         LxAstArenaRef, LxAstIdx, LxAstIdxRange,
     },
@@ -51,9 +55,55 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
     pub fn render_asts(&self, asts: LxAstIdxRange) -> Vec<DisplayTree> {
         match asts {
+            LxAstIdxRange::Lisp(asts) => self.render_lisp_asts(asts),
             LxAstIdxRange::Math(asts) => self.render_math_asts(asts),
             LxAstIdxRange::Rose(asts) => self.render_rose_asts(asts),
-            LxAstIdxRange::Lisp(asts) => self.render_lisp_asts(asts),
+            LxAstIdxRange::Root(asts) => self.render_root_asts(asts),
+        }
+    }
+
+    fn render_lisp_asts(&self, asts: impl IntoIterator<Item = LxLispAstIdx>) -> Vec<DisplayTree> {
+        asts.into_iter()
+            .map(|ast| self.render_lisp_ast(ast))
+            .collect()
+    }
+
+    fn render_lisp_ast(&self, ast: LxLispAstIdx) -> DisplayTree {
+        let ast_token_idx_range = self.ast_token_idx_range_map[ast];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(ast_token_idx_range);
+        let value = &self.input[offset_range];
+        let value = match self.ast_arena.lisp()[ast] {
+            LxLispAstData::Literal(_, _) => format!("{:?} literal", value),
+            LxLispAstData::Ident(_, _) => format!("{:?} ident", value),
+            LxLispAstData::Xlabel(_, _) => format!("{:?} xlabel", value),
+            LxLispAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
+            LxLispAstData::Parenthesized { .. } => format!("{:?} parenthesized", value),
+            LxLispAstData::BoxedList { .. } => format!("{:?} boxed list", value),
+        };
+        DisplayTree::new(
+            value,
+            self.render_lisp_children(self.ast_arena.lisp()[ast].children()),
+        )
+    }
+
+    fn render_lisp_children(
+        &self,
+        children: impl IntoIterator<Item = LxLispAstChild>,
+    ) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| self.render_lisp_child(child))
+            .collect()
+    }
+
+    fn render_lisp_child(&self, child: LxLispAstChild) -> DisplayTree {
+        match child {
+            LxLispAstChild::LispAst(ast) => self.render_lisp_ast(ast),
+            LxLispAstChild::Item(asts) => {
+                DisplayTree::new("item".to_string(), self.render_lisp_asts(asts.into_iter()))
+            }
         }
     }
 
@@ -162,48 +212,47 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
-    fn render_lisp_asts(&self, asts: impl IntoIterator<Item = LxLispAstIdx>) -> Vec<DisplayTree> {
+    fn render_root_asts(&self, asts: impl IntoIterator<Item = LxRootAstIdx>) -> Vec<DisplayTree> {
         asts.into_iter()
-            .map(|ast| self.render_lisp_ast(ast))
+            .map(|ast| self.render_root_ast(ast))
             .collect()
     }
 
-    fn render_lisp_ast(&self, ast: LxLispAstIdx) -> DisplayTree {
+    fn render_root_ast(&self, ast: LxRootAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let offset_range = self
             .token_storage
             .token_idx_range_offset_range(ast_token_idx_range);
         let value = &self.input[offset_range];
-        let value = match self.ast_arena.lisp()[ast] {
-            LxLispAstData::Literal(_, _) => format!("{:?} literal", value),
-            LxLispAstData::Ident(_, _) => format!("{:?} ident", value),
-            LxLispAstData::Xlabel(_, _) => format!("{:?} xlabel", value),
-            LxLispAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
-            LxLispAstData::Parenthesized { .. } => format!("{:?} parenthesized", value),
-            LxLispAstData::BoxedList { .. } => format!("{:?} boxed list", value),
+        let value = match self.ast_arena.root()[ast] {
+            LxRootAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
+            LxRootAstData::Environment(ref environment_ast_data) => todo!(),
         };
         DisplayTree::new(
             value,
-            self.render_lisp_children(self.ast_arena.lisp()[ast].children()),
+            self.ast_arena.root()[ast]
+                .children()
+                .into_iter()
+                .map(|child| self.render_root_child(child))
+                .collect(),
         )
     }
 
-    fn render_lisp_children(
-        &self,
-        children: impl IntoIterator<Item = LxLispAstChild>,
-    ) -> Vec<DisplayTree> {
-        children
-            .into_iter()
-            .map(|child| self.render_lisp_child(child))
-            .collect()
-    }
-
-    fn render_lisp_child(&self, child: LxLispAstChild) -> DisplayTree {
+    fn render_root_child(&self, child: LxRootAstChild) -> DisplayTree {
         match child {
-            LxLispAstChild::LispAst(ast) => self.render_lisp_ast(ast),
-            LxLispAstChild::Item(asts) => {
-                DisplayTree::new("item".to_string(), self.render_lisp_asts(asts.into_iter()))
+            LxRootAstChild::CommandArgument(argument) => {
+                self.render_root_command_argument(argument)
             }
         }
+    }
+
+    fn render_root_command_argument(&self, argument: LxRootCompleteCommandArgument) -> DisplayTree {
+        let db = self.db;
+        let (value, children) = match argument.data() {
+            LxRootCommandArgumentData::Name(lx_name_token_idx, name) => {
+                (name.data(db).to_string(), vec![])
+            }
+        };
+        DisplayTree::new(value, children)
     }
 }

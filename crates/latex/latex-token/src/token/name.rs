@@ -7,7 +7,7 @@ use latex_rose_punctuation::LxRosePunctuation;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxNameTokenData {
-    Word(Coword),
+    Name(Coword),
     // Command(LxCommandPath),
 }
 

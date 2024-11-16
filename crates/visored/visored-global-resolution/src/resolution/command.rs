@@ -14,6 +14,7 @@ pub enum VdCompleteCommandGlobalResolution {
     Frac,
     Sqrt,
     Text,
+    UsePackage,
     Todo,
 }
 
@@ -21,6 +22,8 @@ pub type VdCompleteCommandGlobalResolutionMap =
     FxHashMap<LxCommandPath, VdCompleteCommandGlobalResolution>;
 
 impl VdCompleteCommandGlobalResolution {
+    // - root
+    pub const USEPACKAGE: Self = Self::UsePackage;
     // - operators
     // -- relations
     pub const EQ: Self = Self::Separator(VdBaseSeparator::Eq);

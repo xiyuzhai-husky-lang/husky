@@ -2,10 +2,13 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxCommandPathMenu {
+    // - general
     pub begin: LxCommandPath,
     pub end: LxCommandPath,
-    // maths
-    // - letter style
+    // - root
+    pub usepackage: LxCommandPath,
+    // - maths
+    // -- letter style
     pub mathbb: LxCommandPath,
     pub mathbf: LxCommandPath,
     pub mathcal: LxCommandPath,
@@ -13,8 +16,8 @@ pub struct LxCommandPathMenu {
     pub mathrm: LxCommandPath,
     pub mathsf: LxCommandPath,
     pub mathscr: LxCommandPath,
-    // - operators
-    // -- relations
+    // -- operators
+    // --- relations
     pub eq: LxCommandPath,
     pub ne: LxCommandPath,
     pub le: LxCommandPath,
@@ -28,24 +31,24 @@ pub struct LxCommandPathMenu {
     pub supseteqq: LxCommandPath,
     pub subsetneq: LxCommandPath,
     pub supsetneq: LxCommandPath,
-    // -- arithmetic
+    // -- arithmetics
     pub int: LxCommandPath,
     pub sum: LxCommandPath,
     pub times: LxCommandPath,
     pub otimes: LxCommandPath,
     pub prod: LxCommandPath,
-    // - extended letters
+    // -- extended letters
     pub alpha: LxCommandPath,
     pub beta: LxCommandPath,
     pub gamma: LxCommandPath,
     pub pi: LxCommandPath,
-    // - functions
+    // --- functions
     pub sin: LxCommandPath,
     pub cos: LxCommandPath,
-    // - layouts
+    // -- layouts
     pub sqrt: LxCommandPath,
     pub frac: LxCommandPath,
-    // - environments
+    // -- environments
     pub text: LxCommandPath,
 }
 
@@ -53,8 +56,13 @@ impl LxCommandPathMenu {
     fn new(db: &salsa::Db) -> Self {
         let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(db, data), db);
         Self {
+            // - general
             begin: p("begin"),
             end: p("end"),
+            // - root
+            usepackage: p("usepackage"),
+            // - maths
+            // ## letter style
             mathbb: p("mathbb"),
             mathbf: p("mathbf"),
             mathcal: p("mathcal"),
@@ -83,12 +91,15 @@ impl LxCommandPathMenu {
             times: p("times"),
             otimes: p("otimes"),
             prod: p("prod"),
+            // -- extended letters
             alpha: p("alpha"),
             beta: p("beta"),
             gamma: p("gamma"),
             pi: p("pi"),
+            // -- functions
             sin: p("sin"),
             cos: p("cos"),
+            // -- layouts
             sqrt: p("sqrt"),
             frac: p("frac"),
             text: p("text"),
