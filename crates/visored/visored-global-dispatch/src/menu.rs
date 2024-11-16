@@ -265,8 +265,12 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         // # sqrt
         real_sqrt: VdSqrtGlobalDispatch::Normal {},
         // # frac
-        rat_frac: VdFracGlobalDispatch::Normal {},
-        real_frac: VdFracGlobalDispatch::Normal {},
-        complex_frac: VdFracGlobalDispatch::Normal {},
+        rat_frac: VdFracGlobalDispatch::Div { signature: rat_div },
+        real_frac: VdFracGlobalDispatch::Div {
+            signature: real_div,
+        },
+        complex_frac: VdFracGlobalDispatch::Div {
+            signature: complex_div,
+        },
     }
 }

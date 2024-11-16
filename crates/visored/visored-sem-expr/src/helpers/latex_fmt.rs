@@ -137,7 +137,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
             VdSemExprData::VariadicArray => todo!(),
             VdSemExprData::LxDelimited { .. } => todo!(),
             VdSemExprData::Delimited { .. } => todo!(),
-            VdSemExprData::Fraction {
+            VdSemExprData::Frac {
                 command_token_idx,
                 denominator_rcurl_token_idx,
                 ..

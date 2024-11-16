@@ -237,6 +237,7 @@ impl VdSignatureMenu {
             rat_ge: sep(rat_ge, rat, rat),
             real_ge: sep(real_ge, real, real),
             // # sqrt
+            // TODO: use nnreal, i.e., non-negative real numbers
             real_sqrt: VdBaseSqrtSignature::new(real_sqrt, real, real),
         }
     }

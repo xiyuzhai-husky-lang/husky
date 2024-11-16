@@ -1,6 +1,7 @@
 pub mod attach;
 pub mod binary;
 pub mod delimited;
+pub mod frac;
 pub mod letter;
 pub mod literal;
 pub mod prefix;
@@ -16,6 +17,7 @@ pub mod variadic_chain;
 use self::{attach::*, binary::*, delimited::*, prefix::*, separated_list::*, suffix::*};
 use crate::*;
 use either::*;
+use frac::VdSemFracDispatch;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
@@ -98,14 +100,15 @@ pub enum VdSemExprData {
         item: VdSemExprIdx,
         right_delimiter: VdSemRightDelimiter,
     },
-    Fraction {
+    Frac {
         command_token_idx: LxMathTokenIdx,
-        numerator_lcurl_token_idx: LxMathTokenIdx,
+        // numerator_lcurl_token_idx: LxMathTokenIdx,
         numerator: VdSemExprIdx,
-        numerator_rcurl_token_idx: LxMathTokenIdx,
-        denominator_lcurl_token_idx: LxMathTokenIdx,
+        // numerator_rcurl_token_idx: LxMathTokenIdx,
+        // denominator_lcurl_token_idx: LxMathTokenIdx,
         denominator: VdSemExprIdx,
         denominator_rcurl_token_idx: LxMathTokenIdx,
+        dispatch: VdSemFracDispatch,
     },
     Sqrt {
         command_token_idx: LxMathTokenIdx,
@@ -236,7 +239,12 @@ impl<'a> VdSemExprBuilder<'a> {
                 numerator,
                 denominator,
                 denominator_rcurl_token_idx,
-            } => todo!(),
+            } => self.build_frac(
+                command_token_idx,
+                numerator,
+                denominator,
+                denominator_rcurl_token_idx,
+            ),
             VdSynExprData::Sqrt {
                 command_token_idx,
                 radicand,
@@ -316,7 +324,7 @@ impl VdSemExprData {
                 }
                 children
             }
-            VdSemExprData::Fraction {
+            VdSemExprData::Frac {
                 numerator,
                 denominator,
                 ..
@@ -371,15 +379,7 @@ impl<'db> VdSemExprBuilder<'db> {
                 item,
                 right_delimiter,
             } => todo!(),
-            VdSemExprData::Fraction {
-                command_token_idx,
-                numerator_lcurl_token_idx,
-                numerator,
-                numerator_rcurl_token_idx,
-                denominator_lcurl_token_idx,
-                denominator,
-                denominator_rcurl_token_idx,
-            } => todo!(),
+            VdSemExprData::Frac { .. } => todo!(),
             VdSemExprData::Sqrt {
                 command_token_idx,
                 radicand_lcurl_token_idx,
