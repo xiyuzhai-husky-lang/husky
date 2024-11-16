@@ -29,4 +29,12 @@ fn basic_to_vd_mir_works() {
             └─ 1
         "#]],
     );
+    t(
+        "1<2",
+        &expect![[r#"
+            separator
+            ├─ 1
+            └─ 2
+        "#]],
+    );
 }
