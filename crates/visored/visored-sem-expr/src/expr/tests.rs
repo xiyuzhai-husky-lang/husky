@@ -11,7 +11,7 @@ pub(crate) fn t(input: &str, expected: &Expect) {
 }
 
 #[test]
-pub(crate) fn basic_vd_sem_expr_works() {
+fn basic_vd_sem_expr_works() {
     t(
         "1",
         &expect![[r#"
@@ -58,4 +58,20 @@ pub(crate) fn basic_vd_sem_expr_works() {
             └─ "2" expr.literal
         "#]],
     );
+}
+
+#[test]
+fn frac_vd_sem_expr_works() {
+    t(
+        "\\frac{1}{2}",
+        &expect![[r#"
+            "\\frac{1}{2}" fraction
+            ├─ "1" expr.literal
+            └─ "2" expr.literal
+        "#]],
+    );
+}
+
+fn sqrt_vd_sem_expr_works() {
+    t("\\sqrt{1}", &expect![[r#""#]]);
 }

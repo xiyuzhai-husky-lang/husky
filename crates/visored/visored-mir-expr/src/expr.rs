@@ -145,7 +145,7 @@ impl<'db> VdMirExprBuilder<'db> {
             VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
                 self.build_expr(item)
             }
-            VdSemExprData::Fraction {
+            VdSemExprData::Frac {
                 numerator,
                 denominator,
                 ..

@@ -117,7 +117,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
                 item,
                 right_delimiter,
             } => format!("{:?} delimited", source),
-            VdSemExprData::Fraction {
+            VdSemExprData::Frac {
                 numerator,
                 denominator,
                 ..
