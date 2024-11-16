@@ -17,11 +17,11 @@ pub enum VdSemSeparatedListDispatch {
         signature: VdBaseSeparatorSignature,
     },
     InSet {
-        expr_ty: VdZfcType,
+        expr_ty: VdType,
     },
 }
 impl VdSemSeparatedListDispatch {
-    fn expr_ty(&self) -> VdZfcType {
+    fn expr_ty(&self) -> VdType {
         match *self {
             VdSemSeparatedListDispatch::Normal {
                 base_separator,
@@ -147,9 +147,9 @@ impl<'db> VdSemExprBuilder<'db> {
 
     fn calc_separated_list_dispatch_step(
         &mut self,
-        prev_item_ty: VdZfcType,
+        prev_item_ty: VdType,
         separator: VdSemSeparator,
-        next_item_ty: VdZfcType,
+        next_item_ty: VdType,
     ) -> VdSeparatorGlobalDispatch {
         let base_separator = match separator {
             VdSemSeparator::Base(_, base_separator) => base_separator,

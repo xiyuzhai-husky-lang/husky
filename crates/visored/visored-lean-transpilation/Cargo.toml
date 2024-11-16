@@ -33,7 +33,7 @@ visored-annotation = { workspace = true, optional = true }
 visored-mir-expr.workspace = true
 visored-item-path.workspace = true
 visored-opr.workspace = true
-visored-zfc-ty.workspace = true
+visored-term.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

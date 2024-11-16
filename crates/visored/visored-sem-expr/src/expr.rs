@@ -35,9 +35,9 @@ use visored_opr::{
     separator::{VdBaseSeparator, VdSeparatorClass},
 };
 use visored_syn_expr::expr::{VdSynExprData, VdSynSeparator};
-use visored_zfc_ty::{
-    term::{literal::VdZfcLiteral, VdZfcTerm},
-    ty::VdZfcType,
+use visored_term::{
+    term::{literal::VdLiteral, VdTerm},
+    ty::VdType,
 };
 
 /// It's a tree of both form and meaning
@@ -45,7 +45,7 @@ use visored_zfc_ty::{
 pub enum VdSemExprData {
     Literal {
         token_idx_range: LxTokenIdxRange,
-        literal: VdZfcLiteral,
+        literal: VdLiteral,
     },
     // TODO: split into namespace and variable, using dispatch??
     Letter {
@@ -117,11 +117,11 @@ pub enum VdSemExprData {
 
 pub struct VdSemExprEntry {
     data: VdSemExprData,
-    ty: VdZfcType,
+    ty: VdType,
     /// `None` if not inferred
     ///
     /// Note that all terms are inferred.
-    term: Option<VdZfcTerm>,
+    term: Option<VdTerm>,
     // todo: var deps
 }
 
@@ -132,7 +132,7 @@ pub type VdSemExprArenaRef<'a> = ArenaRef<'a, VdSemExprEntry>;
 pub type VdSemExprMap<T> = ArenaMap<VdSemExprEntry, T>;
 
 impl VdSemExprEntry {
-    pub fn new(data: VdSemExprData, ty: VdZfcType) -> Self {
+    pub fn new(data: VdSemExprData, ty: VdType) -> Self {
         Self {
             data,
             ty,
@@ -144,13 +144,13 @@ impl VdSemExprEntry {
         &self.data
     }
 
-    pub fn ty(&self) -> VdZfcType {
+    pub fn ty(&self) -> VdType {
         self.ty
     }
 }
 
 impl VdSemExprEntry {
-    pub(crate) fn set_term(&mut self, term: VdZfcTerm) {
+    pub(crate) fn set_term(&mut self, term: VdTerm) {
         debug_assert!(self.term.is_none());
         self.term = Some(term);
     }
@@ -327,7 +327,7 @@ impl VdSemExprData {
 }
 
 impl<'db> VdSemExprBuilder<'db> {
-    pub fn calc_expr_term(&mut self, expr: VdSemExprIdx) -> VdZfcTerm {
+    pub fn calc_expr_term(&mut self, expr: VdSemExprIdx) -> VdTerm {
         match *self.expr_arena()[expr].data() {
             VdSemExprData::Literal {
                 token_idx_range,

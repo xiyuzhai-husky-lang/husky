@@ -7,7 +7,7 @@ use expect_test::{expect, Expect};
 use visored_mir_expr::{builder::VdMirExprBuilder, ToVdMir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData};
-use visored_zfc_ty::menu::vd_zfc_ty_menu;
+use visored_term::menu::vd_ty_menu;
 
 #[salsa::db(
     husky_coword::jar::CowordJar,
@@ -19,7 +19,7 @@ use visored_zfc_ty::menu::vd_zfc_ty_menu;
     lean_sem_expr::jar::LnSemExprJar,
     lean_mir_expr::jar::LnMirExprJar,
     visored_item_path::jar::VdItemPathJar,
-    visored_zfc_ty::jar::VdZfcTypeJar,
+    visored_term::jar::VdTermJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
     visored_mir_expr::jar::VdMirExprJar,
@@ -33,7 +33,7 @@ pub(crate) struct DB {}
 // #[test]
 // fn one_add_one_to_lean_works() {
 //     let db = &DB::default();
-//     let menu = vd_zfc_ty_menu(db);
+//     let menu = vd_ty_menu(db);
 //     let mut builder = VdSemExprTestBuilder::new(db);
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {
@@ -65,7 +65,7 @@ pub(crate) struct DB {}
 // #[test]
 // fn one_add_one_eqs_two_to_lean_works() {
 //     let db = &DB::default();
-//     let menu = vd_zfc_ty_menu(db);
+//     let menu = vd_ty_menu(db);
 //     let mut builder = VdSemExprTestBuilder::new(db);
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {

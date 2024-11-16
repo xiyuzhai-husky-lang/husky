@@ -1,5 +1,5 @@
 [package]
-name = "visored-zfc-ty"
+name = "visored-term"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

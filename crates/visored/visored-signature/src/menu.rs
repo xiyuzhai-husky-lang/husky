@@ -1,6 +1,6 @@
-use visored_zfc_ty::{
-    instantiation::menu::{vd_zfc_instantiation_menu, VdZfcInstantiationMenu},
-    menu::{vd_zfc_ty_menu, VdZfcTypeMenu},
+use visored_term::{
+    instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu},
+    menu::{vd_ty_menu, VdTypeMenu},
 };
 
 use crate::signature::{
@@ -53,7 +53,7 @@ pub struct VdSignatureMenu {
 
 impl VdSignatureMenu {
     fn new(db: &::salsa::Db) -> Self {
-        let VdZfcTypeMenu {
+        let VdTypeMenu {
             nat,
             int,
             rat,
@@ -61,8 +61,8 @@ impl VdSignatureMenu {
             complex,
             set,
             prop,
-        } = *vd_zfc_ty_menu(db);
-        let VdZfcInstantiationMenu {
+        } = *vd_ty_menu(db);
+        let VdInstantiationMenu {
             int_sub,
             rat_sub,
             real_sub,
@@ -95,7 +95,7 @@ impl VdSignatureMenu {
             int_ge,
             rat_ge,
             real_ge,
-        } = *vd_zfc_instantiation_menu(db);
+        } = *vd_instantiation_menu(db);
         let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
         let pow = VdPowerSignature::new;

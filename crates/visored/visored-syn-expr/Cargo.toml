@@ -39,7 +39,7 @@ husky-tree-utils.workspace = true
 visored-annotation.workspace = true
 visored-opr.workspace = true
 visored-global-resolution.workspace = true
-visored-zfc-ty.workspace = true
+visored-term.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

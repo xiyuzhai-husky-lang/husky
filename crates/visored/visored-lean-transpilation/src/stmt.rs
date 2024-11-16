@@ -1,11 +1,11 @@
 use crate::*;
 use lean_mir_expr::item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta};
-use ty::VdZfcTypeLeanTranspilation;
+use ty::VdTypeLeanTranspilation;
 use visored_mir_expr::{
     pattern::VdMirPattern,
     stmt::{block::VdMirBlockMeta, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
 };
-use visored_zfc_ty::ty::VdZfcType;
+use visored_term::ty::VdType;
 
 impl VdTranspileToLean<LnItemDefnIdxRange> for VdMirStmtIdxRange {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnItemDefnIdxRange {
@@ -51,7 +51,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     fn build_ln_item_from_vd_let_placeholder_stmt(
         &mut self,
         pattern: &VdMirPattern,
-        ty: VdZfcType,
+        ty: VdType,
     ) -> LnItemDefnData {
         match *pattern {
             VdMirPattern::Letter {
@@ -59,7 +59,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             } => {
                 let ident = self.mangle_symbol(symbol_local_defn);
                 match ty.to_lean(self) {
-                    VdZfcTypeLeanTranspilation::Type(ty) => {
+                    VdTypeLeanTranspilation::Type(ty) => {
                         LnItemDefnData::Variable { symbol: ident, ty }
                     }
                 }

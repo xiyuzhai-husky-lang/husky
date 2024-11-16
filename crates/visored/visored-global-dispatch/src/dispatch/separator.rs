@@ -3,7 +3,7 @@ use crate::menu::VdGlobalDispatchMenu;
 use super::*;
 use visored_opr::{menu::VdOprMenu, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
-use visored_zfc_ty::{menu::VdZfcTypeMenu, ty::VdZfcType};
+use visored_term::{menu::VdTypeMenu, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSeparatorGlobalDispatch {
@@ -12,22 +12,18 @@ pub enum VdSeparatorGlobalDispatch {
         signature: VdBaseSeparatorSignature,
     },
     InSet {
-        expr_ty: VdZfcType,
+        expr_ty: VdType,
     },
 }
 
 impl VdSeparatorGlobalDispatch {
     pub(crate) fn standard_defaults(
-        zfc_ty_menu: &VdZfcTypeMenu,
+        zfc_ty_menu: &VdTypeMenu,
         vd_opr_menu: &VdOprMenu,
         global_dispatch_menu: &VdGlobalDispatchMenu,
-    ) -> impl IntoIterator<
-        Item = (
-            (VdZfcType, VdBaseSeparator, VdZfcType),
-            VdSeparatorGlobalDispatch,
-        ),
-    > {
-        let VdZfcTypeMenu {
+    ) -> impl IntoIterator<Item = ((VdType, VdBaseSeparator, VdType), VdSeparatorGlobalDispatch)>
+    {
+        let VdTypeMenu {
             nat,
             int,
             rat,

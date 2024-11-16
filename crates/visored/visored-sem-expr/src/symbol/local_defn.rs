@@ -7,7 +7,7 @@ use latex_token::idx::LxTokenIdxRange;
 use visored_syn_expr::symbol::local_defn::{
     VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead, VdSynSymbolLocalDefnIdx,
 };
-use visored_zfc_ty::ty::VdZfcType;
+use visored_term::ty::VdType;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSemSymbolLocalDefnData {
@@ -15,7 +15,7 @@ pub struct VdSemSymbolLocalDefnData {
     body: VdSemSymbolLocalDefnBody,
     /// initialized to be `None`
     /// and will be set to the inferred type when the type is inferred
-    ty: Option<VdZfcType>,
+    ty: Option<VdType>,
 }
 
 impl VdSemSymbolLocalDefnData {
@@ -27,7 +27,7 @@ impl VdSemSymbolLocalDefnData {
         &self.body
     }
 
-    pub(crate) fn ty(&self) -> VdZfcType {
+    pub(crate) fn ty(&self) -> VdType {
         self.ty.expect("all local defns' types are inferred")
     }
 }
@@ -54,7 +54,7 @@ impl ToVdSem<VdSemSymbolLocalDefnIdx> for VdSynSymbolLocalDefnIdx {
 }
 
 impl VdSemSymbolLocalDefnData {
-    pub(crate) fn set_ty(&mut self, ty: VdZfcType) {
+    pub(crate) fn set_ty(&mut self, ty: VdType) {
         debug_assert!(self.ty.is_none(), "local defn's type is already inferred");
         self.ty = Some(ty);
     }

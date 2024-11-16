@@ -15,7 +15,7 @@ impl<'a> VdSemExprBuilder<'a> {
         &mut self,
         base: VdSynExprIdx,
         scripts: &[(LxScriptKind, VdSynExprIdx)],
-    ) -> (VdSemExprData, VdZfcType) {
+    ) -> (VdSemExprData, VdType) {
         if let Some(data_and_ty) = self.try_build_power(base, scripts) {
             return data_and_ty;
         }
@@ -26,7 +26,7 @@ impl<'a> VdSemExprBuilder<'a> {
         &mut self,
         syn_base: VdSynExprIdx,
         scripts: &[(LxScriptKind, VdSynExprIdx)],
-    ) -> Option<(VdSemExprData, VdZfcType)> {
+    ) -> Option<(VdSemExprData, VdType)> {
         let [(LxScriptKind::Superscript, syn_exponent)] = *scripts else {
             return None;
         };

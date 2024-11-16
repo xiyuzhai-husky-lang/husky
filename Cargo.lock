@@ -12579,7 +12579,7 @@ dependencies = [
  "salsa",
  "visored-opr",
  "visored-signature",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
@@ -12642,7 +12642,7 @@ dependencies = [
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
@@ -12669,7 +12669,7 @@ dependencies = [
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
@@ -12716,7 +12716,7 @@ dependencies = [
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
@@ -12724,7 +12724,7 @@ name = "visored-signature"
 version = "0.1.0"
 dependencies = [
  "salsa",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
@@ -12755,11 +12755,11 @@ dependencies = [
  "visored-item-path",
  "visored-opr",
  "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
-name = "visored-zfc-ty"
+name = "visored-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
