@@ -72,6 +72,10 @@ fn frac_vd_sem_expr_works() {
     );
 }
 
+#[test]
 fn sqrt_vd_sem_expr_works() {
-    t("\\sqrt{1}", &expect![[r#""#]]);
+    t("\\sqrt{1}", &expect![[r#"
+        "\\sqrt{1}" sqrt
+        └─ "1" expr.literal
+    "#]]);
 }
