@@ -150,14 +150,14 @@ impl VdSignatureMenu {
         let sep = VdBaseSeparatorSignature::new;
         let pow = VdPowerSignature::new;
         Self {
-            int_pos: pre(int_pos, int, int, int),
-            rat_pos: pre(rat_pos, rat, rat, rat),
-            real_pos: pre(real_pos, real, real, real),
-            complex_pos: pre(complex_pos, complex, complex, complex),
-            int_neg: pre(int_neg, int, int, int),
-            rat_neg: pre(rat_neg, rat, rat, rat),
-            real_neg: pre(real_neg, real, real, real),
-            complex_neg: pre(complex_neg, complex, complex, complex),
+            int_pos: pre(int_pos, int, int),
+            rat_pos: pre(rat_pos, rat, rat),
+            real_pos: pre(real_pos, real, real),
+            complex_pos: pre(complex_pos, complex, complex),
+            int_neg: pre(int_neg, int, int),
+            rat_neg: pre(rat_neg, rat, rat),
+            real_neg: pre(real_neg, real, real),
+            complex_neg: pre(complex_neg, complex, complex),
             int_sub: bin(int_sub, int, int, int),
             rat_sub: bin(rat_sub, rat, rat, rat),
             real_sub: bin(real_sub, real, real, real),
