@@ -118,6 +118,20 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
 }
 
 #[test]
+fn relationship_vd_syn_expr_parsing_works() {
+    t(
+        "1<2",
+        &[],
+        &[],
+        &expect![[r#"
+            "1<2" expr.separated_list
+            ├─ "1" expr.literal
+            └─ "2" expr.literal
+        "#]],
+    );
+}
+
+#[test]
 fn xyz_vd_syn_expr_parsing_works() {
     t(
         "x",
