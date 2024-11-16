@@ -36,6 +36,9 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 arguments,
             } => {
                 let value = match function {
+                    VdMirFunc::NormalBasePrefixOpr(signature) => {
+                        format!("prefix opr")
+                    }
                     VdMirFunc::NormalBaseSeparator { .. } => "separator".to_string(),
                     VdMirFunc::NormalBaseBinaryOpr { .. } => "binary opr".to_string(),
                     VdMirFunc::InSet => "in set".to_string(),

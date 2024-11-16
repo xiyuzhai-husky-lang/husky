@@ -7,12 +7,14 @@ use crate::*;
 use application::VdMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use symbol::local_defn::VdMirSymbolLocalDefnIdx;
-use visored_global_dispatch::dispatch::binary_opr::VdBinaryOprGlobalDispatch;
+use visored_global_dispatch::dispatch::{
+    binary_opr::VdBinaryOprGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
+};
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
-    binary::VdSemBinaryDispatch, letter::VdSemLetterDispatch,
+    binary::VdSemBinaryDispatch, letter::VdSemLetterDispatch, prefix::VdSemPrefixDispatch,
     separated_list::VdSemSeparatedListDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_term::term::literal::VdLiteral;
@@ -88,11 +90,17 @@ impl<'db> VdMirExprBuilder<'db> {
                 },
                 arguments: [lopd, ropd].to_vd_mir(self),
             },
-            VdSemExprData::Prefix {
-                opr,
-                opd,
-                ref dispatch,
-            } => todo!(),
+            VdSemExprData::Prefix { opr, opd, dispatch } => match dispatch {
+                VdSemPrefixDispatch::Global(dispatch) => match dispatch {
+                    VdPrefixOprGlobalDispatch::Base {
+                        base_opr,
+                        signature,
+                    } => VdMirExprData::Application {
+                        function: VdMirFunc::NormalBasePrefixOpr(signature),
+                        arguments: [opd].to_vd_mir(self),
+                    },
+                },
+            },
             VdSemExprData::Suffix {
                 opd,
                 opr,
