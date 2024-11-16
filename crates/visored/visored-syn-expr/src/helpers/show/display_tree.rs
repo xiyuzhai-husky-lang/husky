@@ -235,7 +235,9 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     fn ast_offset_range(&self, ast: LxAstIdx) -> TextOffsetRange {
         match ast {
+            LxAstIdx::Lisp(ast) => todo!(),
             LxAstIdx::Math(ast) => self.math_ast_offset_range(ast),
+            LxAstIdx::Root(ast) => todo!(),
             LxAstIdx::Rose(ast) => self.rose_ast_offset_range(ast),
         }
     }
@@ -252,9 +254,10 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     fn asts_offset_range(&self, asts: LxAstIdxRange) -> TextOffsetRange {
         match asts {
-            LxAstIdxRange::Math(asts) => self.math_asts_offset_range(asts),
-            LxAstIdxRange::Rose(asts) => self.rose_asts_offset_range(asts),
             LxAstIdxRange::Lisp(asts) => todo!(),
+            LxAstIdxRange::Math(asts) => self.math_asts_offset_range(asts),
+            LxAstIdxRange::Root(asts) => todo!(),
+            LxAstIdxRange::Rose(asts) => self.rose_asts_offset_range(asts),
         }
     }
 

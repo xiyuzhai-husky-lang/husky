@@ -75,8 +75,12 @@ impl LxCommandSignatureTable {
         use LxCommandParameterMode::*;
 
         let LxCommandPathMenu {
+            // - root
             begin,
             end,
+            usepackage,
+            // - maths
+            // ## letter style
             mathbb,
             mathbf,
             mathcal,
@@ -105,13 +109,16 @@ impl LxCommandSignatureTable {
             prod,
             times,
             otimes,
+            // -- extended letters
             alpha,
             beta,
             gamma,
             pi,
-            sqrt,
+            // -- functions
             sin,
             cos,
+            // -- layouts
+            sqrt,
             frac,
             text,
         } = *command_path_menu(db);
@@ -128,6 +135,8 @@ impl LxCommandSignatureTable {
                 (mathscr, LxMathLetterStyle::MATHSCR),
             ],
             &[
+                // - root
+                (usepackage, &[Name]),
                 // - operators
                 // -- relations
                 (eq, &[]),
@@ -149,13 +158,16 @@ impl LxCommandSignatureTable {
                 (prod, &[]),
                 (times, &[]),
                 (otimes, &[]),
+                // -- extended letters
                 (alpha, &[]),
                 (beta, &[]),
                 (gamma, &[]),
                 (pi, &[]),
+                // -- functions
                 (sqrt, &[Math]),
                 (sin, &[]),
                 (cos, &[]),
+                // -- layouts
                 (frac, &[Math, Math]),
                 (text, &[Rose]),
             ],

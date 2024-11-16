@@ -14,6 +14,6 @@ impl<'a> Iterator for LxWordTokenStream<'a> {
     type Item = (LxNameTokenIdx, LxNameTokenData);
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.lexer.next_coword_token()
+        self.lexer.next_name_token()
     }
 }

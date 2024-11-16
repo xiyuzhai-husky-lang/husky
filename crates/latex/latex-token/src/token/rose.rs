@@ -1,14 +1,13 @@
 use super::*;
 use husky_coword::Coword;
-use latex_command::path::LxCommandPath;
+use latex_command::path::LxCommandName;
 use latex_rose_punctuation::LxRosePunctuation;
 
 #[salsa::derive_debug_with_db]
-#[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxRoseTokenData {
     Word(Coword),
-    Command(LxCommandPath),
+    Command(LxCommandName),
     /// `$`
     Dollar,
     /// `\(`
@@ -28,13 +27,13 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 match self.chars.peek() {
                     Some(c) => match c {
-                        c if c.is_alphabetic() => Some(
-                            LxCommandPath::new_prelude(
+                        c if c.is_alphabetic() => Some(LxRoseTokenData::Command(
+                            LxCommandName::new(
                                 self.next_coword_with(|c| c.is_alphabetic()).unwrap(),
                                 db,
                             )
-                            .into(),
-                        ),
+                            .unwrap(),
+                        )),
                         c if c.is_numeric() => todo!("latex might allow single digit command"),
                         _ => todo!("latex one digit non letter command"),
                     },
@@ -44,17 +43,14 @@ impl<'a> LxLexer<'a> {
             n if n.is_numeric() => {
                 let numeric_str_slice = self.chars.next_numeric_str_slice();
                 match numeric_str_slice.parse::<u32>() {
-                    Ok(number) => Some(number.into()), // ad hoc
+                    Ok(number) => Some(LxRoseTokenData::Nat32(number)),
                     Err(_) => todo!(),
                 }
             }
-            a if a.is_alphabetic() => Some(
-                Coword::from_ref(
-                    self.db,
-                    self.chars.next_str_slice_while(|c| c.is_alphabetic()),
-                )
-                .into(),
-            ),
+            a if a.is_alphabetic() => Some(LxRoseTokenData::Word(Coword::from_ref(
+                self.db,
+                self.chars.next_str_slice_while(|c| c.is_alphabetic()),
+            ))),
             '$' => {
                 self.chars.eat_char();
                 Some(LxRoseTokenData::Dollar)
@@ -192,16 +188,13 @@ fn next_rose_token_data_works() {
         &expect![[r#"
             [
                 LxRoseTokenData::Command(
-                    LxCommandPath {
-                        package: Prelude,
-                        name: LxCommandName::LettersOnly(
-                            LettersOnlyLxCommandName(
-                                Coword(
-                                    "emph",
-                                ),
+                    LxCommandName::LettersOnly(
+                        LettersOnlyLxCommandName(
+                            Coword(
+                                "emph",
                             ),
                         ),
-                    },
+                    ),
                 ),
             ]
         "#]],
@@ -211,16 +204,13 @@ fn next_rose_token_data_works() {
         &expect![[r#"
             [
                 LxRoseTokenData::Command(
-                    LxCommandPath {
-                        package: Prelude,
-                        name: LxCommandName::LettersOnly(
-                            LettersOnlyLxCommandName(
-                                Coword(
-                                    "emph",
-                                ),
+                    LxCommandName::LettersOnly(
+                        LettersOnlyLxCommandName(
+                            Coword(
+                                "emph",
                             ),
                         ),
-                    },
+                    ),
                 ),
             ]
         "#]],

@@ -283,9 +283,10 @@ where
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, R> {
         let (token_range, asts) = self;
         match asts {
-            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
-            LxAstIdxRange::Rose(asts) => Either::Right((token_range, asts).to_vd_syn(builder)),
             LxAstIdxRange::Lisp(asts) => todo!(),
+            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
+            LxAstIdxRange::Root(arena_idx_range) => todo!(),
+            LxAstIdxRange::Rose(asts) => Either::Right((token_range, asts).to_vd_syn(builder)),
         }
     }
 }

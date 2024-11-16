@@ -118,8 +118,8 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
 
-    pub fn next_coword_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
-        let (offset_range, range, token_data) = self.next_coword_token_aux()?;
+    pub fn next_name_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
+        let (offset_range, range, token_data) = self.next_name_token_aux()?;
         Some((
             self.storage
                 .alloc_coword_token(offset_range, range, token_data),
@@ -127,7 +127,7 @@ impl<'a> LxLexer<'a> {
         ))
     }
 
-    fn next_coword_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxNameTokenData)> {
+    fn next_name_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxNameTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
@@ -203,6 +203,13 @@ impl<'a> LxLexer<'a> {
             end: self.chars.current_position(),
         };
         Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
+    pub fn peek_root_token_data(&mut self) -> Option<LxRootTokenData> {
+        let chars = self.chars.clone();
+        let (_, _, token_data) = self.next_root_token_aux()?;
+        self.chars = chars;
+        Some(token_data)
     }
 
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
