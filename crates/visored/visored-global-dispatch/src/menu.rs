@@ -36,6 +36,10 @@ pub struct VdGlobalDispatchMenu {
     pub rat_sub: VdBinaryOprGlobalDispatch,
     pub real_sub: VdBinaryOprGlobalDispatch,
     pub complex_sub: VdBinaryOprGlobalDispatch,
+    /// ## div
+    pub rat_div: VdBinaryOprGlobalDispatch,
+    pub real_div: VdBinaryOprGlobalDispatch,
+    pub complex_div: VdBinaryOprGlobalDispatch,
     /// # separators
     /// ## add
     pub nat_add: VdSeparatorGlobalDispatch,
@@ -193,6 +197,10 @@ pub fn vd_global_dispatch_menu(db: &::salsa::Db) -> VdGlobalDispatchMenu {
         rat_sub: bin(VdBaseBinaryOpr::Sub, rat_sub),
         real_sub: bin(VdBaseBinaryOpr::Sub, real_sub),
         complex_sub: bin(VdBaseBinaryOpr::Sub, complex_sub),
+        // ## div
+        rat_div: bin(VdBaseBinaryOpr::Div, rat_div),
+        real_div: bin(VdBaseBinaryOpr::Div, real_div),
+        complex_div: bin(VdBaseBinaryOpr::Div, complex_div),
         // # separators
         // ## add
         nat_add: sep(VdBaseSeparator::Add, nat_add),
