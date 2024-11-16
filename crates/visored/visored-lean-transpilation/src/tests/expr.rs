@@ -11,6 +11,21 @@ fn t(input: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 #[test]
 fn basic_visored_expr_to_lean_works() {
     t(
+        "1",
+        &expect![[r#"
+            literal: `1`
+        "#]],
+        &expect!["1"],
+    );
+    t(
+        "-1",
+        &expect![[r#"
+            application
+            └─ literal: `1`
+        "#]],
+        &expect!["-1"],
+    );
+    t(
         "1 + 1",
         &expect![[r#"
             application

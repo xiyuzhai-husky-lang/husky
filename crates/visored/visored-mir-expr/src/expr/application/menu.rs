@@ -3,6 +3,15 @@ use visored_term::instantiation::menu::{vd_instantiation_menu, VdInstantiationMe
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdMirFuncKeyMenu {
+    /// # prefix operators
+    pub int_pos: VdMirFuncKey,
+    pub rat_pos: VdMirFuncKey,
+    pub real_pos: VdMirFuncKey,
+    pub complex_pos: VdMirFuncKey,
+    pub int_neg: VdMirFuncKey,
+    pub rat_neg: VdMirFuncKey,
+    pub real_neg: VdMirFuncKey,
+    pub complex_neg: VdMirFuncKey,
     /// # binary operators
     /// ## sub
     pub int_sub: VdMirFuncKey,
@@ -93,6 +102,14 @@ impl VdMirFuncKeyMenu {
             real_ge,
         } = *vd_instantiation_menu(db);
         Self {
+            int_pos: VdMirFuncKey::NormalBasePrefixOpr(int_pos),
+            rat_pos: VdMirFuncKey::NormalBasePrefixOpr(rat_pos),
+            real_pos: VdMirFuncKey::NormalBasePrefixOpr(real_pos),
+            complex_pos: VdMirFuncKey::NormalBasePrefixOpr(complex_pos),
+            int_neg: VdMirFuncKey::NormalBasePrefixOpr(int_neg),
+            rat_neg: VdMirFuncKey::NormalBasePrefixOpr(rat_neg),
+            real_neg: VdMirFuncKey::NormalBasePrefixOpr(real_neg),
+            complex_neg: VdMirFuncKey::NormalBasePrefixOpr(complex_neg),
             int_sub: VdMirFuncKey::NormalBaseBinaryOpr(int_sub),
             rat_sub: VdMirFuncKey::NormalBaseBinaryOpr(rat_sub),
             real_sub: VdMirFuncKey::NormalBaseBinaryOpr(real_sub),
