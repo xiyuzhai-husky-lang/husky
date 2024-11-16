@@ -50,4 +50,12 @@ pub(crate) fn basic_vd_sem_expr_works() {
             └─ "2" expr.literal
         "#]],
     );
+    t(
+        "1<2",
+        &expect![[r#"
+            "1<2" expr.separated_list
+            ├─ "1" expr.literal
+            └─ "2" expr.literal
+        "#]],
+    );
 }
