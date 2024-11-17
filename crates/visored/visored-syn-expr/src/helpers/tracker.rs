@@ -10,23 +10,33 @@ use crate::{
     },
     sentence::VdSynSentenceArena,
 };
+use clause::VdSynClauseIdx;
 use division::VdSynDivisionArena;
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
+use husky_tree_utils::display::DisplayTree;
 use latex_ast::{
-    ast::{parse_latex_input_into_asts, rose::LxRoseAstIdxRange, LxAstArena, LxAstIdxRange},
+    ast::{
+        parse_latex_input_into_asts, root::LxRootAstIdxRange, rose::LxRoseAstIdxRange, LxAstArena,
+        LxAstIdxRange,
+    },
     helpers::tracker::{IsLxAstInput, LxAstTracker},
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
 };
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
-use latex_prelude::mode::LxMode;
+use latex_prelude::{
+    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput},
+    mode::LxMode,
+};
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
+use phrase::VdSynPhraseIdx;
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use sealed::*;
-use stmt::{VdSynStmtArena, VdSynStmtIdxRange};
+use sentence::VdSynSentenceIdx;
+use stmt::{VdSynStmtArena, VdSynStmtIdx, VdSynStmtIdxRange};
 use symbol::{
-    builder::BuildAllVdSynSymbol, local_defn::VdSynSymbolLocalDefnStorage,
+    builder::VdSynSymbolBuilder, local_defn::VdSynSymbolLocalDefnStorage,
     resolution::VdSynSymbolResolutionsTable,
 };
 use visored_annotation::{
@@ -35,7 +45,7 @@ use visored_annotation::{
 };
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 
-pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
+pub struct VdSynTracker<'a, Input: IsVdSynInput<'a>> {
     pub input: Input,
     pub root_mode: LxMode,
     pub annotations: VdAnnotations,
@@ -61,15 +71,12 @@ pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
 }
 
 // #[sealed]
-pub trait IsVdSynExprInput<'a>: IsLxAstInput<'a> {
-    type VdSynExprOutput: std::fmt::Debug + BuildAllVdSynSymbol;
-
-    fn input(&'a self) -> &'a str;
-    fn root_mode(&'a self) -> LxMode;
+pub trait IsVdSynInput<'a>: IsLxAstInput<'a> {
+    type VdSynExprOutput: std::fmt::Debug + IsVdSynOutput;
 }
 
 // #[sealed]
-impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input>
+impl<'a, Input: IsVdSynInput<'a>> VdSynTracker<'a, Input>
 where
     Input: IsLxAstInput<'a>,
     (LxTokenIdxRange, Input::LxAstOutput): ToVdSyn<Input::VdSynExprOutput>,
@@ -150,8 +157,8 @@ where
         }
     }
 
-    pub(crate) fn show_display_tree(&self, db: &salsa::Db) -> String {
-        let builder = VdSynExprDisplayTreeBuilder::new(
+    fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> VdSynExprDisplayTreeBuilder<'b> {
+        VdSynExprDisplayTreeBuilder::new(
             db,
             self.input.input(),
             &self.token_storage,
@@ -169,11 +176,89 @@ where
             &self.sentence_range_map,
             &self.stmt_range_map,
             &self.division_range_map,
-        );
+        )
+    }
+
+    pub(crate) fn show_display_tree(&self, db: &salsa::Db) -> String {
+        let builder = self.display_tree_builder(db);
+        self.output.show(&builder)
+    }
+}
+
+impl<'a> IsVdSynInput<'a> for LxDocumentInput<'a> {
+    type VdSynExprOutput = VdSynStmtIdxRange;
+}
+
+impl<'a> IsVdSynInput<'a> for LxDocumentBodyInput<'a> {
+    type VdSynExprOutput = VdSynStmtIdxRange;
+}
+
+impl<'a> IsVdSynInput<'a> for LxFormulaInput<'a> {
+    type VdSynExprOutput = VdSynExprIdx;
+}
+
+pub trait IsVdSynOutput: Copy {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder);
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String;
+}
+
+impl IsVdSynOutput for VdSynStmtIdxRange {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_stmts(self);
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        builder.render_all_stmts(*self).show(&Default::default())
+    }
+}
+
+impl IsVdSynOutput for VdSynStmtIdx {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_stmt(self);
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        builder.render_stmt(*self).show(&Default::default())
+    }
+}
+
+impl IsVdSynOutput for VdSynSentenceIdx {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_sentence(self);
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        builder.render_sentence(*self).show(&Default::default())
+    }
+}
+
+impl IsVdSynOutput for VdSynClauseIdx {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_clause(self);
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        builder.render_clause(*self).show(&Default::default())
+    }
+}
+
+impl IsVdSynOutput for VdSynPhraseIdx {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_phrase(self);
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
         todo!()
-        // match self.result {
-        //     Left(expr) => builder.render_expr(expr).show(&Default::default()),
-        //     Right(stmts) => builder.render_all_stmts(stmts).show(&Default::default()),
-        // }
+        // builder.render_phrase(*self).show(&Default::default())
+    }
+}
+
+impl IsVdSynOutput for VdSynExprIdx {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_expr(self);
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        builder.render_expr(*self).show(&Default::default())
     }
 }

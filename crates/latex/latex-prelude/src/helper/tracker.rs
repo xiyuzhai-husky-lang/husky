@@ -9,10 +9,10 @@ pub trait IsLxInput<'a>: Copy {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxDocumentTrackerInput<'a>(pub &'a str);
+pub struct LxDocumentInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxInput<'a> for LxDocumentTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxDocumentInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
@@ -23,10 +23,10 @@ impl<'a> IsLxInput<'a> for LxDocumentTrackerInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxDocumentBodyTrackerInput<'a>(pub &'a str);
+pub struct LxDocumentBodyInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxInput<'a> for LxDocumentBodyTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
@@ -37,10 +37,10 @@ impl<'a> IsLxInput<'a> for LxDocumentBodyTrackerInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxFormulaTrackerInput<'a>(pub &'a str);
+pub struct LxFormulaInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxInput<'a> for LxFormulaTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxFormulaInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
@@ -51,10 +51,10 @@ impl<'a> IsLxInput<'a> for LxFormulaTrackerInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxLispTrackerInput<'a>(pub &'a str);
+pub struct LxLispInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxInput<'a> for LxLispTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxLispInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }

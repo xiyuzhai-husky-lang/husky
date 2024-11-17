@@ -16,8 +16,7 @@ use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
     helper::tracker::{
-        IsLxInput, LxDocumentBodyTrackerInput, LxDocumentTrackerInput, LxFormulaTrackerInput,
-        LxLispTrackerInput,
+        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxLispInput,
     },
     mode::LxMode,
 };
@@ -34,9 +33,10 @@ pub struct LxAstTracker<'a, Input: IsLxAstInput<'a>> {
 }
 
 pub trait IsLxAstInput<'a>: IsLxInput<'a> {
-    type LxAstOutput: std::fmt::Debug;
+    type LxAstOutput: std::fmt::Debug + Copy;
 
     fn parse(parser: LxAstParser) -> Self::LxAstOutput;
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String;
 }
 
 impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
@@ -68,7 +68,7 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
 }
 
 impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
-    pub fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> LxAstDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> LxAstDisplayTreeBuilder<'b> {
         LxAstDisplayTreeBuilder::new(
             db,
             self.input.input(),
@@ -77,88 +77,69 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
             &self.ast_token_idx_range_map,
         )
     }
+
+    pub fn show(&self, db: &salsa::Db) -> String {
+        let display_tree_builder = self.display_tree_builder(db);
+        Input::show_lx_ast_output(self.output, display_tree_builder)
+    }
 }
 
-impl<'a> IsLxAstInput<'a> for LxDocumentTrackerInput<'a> {
+impl<'a> IsLxAstInput<'a> for LxDocumentInput<'a> {
     type LxAstOutput = LxRootAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_root_asts()
     }
-}
 
-impl<'a> LxAstTracker<'a, LxDocumentTrackerInput<'a>> {
-    pub fn show(&self, db: &salsa::Db) -> String {
-        let display_tree_builder = self.display_tree_builder(db);
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String {
         format!(
             "{}",
-            DisplayTree::show_trees(
-                &display_tree_builder.render_root_asts(self.output),
-                &Default::default(),
-            )
+            DisplayTree::show_trees(&builder.render_root_asts(output), &Default::default(),)
         )
     }
 }
 
-impl<'a> IsLxAstInput<'a> for LxDocumentBodyTrackerInput<'a> {
+impl<'a> IsLxAstInput<'a> for LxDocumentBodyInput<'a> {
     type LxAstOutput = LxRoseAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_rose_asts()
     }
-}
 
-impl<'a> LxAstTracker<'a, LxDocumentBodyTrackerInput<'a>> {
-    pub fn show(&self, db: &salsa::Db) -> String {
-        let display_tree_builder = self.display_tree_builder(db);
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String {
         format!(
             "{}",
-            DisplayTree::show_trees(
-                &display_tree_builder.render_rose_asts(self.output),
-                &Default::default(),
-            )
+            DisplayTree::show_trees(&builder.render_rose_asts(output), &Default::default(),)
         )
     }
 }
 
-impl<'a> IsLxAstInput<'a> for LxFormulaTrackerInput<'a> {
+impl<'a> IsLxAstInput<'a> for LxFormulaInput<'a> {
     type LxAstOutput = LxMathAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_math_asts()
     }
-}
 
-impl<'a> LxAstTracker<'a, LxFormulaTrackerInput<'a>> {
-    pub fn show(&self, db: &salsa::Db) -> String {
-        let display_tree_builder = self.display_tree_builder(db);
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String {
         format!(
             "{}",
-            DisplayTree::show_trees(
-                &display_tree_builder.render_math_asts(self.output),
-                &Default::default(),
-            )
+            DisplayTree::show_trees(&builder.render_math_asts(output), &Default::default(),)
         )
     }
 }
 
-impl<'a> IsLxAstInput<'a> for LxLispTrackerInput<'a> {
+impl<'a> IsLxAstInput<'a> for LxLispInput<'a> {
     type LxAstOutput = LxLispAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_lisp_asts()
     }
-}
 
-impl<'a> LxAstTracker<'a, LxLispTrackerInput<'a>> {
-    pub fn show(&self, db: &salsa::Db) -> String {
-        let display_tree_builder = self.display_tree_builder(db);
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String {
         format!(
             "{}",
-            DisplayTree::show_trees(
-                &display_tree_builder.render_lisp_asts(self.output),
-                &Default::default(),
-            )
+            DisplayTree::show_trees(&builder.render_lisp_asts(output), &Default::default(),)
         )
     }
 }

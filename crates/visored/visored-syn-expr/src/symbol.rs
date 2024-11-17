@@ -9,6 +9,7 @@ use crate::{
     phrase::VdSynPhraseArenaRef, range::*, sentence::VdSynSentenceArenaRef,
     stmt::VdSynStmtArenaRef, *,
 };
+use helpers::tracker::IsVdSynOutput;
 use latex_math_letter::letter::LxMathLetter;
 use stmt::VdSynStmtIdxRange;
 
@@ -39,7 +40,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
-    t: impl BuildAllVdSynSymbol,
+    t: impl IsVdSynOutput,
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
@@ -61,7 +62,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
         stmt_range_map,
         division_range_map,
     );
-    t.build_all(&mut symbol_builder);
+    t.build_all_symbols(&mut symbol_builder);
     symbol_builder.finish()
 }
 
