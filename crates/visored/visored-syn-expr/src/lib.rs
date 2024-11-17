@@ -14,8 +14,6 @@ pub mod region;
 pub mod sentence;
 pub mod stmt;
 pub mod symbol;
-#[cfg(feature = "test_helpers")]
-pub mod test_helpers;
 #[cfg(test)]
 mod tests;
 

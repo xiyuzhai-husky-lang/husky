@@ -53,6 +53,3 @@ visored-item-path.workspace = true
 
 [lints]
 workspace = true
-
-[features]
-test_helpers = []
