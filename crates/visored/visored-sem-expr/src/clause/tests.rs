@@ -1,12 +1,13 @@
 use super::*;
 use crate::test_helpers::example::VdSemExprExample;
 use expect_test::{expect, Expect};
-use latex_prelude::mode::LxMode;
+use helpers::tracker::VdSemExprTracker;
+use latex_prelude::{helper::tracker::LxDocumentBodyInput, mode::LxMode};
 
 pub(crate) fn t(input: &str, expected: &Expect) {
     let db = &DB::default();
-    let example = VdSemExprExample::new(input, LxMode::Rose, &[], &[], db);
-    expected.assert_eq(&example.show_display_tree(db))
+    let tracker = VdSemExprTracker::new(LxDocumentBodyInput(input), &[], &[], db);
+    expected.assert_eq(&tracker.show_display_tree(db))
 }
 
 #[test]
