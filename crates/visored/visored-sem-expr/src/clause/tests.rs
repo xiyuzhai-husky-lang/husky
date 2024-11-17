@@ -1,5 +1,4 @@
 use super::*;
-use crate::test_helpers::example::VdSemExprExample;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdSemExprTracker;
 use latex_prelude::{helper::tracker::LxDocumentBodyInput, mode::LxMode};

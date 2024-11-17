@@ -12712,7 +12712,6 @@ dependencies = [
  "visored-global-resolution",
  "visored-item-path",
  "visored-opr",
- "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
