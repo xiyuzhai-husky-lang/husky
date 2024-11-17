@@ -183,7 +183,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
+    pub fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
         let sentence_range = self.sentence_range_map[sentence];
         let offset_range = self
             .token_storage
@@ -207,7 +207,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
+    pub fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
         let clause_range = self.clause_range_map[clause];
         let offset_range = self
             .token_storage
