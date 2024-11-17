@@ -70,6 +70,10 @@ impl<'db> VdSynExprBuilder<'db> {
                             LxRosePunctuation::Semicolon => todo!(),
                             LxRosePunctuation::Exclamation => todo!(),
                             LxRosePunctuation::Question => todo!(),
+                            LxRosePunctuation::LeftCurl => todo!(),
+                            LxRosePunctuation::RightCurl => todo!(),
+                            LxRosePunctuation::LeftBox => todo!(),
+                            LxRosePunctuation::RightBox => todo!(),
                         }
                     }
                     LxRoseAstData::Math {
@@ -88,6 +92,7 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::CompleteCommand {
                         command_token_idx,
                         command_path,
+                        options,
                         ref arguments,
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),

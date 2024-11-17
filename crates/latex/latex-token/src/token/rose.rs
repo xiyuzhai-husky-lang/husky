@@ -17,6 +17,13 @@ pub enum LxRoseTokenData {
     Nat32(u32),
     NewParagraph,
     Punctuation(LxRosePunctuation),
+    LeftDelimiter(LxRoseDelimiter),
+    RightDelimiter(LxRoseDelimiter),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum LxRoseDelimiter {
+    Curl,
 }
 
 impl<'a> LxLexer<'a> {
@@ -55,13 +62,20 @@ impl<'a> LxLexer<'a> {
                 self.chars.eat_char();
                 Some(LxRoseTokenData::Dollar)
             }
+            '{' => {
+                self.chars.eat_char();
+                Some(LxRoseTokenData::LeftDelimiter(LxRoseDelimiter::Curl))
+            }
+            '}' => {
+                self.chars.eat_char();
+                Some(LxRoseTokenData::RightDelimiter(LxRoseDelimiter::Curl))
+            }
             c if let Some(punctuation) = LxRosePunctuation::try_from_char(c) => {
                 self.chars.eat_char();
                 Some(LxRoseTokenData::Punctuation(punctuation))
             }
             c => {
                 use husky_print_utils::p;
-
                 p!(c);
                 todo!()
             }

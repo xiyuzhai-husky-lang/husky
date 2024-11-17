@@ -45,7 +45,7 @@ impl<'a> LxAstParser<'a> {
         let asts = match environment_signature.body_mode() {
             LxMode::Root => self.parse_root_asts().into(),
             LxMode::Rose => self.parse_rose_asts().into(),
-            LxMode::Word => todo!(),
+            LxMode::Name => todo!(),
             LxMode::Lisp => todo!(),
             LxMode::Math => todo!(),
         };

@@ -4,5 +4,5 @@ pub enum LxMode {
     Math,
     Root,
     Rose,
-    Word,
+    Name,
 }

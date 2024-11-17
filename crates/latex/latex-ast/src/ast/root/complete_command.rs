@@ -8,7 +8,7 @@ impl<'a> LxAstParser<'a> {
     ) -> LxRootAstData {
         let command_path = command_signature.path();
         let mut arguments: SmallVec<[LxRootCompleteCommandArgument; 2]> = smallvec![];
-        let options = self.parse_options();
+        let options = self.parse_root_options();
         for parameter in command_signature.parameters() {
             arguments.push(self.parse_root_complete_command_argument(parameter.mode()));
         }
@@ -20,7 +20,7 @@ impl<'a> LxAstParser<'a> {
         }
     }
 
-    fn parse_options(&mut self) -> Option<()> {
+    fn parse_root_options(&mut self) -> Option<()> {
         match self.peek_root_token_data()? {
             LxRootTokenData::LeftDelimiter(LxRootDelimiter::Box) => (),
             _ => return None,
