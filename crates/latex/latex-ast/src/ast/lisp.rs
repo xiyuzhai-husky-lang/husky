@@ -55,7 +55,7 @@ pub type LxLispAstIdxRange = ArenaIdxRange<LxLispAstData>;
 pub enum LxLispCommandArgumentData {}
 
 impl<'a> LxAstParser<'a> {
-    pub(super) fn parse_lisp_asts(&mut self) -> LxLispAstIdxRange {
+    pub fn parse_lisp_asts(&mut self) -> LxLispAstIdxRange {
         let mut asts = vec![];
         while let Some(ast) = self.parse_lisp_ast() {
             asts.push(ast)

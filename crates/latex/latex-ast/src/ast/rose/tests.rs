@@ -1,11 +1,12 @@
 use super::*;
-use crate::test_helpers::example::LxAstExample;
+use ast::helpers::tracker::LxAstTracker;
 use expect_test::Expect;
+use latex_prelude::helper::tracker::LxDocumentBodyTrackerInput;
 
 fn t(input: &str, expected: Expect) {
     let db = &DB::default();
-    let example = LxAstExample::new(input, LxMode::Rose, db);
-    let show = example.show(db);
+    let tracker = LxAstTracker::new(LxDocumentBodyTrackerInput(input), db);
+    let show = tracker.show(db);
     expected.assert_eq(&show);
 }
 
@@ -14,7 +15,6 @@ fn parse_basic_rose_latex_input_into_asts_works() {
     t(
         "Hello, world!",
         expect![[r#"
-            "Hello, world!" all input
             ├─ "Hello" word
             ├─ "," punctuation
             ├─ "world" word
@@ -28,7 +28,6 @@ fn parse_rose_with_math_latex_input_into_asts_works() {
     t(
         "Let $x = 1$.",
         expect![[r#"
-            "Let $x = 1$." all input
             ├─ "Let" word
             ├─ "$x = 1$" math
             │ ├─ "x" plain letter
@@ -48,7 +47,6 @@ Violets are blue.
 Code is my passion,
 And testing is too!"#,
         expect![[r#"
-            "Roses are red,\nViolets are blue.\n\nCode is my passion,\nAnd testing is too!" all input
             ├─ "Roses" word
             ├─ "are" word
             ├─ "red" word
@@ -77,17 +75,15 @@ fn parse_rose_equation_environment_into_latex_asts_works() {
     t(
         r#"\begin{equation}x = 1\end{equation}"#,
         expect![[r#"
-        "\\begin{equation}x = 1\\end{equation}" all input
-        └─ "\\begin{equation}x = 1\\end{equation}" environment
-          ├─ "x" plain letter
-          ├─ "=" punctuation
-          └─ "1" digit
-    "#]],
+            └─ "\\begin{equation}x = 1\\end{equation}" environment
+              ├─ "x" plain letter
+              ├─ "=" punctuation
+              └─ "1" digit
+        "#]],
     );
     t(
         "$x-1$",
         expect![[r#"
-            "$x-1$" all input
             └─ "$x-1$" math
               ├─ "x" plain letter
               ├─ "-" punctuation
@@ -97,7 +93,6 @@ fn parse_rose_equation_environment_into_latex_asts_works() {
     t(
         r#"\[x-1\]"#,
         expect![[r#"
-            "\\[x-1\\]" all input
             └─ "\\[x-1\\]" math
               ├─ "x" plain letter
               ├─ "-" punctuation
@@ -107,7 +102,6 @@ fn parse_rose_equation_environment_into_latex_asts_works() {
     t(
         r#"$$x-1$$"#,
         expect![[r#"
-            "$$x-1$$" all input
             └─ "$$x-1$$" math
               ├─ "x" plain letter
               ├─ "-" punctuation
