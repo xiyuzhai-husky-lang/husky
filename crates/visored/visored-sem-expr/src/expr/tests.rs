@@ -2,12 +2,13 @@ use super::*;
 use super::*;
 use crate::test_helpers::example::VdSemExprExample;
 use expect_test::{expect, Expect};
-use latex_prelude::mode::LxMode;
+use helpers::tracker::VdSemExprTracker;
+use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 
 pub(crate) fn t(input: &str, expected: &Expect) {
     let db = &DB::default();
-    let example = VdSemExprExample::new(input, LxMode::Math, &[], &[], db);
-    expected.assert_eq(&example.show_display_tree(db))
+    let tracker = VdSemExprTracker::new(LxFormulaInput(input), &[], &[], db);
+    expected.assert_eq(&tracker.show_display_tree(db))
 }
 
 #[test]

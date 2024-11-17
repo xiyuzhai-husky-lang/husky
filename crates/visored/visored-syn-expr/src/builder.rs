@@ -367,15 +367,15 @@ where
     }
 }
 
-pub trait FromVdSyn<S> {
-    fn from_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self;
+pub trait FromToVdSyn<S> {
+    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self;
 }
 
-impl<S, T> FromVdSyn<S> for T
+impl<S, T> FromToVdSyn<S> for T
 where
     S: ToVdSyn<T>,
 {
-    fn from_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self {
+    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self {
         s.to_vd_syn(builder)
     }
 }
