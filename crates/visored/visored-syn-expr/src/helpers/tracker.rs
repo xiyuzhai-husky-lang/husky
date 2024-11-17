@@ -10,7 +10,7 @@ use crate::{
     },
     sentence::VdSynSentenceArena,
 };
-use builder::FromVdSyn;
+use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
 use division::VdSynDivisionArena;
 use expr::VdSynExprIdx;
@@ -46,7 +46,7 @@ use visored_annotation::{
 };
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 
-pub struct VdSynTracker<'a, Input: IsVdSynInput<'a>> {
+pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,
     pub annotations: VdAnnotations,
     pub default_resolution_table: VdDefaultGlobalResolutionTable,
@@ -71,8 +71,8 @@ pub struct VdSynTracker<'a, Input: IsVdSynInput<'a>> {
 }
 
 // #[sealed]
-pub trait IsVdSynInput<'a>: IsLxAstInput<'a> {
-    type VdSynExprOutput: IsVdSynOutput + FromVdSyn<(LxTokenIdxRange, Self::LxAstOutput)>;
+pub trait IsVdSynExprInput<'a>: IsLxAstInput<'a> {
+    type VdSynExprOutput: IsVdSynOutput + FromToVdSyn<(LxTokenIdxRange, Self::LxAstOutput)>;
 }
 
 pub trait IsVdSynOutput: std::fmt::Debug + Copy {
@@ -81,7 +81,7 @@ pub trait IsVdSynOutput: std::fmt::Debug + Copy {
 }
 
 // #[sealed]
-impl<'a, Input: IsVdSynInput<'a>> VdSynTracker<'a, Input> {
+impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
     // TODO: reuse LxAstTracker
     pub fn new(
         input: Input,
@@ -113,7 +113,7 @@ impl<'a, Input: IsVdSynInput<'a>> VdSynTracker<'a, Input> {
             &annotations,
             &default_resolution_table,
         );
-        let output = FromVdSyn::from_vd_syn((whole_token_range, lx_ast_output), &mut builder);
+        let output = FromToVdSyn::from_to_vd_syn((whole_token_range, lx_ast_output), &mut builder);
         //  = (whole_token_range, asts).to_vd_syn(&mut builder);
         let (
             expr_arena,
@@ -184,15 +184,15 @@ impl<'a, Input: IsVdSynInput<'a>> VdSynTracker<'a, Input> {
     }
 }
 
-impl<'a> IsVdSynInput<'a> for LxDocumentInput<'a> {
+impl<'a> IsVdSynExprInput<'a> for LxDocumentInput<'a> {
     type VdSynExprOutput = VdSynStmtIdxRange;
 }
 
-impl<'a> IsVdSynInput<'a> for LxDocumentBodyInput<'a> {
+impl<'a> IsVdSynExprInput<'a> for LxDocumentBodyInput<'a> {
     type VdSynExprOutput = VdSynStmtIdxRange;
 }
 
-impl<'a> IsVdSynInput<'a> for LxFormulaInput<'a> {
+impl<'a> IsVdSynExprInput<'a> for LxFormulaInput<'a> {
     type VdSynExprOutput = VdSynExprIdx;
 }
 

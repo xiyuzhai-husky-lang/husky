@@ -1,6 +1,6 @@
 use super::*;
 use expect_test::{expect, Expect};
-use helpers::tracker::VdSynTracker;
+use helpers::tracker::VdSynExprTracker;
 use latex_prelude::{helper::tracker::LxDocumentBodyInput, mode::LxMode};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
@@ -13,7 +13,7 @@ fn t(
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 
     let db = &DB::default();
-    let tracker = VdSynTracker::new(
+    let tracker = VdSynExprTracker::new(
         LxDocumentBodyInput(input),
         token_annotations,
         space_annotations,
