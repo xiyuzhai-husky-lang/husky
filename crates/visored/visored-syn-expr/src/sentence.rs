@@ -74,6 +74,9 @@ impl<'db> VdSynExprBuilder<'db> {
                             LxRosePunctuation::RightCurl => todo!(),
                             LxRosePunctuation::LeftBox => todo!(),
                             LxRosePunctuation::RightBox => todo!(),
+                            LxRosePunctuation::EscapedBackslash => todo!(),
+                            LxRosePunctuation::EscapedLcurl => todo!(),
+                            LxRosePunctuation::EscapedRcurl => todo!(),
                         }
                     }
                     LxRoseAstData::Math { .. } => todo!(),

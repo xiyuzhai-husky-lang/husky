@@ -97,6 +97,11 @@ impl<'a> TextCharIter<'a> {
         unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
     }
 
+    pub fn peek_str(&self) -> &'a str {
+        let slice = self.iter.as_slice();
+        unsafe { std::str::from_utf8_unchecked(slice) }
+    }
+
     /// scientific number included
     /// ```
     /// use husky_text_protocol::char::TextCharIter;

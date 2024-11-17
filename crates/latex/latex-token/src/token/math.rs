@@ -51,6 +51,10 @@ pub enum LxMathTokenError {
 impl<'a> LxLexer<'a> {
     pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
         let db = self.db;
+        let s = self.chars.peek_str();
+        if s.starts_with("\\]") || s.starts_with("$") {
+            return None;
+        }
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
@@ -94,7 +98,6 @@ impl<'a> LxLexer<'a> {
                     '^' => Some(LxMathTokenData::Superscript),
                     '{' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl)),
                     '}' => Some(LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl)),
-                    '$' => Some(LxMathTokenData::MathModeEnd),
                     c => {
                         if let Some(letter) = LxMathLetter::try_from_char(c) {
                             Some(LxMathTokenData::Letter(letter))
