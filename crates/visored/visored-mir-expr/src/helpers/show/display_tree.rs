@@ -2,7 +2,7 @@ use husky_tree_utils::display::DisplayTree;
 
 use crate::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
-    stmt::VdMirStmtArenaRef,
+    stmt::{VdMirStmtArenaRef, VdMirStmtIdx, VdMirStmtIdxRange},
 };
 
 pub struct VdMirExprDisplayTreeBuilder<'a> {
@@ -63,5 +63,21 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
             VdMirExprData::ItemPath(item_path) => todo!(),
         };
         DisplayTree::new(value, children)
+    }
+
+    pub fn render_stmts(&self, stmts: VdMirStmtIdxRange) -> Vec<DisplayTree> {
+        stmts
+            .into_iter()
+            .map(|stmt| self.render_stmt(stmt))
+            .collect()
+    }
+
+    pub fn render_stmt(&self, stmt: VdMirStmtIdx) -> DisplayTree {
+        todo!()
+        // let db = self.db;
+        // let (value, children) = match self.stmt_arena[stmt] {
+        //     VdMirStmtData::Let(ref let_stmt) => todo!(),
+        // };
+        // DisplayTree::new(value, children)
     }
 }
