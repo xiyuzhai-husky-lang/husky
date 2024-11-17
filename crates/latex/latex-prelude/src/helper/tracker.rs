@@ -3,7 +3,7 @@ use sealed::*;
 use crate::mode::LxMode;
 
 #[sealed]
-pub trait IsLxTrackerInput<'a>: Copy {
+pub trait IsLxInput<'a>: Copy {
     fn input(self) -> &'a str;
     fn root_mode(self) -> LxMode;
 }
@@ -12,7 +12,7 @@ pub trait IsLxTrackerInput<'a>: Copy {
 pub struct LxDocumentTrackerInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxTrackerInput<'a> for LxDocumentTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxDocumentTrackerInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
@@ -26,7 +26,7 @@ impl<'a> IsLxTrackerInput<'a> for LxDocumentTrackerInput<'a> {
 pub struct LxDocumentBodyTrackerInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxTrackerInput<'a> for LxDocumentBodyTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxDocumentBodyTrackerInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
@@ -40,7 +40,7 @@ impl<'a> IsLxTrackerInput<'a> for LxDocumentBodyTrackerInput<'a> {
 pub struct LxFormulaTrackerInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxTrackerInput<'a> for LxFormulaTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxFormulaTrackerInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
@@ -54,7 +54,7 @@ impl<'a> IsLxTrackerInput<'a> for LxFormulaTrackerInput<'a> {
 pub struct LxLispTrackerInput<'a>(pub &'a str);
 
 #[sealed]
-impl<'a> IsLxTrackerInput<'a> for LxLispTrackerInput<'a> {
+impl<'a> IsLxInput<'a> for LxLispTrackerInput<'a> {
     fn input(self) -> &'a str {
         self.0
     }
