@@ -1,3 +1,5 @@
+pub mod complete_command;
+pub mod environment;
 pub mod helpers;
 #[cfg(test)]
 mod tests;
@@ -212,55 +214,11 @@ impl<'a> LxAstParser<'a> {
             LxCommandSignature::Complete(ref command_signature) => {
                 self.parse_math_complete_command(command_token_idx, command_signature)
             }
-            LxCommandSignature::Begin => self.parse_environment(command_token_idx),
+            LxCommandSignature::Begin => self.parse_math_environment(command_token_idx),
             LxCommandSignature::End => unreachable!(),
             LxCommandSignature::MathLetterStyle(style) => {
                 self.parse_styled_letter(command_token_idx, style)
             }
-        }
-    }
-
-    fn parse_math_complete_command(
-        &mut self,
-        command_token_idx: LxMathTokenIdx,
-        command_signature: &LxCompleteCommandSignature,
-    ) -> LxMathAstData {
-        let command_path = command_signature.path();
-        let mut arguments: SmallVec<[LxMathCompleteCommandArgument; 2]> = smallvec![];
-        for parameter in command_signature.parameters() {
-            arguments.push(self.parse_math_complete_command_argument(parameter.mode()));
-        }
-        LxMathAstData::CompleteCommand {
-            command_token_idx,
-            command_path,
-            arguments,
-        }
-    }
-
-    fn parse_math_complete_command_argument(
-        &mut self,
-        mode: LxCommandParameterMode,
-    ) -> LxMathCompleteCommandArgument {
-        let Some((lcurl_token_idx, LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl))) =
-            self.next_math_token()
-        else {
-            todo!("report errors properly")
-        };
-        let data = match mode {
-            LxCommandParameterMode::Math => LxMathCommandArgumentData::Math(self.parse_math_asts()),
-            LxCommandParameterMode::Rose => LxMathCommandArgumentData::Rose(self.parse_rose_asts()),
-            LxCommandParameterMode::Name => todo!(),
-            LxCommandParameterMode::SingleLetter => todo!(),
-        };
-        let Some((rcurl_token_idx, LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl))) =
-            self.next_math_token()
-        else {
-            todo!("report error properly")
-        };
-        LxMathCompleteCommandArgument {
-            lcurl_token_idx,
-            data,
-            rcurl_token_idx,
         }
     }
 
@@ -294,94 +252,6 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::MathModeEnd => todo!(),
         }
     }
-
-    fn parse_environment(&mut self, begin_command_token_idx: LxMathTokenIdx) -> LxMathAstData {
-        let Some((begin_lcurl_token_idx, begin_lcurl_token)) = self.next_math_token() else {
-            todo!()
-        };
-        match begin_lcurl_token {
-            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => {}
-            _ => todo!(),
-        };
-        let Some((begin_environment_name_token_idx, begin_environment_name_token)) =
-            self.next_name_token()
-        else {
-            todo!()
-        };
-        let LxNameTokenData::Name(begin_environment_name) = begin_environment_name_token else {
-            todo!()
-        };
-        let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_math_token() else {
-            todo!()
-        };
-        match begin_rcurl_token {
-            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
-            _ => todo!(),
-        };
-        let begin_environment_name = LxEnvironmentName::new(begin_environment_name);
-        let Some(environment_signature) = self
-            .environment_signature_table()
-            .signature(begin_environment_name)
-        else {
-            todo!()
-        };
-        if !environment_signature.allowed_in_math() {
-            todo!()
-        }
-        let asts = match environment_signature.body_mode() {
-            LxMode::Math => self.parse_math_asts().into(),
-            LxMode::Rose => self.parse_rose_asts().into(),
-            LxMode::Word => todo!(),
-            LxMode::Lisp => todo!(),
-            LxMode::Root => todo!(),
-        };
-        let Some((end_command_token_idx, end_command_token)) = self.next_math_token() else {
-            todo!()
-        };
-        match end_command_token {
-            LxMathTokenData::Command(command_name)
-                if command_name == self.command_path_menu().end.name() => {}
-            _ => todo!(),
-        };
-        let Some((end_lcurl_token_idx, end_lcurl_token)) = self.next_math_token() else {
-            todo!()
-        };
-        match end_lcurl_token {
-            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => {}
-            _ => todo!(),
-        };
-        let Some((end_environment_name_token_idx, end_environment_name_token)) =
-            self.next_name_token()
-        else {
-            todo!()
-        };
-        let LxNameTokenData::Name(end_environment_name) = end_environment_name_token else {
-            todo!()
-        };
-        let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_math_token() else {
-            todo!()
-        };
-        match end_rcurl_token {
-            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
-            _ => todo!(),
-        };
-        if begin_environment_name.coword() != end_environment_name {
-            todo!()
-        }
-        LxMathAstData::Environment {
-            begin_command_token_idx,
-            begin_lcurl_token_idx,
-            begin_environment_name_token_idx,
-            begin_rcurl_token_idx,
-            asts,
-            end_command_token_idx,
-            end_lcurl_token_idx,
-            end_environment_name_token_idx,
-            end_rcurl_token_idx,
-            environment_signature,
-        }
-    }
-
     fn parse_styled_letter(
         &mut self,
         style_command_token_idx: LxMathTokenIdx,

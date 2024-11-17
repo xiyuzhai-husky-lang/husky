@@ -10,7 +10,7 @@ use self::{complete_command::*, delimited::*, environment::*};
 use super::*;
 use helpers::LxRoseAstChild;
 use husky_coword::Coword;
-use latex_command::path::LxCommandPath;
+use latex_command::path::{LxCommandName, LxCommandPath};
 use latex_environment::signature::LxEnvironmentSignature;
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::{
@@ -103,32 +103,48 @@ impl<'a> LxAstParser<'a> {
     }
 
     fn parse_rose_ast(&mut self) -> Option<LxRoseAstData> {
+        match self.peek_rose_token_data()? {
+            // TODO: this is a hack
+            LxRoseTokenData::Command(command_name)
+                if command_name == self.command_path_menu().end.name() =>
+            {
+                return None
+            }
+            _ => (),
+        };
         let (token_idx, token) = self.next_rose_token()?;
-        match token {
-            LxRoseTokenData::Word(word) => Some(LxRoseAstData::Word(token_idx, word)),
-            LxRoseTokenData::Command(_) => todo!(),
+        Some(match token {
+            LxRoseTokenData::Word(word) => LxRoseAstData::Word(token_idx, word),
+            LxRoseTokenData::Command(command_name) => {
+                self.parse_rose_command(token_idx, command_name)
+            }
             LxRoseTokenData::Dollar => self.parse_embedded_math(token_idx),
             LxRoseTokenData::EscapedLpar => todo!(),
             LxRoseTokenData::EscapedLbox => todo!(),
             LxRoseTokenData::Nat32(_) => todo!(),
-            LxRoseTokenData::NewParagraph => Some(LxRoseAstData::NewParagraph(token_idx)),
+            LxRoseTokenData::NewParagraph => LxRoseAstData::NewParagraph(token_idx),
             LxRoseTokenData::Punctuation(lx_rose_punctuation) => {
-                Some(LxRoseAstData::Punctuation(token_idx, lx_rose_punctuation))
+                LxRoseAstData::Punctuation(token_idx, lx_rose_punctuation)
             }
-        }
+        })
     }
 
-    fn parse_embedded_math(
+    fn parse_rose_command(
         &mut self,
-        left_dollar_token_idx: LxRoseTokenIdx,
-    ) -> Option<LxRoseAstData> {
+        command_token_idx: LxRoseTokenIdx,
+        command_name: LxCommandName,
+    ) -> LxRoseAstData {
+        todo!()
+    }
+
+    fn parse_embedded_math(&mut self, left_dollar_token_idx: LxRoseTokenIdx) -> LxRoseAstData {
         let math_asts = self.parse_math_asts();
         match self.next_rose_token() {
-            Some((right_dollar_token_idx, LxRoseTokenData::Dollar)) => Some(LxRoseAstData::Math {
+            Some((right_dollar_token_idx, LxRoseTokenData::Dollar)) => LxRoseAstData::Math {
                 left_dollar_token_idx,
                 math_asts,
                 right_dollar_token_idx,
-            }),
+            },
             _ => todo!(),
         }
     }

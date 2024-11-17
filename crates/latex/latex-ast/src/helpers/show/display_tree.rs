@@ -226,7 +226,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let value = &self.input[offset_range];
         let value = match self.ast_arena.root()[ast] {
             LxRootAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
-            LxRootAstData::Environment(ref environment_ast_data) => todo!(),
+            LxRootAstData::Environment { .. } => format!("{:?} environment", value),
         };
         DisplayTree::new(
             value,
@@ -243,6 +243,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
             LxRootAstChild::CommandArgument(argument) => {
                 self.render_root_command_argument(argument)
             }
+            LxRootAstChild::RoseAst(ast) => self.render_rose_ast(ast),
         }
     }
 

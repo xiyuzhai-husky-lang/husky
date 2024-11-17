@@ -38,6 +38,34 @@ fn parse_use_packages_into_lx_root_asts_works() {
     );
 }
 
+#[test]
 fn parse_document_environment_works() {
-    t(r#"\begin{document}"#, expect![[r#""#]]);
+    t(
+        r#"\begin{document}\end{document}"#,
+        expect![[r#"
+        "\\begin{document}\\end{document}" all input
+        └─ "\\begin{document}\\end{document}" environment
+    "#]],
+    );
+    t(
+        r#"\begin{document}Hello\end{document}"#,
+        expect![[r#"
+            "\\begin{document}Hello\\end{document}" all input
+            └─ "\\begin{document}Hello\\end{document}" environment
+              └─ "Hello" word
+        "#]],
+    );
+    t(
+        r#"\begin{document}Let $x\in\mathbb{R}$.\end{document}"#,
+        expect![[r#"
+            "\\begin{document}Let $x\\in\\mathbb{R}$.\\end{document}" all input
+            └─ "\\begin{document}Let $x\\in\\mathbb{R}$.\\end{document}" environment
+              ├─ "Let" word
+              ├─ "$x\\in\\mathbb{R}$" math
+              │ ├─ "x" plain letter
+              │ ├─ "\\in" complete command
+              │ └─ "\\mathbb{R}" styled letter
+              └─ "." punctuation
+        "#]],
+    );
 }
