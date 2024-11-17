@@ -50,7 +50,6 @@ husky-coword.workspace = true
 latex-command.workspace = true
 # visored
 visored-item-path.workspace = true
-visored-syn-expr = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true
