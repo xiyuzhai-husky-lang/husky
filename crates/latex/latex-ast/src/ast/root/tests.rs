@@ -13,6 +13,14 @@ fn t(input: &str, expected: Expect) {
 #[test]
 fn parse_use_packages_into_lx_root_asts_works() {
     t(
+        "\\documentclass{article}",
+        expect![[r#"
+            "\\documentclass{article}" all input
+            └─ "\\documentclass{article}" complete command
+              └─ article
+        "#]],
+    );
+    t(
         "\\usepackage{amsmath}",
         expect![[r#"
             "\\usepackage{amsmath}" all input
@@ -28,4 +36,8 @@ fn parse_use_packages_into_lx_root_asts_works() {
               └─ inputenc
         "#]],
     );
+}
+
+fn parse_document_environment_works() {
+    t(r#"\begin{document}"#, expect![[r#""#]]);
 }

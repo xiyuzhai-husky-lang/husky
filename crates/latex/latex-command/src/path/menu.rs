@@ -7,6 +7,7 @@ pub struct LxCommandPathMenu {
     pub end: LxCommandPath,
     // - root
     pub usepackage: LxCommandPath,
+    pub documentclass: LxCommandPath,
     // - maths
     // -- letter style
     pub mathbb: LxCommandPath,
@@ -61,6 +62,7 @@ impl LxCommandPathMenu {
             end: p("end"),
             // - root
             usepackage: p("usepackage"),
+            documentclass: p("documentclass"),
             // - maths
             // ## letter style
             mathbb: p("mathbb"),
