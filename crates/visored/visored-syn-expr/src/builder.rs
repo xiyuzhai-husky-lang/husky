@@ -9,7 +9,10 @@ use crate::{
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
         build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
-        local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
+        build_all_symbol_defns_and_resolutions_with,
+        builder::{BuildAllVdSynSymbol, VdSynSymbolBuilder},
+        local_defn::VdSynSymbolLocalDefnStorage,
+        resolution::VdSynSymbolResolutionsTable,
     },
 };
 use either::*;
@@ -194,6 +197,80 @@ impl<'db> VdSynExprBuilder<'db> {
             self.sentence_arena,
             self.stmt_arena,
             self.division_arena,
+        )
+    }
+
+    pub(crate) fn finish_with(
+        self,
+        output: impl BuildAllVdSynSymbol,
+    ) -> (
+        VdSynExprArena,
+        VdSynPhraseArena,
+        VdSynClauseArena,
+        VdSynSentenceArena,
+        VdSynStmtArena,
+        VdSynDivisionArena,
+        VdSynExprTokenIdxRangeMap,
+        VdSynPhraseTokenIdxRangeMap,
+        VdSynClauseTokenIdxRangeMap,
+        VdSynSentenceTokenIdxRangeMap,
+        VdSynStmtTokenIdxRangeMap,
+        VdSynDivisionTokenIdxRangeMap,
+        VdSynSymbolLocalDefnStorage,
+        VdSynSymbolResolutionsTable,
+    ) {
+        let (
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
+            stmt_range_map,
+            division_range_map,
+        ) = calc_expr_range_map(
+            self.db,
+            &self.expr_arena,
+            &self.phrase_arena,
+            &self.clause_arena,
+            &self.sentence_arena,
+            &self.stmt_arena,
+            &self.division_arena,
+        );
+        let (symbol_defns, symbol_resolutions) = build_all_symbol_defns_and_resolutions_with(
+            self.db,
+            self.token_storage,
+            self.ast_arena,
+            self.ast_token_idx_range_map,
+            self.annotations,
+            self.default_resolution_table,
+            self.expr_arena.as_arena_ref(),
+            self.phrase_arena.as_arena_ref(),
+            self.clause_arena.as_arena_ref(),
+            self.sentence_arena.as_arena_ref(),
+            self.stmt_arena.as_arena_ref(),
+            self.division_arena.as_arena_ref(),
+            &expr_range_map,
+            &phrase_range_map,
+            &clause_range_map,
+            &sentence_range_map,
+            &stmt_range_map,
+            &division_range_map,
+            output,
+        );
+        (
+            self.expr_arena,
+            self.phrase_arena,
+            self.clause_arena,
+            self.sentence_arena,
+            self.stmt_arena,
+            self.division_arena,
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
+            stmt_range_map,
+            division_range_map,
+            symbol_defns,
+            symbol_resolutions,
         )
     }
 
