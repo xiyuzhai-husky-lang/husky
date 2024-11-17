@@ -10,6 +10,7 @@ use crate::{
     },
     sentence::VdSynSentenceArena,
 };
+use builder::FromVdSyn;
 use clause::VdSynClauseIdx;
 use division::VdSynDivisionArena;
 use expr::VdSynExprIdx;
@@ -71,15 +72,16 @@ pub struct VdSynTracker<'a, Input: IsVdSynInput<'a>> {
 
 // #[sealed]
 pub trait IsVdSynInput<'a>: IsLxAstInput<'a> {
-    type VdSynExprOutput: std::fmt::Debug + IsVdSynOutput;
+    type VdSynExprOutput: IsVdSynOutput + FromVdSyn<(LxTokenIdxRange, Self::LxAstOutput)>;
+}
+
+pub trait IsVdSynOutput: std::fmt::Debug + Copy {
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder);
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String;
 }
 
 // #[sealed]
-impl<'a, Input: IsVdSynInput<'a>> VdSynTracker<'a, Input>
-where
-    Input: IsLxAstInput<'a>,
-    (LxTokenIdxRange, Input::LxAstOutput): ToVdSyn<Input::VdSynExprOutput>,
-{
+impl<'a, Input: IsVdSynInput<'a>> VdSynTracker<'a, Input> {
     // TODO: reuse LxAstTracker
     pub fn new(
         input: Input,
@@ -111,7 +113,7 @@ where
             &annotations,
             &default_resolution_table,
         );
-        let output = (whole_token_range, lx_ast_output).to_vd_syn(&mut builder);
+        let output = FromVdSyn::from_vd_syn((whole_token_range, lx_ast_output), &mut builder);
         //  = (whole_token_range, asts).to_vd_syn(&mut builder);
         let (
             expr_arena,
@@ -192,11 +194,6 @@ impl<'a> IsVdSynInput<'a> for LxDocumentBodyInput<'a> {
 
 impl<'a> IsVdSynInput<'a> for LxFormulaInput<'a> {
     type VdSynExprOutput = VdSynExprIdx;
-}
-
-pub trait IsVdSynOutput: Copy {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder);
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String;
 }
 
 impl IsVdSynOutput for VdSynStmtIdxRange {

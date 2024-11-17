@@ -1,8 +1,5 @@
-use sealed::*;
-
 use crate::mode::LxMode;
 
-#[sealed]
 pub trait IsLxInput<'a>: Copy {
     fn input(self) -> &'a str;
     fn root_mode(self) -> LxMode;
@@ -11,7 +8,6 @@ pub trait IsLxInput<'a>: Copy {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxDocumentInput<'a>(pub &'a str);
 
-#[sealed]
 impl<'a> IsLxInput<'a> for LxDocumentInput<'a> {
     fn input(self) -> &'a str {
         self.0
@@ -25,7 +21,6 @@ impl<'a> IsLxInput<'a> for LxDocumentInput<'a> {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxDocumentBodyInput<'a>(pub &'a str);
 
-#[sealed]
 impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
     fn input(self) -> &'a str {
         self.0
@@ -39,7 +34,6 @@ impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxFormulaInput<'a>(pub &'a str);
 
-#[sealed]
 impl<'a> IsLxInput<'a> for LxFormulaInput<'a> {
     fn input(self) -> &'a str {
         self.0
@@ -53,7 +47,6 @@ impl<'a> IsLxInput<'a> for LxFormulaInput<'a> {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxLispInput<'a>(pub &'a str);
 
-#[sealed]
 impl<'a> IsLxInput<'a> for LxLispInput<'a> {
     fn input(self) -> &'a str {
         self.0

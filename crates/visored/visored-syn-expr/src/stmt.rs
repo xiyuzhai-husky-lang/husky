@@ -7,7 +7,10 @@ use husky_coword::Coword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
+use latex_ast::ast::{
+    root::LxRootAstIdxRange,
+    rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+};
 use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
 use std::iter::Peekable;
 
@@ -30,6 +33,14 @@ impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
         let (_, ast_idx_range) = self;
         builder.parse_stmts(ast_idx_range)
+    }
+}
+
+impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRootAstIdxRange) {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
+        todo!()
+        // let (_, ast_idx_range) = self;
+        // builder.parse_stmts(ast_idx_range)
     }
 }
 
