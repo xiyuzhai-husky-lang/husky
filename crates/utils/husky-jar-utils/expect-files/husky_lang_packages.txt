@@ -3592,7 +3592,6 @@
         relative_path: "crates/latex/latex-prelude",
         dependencies: [
             "salsa",
-            "sealed",
         ],
     },
     PackageSummary {

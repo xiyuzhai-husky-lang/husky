@@ -366,3 +366,16 @@ where
         }
     }
 }
+
+pub trait FromVdSyn<S> {
+    fn from_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self;
+}
+
+impl<S, T> FromVdSyn<S> for T
+where
+    S: ToVdSyn<T>,
+{
+    fn from_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self {
+        s.to_vd_syn(builder)
+    }
+}
