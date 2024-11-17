@@ -1,7 +1,6 @@
 mod clause;
 mod expr;
 
-use crate::test_helpers::example::VdLeanTranspilationExample;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
 use visored_mir_expr::{builder::VdMirExprBuilder, ToVdMir};
