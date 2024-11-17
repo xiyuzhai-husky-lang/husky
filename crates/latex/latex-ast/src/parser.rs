@@ -82,6 +82,10 @@ impl<'a> LxAstParser<'a> {
     pub(crate) fn environment_signature_table(&self) -> &'a LxEnvironmentSignatureTable {
         self.environment_signature_table
     }
+
+    pub(crate) fn arena(&self) -> &LxAstArena {
+        self.arena
+    }
 }
 
 /// # actions

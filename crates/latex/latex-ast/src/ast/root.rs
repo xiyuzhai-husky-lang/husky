@@ -83,7 +83,7 @@ impl LxRootCompleteCommandArgument {
 }
 
 impl<'a> LxAstParser<'a> {
-    pub(super) fn parse_root_asts(&mut self) -> LxRootAstIdxRange {
+    pub fn parse_root_asts(&mut self) -> LxRootAstIdxRange {
         let mut asts = vec![];
         while let Some(ast) = self.parse_root_ast() {
             asts.push(ast)
@@ -91,7 +91,7 @@ impl<'a> LxAstParser<'a> {
         self.alloc_root_asts(asts)
     }
 
-    fn parse_root_ast(&mut self) -> Option<LxRootAstData> {
+    pub fn parse_root_ast(&mut self) -> Option<LxRootAstData> {
         match self.peek_root_token_data()? {
             LxRootTokenData::RightDelimiter(_) => return None,
             // TODO: this is a hack

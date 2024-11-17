@@ -3543,6 +3543,7 @@
             "egui",
             "enum-class",
             "husky-coword",
+            "husky-print-utils",
             "husky-tree-utils",
             "idx-arena",
             "latex-command",
@@ -3591,6 +3592,7 @@
         relative_path: "crates/latex/latex-prelude",
         dependencies: [
             "salsa",
+            "sealed",
         ],
     },
     PackageSummary {
