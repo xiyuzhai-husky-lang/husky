@@ -80,6 +80,7 @@ impl LxCommandSignatureTable {
             begin,
             end,
             usepackage,
+            documentclass,
             // - maths
             // ## letter style
             mathbb,
@@ -138,6 +139,7 @@ impl LxCommandSignatureTable {
             &[
                 // - root
                 (usepackage, &[Name]),
+                (documentclass, &[Name]),
                 // - operators
                 // -- relations
                 (eq, &[]),
