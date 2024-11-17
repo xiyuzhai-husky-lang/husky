@@ -12750,6 +12750,7 @@ dependencies = [
  "latex-rose-punctuation",
  "latex-token",
  "salsa",
+ "sealed",
  "smallvec",
  "thiserror",
  "visored-annotation",

@@ -16,30 +16,30 @@ use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
     helper::tracker::{
-        IsLxTrackerInput, LxDocumentBodyTrackerInput, LxDocumentTrackerInput,
-        LxFormulaTrackerInput, LxLispTrackerInput,
+        IsLxInput, LxDocumentBodyTrackerInput, LxDocumentTrackerInput, LxFormulaTrackerInput,
+        LxLispTrackerInput,
     },
     mode::LxMode,
 };
 use latex_token::storage::LxTokenStorage;
 
 #[derive(Debug)]
-pub struct LxAstTracker<'a, Input: IsLxAstTrackerInput<'a>> {
+pub struct LxAstTracker<'a, Input: IsLxAstInput<'a>> {
     pub command_signature_table: LxCommandSignatureTable,
     pub input: Input,
     pub token_storage: LxTokenStorage,
     pub ast_arena: LxAstArena,
     pub ast_token_idx_range_map: LxAstTokenIdxRangeMap,
-    pub output: Input::Output,
+    pub output: Input::LxAstOutput,
 }
 
-pub trait IsLxAstTrackerInput<'a>: IsLxTrackerInput<'a> {
-    type Output: std::fmt::Debug;
+pub trait IsLxAstInput<'a>: IsLxInput<'a> {
+    type LxAstOutput: std::fmt::Debug;
 
-    fn parse(parser: LxAstParser) -> Self::Output;
+    fn parse(parser: LxAstParser) -> Self::LxAstOutput;
 }
 
-impl<'a, Input: IsLxAstTrackerInput<'a>> LxAstTracker<'a, Input> {
+impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
     pub fn new(input: Input, db: &salsa::Db) -> Self {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
@@ -67,7 +67,7 @@ impl<'a, Input: IsLxAstTrackerInput<'a>> LxAstTracker<'a, Input> {
     }
 }
 
-impl<'a, Input: IsLxAstTrackerInput<'a>> LxAstTracker<'a, Input> {
+impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
     pub fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> LxAstDisplayTreeBuilder<'b> {
         LxAstDisplayTreeBuilder::new(
             db,
@@ -79,10 +79,10 @@ impl<'a, Input: IsLxAstTrackerInput<'a>> LxAstTracker<'a, Input> {
     }
 }
 
-impl<'a> IsLxAstTrackerInput<'a> for LxDocumentTrackerInput<'a> {
-    type Output = LxRootAstIdxRange;
+impl<'a> IsLxAstInput<'a> for LxDocumentTrackerInput<'a> {
+    type LxAstOutput = LxRootAstIdxRange;
 
-    fn parse(mut parser: LxAstParser) -> Self::Output {
+    fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_root_asts()
     }
 }
@@ -100,10 +100,10 @@ impl<'a> LxAstTracker<'a, LxDocumentTrackerInput<'a>> {
     }
 }
 
-impl<'a> IsLxAstTrackerInput<'a> for LxDocumentBodyTrackerInput<'a> {
-    type Output = LxRoseAstIdxRange;
+impl<'a> IsLxAstInput<'a> for LxDocumentBodyTrackerInput<'a> {
+    type LxAstOutput = LxRoseAstIdxRange;
 
-    fn parse(mut parser: LxAstParser) -> Self::Output {
+    fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_rose_asts()
     }
 }
@@ -121,10 +121,10 @@ impl<'a> LxAstTracker<'a, LxDocumentBodyTrackerInput<'a>> {
     }
 }
 
-impl<'a> IsLxAstTrackerInput<'a> for LxFormulaTrackerInput<'a> {
-    type Output = LxMathAstIdxRange;
+impl<'a> IsLxAstInput<'a> for LxFormulaTrackerInput<'a> {
+    type LxAstOutput = LxMathAstIdxRange;
 
-    fn parse(mut parser: LxAstParser) -> Self::Output {
+    fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_math_asts()
     }
 }
@@ -142,10 +142,10 @@ impl<'a> LxAstTracker<'a, LxFormulaTrackerInput<'a>> {
     }
 }
 
-impl<'a> IsLxAstTrackerInput<'a> for LxLispTrackerInput<'a> {
-    type Output = LxLispAstIdxRange;
+impl<'a> IsLxAstInput<'a> for LxLispTrackerInput<'a> {
+    type LxAstOutput = LxLispAstIdxRange;
 
-    fn parse(mut parser: LxAstParser) -> Self::Output {
+    fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
         parser.parse_lisp_asts()
     }
 }
