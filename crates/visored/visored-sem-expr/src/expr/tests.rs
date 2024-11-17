@@ -1,8 +1,6 @@
 use super::*;
-use super::*;
-use crate::test_helpers::example::VdSemExprExample;
+use crate::helpers::tracker::VdSemExprTracker;
 use expect_test::{expect, Expect};
-use helpers::tracker::VdSemExprTracker;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 
 pub(crate) fn t(input: &str, expected: &Expect) {
