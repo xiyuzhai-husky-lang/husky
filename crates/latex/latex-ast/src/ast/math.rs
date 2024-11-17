@@ -115,7 +115,7 @@ impl LxMathCompleteCommandArgument {
 }
 
 impl<'a> LxAstParser<'a> {
-    pub(super) fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
+    pub fn parse_math_asts(&mut self) -> LxMathAstIdxRange {
         let mut asts = vec![];
         while let Some(ast) = self.parse_math_ast() {
             asts.push(ast)
@@ -123,7 +123,7 @@ impl<'a> LxAstParser<'a> {
         self.alloc_math_asts(asts)
     }
 
-    fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
+    pub fn parse_math_ast(&mut self) -> Option<LxMathAstData> {
         let mut ast = self.parse_atomic_math_ast()?;
         while let Some(token_data) = self.peek_math_token_data() {
             match token_data {
