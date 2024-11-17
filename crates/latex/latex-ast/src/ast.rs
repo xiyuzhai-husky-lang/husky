@@ -180,7 +180,7 @@ impl<'a> LxAstParser<'a> {
         match self.mode() {
             LxMode::Rose => self.parse_rose_asts().into(),
             LxMode::Math => self.parse_math_asts().into(),
-            LxMode::Word => todo!(),
+            LxMode::Name => todo!(),
             LxMode::Lisp => self.parse_lisp_asts().into(),
             LxMode::Root => self.parse_root_asts().into(),
         }
