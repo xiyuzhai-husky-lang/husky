@@ -62,13 +62,16 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
-    fn render_lisp_asts(&self, asts: impl IntoIterator<Item = LxLispAstIdx>) -> Vec<DisplayTree> {
+    pub fn render_lisp_asts(
+        &self,
+        asts: impl IntoIterator<Item = LxLispAstIdx>,
+    ) -> Vec<DisplayTree> {
         asts.into_iter()
             .map(|ast| self.render_lisp_ast(ast))
             .collect()
     }
 
-    fn render_lisp_ast(&self, ast: LxLispAstIdx) -> DisplayTree {
+    pub fn render_lisp_ast(&self, ast: LxLispAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let offset_range = self
             .token_storage
@@ -107,13 +110,16 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
-    fn render_math_asts(&self, asts: impl IntoIterator<Item = LxMathAstIdx>) -> Vec<DisplayTree> {
+    pub fn render_math_asts(
+        &self,
+        asts: impl IntoIterator<Item = LxMathAstIdx>,
+    ) -> Vec<DisplayTree> {
         asts.into_iter()
             .map(|ast| self.render_math_ast(ast))
             .collect()
     }
 
-    fn render_math_ast(&self, ast: LxMathAstIdx) -> DisplayTree {
+    pub fn render_math_ast(&self, ast: LxMathAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let offset_range = self
             .token_storage
@@ -173,13 +179,16 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
-    fn render_rose_asts(&self, asts: impl IntoIterator<Item = LxRoseAstIdx>) -> Vec<DisplayTree> {
+    pub fn render_rose_asts(
+        &self,
+        asts: impl IntoIterator<Item = LxRoseAstIdx>,
+    ) -> Vec<DisplayTree> {
         asts.into_iter()
             .map(|ast| self.render_rose_ast(ast))
             .collect()
     }
 
-    fn render_rose_ast(&self, ast: LxRoseAstIdx) -> DisplayTree {
+    pub fn render_rose_ast(&self, ast: LxRoseAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let offset_range = self
             .token_storage
@@ -212,13 +221,16 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         }
     }
 
-    fn render_root_asts(&self, asts: impl IntoIterator<Item = LxRootAstIdx>) -> Vec<DisplayTree> {
+    pub fn render_root_asts(
+        &self,
+        asts: impl IntoIterator<Item = LxRootAstIdx>,
+    ) -> Vec<DisplayTree> {
         asts.into_iter()
             .map(|ast| self.render_root_ast(ast))
             .collect()
     }
 
-    fn render_root_ast(&self, ast: LxRootAstIdx) -> DisplayTree {
+    pub fn render_root_ast(&self, ast: LxRootAstIdx) -> DisplayTree {
         let ast_token_idx_range = self.ast_token_idx_range_map[ast];
         let offset_range = self
             .token_storage
