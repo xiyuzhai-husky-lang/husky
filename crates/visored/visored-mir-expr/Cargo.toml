@@ -18,9 +18,9 @@ idx-arena.workspace = true
 salsa.workspace = true
 # latex
 latex-math-letter.workspace = true
-latex-prelude = { workspace = true, optional = true }
+latex-prelude.workspace = true
 # visored
-visored-annotation = { workspace = true, optional = true }
+visored-annotation.workspace = true
 visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
 visored-item-path.workspace = true
@@ -29,7 +29,7 @@ visored-signature.workspace = true
 visored-opr.workspace = true
 visored-term.workspace = true
 # utils
-husky-tree-utils = { workspace = true, optional = true }
+husky-tree-utils.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true
@@ -45,15 +45,6 @@ visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
 visored-global-dispatch.workspace = true
 visored-signature.workspace = true
-visored-mir-expr = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true
-
-[features]
-test_helpers = [
-    "dep:latex-prelude",
-    "dep:visored-annotation",
-    "dep:husky-tree-utils",
-    "visored-sem-expr/test_helpers"
-]

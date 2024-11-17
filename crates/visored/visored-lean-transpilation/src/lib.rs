@@ -5,8 +5,6 @@ pub mod helpers;
 pub mod jar;
 pub mod mangle;
 pub mod stmt;
-#[cfg(feature = "test_helpers")]
-mod test_helpers;
 #[cfg(test)]
 mod tests;
 pub mod ty;
