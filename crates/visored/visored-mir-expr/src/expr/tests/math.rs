@@ -1,9 +1,12 @@
+use helpers::tracker::VdMirExprTracker;
+use latex_prelude::helper::tracker::LxFormulaInput;
+
 use super::*;
 
 fn t(input: &str, expect: &Expect) {
     let db = &DB::default();
-    let example = VdMirExprExample::new(input, LxMode::Math, &[], &[], db);
-    expect.assert_eq(&example.show_display_tree(db));
+    let tracker = VdMirExprTracker::new(LxFormulaInput(input), &[], &[], db);
+    expect.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]
