@@ -37,6 +37,7 @@ fn standard_command_resolution_map(
         begin: _,
         end: _,
         usepackage,
+        documentclass,
         // maths
         // - letter style
         mathbb,
