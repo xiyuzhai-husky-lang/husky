@@ -242,9 +242,9 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
             LxRoseAstData::Word(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
             LxRoseAstData::Punctuation(token_idx, _) => LxTokenIdxRange::new_single(*token_idx),
             LxRoseAstData::Math {
-                left_dollar_token_idx,
+                left_delimiter_token_idx: left_dollar_token_idx,
                 math_asts,
-                right_dollar_token_idx,
+                right_delimiter_token_idx: right_dollar_token_idx,
             } => LxTokenIdxRange::new_closed(*left_dollar_token_idx, *right_dollar_token_idx),
             LxRoseAstData::NewParagraph(token_idx) => LxTokenIdxRange::new_single(*token_idx),
             LxRoseAstData::Delimited {
