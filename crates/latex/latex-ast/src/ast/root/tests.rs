@@ -1,11 +1,11 @@
 use super::*;
 use ast::helpers::tracker::LxAstTracker;
 use expect_test::{expect, Expect};
-use latex_prelude::{helper::tracker::LxDocumentTrackerInput, mode::LxMode};
+use latex_prelude::{helper::tracker::LxDocumentInput, mode::LxMode};
 
 fn t(input: &str, expected: Expect) {
     let db = &DB::default();
-    let tracker = LxAstTracker::new(LxDocumentTrackerInput(input), db);
+    let tracker = LxAstTracker::new(LxDocumentInput(input), db);
     let show = tracker.show(db);
     expected.assert_eq(&show);
 }

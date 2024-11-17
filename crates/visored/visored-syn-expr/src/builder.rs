@@ -2,6 +2,7 @@ use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     division::VdSynDivisionArena,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
+    helpers::tracker::IsVdSynOutput,
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
     range::*,
     region::VdSynExprRegionData,
@@ -9,10 +10,8 @@ use crate::{
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
         build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
-        build_all_symbol_defns_and_resolutions_with,
-        builder::{BuildAllVdSynSymbol, VdSynSymbolBuilder},
-        local_defn::VdSynSymbolLocalDefnStorage,
-        resolution::VdSynSymbolResolutionsTable,
+        build_all_symbol_defns_and_resolutions_with, builder::VdSynSymbolBuilder,
+        local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
 use either::*;
@@ -202,7 +201,7 @@ impl<'db> VdSynExprBuilder<'db> {
 
     pub(crate) fn finish_with(
         self,
-        output: impl BuildAllVdSynSymbol,
+        output: impl IsVdSynOutput,
     ) -> (
         VdSynExprArena,
         VdSynPhraseArena,

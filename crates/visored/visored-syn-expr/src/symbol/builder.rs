@@ -188,19 +188,3 @@ impl<'a> VdSynSymbolBuilder<'a> {
         (self.symbol_local_defn_table, self.symbol_resolutions_table)
     }
 }
-
-pub trait BuildAllVdSynSymbol: Copy {
-    fn build_all(self, builder: &mut VdSynSymbolBuilder);
-}
-
-impl BuildAllVdSynSymbol for VdSynStmtIdx {
-    fn build_all(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_stmt(self);
-    }
-}
-
-impl BuildAllVdSynSymbol for VdSynSentenceIdx {
-    fn build_all(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_sentence(self);
-    }
-}
