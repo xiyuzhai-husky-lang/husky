@@ -47,7 +47,6 @@ use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynTracker<'a, Input: IsVdSynInput<'a>> {
     pub input: Input,
-    pub root_mode: LxMode,
     pub annotations: VdAnnotations,
     pub default_resolution_table: VdDefaultGlobalResolutionTable,
     pub token_storage: LxTokenStorage,
@@ -84,7 +83,6 @@ where
     // TODO: reuse LxAstTracker
     pub fn new(
         input: Input,
-        root_mode: LxMode,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         db: &salsa::Db,
@@ -133,7 +131,6 @@ where
         ) = builder.finish_with(output);
         Self {
             input,
-            root_mode,
             annotations,
             default_resolution_table,
             token_storage,
