@@ -29,6 +29,7 @@ impl LxEnvironmentSignatureTable {
 
     pub fn new_default(db: &::salsa::Db) -> Self {
         let LxEnvironmentMenu {
+            document,
             align,
             array,
             matrix,
@@ -38,6 +39,7 @@ impl LxEnvironmentSignatureTable {
             table,
         } = *lx_environment_menu(db);
         Self::new([
+            (document, (&[LxMode::Root], LxMode::Rose)),
             (align, (&[LxMode::Math, LxMode::Rose], LxMode::Math)),
             (array, (&[LxMode::Math], LxMode::Math)),
             (matrix, (&[LxMode::Math], LxMode::Math)),
