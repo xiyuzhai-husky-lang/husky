@@ -53,9 +53,9 @@ impl<'a> VdSemExprBuilder<'a> {
         match self.syn_clause_arena()[clause] {
             VdSynClauseData::Let {
                 let_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
                 ref resolution,
             } => self.build_let_clause(
                 let_token_idx,

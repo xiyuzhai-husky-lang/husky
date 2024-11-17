@@ -30,10 +30,11 @@ pub enum LxRoseAstData {
     },
     Word(LxRoseTokenIdx, Coword),
     Punctuation(LxRoseTokenIdx, LxRosePunctuation),
+    /// it might be '$' or '$$' or '\[' but we don't care for now
     Math {
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_delimiter_token_idx: LxRoseTokenIdx,
         math_asts: LxMathAstIdxRange,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_delimiter_token_idx: LxRoseTokenIdx,
     },
     NewParagraph(LxRoseTokenIdx),
     Delimited {
@@ -171,9 +172,9 @@ impl<'a> LxAstParser<'a> {
         let math_asts = self.parse_math_asts();
         match self.next_rose_token() {
             Some((right_dollar_token_idx, LxRoseTokenData::Dollar)) => LxRoseAstData::Math {
-                left_dollar_token_idx,
+                left_delimiter_token_idx: left_dollar_token_idx,
                 math_asts,
-                right_dollar_token_idx,
+                right_delimiter_token_idx: right_dollar_token_idx,
             },
             _ => todo!(),
         }

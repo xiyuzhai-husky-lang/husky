@@ -52,11 +52,7 @@ impl<'db> VdSynExprBuilder<'db> {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
             LxRoseAstData::Word(token_idx, word) => self.parse_paragraph(token_idx, word, asts),
             LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
-            LxRoseAstData::Math {
-                left_dollar_token_idx,
-                math_asts,
-                right_dollar_token_idx,
-            } => todo!(),
+            LxRoseAstData::Math { .. } => todo!(),
             LxRoseAstData::NewParagraph(_) => todo!(),
             LxRoseAstData::Delimited {
                 left_delimiter_token_idx,
@@ -90,9 +86,9 @@ impl<'db> VdSynExprBuilder<'db> {
                 }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
                 LxRoseAstData::Math {
-                    left_dollar_token_idx,
+                    left_delimiter_token_idx: left_dollar_token_idx,
                     math_asts,
-                    right_dollar_token_idx,
+                    right_delimiter_token_idx: right_dollar_token_idx,
                 } => todo!(),
                 LxRoseAstData::NewParagraph(_) => todo!(),
                 LxRoseAstData::Delimited {

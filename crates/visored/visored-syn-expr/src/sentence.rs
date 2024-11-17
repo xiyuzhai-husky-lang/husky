@@ -76,11 +76,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             LxRosePunctuation::RightBox => todo!(),
                         }
                     }
-                    LxRoseAstData::Math {
-                        left_dollar_token_idx,
-                        math_asts,
-                        right_dollar_token_idx,
-                    } => todo!(),
+                    LxRoseAstData::Math { .. } => todo!(),
                     LxRoseAstData::NewParagraph(_) => todo!(),
                     LxRoseAstData::Delimited {
                         left_delimiter_token_idx,
