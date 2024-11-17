@@ -76,7 +76,7 @@ impl<'a> LxLexer<'a> {
                                 )),
                                 // TODO: handle `@` and others seen as command names
                                 // latex really sucks
-                                _ => todo!(),
+                                _ => todo!("c={c}"),
                             }
                         }
                     },

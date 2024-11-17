@@ -1,20 +1,15 @@
-use latex_environment::path::LxEnvironmentName;
-
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum LxRootEnvironmentAstData {}
-
 impl<'a> LxAstParser<'a> {
-    pub(super) fn parse_root_environment(
+    pub(super) fn parse_math_environment(
         &mut self,
-        begin_command_token_idx: LxRootTokenIdx,
-    ) -> LxRootAstData {
-        let Some((begin_lcurl_token_idx, begin_lcurl_token)) = self.next_root_token() else {
+        begin_command_token_idx: LxMathTokenIdx,
+    ) -> LxMathAstData {
+        let Some((begin_lcurl_token_idx, begin_lcurl_token)) = self.next_math_token() else {
             todo!()
         };
         match begin_lcurl_token {
-            LxRootTokenData::LeftDelimiter(LxRootDelimiter::Curl) => {}
+            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => {}
             _ => todo!(),
         };
         let Some((begin_environment_name_token_idx, begin_environment_name_token)) =
@@ -25,11 +20,11 @@ impl<'a> LxAstParser<'a> {
         let LxNameTokenData::Name(begin_environment_name) = begin_environment_name_token else {
             todo!()
         };
-        let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_root_token() else {
+        let Some((begin_rcurl_token_idx, begin_rcurl_token)) = self.next_math_token() else {
             todo!()
         };
         match begin_rcurl_token {
-            LxRootTokenData::RightDelimiter(LxRootDelimiter::Curl) => (),
+            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
             _ => todo!(),
         };
         let begin_environment_name = LxEnvironmentName::new(begin_environment_name);
@@ -39,29 +34,29 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!()
         };
-        if !environment_signature.allowed_in_root() {
+        if !environment_signature.allowed_in_math() {
             todo!()
         }
         let asts = match environment_signature.body_mode() {
-            LxMode::Root => self.parse_root_asts().into(),
+            LxMode::Math => self.parse_math_asts().into(),
             LxMode::Rose => self.parse_rose_asts().into(),
             LxMode::Word => todo!(),
             LxMode::Lisp => todo!(),
-            LxMode::Math => todo!(),
+            LxMode::Root => todo!(),
         };
-        let Some((end_command_token_idx, end_command_token)) = self.next_root_token() else {
+        let Some((end_command_token_idx, end_command_token)) = self.next_math_token() else {
             todo!()
         };
         match end_command_token {
-            LxRootTokenData::Command(command_name)
+            LxMathTokenData::Command(command_name)
                 if command_name == self.command_path_menu().end.name() => {}
             _ => todo!(),
         };
-        let Some((end_lcurl_token_idx, end_lcurl_token)) = self.next_root_token() else {
+        let Some((end_lcurl_token_idx, end_lcurl_token)) = self.next_math_token() else {
             todo!()
         };
         match end_lcurl_token {
-            LxRootTokenData::LeftDelimiter(LxRootDelimiter::Curl) => {}
+            LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => {}
             _ => todo!(),
         };
         let Some((end_environment_name_token_idx, end_environment_name_token)) =
@@ -72,17 +67,17 @@ impl<'a> LxAstParser<'a> {
         let LxNameTokenData::Name(end_environment_name) = end_environment_name_token else {
             todo!()
         };
-        let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_root_token() else {
+        let Some((end_rcurl_token_idx, end_rcurl_token)) = self.next_math_token() else {
             todo!()
         };
         match end_rcurl_token {
-            LxRootTokenData::RightDelimiter(LxRootDelimiter::Curl) => (),
+            LxMathTokenData::RightDelimiter(LxMathDelimiter::Curl) => (),
             _ => todo!(),
         };
         if begin_environment_name.coword() != end_environment_name {
             todo!()
         }
-        LxRootAstData::Environment {
+        LxMathAstData::Environment {
             begin_command_token_idx,
             begin_lcurl_token_idx,
             begin_environment_name_token_idx,

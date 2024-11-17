@@ -216,7 +216,11 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 let last_argument = arguments.last().unwrap();
                 LxTokenIdxRange::new_closed(*command_token_idx, *last_argument.rcurl_token_idx())
             }
-            LxRootAstData::Environment(ref environment_ast_data) => todo!(),
+            LxRootAstData::Environment {
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
         }
     }
 
