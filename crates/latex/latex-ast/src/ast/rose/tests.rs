@@ -74,11 +74,14 @@ And testing is too!"#,
 
 #[test]
 fn parse_rose_equation_environment_into_latex_asts_works() {
-    t(r#"\begin{equation}x = 1\end{equation}"#, expect![[r#"
+    t(
+        r#"\begin{equation}x = 1\end{equation}"#,
+        expect![[r#"
         "\\begin{equation}x = 1\\end{equation}" all input
         └─ "\\begin{equation}x = 1\\end{equation}" environment
           ├─ "x" plain letter
           ├─ "=" punctuation
           └─ "1" digit
-    "#]]);
+    "#]],
+    );
 }

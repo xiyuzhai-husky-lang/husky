@@ -273,7 +273,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
         match self.clause_arena[clause] {
             VdSynClauseData::Let {
                 let_token_idx,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
             VdSynClauseData::Assume {
