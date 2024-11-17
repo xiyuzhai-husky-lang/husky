@@ -8,7 +8,10 @@ use either::*;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
-use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
+use latex_prelude::{
+    helper::tracker::{LxDocumentBodyInput, LxFormulaInput},
+    mode::LxMode,
+};
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_sem_expr::helpers::tracker::{IsVdSemExprInput, VdSemExprTracker};
@@ -108,8 +111,18 @@ impl<'a> IsVdMirExprInput<'a> for LxFormulaInput<'a> {
     type VdMirExprOutput = VdMirExprIdx;
 }
 
-impl<'a> IsVdMirExprOutput for VdMirExprIdx {
+impl IsVdMirExprOutput for VdMirExprIdx {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String {
         builder.render_expr(self).show(&Default::default())
+    }
+}
+
+impl<'a> IsVdMirExprInput<'a> for LxDocumentBodyInput<'a> {
+    type VdMirExprOutput = VdMirStmtIdxRange;
+}
+
+impl IsVdMirExprOutput for VdMirStmtIdxRange {
+    fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String {
+        DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
 }

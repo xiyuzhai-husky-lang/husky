@@ -3,7 +3,10 @@ use crate::dictionary::VdLeanDictionary;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
 use either::*;
 use husky_tree_utils::display::DisplayTree;
-use latex_prelude::mode::LxMode;
+use latex_prelude::{
+    helper::tracker::{LxDocumentBodyInput, LxFormulaInput},
+    mode::LxMode,
+};
 use lean_mir_expr::{
     expr::{LnMirExprArena, LnMirExprIdx},
     helpers::{
@@ -35,8 +38,8 @@ pub trait IsVdLeanTranspilationInput<'a>: IsVdMirExprInput<'a> + Copy {
 }
 
 pub trait IsVdLeanTranspilationOutput: std::fmt::Debug + Copy {
-    fn show_display_tree(&self, builder: &LnMirExprDisplayTreeBuilder) -> String;
-    fn show_fmt(&self, formatter: &mut LnMirExprFormatter);
+    fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String;
+    fn show_fmt(self, formatter: &mut LnMirExprFormatter);
 }
 
 pub trait FromVdTranspileToLean<S> {
@@ -115,5 +118,33 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             config,
             db,
         )
+    }
+}
+
+impl<'a> IsVdLeanTranspilationInput<'a> for LxFormulaInput<'a> {
+    type VdLeanTranspilationOutput = LnMirExprIdx;
+}
+
+impl<'a> IsVdLeanTranspilationOutput for LnMirExprIdx {
+    fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String {
+        builder.render_expr(self).show(&Default::default())
+    }
+
+    fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
+        formatter.format_expr_ext(self);
+    }
+}
+
+impl<'a> IsVdLeanTranspilationInput<'a> for LxDocumentBodyInput<'a> {
+    type VdLeanTranspilationOutput = LnItemDefnIdxRange;
+}
+
+impl<'a> IsVdLeanTranspilationOutput for LnItemDefnIdxRange {
+    fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String {
+        DisplayTree::show_trees(&builder.render_defns(self), &Default::default())
+    }
+
+    fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
+        formatter.format_defns(self);
     }
 }
