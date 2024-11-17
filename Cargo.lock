@@ -8156,7 +8156,6 @@ dependencies = [
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
- "latex-ast",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
