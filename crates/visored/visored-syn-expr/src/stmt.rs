@@ -68,6 +68,7 @@ impl<'db> VdSynExprBuilder<'db> {
             LxRoseAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
+                options,
                 ref arguments,
             } => todo!(),
             LxRoseAstData::Environment { .. } => todo!(),
@@ -104,6 +105,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 LxRoseAstData::CompleteCommand {
                     command_token_idx,
                     command_path,
+                    options,
                     ref arguments,
                 } => todo!(),
                 LxRoseAstData::Environment { .. } => todo!(),

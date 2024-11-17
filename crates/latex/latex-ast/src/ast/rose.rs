@@ -10,12 +10,15 @@ use self::{complete_command::*, delimited::*, environment::*};
 use super::*;
 use helpers::LxRoseAstChild;
 use husky_coword::Coword;
-use latex_command::path::{LxCommandName, LxCommandPath};
+use latex_command::{
+    path::{LxCommandName, LxCommandPath},
+    signature::LxCommandSignature,
+};
 use latex_environment::signature::LxEnvironmentSignature;
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::{
     idx::{LxNameTokenIdx, LxRoseTokenIdx},
-    token::rose::LxRoseTokenData,
+    token::rose::{LxRoseDelimiter, LxRoseTokenData},
 };
 use smallvec::{smallvec, SmallVec};
 
@@ -43,6 +46,7 @@ pub enum LxRoseAstData {
     CompleteCommand {
         command_token_idx: LxRoseTokenIdx,
         command_path: LxCommandPath,
+        options: Option<()>,
         arguments: SmallVec<[LxRoseCompleteCommandArgument; 2]>,
     },
     Environment {
@@ -50,7 +54,7 @@ pub enum LxRoseAstData {
         begin_lcurl_token_idx: LxRoseTokenIdx,
         begin_environment_name_token_idx: LxNameTokenIdx,
         begin_rcurl_token_idx: LxRoseTokenIdx,
-        asts: LxRoseAstIdxRange,
+        asts: LxAstIdxRange,
         end_command_token_idx: LxRoseTokenIdx,
         end_lcurl_token_idx: LxRoseTokenIdx,
         end_environment_name_token_idx: LxNameTokenIdx,
@@ -86,9 +90,17 @@ impl LxRoseAstData {
             LxRoseAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
+                options,
                 ref arguments,
             } => todo!(),
-            LxRoseAstData::Environment { asts, .. } => todo!(),
+            LxRoseAstData::Environment { asts, .. } => match asts {
+                LxAstIdxRange::Math(asts) => {
+                    asts.into_iter().map(LxRoseAstChild::MathAst).collect()
+                }
+                LxAstIdxRange::Rose(asts) => todo!(),
+                LxAstIdxRange::Lisp(asts) => todo!(),
+                LxAstIdxRange::Root(arena_idx_range) => todo!(),
+            },
         }
     }
 }
@@ -126,6 +138,8 @@ impl<'a> LxAstParser<'a> {
             LxRoseTokenData::Punctuation(lx_rose_punctuation) => {
                 LxRoseAstData::Punctuation(token_idx, lx_rose_punctuation)
             }
+            LxRoseTokenData::LeftDelimiter(lx_rose_delimiter) => todo!(),
+            LxRoseTokenData::RightDelimiter(lx_rose_delimiter) => todo!(),
         })
     }
 
@@ -134,7 +148,23 @@ impl<'a> LxAstParser<'a> {
         command_token_idx: LxRoseTokenIdx,
         command_name: LxCommandName,
     ) -> LxRoseAstData {
-        todo!()
+        let Some(command_signature) = self.command_signature_table().signature(command_name) else {
+            use salsa::DisplayWithDb;
+            todo!(
+                "handle command `{}` not found in command signature table",
+                command_name.display(self.db())
+            )
+        };
+        match *command_signature {
+            LxCommandSignature::Complete(ref command_signature) => {
+                self.parse_rose_complete_command(command_token_idx, command_signature)
+            }
+            LxCommandSignature::Begin => self.parse_rose_environment(command_token_idx),
+            LxCommandSignature::End => unreachable!(),
+            LxCommandSignature::MathLetterStyle(style) => {
+                todo!("report error")
+            }
+        }
     }
 
     fn parse_embedded_math(&mut self, left_dollar_token_idx: LxRoseTokenIdx) -> LxRoseAstData {

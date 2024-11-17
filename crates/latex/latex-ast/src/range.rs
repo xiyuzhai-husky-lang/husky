@@ -257,9 +257,14 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
             LxRoseAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
+                options,
                 ref arguments,
             } => todo!(),
-            LxRoseAstData::Environment { .. } => todo!(),
+            LxRoseAstData::Environment {
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
         }
     }
 
