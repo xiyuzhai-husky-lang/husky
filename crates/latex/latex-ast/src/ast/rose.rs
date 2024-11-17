@@ -18,7 +18,7 @@ use latex_environment::signature::LxEnvironmentSignature;
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::{
     idx::{LxNameTokenIdx, LxRoseTokenIdx},
-    token::rose::{LxRoseDelimiter, LxRoseTokenData},
+    token::rose::{LxRoseDelimiter, LxRoseEmbeddedMathDelimiter, LxRoseTokenData},
 };
 use smallvec::{smallvec, SmallVec};
 
@@ -131,9 +131,9 @@ impl<'a> LxAstParser<'a> {
             LxRoseTokenData::Command(command_name) => {
                 self.parse_rose_command(token_idx, command_name)
             }
-            LxRoseTokenData::Dollar => self.parse_embedded_math(token_idx),
-            LxRoseTokenData::EscapedLpar => todo!(),
-            LxRoseTokenData::EscapedLbox => todo!(),
+            LxRoseTokenData::EmbeddedMathDelimiter(left_delimiter) => {
+                self.parse_embedded_math(token_idx, left_delimiter)
+            }
             LxRoseTokenData::Nat32(_) => todo!(),
             LxRoseTokenData::NewParagraph => LxRoseAstData::NewParagraph(token_idx),
             LxRoseTokenData::Punctuation(lx_rose_punctuation) => {
@@ -168,14 +168,34 @@ impl<'a> LxAstParser<'a> {
         }
     }
 
-    fn parse_embedded_math(&mut self, left_dollar_token_idx: LxRoseTokenIdx) -> LxRoseAstData {
+    fn parse_embedded_math(
+        &mut self,
+        left_dollar_token_idx: LxRoseTokenIdx,
+        left_delimiter: LxRoseEmbeddedMathDelimiter,
+    ) -> LxRoseAstData {
+        match left_delimiter {
+            LxRoseEmbeddedMathDelimiter::Dollar => (),
+            LxRoseEmbeddedMathDelimiter::DollarDollar => (),
+            LxRoseEmbeddedMathDelimiter::EscapedLbox => (),
+            LxRoseEmbeddedMathDelimiter::EscapedRbox => todo!(),
+        }
+
         let math_asts = self.parse_math_asts();
+
         match self.next_rose_token() {
-            Some((right_dollar_token_idx, LxRoseTokenData::Dollar)) => LxRoseAstData::Math {
-                left_delimiter_token_idx: left_dollar_token_idx,
-                math_asts,
-                right_delimiter_token_idx: right_dollar_token_idx,
-            },
+            Some((
+                right_dollar_token_idx,
+                LxRoseTokenData::EmbeddedMathDelimiter(right_delimiter),
+            )) => {
+                if !left_delimiter.is_matching(right_delimiter) {
+                    todo!("report error")
+                }
+                LxRoseAstData::Math {
+                    left_delimiter_token_idx: left_dollar_token_idx,
+                    math_asts,
+                    right_delimiter_token_idx: right_dollar_token_idx,
+                }
+            }
             _ => todo!(),
         }
     }

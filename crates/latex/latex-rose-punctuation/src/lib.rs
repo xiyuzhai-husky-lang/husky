@@ -21,6 +21,12 @@ pub enum LxRosePunctuation {
     LeftBox,
     /// `]`
     RightBox,
+    /// `\\`
+    EscapedBackslash,
+    /// `\{`
+    EscapedLcurl,
+    /// `\}`
+    EscapedRcurl,
 }
 
 impl LxRosePunctuation {

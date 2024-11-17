@@ -8,22 +8,46 @@ use latex_rose_punctuation::LxRosePunctuation;
 pub enum LxRoseTokenData {
     Word(Coword),
     Command(LxCommandName),
-    /// `$`
-    Dollar,
-    /// `\(`
-    EscapedLpar,
-    /// `\[`
-    EscapedLbox,
     Nat32(u32),
     NewParagraph,
     Punctuation(LxRosePunctuation),
     LeftDelimiter(LxRoseDelimiter),
     RightDelimiter(LxRoseDelimiter),
+    EmbeddedMathDelimiter(LxRoseEmbeddedMathDelimiter),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxRoseDelimiter {
     Curl,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum LxRoseEmbeddedMathDelimiter {
+    /// `$`
+    Dollar,
+    /// `$$`
+    DollarDollar,
+    /// `\[`
+    EscapedLbox,
+    /// `\]`
+    EscapedRbox,
+}
+impl LxRoseEmbeddedMathDelimiter {
+    pub fn is_matching(self, right_delimiter: LxRoseEmbeddedMathDelimiter) -> bool {
+        matches!(
+            (self, right_delimiter),
+            (
+                LxRoseEmbeddedMathDelimiter::Dollar,
+                LxRoseEmbeddedMathDelimiter::Dollar
+            ) | (
+                LxRoseEmbeddedMathDelimiter::DollarDollar,
+                LxRoseEmbeddedMathDelimiter::DollarDollar
+            ) | (
+                LxRoseEmbeddedMathDelimiter::EscapedLbox,
+                LxRoseEmbeddedMathDelimiter::EscapedRbox
+            )
+        )
+    }
 }
 
 impl<'a> LxLexer<'a> {
@@ -41,8 +65,20 @@ impl<'a> LxLexer<'a> {
                             )
                             .unwrap(),
                         )),
+                        '[' => {
+                            self.chars.eat_char();
+                            Some(LxRoseTokenData::EmbeddedMathDelimiter(
+                                LxRoseEmbeddedMathDelimiter::EscapedLbox,
+                            ))
+                        }
+                        ']' => {
+                            self.chars.eat_char();
+                            Some(LxRoseTokenData::EmbeddedMathDelimiter(
+                                LxRoseEmbeddedMathDelimiter::EscapedRbox,
+                            ))
+                        }
                         c if c.is_numeric() => todo!("latex might allow single digit command"),
-                        _ => todo!("latex one digit non letter command"),
+                        c => todo!("latex one digit non letter command: {}", c),
                     },
                     None => todo!(),
                 }
@@ -60,7 +96,17 @@ impl<'a> LxLexer<'a> {
             ))),
             '$' => {
                 self.chars.eat_char();
-                Some(LxRoseTokenData::Dollar)
+                match self.chars.peek() {
+                    Some('$') => {
+                        self.chars.eat_char();
+                        Some(LxRoseTokenData::EmbeddedMathDelimiter(
+                            LxRoseEmbeddedMathDelimiter::DollarDollar,
+                        ))
+                    }
+                    _ => Some(LxRoseTokenData::EmbeddedMathDelimiter(
+                        LxRoseEmbeddedMathDelimiter::Dollar,
+                    )),
+                }
             }
             '{' => {
                 self.chars.eat_char();
@@ -77,7 +123,7 @@ impl<'a> LxLexer<'a> {
             c => {
                 use husky_print_utils::p;
                 p!(c);
-                todo!()
+                todo!("unexpected char: {}", c)
             }
         }
     }
