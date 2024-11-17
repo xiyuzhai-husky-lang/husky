@@ -8220,6 +8220,7 @@ name = "latex-prelude"
 version = "0.1.0"
 dependencies = [
  "salsa",
+ "sealed",
 ]
 
 [[package]]
