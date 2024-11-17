@@ -84,4 +84,34 @@ fn parse_rose_equation_environment_into_latex_asts_works() {
           └─ "1" digit
     "#]],
     );
+    t(
+        "$x-1$",
+        expect![[r#"
+            "$x-1$" all input
+            └─ "$x-1$" math
+              ├─ "x" plain letter
+              ├─ "-" punctuation
+              └─ "1" digit
+        "#]],
+    );
+    t(
+        r#"\[x-1\]"#,
+        expect![[r#"
+            "\\[x-1\\]" all input
+            └─ "\\[x-1\\]" math
+              ├─ "x" plain letter
+              ├─ "-" punctuation
+              └─ "1" digit
+        "#]],
+    );
+    t(
+        r#"$$x-1$$"#,
+        expect![[r#"
+            "$$x-1$$" all input
+            └─ "$$x-1$$" math
+              ├─ "x" plain letter
+              ├─ "-" punctuation
+              └─ "1" digit
+        "#]],
+    );
 }
