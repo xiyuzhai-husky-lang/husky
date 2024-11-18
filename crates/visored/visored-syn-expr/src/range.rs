@@ -367,19 +367,22 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     fn calc_division(&mut self, division: VdSynDivisionIdx) -> VdSynDivisionTokenIdxRange {
         match self.division_arena[division] {
             VdSynDivisionData::Stmts { stmts } => {
+                // TODO: this might be wrong
                 let first = self.get_stmt(stmts.first().expect("stmts are always non-empty"));
                 let last = self.get_stmt(stmts.last().expect("stmts are always non-empty"));
                 first.join(last)
             }
             VdSynDivisionData::Divisions {
                 command_token_idx,
+                rcurl_token_idx,
                 subdivisions,
                 ..
-            } => {
-                let last =
-                    self.get_division(subdivisions.last().expect("divisions are always non-empty"));
-                LxTokenIdxRange::new(*command_token_idx, last.end())
-            }
+            } => match subdivisions.last() {
+                Some(last) => {
+                    LxTokenIdxRange::new(*command_token_idx, self.get_division(last).end())
+                }
+                None => LxTokenIdxRange::new_closed(*command_token_idx, *rcurl_token_idx),
+            },
         }
     }
 

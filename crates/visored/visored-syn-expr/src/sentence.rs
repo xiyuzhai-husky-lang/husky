@@ -57,6 +57,9 @@ impl<'db> VdSynExprBuilder<'db> {
     ) -> VdSynSentenceData {
         let clauses = vec![self.parse_clause(token_idx, word, asts)];
         let end = loop {
+            if self.peek_new_division(asts).is_some() {
+                break VdSynSentenceEnd::Void;
+            }
             if let Some(ast_idx) = asts.next() {
                 match self.ast_arena()[ast_idx] {
                     LxRoseAstData::TextEdit { .. } => todo!(),

@@ -106,7 +106,7 @@ impl<'a> VdSynExprBuilder<'a> {
     ) -> Option<VdSynDivisionData> {
         let ast_arena = self.ast_arena();
         let ast = *ast_iter.peek()?;
-        Some(match ast_arena[ast] {
+        match ast_arena[ast] {
             LxRoseAstData::CompleteCommand {
                 command_token_idx,
                 command_path,
@@ -114,33 +114,37 @@ impl<'a> VdSynExprBuilder<'a> {
                 ref arguments,
             } if let Some(VdCompleteCommandGlobalResolution::NewDivision(level)) = self
                 .default_resolution_table()
-                .resolve_complete_command(command_path)
-                && division_level_range.contains(level) =>
+                .resolve_complete_command(command_path) =>
             {
-                let _ = ast_iter.next().unwrap();
-                let &[argument] = &**arguments as &[LxRoseCompleteCommandArgument] else {
-                    unreachable!()
-                };
-                let lcurl_token_idx = argument.lcurl_token_idx();
-                let LxRoseCompleteCommandArgumentData::Rose(title_asts) = argument.data() else {
-                    unreachable!()
-                };
-                let title = title_asts.to_vd_syn(self);
-                let rcurl_token_idx = argument.rcurl_token_idx();
-                let subdivisions =
-                    self.build_divisions(ast_iter, VdDivisionLevelRange::Below(level));
-                VdSynDivisionData::Divisions {
-                    command_token_idx,
-                    level,
-                    lcurl_token_idx,
-                    title,
-                    rcurl_token_idx,
-                    subdivisions,
+                if division_level_range.contains(level) {
+                    let _ = ast_iter.next().unwrap();
+                    let &[argument] = &**arguments as &[LxRoseCompleteCommandArgument] else {
+                        unreachable!()
+                    };
+                    let lcurl_token_idx = argument.lcurl_token_idx();
+                    let LxRoseCompleteCommandArgumentData::Rose(title_asts) = argument.data()
+                    else {
+                        unreachable!()
+                    };
+                    let title = title_asts.to_vd_syn(self);
+                    let rcurl_token_idx = argument.rcurl_token_idx();
+                    let subdivisions =
+                        self.build_divisions(ast_iter, VdDivisionLevelRange::Below(level));
+                    Some(VdSynDivisionData::Divisions {
+                        command_token_idx,
+                        level,
+                        lcurl_token_idx,
+                        title,
+                        rcurl_token_idx,
+                        subdivisions,
+                    })
+                } else {
+                    None
                 }
             }
-            _ => VdSynDivisionData::Stmts {
+            _ => Some(VdSynDivisionData::Stmts {
                 stmts: self.parse_stmt_aux(ast_iter),
-            },
-        })
+            }),
+        }
     }
 }
