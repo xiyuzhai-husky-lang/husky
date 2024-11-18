@@ -52,7 +52,7 @@ visored-syn-expr.workspace = true
 visored-global-dispatch.workspace = true
 visored-signature.workspace = true
 visored-annotation.workspace = true
-visored-vfs.workspace = true
+latex-vfs.workspace = true
 
 [lints]
 workspace = true

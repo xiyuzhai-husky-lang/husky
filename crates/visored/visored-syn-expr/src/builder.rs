@@ -1,3 +1,4 @@
+use crate::entity_tree::build_entity_tree_in_expr_or_stmts;
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     division::VdSynDivisionArena,
@@ -20,11 +21,13 @@ use latex_ast::{
     range::LxAstTokenIdxRangeMap,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
+use latex_vfs::path::LxFilePath;
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
+    file_path: LxFilePath,
     token_storage: &'db LxTokenStorage,
     ast_arena: LxAstArenaRef<'db>,
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
@@ -42,6 +45,7 @@ pub struct VdSynExprBuilder<'db> {
 impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
         db: &'db ::salsa::Db,
+        file_path: LxFilePath,
         token_storage: &'db LxTokenStorage,
         ast_arena: LxAstArenaRef<'db>,
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
@@ -50,6 +54,7 @@ impl<'db> VdSynExprBuilder<'db> {
     ) -> Self {
         Self {
             db,
+            file_path,
             token_storage,
             ast_arena,
             ast_token_idx_range_map,
@@ -308,13 +313,17 @@ impl<'db> VdSynExprBuilder<'db> {
             &self.stmt_arena,
             &self.division_arena,
         );
+        let (stmt_module_path_node_map, division_module_path_node_map) =
+            build_entity_tree_in_expr_or_stmts(
+                self.db,
+                self.file_path,
+                self.stmt_arena.as_arena_ref(),
+                self.division_arena.as_arena_ref(),
+                root,
+            );
         let (symbol_defns, symbol_resolutions) =
             build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
                 self.db,
-                self.token_storage,
-                self.ast_arena,
-                self.ast_token_idx_range_map,
-                self.annotations,
                 self.default_resolution_table,
                 self.expr_arena.as_arena_ref(),
                 self.phrase_arena.as_arena_ref(),

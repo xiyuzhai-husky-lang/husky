@@ -326,6 +326,7 @@ latex-prelude = { path = "crates/latex/latex-prelude" }
 latex-sem-expr = { path = "crates/latex/latex-sem-expr" }
 latex-text = { path = "crates/latex/latex-text" }
 latex-token = { path = "crates/latex/latex-token" }
+latex-vfs = { path = "crates/latex/latex-vfs" }
 # lean
 lean-ast = { path = "crates/lean/lean-ast" }
 lean-coword = { path = "crates/lean/lean-coword" }
@@ -442,7 +443,6 @@ visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }
 visored-term = { path = "crates/visored/visored-term" }
-visored-vfs = { path = "crates/visored/visored-vfs" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir
