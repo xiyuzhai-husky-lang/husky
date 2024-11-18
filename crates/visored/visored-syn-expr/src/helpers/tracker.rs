@@ -82,7 +82,6 @@ pub trait IsVdSynOutput: std::fmt::Debug + Copy {
 
 // #[sealed]
 impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
-    // TODO: reuse LxAstTracker
     pub fn new(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
@@ -99,7 +98,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         } = LxAstTracker::new(input, db);
         let whole_token_range = token_storage.whole_token_idx_range();
         let annotations = VdAnnotations::from_sparse(
-            input.input(),
+            input.content(),
             token_annotations.iter().copied(),
             space_annotations.iter().copied(),
             &token_storage,
@@ -107,6 +106,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard(db);
         let mut builder = VdSynExprBuilder::new(
             db,
+            input.file_path(),
             &token_storage,
             ast_arena.as_arena_ref(),
             &ast_token_idx_range_map,
@@ -159,7 +159,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
     fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> VdSynExprDisplayTreeBuilder<'b> {
         VdSynExprDisplayTreeBuilder::new(
             db,
-            self.input.input(),
+            self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
             &self.ast_token_idx_range_map,

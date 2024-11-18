@@ -1,11 +1,28 @@
-use crate::stmt::VdSynStmtIdxRange;
+use crate::stmt::{VdSynStmtIdx, VdSynStmtIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_prelude::division::LxDivisionKind;
+use smallvec::{smallvec, SmallVec};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSynDivisionData {
-    pub kind: LxDivisionKind,
-    pub stmts: VdSynStmtIdxRange,
+    kind: LxDivisionKind,
+    children: SmallVec<[VdSynDivisionChild; 4]>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdSynDivisionChild {
+    Division(VdSynDivisionIdx),
+    Stmt(VdSynStmtIdx),
+}
+
+impl VdSynDivisionData {
+    pub fn kind(&self) -> LxDivisionKind {
+        self.kind
+    }
+
+    pub fn children(&self) -> &[VdSynDivisionChild] {
+        &self.children
+    }
 }
 
 pub type VdSynDivisionArena = Arena<VdSynDivisionData>;

@@ -18,8 +18,10 @@ enum-class.workspace = true
 salsa.workspace = true
 # kernel
 husky-coword.workspace = true
+# latex
+latex-prelude.workspace = true
 # visored
-visored-vfs.workspace = true
+latex-vfs.workspace = true
 
 [lints]
 workspace = true

@@ -195,7 +195,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
     pub(crate) fn show_display_tree(&self, db: &salsa::Db) -> String {
         let builder = VdSemExprDisplayTreeBuilder::new(
             db,
-            self.input.input(),
+            self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
             &self.ast_token_idx_range_map,

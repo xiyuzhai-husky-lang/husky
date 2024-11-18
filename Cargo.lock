@@ -8163,6 +8163,7 @@ dependencies = [
  "latex-prelude",
  "latex-rose-punctuation",
  "latex-token",
+ "latex-vfs",
  "ptree",
  "salsa",
  "smallvec",
@@ -8219,6 +8220,7 @@ dependencies = [
 name = "latex-prelude"
 version = "0.1.0"
 dependencies = [
+ "latex-vfs",
  "salsa",
 ]
 
@@ -8243,6 +8245,13 @@ dependencies = [
  "ordered-float 4.2.2",
  "salsa",
  "shifted-unsigned-int",
+]
+
+[[package]]
+name = "latex-vfs"
+version = "0.1.0"
+dependencies = [
+ "salsa",
 ]
 
 [[package]]
@@ -12612,9 +12621,10 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
+ "latex-prelude",
+ "latex-vfs",
  "rustc-hash 2.0.0",
  "salsa",
- "visored-vfs",
 ]
 
 [[package]]
@@ -12630,6 +12640,7 @@ dependencies = [
  "latex-command",
  "latex-environment",
  "latex-prelude",
+ "latex-vfs",
  "lean-coword",
  "lean-item-path",
  "lean-mir-expr",
@@ -12648,7 +12659,6 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
- "visored-vfs",
 ]
 
 [[package]]
@@ -12665,6 +12675,7 @@ dependencies = [
  "latex-environment",
  "latex-math-letter",
  "latex-prelude",
+ "latex-vfs",
  "salsa",
  "visored-annotation",
  "visored-global-dispatch",
@@ -12675,7 +12686,6 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
- "visored-vfs",
 ]
 
 [[package]]
@@ -12711,6 +12721,7 @@ dependencies = [
  "latex-math-letter",
  "latex-prelude",
  "latex-token",
+ "latex-vfs",
  "salsa",
  "smallvec",
  "thiserror",
@@ -12722,7 +12733,6 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
- "visored-vfs",
 ]
 
 [[package]]
@@ -12753,6 +12763,7 @@ dependencies = [
  "latex-prelude",
  "latex-rose-punctuation",
  "latex-token",
+ "latex-vfs",
  "salsa",
  "sealed",
  "smallvec",
@@ -12762,7 +12773,6 @@ dependencies = [
  "visored-item-path",
  "visored-opr",
  "visored-term",
- "visored-vfs",
 ]
 
 [[package]]
@@ -12775,13 +12785,6 @@ dependencies = [
  "smallvec",
  "visored-coword",
  "visored-item-path",
-]
-
-[[package]]
-name = "visored-vfs"
-version = "0.1.0"
-dependencies = [
- "salsa",
 ]
 
 [[package]]

@@ -65,10 +65,6 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
 
 pub(crate) fn build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
     db: &::salsa::Db,
-    token_storage: &LxTokenStorage,
-    ast_arena: LxAstArenaRef,
-    ast_token_idx_range_map: &LxAstTokenIdxRangeMap,
-    annotations: &VdAnnotations,
     default_resolution_table: &VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArenaRef,
     phrase_arena: VdSynPhraseArenaRef,

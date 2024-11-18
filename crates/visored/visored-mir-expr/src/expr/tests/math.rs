@@ -1,11 +1,13 @@
+use super::*;
 use helpers::tracker::VdMirExprTracker;
 use latex_prelude::helper::tracker::LxFormulaInput;
+use latex_vfs::path::LxFilePath;
+use std::path::PathBuf;
 
-use super::*;
-
-fn t(input: &str, expect: &Expect) {
+fn t(content: &str, expect: &Expect) {
     let db = &DB::default();
-    let tracker = VdMirExprTracker::new(LxFormulaInput(input), &[], &[], db);
+    let file_path = LxFilePath::new(db, PathBuf::from(file!()));
+    let tracker = VdMirExprTracker::new(LxFormulaInput { file_path, content }, &[], &[], db);
     expect.assert_eq(&tracker.show_display_tree(db));
 }
 

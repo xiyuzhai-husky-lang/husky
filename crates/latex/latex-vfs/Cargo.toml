@@ -1,5 +1,5 @@
 [package]
-name = "visored-vfs"
+name = "latex-vfs"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

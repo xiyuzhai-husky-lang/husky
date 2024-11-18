@@ -1,16 +1,25 @@
 use crate::mode::LxMode;
+use latex_vfs::path::LxFilePath;
 
 pub trait IsLxInput<'a>: Copy {
-    fn input(self) -> &'a str;
+    fn content(self) -> &'a str;
     fn root_mode(self) -> LxMode;
+    fn file_path(self) -> LxFilePath;
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxDocumentInput<'a>(pub &'a str);
+pub struct LxDocumentInput<'a> {
+    pub file_path: LxFilePath,
+    pub content: &'a str,
+}
 
 impl<'a> IsLxInput<'a> for LxDocumentInput<'a> {
-    fn input(self) -> &'a str {
-        self.0
+    fn file_path(self) -> LxFilePath {
+        self.file_path
+    }
+
+    fn content(self) -> &'a str {
+        self.content
     }
 
     fn root_mode(self) -> LxMode {
@@ -19,11 +28,18 @@ impl<'a> IsLxInput<'a> for LxDocumentInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxDocumentBodyInput<'a>(pub &'a str);
+pub struct LxDocumentBodyInput<'a> {
+    pub file_path: LxFilePath,
+    pub content: &'a str,
+}
 
 impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
-    fn input(self) -> &'a str {
-        self.0
+    fn file_path(self) -> LxFilePath {
+        self.file_path
+    }
+
+    fn content(self) -> &'a str {
+        self.content
     }
 
     fn root_mode(self) -> LxMode {
@@ -32,11 +48,18 @@ impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxFormulaInput<'a>(pub &'a str);
+pub struct LxFormulaInput<'a> {
+    pub file_path: LxFilePath,
+    pub content: &'a str,
+}
 
 impl<'a> IsLxInput<'a> for LxFormulaInput<'a> {
-    fn input(self) -> &'a str {
-        self.0
+    fn file_path(self) -> LxFilePath {
+        self.file_path
+    }
+
+    fn content(self) -> &'a str {
+        self.content
     }
 
     fn root_mode(self) -> LxMode {
@@ -45,13 +68,19 @@ impl<'a> IsLxInput<'a> for LxFormulaInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxLispInput<'a>(pub &'a str);
+pub struct LxLispInput<'a> {
+    pub file_path: LxFilePath,
+    pub content: &'a str,
+}
 
 impl<'a> IsLxInput<'a> for LxLispInput<'a> {
-    fn input(self) -> &'a str {
-        self.0
+    fn file_path(self) -> LxFilePath {
+        self.file_path
     }
 
+    fn content(self) -> &'a str {
+        self.content
+    }
     fn root_mode(self) -> LxMode {
         LxMode::Lisp
     }
