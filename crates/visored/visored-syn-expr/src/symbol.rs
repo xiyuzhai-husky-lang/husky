@@ -1,4 +1,5 @@
 pub(crate) mod builder;
+pub mod lineage;
 pub mod local_defn;
 pub mod resolution;
 pub mod scope;
