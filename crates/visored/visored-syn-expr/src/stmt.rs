@@ -47,9 +47,16 @@ impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRootAstIdxRange) {
 
 impl<'db> VdSynExprBuilder<'db> {
     fn parse_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynStmtIdxRange {
-        let mut stmts: Vec<VdSynStmtData> = Vec::new();
         let mut asts = asts.into_iter().peekable();
-        while let Some(stmt) = self.parse_stmt(&mut asts) {
+        self.parse_stmt_aux(&mut asts)
+    }
+
+    pub(crate) fn parse_stmt_aux(
+        &mut self,
+        asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+    ) -> VdSynStmtIdxRange {
+        let mut stmts: Vec<VdSynStmtData> = Vec::new();
+        while let Some(stmt) = self.parse_stmt(asts) {
             stmts.push(stmt);
         }
         self.alloc_stmts(stmts)
@@ -65,7 +72,6 @@ impl<'db> VdSynExprBuilder<'db> {
             LxRoseAstData::Word(token_idx, word) => self.parse_paragraph(token_idx, word, asts),
             LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
             LxRoseAstData::Math { .. } => todo!(),
-            LxRoseAstData::NewParagraph(_) => todo!(),
             LxRoseAstData::Delimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -80,6 +86,8 @@ impl<'db> VdSynExprBuilder<'db> {
                 ref arguments,
             } => todo!(),
             LxRoseAstData::Environment { .. } => todo!(),
+            LxRoseAstData::NewParagraph(_) => todo!(),
+            LxRoseAstData::NewDivision { .. } => todo!(),
         }
     }
 
@@ -102,7 +110,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     math_asts,
                     right_delimiter_token_idx: right_dollar_token_idx,
                 } => todo!(),
-                LxRoseAstData::NewParagraph(_) => todo!(),
                 LxRoseAstData::Delimited {
                     left_delimiter_token_idx,
                     left_delimiter,
@@ -117,6 +124,8 @@ impl<'db> VdSynExprBuilder<'db> {
                     ref arguments,
                 } => todo!(),
                 LxRoseAstData::Environment { .. } => todo!(),
+                LxRoseAstData::NewParagraph(_) => todo!(),
+                LxRoseAstData::NewDivision { .. } => todo!(),
             }
         }
         Some(VdSynStmtData::Paragraph(self.alloc_sentences(sentences)))

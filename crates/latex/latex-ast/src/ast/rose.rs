@@ -36,7 +36,6 @@ pub enum LxRoseAstData {
         math_asts: LxMathAstIdxRange,
         right_delimiter_token_idx: LxRoseTokenIdx,
     },
-    NewParagraph(LxRoseTokenIdx),
     Delimited {
         left_delimiter_token_idx: LxRoseTokenIdx,
         left_delimiter: LxRoseDelimiter,
@@ -62,6 +61,13 @@ pub enum LxRoseAstData {
         end_rcurl_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
     },
+    NewParagraph(LxRoseTokenIdx),
+    NewDivision {
+        command_token_idx: LxRoseTokenIdx,
+        lcurl_token_idx: LxRoseTokenIdx,
+        title: LxRoseAstIdxRange,
+        rcurl_token_idx: LxRoseTokenIdx,
+    },
 }
 
 pub type LxRoseAstArena = Arena<LxRoseAstData>;
@@ -80,7 +86,6 @@ impl LxRoseAstData {
                 .into_iter()
                 .map(|ast| LxRoseAstChild::MathAst(ast))
                 .collect(),
-            LxRoseAstData::NewParagraph(_) => vec![],
             LxRoseAstData::Delimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -102,6 +107,13 @@ impl LxRoseAstData {
                 LxAstIdxRange::Lisp(asts) => todo!(),
                 LxAstIdxRange::Root(arena_idx_range) => todo!(),
             },
+            LxRoseAstData::NewParagraph(_) => vec![],
+            LxRoseAstData::NewDivision {
+                command_token_idx,
+                lcurl_token_idx,
+                title,
+                rcurl_token_idx,
+            } => title.into_iter().map(LxRoseAstChild::RoseAst).collect(),
         }
     }
 }
