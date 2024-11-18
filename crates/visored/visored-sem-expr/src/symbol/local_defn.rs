@@ -4,6 +4,7 @@ use super::*;
 use idx_arena::{Arena, ArenaIdx};
 use latex_math_letter::letter::LxMathLetter;
 use latex_token::idx::LxTokenIdxRange;
+use visored_item_path::module::VdModulePath;
 use visored_syn_expr::symbol::local_defn::{
     VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead, VdSynSymbolLocalDefnIdx,
 };
@@ -16,6 +17,7 @@ pub struct VdSemSymbolLocalDefnData {
     /// initialized to be `None`
     /// and will be set to the inferred type when the type is inferred
     ty: Option<VdType>,
+    module_path: VdModulePath,
 }
 
 impl VdSemSymbolLocalDefnData {
@@ -82,6 +84,7 @@ impl<'a> VdSemExprBuilder<'a> {
             head,
             body,
             ty: None,
+            module_path: defn.module_path(),
         }
     }
 

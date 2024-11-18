@@ -56,6 +56,10 @@ impl VdSynSymbolLocalDefnData {
     pub fn src(&self) -> VdSynSymbolLocalDefnSrc {
         self.src
     }
+
+    pub fn module_path(&self) -> VdModulePath {
+        self.module_path
+    }
 }
 
 impl VdSynSymbolLocalDefnHead {
