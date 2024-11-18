@@ -1,3 +1,5 @@
+use std::iter::Peekable;
+
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     division::{VdSynDivisionArena, VdSynDivisionData, VdSynDivisionIdxRange},
@@ -17,13 +19,19 @@ use crate::{
 use crate::{division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode, stmt::VdSynStmtMap};
 use either::*;
 use latex_ast::{
-    ast::{rose::LxRoseAstIdxRange, LxAstArena, LxAstArenaRef, LxAstIdxRange},
+    ast::{
+        rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+        LxAstArena, LxAstArenaRef, LxAstIdxRange,
+    },
     range::LxAstTokenIdxRangeMap,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use latex_vfs::path::LxFilePath;
 use visored_annotation::annotations::VdAnnotations;
-use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::{
+    default_table::VdDefaultGlobalResolutionTable,
+    resolution::command::VdCompleteCommandGlobalResolution,
+};
 use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprBuilder<'db> {
@@ -111,6 +119,24 @@ impl<'db> VdSynExprBuilder<'db> {
 
     pub(crate) fn sentence_arena(&self) -> &VdSynSentenceArena {
         &self.sentence_arena
+    }
+}
+
+impl<'db> VdSynExprBuilder<'db> {
+    pub(crate) fn peek_new_division(
+        &self,
+        asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+    ) -> Option<()> {
+        match self.ast_arena()[*asts.peek()?] {
+            LxRoseAstData::CompleteCommand { command_path, .. }
+                if let Some(VdCompleteCommandGlobalResolution::NewDivision(_)) = self
+                    .default_resolution_table()
+                    .resolve_complete_command(command_path) =>
+            {
+                Some(())
+            }
+            _ => None,
+        }
     }
 }
 

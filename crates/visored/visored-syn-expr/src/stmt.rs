@@ -14,6 +14,7 @@ use latex_ast::ast::{
 use latex_environment::signature::LxEnvironmentSignature;
 use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
 use std::iter::Peekable;
+use visored_global_resolution::resolution::command::VdCompleteCommandGlobalResolution;
 
 pub enum VdSynStmtData {
     Paragraph(VdSynSentenceIdxRange),
@@ -71,11 +72,18 @@ impl<'db> VdSynExprBuilder<'db> {
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> Option<VdSynStmtData> {
+        // stop on new division
+        if self.peek_new_division(asts).is_some() {
+            return None;
+        }
+
         let ast_idx = asts.next()?;
         match self.ast_arena()[ast_idx] {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
             LxRoseAstData::Word(token_idx, word) => self.parse_paragraph(token_idx, word, asts),
-            LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+            LxRoseAstData::Punctuation(token_idx, punctuation) => {
+                todo!("punctuation: {}", punctuation)
+            }
             LxRoseAstData::Math { .. } => todo!(),
             LxRoseAstData::Delimited {
                 left_delimiter_token_idx,
@@ -102,7 +110,12 @@ impl<'db> VdSynExprBuilder<'db> {
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> Option<VdSynStmtData> {
         let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];
-        while let Some(ast_idx) = asts.next() {
+        loop {
+            // stop on new division
+            if self.peek_new_division(asts).is_some() {
+                break;
+            }
+            let Some(ast_idx) = asts.next() else { break };
             match self.ast_arena()[ast_idx] {
                 LxRoseAstData::TextEdit { .. } => todo!(),
                 LxRoseAstData::Word(lx_rose_token_idx, coword) => {
@@ -126,7 +139,12 @@ impl<'db> VdSynExprBuilder<'db> {
                     command_path,
                     options,
                     ref arguments,
-                } => todo!(),
+                } => {
+                    use husky_print_utils::{p, DisplayIt};
+                    use salsa::DebugWithDb;
+                    p!(command_path.debug(self.db()));
+                    todo!()
+                }
                 LxRoseAstData::Environment { .. } => todo!(),
                 LxRoseAstData::NewParagraph(_) => todo!(),
             }
