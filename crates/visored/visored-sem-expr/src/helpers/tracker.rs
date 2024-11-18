@@ -24,7 +24,7 @@ use latex_ast::{
 };
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::{
-    helper::tracker::{LxDocumentBodyInput, LxFormulaInput},
+    helper::tracker::{LxDocumentParagraphsInput, LxFormulaInput},
     mode::LxMode,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -230,7 +230,7 @@ impl IsVdSemExprOutput for VdSemExprIdx {
     }
 }
 
-impl<'a> IsVdSemExprInput<'a> for LxDocumentBodyInput<'a> {
+impl<'a> IsVdSemExprInput<'a> for LxDocumentParagraphsInput<'a> {
     type VdSemExprOutput = VdSemStmtIdxRange;
 }
 
