@@ -8300,7 +8300,10 @@ version = "0.1.0"
 name = "lean-item-path"
 version = "0.1.0"
 dependencies = [
+ "husky-coword",
+ "lean-coword",
  "salsa",
+ "smallvec",
 ]
 
 [[package]]

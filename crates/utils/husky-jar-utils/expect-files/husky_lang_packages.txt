@@ -3928,7 +3928,10 @@
         name: "lean-item-path",
         relative_path: "crates/lean/lean-item-path",
         dependencies: [
+            "lean-coword",
             "salsa",
+            "smallvec",
+            "husky-coword",
         ],
     },
     PackageSummary {

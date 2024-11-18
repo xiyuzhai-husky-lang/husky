@@ -1,7 +1,12 @@
 pub mod jar;
 pub mod menu;
+pub mod namespace;
+#[cfg(test)]
+pub mod tests;
 
 use self::jar::LnItemPathJar as Jar;
+#[cfg(test)]
+use crate::tests::*;
 
 // TODO: ad hoc
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
