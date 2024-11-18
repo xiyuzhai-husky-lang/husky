@@ -334,7 +334,10 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                     self.get_sentence(sentences.last().expect("sentences are always non-empty"));
                 first.join(last)
             }
-            VdSynStmtData::Block { environment, stmts } => todo!(),
+            VdSynStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => todo!(),
         }
     }
 

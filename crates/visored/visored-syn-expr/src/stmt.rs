@@ -11,13 +11,14 @@ use latex_ast::ast::{
     root::LxRootAstIdxRange,
     rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
 };
+use latex_environment::signature::LxEnvironmentSignature;
 use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
 use std::iter::Peekable;
 
 pub enum VdSynStmtData {
     Paragraph(VdSynSentenceIdxRange),
-    Block {
-        environment: (),
+    Environment {
+        environment_signature: LxEnvironmentSignature,
         stmts: VdSynStmtIdxRange,
     },
 }
@@ -134,7 +135,7 @@ impl VdSynStmtData {
                 .into_iter()
                 .map(VdSynStmtChild::Sentence)
                 .collect(),
-            VdSynStmtData::Block { stmts, .. } => {
+            VdSynStmtData::Environment { stmts, .. } => {
                 stmts.into_iter().map(VdSynStmtChild::Stmt).collect()
             }
         }
@@ -145,7 +146,10 @@ impl<'db> VdSynSymbolBuilder<'db> {
     pub(crate) fn build_stmt_aux(&mut self, stmt: VdSynStmtIdx) {
         match self.stmt_arena()[stmt] {
             VdSynStmtData::Paragraph(sentences) => self.build_sentences(sentences),
-            VdSynStmtData::Block { environment, stmts } => self.build_stmts(stmts),
+            VdSynStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => self.build_stmts(stmts),
         }
     }
 }

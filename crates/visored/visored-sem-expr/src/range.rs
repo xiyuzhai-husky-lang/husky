@@ -329,7 +329,10 @@ impl<'db> VdSemExprRangeCalculator<'db> {
                     self.get_sentence(sentences.last().expect("sentences are always non-empty"));
                 first.join(last)
             }
-            VdSemStmtData::Block { environment, stmts } => todo!(),
+            VdSemStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => todo!(),
         }
     }
 

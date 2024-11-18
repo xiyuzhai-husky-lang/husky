@@ -63,6 +63,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     symbol_builder.finish()
 }
 
+#[deprecated]
 pub(crate) fn build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
     db: &::salsa::Db,
     default_resolution_table: &VdDefaultGlobalResolutionTable,

@@ -153,7 +153,10 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         let source = &self.input[offset_range];
         let value = match self.stmt_arena[stmt] {
             VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
-            VdSemStmtData::Block { environment, stmts } => format!("{:?} stmt.block", source),
+            VdSemStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => format!("{:?} stmt.block", source),
         };
         DisplayTree::new(
             value,

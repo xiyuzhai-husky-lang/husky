@@ -1,7 +1,7 @@
-use crate::entity_tree::build_entity_tree_in_expr_or_stmts;
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     division::VdSynDivisionArena,
+    entity_tree::build_entity_tree_with,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     helpers::tracker::IsVdSynOutput,
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
@@ -15,6 +15,11 @@ use crate::{
         local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
+use crate::{
+    division::VdSynDivisionMap,
+    entity_tree::{build_entity_tree_in_expr_or_stmts, VdSynExprEntityTreeNode},
+    stmt::VdSynStmtMap,
+};
 use either::*;
 use latex_ast::{
     ast::{rose::LxRoseAstIdxRange, LxAstArena, LxAstArenaRef, LxAstIdxRange},
@@ -24,6 +29,7 @@ use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use latex_vfs::path::LxFilePath;
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -220,6 +226,9 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynSentenceTokenIdxRangeMap,
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
+        VdSynExprEntityTreeNode,
+        VdSynStmtMap<VdModulePath>,
+        VdSynDivisionMap<VdModulePath>,
         VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,
     ) {
@@ -239,6 +248,14 @@ impl<'db> VdSynExprBuilder<'db> {
             &self.stmt_arena,
             &self.division_arena,
         );
+        let (root_node, stmt_module_path_node_map, division_module_path_node_map) =
+            build_entity_tree_with(
+                self.db,
+                self.file_path,
+                self.stmt_arena.as_arena_ref(),
+                self.division_arena.as_arena_ref(),
+                output,
+            );
         let (symbol_defns, symbol_resolutions) = build_all_symbol_defns_and_resolutions_with(
             self.db,
             self.token_storage,
@@ -273,11 +290,15 @@ impl<'db> VdSynExprBuilder<'db> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
+            root_node,
+            stmt_module_path_node_map,
+            division_module_path_node_map,
             symbol_defns,
             symbol_resolutions,
         )
     }
 
+    #[deprecated]
     pub(crate) fn finish_with_expr_or_stmts(
         self,
         root: Either<VdSynExprIdx, VdSynStmtIdxRange>,
@@ -294,6 +315,9 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynSentenceTokenIdxRangeMap,
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
+        VdSynExprEntityTreeNode,
+        VdSynStmtMap<VdModulePath>,
+        VdSynDivisionMap<VdModulePath>,
         VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,
     ) {
@@ -313,7 +337,7 @@ impl<'db> VdSynExprBuilder<'db> {
             &self.stmt_arena,
             &self.division_arena,
         );
-        let (stmt_module_path_node_map, division_module_path_node_map) =
+        let (root_node, stmt_module_path_node_map, division_module_path_node_map) =
             build_entity_tree_in_expr_or_stmts(
                 self.db,
                 self.file_path,
@@ -352,6 +376,9 @@ impl<'db> VdSynExprBuilder<'db> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
+            root_node,
+            stmt_module_path_node_map,
+            division_module_path_node_map,
             symbol_defns,
             symbol_resolutions,
         )

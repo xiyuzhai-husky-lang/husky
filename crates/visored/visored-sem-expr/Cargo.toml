@@ -25,6 +25,7 @@ latex-ast.workspace = true
 husky-coword.workspace = true
 # latex
 latex-command.workspace = true
+latex-environment.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-math-letter.workspace = true
