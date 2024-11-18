@@ -79,6 +79,22 @@ pub struct VdModulePathRegistry {
 }
 
 impl VdModulePathRegistry {
+    pub fn issue_new_paragraph(&mut self, db: &::salsa::Db) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Paragraph, db)
+    }
+
+    pub fn issue_new_division(
+        &mut self,
+        division_data: VdModulePathDivisionData,
+        db: &::salsa::Db,
+    ) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Division(division_data), db)
+    }
+
+    pub fn issue_new_environment(&mut self, db: &::salsa::Db) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Environment, db)
+    }
+
     fn issue_new_child(&mut self, tag: VdModulePathTag, db: &::salsa::Db) -> VdModulePath {
         let disambiguator = match self.map.get_mut(&tag) {
             None => {
@@ -118,21 +134,61 @@ mod tests {
             map: FxHashMap::default(),
         };
 
-        // Test paragraph paths
-        let paragraph_tag = VdModulePathTag::Paragraph;
-
-        // First paragraph should have disambiguator 0
-        let path1 = registry.issue_new_child(paragraph_tag, &db);
-        if let VdModulePathData::Paragraph { disambiguator, .. } = path1.data(&db) {
-            assert_eq!(disambiguator, 0);
-        } else {
-            panic!("Expected Paragraph");
+        // Test multiple paragraphs (0 through 9)
+        let mut paragraph_paths = Vec::new();
+        for expected_disambiguator in 0..10 {
+            let path = registry.issue_new_paragraph(&db);
+            if let VdModulePathData::Paragraph { disambiguator, .. } = path.data(&db) {
+                assert_eq!(disambiguator, expected_disambiguator);
+                paragraph_paths.push(path);
+            } else {
+                panic!("Expected Paragraph");
+            }
         }
 
-        // Second paragraph should have disambiguator 1
-        let path2 = registry.issue_new_child(paragraph_tag, &db);
-        if let VdModulePathData::Paragraph { disambiguator, .. } = path2.data(&db) {
-            assert_eq!(disambiguator, 1);
+        // Test multiple divisions (0 through 4)
+        let section_coword = Coword::from_ref(&db, "test_section");
+        let mut division_paths = Vec::new();
+        for expected_disambiguator in 0..5 {
+            let path =
+                registry.issue_new_division(VdModulePathDivisionData::Section(section_coword), &db);
+            if let VdModulePathData::Division { disambiguator, .. } = path.data(&db) {
+                assert_eq!(disambiguator, expected_disambiguator);
+                division_paths.push(path);
+            } else {
+                panic!("Expected Division");
+            }
+        }
+
+        // Test multiple environments (0 through 7)
+        let mut env_paths = Vec::new();
+        for expected_disambiguator in 0..8 {
+            let path = registry.issue_new_environment(&db);
+            if let VdModulePathData::Environment { disambiguator, .. } = path.data(&db) {
+                assert_eq!(disambiguator, expected_disambiguator);
+                env_paths.push(path);
+            } else {
+                panic!("Expected Environment");
+            }
+        }
+
+        // Verify final counts in the registry
+        assert_eq!(*registry.map.get(&VdModulePathTag::Paragraph).unwrap(), 10);
+        assert_eq!(
+            *registry
+                .map
+                .get(&VdModulePathTag::Division(
+                    VdModulePathDivisionData::Section(section_coword)
+                ))
+                .unwrap(),
+            5
+        );
+        assert_eq!(*registry.map.get(&VdModulePathTag::Environment).unwrap(), 8);
+
+        // Verify we can still create new items after many iterations
+        let last_paragraph = registry.issue_new_paragraph(&db);
+        if let VdModulePathData::Paragraph { disambiguator, .. } = last_paragraph.data(&db) {
+            assert_eq!(disambiguator, 10);
         } else {
             panic!("Expected Paragraph");
         }
