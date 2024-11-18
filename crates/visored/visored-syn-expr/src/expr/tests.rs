@@ -1,6 +1,6 @@
 use super::*;
+use crate::helpers::tracker::VdSynExprTracker;
 use expect_test::{expect, Expect};
-use helpers::tracker::VdSynExprTracker;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;

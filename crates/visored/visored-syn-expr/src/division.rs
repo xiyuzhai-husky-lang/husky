@@ -1,9 +1,18 @@
+#[cfg(test)]
+mod tests;
+
+use std::iter::Peekable;
+
 use crate::{
-    builder::ToVdSyn,
+    builder::{ToVdSyn, VdSynExprBuilder},
     stmt::{VdSynStmtIdx, VdSynStmtIdxRange},
+    *,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_ast::ast::{rose::LxRoseAstIdxRange, LxAstIdxRange};
+use latex_ast::ast::{
+    rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+    LxAstIdxRange,
+};
 use latex_prelude::division::LxDivisionKind;
 use latex_token::idx::LxTokenIdxRange;
 use smallvec::{smallvec, SmallVec};
@@ -54,7 +63,34 @@ pub type VdSynDivisionIdx = ArenaIdx<VdSynDivisionData>;
 pub type VdSynDivisionIdxRange = ArenaIdxRange<VdSynDivisionData>;
 
 impl ToVdSyn<VdSynDivisionIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut crate::builder::VdSynExprBuilder) -> VdSynDivisionIdxRange {
-        todo!()
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
+        let (token_range, asts) = self;
+        let mut ast_iter = asts.into_iter().peekable();
+        let mut divisions = vec![];
+        while let Some(division) = builder.build_division(&mut ast_iter) {
+            divisions.push(division);
+        }
+        builder.alloc_divisions(divisions)
+    }
+}
+
+impl<'a> VdSynExprBuilder<'a> {
+    pub(crate) fn build_division(
+        &mut self,
+        ast_iter: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+    ) -> Option<VdSynDivisionData> {
+        let ast_arena = self.ast_arena();
+        let ast = *ast_iter.peek()?;
+        Some(match ast_arena[ast] {
+            LxRoseAstData::NewDivision {
+                command_token_idx,
+                lcurl_token_idx,
+                title,
+                rcurl_token_idx,
+            } => todo!(),
+            _ => VdSynDivisionData::Stmts {
+                stmts: self.parse_stmt_aux(ast_iter),
+            },
+        })
     }
 }

@@ -246,7 +246,6 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 math_asts,
                 right_delimiter_token_idx: right_dollar_token_idx,
             } => LxTokenIdxRange::new_closed(*left_dollar_token_idx, *right_dollar_token_idx),
-            LxRoseAstData::NewParagraph(token_idx) => LxTokenIdxRange::new_single(*token_idx),
             LxRoseAstData::Delimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -265,6 +264,12 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 end_rcurl_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
+            LxRoseAstData::NewParagraph(token_idx) => LxTokenIdxRange::new_single(*token_idx),
+            LxRoseAstData::NewDivision {
+                command_token_idx,
+                rcurl_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*command_token_idx, *rcurl_token_idx),
         }
     }
 

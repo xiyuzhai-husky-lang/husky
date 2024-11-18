@@ -80,7 +80,6 @@ impl<'db> VdSynExprBuilder<'db> {
                         }
                     }
                     LxRoseAstData::Math { .. } => todo!(),
-                    LxRoseAstData::NewParagraph(_) => todo!(),
                     LxRoseAstData::Delimited {
                         left_delimiter_token_idx,
                         left_delimiter,
@@ -95,6 +94,8 @@ impl<'db> VdSynExprBuilder<'db> {
                         ref arguments,
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::NewDivision { .. } => todo!(),
                 }
             } else {
                 todo!()
