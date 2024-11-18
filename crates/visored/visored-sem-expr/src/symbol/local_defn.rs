@@ -29,8 +29,12 @@ impl VdSemSymbolLocalDefnData {
         &self.body
     }
 
-    pub(crate) fn ty(&self) -> VdType {
+    pub fn ty(&self) -> VdType {
         self.ty.expect("all local defns' types are inferred")
+    }
+
+    pub fn module_path(&self) -> VdModulePath {
+        self.module_path
     }
 }
 
