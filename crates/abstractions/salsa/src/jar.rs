@@ -195,7 +195,7 @@ pub enum JarIndex {
     LxCommandJar,
     LxEnvironmentJar,
     // visored
-    VdVfsJar,
+    LxVfsJar,
     VdTermJar,
     VdOprJar,
     VdSynExprJar,

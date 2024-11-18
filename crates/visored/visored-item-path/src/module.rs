@@ -1,7 +1,8 @@
 use crate::*;
 use husky_coword::Coword;
+use latex_prelude::division::LxDivisionKind;
+use latex_vfs::path::LxFilePath;
 use rustc_hash::FxHashMap;
-use visored_vfs::path::VdFilePath;
 
 #[salsa::interned(constructor = new_inner)]
 pub struct VdModulePath {
@@ -10,10 +11,10 @@ pub struct VdModulePath {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum VdModulePathData {
-    Root(VdFilePath),
+    Root(LxFilePath),
     Division {
         parent: VdModulePath,
-        division_data: VdModulePathDivisionData,
+        division_kind: LxDivisionKind,
         disambiguator: u32,
     },
     Paragraph {
@@ -27,15 +28,8 @@ pub enum VdModulePathData {
     },
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum VdModulePathDivisionData {
-    Section(Coword),
-    Subsection(Coword),
-    Subsubsection(Coword),
-}
-
 impl VdModulePath {
-    pub fn new_root(db: &::salsa::Db, file_path: VdFilePath) -> Self {
+    pub fn new_root(db: &::salsa::Db, file_path: LxFilePath) -> Self {
         Self::new_inner(db, VdModulePathData::Root(file_path))
     }
 
@@ -46,9 +40,9 @@ impl VdModulePath {
         db: &::salsa::Db,
     ) -> Self {
         let data = match tag {
-            VdModulePathTag::Division(division_data) => VdModulePathData::Division {
+            VdModulePathTag::Division(division_kind) => VdModulePathData::Division {
                 parent,
-                division_data,
+                division_kind,
                 disambiguator,
             },
             VdModulePathTag::Paragraph => VdModulePathData::Paragraph {
@@ -68,7 +62,7 @@ impl VdModulePath {
 /// Data without parent and disambiguator
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdModulePathTag {
-    Division(VdModulePathDivisionData),
+    Division(LxDivisionKind),
     Paragraph,
     Environment,
 }
@@ -79,16 +73,23 @@ pub struct VdModulePathRegistry {
 }
 
 impl VdModulePathRegistry {
+    pub fn new(parent: VdModulePath) -> Self {
+        Self {
+            parent,
+            map: Default::default(),
+        }
+    }
+
     pub fn issue_new_paragraph(&mut self, db: &::salsa::Db) -> VdModulePath {
         self.issue_new_child(VdModulePathTag::Paragraph, db)
     }
 
     pub fn issue_new_division(
         &mut self,
-        division_data: VdModulePathDivisionData,
+        division_kind: LxDivisionKind,
         db: &::salsa::Db,
     ) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Division(division_data), db)
+        self.issue_new_child(VdModulePathTag::Division(division_kind), db)
     }
 
     pub fn issue_new_environment(&mut self, db: &::salsa::Db) -> VdModulePath {
@@ -123,7 +124,7 @@ mod tests {
 
         let db = DB::default();
 
-        let file_path = VdFilePath::new(&db, PathBuf::from("test.txt"));
+        let file_path = LxFilePath::new(&db, PathBuf::from("test.txt"));
 
         // Create a root path
         let root = VdModulePath::new_inner(&db, VdModulePathData::Root(file_path));
@@ -147,11 +148,9 @@ mod tests {
         }
 
         // Test multiple divisions (0 through 4)
-        let section_coword = Coword::from_ref(&db, "test_section");
         let mut division_paths = Vec::new();
         for expected_disambiguator in 0..5 {
-            let path =
-                registry.issue_new_division(VdModulePathDivisionData::Section(section_coword), &db);
+            let path = registry.issue_new_division(LxDivisionKind::Section, &db);
             if let VdModulePathData::Division { disambiguator, .. } = path.data(&db) {
                 assert_eq!(disambiguator, expected_disambiguator);
                 division_paths.push(path);
@@ -177,9 +176,7 @@ mod tests {
         assert_eq!(
             *registry
                 .map
-                .get(&VdModulePathTag::Division(
-                    VdModulePathDivisionData::Section(section_coword)
-                ))
+                .get(&VdModulePathTag::Division(LxDivisionKind::Section))
                 .unwrap(),
             5
         );

@@ -172,6 +172,7 @@
     "latex-ast": {
         "latex-command",
         "latex-environment",
+        "latex-vfs",
     },
     "latex-command": {
         "husky-coword",
@@ -179,6 +180,7 @@
     "latex-environment": {
         "husky-coword",
     },
+    "latex-vfs": {},
     "lean-item-path": {
         "husky-coword",
     },
@@ -196,7 +198,7 @@
     },
     "visored-item-path": {
         "husky-coword",
-        "visored-vfs",
+        "latex-vfs",
     },
     "visored-lean-transpilation": {
         "lean-mir-expr",
@@ -222,5 +224,4 @@
     "visored-term": {
         "visored-item-path",
     },
-    "visored-vfs": {},
 }

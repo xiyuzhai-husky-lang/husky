@@ -2,10 +2,12 @@ use super::*;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdSynExprTracker;
 use latex_prelude::{helper::tracker::LxDocumentBodyInput, mode::LxMode};
+use latex_vfs::path::LxFilePath;
+use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
-    input: &str,
+    content: &str,
     token_annotations: &[((&str, &str), VdTokenAnnotation)],
     space_annotations: &[((&str, &str), VdSpaceAnnotation)],
     expected: &Expect,
@@ -13,8 +15,9 @@ fn t(
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 
     let db = &DB::default();
+    let file_path = LxFilePath::new(db, PathBuf::from(file!()));
     let tracker = VdSynExprTracker::new(
-        LxDocumentBodyInput(input),
+        LxDocumentBodyInput { file_path, content },
         token_annotations,
         space_annotations,
         db,

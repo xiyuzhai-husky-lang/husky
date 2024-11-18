@@ -10,6 +10,6 @@
     visored_item_path::jar::VdItemPathJar,
     visored_global_dispatch::jar::VdGlobalDispatchJar,
     visored_signature::jar::VdSignatureJar,
-    visored_vfs::jar::VdVfsJar
+    latex_vfs::jar::LxVfsJar
 )]
 pub(crate) struct DB {}
