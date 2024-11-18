@@ -1410,6 +1410,7 @@
             "latex-command",
             "latex-environment",
             "visored-global-dispatch",
+            "visored-item-path",
             "visored-opr",
             "visored-signature",
             "visored-syn-expr",

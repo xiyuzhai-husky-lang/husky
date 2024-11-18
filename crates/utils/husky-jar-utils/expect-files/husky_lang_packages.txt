@@ -4461,6 +4461,7 @@
             "visored-annotation",
             "visored-global-dispatch",
             "visored-global-resolution",
+            "visored-item-path",
             "visored-opr",
             "visored-signature",
             "visored-syn-expr",
