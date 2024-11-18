@@ -270,6 +270,8 @@ impl<'db> VdSynExprBuilder<'db> {
             &sentence_range_map,
             &stmt_range_map,
             &division_range_map,
+            &stmt_module_path_node_map,
+            &division_module_path_node_map,
             output,
         );
         (
