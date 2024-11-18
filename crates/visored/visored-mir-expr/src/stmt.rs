@@ -51,7 +51,10 @@ impl<'db> VdMirExprBuilder<'db> {
                 stmts: sentences.to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,
             },
-            VdSemStmtData::Block { environment, stmts } => todo!(),
+            VdSemStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => todo!(),
         }
     }
 }

@@ -23,7 +23,7 @@ pub enum VdModulePathData {
     },
     Environment {
         parent: VdModulePath,
-        name: String,
+        name: Coword,
         disambiguator: u32,
     },
 }
@@ -49,9 +49,9 @@ impl VdModulePath {
                 parent,
                 disambiguator,
             },
-            VdModulePathTag::Environment => VdModulePathData::Environment {
+            VdModulePathTag::Environment(name) => VdModulePathData::Environment {
                 parent,
-                name: String::new(), // You might want to pass this as a parameter
+                name,
                 disambiguator,
             },
         };
@@ -64,7 +64,7 @@ impl VdModulePath {
 pub enum VdModulePathTag {
     Division(LxDivisionKind),
     Paragraph,
-    Environment,
+    Environment(Coword),
 }
 
 pub struct VdModulePathRegistry {
@@ -80,10 +80,6 @@ impl VdModulePathRegistry {
         }
     }
 
-    pub fn issue_new_paragraph(&mut self, db: &::salsa::Db) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Paragraph, db)
-    }
-
     pub fn issue_new_division(
         &mut self,
         division_kind: LxDivisionKind,
@@ -92,8 +88,12 @@ impl VdModulePathRegistry {
         self.issue_new_child(VdModulePathTag::Division(division_kind), db)
     }
 
-    pub fn issue_new_environment(&mut self, db: &::salsa::Db) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Environment, db)
+    pub fn issue_new_paragraph(&mut self, db: &::salsa::Db) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Paragraph, db)
+    }
+
+    pub fn issue_new_environment(&mut self, name: Coword, db: &::salsa::Db) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Environment(name), db)
     }
 
     fn issue_new_child(&mut self, tag: VdModulePathTag, db: &::salsa::Db) -> VdModulePath {
@@ -122,9 +122,9 @@ mod tests {
     fn test_issue_new_child() {
         // Create a mock Salsa database
 
-        let db = DB::default();
+        let db = &DB::default();
 
-        let file_path = LxFilePath::new(&db, PathBuf::from("test.txt"));
+        let file_path = LxFilePath::new(db, PathBuf::from("test.txt"));
 
         // Create a root path
         let root = VdModulePath::new_inner(&db, VdModulePathData::Root(file_path));
@@ -150,8 +150,8 @@ mod tests {
         // Test multiple divisions (0 through 4)
         let mut division_paths = Vec::new();
         for expected_disambiguator in 0..5 {
-            let path = registry.issue_new_division(LxDivisionKind::Section, &db);
-            if let VdModulePathData::Division { disambiguator, .. } = path.data(&db) {
+            let path = registry.issue_new_division(LxDivisionKind::Section, db);
+            if let VdModulePathData::Division { disambiguator, .. } = path.data(db) {
                 assert_eq!(disambiguator, expected_disambiguator);
                 division_paths.push(path);
             } else {
@@ -161,9 +161,10 @@ mod tests {
 
         // Test multiple environments (0 through 7)
         let mut env_paths = Vec::new();
+        let equation = Coword::from_ref(db, "equation");
         for expected_disambiguator in 0..8 {
-            let path = registry.issue_new_environment(&db);
-            if let VdModulePathData::Environment { disambiguator, .. } = path.data(&db) {
+            let path = registry.issue_new_environment(equation, db);
+            if let VdModulePathData::Environment { disambiguator, .. } = path.data(db) {
                 assert_eq!(disambiguator, expected_disambiguator);
                 env_paths.push(path);
             } else {
@@ -180,7 +181,13 @@ mod tests {
                 .unwrap(),
             5
         );
-        assert_eq!(*registry.map.get(&VdModulePathTag::Environment).unwrap(), 8);
+        assert_eq!(
+            *registry
+                .map
+                .get(&VdModulePathTag::Environment(equation))
+                .unwrap(),
+            8
+        );
 
         // Verify we can still create new items after many iterations
         let last_paragraph = registry.issue_new_paragraph(&db);

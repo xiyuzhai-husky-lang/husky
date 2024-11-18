@@ -4451,6 +4451,7 @@
             "idx-arena",
             "latex-ast",
             "latex-command",
+            "latex-environment",
             "latex-math-letter",
             "latex-prelude",
             "latex-token",

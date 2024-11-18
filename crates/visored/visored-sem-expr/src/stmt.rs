@@ -4,13 +4,14 @@ use husky_coword::Coword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
+use latex_environment::signature::LxEnvironmentSignature;
 use sentence::VdSemSentenceIdx;
 use visored_syn_expr::stmt::{VdSynStmtData, VdSynStmtIdx};
 
 pub enum VdSemStmtData {
     Paragraph(VdSemSentenceIdxRange),
-    Block {
-        environment: (),
+    Environment {
+        environment_signature: LxEnvironmentSignature,
         stmts: VdSemStmtIdxRange,
     },
 }
@@ -39,8 +40,11 @@ impl<'a> VdSemExprBuilder<'a> {
             VdSynStmtData::Paragraph(sentences) => {
                 VdSemStmtData::Paragraph(sentences.to_vd_sem(self))
             }
-            VdSynStmtData::Block { environment, stmts } => VdSemStmtData::Block {
-                environment,
+            VdSynStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => VdSemStmtData::Environment {
+                environment_signature,
                 stmts: stmts.to_vd_sem(self),
             },
         }
@@ -59,9 +63,10 @@ impl VdSemStmtData {
                 .into_iter()
                 .map(|s| VdSemStmtChild::Sentence(s))
                 .collect(),
-            VdSemStmtData::Block { environment, stmts } => {
-                stmts.into_iter().map(|s| VdSemStmtChild::Stmt(s)).collect()
-            }
+            VdSemStmtData::Environment {
+                environment_signature,
+                stmts,
+            } => stmts.into_iter().map(|s| VdSemStmtChild::Stmt(s)).collect(),
         }
     }
 }
