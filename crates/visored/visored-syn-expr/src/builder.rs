@@ -10,16 +10,11 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
-        build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
         build_all_symbol_defns_and_resolutions_with, builder::VdSynSymbolBuilder,
         local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
-use crate::{
-    division::VdSynDivisionMap,
-    entity_tree::{build_entity_tree_in_expr_or_stmts, VdSynExprEntityTreeNode},
-    stmt::VdSynStmtMap,
-};
+use crate::{division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode, stmt::VdSynStmtMap};
 use either::*;
 use latex_ast::{
     ast::{rose::LxRoseAstIdxRange, LxAstArena, LxAstArenaRef, LxAstIdxRange},
@@ -277,92 +272,6 @@ impl<'db> VdSynExprBuilder<'db> {
             &division_range_map,
             output,
         );
-        (
-            self.expr_arena,
-            self.phrase_arena,
-            self.clause_arena,
-            self.sentence_arena,
-            self.stmt_arena,
-            self.division_arena,
-            expr_range_map,
-            phrase_range_map,
-            clause_range_map,
-            sentence_range_map,
-            stmt_range_map,
-            division_range_map,
-            root_node,
-            stmt_module_path_node_map,
-            division_module_path_node_map,
-            symbol_defns,
-            symbol_resolutions,
-        )
-    }
-
-    #[deprecated]
-    pub(crate) fn finish_with_expr_or_stmts(
-        self,
-        root: Either<VdSynExprIdx, VdSynStmtIdxRange>,
-    ) -> (
-        VdSynExprArena,
-        VdSynPhraseArena,
-        VdSynClauseArena,
-        VdSynSentenceArena,
-        VdSynStmtArena,
-        VdSynDivisionArena,
-        VdSynExprTokenIdxRangeMap,
-        VdSynPhraseTokenIdxRangeMap,
-        VdSynClauseTokenIdxRangeMap,
-        VdSynSentenceTokenIdxRangeMap,
-        VdSynStmtTokenIdxRangeMap,
-        VdSynDivisionTokenIdxRangeMap,
-        VdSynExprEntityTreeNode,
-        VdSynStmtMap<VdModulePath>,
-        VdSynDivisionMap<VdModulePath>,
-        VdSynSymbolLocalDefnStorage,
-        VdSynSymbolResolutionsTable,
-    ) {
-        let (
-            expr_range_map,
-            phrase_range_map,
-            clause_range_map,
-            sentence_range_map,
-            stmt_range_map,
-            division_range_map,
-        ) = calc_expr_range_map(
-            self.db,
-            &self.expr_arena,
-            &self.phrase_arena,
-            &self.clause_arena,
-            &self.sentence_arena,
-            &self.stmt_arena,
-            &self.division_arena,
-        );
-        let (root_node, stmt_module_path_node_map, division_module_path_node_map) =
-            build_entity_tree_in_expr_or_stmts(
-                self.db,
-                self.file_path,
-                self.stmt_arena.as_arena_ref(),
-                self.division_arena.as_arena_ref(),
-                root,
-            );
-        let (symbol_defns, symbol_resolutions) =
-            build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
-                self.db,
-                self.default_resolution_table,
-                self.expr_arena.as_arena_ref(),
-                self.phrase_arena.as_arena_ref(),
-                self.clause_arena.as_arena_ref(),
-                self.sentence_arena.as_arena_ref(),
-                self.stmt_arena.as_arena_ref(),
-                self.division_arena.as_arena_ref(),
-                &expr_range_map,
-                &phrase_range_map,
-                &clause_range_map,
-                &sentence_range_map,
-                &stmt_range_map,
-                &division_range_map,
-                root,
-            );
         (
             self.expr_arena,
             self.phrase_arena,
