@@ -13,3 +13,14 @@ pub struct VdSynLineage {
     pub(super) phrases: SmallVec<[VdSynPhraseIdx; 8]>,
     pub(super) exprs: SmallVec<[VdSynExprIdx; 8]>,
 }
+impl VdSynLineage {
+    pub(crate) fn current_stmt_or_division(&self) -> Either<VdSynStmtIdx, VdSynDivisionIdx> {
+        self.stmts.last().copied().map(Left).unwrap_or_else(|| {
+            self.divisions
+                .last()
+                .copied()
+                .map(Right)
+                .expect("lineage must have at least one division")
+        })
+    }
+}

@@ -10,9 +10,11 @@ use crate::{
     phrase::VdSynPhraseArenaRef, range::*, sentence::VdSynSentenceArenaRef,
     stmt::VdSynStmtArenaRef, *,
 };
+use division::VdSynDivisionMap;
 use helpers::tracker::IsVdSynOutput;
 use latex_math_letter::letter::LxMathLetter;
-use stmt::VdSynStmtIdxRange;
+use stmt::{VdSynStmtIdxRange, VdSynStmtMap};
+use visored_item_path::module::VdModulePath;
 
 pub enum VdSynSymbol {
     Letter(LxMathLetter),
@@ -41,6 +43,8 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
+    stmt_module_path_node_map: &VdSynStmtMap<VdModulePath>,
+    division_module_path_node_map: &VdSynDivisionMap<VdModulePath>,
     t: impl IsVdSynOutput,
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
@@ -58,6 +62,8 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
         sentence_range_map,
         stmt_range_map,
         division_range_map,
+        stmt_module_path_node_map,
+        division_module_path_node_map,
     );
     t.build_all_symbols(&mut symbol_builder);
     symbol_builder.finish()

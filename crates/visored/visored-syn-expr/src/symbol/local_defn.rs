@@ -6,6 +6,7 @@ use clause::VdSynClauseIdx;
 use idx_arena::{Arena, ArenaIdx};
 use latex_token::idx::LxTokenIdxRange;
 use lineage::VdSynLineage;
+use visored_item_path::module::VdModulePath;
 
 /// Be careful with the wording.
 ///
@@ -17,6 +18,7 @@ pub struct VdSynSymbolLocalDefnData {
     body: VdSynSymbolLocalDefnBody,
     src: VdSynSymbolLocalDefnSrc,
     lineage: VdSynLineage,
+    module_path: VdModulePath,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -97,12 +99,14 @@ impl VdSynSymbolLocalDefnStorage {
         body: VdSynSymbolLocalDefnBody,
         src: VdSynSymbolLocalDefnSrc,
         lineage: VdSynLineage,
+        module_path: VdModulePath,
     ) {
         self.defn_arena.alloc_one(VdSynSymbolLocalDefnData {
             head,
             body,
             src,
             lineage,
+            module_path,
         });
     }
 }
