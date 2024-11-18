@@ -14,24 +14,26 @@ keywords.workspace = true
 [dependencies]
 either.workspace = true
 rustc-hash.workspace = true
+smallvec.workspace = true
 # abstractions
 salsa.workspace = true
 # latex
-latex-prelude = { workspace = true, optional = true }
+latex-prelude.workspace = true
 # lean
 lean-coword.workspace = true
-lean-hir-expr.workspace = true
+lean-mir-expr.workspace = true
 lean-item-path.workspace = true
 lean-opr.workspace = true
 lean-term.workspace = true
 # utils
-husky-tree-utils = { workspace = true, optional = true }
+husky-print-utils.workspace = true
+husky-tree-utils.workspace = true
 # visored
-visored-annotation = { workspace = true, optional = true }
-visored-hir-expr.workspace = true
+visored-annotation.workspace = true
+visored-mir-expr.workspace = true
 visored-item-path.workspace = true
 visored-opr.workspace = true
-visored-zfc-ty.workspace = true
+visored-term.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true
@@ -47,16 +49,9 @@ lean-sem-expr.workspace = true
 # visored
 visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
+visored-global-dispatch.workspace = true
+visored-signature.workspace = true
 visored-annotation.workspace = true
-visored-lean-transpilation = { workspace = true, features = ["test_helpers"] }
 
 [lints]
 workspace = true
-
-[features]
-test_helpers = [
-    "dep:latex-prelude",
-    "dep:husky-tree-utils",
-    "visored-annotation",
-    "visored-hir-expr/test_helpers"
-]

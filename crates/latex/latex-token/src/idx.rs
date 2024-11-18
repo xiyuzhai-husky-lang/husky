@@ -35,6 +35,50 @@ impl std::borrow::Borrow<LxTokenIdx> for LxMathTokenIdx {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub struct LxRootTokenIdx(pub(crate) LxTokenIdx);
+
+impl std::ops::Deref for LxRootTokenIdx {
+    type Target = LxTokenIdx;
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::convert::AsRef<LxTokenIdx> for LxRootTokenIdx {
+    fn as_ref(&self) -> &LxTokenIdx {
+        &self.0
+    }
+}
+
+impl std::borrow::Borrow<LxTokenIdx> for LxRootTokenIdx {
+    fn borrow(&self) -> &LxTokenIdx {
+        &self.0
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub struct LxSpecTokenIdx(pub(crate) LxTokenIdx);
+
+impl std::ops::Deref for LxSpecTokenIdx {
+    type Target = LxTokenIdx;
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::convert::AsRef<LxTokenIdx> for LxSpecTokenIdx {
+    fn as_ref(&self) -> &LxTokenIdx {
+        &self.0
+    }
+}
+
+impl std::borrow::Borrow<LxTokenIdx> for LxSpecTokenIdx {
+    fn borrow(&self) -> &LxTokenIdx {
+        &self.0
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub struct LxRoseTokenIdx(pub(crate) LxTokenIdx);
 
 impl std::ops::Deref for LxRoseTokenIdx {
@@ -57,22 +101,44 @@ impl std::borrow::Borrow<LxTokenIdx> for LxRoseTokenIdx {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
-pub struct LxCodeTokenIdx(pub(crate) LxTokenIdx);
+pub struct LxNameTokenIdx(pub(crate) LxTokenIdx);
 
-impl std::ops::Deref for LxCodeTokenIdx {
+impl std::ops::Deref for LxNameTokenIdx {
     type Target = LxTokenIdx;
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl std::convert::AsRef<LxTokenIdx> for LxCodeTokenIdx {
+impl std::convert::AsRef<LxTokenIdx> for LxNameTokenIdx {
     fn as_ref(&self) -> &LxTokenIdx {
         &self.0
     }
 }
 
-impl std::borrow::Borrow<LxTokenIdx> for LxCodeTokenIdx {
+impl std::borrow::Borrow<LxTokenIdx> for LxNameTokenIdx {
+    fn borrow(&self) -> &LxTokenIdx {
+        &self.0
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub struct LxLispTokenIdx(pub(crate) LxTokenIdx);
+
+impl std::ops::Deref for LxLispTokenIdx {
+    type Target = LxTokenIdx;
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::convert::AsRef<LxTokenIdx> for LxLispTokenIdx {
+    fn as_ref(&self) -> &LxTokenIdx {
+        &self.0
+    }
+}
+
+impl std::borrow::Borrow<LxTokenIdx> for LxLispTokenIdx {
     fn borrow(&self) -> &LxTokenIdx {
         &self.0
     }

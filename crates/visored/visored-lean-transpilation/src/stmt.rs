@@ -1,13 +1,13 @@
 use crate::*;
-use lean_hir_expr::item_defn::{LnHirItemDefnGroupMeta, LnItemDefnData, LnItemDefnIdxRange};
-use ty::VdZfcTypeLeanTranspilation;
-use visored_hir_expr::{
-    pattern::VdHirPattern,
-    stmt::{block::VdHirBlockMeta, VdHirStmtData, VdHirStmtIdx, VdHirStmtIdxRange},
+use lean_mir_expr::item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta};
+use ty::VdTypeLeanTranspilation;
+use visored_mir_expr::{
+    pattern::VdMirPattern,
+    stmt::{block::VdMirBlockMeta, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
 };
-use visored_zfc_ty::ty::VdZfcType;
+use visored_term::ty::VdType;
 
-impl VdTranspileToLean<LnItemDefnIdxRange> for VdHirStmtIdxRange {
+impl VdTranspileToLean<LnItemDefnIdxRange> for VdMirStmtIdxRange {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnItemDefnIdxRange {
         let item_defns: Vec<_> = self
             .into_iter()
@@ -18,39 +18,48 @@ impl VdTranspileToLean<LnItemDefnIdxRange> for VdHirStmtIdxRange {
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
-    pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdHirStmtIdx) -> LnItemDefnData {
+    pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
+        let db = self.db();
         match self.stmt_arena()[stmt] {
-            VdHirStmtData::Expression(arena_idx) => todo!(),
-            VdHirStmtData::Block { stmts, ref meta } => {
+            VdMirStmtData::Block { stmts, ref meta } => {
                 let defns = stmts.to_lean(self);
                 let meta = match meta {
-                    VdHirBlockMeta::Paragraph => LnHirItemDefnGroupMeta::Paragraph,
-                    VdHirBlockMeta::Sentence => LnHirItemDefnGroupMeta::Sentence,
+                    VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
+                    VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
                 };
                 LnItemDefnData::Group { defns, meta }
             }
-            VdHirStmtData::LetPlaceholder { ref pattern, ty } => {
+            VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 self.build_ln_item_from_vd_let_placeholder_stmt(pattern, ty)
             }
-            VdHirStmtData::LetAssigned {
+            VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
             } => todo!(),
+            VdMirStmtData::Then { formula } => {
+                let symbol = self.mangle_hypothesis(db);
+                LnItemDefnData::Def {
+                    symbol,
+                    ty: formula.to_lean(self),
+                    // TODO: better??
+                    body: self.sorry(),
+                }
+            }
         }
     }
 
     fn build_ln_item_from_vd_let_placeholder_stmt(
         &mut self,
-        pattern: &VdHirPattern,
-        ty: VdZfcType,
+        pattern: &VdMirPattern,
+        ty: VdType,
     ) -> LnItemDefnData {
         match *pattern {
-            VdHirPattern::Letter {
+            VdMirPattern::Letter {
                 symbol_local_defn, ..
             } => {
-                let ident = self.mangled_symbol(symbol_local_defn);
+                let ident = self.mangle_symbol(symbol_local_defn);
                 match ty.to_lean(self) {
-                    VdZfcTypeLeanTranspilation::Type(ty) => {
+                    VdTypeLeanTranspilation::Type(ty) => {
                         LnItemDefnData::Variable { symbol: ident, ty }
                     }
                 }

@@ -4,12 +4,12 @@ use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_item_path::path::VdItemPath;
 
 use crate::{
+    default_table::VdDefaultGlobalResolutionTable,
     resolution::{
         command::{VdCompleteCommandGlobalResolution, VdCompleteCommandGlobalResolutionMap},
         letter::{VdLetterGlobalResolution, VdLetterGlobalResolutionMap},
         punctuation::VdPunctuationGlobalResolution,
     },
-    table::VdDefaultGlobalResolutionTable,
 };
 
 impl VdDefaultGlobalResolutionTable {
@@ -36,6 +36,8 @@ fn standard_command_resolution_map(
     let LxCommandPathMenu {
         begin: _,
         end: _,
+        usepackage,
+        documentclass,
         // maths
         // - letter style
         mathbb,
@@ -49,6 +51,8 @@ fn standard_command_resolution_map(
         // -- relations
         eq,
         ne,
+        le,
+        ge,
         r#in,
         subset,
         supset,
@@ -79,10 +83,14 @@ fn standard_command_resolution_map(
         text,
     } = *command_path_menu(db);
     VdCompleteCommandGlobalResolutionMap::from_iter([
+        // - root
+        (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
         // - operators
         // -- relations
         (eq, VdCompleteCommandGlobalResolution::EQ),
         (ne, VdCompleteCommandGlobalResolution::NE),
+        (le, VdCompleteCommandGlobalResolution::LE),
+        (ge, VdCompleteCommandGlobalResolution::GE),
         (r#in, VdCompleteCommandGlobalResolution::IN),
         (subset, VdCompleteCommandGlobalResolution::SUBSET),
         (supset, VdCompleteCommandGlobalResolution::SUPSET),
@@ -121,7 +129,7 @@ fn lx_math_punctuation_standard_resolution(
     punctuation: LxMathPunctuation,
 ) -> Option<VdPunctuationGlobalResolution> {
     match punctuation {
-        LxMathPunctuation::Add => Some(VdPunctuationGlobalResolution::SEPARATOR_ADD),
+        LxMathPunctuation::Add => Some(VdPunctuationGlobalResolution::ADD),
         LxMathPunctuation::Sub => Some(VdPunctuationGlobalResolution::SUB),
         LxMathPunctuation::Mul => Some(VdPunctuationGlobalResolution::SEPARATOR_MUL),
         LxMathPunctuation::Div => Some(VdPunctuationGlobalResolution::Todo),
@@ -136,11 +144,11 @@ fn lx_math_punctuation_standard_resolution(
         LxMathPunctuation::NotExists => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::Infinity => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::Equals => Some(VdPunctuationGlobalResolution::EQ),
-        LxMathPunctuation::NotEquals => Some(VdPunctuationGlobalResolution::Todo),
-        LxMathPunctuation::LessThan => Some(VdPunctuationGlobalResolution::Todo),
-        LxMathPunctuation::GreaterThan => Some(VdPunctuationGlobalResolution::Todo),
-        LxMathPunctuation::LessEq => Some(VdPunctuationGlobalResolution::Todo),
-        LxMathPunctuation::GreaterEq => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::NotEquals => Some(VdPunctuationGlobalResolution::NE),
+        LxMathPunctuation::LessThan => Some(VdPunctuationGlobalResolution::LT),
+        LxMathPunctuation::GreaterThan => Some(VdPunctuationGlobalResolution::GT),
+        LxMathPunctuation::LessEq => Some(VdPunctuationGlobalResolution::LE),
+        LxMathPunctuation::GreaterEq => Some(VdPunctuationGlobalResolution::GE),
         LxMathPunctuation::PlusMinus => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::Times => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::Lpar => Some(VdPunctuationGlobalResolution::LPAR),
@@ -158,6 +166,7 @@ fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterGlobalResolutionMap
             LxMathLetter::MATHBB_N,
             VdLetterGlobalResolution::NATURAL_NUMBER,
         ),
+        (LxMathLetter::MATHBB_Z, VdLetterGlobalResolution::INTEGER),
         (
             LxMathLetter::MATHBB_Q,
             VdLetterGlobalResolution::RATIONAL_NUMBER,

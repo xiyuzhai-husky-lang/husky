@@ -3,13 +3,13 @@ use crate::pattern::VdSemPattern;
 use visored_syn_expr::clause::r#let::placeholder::{
     VdSynLetClausePlaceholderType, VdSynLetPlaceholderResolution,
 };
-use visored_zfc_ty::{term::VdZfcTerm, ty::VdZfcType};
+use visored_term::{term::VdTerm, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSemLetPlaceholderDispatch {
     pattern: VdSemPattern,
     ty_repr: VdSemLetClausePlaceholderTypeRepr,
-    ty: VdZfcType,
+    ty: VdType,
 }
 
 #[enum_class::from_variants]
@@ -27,7 +27,7 @@ impl VdSemLetPlaceholderDispatch {
         &self.ty_repr
     }
 
-    pub fn ty(&self) -> VdZfcType {
+    pub fn ty(&self) -> VdType {
         self.ty
     }
 }
@@ -58,19 +58,9 @@ impl ToVdSem<VdSemLetClausePlaceholderTypeRepr> for VdSynLetClausePlaceholderTyp
 }
 
 impl<'db> VdSemExprBuilder<'db> {
-    fn infer_pattern_ty_term(&mut self, ty: VdSemLetClausePlaceholderTypeRepr) -> VdZfcTerm {
+    fn infer_pattern_ty_term(&mut self, ty: VdSemLetClausePlaceholderTypeRepr) -> VdTerm {
         match ty {
             VdSemLetClausePlaceholderTypeRepr::Expr(expr) => self.infer_expr_term(expr),
-        }
-    }
-
-    fn infer_pattern_symbol_tys(&mut self, pattern: &VdSemPattern, ty: VdZfcType) {
-        match *pattern {
-            VdSemPattern::Letter {
-                token_idx_range,
-                letter,
-                local_defn,
-            } => self.set_local_defn_ty(local_defn, ty),
         }
     }
 }

@@ -1,11 +1,28 @@
+pub mod lisp;
 pub mod math;
+pub mod root;
 pub mod rose;
+pub mod spec;
 #[cfg(test)]
 pub mod tests;
 
 use self::{
-    math::{LxMathAstArena, LxMathAstArenaMap, LxMathAstArenaRef, LxMathAstData},
-    rose::{LxRoseAstArena, LxRoseAstArenaMap, LxRoseAstArenaRef, LxRoseAstData},
+    lisp::{
+        LxLispAstArena, LxLispAstArenaMap, LxLispAstArenaRef, LxLispAstData, LxLispAstIdx,
+        LxLispAstIdxRange,
+    },
+    math::{
+        LxMathAstArena, LxMathAstArenaMap, LxMathAstArenaRef, LxMathAstData, LxMathAstIdx,
+        LxMathAstIdxRange,
+    },
+    root::{
+        LxRootAstArena, LxRootAstArenaMap, LxRootAstArenaRef, LxRootAstData, LxRootAstIdx,
+        LxRootAstIdxRange,
+    },
+    rose::{
+        LxRoseAstArena, LxRoseAstArenaMap, LxRoseAstArenaRef, LxRoseAstData, LxRoseAstIdx,
+        LxRoseAstIdxRange,
+    },
 };
 use crate::parser::LxAstParser;
 #[cfg(test)]
@@ -20,14 +37,12 @@ use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 use latex_prelude::{mode::LxMode, script::LxScriptKind};
 use latex_token::{
-    data::{
+    storage::LxTokenStorage,
+    token::{
         math::{LxMathDelimiter, LxMathTokenData},
         rose::LxRoseTokenData,
     },
-    storage::LxTokenStorage,
 };
-use math::{LxMathAstIdx, LxMathAstIdxRange};
-use rose::{LxRoseAstIdx, LxRoseAstIdxRange};
 
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
@@ -42,12 +57,16 @@ pub enum LxAstData {
 pub struct LxAstArena {
     pub(crate) math: LxMathAstArena,
     pub(crate) rose: LxRoseAstArena,
+    pub(crate) lisp: LxLispAstArena,
+    pub(crate) root: LxRootAstArena,
 }
 impl LxAstArena {
     pub fn as_arena_ref(&self) -> LxAstArenaRef {
         LxAstArenaRef {
             math: self.math.as_arena_ref(),
             rose: self.rose.as_arena_ref(),
+            lisp: self.lisp.as_arena_ref(),
+            root: self.root.as_arena_ref(),
         }
     }
 }
@@ -57,6 +76,8 @@ impl LxAstArena {
 pub struct LxAstArenaRef<'a> {
     math: LxMathAstArenaRef<'a>,
     rose: LxRoseAstArenaRef<'a>,
+    lisp: LxLispAstArenaRef<'a>,
+    root: LxRootAstArenaRef<'a>,
 }
 
 impl<'a> std::ops::Index<LxMathAstIdx> for LxAstArenaRef<'a> {
@@ -83,6 +104,14 @@ impl<'a> LxAstArenaRef<'a> {
     pub fn rose(&self) -> LxRoseAstArenaRef<'a> {
         self.rose
     }
+
+    pub fn lisp(&self) -> LxLispAstArenaRef<'a> {
+        self.lisp
+    }
+
+    pub fn root(&self) -> LxRootAstArenaRef<'a> {
+        self.root
+    }
 }
 
 #[salsa::derive_debug_with_db]
@@ -90,6 +119,8 @@ impl<'a> LxAstArenaRef<'a> {
 pub struct LxAstArenaMap<T> {
     pub(crate) math: LxMathAstArenaMap<T>,
     pub(crate) rose: LxRoseAstArenaMap<T>,
+    pub(crate) lisp: LxLispAstArenaMap<T>,
+    pub(crate) root: LxRootAstArenaMap<T>,
 }
 
 impl<T> LxAstArenaMap<T> {
@@ -97,6 +128,8 @@ impl<T> LxAstArenaMap<T> {
         Self {
             math: LxMathAstArenaMap::new(&arena.math),
             rose: LxRoseAstArenaMap::new(&arena.rose),
+            lisp: LxLispAstArenaMap::new(&arena.lisp),
+            root: LxRootAstArenaMap::new(&arena.root),
         }
     }
 }
@@ -107,6 +140,8 @@ impl<T> LxAstArenaMap<T> {
 pub enum LxAstIdx {
     Math(LxMathAstIdx),
     Rose(LxRoseAstIdx),
+    Lisp(LxLispAstIdx),
+    Root(LxRootAstIdx),
 }
 
 #[salsa::derive_debug_with_db]
@@ -114,7 +149,9 @@ pub enum LxAstIdx {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxAstIdxRange {
     Math(LxMathAstIdxRange),
+    Root(LxRootAstIdxRange),
     Rose(LxRoseAstIdxRange),
+    Lisp(LxLispAstIdxRange),
 }
 
 pub fn parse_latex_input_into_asts<'a>(
@@ -143,6 +180,9 @@ impl<'a> LxAstParser<'a> {
         match self.mode() {
             LxMode::Rose => self.parse_rose_asts().into(),
             LxMode::Math => self.parse_math_asts().into(),
+            LxMode::Name => todo!(),
+            LxMode::Lisp => self.parse_lisp_asts().into(),
+            LxMode::Root => self.parse_root_asts().into(),
         }
     }
 }
@@ -182,6 +222,12 @@ fn parse_tex_input_into_asts_works() {
                         data: [],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
                         data: [],
                     },
                 },
@@ -232,6 +278,12 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
                         data: [],
                     },
                 },
@@ -286,6 +338,12 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
                         data: [],
                     },
                 },
@@ -390,6 +448,12 @@ fn parse_tex_input_into_asts_works() {
                     rose: Arena {
                         data: [],
                     },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
+                        data: [],
+                    },
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
@@ -491,6 +555,12 @@ fn parse_tex_input_into_asts_works() {
                     rose: Arena {
                         data: [],
                     },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
+                        data: [],
+                    },
                 },
                 LxAstIdxRange::Math(
                     ArenaIdxRange(
@@ -590,6 +660,12 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
                         data: [],
                     },
                 },
@@ -792,6 +868,12 @@ fn parse_tex_input_into_asts_works() {
                         ],
                     },
                     rose: Arena {
+                        data: [],
+                    },
+                    lisp: Arena {
+                        data: [],
+                    },
+                    root: Arena {
                         data: [],
                     },
                 },

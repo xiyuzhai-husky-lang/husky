@@ -1,10 +1,16 @@
 use crate::{
-    data::{code::LxCodeTokenData, LxTokenData},
-    idx::{LxCodeTokenIdx, LxRoseTokenIdx, LxTokenIdxRange},
+    idx::{
+        LxLispTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx, LxSpecTokenIdx,
+        LxTokenIdxRange,
+    },
+    token::{
+        lisp::LxLispTokenData, name::LxNameTokenData, root::LxRootTokenData, spec::LxSpecTokenData,
+        LxTokenData,
+    },
 };
 use crate::{
-    data::{math::LxMathTokenData, rose::LxRoseTokenData},
     idx::{LxMathTokenIdx, LxTokenIdx},
+    token::{math::LxMathTokenData, rose::LxRoseTokenData},
 };
 use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
 
@@ -102,13 +108,49 @@ impl LxTokenStorage {
         idx
     }
 
-    pub(crate) fn alloc_code_token(
+    pub(crate) fn alloc_coword_token(
         &mut self,
         offset_range: TextOffsetRange,
         range: TextRange,
-        token_data: LxCodeTokenData,
-    ) -> LxCodeTokenIdx {
-        let idx = LxCodeTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        token_data: LxNameTokenData,
+    ) -> LxNameTokenIdx {
+        let idx = LxNameTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        self.ranged_tokens
+            .push((offset_range, range, token_data.into()));
+        idx
+    }
+
+    pub(crate) fn alloc_lisp_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxLispTokenData,
+    ) -> LxLispTokenIdx {
+        let idx = LxLispTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        self.ranged_tokens
+            .push((offset_range, range, token_data.into()));
+        idx
+    }
+
+    pub(crate) fn alloc_root_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxRootTokenData,
+    ) -> LxRootTokenIdx {
+        let idx = LxRootTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
+        self.ranged_tokens
+            .push((offset_range, range, token_data.into()));
+        idx
+    }
+
+    pub(crate) fn alloc_spec_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxSpecTokenData,
+    ) -> LxSpecTokenIdx {
+        let idx = LxSpecTokenIdx(LxTokenIdx::from_index(self.ranged_tokens.len()));
         self.ranged_tokens
             .push((offset_range, range, token_data.into()));
         idx

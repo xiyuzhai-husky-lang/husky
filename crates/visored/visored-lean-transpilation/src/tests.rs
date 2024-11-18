@@ -1,27 +1,30 @@
 mod clause;
 mod expr;
 
-use crate::test_helpers::example::VdLeanTranspilationExample;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
-use visored_hir_expr::{builder::VdHirExprBuilder, ToVdHir};
+use visored_mir_expr::{builder::VdMirExprBuilder, ToVdMir};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{binary::VdSemBinaryDispatch, VdSemExprData};
-use visored_zfc_ty::menu::vd_zfc_ty_menu;
+use visored_term::menu::vd_ty_menu;
 
 #[salsa::db(
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
+    lean_item_path::jar::LnItemPathJar,
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,
-    lean_hir_expr::jar::LnHirExprJar,
-    visored_zfc_ty::jar::VdZfcTypeJar,
+    lean_mir_expr::jar::LnMirExprJar,
+    visored_item_path::jar::VdItemPathJar,
+    visored_term::jar::VdTermJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,
-    visored_hir_expr::jar::VdHirExprJar,
+    visored_mir_expr::jar::VdMirExprJar,
     visored_syn_expr::jar::VdSynExprJar,
+    visored_global_dispatch::jar::VdGlobalDispatchJar,
+    visored_signature::jar::VdSignatureJar,
     crate::Jar
 )]
 pub(crate) struct DB {}
@@ -29,7 +32,7 @@ pub(crate) struct DB {}
 // #[test]
 // fn one_add_one_to_lean_works() {
 //     let db = &DB::default();
-//     let menu = vd_zfc_ty_menu(db);
+//     let menu = vd_ty_menu(db);
 //     let mut builder = VdSemExprTestBuilder::new(db);
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {
@@ -48,10 +51,10 @@ pub(crate) struct DB {}
 //         "1+1",
 //     );
 //     let vd_sem_expr_region_data = &builder.finish();
-//     let mut builder = VdHirExprBuilder::new(db, vd_sem_expr_region_data);
+//     let mut builder = VdMirExprBuilder::new(db, vd_sem_expr_region_data);
 //     let one_add_one = one_add_one.to_hir(&mut builder);
-//     let vd_hir_expr_region_data = &builder.finish();
-//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_hir_expr_region_data);
+//     let vd_mir_expr_region_data = &builder.finish();
+//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_mir_expr_region_data);
 //     let one_add_one = one_add_one.to_lean(&mut builder);
 //     let mut formatter = builder.formatter(80);
 //     formatter.format_expr_ext(one_add_one);
@@ -61,7 +64,7 @@ pub(crate) struct DB {}
 // #[test]
 // fn one_add_one_eqs_two_to_lean_works() {
 //     let db = &DB::default();
-//     let menu = vd_zfc_ty_menu(db);
+//     let menu = vd_ty_menu(db);
 //     let mut builder = VdSemExprTestBuilder::new(db);
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {
@@ -96,10 +99,10 @@ pub(crate) struct DB {}
 //         "1+1=2",
 //     );
 //     let vd_sem_expr_region_data = &builder.finish();
-//     let mut builder = VdHirExprBuilder::new(db, vd_sem_expr_region_data);
+//     let mut builder = VdMirExprBuilder::new(db, vd_sem_expr_region_data);
 //     let one_add_one = one_add_one_eqs_two.to_hir(&mut builder);
-//     let vd_hir_expr_region_data = &builder.finish();
-//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_hir_expr_region_data);
+//     let vd_mir_expr_region_data = &builder.finish();
+//     let mut builder = VdLeanTranspilationBuilder::new(db, vd_mir_expr_region_data);
 //     let one_add_one = one_add_one.to_lean(&mut builder);
 //     let mut formatter = builder.formatter(80);
 //     formatter.format_expr_ext(one_add_one);
