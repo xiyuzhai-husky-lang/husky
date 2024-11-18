@@ -1297,7 +1297,9 @@
     },
     JarPackageSummary {
         name: "lean-item-path",
-        dependencies: [],
+        dependencies: [
+            "husky-coword",
+        ],
     },
     JarPackageSummary {
         name: "lean-mir-expr",

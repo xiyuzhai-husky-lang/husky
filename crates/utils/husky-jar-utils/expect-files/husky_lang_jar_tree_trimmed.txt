@@ -179,7 +179,9 @@
     "latex-environment": {
         "husky-coword",
     },
-    "lean-item-path": {},
+    "lean-item-path": {
+        "husky-coword",
+    },
     "lean-mir-expr": {
         "lean-term",
     },
