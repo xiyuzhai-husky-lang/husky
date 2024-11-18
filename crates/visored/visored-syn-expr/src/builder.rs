@@ -1,6 +1,6 @@
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
-    division::VdSynDivisionArena,
+    division::{VdSynDivisionArena, VdSynDivisionData, VdSynDivisionIdxRange},
     entity_tree::build_entity_tree_with,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     helpers::tracker::IsVdSynOutput,
@@ -160,6 +160,13 @@ impl<'db> VdSynExprBuilder<'db> {
 
     pub(crate) fn alloc_stmts(&mut self, data: Vec<VdSynStmtData>) -> VdSynStmtIdxRange {
         self.stmt_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_divisions(
+        &mut self,
+        data: Vec<VdSynDivisionData>,
+    ) -> VdSynDivisionIdxRange {
+        self.division_arena.alloc_batch(data)
     }
 
     // pub fn finish_to_region_data(self) -> VdSynExprRegionData {

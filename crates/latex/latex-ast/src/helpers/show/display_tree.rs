@@ -199,10 +199,11 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
             LxRoseAstData::Word(_, _) => format!("{:?} word", value),
             LxRoseAstData::Punctuation(_, _) => format!("{:?} punctuation", value),
             LxRoseAstData::Math { .. } => format!("{:?} math", value),
-            LxRoseAstData::NewParagraph(_) => format!("{:?} new paragraph", value),
             LxRoseAstData::Delimited { .. } => format!("{:?} delimited", value),
             LxRoseAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
             LxRoseAstData::Environment { .. } => format!("{:?} environment", value),
+            LxRoseAstData::NewParagraph(_) => format!("{:?} new paragraph", value),
+            LxRoseAstData::NewDivision { .. } => format!("{:?} new division", value),
         };
         DisplayTree::new(
             value,
