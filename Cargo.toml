@@ -438,6 +438,7 @@ visored-item-path = { path = "crates/visored/visored-item-path" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-global-resolution = { path = "crates/visored/visored-global-resolution" }
 visored-global-dispatch = { path = "crates/visored/visored-global-dispatch" }
+visored-prelude = { path = "crates/visored/visored-prelude" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }

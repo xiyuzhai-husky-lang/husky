@@ -121,6 +121,7 @@ impl<'db> VdMirExprBuilder<'db> {
             } => VdMirStmtData::Then {
                 formula: formula.to_vd_mir(self),
             },
+            VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }
     }
 }

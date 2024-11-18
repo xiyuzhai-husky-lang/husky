@@ -58,7 +58,7 @@ impl LxTokenStorage {
     }
 
     pub fn whole_token_idx_range(&self) -> LxTokenIdxRange {
-        LxTokenIdxRange::new(0..self.ranged_tokens.len())
+        LxTokenIdxRange::from_usize_range(0..self.ranged_tokens.len())
     }
 
     #[track_caller]

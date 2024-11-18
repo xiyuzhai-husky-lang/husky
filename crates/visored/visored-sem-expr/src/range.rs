@@ -281,6 +281,9 @@ impl<'db> VdSemExprRangeCalculator<'db> {
                 ..
             } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
             VdSemClauseData::Verb => todo!(),
+            VdSemClauseData::Todo(lx_rose_token_idx) => {
+                LxTokenIdxRange::new_single(*lx_rose_token_idx)
+            }
         }
     }
 
@@ -303,6 +306,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
                 let clauses_range = self.get_clause(clauses.start());
                 match end {
                     VdSemSentenceEnd::Period(token_idx) => clauses_range.to_included(*token_idx),
+                    VdSemSentenceEnd::Void => clauses_range,
                 }
             }
         }

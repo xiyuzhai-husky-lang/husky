@@ -240,7 +240,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         else {
             todo!("command_path = {:?}", command_path.debug(self.builder.db()))
         };
-        match *resolve_complete_command {
+        match resolve_complete_command {
             VdCompleteCommandGlobalResolution::Letter(letter) => {
                 let token_idx_range = match arguments.last() {
                     Some(argument) => {
@@ -314,6 +314,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 DisambiguatedAst::Separator(vd_separator)
             }
             VdCompleteCommandGlobalResolution::UsePackage => todo!(),
+            VdCompleteCommandGlobalResolution::NewDivision(_) => todo!(),
+            VdCompleteCommandGlobalResolution::DocumentClass => todo!(),
         }
     }
 }

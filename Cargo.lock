@@ -12607,6 +12607,7 @@ dependencies = [
  "salsa",
  "visored-item-path",
  "visored-opr",
+ "visored-prelude",
 ]
 
 [[package]]
@@ -12626,6 +12627,7 @@ dependencies = [
  "latex-vfs",
  "rustc-hash 2.0.0",
  "salsa",
+ "visored-prelude",
 ]
 
 [[package]]
@@ -12699,6 +12701,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-prelude"
+version = "0.1.0"
+
+[[package]]
 name = "visored-prototype"
 version = "0.1.0"
 dependencies = [
@@ -12731,6 +12737,7 @@ dependencies = [
  "visored-global-resolution",
  "visored-item-path",
  "visored-opr",
+ "visored-prelude",
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
@@ -12773,6 +12780,7 @@ dependencies = [
  "visored-global-resolution",
  "visored-item-path",
  "visored-opr",
+ "visored-prelude",
  "visored-term",
 ]
 

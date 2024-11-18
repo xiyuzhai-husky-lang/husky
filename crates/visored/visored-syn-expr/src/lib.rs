@@ -1,3 +1,4 @@
+#![feature(let_chains, if_let_guard)]
 pub mod block;
 mod builder;
 pub mod clause;
