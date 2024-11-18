@@ -10,6 +10,7 @@ use r#let::{
     VdSynLetClauseResolution,
 };
 use smallvec::{smallvec, SmallVec};
+use visored_item_path::module::VdModulePath;
 
 pub struct VdSynSymbolBuilder<'a> {
     db: &'a ::salsa::Db,
@@ -20,6 +21,14 @@ pub struct VdSynSymbolBuilder<'a> {
     sentence_arena: VdSynSentenceArenaRef<'a>,
     stmt_arena: VdSynStmtArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
+    expr_range_map: &'a VdSynExprTokenIdxRangeMap,
+    phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
+    clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
+    sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
+    stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+    division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
+    stmt_module_path_node_map: &'a VdSynStmtMap<VdModulePath>,
+    division_module_path_node_map: &'a VdSynDivisionMap<VdModulePath>,
     symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
     symbol_resolutions_table: VdSynSymbolResolutionsTable,
     lineage: VdSynLineage,
@@ -41,6 +50,8 @@ impl<'a> VdSynSymbolBuilder<'a> {
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
         stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
         division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
+        stmt_module_path_node_map: &'a VdSynStmtMap<VdModulePath>,
+        division_module_path_node_map: &'a VdSynDivisionMap<VdModulePath>,
     ) -> Self {
         Self {
             db,
@@ -51,6 +62,15 @@ impl<'a> VdSynSymbolBuilder<'a> {
             sentence_arena,
             stmt_arena,
             division_arena,
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
+            stmt_range_map,
+            division_range_map,
+            stmt_module_path_node_map,
+            division_module_path_node_map,
+
             symbol_local_defn_table: VdSynSymbolLocalDefnStorage::default(),
             symbol_resolutions_table: VdSynSymbolResolutionsTable::new(expr_arena),
             lineage: VdSynLineage {
@@ -166,8 +186,21 @@ impl<'a> VdSynSymbolBuilder<'a> {
         body: VdSynSymbolLocalDefnBody,
         src: VdSynSymbolLocalDefnSrc,
     ) {
-        self.symbol_local_defn_table
-            .define_symbol(head, body, src, self.lineage.clone());
+        let module_path = self.current_module_path();
+        self.symbol_local_defn_table.define_symbol(
+            head,
+            body,
+            src,
+            self.lineage.clone(),
+            module_path,
+        );
+    }
+
+    pub(crate) fn current_module_path(&self) -> VdModulePath {
+        match self.lineage.current_stmt_or_division() {
+            Left(stmt) => self.stmt_module_path_node_map[stmt],
+            Right(division) => self.division_module_path_node_map[division],
+        }
     }
 
     pub(super) fn finish(self) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
