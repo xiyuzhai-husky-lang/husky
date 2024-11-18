@@ -5,4 +5,5 @@ pub enum LxDivisionKind {
     Subsection,
     Subsubsection,
     Subsubsubsection,
+    Stmts,
 }

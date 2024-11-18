@@ -12,7 +12,7 @@ use crate::{
 };
 use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
-use division::VdSynDivisionArena;
+use division::{VdSynDivisionArena, VdSynDivisionIdxRange};
 use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
@@ -28,7 +28,9 @@ use latex_ast::{
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
-    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput},
+    helper::tracker::{
+        LxDocumentBodyInput, LxDocumentInput, LxDocumentParagraphsInput, LxFormulaInput,
+    },
     mode::LxMode,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -198,11 +200,32 @@ impl<'a> IsVdSynExprInput<'a> for LxDocumentInput<'a> {
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxDocumentBodyInput<'a> {
+    type VdSynExprOutput = VdSynDivisionIdxRange;
+}
+
+impl<'a> IsVdSynExprInput<'a> for LxDocumentParagraphsInput<'a> {
     type VdSynExprOutput = VdSynStmtIdxRange;
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxFormulaInput<'a> {
     type VdSynExprOutput = VdSynExprIdx;
+}
+
+impl IsVdSynOutput for VdSynDivisionIdxRange {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode {
+        builder.build_root_divisions(self)
+    }
+
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_divisions(self)
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        DisplayTree::show_trees(&builder.render_divisions(*self), &Default::default())
+    }
 }
 
 impl IsVdSynOutput for VdSynStmtIdxRange {

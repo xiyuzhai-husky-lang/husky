@@ -12571,6 +12571,7 @@ dependencies = [
  "latex-environment",
  "latex-prelude",
  "latex-token",
+ "latex-vfs",
  "lazy_static 1.5.0",
  "salsa",
  "visored-annotation",

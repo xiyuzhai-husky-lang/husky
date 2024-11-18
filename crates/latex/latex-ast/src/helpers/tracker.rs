@@ -16,7 +16,8 @@ use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
     helper::tracker::{
-        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxLispInput,
+        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxDocumentParagraphsInput, LxFormulaInput,
+        LxLispInput,
     },
     mode::LxMode,
 };
@@ -100,6 +101,21 @@ impl<'a> IsLxAstInput<'a> for LxDocumentInput<'a> {
 }
 
 impl<'a> IsLxAstInput<'a> for LxDocumentBodyInput<'a> {
+    type LxAstOutput = LxRoseAstIdxRange;
+
+    fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
+        parser.parse_rose_asts()
+    }
+
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String {
+        format!(
+            "{}",
+            DisplayTree::show_trees(&builder.render_rose_asts(output), &Default::default(),)
+        )
+    }
+}
+
+impl<'a> IsLxAstInput<'a> for LxDocumentParagraphsInput<'a> {
     type LxAstOutput = LxRoseAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
