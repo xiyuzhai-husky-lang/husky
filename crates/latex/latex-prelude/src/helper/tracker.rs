@@ -48,6 +48,26 @@ impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LxDocumentParagraphsInput<'a> {
+    pub file_path: LxFilePath,
+    pub content: &'a str,
+}
+
+impl<'a> IsLxInput<'a> for LxDocumentParagraphsInput<'a> {
+    fn file_path(self) -> LxFilePath {
+        self.file_path
+    }
+
+    fn content(self) -> &'a str {
+        self.content
+    }
+
+    fn root_mode(self) -> LxMode {
+        LxMode::Rose
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxFormulaInput<'a> {
     pub file_path: LxFilePath,
     pub content: &'a str,

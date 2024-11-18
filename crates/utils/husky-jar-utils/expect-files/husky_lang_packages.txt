@@ -4289,6 +4289,7 @@
             "husky-coword",
             "latex-command",
             "latex-environment",
+            "latex-vfs",
             "salsa",
         ],
     },

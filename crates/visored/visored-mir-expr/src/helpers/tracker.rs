@@ -9,7 +9,7 @@ use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::{
-    helper::tracker::{LxDocumentBodyInput, LxFormulaInput},
+    helper::tracker::{LxDocumentParagraphsInput, LxFormulaInput},
     mode::LxMode,
 };
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
@@ -117,7 +117,7 @@ impl IsVdMirExprOutput for VdMirExprIdx {
     }
 }
 
-impl<'a> IsVdMirExprInput<'a> for LxDocumentBodyInput<'a> {
+impl<'a> IsVdMirExprInput<'a> for LxDocumentParagraphsInput<'a> {
     type VdMirExprOutput = VdMirStmtIdxRange;
 }
 

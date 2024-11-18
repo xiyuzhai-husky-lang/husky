@@ -1,7 +1,9 @@
 use crate::{
     builder::VdSynExprBuilder,
     clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
-    division::VdSynDivisionArenaRef,
+    division::{
+        VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionIdx, VdSynDivisionIdxRange,
+    },
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
@@ -142,6 +144,56 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }
 
+    pub fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
+        let clause_range = self.clause_range_map[clause];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(clause_range);
+        let source = &self.input[offset_range];
+        let value = match self.clause_arena[clause] {
+            VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
+            VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
+            VdSynClauseData::Then { .. } => format!("{:?} clause.then", source),
+        };
+        DisplayTree::new(
+            value,
+            self.render_clause_children(self.clause_arena[clause].children()),
+        )
+    }
+
+    fn render_clause_children(&self, children: Vec<VdSynClauseChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSynClauseChild::Expr(expr) => self.render_expr(expr),
+            })
+            .collect()
+    }
+
+    pub fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
+        let sentence_range = self.sentence_range_map[sentence];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(sentence_range);
+        let source = &self.input[offset_range];
+        let value = match self.sentence_arena[sentence] {
+            VdSynSentenceData::Clauses { clauses, end } => format!("{:?} sentence.clauses", source),
+        };
+        DisplayTree::new(
+            value,
+            self.render_sentence_children(self.sentence_arena[sentence].children()),
+        )
+    }
+
+    fn render_sentence_children(&self, children: Vec<VdSynSentenceChild>) -> Vec<DisplayTree> {
+        children
+            .into_iter()
+            .map(|child| match child {
+                VdSynSentenceChild::Clause(clause) => self.render_clause(clause),
+            })
+            .collect()
+    }
+
     pub fn render_all_stmts(&self, stmts: VdSynStmtIdxRange) -> DisplayTree {
         let stmts_range =
             self.stmt_range_map[stmts.start()].join(self.stmt_range_map[stmts.last().unwrap()]);
@@ -186,54 +238,34 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    pub fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
-        let sentence_range = self.sentence_range_map[sentence];
-        let offset_range = self
-            .token_storage
-            .token_idx_range_offset_range(sentence_range);
-        let source = &self.input[offset_range];
-        let value = match self.sentence_arena[sentence] {
-            VdSynSentenceData::Clauses { clauses, end } => format!("{:?} sentence.clauses", source),
-        };
-        DisplayTree::new(
-            value,
-            self.render_sentence_children(self.sentence_arena[sentence].children()),
-        )
-    }
-
-    fn render_sentence_children(&self, children: Vec<VdSynSentenceChild>) -> Vec<DisplayTree> {
-        children
+    pub fn render_divisions(&self, divisions: VdSynDivisionIdxRange) -> Vec<DisplayTree> {
+        divisions
             .into_iter()
-            .map(|child| match child {
-                VdSynSentenceChild::Clause(clause) => self.render_clause(clause),
-            })
+            .map(|division| self.render_division(division))
             .collect()
     }
 
-    pub fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
-        let clause_range = self.clause_range_map[clause];
+    fn render_division(&self, division: VdSynDivisionIdx) -> DisplayTree {
+        let division_range = self.division_range_map[division];
         let offset_range = self
             .token_storage
-            .token_idx_range_offset_range(clause_range);
+            .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
-        let value = match self.clause_arena[clause] {
-            VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
-            VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
-            VdSynClauseData::Then { .. } => format!("{:?} clause.then", source),
-        };
+        let children = self.division_arena[division].children();
         DisplayTree::new(
-            value,
-            self.render_clause_children(self.clause_arena[clause].children()),
+            format!("{:?} division", source),
+            children
+                .into_iter()
+                .map(|child| self.render_division_child(child))
+                .collect(),
         )
     }
 
-    fn render_clause_children(&self, children: Vec<VdSynClauseChild>) -> Vec<DisplayTree> {
-        children
-            .into_iter()
-            .map(|child| match child {
-                VdSynClauseChild::Expr(expr) => self.render_expr(expr),
-            })
-            .collect()
+    fn render_division_child(&self, child: VdSynDivisionChild) -> DisplayTree {
+        match child {
+            VdSynDivisionChild::Division(division) => self.render_division(division),
+            VdSynDivisionChild::Stmt(stmt) => self.render_stmt(stmt),
+        }
     }
 
     fn ast_offset_range(&self, ast: LxAstIdx) -> TextOffsetRange {

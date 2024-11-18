@@ -58,6 +58,19 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
 }
 
 impl<'a> VdSynExprEntityTreeBuilder<'a> {
+    pub fn build_root_divisions(
+        &mut self,
+        divisions: VdSynDivisionIdxRange,
+    ) -> VdSynExprEntityTreeNode {
+        let module_path = VdModulePath::new_root(self.db, self.file_path);
+        let mut registry = VdModulePathRegistry::new(module_path);
+        let children = self.build_divisions(divisions, &mut registry);
+        VdSynExprEntityTreeNode {
+            module_path,
+            children,
+        }
+    }
+
     pub fn build_root_stmts(&mut self, stmts: VdSynStmtIdxRange) -> VdSynExprEntityTreeNode {
         let module_path = VdModulePath::new_root(self.db, self.file_path);
         let mut registry = VdModulePathRegistry::new(module_path);
@@ -72,8 +85,11 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         &mut self,
         divisions: VdSynDivisionIdxRange,
         registry: &mut VdModulePathRegistry,
-    ) {
-        todo!()
+    ) -> Vec<VdModulePath> {
+        divisions
+            .into_iter()
+            .map(|division| self.build_division(division, registry))
+            .collect()
     }
 
     fn build_division(

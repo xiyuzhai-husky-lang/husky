@@ -122,6 +122,27 @@ impl<'a> VdSynSymbolBuilder<'a> {
 
 /// # actions
 impl<'a> VdSynSymbolBuilder<'a> {
+    pub(crate) fn build_divisions(&mut self, divisions: VdSynDivisionIdxRange) {
+        for division in divisions {
+            self.build_division(division);
+        }
+    }
+
+    pub(crate) fn build_division(&mut self, division: VdSynDivisionIdx) {
+        self.lineage.divisions.push(division);
+        self.build_division_aux(division);
+        self.lineage.divisions.pop();
+    }
+
+    fn build_division_aux(&mut self, division: VdSynDivisionIdx) {
+        match self.division_arena[division] {
+            VdSynDivisionData::Stmts { stmts } => self.build_stmts(stmts),
+            VdSynDivisionData::Divisions { kind, divisions } => {
+                self.build_divisions(divisions);
+            }
+        }
+    }
+
     pub(crate) fn build_stmts(&mut self, stmts: VdSynStmtIdxRange) {
         for stmt in stmts {
             self.build_stmt(stmt);
