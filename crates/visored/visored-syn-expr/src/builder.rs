@@ -2,6 +2,7 @@ use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     division::VdSynDivisionArena,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
+    helpers::tracker::IsVdSynOutput,
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
     range::*,
     region::VdSynExprRegionData,
@@ -9,6 +10,7 @@ use crate::{
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
         build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
+        build_all_symbol_defns_and_resolutions_with, builder::VdSynSymbolBuilder,
         local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
@@ -19,7 +21,7 @@ use latex_ast::{
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
-use visored_global_resolution::table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -197,6 +199,80 @@ impl<'db> VdSynExprBuilder<'db> {
         )
     }
 
+    pub(crate) fn finish_with(
+        self,
+        output: impl IsVdSynOutput,
+    ) -> (
+        VdSynExprArena,
+        VdSynPhraseArena,
+        VdSynClauseArena,
+        VdSynSentenceArena,
+        VdSynStmtArena,
+        VdSynDivisionArena,
+        VdSynExprTokenIdxRangeMap,
+        VdSynPhraseTokenIdxRangeMap,
+        VdSynClauseTokenIdxRangeMap,
+        VdSynSentenceTokenIdxRangeMap,
+        VdSynStmtTokenIdxRangeMap,
+        VdSynDivisionTokenIdxRangeMap,
+        VdSynSymbolLocalDefnStorage,
+        VdSynSymbolResolutionsTable,
+    ) {
+        let (
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
+            stmt_range_map,
+            division_range_map,
+        ) = calc_expr_range_map(
+            self.db,
+            &self.expr_arena,
+            &self.phrase_arena,
+            &self.clause_arena,
+            &self.sentence_arena,
+            &self.stmt_arena,
+            &self.division_arena,
+        );
+        let (symbol_defns, symbol_resolutions) = build_all_symbol_defns_and_resolutions_with(
+            self.db,
+            self.token_storage,
+            self.ast_arena,
+            self.ast_token_idx_range_map,
+            self.annotations,
+            self.default_resolution_table,
+            self.expr_arena.as_arena_ref(),
+            self.phrase_arena.as_arena_ref(),
+            self.clause_arena.as_arena_ref(),
+            self.sentence_arena.as_arena_ref(),
+            self.stmt_arena.as_arena_ref(),
+            self.division_arena.as_arena_ref(),
+            &expr_range_map,
+            &phrase_range_map,
+            &clause_range_map,
+            &sentence_range_map,
+            &stmt_range_map,
+            &division_range_map,
+            output,
+        );
+        (
+            self.expr_arena,
+            self.phrase_arena,
+            self.clause_arena,
+            self.sentence_arena,
+            self.stmt_arena,
+            self.division_arena,
+            expr_range_map,
+            phrase_range_map,
+            clause_range_map,
+            sentence_range_map,
+            stmt_range_map,
+            division_range_map,
+            symbol_defns,
+            symbol_resolutions,
+        )
+    }
+
     pub(crate) fn finish_with_expr_or_stmts(
         self,
         root: Either<VdSynExprIdx, VdSynStmtIdxRange>,
@@ -283,8 +359,23 @@ where
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, R> {
         let (token_range, asts) = self;
         match asts {
+            LxAstIdxRange::Lisp(asts) => todo!(),
             LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
+            LxAstIdxRange::Root(arena_idx_range) => todo!(),
             LxAstIdxRange::Rose(asts) => Either::Right((token_range, asts).to_vd_syn(builder)),
         }
+    }
+}
+
+pub trait FromToVdSyn<S> {
+    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self;
+}
+
+impl<S, T> FromToVdSyn<S> for T
+where
+    S: ToVdSyn<T>,
+{
+    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self {
+        s.to_vd_syn(builder)
     }
 }

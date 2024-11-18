@@ -1,4 +1,5 @@
 use super::{
+    lineage::VdSynLineage,
     local_defn::VdSynSymbolLocalDefnStorage,
     resolution::{VdSynSymbolResolution, VdSynSymbolResolutionsTable},
     *,
@@ -25,13 +26,7 @@ pub struct VdSynSymbolBuilder<'a> {
     division_arena: VdSynDivisionArenaRef<'a>,
     symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
     symbol_resolutions_table: VdSynSymbolResolutionsTable,
-    // the order is from outer to inner
-    current_divisions: SmallVec<[VdSynDivisionIdx; 8]>,
-    current_stmts: SmallVec<[VdSynStmtIdx; 8]>,
-    current_sentence: Option<VdSynSentenceIdx>,
-    current_clause: Option<VdSynClauseIdx>,
-    current_phrases: SmallVec<[VdSynPhraseIdx; 8]>,
-    current_exprs: SmallVec<[VdSynExprIdx; 8]>,
+    lineage: VdSynLineage,
 }
 
 impl<'a> VdSynSymbolBuilder<'a> {
@@ -70,12 +65,14 @@ impl<'a> VdSynSymbolBuilder<'a> {
             division_arena,
             symbol_local_defn_table: VdSynSymbolLocalDefnStorage::default(),
             symbol_resolutions_table: VdSynSymbolResolutionsTable::new(expr_arena),
-            current_divisions: smallvec![],
-            current_stmts: smallvec![],
-            current_sentence: None,
-            current_clause: None,
-            current_phrases: smallvec![],
-            current_exprs: smallvec![],
+            lineage: VdSynLineage {
+                divisions: smallvec![],
+                stmts: smallvec![],
+                sentence: None,
+                clause: None,
+                phrases: smallvec![],
+                exprs: smallvec![],
+            },
         }
     }
 }
@@ -124,9 +121,9 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     pub(crate) fn build_stmt(&mut self, stmt: VdSynStmtIdx) {
-        self.current_stmts.push(stmt);
+        self.lineage.stmts.push(stmt);
         self.build_stmt_aux(stmt);
-        self.current_stmts.pop();
+        self.lineage.stmts.pop();
     }
 
     pub(crate) fn build_sentences(&mut self, sentences: VdSynSentenceIdxRange) {
@@ -136,10 +133,10 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     pub(crate) fn build_sentence(&mut self, sentence: VdSynSentenceIdx) {
-        debug_assert!(self.current_sentence.is_none());
-        self.current_sentence = Some(sentence);
+        debug_assert!(self.lineage.sentence.is_none());
+        self.lineage.sentence = Some(sentence);
         self.build_sentence_aux(sentence);
-        self.current_sentence = None;
+        self.lineage.sentence = None;
     }
 
     pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
@@ -155,24 +152,24 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     pub(crate) fn build_clause(&mut self, clause: VdSynClauseIdx) {
-        debug_assert!(self.current_clause.is_none());
-        self.current_clause = Some(clause);
+        debug_assert!(self.lineage.clause.is_none());
+        self.lineage.clause = Some(clause);
         self.build_clause_aux(clause);
-        self.current_clause = None;
+        self.lineage.clause = None;
     }
 
     pub(crate) fn build_phrase(&mut self, phrase: VdSynPhraseIdx) {
-        self.current_phrases.push(phrase);
+        self.lineage.phrases.push(phrase);
         self.build_phrase_aux(phrase);
-        self.current_phrases.pop();
+        self.lineage.phrases.pop();
     }
 
     pub(crate) fn build_expr(&mut self, expr: VdSynExprIdx) {
-        self.current_exprs.push(expr);
+        self.lineage.exprs.push(expr);
         let resolutions_result = self.build_expr_aux(expr);
         self.symbol_resolutions_table
             .add_expr_symbol_resolutions(expr, resolutions_result);
-        self.current_exprs.pop();
+        self.lineage.exprs.pop();
     }
 
     pub(crate) fn define_symbol(
@@ -181,7 +178,8 @@ impl<'a> VdSynSymbolBuilder<'a> {
         body: VdSynSymbolLocalDefnBody,
         src: VdSynSymbolLocalDefnSrc,
     ) {
-        self.symbol_local_defn_table.define_symbol(head, body, src);
+        self.symbol_local_defn_table
+            .define_symbol(head, body, src, self.lineage.clone());
     }
 
     pub(super) fn finish(self) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {

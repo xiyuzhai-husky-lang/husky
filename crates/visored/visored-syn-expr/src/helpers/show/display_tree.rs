@@ -183,7 +183,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
+    pub fn render_sentence(&self, sentence: VdSynSentenceIdx) -> DisplayTree {
         let sentence_range = self.sentence_range_map[sentence];
         let offset_range = self
             .token_storage
@@ -207,7 +207,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
+    pub fn render_clause(&self, clause: VdSynClauseIdx) -> DisplayTree {
         let clause_range = self.clause_range_map[clause];
         let offset_range = self
             .token_storage
@@ -235,7 +235,9 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     fn ast_offset_range(&self, ast: LxAstIdx) -> TextOffsetRange {
         match ast {
+            LxAstIdx::Lisp(ast) => todo!(),
             LxAstIdx::Math(ast) => self.math_ast_offset_range(ast),
+            LxAstIdx::Root(ast) => todo!(),
             LxAstIdx::Rose(ast) => self.rose_ast_offset_range(ast),
         }
     }
@@ -252,7 +254,9 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
 
     fn asts_offset_range(&self, asts: LxAstIdxRange) -> TextOffsetRange {
         match asts {
+            LxAstIdxRange::Lisp(asts) => todo!(),
             LxAstIdxRange::Math(asts) => self.math_asts_offset_range(asts),
+            LxAstIdxRange::Root(asts) => todo!(),
             LxAstIdxRange::Rose(asts) => self.rose_asts_offset_range(asts),
         }
     }

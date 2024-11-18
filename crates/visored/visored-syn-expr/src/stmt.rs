@@ -7,7 +7,10 @@ use husky_coword::Coword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
+use latex_ast::ast::{
+    root::LxRootAstIdxRange,
+    rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+};
 use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
 use std::iter::Peekable;
 
@@ -33,6 +36,14 @@ impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
     }
 }
 
+impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRootAstIdxRange) {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
+        todo!()
+        // let (_, ast_idx_range) = self;
+        // builder.parse_stmts(ast_idx_range)
+    }
+}
+
 impl<'db> VdSynExprBuilder<'db> {
     fn parse_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynStmtIdxRange {
         let mut stmts: Vec<VdSynStmtData> = Vec::new();
@@ -52,11 +63,22 @@ impl<'db> VdSynExprBuilder<'db> {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
             LxRoseAstData::Word(token_idx, word) => self.parse_paragraph(token_idx, word, asts),
             LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
-            LxRoseAstData::Math {
-                left_dollar_token_idx,
-                math_asts,
-                right_dollar_token_idx,
+            LxRoseAstData::Math { .. } => todo!(),
+            LxRoseAstData::NewParagraph(_) => todo!(),
+            LxRoseAstData::Delimited {
+                left_delimiter_token_idx,
+                left_delimiter,
+                asts,
+                right_delimiter_token_idx,
+                right_delimiter,
             } => todo!(),
+            LxRoseAstData::CompleteCommand {
+                command_token_idx,
+                command_path,
+                options,
+                ref arguments,
+            } => todo!(),
+            LxRoseAstData::Environment { .. } => todo!(),
         }
     }
 
@@ -75,10 +97,25 @@ impl<'db> VdSynExprBuilder<'db> {
                 }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
                 LxRoseAstData::Math {
-                    left_dollar_token_idx,
+                    left_delimiter_token_idx: left_dollar_token_idx,
                     math_asts,
-                    right_dollar_token_idx,
+                    right_delimiter_token_idx: right_dollar_token_idx,
                 } => todo!(),
+                LxRoseAstData::NewParagraph(_) => todo!(),
+                LxRoseAstData::Delimited {
+                    left_delimiter_token_idx,
+                    left_delimiter,
+                    asts,
+                    right_delimiter_token_idx,
+                    right_delimiter,
+                } => todo!(),
+                LxRoseAstData::CompleteCommand {
+                    command_token_idx,
+                    command_path,
+                    options,
+                    ref arguments,
+                } => todo!(),
+                LxRoseAstData::Environment { .. } => todo!(),
             }
         }
         Some(VdSynStmtData::Paragraph(self.alloc_sentences(sentences)))

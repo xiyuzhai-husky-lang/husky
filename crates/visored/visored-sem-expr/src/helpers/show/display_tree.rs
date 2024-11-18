@@ -117,7 +117,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
                 item,
                 right_delimiter,
             } => format!("{:?} delimited", source),
-            VdSemExprData::Fraction {
+            VdSemExprData::Frac {
                 numerator,
                 denominator,
                 ..
@@ -171,7 +171,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    fn render_sentence(&self, sentence: VdSemSentenceIdx) -> DisplayTree {
+    pub fn render_sentence(&self, sentence: VdSemSentenceIdx) -> DisplayTree {
         let sentence_range = self.sentence_range_map[sentence];
         let offset_range = self
             .token_storage

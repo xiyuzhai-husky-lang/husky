@@ -1,7 +1,7 @@
 use super::*;
-use crate::test_helpers::example::VdSynExprExample;
 use expect_test::{expect, Expect};
-use latex_prelude::mode::LxMode;
+use helpers::tracker::VdSynExprTracker;
+use latex_prelude::{helper::tracker::LxDocumentBodyInput, mode::LxMode};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
@@ -13,14 +13,13 @@ fn t(
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 
     let db = &DB::default();
-    let example = VdSynExprExample::new(
-        input,
-        LxMode::Rose,
+    let tracker = VdSynExprTracker::new(
+        LxDocumentBodyInput(input),
         token_annotations,
         space_annotations,
         db,
     );
-    expected.assert_eq(&example.show_display_tree(db));
+    expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]

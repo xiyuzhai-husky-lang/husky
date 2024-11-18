@@ -13,6 +13,20 @@ pub enum LxRosePunctuation {
     Exclamation,
     /// `?`
     Question,
+    /// `{`
+    LeftCurl,
+    /// `}`
+    RightCurl,
+    /// `[`
+    LeftBox,
+    /// `]`
+    RightBox,
+    /// `\\`
+    EscapedBackslash,
+    /// `\{`
+    EscapedLcurl,
+    /// `\}`
+    EscapedRcurl,
 }
 
 impl LxRosePunctuation {

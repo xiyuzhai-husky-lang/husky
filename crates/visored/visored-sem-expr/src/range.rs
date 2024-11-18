@@ -214,7 +214,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
                 };
                 left_delimiter_range.join(right_delimiter_range)
             }
-            VdSemExprData::Fraction {
+            VdSemExprData::Frac {
                 command_token_idx,
                 denominator_rcurl_token_idx,
                 ..
