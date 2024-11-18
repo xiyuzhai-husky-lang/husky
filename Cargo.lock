@@ -12611,7 +12611,10 @@ name = "visored-item-path"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "husky-coword",
+ "rustc-hash 2.0.0",
  "salsa",
+ "visored-vfs",
 ]
 
 [[package]]
@@ -12645,6 +12648,7 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
+ "visored-vfs",
 ]
 
 [[package]]
@@ -12671,6 +12675,7 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
+ "visored-vfs",
 ]
 
 [[package]]
@@ -12717,6 +12722,7 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
+ "visored-vfs",
 ]
 
 [[package]]
@@ -12756,6 +12762,7 @@ dependencies = [
  "visored-item-path",
  "visored-opr",
  "visored-term",
+ "visored-vfs",
 ]
 
 [[package]]
@@ -12768,6 +12775,13 @@ dependencies = [
  "smallvec",
  "visored-coword",
  "visored-item-path",
+]
+
+[[package]]
+name = "visored-vfs"
+version = "0.1.0"
+dependencies = [
+ "salsa",
 ]
 
 [[package]]

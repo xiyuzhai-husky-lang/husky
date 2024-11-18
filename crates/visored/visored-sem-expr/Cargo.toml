@@ -49,6 +49,7 @@ latex-command.workspace = true
 latex-environment.workspace = true
 # visored
 visored-item-path.workspace = true
+visored-vfs.workspace = true
 
 [lints]
 workspace = true

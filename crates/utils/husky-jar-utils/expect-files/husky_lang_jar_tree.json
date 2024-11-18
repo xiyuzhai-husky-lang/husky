@@ -1187,12 +1187,17 @@
   ],
   "namekian-ast": [],
   "visored-global-dispatch": [
+    "husky-coword",
     "visored-item-path",
     "visored-opr",
     "visored-signature",
-    "visored-term"
+    "visored-term",
+    "visored-vfs"
   ],
-  "visored-item-path": [],
+  "visored-item-path": [
+    "husky-coword",
+    "visored-vfs"
+  ],
   "visored-lean-transpilation": [
     "husky-coword",
     "latex-ast",
@@ -1209,7 +1214,8 @@
     "visored-sem-expr",
     "visored-signature",
     "visored-syn-expr",
-    "visored-term"
+    "visored-term",
+    "visored-vfs"
   ],
   "visored-mir-expr": [
     "husky-coword",
@@ -1222,7 +1228,8 @@
     "visored-sem-expr",
     "visored-signature",
     "visored-syn-expr",
-    "visored-term"
+    "visored-term",
+    "visored-vfs"
   ],
   "visored-opr": [],
   "visored-sem-expr": [
@@ -1235,11 +1242,14 @@
     "visored-opr",
     "visored-signature",
     "visored-syn-expr",
-    "visored-term"
+    "visored-term",
+    "visored-vfs"
   ],
   "visored-signature": [
+    "husky-coword",
     "visored-item-path",
-    "visored-term"
+    "visored-term",
+    "visored-vfs"
   ],
   "visored-syn-expr": [
     "husky-coword",
@@ -1248,9 +1258,13 @@
     "latex-environment",
     "visored-item-path",
     "visored-opr",
-    "visored-term"
+    "visored-term",
+    "visored-vfs"
   ],
   "visored-term": [
-    "visored-item-path"
-  ]
+    "husky-coword",
+    "visored-item-path",
+    "visored-vfs"
+  ],
+  "visored-vfs": []
 }

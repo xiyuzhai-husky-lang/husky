@@ -38,6 +38,7 @@ husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
+visored-item-path.workspace = true
 visored-opr.workspace = true
 visored-global-resolution.workspace = true
 visored-term.workspace = true
@@ -50,6 +51,7 @@ husky-coword.workspace = true
 latex-command.workspace = true
 # visored
 visored-item-path.workspace = true
+visored-vfs.workspace = true
 
 [lints]
 workspace = true
