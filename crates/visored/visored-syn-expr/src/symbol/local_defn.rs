@@ -5,6 +5,7 @@ use super::*;
 use clause::VdSynClauseIdx;
 use idx_arena::{Arena, ArenaIdx};
 use latex_token::idx::LxTokenIdxRange;
+use lineage::VdSynLineage;
 
 /// Be careful with the wording.
 ///
@@ -15,6 +16,7 @@ pub struct VdSynSymbolLocalDefnData {
     head: VdSynSymbolLocalDefnHead,
     body: VdSynSymbolLocalDefnBody,
     src: VdSynSymbolLocalDefnSrc,
+    lineage: VdSynLineage,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -94,8 +96,13 @@ impl VdSynSymbolLocalDefnStorage {
         head: VdSynSymbolLocalDefnHead,
         body: VdSynSymbolLocalDefnBody,
         src: VdSynSymbolLocalDefnSrc,
+        lineage: VdSynLineage,
     ) {
-        self.defn_arena
-            .alloc_one(VdSynSymbolLocalDefnData { head, body, src });
+        self.defn_arena.alloc_one(VdSynSymbolLocalDefnData {
+            head,
+            body,
+            src,
+            lineage,
+        });
     }
 }
