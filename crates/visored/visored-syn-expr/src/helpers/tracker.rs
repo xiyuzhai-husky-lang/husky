@@ -13,6 +13,7 @@ use crate::{
 use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
 use division::VdSynDivisionArena;
+use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
@@ -45,6 +46,7 @@ use visored_annotation::{
     annotations::VdAnnotations,
 };
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,
@@ -76,6 +78,10 @@ pub trait IsVdSynExprInput<'a>: IsLxAstInput<'a> {
 }
 
 pub trait IsVdSynOutput: std::fmt::Debug + Copy {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode;
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder);
     fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String;
 }
@@ -128,6 +134,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
+            root_node,
+            stmt_module_path_node_map,
+            division_module_path_node_map,
             symbol_defns,
             symbol_resolutions,
         ) = builder.finish_with(output);
@@ -197,6 +206,13 @@ impl<'a> IsVdSynExprInput<'a> for LxFormulaInput<'a> {
 }
 
 impl IsVdSynOutput for VdSynStmtIdxRange {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode {
+        builder.build_root_stmts(self)
+    }
+
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
         builder.build_stmts(self);
     }
@@ -206,48 +222,17 @@ impl IsVdSynOutput for VdSynStmtIdxRange {
     }
 }
 
-impl IsVdSynOutput for VdSynStmtIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_stmt(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_stmt(*self).show(&Default::default())
-    }
-}
-
-impl IsVdSynOutput for VdSynSentenceIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_sentence(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_sentence(*self).show(&Default::default())
-    }
-}
-
-impl IsVdSynOutput for VdSynClauseIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_clause(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_clause(*self).show(&Default::default())
-    }
-}
-
-impl IsVdSynOutput for VdSynPhraseIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_phrase(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        todo!()
-        // builder.render_phrase(*self).show(&Default::default())
-    }
-}
-
 impl IsVdSynOutput for VdSynExprIdx {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode {
+        VdSynExprEntityTreeNode::new(
+            VdModulePath::new_root(builder.db(), builder.file_path()),
+            vec![],
+        )
+    }
+
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
         builder.build_expr(self);
     }
