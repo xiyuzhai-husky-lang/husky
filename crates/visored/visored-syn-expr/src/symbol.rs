@@ -45,10 +45,6 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
-        &token_storage,
-        ast_arena,
-        ast_token_idx_range_map,
-        annotations,
         default_resolution_table,
         expr_arena,
         phrase_arena,
@@ -90,10 +86,6 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
-        &token_storage,
-        ast_arena,
-        ast_token_idx_range_map,
-        annotations,
         default_resolution_table,
         expr_arena,
         phrase_arena,

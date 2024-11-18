@@ -13,10 +13,6 @@ use smallvec::{smallvec, SmallVec};
 
 pub struct VdSynSymbolBuilder<'a> {
     db: &'a ::salsa::Db,
-    token_storage: &'a LxTokenStorage,
-    ast_arena: LxAstArenaRef<'a>,
-    ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
-    annotations: &'a VdAnnotations,
     default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArenaRef<'a>,
     phrase_arena: VdSynPhraseArenaRef<'a>,
@@ -32,11 +28,7 @@ pub struct VdSynSymbolBuilder<'a> {
 impl<'a> VdSynSymbolBuilder<'a> {
     pub fn new(
         db: &'a ::salsa::Db,
-        token_storage: &'a LxTokenStorage,
-        ast_arena: LxAstArenaRef<'a>,
-        ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
-        annotations: &'a VdAnnotations,
-        default_resolution_table: &'a VdDefaultGlobalResolutionTable,
+        default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
         expr_arena: VdSynExprArenaRef<'a>,
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
@@ -52,11 +44,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
     ) -> Self {
         Self {
             db,
-            token_storage,
-            ast_arena,
-            ast_token_idx_range_map,
-            annotations,
-            default_global_resolution_table: default_resolution_table,
+            default_global_resolution_table,
             expr_arena,
             phrase_arena,
             clause_arena,
