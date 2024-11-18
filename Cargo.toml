@@ -442,6 +442,7 @@ visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }
 visored-term = { path = "crates/visored/visored-term" }
+visored-vfs = { path = "crates/visored/visored-vfs" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir

@@ -1348,6 +1348,13 @@
     },
     JarPackageSummary {
         name: "visored-item-path",
+        dependencies: [
+            "husky-coword",
+            "visored-vfs",
+        ],
+    },
+    JarPackageSummary {
+        name: "visored-vfs",
         dependencies: [],
     },
     JarPackageSummary {
@@ -1370,6 +1377,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-syn-expr",
+            "visored-vfs",
         ],
     },
     JarPackageSummary {
@@ -1381,6 +1389,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-term",
+            "visored-vfs",
             "husky-coword",
             "latex-ast",
             "latex-command",
@@ -1407,6 +1416,7 @@
             "latex-command",
             "latex-environment",
             "visored-item-path",
+            "visored-vfs",
         ],
     },
     JarPackageSummary {
@@ -1416,11 +1426,13 @@
             "latex-ast",
             "latex-command",
             "latex-environment",
+            "visored-item-path",
             "visored-opr",
             "visored-term",
             "husky-coword",
             "latex-command",
             "visored-item-path",
+            "visored-vfs",
         ],
     },
 ]

@@ -4335,6 +4335,16 @@
         relative_path: "crates/visored/visored-item-path",
         dependencies: [
             "enum-class",
+            "husky-coword",
+            "rustc-hash",
+            "salsa",
+            "visored-vfs",
+        ],
+    },
+    PackageSummary {
+        name: "visored-vfs",
+        relative_path: "crates/visored/visored-vfs",
+        dependencies: [
             "salsa",
         ],
     },
@@ -4392,6 +4402,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-syn-expr",
+            "visored-vfs",
         ],
     },
     PackageSummary {
@@ -4412,6 +4423,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-term",
+            "visored-vfs",
             "expect-test",
             "husky-coword",
             "latex-ast",
@@ -4454,6 +4466,7 @@
             "latex-command",
             "latex-environment",
             "visored-item-path",
+            "visored-vfs",
         ],
     },
     PackageSummary {
@@ -4481,12 +4494,14 @@
             "thiserror",
             "visored-annotation",
             "visored-global-resolution",
+            "visored-item-path",
             "visored-opr",
             "visored-term",
             "expect-test",
             "husky-coword",
             "latex-command",
             "visored-item-path",
+            "visored-vfs",
         ],
     },
     PackageSummary {

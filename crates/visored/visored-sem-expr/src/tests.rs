@@ -9,6 +9,7 @@
     visored_syn_expr::jar::VdSynExprJar,
     visored_item_path::jar::VdItemPathJar,
     visored_global_dispatch::jar::VdGlobalDispatchJar,
-    visored_signature::jar::VdSignatureJar
+    visored_signature::jar::VdSignatureJar,
+    visored_vfs::jar::VdVfsJar
 )]
 pub(crate) struct DB {}

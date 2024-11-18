@@ -194,7 +194,10 @@
         "visored-opr",
         "visored-signature",
     },
-    "visored-item-path": {},
+    "visored-item-path": {
+        "husky-coword",
+        "visored-vfs",
+    },
     "visored-lean-transpilation": {
         "lean-mir-expr",
         "lean-sem-expr",
@@ -219,4 +222,5 @@
     "visored-term": {
         "visored-item-path",
     },
+    "visored-vfs": {},
 }
