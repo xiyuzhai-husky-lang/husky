@@ -62,12 +62,6 @@ pub enum LxRoseAstData {
         environment_signature: LxEnvironmentSignature,
     },
     NewParagraph(LxRoseTokenIdx),
-    NewDivision {
-        command_token_idx: LxRoseTokenIdx,
-        lcurl_token_idx: LxRoseTokenIdx,
-        title: LxRoseAstIdxRange,
-        rcurl_token_idx: LxRoseTokenIdx,
-    },
 }
 
 pub type LxRoseAstArena = Arena<LxRoseAstData>;
@@ -108,12 +102,6 @@ impl LxRoseAstData {
                 LxAstIdxRange::Root(arena_idx_range) => todo!(),
             },
             LxRoseAstData::NewParagraph(_) => vec![],
-            LxRoseAstData::NewDivision {
-                command_token_idx,
-                lcurl_token_idx,
-                title,
-                rcurl_token_idx,
-            } => title.into_iter().map(LxRoseAstChild::RoseAst).collect(),
         }
     }
 }
@@ -135,6 +123,7 @@ impl<'a> LxAstParser<'a> {
             {
                 return None
             }
+            LxRoseTokenData::RightDelimiter(_) => return None,
             _ => (),
         };
         let (token_idx, token) = self.next_rose_token()?;

@@ -39,6 +39,7 @@ pub enum VdSynClauseData {
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
+    Todo(LxRoseTokenIdx),
 }
 
 pub enum VdSynClauseChild {
@@ -51,6 +52,7 @@ impl VdSynClauseData {
             VdSynClauseData::Let { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Then { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
+            VdSynClauseData::Todo(..) => vec![],
         }
     }
 }
@@ -110,7 +112,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
                     LxRoseAstData::NewParagraph(_) => todo!(),
-                    LxRoseAstData::NewDivision { .. } => todo!(),
                 }
             }
             "Assume" | "assume" | "Suppose" | "suppose" => {
@@ -148,7 +149,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
                     LxRoseAstData::NewParagraph(_) => todo!(),
-                    LxRoseAstData::NewDivision { .. } => todo!(),
                 }
             }
             "Then" | "then" => {
@@ -186,10 +186,9 @@ impl<'db> VdSynExprBuilder<'db> {
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
                     LxRoseAstData::NewParagraph(_) => todo!(),
-                    LxRoseAstData::NewDivision { .. } => todo!(),
                 }
             }
-            _ => todo!(),
+            _ => VdSynClauseData::Todo(token_idx),
         }
     }
 }
@@ -202,6 +201,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Then { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Todo(..) => todo!(),
         }
     }
 

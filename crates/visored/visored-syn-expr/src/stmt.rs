@@ -32,8 +32,13 @@ pub type VdSynStmtOrderedMap<T> = ArenaOrderedMap<VdSynStmtData, T>;
 
 impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
-        let (_, ast_idx_range) = self;
-        builder.parse_stmts(ast_idx_range)
+        self.1.to_vd_syn(builder)
+    }
+}
+
+impl ToVdSyn<VdSynStmtIdxRange> for LxRoseAstIdxRange {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
+        builder.parse_stmts(self)
     }
 }
 
@@ -87,7 +92,6 @@ impl<'db> VdSynExprBuilder<'db> {
             } => todo!(),
             LxRoseAstData::Environment { .. } => todo!(),
             LxRoseAstData::NewParagraph(_) => todo!(),
-            LxRoseAstData::NewDivision { .. } => todo!(),
         }
     }
 
@@ -125,7 +129,6 @@ impl<'db> VdSynExprBuilder<'db> {
                 } => todo!(),
                 LxRoseAstData::Environment { .. } => todo!(),
                 LxRoseAstData::NewParagraph(_) => todo!(),
-                LxRoseAstData::NewDivision { .. } => todo!(),
             }
         }
         Some(VdSynStmtData::Paragraph(self.alloc_sentences(sentences)))

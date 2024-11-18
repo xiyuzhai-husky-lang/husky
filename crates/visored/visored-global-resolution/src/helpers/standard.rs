@@ -38,6 +38,11 @@ fn standard_command_resolution_map(
         end: _,
         usepackage,
         documentclass,
+        part,
+        chapter,
+        section,
+        subsection,
+        subsubsection,
         // maths
         // - letter style
         mathbb,
@@ -85,6 +90,18 @@ fn standard_command_resolution_map(
     VdCompleteCommandGlobalResolutionMap::from_iter([
         // - root
         (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
+        (
+            documentclass,
+            VdCompleteCommandGlobalResolution::DOCUMENTCLASS,
+        ),
+        (part, VdCompleteCommandGlobalResolution::PART),
+        (chapter, VdCompleteCommandGlobalResolution::CHAPTER),
+        (section, VdCompleteCommandGlobalResolution::SECTION),
+        (subsection, VdCompleteCommandGlobalResolution::SUBSECTION),
+        (
+            subsubsection,
+            VdCompleteCommandGlobalResolution::SUBSUBSECTION,
+        ),
         // - operators
         // -- relations
         (eq, VdCompleteCommandGlobalResolution::EQ),

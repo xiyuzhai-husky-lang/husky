@@ -203,7 +203,6 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
             LxRoseAstData::CompleteCommand { .. } => format!("{:?} complete command", value),
             LxRoseAstData::Environment { .. } => format!("{:?} environment", value),
             LxRoseAstData::NewParagraph(_) => format!("{:?} new paragraph", value),
-            LxRoseAstData::NewDivision { .. } => format!("{:?} new division", value),
         };
         DisplayTree::new(
             value,

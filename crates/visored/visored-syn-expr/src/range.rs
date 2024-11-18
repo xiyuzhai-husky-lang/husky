@@ -294,6 +294,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 right_dollar_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
+            VdSynClauseData::Todo(token_idx) => LxTokenIdxRange::new_closed(*token_idx, *token_idx),
         }
     }
 
@@ -316,6 +317,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 let clauses_range = self.get_clause(clauses.start());
                 match end {
                     VdSynSentenceEnd::Period(token_idx) => clauses_range.to_included(*token_idx),
+                    VdSynSentenceEnd::Void => clauses_range,
                 }
             }
         }
@@ -369,12 +371,14 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 let last = self.get_stmt(stmts.last().expect("stmts are always non-empty"));
                 first.join(last)
             }
-            VdSynDivisionData::Divisions { divisions, .. } => {
-                let first =
-                    self.get_division(divisions.first().expect("divisions are always non-empty"));
+            VdSynDivisionData::Divisions {
+                command_token_idx,
+                subdivisions,
+                ..
+            } => {
                 let last =
-                    self.get_division(divisions.last().expect("divisions are always non-empty"));
-                first.join(last)
+                    self.get_division(subdivisions.last().expect("divisions are always non-empty"));
+                LxTokenIdxRange::new(*command_token_idx, last.end())
             }
         }
     }

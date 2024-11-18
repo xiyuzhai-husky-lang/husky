@@ -32,13 +32,28 @@ fn parse_vd_syn_division_idx_range_works() {
         &[],
         &[],
         &expect![[r#"
-        └─ "Let $x\\in\\mathbb{R}$." division
-          └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
-            └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
-              └─ "Let $x\\in\\mathbb{R}$" clause.let
-                └─ "x\\in\\mathbb{R}" expr.separated_list
-                  ├─ "x" expr.letter
-                  └─ "\\mathbb{R}" expr.letter
-    "#]],
+            └─ "Let $x\\in\\mathbb{R}$." division.stmts
+              └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
+                └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
+                  └─ "Let $x\\in\\mathbb{R}$" clause.let
+                    └─ "x\\in\\mathbb{R}" expr.separated_list
+                      ├─ "x" expr.letter
+                      └─ "\\mathbb{R}" expr.letter
+        "#]],
+    );
+    t(
+        r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
+        &[],
+        &[],
+        &expect![[r#"
+            └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$." division.section
+              └─ "Let $x\\in\\mathbb{R}$." division.stmts
+                └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
+                  └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
+                    └─ "Let $x\\in\\mathbb{R}$" clause.let
+                      └─ "x\\in\\mathbb{R}" expr.separated_list
+                        ├─ "x" expr.letter
+                        └─ "\\mathbb{R}" expr.letter
+        "#]],
     );
 }

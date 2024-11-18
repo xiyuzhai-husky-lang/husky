@@ -1,14 +1,14 @@
 use std::iter::Peekable;
 
 use crate::{
-    builder::VdSynExprBuilder,
+    builder::{ToVdSyn, VdSynExprBuilder},
     clause::{VdSynClauseIdx, VdSynClauseIdxRange},
 };
 use husky_coword::Coword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx};
+use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::idx::LxRoseTokenIdx;
 
@@ -38,6 +38,7 @@ impl VdSynSentenceData {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynSentenceEnd {
     Period(LxRoseTokenIdx),
+    Void,
 }
 
 pub type VdSynSentenceArena = Arena<VdSynSentenceData>;
@@ -95,10 +96,9 @@ impl<'db> VdSynExprBuilder<'db> {
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
                     LxRoseAstData::NewParagraph(_) => todo!(),
-                    LxRoseAstData::NewDivision { .. } => todo!(),
                 }
             } else {
-                todo!()
+                break VdSynSentenceEnd::Void;
             }
         };
         let clauses = self.alloc_clauses(clauses);
