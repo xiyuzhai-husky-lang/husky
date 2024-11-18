@@ -27,7 +27,11 @@ fn t(
 
 #[test]
 fn parse_vd_syn_division_idx_range_works() {
-    t(r#"Let $x\in\mathbb{R}$."#, &[], &[], &expect![[r#"
+    t(
+        r#"Let $x\in\mathbb{R}$."#,
+        &[],
+        &[],
+        &expect![[r#"
         └─ "Let $x\\in\\mathbb{R}$." division
           └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
             └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
@@ -35,5 +39,6 @@ fn parse_vd_syn_division_idx_range_works() {
                 └─ "x\\in\\mathbb{R}" expr.separated_list
                   ├─ "x" expr.letter
                   └─ "\\mathbb{R}" expr.letter
-    "#]]);
+    "#]],
+    );
 }
