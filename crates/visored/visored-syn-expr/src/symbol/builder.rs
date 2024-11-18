@@ -137,8 +137,15 @@ impl<'a> VdSynSymbolBuilder<'a> {
     fn build_division_aux(&mut self, division: VdSynDivisionIdx) {
         match self.division_arena[division] {
             VdSynDivisionData::Stmts { stmts } => self.build_stmts(stmts),
-            VdSynDivisionData::Divisions { kind, divisions } => {
-                self.build_divisions(divisions);
+            VdSynDivisionData::Divisions {
+                level: kind,
+                command_token_idx,
+                lcurl_token_idx,
+                title,
+                rcurl_token_idx,
+                subdivisions,
+            } => {
+                self.build_divisions(subdivisions);
             }
         }
     }

@@ -1,10 +1,10 @@
 use crate::stmt::VdSemStmtIdxRange;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use latex_prelude::division::LxDivisionKind;
+use visored_prelude::division::VdDivisionLevel;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSemDivisionData {
-    pub kind: LxDivisionKind,
+    pub kind: VdDivisionLevel,
     pub stmts: VdSemStmtIdxRange,
 }
 

@@ -4350,7 +4350,13 @@
             "latex-vfs",
             "rustc-hash",
             "salsa",
+            "visored-prelude",
         ],
+    },
+    PackageSummary {
+        name: "visored-prelude",
+        relative_path: "crates/visored/visored-prelude",
+        dependencies: [],
     },
     PackageSummary {
         name: "visored-global-resolution",
@@ -4364,6 +4370,7 @@
             "salsa",
             "visored-item-path",
             "visored-opr",
+            "visored-prelude",
         ],
     },
     PackageSummary {
@@ -4464,6 +4471,7 @@
             "visored-global-resolution",
             "visored-item-path",
             "visored-opr",
+            "visored-prelude",
             "visored-signature",
             "visored-syn-expr",
             "visored-term",
@@ -4503,6 +4511,7 @@
             "visored-global-resolution",
             "visored-item-path",
             "visored-opr",
+            "visored-prelude",
             "visored-term",
             "expect-test",
             "husky-coword",

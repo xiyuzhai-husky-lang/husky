@@ -258,18 +258,19 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 command_path,
                 options,
                 ref arguments,
-            } => todo!(),
+            } => match arguments.last() {
+                Some(last_argument) => LxTokenIdxRange::new_closed(
+                    *command_token_idx,
+                    *last_argument.rcurl_token_idx(),
+                ),
+                None => LxTokenIdxRange::new_single(*command_token_idx),
+            },
             LxRoseAstData::Environment {
                 begin_command_token_idx,
                 end_rcurl_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
             LxRoseAstData::NewParagraph(token_idx) => LxTokenIdxRange::new_single(*token_idx),
-            LxRoseAstData::NewDivision {
-                command_token_idx,
-                rcurl_token_idx,
-                ..
-            } => LxTokenIdxRange::new_closed(*command_token_idx, *rcurl_token_idx),
         }
     }
 

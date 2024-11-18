@@ -16,6 +16,21 @@ pub struct LxRoseCompleteCommandArgument {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxRoseCompleteCommandArgumentData {
     Name(LxNameTokenIdx, Coword),
+    Rose(LxRoseAstIdxRange),
+}
+
+impl LxRoseCompleteCommandArgument {
+    pub fn lcurl_token_idx(self) -> LxRoseTokenIdx {
+        self.lcurl_token_idx
+    }
+
+    pub fn data(self) -> LxRoseCompleteCommandArgumentData {
+        self.data
+    }
+
+    pub fn rcurl_token_idx(self) -> LxRoseTokenIdx {
+        self.rcurl_token_idx
+    }
 }
 
 impl<'a> LxAstParser<'a> {
@@ -70,7 +85,9 @@ impl<'a> LxAstParser<'a> {
 
         let data = match mode {
             LxCommandParameterMode::Math => todo!(),
-            LxCommandParameterMode::Rose => todo!(),
+            LxCommandParameterMode::Rose => {
+                LxRoseCompleteCommandArgumentData::Rose(self.parse_rose_asts())
+            }
             LxCommandParameterMode::Name => {
                 let Some((name_token_idx, LxNameTokenData::Name(name))) = self.next_name_token()
                 else {

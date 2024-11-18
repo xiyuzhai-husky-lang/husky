@@ -2,7 +2,8 @@ use crate::{
     builder::VdSynExprBuilder,
     clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
     division::{
-        VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionIdx, VdSynDivisionIdxRange,
+        VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionData, VdSynDivisionIdx,
+        VdSynDivisionIdxRange,
     },
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
@@ -154,6 +155,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
             VdSynClauseData::Then { .. } => format!("{:?} clause.then", source),
+            VdSynClauseData::Todo(..) => format!("{:?} clause.todo", source),
         };
         DisplayTree::new(
             value,
@@ -252,8 +254,14 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
         let children = self.division_arena[division].children();
+        let value = match self.division_arena[division] {
+            VdSynDivisionData::Stmts { .. } => format!("{:?} division.stmts", source),
+            VdSynDivisionData::Divisions { level, .. } => {
+                format!("{:?} division.{level}", source)
+            }
+        };
         DisplayTree::new(
-            format!("{:?} division", source),
+            value,
             children
                 .into_iter()
                 .map(|child| self.render_division_child(child))

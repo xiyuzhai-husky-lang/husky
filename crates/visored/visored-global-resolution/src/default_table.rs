@@ -38,8 +38,10 @@ impl VdDefaultGlobalResolutionTable {
     pub fn resolve_complete_command(
         &self,
         command_path: LxCommandPath,
-    ) -> Option<&VdCompleteCommandGlobalResolution> {
-        self.complete_command_resolution_map.get(&command_path)
+    ) -> Option<VdCompleteCommandGlobalResolution> {
+        self.complete_command_resolution_map
+            .get(&command_path)
+            .copied()
     }
 
     pub fn resolve_letter(&self, letter: LxMathLetter) -> Option<VdLetterGlobalResolution> {
