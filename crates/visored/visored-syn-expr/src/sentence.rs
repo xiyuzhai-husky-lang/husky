@@ -70,13 +70,31 @@ impl<'db> VdSynExprBuilder<'db> {
                             LxRosePunctuation::Semicolon => todo!(),
                             LxRosePunctuation::Exclamation => todo!(),
                             LxRosePunctuation::Question => todo!(),
+                            LxRosePunctuation::LeftCurl => todo!(),
+                            LxRosePunctuation::RightCurl => todo!(),
+                            LxRosePunctuation::LeftBox => todo!(),
+                            LxRosePunctuation::RightBox => todo!(),
+                            LxRosePunctuation::EscapedBackslash => todo!(),
+                            LxRosePunctuation::EscapedLcurl => todo!(),
+                            LxRosePunctuation::EscapedRcurl => todo!(),
                         }
                     }
-                    LxRoseAstData::Math {
-                        left_dollar_token_idx,
-                        math_asts,
-                        right_dollar_token_idx,
+                    LxRoseAstData::Math { .. } => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
                     } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        options,
+                        ref arguments,
+                    } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             } else {
                 todo!()

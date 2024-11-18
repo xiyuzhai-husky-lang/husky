@@ -8153,9 +8153,9 @@ dependencies = [
  "enum-class",
  "expect-test",
  "husky-coword",
+ "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
- "latex-ast",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
@@ -8240,6 +8240,7 @@ dependencies = [
  "latex-math-punctuation",
  "latex-prelude",
  "latex-rose-punctuation",
+ "ordered-float 4.2.2",
  "salsa",
  "shifted-unsigned-int",
 ]
@@ -8296,7 +8297,17 @@ name = "lean-hir-defn"
 version = "0.1.0"
 
 [[package]]
-name = "lean-hir-expr"
+name = "lean-item-path"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "lean-coword",
+ "salsa",
+ "smallvec",
+]
+
+[[package]]
+name = "lean-mir-expr"
 version = "0.1.0"
 dependencies = [
  "husky-tree-utils",
@@ -8307,13 +8318,6 @@ dependencies = [
  "lean-term",
  "salsa",
  "smallvec",
-]
-
-[[package]]
-name = "lean-item-path"
-version = "0.1.0"
-dependencies = [
- "salsa",
 ]
 
 [[package]]
@@ -8338,6 +8342,7 @@ dependencies = [
  "enum-class",
  "lean-item-path",
  "salsa",
+ "smallvec",
 ]
 
 [[package]]
@@ -12570,6 +12575,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-global-dispatch"
+version = "0.1.0"
+dependencies = [
+ "rustc-hash 2.0.0",
+ "salsa",
+ "visored-opr",
+ "visored-signature",
+ "visored-term",
+]
+
+[[package]]
 name = "visored-global-resolution"
 version = "0.1.0"
 dependencies = [
@@ -12584,7 +12600,55 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-hir-expr"
+name = "visored-isabelle-hol-transpilation"
+version = "0.1.0"
+dependencies = [
+ "isabelle-hir-expr",
+]
+
+[[package]]
+name = "visored-item-path"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "salsa",
+]
+
+[[package]]
+name = "visored-lean-transpilation"
+version = "0.1.0"
+dependencies = [
+ "either",
+ "expect-test",
+ "husky-coword",
+ "husky-print-utils",
+ "husky-tree-utils",
+ "latex-ast",
+ "latex-command",
+ "latex-environment",
+ "latex-prelude",
+ "lean-coword",
+ "lean-item-path",
+ "lean-mir-expr",
+ "lean-opr",
+ "lean-sem-expr",
+ "lean-term",
+ "rustc-hash 2.0.0",
+ "salsa",
+ "smallvec",
+ "visored-annotation",
+ "visored-global-dispatch",
+ "visored-item-path",
+ "visored-mir-expr",
+ "visored-opr",
+ "visored-sem-expr",
+ "visored-signature",
+ "visored-syn-expr",
+ "visored-term",
+]
+
+[[package]]
+name = "visored-mir-expr"
 version = "0.1.0"
 dependencies = [
  "either",
@@ -12599,57 +12663,14 @@ dependencies = [
  "latex-prelude",
  "salsa",
  "visored-annotation",
+ "visored-global-dispatch",
  "visored-global-resolution",
- "visored-hir-expr",
  "visored-item-path",
  "visored-opr",
  "visored-sem-expr",
+ "visored-signature",
  "visored-syn-expr",
- "visored-zfc-ty",
-]
-
-[[package]]
-name = "visored-isabelle-hol-transpilation"
-version = "0.1.0"
-dependencies = [
- "isabelle-hir-expr",
-]
-
-[[package]]
-name = "visored-item-path"
-version = "0.1.0"
-dependencies = [
- "salsa",
-]
-
-[[package]]
-name = "visored-lean-transpilation"
-version = "0.1.0"
-dependencies = [
- "either",
- "expect-test",
- "husky-coword",
- "husky-tree-utils",
- "latex-ast",
- "latex-command",
- "latex-environment",
- "latex-prelude",
- "lean-coword",
- "lean-hir-expr",
- "lean-item-path",
- "lean-opr",
- "lean-sem-expr",
- "lean-term",
- "rustc-hash 2.0.0",
- "salsa",
- "visored-annotation",
- "visored-hir-expr",
- "visored-item-path",
- "visored-lean-transpilation",
- "visored-opr",
- "visored-sem-expr",
- "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
@@ -12689,11 +12710,21 @@ dependencies = [
  "smallvec",
  "thiserror",
  "visored-annotation",
+ "visored-global-dispatch",
  "visored-global-resolution",
+ "visored-item-path",
  "visored-opr",
- "visored-sem-expr",
+ "visored-signature",
  "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
+]
+
+[[package]]
+name = "visored-signature"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+ "visored-term",
 ]
 
 [[package]]
@@ -12717,17 +12748,18 @@ dependencies = [
  "latex-rose-punctuation",
  "latex-token",
  "salsa",
+ "sealed",
  "smallvec",
  "thiserror",
  "visored-annotation",
  "visored-global-resolution",
+ "visored-item-path",
  "visored-opr",
- "visored-syn-expr",
- "visored-zfc-ty",
+ "visored-term",
 ]
 
 [[package]]
-name = "visored-zfc-ty"
+name = "visored-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",

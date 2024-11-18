@@ -22,9 +22,9 @@ use symbol::builder::VdSynSymbolBuilder;
 pub enum VdSynClauseData {
     Let {
         let_token_idx: LxRoseTokenIdx,
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
         resolution: VdSynLetClauseResolution,
     },
     Assume {
@@ -74,36 +74,51 @@ impl<'db> VdSynExprBuilder<'db> {
                 let ast = asts.next().expect("expect a let clause");
                 match self.ast_arena()[ast] {
                     LxRoseAstData::Math {
-                        left_dollar_token_idx,
+                        left_delimiter_token_idx,
                         math_asts,
-                        right_dollar_token_idx,
+                        right_delimiter_token_idx,
                     } => {
                         let formula = (
-                            ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
+                            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
                             math_asts,
                         )
                             .to_vd_syn(self);
                         let resolution = self.build_let_stmt_resolution(formula);
                         VdSynClauseData::Let {
                             let_token_idx: token_idx,
-                            left_dollar_token_idx,
+                            left_math_delimiter_token_idx: left_delimiter_token_idx,
                             formula,
-                            right_dollar_token_idx,
+                            right_math_delimiter_token_idx: right_delimiter_token_idx,
                             resolution,
                         }
                     }
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        options,
+                        ref arguments,
+                    } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             }
             "Assume" | "assume" | "Suppose" | "suppose" => {
                 let ast = asts.next().expect("expect a assume clause");
                 match self.ast_arena()[ast] {
                     LxRoseAstData::Math {
-                        left_dollar_token_idx,
+                        left_delimiter_token_idx: left_dollar_token_idx,
                         math_asts,
-                        right_dollar_token_idx,
+                        right_delimiter_token_idx: right_dollar_token_idx,
                     } => VdSynClauseData::Assume {
                         assume_token_idx: token_idx,
                         left_dollar_token_idx,
@@ -117,15 +132,30 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        options,
+                        ref arguments,
+                    } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             }
             "Then" | "then" => {
                 let ast = asts.next().expect("expect a then clause");
                 match self.ast_arena()[ast] {
                     LxRoseAstData::Math {
-                        left_dollar_token_idx,
+                        left_delimiter_token_idx: left_dollar_token_idx,
                         math_asts,
-                        right_dollar_token_idx,
+                        right_delimiter_token_idx: right_dollar_token_idx,
                     } => VdSynClauseData::Then {
                         then_token_idx: token_idx,
                         left_dollar_token_idx,
@@ -139,6 +169,21 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
+                    LxRoseAstData::Delimited {
+                        left_delimiter_token_idx,
+                        left_delimiter,
+                        asts,
+                        right_delimiter_token_idx,
+                        right_delimiter,
+                    } => todo!(),
+                    LxRoseAstData::CompleteCommand {
+                        command_token_idx,
+                        command_path,
+                        options,
+                        ref arguments,
+                    } => todo!(),
+                    LxRoseAstData::Environment { .. } => todo!(),
                 }
             }
             _ => todo!(),

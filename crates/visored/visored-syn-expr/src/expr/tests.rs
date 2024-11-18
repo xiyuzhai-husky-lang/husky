@@ -1,7 +1,7 @@
 use super::*;
-use crate::test_helpers::example::VdSynExprExample;
 use expect_test::{expect, Expect};
-use latex_prelude::mode::LxMode;
+use helpers::tracker::VdSynExprTracker;
+use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
@@ -13,14 +13,13 @@ fn t(
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 
     let db = &DB::default();
-    let example = VdSynExprExample::new(
-        input,
-        LxMode::Math,
+    let tracker = VdSynExprTracker::new(
+        LxFormulaInput(input),
         token_annotations,
         space_annotations,
         db,
     );
-    expected.assert_eq(&example.show_display_tree(db));
+    expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]
@@ -94,6 +93,38 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
             ├─ "1 + 1" expr.separated_list
             │ ├─ "1" expr.literal
             │ └─ "1" expr.literal
+            └─ "2" expr.literal
+        "#]],
+    );
+    t(
+        "+1",
+        &[],
+        &[],
+        &expect![[r#"
+            "+1" expr.prefix
+            └─ "1" expr.literal
+        "#]],
+    );
+    t(
+        "-1",
+        &[],
+        &[],
+        &expect![[r#"
+            "-1" expr.prefix
+            └─ "1" expr.literal
+        "#]],
+    );
+}
+
+#[test]
+fn relationship_vd_syn_expr_parsing_works() {
+    t(
+        "1<2",
+        &[],
+        &[],
+        &expect![[r#"
+            "1<2" expr.separated_list
+            ├─ "1" expr.literal
             └─ "2" expr.literal
         "#]],
     );

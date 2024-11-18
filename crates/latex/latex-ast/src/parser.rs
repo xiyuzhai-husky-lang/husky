@@ -1,6 +1,8 @@
 use crate::{
     ast::{
+        lisp::{LxLispAstData, LxLispAstIdxRange},
         math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
+        root::{LxRootAstData, LxRootAstIdxRange},
         rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
         LxAstArena, LxAstData, LxAstIdx, LxAstIdxRange,
     },
@@ -13,10 +15,16 @@ use latex_command::{
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::mode::LxMode;
 use latex_token::{
-    data::{code::LxCodeTokenData, math::LxMathTokenData, rose::LxRoseTokenData},
-    idx::{LxCodeTokenIdx, LxMathTokenIdx, LxRoseTokenIdx},
+    idx::{
+        LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx,
+        LxSpecTokenIdx,
+    },
     lexer::LxLexer,
     storage::LxTokenStorage,
+    token::{
+        lisp::LxLispTokenData, math::LxMathTokenData, name::LxNameTokenData, root::LxRootTokenData,
+        rose::LxRoseTokenData, spec::LxSpecTokenData,
+    },
 };
 use std::{borrow::BorrowMut, iter::Peekable};
 
@@ -74,6 +82,10 @@ impl<'a> LxAstParser<'a> {
     pub(crate) fn environment_signature_table(&self) -> &'a LxEnvironmentSignatureTable {
         self.environment_signature_table
     }
+
+    pub(crate) fn arena(&self) -> &LxAstArena {
+        self.arena
+    }
 }
 
 /// # actions
@@ -94,6 +106,22 @@ impl<'a> LxAstParser<'a> {
         self.arena.rose.alloc_batch(asts)
     }
 
+    pub(crate) fn alloc_lisp_asts(&mut self, asts: Vec<LxLispAstData>) -> LxLispAstIdxRange {
+        self.arena.lisp.alloc_batch(asts)
+    }
+
+    pub(crate) fn alloc_root_asts(&mut self, asts: Vec<LxRootAstData>) -> LxRootAstIdxRange {
+        self.arena.root.alloc_batch(asts)
+    }
+
+    pub(crate) fn next_lisp_token(&mut self) -> Option<(LxLispTokenIdx, LxLispTokenData)> {
+        self.lexer.next_lisp_token()
+    }
+
+    pub(crate) fn peek_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
+        self.lexer.peek_lisp_token_data()
+    }
+
     pub(crate) fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
         self.lexer.peek_math_token_data()
     }
@@ -106,11 +134,23 @@ impl<'a> LxAstParser<'a> {
         self.lexer.next_math_token()
     }
 
+    pub(crate) fn next_root_token(&mut self) -> Option<(LxRootTokenIdx, LxRootTokenData)> {
+        self.lexer.next_root_token()
+    }
+
+    pub(crate) fn peek_root_token_data(&mut self) -> Option<LxRootTokenData> {
+        self.lexer.peek_root_token_data()
+    }
+
     pub(crate) fn next_rose_token(&mut self) -> Option<(LxRoseTokenIdx, LxRoseTokenData)> {
         self.lexer.next_rose_token()
     }
 
-    pub(crate) fn next_code_token(&mut self) -> Option<(LxCodeTokenIdx, LxCodeTokenData)> {
-        self.lexer.next_code_token()
+    pub(crate) fn next_name_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
+        self.lexer.next_name_token()
+    }
+
+    pub(crate) fn next_spec_token(&mut self) -> Option<(LxSpecTokenIdx, LxSpecTokenData)> {
+        self.lexer.next_spec_token()
     }
 }

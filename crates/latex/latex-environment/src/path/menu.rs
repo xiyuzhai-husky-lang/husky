@@ -2,6 +2,8 @@ use super::LxEnvironmentPath;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxEnvironmentMenu {
+    pub document: LxEnvironmentPath,
+    //
     pub align: LxEnvironmentPath,
     pub array: LxEnvironmentPath,
     pub matrix: LxEnvironmentPath,
@@ -15,6 +17,7 @@ impl LxEnvironmentMenu {
     fn new(db: &::salsa::Db) -> Self {
         let p = |s: &str| LxEnvironmentPath::new(s, db);
         Self {
+            document: p("document"),
             align: p("align"),
             array: p("array"),
             matrix: p("matrix"),
