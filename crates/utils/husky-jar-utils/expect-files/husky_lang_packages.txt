@@ -4386,6 +4386,7 @@
         name: "visored-lean-transpilation",
         relative_path: "crates/visored/visored-lean-transpilation",
         dependencies: [
+            "convert_case",
             "either",
             "husky-print-utils",
             "husky-tree-utils",
@@ -4402,6 +4403,7 @@
             "visored-item-path",
             "visored-mir-expr",
             "visored-opr",
+            "visored-prelude",
             "visored-term",
             "expect-test",
             "husky-coword",
