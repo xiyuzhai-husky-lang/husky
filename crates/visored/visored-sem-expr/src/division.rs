@@ -6,8 +6,14 @@ use crate::stmt::VdSemStmtIdxRange;
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_token::idx::LxRoseTokenIdx;
+use visored_item_path::module::VdModulePath;
 use visored_prelude::division::VdDivisionLevel;
 use visored_syn_expr::division::{VdSynDivisionData, VdSynDivisionIdx, VdSynDivisionIdxRange};
+
+pub struct VdSemDivisionEntry {
+    data: VdSemDivisionData,
+    module_path: VdModulePath,
+}
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSemDivisionData {
@@ -24,17 +30,37 @@ pub enum VdSemDivisionData {
     },
 }
 
-pub type VdSemDivisionArena = Arena<VdSemDivisionData>;
-pub type VdSemDivisionArenaRef<'a> = ArenaRef<'a, VdSemDivisionData>;
-pub type VdSemDivisionMap<T> = ArenaMap<VdSemDivisionData, T>;
-pub type VdSemDivisionIdx = ArenaIdx<VdSemDivisionData>;
-pub type VdSemDivisionIdxRange = ArenaIdxRange<VdSemDivisionData>;
+pub type VdSemDivisionArena = Arena<VdSemDivisionEntry>;
+pub type VdSemDivisionArenaRef<'a> = ArenaRef<'a, VdSemDivisionEntry>;
+pub type VdSemDivisionMap<T> = ArenaMap<VdSemDivisionEntry, T>;
+pub type VdSemDivisionIdx = ArenaIdx<VdSemDivisionEntry>;
+pub type VdSemDivisionIdxRange = ArenaIdxRange<VdSemDivisionEntry>;
+
+impl VdSemDivisionEntry {
+    pub fn new(data: VdSemDivisionData, module_path: VdModulePath) -> Self {
+        Self { data, module_path }
+    }
+}
+
+impl VdSemDivisionEntry {
+    pub fn data(&self) -> &VdSemDivisionData {
+        &self.data
+    }
+
+    pub fn module_path(&self) -> VdModulePath {
+        self.module_path
+    }
+}
 
 impl ToVdSem<VdSemDivisionIdxRange> for VdSynDivisionIdxRange {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemDivisionIdxRange {
-        let mut divisions: Vec<VdSemDivisionData> = vec![];
+        let mut divisions: Vec<VdSemDivisionEntry> = vec![];
         for division in self {
-            divisions.push(builder.build_division(division));
+            let module_path = builder.division_module_path_node_map()[division].module_path();
+            divisions.push(VdSemDivisionEntry::new(
+                builder.build_division(division),
+                module_path,
+            ));
         }
         builder.alloc_divisions(divisions)
     }

@@ -27,8 +27,8 @@ pub struct VdSynSymbolBuilder<'a> {
     sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
     division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
-    stmt_module_path_node_map: &'a VdSynStmtMap<VdModulePath>,
-    division_module_path_node_map: &'a VdSynDivisionMap<VdModulePath>,
+    stmt_module_path_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+    division_module_path_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
     symbol_resolutions_table: VdSynSymbolResolutionsTable,
     lineage: VdSynLineage,
@@ -50,8 +50,8 @@ impl<'a> VdSynSymbolBuilder<'a> {
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
         stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
         division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
-        stmt_module_path_node_map: &'a VdSynStmtMap<VdModulePath>,
-        division_module_path_node_map: &'a VdSynDivisionMap<VdModulePath>,
+        stmt_module_path_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+        division_module_path_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         Self {
             db,
@@ -226,8 +226,8 @@ impl<'a> VdSynSymbolBuilder<'a> {
 
     pub(crate) fn current_module_path(&self) -> VdModulePath {
         match self.lineage.current_stmt_or_division() {
-            Left(stmt) => self.stmt_module_path_node_map[stmt],
-            Right(division) => self.division_module_path_node_map[division],
+            Left(stmt) => self.stmt_module_path_node_map[stmt].module_path(),
+            Right(division) => self.division_module_path_node_map[division].module_path(),
         }
     }
 

@@ -12,7 +12,7 @@ use crate::{
 };
 use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
-use division::{VdSynDivisionArena, VdSynDivisionIdxRange};
+use division::{VdSynDivisionArena, VdSynDivisionIdxRange, VdSynDivisionMap};
 use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
@@ -36,7 +36,7 @@ use phrase::VdSynPhraseIdx;
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use sealed::*;
 use sentence::VdSynSentenceIdx;
-use stmt::{VdSynStmtArena, VdSynStmtIdx, VdSynStmtIdxRange};
+use stmt::{VdSynStmtArena, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap};
 use symbol::{
     builder::VdSynSymbolBuilder, local_defn::VdSynSymbolLocalDefnStorage,
     resolution::VdSynSymbolResolutionsTable,
@@ -69,6 +69,8 @@ pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
     pub symbol_local_defn_storage: VdSynSymbolLocalDefnStorage,
     pub symbol_resolution_table: VdSynSymbolResolutionsTable,
+    pub stmt_module_path_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    pub division_module_path_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
     pub output: Input::VdSynExprOutput,
 }
 
@@ -161,6 +163,8 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             division_range_map,
             symbol_local_defn_storage: symbol_defns,
             symbol_resolution_table: symbol_resolutions,
+            stmt_module_path_node_map,
+            division_module_path_node_map,
             output,
         }
     }

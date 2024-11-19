@@ -255,8 +255,8 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
         VdSynExprEntityTreeNode,
-        VdSynStmtMap<VdModulePath>,
-        VdSynDivisionMap<VdModulePath>,
+        VdSynStmtMap<VdSynExprEntityTreeNode>,
+        VdSynDivisionMap<VdSynExprEntityTreeNode>,
         VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,
     ) {

@@ -244,13 +244,14 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
-        let value = match self.division_arena[division] {
+        let value = match *self.division_arena[division].data() {
             VdSemDivisionData::Stmts { stmts } => format!("{:?} division.stmts", source),
             VdSemDivisionData::Divisions { .. } => format!("{:?} division.divisions", source),
         };
         DisplayTree::new(
             value,
             self.division_arena[division]
+                .data()
                 .children()
                 .into_iter()
                 .map(|child| self.render_division_child(child))

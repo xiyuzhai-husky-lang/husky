@@ -36,8 +36,8 @@ pub(crate) fn build_entity_tree_with(
     output: impl IsVdSynOutput,
 ) -> (
     VdSynExprEntityTreeNode,
-    VdSynStmtMap<VdModulePath>,
-    VdSynDivisionMap<VdModulePath>,
+    VdSynStmtMap<VdSynExprEntityTreeNode>,
+    VdSynDivisionMap<VdSynExprEntityTreeNode>,
 ) {
     let mut builder = VdSynExprEntityTreeBuilder::new(db, file_path, stmt_arena, division_arena);
     let root_node = output.build_entity_tree_root_node(&mut builder);
