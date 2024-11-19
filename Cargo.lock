@@ -12636,6 +12636,7 @@ dependencies = [
 name = "visored-lean-transpilation"
 version = "0.1.0"
 dependencies = [
+ "convert_case",
  "either",
  "expect-test",
  "husky-coword",
@@ -12660,6 +12661,7 @@ dependencies = [
  "visored-item-path",
  "visored-mir-expr",
  "visored-opr",
+ "visored-prelude",
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",

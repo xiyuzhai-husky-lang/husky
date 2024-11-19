@@ -34,7 +34,10 @@ fn basic_body_to_lean_works() {
             └─ group: `division`
               └─ group: `environment`
         "#]],
-        &expect![""],
+        &expect![[r#"
+            namespace Example1
+            end Example1
+        "#]],
     );
     t(
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
@@ -45,7 +48,11 @@ fn basic_body_to_lean_works() {
                   └─ group: `sentence`
                     └─ variable: `x`
         "#]],
-        &expect!["variable x : ℝ"],
+        &expect![[r#"
+            namespace Example1
+            variable x : ℝ
+            end Example1
+        "#]],
     );
     t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
@@ -56,7 +63,13 @@ fn basic_body_to_lean_works() {
                   └─ group: `sentence`
                     └─ variable: `x`
         "#]],
-        &expect!["variable x : ℝ"],
+        &expect![[r#"
+            namespace Section1
+            namespace Section1
+            variable x : ℝ
+            end Section1
+            end Section1
+        "#]],
     );
     t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$.\subsection{Hello}Let $y\in\mathbb{R}$.\subsection{World}\subsection{This}\subsubsection{Is}\subsubsection{Bad}"#,
@@ -77,12 +90,28 @@ fn basic_body_to_lean_works() {
                 └─ group: `division`
         "#]],
         &expect![[r#"
+            namespace Section1
+            namespace Section1
             variable x : ℝ
+            end Section1
 
+            namespace Subsection1
+            namespace Subsection1
             variable y : ℝ
+            end Subsection1
+            end Subsection1
 
+            namespace Subsection1
+            end Subsection1
 
+            namespace Subsection2
+            namespace Subsubsection1
+            end Subsubsection1
 
+            namespace Subsubsection1
+            end Subsubsection1
+            end Subsection2
+            end Section1
         "#]],
     );
 }

@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+convert_case.workspace = true
 either.workspace = true
 rustc-hash.workspace = true
 smallvec.workspace = true
@@ -30,9 +31,10 @@ husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
-visored-mir-expr.workspace = true
 visored-item-path.workspace = true
+visored-mir-expr.workspace = true
 visored-opr.workspace = true
+visored-prelude.workspace = true
 visored-term.workspace = true
 
 [dev-dependencies]
