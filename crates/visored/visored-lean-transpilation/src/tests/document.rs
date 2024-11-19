@@ -103,3 +103,31 @@ Let $y\in\mathbb{R}$.
         "#]],
     );
 }
+
+#[test]
+fn latex_shorts_to_lean_works() {
+    use expect_test::expect_file;
+    use husky_path_utils::HuskyLangDevPaths;
+    use std::fs;
+
+    let dev_paths = HuskyLangDevPaths::new();
+    let projects_dir = dev_paths.projects_dir();
+    let db = &DB::default();
+
+    for file in fs::read_dir(projects_dir.join("ai-math-autoformalization/latex/shorts")).unwrap() {
+        let file = file.unwrap();
+        let file_path = file.path();
+        if file_path.extension().unwrap() != "tex" {
+            continue;
+        }
+        let content = &fs::read_to_string(&file_path).unwrap();
+        let filestem = file_path.file_stem().unwrap();
+        let file_path = LxFilePath::new(db, file_path);
+        let tracker =
+            VdLeanTranspilationTracker::new(LxDocumentInput { file_path, content }, &[], &[], db);
+        expect_file![
+            projects_dir.join("ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean")
+        ]
+        .assert_eq(&tracker.show_fmt(db));
+    }
+}
