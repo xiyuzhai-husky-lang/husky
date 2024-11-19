@@ -61,12 +61,42 @@ impl VdModulePath {
 }
 
 impl VdModulePath {
-    pub fn parent(&self, db: &::salsa::Db) -> Option<Self> {
+    pub fn parent(self, db: &::salsa::Db) -> Option<Self> {
         match self.data(db) {
             VdModulePathData::Root(_) => None,
             VdModulePathData::Division { parent, .. } => Some(parent),
             VdModulePathData::Paragraph { parent, .. } => Some(parent),
             VdModulePathData::Environment { parent, .. } => Some(parent),
+        }
+    }
+
+    pub fn show(&self, db: &::salsa::Db) -> String {
+        match self.data(db) {
+            VdModulePathData::Root(file_path) => "root".to_string(),
+            VdModulePathData::Division {
+                parent,
+                division_kind,
+                disambiguator,
+            } => {
+                format!("{}.{}", parent.show(db), division_kind)
+            }
+            VdModulePathData::Paragraph {
+                parent,
+                disambiguator,
+            } => {
+                format!("{}.paragraph{}", parent.show(db), disambiguator)
+            }
+            VdModulePathData::Environment {
+                parent,
+                environment_path,
+                disambiguator,
+            } => {
+                format!(
+                    "{}.{}",
+                    parent.show(db),
+                    environment_path.name().coword().data(db)
+                )
+            }
         }
     }
 }

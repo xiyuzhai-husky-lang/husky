@@ -69,7 +69,10 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     ) -> R {
         debug_assert_eq!(
             module_path.parent(self.db()),
-            Some(self.current_module_path)
+            Some(self.current_module_path),
+            "module path = {}, current module path = {}",
+            module_path.show(self.db()),
+            self.current_module_path.show(self.db()),
         );
         let prev_module_path = self.current_module_path;
         self.current_module_path = module_path;
