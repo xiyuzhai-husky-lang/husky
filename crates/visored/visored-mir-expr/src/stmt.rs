@@ -60,7 +60,6 @@ impl<'db> VdMirExprBuilder<'db> {
                 command_token_idx,
                 level,
                 lcurl_token_idx,
-                title,
                 rcurl_token_idx,
                 subdivisions,
             } => VdMirStmtData::Block {
@@ -83,7 +82,7 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
 
 impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemStmtIdx) -> VdMirStmtData {
-        match self.sem_stmt_arena()[stmt] {
+        match *self.sem_stmt_arena()[stmt].data() {
             VdSemStmtData::Paragraph(sentences) => VdMirStmtData::Block {
                 stmts: sentences.to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,

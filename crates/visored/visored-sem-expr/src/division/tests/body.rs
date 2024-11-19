@@ -28,10 +28,6 @@ fn parse_vd_syn_divisions_works() {
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$." division.divisions
-              ├─ title
-              │ └─ "Introduction" stmt.paragraph
-              │   └─ "Introduction" sentence.clauses
-              │     └─ "Introduction" clause.todo
               └─ "Let $x\\in\\mathbb{R}$." division.stmts
                 └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
@@ -45,10 +41,6 @@ fn parse_vd_syn_divisions_works() {
         r#"\section{Introduction}Let $x\in\mathbb{R}$.\subsection{Hello}Let $y\in\mathbb{R}$.\subsection{World}\subsection{This}\subsubsection{Is}\subsubsection{Bad}"#,
         &expect![[r#"
             └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$.\\subsection{Hello}Let $y\\in\\mathbb{R}$.\\subsection{World}\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.divisions
-              ├─ title
-              │ └─ "Introduction" stmt.paragraph
-              │   └─ "Introduction" sentence.clauses
-              │     └─ "Introduction" clause.todo
               ├─ "Let $x\\in\\mathbb{R}$." division.stmts
               │ └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
               │   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
@@ -57,10 +49,6 @@ fn parse_vd_syn_divisions_works() {
               │         ├─ "x" expr.letter
               │         └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{Hello}Let $y\\in\\mathbb{R}$." division.divisions
-              │ ├─ title
-              │ │ └─ "Hello" stmt.paragraph
-              │ │   └─ "Hello" sentence.clauses
-              │ │     └─ "Hello" clause.todo
               │ └─ "Let $y\\in\\mathbb{R}$." division.stmts
               │   └─ "Let $y\\in\\mathbb{R}$." stmt.paragraph
               │     └─ "Let $y\\in\\mathbb{R}$." sentence.clauses
@@ -69,25 +57,9 @@ fn parse_vd_syn_divisions_works() {
               │           ├─ "y" expr.letter
               │           └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{World}" division.divisions
-              │ └─ title
-              │   └─ "World" stmt.paragraph
-              │     └─ "World" sentence.clauses
-              │       └─ "World" clause.todo
               └─ "\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.divisions
-                ├─ title
-                │ └─ "This" stmt.paragraph
-                │   └─ "This" sentence.clauses
-                │     └─ "This" clause.todo
                 ├─ "\\subsubsection{Is}" division.divisions
-                │ └─ title
-                │   └─ "Is" stmt.paragraph
-                │     └─ "Is" sentence.clauses
-                │       └─ "Is" clause.todo
                 └─ "\\subsubsection{Bad}" division.divisions
-                  └─ title
-                    └─ "Bad" stmt.paragraph
-                      └─ "Bad" sentence.clauses
-                        └─ "Bad" clause.todo
         "#]],
     );
 }

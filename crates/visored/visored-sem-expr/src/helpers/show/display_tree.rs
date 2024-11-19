@@ -154,7 +154,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         let stmt_range = self.stmt_range_map[stmt];
         let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
         let source = &self.input[offset_range];
-        let value = match self.stmt_arena[stmt] {
+        let value = match *self.stmt_arena[stmt].data() {
             VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
             VdSemStmtData::Environment {
                 environment_signature,
@@ -165,7 +165,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         };
         DisplayTree::new(
             value,
-            self.render_stmt_children(self.stmt_arena[stmt].children()),
+            self.render_stmt_children(self.stmt_arena[stmt].data().children()),
         )
     }
 

@@ -36,10 +36,6 @@ Let $x\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
             └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$." division.divisions
-              ├─ title
-              │ └─ "Introduction" stmt.paragraph
-              │   └─ "Introduction" sentence.clauses
-              │     └─ "Introduction" clause.todo
               └─ "Let $x\\in\\mathbb{R}$." division.stmts
                 └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
@@ -64,10 +60,6 @@ Let $y\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
             └─ "\\section{Introduction}\nLet $x\\in\\mathbb{R}$.\n\\subsection{Hello}\nLet $y\\in\\mathbb{R}$.\n\\subsection{World}\n\\subsection{This}\n\\subsubsection{Is}\n\\subsubsection{Bad}" division.divisions
-              ├─ title
-              │ └─ "Introduction" stmt.paragraph
-              │   └─ "Introduction" sentence.clauses
-              │     └─ "Introduction" clause.todo
               ├─ "Let $x\\in\\mathbb{R}$." division.stmts
               │ └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
               │   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
@@ -76,10 +68,6 @@ Let $y\in\mathbb{R}$.
               │         ├─ "x" expr.letter
               │         └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{Hello}\nLet $y\\in\\mathbb{R}$." division.divisions
-              │ ├─ title
-              │ │ └─ "Hello" stmt.paragraph
-              │ │   └─ "Hello" sentence.clauses
-              │ │     └─ "Hello" clause.todo
               │ └─ "Let $y\\in\\mathbb{R}$." division.stmts
               │   └─ "Let $y\\in\\mathbb{R}$." stmt.paragraph
               │     └─ "Let $y\\in\\mathbb{R}$." sentence.clauses
@@ -88,25 +76,9 @@ Let $y\in\mathbb{R}$.
               │           ├─ "y" expr.letter
               │           └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{World}" division.divisions
-              │ └─ title
-              │   └─ "World" stmt.paragraph
-              │     └─ "World" sentence.clauses
-              │       └─ "World" clause.todo
               └─ "\\subsection{This}\n\\subsubsection{Is}\n\\subsubsection{Bad}" division.divisions
-                ├─ title
-                │ └─ "This" stmt.paragraph
-                │   └─ "This" sentence.clauses
-                │     └─ "This" clause.todo
                 ├─ "\\subsubsection{Is}" division.divisions
-                │ └─ title
-                │   └─ "Is" stmt.paragraph
-                │     └─ "Is" sentence.clauses
-                │       └─ "Is" clause.todo
                 └─ "\\subsubsection{Bad}" division.divisions
-                  └─ title
-                    └─ "Bad" stmt.paragraph
-                      └─ "Bad" sentence.clauses
-                        └─ "Bad" clause.todo
         "#]],
     );
 }

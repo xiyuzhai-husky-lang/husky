@@ -141,7 +141,6 @@ impl<'a> VdSynSymbolBuilder<'a> {
                 level: kind,
                 command_token_idx,
                 lcurl_token_idx,
-                title,
                 rcurl_token_idx,
                 subdivisions,
             } => {

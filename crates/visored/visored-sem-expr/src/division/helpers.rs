@@ -17,16 +17,11 @@ impl VdSemDivisionData {
                 command_token_idx,
                 level,
                 lcurl_token_idx,
-                title,
                 rcurl_token_idx,
                 subdivisions,
-            } => [VdSemDivisionChild::Title(title)]
+            } => subdivisions
                 .into_iter()
-                .chain(
-                    subdivisions
-                        .into_iter()
-                        .map(|division| VdSemDivisionChild::Division(division)),
-                )
+                .map(|division| VdSemDivisionChild::Division(division))
                 .collect(),
         }
     }

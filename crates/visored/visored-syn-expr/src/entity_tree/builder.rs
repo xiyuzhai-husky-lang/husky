@@ -121,7 +121,6 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
                 command_token_idx,
                 level,
                 lcurl_token_idx,
-                title,
                 rcurl_token_idx,
                 subdivisions,
             } => subdivisions
