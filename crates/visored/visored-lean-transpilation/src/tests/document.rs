@@ -48,9 +48,7 @@ Let $x\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            namespace Section1
             variable x : ℝ
-            end Section1
             end Section1
         "#]],
     );
@@ -85,14 +83,10 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            namespace Section1
             variable x : ℝ
-            end Section1
 
             namespace Subsection1
-            namespace Subsection1
             variable y : ℝ
-            end Subsection1
             end Subsection1
 
             namespace Subsection1
