@@ -6,6 +6,7 @@
     latex_environment::jar::LxEnvironmentJar,
     visored_opr::jar::VdOprJar,
     visored_item_path::jar::VdItemPathJar,
+    latex_vfs::jar::LxVfsJar,
     crate::jar::VdSynExprJar
 )]
 pub(crate) struct DB {}

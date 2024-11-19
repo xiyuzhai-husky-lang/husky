@@ -4,7 +4,7 @@ use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::{
-    helper::tracker::{LxDocumentBodyInput, LxFormulaInput},
+    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
 use lean_mir_expr::{
@@ -63,6 +63,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         db: &::salsa::Db,
     ) -> Self {
         let VdMirExprTracker {
+            root_module_path,
             expr_arena: vd_mir_expr_arena,
             stmt_arena: vd_mir_stmt_arena,
             symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
@@ -75,6 +76,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             vd_mir_stmt_arena.as_arena_ref(),
             &vd_mir_symbol_local_defn_storage,
             dictionary,
+            root_module_path,
         );
         let output = FromVdTranspileToLean::from_transpile_to_lean(output, &mut builder);
         let (expr_arena, stmt_arena, tactic_arena, defn_arena) = builder.finish();
@@ -121,22 +123,20 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
     }
 }
 
-impl<'a> IsVdLeanTranspilationInput<'a> for LxFormulaInput<'a> {
-    type VdLeanTranspilationOutput = LnMirExprIdx;
-}
-
-impl<'a> IsVdLeanTranspilationOutput for LnMirExprIdx {
-    fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String {
-        builder.render_expr(self).show(&Default::default())
-    }
-
-    fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
-        formatter.format_expr_ext(self);
-    }
+impl<'a> IsVdLeanTranspilationInput<'a> for LxDocumentInput<'a> {
+    type VdLeanTranspilationOutput = LnItemDefnIdxRange;
 }
 
 impl<'a> IsVdLeanTranspilationInput<'a> for LxDocumentBodyInput<'a> {
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
+}
+
+impl<'a> IsVdLeanTranspilationInput<'a> for LxPageInput<'a> {
+    type VdLeanTranspilationOutput = LnItemDefnIdxRange;
+}
+
+impl<'a> IsVdLeanTranspilationInput<'a> for LxFormulaInput<'a> {
+    type VdLeanTranspilationOutput = LnMirExprIdx;
 }
 
 impl<'a> IsVdLeanTranspilationOutput for LnItemDefnIdxRange {
@@ -146,5 +146,15 @@ impl<'a> IsVdLeanTranspilationOutput for LnItemDefnIdxRange {
 
     fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
         formatter.format_defns(self);
+    }
+}
+
+impl<'a> IsVdLeanTranspilationOutput for LnMirExprIdx {
+    fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String {
+        builder.render_expr(self).show(&Default::default())
+    }
+
+    fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
+        formatter.format_expr_ext(self);
     }
 }

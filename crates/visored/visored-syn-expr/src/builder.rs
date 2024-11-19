@@ -1,6 +1,9 @@
+use std::iter::Peekable;
+
 use crate::{
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
-    division::VdSynDivisionArena,
+    division::{VdSynDivisionArena, VdSynDivisionData, VdSynDivisionIdxRange},
+    entity_tree::build_entity_tree_with,
     expr::{VdSynExprArena, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     helpers::tracker::IsVdSynOutput,
     phrase::{VdSynPhraseArena, VdSynPhraseData, VdSynPhraseIdx, VdSynPhraseIdxRange},
@@ -9,22 +12,31 @@ use crate::{
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
     stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
-        build_all_symbol_defns_and_resolutions_in_expr_or_stmts,
         build_all_symbol_defns_and_resolutions_with, builder::VdSynSymbolBuilder,
         local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
+use crate::{division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode, stmt::VdSynStmtMap};
 use either::*;
 use latex_ast::{
-    ast::{rose::LxRoseAstIdxRange, LxAstArena, LxAstArenaRef, LxAstIdxRange},
+    ast::{
+        rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+        LxAstArena, LxAstArenaRef, LxAstIdxRange,
+    },
     range::LxAstTokenIdxRangeMap,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
+use latex_vfs::path::LxFilePath;
 use visored_annotation::annotations::VdAnnotations;
-use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_global_resolution::{
+    default_table::VdDefaultGlobalResolutionTable,
+    resolution::command::VdCompleteCommandGlobalResolution,
+};
+use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db ::salsa::Db,
+    file_path: LxFilePath,
     token_storage: &'db LxTokenStorage,
     ast_arena: LxAstArenaRef<'db>,
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
@@ -42,6 +54,7 @@ pub struct VdSynExprBuilder<'db> {
 impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
         db: &'db ::salsa::Db,
+        file_path: LxFilePath,
         token_storage: &'db LxTokenStorage,
         ast_arena: LxAstArenaRef<'db>,
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
@@ -50,6 +63,7 @@ impl<'db> VdSynExprBuilder<'db> {
     ) -> Self {
         Self {
             db,
+            file_path,
             token_storage,
             ast_arena,
             ast_token_idx_range_map,
@@ -108,6 +122,24 @@ impl<'db> VdSynExprBuilder<'db> {
     }
 }
 
+impl<'db> VdSynExprBuilder<'db> {
+    pub(crate) fn peek_new_division(
+        &self,
+        asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+    ) -> Option<()> {
+        match self.ast_arena()[*asts.peek()?] {
+            LxRoseAstData::CompleteCommand { command_path, .. }
+                if let Some(VdCompleteCommandGlobalResolution::NewDivision(_)) = self
+                    .default_resolution_table()
+                    .resolve_complete_command(command_path) =>
+            {
+                Some(())
+            }
+            _ => None,
+        }
+    }
+}
+
 /// # actions
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn alloc_expr(&mut self, data: VdSynExprData) -> VdSynExprIdx {
@@ -154,6 +186,13 @@ impl<'db> VdSynExprBuilder<'db> {
 
     pub(crate) fn alloc_stmts(&mut self, data: Vec<VdSynStmtData>) -> VdSynStmtIdxRange {
         self.stmt_arena.alloc_batch(data)
+    }
+
+    pub(crate) fn alloc_divisions(
+        &mut self,
+        data: Vec<VdSynDivisionData>,
+    ) -> VdSynDivisionIdxRange {
+        self.division_arena.alloc_batch(data)
     }
 
     // pub fn finish_to_region_data(self) -> VdSynExprRegionData {
@@ -215,6 +254,9 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynSentenceTokenIdxRangeMap,
         VdSynStmtTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
+        VdSynExprEntityTreeNode,
+        VdSynStmtMap<VdSynExprEntityTreeNode>,
+        VdSynDivisionMap<VdSynExprEntityTreeNode>,
         VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,
     ) {
@@ -234,6 +276,14 @@ impl<'db> VdSynExprBuilder<'db> {
             &self.stmt_arena,
             &self.division_arena,
         );
+        let (root_node, stmt_entity_tree_node_map, division_entity_tree_node_map) =
+            build_entity_tree_with(
+                self.db,
+                self.file_path,
+                self.stmt_arena.as_arena_ref(),
+                self.division_arena.as_arena_ref(),
+                output,
+            );
         let (symbol_defns, symbol_resolutions) = build_all_symbol_defns_and_resolutions_with(
             self.db,
             self.token_storage,
@@ -253,6 +303,8 @@ impl<'db> VdSynExprBuilder<'db> {
             &sentence_range_map,
             &stmt_range_map,
             &division_range_map,
+            &stmt_entity_tree_node_map,
+            &division_entity_tree_node_map,
             output,
         );
         (
@@ -268,81 +320,9 @@ impl<'db> VdSynExprBuilder<'db> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
-            symbol_defns,
-            symbol_resolutions,
-        )
-    }
-
-    pub(crate) fn finish_with_expr_or_stmts(
-        self,
-        root: Either<VdSynExprIdx, VdSynStmtIdxRange>,
-    ) -> (
-        VdSynExprArena,
-        VdSynPhraseArena,
-        VdSynClauseArena,
-        VdSynSentenceArena,
-        VdSynStmtArena,
-        VdSynDivisionArena,
-        VdSynExprTokenIdxRangeMap,
-        VdSynPhraseTokenIdxRangeMap,
-        VdSynClauseTokenIdxRangeMap,
-        VdSynSentenceTokenIdxRangeMap,
-        VdSynStmtTokenIdxRangeMap,
-        VdSynDivisionTokenIdxRangeMap,
-        VdSynSymbolLocalDefnStorage,
-        VdSynSymbolResolutionsTable,
-    ) {
-        let (
-            expr_range_map,
-            phrase_range_map,
-            clause_range_map,
-            sentence_range_map,
-            stmt_range_map,
-            division_range_map,
-        ) = calc_expr_range_map(
-            self.db,
-            &self.expr_arena,
-            &self.phrase_arena,
-            &self.clause_arena,
-            &self.sentence_arena,
-            &self.stmt_arena,
-            &self.division_arena,
-        );
-        let (symbol_defns, symbol_resolutions) =
-            build_all_symbol_defns_and_resolutions_in_expr_or_stmts(
-                self.db,
-                self.token_storage,
-                self.ast_arena,
-                self.ast_token_idx_range_map,
-                self.annotations,
-                self.default_resolution_table,
-                self.expr_arena.as_arena_ref(),
-                self.phrase_arena.as_arena_ref(),
-                self.clause_arena.as_arena_ref(),
-                self.sentence_arena.as_arena_ref(),
-                self.stmt_arena.as_arena_ref(),
-                self.division_arena.as_arena_ref(),
-                &expr_range_map,
-                &phrase_range_map,
-                &clause_range_map,
-                &sentence_range_map,
-                &stmt_range_map,
-                &division_range_map,
-                root,
-            );
-        (
-            self.expr_arena,
-            self.phrase_arena,
-            self.clause_arena,
-            self.sentence_arena,
-            self.stmt_arena,
-            self.division_arena,
-            expr_range_map,
-            phrase_range_map,
-            clause_range_map,
-            sentence_range_map,
-            stmt_range_map,
-            division_range_map,
+            root_node,
+            stmt_entity_tree_node_map,
+            division_entity_tree_node_map,
             symbol_defns,
             symbol_resolutions,
         )

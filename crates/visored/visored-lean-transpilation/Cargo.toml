@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+convert_case.workspace = true
 either.workspace = true
 rustc-hash.workspace = true
 smallvec.workspace = true
@@ -30,9 +31,10 @@ husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
-visored-mir-expr.workspace = true
 visored-item-path.workspace = true
+visored-mir-expr.workspace = true
 visored-opr.workspace = true
+visored-prelude.workspace = true
 visored-term.workspace = true
 
 [dev-dependencies]
@@ -46,12 +48,15 @@ latex-ast.workspace = true
 # lean
 lean-term.workspace = true
 lean-sem-expr.workspace = true
+# utils
+husky-path-utils.workspace = true
 # visored
 visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
 visored-global-dispatch.workspace = true
 visored-signature.workspace = true
 visored-annotation.workspace = true
+latex-vfs.workspace = true
 
 [lints]
 workspace = true

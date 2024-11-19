@@ -1,11 +1,14 @@
 use super::*;
 use crate::helpers::tracker::VdSemExprTracker;
 use expect_test::{expect, Expect};
-use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
+use latex_prelude::helper::tracker::LxFormulaInput;
+use latex_vfs::path::LxFilePath;
+use std::path::PathBuf;
 
-pub(crate) fn t(input: &str, expected: &Expect) {
+pub(crate) fn t(content: &str, expected: &Expect) {
     let db = &DB::default();
-    let tracker = VdSemExprTracker::new(LxFormulaInput(input), &[], &[], db);
+    let file_path = LxFilePath::new(db, PathBuf::from(file!()));
+    let tracker = VdSemExprTracker::new(LxFormulaInput { file_path, content }, &[], &[], db);
     expected.assert_eq(&tracker.show_display_tree(db))
 }
 

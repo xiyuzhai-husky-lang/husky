@@ -1,3 +1,5 @@
+use latex_token::token::spec::{LxSpecDelimiter, LxSpecTokenData};
+
 use super::*;
 
 impl<'a> LxAstParser<'a> {
@@ -8,6 +10,7 @@ impl<'a> LxAstParser<'a> {
     ) -> LxMathAstData {
         let command_path = command_signature.path();
         let mut arguments: SmallVec<[LxMathCompleteCommandArgument; 2]> = smallvec![];
+        let options = self.parse_math_options();
         for parameter in command_signature.parameters() {
             arguments.push(self.parse_math_complete_command_argument(parameter.mode()));
         }
@@ -16,6 +19,26 @@ impl<'a> LxAstParser<'a> {
             command_path,
             arguments,
         }
+    }
+
+    fn parse_math_options(&mut self) -> Option<()> {
+        match self.peek_math_token_data()? {
+            LxMathTokenData::Punctuation(LxMathPunctuation::Lbox) => (),
+            _ => return None,
+        }
+        let Some((lbox_token_idx, LxMathTokenData::Punctuation(LxMathPunctuation::Lbox))) =
+            self.next_math_token()
+        else {
+            unreachable!("we just peeked a left box")
+        };
+        // TODO: ad hoc
+        while let Some((_, token)) = self.next_spec_token() {
+            match token {
+                LxSpecTokenData::RightDelimiter(LxSpecDelimiter::Box) => break,
+                _ => (),
+            }
+        }
+        Some(())
     }
 
     fn parse_math_complete_command_argument(

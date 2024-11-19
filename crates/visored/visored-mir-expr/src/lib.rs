@@ -6,8 +6,6 @@ pub mod pattern;
 pub mod region;
 pub mod stmt;
 pub mod symbol;
-#[cfg(feature = "test_helpers")]
-pub mod test_helpers;
 #[cfg(test)]
 mod tests;
 

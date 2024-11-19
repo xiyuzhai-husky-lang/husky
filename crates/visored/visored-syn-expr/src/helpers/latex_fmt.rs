@@ -57,6 +57,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 }
                 match end {
                     VdSynSentenceEnd::Period(_) => self.result += ".",
+                    VdSynSentenceEnd::Void => (),
                 }
             }
         }
@@ -72,6 +73,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 right_dollar_token_idx,
             } => todo!(),
             VdSynClauseData::Then { formula, .. } => todo!(),
+            VdSynClauseData::Todo(..) => todo!(),
         }
     }
 
