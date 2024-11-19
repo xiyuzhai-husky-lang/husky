@@ -12769,6 +12769,7 @@ dependencies = [
  "husky-text-protocol",
  "husky-tree-utils",
  "idx-arena",
+ "itertools 0.13.0",
  "latex-ast",
  "latex-command",
  "latex-environment",

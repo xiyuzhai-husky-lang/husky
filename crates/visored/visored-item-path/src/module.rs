@@ -124,10 +124,10 @@ impl VdModulePathRegistry {
 
     pub fn issue_new_division(
         &mut self,
-        division_kind: VdDivisionLevel,
+        division_level: VdDivisionLevel,
         db: &::salsa::Db,
     ) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Division(division_kind), db)
+        self.issue_new_child(VdModulePathTag::Division(division_level), db)
     }
 
     pub fn issue_new_paragraph(&mut self, db: &::salsa::Db) -> VdModulePath {
@@ -145,7 +145,7 @@ impl VdModulePathRegistry {
     fn issue_new_child(&mut self, tag: VdModulePathTag, db: &::salsa::Db) -> VdModulePath {
         let disambiguator = match self.map.get_mut(&tag) {
             None => {
-                self.map.insert(tag, 0);
+                self.map.insert(tag, 1);
                 0
             }
             Some(existing_disambiguator) => {

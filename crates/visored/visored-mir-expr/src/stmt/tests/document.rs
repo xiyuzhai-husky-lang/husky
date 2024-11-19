@@ -67,10 +67,10 @@ Let $y\in\mathbb{R}$.
               │   └─ block: Paragraph
               │     └─ block: Sentence
               │       └─ let placeholder
-              ├─ block: Division(Subsection, VdModulePath(Id { value: 5 }))
-              └─ block: Division(Subsection, VdModulePath(Id { value: 8 }))
-                ├─ block: Division(Subsubsection, VdModulePath(Id { value: 9 }))
-                └─ block: Division(Subsubsection, VdModulePath(Id { value: 9 }))
+              ├─ block: Division(Subsection, VdModulePath(Id { value: 8 }))
+              └─ block: Division(Subsection, VdModulePath(Id { value: 9 }))
+                ├─ block: Division(Subsubsection, VdModulePath(Id { value: 10 }))
+                └─ block: Division(Subsubsection, VdModulePath(Id { value: 11 }))
         "#]],
     );
 }

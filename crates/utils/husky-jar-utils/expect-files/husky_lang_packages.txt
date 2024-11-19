@@ -4500,6 +4500,7 @@
             "husky-text-protocol",
             "husky-tree-utils",
             "idx-arena",
+            "itertools",
             "latex-ast",
             "latex-command",
             "latex-environment",
