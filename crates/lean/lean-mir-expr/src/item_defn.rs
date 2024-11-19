@@ -7,6 +7,7 @@ use crate::*;
 use expr::LnMirExprIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use lean_coword::ident::LnIdent;
+use lean_item_path::namespace::LnNamespace;
 
 pub enum LnItemDefnData {
     Variable {
@@ -47,8 +48,8 @@ impl LnItemDefnData {
 pub enum LnMirItemDefnGroupMeta {
     Paragraph,
     Sentence,
-    Division,
-    Environment,
+    Division(Option<LnNamespace>),
+    Environment(LnNamespace),
 }
 
 pub type LnItemDefnArena = Arena<LnItemDefnData>;
@@ -61,8 +62,8 @@ impl std::fmt::Display for LnMirItemDefnGroupMeta {
         match self {
             LnMirItemDefnGroupMeta::Paragraph => write!(f, "paragraph"),
             LnMirItemDefnGroupMeta::Sentence => write!(f, "sentence"),
-            LnMirItemDefnGroupMeta::Division => write!(f, "division"),
-            LnMirItemDefnGroupMeta::Environment => write!(f, "environment"),
+            LnMirItemDefnGroupMeta::Division(_) => write!(f, "division"),
+            LnMirItemDefnGroupMeta::Environment(_) => write!(f, "environment"),
         }
     }
 }

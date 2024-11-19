@@ -1,5 +1,6 @@
 use crate::*;
 use lean_mir_expr::item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta};
+use namespace::vd_module_path_to_ln_namespace;
 use ty::VdTypeLeanTranspilation;
 use visored_mir_expr::{
     pattern::VdMirPattern,
@@ -29,14 +30,16 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                         self.with_module_path(module_path, |builder| stmts.to_lean(builder))
                     }
                 };
-                let meta = match meta {
+                let meta = match *meta {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
-                    VdMirBlockMeta::Division(vd_division_level, _) => {
-                        LnMirItemDefnGroupMeta::Division
-                    }
-                    VdMirBlockMeta::Environment(lx_environment_path, _) => {
-                        LnMirItemDefnGroupMeta::Environment
+                    VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
+                        vd_module_path_to_ln_namespace(db, module_path),
+                    ),
+                    VdMirBlockMeta::Environment(_, module_path) => {
+                        LnMirItemDefnGroupMeta::Environment(
+                            vd_module_path_to_ln_namespace(db, module_path).unwrap(),
+                        )
                     }
                 };
                 LnItemDefnData::Group { defns, meta }

@@ -1,12 +1,15 @@
 use crate::*;
 use lean_item_path::namespace::LnNamespace;
 use visored_item_path::module::{VdModulePath, VdModulePathData};
+use visored_prelude::division::VdDivisionLevel;
 
 #[salsa::tracked]
 pub fn vd_module_path_to_ln_namespace(
     db: &::salsa::Db,
     module_path: VdModulePath,
 ) -> Option<LnNamespace> {
+    use convert_case::{Case, Casing};
+
     match module_path.data(db) {
         VdModulePathData::Root(_) => Some(LnNamespace::new_root(db)),
         VdModulePathData::Division {
@@ -14,7 +17,15 @@ pub fn vd_module_path_to_ln_namespace(
             division_kind,
             disambiguator,
         } => {
-            let parent_namespace = vd_module_path_to_ln_namespace(db, parent)?;
+            let parent_namespace = vd_module_path_to_ln_namespace(db, parent).unwrap();
+            match division_kind {
+                VdDivisionLevel::Part => (),
+                VdDivisionLevel::Chapter => (),
+                VdDivisionLevel::Section => (),
+                VdDivisionLevel::Subsection => (),
+                VdDivisionLevel::Subsubsection => (),
+                VdDivisionLevel::Stmts => return Some(parent_namespace),
+            }
             Some(parent_namespace.child(
                 format!(
                     "{}{}",
@@ -33,12 +44,12 @@ pub fn vd_module_path_to_ln_namespace(
             environment_path,
             disambiguator,
         } => {
-            let parent_namespace = vd_module_path_to_ln_namespace(db, parent)?;
+            let parent_namespace = vd_module_path_to_ln_namespace(db, parent).unwrap();
             Some(parent_namespace.child(
                 format!(
                     "{}{}",
-                    environment_path.name().coword().data(db),
-                    disambiguator
+                    environment_path.name().coword().data(db).to_case(Case::Pascal),
+                    disambiguator+1
                 ),
                 db,
             ))

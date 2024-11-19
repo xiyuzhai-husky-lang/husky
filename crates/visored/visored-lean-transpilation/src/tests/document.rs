@@ -46,7 +46,13 @@ Let $x\in\mathbb{R}$.
                   └─ group: `sentence`
                     └─ variable: `x`
         "#]],
-        &expect!["variable x : ℝ"],
+        &expect![[r#"
+            namespace Section1
+            namespace Section1
+            variable x : ℝ
+            end Section1
+            end Section1
+        "#]],
     );
     t(
         r#"\documentclass{article}
@@ -78,12 +84,28 @@ Let $y\in\mathbb{R}$.
                 └─ group: `division`
         "#]],
         &expect![[r#"
+            namespace Section1
+            namespace Section1
             variable x : ℝ
+            end Section1
 
+            namespace Subsection1
+            namespace Subsection1
             variable y : ℝ
+            end Subsection1
+            end Subsection1
 
+            namespace Subsection1
+            end Subsection1
 
+            namespace Subsection2
+            namespace Subsubsection1
+            end Subsubsection1
 
+            namespace Subsubsection1
+            end Subsubsection1
+            end Subsection2
+            end Section1
         "#]],
     );
 }
