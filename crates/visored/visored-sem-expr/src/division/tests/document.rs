@@ -11,7 +11,7 @@ fn t(content: &str, expected: &Expect) {
 }
 
 #[test]
-fn parse_vd_syn_divisions_works() {
+fn parse_document_to_vd_sem_works() {
     t(
         r#"\documentclass{article}
 \usepackage{amsmath}

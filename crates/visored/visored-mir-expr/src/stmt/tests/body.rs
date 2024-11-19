@@ -1,7 +1,7 @@
 use super::*;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdMirExprTracker;
-use latex_prelude::helper::tracker::{LxDocumentBodyInput, LxFormulaInput};
+use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
