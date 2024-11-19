@@ -1,7 +1,7 @@
 use super::*;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdSynExprTracker;
-use latex_prelude::{helper::tracker::LxSnippetInput, mode::LxMode};
+use latex_prelude::{helper::tracker::LxPageInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
@@ -17,7 +17,7 @@ fn t(
     let db = &DB::default();
     let file_path = LxFilePath::new(db, PathBuf::from(file!()));
     let tracker = VdSynExprTracker::new(
-        LxSnippetInput { file_path, content },
+        LxPageInput { file_path, content },
         token_annotations,
         space_annotations,
         db,

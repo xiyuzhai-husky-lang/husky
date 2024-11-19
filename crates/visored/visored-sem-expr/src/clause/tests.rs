@@ -1,14 +1,14 @@
 use super::*;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdSemExprTracker;
-use latex_prelude::helper::tracker::LxSnippetInput;
+use latex_prelude::helper::tracker::LxPageInput;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 
 pub(crate) fn t(content: &str, expected: &Expect) {
     let db = &DB::default();
     let file_path = LxFilePath::new(db, PathBuf::from(file!()));
-    let tracker = VdSemExprTracker::new(LxSnippetInput { file_path, content }, &[], &[], db);
+    let tracker = VdSemExprTracker::new(LxPageInput { file_path, content }, &[], &[], db);
     expected.assert_eq(&tracker.show_display_tree(db))
 }
 

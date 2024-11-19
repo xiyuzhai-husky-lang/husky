@@ -24,9 +24,10 @@ visored-annotation.workspace = true
 visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
 visored-item-path.workspace = true
+visored-opr.workspace = true
+visored-prelude.workspace = true
 visored-sem-expr.workspace = true
 visored-signature.workspace = true
-visored-opr.workspace = true
 visored-term.workspace = true
 latex-vfs.workspace = true
 # utils

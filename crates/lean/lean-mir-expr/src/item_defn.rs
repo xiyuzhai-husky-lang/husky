@@ -47,6 +47,7 @@ impl LnItemDefnData {
 pub enum LnMirItemDefnGroupMeta {
     Paragraph,
     Sentence,
+    Division,
 }
 
 pub type LnItemDefnArena = Arena<LnItemDefnData>;
@@ -59,6 +60,7 @@ impl std::fmt::Display for LnMirItemDefnGroupMeta {
         match self {
             LnMirItemDefnGroupMeta::Paragraph => write!(f, "paragraph"),
             LnMirItemDefnGroupMeta::Sentence => write!(f, "sentence"),
+            LnMirItemDefnGroupMeta::Division => write!(f, "division"),
         }
     }
 }

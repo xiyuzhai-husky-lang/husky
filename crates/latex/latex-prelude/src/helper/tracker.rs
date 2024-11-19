@@ -48,12 +48,12 @@ impl<'a> IsLxInput<'a> for LxDocumentBodyInput<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxSnippetInput<'a> {
+pub struct LxPageInput<'a> {
     pub file_path: LxFilePath,
     pub content: &'a str,
 }
 
-impl<'a> IsLxInput<'a> for LxSnippetInput<'a> {
+impl<'a> IsLxInput<'a> for LxPageInput<'a> {
     fn file_path(self) -> LxFilePath {
         self.file_path
     }
