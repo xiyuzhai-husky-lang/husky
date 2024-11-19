@@ -16,6 +16,7 @@ use crate::{division::VdSemDivisionArena, expr::VdSemExprIdx};
 use crate::{
     helpers::show::display_tree::VdSemExprDisplayTreeBuilder, range::VdSemDivisionTokenIdxRangeMap,
 };
+use division::VdSemDivisionIdxRange;
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_ast::{
@@ -24,7 +25,7 @@ use latex_ast::{
 };
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::{
-    helper::tracker::{LxDocumentParagraphsInput, LxFormulaInput},
+    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxSnippetInput},
     mode::LxMode,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -91,7 +92,7 @@ where
 }
 
 pub trait IsVdSemExprOutput: std::fmt::Debug + Copy {
-    fn show(&self, builder: &VdSemExprDisplayTreeBuilder) -> String;
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String;
 }
 
 impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
@@ -220,22 +221,32 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
     }
 }
 
+impl<'a> IsVdSemExprInput<'a> for LxDocumentBodyInput<'a> {
+    type VdSemExprOutput = VdSemDivisionIdxRange;
+}
+
+impl<'a> IsVdSemExprInput<'a> for LxSnippetInput<'a> {
+    type VdSemExprOutput = VdSemStmtIdxRange;
+}
+
 impl<'a> IsVdSemExprInput<'a> for LxFormulaInput<'a> {
     type VdSemExprOutput = VdSemExprIdx;
 }
 
-impl IsVdSemExprOutput for VdSemExprIdx {
-    fn show(&self, builder: &VdSemExprDisplayTreeBuilder) -> String {
-        builder.render_expr(*self).show(&Default::default())
+impl IsVdSemExprOutput for VdSemDivisionIdxRange {
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
+        DisplayTree::show_trees(&builder.render_divisions(self), &Default::default())
     }
 }
 
-impl<'a> IsVdSemExprInput<'a> for LxDocumentParagraphsInput<'a> {
-    type VdSemExprOutput = VdSemStmtIdxRange;
+impl IsVdSemExprOutput for VdSemStmtIdxRange {
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
+        builder.render_all_stmts(self).show(&Default::default())
+    }
 }
 
-impl IsVdSemExprOutput for VdSemStmtIdxRange {
-    fn show(&self, builder: &VdSemExprDisplayTreeBuilder) -> String {
-        builder.render_all_stmts(*self).show(&Default::default())
+impl IsVdSemExprOutput for VdSemExprIdx {
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
+        builder.render_expr(self).show(&Default::default())
     }
 }

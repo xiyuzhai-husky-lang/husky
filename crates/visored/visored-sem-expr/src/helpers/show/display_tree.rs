@@ -1,7 +1,10 @@
 use super::*;
 use crate::{
     clause::{VdSemClauseArenaRef, VdSemClauseChild, VdSemClauseData, VdSemClauseIdx},
-    division::VdSemDivisionArenaRef,
+    division::{
+        helpers::VdSemDivisionChild, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx,
+        VdSemDivisionIdxRange,
+    },
     expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
     phrase::VdSemPhraseArenaRef,
     range::{
@@ -198,7 +201,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    fn render_clause(&self, clause: VdSemClauseIdx) -> DisplayTree {
+    pub fn render_clause(&self, clause: VdSemClauseIdx) -> DisplayTree {
         let clause_range = self.clause_range_map[clause];
         let offset_range = self
             .token_storage
@@ -224,5 +227,42 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
                 VdSemClauseChild::Expr(expr) => self.render_expr(expr),
             })
             .collect()
+    }
+
+    pub fn render_divisions(&self, divisions: VdSemDivisionIdxRange) -> Vec<DisplayTree> {
+        divisions
+            .into_iter()
+            .map(|division| self.render_division(division))
+            .collect()
+    }
+
+    pub fn render_division(&self, division: VdSemDivisionIdx) -> DisplayTree {
+        let division_range = self.division_range_map[division];
+        let offset_range = self
+            .token_storage
+            .token_idx_range_offset_range(division_range);
+        let source = &self.input[offset_range];
+        let value = match self.division_arena[division] {
+            VdSemDivisionData::Stmts { stmts } => format!("{:?} division.stmts", source),
+            VdSemDivisionData::Divisions { .. } => format!("{:?} division.divisions", source),
+        };
+        DisplayTree::new(
+            value,
+            self.division_arena[division]
+                .children()
+                .into_iter()
+                .map(|child| self.render_division_child(child))
+                .collect(),
+        )
+    }
+
+    fn render_division_child(&self, child: VdSemDivisionChild) -> DisplayTree {
+        match child {
+            VdSemDivisionChild::Division(division) => self.render_division(division),
+            VdSemDivisionChild::Title(stmts) => {
+                DisplayTree::new("title".to_string(), self.render_stmts(stmts))
+            }
+            VdSemDivisionChild::Stmt(stmt) => self.render_stmt(stmt),
+        }
     }
 }

@@ -40,6 +40,7 @@ pub enum VdSynDivisionData {
 pub enum VdSynDivisionChild {
     Division(VdSynDivisionIdx),
     Stmt(VdSynStmtIdx),
+    Title(VdSynStmtIdxRange),
 }
 
 impl VdSynDivisionData {
@@ -57,11 +58,16 @@ impl VdSynDivisionData {
                 .map(|stmt| VdSynDivisionChild::Stmt(stmt))
                 .collect(),
             VdSynDivisionData::Divisions {
+                title,
                 subdivisions: divisions,
                 ..
-            } => divisions
+            } => [VdSynDivisionChild::Title(title)]
                 .into_iter()
-                .map(|division| VdSynDivisionChild::Division(division))
+                .chain(
+                    divisions
+                        .into_iter()
+                        .map(|division| VdSynDivisionChild::Division(division)),
+                )
                 .collect(),
         }
     }

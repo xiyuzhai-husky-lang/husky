@@ -253,7 +253,6 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
-        let children = self.division_arena[division].children();
         let value = match self.division_arena[division] {
             VdSynDivisionData::Stmts { .. } => format!("{:?} division.stmts", source),
             VdSynDivisionData::Divisions { level, .. } => {
@@ -262,7 +261,8 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         };
         DisplayTree::new(
             value,
-            children
+            self.division_arena[division]
+                .children()
                 .into_iter()
                 .map(|child| self.render_division_child(child))
                 .collect(),
@@ -273,6 +273,9 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         match child {
             VdSynDivisionChild::Division(division) => self.render_division(division),
             VdSynDivisionChild::Stmt(stmt) => self.render_stmt(stmt),
+            VdSynDivisionChild::Title(stmts) => {
+                DisplayTree::new("title".to_string(), self.render_stmts(stmts))
+            }
         }
     }
 

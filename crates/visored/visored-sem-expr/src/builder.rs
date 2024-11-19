@@ -21,7 +21,10 @@ use crate::{
     clause::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
-    division::{VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx},
+    division::{
+        VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx,
+        VdSemDivisionIdxRange,
+    },
     expr::{
         VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprEntry, VdSemExprIdx,
         VdSemExprIdxRange,
@@ -250,6 +253,13 @@ impl<'db> VdSemExprBuilder<'db> {
         data: VdSemDivisionData,
     ) -> VdSemDivisionIdx {
         self.division_arena.alloc_one(data)
+    }
+
+    pub(crate) fn alloc_divisions(
+        &mut self,
+        divisions: Vec<VdSemDivisionData>,
+    ) -> VdSemDivisionIdxRange {
+        self.division_arena.alloc_batch(divisions)
     }
 
     pub(crate) fn infer_expr_term(&mut self, expr: VdSemExprIdx) -> VdTerm {
