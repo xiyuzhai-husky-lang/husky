@@ -5,6 +5,7 @@ mod tests;
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use visored_item_path::module::VdModulePath;
 use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
     clause::{r#let::VdSemLetClauseDispatch, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},
@@ -53,7 +54,10 @@ impl<'db> VdMirExprBuilder<'db> {
         match *self.sem_division_arena()[division].data() {
             VdSemDivisionData::Stmts { stmts } => VdMirStmtData::Block {
                 stmts: stmts.to_vd_mir(self),
-                meta: VdMirBlockMeta::Division(VdDivisionLevel::Stmts),
+                meta: VdMirBlockMeta::Division(
+                    VdDivisionLevel::Stmts,
+                    self.sem_division_arena()[division].module_path(),
+                ),
             },
             // TODO: what to do for title?
             VdSemDivisionData::Divisions {
@@ -64,7 +68,10 @@ impl<'db> VdMirExprBuilder<'db> {
                 subdivisions,
             } => VdMirStmtData::Block {
                 stmts: subdivisions.to_vd_mir(self),
-                meta: VdMirBlockMeta::Division(level),
+                meta: VdMirBlockMeta::Division(
+                    level,
+                    self.sem_division_arena()[division].module_path(),
+                ),
             },
         }
     }
@@ -94,7 +101,10 @@ impl<'db> VdMirExprBuilder<'db> {
                 end_rcurl_token_idx,
             } => VdMirStmtData::Block {
                 stmts: stmts.to_vd_mir(self),
-                meta: VdMirBlockMeta::Environment(environment_signature.path()),
+                meta: VdMirBlockMeta::Environment(
+                    environment_signature.path(),
+                    self.sem_stmt_arena()[stmt].module_path(),
+                ),
             },
         }
     }
