@@ -10,6 +10,7 @@ use crate::{
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_ast::ast::{
+    root::{LxRootAstData, LxRootAstIdxRange},
     rose::{
         complete_command::{LxRoseCompleteCommandArgument, LxRoseCompleteCommandArgumentData},
         LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange,
@@ -18,7 +19,9 @@ use latex_ast::ast::{
 };
 use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
 use smallvec::{smallvec, SmallVec};
-use visored_global_resolution::resolution::command::VdCompleteCommandGlobalResolution;
+use visored_global_resolution::resolution::{
+    command::VdCompleteCommandGlobalResolution, environment::VdEnvironmentGlobalResolution,
+};
 use visored_prelude::division::{VdDivisionLevel, VdDivisionLevelRange};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -78,6 +81,52 @@ pub type VdSynDivisionArenaRef<'a> = ArenaRef<'a, VdSynDivisionData>;
 pub type VdSynDivisionMap<T> = ArenaMap<VdSynDivisionData, T>;
 pub type VdSynDivisionIdx = ArenaIdx<VdSynDivisionData>;
 pub type VdSynDivisionIdxRange = ArenaIdxRange<VdSynDivisionData>;
+
+impl ToVdSyn<VdSynDivisionIdxRange> for (LxTokenIdxRange, LxRootAstIdxRange) {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
+        self.1.to_vd_syn(builder)
+        // let (_, ast_idx_range) = self;
+        // builder.parse_stmts(ast_idx_range)
+    }
+}
+
+impl ToVdSyn<VdSynDivisionIdxRange> for LxRootAstIdxRange {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
+        let (begin_rcurl_token_idx, asts, end_command_token_idx) = self
+            .into_iter()
+            .find_map(|root_ast| match builder.ast_arena().root()[root_ast] {
+                LxRootAstData::Environment {
+                    begin_command_token_idx,
+                    begin_lcurl_token_idx,
+                    begin_environment_name_token_idx,
+                    begin_rcurl_token_idx,
+                    asts,
+                    end_command_token_idx,
+                    end_lcurl_token_idx,
+                    end_environment_name_token_idx,
+                    end_rcurl_token_idx,
+                    environment_signature,
+                } if let Some(VdEnvironmentGlobalResolution::DOCUMENT) = builder
+                    .default_resolution_table()
+                    .resolve_environment(environment_signature.path()) =>
+                {
+                    match asts {
+                        LxAstIdxRange::Rose(asts) => {
+                            Some((begin_rcurl_token_idx, asts, end_command_token_idx))
+                        }
+                        _ => unreachable!(),
+                    }
+                }
+                _ => None,
+            })
+            .unwrap();
+        (
+            LxTokenIdxRange::new(*begin_rcurl_token_idx + 1, *end_command_token_idx),
+            asts,
+        )
+            .to_vd_syn(builder)
+    }
+}
 
 impl ToVdSyn<VdSynDivisionIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
