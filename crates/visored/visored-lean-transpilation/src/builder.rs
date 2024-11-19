@@ -1,6 +1,6 @@
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
-    builder::LnMirExprBuilder,
+    builder::{LnMirExprBuilder, WithLnNamespace},
     expr::{LnMirExprArena, LnMirExprData},
     item_defn::{def::LnMirDefBody, LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::LnMirStmtArena,
@@ -8,6 +8,7 @@ use lean_mir_expr::{
 };
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
+use visored_item_path::module::VdModulePath;
 use visored_mir_expr::{
     expr::VdMirExprArenaRef,
     region::VdMirExprRegionData,
@@ -15,7 +16,10 @@ use visored_mir_expr::{
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
 };
 
-use crate::{dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler};
+use crate::{
+    dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler,
+    namespace::vd_module_path_to_ln_namespace,
+};
 
 pub struct VdLeanTranspilationBuilder<'a> {
     lean_hir_expr_builder: LnMirExprBuilder<'a>,
@@ -23,6 +27,13 @@ pub struct VdLeanTranspilationBuilder<'a> {
     stmt_arena: VdMirStmtArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
+    current_module_path: VdModulePath,
+}
+
+impl<'a> WithLnNamespace<'a> for VdLeanTranspilationBuilder<'a> {
+    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprBuilder<'a> {
+        &mut self.lean_hir_expr_builder
+    }
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
@@ -30,6 +41,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         db: &'a ::salsa::Db,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
         dictionary: &'a VdLeanDictionary,
+        root_module_path: VdModulePath,
     ) -> Self {
         Self::new(
             db,
@@ -37,6 +49,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             vd_mir_expr_region_data.stmt_arena(),
             vd_mir_expr_region_data.symbol_local_defn_storage(),
             dictionary,
+            root_module_path,
         )
     }
 
@@ -46,6 +59,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         stmt_arena: VdMirStmtArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
         dictionary: &'a VdLeanDictionary,
+        root_module_path: VdModulePath,
     ) -> Self {
         Self {
             lean_hir_expr_builder: LnMirExprBuilder::new(db),
@@ -53,7 +67,32 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             stmt_arena,
             dictionary,
             mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage, db),
+            current_module_path: root_module_path,
         }
+    }
+
+    pub(crate) fn with_module_path<R>(
+        &mut self,
+        module_path: VdModulePath,
+        f: impl FnOnce(&mut Self) -> R,
+    ) -> R {
+        debug_assert_eq!(
+            module_path.parent(self.db()),
+            Some(self.current_module_path),
+            "module path = {}, current module path = {}",
+            module_path.show(self.db()),
+            self.current_module_path.show(self.db()),
+        );
+        let namespace = vd_module_path_to_ln_namespace(self.db(), module_path);
+        let prev_module_path = self.current_module_path;
+        self.current_module_path = module_path;
+        let result = if let Some(namespace) = namespace {
+            self.with_ln_namespace(namespace, f)
+        } else {
+            f(self)
+        };
+        self.current_module_path = prev_module_path;
+        result
     }
 
     pub(crate) fn mangle_symbol(&mut self, symbol_local_defn: VdMirSymbolLocalDefnIdx) -> LnIdent {

@@ -16,6 +16,7 @@ use crate::{division::VdSemDivisionArena, expr::VdSemExprIdx};
 use crate::{
     helpers::show::display_tree::VdSemExprDisplayTreeBuilder, range::VdSemDivisionTokenIdxRangeMap,
 };
+use division::VdSemDivisionIdxRange;
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_ast::{
@@ -24,7 +25,7 @@ use latex_ast::{
 };
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_prelude::{
-    helper::tracker::{LxDocumentBodyInput, LxFormulaInput},
+    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -35,6 +36,7 @@ use visored_annotation::{
 };
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_item_path::module::VdModulePath;
 use visored_syn_expr::{
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,
@@ -52,6 +54,7 @@ use visored_term::ty::table::VdItemPathZfcTypeTable;
 
 pub struct VdSemExprTracker<'a, Input: IsVdSemExprInput<'a>> {
     pub input: Input,
+    pub root_module_path: VdModulePath,
     pub annotations: VdAnnotations,
     pub default_resolution_table: VdDefaultGlobalResolutionTable,
     pub token_storage: LxTokenStorage,
@@ -91,7 +94,7 @@ where
 }
 
 pub trait IsVdSemExprOutput: std::fmt::Debug + Copy {
-    fn show(&self, builder: &VdSemExprDisplayTreeBuilder) -> String;
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String;
 }
 
 impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
@@ -122,6 +125,9 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             division_range_map: syn_division_range_map,
             symbol_local_defn_storage: syn_symbol_local_defn_storage,
             symbol_resolution_table: syn_symbol_resolution_table,
+            root_entity_tree_node,
+            stmt_entity_tree_node_map: syn_stmt_entity_tree_node_map,
+            division_entity_tree_node_map: syn_division_entity_tree_node_map,
             output: syn_output,
         } = VdSynExprTracker::new(input, token_annotations, space_annotations, db);
         let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
@@ -141,6 +147,8 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             &syn_symbol_resolution_table,
             &item_path_zfc_ty_table,
             &default_global_dispatch_table,
+            &syn_stmt_entity_tree_node_map,
+            &syn_division_entity_tree_node_map,
         );
         let output = FromToVdSem::from_to_vd_sem(syn_output, &mut builder);
         let (
@@ -170,6 +178,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         );
         Self {
             input,
+            root_module_path: root_entity_tree_node.module_path(),
             annotations,
             default_resolution_table,
             token_storage,
@@ -195,7 +204,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
     pub(crate) fn show_display_tree(&self, db: &salsa::Db) -> String {
         let builder = VdSemExprDisplayTreeBuilder::new(
             db,
-            self.input.input(),
+            self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
             &self.ast_token_idx_range_map,
@@ -220,22 +229,36 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
     }
 }
 
+impl<'a> IsVdSemExprInput<'a> for LxDocumentInput<'a> {
+    type VdSemExprOutput = VdSemDivisionIdxRange;
+}
+
+impl<'a> IsVdSemExprInput<'a> for LxDocumentBodyInput<'a> {
+    type VdSemExprOutput = VdSemDivisionIdxRange;
+}
+
+impl<'a> IsVdSemExprInput<'a> for LxPageInput<'a> {
+    type VdSemExprOutput = VdSemStmtIdxRange;
+}
+
 impl<'a> IsVdSemExprInput<'a> for LxFormulaInput<'a> {
     type VdSemExprOutput = VdSemExprIdx;
 }
 
-impl IsVdSemExprOutput for VdSemExprIdx {
-    fn show(&self, builder: &VdSemExprDisplayTreeBuilder) -> String {
-        builder.render_expr(*self).show(&Default::default())
+impl IsVdSemExprOutput for VdSemDivisionIdxRange {
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
+        DisplayTree::show_trees(&builder.render_divisions(self), &Default::default())
     }
 }
 
-impl<'a> IsVdSemExprInput<'a> for LxDocumentBodyInput<'a> {
-    type VdSemExprOutput = VdSemStmtIdxRange;
+impl IsVdSemExprOutput for VdSemStmtIdxRange {
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
+        builder.render_all_stmts(self).show(&Default::default())
+    }
 }
 
-impl IsVdSemExprOutput for VdSemStmtIdxRange {
-    fn show(&self, builder: &VdSemExprDisplayTreeBuilder) -> String {
-        builder.render_all_stmts(*self).show(&Default::default())
+impl IsVdSemExprOutput for VdSemExprIdx {
+    fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
+        builder.render_expr(self).show(&Default::default())
     }
 }

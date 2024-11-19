@@ -1268,6 +1268,7 @@
             "latex-command",
             "latex-environment",
             "latex-command",
+            "latex-vfs",
         ],
     },
     JarPackageSummary {
@@ -1275,6 +1276,10 @@
         dependencies: [
             "husky-coword",
         ],
+    },
+    JarPackageSummary {
+        name: "latex-vfs",
+        dependencies: [],
     },
     JarPackageSummary {
         name: "latex-environment",
@@ -1348,7 +1353,11 @@
     },
     JarPackageSummary {
         name: "visored-item-path",
-        dependencies: [],
+        dependencies: [
+            "husky-coword",
+            "latex-environment",
+            "latex-vfs",
+        ],
     },
     JarPackageSummary {
         name: "visored-lean-transpilation",
@@ -1364,6 +1373,7 @@
             "latex-ast",
             "latex-command",
             "latex-environment",
+            "latex-vfs",
             "lean-sem-expr",
             "lean-term",
             "visored-global-dispatch",
@@ -1375,6 +1385,8 @@
     JarPackageSummary {
         name: "visored-mir-expr",
         dependencies: [
+            "latex-environment",
+            "latex-vfs",
             "visored-global-dispatch",
             "visored-item-path",
             "visored-opr",
@@ -1384,7 +1396,6 @@
             "husky-coword",
             "latex-ast",
             "latex-command",
-            "latex-environment",
             "visored-global-dispatch",
             "visored-item-path",
             "visored-sem-expr",
@@ -1398,7 +1409,9 @@
             "husky-coword",
             "latex-ast",
             "latex-command",
+            "latex-environment",
             "visored-global-dispatch",
+            "visored-item-path",
             "visored-opr",
             "visored-signature",
             "visored-syn-expr",
@@ -1406,6 +1419,7 @@
             "husky-coword",
             "latex-command",
             "latex-environment",
+            "latex-vfs",
             "visored-item-path",
         ],
     },
@@ -1416,6 +1430,8 @@
             "latex-ast",
             "latex-command",
             "latex-environment",
+            "latex-vfs",
+            "visored-item-path",
             "visored-opr",
             "visored-term",
             "husky-coword",

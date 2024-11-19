@@ -12,7 +12,8 @@ use crate::{
 };
 use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
-use division::VdSynDivisionArena;
+use division::{VdSynDivisionArena, VdSynDivisionIdxRange, VdSynDivisionMap};
+use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
@@ -27,7 +28,7 @@ use latex_ast::{
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
-    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput},
+    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -35,7 +36,7 @@ use phrase::VdSynPhraseIdx;
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use sealed::*;
 use sentence::VdSynSentenceIdx;
-use stmt::{VdSynStmtArena, VdSynStmtIdx, VdSynStmtIdxRange};
+use stmt::{VdSynStmtArena, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap};
 use symbol::{
     builder::VdSynSymbolBuilder, local_defn::VdSynSymbolLocalDefnStorage,
     resolution::VdSynSymbolResolutionsTable,
@@ -45,6 +46,7 @@ use visored_annotation::{
     annotations::VdAnnotations,
 };
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,
@@ -67,6 +69,9 @@ pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
     pub symbol_local_defn_storage: VdSynSymbolLocalDefnStorage,
     pub symbol_resolution_table: VdSynSymbolResolutionsTable,
+    pub root_entity_tree_node: VdSynExprEntityTreeNode,
+    pub stmt_entity_tree_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    pub division_entity_tree_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
     pub output: Input::VdSynExprOutput,
 }
 
@@ -76,13 +81,16 @@ pub trait IsVdSynExprInput<'a>: IsLxAstInput<'a> {
 }
 
 pub trait IsVdSynOutput: std::fmt::Debug + Copy {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode;
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder);
     fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String;
 }
 
 // #[sealed]
 impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
-    // TODO: reuse LxAstTracker
     pub fn new(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
@@ -99,7 +107,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         } = LxAstTracker::new(input, db);
         let whole_token_range = token_storage.whole_token_idx_range();
         let annotations = VdAnnotations::from_sparse(
-            input.input(),
+            input.content(),
             token_annotations.iter().copied(),
             space_annotations.iter().copied(),
             &token_storage,
@@ -107,6 +115,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard(db);
         let mut builder = VdSynExprBuilder::new(
             db,
+            input.file_path(),
             &token_storage,
             ast_arena.as_arena_ref(),
             &ast_token_idx_range_map,
@@ -128,6 +137,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
+            root_entity_tree_node,
+            stmt_entity_tree_node_map,
+            division_entity_tree_node_map,
             symbol_defns,
             symbol_resolutions,
         ) = builder.finish_with(output);
@@ -152,6 +164,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             division_range_map,
             symbol_local_defn_storage: symbol_defns,
             symbol_resolution_table: symbol_resolutions,
+            root_entity_tree_node,
+            stmt_entity_tree_node_map,
+            division_entity_tree_node_map,
             output,
         }
     }
@@ -159,7 +174,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
     fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> VdSynExprDisplayTreeBuilder<'b> {
         VdSynExprDisplayTreeBuilder::new(
             db,
-            self.input.input(),
+            self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
             &self.ast_token_idx_range_map,
@@ -185,10 +200,14 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxDocumentInput<'a> {
-    type VdSynExprOutput = VdSynStmtIdxRange;
+    type VdSynExprOutput = VdSynDivisionIdxRange;
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxDocumentBodyInput<'a> {
+    type VdSynExprOutput = VdSynDivisionIdxRange;
+}
+
+impl<'a> IsVdSynExprInput<'a> for LxPageInput<'a> {
     type VdSynExprOutput = VdSynStmtIdxRange;
 }
 
@@ -196,7 +215,31 @@ impl<'a> IsVdSynExprInput<'a> for LxFormulaInput<'a> {
     type VdSynExprOutput = VdSynExprIdx;
 }
 
+impl IsVdSynOutput for VdSynDivisionIdxRange {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode {
+        builder.build_root_divisions(self)
+    }
+
+    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
+        builder.build_divisions(self)
+    }
+
+    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
+        DisplayTree::show_trees(&builder.render_divisions(*self), &Default::default())
+    }
+}
+
 impl IsVdSynOutput for VdSynStmtIdxRange {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode {
+        builder.build_root_stmts(self)
+    }
+
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
         builder.build_stmts(self);
     }
@@ -206,48 +249,17 @@ impl IsVdSynOutput for VdSynStmtIdxRange {
     }
 }
 
-impl IsVdSynOutput for VdSynStmtIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_stmt(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_stmt(*self).show(&Default::default())
-    }
-}
-
-impl IsVdSynOutput for VdSynSentenceIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_sentence(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_sentence(*self).show(&Default::default())
-    }
-}
-
-impl IsVdSynOutput for VdSynClauseIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_clause(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_clause(*self).show(&Default::default())
-    }
-}
-
-impl IsVdSynOutput for VdSynPhraseIdx {
-    fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_phrase(self);
-    }
-
-    fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        todo!()
-        // builder.render_phrase(*self).show(&Default::default())
-    }
-}
-
 impl IsVdSynOutput for VdSynExprIdx {
+    fn build_entity_tree_root_node(
+        self,
+        builder: &mut VdSynExprEntityTreeBuilder,
+    ) -> VdSynExprEntityTreeNode {
+        VdSynExprEntityTreeNode::new(
+            VdModulePath::new_root(builder.db(), builder.file_path()),
+            vec![],
+        )
+    }
+
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
         builder.build_expr(self);
     }

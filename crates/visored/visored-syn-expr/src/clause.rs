@@ -39,6 +39,7 @@ pub enum VdSynClauseData {
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
+    Todo(LxRoseTokenIdx),
 }
 
 pub enum VdSynClauseChild {
@@ -51,6 +52,7 @@ impl VdSynClauseData {
             VdSynClauseData::Let { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Then { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
+            VdSynClauseData::Todo(..) => vec![],
         }
     }
 }
@@ -95,7 +97,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
-                    LxRoseAstData::NewParagraph(_) => todo!(),
                     LxRoseAstData::Delimited {
                         left_delimiter_token_idx,
                         left_delimiter,
@@ -110,6 +111,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         ref arguments,
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
                 }
             }
             "Assume" | "assume" | "Suppose" | "suppose" => {
@@ -132,7 +134,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
-                    LxRoseAstData::NewParagraph(_) => todo!(),
                     LxRoseAstData::Delimited {
                         left_delimiter_token_idx,
                         left_delimiter,
@@ -147,6 +148,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         ref arguments,
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
                 }
             }
             "Then" | "then" => {
@@ -169,7 +171,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
                     LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
-                    LxRoseAstData::NewParagraph(_) => todo!(),
                     LxRoseAstData::Delimited {
                         left_delimiter_token_idx,
                         left_delimiter,
@@ -184,9 +185,10 @@ impl<'db> VdSynExprBuilder<'db> {
                         ref arguments,
                     } => todo!(),
                     LxRoseAstData::Environment { .. } => todo!(),
+                    LxRoseAstData::NewParagraph(_) => todo!(),
                 }
             }
-            _ => todo!(),
+            _ => VdSynClauseData::Todo(token_idx),
         }
     }
 }
@@ -199,6 +201,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Then { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Todo(..) => todo!(),
         }
     }
 

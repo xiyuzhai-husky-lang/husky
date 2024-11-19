@@ -214,7 +214,7 @@ impl From<std::ops::Range<usize>> for LxTokenIdxRange {
 }
 
 impl LxTokenIdxRange {
-    pub(crate) fn new(range: std::ops::Range<usize>) -> Self {
+    pub(crate) fn from_usize_range(range: std::ops::Range<usize>) -> Self {
         Self {
             start: range.start.into(),
             end: range.end.into(),
@@ -234,6 +234,13 @@ impl LxTokenIdxRange {
             end: last.0 + 1usize,
         }
     }
+
+    pub fn new(start: LxTokenIdx, end: LxTokenIdx) -> Self {
+        Self {
+            start: start.0,
+            end: end.0,
+        }
+    }
 }
 
 impl LxTokenIdxRange {
@@ -243,6 +250,10 @@ impl LxTokenIdxRange {
 
     pub fn start(&self) -> LxTokenIdx {
         LxTokenIdx(self.start)
+    }
+
+    pub fn end(&self) -> LxTokenIdx {
+        LxTokenIdx(self.end)
     }
 
     pub fn last(&self) -> Option<LxTokenIdx> {

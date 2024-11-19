@@ -38,6 +38,7 @@ husky-tree-utils.workspace = true
 expect-test.workspace = true
 # latex
 latex-command.workspace = true
+latex-vfs.workspace = true
 
 [lints]
 workspace = true

@@ -2,10 +2,13 @@ use super::*;
 use ast::helpers::tracker::LxAstTracker;
 use expect_test::Expect;
 use latex_prelude::helper::tracker::LxLispInput;
+use latex_vfs::path::LxFilePath;
+use std::path::PathBuf;
 
-fn t(input: &str, expected: Expect) {
+fn t(content: &str, expected: Expect) {
     let db = &DB::default();
-    let tracker = LxAstTracker::new(LxLispInput(input), db);
+    let file_path = LxFilePath::new(db, PathBuf::from(file!()));
+    let tracker = LxAstTracker::new(LxLispInput { file_path, content }, db);
     let show = tracker.show(db);
     expected.assert_eq(&show);
 }

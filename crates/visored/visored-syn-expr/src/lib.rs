@@ -1,7 +1,9 @@
+#![feature(let_chains, if_let_guard)]
 pub mod block;
 mod builder;
 pub mod clause;
 pub mod division;
+pub mod entity_tree;
 pub mod error;
 pub mod expr;
 pub mod helpers;

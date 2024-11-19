@@ -1,5 +1,6 @@
 use crate::*;
 use lean_mir_expr::item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta};
+use namespace::vd_module_path_to_ln_namespace;
 use ty::VdTypeLeanTranspilation;
 use visored_mir_expr::{
     pattern::VdMirPattern,
@@ -22,10 +23,24 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         let db = self.db();
         match self.stmt_arena()[stmt] {
             VdMirStmtData::Block { stmts, ref meta } => {
-                let defns = stmts.to_lean(self);
-                let meta = match meta {
+                let defns = match *meta {
+                    VdMirBlockMeta::Paragraph | VdMirBlockMeta::Sentence => stmts.to_lean(self),
+                    VdMirBlockMeta::Environment(_, module_path)
+                    | VdMirBlockMeta::Division(_, module_path) => {
+                        self.with_module_path(module_path, |builder| stmts.to_lean(builder))
+                    }
+                };
+                let meta = match *meta {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
+                    VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
+                        vd_module_path_to_ln_namespace(db, module_path),
+                    ),
+                    VdMirBlockMeta::Environment(_, module_path) => {
+                        LnMirItemDefnGroupMeta::Environment(
+                            vd_module_path_to_ln_namespace(db, module_path).unwrap(),
+                        )
+                    }
                 };
                 LnItemDefnData::Group { defns, meta }
             }

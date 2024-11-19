@@ -14,6 +14,7 @@ keywords.workspace = true
 [dependencies]
 either.workspace = true
 enum-class.workspace = true
+itertools.workspace = true
 sealed.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
@@ -30,6 +31,7 @@ latex-token.workspace = true
 latex-ast.workspace = true
 latex-command.workspace = true
 latex-environment.workspace = true
+latex-vfs.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils
@@ -38,8 +40,10 @@ husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
-visored-opr.workspace = true
 visored-global-resolution.workspace = true
+visored-item-path.workspace = true
+visored-opr.workspace = true
+visored-prelude.workspace = true
 visored-term.workspace = true
 
 [dev-dependencies]
