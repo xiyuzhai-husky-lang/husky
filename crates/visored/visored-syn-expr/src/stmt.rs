@@ -1,7 +1,11 @@
+#[cfg(test)]
+mod tests;
+
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     sentence::{VdSynSentenceIdx, VdSynSentenceIdxRange},
     symbol::builder::VdSynSymbolBuilder,
+    *,
 };
 use husky_coword::Coword;
 use idx_arena::{
