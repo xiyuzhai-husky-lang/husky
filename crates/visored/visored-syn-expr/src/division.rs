@@ -33,7 +33,6 @@ pub enum VdSynDivisionData {
         command_token_idx: LxRoseTokenIdx,
         level: VdDivisionLevel,
         lcurl_token_idx: LxRoseTokenIdx,
-        title: VdSynStmtIdxRange,
         rcurl_token_idx: LxRoseTokenIdx,
         subdivisions: VdSynDivisionIdxRange,
     },
@@ -61,16 +60,11 @@ impl VdSynDivisionData {
                 .map(|stmt| VdSynDivisionChild::Stmt(stmt))
                 .collect(),
             VdSynDivisionData::Divisions {
-                title,
                 subdivisions: divisions,
                 ..
-            } => [VdSynDivisionChild::Title(title)]
+            } => divisions
                 .into_iter()
-                .chain(
-                    divisions
-                        .into_iter()
-                        .map(|division| VdSynDivisionChild::Division(division)),
-                )
+                .map(|division| VdSynDivisionChild::Division(division))
                 .collect(),
         }
     }
@@ -189,7 +183,6 @@ impl<'a> VdSynExprBuilder<'a> {
                         command_token_idx,
                         level,
                         lcurl_token_idx,
-                        title,
                         rcurl_token_idx,
                         subdivisions,
                     })

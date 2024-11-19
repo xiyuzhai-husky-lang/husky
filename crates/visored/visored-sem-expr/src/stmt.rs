@@ -10,7 +10,13 @@ use idx_arena::{
 use latex_environment::signature::LxEnvironmentSignature;
 use latex_token::idx::LxRoseTokenIdx;
 use sentence::VdSemSentenceIdx;
+use visored_item_path::module::VdModulePath;
 use visored_syn_expr::stmt::{VdSynStmtData, VdSynStmtIdx};
+
+pub struct VdSemStmtEntry {
+    data: VdSemStmtData,
+    module_path: VdModulePath,
+}
 
 pub enum VdSemStmtData {
     Paragraph(VdSemSentenceIdxRange),
@@ -22,19 +28,36 @@ pub enum VdSemStmtData {
     },
 }
 
-pub type VdSemStmtArena = Arena<VdSemStmtData>;
-pub type VdSemStmtArenaRef<'a> = ArenaRef<'a, VdSemStmtData>;
-pub type VdSemStmtIdx = ArenaIdx<VdSemStmtData>;
-pub type VdSemStmtIdxRange = ArenaIdxRange<VdSemStmtData>;
-pub type VdSemStmtMap<T> = ArenaMap<VdSemStmtData, T>;
-pub type VdSemStmtOrderedMap<T> = ArenaOrderedMap<VdSemStmtData, T>;
+pub type VdSemStmtArena = Arena<VdSemStmtEntry>;
+pub type VdSemStmtArenaRef<'a> = ArenaRef<'a, VdSemStmtEntry>;
+pub type VdSemStmtIdx = ArenaIdx<VdSemStmtEntry>;
+pub type VdSemStmtIdxRange = ArenaIdxRange<VdSemStmtEntry>;
+pub type VdSemStmtMap<T> = ArenaMap<VdSemStmtEntry, T>;
+pub type VdSemStmtOrderedMap<T> = ArenaOrderedMap<VdSemStmtEntry, T>;
+
+impl VdSemStmtEntry {
+    pub fn new(data: VdSemStmtData, module_path: VdModulePath) -> Self {
+        Self { data, module_path }
+    }
+}
+
+impl VdSemStmtEntry {
+    pub fn data(&self) -> &VdSemStmtData {
+        &self.data
+    }
+
+    pub fn module_path(&self) -> VdModulePath {
+        self.module_path
+    }
+}
 
 impl ToVdSem<VdSemStmtIdxRange> for VdSynStmtIdxRange {
     // there is no need to cache because stmts will be created in one go
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemStmtIdxRange {
-        let mut stmts: Vec<VdSemStmtData> = vec![];
+        let mut stmts: Vec<VdSemStmtEntry> = vec![];
         for stmt in self {
-            stmts.push(builder.build_stmt(stmt));
+            let module_path = builder.stmt_module_path_node_map()[stmt].module_path();
+            stmts.push(VdSemStmtEntry::new(builder.build_stmt(stmt), module_path));
         }
         builder.alloc_stmts(stmts)
     }
