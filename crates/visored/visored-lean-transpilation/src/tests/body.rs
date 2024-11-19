@@ -17,7 +17,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 }
 
 #[test]
-fn basic_visored_clause_to_lean_works() {
+fn basic_body_to_lean_works() {
     t(
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
