@@ -115,7 +115,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         let children = match *division_data {
             VdSynDivisionData::Stmts { stmts } => stmts
                 .into_iter()
-                .map(|stmt| self.build_stmt(stmt, registry))
+                .map(|stmt| self.build_stmt(stmt, &mut division_registry))
                 .collect(),
             VdSynDivisionData::Divisions {
                 command_token_idx,
