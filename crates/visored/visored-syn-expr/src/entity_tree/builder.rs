@@ -173,7 +173,15 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
             VdSynStmtData::Environment {
                 environment_signature,
                 stmts,
-            } => todo!(),
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+            } => {
+                let module_path =
+                    registry.issue_new_environment(environment_signature.path(), self.db);
+                let mut subregistry = VdModulePathRegistry::new(module_path);
+                let children = self.build_stmts(stmts, &mut subregistry);
+                (module_path, children)
+            }
         };
         VdSynExprEntityTreeNode {
             module_path,

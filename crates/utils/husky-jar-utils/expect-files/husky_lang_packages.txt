@@ -4346,6 +4346,7 @@
         dependencies: [
             "enum-class",
             "husky-coword",
+            "latex-environment",
             "latex-prelude",
             "latex-vfs",
             "rustc-hash",
@@ -4424,6 +4425,7 @@
             "either",
             "husky-tree-utils",
             "idx-arena",
+            "latex-environment",
             "latex-math-letter",
             "latex-prelude",
             "latex-vfs",
@@ -4441,7 +4443,6 @@
             "husky-coword",
             "latex-ast",
             "latex-command",
-            "latex-environment",
             "visored-global-dispatch",
             "visored-item-path",
             "visored-sem-expr",

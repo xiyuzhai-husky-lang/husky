@@ -159,6 +159,8 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemStmtData::Environment {
                 environment_signature,
                 stmts,
+                begin_command_token_idx,
+                end_rcurl_token_idx,
             } => format!("{:?} stmt.block", source),
         };
         DisplayTree::new(

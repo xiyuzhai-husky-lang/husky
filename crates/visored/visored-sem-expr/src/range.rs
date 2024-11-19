@@ -344,7 +344,9 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             VdSemStmtData::Environment {
                 environment_signature,
                 stmts,
-            } => todo!(),
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+            } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
         }
     }
 

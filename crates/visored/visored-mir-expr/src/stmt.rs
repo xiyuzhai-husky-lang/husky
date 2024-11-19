@@ -91,7 +91,12 @@ impl<'db> VdMirExprBuilder<'db> {
             VdSemStmtData::Environment {
                 environment_signature,
                 stmts,
-            } => todo!(),
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+            } => VdMirStmtData::Block {
+                stmts: stmts.to_vd_mir(self),
+                meta: VdMirBlockMeta::Environment(environment_signature.path()),
+            },
         }
     }
 }

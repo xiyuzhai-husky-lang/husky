@@ -17,6 +17,7 @@ either.workspace = true
 idx-arena.workspace = true
 salsa.workspace = true
 # latex
+latex-environment.workspace = true
 latex-math-letter.workspace = true
 latex-prelude.workspace = true
 # visored
@@ -38,7 +39,6 @@ expect-test.workspace = true
 # latex
 latex-ast.workspace = true
 latex-command.workspace = true
-latex-environment.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored

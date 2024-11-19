@@ -19,6 +19,7 @@ salsa.workspace = true
 # kernel
 husky-coword.workspace = true
 # latex
+latex-environment.workspace = true
 latex-prelude.workspace = true
 latex-vfs.workspace = true
 # visored
