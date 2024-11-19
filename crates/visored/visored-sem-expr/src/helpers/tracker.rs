@@ -36,6 +36,7 @@ use visored_annotation::{
 };
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_item_path::module::VdModulePath;
 use visored_syn_expr::{
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,
@@ -53,6 +54,7 @@ use visored_term::ty::table::VdItemPathZfcTypeTable;
 
 pub struct VdSemExprTracker<'a, Input: IsVdSemExprInput<'a>> {
     pub input: Input,
+    pub root_module_path: VdModulePath,
     pub annotations: VdAnnotations,
     pub default_resolution_table: VdDefaultGlobalResolutionTable,
     pub token_storage: LxTokenStorage,
@@ -123,8 +125,9 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             division_range_map: syn_division_range_map,
             symbol_local_defn_storage: syn_symbol_local_defn_storage,
             symbol_resolution_table: syn_symbol_resolution_table,
-            stmt_module_path_node_map: syn_stmt_module_path_node_map,
-            division_module_path_node_map: syn_division_module_path_node_map,
+            root_entity_tree_node,
+            stmt_entity_tree_node_map: syn_stmt_entity_tree_node_map,
+            division_entity_tree_node_map: syn_division_entity_tree_node_map,
             output: syn_output,
         } = VdSynExprTracker::new(input, token_annotations, space_annotations, db);
         let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
@@ -144,8 +147,8 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             &syn_symbol_resolution_table,
             &item_path_zfc_ty_table,
             &default_global_dispatch_table,
-            &syn_stmt_module_path_node_map,
-            &syn_division_module_path_node_map,
+            &syn_stmt_entity_tree_node_map,
+            &syn_division_entity_tree_node_map,
         );
         let output = FromToVdSem::from_to_vd_sem(syn_output, &mut builder);
         let (
@@ -175,6 +178,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         );
         Self {
             input,
+            root_module_path: root_entity_tree_node.module_path(),
             annotations,
             default_resolution_table,
             token_storage,

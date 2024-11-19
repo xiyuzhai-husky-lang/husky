@@ -63,6 +63,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         db: &::salsa::Db,
     ) -> Self {
         let VdMirExprTracker {
+            root_module_path,
             expr_arena: vd_mir_expr_arena,
             stmt_arena: vd_mir_stmt_arena,
             symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
@@ -75,6 +76,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             vd_mir_stmt_arena.as_arena_ref(),
             &vd_mir_symbol_local_defn_storage,
             dictionary,
+            root_module_path,
         );
         let output = FromVdTranspileToLean::from_transpile_to_lean(output, &mut builder);
         let (expr_arena, stmt_arena, tactic_arena, defn_arena) = builder.finish();

@@ -14,8 +14,8 @@ pub struct VdSynExprEntityTreeBuilder<'a> {
     file_path: LxFilePath,
     stmt_arena: VdSynStmtArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
-    stmt_module_path_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
-    division_module_path_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
+    stmt_entity_tree_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    division_entity_tree_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
 }
 
 impl VdSynExprEntityTreeNode {
@@ -40,8 +40,8 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
             file_path,
             stmt_arena,
             division_arena,
-            stmt_module_path_node_map: VdSynStmtMap::new2(stmt_arena),
-            division_module_path_node_map: VdSynDivisionMap::new2(division_arena),
+            stmt_entity_tree_node_map: VdSynStmtMap::new2(stmt_arena),
+            division_entity_tree_node_map: VdSynDivisionMap::new2(division_arena),
         }
     }
 }
@@ -98,7 +98,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
     ) -> VdModulePath {
         let node = self.calc_division(division, registry);
         let module_path = node.module_path();
-        self.division_module_path_node_map
+        self.division_entity_tree_node_map
             .insert_new(division, node);
         module_path
     }
@@ -152,7 +152,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
     ) -> VdModulePath {
         let node = self.calc_stmt(stmt, registry);
         let module_path = node.module_path();
-        self.stmt_module_path_node_map.insert_new(stmt, node);
+        self.stmt_entity_tree_node_map.insert_new(stmt, node);
         module_path
     }
 
@@ -193,8 +193,8 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) {
         (
-            self.stmt_module_path_node_map,
-            self.division_module_path_node_map,
+            self.stmt_entity_tree_node_map,
+            self.division_entity_tree_node_map,
         )
     }
 }

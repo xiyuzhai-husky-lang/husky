@@ -69,8 +69,9 @@ pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
     pub symbol_local_defn_storage: VdSynSymbolLocalDefnStorage,
     pub symbol_resolution_table: VdSynSymbolResolutionsTable,
-    pub stmt_module_path_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
-    pub division_module_path_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
+    pub root_entity_tree_node: VdSynExprEntityTreeNode,
+    pub stmt_entity_tree_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    pub division_entity_tree_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
     pub output: Input::VdSynExprOutput,
 }
 
@@ -136,9 +137,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
-            root_node,
-            stmt_module_path_node_map,
-            division_module_path_node_map,
+            root_entity_tree_node,
+            stmt_entity_tree_node_map,
+            division_entity_tree_node_map,
             symbol_defns,
             symbol_resolutions,
         ) = builder.finish_with(output);
@@ -163,8 +164,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             division_range_map,
             symbol_local_defn_storage: symbol_defns,
             symbol_resolution_table: symbol_resolutions,
-            stmt_module_path_node_map,
-            division_module_path_node_map,
+            root_entity_tree_node,
+            stmt_entity_tree_node_map,
+            division_entity_tree_node_map,
             output,
         }
     }

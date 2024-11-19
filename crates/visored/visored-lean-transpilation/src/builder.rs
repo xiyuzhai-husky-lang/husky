@@ -8,6 +8,7 @@ use lean_mir_expr::{
 };
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
+use visored_item_path::module::VdModulePath;
 use visored_mir_expr::{
     expr::VdMirExprArenaRef,
     region::VdMirExprRegionData,
@@ -23,6 +24,7 @@ pub struct VdLeanTranspilationBuilder<'a> {
     stmt_arena: VdMirStmtArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
+    current_module_path: VdModulePath,
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
@@ -30,6 +32,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         db: &'a ::salsa::Db,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
         dictionary: &'a VdLeanDictionary,
+        root_module_path: VdModulePath,
     ) -> Self {
         Self::new(
             db,
@@ -37,6 +40,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             vd_mir_expr_region_data.stmt_arena(),
             vd_mir_expr_region_data.symbol_local_defn_storage(),
             dictionary,
+            root_module_path,
         )
     }
 
@@ -46,6 +50,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         stmt_arena: VdMirStmtArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
         dictionary: &'a VdLeanDictionary,
+        root_module_path: VdModulePath,
     ) -> Self {
         Self {
             lean_hir_expr_builder: LnMirExprBuilder::new(db),
@@ -53,7 +58,24 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             stmt_arena,
             dictionary,
             mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage, db),
+            current_module_path: root_module_path,
         }
+    }
+
+    pub(crate) fn with_module_path<R>(
+        &mut self,
+        module_path: VdModulePath,
+        f: impl FnOnce(&mut Self) -> R,
+    ) -> R {
+        debug_assert_eq!(
+            module_path.parent(self.db()),
+            Some(self.current_module_path)
+        );
+        let prev_module_path = self.current_module_path;
+        self.current_module_path = module_path;
+        let result = f(self);
+        self.current_module_path = prev_module_path;
+        result
     }
 
     pub(crate) fn mangle_symbol(&mut self, symbol_local_defn: VdMirSymbolLocalDefnIdx) -> LnIdent {
