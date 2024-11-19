@@ -4,7 +4,7 @@ use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
 use either::*;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::{
-    helper::tracker::{LxFormulaInput, LxSnippetInput},
+    helper::tracker::{LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
 use lean_mir_expr::{
@@ -135,7 +135,7 @@ impl<'a> IsVdLeanTranspilationOutput for LnMirExprIdx {
     }
 }
 
-impl<'a> IsVdLeanTranspilationInput<'a> for LxSnippetInput<'a> {
+impl<'a> IsVdLeanTranspilationInput<'a> for LxPageInput<'a> {
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
 }
 
