@@ -1,6 +1,6 @@
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
-    builder::LnMirExprBuilder,
+    builder::{LnMirExprBuilder, WithLnNamespace},
     expr::{LnMirExprArena, LnMirExprData},
     item_defn::{def::LnMirDefBody, LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::LnMirStmtArena,
@@ -16,7 +16,10 @@ use visored_mir_expr::{
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
 };
 
-use crate::{dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler};
+use crate::{
+    dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler,
+    namespace::vd_module_path_to_ln_namespace,
+};
 
 pub struct VdLeanTranspilationBuilder<'a> {
     lean_hir_expr_builder: LnMirExprBuilder<'a>,
@@ -25,6 +28,12 @@ pub struct VdLeanTranspilationBuilder<'a> {
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
     current_module_path: VdModulePath,
+}
+
+impl<'a> WithLnNamespace<'a> for VdLeanTranspilationBuilder<'a> {
+    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprBuilder<'a> {
+        &mut self.lean_hir_expr_builder
+    }
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
@@ -74,9 +83,14 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             module_path.show(self.db()),
             self.current_module_path.show(self.db()),
         );
+        let namespace = vd_module_path_to_ln_namespace(self.db(), module_path);
         let prev_module_path = self.current_module_path;
         self.current_module_path = module_path;
-        let result = f(self);
+        let result = if let Some(namespace) = namespace {
+            self.with_ln_namespace(namespace, f)
+        } else {
+            f(self)
+        };
         self.current_module_path = prev_module_path;
         result
     }

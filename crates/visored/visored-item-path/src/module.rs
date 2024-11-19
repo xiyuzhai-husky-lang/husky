@@ -7,7 +7,7 @@ use visored_prelude::division::VdDivisionLevel;
 
 #[salsa::interned(constructor = new_inner)]
 pub struct VdModulePath {
-    data: VdModulePathData,
+    pub data: VdModulePathData,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
