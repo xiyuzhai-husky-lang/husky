@@ -5,6 +5,7 @@ use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 use visored_syn_expr::{
     clause::{VdSynClauseArenaRef, VdSynClauseIdx, VdSynClauseMap},
     division::{VdSynDivisionArenaRef, VdSynDivisionIdx, VdSynDivisionMap},
+    entity_tree::VdSynExprEntityTreeNode,
     expr::{VdSynExprArenaRef, VdSynExprIdx, VdSynExprMap},
     phrase::{VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
@@ -22,8 +23,8 @@ use crate::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
     division::{
-        VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx,
-        VdSemDivisionIdxRange,
+        VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionEntry,
+        VdSemDivisionIdx, VdSemDivisionIdxRange,
     },
     expr::{
         VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprEntry, VdSemExprIdx,
@@ -57,6 +58,8 @@ pub(crate) struct VdSemExprBuilder<'a> {
     zfc_ty_menu: &'a VdTypeMenu,
     item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
     default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
+    stmt_module_path_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+    division_module_path_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
@@ -84,6 +87,8 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
         item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
         default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
+        stmt_module_path_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+        division_module_path_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         let mut slf = Self {
             db,
@@ -101,6 +106,8 @@ impl<'a> VdSemExprBuilder<'a> {
             zfc_ty_menu: vd_ty_menu(db),
             item_path_zfc_ty_table,
             default_global_dispatch_table,
+            stmt_module_path_node_map,
+            division_module_path_node_map,
             expr_arena: VdSemExprArena::default(),
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
@@ -194,6 +201,16 @@ impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn syn_to_sem_expr_map(&self) -> &VdSynExprMap<VdSemExprIdx> {
         &self.syn_to_sem_expr_map
     }
+
+    pub(crate) fn stmt_module_path_node_map(&self) -> &VdSynStmtMap<VdSynExprEntityTreeNode> {
+        self.stmt_module_path_node_map
+    }
+
+    pub(crate) fn division_module_path_node_map(
+        &self,
+    ) -> &VdSynDivisionMap<VdSynExprEntityTreeNode> {
+        self.division_module_path_node_map
+    }
 }
 
 impl<'db> VdSemExprBuilder<'db> {
@@ -252,12 +269,14 @@ impl<'db> VdSemExprBuilder<'db> {
         syn_division: VdSynDivisionIdx,
         data: VdSemDivisionData,
     ) -> VdSemDivisionIdx {
-        self.division_arena.alloc_one(data)
+        let module_path = self.division_module_path_node_map[syn_division].module_path();
+        self.division_arena
+            .alloc_one(VdSemDivisionEntry::new(data, module_path))
     }
 
     pub(crate) fn alloc_divisions(
         &mut self,
-        divisions: Vec<VdSemDivisionData>,
+        divisions: Vec<VdSemDivisionEntry>,
     ) -> VdSemDivisionIdxRange {
         self.division_arena.alloc_batch(divisions)
     }

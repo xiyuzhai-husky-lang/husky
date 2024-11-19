@@ -364,7 +364,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
     }
 
     fn calc_division(&mut self, division: VdSemDivisionIdx) -> VdSemDivisionTokenIdxRange {
-        match self.division_arena[division] {
+        match *self.division_arena[division].data() {
             VdSemDivisionData::Stmts { stmts } => self
                 .get_stmt(stmts.start())
                 .join(self.get_stmt(stmts.last().expect("stmts are always non-empty"))),
