@@ -6,6 +6,6 @@ use visored_prelude::division::VdDivisionLevel;
 pub enum VdMirBlockMeta {
     Paragraph,
     Sentence,
-    Environment(LxEnvironmentPath),
-    Division(VdDivisionLevel),
+    Environment(LxEnvironmentPath, VdModulePath),
+    Division(VdDivisionLevel, VdModulePath),
 }
