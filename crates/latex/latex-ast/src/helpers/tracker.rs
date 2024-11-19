@@ -16,7 +16,7 @@ use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
     helper::tracker::{
-        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxLispInput,
+        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxLispInput, LxPageInput,
     },
     mode::LxMode,
 };
@@ -49,7 +49,7 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
             db,
             &command_signature_table,
             &environment_signature_table,
-            input.input(),
+            input.content(),
             input.root_mode(),
             &mut token_storage,
             &mut ast_arena,
@@ -71,7 +71,7 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
     fn display_tree_builder<'b>(&'b self, db: &'b salsa::Db) -> LxAstDisplayTreeBuilder<'b> {
         LxAstDisplayTreeBuilder::new(
             db,
-            self.input.input(),
+            self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
             &self.ast_token_idx_range_map,
@@ -100,6 +100,21 @@ impl<'a> IsLxAstInput<'a> for LxDocumentInput<'a> {
 }
 
 impl<'a> IsLxAstInput<'a> for LxDocumentBodyInput<'a> {
+    type LxAstOutput = LxRoseAstIdxRange;
+
+    fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {
+        parser.parse_rose_asts()
+    }
+
+    fn show_lx_ast_output(output: Self::LxAstOutput, builder: LxAstDisplayTreeBuilder) -> String {
+        format!(
+            "{}",
+            DisplayTree::show_trees(&builder.render_rose_asts(output), &Default::default(),)
+        )
+    }
+}
+
+impl<'a> IsLxAstInput<'a> for LxPageInput<'a> {
     type LxAstOutput = LxRoseAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {

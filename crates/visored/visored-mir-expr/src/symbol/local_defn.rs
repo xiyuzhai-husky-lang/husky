@@ -5,6 +5,7 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_math_letter::letter::LxMathLetter;
+use visored_item_path::module::VdModulePath;
 use visored_sem_expr::symbol::local_defn::{
     storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnBody, VdSemSymbolLocalDefnData,
     VdSemSymbolLocalDefnHead, VdSemSymbolLocalDefnIdx,
@@ -13,6 +14,7 @@ use visored_sem_expr::symbol::local_defn::{
 pub struct VdMirSymbolLocalDefnData {
     head: VdMirSymbolLocalDefnHead,
     body: VdMirSymbolLocalDefnBody,
+    module_path: VdModulePath,
 }
 
 pub enum VdMirSymbolLocalDefnHead {
@@ -60,6 +62,7 @@ impl<'a> VdMirExprBuilder<'a> {
         VdMirSymbolLocalDefnData {
             head: defn.head().to_vd_mir(self),
             body: defn.body().to_vd_mir(self),
+            module_path: defn.module_path(),
         }
     }
 }

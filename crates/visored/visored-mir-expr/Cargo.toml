@@ -17,6 +17,7 @@ either.workspace = true
 idx-arena.workspace = true
 salsa.workspace = true
 # latex
+latex-environment.workspace = true
 latex-math-letter.workspace = true
 latex-prelude.workspace = true
 # visored
@@ -24,10 +25,12 @@ visored-annotation.workspace = true
 visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
 visored-item-path.workspace = true
+visored-opr.workspace = true
+visored-prelude.workspace = true
 visored-sem-expr.workspace = true
 visored-signature.workspace = true
-visored-opr.workspace = true
 visored-term.workspace = true
+latex-vfs.workspace = true
 # utils
 husky-tree-utils.workspace = true
 
@@ -36,7 +39,6 @@ expect-test.workspace = true
 # latex
 latex-ast.workspace = true
 latex-command.workspace = true
-latex-environment.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored

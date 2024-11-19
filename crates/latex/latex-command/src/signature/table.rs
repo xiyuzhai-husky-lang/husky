@@ -81,6 +81,13 @@ impl LxCommandSignatureTable {
             end,
             usepackage,
             documentclass,
+            newtheorem,
+            // - divisions
+            part,
+            chapter,
+            section,
+            subsection,
+            subsubsection,
             // - maths
             // ## letter style
             mathbb,
@@ -140,6 +147,13 @@ impl LxCommandSignatureTable {
                 // - root
                 (usepackage, &[Name]),
                 (documentclass, &[Name]),
+                (newtheorem, &[Name, Name]),
+                // - divisions
+                (part, &[Rose]),
+                (chapter, &[Rose]),
+                (section, &[Rose]),
+                (subsection, &[Rose]),
+                (subsubsection, &[Rose]),
                 // - operators
                 // -- relations
                 (eq, &[]),

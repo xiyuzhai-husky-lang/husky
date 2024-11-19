@@ -2,6 +2,7 @@ use crate::{
     expr::{application::LnMirFunc, LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
     item_defn::{
         def::LnMirDefBody, LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange,
+        LnMirItemDefnGroupMeta,
     },
     stmt::LnMirStmtArenaRef,
     tactic::{LnMirTacticArenaRef, LnMirTacticIdxRange},
@@ -203,13 +204,30 @@ impl<'a> LnMirExprFormatter<'a> {
 
     pub fn format_defn(&mut self, defn: LnItemDefnIdx) {
         self.make_sure_new_paragraph();
-        match self.defn_arena[defn] {
+        let defn_arena = self.defn_arena;
+        match defn_arena[defn] {
             LnItemDefnData::Variable { symbol, ty } => {
-                write!(self.result, "variable {} : ", symbol.data(self.db));
+                write!(self.result, "variable ({} : ", symbol.data(self.db));
                 self.format_expr_ext(ty);
+                write!(self.result, ")");
             }
             LnItemDefnData::Group { defns, ref meta } => {
+                self.make_sure_new_paragraph();
+                if let LnMirItemDefnGroupMeta::Division(Some(namespace))
+                | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
+                    && let Some(ident) = namespace.ident(self.db)
+                {
+                    self.make_sure_new_paragraph();
+                    write!(self.result, "namespace {}\n", ident.data(self.db));
+                }
                 self.format_defns(defns);
+                if let LnMirItemDefnGroupMeta::Division(Some(namespace))
+                | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
+                    && let Some(ident) = namespace.ident(self.db)
+                {
+                    self.make_sure_new_line();
+                    write!(self.result, "end {}\n", ident.data(self.db));
+                }
             }
             LnItemDefnData::Def { symbol, ty, body } => {
                 write!(self.result, "def {} : ", symbol.data(self.db));
@@ -233,12 +251,22 @@ impl<'a> LnMirExprFormatter<'a> {
         todo!()
     }
 
-    fn make_sure_new_paragraph(&mut self) {
+    fn make_sure_new_line(&mut self) {
         if !self.result.is_empty() && !self.result.ends_with('\n') {
             self.result += "\n";
         }
-        if !self.result.is_empty() && !self.result.ends_with("\n\n") {
-            self.result += "\n";
+    }
+
+    fn make_sure_new_paragraph(&mut self) {
+        self.make_sure_new_line();
+        if !self.result.is_empty() {
+            let last_line = self.result.lines().last().unwrap_or("");
+            if !last_line.starts_with("namespace")
+                && !last_line.starts_with("section")
+                && !self.result.ends_with("\n\n")
+            {
+                self.result += "\n";
+            }
         }
     }
 

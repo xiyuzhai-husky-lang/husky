@@ -1,10 +1,15 @@
 pub mod block;
+#[cfg(test)]
+mod tests;
 
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use visored_item_path::module::VdModulePath;
+use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
     clause::{r#let::VdSemLetClauseDispatch, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},
+    division::{VdSemDivisionData, VdSemDivisionIdx, VdSemDivisionIdxRange},
     sentence::{VdSemSentenceData, VdSemSentenceIdx, VdSemSentenceIdxRange},
     stmt::{VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
@@ -34,6 +39,44 @@ pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
 pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
 pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
 
+impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+        let data = self
+            .into_iter()
+            .map(|division| builder.build_stmt_from_sem_division(division))
+            .collect::<Vec<_>>();
+        builder.alloc_stmts(data)
+    }
+}
+
+impl<'db> VdMirExprBuilder<'db> {
+    fn build_stmt_from_sem_division(&mut self, division: VdSemDivisionIdx) -> VdMirStmtData {
+        match *self.sem_division_arena()[division].data() {
+            VdSemDivisionData::Stmts { stmts } => VdMirStmtData::Block {
+                stmts: stmts.to_vd_mir(self),
+                meta: VdMirBlockMeta::Division(
+                    VdDivisionLevel::Stmts,
+                    self.sem_division_arena()[division].module_path(),
+                ),
+            },
+            // TODO: what to do for title?
+            VdSemDivisionData::Divisions {
+                command_token_idx,
+                level,
+                lcurl_token_idx,
+                rcurl_token_idx,
+                subdivisions,
+            } => VdMirStmtData::Block {
+                stmts: subdivisions.to_vd_mir(self),
+                meta: VdMirBlockMeta::Division(
+                    level,
+                    self.sem_division_arena()[division].module_path(),
+                ),
+            },
+        }
+    }
+}
+
 impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
@@ -46,12 +89,23 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
 
 impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemStmtIdx) -> VdMirStmtData {
-        match self.sem_stmt_arena()[stmt] {
+        match *self.sem_stmt_arena()[stmt].data() {
             VdSemStmtData::Paragraph(sentences) => VdMirStmtData::Block {
                 stmts: sentences.to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,
             },
-            VdSemStmtData::Block { environment, stmts } => todo!(),
+            VdSemStmtData::Environment {
+                environment_signature,
+                stmts,
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+            } => VdMirStmtData::Block {
+                stmts: stmts.to_vd_mir(self),
+                meta: VdMirBlockMeta::Environment(
+                    environment_signature.path(),
+                    self.sem_stmt_arena()[stmt].module_path(),
+                ),
+            },
         }
     }
 }
@@ -118,6 +172,7 @@ impl<'db> VdMirExprBuilder<'db> {
             } => VdMirStmtData::Then {
                 formula: formula.to_vd_mir(self),
             },
+            VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }
     }
 }

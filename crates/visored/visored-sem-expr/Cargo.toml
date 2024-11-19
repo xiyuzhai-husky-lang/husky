@@ -25,6 +25,7 @@ latex-ast.workspace = true
 husky-coword.workspace = true
 # latex
 latex-command.workspace = true
+latex-environment.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true
 latex-math-letter.workspace = true
@@ -33,7 +34,9 @@ husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
+visored-item-path.workspace = true
 visored-opr.workspace = true
+visored-prelude.workspace = true
 visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
 visored-term.workspace = true
@@ -49,6 +52,7 @@ latex-command.workspace = true
 latex-environment.workspace = true
 # visored
 visored-item-path.workspace = true
+latex-vfs.workspace = true
 
 [lints]
 workspace = true

@@ -1,4 +1,5 @@
 use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
+use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_item_path::path::VdItemPath;
@@ -7,6 +8,7 @@ use crate::{
     default_table::VdDefaultGlobalResolutionTable,
     resolution::{
         command::{VdCompleteCommandGlobalResolution, VdCompleteCommandGlobalResolutionMap},
+        environment::{VdEnvironmentGlobalResolution, VdEnvironmentGlobalResolutionMap},
         letter::{VdLetterGlobalResolution, VdLetterGlobalResolutionMap},
         punctuation::VdPunctuationGlobalResolution,
     },
@@ -17,10 +19,12 @@ impl VdDefaultGlobalResolutionTable {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
         let command_resolution_map = standard_command_resolution_map(db);
+        let environment_resolution_map = standard_environment_resolution_map(db);
         let letter_resolution_map = standard_letter_resolution_map(db);
         Self::new(
             punctuation_resolution_map,
             command_resolution_map,
+            environment_resolution_map,
             letter_resolution_map,
         )
     }
@@ -38,6 +42,12 @@ fn standard_command_resolution_map(
         end: _,
         usepackage,
         documentclass,
+        newtheorem,
+        part,
+        chapter,
+        section,
+        subsection,
+        subsubsection,
         // maths
         // - letter style
         mathbb,
@@ -85,6 +95,18 @@ fn standard_command_resolution_map(
     VdCompleteCommandGlobalResolutionMap::from_iter([
         // - root
         (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
+        (
+            documentclass,
+            VdCompleteCommandGlobalResolution::DOCUMENTCLASS,
+        ),
+        (part, VdCompleteCommandGlobalResolution::PART),
+        (chapter, VdCompleteCommandGlobalResolution::CHAPTER),
+        (section, VdCompleteCommandGlobalResolution::SECTION),
+        (subsection, VdCompleteCommandGlobalResolution::SUBSECTION),
+        (
+            subsubsection,
+            VdCompleteCommandGlobalResolution::SUBSUBSECTION,
+        ),
         // - operators
         // -- relations
         (eq, VdCompleteCommandGlobalResolution::EQ),
@@ -123,6 +145,13 @@ fn standard_command_resolution_map(
         (frac, VdCompleteCommandGlobalResolution::Frac),
         (text, VdCompleteCommandGlobalResolution::Text),
     ])
+}
+
+fn standard_environment_resolution_map(db: &salsa::Db) -> VdEnvironmentGlobalResolutionMap {
+    let LxEnvironmentPathMenu { document, .. } = *lx_environment_path_menu(db);
+    [(document, VdEnvironmentGlobalResolution::DOCUMENT)]
+        .into_iter()
+        .collect()
 }
 
 fn lx_math_punctuation_standard_resolution(

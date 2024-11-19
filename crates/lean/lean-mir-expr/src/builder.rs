@@ -5,6 +5,7 @@ use crate::{
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
     tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
+use lean_item_path::namespace::LnNamespace;
 
 pub struct LnMirExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -12,6 +13,7 @@ pub struct LnMirExprBuilder<'db> {
     stmt_arena: LnMirStmtArena,
     tactic_arena: LnMirTacticArena,
     item_defn_arena: LnItemDefnArena,
+    current_namespace: LnNamespace,
 }
 
 impl<'db> LnMirExprBuilder<'db> {
@@ -22,6 +24,7 @@ impl<'db> LnMirExprBuilder<'db> {
             stmt_arena: Default::default(),
             tactic_arena: Default::default(),
             item_defn_arena: Default::default(),
+            current_namespace: LnNamespace::new_root(db),
         }
     }
 }
@@ -95,5 +98,21 @@ impl<'db> LnMirExprBuilder<'db> {
             self.tactic_arena,
             self.item_defn_arena,
         )
+    }
+}
+
+pub trait WithLnNamespace<'db> {
+    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprBuilder<'db>;
+
+    fn with_ln_namespace<R>(
+        &mut self,
+        namespace: LnNamespace,
+        f: impl FnOnce(&mut Self) -> R,
+    ) -> R {
+        let previous_namespace = self.ln_mir_expr_builder_mut().current_namespace;
+        self.ln_mir_expr_builder_mut().current_namespace = namespace;
+        let result = f(self);
+        self.ln_mir_expr_builder_mut().current_namespace = previous_namespace;
+        result
     }
 }

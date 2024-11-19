@@ -1,5 +1,7 @@
-mod clause;
+mod body;
+mod document;
 mod expr;
+mod page;
 
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
@@ -25,6 +27,7 @@ use visored_term::menu::vd_ty_menu;
     visored_syn_expr::jar::VdSynExprJar,
     visored_global_dispatch::jar::VdGlobalDispatchJar,
     visored_signature::jar::VdSignatureJar,
+    latex_vfs::jar::LxVfsJar,
     crate::Jar
 )]
 pub(crate) struct DB {}
