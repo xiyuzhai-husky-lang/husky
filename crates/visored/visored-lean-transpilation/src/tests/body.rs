@@ -29,6 +29,25 @@ fn basic_visored_clause_to_lean_works() {
         &expect!["variable x : ℕ"],
     );
     t(
+        r#"\begin{example}\end{example}"#,
+        &expect![[r#"
+            └─ group: `division`
+              └─ group: `environment`
+        "#]],
+        &expect![""],
+    );
+    t(
+        r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
+        &expect![[r#"
+            └─ group: `division`
+              └─ group: `environment`
+                └─ group: `paragraph`
+                  └─ group: `sentence`
+                    └─ variable: `x`
+        "#]],
+        &expect!["variable x : ℝ"],
+    );
+    t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ group: `division`
