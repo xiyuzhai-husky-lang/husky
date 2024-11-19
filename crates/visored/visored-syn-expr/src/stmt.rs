@@ -120,7 +120,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 end_rcurl_token_idx,
                 environment_signature,
             ),
-            LxRoseAstData::NewParagraph(_) => todo!(),
+            LxRoseAstData::NewParagraph(_) => self.build_stmt(asts)?,
         })
     }
 
