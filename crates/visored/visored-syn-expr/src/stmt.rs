@@ -43,14 +43,6 @@ impl ToVdSyn<VdSynStmtIdxRange> for LxRoseAstIdxRange {
     }
 }
 
-impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRootAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
-        todo!()
-        // let (_, ast_idx_range) = self;
-        // builder.parse_stmts(ast_idx_range)
-    }
-}
-
 impl<'db> VdSynExprBuilder<'db> {
     fn parse_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynStmtIdxRange {
         let mut asts = asts.into_iter().peekable();

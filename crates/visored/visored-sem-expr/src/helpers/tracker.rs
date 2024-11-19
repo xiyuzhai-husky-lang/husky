@@ -221,6 +221,10 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
     }
 }
 
+impl<'a> IsVdSemExprInput<'a> for LxDocumentInput<'a> {
+    type VdSemExprOutput = VdSemDivisionIdxRange;
+}
+
 impl<'a> IsVdSemExprInput<'a> for LxDocumentBodyInput<'a> {
     type VdSemExprOutput = VdSemDivisionIdxRange;
 }

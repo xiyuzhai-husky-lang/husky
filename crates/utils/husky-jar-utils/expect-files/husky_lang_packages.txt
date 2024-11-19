@@ -4364,6 +4364,7 @@
         dependencies: [
             "enum-index",
             "latex-command",
+            "latex-environment",
             "latex-math-letter",
             "latex-math-punctuation",
             "rustc-hash",

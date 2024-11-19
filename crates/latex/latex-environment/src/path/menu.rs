@@ -1,7 +1,7 @@
 use super::LxEnvironmentPath;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct LxEnvironmentMenu {
+pub struct LxEnvironmentPathMenu {
     pub document: LxEnvironmentPath,
     //
     pub align: LxEnvironmentPath,
@@ -13,7 +13,7 @@ pub struct LxEnvironmentMenu {
     pub table: LxEnvironmentPath,
 }
 
-impl LxEnvironmentMenu {
+impl LxEnvironmentPathMenu {
     fn new(db: &::salsa::Db) -> Self {
         let p = |s: &str| LxEnvironmentPath::new(s, db);
         Self {
@@ -30,6 +30,6 @@ impl LxEnvironmentMenu {
 }
 
 #[salsa::tracked(return_ref)]
-pub fn lx_environment_menu(db: &::salsa::Db) -> LxEnvironmentMenu {
-    LxEnvironmentMenu::new(db)
+pub fn lx_environment_path_menu(db: &::salsa::Db) -> LxEnvironmentPathMenu {
+    LxEnvironmentPathMenu::new(db)
 }

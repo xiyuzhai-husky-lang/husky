@@ -194,7 +194,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxDocumentInput<'a> {
-    type VdSynExprOutput = VdSynStmtIdxRange;
+    type VdSynExprOutput = VdSynDivisionIdxRange;
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxDocumentBodyInput<'a> {
