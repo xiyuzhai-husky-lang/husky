@@ -334,7 +334,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
     }
 
     fn calc_stmt(&mut self, stmt: VdSemStmtIdx) -> VdSemStmtTokenIdxRange {
-        match self.stmt_arena[stmt] {
+        match *self.stmt_arena[stmt].data() {
             VdSemStmtData::Paragraph(sentences) => {
                 let first = self.get_sentence(sentences.start());
                 let last =

@@ -37,7 +37,10 @@ use crate::{
         VdSemSentenceArena, VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceIdx,
         VdSemSentenceIdxRange,
     },
-    stmt::{VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
+    stmt::{
+        VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtEntry, VdSemStmtIdx,
+        VdSemStmtIdxRange,
+    },
     symbol::local_defn::{
         storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData, VdSemSymbolLocalDefnIdx,
     },
@@ -260,7 +263,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.sentence_arena.alloc_batch(sentences)
     }
 
-    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemStmtData>) -> VdSemStmtIdxRange {
+    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemStmtEntry>) -> VdSemStmtIdxRange {
         self.stmt_arena.alloc_batch(stmts)
     }
 
