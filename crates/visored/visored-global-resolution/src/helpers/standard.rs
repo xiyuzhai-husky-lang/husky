@@ -42,6 +42,7 @@ fn standard_command_resolution_map(
         end: _,
         usepackage,
         documentclass,
+        newtheorem,
         part,
         chapter,
         section,

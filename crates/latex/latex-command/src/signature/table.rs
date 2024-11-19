@@ -81,6 +81,7 @@ impl LxCommandSignatureTable {
             end,
             usepackage,
             documentclass,
+            newtheorem,
             // - divisions
             part,
             chapter,
@@ -146,6 +147,7 @@ impl LxCommandSignatureTable {
                 // - root
                 (usepackage, &[Name]),
                 (documentclass, &[Name]),
+                (newtheorem, &[Name, Name]),
                 // - divisions
                 (part, &[Rose]),
                 (chapter, &[Rose]),

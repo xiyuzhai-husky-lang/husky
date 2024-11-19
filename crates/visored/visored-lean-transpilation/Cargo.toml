@@ -48,6 +48,8 @@ latex-ast.workspace = true
 # lean
 lean-term.workspace = true
 lean-sem-expr.workspace = true
+# utils
+husky-path-utils.workspace = true
 # visored
 visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
