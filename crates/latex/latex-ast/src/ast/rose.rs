@@ -54,12 +54,12 @@ pub enum LxRoseAstData {
         begin_lcurl_token_idx: LxRoseTokenIdx,
         begin_environment_name_token_idx: LxNameTokenIdx,
         begin_rcurl_token_idx: LxRoseTokenIdx,
+        environment_signature: LxEnvironmentSignature,
         asts: LxAstIdxRange,
         end_command_token_idx: LxRoseTokenIdx,
         end_lcurl_token_idx: LxRoseTokenIdx,
         end_environment_name_token_idx: LxNameTokenIdx,
         end_rcurl_token_idx: LxRoseTokenIdx,
-        environment_signature: LxEnvironmentSignature,
     },
     NewParagraph(LxRoseTokenIdx),
 }

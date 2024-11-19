@@ -1,5 +1,6 @@
 use crate::*;
 use husky_coword::Coword;
+use latex_environment::path::LxEnvironmentPath;
 use latex_vfs::path::LxFilePath;
 use rustc_hash::FxHashMap;
 use visored_prelude::division::VdDivisionLevel;
@@ -23,7 +24,7 @@ pub enum VdModulePathData {
     },
     Environment {
         parent: VdModulePath,
-        name: Coword,
+        environment_path: LxEnvironmentPath,
         disambiguator: u32,
     },
 }
@@ -49,9 +50,9 @@ impl VdModulePath {
                 parent,
                 disambiguator,
             },
-            VdModulePathTag::Environment(name) => VdModulePathData::Environment {
+            VdModulePathTag::Environment(environment_path) => VdModulePathData::Environment {
                 parent,
-                name,
+                environment_path,
                 disambiguator,
             },
         };
@@ -64,7 +65,7 @@ impl VdModulePath {
 pub enum VdModulePathTag {
     Division(VdDivisionLevel),
     Paragraph,
-    Environment(Coword),
+    Environment(LxEnvironmentPath),
 }
 
 pub struct VdModulePathRegistry {
@@ -92,8 +93,12 @@ impl VdModulePathRegistry {
         self.issue_new_child(VdModulePathTag::Paragraph, db)
     }
 
-    pub fn issue_new_environment(&mut self, name: Coword, db: &::salsa::Db) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Environment(name), db)
+    pub fn issue_new_environment(
+        &mut self,
+        environment_path: LxEnvironmentPath,
+        db: &::salsa::Db,
+    ) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Environment(environment_path), db)
     }
 
     fn issue_new_child(&mut self, tag: VdModulePathTag, db: &::salsa::Db) -> VdModulePath {
@@ -161,7 +166,7 @@ mod tests {
 
         // Test multiple environments (0 through 7)
         let mut env_paths = Vec::new();
-        let equation = Coword::from_ref(db, "equation");
+        let equation = LxEnvironmentPath::new("equation", db);
         for expected_disambiguator in 0..8 {
             let path = registry.issue_new_environment(equation, db);
             if let VdModulePathData::Environment { disambiguator, .. } = path.data(db) {

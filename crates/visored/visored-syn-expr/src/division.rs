@@ -198,7 +198,7 @@ impl<'a> VdSynExprBuilder<'a> {
                 }
             }
             _ => Some(VdSynDivisionData::Stmts {
-                stmts: self.parse_stmt_aux(ast_iter),
+                stmts: self.build_stmt_aux(ast_iter),
             }),
         }
     }

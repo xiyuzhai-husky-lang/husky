@@ -1355,6 +1355,7 @@
         name: "visored-item-path",
         dependencies: [
             "husky-coword",
+            "latex-environment",
             "latex-vfs",
         ],
     },
@@ -1384,6 +1385,7 @@
     JarPackageSummary {
         name: "visored-mir-expr",
         dependencies: [
+            "latex-environment",
             "latex-vfs",
             "visored-global-dispatch",
             "visored-item-path",
@@ -1394,7 +1396,6 @@
             "husky-coword",
             "latex-ast",
             "latex-command",
-            "latex-environment",
             "visored-global-dispatch",
             "visored-item-path",
             "visored-sem-expr",

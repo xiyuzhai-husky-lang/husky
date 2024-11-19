@@ -24,4 +24,21 @@ fn basic_body_to_vd_mir_works() {
                   └─ let placeholder
         "#]],
     );
+    t(
+        r#"\begin{example}\end{example}"#,
+        &expect![[r#"
+            └─ block: Division(Stmts)
+              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword(Id { value: 45 })) })
+        "#]],
+    );
+    t(
+        r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
+        &expect![[r#"
+            └─ block: Division(Stmts)
+              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword(Id { value: 45 })) })
+                └─ block: Paragraph
+                  └─ block: Sentence
+                    └─ let placeholder
+        "#]],
+    );
 }
