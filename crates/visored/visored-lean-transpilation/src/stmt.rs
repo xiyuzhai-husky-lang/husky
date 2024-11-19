@@ -26,6 +26,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                 let meta = match meta {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
+                    VdMirBlockMeta::Division(vd_division_level) => LnMirItemDefnGroupMeta::Division,
                 };
                 LnItemDefnData::Group { defns, meta }
             }

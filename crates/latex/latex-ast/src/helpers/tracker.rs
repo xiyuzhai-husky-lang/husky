@@ -16,8 +16,7 @@ use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
     helper::tracker::{
-        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxLispInput,
-        LxSnippetInput,
+        IsLxInput, LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxLispInput, LxPageInput,
     },
     mode::LxMode,
 };
@@ -115,7 +114,7 @@ impl<'a> IsLxAstInput<'a> for LxDocumentBodyInput<'a> {
     }
 }
 
-impl<'a> IsLxAstInput<'a> for LxSnippetInput<'a> {
+impl<'a> IsLxAstInput<'a> for LxPageInput<'a> {
     type LxAstOutput = LxRoseAstIdxRange;
 
     fn parse(mut parser: LxAstParser) -> Self::LxAstOutput {

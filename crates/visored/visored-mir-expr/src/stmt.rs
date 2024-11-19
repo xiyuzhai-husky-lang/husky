@@ -1,10 +1,14 @@
 pub mod block;
+#[cfg(test)]
+mod tests;
 
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
     clause::{r#let::VdSemLetClauseDispatch, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},
+    division::{VdSemDivisionData, VdSemDivisionIdx, VdSemDivisionIdxRange},
     sentence::{VdSemSentenceData, VdSemSentenceIdx, VdSemSentenceIdxRange},
     stmt::{VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
@@ -33,6 +37,39 @@ pub type VdMirStmtArena = Arena<VdMirStmtData>;
 pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
 pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
 pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
+
+impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+        let data = self
+            .into_iter()
+            .map(|division| builder.build_stmt_from_sem_division(division))
+            .collect::<Vec<_>>();
+        builder.alloc_stmts(data)
+    }
+}
+
+impl<'db> VdMirExprBuilder<'db> {
+    fn build_stmt_from_sem_division(&mut self, division: VdSemDivisionIdx) -> VdMirStmtData {
+        match self.sem_division_arena()[division] {
+            VdSemDivisionData::Stmts { stmts } => VdMirStmtData::Block {
+                stmts: stmts.to_vd_mir(self),
+                meta: VdMirBlockMeta::Division(VdDivisionLevel::Stmts),
+            },
+            // TODO: what to do for title?
+            VdSemDivisionData::Divisions {
+                command_token_idx,
+                level,
+                lcurl_token_idx,
+                title,
+                rcurl_token_idx,
+                subdivisions,
+            } => VdMirStmtData::Block {
+                stmts: subdivisions.to_vd_mir(self),
+                meta: VdMirBlockMeta::Division(level),
+            },
+        }
+    }
+}
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {

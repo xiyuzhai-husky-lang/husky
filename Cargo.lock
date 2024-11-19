@@ -12685,6 +12685,7 @@ dependencies = [
  "visored-global-resolution",
  "visored-item-path",
  "visored-opr",
+ "visored-prelude",
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",

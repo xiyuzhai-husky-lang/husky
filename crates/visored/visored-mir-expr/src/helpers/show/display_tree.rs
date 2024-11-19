@@ -2,7 +2,7 @@ use husky_tree_utils::display::DisplayTree;
 
 use crate::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
-    stmt::{VdMirStmtArenaRef, VdMirStmtIdx, VdMirStmtIdxRange},
+    stmt::{VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
 };
 
 pub struct VdMirExprDisplayTreeBuilder<'a> {
@@ -73,11 +73,22 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
     }
 
     pub fn render_stmt(&self, stmt: VdMirStmtIdx) -> DisplayTree {
-        todo!()
-        // let db = self.db;
-        // let (value, children) = match self.stmt_arena[stmt] {
-        //     VdMirStmtData::Let(ref let_stmt) => todo!(),
-        // };
-        // DisplayTree::new(value, children)
+        let db = self.db;
+        let (value, children) = match self.stmt_arena[stmt] {
+            VdMirStmtData::Block { stmts, ref meta } => {
+                (format!("block: {:?}", meta), self.render_stmts(stmts))
+            }
+            // TODO: render pattern and type
+            VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
+                (format!("let placeholder",), vec![])
+            }
+            // TODO: render pattern
+            VdMirStmtData::LetAssigned {
+                ref pattern,
+                assignment,
+            } => (format!("let assigned"), vec![self.render_expr(assignment)]),
+            VdMirStmtData::Then { formula } => (format!("then"), vec![self.render_expr(formula)]),
+        };
+        DisplayTree::new(value, children)
     }
 }
