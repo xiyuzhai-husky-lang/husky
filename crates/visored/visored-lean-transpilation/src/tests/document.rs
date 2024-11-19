@@ -30,7 +30,7 @@ Let $x\in\mathbb{R}$.
                 └─ group: `sentence`
                   └─ variable: `x`
         "#]],
-        &expect!["variable x : ℝ"],
+        &expect!["variable (x : ℝ)"],
     );
     t(
         r#"\documentclass{article}
@@ -48,7 +48,7 @@ Let $x\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            variable x : ℝ
+            variable (x : ℝ)
             end Section1
         "#]],
     );
@@ -83,10 +83,10 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            variable x : ℝ
+            variable (x : ℝ)
 
             namespace Subsection1
-            variable y : ℝ
+            variable (y : ℝ)
             end Subsection1
 
             namespace Subsection2
@@ -117,17 +117,26 @@ fn latex_shorts_to_lean_works() {
     for file in fs::read_dir(projects_dir.join("ai-math-autoformalization/latex/shorts")).unwrap() {
         let file = file.unwrap();
         let file_path = file.path();
-        if file_path.extension().unwrap() != "tex" {
+        if file_path.extension() != Some(&std::ffi::OsStr::new("tex")) {
             continue;
         }
         let content = &fs::read_to_string(&file_path).unwrap();
-        let filestem = file_path.file_stem().unwrap();
-        let file_path = LxFilePath::new(db, file_path);
+        let filestem = file_path.file_stem().unwrap().to_str().unwrap();
+        let file_path = LxFilePath::new(db, file_path.clone());
         let tracker =
             VdLeanTranspilationTracker::new(LxDocumentInput { file_path, content }, &[], &[], db);
-        expect_file![
-            projects_dir.join("ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean")
-        ]
-        .assert_eq(&tracker.show_fmt(db));
+        expect_file![projects_dir.join(format!(
+            "ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean",
+            filestem
+        ))]
+        .assert_eq(&format!(
+            r#"import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.Explode
+
+{}"#,
+            tracker.show_fmt(db)
+        ));
     }
 }

@@ -207,8 +207,9 @@ impl<'a> LnMirExprFormatter<'a> {
         let defn_arena = self.defn_arena;
         match defn_arena[defn] {
             LnItemDefnData::Variable { symbol, ty } => {
-                write!(self.result, "variable {} : ", symbol.data(self.db));
+                write!(self.result, "variable ({} : ", symbol.data(self.db));
                 self.format_expr_ext(ty);
+                write!(self.result, ")");
             }
             LnItemDefnData::Group { defns, ref meta } => {
                 self.make_sure_new_paragraph();

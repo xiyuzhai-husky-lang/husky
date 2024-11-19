@@ -26,7 +26,7 @@ fn basic_body_to_lean_works() {
                 └─ group: `sentence`
                   └─ variable: `x`
         "#]],
-        &expect!["variable x : ℕ"],
+        &expect!["variable (x : ℕ)"],
     );
     t(
         r#"\begin{example}\end{example}"#,
@@ -50,7 +50,7 @@ fn basic_body_to_lean_works() {
         "#]],
         &expect![[r#"
             namespace Example1
-            variable x : ℝ
+            variable (x : ℝ)
             end Example1
         "#]],
     );
@@ -65,7 +65,7 @@ fn basic_body_to_lean_works() {
         "#]],
         &expect![[r#"
             namespace Section1
-            variable x : ℝ
+            variable (x : ℝ)
             end Section1
         "#]],
     );
@@ -89,10 +89,10 @@ fn basic_body_to_lean_works() {
         "#]],
         &expect![[r#"
             namespace Section1
-            variable x : ℝ
+            variable (x : ℝ)
 
             namespace Subsection1
-            variable y : ℝ
+            variable (y : ℝ)
             end Subsection1
 
             namespace Subsection2
