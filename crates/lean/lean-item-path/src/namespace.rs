@@ -4,26 +4,40 @@ use smallvec::{smallvec, SmallVec, ToSmallVec};
 
 #[salsa::interned(override_debug)]
 pub struct LnNamespace {
-    pub parent: Option<LnNamespace>,
-    pub ident: LnIdent,
+    pub data: LnNamespaceData,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum LnNamespaceData {
+    Root,
+    Child(LnNamespace, LnIdent),
 }
 
 impl LnNamespace {
-    pub fn new_root(ident: String, db: &::salsa::Db) -> Self {
-        Self::new(db, None, LnIdent::from_owned(ident, db))
+    pub fn new_root(db: &::salsa::Db) -> Self {
+        Self::new(db, LnNamespaceData::Root)
     }
 
     pub fn from_ident_strs(idents: &[&str], db: &::salsa::Db) -> Self {
-        let mut ident_iter = idents.iter().copied();
-        let mut namespace = LnNamespace::new_root(ident_iter.next().unwrap().to_string(), &db);
-        for ident in ident_iter {
-            namespace = namespace.child(ident.to_string(), &db);
+        let mut namespace = LnNamespace::new(db, LnNamespaceData::Root);
+        for ident in idents {
+            namespace = namespace.child(ident.to_string(), db);
         }
         namespace
     }
 
     pub fn child(self, ident: String, db: &::salsa::Db) -> Self {
-        Self::new(db, Some(self), LnIdent::from_owned(ident, db))
+        Self::new(
+            db,
+            LnNamespaceData::Child(self, LnIdent::from_owned(ident, db)),
+        )
+    }
+
+    pub fn ident(self, db: &::salsa::Db) -> Option<LnIdent> {
+        match self.data(db) {
+            LnNamespaceData::Root => None,
+            LnNamespaceData::Child(_, ident) => Some(ident),
+        }
     }
 
     pub fn all_idents(self, db: &::salsa::Db) -> &[LnIdent] {
@@ -62,13 +76,13 @@ impl ::salsa::DebugWithDb for LnNamespace {
 
 #[salsa::tracked(return_ref)]
 fn ln_namespace_all_idents(db: &::salsa::Db, namespace: LnNamespace) -> SmallVec<[LnIdent; 4]> {
-    match namespace.parent(db) {
-        Some(parent) => {
+    match namespace.data(db) {
+        LnNamespaceData::Root => smallvec![],
+        LnNamespaceData::Child(parent, ident) => {
             let mut ids = parent.all_idents(db).to_smallvec();
-            ids.push(namespace.ident(db));
+            ids.push(ident);
             ids
         }
-        None => smallvec![namespace.ident(db)],
     }
 }
 
