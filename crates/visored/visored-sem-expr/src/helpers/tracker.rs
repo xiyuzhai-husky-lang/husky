@@ -123,6 +123,8 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             division_range_map: syn_division_range_map,
             symbol_local_defn_storage: syn_symbol_local_defn_storage,
             symbol_resolution_table: syn_symbol_resolution_table,
+            stmt_module_path_node_map: syn_stmt_module_path_node_map,
+            division_module_path_node_map: syn_division_module_path_node_map,
             output: syn_output,
         } = VdSynExprTracker::new(input, token_annotations, space_annotations, db);
         let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
@@ -142,6 +144,8 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             &syn_symbol_resolution_table,
             &item_path_zfc_ty_table,
             &default_global_dispatch_table,
+            &syn_stmt_module_path_node_map,
+            &syn_division_module_path_node_map,
         );
         let output = FromToVdSem::from_to_vd_sem(syn_output, &mut builder);
         let (

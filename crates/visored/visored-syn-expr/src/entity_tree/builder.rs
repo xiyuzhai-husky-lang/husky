@@ -7,17 +7,15 @@ use crate::{
     stmt::{VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap},
 };
 use latex_vfs::path::LxFilePath;
-use smallvec::SmallVec;
 use visored_item_path::module::{VdModulePath, VdModulePathRegistry};
-use visored_prelude::division::VdDivisionLevel;
 
 pub struct VdSynExprEntityTreeBuilder<'a> {
     db: &'a ::salsa::Db,
     file_path: LxFilePath,
     stmt_arena: VdSynStmtArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
-    stmt_module_path_node_map: VdSynStmtMap<VdModulePath>,
-    division_module_path_node_map: VdSynDivisionMap<VdModulePath>,
+    stmt_module_path_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    division_module_path_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
 }
 
 impl VdSynExprEntityTreeNode {
@@ -101,7 +99,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         let node = self.calc_division(division, registry);
         let module_path = node.module_path();
         self.division_module_path_node_map
-            .insert_new(division, module_path);
+            .insert_new(division, node);
         module_path
     }
 
@@ -155,7 +153,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
     ) -> VdModulePath {
         let node = self.calc_stmt(stmt, registry);
         let module_path = node.module_path();
-        self.stmt_module_path_node_map.insert_new(stmt, module_path);
+        self.stmt_module_path_node_map.insert_new(stmt, node);
         module_path
     }
 
@@ -189,7 +187,12 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         }
     }
 
-    pub(super) fn finish(self) -> (VdSynStmtMap<VdModulePath>, VdSynDivisionMap<VdModulePath>) {
+    pub(super) fn finish(
+        self,
+    ) -> (
+        VdSynStmtMap<VdSynExprEntityTreeNode>,
+        VdSynDivisionMap<VdSynExprEntityTreeNode>,
+    ) {
         (
             self.stmt_module_path_node_map,
             self.division_module_path_node_map,

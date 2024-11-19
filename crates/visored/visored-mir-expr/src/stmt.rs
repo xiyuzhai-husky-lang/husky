@@ -50,7 +50,7 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
 
 impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_division(&mut self, division: VdSemDivisionIdx) -> VdMirStmtData {
-        match self.sem_division_arena()[division] {
+        match *self.sem_division_arena()[division].data() {
             VdSemDivisionData::Stmts { stmts } => VdMirStmtData::Block {
                 stmts: stmts.to_vd_mir(self),
                 meta: VdMirBlockMeta::Division(VdDivisionLevel::Stmts),
