@@ -107,6 +107,10 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
     }
 }
 
+impl<'a> IsVdMirExprInput<'a> for LxDocumentInput<'a> {
+    type VdMirExprOutput = VdMirStmtIdxRange;
+}
+
 impl<'a> IsVdMirExprInput<'a> for LxDocumentBodyInput<'a> {
     type VdMirExprOutput = VdMirStmtIdxRange;
 }

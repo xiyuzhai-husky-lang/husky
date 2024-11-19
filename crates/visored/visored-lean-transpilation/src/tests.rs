@@ -1,4 +1,5 @@
-pub mod body;
+mod body;
+mod document;
 mod expr;
 mod page;
 

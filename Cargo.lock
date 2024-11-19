@@ -12601,6 +12601,7 @@ version = "0.1.0"
 dependencies = [
  "enum-index",
  "latex-command",
+ "latex-environment",
  "latex-math-letter",
  "latex-math-punctuation",
  "rustc-hash 2.0.0",
