@@ -95,16 +95,16 @@ fn basic_body_to_lean_works() {
             variable y : ℝ
             end Subsection1
 
-            namespace Subsection1
-            end Subsection1
-
             namespace Subsection2
+            end Subsection2
+
+            namespace Subsection3
             namespace Subsubsection1
             end Subsubsection1
 
-            namespace Subsubsection1
-            end Subsubsection1
-            end Subsection2
+            namespace Subsubsection2
+            end Subsubsection2
+            end Subsection3
             end Section1
         "#]],
     );

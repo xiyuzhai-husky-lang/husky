@@ -6,6 +6,7 @@ use crate::{
     },
     stmt::{VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap},
 };
+use itertools::Itertools;
 use latex_vfs::path::LxFilePath;
 use visored_item_path::module::{VdModulePath, VdModulePathRegistry};
 
@@ -112,7 +113,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         let division_data = &division_arena[division];
         let module_path = registry.issue_new_division(division_data.kind(), self.db);
         let mut division_registry = VdModulePathRegistry::new(module_path);
-        let children = match *division_data {
+        let children: Vec<VdModulePath> = match *division_data {
             VdSynDivisionData::Stmts { stmts } => stmts
                 .into_iter()
                 .map(|stmt| self.build_stmt(stmt, &mut division_registry))
@@ -128,6 +129,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
                 .map(|division| self.build_division(division, &mut division_registry))
                 .collect(),
         };
+        debug_assert_eq!(children.len(), children.iter().unique().count());
         VdSynExprEntityTreeNode {
             module_path,
             children,
