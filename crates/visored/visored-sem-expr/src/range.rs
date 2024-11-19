@@ -2,7 +2,10 @@ use crate::{
     clause::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseMap,
     },
-    division::{VdSemDivisionArena, VdSemDivisionMap},
+    division::{
+        VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx,
+        VdSemDivisionMap,
+    },
     expr::{
         delimited::{VdSemLeftDelimiter, VdSemRightDelimiter},
         prefix::VdSemPrefixOpr,
@@ -80,6 +83,7 @@ struct VdSemExprRangeCalculator<'db> {
     clause_arena: VdSemClauseArenaRef<'db>,
     sentence_arena: VdSemSentenceArenaRef<'db>,
     stmt_arena: VdSemStmtArenaRef<'db>,
+    division_arena: VdSemDivisionArenaRef<'db>,
     expr_range_map: VdSemExprTokenIdxRangeMap,
     phrase_range_map: VdSemPhraseTokenIdxRangeMap,
     clause_range_map: VdSemClauseTokenIdxRangeMap,
@@ -105,6 +109,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             clause_arena: clause_arena.as_arena_ref(),
             sentence_arena: sentence_arena.as_arena_ref(),
             stmt_arena: stmt_arena.as_arena_ref(),
+            division_arena: division_arena.as_arena_ref(),
             expr_range_map: VdSemExprTokenIdxRangeMap::new(expr_arena),
             phrase_range_map: VdSemPhraseTokenIdxRangeMap::new(phrase_arena),
             clause_range_map: VdSemClauseTokenIdxRangeMap::new(clause_arena),
@@ -131,6 +136,9 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         }
         for stmt in self.stmt_arena.index_iter() {
             self.infer_stmt(stmt);
+        }
+        for division in self.division_arena.index_iter() {
+            self.infer_division(division);
         }
     }
 
@@ -343,6 +351,38 @@ impl<'db> VdSemExprRangeCalculator<'db> {
     fn get_stmt(&mut self, stmt: VdSemStmtIdx) -> VdSemStmtTokenIdxRange {
         self.infer_stmt(stmt);
         self.stmt_range_map[stmt]
+    }
+
+    fn infer_division(&mut self, division: VdSemDivisionIdx) {
+        if self.division_range_map.has(division) {
+            return;
+        }
+        let range = self.calc_division(division);
+        self.division_range_map.insert(division, range);
+    }
+
+    fn calc_division(&mut self, division: VdSemDivisionIdx) -> VdSemDivisionTokenIdxRange {
+        match self.division_arena[division] {
+            VdSemDivisionData::Stmts { stmts } => self
+                .get_stmt(stmts.start())
+                .join(self.get_stmt(stmts.last().expect("stmts are always non-empty"))),
+            VdSemDivisionData::Divisions {
+                command_token_idx,
+                rcurl_token_idx,
+                subdivisions,
+                ..
+            } => match subdivisions.last() {
+                Some(last) => {
+                    LxTokenIdxRange::new(*command_token_idx, self.get_division(last).end())
+                }
+                None => LxTokenIdxRange::new_closed(*command_token_idx, *rcurl_token_idx),
+            },
+        }
+    }
+
+    fn get_division(&mut self, division: VdSemDivisionIdx) -> VdSemDivisionTokenIdxRange {
+        self.infer_division(division);
+        self.division_range_map[division]
     }
 
     fn finish(

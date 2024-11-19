@@ -1,14 +1,15 @@
 use super::*;
 use crate::{
     division::{
-        VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionIdx, VdSynDivisionIdxRange,
-        VdSynDivisionMap,
+        VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionData, VdSynDivisionIdx,
+        VdSynDivisionIdxRange, VdSynDivisionMap,
     },
     stmt::{VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap},
 };
 use latex_vfs::path::LxFilePath;
 use smallvec::SmallVec;
 use visored_item_path::module::{VdModulePath, VdModulePathRegistry};
+use visored_prelude::division::VdDivisionLevel;
 
 pub struct VdSynExprEntityTreeBuilder<'a> {
     db: &'a ::salsa::Db,
@@ -113,16 +114,23 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         let division_data = &division_arena[division];
         let module_path = registry.issue_new_division(division_data.kind(), self.db);
         let mut division_registry = VdModulePathRegistry::new(module_path);
-        let children = division_data
-            .children()
-            .iter()
-            .map(|&child| match child {
-                VdSynDivisionChild::Division(division) => {
-                    self.build_division(division, &mut division_registry)
-                }
-                VdSynDivisionChild::Stmt(stmt) => self.build_stmt(stmt, &mut division_registry),
-            })
-            .collect();
+        let children = match *division_data {
+            VdSynDivisionData::Stmts { stmts } => stmts
+                .into_iter()
+                .map(|stmt| self.build_stmt(stmt, registry))
+                .collect(),
+            VdSynDivisionData::Divisions {
+                command_token_idx,
+                level,
+                lcurl_token_idx,
+                title,
+                rcurl_token_idx,
+                subdivisions,
+            } => subdivisions
+                .into_iter()
+                .map(|division| self.build_division(division, &mut division_registry))
+                .collect(),
+        };
         VdSynExprEntityTreeNode {
             module_path,
             children,
