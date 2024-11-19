@@ -276,7 +276,7 @@ impl<'db> VdSynExprBuilder<'db> {
             &self.stmt_arena,
             &self.division_arena,
         );
-        let (root_node, stmt_module_path_node_map, division_module_path_node_map) =
+        let (root_node, stmt_entity_tree_node_map, division_entity_tree_node_map) =
             build_entity_tree_with(
                 self.db,
                 self.file_path,
@@ -303,8 +303,8 @@ impl<'db> VdSynExprBuilder<'db> {
             &sentence_range_map,
             &stmt_range_map,
             &division_range_map,
-            &stmt_module_path_node_map,
-            &division_module_path_node_map,
+            &stmt_entity_tree_node_map,
+            &division_entity_tree_node_map,
             output,
         );
         (
@@ -321,8 +321,8 @@ impl<'db> VdSynExprBuilder<'db> {
             stmt_range_map,
             division_range_map,
             root_node,
-            stmt_module_path_node_map,
-            division_module_path_node_map,
+            stmt_entity_tree_node_map,
+            division_entity_tree_node_map,
             symbol_defns,
             symbol_resolutions,
         )
