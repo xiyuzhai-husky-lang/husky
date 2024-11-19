@@ -22,7 +22,13 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         let db = self.db();
         match self.stmt_arena()[stmt] {
             VdMirStmtData::Block { stmts, ref meta } => {
-                let defns = stmts.to_lean(self);
+                let defns = match *meta {
+                    VdMirBlockMeta::Paragraph | VdMirBlockMeta::Sentence => stmts.to_lean(self),
+                    VdMirBlockMeta::Environment(_, module_path)
+                    | VdMirBlockMeta::Division(_, module_path) => {
+                        self.with_module_path(module_path, |builder| stmts.to_lean(builder))
+                    }
+                };
                 let meta = match meta {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,

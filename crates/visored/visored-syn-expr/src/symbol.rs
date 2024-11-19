@@ -44,8 +44,8 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
-    stmt_module_path_node_map: &VdSynStmtMap<VdSynExprEntityTreeNode>,
-    division_module_path_node_map: &VdSynDivisionMap<VdSynExprEntityTreeNode>,
+    stmt_entity_tree_node_map: &VdSynStmtMap<VdSynExprEntityTreeNode>,
+    division_entity_tree_node_map: &VdSynDivisionMap<VdSynExprEntityTreeNode>,
     t: impl IsVdSynOutput,
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
@@ -63,8 +63,8 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
         sentence_range_map,
         stmt_range_map,
         division_range_map,
-        stmt_module_path_node_map,
-        division_module_path_node_map,
+        stmt_entity_tree_node_map,
+        division_entity_tree_node_map,
     );
     t.build_all_symbols(&mut symbol_builder);
     symbol_builder.finish()

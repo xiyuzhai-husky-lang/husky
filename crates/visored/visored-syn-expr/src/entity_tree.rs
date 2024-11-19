@@ -41,10 +41,10 @@ pub(crate) fn build_entity_tree_with(
 ) {
     let mut builder = VdSynExprEntityTreeBuilder::new(db, file_path, stmt_arena, division_arena);
     let root_node = output.build_entity_tree_root_node(&mut builder);
-    let (stmt_module_path_node_map, division_module_path_node_map) = builder.finish();
+    let (stmt_entity_tree_node_map, division_entity_tree_node_map) = builder.finish();
     (
         root_node,
-        stmt_module_path_node_map,
-        division_module_path_node_map,
+        stmt_entity_tree_node_map,
+        division_entity_tree_node_map,
     )
 }

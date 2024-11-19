@@ -55,7 +55,7 @@ impl ToVdSem<VdSemDivisionIdxRange> for VdSynDivisionIdxRange {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemDivisionIdxRange {
         let mut divisions: Vec<VdSemDivisionEntry> = vec![];
         for division in self {
-            let module_path = builder.division_module_path_node_map()[division].module_path();
+            let module_path = builder.division_entity_tree_node_map()[division].module_path();
             divisions.push(VdSemDivisionEntry::new(
                 builder.build_division(division),
                 module_path,

@@ -56,7 +56,7 @@ impl ToVdSem<VdSemStmtIdxRange> for VdSynStmtIdxRange {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemStmtIdxRange {
         let mut stmts: Vec<VdSemStmtEntry> = vec![];
         for stmt in self {
-            let module_path = builder.stmt_module_path_node_map()[stmt].module_path();
+            let module_path = builder.stmt_entity_tree_node_map()[stmt].module_path();
             stmts.push(VdSemStmtEntry::new(builder.build_stmt(stmt), module_path));
         }
         builder.alloc_stmts(stmts)

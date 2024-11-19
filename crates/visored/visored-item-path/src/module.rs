@@ -60,6 +60,17 @@ impl VdModulePath {
     }
 }
 
+impl VdModulePath {
+    pub fn parent(&self, db: &::salsa::Db) -> Option<Self> {
+        match self.data(db) {
+            VdModulePathData::Root(_) => None,
+            VdModulePathData::Division { parent, .. } => Some(parent),
+            VdModulePathData::Paragraph { parent, .. } => Some(parent),
+            VdModulePathData::Environment { parent, .. } => Some(parent),
+        }
+    }
+}
+
 /// Data without parent and disambiguator
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdModulePathTag {
