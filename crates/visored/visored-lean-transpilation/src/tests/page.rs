@@ -21,7 +21,7 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable x : ℕ"],
+        &expect!["variable (x : ℕ)"],
     );
     t(
         "Let $x\\in\\mathbb{Z}$.",
@@ -30,7 +30,7 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable x : ℤ"],
+        &expect!["variable (x : ℤ)"],
     );
     t(
         "Let $x\\in\\mathbb{Q}$.",
@@ -39,7 +39,7 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable x : ℚ"],
+        &expect!["variable (x : ℚ)"],
     );
     t(
         "Let $x\\in\\mathbb{R}$.",
@@ -48,7 +48,7 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable x : ℝ"],
+        &expect!["variable (x : ℝ)"],
     );
     t(
         "Let $x\\in\\mathbb{C}$.",
@@ -57,7 +57,7 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable x : ℂ"],
+        &expect!["variable (x : ℂ)"],
     );
     t(
         "Let $x\\in\\mathbb{R}$. Then $x=x$.",
@@ -73,7 +73,7 @@ fn basic_visored_clause_to_lean_works() {
                   └─ sorry
         "#]],
         &expect![[r#"
-            variable x : ℝ
+            variable (x : ℝ)
 
             def h : x = x := sorry"#]],
     );
@@ -93,7 +93,7 @@ fn basic_visored_clause_to_lean_works() {
                   └─ sorry
         "#]],
         &expect![[r#"
-            variable x : ℕ
+            variable (x : ℕ)
 
             def h : 2 * x ≥ x := sorry"#]],
     );
@@ -141,7 +141,7 @@ fn basic_visored_clause_to_lean_works() {
                   └─ sorry
         "#]],
         &expect![[r#"
-            variable x : ℝ
+            variable (x : ℝ)
 
             def h : (x - 1) ^ 2 ≥ 0 := sorry
 
