@@ -22,7 +22,7 @@ fn basic_document_to_vd_mir_works() {
 Let $x\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
-            └─ block: Division(Stmts)
+            └─ block: Division(Stmts, VdModulePath(Id { value: 2 }))
               └─ block: Paragraph
                 └─ block: Sentence
                   └─ let placeholder
@@ -36,8 +36,8 @@ Let $x\in\mathbb{R}$.
 Let $x\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
-            └─ block: Division(Section)
-              └─ block: Division(Stmts)
+            └─ block: Division(Section, VdModulePath(Id { value: 2 }))
+              └─ block: Division(Stmts, VdModulePath(Id { value: 3 }))
                 └─ block: Paragraph
                   └─ block: Sentence
                     └─ let placeholder
@@ -57,20 +57,20 @@ Let $y\in\mathbb{R}$.
 \subsubsection{Bad}
 \end{document}"#,
         &expect![[r#"
-            └─ block: Division(Section)
-              ├─ block: Division(Stmts)
+            └─ block: Division(Section, VdModulePath(Id { value: 2 }))
+              ├─ block: Division(Stmts, VdModulePath(Id { value: 3 }))
               │ └─ block: Paragraph
               │   └─ block: Sentence
               │     └─ let placeholder
-              ├─ block: Division(Subsection)
-              │ └─ block: Division(Stmts)
+              ├─ block: Division(Subsection, VdModulePath(Id { value: 5 }))
+              │ └─ block: Division(Stmts, VdModulePath(Id { value: 6 }))
               │   └─ block: Paragraph
               │     └─ block: Sentence
               │       └─ let placeholder
-              ├─ block: Division(Subsection)
-              └─ block: Division(Subsection)
-                ├─ block: Division(Subsubsection)
-                └─ block: Division(Subsubsection)
+              ├─ block: Division(Subsection, VdModulePath(Id { value: 5 }))
+              └─ block: Division(Subsection, VdModulePath(Id { value: 8 }))
+                ├─ block: Division(Subsubsection, VdModulePath(Id { value: 9 }))
+                └─ block: Division(Subsubsection, VdModulePath(Id { value: 9 }))
         "#]],
     );
 }

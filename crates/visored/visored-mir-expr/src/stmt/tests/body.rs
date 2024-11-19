@@ -18,7 +18,7 @@ fn basic_body_to_vd_mir_works() {
     t(
         r#"Let $x\in\mathbb{R}$."#,
         &expect![[r#"
-            └─ block: Division(Stmts)
+            └─ block: Division(Stmts, VdModulePath(Id { value: 2 }))
               └─ block: Paragraph
                 └─ block: Sentence
                   └─ let placeholder
@@ -27,15 +27,15 @@ fn basic_body_to_vd_mir_works() {
     t(
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
-            └─ block: Division(Stmts)
-              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword(Id { value: 45 })) })
+            └─ block: Division(Stmts, VdModulePath(Id { value: 2 }))
+              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword(Id { value: 45 })) }, VdModulePath(Id { value: 3 }))
         "#]],
     );
     t(
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
-            └─ block: Division(Stmts)
-              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword(Id { value: 45 })) })
+            └─ block: Division(Stmts, VdModulePath(Id { value: 2 }))
+              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword(Id { value: 45 })) }, VdModulePath(Id { value: 3 }))
                 └─ block: Paragraph
                   └─ block: Sentence
                     └─ let placeholder
