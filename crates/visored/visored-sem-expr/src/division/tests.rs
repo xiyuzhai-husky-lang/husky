@@ -1,5 +1,5 @@
 use super::*;
-use crate::helpers::tracker::VdSynExprTracker;
+use crate::helpers::tracker::VdSemExprTracker;
 use expect_test::{expect, Expect};
 use latex_prelude::{helper::tracker::LxDocumentBodyInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
@@ -7,11 +7,11 @@ use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(content: &str, expected: &Expect) {
-    use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
+    use crate::helpers::show::display_tree::VdSemExprDisplayTreeBuilder;
 
     let db = &DB::default();
     let file_path = LxFilePath::new(db, PathBuf::from(file!()));
-    let tracker = VdSynExprTracker::new(LxDocumentBodyInput { file_path, content }, &[], &[], db);
+    let tracker = VdSemExprTracker::new(LxDocumentBodyInput { file_path, content }, &[], &[], db);
     expected.assert_eq(&tracker.show_display_tree(db));
 }
 
@@ -32,7 +32,7 @@ fn parse_vd_syn_divisions_works() {
     t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
         &expect![[r#"
-            └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$." division.section
+            └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$." division.divisions
               ├─ title
               │ └─ "Introduction" stmt.paragraph
               │   └─ "Introduction" sentence.clauses
@@ -49,7 +49,7 @@ fn parse_vd_syn_divisions_works() {
     t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$.\subsection{Hello}Let $y\in\mathbb{R}$.\subsection{World}\subsection{This}\subsubsection{Is}\subsubsection{Bad}"#,
         &expect![[r#"
-            └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$.\\subsection{Hello}Let $y\\in\\mathbb{R}$.\\subsection{World}\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.section
+            └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$.\\subsection{Hello}Let $y\\in\\mathbb{R}$.\\subsection{World}\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.divisions
               ├─ title
               │ └─ "Introduction" stmt.paragraph
               │   └─ "Introduction" sentence.clauses
@@ -61,7 +61,7 @@ fn parse_vd_syn_divisions_works() {
               │       └─ "x\\in\\mathbb{R}" expr.separated_list
               │         ├─ "x" expr.letter
               │         └─ "\\mathbb{R}" expr.letter
-              ├─ "\\subsection{Hello}Let $y\\in\\mathbb{R}$." division.subsection
+              ├─ "\\subsection{Hello}Let $y\\in\\mathbb{R}$." division.divisions
               │ ├─ title
               │ │ └─ "Hello" stmt.paragraph
               │ │   └─ "Hello" sentence.clauses
@@ -73,22 +73,22 @@ fn parse_vd_syn_divisions_works() {
               │         └─ "y\\in\\mathbb{R}" expr.separated_list
               │           ├─ "y" expr.letter
               │           └─ "\\mathbb{R}" expr.letter
-              ├─ "\\subsection{World}" division.subsection
+              ├─ "\\subsection{World}" division.divisions
               │ └─ title
               │   └─ "World" stmt.paragraph
               │     └─ "World" sentence.clauses
               │       └─ "World" clause.todo
-              └─ "\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.subsection
+              └─ "\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.divisions
                 ├─ title
                 │ └─ "This" stmt.paragraph
                 │   └─ "This" sentence.clauses
                 │     └─ "This" clause.todo
-                ├─ "\\subsubsection{Is}" division.subsubsection
+                ├─ "\\subsubsection{Is}" division.divisions
                 │ └─ title
                 │   └─ "Is" stmt.paragraph
                 │     └─ "Is" sentence.clauses
                 │       └─ "Is" clause.todo
-                └─ "\\subsubsection{Bad}" division.subsubsection
+                └─ "\\subsubsection{Bad}" division.divisions
                   └─ title
                     └─ "Bad" stmt.paragraph
                       └─ "Bad" sentence.clauses

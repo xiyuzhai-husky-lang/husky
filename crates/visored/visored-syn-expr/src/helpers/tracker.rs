@@ -28,9 +28,7 @@ use latex_ast::{
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
-    helper::tracker::{
-        LxDocumentBodyInput, LxDocumentInput, LxDocumentParagraphsInput, LxFormulaInput,
-    },
+    helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxSnippetInput},
     mode::LxMode,
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
@@ -203,7 +201,7 @@ impl<'a> IsVdSynExprInput<'a> for LxDocumentBodyInput<'a> {
     type VdSynExprOutput = VdSynDivisionIdxRange;
 }
 
-impl<'a> IsVdSynExprInput<'a> for LxDocumentParagraphsInput<'a> {
+impl<'a> IsVdSynExprInput<'a> for LxSnippetInput<'a> {
     type VdSynExprOutput = VdSynStmtIdxRange;
 }
 

@@ -56,7 +56,7 @@ impl ToVdSem<VdSemSentenceEnd> for VdSynSentenceEnd {
             VdSynSentenceEnd::Period(lx_rose_token_idx) => {
                 VdSemSentenceEnd::Period(lx_rose_token_idx)
             }
-            VdSynSentenceEnd::Void => todo!(),
+            VdSynSentenceEnd::Void => VdSemSentenceEnd::Void,
         }
     }
 }
