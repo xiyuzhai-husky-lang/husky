@@ -8,6 +8,7 @@ pub struct LxCommandPathMenu {
     // - root
     pub usepackage: LxCommandPath,
     pub documentclass: LxCommandPath,
+    pub newtheorem: LxCommandPath,
     // - divisions
     pub part: LxCommandPath,
     pub chapter: LxCommandPath,
@@ -69,6 +70,7 @@ impl LxCommandPathMenu {
             // - root
             usepackage: p("usepackage"),
             documentclass: p("documentclass"),
+            newtheorem: p("newtheorem"),
             // - divisions
             part: p("part"),
             chapter: p("chapter"),
