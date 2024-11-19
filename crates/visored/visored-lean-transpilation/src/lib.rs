@@ -4,6 +4,7 @@ mod expr;
 pub mod helpers;
 pub mod jar;
 pub mod mangle;
+pub mod namespace;
 pub mod stmt;
 #[cfg(test)]
 mod tests;

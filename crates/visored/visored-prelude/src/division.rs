@@ -25,6 +25,17 @@ impl VdDivisionLevel {
             VdDivisionLevel::Stmts => "stmts",
         }
     }
+
+    pub fn uppercase_code_name(&self) -> &'static str {
+        match self {
+            VdDivisionLevel::Part => "Part",
+            VdDivisionLevel::Chapter => "Chapter",
+            VdDivisionLevel::Section => "Section",
+            VdDivisionLevel::Subsection => "Subsection",
+            VdDivisionLevel::Subsubsection => "Subsubsection",
+            VdDivisionLevel::Stmts => "Stmts",
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord, Hash)]
