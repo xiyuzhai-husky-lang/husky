@@ -1,3 +1,6 @@
+#[cfg(test)]
+pub mod tests;
+
 use crate::sentence::VdSemSentenceIdxRange;
 use crate::*;
 use husky_coword::Coword;
@@ -5,14 +8,17 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_environment::signature::LxEnvironmentSignature;
+use latex_token::idx::LxRoseTokenIdx;
 use sentence::VdSemSentenceIdx;
 use visored_syn_expr::stmt::{VdSynStmtData, VdSynStmtIdx};
 
 pub enum VdSemStmtData {
     Paragraph(VdSemSentenceIdxRange),
     Environment {
+        begin_command_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
         stmts: VdSemStmtIdxRange,
+        end_rcurl_token_idx: LxRoseTokenIdx,
     },
 }
 
@@ -43,9 +49,13 @@ impl<'a> VdSemExprBuilder<'a> {
             VdSynStmtData::Environment {
                 environment_signature,
                 stmts,
+                begin_command_token_idx,
+                end_rcurl_token_idx,
             } => VdSemStmtData::Environment {
                 environment_signature,
                 stmts: stmts.to_vd_sem(self),
+                begin_command_token_idx,
+                end_rcurl_token_idx,
             },
         }
     }
@@ -66,6 +76,8 @@ impl VdSemStmtData {
             VdSemStmtData::Environment {
                 environment_signature,
                 stmts,
+                begin_command_token_idx,
+                end_rcurl_token_idx,
             } => stmts.into_iter().map(|s| VdSemStmtChild::Stmt(s)).collect(),
         }
     }

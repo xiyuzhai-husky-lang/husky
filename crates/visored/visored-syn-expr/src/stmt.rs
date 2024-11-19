@@ -10,17 +10,20 @@ use idx_arena::{
 use latex_ast::ast::{
     root::LxRootAstIdxRange,
     rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
+    LxAstIdxRange,
 };
 use latex_environment::signature::LxEnvironmentSignature;
-use latex_token::idx::{LxRoseTokenIdx, LxTokenIdxRange};
+use latex_token::idx::{LxNameTokenIdx, LxRoseTokenIdx, LxTokenIdxRange};
 use std::iter::Peekable;
 use visored_global_resolution::resolution::command::VdCompleteCommandGlobalResolution;
 
 pub enum VdSynStmtData {
     Paragraph(VdSynSentenceIdxRange),
     Environment {
+        begin_command_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
         stmts: VdSynStmtIdxRange,
+        end_rcurl_token_idx: LxRoseTokenIdx,
     },
 }
 
@@ -39,28 +42,28 @@ impl ToVdSyn<VdSynStmtIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
 
 impl ToVdSyn<VdSynStmtIdxRange> for LxRoseAstIdxRange {
     fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynStmtIdxRange {
-        builder.parse_stmts(self)
+        builder.build_stmts(self)
     }
 }
 
 impl<'db> VdSynExprBuilder<'db> {
-    fn parse_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynStmtIdxRange {
+    fn build_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynStmtIdxRange {
         let mut asts = asts.into_iter().peekable();
-        self.parse_stmt_aux(&mut asts)
+        self.build_stmt_aux(&mut asts)
     }
 
-    pub(crate) fn parse_stmt_aux(
+    pub(crate) fn build_stmt_aux(
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynStmtIdxRange {
         let mut stmts: Vec<VdSynStmtData> = Vec::new();
-        while let Some(stmt) = self.parse_stmt(asts) {
+        while let Some(stmt) = self.build_stmt(asts) {
             stmts.push(stmt);
         }
         self.alloc_stmts(stmts)
     }
 
-    fn parse_stmt(
+    fn build_stmt(
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> Option<VdSynStmtData> {
@@ -70,9 +73,9 @@ impl<'db> VdSynExprBuilder<'db> {
         }
 
         let ast_idx = asts.next()?;
-        match self.ast_arena()[ast_idx] {
+        Some(match self.ast_arena()[ast_idx] {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
-            LxRoseAstData::Word(token_idx, word) => self.parse_paragraph(token_idx, word, asts),
+            LxRoseAstData::Word(token_idx, word) => self.build_paragraph(token_idx, word, asts),
             LxRoseAstData::Punctuation(token_idx, punctuation) => {
                 todo!("punctuation: {}", punctuation)
             }
@@ -90,17 +93,39 @@ impl<'db> VdSynExprBuilder<'db> {
                 options,
                 ref arguments,
             } => todo!(),
-            LxRoseAstData::Environment { .. } => todo!(),
+            LxRoseAstData::Environment {
+                begin_command_token_idx,
+                begin_lcurl_token_idx,
+                begin_environment_name_token_idx,
+                begin_rcurl_token_idx,
+                asts,
+                end_command_token_idx,
+                end_lcurl_token_idx,
+                end_environment_name_token_idx,
+                end_rcurl_token_idx,
+                environment_signature,
+            } => self.build_environment(
+                begin_command_token_idx,
+                begin_lcurl_token_idx,
+                begin_environment_name_token_idx,
+                begin_rcurl_token_idx,
+                asts,
+                end_command_token_idx,
+                end_lcurl_token_idx,
+                end_environment_name_token_idx,
+                end_rcurl_token_idx,
+                environment_signature,
+            ),
             LxRoseAstData::NewParagraph(_) => todo!(),
-        }
+        })
     }
 
-    fn parse_paragraph(
+    fn build_paragraph(
         &mut self,
         token_idx: LxRoseTokenIdx,
         word: Coword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
-    ) -> Option<VdSynStmtData> {
+    ) -> VdSynStmtData {
         let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];
         loop {
             // stop on new division
@@ -141,7 +166,33 @@ impl<'db> VdSynExprBuilder<'db> {
                 LxRoseAstData::NewParagraph(_) => todo!(),
             }
         }
-        Some(VdSynStmtData::Paragraph(self.alloc_sentences(sentences)))
+        VdSynStmtData::Paragraph(self.alloc_sentences(sentences))
+    }
+
+    fn build_environment(
+        &mut self,
+        begin_command_token_idx: LxRoseTokenIdx,
+        begin_lcurl_token_idx: LxRoseTokenIdx,
+        begin_environment_name_token_idx: LxNameTokenIdx,
+        begin_rcurl_token_idx: LxRoseTokenIdx,
+        asts: LxAstIdxRange,
+        end_command_token_idx: LxRoseTokenIdx,
+        end_lcurl_token_idx: LxRoseTokenIdx,
+        end_environment_name_token_idx: LxNameTokenIdx,
+        end_rcurl_token_idx: LxRoseTokenIdx,
+        environment_signature: LxEnvironmentSignature,
+    ) -> VdSynStmtData {
+        VdSynStmtData::Environment {
+            begin_command_token_idx,
+            environment_signature,
+            stmts: match asts {
+                LxAstIdxRange::Math(arena_idx_range) => todo!(),
+                LxAstIdxRange::Root(arena_idx_range) => todo!(),
+                LxAstIdxRange::Rose(asts) => asts.to_vd_syn(self),
+                LxAstIdxRange::Lisp(arena_idx_range) => todo!(),
+            },
+            end_rcurl_token_idx,
+        }
     }
 }
 
@@ -171,6 +222,8 @@ impl<'db> VdSynSymbolBuilder<'db> {
             VdSynStmtData::Environment {
                 environment_signature,
                 stmts,
+                begin_command_token_idx,
+                end_rcurl_token_idx,
             } => self.build_stmts(stmts),
         }
     }

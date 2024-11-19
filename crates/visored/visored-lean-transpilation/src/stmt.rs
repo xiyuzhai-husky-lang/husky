@@ -27,6 +27,9 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
                     VdMirBlockMeta::Division(vd_division_level) => LnMirItemDefnGroupMeta::Division,
+                    VdMirBlockMeta::Environment(lx_environment_path) => {
+                        LnMirItemDefnGroupMeta::Environment
+                    }
                 };
                 LnItemDefnData::Group { defns, meta }
             }

@@ -219,10 +219,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         let source = &self.input[offset_range];
         let value = match self.stmt_arena[stmt] {
             VdSynStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
-            VdSynStmtData::Environment {
-                environment_signature,
-                stmts,
-            } => format!("{:?} stmt.block", source),
+            VdSynStmtData::Environment { .. } => format!("{:?} stmt.block", source),
         };
         DisplayTree::new(
             value,
