@@ -1,5 +1,6 @@
-mod clause;
+pub mod body;
 mod expr;
+mod page;
 
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean, *};
 use expect_test::{expect, Expect};
