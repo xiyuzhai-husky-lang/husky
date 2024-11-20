@@ -2,6 +2,8 @@ pub mod digit;
 
 use self::digit::LxMathDigit;
 use super::*;
+use crate::idx::LxMathTokenIdx;
+use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
 use latex_command::path::{LxCommandName, LxCommandNameResult};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
@@ -49,6 +51,46 @@ pub enum LxMathTokenError {
 }
 
 impl<'a> LxLexer<'a> {
+    pub fn next_math_token(&mut self) -> Option<(LxMathTokenIdx, LxMathTokenData)> {
+        let (offset_range, range, token_data) = self.next_ranged_math_token_data()?;
+        Some((
+            self.alloc_math_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_ranged_math_token_data(
+        &mut self,
+    ) -> Option<(TextOffsetRange, TextRange, LxMathTokenData)> {
+        self.eat_spaces_and_tabs();
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
+            if self.chars.eat_char_if(|c| c == '\n') {
+                Some(LxMathTokenData::Error(
+                    LxMathTokenError::UnexpectedNewParagraph,
+                ))
+            } else {
+                self.next_math_token_data()
+            }
+        } else {
+            self.next_math_token_data()
+        }?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
+    pub fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
+        let chars = self.chars.clone();
+        let (_, _, token_data) = self.next_ranged_math_token_data()?;
+        self.chars = chars;
+        Some(token_data)
+    }
     pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
         let db = self.db;
         let s = self.chars.peek_str();

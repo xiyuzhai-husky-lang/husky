@@ -2,7 +2,9 @@ mod literal;
 
 use self::literal::LxSpecLiteral;
 use super::*;
+use crate::idx::LxSpecTokenIdx;
 use husky_coword::Coword;
+use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
 
@@ -21,6 +23,29 @@ pub enum LxSpecDelimiter {
 }
 
 impl<'a> LxLexer<'a> {
+    pub fn next_spec_token(&mut self) -> Option<(LxSpecTokenIdx, LxSpecTokenData)> {
+        let (offset_range, range, token_data) = self.next_ranged_spec_token_data()?;
+        Some((
+            self.alloc_spec_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_ranged_spec_token_data(
+        &mut self,
+    ) -> Option<(TextOffsetRange, TextRange, LxSpecTokenData)> {
+        self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = self.next_spec_token_data()?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
     pub(crate) fn next_spec_token_data(&mut self) -> Option<LxSpecTokenData> {
         let db = self.db;
         match self.chars.peek()? {

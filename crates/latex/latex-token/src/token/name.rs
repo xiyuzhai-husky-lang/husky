@@ -1,5 +1,7 @@
 use super::*;
+use crate::idx::LxNameTokenIdx;
 use husky_coword::Coword;
+use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
 use latex_command::path::LxCommandPath;
 use latex_rose_punctuation::LxRosePunctuation;
 
@@ -12,6 +14,41 @@ pub enum LxNameTokenData {
 }
 
 impl<'a> LxLexer<'a> {
+    pub fn next_name_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
+        let (offset_range, range, token_data) = self.next_ranged_name_token_data()?;
+        Some((
+            self.alloc_name_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_ranged_name_token_data(
+        &mut self,
+    ) -> Option<(TextOffsetRange, TextRange, LxNameTokenData)> {
+        self.eat_spaces_and_tabs();
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
+            if self.chars.eat_char_if(|c| c == '\n') {
+                todo!()
+                // Some(LxCodeTokenData::Error(
+                //     LxCodeTokenError::UnexpectedNewParagraph,
+                // ))
+            } else {
+                self.next_word_token_data()
+            }
+        } else {
+            self.next_word_token_data()
+        }?;
+        let end_offset = self.chars.current_offset();
+        let range = TextRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
     pub(crate) fn next_word_token_data(&mut self) -> Option<LxNameTokenData> {
         let db = self.db;
         match self.chars.peek()? {
