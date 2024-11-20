@@ -20,7 +20,7 @@ use latex_prelude::{
     },
     mode::LxMode,
 };
-use latex_token::storage::LxTokenStorage;
+use latex_token::{lane::LxTokenLane, storage::LxTokenStorage};
 
 #[derive(Debug)]
 pub struct LxAstTracker<'a, Input: IsLxAstInput<'a>> {
@@ -50,6 +50,7 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
             &command_signature_table,
             &environment_signature_table,
             input.content(),
+            LxTokenLane::Main,
             input.root_mode(),
             &mut token_storage,
             &mut ast_arena,

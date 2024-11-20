@@ -116,9 +116,11 @@ impl<'a> LxLexer<'a> {
 #[test]
 fn next_math_token_data_works() {
     fn t(input: &str, expected: &Expect) {
+        use crate::lane::LxTokenLane;
+
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let stream = LxLexer::new(db, input, &mut storage).into_math_stream();
+        let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage).into_math_stream();
         let tokens: Vec<_> = stream.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&(tokens.debug(db)));
     }

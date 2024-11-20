@@ -3640,6 +3640,7 @@
             "latex-prelude",
             "latex-rose-punctuation",
             "ordered-float",
+            "rustc-hash",
             "salsa",
             "shifted-unsigned-int",
             "expect-test",

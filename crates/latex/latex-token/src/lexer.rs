@@ -3,6 +3,7 @@ use crate::{
         LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx,
         LxSpecTokenIdx,
     },
+    lane::LxTokenLane,
     storage::LxTokenStorage,
     stream::{
         lisp::LxLispTokenStream, math::LxMathTokenStream, root::LxRootTokenStream,
@@ -24,15 +25,22 @@ use latex_prelude::mode::LxMode;
 pub struct LxLexer<'a> {
     pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
+    lane: LxTokenLane,
     pub(crate) storage: &'a mut LxTokenStorage,
 }
 
 /// # constructor
 impl<'a> LxLexer<'a> {
-    pub fn new(db: &'a ::salsa::Db, input: &'a str, storage: &'a mut LxTokenStorage) -> Self {
+    pub fn new(
+        db: &'a ::salsa::Db,
+        input: &'a str,
+        lane: LxTokenLane,
+        storage: &'a mut LxTokenStorage,
+    ) -> Self {
         Self {
             db,
             chars: TextCharIter::new(input),
+            lane,
             storage,
         }
     }
@@ -44,7 +52,7 @@ impl<'a> LxLexer<'a> {
         let (offset_range, range, token_data) = self.next_math_token_aux()?;
         Some((
             self.storage
-                .alloc_math_token(offset_range, range, token_data),
+                .alloc_math_token(self.lane, offset_range, range, token_data),
             token_data,
         ))
     }
@@ -84,7 +92,7 @@ impl<'a> LxLexer<'a> {
         let (offset_range, range, token_data) = self.next_rose_token_aux()?;
         Some((
             self.storage
-                .alloc_rose_token(offset_range, range, token_data),
+                .alloc_rose_token(self.lane, offset_range, range, token_data),
             token_data,
         ))
     }
@@ -126,7 +134,7 @@ impl<'a> LxLexer<'a> {
         let (offset_range, range, token_data) = self.next_name_token_aux()?;
         Some((
             self.storage
-                .alloc_coword_token(offset_range, range, token_data),
+                .alloc_coword_token(self.lane, offset_range, range, token_data),
             token_data,
         ))
     }
@@ -160,7 +168,7 @@ impl<'a> LxLexer<'a> {
         let (offset_range, range, token_data) = self.next_lisp_token_aux()?;
         Some((
             self.storage
-                .alloc_lisp_token(offset_range, range, token_data),
+                .alloc_lisp_token(self.lane, offset_range, range, token_data),
             token_data,
         ))
     }
@@ -190,7 +198,7 @@ impl<'a> LxLexer<'a> {
         let (offset_range, range, token_data) = self.next_root_token_aux()?;
         Some((
             self.storage
-                .alloc_root_token(offset_range, range, token_data),
+                .alloc_root_token(self.lane, offset_range, range, token_data),
             token_data,
         ))
     }
@@ -220,7 +228,7 @@ impl<'a> LxLexer<'a> {
         let (offset_range, range, token_data) = self.next_spec_token_aux()?;
         Some((
             self.storage
-                .alloc_spec_token(offset_range, range, token_data),
+                .alloc_spec_token(self.lane, offset_range, range, token_data),
             token_data,
         ))
     }
