@@ -48,210 +48,99 @@ impl<'a> LxLexer<'a> {
 
 /// # actions
 impl<'a> LxLexer<'a> {
-    pub fn next_math_token(&mut self) -> Option<(LxMathTokenIdx, LxMathTokenData)> {
-        let (offset_range, range, token_data) = self.next_math_token_aux()?;
-        Some((
-            self.storage
-                .alloc_math_token(self.lane, offset_range, range, token_data),
-            token_data,
-        ))
-    }
-
-    fn next_math_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxMathTokenData)> {
-        self.chars.eat_chars_while(|c| c == ' ');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
-            self.chars.eat_chars_while(|c| c == ' ');
-            if self.chars.eat_char_if(|c| c == '\n') {
-                Some(LxMathTokenData::Error(
-                    LxMathTokenError::UnexpectedNewParagraph,
-                ))
-            } else {
-                self.next_math_token_data()
-            }
-        } else {
-            self.next_math_token_data()
-        }?;
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some(((start_offset..end_offset).into(), range, token_data))
-    }
-
-    pub fn peek_math_token_data(&mut self) -> Option<LxMathTokenData> {
-        let chars = self.chars.clone();
-        let (_, _, token_data) = self.next_math_token_aux()?;
-        self.chars = chars;
-        Some(token_data)
-    }
-
-    pub fn next_rose_token(&mut self) -> Option<(LxRoseTokenIdx, LxRoseTokenData)> {
-        let (offset_range, range, token_data) = self.next_rose_token_aux()?;
-        Some((
-            self.storage
-                .alloc_rose_token(self.lane, offset_range, range, token_data),
-            token_data,
-        ))
-    }
-
-    fn next_rose_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxRoseTokenData)> {
-        self.chars.eat_chars_while(|c| c == ' ');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-
-        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
-            self.chars.eat_chars_while(|c| c == ' ');
-            if self.chars.eat_char_if(|c| c == '\n') {
-                self.chars.eat_chars_while(|c| c == '\n' || c == ' ');
-                LxRoseTokenData::NewParagraph
-            } else {
-                start_offset = self.chars.current_offset();
-                start_position = self.chars.current_position();
-                self.next_rose_token_data()?
-            }
-        } else {
-            self.next_rose_token_data()?
-        };
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some(((start_offset..end_offset).into(), range, token_data))
-    }
-
-    pub fn peek_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
-        let chars = self.chars.clone();
-        let (_, _, token_data) = self.next_rose_token_aux()?;
-        self.chars = chars;
-        Some(token_data)
-    }
-
-    pub fn next_name_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
-        let (offset_range, range, token_data) = self.next_name_token_aux()?;
-        Some((
-            self.storage
-                .alloc_coword_token(self.lane, offset_range, range, token_data),
-            token_data,
-        ))
-    }
-
-    fn next_name_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxNameTokenData)> {
-        self.chars.eat_chars_while(|c| c == ' ');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
-            self.chars.eat_chars_while(|c| c == ' ');
-            if self.chars.eat_char_if(|c| c == '\n') {
-                todo!()
-                // Some(LxCodeTokenData::Error(
-                //     LxCodeTokenError::UnexpectedNewParagraph,
-                // ))
-            } else {
-                self.next_word_token_data()
-            }
-        } else {
-            self.next_word_token_data()
-        }?;
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some(((start_offset..end_offset).into(), range, token_data))
-    }
-
-    pub fn next_lisp_token(&mut self) -> Option<(LxLispTokenIdx, LxLispTokenData)> {
-        let (offset_range, range, token_data) = self.next_lisp_token_aux()?;
-        Some((
-            self.storage
-                .alloc_lisp_token(self.lane, offset_range, range, token_data),
-            token_data,
-        ))
-    }
-
-    fn next_lisp_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxLispTokenData)> {
-        self.chars
-            .eat_chars_while(|c| c == ' ' || c == '\n' || c == '\t');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-        let token_data = self.next_lisp_token_data()?;
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some(((start_offset..end_offset).into(), range, token_data))
-    }
-
-    pub fn peek_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
-        let chars = self.chars.clone();
-        let (_, _, token_data) = self.next_lisp_token_aux()?;
-        self.chars = chars;
-        Some(token_data)
-    }
-
-    pub fn next_root_token(&mut self) -> Option<(LxRootTokenIdx, LxRootTokenData)> {
-        let (offset_range, range, token_data) = self.next_root_token_aux()?;
-        Some((
-            self.storage
-                .alloc_root_token(self.lane, offset_range, range, token_data),
-            token_data,
-        ))
-    }
-
-    fn next_root_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxRootTokenData)> {
-        self.chars
-            .eat_chars_while(|c| c == ' ' || c == '\n' || c == '\t');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-        let token_data = self.next_root_token_data()?;
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some(((start_offset..end_offset).into(), range, token_data))
-    }
-
-    pub fn peek_root_token_data(&mut self) -> Option<LxRootTokenData> {
-        let chars = self.chars.clone();
-        let (_, _, token_data) = self.next_root_token_aux()?;
-        self.chars = chars;
-        Some(token_data)
-    }
-
-    pub fn next_spec_token(&mut self) -> Option<(LxSpecTokenIdx, LxSpecTokenData)> {
-        let (offset_range, range, token_data) = self.next_spec_token_aux()?;
-        Some((
-            self.storage
-                .alloc_spec_token(self.lane, offset_range, range, token_data),
-            token_data,
-        ))
-    }
-
-    fn next_spec_token_aux(&mut self) -> Option<(TextOffsetRange, TextRange, LxSpecTokenData)> {
-        self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
-        let mut start_offset = self.chars.current_offset();
-        let mut start_position = self.chars.current_position();
-        let token_data = self.next_spec_token_data()?;
-        let end_offset = self.chars.current_offset();
-        let range = TextRange {
-            start: start_position,
-            end: self.chars.current_position(),
-        };
-        Some(((start_offset..end_offset).into(), range, token_data))
-    }
-
     pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
         let coword_str_slice = self.chars.next_str_slice_while(predicate);
         if coword_str_slice.is_empty() {
             return None;
         }
         Some(Coword::from_ref(self.db, coword_str_slice))
+    }
+
+    pub(crate) fn eat_spaces_and_tabs(&mut self) {
+        self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
+    }
+
+    pub(crate) fn eat_spaces_and_tabs_and_comments(&mut self) {
+        loop {
+            self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
+            if self.chars.peek() == Some('%') {
+                self.chars.eat_chars_while(|c| c != '\n');
+            } else {
+                break;
+            }
+        }
+    }
+
+    pub(crate) fn eat_spaces_and_tabs_and_lines_and_comments(&mut self) {
+        loop {
+            self.chars
+                .eat_chars_while(|c| c == ' ' || c == '\t' || c == '\n');
+            if self.chars.peek() == Some('%') {
+                self.chars.eat_chars_while(|c| c != '\n');
+            } else {
+                break;
+            }
+        }
+    }
+
+    pub(crate) fn alloc_root_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxRootTokenData,
+    ) -> LxRootTokenIdx {
+        self.storage
+            .alloc_root_token(self.lane, offset_range, range, token_data)
+    }
+
+    pub(crate) fn alloc_rose_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxRoseTokenData,
+    ) -> LxRoseTokenIdx {
+        self.storage
+            .alloc_rose_token(self.lane, offset_range, range, token_data)
+    }
+
+    pub(crate) fn alloc_math_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxMathTokenData,
+    ) -> LxMathTokenIdx {
+        self.storage
+            .alloc_math_token(self.lane, offset_range, range, token_data)
+    }
+
+    pub(crate) fn alloc_name_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxNameTokenData,
+    ) -> LxNameTokenIdx {
+        self.storage
+            .alloc_coword_token(self.lane, offset_range, range, token_data)
+    }
+
+    pub(crate) fn alloc_spec_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxSpecTokenData,
+    ) -> LxSpecTokenIdx {
+        self.storage
+            .alloc_spec_token(self.lane, offset_range, range, token_data)
+    }
+
+    pub(crate) fn alloc_lisp_token(
+        &mut self,
+        offset_range: TextOffsetRange,
+        range: TextRange,
+        token_data: LxLispTokenData,
+    ) -> LxLispTokenIdx {
+        self.storage
+            .alloc_lisp_token(self.lane, offset_range, range, token_data)
     }
 
     pub(crate) fn into_word_stream(self) -> LxWordTokenStream<'a> {
