@@ -15,6 +15,7 @@ use visored_term::menu::vd_ty_menu;
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
+    latex_token::jar::LxTokenJar,
     lean_item_path::jar::LnItemPathJar,
     lean_term::jar::LnTermJar,
     lean_sem_expr::jar::LnSemExprJar,

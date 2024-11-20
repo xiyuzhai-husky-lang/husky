@@ -170,8 +170,8 @@
         "husky-ki-repr",
     },
     "latex-ast": {
-        "latex-command",
         "latex-environment",
+        "latex-token",
         "latex-vfs",
     },
     "latex-command": {
@@ -179,6 +179,9 @@
     },
     "latex-environment": {
         "husky-coword",
+    },
+    "latex-token": {
+        "latex-command",
     },
     "latex-vfs": {},
     "lean-item-path": {

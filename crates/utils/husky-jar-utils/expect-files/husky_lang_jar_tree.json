@@ -1165,6 +1165,7 @@
     "husky-coword",
     "latex-command",
     "latex-environment",
+    "latex-token",
     "latex-vfs"
   ],
   "latex-command": [
@@ -1172,6 +1173,10 @@
   ],
   "latex-environment": [
     "husky-coword"
+  ],
+  "latex-token": [
+    "husky-coword",
+    "latex-command"
   ],
   "latex-vfs": [],
   "lean-item-path": [
@@ -1207,6 +1212,7 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "latex-token",
     "latex-vfs",
     "lean-item-path",
     "lean-mir-expr",
@@ -1226,6 +1232,7 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "latex-token",
     "latex-vfs",
     "visored-global-dispatch",
     "visored-item-path",
@@ -1241,6 +1248,7 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "latex-token",
     "latex-vfs",
     "visored-global-dispatch",
     "visored-item-path",
@@ -1261,6 +1269,7 @@
     "latex-ast",
     "latex-command",
     "latex-environment",
+    "latex-token",
     "latex-vfs",
     "visored-item-path",
     "visored-opr",
