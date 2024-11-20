@@ -42,13 +42,13 @@ def parse_sentence(sentence):
 
 # Example usage
 if __name__ == "__main__":
-    sentence = "I went home with mom and dad"
-    parse_tree = parse_sentence(sentence)
-    print("Parse Tree:")
-    print(parse_tree)
+    # sentence = "I went home with mom and dad"
+    # parse_tree = parse_sentence(sentence)
+    # print("Parse Tree:")
+    # print(parse_tree)
 
-    # # Example of batch processing
-    # sentences = ["I went home with mom and dad."]
-    # parse_trees = parser.parse_batch(sentences)
-    # for tree in parse_trees:
-    #     print(tree)
+    # Example of batch processing
+    sentences = ["If the dog barks, the cat will meow."]
+    parse_trees = parser.parse_batch(sentences)
+    for tree in parse_trees:
+        print(tree)
