@@ -1,6 +1,7 @@
 #[salsa::db(
     husky_coword::jar::CowordJar,
     latex_ast::jar::LxAstJar,
+    latex_token::jar::LxTokenJar,
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
     latex_vfs::jar::LxVfsJar,
