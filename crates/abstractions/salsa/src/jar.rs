@@ -163,6 +163,11 @@ pub enum JarIndex {
     LnTermJar,
     LnSemExprJar,
     LnMirExprJar,
+    // tex
+    LxTokenJar,
+    LxAstJar,
+    LxCommandJar,
+    LxEnvironmentJar,
     // lex
     TextJar,
     TokenJar,
@@ -190,10 +195,6 @@ pub enum JarIndex {
     SynExprJar,
     TomlAstJar,
     CorgiConfigAstJar,
-    // tex
-    LxAstJar,
-    LxCommandJar,
-    LxEnvironmentJar,
     // visored
     LxVfsJar,
     VdTermJar,

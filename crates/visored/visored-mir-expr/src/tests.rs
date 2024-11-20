@@ -8,6 +8,7 @@ use visored_term::menu::vd_ty_menu;
     latex_ast::jar::LxAstJar,
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
+    latex_token::jar::LxTokenJar,
     visored_item_path::jar::VdItemPathJar,
     visored_term::jar::VdTermJar,
     visored_opr::jar::VdOprJar,

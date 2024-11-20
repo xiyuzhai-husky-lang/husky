@@ -39,6 +39,7 @@ expect-test.workspace = true
 # latex
 latex-ast.workspace = true
 latex-command.workspace = true
+latex-token.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored
