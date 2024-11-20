@@ -132,9 +132,11 @@ impl<'a> LxLexer<'a> {
 #[test]
 fn next_rose_token_data_works() {
     fn t(input: &str, expected: &Expect) {
+        use crate::lane::LxTokenLane;
+
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let mut stream = LxLexer::new(db, input, &mut storage)
+        let mut stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_rose_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();

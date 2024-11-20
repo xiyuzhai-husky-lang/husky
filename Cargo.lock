@@ -8243,6 +8243,7 @@ dependencies = [
  "latex-prelude",
  "latex-rose-punctuation",
  "ordered-float 4.2.2",
+ "rustc-hash 2.0.0",
  "salsa",
  "shifted-unsigned-int",
 ]

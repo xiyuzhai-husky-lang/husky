@@ -1,4 +1,6 @@
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+use crate::idx::LxTokenIdxRange;
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum LxTokenLane {
     Main,
     Annotation(LxTokenAnnotationLane),
@@ -6,5 +8,9 @@ pub enum LxTokenLane {
 
 #[salsa::interned]
 pub struct LxTokenAnnotationLane {
-    pub parent: LxTokenLane,
+    pub token_idx_range: LxTokenIdxRange,
+    pub channel: LxTokenAnnotationChannel,
 }
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+pub enum LxTokenAnnotationChannel {}

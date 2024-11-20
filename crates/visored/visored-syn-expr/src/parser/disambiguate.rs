@@ -148,13 +148,16 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             }
             LxMathAstData::Digit(first_token_idx, digit) => {
                 let mut last_token_idx = first_token_idx;
-                let mut last_offset_end = self.builder.token_storage()[*first_token_idx].0.end();
+                let mut last_offset_end = self.builder.token_storage()[*first_token_idx]
+                    .text_offset_range()
+                    .end();
                 let mut s = String::from(digit.char());
                 // TODO: handle real number by using a kind variable, literal number kind
                 while *next < end {
                     match self.builder.ast_arena()[*next] {
                         LxMathAstData::Digit(token_idx, digit) => {
-                            let offset_range = self.builder.token_storage()[*token_idx].0;
+                            let offset_range =
+                                self.builder.token_storage()[*token_idx].text_offset_range();
                             if offset_range.start() != last_offset_end {
                                 break;
                             }

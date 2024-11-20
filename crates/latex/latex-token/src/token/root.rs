@@ -62,9 +62,11 @@ impl<'a> LxLexer<'a> {
 #[test]
 pub fn next_root_token_data_works() {
     fn t(input: &str, expected: &Expect) {
+        use crate::lane::LxTokenLane;
+
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let stream = LxLexer::new(db, input, &mut storage)
+        let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_root_stream()
             .map(|(_, token_data)| token_data);
         let tokens: Vec<_> = stream.collect();
