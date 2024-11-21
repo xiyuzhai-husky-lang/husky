@@ -31,6 +31,26 @@ impl<'a> LpCsvParser<'a> {
     fn parse_expr_aux(&mut self) -> Option<LpCsvExpr> {
         self.ignore_whitespaces_and_tabs_and_blank_lines_and_comments();
         match self.chars.peek()? {
+            '"' => {
+                self.chars.eat_char();
+                let mut s = String::new();
+                loop {
+                    match self.chars.next() {
+                        Some('"') => break,
+                        Some('\\') => match self.chars.next() {
+                            Some('n') => s.push('\n'),
+                            Some('t') => s.push('\t'),
+                            Some('\\') => s.push('\\'),
+                            Some('"') => s.push('"'),
+                            Some(c) => todo!("c: `{c:?}`"),
+                            None => todo!(),
+                        },
+                        Some(c) => s.push(c),
+                        None => todo!(),
+                    }
+                }
+                Some(LpCsvExpr::Literal(LpCsvLiteral::String(s)))
+            }
             c if c.is_ascii_digit() => {
                 let mut dot_count = 0;
                 let s = self.chars.next_str_slice_while(|c| {
@@ -116,6 +136,18 @@ fn parse_lp_csv_expr_works() {
                 Literal(
                     Float(
                         1.2,
+                    ),
+                ),
+            )
+        "#]),
+    );
+    t(
+        r#""1%&safdh\\command""#,
+        expect!([r#"
+            Some(
+                Literal(
+                    String(
+                        "1%&safdh\\command",
                     ),
                 ),
             )
