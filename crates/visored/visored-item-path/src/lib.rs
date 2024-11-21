@@ -1,3 +1,4 @@
+pub mod environment;
 pub mod jar;
 pub mod menu;
 pub mod module;

@@ -41,7 +41,7 @@ pub struct VdSynExprBuilder<'db> {
     ast_arena: LxAstArenaRef<'db>,
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
     annotations: &'db VdAnnotations,
-    default_resolution_table: &'db VdDefaultGlobalResolutionTable,
+    default_global_resolution_table: &'db VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArena,
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
@@ -68,7 +68,7 @@ impl<'db> VdSynExprBuilder<'db> {
             ast_arena,
             ast_token_idx_range_map,
             annotations,
-            default_resolution_table,
+            default_global_resolution_table: default_resolution_table,
             expr_arena: Default::default(),
             phrase_arena: Default::default(),
             clause_arena: Default::default(),
@@ -102,7 +102,7 @@ impl<'db> VdSynExprBuilder<'db> {
     }
 
     pub(crate) fn default_resolution_table(&self) -> &VdDefaultGlobalResolutionTable {
-        self.default_resolution_table
+        self.default_global_resolution_table
     }
 
     pub(crate) fn expr_arena(&self) -> &VdSynExprArena {
@@ -279,6 +279,7 @@ impl<'db> VdSynExprBuilder<'db> {
         let (root_node, stmt_entity_tree_node_map, division_entity_tree_node_map) =
             build_entity_tree_with(
                 self.db,
+                self.default_global_resolution_table,
                 self.file_path,
                 self.stmt_arena.as_arena_ref(),
                 self.division_arena.as_arena_ref(),
@@ -290,7 +291,7 @@ impl<'db> VdSynExprBuilder<'db> {
             self.ast_arena,
             self.ast_token_idx_range_map,
             self.annotations,
-            self.default_resolution_table,
+            self.default_global_resolution_table,
             self.expr_arena.as_arena_ref(),
             self.phrase_arena.as_arena_ref(),
             self.clause_arena.as_arena_ref(),
@@ -303,6 +304,7 @@ impl<'db> VdSynExprBuilder<'db> {
             &sentence_range_map,
             &stmt_range_map,
             &division_range_map,
+            &root_node,
             &stmt_entity_tree_node_map,
             &division_entity_tree_node_map,
             output,

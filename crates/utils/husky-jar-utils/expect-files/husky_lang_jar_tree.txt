@@ -1195,7 +1195,6 @@
     "namekian-ast": {},
     "visored-global-dispatch": {
         "husky-coword",
-        "latex-environment",
         "latex-vfs",
         "visored-item-path",
         "visored-opr",
@@ -1204,7 +1203,6 @@
     },
     "visored-item-path": {
         "husky-coword",
-        "latex-environment",
         "latex-vfs",
     },
     "visored-lean-transpilation": {
@@ -1259,7 +1257,6 @@
     },
     "visored-signature": {
         "husky-coword",
-        "latex-environment",
         "latex-vfs",
         "visored-item-path",
         "visored-term",
@@ -1277,7 +1274,6 @@
     },
     "visored-term": {
         "husky-coword",
-        "latex-environment",
         "latex-vfs",
         "visored-item-path",
     },

@@ -4347,11 +4347,11 @@
         dependencies: [
             "enum-class",
             "husky-coword",
-            "latex-environment",
             "latex-prelude",
             "latex-vfs",
             "rustc-hash",
             "salsa",
+            "smallvec",
             "visored-prelude",
         ],
     },

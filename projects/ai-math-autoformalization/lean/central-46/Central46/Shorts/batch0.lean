@@ -14,4 +14,7 @@ def h1 : x ^ 2 ≥ 0 := sorry
 end Example2
 
 namespace Example3
+variable (x1 : ℝ)
+
+def h2 : x1 ^ 2 + 1 ≥ 2 * x1 := sorry
 end Example3

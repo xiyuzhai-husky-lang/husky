@@ -12625,11 +12625,11 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
- "latex-environment",
  "latex-prelude",
  "latex-vfs",
  "rustc-hash 2.0.0",
  "salsa",
+ "smallvec",
  "visored-prelude",
 ]
 
