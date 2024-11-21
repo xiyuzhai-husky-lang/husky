@@ -350,5 +350,31 @@ mod tests {
                 []
             "#]],
         );
+        t(
+            r#"  %"#,
+            &expect![[r#"
+                []
+            "#]],
+        );
+        t(
+            r#"
+    %"#,
+            &expect![[r#"
+                []
+            "#]],
+        );
+        t(
+            r#"
+    word %"#,
+            &expect![[r#"
+                [
+                    LxRoseTokenData::Word(
+                        Coword(
+                            "word",
+                        ),
+                    ),
+                ]
+            "#]],
+        );
     }
 }
