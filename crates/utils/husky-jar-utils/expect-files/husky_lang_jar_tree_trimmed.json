@@ -200,7 +200,7 @@
     "visored-signature"
   ],
   "visored-item-path": [
-    "latex-environment",
+    "husky-coword",
     "latex-vfs"
   ],
   "visored-lean-transpilation": [
