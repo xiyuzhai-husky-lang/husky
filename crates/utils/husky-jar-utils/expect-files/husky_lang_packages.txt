@@ -4007,6 +4007,11 @@
         ],
     },
     PackageSummary {
+        name: "lisp-prelude",
+        relative_path: "crates/lisp/lisp-prelude",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "mayuri-core",
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
