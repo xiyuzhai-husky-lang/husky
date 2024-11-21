@@ -129,7 +129,7 @@ impl<'a> LxLexer<'a> {
                     None => todo!(),
                 }
             }
-            n if n.is_numeric() => {
+            n if n.is_ascii_digit() => {
                 self.chars.eat_char();
                 Some(LxMathTokenData::Digit(n.try_into().unwrap()))
             }
