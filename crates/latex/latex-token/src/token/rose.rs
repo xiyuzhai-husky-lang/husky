@@ -69,7 +69,7 @@ impl<'a> LxLexer<'a> {
         let mut start_position = self.chars.current_position();
 
         let token_data = if self.chars.eat_char_if(|c| c == '\n') {
-            self.chars.eat_chars_while(|c| c == ' ');
+            self.eat_spaces_and_tabs_and_comments();
             if self.chars.eat_char_if(|c| c == '\n') {
                 self.chars.eat_chars_while(|c| c == '\n' || c == ' ');
                 LxRoseTokenData::NewParagraph
@@ -95,7 +95,8 @@ impl<'a> LxLexer<'a> {
         self.chars = chars;
         Some(token_data)
     }
-    pub(crate) fn next_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
+
+    fn next_rose_token_data(&mut self) -> Option<LxRoseTokenData> {
         let db = self.db;
         match self.chars.peek()? {
             '\\' => {

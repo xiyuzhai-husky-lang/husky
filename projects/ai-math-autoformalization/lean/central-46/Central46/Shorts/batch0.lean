@@ -12,3 +12,6 @@ variable (x : ℝ)
 
 def h1 : x ^ 2 ≥ 0 := sorry
 end Example2
+
+namespace Example3
+end Example3
