@@ -20,6 +20,7 @@ members = [
     "crates/lean/*",
     "crates/linket/*",
     "crates/linktime/*",
+    "crates/lisp/*",
     "crates/mayuri/*",
     "crates/mir/*",
     "crates/mizar/*",
@@ -41,8 +42,6 @@ members = [
     "playground/learn-rusqlite",
     "playground/egui/*",
     "playground/try-py-ffi-in-rs",
-    "crates/rocq/rocq-hir-expr",
-    "crates/mizar/mizar-hir-expr",
 ]
 resolver = "2"
 
