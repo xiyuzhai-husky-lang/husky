@@ -4007,6 +4007,15 @@
         ],
     },
     PackageSummary {
+        name: "lisp-csv",
+        relative_path: "crates/lisp/lisp-csv",
+        dependencies: [
+            "husky-text-protocol",
+            "ordered-float",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
         name: "lisp-prelude",
         relative_path: "crates/lisp/lisp-prelude",
         dependencies: [],

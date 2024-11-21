@@ -122,13 +122,13 @@ impl<'a> LxLexer<'a> {
                                 LxRoseEmbeddedMathDelimiter::EscapedRbox,
                             ))
                         }
-                        c if c.is_numeric() => todo!("latex might allow single digit command"),
+                        c if c.is_ascii_digit() => todo!("latex might allow single digit command"),
                         c => todo!("latex one digit non letter command: {}", c),
                     },
                     None => todo!(),
                 }
             }
-            n if n.is_numeric() => {
+            n if n.is_ascii_digit() => {
                 let numeric_str_slice = self.chars.next_numeric_str_slice();
                 match numeric_str_slice.parse::<u32>() {
                     Ok(number) => Some(LxRoseTokenData::Nat32(number)),

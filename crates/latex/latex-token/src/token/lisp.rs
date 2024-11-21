@@ -79,13 +79,13 @@ impl<'a> LxLexer<'a> {
                     None => todo!(),
                 }
             }
-            n if n.is_numeric() => {
+            n if n.is_ascii_digit() => {
                 let mut dot_count = 0;
                 let s = self.chars.next_str_slice_while(|c| {
                     if c == '.' {
                         dot_count += 1;
                     }
-                    (c.is_numeric() || c == '.') && dot_count < 2
+                    (c.is_ascii_digit() || c == '.') && dot_count < 2
                 });
                 let literal = match dot_count {
                     0 => {
