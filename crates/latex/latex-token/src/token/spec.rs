@@ -60,7 +60,7 @@ impl<'a> LxLexer<'a> {
                             )
                             .unwrap(),
                         )),
-                        c if c.is_numeric() => todo!("latex might allow single digit command"),
+                        c if c.is_ascii_digit() => todo!("latex might allow single digit command"),
                         _ => todo!("latex one digit non letter command"),
                     },
                     None => todo!(),
@@ -76,7 +76,7 @@ impl<'a> LxLexer<'a> {
                     if c == '.' {
                         dot_count += 1;
                     }
-                    (c.is_numeric() || c == '.') && dot_count < 2
+                    (c.is_ascii_digit() || c == '.') && dot_count < 2
                 });
                 let literal = match dot_count {
                     0 => {

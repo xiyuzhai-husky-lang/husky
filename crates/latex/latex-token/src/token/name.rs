@@ -64,13 +64,13 @@ impl<'a> LxLexer<'a> {
                 //             )
                 //             .into(),
                 //         ),
-                //         c if c.is_numeric() => todo!("latex might allow single digit command"),
+                //         c if c.is_ascii_digit() => todo!("latex might allow single digit command"),
                 //         _ => todo!("latex one digit non letter command"),
                 //     },
                 //     None => todo!(),
                 // }
             }
-            n if n.is_numeric() => {
+            n if n.is_ascii_digit() => {
                 todo!()
                 // let numeric_str_slice = self.chars.next_numeric_str_slice();
                 // match numeric_str_slice.parse::<u32>() {

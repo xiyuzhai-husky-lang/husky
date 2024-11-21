@@ -61,7 +61,7 @@ impl<'a> LxLexer<'a> {
                             )
                             .unwrap(),
                         )),
-                        c if c.is_numeric() => todo!("latex might allow single digit command"),
+                        c if c.is_ascii_digit() => todo!("latex might allow single digit command"),
                         _ => todo!("latex one digit non letter command"),
                     },
                     None => todo!(),
