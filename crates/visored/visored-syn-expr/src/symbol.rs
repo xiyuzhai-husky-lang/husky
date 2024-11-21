@@ -44,6 +44,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &VdSynStmtTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
+    root_node: &VdSynExprEntityTreeNode,
     stmt_entity_tree_node_map: &VdSynStmtMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &VdSynDivisionMap<VdSynExprEntityTreeNode>,
     t: impl IsVdSynOutput,
@@ -63,6 +64,7 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
         sentence_range_map,
         stmt_range_map,
         division_range_map,
+        root_node,
         stmt_entity_tree_node_map,
         division_entity_tree_node_map,
     );
