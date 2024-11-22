@@ -8,7 +8,7 @@
     visored_term::jar::VdTermJar,
     visored_opr::jar::VdOprJar,
     visored_syn_expr::jar::VdSynExprJar,
-    visored_item_path::jar::VdItemPathJar,
+    visored_entity_path::jar::VdEntityPathJar,
     visored_global_dispatch::jar::VdGlobalDispatchJar,
     visored_signature::jar::VdSignatureJar,
     crate::jar::VdSemExprJar

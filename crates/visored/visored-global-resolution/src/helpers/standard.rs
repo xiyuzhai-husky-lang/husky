@@ -2,7 +2,7 @@ use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
 use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 
 use crate::{
     default_table::VdDefaultGlobalResolutionTable,

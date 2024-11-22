@@ -1,7 +1,7 @@
 use crate::*;
 use convert_case::{Case, Casing};
-use lean_item_path::namespace::LnNamespace;
-use visored_item_path::module::{VdModulePath, VdModulePathData};
+use lean_entity_path::namespace::LnNamespace;
+use visored_entity_path::module::{VdModulePath, VdModulePathData};
 use visored_prelude::division::VdDivisionLevel;
 
 #[salsa::tracked]

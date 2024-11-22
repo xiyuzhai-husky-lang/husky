@@ -2,7 +2,7 @@ use crate::*;
 use dictionary::item_path::VdItemPathTranslation;
 use lean_mir_expr::expr::{LnMirExprData, LnMirExprIdx};
 use lean_term::ty::LnType;
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 use visored_term::{
     term::VdTermData,
     ty::{VdType, VdTypeData},

@@ -4,7 +4,7 @@ pub mod item_path;
 use self::{func_key::*, item_path::*};
 use rustc_hash::FxHashMap;
 use smallvec::{smallvec, SmallVec};
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::expr::application::{VdMirFunc, VdMirFuncKey};
 use visored_term::instantiation::VdInstantiation;
 
