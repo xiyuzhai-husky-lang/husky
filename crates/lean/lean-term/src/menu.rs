@@ -1,4 +1,4 @@
-use lean_item_path::menu::{ln_item_path_menu, LnItemPathMenu};
+use lean_entity_path::menu::{ln_item_path_menu, LnItemPathMenu};
 
 use crate::term::LnTerm;
 use crate::*;

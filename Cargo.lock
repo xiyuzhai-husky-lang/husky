@@ -8299,15 +8299,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "lean-hir-decl"
-version = "0.1.0"
-
-[[package]]
-name = "lean-hir-defn"
-version = "0.1.0"
-
-[[package]]
-name = "lean-item-path"
+name = "lean-entity-path"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
@@ -8317,13 +8309,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "lean-hir-decl"
+version = "0.1.0"
+
+[[package]]
+name = "lean-hir-defn"
+version = "0.1.0"
+
+[[package]]
 name = "lean-mir-expr"
 version = "0.1.0"
 dependencies = [
  "husky-tree-utils",
  "idx-arena",
  "lean-coword",
- "lean-item-path",
+ "lean-entity-path",
  "lean-opr",
  "lean-term",
  "salsa",
@@ -8350,7 +8350,7 @@ name = "lean-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
- "lean-item-path",
+ "lean-entity-path",
  "salsa",
  "smallvec",
 ]
@@ -12601,6 +12601,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-entity-path"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "husky-coword",
+ "latex-prelude",
+ "latex-vfs",
+ "lisp-csv",
+ "rustc-hash 2.0.0",
+ "salsa",
+ "smallvec",
+ "visored-prelude",
+]
+
+[[package]]
 name = "visored-global-dispatch"
 version = "0.1.0"
 dependencies = [
@@ -12622,7 +12637,7 @@ dependencies = [
  "latex-math-punctuation",
  "rustc-hash 2.0.0",
  "salsa",
- "visored-item-path",
+ "visored-entity-path",
  "visored-opr",
  "visored-prelude",
 ]
@@ -12632,21 +12647,6 @@ name = "visored-isabelle-hol-transpilation"
 version = "0.1.0"
 dependencies = [
  "isabelle-hir-expr",
-]
-
-[[package]]
-name = "visored-item-path"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-coword",
- "latex-prelude",
- "latex-vfs",
- "lisp-csv",
- "rustc-hash 2.0.0",
- "salsa",
- "smallvec",
- "visored-prelude",
 ]
 
 [[package]]
@@ -12667,7 +12667,7 @@ dependencies = [
  "latex-token",
  "latex-vfs",
  "lean-coword",
- "lean-item-path",
+ "lean-entity-path",
  "lean-mir-expr",
  "lean-opr",
  "lean-sem-expr",
@@ -12676,8 +12676,8 @@ dependencies = [
  "salsa",
  "smallvec",
  "visored-annotation",
+ "visored-entity-path",
  "visored-global-dispatch",
- "visored-item-path",
  "visored-mir-expr",
  "visored-opr",
  "visored-prelude",
@@ -12705,9 +12705,9 @@ dependencies = [
  "latex-vfs",
  "salsa",
  "visored-annotation",
+ "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
- "visored-item-path",
  "visored-opr",
  "visored-prelude",
  "visored-sem-expr",
@@ -12758,9 +12758,9 @@ dependencies = [
  "smallvec",
  "thiserror",
  "visored-annotation",
+ "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
- "visored-item-path",
  "visored-opr",
  "visored-prelude",
  "visored-signature",
@@ -12780,7 +12780,7 @@ dependencies = [
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
- "visored-item-path",
+ "visored-entity-path",
  "visored-term",
 ]
 
@@ -12811,8 +12811,8 @@ dependencies = [
  "smallvec",
  "thiserror",
  "visored-annotation",
+ "visored-entity-path",
  "visored-global-resolution",
- "visored-item-path",
  "visored-opr",
  "visored-prelude",
  "visored-term",
@@ -12828,7 +12828,7 @@ dependencies = [
  "salsa",
  "smallvec",
  "visored-coword",
- "visored-item-path",
+ "visored-entity-path",
 ]
 
 [[package]]

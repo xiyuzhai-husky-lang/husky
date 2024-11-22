@@ -11,8 +11,8 @@ use crate::{
 use builder::VdSynExprEntityTreeBuilder;
 use either::*;
 use latex_vfs::path::LxFilePath;
+use visored_entity_path::module::{VdModulePath, VdModulePathRegistry};
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
-use visored_item_path::module::{VdModulePath, VdModulePathRegistry};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VdSynExprEntityTreeNode {

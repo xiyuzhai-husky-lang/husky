@@ -6,7 +6,7 @@
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
     visored_opr::jar::VdOprJar,
-    visored_item_path::jar::VdItemPathJar,
+    visored_entity_path::jar::VdEntityPathJar,
     latex_vfs::jar::LxVfsJar,
     crate::jar::VdSynExprJar
 )]

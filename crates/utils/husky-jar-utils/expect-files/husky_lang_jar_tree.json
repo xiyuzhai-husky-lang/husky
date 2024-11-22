@@ -1179,31 +1179,31 @@
     "latex-command"
   ],
   "latex-vfs": [],
-  "lean-item-path": [
+  "lean-entity-path": [
     "husky-coword"
   ],
   "lean-mir-expr": [
     "husky-coword",
-    "lean-item-path",
+    "lean-entity-path",
     "lean-term"
   ],
   "lean-sem-expr": [],
   "lean-term": [
     "husky-coword",
-    "lean-item-path"
+    "lean-entity-path"
   ],
   "namekian-ast": [],
+  "visored-entity-path": [
+    "husky-coword",
+    "latex-vfs"
+  ],
   "visored-global-dispatch": [
     "husky-coword",
     "latex-vfs",
-    "visored-item-path",
+    "visored-entity-path",
     "visored-opr",
     "visored-signature",
     "visored-term"
-  ],
-  "visored-item-path": [
-    "husky-coword",
-    "latex-vfs"
   ],
   "visored-lean-transpilation": [
     "husky-coword",
@@ -1212,12 +1212,12 @@
     "latex-environment",
     "latex-token",
     "latex-vfs",
-    "lean-item-path",
+    "lean-entity-path",
     "lean-mir-expr",
     "lean-sem-expr",
     "lean-term",
+    "visored-entity-path",
     "visored-global-dispatch",
-    "visored-item-path",
     "visored-mir-expr",
     "visored-opr",
     "visored-sem-expr",
@@ -1232,8 +1232,8 @@
     "latex-environment",
     "latex-token",
     "latex-vfs",
+    "visored-entity-path",
     "visored-global-dispatch",
-    "visored-item-path",
     "visored-opr",
     "visored-sem-expr",
     "visored-signature",
@@ -1248,8 +1248,8 @@
     "latex-environment",
     "latex-token",
     "latex-vfs",
+    "visored-entity-path",
     "visored-global-dispatch",
-    "visored-item-path",
     "visored-opr",
     "visored-signature",
     "visored-syn-expr",
@@ -1258,7 +1258,7 @@
   "visored-signature": [
     "husky-coword",
     "latex-vfs",
-    "visored-item-path",
+    "visored-entity-path",
     "visored-term"
   ],
   "visored-syn-expr": [
@@ -1268,13 +1268,13 @@
     "latex-environment",
     "latex-token",
     "latex-vfs",
-    "visored-item-path",
+    "visored-entity-path",
     "visored-opr",
     "visored-term"
   ],
   "visored-term": [
     "husky-coword",
     "latex-vfs",
-    "visored-item-path"
+    "visored-entity-path"
   ]
 }

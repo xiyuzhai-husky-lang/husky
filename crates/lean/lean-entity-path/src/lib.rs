@@ -4,7 +4,7 @@ pub mod namespace;
 #[cfg(test)]
 pub mod tests;
 
-use self::jar::LnItemPathJar as Jar;
+use self::jar::LnEntityPathJar as Jar;
 #[cfg(test)]
 use crate::tests::*;
 

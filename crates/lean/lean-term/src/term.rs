@@ -1,7 +1,7 @@
 pub mod literal;
 
 use self::literal::{LnLiteral, LnLiteralData};
-use lean_item_path::LnItemPath;
+use lean_entity_path::LnItemPath;
 
 // TODO: ad hoc, use LnTermId
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]

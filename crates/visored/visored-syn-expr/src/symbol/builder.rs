@@ -10,7 +10,7 @@ use r#let::{
     VdSynLetClauseResolution,
 };
 use smallvec::{smallvec, SmallVec};
-use visored_item_path::{
+use visored_entity_path::{
     environment::VdEnvironmentPath,
     module::{VdModulePath, VdModulePathData},
 };

@@ -29,7 +29,7 @@ use item_path::VdItemPathTermData;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use menu::{vd_term_menu, VdTermMenu};
 use smallvec::SmallVec;
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

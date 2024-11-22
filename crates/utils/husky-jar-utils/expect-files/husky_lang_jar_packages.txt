@@ -1309,7 +1309,7 @@
         ],
     },
     JarPackageSummary {
-        name: "lean-item-path",
+        name: "lean-entity-path",
         dependencies: [
             "husky-coword",
         ],
@@ -1317,14 +1317,14 @@
     JarPackageSummary {
         name: "lean-mir-expr",
         dependencies: [
-            "lean-item-path",
+            "lean-entity-path",
             "lean-term",
         ],
     },
     JarPackageSummary {
         name: "lean-term",
         dependencies: [
-            "lean-item-path",
+            "lean-entity-path",
         ],
     },
     JarPackageSummary {
@@ -1334,6 +1334,13 @@
     JarPackageSummary {
         name: "namekian-ast",
         dependencies: [],
+    },
+    JarPackageSummary {
+        name: "visored-entity-path",
+        dependencies: [
+            "husky-coword",
+            "latex-vfs",
+        ],
     },
     JarPackageSummary {
         name: "visored-global-dispatch",
@@ -1353,29 +1360,22 @@
             "visored-term",
             "husky-coword",
             "latex-vfs",
-            "visored-item-path",
+            "visored-entity-path",
         ],
     },
     JarPackageSummary {
         name: "visored-term",
         dependencies: [
-            "visored-item-path",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-item-path",
-        dependencies: [
-            "husky-coword",
-            "latex-vfs",
+            "visored-entity-path",
         ],
     },
     JarPackageSummary {
         name: "visored-lean-transpilation",
         dependencies: [
-            "lean-item-path",
+            "lean-entity-path",
             "lean-mir-expr",
             "lean-term",
-            "visored-item-path",
+            "visored-entity-path",
             "visored-mir-expr",
             "visored-opr",
             "visored-term",
@@ -1398,8 +1398,8 @@
         dependencies: [
             "latex-environment",
             "latex-vfs",
+            "visored-entity-path",
             "visored-global-dispatch",
-            "visored-item-path",
             "visored-opr",
             "visored-sem-expr",
             "visored-signature",
@@ -1408,8 +1408,8 @@
             "latex-ast",
             "latex-command",
             "latex-token",
+            "visored-entity-path",
             "visored-global-dispatch",
-            "visored-item-path",
             "visored-sem-expr",
             "visored-signature",
             "visored-syn-expr",
@@ -1423,8 +1423,8 @@
             "latex-command",
             "latex-environment",
             "latex-token",
+            "visored-entity-path",
             "visored-global-dispatch",
-            "visored-item-path",
             "visored-opr",
             "visored-signature",
             "visored-syn-expr",
@@ -1433,7 +1433,7 @@
             "latex-command",
             "latex-environment",
             "latex-vfs",
-            "visored-item-path",
+            "visored-entity-path",
         ],
     },
     JarPackageSummary {
@@ -1445,12 +1445,12 @@
             "latex-environment",
             "latex-token",
             "latex-vfs",
-            "visored-item-path",
+            "visored-entity-path",
             "visored-opr",
             "visored-term",
             "husky-coword",
             "latex-command",
-            "visored-item-path",
+            "visored-entity-path",
         ],
     },
 ]

@@ -18,7 +18,7 @@ smallvec.workspace = true
 salsa.workspace = true
 # lean
 lean-coword.workspace = true
-lean-item-path.workspace = true
+lean-entity-path.workspace = true
 lean-opr.workspace = true
 lean-term.workspace = true
 # utils

@@ -5,7 +5,7 @@ use crate::{
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
     tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
-use lean_item_path::namespace::LnNamespace;
+use lean_entity_path::namespace::LnNamespace;
 
 pub struct LnMirExprBuilder<'db> {
     db: &'db ::salsa::Db,
