@@ -47,16 +47,7 @@ impl<'a> LpCsvParser<'a> {
             LpCsvToken::Separator(separator) => None,
             LpCsvToken::LeftParen => {
                 self.eat_token();
-                let Some(expr) = self.parse_expr() else {
-                    todo!()
-                };
-                let Some(token) = self.next_token() else {
-                    todo!()
-                };
-                if token != LpCsvToken::RightParen {
-                    todo!()
-                }
-                Some(LpCsvExpr::Parenthesized(Box::new(expr)))
+                Some(LpCsvExpr::Parenthesized(self.parse_parenthesized_expr()))
             }
             LpCsvToken::RightParen => None,
             LpCsvToken::LeftBracket => {
@@ -65,28 +56,19 @@ impl<'a> LpCsvParser<'a> {
             }
             LpCsvToken::RightBracket => None,
         }
-        // match self.chars.peek()?
-        //     '(' => {
-        //         self.chars.eat_char();
-        //         let expr = self.parse_expr();
-        //         let Some(c) = self.chars.next() else { todo!() };
-        //         if c != ')' {
-        //             todo!()
-        //         }
-        //         match expr {
-        //             Some(expr) => Some(LpCsvExpr::Parenthesized(Box::new(expr))),
-        //             None => todo!(),
-        //         }
-        //     }
-        //     '[' => {
-        //         self.chars.eat_char();
-        //         Some(LpCsvExpr::List(self.parse_list_expr()))
-        //     }
-        //     ']' | ')' => None,
-        //     '\n' => None,
-        //     c if self.is_cell_separator(c) => None,
-        //     c => todo!("c: `{c:?}"),
-        // }
+    }
+
+    fn parse_parenthesized_expr(&mut self) -> Box<LpCsvExpr> {
+        let Some(expr) = self.parse_expr() else {
+            todo!()
+        };
+        let Some(token) = self.next_token() else {
+            todo!()
+        };
+        if token != LpCsvToken::RightParen {
+            todo!()
+        }
+        Box::new(expr)
     }
 
     fn parse_list_expr(&mut self) -> Vec<LpCsvExpr> {
