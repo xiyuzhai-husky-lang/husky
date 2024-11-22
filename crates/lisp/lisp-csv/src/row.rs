@@ -54,16 +54,20 @@ fn parse_lp_csv_row_works() {
     t(
         "1",
         expect![[r#"
-        JustOk(
-            Expr(
-                Literal(
-                    Integer(
-                        1,
-                    ),
+            JustOk(
+                Expr(
+                    LpCsvExpr {
+                        data: Literal(
+                            Integer(
+                                1,
+                            ),
+                        ),
+                        offset_range: 0..1,
+                        position_range: [1:1, 1:2),
+                    },
                 ),
-            ),
-        )
-    "#]],
+            )
+        "#]],
     );
     t(
         "1,2",
@@ -71,16 +75,24 @@ fn parse_lp_csv_row_works() {
             JustOk(
                 SeparatedExprs(
                     [
-                        Literal(
-                            Integer(
-                                1,
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    1,
+                                ),
                             ),
-                        ),
-                        Literal(
-                            Integer(
-                                2,
+                            offset_range: 0..1,
+                            position_range: [1:1, 1:2),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    2,
+                                ),
                             ),
-                        ),
+                            offset_range: 2..3,
+                            position_range: [1:3, 1:4),
+                        },
                     ],
                 ),
             )
@@ -92,19 +104,31 @@ fn parse_lp_csv_row_works() {
             JustOk(
                 SeparatedExprs(
                     [
-                        Ident(
-                            "mathbb",
-                        ),
-                        Literal(
-                            Integer(
-                                1,
+                        LpCsvExpr {
+                            data: Ident(
+                                "mathbb",
                             ),
-                        ),
-                        Literal(
-                            Integer(
-                                2,
+                            offset_range: 0..6,
+                            position_range: [1:1, 1:7),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    1,
+                                ),
                             ),
-                        ),
+                            offset_range: 7..8,
+                            position_range: [1:8, 1:9),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    2,
+                                ),
+                            ),
+                            offset_range: 9..10,
+                            position_range: [1:10, 1:11),
+                        },
                     ],
                 ),
             )
@@ -117,16 +141,24 @@ fn parse_lp_csv_row_works() {
             JustOk(
                 SeparatedExprs(
                     [
-                        Literal(
-                            Integer(
-                                1,
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    1,
+                                ),
                             ),
-                        ),
-                        Literal(
-                            Integer(
-                                2,
+                            offset_range: 0..1,
+                            position_range: [1:1, 1:2),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    2,
+                                ),
                             ),
-                        ),
+                            offset_range: 2..3,
+                            position_range: [1:3, 1:4),
+                        },
                     ],
                 ),
             )
@@ -135,32 +167,48 @@ fn parse_lp_csv_row_works() {
     t(
         r#"1,2;3,4"#,
         expect![[r#"
-        JustOk(
-            SeparatedExprs(
-                [
-                    Literal(
-                        Integer(
-                            1,
-                        ),
-                    ),
-                    Literal(
-                        Integer(
-                            2,
-                        ),
-                    ),
-                    Literal(
-                        Integer(
-                            3,
-                        ),
-                    ),
-                    Literal(
-                        Integer(
-                            4,
-                        ),
-                    ),
-                ],
-            ),
-        )
-    "#]],
+            JustOk(
+                SeparatedExprs(
+                    [
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    1,
+                                ),
+                            ),
+                            offset_range: 0..1,
+                            position_range: [1:1, 1:2),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    2,
+                                ),
+                            ),
+                            offset_range: 2..3,
+                            position_range: [1:3, 1:4),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    3,
+                                ),
+                            ),
+                            offset_range: 4..5,
+                            position_range: [1:5, 1:6),
+                        },
+                        LpCsvExpr {
+                            data: Literal(
+                                Integer(
+                                    4,
+                                ),
+                            ),
+                            offset_range: 6..7,
+                            position_range: [1:7, 1:8),
+                        },
+                    ],
+                ),
+            )
+        "#]],
     );
 }
