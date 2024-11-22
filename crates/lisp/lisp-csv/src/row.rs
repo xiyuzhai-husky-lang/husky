@@ -13,17 +13,19 @@ impl<'a> LpCsvParser<'a> {
         let expr = self.parse_expr()?;
         self.ignore_whitespaces_and_tabs_and_comments();
         match self.chars.peek() {
-            Some(',') => {
+            Some(c) if self.is_cell_separator(c) => {
                 let mut exprs: Vec<LpCsvExpr> = vec![expr];
                 loop {
-                    self.chars.eat_char();
+                    self.ignore_separators();
                     let Some(expr) = self.parse_expr() else {
+                        use husky_print_utils::{p, DisplayIt};
+                        p!(self.input);
                         todo!()
                     };
                     exprs.push(expr);
                     self.ignore_whitespaces_and_tabs_and_comments();
                     match self.chars.peek() {
-                        Some(',') => (),
+                        Some(c) if self.is_cell_separator(c) => (),
                         Some('\n') | None => break,
                         Some(_) => todo!(),
                     }
@@ -129,5 +131,36 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
+    );
+    t(
+        r#"1,2;3,4"#,
+        expect![[r#"
+        JustOk(
+            SeparatedExprs(
+                [
+                    Literal(
+                        Integer(
+                            1,
+                        ),
+                    ),
+                    Literal(
+                        Integer(
+                            2,
+                        ),
+                    ),
+                    Literal(
+                        Integer(
+                            3,
+                        ),
+                    ),
+                    Literal(
+                        Integer(
+                            4,
+                        ),
+                    ),
+                ],
+            ),
+        )
+    "#]],
     );
 }
