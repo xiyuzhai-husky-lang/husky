@@ -29,7 +29,7 @@ impl<'a> LpCsvParser<'a> {
     }
 
     fn parse_expr_aux(&mut self) -> Option<LpCsvExpr> {
-        self.ignore_whitespaces_and_tabs_and_blank_lines_and_comments();
+        self.ignore_whitespaces_and_tabs_and_comments();
         match self.chars.peek()? {
             '"' => {
                 self.chars.eat_char();
@@ -98,7 +98,7 @@ impl<'a> LpCsvParser<'a> {
                     None => todo!(),
                 }
             }
-            ',' | ';' | ')' => None,
+            ',' | ';' | ')' | '\n' => None,
             c => todo!("c: `{c:?}"),
         }
     }
@@ -244,5 +244,29 @@ fn parse_lp_csv_expr_works() {
                 ),
             )
         "#]),
+    );
+    t(
+        r#"1,2
+3,4"#,
+        expect![[r#"
+            Some(
+                Literal(
+                    Integer(
+                        1,
+                    ),
+                ),
+            )
+        "#]],
+    );
+    t(
+        r#"x
+3"#,
+        expect![[r#"
+            Some(
+                Ident(
+                    "x",
+                ),
+            )
+        "#]],
     );
 }

@@ -4011,6 +4011,7 @@
         relative_path: "crates/lisp/lisp-csv",
         dependencies: [
             "husky-text-protocol",
+            "maybe-result",
             "ordered-float",
             "expect-test",
         ],

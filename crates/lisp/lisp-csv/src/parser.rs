@@ -27,4 +27,14 @@ impl<'a> LpCsvParser<'a> {
             }
         }
     }
+
+    pub(crate) fn ignore_whitespaces_and_tabs_and_comments(&mut self) {
+        self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
+        match self.chars.peek() {
+            Some('#') => {
+                self.chars.eat_chars_while(|c| c != '\n');
+            }
+            _ => (),
+        }
+    }
 }
