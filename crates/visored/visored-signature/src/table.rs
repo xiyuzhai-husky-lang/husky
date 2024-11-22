@@ -93,36 +93,39 @@ fn vd_signature_table_from_lp_csv_rows_works() {
                                     ),
                                 ],
                             },
-                            lopd_ty: VdType {
-                                data: ItemPath(
-                                    Set(
-                                        Prelude(
-                                            Integer,
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
                                         ),
                                     ),
                                 ),
-                                refinements: [],
-                            },
-                            ropd_ty: VdType {
-                                data: ItemPath(
-                                    Set(
-                                        Prelude(
-                                            Integer,
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
                                         ),
                                     ),
                                 ),
-                                refinements: [],
-                            },
-                            expr_ty: VdType {
-                                data: ItemPath(
-                                    Set(
-                                        Prelude(
-                                            Integer,
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
                                         ),
                                     ),
                                 ),
-                                refinements: [],
-                            },
+                            ),
                         },
                     ),
                 ),
@@ -151,36 +154,39 @@ fn vd_signature_table_from_lp_csv_rows_works() {
                                     ),
                                 ],
                             },
-                            lopd_ty: VdType {
-                                data: ItemPath(
-                                    Set(
-                                        Prelude(
-                                            Integer,
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
                                         ),
                                     ),
                                 ),
-                                refinements: [],
-                            },
-                            ropd_ty: VdType {
-                                data: ItemPath(
-                                    Set(
-                                        Prelude(
-                                            Integer,
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
                                         ),
                                     ),
                                 ),
-                                refinements: [],
-                            },
-                            expr_ty: VdType {
-                                data: ItemPath(
-                                    Set(
-                                        Prelude(
-                                            Integer,
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
                                         ),
                                     ),
                                 ),
-                                refinements: [],
-                            },
+                            ),
                         },
                     ),
                 ),
