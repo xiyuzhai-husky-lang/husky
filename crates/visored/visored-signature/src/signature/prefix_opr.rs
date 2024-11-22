@@ -12,6 +12,12 @@ pub struct VdBasePrefixOprSignature {
     pub expr_ty: VdType,
 }
 
+impl From<VdBasePrefixOprSignature> for VdSignature {
+    fn from(signature: VdBasePrefixOprSignature) -> Self {
+        VdSignature::PrefixOpr(VdPrefixOprSignature::Base(signature))
+    }
+}
+
 impl VdBasePrefixOprSignature {
     pub fn new(instantiation: VdInstantiation, opd_ty: VdType, expr_ty: VdType) -> Self {
         Self {

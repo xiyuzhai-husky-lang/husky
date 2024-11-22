@@ -32,6 +32,7 @@ impl VdTermMenu {
             group_mul,
             abelian_group_add,
             ring_add,
+            ring_sub,
             ring_mul,
             ring_power,
             ring_pos,

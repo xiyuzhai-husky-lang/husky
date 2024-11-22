@@ -68,12 +68,520 @@ fn vd_signature_table_from_lp_csv_rows_works() {
     expect![[r#"
         VdSignatureTable {
             table: {
-                "int_add": VdSignature::BinaryOpr(
+                "complex_div": VdSignature::BinaryOpr(
                     VdBinaryOprSignature::Base(
                         VdBaseBinaryOprSignature {
                             instantiation: VdInstantiation {
                                 path: TraitItem(
-                                    RingAdd,
+                                    FieldDiv,
+                                ),
+                                arguments: [
+                                    VdTerm::ItemPath(
+                                        VdItemPathTerm(
+                                            VdTermId {
+                                                data: ItemPath(
+                                                    VdItemPathTermData {
+                                                        item_path: Set(
+                                                            Prelude(
+                                                                ComplexNumber,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "int_pos": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "rat_pos": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "real_pos": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "real_neg": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "real_div": VdSignature::BinaryOpr(
+                    VdBinaryOprSignature::Base(
+                        VdBaseBinaryOprSignature {
+                            instantiation: VdInstantiation {
+                                path: TraitItem(
+                                    FieldDiv,
+                                ),
+                                arguments: [
+                                    VdTerm::ItemPath(
+                                        VdItemPathTerm(
+                                            VdTermId {
+                                                data: ItemPath(
+                                                    VdItemPathTermData {
+                                                        item_path: Set(
+                                                            Prelude(
+                                                                RealNumber,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "rat_div": VdSignature::BinaryOpr(
+                    VdBinaryOprSignature::Base(
+                        VdBaseBinaryOprSignature {
+                            instantiation: VdInstantiation {
+                                path: TraitItem(
+                                    FieldDiv,
+                                ),
+                                arguments: [
+                                    VdTerm::ItemPath(
+                                        VdItemPathTerm(
+                                            VdTermId {
+                                                data: ItemPath(
+                                                    VdItemPathTermData {
+                                                        item_path: Set(
+                                                            Prelude(
+                                                                RationalNumber,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "int_neg": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "rat_sub": VdSignature::BinaryOpr(
+                    VdBinaryOprSignature::Base(
+                        VdBaseBinaryOprSignature {
+                            instantiation: VdInstantiation {
+                                path: TraitItem(
+                                    RingSub,
+                                ),
+                                arguments: [
+                                    VdTerm::ItemPath(
+                                        VdItemPathTerm(
+                                            VdTermId {
+                                                data: ItemPath(
+                                                    VdItemPathTermData {
+                                                        item_path: Set(
+                                                            Prelude(
+                                                                RationalNumber,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "int_add": VdSignature::Separator(
+                    Base(
+                        VdBaseSeparatorSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                            item_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "complex_pos": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "complex_neg": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "int_sub": VdSignature::BinaryOpr(
+                    VdBinaryOprSignature::Base(
+                        VdBaseBinaryOprSignature {
+                            instantiation: VdInstantiation {
+                                path: TraitItem(
+                                    RingSub,
                                 ),
                                 arguments: [
                                     VdTerm::ItemPath(
@@ -129,12 +637,12 @@ fn vd_signature_table_from_lp_csv_rows_works() {
                         },
                     ),
                 ),
-                "int_mul": VdSignature::BinaryOpr(
+                "real_sub": VdSignature::BinaryOpr(
                     VdBinaryOprSignature::Base(
                         VdBaseBinaryOprSignature {
                             instantiation: VdInstantiation {
                                 path: TraitItem(
-                                    RingMul,
+                                    RingSub,
                                 ),
                                 arguments: [
                                     VdTerm::ItemPath(
@@ -144,7 +652,7 @@ fn vd_signature_table_from_lp_csv_rows_works() {
                                                     VdItemPathTermData {
                                                         item_path: Set(
                                                             Prelude(
-                                                                Integer,
+                                                                RealNumber,
                                                             ),
                                                         ),
                                                     },
@@ -159,13 +667,46 @@ fn vd_signature_table_from_lp_csv_rows_works() {
                                     VdItemPathTerm(
                                         VdTermId(
                                             Id {
-                                                value: 5,
+                                                value: 7,
                                             },
                                         ),
                                     ),
                                 ),
                             ),
                             ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "int_mul": VdSignature::Separator(
+                    Base(
+                        VdBaseSeparatorSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                            item_ty: VdType(
                                 ItemPath(
                                     VdItemPathTerm(
                                         VdTermId(
@@ -182,6 +723,100 @@ fn vd_signature_table_from_lp_csv_rows_works() {
                                         VdTermId(
                                             Id {
                                                 value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "rat_neg": VdSignature::PrefixOpr(
+                    Base(
+                        VdBasePrefixOprSignature {
+                            instantiation: VdInstantiation(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                            opd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                "complex_sub": VdSignature::BinaryOpr(
+                    VdBinaryOprSignature::Base(
+                        VdBaseBinaryOprSignature {
+                            instantiation: VdInstantiation {
+                                path: TraitItem(
+                                    RingSub,
+                                ),
+                                arguments: [
+                                    VdTerm::ItemPath(
+                                        VdItemPathTerm(
+                                            VdTermId {
+                                                data: ItemPath(
+                                                    VdItemPathTermData {
+                                                        item_path: Set(
+                                                            Prelude(
+                                                                ComplexNumber,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            lopd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ropd_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expr_ty: VdType(
+                                ItemPath(
+                                    VdItemPathTerm(
+                                        VdTermId(
+                                            Id {
+                                                value: 8,
                                             },
                                         ),
                                     ),

@@ -77,6 +77,7 @@ impl VdType {
             "int" => int,
             "rat" => rat,
             "real" => real,
+            "complex" => complex,
             s => todo!("s = {s:?} not handled"),
         }
     }

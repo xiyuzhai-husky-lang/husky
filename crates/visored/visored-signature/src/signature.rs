@@ -18,6 +18,7 @@ use self::{
 };
 use crate::*;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
+use separator::base::VdBaseSeparatorSignature;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -46,6 +47,15 @@ impl VdSignature {
             unreachable!()
         };
         match variant_ident.as_str() {
+            "base_prefix_opr" => {
+                assert_eq!(args.len(), 2);
+                VdBasePrefixOprSignature {
+                    instantiation,
+                    opd_ty: VdType::from_lp_csv_expr(&args[0], db),
+                    expr_ty: VdType::from_lp_csv_expr(&args[1], db),
+                }
+                .into()
+            }
             "base_binary_opr" => {
                 assert_eq!(args.len(), 3);
                 VdBaseBinaryOprSignature {
@@ -54,6 +64,15 @@ impl VdSignature {
                     ropd_ty: VdType::from_lp_csv_expr(&args[1], db),
                     expr_ty: VdType::from_lp_csv_expr(&args[2], db),
                 }
+                .into()
+            }
+            "base_separator" => {
+                assert_eq!(args.len(), 3);
+                VdBaseSeparatorSignature::new(
+                    instantiation,
+                    VdType::from_lp_csv_expr(&args[0], db),
+                    VdType::from_lp_csv_expr(&args[1], db),
+                )
                 .into()
             }
             s => todo!("s = {s:?} not handled"),
