@@ -4,6 +4,7 @@ use crate::*;
 pub enum LpCsvExpr {
     Literal(LpCsvLiteral),
     Application(Vec<LpCsvExpr>),
+    List(Vec<LpCsvExpr>),
     Ident(String),
     Parenthesized(Box<LpCsvExpr>),
 }
@@ -98,9 +99,29 @@ impl<'a> LpCsvParser<'a> {
                     None => todo!(),
                 }
             }
-            ',' | ';' | ')' | '\n' => None,
+            '[' => {
+                self.chars.eat_char();
+                Some(LpCsvExpr::List(self.parse_list_expr()))
+            }
+            ']' | ')' => None,
+            '\n' => None,
+            c if self.is_cell_separator(c) => None,
             c => todo!("c: `{c:?}"),
         }
+    }
+
+    fn parse_list_expr(&mut self) -> Vec<LpCsvExpr> {
+        let mut list: Vec<LpCsvExpr> = vec![];
+        while let Some(expr) = self.parse_expr() {
+            list.push(expr);
+            self.ignore_whitespaces_and_tabs_and_comments();
+            match self.chars.next() {
+                Some(']') => break,
+                Some(c) if self.is_list_item_separator(c) => (),
+                _ => todo!(),
+            }
+        }
+        list
     }
 }
 
@@ -265,6 +286,65 @@ fn parse_lp_csv_expr_works() {
             Some(
                 Ident(
                     "x",
+                ),
+            )
+        "#]],
+    );
+    t(
+        "[1,2,3]",
+        expect![[r#"
+        Some(
+            List(
+                [
+                    Literal(
+                        Integer(
+                            1,
+                        ),
+                    ),
+                    Literal(
+                        Integer(
+                            2,
+                        ),
+                    ),
+                    Literal(
+                        Integer(
+                            3,
+                        ),
+                    ),
+                ],
+            ),
+        )
+    "#]],
+    );
+    t(
+        "f [1,2,3]",
+        expect![[r#"
+            Some(
+                Application(
+                    [
+                        Ident(
+                            "f",
+                        ),
+                        List(
+                            [
+                                Literal(
+                                    Integer(
+                                        1,
+                                    ),
+                                ),
+                                Literal(
+                                    Integer(
+                                        2,
+                                    ),
+                                ),
+                                Literal(
+                                    Integer(
+                                        3,
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ],
                 ),
             )
         "#]],

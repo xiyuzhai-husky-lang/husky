@@ -52,4 +52,8 @@ impl<'a> LpCsvParser<'a> {
     pub(crate) fn is_cell_separator(&self, c: char) -> bool {
         matches!(c, ',' | ';' | ':' | '=' | '|')
     }
+
+    pub(crate) fn is_list_item_separator(&self, c: char) -> bool {
+        matches!(c, ',' | ';' | ':')
+    }
 }
