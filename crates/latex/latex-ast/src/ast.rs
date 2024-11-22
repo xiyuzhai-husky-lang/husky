@@ -252,14 +252,7 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     main_ranged_tokens: [
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    0,
-                                ),
-                                end: TextOffset(
-                                    1,
-                                ),
-                            },
+                            text_offset_range: 0..1,
                             text_range: [1:1, 1:2),
                             data: Math(
                                 Digit(
@@ -310,14 +303,7 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     main_ranged_tokens: [
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    0,
-                                ),
-                                end: TextOffset(
-                                    1,
-                                ),
-                            },
+                            text_offset_range: 0..1,
                             text_range: [1:1, 1:2),
                             data: Math(
                                 Letter(
@@ -372,14 +358,7 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     main_ranged_tokens: [
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    0,
-                                ),
-                                end: TextOffset(
-                                    1,
-                                ),
-                            },
+                            text_offset_range: 0..1,
                             text_range: [1:1, 1:2),
                             data: Math(
                                 Letter(
@@ -390,14 +369,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    1,
-                                ),
-                                end: TextOffset(
-                                    2,
-                                ),
-                            },
+                            text_offset_range: 1..2,
                             text_range: [1:2, 1:3),
                             data: Math(
                                 Punctuation(
@@ -406,14 +378,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    2,
-                                ),
-                                end: TextOffset(
-                                    3,
-                                ),
-                            },
+                            text_offset_range: 2..3,
                             text_range: [1:3, 1:4),
                             data: Math(
                                 Digit(
@@ -484,14 +449,7 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     main_ranged_tokens: [
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    0,
-                                ),
-                                end: TextOffset(
-                                    1,
-                                ),
-                            },
+                            text_offset_range: 0..1,
                             text_range: [1:1, 1:2),
                             data: Math(
                                 Letter(
@@ -502,28 +460,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    1,
-                                ),
-                                end: TextOffset(
-                                    2,
-                                ),
-                            },
+                            text_offset_range: 1..2,
                             text_range: [1:2, 1:3),
                             data: Math(
                                 Superscript,
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    2,
-                                ),
-                                end: TextOffset(
-                                    3,
-                                ),
-                            },
+                            text_offset_range: 2..3,
                             text_range: [1:3, 1:4),
                             data: Math(
                                 Digit(
@@ -594,14 +538,7 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     main_ranged_tokens: [
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    0,
-                                ),
-                                end: TextOffset(
-                                    1,
-                                ),
-                            },
+                            text_offset_range: 0..1,
                             text_range: [1:1, 1:2),
                             data: Math(
                                 Letter(
@@ -612,28 +549,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    1,
-                                ),
-                                end: TextOffset(
-                                    2,
-                                ),
-                            },
+                            text_offset_range: 1..2,
                             text_range: [1:2, 1:3),
                             data: Math(
                                 Subscript,
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    2,
-                                ),
-                                end: TextOffset(
-                                    3,
-                                ),
-                            },
+                            text_offset_range: 2..3,
                             text_range: [1:3, 1:4),
                             data: Math(
                                 Digit(
@@ -704,14 +627,7 @@ fn parse_tex_input_into_asts_works() {
                 LxTokenStorage {
                     main_ranged_tokens: [
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    0,
-                                ),
-                                end: TextOffset(
-                                    1,
-                                ),
-                            },
+                            text_offset_range: 0..1,
                             text_range: [1:1, 1:2),
                             data: Math(
                                 Letter(
@@ -722,28 +638,14 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    1,
-                                ),
-                                end: TextOffset(
-                                    2,
-                                ),
-                            },
+                            text_offset_range: 1..2,
                             text_range: [1:2, 1:3),
                             data: Math(
                                 Superscript,
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    2,
-                                ),
-                                end: TextOffset(
-                                    3,
-                                ),
-                            },
+                            text_offset_range: 2..3,
                             text_range: [1:3, 1:4),
                             data: Math(
                                 LeftDelimiter(
@@ -752,14 +654,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    3,
-                                ),
-                                end: TextOffset(
-                                    4,
-                                ),
-                            },
+                            text_offset_range: 3..4,
                             text_range: [1:4, 1:5),
                             data: Math(
                                 Letter(
@@ -770,14 +665,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    4,
-                                ),
-                                end: TextOffset(
-                                    5,
-                                ),
-                            },
+                            text_offset_range: 4..5,
                             text_range: [1:5, 1:6),
                             data: Math(
                                 Punctuation(
@@ -786,14 +674,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    5,
-                                ),
-                                end: TextOffset(
-                                    6,
-                                ),
-                            },
+                            text_offset_range: 5..6,
                             text_range: [1:6, 1:7),
                             data: Math(
                                 Digit(
@@ -802,14 +683,7 @@ fn parse_tex_input_into_asts_works() {
                             ),
                         },
                         LxTokenEntry {
-                            text_offset_range: TextOffsetRange {
-                                start: TextOffset(
-                                    6,
-                                ),
-                                end: TextOffset(
-                                    7,
-                                ),
-                            },
+                            text_offset_range: 6..7,
                             text_range: [1:7, 1:8),
                             data: Math(
                                 RightDelimiter(

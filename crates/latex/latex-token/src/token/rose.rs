@@ -1,7 +1,7 @@
 use super::*;
 use crate::idx::LxRoseTokenIdx;
 use husky_coword::Coword;
-use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 use latex_rose_punctuation::LxRosePunctuation;
 
@@ -63,7 +63,7 @@ impl<'a> LxLexer<'a> {
 
     fn next_ranged_rose_token_data(
         &mut self,
-    ) -> Option<(TextOffsetRange, TextRange, LxRoseTokenData)> {
+    ) -> Option<(TextOffsetRange, TextPositionRange, LxRoseTokenData)> {
         self.eat_spaces_and_tabs_and_comments();
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
@@ -82,7 +82,7 @@ impl<'a> LxLexer<'a> {
             self.next_rose_token_data()?
         };
         let end_offset = self.chars.current_offset();
-        let range = TextRange {
+        let range = TextPositionRange {
             start: start_position,
             end: self.chars.current_position(),
         };

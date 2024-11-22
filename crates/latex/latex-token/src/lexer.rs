@@ -19,7 +19,7 @@ use crate::{
     },
 };
 use husky_coword::Coword;
-use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextRange};
+use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextPositionRange};
 use latex_prelude::mode::LxMode;
 
 pub struct LxLexer<'a> {
@@ -86,7 +86,7 @@ impl<'a> LxLexer<'a> {
     pub(crate) fn alloc_root_token(
         &mut self,
         offset_range: TextOffsetRange,
-        range: TextRange,
+        range: TextPositionRange,
         token_data: LxRootTokenData,
     ) -> LxRootTokenIdx {
         self.storage
@@ -96,7 +96,7 @@ impl<'a> LxLexer<'a> {
     pub(crate) fn alloc_rose_token(
         &mut self,
         offset_range: TextOffsetRange,
-        range: TextRange,
+        range: TextPositionRange,
         token_data: LxRoseTokenData,
     ) -> LxRoseTokenIdx {
         self.storage
@@ -106,7 +106,7 @@ impl<'a> LxLexer<'a> {
     pub(crate) fn alloc_math_token(
         &mut self,
         offset_range: TextOffsetRange,
-        range: TextRange,
+        range: TextPositionRange,
         token_data: LxMathTokenData,
     ) -> LxMathTokenIdx {
         self.storage
@@ -116,7 +116,7 @@ impl<'a> LxLexer<'a> {
     pub(crate) fn alloc_name_token(
         &mut self,
         offset_range: TextOffsetRange,
-        range: TextRange,
+        range: TextPositionRange,
         token_data: LxNameTokenData,
     ) -> LxNameTokenIdx {
         self.storage
@@ -126,7 +126,7 @@ impl<'a> LxLexer<'a> {
     pub(crate) fn alloc_spec_token(
         &mut self,
         offset_range: TextOffsetRange,
-        range: TextRange,
+        range: TextPositionRange,
         token_data: LxSpecTokenData,
     ) -> LxSpecTokenIdx {
         self.storage
@@ -136,7 +136,7 @@ impl<'a> LxLexer<'a> {
     pub(crate) fn alloc_lisp_token(
         &mut self,
         offset_range: TextOffsetRange,
-        range: TextRange,
+        range: TextPositionRange,
         token_data: LxLispTokenData,
     ) -> LxLispTokenIdx {
         self.storage

@@ -120,51 +120,23 @@ mod tests {
             VdAnnotations {
                 token_annotation_records: [
                     VdAnnotationRecord {
-                        offset_range: TextOffsetRange {
-                            start: TextOffset(
-                                0,
-                            ),
-                            end: TextOffset(
-                                4,
-                            ),
-                        },
+                        offset_range: 0..4,
                         annotation: Integral(
                             SingleVariableIndefiniteIntegralOverReal,
                         ),
                     },
                     VdAnnotationRecord {
-                        offset_range: TextOffsetRange {
-                            start: TextOffset(
-                                5,
-                            ),
-                            end: TextOffset(
-                                6,
-                            ),
-                        },
+                        offset_range: 5..6,
                         annotation: Variable(
                             Usage,
                         ),
                     },
                     VdAnnotationRecord {
-                        offset_range: TextOffsetRange {
-                            start: TextOffset(
-                                6,
-                            ),
-                            end: TextOffset(
-                                7,
-                            ),
-                        },
+                        offset_range: 6..7,
                         annotation: Differential,
                     },
                     VdAnnotationRecord {
-                        offset_range: TextOffsetRange {
-                            start: TextOffset(
-                                7,
-                            ),
-                            end: TextOffset(
-                                8,
-                            ),
-                        },
+                        offset_range: 7..8,
                         annotation: Variable(
                             SingleVariableIntegralVariableDecl,
                         ),
@@ -172,14 +144,7 @@ mod tests {
                 ],
                 space_annotation_records: [
                     VdAnnotationRecord {
-                        offset_range: TextOffsetRange {
-                            start: TextOffset(
-                                6,
-                            ),
-                            end: TextOffset(
-                                7,
-                            ),
-                        },
+                        offset_range: 6..7,
                         annotation: Apply(
                             ScalarDifferentialFormMul,
                         ),

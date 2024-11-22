@@ -7,7 +7,7 @@ use self::{delimiter::LxLispDelimiter, ident::LxLispIdent, literal::LxLispLitera
 use super::*;
 use crate::idx::LxLispTokenIdx;
 use husky_coword::Coword;
-use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use label::LxLispXlabel;
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
@@ -35,13 +35,13 @@ impl<'a> LxLexer<'a> {
 
     fn next_ranged_lisp_token_data(
         &mut self,
-    ) -> Option<(TextOffsetRange, TextRange, LxLispTokenData)> {
+    ) -> Option<(TextOffsetRange, TextPositionRange, LxLispTokenData)> {
         self.eat_spaces_and_tabs();
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
         let token_data = self.next_lisp_token_data()?;
         let end_offset = self.chars.current_offset();
-        let range = TextRange {
+        let range = TextPositionRange {
             start: start_position,
             end: self.chars.current_position(),
         };
