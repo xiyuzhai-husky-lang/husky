@@ -4,6 +4,8 @@
 pub enum VdTraitItemPath {
     GroupMul,
     AbelianGroupAdd,
+    NatAdd,
+    NatMul,
     RingAdd,
     RingSub,
     RingMul,
@@ -23,6 +25,8 @@ pub enum VdTraitItemPath {
 impl VdTraitItemPath {
     pub const GROUP_MUL: Self = VdTraitItemPath::GroupMul;
     pub const ABELIAN_GROUP_ADD: Self = VdTraitItemPath::AbelianGroupAdd;
+    pub const NAT_ADD: Self = VdTraitItemPath::NatAdd;
+    pub const NAT_MUL: Self = VdTraitItemPath::NatMul;
     pub const RING_ADD: Self = VdTraitItemPath::RingAdd;
     pub const RING_SUB: Self = VdTraitItemPath::RingSub;
     pub const RING_MUL: Self = VdTraitItemPath::RingMul;

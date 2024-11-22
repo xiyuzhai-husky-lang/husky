@@ -18,10 +18,28 @@ rat_sub = ring_sub rat, base_binary_opr rat rat rat
 real_sub = ring_sub real, base_binary_opr real real real
 complex_sub = ring_sub complex, base_binary_opr complex complex complex
 ### div
+// TODO: use nzrat, i.e., non-zero rational numbers
 rat_div = field_div rat, base_binary_opr rat rat rat
+// TODO: use nzreal, i.e., non-zero real numbers
 real_div = field_div real, base_binary_opr real real real
+// TODO: use nzcomplex, i.e., non-zero complex numbers
 complex_div = field_div complex, base_binary_opr complex complex complex
 ## separators
 ### add
+nat_add = nat_add, base_separator nat nat nat
 int_add = ring_add int, base_separator int int int
+rat_add = ring_add rat, base_separator rat rat rat
+real_add = ring_add real, base_separator real real real
+complex_add = ring_add complex, base_separator complex complex complex
+### mul
+nat_mul = nat_mul, base_separator nat nat nat
 int_mul = ring_mul int, base_separator int int int
+rat_mul = ring_mul rat, base_separator rat rat rat
+real_mul = ring_mul real, base_separator real real real
+complex_mul = ring_mul complex, base_separator complex complex complex
+### power
+nat_to_the_power_of_nat = ring_power nat, base_separator nat nat nat
+int_to_the_power_of_nat = ring_power int, base_separator int nat int
+rat_to_the_power_of_nat = ring_power rat, base_separator rat nat rat
+real_to_the_power_of_nat = ring_power real, base_separator real nat real
+complex_to_the_power_of_nat = ring_power complex, base_separator complex nat complex
