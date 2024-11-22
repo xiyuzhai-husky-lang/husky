@@ -18,26 +18,38 @@ impl<'a> LpCsvParser<'a> {
     pub(crate) fn ignore_whitespaces_and_tabs_and_blank_lines_and_comments(&mut self) {
         loop {
             self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
-            match self.chars.peek() {
-                Some('#') => {
-                    self.chars.eat_chars_while(|c| c != '\n');
-                }
-                Some('\n') => {
-                    self.chars.eat_char();
-                }
-                _ => break,
+            if !self.ignore_comments() {
+                break;
             }
         }
     }
 
     pub(crate) fn ignore_whitespaces_and_tabs_and_comments(&mut self) {
         self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
+        self.ignore_comments();
+    }
+
+    /// returns true if a comment was ignored
+    pub(crate) fn ignore_comments(&mut self) -> bool {
         match self.chars.peek() {
-            Some('#') => {
-                self.chars.eat_chars_while(|c| c != '\n');
+            // python style comment
+            Some('#') => (),
+            // rust style comment
+            Some('/') => {
+                if self.chars.peek_two() != Some(('/', Some('/'))) {
+                    return false;
+                }
             }
-            _ => (),
+            // lean style comment
+            Some('-') => {
+                if self.chars.peek_two() != Some(('-', Some('-'))) {
+                    return false;
+                }
+            }
+            _ => return false,
         }
+        self.chars.eat_chars_while(|c| c != '\n');
+        true
     }
 
     pub(crate) fn ignore_separators(&mut self) {

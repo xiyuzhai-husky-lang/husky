@@ -475,4 +475,74 @@ fn parse_lp_csv_expr_works() {
             )
         "#]],
     );
+    t(
+        r#"# comment
+1"#,
+        expect![[r#"
+            None
+        "#]],
+    );
+    t(
+        r#"1# comment
+1"#,
+        expect![[r#"
+            Some(
+                LpCsvExpr {
+                    data: Literal(
+                        Integer(
+                            1,
+                        ),
+                    ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
+            )
+        "#]],
+    );
+    t(
+        r#"// comment
+1"#,
+        expect![[r#"
+            None
+        "#]],
+    );
+    t(
+        r#"1// comment"#,
+        expect![[r#"
+            Some(
+                LpCsvExpr {
+                    data: Literal(
+                        Integer(
+                            1,
+                        ),
+                    ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
+            )
+        "#]],
+    );
+    t(
+        r#"-- comment
+1"#,
+        expect![[r#"
+            None
+        "#]],
+    );
+    t(
+        r#"1-- comment"#,
+        expect![[r#"
+            Some(
+                LpCsvExpr {
+                    data: Literal(
+                        Integer(
+                            1,
+                        ),
+                    ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
+            )
+        "#]],
+    );
 }
