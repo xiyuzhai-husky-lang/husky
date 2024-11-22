@@ -1,9 +1,17 @@
+use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
 use token::LpCsvToken;
 
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LpCsvExpr {
+pub struct LpCsvExpr {
+    pub data: LpCsvExprData,
+    pub offset_range: TextOffsetRange,
+    pub position_range: TextRange,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum LpCsvExprData {
     Literal(LpCsvLiteral),
     Application(Vec<LpCsvExpr>),
     List(Vec<LpCsvExpr>),
@@ -21,38 +29,62 @@ pub enum LpCsvLiteral {
 impl<'a> LpCsvParser<'a> {
     pub(crate) fn parse_expr(&mut self) -> Option<LpCsvExpr> {
         let mut list: Vec<LpCsvExpr> = vec![];
+        self.ignore_whitespaces_and_tabs_and_comments();
+        let offset_start = self.chars.current_offset();
+        let position_start = self.chars.current_position();
         while let Some(expr) = self.parse_expr_aux() {
             list.push(expr);
         }
+        let offset_end = self.chars.current_offset();
+        let position_end = self.chars.current_position();
         match list.len() {
             0 => None,
             1 => list.pop(),
-            _ => Some(LpCsvExpr::Application(list)),
+            _ => Some(LpCsvExpr {
+                data: LpCsvExprData::Application(list),
+                offset_range: TextOffsetRange::new(offset_start, offset_end),
+                position_range: (position_start..position_end).into(),
+            }),
         }
     }
 
     fn parse_expr_aux(&mut self) -> Option<LpCsvExpr> {
         self.ignore_whitespaces_and_tabs_and_comments();
+        let offset_start = self.chars.current_offset();
+        let position_start = self.chars.current_position();
+        let data = self.parse_expr_data()?;
+        let offset_end = self.chars.current_offset();
+        let position_end = self.chars.current_position();
+        Some(LpCsvExpr {
+            data,
+            offset_range: TextOffsetRange::new(offset_start, offset_end),
+            position_range: (position_start..position_end).into(),
+        })
+    }
+
+    fn parse_expr_data(&mut self) -> Option<LpCsvExprData> {
         match self.peek_token()? {
             LpCsvToken::Literal(literal) => {
                 self.eat_token();
-                Some(LpCsvExpr::Literal(literal))
+                Some(LpCsvExprData::Literal(literal))
             }
             // TODO: handle connectors followed by ident
             LpCsvToken::Ident(ident) => {
                 self.eat_token();
-                Some(LpCsvExpr::Ident(ident))
+                Some(LpCsvExprData::Ident(ident))
             }
             LpCsvToken::Connector(connector) => None,
             LpCsvToken::Separator(separator) => None,
             LpCsvToken::LeftParen => {
                 self.eat_token();
-                Some(LpCsvExpr::Parenthesized(self.parse_parenthesized_expr()))
+                Some(LpCsvExprData::Parenthesized(
+                    self.parse_parenthesized_expr(),
+                ))
             }
             LpCsvToken::RightParen => None,
             LpCsvToken::LeftBracket => {
                 self.eat_token();
-                Some(LpCsvExpr::List(self.parse_list_expr()))
+                Some(LpCsvExprData::List(self.parse_list_expr()))
             }
             LpCsvToken::RightBracket => None,
         }
@@ -103,11 +135,15 @@ fn parse_lp_csv_expr_works() {
         "1",
         expect!([r#"
             Some(
-                Literal(
-                    Integer(
-                        1,
+                LpCsvExpr {
+                    data: Literal(
+                        Integer(
+                            1,
+                        ),
                     ),
-                ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
             )
         "#]),
     );
@@ -115,11 +151,15 @@ fn parse_lp_csv_expr_works() {
         "1.2",
         expect!([r#"
             Some(
-                Literal(
-                    Float(
-                        1.2,
+                LpCsvExpr {
+                    data: Literal(
+                        Float(
+                            1.2,
+                        ),
                     ),
-                ),
+                    offset_range: 0..3,
+                    position_range: [1:1, 1:4),
+                },
             )
         "#]),
     );
@@ -127,11 +167,15 @@ fn parse_lp_csv_expr_works() {
         r#""1%&safdh\\command""#,
         expect!([r#"
             Some(
-                Literal(
-                    String(
-                        "1%&safdh\\command",
+                LpCsvExpr {
+                    data: Literal(
+                        String(
+                            "1%&safdh\\command",
+                        ),
                     ),
-                ),
+                    offset_range: 0..19,
+                    position_range: [1:1, 1:20),
+                },
             )
         "#]),
     );
@@ -139,9 +183,13 @@ fn parse_lp_csv_expr_works() {
         "x",
         expect!([r#"
             Some(
-                Ident(
-                    "x",
-                ),
+                LpCsvExpr {
+                    data: Ident(
+                        "x",
+                    ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
             )
         "#]),
     );
@@ -149,9 +197,13 @@ fn parse_lp_csv_expr_works() {
         "x1",
         expect!([r#"
             Some(
-                Ident(
-                    "x1",
-                ),
+                LpCsvExpr {
+                    data: Ident(
+                        "x1",
+                    ),
+                    offset_range: 0..2,
+                    position_range: [1:1, 1:3),
+                },
             )
         "#]),
     );
@@ -159,9 +211,13 @@ fn parse_lp_csv_expr_works() {
         "hello_world",
         expect!([r#"
             Some(
-                Ident(
-                    "hello_world",
-                ),
+                LpCsvExpr {
+                    data: Ident(
+                        "hello_world",
+                    ),
+                    offset_range: 0..11,
+                    position_range: [1:1, 1:12),
+                },
             )
         "#]),
     );
@@ -169,9 +225,13 @@ fn parse_lp_csv_expr_works() {
         "hello_world,",
         expect!([r#"
             Some(
-                Ident(
-                    "hello_world",
-                ),
+                LpCsvExpr {
+                    data: Ident(
+                        "hello_world",
+                    ),
+                    offset_range: 0..11,
+                    position_range: [1:1, 1:12),
+                },
             )
         "#]),
     );
@@ -179,18 +239,34 @@ fn parse_lp_csv_expr_works() {
         "(define x)",
         expect!([r#"
             Some(
-                Parenthesized(
-                    Application(
-                        [
-                            Ident(
-                                "define",
+                LpCsvExpr {
+                    data: Parenthesized(
+                        LpCsvExpr {
+                            data: Application(
+                                [
+                                    LpCsvExpr {
+                                        data: Ident(
+                                            "define",
+                                        ),
+                                        offset_range: 1..7,
+                                        position_range: [1:2, 1:8),
+                                    },
+                                    LpCsvExpr {
+                                        data: Ident(
+                                            "x",
+                                        ),
+                                        offset_range: 8..9,
+                                        position_range: [1:9, 1:10),
+                                    },
+                                ],
                             ),
-                            Ident(
-                                "x",
-                            ),
-                        ],
+                            offset_range: 1..9,
+                            position_range: [1:2, 1:10),
+                        },
                     ),
-                ),
+                    offset_range: 0..10,
+                    position_range: [1:1, 1:11),
+                },
             )
         "#]),
     );
@@ -198,32 +274,64 @@ fn parse_lp_csv_expr_works() {
         "(add (define x) 1)",
         expect!([r#"
             Some(
-                Parenthesized(
-                    Application(
-                        [
-                            Ident(
-                                "add",
-                            ),
-                            Parenthesized(
-                                Application(
-                                    [
-                                        Ident(
-                                            "define",
+                LpCsvExpr {
+                    data: Parenthesized(
+                        LpCsvExpr {
+                            data: Application(
+                                [
+                                    LpCsvExpr {
+                                        data: Ident(
+                                            "add",
                                         ),
-                                        Ident(
-                                            "x",
+                                        offset_range: 1..4,
+                                        position_range: [1:2, 1:5),
+                                    },
+                                    LpCsvExpr {
+                                        data: Parenthesized(
+                                            LpCsvExpr {
+                                                data: Application(
+                                                    [
+                                                        LpCsvExpr {
+                                                            data: Ident(
+                                                                "define",
+                                                            ),
+                                                            offset_range: 6..12,
+                                                            position_range: [1:7, 1:13),
+                                                        },
+                                                        LpCsvExpr {
+                                                            data: Ident(
+                                                                "x",
+                                                            ),
+                                                            offset_range: 13..14,
+                                                            position_range: [1:14, 1:15),
+                                                        },
+                                                    ],
+                                                ),
+                                                offset_range: 6..14,
+                                                position_range: [1:7, 1:15),
+                                            },
                                         ),
-                                    ],
-                                ),
+                                        offset_range: 5..15,
+                                        position_range: [1:6, 1:16),
+                                    },
+                                    LpCsvExpr {
+                                        data: Literal(
+                                            Integer(
+                                                1,
+                                            ),
+                                        ),
+                                        offset_range: 16..17,
+                                        position_range: [1:17, 1:18),
+                                    },
+                                ],
                             ),
-                            Literal(
-                                Integer(
-                                    1,
-                                ),
-                            ),
-                        ],
+                            offset_range: 1..17,
+                            position_range: [1:2, 1:18),
+                        },
                     ),
-                ),
+                    offset_range: 0..18,
+                    position_range: [1:1, 1:19),
+                },
             )
         "#]),
     );
@@ -232,11 +340,15 @@ fn parse_lp_csv_expr_works() {
 3,4"#,
         expect![[r#"
             Some(
-                Literal(
-                    Integer(
-                        1,
+                LpCsvExpr {
+                    data: Literal(
+                        Integer(
+                            1,
+                        ),
                     ),
-                ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
             )
         "#]],
     );
@@ -245,68 +357,112 @@ fn parse_lp_csv_expr_works() {
 3"#,
         expect![[r#"
             Some(
-                Ident(
-                    "x",
-                ),
+                LpCsvExpr {
+                    data: Ident(
+                        "x",
+                    ),
+                    offset_range: 0..1,
+                    position_range: [1:1, 1:2),
+                },
             )
         "#]],
     );
     t(
         "[1,2,3]",
         expect![[r#"
-        Some(
-            List(
-                [
-                    Literal(
-                        Integer(
-                            1,
-                        ),
+            Some(
+                LpCsvExpr {
+                    data: List(
+                        [
+                            LpCsvExpr {
+                                data: Literal(
+                                    Integer(
+                                        1,
+                                    ),
+                                ),
+                                offset_range: 1..2,
+                                position_range: [1:2, 1:3),
+                            },
+                            LpCsvExpr {
+                                data: Literal(
+                                    Integer(
+                                        2,
+                                    ),
+                                ),
+                                offset_range: 3..4,
+                                position_range: [1:4, 1:5),
+                            },
+                            LpCsvExpr {
+                                data: Literal(
+                                    Integer(
+                                        3,
+                                    ),
+                                ),
+                                offset_range: 5..6,
+                                position_range: [1:6, 1:7),
+                            },
+                        ],
                     ),
-                    Literal(
-                        Integer(
-                            2,
-                        ),
-                    ),
-                    Literal(
-                        Integer(
-                            3,
-                        ),
-                    ),
-                ],
-            ),
-        )
-    "#]],
+                    offset_range: 0..7,
+                    position_range: [1:1, 1:8),
+                },
+            )
+        "#]],
     );
     t(
         "f [1,2,3]",
         expect![[r#"
             Some(
-                Application(
-                    [
-                        Ident(
-                            "f",
-                        ),
-                        List(
-                            [
-                                Literal(
-                                    Integer(
-                                        1,
-                                    ),
+                LpCsvExpr {
+                    data: Application(
+                        [
+                            LpCsvExpr {
+                                data: Ident(
+                                    "f",
                                 ),
-                                Literal(
-                                    Integer(
-                                        2,
-                                    ),
+                                offset_range: 0..1,
+                                position_range: [1:1, 1:2),
+                            },
+                            LpCsvExpr {
+                                data: List(
+                                    [
+                                        LpCsvExpr {
+                                            data: Literal(
+                                                Integer(
+                                                    1,
+                                                ),
+                                            ),
+                                            offset_range: 3..4,
+                                            position_range: [1:4, 1:5),
+                                        },
+                                        LpCsvExpr {
+                                            data: Literal(
+                                                Integer(
+                                                    2,
+                                                ),
+                                            ),
+                                            offset_range: 5..6,
+                                            position_range: [1:6, 1:7),
+                                        },
+                                        LpCsvExpr {
+                                            data: Literal(
+                                                Integer(
+                                                    3,
+                                                ),
+                                            ),
+                                            offset_range: 7..8,
+                                            position_range: [1:8, 1:9),
+                                        },
+                                    ],
                                 ),
-                                Literal(
-                                    Integer(
-                                        3,
-                                    ),
-                                ),
-                            ],
-                        ),
-                    ],
-                ),
+                                offset_range: 2..9,
+                                position_range: [1:3, 1:10),
+                            },
+                        ],
+                    ),
+                    offset_range: 0..9,
+                    position_range: [1:1, 1:10),
+                },
             )
         "#]],
     );
