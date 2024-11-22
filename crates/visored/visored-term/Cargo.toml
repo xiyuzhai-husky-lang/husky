@@ -17,6 +17,8 @@ smallvec.workspace = true
 # abstraction
 enum-class.workspace = true
 salsa.workspace = true
+# lisp
+lisp-csv.workspace = true
 # visored
 visored-coword.workspace = true
 visored-item-path.workspace = true

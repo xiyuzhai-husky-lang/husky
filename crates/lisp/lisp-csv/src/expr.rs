@@ -9,6 +9,15 @@ pub struct LpCsvExpr {
     pub offset_range: TextOffsetRange,
     pub position_range: TextPositionRange,
 }
+impl LpCsvExpr {
+    pub fn application_expansion(&self) -> (&LpCsvExpr, &[LpCsvExpr]) {
+        match &self.data {
+            LpCsvExprData::Ident(ident) => (self, &[]),
+            LpCsvExprData::Application(exprs) => (&exprs[0], &exprs[1..]),
+            _ => todo!(),
+        }
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LpCsvExprData {

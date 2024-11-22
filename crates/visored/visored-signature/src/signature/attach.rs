@@ -1,5 +1,6 @@
 use super::*;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdAttachSignature {
     Power(VdPowerSignature),
@@ -12,6 +13,7 @@ impl VdAttachSignature {
     }
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdPowerSignature {
     instantiation: VdInstantiation,

@@ -1,6 +1,11 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdFracSignature {
+    Base(VdBaseFracSignature),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdBaseFracSignature {
     instantiation: VdInstantiation,
     numerator_ty: VdType,

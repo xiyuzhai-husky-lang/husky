@@ -11,6 +11,6 @@ use self::{error::*, expr::*, file::*, parser::*, row::*};
 use expect_test::*;
 use ordered_float::OrderedFloat;
 
-pub fn parse_lp_csv(s: &str) -> Result<LpCsvFile, LpCsvError> {
+pub fn parse_lp_csv_file(s: &str) -> Result<LpCsvFile, LpCsvError> {
     LpCsvParser::new(s).parse_file()
 }

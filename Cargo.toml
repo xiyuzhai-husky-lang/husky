@@ -356,6 +356,8 @@ husky-linktime = { path = "crates/linktime/husky-linktime" }
 husky-boot-linktime = { path = "crates/linktime/husky-boot-linktime" }
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
+# lisp
+lisp-csv = { path = "crates/lisp/lisp-csv" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }

@@ -1,8 +1,11 @@
 pub mod table;
 
+use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
 use visored_item_path::path::VdItemPath;
+
+use crate::menu::{vd_ty_menu, VdTypeMenu};
 
 #[salsa::interned]
 pub struct VdType {
@@ -32,5 +35,38 @@ fn is_vd_ty_function_like(db: &::salsa::Db, ty: VdType) -> bool {
     // TODO: ad hoc implementation
     match ty.data(db) {
         VdTypeData::ItemPath(vd_item_path) => false,
+    }
+}
+
+impl VdType {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &::salsa::Db) -> Self {
+        match expr.data {
+            LpCsvExprData::Literal(ref literal) => todo!(),
+            LpCsvExprData::Application(ref app) => todo!(),
+            LpCsvExprData::List(ref vec) => todo!(),
+            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident, db),
+            LpCsvExprData::Parenthesized(ref lp_csv_expr) => todo!(),
+        }
+    }
+
+    pub fn from_lp_csv_ident(ident: &str, db: &::salsa::Db) -> Self {
+        let VdTypeMenu {
+            nat,
+            int,
+            rat,
+            real,
+            complex,
+            set,
+            prop,
+        } = *vd_ty_menu(db);
+        match ident as &str {
+            "true" => todo!(),
+            "false" => todo!(),
+            "nat" => nat,
+            "int" => int,
+            "rat" => rat,
+            "real" => real,
+            s => todo!("s = {s:?} not handled"),
+        }
     }
 }
