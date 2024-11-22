@@ -4,6 +4,7 @@ pub mod file;
 pub mod helpers;
 mod parser;
 pub mod row;
+mod token;
 
 use self::{error::*, expr::*, file::*, parser::*, row::*};
 #[cfg(test)]
