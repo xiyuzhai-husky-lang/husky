@@ -5,6 +5,7 @@ pub mod trai;
 pub mod trai_item;
 
 use self::{category::*, function::*, set::*, trai::*, trai_item::*};
+use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -29,4 +30,22 @@ impl VdItemPath {
     // # functions
     pub const SIN: Self = VdItemPath::Function(VdFunctionPath::SIN);
     pub const COS: Self = VdItemPath::Function(VdFunctionPath::COS);
+    // # trait items
+    pub const RING_ADD: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_ADD);
+    pub const RING_MUL: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_MUL);
+    pub const RING_NEG: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_NEG);
+}
+
+impl VdItemPath {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr) -> Self {
+        let LpCsvExprData::Ident(ref ident) = expr.data else {
+            todo!("expected identifier but got {:#?}", expr.data)
+        };
+        match ident as &str {
+            "ring_add" => VdItemPath::RING_ADD,
+            "ring_mul" => VdItemPath::RING_MUL,
+            "ring_neg" => VdItemPath::RING_NEG,
+            s => todo!("s = {s:?} not handled"),
+        }
+    }
 }

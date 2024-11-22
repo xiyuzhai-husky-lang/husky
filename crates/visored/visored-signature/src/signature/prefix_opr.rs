@@ -1,6 +1,11 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum VdPrefixOprSignature {
+    Base(VdBasePrefixOprSignature),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdBasePrefixOprSignature {
     pub instantiation: VdInstantiation,
     pub opd_ty: VdType,

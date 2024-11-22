@@ -4341,8 +4341,16 @@
         name: "visored-signature",
         relative_path: "crates/visored/visored-signature",
         dependencies: [
+            "enum-class",
+            "lisp-csv",
+            "rustc-hash",
             "salsa",
             "visored-term",
+            "expect-test",
+            "husky-coword",
+            "husky-path-utils",
+            "latex-vfs",
+            "visored-item-path",
         ],
     },
     PackageSummary {
@@ -4350,6 +4358,7 @@
         relative_path: "crates/visored/visored-term",
         dependencies: [
             "enum-class",
+            "lisp-csv",
             "rustc-hash",
             "salsa",
             "smallvec",
@@ -4365,6 +4374,7 @@
             "husky-coword",
             "latex-prelude",
             "latex-vfs",
+            "lisp-csv",
             "rustc-hash",
             "salsa",
             "smallvec",
