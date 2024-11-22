@@ -9,7 +9,7 @@ use visored_term::menu::vd_ty_menu;
     latex_command::jar::LxCommandJar,
     latex_environment::jar::LxEnvironmentJar,
     latex_token::jar::LxTokenJar,
-    visored_item_path::jar::VdItemPathJar,
+    visored_entity_path::jar::VdEntityPathJar,
     visored_term::jar::VdTermJar,
     visored_opr::jar::VdOprJar,
     visored_sem_expr::jar::VdSemExprJar,

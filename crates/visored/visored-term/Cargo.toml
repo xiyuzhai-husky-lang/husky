@@ -21,7 +21,7 @@ salsa.workspace = true
 lisp-csv.workspace = true
 # visored
 visored-coword.workspace = true
-visored-item-path.workspace = true
+visored-entity-path.workspace = true
 
 [lints]
 workspace = true

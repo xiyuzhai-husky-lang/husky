@@ -1,5 +1,5 @@
 [package]
-name = "visored-item-path"
+name = "lean-entity-path"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,20 +12,15 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-rustc-hash.workspace = true
 smallvec.workspace = true
 # abstractions
-enum-class.workspace = true
 salsa.workspace = true
+# lean
+lean-coword.workspace = true
+
+[dev-dependencies]
 # kernel
 husky-coword.workspace = true
-# latex
-latex-prelude.workspace = true
-latex-vfs.workspace = true
-# lisp
-lisp-csv.workspace = true
-# visored
-visored-prelude.workspace = true
 
 [lints]
 workspace = true

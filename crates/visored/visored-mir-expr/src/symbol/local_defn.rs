@@ -5,7 +5,7 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_math_letter::letter::LxMathLetter;
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::symbol::local_defn::{
     storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnBody, VdSemSymbolLocalDefnData,
     VdSemSymbolLocalDefnHead, VdSemSymbolLocalDefnIdx,

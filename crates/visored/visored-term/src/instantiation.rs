@@ -3,7 +3,7 @@ pub mod menu;
 use crate::term::VdTerm;
 use lisp_csv::expr::LpCsvExpr;
 use smallvec::SmallVec;
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 
 #[salsa::interned]
 pub struct VdInstantiation {

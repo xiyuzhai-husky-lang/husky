@@ -8,11 +8,11 @@ use crate::{
 };
 use itertools::Itertools;
 use latex_vfs::path::LxFilePath;
+use visored_entity_path::module::{VdModulePath, VdModulePathRegistry};
 use visored_global_resolution::{
     default_table::VdDefaultGlobalResolutionTable,
     resolution::environment::VdEnvironmentGlobalResolution,
 };
-use visored_item_path::module::{VdModulePath, VdModulePathRegistry};
 
 pub struct VdSynExprEntityTreeBuilder<'a> {
     db: &'a ::salsa::Db,

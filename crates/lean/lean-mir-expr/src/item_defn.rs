@@ -7,7 +7,7 @@ use crate::*;
 use expr::LnMirExprIdx;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use lean_coword::ident::LnIdent;
-use lean_item_path::namespace::LnNamespace;
+use lean_entity_path::namespace::LnNamespace;
 
 pub enum LnItemDefnData {
     Variable {

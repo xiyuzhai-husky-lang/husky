@@ -1,7 +1,7 @@
 pub mod menu;
 
 use crate::term::LnTerm;
-use lean_item_path::LnItemPath;
+use lean_entity_path::LnItemPath;
 use smallvec::*;
 
 #[salsa::interned]

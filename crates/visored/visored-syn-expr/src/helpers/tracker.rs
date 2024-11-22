@@ -45,8 +45,8 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
+use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
-use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,

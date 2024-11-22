@@ -1,5 +1,5 @@
 use super::*;
-use visored_item_path::menu::{vd_item_path_menu, VdItemPathMenu};
+use visored_entity_path::menu::{vd_item_path_menu, VdItemPathMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdTermMenu {

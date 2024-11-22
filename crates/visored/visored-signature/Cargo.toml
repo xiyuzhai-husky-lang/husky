@@ -30,7 +30,7 @@ latex-vfs.workspace = true
 # utils
 husky-path-utils.workspace = true
 # visored
-visored-item-path.workspace = true
+visored-entity-path.workspace = true
 
 [lints]
 workspace = true

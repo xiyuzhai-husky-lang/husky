@@ -6,7 +6,7 @@ use clause::VdSynClauseIdx;
 use idx_arena::{Arena, ArenaIdx};
 use latex_token::idx::LxTokenIdxRange;
 use lineage::VdSynLineage;
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::module::VdModulePath;
 
 /// Be careful with the wording.
 ///

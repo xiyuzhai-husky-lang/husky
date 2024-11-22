@@ -17,7 +17,7 @@ smallvec.workspace = true
 enum-class.workspace = true
 salsa.workspace = true
 # lean
-lean-item-path.workspace = true
+lean-entity-path.workspace = true
 
 [lints]
 workspace = true

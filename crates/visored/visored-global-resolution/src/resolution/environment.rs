@@ -1,7 +1,7 @@
 use super::*;
 use latex_environment::path::LxEnvironmentPath;
 use rustc_hash::FxHashMap;
-use visored_item_path::environment::VdEnvironmentPath;
+use visored_entity_path::environment::VdEnvironmentPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdEnvironmentGlobalResolution {

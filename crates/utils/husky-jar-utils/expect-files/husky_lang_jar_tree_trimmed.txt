@@ -184,7 +184,7 @@
         "latex-command",
     },
     "latex-vfs": {},
-    "lean-item-path": {
+    "lean-entity-path": {
         "husky-coword",
     },
     "lean-mir-expr": {
@@ -192,16 +192,16 @@
     },
     "lean-sem-expr": {},
     "lean-term": {
-        "lean-item-path",
+        "lean-entity-path",
     },
     "namekian-ast": {},
+    "visored-entity-path": {
+        "husky-coword",
+        "latex-vfs",
+    },
     "visored-global-dispatch": {
         "visored-opr",
         "visored-signature",
-    },
-    "visored-item-path": {
-        "husky-coword",
-        "latex-vfs",
     },
     "visored-lean-transpilation": {
         "lean-mir-expr",
@@ -225,6 +225,6 @@
         "visored-term",
     },
     "visored-term": {
-        "visored-item-path",
+        "visored-entity-path",
     },
 }

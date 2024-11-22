@@ -8,7 +8,7 @@ use lean_mir_expr::{
 };
 use salsa::Db;
 use std::ops::{Deref, DerefMut};
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::module::VdModulePath;
 use visored_mir_expr::{
     expr::VdMirExprArenaRef,
     region::VdMirExprRegionData,

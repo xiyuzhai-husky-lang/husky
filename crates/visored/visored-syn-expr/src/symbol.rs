@@ -15,7 +15,7 @@ use entity_tree::VdSynExprEntityTreeNode;
 use helpers::tracker::IsVdSynOutput;
 use latex_math_letter::letter::LxMathLetter;
 use stmt::{VdSynStmtIdxRange, VdSynStmtMap};
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::module::VdModulePath;
 
 pub enum VdSynSymbol {
     Letter(LxMathLetter),

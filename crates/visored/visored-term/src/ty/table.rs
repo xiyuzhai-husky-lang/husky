@@ -3,7 +3,7 @@ use crate::{
     ty::VdType,
 };
 use rustc_hash::FxHashMap;
-use visored_item_path::{
+use visored_entity_path::{
     menu::{vd_item_path_menu, VdItemPathMenu},
     path::VdItemPath,
 };

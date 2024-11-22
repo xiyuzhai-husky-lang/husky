@@ -7,7 +7,7 @@ use crate::{
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
