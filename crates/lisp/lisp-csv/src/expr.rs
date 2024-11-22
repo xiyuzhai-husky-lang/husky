@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LpCsvExpr {
     Literal(LpCsvLiteral),
-    List(Vec<LpCsvExpr>),
+    Application(Vec<LpCsvExpr>),
     Ident(String),
     Parenthesized(Box<LpCsvExpr>),
 }
@@ -24,7 +24,7 @@ impl<'a> LpCsvParser<'a> {
         match list.len() {
             0 => None,
             1 => list.pop(),
-            _ => Some(LpCsvExpr::List(list)),
+            _ => Some(LpCsvExpr::Application(list)),
         }
     }
 
@@ -198,7 +198,7 @@ fn parse_lp_csv_expr_works() {
         expect!([r#"
             Some(
                 Parenthesized(
-                    List(
+                    Application(
                         [
                             Ident(
                                 "define",
@@ -217,13 +217,13 @@ fn parse_lp_csv_expr_works() {
         expect!([r#"
             Some(
                 Parenthesized(
-                    List(
+                    Application(
                         [
                             Ident(
                                 "add",
                             ),
                             Parenthesized(
-                                List(
+                                Application(
                                     [
                                         Ident(
                                             "define",
