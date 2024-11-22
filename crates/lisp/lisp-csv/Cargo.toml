@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+maybe-result.workspace = true
 ordered-float.workspace = true
 # protocols
 husky-text-protocol.workspace = true
