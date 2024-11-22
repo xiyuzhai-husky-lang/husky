@@ -1,0 +1,4 @@
+# instances of lisp-csv
+
+int_add = ring_add int, binary_opr int int int
+int_mul = ring_mul int, binary_opr int int int
