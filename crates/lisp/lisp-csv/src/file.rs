@@ -88,35 +88,6 @@ mathcal,1,2"#,
                             },
                         ],
                     ),
-                    SeparatedExprs(
-                        [
-                            LpCsvExpr {
-                                data: Ident(
-                                    "mathcal",
-                                ),
-                                offset_range: 11..18,
-                                position_range: [2:1, 2:8),
-                            },
-                            LpCsvExpr {
-                                data: Literal(
-                                    Integer(
-                                        1,
-                                    ),
-                                ),
-                                offset_range: 19..20,
-                                position_range: [2:9, 2:10),
-                            },
-                            LpCsvExpr {
-                                data: Literal(
-                                    Integer(
-                                        2,
-                                    ),
-                                ),
-                                offset_range: 21..22,
-                                position_range: [2:11, 2:12),
-                            },
-                        ],
-                    ),
                 ],
             )
         "#]],
