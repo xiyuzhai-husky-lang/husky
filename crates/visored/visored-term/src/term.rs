@@ -72,7 +72,7 @@ pub type ZfcTerms = SmallVec<[VdTerm; 4]>;
 #[salsa::interned]
 pub struct VdTermId {
     #[return_ref]
-    data: VdTermData,
+    pub data: VdTermData,
 }
 
 #[enum_class::from_variants]
