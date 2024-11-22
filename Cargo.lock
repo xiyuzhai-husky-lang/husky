@@ -8525,6 +8525,7 @@ version = "0.1.0"
 dependencies = [
  "expect-test",
  "husky-text-protocol",
+ "maybe-result",
  "ordered-float 4.2.2",
 ]
 
