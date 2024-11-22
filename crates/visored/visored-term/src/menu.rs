@@ -46,6 +46,7 @@ impl VdTypeMenu {
             ring,
             group_mul,
             abelian_group_add,
+            ring_sub,
             ring_add,
             ring_mul,
             ring_power,

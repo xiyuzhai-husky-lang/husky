@@ -36,6 +36,7 @@ impl VdItemPathZfcTypeTable {
             group_mul: group_mul_path,
             abelian_group_add: abelian_group_add_path,
             ring_add: ring_add_path,
+            ring_sub: ring_sub_path,
             ring_mul: ring_mul_path,
             ring_power: ring_power_path,
             ring_pos: ring_pos_path,
