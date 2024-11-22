@@ -4,7 +4,7 @@ use self::literal::LxSpecLiteral;
 use super::*;
 use crate::idx::LxSpecTokenIdx;
 use husky_coword::Coword;
-use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
 
@@ -33,13 +33,13 @@ impl<'a> LxLexer<'a> {
 
     fn next_ranged_spec_token_data(
         &mut self,
-    ) -> Option<(TextOffsetRange, TextRange, LxSpecTokenData)> {
+    ) -> Option<(TextOffsetRange, TextPositionRange, LxSpecTokenData)> {
         self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
         let token_data = self.next_spec_token_data()?;
         let end_offset = self.chars.current_offset();
-        let range = TextRange {
+        let range = TextPositionRange {
             start: start_position,
             end: self.chars.current_position(),
         };

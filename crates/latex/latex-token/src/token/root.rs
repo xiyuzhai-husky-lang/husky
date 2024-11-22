@@ -1,6 +1,6 @@
 use super::*;
 use crate::idx::LxRootTokenIdx;
-use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 
 #[salsa::derive_debug_with_db]
@@ -28,13 +28,15 @@ impl<'a> LxLexer<'a> {
         ))
     }
 
-    fn next_ranged_root_token(&mut self) -> Option<(TextOffsetRange, TextRange, LxRootTokenData)> {
+    fn next_ranged_root_token(
+        &mut self,
+    ) -> Option<(TextOffsetRange, TextPositionRange, LxRootTokenData)> {
         self.eat_spaces_and_tabs_and_lines_and_comments();
         let mut start_offset = self.chars.current_offset();
         let mut start_position = self.chars.current_position();
         let token_data = self.next_root_token_data()?;
         let end_offset = self.chars.current_offset();
-        let range = TextRange {
+        let range = TextPositionRange {
             start: start_position,
             end: self.chars.current_position(),
         };

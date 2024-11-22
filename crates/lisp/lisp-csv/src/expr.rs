@@ -1,4 +1,4 @@
-use husky_text_protocol::{offset::TextOffsetRange, range::TextRange};
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use token::LpCsvToken;
 
 use crate::*;
@@ -7,7 +7,7 @@ use crate::*;
 pub struct LpCsvExpr {
     pub data: LpCsvExprData,
     pub offset_range: TextOffsetRange,
-    pub position_range: TextRange,
+    pub position_range: TextPositionRange,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
