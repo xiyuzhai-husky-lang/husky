@@ -12642,6 +12642,7 @@ dependencies = [
  "husky-coword",
  "latex-prelude",
  "latex-vfs",
+ "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
  "smallvec",
@@ -12771,7 +12772,15 @@ dependencies = [
 name = "visored-signature"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-coword",
+ "husky-path-utils",
+ "latex-vfs",
+ "lisp-csv",
+ "rustc-hash 2.0.0",
  "salsa",
+ "visored-item-path",
  "visored-term",
 ]
 
@@ -12814,6 +12823,7 @@ name = "visored-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
  "smallvec",

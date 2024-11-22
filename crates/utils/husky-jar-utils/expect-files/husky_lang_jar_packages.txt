@@ -1351,6 +1351,9 @@
         name: "visored-signature",
         dependencies: [
             "visored-term",
+            "husky-coword",
+            "latex-vfs",
+            "visored-item-path",
         ],
     },
     JarPackageSummary {

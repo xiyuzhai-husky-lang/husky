@@ -26,6 +26,8 @@ use self::{
 };
 use crate::ty::VdType;
 use item_path::VdItemPathTermData;
+use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
+use menu::{vd_term_menu, VdTermMenu};
 use smallvec::SmallVec;
 use visored_item_path::path::VdItemPath;
 
@@ -109,5 +111,39 @@ fn zfc_term_to_ty(db: &::salsa::Db, term_id: VdTermId) -> VdType {
         VdTermData::StackVariable(ref data) => todo!(),
         VdTermData::Application(ref data) => todo!(),
         VdTermData::Abstraction(ref data) => todo!(),
+    }
+}
+
+impl VdTerm {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &::salsa::Db) -> Self {
+        match expr.data {
+            LpCsvExprData::Literal(ref literal) => todo!(),
+            LpCsvExprData::Application(ref app) => todo!(),
+            LpCsvExprData::List(ref vec) => todo!(),
+            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident, db),
+            LpCsvExprData::Parenthesized(ref lp_csv_expr) => todo!(),
+        }
+    }
+
+    pub fn from_lp_csv_ident(ident: &str, db: &::salsa::Db) -> Self {
+        let VdTermMenu {
+            zero,
+            one,
+            two,
+            nat,
+            int,
+            rat,
+            real,
+            complex,
+        } = *vd_term_menu(db);
+        match ident as &str {
+            "true" => todo!(),
+            "false" => todo!(),
+            "nat" => nat,
+            "int" => int,
+            "rat" => rat,
+            "real" => real,
+            s => todo!("s = {s:?} not handled"),
+        }
     }
 }

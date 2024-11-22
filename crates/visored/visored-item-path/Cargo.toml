@@ -22,6 +22,8 @@ husky-coword.workspace = true
 # latex
 latex-prelude.workspace = true
 latex-vfs.workspace = true
+# lisp
+lisp-csv.workspace = true
 # visored
 visored-prelude.workspace = true
 
