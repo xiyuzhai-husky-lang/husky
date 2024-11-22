@@ -1,3 +1,5 @@
+use token::LpCsvToken;
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -31,83 +33,60 @@ impl<'a> LpCsvParser<'a> {
 
     fn parse_expr_aux(&mut self) -> Option<LpCsvExpr> {
         self.ignore_whitespaces_and_tabs_and_comments();
-        match self.chars.peek()? {
-            '"' => {
-                self.chars.eat_char();
-                let mut s = String::new();
-                loop {
-                    match self.chars.next() {
-                        Some('"') => break,
-                        Some('\\') => match self.chars.next() {
-                            Some('n') => s.push('\n'),
-                            Some('t') => s.push('\t'),
-                            Some('\\') => s.push('\\'),
-                            Some('"') => s.push('"'),
-                            Some(c) => todo!("c: `{c:?}`"),
-                            None => todo!(),
-                        },
-                        Some(c) => s.push(c),
-                        None => todo!(),
-                    }
-                }
-                Some(LpCsvExpr::Literal(LpCsvLiteral::String(s)))
-            }
-            c if c.is_ascii_digit() => {
-                let mut dot_count = 0;
-                let s = self.chars.next_str_slice_while(|c| {
-                    if c == '.' {
-                        dot_count += 1;
-                    }
-                    (c.is_ascii_digit() || c == '.') && dot_count < 2
-                });
-                let literal = match dot_count {
-                    0 => {
-                        let i = match s.parse() {
-                            Ok(i) => i,
-                            Err(e) => todo!("{}", e),
-                        };
-                        LpCsvLiteral::Integer(i)
-                    }
-                    1 => {
-                        let f = match s.parse::<f64>() {
-                            Ok(f) => f,
-                            Err(e) => todo!("{}", e),
-                        };
-                        let f = OrderedFloat(f);
-                        LpCsvLiteral::Float(f)
-                    }
-                    _ => unreachable!(),
-                };
+        match self.peek_token()? {
+            LpCsvToken::Literal(literal) => {
+                self.eat_token();
                 Some(LpCsvExpr::Literal(literal))
             }
-            c if c.is_ascii_alphabetic() => {
-                let ident = self
-                    .chars
-                    .next_str_slice_while(|c| c.is_ascii_alphanumeric() || c == '_')
-                    .to_string();
+            // TODO: handle connectors followed by ident
+            LpCsvToken::Ident(ident) => {
+                self.eat_token();
                 Some(LpCsvExpr::Ident(ident))
             }
-            '(' => {
-                self.chars.eat_char();
-                let expr = self.parse_expr();
-                let Some(c) = self.chars.next() else { todo!() };
-                if c != ')' {
+            LpCsvToken::Connector(connector) => None,
+            LpCsvToken::Separator(separator) => None,
+            LpCsvToken::LeftParen => {
+                self.eat_token();
+                let Some(expr) = self.parse_expr() else {
+                    todo!()
+                };
+                let Some(token) = self.next_token() else {
+                    todo!()
+                };
+                if token != LpCsvToken::RightParen {
                     todo!()
                 }
-                match expr {
-                    Some(expr) => Some(LpCsvExpr::Parenthesized(Box::new(expr))),
-                    None => todo!(),
-                }
+                Some(LpCsvExpr::Parenthesized(Box::new(expr)))
             }
-            '[' => {
-                self.chars.eat_char();
+            LpCsvToken::RightParen => None,
+            LpCsvToken::LeftBracket => {
+                self.eat_token();
                 Some(LpCsvExpr::List(self.parse_list_expr()))
             }
-            ']' | ')' => None,
-            '\n' => None,
-            c if self.is_cell_separator(c) => None,
-            c => todo!("c: `{c:?}"),
+            LpCsvToken::RightBracket => None,
         }
+        // match self.chars.peek()?
+        //     '(' => {
+        //         self.chars.eat_char();
+        //         let expr = self.parse_expr();
+        //         let Some(c) = self.chars.next() else { todo!() };
+        //         if c != ')' {
+        //             todo!()
+        //         }
+        //         match expr {
+        //             Some(expr) => Some(LpCsvExpr::Parenthesized(Box::new(expr))),
+        //             None => todo!(),
+        //         }
+        //     }
+        //     '[' => {
+        //         self.chars.eat_char();
+        //         Some(LpCsvExpr::List(self.parse_list_expr()))
+        //     }
+        //     ']' | ')' => None,
+        //     '\n' => None,
+        //     c if self.is_cell_separator(c) => None,
+        //     c => todo!("c: `{c:?}"),
+        // }
     }
 
     fn parse_list_expr(&mut self) -> Vec<LpCsvExpr> {
