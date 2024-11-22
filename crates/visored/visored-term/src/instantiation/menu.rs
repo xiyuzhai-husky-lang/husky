@@ -100,6 +100,7 @@ impl VdInstantiationMenu {
             ring,
             group_mul,
             abelian_group_add,
+            ring_sub,
             ring_add,
             ring_mul,
             ring_power,
@@ -142,10 +143,10 @@ impl VdInstantiationMenu {
         let complex_neg = ins!(db, ring_neg, complex);
         // # binary operators
         // ## sub
-        let int_sub = ins!(db, ring_add, int);
-        let rat_sub = ins!(db, ring_add, rat);
-        let real_sub = ins!(db, ring_add, real);
-        let complex_sub = ins!(db, ring_add, complex);
+        let int_sub = ins!(db, ring_sub, int);
+        let rat_sub = ins!(db, ring_sub, rat);
+        let real_sub = ins!(db, ring_sub, real);
+        let complex_sub = ins!(db, ring_sub, complex);
         // ## div
         let rat_div = ins!(db, field_div, rat);
         let real_div = ins!(db, field_div, real);

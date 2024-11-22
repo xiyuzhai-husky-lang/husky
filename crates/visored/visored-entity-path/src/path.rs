@@ -33,7 +33,10 @@ impl VdItemPath {
     // # trait items
     pub const RING_ADD: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_ADD);
     pub const RING_MUL: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_MUL);
+    pub const RING_POS: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_POS);
     pub const RING_NEG: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_NEG);
+    pub const RING_SUB: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_SUB);
+    pub const FIELD_DIV: Self = VdItemPath::TraitItem(VdTraitItemPath::FIELD_DIV);
 }
 
 impl VdItemPath {
@@ -42,9 +45,13 @@ impl VdItemPath {
             todo!("expected identifier but got {:#?}", expr.data)
         };
         match ident as &str {
+            "ring_pos" => VdItemPath::RING_POS,
+            "ring_neg" => VdItemPath::RING_NEG,
             "ring_add" => VdItemPath::RING_ADD,
+            "ring_sub" => VdItemPath::RING_SUB,
             "ring_mul" => VdItemPath::RING_MUL,
             "ring_neg" => VdItemPath::RING_NEG,
+            "field_div" => VdItemPath::FIELD_DIV,
             s => todo!("s = {s:?} not handled"),
         }
     }

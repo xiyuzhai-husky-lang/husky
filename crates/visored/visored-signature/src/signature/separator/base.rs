@@ -7,6 +7,12 @@ pub struct VdBaseSeparatorSignature {
     expr_ty: VdType,
 }
 
+impl From<VdBaseSeparatorSignature> for VdSignature {
+    fn from(signature: VdBaseSeparatorSignature) -> Self {
+        VdSignature::Separator(signature.into())
+    }
+}
+
 impl VdBaseSeparatorSignature {
     pub fn new(instantiation: VdInstantiation, item_ty: VdType, expr_ty: VdType) -> Self {
         Self {
