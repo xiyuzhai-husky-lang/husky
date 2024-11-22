@@ -1,17 +1,17 @@
 pub mod table;
 
+use crate::{
+    menu::{vd_ty_menu, VdTypeMenu},
+    term::{VdTerm, VdTermData, VdTermId},
+};
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
 use visored_item_path::path::VdItemPath;
 
-use crate::menu::{vd_ty_menu, VdTypeMenu};
-
-#[salsa::interned]
-pub struct VdType {
-    pub data: VdTypeData,
-    pub refinements: SmallVec<[(); 2]>,
-}
+#[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct VdType(VdTerm);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdTypeData {
@@ -20,21 +20,32 @@ pub enum VdTypeData {
 
 impl VdType {
     pub fn new_item_path(item_path: VdItemPath, db: &::salsa::Db) -> Self {
-        VdType::new(db, VdTypeData::ItemPath(item_path).into(), smallvec![]).into()
+        // TODO: check this is actually a type?
+        VdType(VdTerm::new_item_path(item_path, db))
     }
 }
 
 impl VdType {
     pub fn is_function_like(self, db: &::salsa::Db) -> bool {
-        is_vd_ty_function_like(db, self)
+        is_vd_ty_function_like(db, **self)
     }
 }
 
 #[salsa::tracked]
-fn is_vd_ty_function_like(db: &::salsa::Db, ty: VdType) -> bool {
+fn is_vd_ty_function_like(db: &::salsa::Db, ty: VdTermId) -> bool {
     // TODO: ad hoc implementation
-    match ty.data(db) {
-        VdTypeData::ItemPath(vd_item_path) => false,
+    match *ty.data(db) {
+        VdTermData::ItemPath(_) => false,
+        VdTermData::Literal(_) => todo!(),
+        VdTermData::ForAll(_) => todo!(),
+        VdTermData::Exists(_) => todo!(),
+        VdTermData::Limit(_) => todo!(),
+        VdTermData::Eval(_) => todo!(),
+        VdTermData::SymbolicVariable(_) => todo!(),
+        VdTermData::AbstractVariable(_) => todo!(),
+        VdTermData::StackVariable(_) => todo!(),
+        VdTermData::Application(_) => todo!(),
+        VdTermData::Abstraction(_) => todo!(),
     }
 }
 
