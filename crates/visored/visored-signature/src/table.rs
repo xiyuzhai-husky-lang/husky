@@ -1,7 +1,7 @@
 use crate::signature::VdSignature;
 use crate::*;
-use lisp_csv::parse_lp_csv_file;
 use lisp_csv::{expr::LpCsvExprData, file::LpCsvFile, row::LpCsvRow};
+use lisp_csv::{file::LpCsvFileData, parse_lp_csv_file};
 use menu::{vd_signature_menu, VdSignatureMenu};
 use rustc_hash::FxHashMap;
 use salsa::DebugWithDb;
@@ -34,8 +34,8 @@ impl VdSignatureTable {
     }
 
     pub fn from_lp_csv_file(file: &LpCsvFile, db: &::salsa::Db) -> Self {
-        match file {
-            LpCsvFile::Rows(rows) => Self::from_lp_csv_rows(rows, db),
+        match file.data() {
+            LpCsvFileData::Rows(rows) => Self::from_lp_csv_rows(&rows, db),
         }
     }
 

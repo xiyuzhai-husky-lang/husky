@@ -1,5 +1,8 @@
 use super::*;
-use ::lisp_csv::{file::LpCsvFile, parse_lp_csv_file, parse_lp_csv_filepath};
+use ::lisp_csv::{
+    file::{LpCsvFile, LpCsvFileData},
+    parse_lp_csv_file, parse_lp_csv_filepath,
+};
 use std::path::Path;
 
 impl VdDefaultGlobalDispatchTable {
@@ -42,23 +45,23 @@ impl VdDefaultGlobalDispatchTable {
         base_frac_file: &LpCsvFile,
         db: &::salsa::Db,
     ) -> Self {
-        let base_prefix_opr_table = match base_prefix_opr_file {
-            LpCsvFile::Rows(rows) => rows.iter().map(|_| todo!()),
+        let base_prefix_opr_table = match base_prefix_opr_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let base_binary_opr_table = match base_binary_opr_file {
-            LpCsvFile::Rows(rows) => rows.iter().map(|_| todo!()),
+        let base_binary_opr_table = match base_binary_opr_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let base_separator_table = match base_separator_file {
-            LpCsvFile::Rows(rows) => rows.iter().map(|_| todo!()),
+        let base_separator_table = match base_separator_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let attach_table = match attach_file {
-            LpCsvFile::Rows(rows) => rows.iter().map(|_| todo!()),
+        let attach_table = match attach_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let base_sqrt_table = match base_sqrt_file {
-            LpCsvFile::Rows(rows) => rows.iter().map(|_| todo!()),
+        let base_sqrt_table = match base_sqrt_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let base_frac_table = match base_frac_file {
-            LpCsvFile::Rows(rows) => rows.iter().map(|_| todo!()),
+        let base_frac_table = match base_frac_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
         Self::new(
             base_prefix_opr_table,

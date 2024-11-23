@@ -1,8 +1,24 @@
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LpCsvFile {
+pub struct LpCsvFile {
+    input: String,
+    data: LpCsvFileData,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum LpCsvFileData {
     Rows(Vec<LpCsvRow>),
+}
+
+impl LpCsvFile {
+    pub fn input(&self) -> &str {
+        &self.input
+    }
+
+    pub fn data(&self) -> &LpCsvFileData {
+        &self.data
+    }
 }
 
 impl<'a> LpCsvParser<'a> {
@@ -11,7 +27,10 @@ impl<'a> LpCsvParser<'a> {
         while let Some(row) = self.parse_row().into_result_option()? {
             rows.push(row);
         }
-        Ok(LpCsvFile::Rows(rows))
+        Ok(LpCsvFile {
+            input: self.input.to_string(),
+            data: LpCsvFileData::Rows(rows),
+        })
     }
 }
 
