@@ -42,3 +42,32 @@ impl VdTraitItemPath {
     pub const LE: Self = VdTraitItemPath::Le;
     pub const GE: Self = VdTraitItemPath::Ge;
 }
+
+impl salsa::DisplayWithDb for VdTraitItemPath {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        match self {
+            VdTraitItemPath::GroupMul => write!(f, "*"),
+            VdTraitItemPath::AbelianGroupAdd => write!(f, "+(abelian_group_add)"),
+            VdTraitItemPath::NatAdd => write!(f, "+(nat_add)"),
+            VdTraitItemPath::NatMul => write!(f, "*"),
+            VdTraitItemPath::RingAdd => write!(f, "+(ring_add)"),
+            VdTraitItemPath::RingSub => write!(f, "-(ring_sub)"),
+            VdTraitItemPath::RingMul => write!(f, "*(ring_mul)"),
+            VdTraitItemPath::RingPower => write!(f, "^(ring_power)"),
+            VdTraitItemPath::RingPos => write!(f, "+(ring_pos)"),
+            VdTraitItemPath::RingNeg => write!(f, "-(ring_neg)"),
+            VdTraitItemPath::Eq => write!(f, "=(eq)"),
+            VdTraitItemPath::Ne => write!(f, "≠(ne)"),
+            VdTraitItemPath::Lt => write!(f, "<(lt)"),
+            VdTraitItemPath::Gt => write!(f, ">(gt)"),
+            VdTraitItemPath::Le => write!(f, "≤(le)"),
+            VdTraitItemPath::Ge => write!(f, "≥(ge)"),
+            VdTraitItemPath::FieldDiv => write!(f, "/(field_div)"),
+            VdTraitItemPath::RealSqrt => write!(f, "√(real_sqrt)"),
+        }
+    }
+}

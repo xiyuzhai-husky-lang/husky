@@ -31,7 +31,6 @@ use menu::{vd_term_menu, VdTermMenu};
 use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
 
-#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdTerm {
@@ -46,6 +45,40 @@ pub enum VdTerm {
     StackVariable(VdStackVariable),
     Application(VdApplication),
     Abstraction(VdAbstraction),
+}
+
+impl salsa::DebugWithDb for VdTerm {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
+        self.display_fmt_with_db(f, db)
+    }
+}
+
+impl salsa::DisplayWithDb for VdTerm {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        match *self.data(db) {
+            VdTermData::Literal(_) => todo!(),
+            VdTermData::ItemPath(ref data) => data.item_path().display_fmt_with_db(f, db),
+            VdTermData::ForAll(_) => todo!(),
+            VdTermData::Exists(_) => todo!(),
+            VdTermData::Limit(_) => todo!(),
+            VdTermData::Eval(_) => todo!(),
+            VdTermData::SymbolicVariable(_) => todo!(),
+            VdTermData::AbstractVariable(_) => todo!(),
+            VdTermData::StackVariable(_) => todo!(),
+            VdTermData::Application(_) => todo!(),
+            VdTermData::Abstraction(_) => todo!(),
+        }
+    }
 }
 
 impl std::ops::Deref for VdTerm {
