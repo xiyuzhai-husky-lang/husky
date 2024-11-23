@@ -20,7 +20,7 @@ impl<'a> LpCsvParser<'a> {
                     let Some(expr) = self.parse_expr() else {
                         use husky_print_utils::{p, DisplayIt};
                         p!(self.input);
-                        todo!()
+                        todo!("shouldn't end with separator, report as error")
                     };
                     exprs.push(expr);
                     self.ignore_whitespaces_and_tabs_and_comments();
