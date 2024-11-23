@@ -31,22 +31,22 @@ pub struct VdDefaultGlobalDispatchTable {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseBinaryOprKey {
-    lopd_ty: VdType,
-    base_binary_opr: VdBaseBinaryOpr,
-    ropd_ty: VdType,
+    pub lopd_ty: VdType,
+    pub base_binary_opr: VdBaseBinaryOpr,
+    pub ropd_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseSeparatorKey {
-    base_separator: VdBaseSeparator,
-    prev_item_ty: VdType,
-    next_item_ty: VdType,
+    pub base_separator: VdBaseSeparator,
+    pub prev_item_ty: VdType,
+    pub next_item_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBasePrefixOprKey {
-    base_opr: VdBasePrefixOpr,
-    opd_ty: VdType,
+    pub base_opr: VdBasePrefixOpr,
+    pub opd_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

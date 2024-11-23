@@ -61,32 +61,31 @@ impl VdAttachGlobalDispatch {
         signature_table: &'a VdSignatureTable,
         db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = (VdAttachKey, VdAttachGlobalDispatch)> + 'a {
-        match power_file.data() {
-            LpCsvFileData::Rows(rows) => rows.iter().map(|row| {
-                let LpCsvRow::SeparatedExprs(exprs) = row else {
-                    todo!()
-                };
-                let &[ref base_ty, ref exponent_ty, ref signature_ident] = exprs as &[_] else {
-                    todo!()
-                };
-                let base_ty = VdType::from_lp_csv_expr(base_ty, db);
-                let exponent_ty = VdType::from_lp_csv_expr(exponent_ty, db);
-                let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
-                    todo!()
-                };
-                let VdSignature::Attach(signature) = signature_table[signature_ident] else {
-                    todo!()
-                };
-                let dispatch = VdAttachGlobalDispatch::Normal { signature };
-                (
-                    VdAttachKey::Power {
-                        base_ty,
-                        exponent_ty,
-                    },
-                    dispatch,
-                )
-            }),
-        }
+        let LpCsvFileData::Rows(rows) = power_file.data();
+        rows.iter().map(|row| {
+            let LpCsvRow::SeparatedExprs(exprs) = row else {
+                todo!()
+            };
+            let &[ref base_ty, ref exponent_ty, ref signature_ident] = exprs as &[_] else {
+                todo!()
+            };
+            let base_ty = VdType::from_lp_csv_expr(base_ty, db);
+            let exponent_ty = VdType::from_lp_csv_expr(exponent_ty, db);
+            let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
+                todo!()
+            };
+            let VdSignature::Attach(signature) = signature_table[signature_ident] else {
+                todo!()
+            };
+            let dispatch = VdAttachGlobalDispatch::Normal { signature };
+            (
+                VdAttachKey::Power {
+                    base_ty,
+                    exponent_ty,
+                },
+                dispatch,
+            )
+        })
     }
 
     pub fn expr_ty(self) -> VdType {
