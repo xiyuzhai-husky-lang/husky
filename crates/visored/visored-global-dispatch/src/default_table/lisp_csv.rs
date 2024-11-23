@@ -85,12 +85,10 @@ impl VdDefaultGlobalDispatchTable {
         );
         let power_table =
             VdAttachGlobalDispatch::collect_from_lisp_csv_files(power_file, signature_table, db);
-        let base_sqrt_table = match base_sqrt_file.data() {
-            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
-        };
-        let base_frac_table = match base_frac_file.data() {
-            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
-        };
+        let base_sqrt_table =
+            VdSqrtGlobalDispatch::collect_from_lisp_csv_files(base_sqrt_file, signature_table, db);
+        let base_frac_table =
+            VdFracGlobalDispatch::collect_from_lisp_csv_files(base_frac_file, signature_table, db);
         Self::new(
             base_prefix_opr_table,
             base_binary_opr_table,

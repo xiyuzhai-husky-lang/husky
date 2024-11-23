@@ -14,11 +14,15 @@ pub struct VdSignatureTable {
     table: FxHashMap<String, VdSignature>,
 }
 
-impl std::ops::Deref for VdSignatureTable {
-    type Target = FxHashMap<String, VdSignature>;
+impl std::ops::Index<&str> for VdSignatureTable {
+    type Output = VdSignature;
 
-    fn deref(&self) -> &Self::Target {
-        &self.table
+    #[track_caller]
+    fn index(&self, key: &str) -> &Self::Output {
+        match self.table.get(key) {
+            Some(signature) => signature,
+            None => todo!("key = {key:?} not found in table"),
+        }
     }
 }
 
@@ -207,9 +211,6 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         ("real_sqrt", real_sqrt.into()),
     ];
     for (key, signature) in entries {
-        if !table.contains_key(key) {
-            todo!("key = {key:?} not found in table")
-        }
         assert_eq!(
             table[key],
             signature,
