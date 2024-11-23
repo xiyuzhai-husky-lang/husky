@@ -100,6 +100,8 @@ impl VdType {
             "rat" => rat,
             "real" => real,
             "complex" => complex,
+            "set" => set,
+            "prop" => prop,
             s => todo!("s = {s:?} not handled"),
         }
     }

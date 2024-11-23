@@ -166,12 +166,6 @@ impl VdInstantiationMenu {
         let rat_mul = ins!(db, ring_mul, rat);
         let real_mul = ins!(db, ring_mul, real);
         let complex_mul = ins!(db, ring_mul, complex);
-        // ## power
-        let nat_to_the_power_of_nat = ins!(db, ring_power, nat);
-        let int_to_the_power_of_nat = ins!(db, ring_power, int);
-        let rat_to_the_power_of_nat = ins!(db, ring_power, rat);
-        let real_to_the_power_of_nat = ins!(db, ring_power, real);
-        let complex_to_the_power_of_nat = ins!(db, ring_power, complex);
         // ## eq
         let nat_eq = ins!(db, eq, nat);
         let int_eq = ins!(db, eq, int);
@@ -206,6 +200,13 @@ impl VdInstantiationMenu {
         let real_ge = ins!(db, ge, real);
         // # sqrt
         let real_sqrt = ins!(db, real_sqrt);
+        // # attach
+        // ## power
+        let nat_to_the_power_of_nat = ins!(db, ring_power, nat);
+        let int_to_the_power_of_nat = ins!(db, ring_power, int);
+        let rat_to_the_power_of_nat = ins!(db, ring_power, rat);
+        let real_to_the_power_of_nat = ins!(db, ring_power, real);
+        let complex_to_the_power_of_nat = ins!(db, ring_power, complex);
         Self {
             // # prefix
             // ## pos

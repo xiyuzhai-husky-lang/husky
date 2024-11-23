@@ -31,6 +31,12 @@ impl VdItemPath {
     pub const SIN: Self = VdItemPath::Function(VdFunctionPath::SIN);
     pub const COS: Self = VdItemPath::Function(VdFunctionPath::COS);
     // # trait items
+    pub const EQ: Self = VdItemPath::TraitItem(VdTraitItemPath::EQ);
+    pub const NE: Self = VdItemPath::TraitItem(VdTraitItemPath::NE);
+    pub const LT: Self = VdItemPath::TraitItem(VdTraitItemPath::LT);
+    pub const GT: Self = VdItemPath::TraitItem(VdTraitItemPath::GT);
+    pub const LE: Self = VdItemPath::TraitItem(VdTraitItemPath::LE);
+    pub const GE: Self = VdItemPath::TraitItem(VdTraitItemPath::GE);
     pub const NAT_ADD: Self = VdItemPath::TraitItem(VdTraitItemPath::NAT_ADD);
     pub const NAT_MUL: Self = VdItemPath::TraitItem(VdTraitItemPath::NAT_MUL);
     pub const RING_ADD: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_ADD);
@@ -40,6 +46,7 @@ impl VdItemPath {
     pub const RING_NEG: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_NEG);
     pub const RING_SUB: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_SUB);
     pub const FIELD_DIV: Self = VdItemPath::TraitItem(VdTraitItemPath::FIELD_DIV);
+    pub const REAL_SQRT: Self = VdItemPath::TraitItem(VdTraitItemPath::REAL_SQRT);
 }
 
 impl VdItemPath {
@@ -48,6 +55,12 @@ impl VdItemPath {
             todo!("expected identifier but got {:#?}", expr.data)
         };
         match ident as &str {
+            "eq" => VdItemPath::EQ,
+            "ne" => VdItemPath::NE,
+            "lt" => VdItemPath::LT,
+            "gt" => VdItemPath::GT,
+            "le" => VdItemPath::LE,
+            "ge" => VdItemPath::GE,
             "ring_pos" => VdItemPath::RING_POS,
             "ring_neg" => VdItemPath::RING_NEG,
             "ring_sub" => VdItemPath::RING_SUB,
@@ -57,6 +70,7 @@ impl VdItemPath {
             "ring_mul" => VdItemPath::RING_MUL,
             "ring_power" => VdItemPath::RING_POWER,
             "field_div" => VdItemPath::FIELD_DIV,
+            "real_sqrt" => VdItemPath::REAL_SQRT,
             s => todo!("s = {s:?} not handled"),
         }
     }

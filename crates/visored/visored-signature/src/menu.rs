@@ -198,47 +198,48 @@ impl VdSignatureMenu {
             rat_mul: sep(rat_mul, rat, rat),
             real_mul: sep(real_mul, real, real),
             complex_mul: sep(complex_mul, complex, complex),
+            // ## eq
+            nat_eq: sep(nat_eq, nat, prop),
+            int_eq: sep(int_eq, int, prop),
+            rat_eq: sep(rat_eq, rat, prop),
+            real_eq: sep(real_eq, real, prop),
+            complex_eq: sep(complex_eq, complex, prop),
+            // ## ne
+            nat_ne: sep(nat_ne, nat, prop),
+            int_ne: sep(int_ne, int, prop),
+            rat_ne: sep(rat_ne, rat, prop),
+            real_ne: sep(real_ne, real, prop),
+            complex_ne: sep(complex_ne, complex, prop),
+            // ## lt
+            nat_lt: sep(nat_lt, nat, prop),
+            int_lt: sep(int_lt, int, prop),
+            rat_lt: sep(rat_lt, rat, prop),
+            real_lt: sep(real_lt, real, prop),
+            // ## gt
+            nat_gt: sep(nat_gt, nat, prop),
+            int_gt: sep(int_gt, int, prop),
+            rat_gt: sep(rat_gt, rat, prop),
+            real_gt: sep(real_gt, real, prop),
+            // ## le
+            nat_le: sep(nat_le, nat, prop),
+            int_le: sep(int_le, int, prop),
+            rat_le: sep(rat_le, rat, prop),
+            real_le: sep(real_le, real, prop),
+            // ## ge
+            nat_ge: sep(nat_ge, nat, prop),
+            int_ge: sep(int_ge, int, prop),
+            rat_ge: sep(rat_ge, rat, prop),
+            real_ge: sep(real_ge, real, prop),
+            // # sqrt
+            // TODO: use nnreal, i.e., non-negative real numbers
+            real_sqrt: VdBaseSqrtSignature::new(real_sqrt, real, real),
+            // # attach
             // ## power
             nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat, nat, nat, nat),
             int_to_the_power_of_nat: pow(int_to_the_power_of_nat, int, nat, int),
             rat_to_the_power_of_nat: pow(rat_to_the_power_of_nat, rat, nat, rat),
             real_to_the_power_of_nat: pow(real_to_the_power_of_nat, real, nat, real),
             complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat, complex, nat, complex),
-            // ## eq
-            nat_eq: sep(nat_eq, nat, nat),
-            int_eq: sep(int_eq, int, int),
-            rat_eq: sep(rat_eq, rat, rat),
-            real_eq: sep(real_eq, real, real),
-            complex_eq: sep(complex_eq, complex, complex),
-            // ## ne
-            nat_ne: sep(nat_ne, nat, nat),
-            int_ne: sep(int_ne, int, int),
-            rat_ne: sep(rat_ne, rat, rat),
-            real_ne: sep(real_ne, real, real),
-            complex_ne: sep(complex_ne, complex, complex),
-            // ## lt
-            nat_lt: sep(nat_lt, nat, nat),
-            int_lt: sep(int_lt, int, int),
-            rat_lt: sep(rat_lt, rat, rat),
-            real_lt: sep(real_lt, real, real),
-            // ## gt
-            nat_gt: sep(nat_gt, nat, nat),
-            int_gt: sep(int_gt, int, int),
-            rat_gt: sep(rat_gt, rat, rat),
-            real_gt: sep(real_gt, real, real),
-            // ## le
-            nat_le: sep(nat_le, nat, nat),
-            int_le: sep(int_le, int, int),
-            rat_le: sep(rat_le, rat, rat),
-            real_le: sep(real_le, real, real),
-            // ## ge
-            nat_ge: sep(nat_ge, nat, nat),
-            int_ge: sep(int_ge, int, int),
-            rat_ge: sep(rat_ge, rat, rat),
-            real_ge: sep(real_ge, real, real),
-            // # sqrt
-            // TODO: use nnreal, i.e., non-negative real numbers
-            real_sqrt: VdBaseSqrtSignature::new(real_sqrt, real, real),
         }
     }
 }
