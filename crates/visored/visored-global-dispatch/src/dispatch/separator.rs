@@ -1,8 +1,23 @@
 use super::*;
 use crate::menu::VdGlobalDispatchMenu;
+use default_table::VdBaseSeparatorKey;
+use lisp_csv::{
+    expr::LpCsvExprData,
+    file::{LpCsvFile, LpCsvFileData},
+    row::LpCsvRow,
+};
 use visored_opr::{menu::VdOprMenu, separator::VdBaseSeparator};
-use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
-use visored_term::{menu::VdTypeMenu, ty::VdType};
+use visored_signature::{
+    signature::{
+        separator::{base::VdBaseSeparatorSignature, VdSeparatorSignature},
+        VdSignature,
+    },
+    table::VdSignatureTable,
+};
+use visored_term::{
+    menu::{vd_ty_menu, VdTypeMenu},
+    ty::VdType,
+};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSeparatorGlobalDispatch {
@@ -324,5 +339,63 @@ impl VdSeparatorGlobalDispatch {
             ((real, r#in, set), in_set),
             ((complex, r#in, set), in_set),
         ]
+    }
+
+    pub fn collect_from_lisp_csv_files<'a>(
+        base_separator_file: &'a LpCsvFile,
+        signature_table: &'a VdSignatureTable,
+        db: &'a ::salsa::Db,
+    ) -> impl Iterator<Item = (VdBaseSeparatorKey, Self)> + 'a {
+        let LpCsvFileData::Rows(rows) = base_separator_file.data();
+        rows.iter()
+            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table, db))
+    }
+
+    fn collect_from_lisp_csv_row(
+        row: &LpCsvRow,
+        signature_table: &VdSignatureTable,
+        db: &::salsa::Db,
+    ) -> (VdBaseSeparatorKey, Self) {
+        let LpCsvRow::SeparatedExprs(exprs) = row else {
+            todo!()
+        };
+        let &[ref prev_item_ty, ref base_separator, ref next_item_ty, ref signature_ident] =
+            exprs as &[_]
+        else {
+            todo!()
+        };
+        let base_separator = VdBaseSeparator::from_lp_csv_expr(base_separator, db);
+        let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
+            todo!()
+        };
+        let prev_item_ty = VdType::from_lp_csv_expr(prev_item_ty, db);
+        let next_item_ty = VdType::from_lp_csv_expr(next_item_ty, db);
+        let key = VdBaseSeparatorKey {
+            base_separator,
+            prev_item_ty,
+            next_item_ty,
+        };
+        // ad hoc
+        let dispatch = if signature_ident == "in_set" {
+            let ty_menu = vd_ty_menu(db);
+            VdSeparatorGlobalDispatch::InSet {
+                expr_ty: ty_menu.prop,
+            }
+        } else {
+            let VdSignature::Separator(VdSeparatorSignature::Base(signature)) =
+                (if signature_ident == "in_set" {
+                    todo!()
+                } else {
+                    &signature_table[signature_ident]
+                })
+            else {
+                todo!()
+            };
+            VdSeparatorGlobalDispatch::Normal {
+                base_separator,
+                signature: signature.clone(),
+            }
+        };
+        (key, dispatch)
     }
 }

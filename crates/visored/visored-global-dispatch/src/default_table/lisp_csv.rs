@@ -76,9 +76,11 @@ impl VdDefaultGlobalDispatchTable {
             signature_table,
             db,
         );
-        let base_separator_table = match base_separator_file.data() {
-            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
-        };
+        let base_separator_table = VdSeparatorGlobalDispatch::collect_from_lisp_csv_files(
+            base_separator_file,
+            signature_table,
+            db,
+        );
         let power_table =
             VdAttachGlobalDispatch::collect_from_lisp_csv_files(power_file, signature_table, db);
         let base_sqrt_table = match base_sqrt_file.data() {
