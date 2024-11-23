@@ -30,49 +30,50 @@ impl VdAnnotationsExample {
         )],
         db: &::salsa::Db,
     ) -> Vec<Self> {
-        let command_signature_table = LxCommandSignatureTable::new_default(db);
-        let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
-        examples
-            .iter()
-            .map(
-                |&(root_mode, input, token_annotations, space_annotations)| {
-                    let mut token_storage = LxTokenStorage::default();
-                    let mut ast_arena = LxAstArena::default();
-                    let asts = parse_latex_input_into_asts(
-                        &db,
-                        &command_signature_table,
-                        &environment_signature_table,
-                        &input,
-                        LxTokenLane::Main,
-                        LxMode::Math,
-                        &mut token_storage,
-                        &mut ast_arena,
-                    );
-                    let mut ast_arena = LxAstArena::default();
-                    let asts = parse_latex_input_into_asts(
-                        &db,
-                        &command_signature_table,
-                        &environment_signature_table,
-                        &input,
-                        LxTokenLane::Main,
-                        LxMode::Math,
-                        &mut token_storage,
-                        &mut ast_arena,
-                    );
-                    let annotations = VdAnnotations::from_sparse(
-                        input,
-                        token_annotations.iter().copied(),
-                        space_annotations.iter().copied(),
-                        &token_storage,
-                    );
-                    Self {
-                        root_mode,
-                        input: input.to_string(),
-                        annotations,
-                    }
-                },
-            )
-            .collect()
+        todo!()
+        // let command_signature_table = LxCommandSignatureTable::new_default(db);
+        // let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
+        // examples
+        //     .iter()
+        //     .map(
+        //         |&(root_mode, input, token_annotations, space_annotations)| {
+        //             let mut token_storage = LxTokenStorage::default();
+        //             let mut ast_arena = LxAstArena::default();
+        //             let asts = parse_latex_input_into_asts(
+        //                 &db,
+        //                 &command_signature_table,
+        //                 &environment_signature_table,
+        //                 &input,
+        //                 LxTokenLane::Main,
+        //                 LxMode::Math,
+        //                 &mut token_storage,
+        //                 &mut ast_arena,
+        //             );
+        //             let mut ast_arena = LxAstArena::default();
+        //             let asts = parse_latex_input_into_asts(
+        //                 &db,
+        //                 &command_signature_table,
+        //                 &environment_signature_table,
+        //                 &input,
+        //                 LxTokenLane::Main,
+        //                 LxMode::Math,
+        //                 &mut token_storage,
+        //                 &mut ast_arena,
+        //             );
+        //             let annotations = VdAnnotations::from_sparse(
+        //                 input,
+        //                 token_annotations.iter().copied(),
+        //                 space_annotations.iter().copied(),
+        //                 &token_storage,
+        //             );
+        //             Self {
+        //                 root_mode,
+        //                 input: input.to_string(),
+        //                 annotations,
+        //             }
+        //         },
+        //     )
+        //     .collect()
     }
 }
 

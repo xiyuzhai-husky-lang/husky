@@ -6,10 +6,22 @@ use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 
 pub(crate) fn t(content: &str, expected: &Expect) {
+    use husky_path_utils::HuskyLangDevPaths;
+
     let db = &DB::default();
+    let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(db, PathBuf::from(file!()));
-    let tracker = VdSemExprTracker::new(LxPageInput { file_path, content }, &[], &[], db);
-    expected.assert_eq(&tracker.show_display_tree(db))
+    let tracker = VdSemExprTracker::new(
+        LxPageInput {
+            specs_dir: dev_paths.specs_dir(),
+            file_path,
+            content,
+        },
+        &[],
+        &[],
+        db,
+    );
+    expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]

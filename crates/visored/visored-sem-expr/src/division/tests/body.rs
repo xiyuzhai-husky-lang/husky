@@ -3,10 +3,21 @@ use latex_prelude::helper::tracker::LxDocumentBodyInput;
 
 fn t(content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSemExprDisplayTreeBuilder;
+    use husky_path_utils::HuskyLangDevPaths;
 
     let db = &DB::default();
+    let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(db, PathBuf::from(file!()));
-    let tracker = VdSemExprTracker::new(LxDocumentBodyInput { file_path, content }, &[], &[], db);
+    let tracker = VdSemExprTracker::new(
+        LxDocumentBodyInput {
+            specs_dir: dev_paths.specs_dir(),
+            file_path,
+            content,
+        },
+        &[],
+        &[],
+        db,
+    );
     expected.assert_eq(&tracker.show_display_tree(db));
 }
 
