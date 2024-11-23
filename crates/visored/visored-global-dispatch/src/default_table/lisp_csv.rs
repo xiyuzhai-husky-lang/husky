@@ -7,7 +7,21 @@ use std::path::Path;
 
 impl VdDefaultGlobalDispatchTable {
     pub fn from_lisp_csv_file_dir(dir: &Path, db: &::salsa::Db) -> Self {
-        todo!()
+        let base_prefix_opr_file = dir.join("base_prefix_opr.lpcsv");
+        let base_binary_opr_file = dir.join("base_binary_opr.lpcsv");
+        let base_separator_file = dir.join("base_separator.lpcsv");
+        let attach_file = dir.join("attach.lpcsv");
+        let base_sqrt_file = dir.join("power.lpcsv");
+        let base_frac_file = dir.join("frac.lpcsv");
+        Self::from_lisp_csv_file_paths(
+            &base_prefix_opr_file,
+            &base_binary_opr_file,
+            &base_separator_file,
+            &attach_file,
+            &base_sqrt_file,
+            &base_frac_file,
+            db,
+        )
     }
 
     pub fn from_lisp_csv_file_paths(

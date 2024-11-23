@@ -12620,9 +12620,13 @@ dependencies = [
 name = "visored-global-dispatch"
 version = "0.1.0"
 dependencies = [
+ "husky-coword",
+ "husky-path-utils",
+ "latex-vfs",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
+ "visored-entity-path",
  "visored-opr",
  "visored-signature",
  "visored-term",

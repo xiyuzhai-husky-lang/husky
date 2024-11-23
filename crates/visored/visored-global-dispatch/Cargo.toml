@@ -22,5 +22,15 @@ visored-opr.workspace = true
 visored-term.workspace = true
 visored-signature.workspace = true
 
+[dev-dependencies]
+# kernel
+husky-coword.workspace = true
+# latex
+latex-vfs.workspace = true
+# utils
+husky-path-utils.workspace = true
+# visored
+visored-entity-path.workspace = true
+
 [lints]
 workspace = true
