@@ -4,6 +4,7 @@ pub mod table;
 use self::parameter::LxCommandParameters;
 use crate::path::LxCommandPath;
 use latex_math_letter::letter::styled::LxMathLetterStyle;
+use latex_prelude::mode::LxModeSet;
 use parameter::LxCommandParameter;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -17,6 +18,8 @@ pub enum LxCommandSignature {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LxCompleteCommandSignature {
     path: LxCommandPath,
+    // the modes that allow the usage of this command
+    allowed_modes: LxModeSet,
     // TODO: ad hoc
     options: (),
     parameters: LxCommandParameters,
