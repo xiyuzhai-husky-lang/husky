@@ -39,6 +39,8 @@ expect-test.workspace = true
 # latex
 latex-command.workspace = true
 latex-vfs.workspace = true
+# utils
+husky-path-utils.workspace = true
 
 [lints]
 workspace = true

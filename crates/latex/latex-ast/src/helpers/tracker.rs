@@ -43,7 +43,10 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
     pub fn new(input: Input, db: &salsa::Db) -> Self {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
-        let command_signature_table = LxCommandSignatureTable::new_default(db);
+        let command_signature_table = LxCommandSignatureTable::new_from_lp_csv_file_paths(
+            &input.latex_complete_commands_path(),
+            db,
+        );
         let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
         let mut parser = LxAstParser::new(
             db,
