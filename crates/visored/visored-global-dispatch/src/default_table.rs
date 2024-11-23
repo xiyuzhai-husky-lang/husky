@@ -172,8 +172,8 @@ impl VdDefaultGlobalDispatchTable {
 impl VdDefaultGlobalDispatchTable {
     pub fn base_binary_opr_default_dispatch(
         &self,
-        base_binary_opr: VdBaseBinaryOpr,
         lopd_ty: VdType,
+        base_binary_opr: VdBaseBinaryOpr,
         ropd_ty: VdType,
     ) -> Option<VdBinaryOprGlobalDispatch> {
         self.base_binary_opr_default_dispatch_table
@@ -187,8 +187,8 @@ impl VdDefaultGlobalDispatchTable {
 
     pub fn base_separator_default_dispatch(
         &self,
-        base_separator: VdBaseSeparator,
         prev_item_ty: VdType,
+        base_separator: VdBaseSeparator,
         next_item_ty: VdType,
     ) -> Option<VdSeparatorGlobalDispatch> {
         self.base_separator_default_dispatch_table

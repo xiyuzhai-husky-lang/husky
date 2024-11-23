@@ -142,3 +142,25 @@ impl VdBinaryOprGlobalDispatch {
         }
     }
 }
+
+#[test]
+fn vd_binary_opr_global_dispatch_standard_defaults_works() {
+    use crate::default_table::VdDefaultGlobalDispatchTable;
+    use crate::menu::{vd_global_dispatch_menu, VdGlobalDispatchMenu};
+    use visored_opr::menu::vd_opr_menu;
+    use visored_term::menu::vd_ty_menu;
+
+    let db = &DB::default();
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
+    let ty_menu = vd_ty_menu(db);
+    let global_dispatch_menu = vd_global_dispatch_menu(db);
+    let opr_menu = vd_opr_menu(db);
+    for ((lopd_ty, base_binary_opr, ropd_ty), dispatch) in
+        VdBinaryOprGlobalDispatch::standard_defaults(ty_menu, opr_menu, global_dispatch_menu)
+    {
+        assert_eq!(
+            table.base_binary_opr_default_dispatch(lopd_ty, base_binary_opr, ropd_ty),
+            Some(dispatch)
+        );
+    }
+}

@@ -157,7 +157,7 @@ impl<'db> VdSemExprBuilder<'db> {
         };
         if let Some(default_dispatch) = self
             .default_global_dispatch_table()
-            .base_separator_default_dispatch(base_separator, prev_item_ty, next_item_ty)
+            .base_separator_default_dispatch(prev_item_ty, base_separator, next_item_ty)
         {
             return default_dispatch;
         }
