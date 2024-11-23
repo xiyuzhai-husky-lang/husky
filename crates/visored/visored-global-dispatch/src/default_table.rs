@@ -15,7 +15,7 @@ use visored_opr::{
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     separator::VdBaseSeparator,
 };
-use visored_signature::menu::vd_signature_menu;
+use visored_signature::{menu::vd_signature_menu, table::VdSignatureTable};
 use visored_term::{menu::vd_ty_menu, ty::VdType};
 
 pub struct VdDefaultGlobalDispatchTable {
@@ -243,21 +243,16 @@ impl VdDefaultGlobalDispatchTable {
     }
 }
 
-#[test]
-fn vd_default_global_dispatch_table_from_lisp_csv_works() {
-    let db = &DB::default();
-    let dir = &husky_path_utils::HuskyLangDevPaths::new()
-        .specs_dir()
-        .join("visored/global_default_dispatches");
-    let table = VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, db);
-}
-
 #[cfg(test)]
 impl VdDefaultGlobalDispatchTable {
     pub(crate) fn from_standard_lisp_csv_file_dir(db: &DB) -> Self {
-        let dir = &husky_path_utils::HuskyLangDevPaths::new()
-            .specs_dir()
-            .join("visored/global_default_dispatches");
-        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, db)
+        let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
+        let specs_dir = husky_lang_dev_paths.specs_dir();
+        let dir = &specs_dir.join("visored/global_default_dispatches");
+        let signature_table = VdSignatureTable::from_lp_csv_file_path(
+            &specs_dir.join("visored/signature_table.lpcsv"),
+            db,
+        );
+        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table, db)
     }
 }

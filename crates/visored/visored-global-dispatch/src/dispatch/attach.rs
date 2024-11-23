@@ -1,8 +1,16 @@
 use super::*;
 use crate::{default_table::VdAttachKey, menu::VdGlobalDispatchMenu, *};
 use default_table::VdDefaultGlobalDispatchTable;
+use lisp_csv::{
+    expr::LpCsvExprData,
+    file::{LpCsvFile, LpCsvFileData},
+    row::LpCsvRow,
+};
 use menu::vd_global_dispatch_menu;
-use visored_signature::signature::attach::VdAttachSignature;
+use visored_signature::{
+    signature::{attach::VdAttachSignature, VdSignature},
+    table::VdSignatureTable,
+};
 use visored_term::{
     instantiation::VdInstantiation,
     menu::{vd_ty_menu, VdTypeMenu},
@@ -46,6 +54,39 @@ impl VdAttachGlobalDispatch {
             (power(real, nat), real_to_the_power_of_nat),
             (power(complex, nat), complex_to_the_power_of_nat),
         ]
+    }
+
+    pub fn collect_from_lisp_csv_files<'a>(
+        power_file: &'a LpCsvFile,
+        signature_table: &'a VdSignatureTable,
+        db: &'a ::salsa::Db,
+    ) -> impl Iterator<Item = (VdAttachKey, VdAttachGlobalDispatch)> + 'a {
+        match power_file.data() {
+            LpCsvFileData::Rows(rows) => rows.iter().map(|row| {
+                let LpCsvRow::SeparatedExprs(exprs) = row else {
+                    todo!()
+                };
+                let &[ref base_ty, ref exponent_ty, ref signature_ident] = exprs as &[_] else {
+                    todo!()
+                };
+                let base_ty = VdType::from_lp_csv_expr(base_ty, db);
+                let exponent_ty = VdType::from_lp_csv_expr(exponent_ty, db);
+                let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
+                    todo!()
+                };
+                let VdSignature::Attach(signature) = signature_table[signature_ident] else {
+                    todo!()
+                };
+                let dispatch = VdAttachGlobalDispatch::Normal { signature };
+                (
+                    VdAttachKey::Power {
+                        base_ty,
+                        exponent_ty,
+                    },
+                    dispatch,
+                )
+            }),
+        }
     }
 
     pub fn expr_ty(self) -> VdType {

@@ -1,3 +1,5 @@
+use std::path::Path;
+
 use crate::signature::VdSignature;
 use crate::*;
 use lisp_csv::{expr::LpCsvExprData, file::LpCsvFile, row::LpCsvRow};
@@ -31,6 +33,12 @@ impl VdSignatureTable {
             }
         }
         Self { table }
+    }
+
+    pub fn from_lp_csv_file_path(path: &Path, db: &::salsa::Db) -> Self {
+        let file = std::fs::read_to_string(path).unwrap();
+        let file = parse_lp_csv_file(&file).unwrap();
+        Self::from_lp_csv_file(&file, db)
     }
 
     pub fn from_lp_csv_file(file: &LpCsvFile, db: &::salsa::Db) -> Self {
