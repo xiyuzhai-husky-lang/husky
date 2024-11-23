@@ -19,6 +19,7 @@ use latex_token::{
         LxLispTokenIdx, LxMathTokenIdx, LxNameTokenIdx, LxRootTokenIdx, LxRoseTokenIdx,
         LxSpecTokenIdx,
     },
+    lane::LxTokenLane,
     lexer::LxLexer,
     storage::LxTokenStorage,
     token::{
@@ -45,6 +46,7 @@ impl<'a> LxAstParser<'a> {
         command_signature_table: &'a LxCommandSignatureTable,
         environment_signature_table: &'a LxEnvironmentSignatureTable,
         input: &'a str,
+        lane: LxTokenLane,
         mode: LxMode,
         token_storage: &'a mut LxTokenStorage,
         arena: &'a mut LxAstArena,
@@ -55,7 +57,7 @@ impl<'a> LxAstParser<'a> {
             command_path_menu,
             command_signature_table,
             environment_signature_table,
-            lexer: LxLexer::new(db, input, token_storage),
+            lexer: LxLexer::new(db, input, lane, token_storage),
             mode,
             arena,
         }

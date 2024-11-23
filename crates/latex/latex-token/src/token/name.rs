@@ -1,5 +1,7 @@
 use super::*;
+use crate::idx::LxNameTokenIdx;
 use husky_coword::Coword;
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandPath;
 use latex_rose_punctuation::LxRosePunctuation;
 
@@ -12,6 +14,41 @@ pub enum LxNameTokenData {
 }
 
 impl<'a> LxLexer<'a> {
+    pub fn next_name_token(&mut self) -> Option<(LxNameTokenIdx, LxNameTokenData)> {
+        let (offset_range, range, token_data) = self.next_ranged_name_token_data()?;
+        Some((
+            self.alloc_name_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_ranged_name_token_data(
+        &mut self,
+    ) -> Option<(TextOffsetRange, TextPositionRange, LxNameTokenData)> {
+        self.eat_spaces_and_tabs();
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = if self.chars.eat_char_if(|c| c == '\n') {
+            self.chars.eat_chars_while(|c| c == ' ');
+            if self.chars.eat_char_if(|c| c == '\n') {
+                todo!()
+                // Some(LxCodeTokenData::Error(
+                //     LxCodeTokenError::UnexpectedNewParagraph,
+                // ))
+            } else {
+                self.next_word_token_data()
+            }
+        } else {
+            self.next_word_token_data()
+        }?;
+        let end_offset = self.chars.current_offset();
+        let range = TextPositionRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
     pub(crate) fn next_word_token_data(&mut self) -> Option<LxNameTokenData> {
         let db = self.db;
         match self.chars.peek()? {
@@ -27,13 +64,13 @@ impl<'a> LxLexer<'a> {
                 //             )
                 //             .into(),
                 //         ),
-                //         c if c.is_numeric() => todo!("latex might allow single digit command"),
+                //         c if c.is_ascii_digit() => todo!("latex might allow single digit command"),
                 //         _ => todo!("latex one digit non letter command"),
                 //     },
                 //     None => todo!(),
                 // }
             }
-            n if n.is_numeric() => {
+            n if n.is_ascii_digit() => {
                 todo!()
                 // let numeric_str_slice = self.chars.next_numeric_str_slice();
                 // match numeric_str_slice.parse::<u32>() {
@@ -62,9 +99,11 @@ impl<'a> LxLexer<'a> {
 #[ignore]
 fn next_word_token_data_works() {
     fn t(input: &str, expected: &Expect) {
+        use crate::lane::LxTokenLane;
+
         let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let mut stream = LxLexer::new(db, input, &mut storage)
+        let mut stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_word_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();

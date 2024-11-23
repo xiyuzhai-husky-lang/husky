@@ -1,7 +1,7 @@
 use crate::*;
 use convert_case::{Case, Casing};
-use lean_item_path::namespace::LnNamespace;
-use visored_item_path::module::{VdModulePath, VdModulePathData};
+use lean_entity_path::namespace::LnNamespace;
+use visored_entity_path::module::{VdModulePath, VdModulePathData};
 use visored_prelude::division::VdDivisionLevel;
 
 #[salsa::tracked]
@@ -13,10 +13,10 @@ pub fn vd_module_path_to_ln_namespace(
         VdModulePathData::Root(_) => Some(LnNamespace::new_root(db)),
         VdModulePathData::Division {
             parent,
-            division_kind,
+            division_level,
             disambiguator,
         } => {
-            match division_kind {
+            match division_level {
                 VdDivisionLevel::Part => (),
                 VdDivisionLevel::Chapter => (),
                 VdDivisionLevel::Section => (),
@@ -28,7 +28,7 @@ pub fn vd_module_path_to_ln_namespace(
             Some(parent_namespace.child(
                 format!(
                     "{}{}",
-                    division_kind.uppercase_code_name(),
+                    division_level.uppercase_code_name(),
                     disambiguator + 1
                 ),
                 db,
@@ -45,11 +45,7 @@ pub fn vd_module_path_to_ln_namespace(
         } => {
             let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(db, parent);
             Some(parent_namespace.child(
-                format!(
-                    "{}{}",
-                    environment_path.name().coword().data(db).to_case(Case::Pascal),
-                    disambiguator+1
-                ),
+                format!("{}{}", environment_path.pascal_ident(), disambiguator + 1),
                 db,
             ))
         }
@@ -65,11 +61,11 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
         VdModulePathData::Root(lx_file_path) => LnNamespace::new_root(db),
         VdModulePathData::Division {
             parent,
-            division_kind,
+            division_level,
             disambiguator,
         } => {
             let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(db, parent);
-            match division_kind {
+            match division_level {
                 VdDivisionLevel::Part => (),
                 VdDivisionLevel::Chapter => (),
                 VdDivisionLevel::Section => (),
@@ -80,7 +76,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
             parent_namespace.child(
                 format!(
                     "{}{}",
-                    division_kind.uppercase_code_name(),
+                    division_level.uppercase_code_name(),
                     disambiguator + 1
                 ),
                 db,
@@ -97,15 +93,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
         } => {
             let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(db, parent);
             parent_namespace.child(
-                format!(
-                    "{}{}",
-                    environment_path
-                        .name()
-                        .coword()
-                        .data(db)
-                        .to_case(Case::Pascal),
-                    disambiguator + 1
-                ),
+                format!("{}{}", environment_path.pascal_ident(), disambiguator + 1),
                 db,
             )
         }

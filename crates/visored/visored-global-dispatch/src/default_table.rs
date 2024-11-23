@@ -1,3 +1,5 @@
+mod lisp_csv;
+
 use crate::{
     dispatch::{
         attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
@@ -5,6 +7,7 @@ use crate::{
         separator::VdSeparatorGlobalDispatch, sqrt::VdSqrtGlobalDispatch,
     },
     menu::vd_global_dispatch_menu,
+    *,
 };
 use rustc_hash::FxHashMap;
 use visored_opr::{
@@ -12,7 +15,7 @@ use visored_opr::{
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     separator::VdBaseSeparator,
 };
-use visored_signature::menu::vd_signature_menu;
+use visored_signature::{menu::vd_signature_menu, table::VdSignatureTable};
 use visored_term::{menu::vd_ty_menu, ty::VdType};
 
 pub struct VdDefaultGlobalDispatchTable {
@@ -28,22 +31,22 @@ pub struct VdDefaultGlobalDispatchTable {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseBinaryOprKey {
-    lopd_ty: VdType,
-    base_binary_opr: VdBaseBinaryOpr,
-    ropd_ty: VdType,
+    pub lopd_ty: VdType,
+    pub base_binary_opr: VdBaseBinaryOpr,
+    pub ropd_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseSeparatorKey {
-    base_separator: VdBaseSeparator,
-    prev_item_ty: VdType,
-    next_item_ty: VdType,
+    pub base_separator: VdBaseSeparator,
+    pub prev_item_ty: VdType,
+    pub next_item_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBasePrefixOprKey {
-    base_opr: VdBasePrefixOpr,
-    opd_ty: VdType,
+    pub base_opr: VdBasePrefixOpr,
+    pub opd_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -56,13 +59,13 @@ pub enum VdAttachKey {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseSqrtKey {
-    base_ty: VdType,
+    pub base_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseFracKey {
-    numerator_ty: VdType,
-    denominator_ty: VdType,
+    pub numerator_ty: VdType,
+    pub denominator_ty: VdType,
 }
 
 impl VdDefaultGlobalDispatchTable {
@@ -95,82 +98,13 @@ impl VdDefaultGlobalDispatchTable {
             base_frac_default_dispatch_table: frac_default_dispatches.into_iter().collect(),
         }
     }
-
-    pub fn new_standard(db: &::salsa::Db) -> Self {
-        let zfc_ty_menu = vd_ty_menu(db);
-        let opr_menu = vd_opr_menu(db);
-        let global_dispatch_menu = vd_global_dispatch_menu(db);
-        Self::new(
-            VdPrefixOprGlobalDispatch::standard_defaults(
-                zfc_ty_menu,
-                opr_menu,
-                global_dispatch_menu,
-            )
-            .into_iter()
-            .map(|((base_opr, opd_ty), dispatch)| {
-                (VdBasePrefixOprKey { base_opr, opd_ty }.into(), dispatch)
-            }),
-            VdBinaryOprGlobalDispatch::standard_defaults(
-                zfc_ty_menu,
-                opr_menu,
-                global_dispatch_menu,
-            )
-            .into_iter()
-            .map(|((lopd_ty, base_binary_opr, ropd_ty), dispatch)| {
-                (
-                    VdBaseBinaryOprKey {
-                        lopd_ty,
-                        base_binary_opr,
-                        ropd_ty,
-                    }
-                    .into(),
-                    dispatch,
-                )
-            }),
-            VdSeparatorGlobalDispatch::standard_defaults(
-                zfc_ty_menu,
-                opr_menu,
-                global_dispatch_menu,
-            )
-            .into_iter()
-            .map(|((prev_item_ty, base_separator, next_item_ty), dispatch)| {
-                (
-                    VdBaseSeparatorKey {
-                        prev_item_ty,
-                        base_separator,
-                        next_item_ty,
-                    }
-                    .into(),
-                    dispatch,
-                )
-            }),
-            VdAttachGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
-                .into_iter()
-                .map(|(key, dispatch)| (key.into(), dispatch)),
-            VdSqrtGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
-                .into_iter()
-                .map(|(base_ty, dispatch)| (VdBaseSqrtKey { base_ty }, dispatch)),
-            VdFracGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
-                .into_iter()
-                .map(|((numerator_ty, denominator_ty), dispatch)| {
-                    (
-                        VdBaseFracKey {
-                            numerator_ty,
-                            denominator_ty,
-                        }
-                        .into(),
-                        dispatch,
-                    )
-                }),
-        )
-    }
 }
 
 impl VdDefaultGlobalDispatchTable {
     pub fn base_binary_opr_default_dispatch(
         &self,
-        base_binary_opr: VdBaseBinaryOpr,
         lopd_ty: VdType,
+        base_binary_opr: VdBaseBinaryOpr,
         ropd_ty: VdType,
     ) -> Option<VdBinaryOprGlobalDispatch> {
         self.base_binary_opr_default_dispatch_table
@@ -184,8 +118,8 @@ impl VdDefaultGlobalDispatchTable {
 
     pub fn base_separator_default_dispatch(
         &self,
-        base_separator: VdBaseSeparator,
         prev_item_ty: VdType,
+        base_separator: VdBaseSeparator,
         next_item_ty: VdType,
     ) -> Option<VdSeparatorGlobalDispatch> {
         self.base_separator_default_dispatch_table
@@ -220,13 +154,13 @@ impl VdDefaultGlobalDispatchTable {
             .copied()
     }
 
-    pub fn sqrt_default_dispatch(&self, base_ty: VdType) -> Option<VdSqrtGlobalDispatch> {
+    pub fn base_sqrt_default_dispatch(&self, base_ty: VdType) -> Option<VdSqrtGlobalDispatch> {
         self.base_sqrt_default_dispatch_table
             .get(&VdBaseSqrtKey { base_ty })
             .copied()
     }
 
-    pub fn frac_default_dispatch(
+    pub fn base_frac_default_dispatch(
         &self,
         numerator_ty: VdType,
         denominator_ty: VdType,
@@ -237,5 +171,18 @@ impl VdDefaultGlobalDispatchTable {
                 denominator_ty,
             })
             .copied()
+    }
+}
+
+impl VdDefaultGlobalDispatchTable {
+    pub fn from_standard_lisp_csv_file_dir(db: &::salsa::Db) -> Self {
+        let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
+        let specs_dir = husky_lang_dev_paths.specs_dir();
+        let dir = &specs_dir.join("visored/global_default_dispatches");
+        let signature_table = VdSignatureTable::from_lp_csv_file_path(
+            &specs_dir.join("visored/signature_table.lpcsv"),
+            db,
+        );
+        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table, db)
     }
 }

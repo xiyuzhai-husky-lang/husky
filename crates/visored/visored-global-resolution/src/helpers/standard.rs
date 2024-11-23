@@ -2,7 +2,7 @@ use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
 use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 
 use crate::{
     default_table::VdDefaultGlobalResolutionTable,
@@ -126,8 +126,6 @@ fn standard_command_resolution_map(
         (int, VdCompleteCommandGlobalResolution::INT),
         (sum, VdCompleteCommandGlobalResolution::SUM),
         (prod, VdCompleteCommandGlobalResolution::PROD),
-        (times, VdCompleteCommandGlobalResolution::TIMES),
-        (otimes, VdCompleteCommandGlobalResolution::OTIMES),
         // - extended letters
         (alpha, VdCompleteCommandGlobalResolution::LOWER_ALPHA),
         (beta, VdCompleteCommandGlobalResolution::LOWER_BETA),
@@ -148,10 +146,31 @@ fn standard_command_resolution_map(
 }
 
 fn standard_environment_resolution_map(db: &salsa::Db) -> VdEnvironmentGlobalResolutionMap {
-    let LxEnvironmentPathMenu { document, .. } = *lx_environment_path_menu(db);
-    [(document, VdEnvironmentGlobalResolution::DOCUMENT)]
-        .into_iter()
-        .collect()
+    let LxEnvironmentPathMenu {
+        document,
+        example,
+        proof,
+        remark,
+        definition,
+        theorem,
+        lemma,
+        corollary,
+        proposition,
+        align,
+        array,
+        matrix,
+        cases,
+        equation,
+        figure,
+        table,
+    } = *lx_environment_path_menu(db);
+    [
+        (document, VdEnvironmentGlobalResolution::DOCUMENT),
+        (example, VdEnvironmentGlobalResolution::EXAMPLE),
+        (equation, VdEnvironmentGlobalResolution::EQUATION),
+    ]
+    .into_iter()
+    .collect()
 }
 
 fn lx_math_punctuation_standard_resolution(

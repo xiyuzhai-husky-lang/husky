@@ -1,5 +1,5 @@
 use super::*;
-use visored_item_path::menu::{vd_item_path_menu, VdItemPathMenu};
+use visored_entity_path::menu::{vd_item_path_menu, VdItemPathMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdTermMenu {
@@ -31,6 +31,9 @@ impl VdTermMenu {
             ring,
             group_mul,
             abelian_group_add,
+            nat_add,
+            nat_mul,
+            ring_sub,
             ring_add,
             ring_mul,
             ring_power,

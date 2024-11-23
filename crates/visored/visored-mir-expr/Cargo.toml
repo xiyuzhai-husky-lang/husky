@@ -24,7 +24,7 @@ latex-prelude.workspace = true
 visored-annotation.workspace = true
 visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
-visored-item-path.workspace = true
+visored-entity-path.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
 visored-sem-expr.workspace = true
@@ -39,10 +39,11 @@ expect-test.workspace = true
 # latex
 latex-ast.workspace = true
 latex-command.workspace = true
+latex-token.workspace = true
 # kernel
 husky-coword.workspace = true
 # visored
-visored-item-path.workspace = true
+visored-entity-path.workspace = true
 visored-sem-expr.workspace = true
 visored-syn-expr.workspace = true
 visored-global-dispatch.workspace = true
