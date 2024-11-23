@@ -138,7 +138,7 @@ impl VdSeparatorGlobalDispatch {
             ((complex, add, nat), complex_add),
             ((complex, add, int), complex_add),
             ((complex, add, rat), complex_add),
-            ((complex, add, rat), complex_add),
+            ((complex, add, real), complex_add),
             ((complex, add, complex), complex_add),
             // ## mul
             // ### nat
