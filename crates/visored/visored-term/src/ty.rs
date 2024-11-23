@@ -13,6 +13,28 @@ use visored_entity_path::path::VdItemPath;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdType(VdTerm);
 
+impl salsa::DebugWithDb for VdType {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
+        self.display_fmt_with_db(f, db)
+    }
+}
+
+impl salsa::DisplayWithDb for VdType {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.0.display_fmt_with_db(f, db)
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdTypeData {
     ItemPath(VdItemPath), // TODO: do we need a path here?
