@@ -238,7 +238,9 @@ mod tests {
 
     #[test]
     fn dbg() {
-        t("[]", expect![[r#"
+        t(
+            "[]",
+            expect![[r#"
             JustOk(
                 Expr(
                     LpCsvExpr {
@@ -250,6 +252,7 @@ mod tests {
                     },
                 ),
             )
-        "#]]);
+        "#]],
+        );
     }
 }
