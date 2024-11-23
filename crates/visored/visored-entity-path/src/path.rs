@@ -31,8 +31,11 @@ impl VdItemPath {
     pub const SIN: Self = VdItemPath::Function(VdFunctionPath::SIN);
     pub const COS: Self = VdItemPath::Function(VdFunctionPath::COS);
     // # trait items
+    pub const NAT_ADD: Self = VdItemPath::TraitItem(VdTraitItemPath::NAT_ADD);
+    pub const NAT_MUL: Self = VdItemPath::TraitItem(VdTraitItemPath::NAT_MUL);
     pub const RING_ADD: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_ADD);
     pub const RING_MUL: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_MUL);
+    pub const RING_POWER: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_POWER);
     pub const RING_POS: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_POS);
     pub const RING_NEG: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_NEG);
     pub const RING_SUB: Self = VdItemPath::TraitItem(VdTraitItemPath::RING_SUB);
@@ -47,12 +50,42 @@ impl VdItemPath {
         match ident as &str {
             "ring_pos" => VdItemPath::RING_POS,
             "ring_neg" => VdItemPath::RING_NEG,
-            "ring_add" => VdItemPath::RING_ADD,
             "ring_sub" => VdItemPath::RING_SUB,
+            "nat_add" => VdItemPath::NAT_ADD,
+            "nat_mul" => VdItemPath::NAT_MUL,
+            "ring_add" => VdItemPath::RING_ADD,
             "ring_mul" => VdItemPath::RING_MUL,
-            "ring_neg" => VdItemPath::RING_NEG,
+            "ring_power" => VdItemPath::RING_POWER,
             "field_div" => VdItemPath::FIELD_DIV,
             s => todo!("s = {s:?} not handled"),
+        }
+    }
+}
+
+impl salsa::DebugWithDb for VdItemPath {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
+        self.display_fmt_with_db(f, db)
+    }
+}
+
+impl salsa::DisplayWithDb for VdItemPath {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        match self {
+            VdItemPath::Category(category_path) => category_path.display_fmt_with_db(f, db),
+            VdItemPath::Set(set_path) => set_path.display_fmt_with_db(f, db),
+            VdItemPath::Function(function_path) => function_path.display_fmt_with_db(f, db),
+            VdItemPath::Trait(trait_path) => trait_path.display_fmt_with_db(f, db),
+            VdItemPath::TraitItem(trait_item_path) => trait_item_path.display_fmt_with_db(f, db),
         }
     }
 }

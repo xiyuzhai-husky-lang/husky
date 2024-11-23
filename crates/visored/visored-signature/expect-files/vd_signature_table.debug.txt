@@ -1,0 +1,427 @@
+VdSignatureTable {
+    table: {
+        "nat_add": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: +(nat_add),
+                        arguments: [],
+                    },
+                    item_ty: ℕ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "rat_pos": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_pos),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    opd_ty: ℚ,
+                    expr_ty: ℚ,
+                },
+            ),
+        ),
+        "real_pos": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_pos),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    opd_ty: ℝ,
+                    expr_ty: ℝ,
+                },
+            ),
+        ),
+        "int_neg": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_neg),
+                        arguments: [
+                            ℤ,
+                        ],
+                    },
+                    opd_ty: ℤ,
+                    expr_ty: ℤ,
+                },
+            ),
+        ),
+        "real_sub": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_sub),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    lopd_ty: ℝ,
+                    ropd_ty: ℝ,
+                    expr_ty: ℝ,
+                },
+            ),
+        ),
+        "int_mul": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: *(ring_mul),
+                        arguments: [
+                            ℤ,
+                        ],
+                    },
+                    item_ty: ℤ,
+                    expr_ty: ℤ,
+                },
+            ),
+        ),
+        "rat_add": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_add),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    item_ty: ℚ,
+                    expr_ty: ℚ,
+                },
+            ),
+        ),
+        "complex_add": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_add),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    item_ty: ℂ,
+                    expr_ty: ℂ,
+                },
+            ),
+        ),
+        "real_add": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_add),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    item_ty: ℝ,
+                    expr_ty: ℝ,
+                },
+            ),
+        ),
+        "rat_neg": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_neg),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    opd_ty: ℚ,
+                    expr_ty: ℚ,
+                },
+            ),
+        ),
+        "rat_mul": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: *(ring_mul),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    item_ty: ℚ,
+                    expr_ty: ℚ,
+                },
+            ),
+        ),
+        "complex_to_the_power_of_nat": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: ^(ring_power),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    item_ty: ℂ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "complex_div": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: /(field_div),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    lopd_ty: ℂ,
+                    ropd_ty: ℂ,
+                    expr_ty: ℂ,
+                },
+            ),
+        ),
+        "int_pos": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_pos),
+                        arguments: [
+                            ℤ,
+                        ],
+                    },
+                    opd_ty: ℤ,
+                    expr_ty: ℤ,
+                },
+            ),
+        ),
+        "rat_to_the_power_of_nat": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: ^(ring_power),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    item_ty: ℚ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "real_neg": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_neg),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    opd_ty: ℝ,
+                    expr_ty: ℝ,
+                },
+            ),
+        ),
+        "rat_div": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: /(field_div),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    lopd_ty: ℚ,
+                    ropd_ty: ℚ,
+                    expr_ty: ℚ,
+                },
+            ),
+        ),
+        "real_div": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: /(field_div),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    lopd_ty: ℝ,
+                    ropd_ty: ℝ,
+                    expr_ty: ℝ,
+                },
+            ),
+        ),
+        "nat_mul": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: *,
+                        arguments: [],
+                    },
+                    item_ty: ℕ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "rat_sub": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_sub),
+                        arguments: [
+                            ℚ,
+                        ],
+                    },
+                    lopd_ty: ℚ,
+                    ropd_ty: ℚ,
+                    expr_ty: ℚ,
+                },
+            ),
+        ),
+        "int_add": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_add),
+                        arguments: [
+                            ℤ,
+                        ],
+                    },
+                    item_ty: ℤ,
+                    expr_ty: ℤ,
+                },
+            ),
+        ),
+        "real_mul": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: *(ring_mul),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    item_ty: ℝ,
+                    expr_ty: ℝ,
+                },
+            ),
+        ),
+        "complex_pos": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: +(ring_pos),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    opd_ty: ℂ,
+                    expr_ty: ℂ,
+                },
+            ),
+        ),
+        "complex_neg": VdSignature::PrefixOpr(
+            VdPrefixOprSignature::Base(
+                VdBasePrefixOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_neg),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    opd_ty: ℂ,
+                    expr_ty: ℂ,
+                },
+            ),
+        ),
+        "int_sub": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_sub),
+                        arguments: [
+                            ℤ,
+                        ],
+                    },
+                    lopd_ty: ℤ,
+                    ropd_ty: ℤ,
+                    expr_ty: ℤ,
+                },
+            ),
+        ),
+        "nat_to_the_power_of_nat": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: ^(ring_power),
+                        arguments: [
+                            ℕ,
+                        ],
+                    },
+                    item_ty: ℕ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "int_to_the_power_of_nat": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: ^(ring_power),
+                        arguments: [
+                            ℤ,
+                        ],
+                    },
+                    item_ty: ℤ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "real_to_the_power_of_nat": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: ^(ring_power),
+                        arguments: [
+                            ℝ,
+                        ],
+                    },
+                    item_ty: ℝ,
+                    expr_ty: ℕ,
+                },
+            ),
+        ),
+        "complex_mul": VdSignature::Separator(
+            VdSeparatorSignature::Base(
+                VdBaseSeparatorSignature {
+                    instantiation: VdInstantiation {
+                        path: *(ring_mul),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    item_ty: ℂ,
+                    expr_ty: ℂ,
+                },
+            ),
+        ),
+        "complex_sub": VdSignature::BinaryOpr(
+            VdBinaryOprSignature::Base(
+                VdBaseBinaryOprSignature {
+                    instantiation: VdInstantiation {
+                        path: -(ring_sub),
+                        arguments: [
+                            ℂ,
+                        ],
+                    },
+                    lopd_ty: ℂ,
+                    ropd_ty: ℂ,
+                    expr_ty: ℂ,
+                },
+            ),
+        ),
+    },
+}

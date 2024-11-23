@@ -76,12 +76,7 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         std::fs::read_to_string(dev_dirs.specs_dir().join("visored/instances.lisp-csv")).unwrap();
     let file = parse_lp_csv_file(&file).unwrap();
     let table = VdSignatureTable::from_lp_csv_file(&file, db);
-    expect![[r#"
-        VdSignatureTable {
-            table: {},
-        }
-    "#]]
-    .assert_debug_eq(&table.debug(db));
+    expect_file!["../expect-files/vd_signature_table.debug.txt"].assert_debug_eq(&table.debug(db));
     let VdSignatureMenu {
         int_pos,
         rat_pos,
@@ -141,13 +136,75 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         real_ge,
         real_sqrt,
     } = *vd_signature_menu(db);
-    for (key, ident) in [
-        ("int_pos", int_pos),
-        ("rat_pos", rat_pos),
-        ("real_pos", real_pos),
-        ("complex_pos", complex_pos),
-        ("int_neg", int_neg),
-    ] {
-        assert_eq!(table["int_pos"], int_pos.into());
+    let entries: Vec<(&str, VdSignature)> = vec![
+        ("int_pos", int_pos.into()),
+        ("rat_pos", rat_pos.into()),
+        ("real_pos", real_pos.into()),
+        ("complex_pos", complex_pos.into()),
+        ("int_neg", int_neg.into()),
+        ("rat_neg", rat_neg.into()),
+        ("real_neg", real_neg.into()),
+        ("complex_neg", complex_neg.into()),
+        ("int_sub", int_sub.into()),
+        ("rat_sub", rat_sub.into()),
+        ("real_sub", real_sub.into()),
+        ("complex_sub", complex_sub.into()),
+        ("rat_div", rat_div.into()),
+        ("real_div", real_div.into()),
+        ("complex_div", complex_div.into()),
+        ("nat_add", nat_add.into()),
+        ("int_add", int_add.into()),
+        ("rat_add", rat_add.into()),
+        ("real_add", real_add.into()),
+        ("complex_add", complex_add.into()),
+        ("nat_mul", nat_mul.into()),
+        ("int_mul", int_mul.into()),
+        ("rat_mul", rat_mul.into()),
+        ("real_mul", real_mul.into()),
+        ("complex_mul", complex_mul.into()),
+        ("nat_to_the_power_of_nat", nat_to_the_power_of_nat.into()),
+        ("int_to_the_power_of_nat", int_to_the_power_of_nat.into()),
+        ("rat_to_the_power_of_nat", rat_to_the_power_of_nat.into()),
+        ("real_to_the_power_of_nat", real_to_the_power_of_nat.into()),
+        (
+            "complex_to_the_power_of_nat",
+            complex_to_the_power_of_nat.into(),
+        ),
+        ("nat_eq", nat_eq.into()),
+        ("int_eq", int_eq.into()),
+        ("rat_eq", rat_eq.into()),
+        ("real_eq", real_eq.into()),
+        ("complex_eq", complex_eq.into()),
+        ("nat_ne", nat_ne.into()),
+        ("int_ne", int_ne.into()),
+        ("rat_ne", rat_ne.into()),
+        ("real_ne", real_ne.into()),
+        ("complex_ne", complex_ne.into()),
+        ("nat_lt", nat_lt.into()),
+        ("int_lt", int_lt.into()),
+        ("rat_lt", rat_lt.into()),
+        ("real_lt", real_lt.into()),
+        ("nat_gt", nat_gt.into()),
+        ("int_gt", int_gt.into()),
+        ("rat_gt", rat_gt.into()),
+        ("real_gt", real_gt.into()),
+        ("nat_le", nat_le.into()),
+        ("int_le", int_le.into()),
+        ("rat_le", rat_le.into()),
+        ("real_le", real_le.into()),
+        ("nat_ge", nat_ge.into()),
+        ("int_ge", int_ge.into()),
+        ("rat_ge", rat_ge.into()),
+        ("real_ge", real_ge.into()),
+        ("real_sqrt", real_sqrt.into()),
+    ];
+    for (key, signature) in entries {
+        assert_eq!(
+            table[key],
+            signature,
+            "table[key] = {:#?}, signature = {:#?}",
+            table[key].debug(db),
+            signature.debug(db)
+        );
     }
 }
