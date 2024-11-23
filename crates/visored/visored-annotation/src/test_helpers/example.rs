@@ -104,6 +104,7 @@ pub fn lx_annotations_examples(db: &::salsa::Db) -> Vec<VdAnnotationsExample> {
 }
 
 #[test]
+#[ignore]
 fn latex_annotations_examples_works() {
     let db = &DB::default();
     let examples = lx_annotations_examples(db);

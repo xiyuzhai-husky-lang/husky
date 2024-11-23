@@ -14,7 +14,7 @@ impl LxEnvironmentSignature {
     pub fn new(path: LxEnvironmentPath, allowed_modes: &[LxMode], body_mode: LxMode) -> Self {
         Self {
             path,
-            allowed_modes: allowed_modes.into(),
+            allowed_modes: allowed_modes.iter().copied().collect(),
             body_mode,
         }
     }

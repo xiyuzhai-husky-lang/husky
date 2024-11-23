@@ -56,17 +56,18 @@ impl std::ops::BitOrAssign for LxModeSet {
     }
 }
 
-impl<const N: usize> From<&[LxMode; N]> for LxModeSet {
-    fn from(modes: &[LxMode; N]) -> Self {
-        (modes as &[_]).into()
+impl<I> From<I> for LxModeSet
+where
+    I: IntoIterator<Item = LxMode>,
+{
+    fn from(modes: I) -> Self {
+        modes.into_iter().collect()
     }
 }
 
-impl From<&[LxMode]> for LxModeSet {
-    fn from(modes: &[LxMode]) -> Self {
-        modes
-            .iter()
-            .copied()
+impl FromIterator<LxMode> for LxModeSet {
+    fn from_iter<T: IntoIterator<Item = LxMode>>(iter: T) -> Self {
+        iter.into_iter()
             .fold(Self::LISP, |acc, mode| acc | mode.into())
     }
 }
@@ -141,7 +142,7 @@ mod tests {
     #[test]
     fn test_from_slice() {
         let modes = &[LxMode::Lisp, LxMode::Math, LxMode::Root];
-        let set: LxModeSet = modes.into();
+        let set: LxModeSet = modes.iter().copied().collect();
         assert!(set.allowed_in_lisp());
         assert!(set.allowed_in_math());
         assert!(set.allowed_in_root());
