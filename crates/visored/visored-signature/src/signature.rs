@@ -57,7 +57,12 @@ impl VdSignature {
                 .into()
             }
             "base_binary_opr" => {
-                assert_eq!(args.len(), 3);
+                assert_eq!(
+                    args.len(),
+                    3,
+                    "exprs[0].position_range = {}",
+                    exprs[0].position_range
+                );
                 VdBaseBinaryOprSignature {
                     instantiation,
                     lopd_ty: VdType::from_lp_csv_expr(&args[0], db),
@@ -67,11 +72,30 @@ impl VdSignature {
                 .into()
             }
             "base_separator" => {
-                assert_eq!(args.len(), 3);
+                assert_eq!(args.len(), 2);
                 VdBaseSeparatorSignature::new(
                     instantiation,
                     VdType::from_lp_csv_expr(&args[0], db),
                     VdType::from_lp_csv_expr(&args[1], db),
+                )
+                .into()
+            }
+            "base_sqrt" => {
+                assert_eq!(args.len(), 2);
+                VdBaseSqrtSignature::new(
+                    instantiation,
+                    VdType::from_lp_csv_expr(&args[0], db),
+                    VdType::from_lp_csv_expr(&args[1], db),
+                )
+                .into()
+            }
+            "power" => {
+                assert_eq!(args.len(), 3);
+                VdPowerSignature::new(
+                    instantiation,
+                    VdType::from_lp_csv_expr(&args[0], db),
+                    VdType::from_lp_csv_expr(&args[1], db),
+                    VdType::from_lp_csv_expr(&args[2], db),
                 )
                 .into()
             }
