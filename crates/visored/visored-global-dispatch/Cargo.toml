@@ -17,6 +17,8 @@ rustc-hash.workspace = true
 salsa.workspace = true
 # lisp
 lisp-csv.workspace = true
+# utils
+husky-print-utils.workspace = true
 # visored
 visored-opr.workspace = true
 visored-term.workspace = true

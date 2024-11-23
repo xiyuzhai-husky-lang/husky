@@ -4343,6 +4343,7 @@
         name: "visored-global-dispatch",
         relative_path: "crates/visored/visored-global-dispatch",
         dependencies: [
+            "husky-print-utils",
             "lisp-csv",
             "rustc-hash",
             "salsa",
