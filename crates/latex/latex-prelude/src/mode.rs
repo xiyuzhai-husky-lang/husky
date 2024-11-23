@@ -50,6 +50,18 @@ impl std::ops::BitOr for LxModeSet {
     }
 }
 
+impl std::ops::BitOrAssign for LxModeSet {
+    fn bitor_assign(&mut self, rhs: Self) {
+        *self = *self | rhs;
+    }
+}
+
+impl<const N: usize> From<&[LxMode; N]> for LxModeSet {
+    fn from(modes: &[LxMode; N]) -> Self {
+        (modes as &[_]).into()
+    }
+}
+
 impl From<&[LxMode]> for LxModeSet {
     fn from(modes: &[LxMode]) -> Self {
         modes
@@ -68,5 +80,91 @@ impl From<LxMode> for LxModeSet {
             LxMode::Rose => Self::ROSE,
             LxMode::Name => Self::NAME,
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_single_modes() {
+        assert!(LxModeSet::LISP.allowed_in_lisp());
+        assert!(!LxModeSet::LISP.allowed_in_math());
+        assert!(!LxModeSet::LISP.allowed_in_root());
+        assert!(!LxModeSet::LISP.allowed_in_rose());
+        assert!(!LxModeSet::LISP.allowed_in_name());
+
+        assert!(!LxModeSet::MATH.allowed_in_lisp());
+        assert!(LxModeSet::MATH.allowed_in_math());
+        assert!(!LxModeSet::MATH.allowed_in_root());
+        assert!(!LxModeSet::MATH.allowed_in_rose());
+        assert!(!LxModeSet::MATH.allowed_in_name());
+
+        assert!(!LxModeSet::ROOT.allowed_in_lisp());
+        assert!(!LxModeSet::ROOT.allowed_in_math());
+        assert!(LxModeSet::ROOT.allowed_in_root());
+        assert!(!LxModeSet::ROOT.allowed_in_rose());
+        assert!(!LxModeSet::ROOT.allowed_in_name());
+
+        assert!(!LxModeSet::ROSE.allowed_in_lisp());
+        assert!(!LxModeSet::ROSE.allowed_in_math());
+        assert!(!LxModeSet::ROSE.allowed_in_root());
+        assert!(LxModeSet::ROSE.allowed_in_rose());
+        assert!(!LxModeSet::ROSE.allowed_in_name());
+
+        assert!(!LxModeSet::NAME.allowed_in_lisp());
+        assert!(!LxModeSet::NAME.allowed_in_math());
+        assert!(!LxModeSet::NAME.allowed_in_root());
+        assert!(!LxModeSet::NAME.allowed_in_rose());
+        assert!(LxModeSet::NAME.allowed_in_name());
+    }
+
+    #[test]
+    fn test_mode_combinations() {
+        let combined = LxModeSet::LISP | LxModeSet::MATH;
+        assert!(combined.allowed_in_lisp());
+        assert!(combined.allowed_in_math());
+        assert!(!combined.allowed_in_root());
+        assert!(!combined.allowed_in_rose());
+        assert!(!combined.allowed_in_name());
+
+        let all_modes =
+            LxModeSet::LISP | LxModeSet::MATH | LxModeSet::ROOT | LxModeSet::ROSE | LxModeSet::NAME;
+        assert!(all_modes.allowed_in_lisp());
+        assert!(all_modes.allowed_in_math());
+        assert!(all_modes.allowed_in_root());
+        assert!(all_modes.allowed_in_rose());
+        assert!(all_modes.allowed_in_name());
+    }
+
+    #[test]
+    fn test_from_slice() {
+        let modes = &[LxMode::Lisp, LxMode::Math, LxMode::Root];
+        let set: LxModeSet = modes.into();
+        assert!(set.allowed_in_lisp());
+        assert!(set.allowed_in_math());
+        assert!(set.allowed_in_root());
+        assert!(!set.allowed_in_rose());
+        assert!(!set.allowed_in_name());
+    }
+
+    #[test]
+    fn test_bitor_assign() {
+        let mut set = LxModeSet::LISP;
+        set |= LxModeSet::MATH;
+        assert!(set.allowed_in_lisp());
+        assert!(set.allowed_in_math());
+        assert!(!set.allowed_in_root());
+    }
+
+    #[test]
+    fn test_from_mode() {
+        let set = LxModeSet::from(LxMode::Lisp);
+        assert!(set.allowed_in_lisp());
+        assert!(!set.allowed_in_math());
+        assert!(!set.allowed_in_root());
+        assert!(!set.allowed_in_rose());
+        assert!(!set.allowed_in_name());
     }
 }
