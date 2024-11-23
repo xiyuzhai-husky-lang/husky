@@ -66,6 +66,7 @@ mod tests {
     use latex_prelude::mode::LxMode;
 
     #[test]
+    #[ignore]
     fn test_collect_from_sparse_annotations_integral() {
         todo!()
         // let db = &DB::default();

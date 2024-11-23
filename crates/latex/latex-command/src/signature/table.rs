@@ -5,6 +5,7 @@ use crate::path::{
     menu::{command_path_menu, LxCommandPathMenu},
     LxCommandName,
 };
+use husky_coword::Coword;
 use latex_prelude::mode::LxMode;
 use lisp_csv::{
     expr::LpCsvExprData,
@@ -60,7 +61,7 @@ impl LxCommandSignatureTable {
                             path.name(),
                             LxCommandSignature::Complete(LxCompleteCommandSignature {
                                 path,
-                                allowed_modes: allowed_modes.as_ref().into(),
+                                allowed_modes: allowed_modes.as_ref().iter().copied().collect(),
                                 options: (),
                                 parameters: parameter_modes
                                     .as_ref()
@@ -279,7 +280,7 @@ impl LxCommandSignatureTable {
         db: &'a salsa::Db,
     ) -> (LxCommandPath, Vec<LxMode>, Vec<LxCommandParameterMode>) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
-            todo!()
+            todo!("row = {:?}", row)
         };
         let [command_ident, allowed_modes, parameter_modes] = exprs.as_slice() else {
             todo!()
@@ -287,13 +288,45 @@ impl LxCommandSignatureTable {
         let LpCsvExprData::Ident(ref command_ident) = command_ident.data else {
             todo!()
         };
+        // TODO: ad hoc
+        let command_path = LxCommandPath::new_prelude(Coword::from_ref(db, command_ident), db);
         let LpCsvExprData::List(ref allowed_modes) = allowed_modes.data else {
             todo!()
         };
+        let allowed_modes: Vec<LxMode> = allowed_modes
+            .iter()
+            .map(|s| {
+                let LpCsvExprData::Ident(ref ident) = s.data else {
+                    todo!()
+                };
+                match ident.as_ref() {
+                    "root" => LxMode::Root,
+                    "math" => LxMode::Math,
+                    "rose" => LxMode::Rose,
+                    "name" => LxMode::Name,
+                    _ => todo!(),
+                }
+            })
+            .collect();
         let LpCsvExprData::List(ref parameter_modes) = parameter_modes.data else {
             todo!()
         };
-        todo!()
+        let parameter_modes: Vec<LxCommandParameterMode> = parameter_modes
+            .iter()
+            .map(|s| {
+                let LpCsvExprData::Ident(ref ident) = s.data else {
+                    todo!()
+                };
+                match ident.as_ref() {
+                    "name" => LxCommandParameterMode::Name,
+                    "math" => LxCommandParameterMode::Math,
+                    "rose" => LxCommandParameterMode::Rose,
+                    "single_letter" => LxCommandParameterMode::SingleLetter,
+                    _ => todo!(),
+                }
+            })
+            .collect();
+        (command_path, allowed_modes, parameter_modes)
     }
 }
 
@@ -312,7 +345,10 @@ fn lp_command_signature_table_works() {
         let LxCommandSignature::Complete(ref complete_signature) = signature else {
             todo!()
         };
-        assert_eq!(complete_signature.allowed_modes, allowed_modes.into());
+        assert_eq!(
+            complete_signature.allowed_modes,
+            allowed_modes.iter().copied().collect()
+        );
         assert_eq!(
             complete_signature.parameters.as_slice(),
             parameter_modes
