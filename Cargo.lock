@@ -8175,8 +8175,10 @@ name = "latex-command"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "husky-path-utils",
  "latex-math-letter",
  "latex-prelude",
+ "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
  "thiserror",

@@ -3576,9 +3576,11 @@
             "husky-coword",
             "latex-math-letter",
             "latex-prelude",
+            "lisp-csv",
             "rustc-hash",
             "salsa",
             "thiserror",
+            "husky-path-utils",
         ],
     },
     PackageSummary {
@@ -3601,6 +3603,19 @@
         relative_path: "crates/latex/latex-vfs",
         dependencies: [
             "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "lisp-csv",
+        relative_path: "crates/lisp/lisp-csv",
+        dependencies: [
+            "either",
+            "husky-print-utils",
+            "husky-text-protocol",
+            "maybe-result",
+            "ordered-float",
+            "thiserror",
+            "expect-test",
         ],
     },
     PackageSummary {
@@ -4004,19 +4019,6 @@
             "salsa",
             "smallvec",
             "version-stamp",
-        ],
-    },
-    PackageSummary {
-        name: "lisp-csv",
-        relative_path: "crates/lisp/lisp-csv",
-        dependencies: [
-            "either",
-            "husky-print-utils",
-            "husky-text-protocol",
-            "maybe-result",
-            "ordered-float",
-            "thiserror",
-            "expect-test",
         ],
     },
     PackageSummary {
