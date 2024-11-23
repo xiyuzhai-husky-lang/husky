@@ -21,6 +21,11 @@ husky-coword.workspace = true
 # latex
 latex-prelude.workspace = true
 latex-math-letter.workspace = true
+# lisp
+lisp-csv.workspace = true
+
+[dev-dependencies]
+husky-path-utils.workspace = true
 
 [lints]
 workspace = true

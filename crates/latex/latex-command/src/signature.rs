@@ -3,6 +3,7 @@ pub mod table;
 
 use self::parameter::LxCommandParameters;
 use crate::path::LxCommandPath;
+use crate::*;
 use latex_math_letter::letter::styled::LxMathLetterStyle;
 use latex_prelude::mode::LxModeSet;
 use parameter::LxCommandParameter;
