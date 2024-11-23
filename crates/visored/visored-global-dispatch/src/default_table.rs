@@ -7,6 +7,7 @@ use crate::{
         separator::VdSeparatorGlobalDispatch, sqrt::VdSqrtGlobalDispatch,
     },
     menu::vd_global_dispatch_menu,
+    *,
 };
 use rustc_hash::FxHashMap;
 use visored_opr::{
@@ -240,4 +241,13 @@ impl VdDefaultGlobalDispatchTable {
             })
             .copied()
     }
+}
+
+#[test]
+fn vd_default_global_dispatch_table_from_lisp_csv_works() {
+    let db = &DB::default();
+    let dir = &husky_path_utils::HuskyLangDevPaths::new()
+        .specs_dir()
+        .join("visored/global_default_dispatches");
+    let table = VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, db);
 }

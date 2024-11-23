@@ -4348,6 +4348,10 @@
             "visored-opr",
             "visored-signature",
             "visored-term",
+            "husky-coword",
+            "husky-path-utils",
+            "latex-vfs",
+            "visored-entity-path",
         ],
     },
     PackageSummary {
