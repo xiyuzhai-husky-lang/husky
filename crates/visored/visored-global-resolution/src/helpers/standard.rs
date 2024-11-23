@@ -126,8 +126,6 @@ fn standard_command_resolution_map(
         (int, VdCompleteCommandGlobalResolution::INT),
         (sum, VdCompleteCommandGlobalResolution::SUM),
         (prod, VdCompleteCommandGlobalResolution::PROD),
-        (times, VdCompleteCommandGlobalResolution::TIMES),
-        (otimes, VdCompleteCommandGlobalResolution::OTIMES),
         // - extended letters
         (alpha, VdCompleteCommandGlobalResolution::LOWER_ALPHA),
         (beta, VdCompleteCommandGlobalResolution::LOWER_BETA),

@@ -1,7 +1,18 @@
 use super::*;
 use crate::{default_table::VdBaseBinaryOprKey, menu::VdGlobalDispatchMenu};
+use lisp_csv::{
+    expr::LpCsvExprData,
+    file::{LpCsvFile, LpCsvFileData},
+    row::LpCsvRow,
+};
 use visored_opr::{menu::VdOprMenu, opr::binary::VdBaseBinaryOpr};
-use visored_signature::signature::binary_opr::base::VdBaseBinaryOprSignature;
+use visored_signature::{
+    signature::{
+        binary_opr::{base::VdBaseBinaryOprSignature, VdBinaryOprSignature},
+        VdSignature,
+    },
+    table::VdSignatureTable,
+};
 use visored_term::{menu::VdTypeMenu, ty::VdType};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -76,6 +87,53 @@ impl VdBinaryOprGlobalDispatch {
             ((complex, sub, real), complex_sub),
             ((complex, sub, complex), complex_sub),
         ]
+    }
+
+    pub fn collect_from_lisp_csv_files<'a>(
+        base_binary_opr_file: &'a LpCsvFile,
+        signature_table: &'a VdSignatureTable,
+        db: &'a ::salsa::Db,
+    ) -> impl Iterator<Item = (VdBaseBinaryOprKey, Self)> + 'a {
+        let LpCsvFileData::Rows(rows) = base_binary_opr_file.data();
+        rows.iter()
+            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table, db))
+    }
+
+    pub fn collect_from_lisp_csv_row(
+        row: &LpCsvRow,
+        signature_table: &VdSignatureTable,
+        db: &::salsa::Db,
+    ) -> (VdBaseBinaryOprKey, Self) {
+        let LpCsvRow::SeparatedExprs(exprs) = row else {
+            todo!()
+        };
+        let &[ref lopd_ty, ref base_binary_opr, ref ropd_ty, ref signature_ident] = exprs as &[_]
+        else {
+            todo!()
+        };
+        let lopd_ty = VdType::from_lp_csv_expr(lopd_ty, db);
+        let base_binary_opr = VdBaseBinaryOpr::from_lp_csv_expr(base_binary_opr, db);
+        let ropd_ty = VdType::from_lp_csv_expr(ropd_ty, db);
+        let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
+            todo!()
+        };
+        let VdSignature::BinaryOpr(VdBinaryOprSignature::Base(signature)) =
+            signature_table[signature_ident]
+        else {
+            todo!()
+        };
+        let dispatch = VdBinaryOprGlobalDispatch::Normal {
+            base_binary_opr,
+            signature,
+        };
+        (
+            VdBaseBinaryOprKey {
+                lopd_ty,
+                base_binary_opr,
+                ropd_ty,
+            },
+            dispatch,
+        )
     }
 
     pub fn expr_ty(self) -> VdType {
