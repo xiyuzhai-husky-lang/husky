@@ -98,75 +98,6 @@ impl VdDefaultGlobalDispatchTable {
             base_frac_default_dispatch_table: frac_default_dispatches.into_iter().collect(),
         }
     }
-
-    pub fn new_standard(db: &::salsa::Db) -> Self {
-        let zfc_ty_menu = vd_ty_menu(db);
-        let opr_menu = vd_opr_menu(db);
-        let global_dispatch_menu = vd_global_dispatch_menu(db);
-        Self::new(
-            VdPrefixOprGlobalDispatch::standard_defaults(
-                zfc_ty_menu,
-                opr_menu,
-                global_dispatch_menu,
-            )
-            .into_iter()
-            .map(|((base_opr, opd_ty), dispatch)| {
-                (VdBasePrefixOprKey { base_opr, opd_ty }.into(), dispatch)
-            }),
-            VdBinaryOprGlobalDispatch::standard_defaults(
-                zfc_ty_menu,
-                opr_menu,
-                global_dispatch_menu,
-            )
-            .into_iter()
-            .map(|((lopd_ty, base_binary_opr, ropd_ty), dispatch)| {
-                (
-                    VdBaseBinaryOprKey {
-                        lopd_ty,
-                        base_binary_opr,
-                        ropd_ty,
-                    }
-                    .into(),
-                    dispatch,
-                )
-            }),
-            VdSeparatorGlobalDispatch::standard_defaults(
-                zfc_ty_menu,
-                opr_menu,
-                global_dispatch_menu,
-            )
-            .into_iter()
-            .map(|((prev_item_ty, base_separator, next_item_ty), dispatch)| {
-                (
-                    VdBaseSeparatorKey {
-                        prev_item_ty,
-                        base_separator,
-                        next_item_ty,
-                    }
-                    .into(),
-                    dispatch,
-                )
-            }),
-            VdAttachGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
-                .into_iter()
-                .map(|(key, dispatch)| (key.into(), dispatch)),
-            VdSqrtGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
-                .into_iter()
-                .map(|(base_ty, dispatch)| (VdBaseSqrtKey { base_ty }, dispatch)),
-            VdFracGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)
-                .into_iter()
-                .map(|((numerator_ty, denominator_ty), dispatch)| {
-                    (
-                        VdBaseFracKey {
-                            numerator_ty,
-                            denominator_ty,
-                        }
-                        .into(),
-                        dispatch,
-                    )
-                }),
-        )
-    }
 }
 
 impl VdDefaultGlobalDispatchTable {
@@ -243,9 +174,8 @@ impl VdDefaultGlobalDispatchTable {
     }
 }
 
-#[cfg(test)]
 impl VdDefaultGlobalDispatchTable {
-    pub(crate) fn from_standard_lisp_csv_file_dir(db: &DB) -> Self {
+    pub fn from_standard_lisp_csv_file_dir(db: &::salsa::Db) -> Self {
         let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
         let specs_dir = husky_lang_dev_paths.specs_dir();
         let dir = &specs_dir.join("visored/global_default_dispatches");
