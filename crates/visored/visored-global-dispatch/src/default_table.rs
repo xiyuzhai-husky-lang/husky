@@ -59,13 +59,13 @@ pub enum VdAttachKey {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseSqrtKey {
-    base_ty: VdType,
+    pub base_ty: VdType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBaseFracKey {
-    numerator_ty: VdType,
-    denominator_ty: VdType,
+    pub numerator_ty: VdType,
+    pub denominator_ty: VdType,
 }
 
 impl VdDefaultGlobalDispatchTable {
@@ -223,13 +223,13 @@ impl VdDefaultGlobalDispatchTable {
             .copied()
     }
 
-    pub fn sqrt_default_dispatch(&self, base_ty: VdType) -> Option<VdSqrtGlobalDispatch> {
+    pub fn base_sqrt_default_dispatch(&self, base_ty: VdType) -> Option<VdSqrtGlobalDispatch> {
         self.base_sqrt_default_dispatch_table
             .get(&VdBaseSqrtKey { base_ty })
             .copied()
     }
 
-    pub fn frac_default_dispatch(
+    pub fn base_frac_default_dispatch(
         &self,
         numerator_ty: VdType,
         denominator_ty: VdType,
