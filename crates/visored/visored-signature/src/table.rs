@@ -199,6 +199,9 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         ("real_sqrt", real_sqrt.into()),
     ];
     for (key, signature) in entries {
+        if !table.contains_key(key) {
+            todo!("key = {key:?} not found in table")
+        }
         assert_eq!(
             table[key],
             signature,
