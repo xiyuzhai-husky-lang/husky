@@ -8523,6 +8523,7 @@ checksum = "78b3ae25bc7c8c38cec158d1f2757ee79e9b3740fbc7ccf0e59e4b08d793fa89"
 name = "lisp-csv"
 version = "0.1.0"
 dependencies = [
+ "either",
  "expect-test",
  "husky-print-utils",
  "husky-text-protocol",
@@ -12619,6 +12620,7 @@ dependencies = [
 name = "visored-global-dispatch"
 version = "0.1.0"
 dependencies = [
+ "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
  "visored-opr",
