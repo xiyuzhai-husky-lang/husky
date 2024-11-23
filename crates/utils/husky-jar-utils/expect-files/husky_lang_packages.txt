@@ -4015,6 +4015,7 @@
             "husky-text-protocol",
             "maybe-result",
             "ordered-float",
+            "thiserror",
             "expect-test",
         ],
     },

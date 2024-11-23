@@ -15,6 +15,7 @@ keywords.workspace = true
 either.workspace = true
 maybe-result.workspace = true
 ordered-float.workspace = true
+thiserror.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils

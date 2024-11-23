@@ -8529,6 +8529,7 @@ dependencies = [
  "husky-text-protocol",
  "maybe-result",
  "ordered-float 4.2.2",
+ "thiserror",
 ]
 
 [[package]]

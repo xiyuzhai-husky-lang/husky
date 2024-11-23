@@ -251,3 +251,13 @@ fn vd_default_global_dispatch_table_from_lisp_csv_works() {
         .join("visored/global_default_dispatches");
     let table = VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, db);
 }
+
+#[cfg(test)]
+impl VdDefaultGlobalDispatchTable {
+    pub(crate) fn from_standard_lisp_csv_file_dir(db: &DB) -> Self {
+        let dir = &husky_path_utils::HuskyLangDevPaths::new()
+            .specs_dir()
+            .join("visored/global_default_dispatches");
+        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, db)
+    }
+}
