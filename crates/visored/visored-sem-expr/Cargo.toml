@@ -50,6 +50,8 @@ husky-coword.workspace = true
 # latex
 latex-command.workspace = true
 latex-environment.workspace = true
+# utils
+husky-path-utils.workspace = true
 # visored
 visored-entity-path.workspace = true
 latex-vfs.workspace = true

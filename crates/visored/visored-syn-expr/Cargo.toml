@@ -52,6 +52,8 @@ expect-test.workspace = true
 husky-coword.workspace = true
 # latex
 latex-command.workspace = true
+# utils
+husky-path-utils.workspace = true
 # visored
 visored-entity-path.workspace = true
 

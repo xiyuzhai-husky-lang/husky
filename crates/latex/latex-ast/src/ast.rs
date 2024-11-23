@@ -196,10 +196,15 @@ fn parse_tex_input_into_asts_works() {
     use expect_test::Expect;
 
     fn t(input: &str, mode: LxMode, expected: Expect) {
+        use husky_path_utils::HuskyLangDevPaths;
+
         let db = &DB::default();
+        let dev_paths = HuskyLangDevPaths::new();
+        let complete_commands_path = &dev_paths.specs_dir().join("latex/complete-commands.lpcsv");
         let mut arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
-        let command_signature_table = &LxCommandSignatureTable::new_default(db);
+        let command_signature_table =
+            &LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path, db);
         let environment_signature_table = &LxEnvironmentSignatureTable::new_default(db);
         let asts = parse_latex_input_into_asts(
             db,

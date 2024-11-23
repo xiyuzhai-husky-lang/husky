@@ -208,48 +208,6 @@ impl LxCommandSignatureTable {
         ]
     }
 
-    pub fn new_default(db: &salsa::Db) -> Self {
-        let LxCommandPathMenu {
-            // - root
-            begin,
-            end,
-            usepackage,
-            documentclass,
-            newtheorem,
-            // - divisions
-            part,
-            chapter,
-            section,
-            subsection,
-            subsubsection,
-            // - maths
-            // ## letter style
-            mathbb,
-            mathbf,
-            mathcal,
-            mathit,
-            mathrm,
-            mathsf,
-            mathscr,
-            ..
-        } = *command_path_menu(db);
-        let complete_commands = Self::default_commands(db);
-        Self::new(
-            begin,
-            end,
-            &[
-                (mathbb, LxMathLetterStyle::MATHBB),
-                (mathbf, LxMathLetterStyle::MATHFRAK),
-                (mathcal, LxMathLetterStyle::MATHCAL),
-                (mathit, LxMathLetterStyle::MATHIT),
-                (mathrm, LxMathLetterStyle::MATHRM),
-                (mathsf, LxMathLetterStyle::MATHSF),
-                (mathscr, LxMathLetterStyle::MATHSCR),
-            ],
-            complete_commands.into_iter(),
-        )
-    }
-
     pub fn new_from_lp_csv_file_paths(complete_commands_path: &Path, db: &salsa::Db) -> Self {
         use lisp_csv::parse_lp_csv_filepath;
 
