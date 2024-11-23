@@ -1,3 +1,5 @@
+mod lisp_csv;
+
 use crate::{
     dispatch::{
         attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
