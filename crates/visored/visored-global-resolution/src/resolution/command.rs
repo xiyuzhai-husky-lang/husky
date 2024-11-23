@@ -62,8 +62,6 @@ impl VdCompleteCommandGlobalResolution {
     pub const INT: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::INTEGRAL);
     pub const SUM: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::SUM);
     pub const PROD: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::PROD);
-    pub const TIMES: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::TIMES);
-    pub const OTIMES: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::OTIMES);
     pub const LOWER_ALPHA: Self =
         VdCompleteCommandGlobalResolution::Letter(LxMathLetter::LOWER_ALPHA);
     pub const LOWER_BETA: Self =

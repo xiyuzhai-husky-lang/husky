@@ -71,9 +71,11 @@ impl VdDefaultGlobalDispatchTable {
         let base_prefix_opr_table = match base_prefix_opr_file.data() {
             LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let base_binary_opr_table = match base_binary_opr_file.data() {
-            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
-        };
+        let base_binary_opr_table = VdBinaryOprGlobalDispatch::collect_from_lisp_csv_files(
+            base_binary_opr_file,
+            signature_table,
+            db,
+        );
         let base_separator_table = match base_separator_file.data() {
             LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
