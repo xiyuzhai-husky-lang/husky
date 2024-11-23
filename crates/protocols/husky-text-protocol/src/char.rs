@@ -165,6 +165,11 @@ impl<'a> TextCharIter<'a> {
         let fst = text_char_iter.next()?;
         Some((fst, text_char_iter.next()))
     }
+
+    pub fn remaining_text(&self) -> &'a str {
+        let slice = self.iter.as_slice();
+        unsafe { std::str::from_utf8_unchecked(slice) }
+    }
 }
 
 #[derive(Clone)]

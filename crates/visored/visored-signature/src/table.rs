@@ -2,6 +2,7 @@ use crate::signature::VdSignature;
 use crate::*;
 use lisp_csv::parse_lp_csv_file;
 use lisp_csv::{expr::LpCsvExprData, file::LpCsvFile, row::LpCsvRow};
+use menu::{vd_signature_menu, VdSignatureMenu};
 use rustc_hash::FxHashMap;
 use salsa::DebugWithDb;
 
@@ -9,6 +10,14 @@ use salsa::DebugWithDb;
 #[derive(Debug)]
 pub struct VdSignatureTable {
     table: FxHashMap<String, VdSignature>,
+}
+
+impl std::ops::Deref for VdSignatureTable {
+    type Target = FxHashMap<String, VdSignature>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.table
+    }
 }
 
 impl VdSignatureTable {
@@ -32,6 +41,7 @@ impl VdSignatureTable {
 
     fn from_lp_csv_rows(rows: &[LpCsvRow], db: &::salsa::Db) -> Self {
         let mut table: FxHashMap<String, VdSignature> = FxHashMap::default();
+        assert!(!rows.is_empty());
         for row in rows {
             let (ident, signature) = match row {
                 LpCsvRow::Expr(expr) => todo!(),
@@ -51,6 +61,7 @@ impl VdSignatureTable {
                 table.insert(ident, signature);
             }
         }
+        assert!(!table.is_empty());
         Self { table }
     }
 }
@@ -71,4 +82,72 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         }
     "#]]
     .assert_debug_eq(&table.debug(db));
+    let VdSignatureMenu {
+        int_pos,
+        rat_pos,
+        real_pos,
+        complex_pos,
+        int_neg,
+        rat_neg,
+        real_neg,
+        complex_neg,
+        int_sub,
+        rat_sub,
+        real_sub,
+        complex_sub,
+        rat_div,
+        real_div,
+        complex_div,
+        nat_add,
+        int_add,
+        rat_add,
+        real_add,
+        complex_add,
+        nat_mul,
+        int_mul,
+        rat_mul,
+        real_mul,
+        complex_mul,
+        nat_to_the_power_of_nat,
+        int_to_the_power_of_nat,
+        rat_to_the_power_of_nat,
+        real_to_the_power_of_nat,
+        complex_to_the_power_of_nat,
+        nat_eq,
+        int_eq,
+        rat_eq,
+        real_eq,
+        complex_eq,
+        nat_ne,
+        int_ne,
+        rat_ne,
+        real_ne,
+        complex_ne,
+        nat_lt,
+        int_lt,
+        rat_lt,
+        real_lt,
+        nat_gt,
+        int_gt,
+        rat_gt,
+        real_gt,
+        nat_le,
+        int_le,
+        rat_le,
+        real_le,
+        nat_ge,
+        int_ge,
+        rat_ge,
+        real_ge,
+        real_sqrt,
+    } = *vd_signature_menu(db);
+    for (key, ident) in [
+        ("int_pos", int_pos),
+        ("rat_pos", rat_pos),
+        ("real_pos", real_pos),
+        ("complex_pos", complex_pos),
+        ("int_neg", int_neg),
+    ] {
+        assert_eq!(table["int_pos"], int_pos.into());
+    }
 }
