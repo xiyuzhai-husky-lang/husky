@@ -10,14 +10,14 @@ impl VdDefaultGlobalDispatchTable {
         let base_prefix_opr_file = dir.join("base_prefix_opr.lpcsv");
         let base_binary_opr_file = dir.join("base_binary_opr.lpcsv");
         let base_separator_file = dir.join("base_separator.lpcsv");
-        let attach_file = dir.join("attach.lpcsv");
-        let base_sqrt_file = dir.join("power.lpcsv");
-        let base_frac_file = dir.join("frac.lpcsv");
+        let power_file = dir.join("power.lpcsv");
+        let base_sqrt_file = dir.join("base_sqrt.lpcsv");
+        let base_frac_file = dir.join("base_frac.lpcsv");
         Self::from_lisp_csv_file_paths(
             &base_prefix_opr_file,
             &base_binary_opr_file,
             &base_separator_file,
-            &attach_file,
+            &power_file,
             &base_sqrt_file,
             &base_frac_file,
             db,
@@ -28,7 +28,7 @@ impl VdDefaultGlobalDispatchTable {
         base_prefix_opr_file: &Path,
         base_binary_opr_file: &Path,
         base_separator_file: &Path,
-        attach_file: &Path,
+        power_file: &Path,
         base_sqrt_file: &Path,
         base_frac_file: &Path,
         db: &::salsa::Db,
@@ -36,14 +36,14 @@ impl VdDefaultGlobalDispatchTable {
         let base_prefix_opr_file = parse_lp_csv_filepath(base_prefix_opr_file).unwrap();
         let base_binary_opr_file = parse_lp_csv_filepath(base_binary_opr_file).unwrap();
         let base_separator_file = parse_lp_csv_filepath(base_separator_file).unwrap();
-        let attach_file = parse_lp_csv_filepath(attach_file).unwrap();
+        let power_file = parse_lp_csv_filepath(power_file).unwrap();
         let base_sqrt_file = parse_lp_csv_filepath(base_sqrt_file).unwrap();
         let base_frac_file = parse_lp_csv_filepath(base_frac_file).unwrap();
         Self::from_lisp_csv_files(
             &base_prefix_opr_file,
             &base_binary_opr_file,
             &base_separator_file,
-            &attach_file,
+            &power_file,
             &base_sqrt_file,
             &base_frac_file,
             db,
@@ -54,7 +54,7 @@ impl VdDefaultGlobalDispatchTable {
         base_prefix_opr_file: &LpCsvFile,
         base_binary_opr_file: &LpCsvFile,
         base_separator_file: &LpCsvFile,
-        attach_file: &LpCsvFile,
+        power_file: &LpCsvFile,
         base_sqrt_file: &LpCsvFile,
         base_frac_file: &LpCsvFile,
         db: &::salsa::Db,
@@ -68,7 +68,7 @@ impl VdDefaultGlobalDispatchTable {
         let base_separator_table = match base_separator_file.data() {
             LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let attach_table = match attach_file.data() {
+        let power_table = match power_file.data() {
             LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
         let base_sqrt_table = match base_sqrt_file.data() {
@@ -81,7 +81,7 @@ impl VdDefaultGlobalDispatchTable {
             base_prefix_opr_table,
             base_binary_opr_table,
             base_separator_table,
-            attach_table,
+            power_table,
             base_sqrt_table,
             base_frac_table,
         )
