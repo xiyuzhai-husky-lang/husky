@@ -1,10 +1,17 @@
 use super::*;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdBaseSeparatorSignature {
     instantiation: VdInstantiation,
     item_ty: VdType,
     expr_ty: VdType,
+}
+
+impl From<VdBaseSeparatorSignature> for VdSignature {
+    fn from(signature: VdBaseSeparatorSignature) -> Self {
+        VdSignature::Separator(signature.into())
+    }
 }
 
 impl VdBaseSeparatorSignature {

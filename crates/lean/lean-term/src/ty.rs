@@ -1,6 +1,6 @@
 use crate::term::LnTerm;
 use crate::*;
-use lean_item_path::LnItemPath;
+use lean_entity_path::LnItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LnType(LnTerm);

@@ -7,7 +7,7 @@ use crate::{
     ty::{VdType, VdTypeData},
 };
 use smallvec::{smallvec, SmallVec};
-use visored_item_path::{
+use visored_entity_path::{
     menu::{vd_item_path_menu, VdItemPathMenu},
     path::VdItemPath,
 };
@@ -46,6 +46,9 @@ impl VdTypeMenu {
             ring,
             group_mul,
             abelian_group_add,
+            nat_add,
+            nat_mul,
+            ring_sub,
             ring_add,
             ring_mul,
             ring_power,

@@ -14,7 +14,7 @@ use latex_prelude::{
 };
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::helpers::tracker::{IsVdSemExprInput, VdSemExprTracker};
 
 pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {

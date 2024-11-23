@@ -5,7 +5,7 @@ mod tests;
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::module::VdModulePath;
 use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
     clause::{r#let::VdSemLetClauseDispatch, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange},

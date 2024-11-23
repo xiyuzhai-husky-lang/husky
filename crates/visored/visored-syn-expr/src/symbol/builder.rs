@@ -10,7 +10,11 @@ use r#let::{
     VdSynLetClauseResolution,
 };
 use smallvec::{smallvec, SmallVec};
-use visored_item_path::module::VdModulePath;
+use visored_entity_path::{
+    environment::VdEnvironmentPath,
+    module::{VdModulePath, VdModulePathData},
+};
+use visored_prelude::division::VdDivisionLevel;
 
 pub struct VdSynSymbolBuilder<'a> {
     db: &'a ::salsa::Db,
@@ -27,6 +31,7 @@ pub struct VdSynSymbolBuilder<'a> {
     sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
     stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
     division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
+    root_node: &'a VdSynExprEntityTreeNode,
     stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
@@ -50,6 +55,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
         stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
         division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
+        root_node: &'a VdSynExprEntityTreeNode,
         stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
         division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
@@ -70,7 +76,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
             division_range_map,
             stmt_entity_tree_node_map,
             division_entity_tree_node_map,
-
+            root_node,
             symbol_local_defn_table: VdSynSymbolLocalDefnStorage::default(),
             symbol_resolutions_table: VdSynSymbolResolutionsTable::new(expr_arena),
             lineage: VdSynLineage {
@@ -87,11 +93,15 @@ impl<'a> VdSynSymbolBuilder<'a> {
 
 /// # getters
 impl<'a> VdSynSymbolBuilder<'a> {
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
+        self.db
+    }
+
     pub(crate) fn default_global_resolution_table(&self) -> &VdDefaultGlobalResolutionTable {
         self.default_global_resolution_table
     }
 
-    pub(crate) fn symbol_local_defn_table(&self) -> &VdSynSymbolLocalDefnStorage {
+    pub(crate) fn symbol_local_defn_storage(&self) -> &VdSynSymbolLocalDefnStorage {
         &self.symbol_local_defn_table
     }
 
@@ -214,19 +224,58 @@ impl<'a> VdSynSymbolBuilder<'a> {
         src: VdSynSymbolLocalDefnSrc,
     ) {
         let module_path = self.current_module_path();
+        let scope = match src {
+            VdSynSymbolLocalDefnSrc::LetAssigned(_)
+            | VdSynSymbolLocalDefnSrc::LetPlaceholder(_) => {
+                self.calc_scope_from_module_path(module_path)
+            }
+        };
         self.symbol_local_defn_table.define_symbol(
             head,
             body,
             src,
             self.lineage.clone(),
             module_path,
+            scope,
         );
+    }
+
+    fn calc_scope_from_module_path(&self, module_path: VdModulePath) -> VdSynSymbolLocalDefnScope {
+        let db = self.db;
+        match module_path.data(db) {
+            VdModulePathData::Root(_) => VdSynSymbolLocalDefnScope::Module(module_path),
+            VdModulePathData::Division {
+                parent,
+                division_level,
+                disambiguator,
+            } => match division_level {
+                VdDivisionLevel::Stmts => self.calc_scope_from_module_path(parent),
+                _ => VdSynSymbolLocalDefnScope::Module(module_path),
+            },
+            VdModulePathData::Paragraph {
+                parent,
+                disambiguator,
+            } => self.calc_scope_from_module_path(parent),
+            VdModulePathData::Environment {
+                parent,
+                environment_path,
+                disambiguator,
+            } => match environment_path {
+                VdEnvironmentPath::Document => todo!(),
+                VdEnvironmentPath::Document => todo!(),
+                VdEnvironmentPath::Equation => todo!(),
+                VdEnvironmentPath::Example => VdSynSymbolLocalDefnScope::Module(module_path),
+                VdEnvironmentPath::Theorem => todo!(),
+                VdEnvironmentPath::Proof => todo!(),
+            },
+        }
     }
 
     pub(crate) fn current_module_path(&self) -> VdModulePath {
         match self.lineage.current_stmt_or_division() {
             Left(stmt) => self.stmt_entity_tree_node_map[stmt].module_path(),
-            Right(division) => self.division_entity_tree_node_map[division].module_path(),
+            Right(Some(division)) => self.division_entity_tree_node_map[division].module_path(),
+            Right(None) => self.root_node.module_path(),
         }
     }
 

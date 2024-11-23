@@ -1,6 +1,5 @@
 #[salsa::jar]
 pub struct VdTermJar(
-    crate::ty::VdType,
     crate::ty::is_vd_ty_function_like,
     crate::term::VdTermId,
     crate::term::literal::zfc_literal_ty,

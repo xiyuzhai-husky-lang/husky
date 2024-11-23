@@ -5,7 +5,9 @@ pub mod literal;
 
 use self::{delimiter::LxLispDelimiter, ident::LxLispIdent, literal::LxLispLiteral};
 use super::*;
+use crate::idx::LxLispTokenIdx;
 use husky_coword::Coword;
+use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use label::LxLispXlabel;
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
@@ -23,6 +25,36 @@ pub enum LxLispTokenData {
 }
 
 impl<'a> LxLexer<'a> {
+    pub fn next_lisp_token(&mut self) -> Option<(LxLispTokenIdx, LxLispTokenData)> {
+        let (offset_range, range, token_data) = self.next_ranged_lisp_token_data()?;
+        Some((
+            self.alloc_lisp_token(offset_range, range, token_data),
+            token_data,
+        ))
+    }
+
+    fn next_ranged_lisp_token_data(
+        &mut self,
+    ) -> Option<(TextOffsetRange, TextPositionRange, LxLispTokenData)> {
+        self.eat_spaces_and_tabs();
+        let mut start_offset = self.chars.current_offset();
+        let mut start_position = self.chars.current_position();
+        let token_data = self.next_lisp_token_data()?;
+        let end_offset = self.chars.current_offset();
+        let range = TextPositionRange {
+            start: start_position,
+            end: self.chars.current_position(),
+        };
+        Some(((start_offset..end_offset).into(), range, token_data))
+    }
+
+    pub fn peek_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
+        let chars = self.chars.clone();
+        let (_, _, token_data) = self.next_ranged_lisp_token_data()?;
+        self.chars = chars;
+        Some(token_data)
+    }
+
     pub(crate) fn next_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
         let db = self.db;
         Some(match self.chars.peek()? {
@@ -47,13 +79,13 @@ impl<'a> LxLexer<'a> {
                     None => todo!(),
                 }
             }
-            n if n.is_numeric() => {
+            n if n.is_ascii_digit() => {
                 let mut dot_count = 0;
                 let s = self.chars.next_str_slice_while(|c| {
                     if c == '.' {
                         dot_count += 1;
                     }
-                    (c.is_numeric() || c == '.') && dot_count < 2
+                    (c.is_ascii_digit() || c == '.') && dot_count < 2
                 });
                 let literal = match dot_count {
                     0 => {

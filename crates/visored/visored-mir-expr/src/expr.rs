@@ -7,11 +7,11 @@ use crate::*;
 use application::VdMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use symbol::local_defn::VdMirSymbolLocalDefnIdx;
+use visored_entity_path::path::VdItemPath;
 use visored_global_dispatch::dispatch::{
     binary_opr::VdBinaryOprGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
 };
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
-use visored_item_path::path::VdItemPath;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
