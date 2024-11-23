@@ -211,4 +211,22 @@ fn parse_lp_csv_row_works() {
             )
         "#]],
     );
+    t(
+        "# comment\n1",
+        expect![[r#"
+            JustOk(
+                Expr(
+                    LpCsvExpr {
+                        data: Literal(
+                            Integer(
+                                1,
+                            ),
+                        ),
+                        offset_range: 10..11,
+                        position_range: [2:1, 2:2),
+                    },
+                ),
+            )
+        "#]],
+    );
 }

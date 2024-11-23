@@ -1,3 +1,6 @@
+//! format:
+//! <instance-ident> = <instantiation>, <signature-data-variant-path> <arg0> <arg1> ...
+//! <instantiation> = <item-path> <arg0> <arg1> ...
 # instances of lisp-csv
 
 ## prefix operators

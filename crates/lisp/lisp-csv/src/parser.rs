@@ -18,7 +18,7 @@ impl<'a> LpCsvParser<'a> {
     pub(crate) fn ignore_whitespaces_and_tabs_and_blank_lines_and_comments(&mut self) {
         loop {
             self.chars.eat_chars_while(|c| c == ' ' || c == '\t');
-            if !self.ignore_comments() {
+            if !(self.ignore_comments() || self.ignore_newline()) {
                 break;
             }
         }
@@ -50,6 +50,16 @@ impl<'a> LpCsvParser<'a> {
         }
         self.chars.eat_chars_while(|c| c != '\n');
         true
+    }
+
+    fn ignore_newline(&mut self) -> bool {
+        match self.chars.peek() {
+            Some('\n') => {
+                self.chars.eat_char();
+                true
+            }
+            _ => false,
+        }
     }
 
     pub(crate) fn ignore_separators(&mut self) {

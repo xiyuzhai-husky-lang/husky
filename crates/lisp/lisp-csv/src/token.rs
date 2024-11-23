@@ -185,3 +185,10 @@ impl<'a> LpCsvParser<'a> {
         let _ = self.next_token();
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn comment_works() {}
+}
