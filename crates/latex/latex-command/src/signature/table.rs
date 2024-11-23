@@ -25,7 +25,7 @@ impl LxCommandSignatureTable {
         begin: LxCommandPath,
         end: LxCommandPath,
         letter_style_commands: &[(LxCommandPath, LxMathLetterStyle)],
-        complete_commands: &[(LxCommandPath, &[LxCommandParameterMode])],
+        complete_commands: &[(LxCommandPath, &[LxMode], &[LxCommandParameterMode])],
     ) -> Self {
         Self {
             signatures: [
@@ -39,25 +39,23 @@ impl LxCommandSignatureTable {
                     .copied()
                     .map(|(path, style)| (path.name(), LxCommandSignature::MathLetterStyle(style))),
             )
-            .chain(
-                complete_commands
-                    .into_iter()
-                    .copied()
-                    .map(|(path, parameter_modes)| {
-                        (
-                            path.name(),
-                            LxCommandSignature::Complete(LxCompleteCommandSignature {
-                                path,
-                                options: (),
-                                parameters: parameter_modes
-                                    .into_iter()
-                                    .copied()
-                                    .map(LxCommandParameter::new)
-                                    .collect(),
-                            }),
-                        )
-                    }),
-            )
+            .chain(complete_commands.into_iter().copied().map(
+                |(path, allowed_modes, parameter_modes)| {
+                    (
+                        path.name(),
+                        LxCommandSignature::Complete(LxCompleteCommandSignature {
+                            path,
+                            allowed_modes: allowed_modes.into(),
+                            options: (),
+                            parameters: parameter_modes
+                                .into_iter()
+                                .copied()
+                                .map(LxCommandParameter::new)
+                                .collect(),
+                        }),
+                    )
+                },
+            ))
             .collect(),
         }
     }
@@ -73,8 +71,6 @@ impl std::ops::Deref for LxCommandSignatureTable {
 
 impl LxCommandSignatureTable {
     pub fn new_default(db: &salsa::Db) -> Self {
-        use LxCommandParameterMode::*;
-
         let LxCommandPathMenu {
             // - root
             begin,
@@ -145,48 +141,64 @@ impl LxCommandSignatureTable {
             ],
             &[
                 // - root
-                (usepackage, &[Name]),
-                (documentclass, &[Name]),
-                (newtheorem, &[Name, Name]),
+                (usepackage, &[LxMode::Root], &[LxCommandParameterMode::Name]),
+                (
+                    documentclass,
+                    &[LxMode::Root],
+                    &[LxCommandParameterMode::Name],
+                ),
+                (
+                    newtheorem,
+                    &[LxMode::Root],
+                    &[LxCommandParameterMode::Name, LxCommandParameterMode::Name],
+                ),
                 // - divisions
-                (part, &[Rose]),
-                (chapter, &[Rose]),
-                (section, &[Rose]),
-                (subsection, &[Rose]),
-                (subsubsection, &[Rose]),
+                (part, &[LxMode::Root], &[LxCommandParameterMode::Rose]),
+                (chapter, &[LxMode::Root], &[LxCommandParameterMode::Rose]),
+                (section, &[LxMode::Root], &[LxCommandParameterMode::Rose]),
+                (subsection, &[LxMode::Root], &[LxCommandParameterMode::Rose]),
+                (
+                    subsubsection,
+                    &[LxMode::Root],
+                    &[LxCommandParameterMode::Rose],
+                ),
                 // - operators
                 // -- relations
-                (eq, &[]),
-                (ne, &[]),
-                (le, &[]),
-                (ge, &[]),
-                (r#in, &[]),
-                (subset, &[]),
-                (supset, &[]),
-                (subseteq, &[]),
-                (supseteq, &[]),
-                (subseteqq, &[]),
-                (supseteqq, &[]),
-                (subsetneq, &[]),
-                (supsetneq, &[]),
+                (eq, &[LxMode::Math], &[]),
+                (ne, &[LxMode::Math], &[]),
+                (le, &[LxMode::Math], &[]),
+                (ge, &[LxMode::Math], &[]),
+                (r#in, &[LxMode::Math], &[]),
+                (subset, &[LxMode::Math], &[]),
+                (supset, &[LxMode::Math], &[]),
+                (subseteq, &[LxMode::Math], &[]),
+                (supseteq, &[LxMode::Math], &[]),
+                (subseteqq, &[LxMode::Math], &[]),
+                (supseteqq, &[LxMode::Math], &[]),
+                (subsetneq, &[LxMode::Math], &[]),
+                (supsetneq, &[LxMode::Math], &[]),
                 // -- arithmetic
-                (int, &[]),
-                (sum, &[]),
-                (prod, &[]),
-                (times, &[]),
-                (otimes, &[]),
+                (int, &[LxMode::Math], &[]),
+                (sum, &[LxMode::Math], &[]),
+                (prod, &[LxMode::Math], &[]),
+                (times, &[LxMode::Math], &[]),
+                (otimes, &[LxMode::Math], &[]),
                 // -- extended letters
-                (alpha, &[]),
-                (beta, &[]),
-                (gamma, &[]),
-                (pi, &[]),
+                (alpha, &[LxMode::Math], &[]),
+                (beta, &[LxMode::Math], &[]),
+                (gamma, &[LxMode::Math], &[]),
+                (pi, &[LxMode::Math], &[]),
                 // -- functions
-                (sqrt, &[Math]),
-                (sin, &[]),
-                (cos, &[]),
+                (sqrt, &[LxMode::Math], &[LxCommandParameterMode::Math]),
+                (sin, &[LxMode::Math], &[]),
+                (cos, &[LxMode::Math], &[]),
                 // -- layouts
-                (frac, &[Math, Math]),
-                (text, &[Rose]),
+                (
+                    frac,
+                    &[LxMode::Math],
+                    &[LxCommandParameterMode::Math, LxCommandParameterMode::Math],
+                ),
+                (text, &[LxMode::Math], &[LxCommandParameterMode::Rose]),
             ],
         )
     }
