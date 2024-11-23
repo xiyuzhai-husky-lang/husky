@@ -72,12 +72,8 @@ fn vd_signature_table_from_lp_csv_rows_works() {
 
     let db = &DB::default();
     let dev_dirs = HuskyLangDevPaths::new();
-    let file = std::fs::read_to_string(
-        dev_dirs
-            .specs_dir()
-            .join("visored/signature-table.lisp-csv"),
-    )
-    .unwrap();
+    let file = std::fs::read_to_string(dev_dirs.specs_dir().join("visored/signature_table.lpcsv"))
+        .unwrap();
     let file = parse_lp_csv_file(&file).unwrap();
     let table = VdSignatureTable::from_lp_csv_file(&file, db);
     expect_file!["../expect-files/signature_table.debug.txt"].assert_debug_eq(&table.debug(db));
