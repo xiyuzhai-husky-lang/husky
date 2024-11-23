@@ -1348,6 +1348,9 @@
             "visored-opr",
             "visored-signature",
             "visored-term",
+            "husky-coword",
+            "latex-vfs",
+            "visored-entity-path",
         ],
     },
     JarPackageSummary {
