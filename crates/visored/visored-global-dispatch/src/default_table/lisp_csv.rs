@@ -4,9 +4,14 @@ use ::lisp_csv::{
     parse_lp_csv_file, parse_lp_csv_filepath,
 };
 use std::path::Path;
+use visored_signature::table::VdSignatureTable;
 
 impl VdDefaultGlobalDispatchTable {
-    pub fn from_lisp_csv_file_dir(dir: &Path, db: &::salsa::Db) -> Self {
+    pub fn from_lisp_csv_file_dir(
+        dir: &Path,
+        signature_table: &VdSignatureTable,
+        db: &::salsa::Db,
+    ) -> Self {
         let base_prefix_opr_file = dir.join("base_prefix_opr.lpcsv");
         let base_binary_opr_file = dir.join("base_binary_opr.lpcsv");
         let base_separator_file = dir.join("base_separator.lpcsv");
@@ -20,6 +25,7 @@ impl VdDefaultGlobalDispatchTable {
             &power_file,
             &base_sqrt_file,
             &base_frac_file,
+            signature_table,
             db,
         )
     }
@@ -31,6 +37,7 @@ impl VdDefaultGlobalDispatchTable {
         power_file: &Path,
         base_sqrt_file: &Path,
         base_frac_file: &Path,
+        signature_table: &VdSignatureTable,
         db: &::salsa::Db,
     ) -> Self {
         let base_prefix_opr_file = parse_lp_csv_filepath(base_prefix_opr_file).unwrap();
@@ -46,6 +53,7 @@ impl VdDefaultGlobalDispatchTable {
             &power_file,
             &base_sqrt_file,
             &base_frac_file,
+            &signature_table,
             db,
         )
     }
@@ -57,6 +65,7 @@ impl VdDefaultGlobalDispatchTable {
         power_file: &LpCsvFile,
         base_sqrt_file: &LpCsvFile,
         base_frac_file: &LpCsvFile,
+        signature_table: &VdSignatureTable,
         db: &::salsa::Db,
     ) -> Self {
         let base_prefix_opr_table = match base_prefix_opr_file.data() {
@@ -68,9 +77,8 @@ impl VdDefaultGlobalDispatchTable {
         let base_separator_table = match base_separator_file.data() {
             LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
-        let power_table = match power_file.data() {
-            LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
-        };
+        let power_table =
+            VdAttachGlobalDispatch::collect_from_lisp_csv_files(power_file, signature_table, db);
         let base_sqrt_table = match base_sqrt_file.data() {
             LpCsvFileData::Rows(rows) => rows.iter().map(|_| todo!()),
         };
