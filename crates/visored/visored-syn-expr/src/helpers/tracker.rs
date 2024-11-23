@@ -31,7 +31,7 @@ use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
-use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
+use latex_token::{idx::LxTokenIdxRange, lane::LxTokenLane, storage::LxTokenStorage};
 use phrase::VdSynPhraseIdx;
 use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
 use sealed::*;
@@ -45,8 +45,8 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
+use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
-use visored_item_path::module::VdModulePath;
 
 pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,
@@ -105,7 +105,8 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             ast_token_idx_range_map,
             output: lx_ast_output,
         } = LxAstTracker::new(input, db);
-        let whole_token_range = token_storage.whole_token_idx_range();
+        // ad hoc
+        let whole_token_range = token_storage.whole_token_idx_range(LxTokenLane::Main);
         let annotations = VdAnnotations::from_sparse(
             input.content(),
             token_annotations.iter().copied(),

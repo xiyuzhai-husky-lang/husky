@@ -23,7 +23,7 @@ latex-prelude.workspace = true
 # lean
 lean-coword.workspace = true
 lean-mir-expr.workspace = true
-lean-item-path.workspace = true
+lean-entity-path.workspace = true
 lean-opr.workspace = true
 lean-term.workspace = true
 # utils
@@ -31,7 +31,7 @@ husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
-visored-item-path.workspace = true
+visored-entity-path.workspace = true
 visored-mir-expr.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
@@ -45,6 +45,7 @@ husky-coword.workspace = true
 latex-command.workspace = true
 latex-environment.workspace = true
 latex-ast.workspace = true
+latex-token.workspace = true
 # lean
 lean-term.workspace = true
 lean-sem-expr.workspace = true

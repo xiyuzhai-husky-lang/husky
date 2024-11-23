@@ -20,6 +20,7 @@ members = [
     "crates/lean/*",
     "crates/linket/*",
     "crates/linktime/*",
+    "crates/lisp/*",
     "crates/mayuri/*",
     "crates/mir/*",
     "crates/mizar/*",
@@ -41,8 +42,6 @@ members = [
     "playground/learn-rusqlite",
     "playground/egui/*",
     "playground/try-py-ffi-in-rs",
-    "crates/rocq/rocq-hir-expr",
-    "crates/mizar/mizar-hir-expr",
 ]
 resolver = "2"
 
@@ -333,7 +332,7 @@ lean-coword = { path = "crates/lean/lean-coword" }
 lean-mir-expr = { path = "crates/lean/lean-mir-expr" }
 lean-hir-decl = { path = "crates/lean/lean-hir-decl" }
 lean-hir-defn = { path = "crates/lean/lean-hir-defn" }
-lean-item-path = { path = "crates/lean/lean-item-path" }
+lean-entity-path = { path = "crates/lean/lean-entity-path" }
 lean-opr = { path = "crates/lean/lean-opr" }
 lean-sem-expr = { path = "crates/lean/lean-sem-expr" }
 lean-syn-expr = { path = "crates/lean/lean-syn-expr" }
@@ -357,6 +356,8 @@ husky-linktime = { path = "crates/linktime/husky-linktime" }
 husky-boot-linktime = { path = "crates/linktime/husky-boot-linktime" }
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
+# lisp
+lisp-csv = { path = "crates/lisp/lisp-csv" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
@@ -434,7 +435,7 @@ visored-annotation = { path = "crates/visored/visored-annotation" }
 visored-coword = { path = "crates/visored/visored-coword" }
 visored-mir-expr = { path = "crates/visored/visored-mir-expr" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
-visored-item-path = { path = "crates/visored/visored-item-path" }
+visored-entity-path = { path = "crates/visored/visored-entity-path" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-global-resolution = { path = "crates/visored/visored-global-resolution" }
 visored-global-dispatch = { path = "crates/visored/visored-global-dispatch" }

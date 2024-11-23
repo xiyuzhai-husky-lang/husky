@@ -34,9 +34,9 @@ use visored_annotation::{
     annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation},
     annotations::VdAnnotations,
 };
+use visored_entity_path::module::VdModulePath;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
-use visored_item_path::module::VdModulePath;
 use visored_syn_expr::{
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,
@@ -131,7 +131,8 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             output: syn_output,
         } = VdSynExprTracker::new(input, token_annotations, space_annotations, db);
         let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
-        let default_global_dispatch_table = VdDefaultGlobalDispatchTable::new_standard(db);
+        let default_global_dispatch_table =
+            VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
         let mut builder = VdSemExprBuilder::new(
             db,
             &token_storage,

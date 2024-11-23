@@ -9,8 +9,9 @@ use super::*;
 use crate::expr::VdSynExprMap;
 use crate::expr::*;
 
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynSymbolResolution {
     Letter(VdSynLetterSymbolResolution),
 }

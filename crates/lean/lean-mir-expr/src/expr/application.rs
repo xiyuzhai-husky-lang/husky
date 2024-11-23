@@ -1,7 +1,7 @@
 use crate::builder::LnMirExprBuilder;
 
 use super::{LnMirExprData, LnMirExprIdx};
-use lean_item_path::{
+use lean_entity_path::{
     menu::{ln_item_path_menu, LnItemPathMenu},
     LnItemPath,
 };

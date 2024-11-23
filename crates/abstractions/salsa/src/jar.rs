@@ -159,10 +159,15 @@ pub enum JarIndex {
     KiJar,
     KiReprJar,
     // lean
-    LnItemPathJar,
+    LnEntityPathJar,
     LnTermJar,
     LnSemExprJar,
     LnMirExprJar,
+    // tex
+    LxTokenJar,
+    LxAstJar,
+    LxCommandJar,
+    LxEnvironmentJar,
     // lex
     TextJar,
     TokenJar,
@@ -190,10 +195,6 @@ pub enum JarIndex {
     SynExprJar,
     TomlAstJar,
     CorgiConfigAstJar,
-    // tex
-    LxAstJar,
-    LxCommandJar,
-    LxEnvironmentJar,
     // visored
     LxVfsJar,
     VdTermJar,
@@ -202,7 +203,7 @@ pub enum JarIndex {
     VdSemExprJar,
     VdMirExprJar,
     VdLeanTranspilationJar,
-    VdItemPathJar,
+    VdEntityPathJar,
     VdSignatureJar,
     VdGlobalDispatchJar,
     // vm

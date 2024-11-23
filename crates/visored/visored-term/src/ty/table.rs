@@ -3,7 +3,7 @@ use crate::{
     ty::VdType,
 };
 use rustc_hash::FxHashMap;
-use visored_item_path::{
+use visored_entity_path::{
     menu::{vd_item_path_menu, VdItemPathMenu},
     path::VdItemPath,
 };
@@ -35,7 +35,10 @@ impl VdItemPathZfcTypeTable {
             ring: ring_path,
             group_mul: group_mul_path,
             abelian_group_add: abelian_group_add_path,
+            nat_add: nat_add_path,
+            nat_mul: nat_mul_path,
             ring_add: ring_add_path,
+            ring_sub: ring_sub_path,
             ring_mul: ring_mul_path,
             ring_power: ring_power_path,
             ring_pos: ring_pos_path,

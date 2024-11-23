@@ -26,10 +26,11 @@ use self::{
 };
 use crate::ty::VdType;
 use item_path::VdItemPathTermData;
+use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
+use menu::{vd_term_menu, VdTermMenu};
 use smallvec::SmallVec;
-use visored_item_path::path::VdItemPath;
+use visored_entity_path::path::VdItemPath;
 
-#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdTerm {
@@ -44,6 +45,40 @@ pub enum VdTerm {
     StackVariable(VdStackVariable),
     Application(VdApplication),
     Abstraction(VdAbstraction),
+}
+
+impl salsa::DebugWithDb for VdTerm {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
+        self.display_fmt_with_db(f, db)
+    }
+}
+
+impl salsa::DisplayWithDb for VdTerm {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        match *self.data(db) {
+            VdTermData::Literal(_) => todo!(),
+            VdTermData::ItemPath(ref data) => data.item_path().display_fmt_with_db(f, db),
+            VdTermData::ForAll(_) => todo!(),
+            VdTermData::Exists(_) => todo!(),
+            VdTermData::Limit(_) => todo!(),
+            VdTermData::Eval(_) => todo!(),
+            VdTermData::SymbolicVariable(_) => todo!(),
+            VdTermData::AbstractVariable(_) => todo!(),
+            VdTermData::StackVariable(_) => todo!(),
+            VdTermData::Application(_) => todo!(),
+            VdTermData::Abstraction(_) => todo!(),
+        }
+    }
 }
 
 impl std::ops::Deref for VdTerm {
@@ -70,7 +105,7 @@ pub type ZfcTerms = SmallVec<[VdTerm; 4]>;
 #[salsa::interned]
 pub struct VdTermId {
     #[return_ref]
-    data: VdTermData,
+    pub data: VdTermData,
 }
 
 #[enum_class::from_variants]
@@ -109,5 +144,40 @@ fn zfc_term_to_ty(db: &::salsa::Db, term_id: VdTermId) -> VdType {
         VdTermData::StackVariable(ref data) => todo!(),
         VdTermData::Application(ref data) => todo!(),
         VdTermData::Abstraction(ref data) => todo!(),
+    }
+}
+
+impl VdTerm {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &::salsa::Db) -> Self {
+        match expr.data {
+            LpCsvExprData::Literal(ref literal) => todo!(),
+            LpCsvExprData::Application(ref app) => todo!(),
+            LpCsvExprData::List(ref vec) => todo!(),
+            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident, db),
+            LpCsvExprData::Parenthesized(ref lp_csv_expr) => todo!(),
+        }
+    }
+
+    pub fn from_lp_csv_ident(ident: &str, db: &::salsa::Db) -> Self {
+        let VdTermMenu {
+            zero,
+            one,
+            two,
+            nat,
+            int,
+            rat,
+            real,
+            complex,
+        } = *vd_term_menu(db);
+        match ident as &str {
+            "true" => todo!(),
+            "false" => todo!(),
+            "nat" => nat,
+            "int" => int,
+            "rat" => rat,
+            "real" => real,
+            "complex" => complex,
+            s => todo!("s = {s:?} not handled"),
+        }
     }
 }

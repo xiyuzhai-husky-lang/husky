@@ -4,7 +4,7 @@ use crate::{
     term::menu::{vd_term_menu, VdTermMenu},
 };
 use smallvec::{smallvec, SmallVec};
-use visored_item_path::menu::{vd_item_path_menu, VdItemPathMenu};
+use visored_entity_path::menu::{vd_item_path_menu, VdItemPathMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdInstantiationMenu {
@@ -100,6 +100,9 @@ impl VdInstantiationMenu {
             ring,
             group_mul,
             abelian_group_add,
+            nat_add,
+            nat_mul,
+            ring_sub,
             ring_add,
             ring_mul,
             ring_power,
@@ -142,33 +145,27 @@ impl VdInstantiationMenu {
         let complex_neg = ins!(db, ring_neg, complex);
         // # binary operators
         // ## sub
-        let int_sub = ins!(db, ring_add, int);
-        let rat_sub = ins!(db, ring_add, rat);
-        let real_sub = ins!(db, ring_add, real);
-        let complex_sub = ins!(db, ring_add, complex);
+        let int_sub = ins!(db, ring_sub, int);
+        let rat_sub = ins!(db, ring_sub, rat);
+        let real_sub = ins!(db, ring_sub, real);
+        let complex_sub = ins!(db, ring_sub, complex);
         // ## div
         let rat_div = ins!(db, field_div, rat);
         let real_div = ins!(db, field_div, real);
         let complex_div = ins!(db, field_div, complex);
         // # separators
         // ## add
-        let nat_add = ins!(db, ring_add, nat);
+        let nat_add = ins!(db, nat_add);
         let int_add = ins!(db, ring_add, int);
         let rat_add = ins!(db, ring_add, rat);
         let real_add = ins!(db, ring_add, real);
         let complex_add = ins!(db, ring_add, complex);
         // ## mul
-        let nat_mul = ins!(db, ring_mul, nat);
+        let nat_mul = ins!(db, nat_mul);
         let int_mul = ins!(db, ring_mul, int);
         let rat_mul = ins!(db, ring_mul, rat);
         let real_mul = ins!(db, ring_mul, real);
         let complex_mul = ins!(db, ring_mul, complex);
-        // ## power
-        let nat_to_the_power_of_nat = ins!(db, ring_power, nat, nat);
-        let int_to_the_power_of_nat = ins!(db, ring_power, int, nat);
-        let rat_to_the_power_of_nat = ins!(db, ring_power, rat, nat);
-        let real_to_the_power_of_nat = ins!(db, ring_power, real, nat);
-        let complex_to_the_power_of_nat = ins!(db, ring_power, complex, nat);
         // ## eq
         let nat_eq = ins!(db, eq, nat);
         let int_eq = ins!(db, eq, int);
@@ -203,6 +200,13 @@ impl VdInstantiationMenu {
         let real_ge = ins!(db, ge, real);
         // # sqrt
         let real_sqrt = ins!(db, real_sqrt);
+        // # attach
+        // ## power
+        let nat_to_the_power_of_nat = ins!(db, ring_power, nat);
+        let int_to_the_power_of_nat = ins!(db, ring_power, int);
+        let rat_to_the_power_of_nat = ins!(db, ring_power, rat);
+        let real_to_the_power_of_nat = ins!(db, ring_power, real);
+        let complex_to_the_power_of_nat = ins!(db, ring_power, complex);
         Self {
             // # prefix
             // ## pos
