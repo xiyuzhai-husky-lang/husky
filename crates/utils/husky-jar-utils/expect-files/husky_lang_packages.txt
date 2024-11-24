@@ -3729,6 +3729,27 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-session",
+        relative_path: "crates/devtime/husky-session",
+        dependencies: [
+            "husky-yaml-utils",
+            "serde",
+            "serde_yaml",
+            "husky-path-utils",
+        ],
+    },
+    PackageSummary {
+        name: "husky-yaml-utils",
+        relative_path: "crates/utils/husky-yaml-utils",
+        dependencies: [
+            "hashlink",
+            "serde",
+            "thiserror",
+            "vec-like",
+            "yaml-rust2",
+        ],
+    },
+    PackageSummary {
         name: "bibtex-collector",
         relative_path: "crates/gadgets/bibtex-collector",
         dependencies: [],
@@ -4074,16 +4095,6 @@
             "sha2",
             "hex",
             "hex-literal",
-        ],
-    },
-    PackageSummary {
-        name: "husky-yaml-utils",
-        relative_path: "crates/utils/husky-yaml-utils",
-        dependencies: [
-            "hashlink",
-            "serde",
-            "vec-like",
-            "yaml-rust2",
         ],
     },
     PackageSummary {
