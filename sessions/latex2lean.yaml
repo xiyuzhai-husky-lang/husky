@@ -1,2 +1,2 @@
-dir: projects/ai_math_autoformalization/latex2lean
+dir: projects/ai-math-autoformalization/husky/latex2lean
 port: 50601
