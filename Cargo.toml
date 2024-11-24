@@ -259,6 +259,7 @@ husky-devsoul = { path = "crates/devsoul/husky-devsoul" }
 husky-standard-devsoul = { path = "crates/devsoul/husky-standard-devsoul" }
 # devtime
 husky-devtime = { path = "crates/devtime/husky-devtime" }
+husky-session = { path = "crates/devtime/husky-session" }
 husky-trace = { path = "crates/devtime/husky-trace" }
 # fs
 husky-corgi-config = { path = "crates/fs/husky-corgi-config" }

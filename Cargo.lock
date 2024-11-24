@@ -4939,6 +4939,16 @@ name = "husky-dev-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-developer"
+version = "0.1.0"
+dependencies = [
+ "clap 4.5.16",
+ "husky-devtime",
+ "husky-session",
+ "husky-standard-devsoul",
+]
+
+[[package]]
 name = "husky-devsoul"
 version = "0.1.0"
 dependencies = [
@@ -6135,14 +6145,16 @@ dependencies = [
 name = "husky-notebook"
 version = "0.1.0"
 dependencies = [
+ "clap 4.5.16",
  "eframe",
  "egui",
  "egui_dock",
  "enum-index",
  "husky-code-editor",
+ "husky-devtime",
  "husky-gui",
  "husky-print-utils",
- "husky-standard-linket-impl",
+ "husky-session",
  "husky-standard-trace-protocol",
  "husky-token-protocol",
  "husky-trace-doc",
