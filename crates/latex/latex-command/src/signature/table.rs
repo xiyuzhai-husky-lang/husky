@@ -331,7 +331,7 @@ impl LxCommandSignatureTable {
 }
 
 #[test]
-fn lp_command_signature_table_works() {
+fn lx_command_signature_table_works() {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &DB::default();

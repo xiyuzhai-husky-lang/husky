@@ -5712,6 +5712,7 @@ dependencies = [
  "composite-pattern",
  "husky-print-utils",
  "relative-path",
+ "thiserror",
 ]
 
 [[package]]
@@ -6061,6 +6062,7 @@ name = "husky-minimal-toml-utils"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "husky-io-utils",
  "husky-print-utils",
  "salsa",
  "thiserror",
@@ -8195,11 +8197,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "latex-ast-hsy"
+version = "0.1.0"
+dependencies = [
+ "latex-ast",
+]
+
+[[package]]
 name = "latex-command"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
  "husky-path-utils",
+ "latex-command",
  "latex-math-letter",
  "latex-prelude",
  "lisp-csv",
