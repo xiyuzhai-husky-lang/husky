@@ -1,1 +1,2 @@
-pub struct LxAstId;
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub extern LxAstId;
