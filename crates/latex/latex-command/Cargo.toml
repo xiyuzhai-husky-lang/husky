@@ -26,6 +26,8 @@ lisp-csv.workspace = true
 
 [dev-dependencies]
 husky-path-utils.workspace = true
+# latex
+latex-command.workspace = true
 
 [lints]
 workspace = true

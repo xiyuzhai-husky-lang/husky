@@ -718,6 +718,7 @@
         relative_path: "crates/utils/husky-minimal-toml-utils",
         dependencies: [
             "husky-coword",
+            "husky-io-utils",
             "husky-print-utils",
             "salsa",
             "thiserror",
@@ -730,6 +731,7 @@
             "composite-pattern",
             "husky-print-utils",
             "relative-path",
+            "thiserror",
         ],
     },
     PackageSummary {
@@ -3365,6 +3367,37 @@
         ],
     },
     PackageSummary {
+        name: "husky-developer",
+        relative_path: "crates/apps/husky-developer",
+        dependencies: [
+            "clap",
+            "husky-devtime",
+            "husky-session",
+            "husky-standard-devsoul",
+        ],
+    },
+    PackageSummary {
+        name: "husky-session",
+        relative_path: "crates/devtime/husky-session",
+        dependencies: [
+            "husky-yaml-utils",
+            "serde",
+            "serde_yaml",
+            "husky-path-utils",
+        ],
+    },
+    PackageSummary {
+        name: "husky-yaml-utils",
+        relative_path: "crates/utils/husky-yaml-utils",
+        dependencies: [
+            "hashlink",
+            "serde",
+            "thiserror",
+            "vec-like",
+            "yaml-rust2",
+        ],
+    },
+    PackageSummary {
         name: "husky-mnist-classifier-developer",
         relative_path: "crates/apps/husky-mnist-classifier-developer",
         dependencies: [
@@ -3451,14 +3484,16 @@
         name: "husky-notebook",
         relative_path: "crates/apps/husky-notebook",
         dependencies: [
+            "clap",
             "eframe",
             "egui",
             "egui_dock",
             "enum-index",
             "husky-code-editor",
+            "husky-devtime",
             "husky-gui",
             "husky-print-utils",
-            "husky-standard-linket-impl",
+            "husky-session",
             "husky-standard-trace-protocol",
             "husky-token-protocol",
             "husky-trace-doc",
@@ -3522,7 +3557,6 @@
             "tokio",
             "ui",
             "husky-gui",
-            "husky-trace-protocol",
             "husky-visual-protocol",
             "tokio",
         ],
@@ -3727,27 +3761,6 @@
         name: "cybertron-mini-lean-compiler",
         relative_path: "crates/cybertron/cybertron-mini-lean-compiler",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-session",
-        relative_path: "crates/devtime/husky-session",
-        dependencies: [
-            "husky-yaml-utils",
-            "serde",
-            "serde_yaml",
-            "husky-path-utils",
-        ],
-    },
-    PackageSummary {
-        name: "husky-yaml-utils",
-        relative_path: "crates/utils/husky-yaml-utils",
-        dependencies: [
-            "hashlink",
-            "serde",
-            "thiserror",
-            "vec-like",
-            "yaml-rust2",
-        ],
     },
     PackageSummary {
         name: "bibtex-collector",
@@ -4602,6 +4615,13 @@
             "ml-task",
             "serde",
             "shifted-unsigned-int",
+        ],
+    },
+    PackageSummary {
+        name: "latex-ast-hsy",
+        relative_path: "registry/latex-ast-hsy-0.1.0",
+        dependencies: [
+            "latex-ast",
         ],
     },
     PackageSummary {
