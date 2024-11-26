@@ -1761,6 +1761,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "coword"
+version = "0.1.0"
+dependencies = [
+ "interned",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
