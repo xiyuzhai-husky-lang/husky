@@ -2,7 +2,7 @@ use crate::*;
 use lean_coword::ident::LnIdent;
 use smallvec::{smallvec, SmallVec, ToSmallVec};
 
-#[salsa::interned(override_debug)]
+#[interned::interned(override_debug)]
 pub struct LnNamespace {
     pub data: LnNamespaceData,
 }
@@ -14,39 +14,36 @@ pub enum LnNamespaceData {
 }
 
 impl LnNamespace {
-    pub fn new_root(db: &::salsa::Db) -> Self {
-        Self::new(db, LnNamespaceData::Root)
+    pub fn new_root() -> Self {
+        Self::new(LnNamespaceData::Root)
     }
 
-    pub fn from_ident_strs(idents: &[&str], db: &::salsa::Db) -> Self {
-        let mut namespace = LnNamespace::new(db, LnNamespaceData::Root);
+    pub fn from_ident_strs(idents: &[&str]) -> Self {
+        let mut namespace = LnNamespace::new(LnNamespaceData::Root);
         for ident in idents {
-            namespace = namespace.child(ident.to_string(), db);
+            namespace = namespace.child(ident.to_string());
         }
         namespace
     }
 
-    pub fn child(self, ident: String, db: &::salsa::Db) -> Self {
-        Self::new(
-            db,
-            LnNamespaceData::Child(self, LnIdent::from_owned(ident, db)),
-        )
+    pub fn child(self, ident: String) -> Self {
+        Self::new(LnNamespaceData::Child(self, LnIdent::from_owned(ident)))
     }
 
-    pub fn ident(self, db: &::salsa::Db) -> Option<LnIdent> {
-        match self.data(db) {
+    pub fn ident(self) -> Option<LnIdent> {
+        match *self.data() {
             LnNamespaceData::Root => None,
             LnNamespaceData::Child(_, ident) => Some(ident),
         }
     }
 
-    pub fn all_idents(self, db: &::salsa::Db) -> &[LnIdent] {
-        ln_namespace_all_idents(db, self)
+    pub fn all_idents(self) -> &'static [LnIdent] {
+        ln_namespace_all_idents(self)
     }
 
-    pub fn relative_idents(self, other: Self, db: &::salsa::Db) -> &[LnIdent] {
-        let ids = self.all_idents(db);
-        let other_ids = other.all_idents(db);
+    pub fn relative_idents(self, other: Self) -> &'static [LnIdent] {
+        let ids = self.all_idents();
+        let other_ids = other.all_idents();
         let i = ids
             .iter()
             .zip(other_ids.iter())
@@ -56,45 +53,40 @@ impl LnNamespace {
     }
 }
 
-impl ::salsa::DebugWithDb for LnNamespace {
-    fn debug_fmt_with_db(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> ::std::fmt::Result {
+impl std::fmt::Debug for LnNamespace {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
             "LnNamespace(`{}`)",
-            self.all_idents(db)
+            self.all_idents()
                 .iter()
-                .map(|id| id.data(db))
+                .map(|id| id.data())
                 .collect::<Vec<_>>()
                 .join(".")
         )
     }
 }
 
-#[salsa::tracked(return_ref)]
-fn ln_namespace_all_idents(db: &::salsa::Db, namespace: LnNamespace) -> SmallVec<[LnIdent; 4]> {
-    match namespace.data(db) {
-        LnNamespaceData::Root => smallvec![],
-        LnNamespaceData::Child(parent, ident) => {
-            let mut ids = parent.all_idents(db).to_smallvec();
-            ids.push(ident);
-            ids
-        }
-    }
+fn ln_namespace_all_idents(namespace: LnNamespace) -> &'static SmallVec<[LnIdent; 4]> {
+    todo!()
+    // match namespace.data() {
+    //     LnNamespaceData::Root => smallvec![],
+    //     LnNamespaceData::Child(parent, ident) => {
+    //         let mut ids = parent.all_idents().to_smallvec();
+    //         ids.push(ident);
+    //         ids
+    //     }
+    // }
 }
 
 #[test]
 fn ln_namespace_all_idents_works() {
     fn t(idents: &[&str]) {
-        let db = &DB::default();
-        let namespace = LnNamespace::from_ident_strs(idents, db);
+        let namespace = LnNamespace::from_ident_strs(idents);
         let all_idents: Vec<&str> = namespace
-            .all_idents(db)
+            .all_idents()
             .iter()
-            .map(|&ident| ident.data(db))
+            .map(|&ident| ident.data())
             .collect();
         assert_eq!(&all_idents as &[_], idents);
     }
@@ -106,20 +98,15 @@ fn ln_namespace_all_idents_works() {
 #[test]
 fn ln_namespace_relative_idents_works() {
     fn t(slf: &[&str], other: &[&str], relative_idents: &[&str]) {
-        use salsa::DebugWithDb;
-
-        let db = &DB::default();
-        let slf = LnNamespace::from_ident_strs(slf, db);
-        let other = LnNamespace::from_ident_strs(other, db);
+        let slf = LnNamespace::from_ident_strs(slf);
+        let other = LnNamespace::from_ident_strs(other);
         assert_eq!(
-            slf.relative_idents(other, db)
+            slf.relative_idents(other,)
                 .iter()
-                .map(|&ident| ident.data(db))
+                .map(|&ident| ident.data())
                 .collect::<Vec<_>>(),
             relative_idents,
-            "slf: {:?}, other: {:?}",
-            slf.debug(db),
-            other.debug(db),
+            "slf: {slf:?}, other: {other:?}",
         );
     }
     t(&["Root"], &["Root"], &[]);

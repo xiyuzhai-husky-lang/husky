@@ -14,8 +14,9 @@ keywords.workspace = true
 [dependencies]
 thiserror.workspace = true
 # abstractions
+coword.workspace = true
 rustc-hash.workspace = true
-salsa.workspace = true
+salsa = { workspace = true, optional = true }
 # kernel
 husky-coword.workspace = true
 # latex

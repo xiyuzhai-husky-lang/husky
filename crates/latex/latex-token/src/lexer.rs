@@ -18,12 +18,11 @@ use crate::{
         spec::LxSpecTokenData,
     },
 };
-use husky_coword::Coword;
+use coword::Coword;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextPositionRange};
 use latex_prelude::mode::LxMode;
 
 pub struct LxLexer<'a> {
-    pub(crate) db: &'a ::salsa::Db,
     pub(crate) chars: TextCharIter<'a>,
     lane: LxTokenLane,
     pub(crate) storage: &'a mut LxTokenStorage,
@@ -31,14 +30,8 @@ pub struct LxLexer<'a> {
 
 /// # constructor
 impl<'a> LxLexer<'a> {
-    pub fn new(
-        db: &'a ::salsa::Db,
-        input: &'a str,
-        lane: LxTokenLane,
-        storage: &'a mut LxTokenStorage,
-    ) -> Self {
+    pub fn new(input: &'a str, lane: LxTokenLane, storage: &'a mut LxTokenStorage) -> Self {
         Self {
-            db,
             chars: TextCharIter::new(input),
             lane,
             storage,
@@ -53,7 +46,7 @@ impl<'a> LxLexer<'a> {
         if coword_str_slice.is_empty() {
             return None;
         }
-        Some(Coword::from_ref(self.db, coword_str_slice))
+        Some(Coword::from_ref(coword_str_slice))
     }
 
     pub(crate) fn eat_spaces_and_tabs(&mut self) {

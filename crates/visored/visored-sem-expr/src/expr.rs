@@ -187,7 +187,6 @@ impl ToVdSem<VdSemExprIdx> for VdSynExprIdx {
 
 impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn build_expr_entry(&mut self, syn_expr: VdSynExprIdx) -> VdSemExprEntry {
-        let db = self.db();
         let (data, ty) = match self.syn_expr_arena()[syn_expr] {
             VdSynExprData::Literal {
                 token_idx_range,
@@ -197,7 +196,7 @@ impl<'a> VdSemExprBuilder<'a> {
                     token_idx_range,
                     literal,
                 },
-                literal.ty(db),
+                literal.ty(),
             ),
             VdSynExprData::Letter {
                 token_idx_range,

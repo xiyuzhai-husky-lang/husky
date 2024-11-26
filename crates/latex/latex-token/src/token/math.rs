@@ -8,7 +8,6 @@ use latex_command::path::{LxCommandName, LxCommandNameResult};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenData {
     Command(LxCommandName),
@@ -44,7 +43,6 @@ impl LxMathDelimiter {
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxMathTokenError {
     UnexpectedNewParagraph,
@@ -92,7 +90,6 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
     pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
-        let db = self.db;
         let s = self.chars.peek_str();
         if s.starts_with("\\]") || s.starts_with("$") {
             return None;
@@ -105,7 +102,6 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => {
                             let Ok(command_name) = LxCommandName::new2(
                                 self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
-                                db,
                             ) else {
                                 todo!()
                             };
@@ -160,11 +156,10 @@ fn next_math_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
-        let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage).into_math_stream();
+        let stream = LxLexer::new(input, LxTokenLane::Main, &mut storage).into_math_stream();
         let tokens: Vec<_> = stream.map(|(_, token_data)| token_data).collect();
-        expected.assert_debug_eq(&(tokens.debug(db)));
+        expected.assert_debug_eq(&tokens);
     }
     t(
         "hello",

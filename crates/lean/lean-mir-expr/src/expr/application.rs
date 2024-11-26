@@ -1,6 +1,6 @@
-use crate::builder::LnMirExprBuilder;
-
 use super::{LnMirExprData, LnMirExprIdx};
+use crate::builder::LnMirExprBuilder;
+use lazy_static::lazy_static;
 use lean_entity_path::{
     menu::{ln_item_path_menu, LnItemPathMenu},
     LnItemPath,
@@ -49,7 +49,6 @@ impl LnMirFunc {
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LnMirFuncKey {
     ItemPath(LnItemPath),
@@ -67,7 +66,7 @@ pub enum LnMirFuncKey {
     },
 }
 
-impl<'a> LnMirExprBuilder<'a> {
+impl LnMirExprBuilder {
     pub fn build_func_from_key(&mut self, key: LnMirFuncKey) -> LnMirFunc {
         match key {
             LnMirFuncKey::ItemPath(item_path) => {
@@ -148,11 +147,11 @@ pub struct LnMirFuncKeyMenu {
 }
 
 impl LnMirFuncKeyMenu {
-    pub fn new(db: &::salsa::Db) -> Self {
+    pub fn new() -> Self {
         use LnBinaryOpr::*;
         use LnPrefixOpr::*;
 
-        let LnItemPathMenu { real_sqrt, .. } = *ln_item_path_menu(db);
+        let LnItemPathMenu { real_sqrt, .. } = *ln_item_path_menu;
         let LnInstantiationMenu {
             int_pos,
             rat_pos,
@@ -210,7 +209,7 @@ impl LnMirFuncKeyMenu {
             int_ge,
             rat_ge,
             real_ge,
-        } = *ln_instantiation_menu(db);
+        } = *ln_instantiation_menu;
         let i = |instantiation| LnMirFuncKey::ItemPath(instantiation);
         let p = |opr, instantiation| LnMirFuncKey::PrefixOpr { opr, instantiation };
         let b = |opr, instantiation| LnMirFuncKey::BinaryOpr { opr, instantiation };
@@ -276,7 +275,6 @@ impl LnMirFuncKeyMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn ln_mir_func_key_menu(db: &::salsa::Db) -> LnMirFuncKeyMenu {
-    LnMirFuncKeyMenu::new(db)
+lazy_static! {
+    pub static ref ln_mir_func_key_menu: LnMirFuncKeyMenu = LnMirFuncKeyMenu::new();
 }

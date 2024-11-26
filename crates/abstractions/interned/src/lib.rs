@@ -43,8 +43,20 @@ where
     }
 }
 
-#[derive(Debug, PartialOrd, Ord, Hash)]
-pub struct Interned<T: 'static>(&'static T);
+#[derive(Debug, Hash)]
+pub struct Interned<T: 'static>(pub &'static T);
+
+impl<T: 'static> PartialOrd for Interned<T> {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        (self.0 as *const T as usize).partial_cmp(&(other.0 as *const T as usize))
+    }
+}
+
+impl<T: 'static> Ord for Interned<T> {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (self.0 as *const T as usize).cmp(&(other.0 as *const T as usize))
+    }
+}
 
 impl<T: 'static> Clone for Interned<T> {
     fn clone(&self) -> Self {

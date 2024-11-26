@@ -8199,6 +8199,7 @@ dependencies = [
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "egui",
  "enum-class",
  "expect-test",
@@ -8232,6 +8233,7 @@ dependencies = [
 name = "latex-command"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "husky-coword",
  "husky-path-utils",
  "latex-command",
@@ -8256,6 +8258,7 @@ dependencies = [
 name = "latex-environment"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "husky-coword",
  "latex-prelude",
  "rustc-hash 2.0.0",
@@ -8293,11 +8296,12 @@ version = "0.1.0"
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "enum-class",
  "expect-test",
- "husky-coword",
  "husky-print-utils",
  "husky-text-protocol",
+ "interned",
  "latex-command",
  "latex-math-letter",
  "latex-math-punctuation",
@@ -8313,7 +8317,7 @@ dependencies = [
 name = "latex-vfs"
 version = "0.1.0"
 dependencies = [
- "salsa",
+ "interned",
 ]
 
 [[package]]
@@ -8355,8 +8359,8 @@ version = "0.1.0"
 name = "lean-coword"
 version = "0.1.0"
 dependencies = [
- "husky-coword",
- "salsa",
+ "coword",
+ "interned",
 ]
 
 [[package]]
@@ -8364,6 +8368,8 @@ name = "lean-entity-path"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "interned",
+ "lazy_static 1.5.0",
  "lean-coword",
  "salsa",
  "smallvec",
@@ -8383,6 +8389,7 @@ version = "0.1.0"
 dependencies = [
  "husky-tree-utils",
  "idx-arena",
+ "lazy_static 1.5.0",
  "lean-coword",
  "lean-entity-path",
  "lean-opr",
@@ -8411,6 +8418,8 @@ name = "lean-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "interned",
+ "lazy_static 1.5.0",
  "lean-entity-path",
  "salsa",
  "smallvec",
@@ -12688,11 +12697,11 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
+ "interned",
  "latex-prelude",
  "latex-vfs",
  "lisp-csv",
  "rustc-hash 2.0.0",
- "salsa",
  "smallvec",
  "visored-prelude",
 ]
@@ -12705,6 +12714,7 @@ dependencies = [
  "husky-path-utils",
  "husky-print-utils",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
@@ -12792,6 +12802,7 @@ dependencies = [
  "latex-prelude",
  "latex-token",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "salsa",
  "visored-annotation",
  "visored-entity-path",
@@ -12811,8 +12822,8 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "enum-index",
+ "lazy_static 1.5.0",
  "lisp-csv",
- "salsa",
 ]
 
 [[package]]
@@ -12868,6 +12879,7 @@ dependencies = [
  "husky-coword",
  "husky-path-utils",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
@@ -12879,6 +12891,7 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "either",
  "enum-class",
  "expect-test",
@@ -12915,6 +12928,8 @@ name = "visored-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "interned",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",

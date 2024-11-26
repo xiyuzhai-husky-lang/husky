@@ -17,7 +17,7 @@ either.workspace = true
 rustc-hash.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa.workspace = true
+salsa = { workspace = true, optional = true }
 # latex
 latex-prelude.workspace = true
 # lean

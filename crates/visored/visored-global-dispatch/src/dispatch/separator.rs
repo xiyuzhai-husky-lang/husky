@@ -344,17 +344,15 @@ impl VdSeparatorGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         base_separator_file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
-        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = (VdBaseSeparatorKey, Self)> + 'a {
         let LpCsvFileData::Rows(rows) = base_separator_file.data();
         rows.iter()
-            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table, db))
+            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table))
     }
 
     fn collect_from_lisp_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
-        db: &::salsa::Db,
     ) -> (VdBaseSeparatorKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
@@ -364,12 +362,12 @@ impl VdSeparatorGlobalDispatch {
         else {
             todo!()
         };
-        let base_separator = VdBaseSeparator::from_lp_csv_expr(base_separator, db);
+        let base_separator = VdBaseSeparator::from_lp_csv_expr(base_separator);
         let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
             todo!()
         };
-        let prev_item_ty = VdType::from_lp_csv_expr(prev_item_ty, db);
-        let next_item_ty = VdType::from_lp_csv_expr(next_item_ty, db);
+        let prev_item_ty = VdType::from_lp_csv_expr(prev_item_ty);
+        let next_item_ty = VdType::from_lp_csv_expr(next_item_ty);
         let key = VdBaseSeparatorKey {
             base_separator,
             prev_item_ty,
@@ -377,7 +375,7 @@ impl VdSeparatorGlobalDispatch {
         };
         // ad hoc
         let dispatch = if signature_ident == "in_set" {
-            let ty_menu = vd_ty_menu(db);
+            let ty_menu = &vd_ty_menu;
             VdSeparatorGlobalDispatch::InSet {
                 expr_ty: ty_menu.prop,
             }
@@ -407,13 +405,12 @@ fn vd_separator_global_dispatch_standard_defaults_works() {
     use visored_opr::menu::vd_opr_menu;
     use visored_term::menu::vd_ty_menu;
 
-    let db = &DB::default();
-    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
-    let ty_menu = vd_ty_menu(db);
-    let global_dispatch_menu = vd_global_dispatch_menu(db);
-    let opr_menu = vd_opr_menu(db);
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
+    let ty_menu = &vd_ty_menu;
+    let global_dispatch_menu = &vd_global_dispatch_menu;
+    let opr_menu = &vd_opr_menu;
     for ((prev_item_ty, base_separator, next_item_ty), dispatch) in
-        VdSeparatorGlobalDispatch::standard_defaults(ty_menu, opr_menu, global_dispatch_menu)
+        VdSeparatorGlobalDispatch::standard_defaults(&ty_menu, &opr_menu, &global_dispatch_menu)
     {
         assert_eq!(
             table.base_separator_default_dispatch(prev_item_ty, base_separator, next_item_ty),

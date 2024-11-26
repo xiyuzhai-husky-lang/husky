@@ -6,7 +6,7 @@ use rustc_hash::FxHashMap;
 use smallvec::*;
 use visored_prelude::division::VdDivisionLevel;
 
-#[salsa::interned(constructor = new_inner, override_debug)]
+#[interned::interned]
 pub struct VdModulePath {
     pub data: VdModulePathData,
 }
@@ -31,15 +31,14 @@ pub enum VdModulePathData {
 }
 
 impl VdModulePath {
-    pub fn new_root(db: &::salsa::Db, file_path: LxFilePath) -> Self {
-        Self::new_inner(db, VdModulePathData::Root(file_path))
+    pub fn new_root(file_path: LxFilePath) -> Self {
+        Self::new(VdModulePathData::Root(file_path))
     }
 
     fn new_child_from_tag_and_disambiguator(
         parent: VdModulePath,
         tag: VdModulePathTag,
         disambiguator: u32,
-        db: &::salsa::Db,
     ) -> Self {
         let data = match tag {
             VdModulePathTag::Division(division_level) => VdModulePathData::Division {
@@ -57,13 +56,13 @@ impl VdModulePath {
                 disambiguator,
             },
         };
-        Self::new_inner(db, data)
+        Self::new(data)
     }
 }
 
 impl VdModulePath {
-    pub fn parent(self, db: &::salsa::Db) -> Option<Self> {
-        match self.data(db) {
+    pub fn parent(self) -> Option<Self> {
+        match *self.data() {
             VdModulePathData::Root(_) => None,
             VdModulePathData::Division { parent, .. } => Some(parent),
             VdModulePathData::Paragraph { parent, .. } => Some(parent),
@@ -71,53 +70,54 @@ impl VdModulePath {
         }
     }
 
-    pub fn show(&self, db: &::salsa::Db) -> String {
-        match self.data(db) {
+    pub fn show(&self) -> String {
+        match *self.data() {
             VdModulePathData::Root(file_path) => "root".to_string(),
             VdModulePathData::Division {
                 parent,
                 division_level: division_level,
                 disambiguator,
             } => {
-                format!("{}.{}", parent.show(db), division_level)
+                format!("{}.{}", parent.show(), division_level)
             }
             VdModulePathData::Paragraph {
                 parent,
                 disambiguator,
             } => {
-                format!("{}.paragraph{}", parent.show(db), disambiguator)
+                format!("{}.paragraph{}", parent.show(), disambiguator)
             }
             VdModulePathData::Environment {
                 parent,
                 environment_path,
                 disambiguator,
             } => {
-                format!("{}.{}", parent.show(db), environment_path)
+                format!("{}.{}", parent.show(), environment_path)
             }
         }
     }
 
     /// includes the module itself
-    pub fn lineage(self, db: &::salsa::Db) -> &[VdModulePath] {
-        vd_module_lineage(db, self)
+    pub fn lineage(self) -> &'static [VdModulePath] {
+        vd_module_lineage(self)
     }
 
-    pub fn contains(self, other: VdModulePath, db: &::salsa::Db) -> bool {
-        other.lineage(db).contains(&self)
+    pub fn contains(self, other: VdModulePath) -> bool {
+        other.lineage().contains(&self)
     }
 }
 
 /// includes the module itself
-#[salsa::tracked(return_ref)]
-fn vd_module_lineage(db: &::salsa::Db, module_path: VdModulePath) -> SmallVec<[VdModulePath; 8]> {
-    match module_path.parent(db) {
-        Some(parent) => {
-            let mut ancestry = vd_module_lineage(db, parent).to_smallvec();
-            ancestry.push(module_path);
-            ancestry
-        }
-        None => smallvec![module_path],
-    }
+// #[interned::memo]
+fn vd_module_lineage(module_path: VdModulePath) -> &'static SmallVec<[VdModulePath; 8]> {
+    todo!()
+    // match module_path.parent() {
+    //     Some(parent) => {
+    //         let mut ancestry = vd_module_lineage(parent).to_smallvec();
+    //         ancestry.push(module_path);
+    //         ancestry
+    //     }
+    //     None => smallvec![module_path],
+    // }
 }
 
 #[test]
@@ -144,27 +144,19 @@ impl VdModulePathRegistry {
         }
     }
 
-    pub fn issue_new_division(
-        &mut self,
-        division_level: VdDivisionLevel,
-        db: &::salsa::Db,
-    ) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Division(division_level), db)
+    pub fn issue_new_division(&mut self, division_level: VdDivisionLevel) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Division(division_level))
     }
 
-    pub fn issue_new_paragraph(&mut self, db: &::salsa::Db) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Paragraph, db)
+    pub fn issue_new_paragraph(&mut self) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Paragraph)
     }
 
-    pub fn issue_new_environment(
-        &mut self,
-        environment_path: VdEnvironmentPath,
-        db: &::salsa::Db,
-    ) -> VdModulePath {
-        self.issue_new_child(VdModulePathTag::Environment(environment_path), db)
+    pub fn issue_new_environment(&mut self, environment_path: VdEnvironmentPath) -> VdModulePath {
+        self.issue_new_child(VdModulePathTag::Environment(environment_path))
     }
 
-    fn issue_new_child(&mut self, tag: VdModulePathTag, db: &::salsa::Db) -> VdModulePath {
+    fn issue_new_child(&mut self, tag: VdModulePathTag) -> VdModulePath {
         let disambiguator = match self.map.get_mut(&tag) {
             None => {
                 self.map.insert(tag, 1);
@@ -176,29 +168,25 @@ impl VdModulePathRegistry {
                 new_disambiguator
             }
         };
-        VdModulePath::new_child_from_tag_and_disambiguator(self.parent, tag, disambiguator, db)
+        VdModulePath::new_child_from_tag_and_disambiguator(self.parent, tag, disambiguator)
     }
 }
 
-impl salsa::DebugWithDb for VdModulePath {
-    fn debug_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl std::fmt::Debug for VdModulePath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdModulePath(`")?;
-        self.show_aux(f, db)?;
+        self.show_aux(f)?;
         f.write_str("`)")
     }
 }
 
 impl VdModulePath {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        match self.parent(db) {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.parent() {
             Some(parent) => {
-                parent.show_aux(f, db)?;
+                parent.show_aux(f)?;
                 f.write_str(".")?;
-                match self.data(db) {
+                match self.data() {
                     VdModulePathData::Root(lx_file_path) => unreachable!(),
                     VdModulePathData::Division {
                         parent,
@@ -232,12 +220,10 @@ mod tests {
     fn test_issue_new_child() {
         // Create a mock Salsa database
 
-        let db = &DB::default();
-
-        let file_path = LxFilePath::new(db, PathBuf::from("test.txt"));
+        let file_path = LxFilePath::new(PathBuf::from("test.txt"));
 
         // Create a root path
-        let root = VdModulePath::new_inner(&db, VdModulePathData::Root(file_path));
+        let root = VdModulePath::new_root(file_path);
 
         // Create a registry with the root path
         let mut registry = VdModulePathRegistry {
@@ -248,8 +234,8 @@ mod tests {
         // Test multiple paragraphs (0 through 9)
         let mut paragraph_paths = Vec::new();
         for expected_disambiguator in 0..10 {
-            let path = registry.issue_new_paragraph(&db);
-            if let VdModulePathData::Paragraph { disambiguator, .. } = path.data(&db) {
+            let path = registry.issue_new_paragraph();
+            if let VdModulePathData::Paragraph { disambiguator, .. } = *path.data() {
                 assert_eq!(disambiguator, expected_disambiguator);
                 paragraph_paths.push(path);
             } else {
@@ -260,8 +246,8 @@ mod tests {
         // Test multiple divisions (0 through 4)
         let mut division_paths = Vec::new();
         for expected_disambiguator in 0..5 {
-            let path = registry.issue_new_division(VdDivisionLevel::Section, db);
-            if let VdModulePathData::Division { disambiguator, .. } = path.data(db) {
+            let path = registry.issue_new_division(VdDivisionLevel::Section);
+            if let VdModulePathData::Division { disambiguator, .. } = *path.data() {
                 assert_eq!(disambiguator, expected_disambiguator);
                 division_paths.push(path);
             } else {
@@ -273,8 +259,8 @@ mod tests {
         let mut env_paths = Vec::new();
         let equation = VdEnvironmentPath::Equation;
         for expected_disambiguator in 0..8 {
-            let path = registry.issue_new_environment(equation, db);
-            if let VdModulePathData::Environment { disambiguator, .. } = path.data(db) {
+            let path = registry.issue_new_environment(equation);
+            if let VdModulePathData::Environment { disambiguator, .. } = *path.data() {
                 assert_eq!(disambiguator, expected_disambiguator);
                 env_paths.push(path);
             } else {
@@ -300,8 +286,8 @@ mod tests {
         );
 
         // Verify we can still create new items after many iterations
-        let last_paragraph = registry.issue_new_paragraph(&db);
-        if let VdModulePathData::Paragraph { disambiguator, .. } = last_paragraph.data(&db) {
+        let last_paragraph = registry.issue_new_paragraph();
+        if let VdModulePathData::Paragraph { disambiguator, .. } = *last_paragraph.data() {
             assert_eq!(disambiguator, 10);
         } else {
             panic!("Expected Paragraph");
