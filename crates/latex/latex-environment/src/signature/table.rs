@@ -1,6 +1,6 @@
 use super::LxEnvironmentSignature;
 use crate::path::{
-    menu::{lx_environment_path_menu, LxEnvironmentPathMenu},
+    menu::{LxEnvironmentPathMenu, LX_ENVIRONMENT_PATH_MENU},
     LxEnvironmentName, LxEnvironmentPath,
 };
 use latex_prelude::mode::LxMode;
@@ -45,7 +45,7 @@ impl LxEnvironmentSignatureTable {
             equation,
             figure,
             table,
-        } = *lx_environment_path_menu();
+        } = *LX_ENVIRONMENT_PATH_MENU;
         Self::new([
             (document, (&[LxMode::Root], LxMode::Rose)),
             // theorems

@@ -46,7 +46,6 @@ impl LxEnvironmentPathMenu {
     }
 }
 
-pub fn lx_environment_path_menu() -> &'static LxEnvironmentPathMenu {
-    todo!()
-    // LxEnvironmentPathMenu::new(db)
+lazy_static::lazy_static! {
+    pub static ref LX_ENVIRONMENT_PATH_MENU: LxEnvironmentPathMenu = LxEnvironmentPathMenu::new();
 }

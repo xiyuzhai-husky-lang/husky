@@ -67,6 +67,7 @@ impl std::fmt::Debug for LnNamespace {
     }
 }
 
+#[memo]
 fn ln_namespace_all_idents(namespace: LnNamespace) -> &'static SmallVec<[LnIdent; 4]> {
     todo!()
     // match namespace.data() {

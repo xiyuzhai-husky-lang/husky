@@ -9,7 +9,7 @@ use crate::{
     region::LxAstRegionData,
 };
 use latex_command::{
-    path::menu::{command_path_menu, LxCommandPathMenu},
+    path::menu::{LxCommandPathMenu, LX_COMMAND_PATH_MENU},
     signature::table::LxCommandSignatureTable,
 };
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
@@ -49,7 +49,7 @@ impl<'a> LxAstParser<'a> {
         token_storage: &'a mut LxTokenStorage,
         arena: &'a mut LxAstArena,
     ) -> Self {
-        let command_path_menu = command_path_menu();
+        let command_path_menu = &LX_COMMAND_PATH_MENU;
         Self {
             command_path_menu,
             command_signature_table,

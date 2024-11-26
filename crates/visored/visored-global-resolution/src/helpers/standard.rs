@@ -1,5 +1,5 @@
-use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
-use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
+use latex_command::path::menu::{LxCommandPathMenu, LX_COMMAND_PATH_MENU};
+use latex_environment::path::menu::{LxEnvironmentPathMenu, LX_ENVIRONMENT_PATH_MENU};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_entity_path::path::VdItemPath;
@@ -89,7 +89,7 @@ fn standard_command_resolution_map() -> std::collections::HashMap<
         frac,
         // - environments
         text,
-    } = *command_path_menu();
+    } = *LX_COMMAND_PATH_MENU;
     VdCompleteCommandGlobalResolutionMap::from_iter([
         // - root
         (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
@@ -161,7 +161,7 @@ fn standard_environment_resolution_map() -> VdEnvironmentGlobalResolutionMap {
         equation,
         figure,
         table,
-    } = *lx_environment_path_menu();
+    } = *LX_ENVIRONMENT_PATH_MENU;
     [
         (document, VdEnvironmentGlobalResolution::DOCUMENT),
         (example, VdEnvironmentGlobalResolution::EXAMPLE),
