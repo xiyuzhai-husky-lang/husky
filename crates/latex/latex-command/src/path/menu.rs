@@ -123,7 +123,6 @@ impl LxCommandPathMenu {
     }
 }
 
-pub fn command_path_menu() -> &'static LxCommandPathMenu {
-    todo!()
-    // &*LxCommandPathMenu::new()
+lazy_static::lazy_static! {
+    pub static ref LX_COMMAND_PATH_MENU: LxCommandPathMenu = LxCommandPathMenu::new();
 }

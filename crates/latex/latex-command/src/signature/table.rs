@@ -1,10 +1,7 @@
 use std::path::Path;
 
 use super::*;
-use crate::path::{
-    menu::{command_path_menu, LxCommandPathMenu},
-    LxCommandName,
-};
+use crate::path::{menu::LX_COMMAND_PATH_MENU, LxCommandName};
 use coword::Coword;
 use latex_prelude::mode::LxMode;
 use lisp_csv::{
@@ -13,6 +10,7 @@ use lisp_csv::{
     row::LpCsvRow,
 };
 use parameter::{LxCommandParameter, LxCommandParameterMode};
+use path::menu::LxCommandPathMenu;
 use rustc_hash::FxHashMap;
 
 #[derive(Debug)]
@@ -146,7 +144,7 @@ impl LxCommandSignatureTable {
             sqrt,
             frac,
             text,
-        } = *command_path_menu();
+        } = *LX_COMMAND_PATH_MENU;
         [
             // - root
             (usepackage, &[LxMode::Root], &[LxCommandParameterMode::Name]),
@@ -240,7 +238,7 @@ impl LxCommandSignatureTable {
             mathsf,
             mathscr,
             ..
-        } = *command_path_menu();
+        } = *LX_COMMAND_PATH_MENU;
         Self::new(
             begin,
             end,
