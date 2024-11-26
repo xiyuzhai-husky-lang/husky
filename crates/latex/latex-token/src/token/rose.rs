@@ -217,123 +217,123 @@ mod tests {
         t(
             "\n\n",
             &expect![[r#"
-            [
-                LxRoseTokenData::NewParagraph,
-            ]
-        "#]],
+                [
+                    NewParagraph,
+                ]
+            "#]],
         );
         t(
             r#"
 
 "#,
             &expect![[r#"
-            [
-                LxRoseTokenData::NewParagraph,
-            ]
-        "#]],
+                [
+                    NewParagraph,
+                ]
+            "#]],
         );
         t(
             "hello",
             &expect![[r#"
-            [
-                LxRoseTokenData::Word(
-                    Coword(
-                        "hello",
+                [
+                    Word(
+                        Coword(
+                            "hello",
+                        ),
                     ),
-                ),
-            ]
-        "#]],
+                ]
+            "#]],
         );
         t(
             "0",
             &expect![[r#"
-            [
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-            ]
-        "#]],
+                [
+                    Nat32(
+                        0,
+                    ),
+                ]
+            "#]],
         );
         t(
             " 0",
             &expect![[r#"
-            [
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-            ]
-        "#]],
+                [
+                    Nat32(
+                        0,
+                    ),
+                ]
+            "#]],
         );
         t(
             "0 0",
             &expect![[r#"
-            [
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-            ]
-        "#]],
+                [
+                    Nat32(
+                        0,
+                    ),
+                    Nat32(
+                        0,
+                    ),
+                ]
+            "#]],
         );
         t(
             "0\n0",
             &expect![[r#"
-            [
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-            ]
-        "#]],
+                [
+                    Nat32(
+                        0,
+                    ),
+                    Nat32(
+                        0,
+                    ),
+                ]
+            "#]],
         );
         t(
             "0  0",
             &expect![[r#"
-            [
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-                LxRoseTokenData::Nat32(
-                    0,
-                ),
-            ]
-        "#]],
+                [
+                    Nat32(
+                        0,
+                    ),
+                    Nat32(
+                        0,
+                    ),
+                ]
+            "#]],
         );
         t(
             "\\emph",
             &expect![[r#"
-            [
-                LxRoseTokenData::Command(
-                    LxCommandName::LettersOnly(
-                        LettersOnlyLxCommandName(
-                            Coword(
-                                "emph",
+                [
+                    Command(
+                        LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "emph",
+                                ),
                             ),
                         ),
                     ),
-                ),
-            ]
-        "#]],
+                ]
+            "#]],
         );
         t(
             "\\emph",
             &expect![[r#"
-            [
-                LxRoseTokenData::Command(
-                    LxCommandName::LettersOnly(
-                        LettersOnlyLxCommandName(
-                            Coword(
-                                "emph",
+                [
+                    Command(
+                        LettersOnly(
+                            LettersOnlyLxCommandName(
+                                Coword(
+                                    "emph",
+                                ),
                             ),
                         ),
                     ),
-                ),
-            ]
-        "#]],
+                ]
+            "#]],
         );
     }
 
@@ -363,7 +363,7 @@ mod tests {
     word %"#,
             &expect![[r#"
                 [
-                    LxRoseTokenData::Word(
+                    Word(
                         Coword(
                             "word",
                         ),

@@ -41,6 +41,20 @@ where
         self.map.insert(t, interned);
         interned
     }
+
+    pub fn intern_ref<Q: Eq + std::hash::Hash + ?Sized>(&mut self, q: &Q) -> Interned<T>
+    where
+        T: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
+    {
+        if let Some(interned) = self.map.get(q) {
+            return *interned;
+        }
+        let t: T = q.into();
+        let ptr = self.pool.alloc(t.clone());
+        let interned = Interned(unsafe { &*ptr });
+        self.map.insert(t, interned);
+        interned
+    }
 }
 
 #[derive(Debug, Hash)]
