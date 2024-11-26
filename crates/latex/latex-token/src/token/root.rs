@@ -103,8 +103,8 @@ pub fn next_root_token_data_works() {
         "\\usepackage",
         &expect![[r#"
             [
-                LxRootTokenData::Command(
-                    LxCommandName::LettersOnly(
+                Command(
+                    LettersOnly(
                         LettersOnlyLxCommandName(
                             Coword(
                                 "usepackage",
@@ -119,7 +119,7 @@ pub fn next_root_token_data_works() {
         "{",
         &expect![[r#"
             [
-                LxRootTokenData::LeftDelimiter(
+                LeftDelimiter(
                     Curl,
                 ),
             ]
@@ -129,7 +129,7 @@ pub fn next_root_token_data_works() {
         "}",
         &expect![[r#"
             [
-                LxRootTokenData::RightDelimiter(
+                RightDelimiter(
                     Curl,
                 ),
             ]

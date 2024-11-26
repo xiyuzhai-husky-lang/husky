@@ -1765,6 +1765,7 @@ name = "coword"
 version = "0.1.0"
 dependencies = [
  "interned",
+ "lazy_static 1.5.0",
 ]
 
 [[package]]

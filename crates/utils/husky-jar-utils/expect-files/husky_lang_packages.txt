@@ -10,6 +10,32 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "coword",
+        relative_path: "crates/abstractions/coword",
+        dependencies: [
+            "interned",
+            "lazy_static",
+        ],
+    },
+    PackageSummary {
+        name: "interned",
+        relative_path: "crates/abstractions/interned",
+        dependencies: [
+            "interned-macros",
+            "lazy_static",
+        ],
+    },
+    PackageSummary {
+        name: "interned-macros",
+        relative_path: "crates/abstractions/interned-macros",
+        dependencies: [
+            "convert_case",
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
         name: "cyclic-slice",
         relative_path: "crates/abstractions/cyclic-slice",
         dependencies: [],
@@ -3574,6 +3600,7 @@
         name: "latex-ast",
         relative_path: "crates/latex/latex-ast",
         dependencies: [
+            "coword",
             "egui",
             "enum-class",
             "husky-coword",
@@ -3608,6 +3635,7 @@
         name: "latex-command",
         relative_path: "crates/latex/latex-command",
         dependencies: [
+            "coword",
             "husky-coword",
             "latex-math-letter",
             "latex-prelude",
@@ -3637,7 +3665,7 @@
         name: "latex-vfs",
         relative_path: "crates/latex/latex-vfs",
         dependencies: [
-            "salsa",
+            "interned",
         ],
     },
     PackageSummary {
@@ -3657,6 +3685,7 @@
         name: "latex-environment",
         relative_path: "crates/latex/latex-environment",
         dependencies: [
+            "coword",
             "husky-coword",
             "latex-prelude",
             "rustc-hash",
@@ -3680,10 +3709,11 @@
         name: "latex-token",
         relative_path: "crates/latex/latex-token",
         dependencies: [
+            "coword",
             "enum-class",
-            "husky-coword",
             "husky-print-utils",
             "husky-text-protocol",
+            "interned",
             "latex-command",
             "latex-math-letter",
             "latex-math-punctuation",
@@ -3970,14 +4000,16 @@
         name: "lean-coword",
         relative_path: "crates/lean/lean-coword",
         dependencies: [
-            "husky-coword",
-            "salsa",
+            "coword",
+            "interned",
         ],
     },
     PackageSummary {
         name: "lean-entity-path",
         relative_path: "crates/lean/lean-entity-path",
         dependencies: [
+            "interned",
+            "lazy_static",
             "lean-coword",
             "salsa",
             "smallvec",
@@ -4000,6 +4032,7 @@
         dependencies: [
             "husky-tree-utils",
             "idx-arena",
+            "lazy_static",
             "lean-coword",
             "lean-entity-path",
             "lean-opr",
@@ -4018,6 +4051,8 @@
         relative_path: "crates/lean/lean-term",
         dependencies: [
             "enum-class",
+            "interned",
+            "lazy_static",
             "lean-entity-path",
             "salsa",
             "smallvec",
@@ -4330,7 +4365,6 @@
             "latex-prelude",
             "latex-token",
             "lazy_static",
-            "salsa",
             "expect-test",
             "husky-coword",
             "latex-command",
@@ -4352,11 +4386,11 @@
         dependencies: [
             "enum-class",
             "husky-coword",
+            "interned",
             "latex-prelude",
             "latex-vfs",
             "lisp-csv",
             "rustc-hash",
-            "salsa",
             "smallvec",
             "visored-prelude",
         ],
@@ -4372,6 +4406,7 @@
         dependencies: [
             "husky-path-utils",
             "husky-print-utils",
+            "lazy_static",
             "lisp-csv",
             "rustc-hash",
             "salsa",
@@ -4390,8 +4425,8 @@
         dependencies: [
             "enum-class",
             "enum-index",
+            "lazy_static",
             "lisp-csv",
-            "salsa",
         ],
     },
     PackageSummary {
@@ -4399,6 +4434,7 @@
         relative_path: "crates/visored/visored-signature",
         dependencies: [
             "enum-class",
+            "lazy_static",
             "lisp-csv",
             "rustc-hash",
             "salsa",
@@ -4415,6 +4451,8 @@
         relative_path: "crates/visored/visored-term",
         dependencies: [
             "enum-class",
+            "interned",
+            "lazy_static",
             "lisp-csv",
             "rustc-hash",
             "salsa",
@@ -4497,6 +4535,7 @@
             "latex-math-letter",
             "latex-prelude",
             "latex-vfs",
+            "lazy_static",
             "salsa",
             "visored-annotation",
             "visored-entity-path",
@@ -4561,9 +4600,9 @@
         name: "visored-syn-expr",
         relative_path: "crates/visored/visored-syn-expr",
         dependencies: [
+            "coword",
             "either",
             "enum-class",
-            "husky-coword",
             "husky-debug-utils",
             "husky-print-utils",
             "husky-text-protocol",

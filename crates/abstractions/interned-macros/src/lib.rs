@@ -53,6 +53,41 @@ pub fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
     });
 
+    let from_ref = match fields.len() {
+        1 => {
+            let field = &fields[0];
+            let field_ident = &field.ident;
+            let field_ty = &field.ty;
+            quote! {
+                impl<Q: ?Sized> std::borrow::Borrow<Q> for #data_ty_ident
+                where
+                    #field_ty: std::borrow::Borrow<Q>,
+                {
+                    fn borrow(&self) -> &Q {
+                        self.#field_ident.borrow()
+                    }
+                }
+
+                impl<'a, Q: ?Sized> From<&'a Q> for #data_ty_ident where #field_ty: From<&'a Q> {
+                    fn from(q: &'a Q) -> Self {
+                        Self { #field_ident: q.into() }
+                    }
+                }
+
+                impl #ty_ident {
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q) -> Self
+                    where
+                        #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
+                    {
+                        let mut storage = #storage_ident.lock().unwrap();
+                        #ty_ident(storage.intern_ref(q))
+                    }
+                }
+            }
+        }
+        _ => quote! {},
+    };
+
     let expanded = quote! {
         #[derive(Debug, Clone, Hash, Eq, PartialEq)]
         #vis struct #data_ty_ident {
@@ -83,6 +118,8 @@ pub fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
             #(#field_accesses)*
         }
+
+        #from_ref
     };
 
     TokenStream::from(expanded)
