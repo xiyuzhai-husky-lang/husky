@@ -7895,6 +7895,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "interned"
+version = "0.1.0"
+dependencies = [
+ "interned-macros",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
+name = "interned-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.76",
+]
+
+[[package]]
 name = "interpolate_name"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
