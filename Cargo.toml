@@ -222,6 +222,8 @@ from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
+interned = { path = "crates/abstractions/interned" }
+interned-macros = { path = "crates/abstractions/interned-macros" }
 is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
