@@ -5,8 +5,7 @@ pub struct LnIdent(Coword);
 
 impl LnIdent {
     pub fn from_owned(ident: String) -> Self {
-        todo!()
-        // LnIdent(Coword::from_owned(ident))
+        LnIdent(Coword::new(ident))
     }
 
     pub fn from_ref(ident: &str) -> Self {
