@@ -54,7 +54,6 @@ impl<'db> VdSemExprBuilder<'db> {
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
     ) -> VdSemExprEntry {
-        let db = self.db();
         let (fst, others) = match separator_class {
             VdSeparatorClass::Space => self.build_space_separated_list_aux(items, separators),
             _ => self.build_non_space_separated_list_aux(items, separators),
@@ -85,13 +84,12 @@ impl<'db> VdSemExprBuilder<'db> {
         VdSemExprEntry,
         SmallVec<[(VdSemSeparator, VdSemExprEntry); 4]>,
     ) {
-        let db = self.db();
         debug_assert_eq!(items.len(), separators.len() + 1);
         let mut item_iter = items.into_iter().enumerate();
         let mut t = || -> Option<(usize, VdSemExprEntry)> {
             let (i, item) = item_iter.next()?;
             let mut item = self.build_expr_entry(item);
-            while item.ty.is_function_like(db) {
+            while item.ty.is_function_like() {
                 todo!()
             }
             Some((i, item))
@@ -161,12 +159,11 @@ impl<'db> VdSemExprBuilder<'db> {
         {
             return default_dispatch;
         }
-        use salsa::DebugWithDb;
         todo!(
             "no default dispatch for prev_item_ty = {:?}, separator = {:?}, next_item_ty = {:?}",
-            prev_item_ty.debug(self.db()),
+            prev_item_ty,
             separator,
-            next_item_ty.debug(self.db())
+            next_item_ty
         )
     }
 }

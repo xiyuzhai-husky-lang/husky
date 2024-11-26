@@ -31,17 +31,14 @@ impl<'a> VdSynSymbolBuilder<'a> {
             [] => None,
             [single] => Some(single),
             _ => {
-                use salsa::DebugWithDb;
-
-                let db = self.db();
                 todo!(
                     r#"
     letter = `{}`
     local_resolutions = {:#?}
     local_defn_storage = {:#?}"#,
                     letter,
-                    local_resolutions.debug(db),
-                    self.symbol_local_defn_storage().debug(db)
+                    local_resolutions,
+                    self.symbol_local_defn_storage()
                 )
             }
         }
@@ -52,9 +49,8 @@ impl<'a> VdSynSymbolBuilder<'a> {
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
     ) -> VdSynSymbolResolutions {
-        let db = self.db();
         self.symbol_local_defn_storage()
-            .resolve_letter(self.current_module_path(), token_idx_range, letter, db)
+            .resolve_letter(self.current_module_path(), token_idx_range, letter)
             .map(|idx| VdSynLetterSymbolResolution::Local(idx).into())
             .collect()
     }

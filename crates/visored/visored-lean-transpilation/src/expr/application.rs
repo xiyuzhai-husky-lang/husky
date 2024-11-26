@@ -12,14 +12,10 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         func: VdMirFunc,
         arguments: VdMirExprIdxRange,
     ) -> LnMirExprData {
-        match func.key_or_expr(self.db()) {
+        match func.key_or_expr() {
             Left(func_key) => {
                 let Some(translation) = self.dictionary().func_key_translation(func_key) else {
-                    use salsa::DebugWithDb;
-                    todo!(
-                        "no translation for func key `{:?}`",
-                        func_key.debug(self.db())
-                    )
+                    todo!("no translation for func key `{:?}`", func_key)
                 };
                 match *translation {
                     VdFuncKeyTranslation::PrefixOpr(func_key) => LnMirExprData::Application {

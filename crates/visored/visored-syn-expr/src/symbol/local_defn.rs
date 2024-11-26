@@ -13,7 +13,6 @@ use visored_entity_path::module::VdModulePath;
 /// "local" means the definition itself is local.
 ///
 /// The symbol itself might not be local.
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdSynSymbolLocalDefnData {
     head: VdSynSymbolLocalDefnHead,
@@ -24,7 +23,6 @@ pub struct VdSynSymbolLocalDefnData {
     scope: VdSynSymbolLocalDefnScope,
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSymbolLocalDefnScope {
     Module(VdModulePath),
@@ -34,22 +32,16 @@ pub enum VdSynSymbolLocalDefnScope {
     Modules(SmallVec<[VdModulePath; 2]>),
 }
 impl VdSynSymbolLocalDefnScope {
-    fn contains(
-        &self,
-        other_module_path: VdModulePath,
-        token_idx_range: LxTokenIdxRange,
-        db: &::salsa::Db,
-    ) -> bool {
+    fn contains(&self, other_module_path: VdModulePath, token_idx_range: LxTokenIdxRange) -> bool {
         match *self {
             VdSynSymbolLocalDefnScope::Module(slf_module_path) => {
-                slf_module_path.contains(other_module_path, db)
+                slf_module_path.contains(other_module_path)
             }
             VdSynSymbolLocalDefnScope::Modules(ref module_paths) => todo!(),
         }
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynSymbolLocalDefnHead {
     Letter {
@@ -58,14 +50,12 @@ pub enum VdSynSymbolLocalDefnHead {
     },
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSymbolLocalDefnBody {
     Placeholder,
     Assigned,
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynSymbolLocalDefnSrc {
     LetAssigned(VdSynClauseIdx),
@@ -104,10 +94,16 @@ impl VdSynSymbolLocalDefnHead {
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Default)]
 pub struct VdSynSymbolLocalDefnStorage {
     defn_arena: VdSynSymbolLocalDefnArena,
+}
+
+impl std::fmt::Debug for VdSynSymbolLocalDefnStorage {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+        // f.debug_struct("VdSynSymbolLocalDefnStorage").finish()
+    }
 }
 
 /// # getters
@@ -121,16 +117,14 @@ impl VdSynSymbolLocalDefnStorage {
         module_path: VdModulePath,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
-        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = VdSynSymbolLocalDefnIdx> + 'a {
         // TODO: take scope into account
         // already used module_path, but this will not be enough.
         self.defn_arena
             .indexed_iter()
             .filter_map(move |(idx, defn)| {
-                (defn.head.is_letter(letter)
-                    && defn.scope.contains(module_path, token_idx_range, db))
-                .then_some(idx)
+                (defn.head.is_letter(letter) && defn.scope.contains(module_path, token_idx_range))
+                    .then_some(idx)
             })
     }
 }

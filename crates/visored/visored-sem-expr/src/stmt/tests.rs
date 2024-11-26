@@ -9,9 +9,8 @@ use std::path::PathBuf;
 fn t(content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = &DB::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(db, PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdSemExprTracker::new(
         LxDocumentBodyInput {
             specs_dir: dev_paths.specs_dir(),
@@ -20,9 +19,8 @@ fn t(content: &str, expect: &Expect) {
         },
         &[],
         &[],
-        db,
     );
-    expect.assert_eq(&tracker.show_display_tree(db));
+    expect.assert_eq(&tracker.show_display_tree());
 }
 
 #[test]

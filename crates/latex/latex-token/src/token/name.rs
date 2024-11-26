@@ -1,11 +1,10 @@
 use super::*;
 use crate::idx::LxNameTokenIdx;
-use husky_coword::Coword;
+use coword::Coword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandPath;
 use latex_rose_punctuation::LxRosePunctuation;
 
-#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxNameTokenData {
@@ -50,7 +49,6 @@ impl<'a> LxLexer<'a> {
     }
 
     pub(crate) fn next_word_token_data(&mut self) -> Option<LxNameTokenData> {
-        let db = self.db;
         match self.chars.peek()? {
             '\\' => {
                 todo!()
@@ -79,11 +77,8 @@ impl<'a> LxLexer<'a> {
                 // }
             }
             a if a.is_ascii_alphabetic() => Some(
-                Coword::from_ref(
-                    self.db,
-                    self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
-                )
-                .into(),
+                Coword::from_ref(self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()))
+                    .into(),
             ),
             c => {
                 use husky_print_utils::p;
@@ -101,13 +96,12 @@ fn next_word_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
-        let db = &DB::default();
         let mut storage = LxTokenStorage::default();
-        let mut stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
+        let mut stream = LxLexer::new(input, LxTokenLane::Main, &mut storage)
             .into_word_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();
-        expected.assert_debug_eq(&(tokens.debug(db)));
+        expected.assert_debug_eq(&tokens);
     }
     t(
         "",

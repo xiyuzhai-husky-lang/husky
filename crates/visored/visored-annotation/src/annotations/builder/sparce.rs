@@ -71,8 +71,8 @@ mod tests {
         todo!()
         // let db = &DB::default();
         // let input = "\\int xdx";
-        // let command_signature_table = LxCommandSignatureTable::new_default(db);
-        // let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
+        // let command_signature_table = LxCommandSignatureTable::new_default();
+        // let environment_signature_table = LxEnvironmentSignatureTable::new_default();
         // let token_annotations = vec![
         //     (
         //         ("", "\\int"),

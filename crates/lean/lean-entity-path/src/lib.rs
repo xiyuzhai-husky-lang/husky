@@ -1,10 +1,8 @@
-pub mod jar;
 pub mod menu;
 pub mod namespace;
 #[cfg(test)]
 pub mod tests;
 
-use self::jar::LnEntityPathJar as Jar;
 #[cfg(test)]
 use crate::tests::*;
 
@@ -46,7 +44,7 @@ impl LnItemPath {
 }
 
 impl LnItemPath {
-    pub fn show(&self, db: &::salsa::Db) -> String {
+    pub fn show(&self) -> String {
         match self {
             LnItemPath::Nat => "ℕ".to_string(),
             LnItemPath::Rat => "ℚ".to_string(),

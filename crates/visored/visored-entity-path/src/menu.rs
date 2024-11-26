@@ -42,7 +42,7 @@ pub struct VdItemPathMenu {
 }
 
 impl VdItemPathMenu {
-    pub fn new(db: &::salsa::Db) -> Self {
+    pub fn new() -> Self {
         Self {
             // # categories
             set: VdCategoryPath::SET,
@@ -82,7 +82,7 @@ impl VdItemPathMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn vd_item_path_menu(db: &::salsa::Db) -> VdItemPathMenu {
-    VdItemPathMenu::new(db)
+pub fn vd_item_path_menu() -> &'static VdItemPathMenu {
+    todo!()
+    // VdItemPathMenu::new()
 }

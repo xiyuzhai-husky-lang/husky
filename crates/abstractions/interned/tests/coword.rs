@@ -5,6 +5,12 @@ pub struct Coword {
     data: String,
 }
 
+impl std::fmt::Debug for Coword {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Coword").field(self.data()).finish()
+    }
+}
+
 #[test]
 fn coword_works() {
     // Test creation and basic equality

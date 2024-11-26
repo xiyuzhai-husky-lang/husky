@@ -27,7 +27,7 @@ impl LxEnvironmentSignatureTable {
         }
     }
 
-    pub fn new_default(db: &::salsa::Db) -> Self {
+    pub fn new_default() -> Self {
         let LxEnvironmentPathMenu {
             document,
             example,
@@ -45,7 +45,7 @@ impl LxEnvironmentSignatureTable {
             equation,
             figure,
             table,
-        } = *lx_environment_path_menu(db);
+        } = *lx_environment_path_menu();
         Self::new([
             (document, (&[LxMode::Root], LxMode::Rose)),
             // theorems

@@ -16,7 +16,7 @@ rustc-hash.workspace = true
 smallvec.workspace = true
 # abstractions
 enum-class.workspace = true
-salsa.workspace = true
+interned.workspace = true
 # kernel
 husky-coword.workspace = true
 # latex

@@ -14,8 +14,7 @@ pub enum VdTypeLeanTranspilation {
 
 impl VdTranspileToLean<VdTypeLeanTranspilation> for VdType {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> VdTypeLeanTranspilation {
-        let db = builder.db();
-        match *self.data(db) {
+        match *self.data() {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref item_path) => VdTypeLeanTranspilation::Type(
                 builder.build_ln_ty_from_vd_item_path(item_path.item_path()),

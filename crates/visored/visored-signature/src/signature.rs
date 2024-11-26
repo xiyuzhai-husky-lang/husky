@@ -33,9 +33,9 @@ pub enum VdSignature {
 }
 
 impl VdSignature {
-    pub fn from_lp_csv_exprs(exprs: &[LpCsvExpr], db: &::salsa::Db) -> Self {
+    pub fn from_lp_csv_exprs(exprs: &[LpCsvExpr]) -> Self {
         assert_eq!(exprs.len(), 2);
-        let instantiation = VdInstantiation::from_lp_csv_expr(&exprs[0], db);
+        let instantiation = VdInstantiation::from_lp_csv_expr(&exprs[0]);
         let (
             LpCsvExpr {
                 data: LpCsvExprData::Ident(variant_ident),
@@ -51,8 +51,8 @@ impl VdSignature {
                 assert_eq!(args.len(), 2);
                 VdBasePrefixOprSignature {
                     instantiation,
-                    opd_ty: VdType::from_lp_csv_expr(&args[0], db),
-                    expr_ty: VdType::from_lp_csv_expr(&args[1], db),
+                    opd_ty: VdType::from_lp_csv_expr(&args[0]),
+                    expr_ty: VdType::from_lp_csv_expr(&args[1]),
                 }
                 .into()
             }
@@ -65,9 +65,9 @@ impl VdSignature {
                 );
                 VdBaseBinaryOprSignature {
                     instantiation,
-                    lopd_ty: VdType::from_lp_csv_expr(&args[0], db),
-                    ropd_ty: VdType::from_lp_csv_expr(&args[1], db),
-                    expr_ty: VdType::from_lp_csv_expr(&args[2], db),
+                    lopd_ty: VdType::from_lp_csv_expr(&args[0]),
+                    ropd_ty: VdType::from_lp_csv_expr(&args[1]),
+                    expr_ty: VdType::from_lp_csv_expr(&args[2]),
                 }
                 .into()
             }
@@ -75,8 +75,8 @@ impl VdSignature {
                 assert_eq!(args.len(), 2);
                 VdBaseSeparatorSignature::new(
                     instantiation,
-                    VdType::from_lp_csv_expr(&args[0], db),
-                    VdType::from_lp_csv_expr(&args[1], db),
+                    VdType::from_lp_csv_expr(&args[0]),
+                    VdType::from_lp_csv_expr(&args[1]),
                 )
                 .into()
             }
@@ -84,8 +84,8 @@ impl VdSignature {
                 assert_eq!(args.len(), 2);
                 VdBaseSqrtSignature::new(
                     instantiation,
-                    VdType::from_lp_csv_expr(&args[0], db),
-                    VdType::from_lp_csv_expr(&args[1], db),
+                    VdType::from_lp_csv_expr(&args[0]),
+                    VdType::from_lp_csv_expr(&args[1]),
                 )
                 .into()
             }
@@ -93,9 +93,9 @@ impl VdSignature {
                 assert_eq!(args.len(), 3);
                 VdPowerSignature::new(
                     instantiation,
-                    VdType::from_lp_csv_expr(&args[0], db),
-                    VdType::from_lp_csv_expr(&args[1], db),
-                    VdType::from_lp_csv_expr(&args[2], db),
+                    VdType::from_lp_csv_expr(&args[0]),
+                    VdType::from_lp_csv_expr(&args[1]),
+                    VdType::from_lp_csv_expr(&args[2]),
                 )
                 .into()
             }

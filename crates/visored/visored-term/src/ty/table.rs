@@ -19,7 +19,7 @@ impl VdItemPathZfcTypeTable {
         }
     }
 
-    pub fn new_standard(db: &::salsa::Db) -> Self {
+    pub fn new_standard() -> Self {
         // TODO: use menu?
         let VdItemPathMenu {
             nat: nat_path,
@@ -51,7 +51,7 @@ impl VdItemPathZfcTypeTable {
             le: le_path,
             ge: ge_path,
             real_sqrt: real_sqrt_path,
-        } = *vd_item_path_menu(db);
+        } = *vd_item_path_menu();
         let VdTypeMenu {
             nat,
             int,
@@ -60,7 +60,7 @@ impl VdItemPathZfcTypeTable {
             complex,
             set,
             prop,
-        } = *vd_ty_menu(db);
+        } = *vd_ty_menu;
         Self::new([
             (nat_path.into(), set),
             (rat_path.into(), set),

@@ -46,14 +46,12 @@ use latex_token::{
 };
 
 #[enum_class::from_variants]
-#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum LxAstData {
     Math(LxMathAstData),
     Rose(LxRoseAstData),
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Default, Debug)]
 pub struct LxAstArena {
     pub(crate) math: LxMathAstArena,
@@ -72,7 +70,6 @@ impl LxAstArena {
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LxAstArenaRef<'a> {
     math: LxMathAstArenaRef<'a>,
@@ -115,7 +112,6 @@ impl<'a> LxAstArenaRef<'a> {
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxAstArenaMap<T> {
     pub(crate) math: LxMathAstArenaMap<T>,
@@ -135,7 +131,6 @@ impl<T> LxAstArenaMap<T> {
     }
 }
 
-#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxAstIdx {
@@ -145,7 +140,6 @@ pub enum LxAstIdx {
     Root(LxRootAstIdx),
 }
 
-#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxAstIdxRange {
@@ -156,7 +150,6 @@ pub enum LxAstIdxRange {
 }
 
 pub fn parse_latex_input_into_asts<'a>(
-    db: &'a ::salsa::Db,
     command_signature_table: &'a LxCommandSignatureTable,
     environment_signature_table: &'a LxEnvironmentSignatureTable,
     input: &'a str,
@@ -166,7 +159,6 @@ pub fn parse_latex_input_into_asts<'a>(
     arena: &'a mut LxAstArena,
 ) -> LxAstIdxRange {
     let mut parser = LxAstParser::new(
-        db,
         command_signature_table,
         environment_signature_table,
         input,
@@ -198,16 +190,14 @@ fn parse_tex_input_into_asts_works() {
     fn t(input: &str, mode: LxMode, expected: Expect) {
         use husky_path_utils::HuskyLangDevPaths;
 
-        let db = &DB::default();
         let dev_paths = HuskyLangDevPaths::new();
         let complete_commands_path = &dev_paths.specs_dir().join("latex/complete-commands.lpcsv");
         let mut arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
         let command_signature_table =
-            &LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path, db);
-        let environment_signature_table = &LxEnvironmentSignatureTable::new_default(db);
+            &LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path);
+        let environment_signature_table = &LxEnvironmentSignatureTable::new_default();
         let asts = parse_latex_input_into_asts(
-            db,
             command_signature_table,
             environment_signature_table,
             input,
@@ -216,7 +206,7 @@ fn parse_tex_input_into_asts_works() {
             &mut token_storage,
             &mut arena,
         );
-        expected.assert_debug_eq(&((token_storage, arena, asts).debug(db)));
+        expected.assert_debug_eq(&(token_storage, arena, asts));
     }
     t(
         "",

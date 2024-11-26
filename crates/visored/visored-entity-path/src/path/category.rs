@@ -11,12 +11,8 @@ impl VdCategoryPath {
     pub const PROPOSITION: Self = VdCategoryPath::Prop;
 }
 
-impl salsa::DisplayWithDb for VdCategoryPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdCategoryPath {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdCategoryPath::Set => write!(f, "Set"),
             VdCategoryPath::Prop => write!(f, "Prop"),

@@ -3,7 +3,7 @@ mod literal;
 use self::literal::LxSpecLiteral;
 use super::*;
 use crate::idx::LxSpecTokenIdx;
-use husky_coword::Coword;
+use coword::Coword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
@@ -47,7 +47,6 @@ impl<'a> LxLexer<'a> {
     }
 
     pub(crate) fn next_spec_token_data(&mut self) -> Option<LxSpecTokenData> {
-        let db = self.db;
         match self.chars.peek()? {
             '\\' => {
                 self.chars.eat_char();
@@ -56,7 +55,6 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => Some(LxSpecTokenData::Command(
                             LxCommandName::new(
                                 self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
-                                db,
                             )
                             .unwrap(),
                         )),
