@@ -11,7 +11,7 @@ impl LnType {
         Self(LnTerm::new_item_path(path))
     }
 
-    pub fn show(&self, db: &::salsa::Db) -> String {
-        self.0.show(db)
+    pub fn show(&self) -> String {
+        self.0.show()
     }
 }

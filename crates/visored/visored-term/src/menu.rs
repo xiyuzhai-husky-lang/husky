@@ -6,6 +6,7 @@ use crate::{
     },
     ty::{VdType, VdTypeData},
 };
+use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::{
     menu::{vd_item_path_menu, VdItemPathMenu},
@@ -31,7 +32,7 @@ pub struct VdTypeMenu {
 }
 
 impl VdTypeMenu {
-    fn new(db: &::salsa::Db) -> Self {
+    fn new() -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -62,15 +63,15 @@ impl VdTypeMenu {
             le,
             ge,
             real_sqrt,
-        } = *vd_item_path_menu(db);
+        } = *vd_item_path_menu();
 
-        let nat = VdType::new_item_path(nat.into(), db);
-        let int = VdType::new_item_path(int.into(), db);
-        let rat = VdType::new_item_path(rat.into(), db);
-        let real = VdType::new_item_path(real.into(), db);
-        let complex = VdType::new_item_path(complex.into(), db);
-        let set = VdType::new_item_path(set.into(), db);
-        let prop = VdType::new_item_path(prop.into(), db);
+        let nat = VdType::new_item_path(nat.into());
+        let int = VdType::new_item_path(int.into());
+        let rat = VdType::new_item_path(rat.into());
+        let real = VdType::new_item_path(real.into());
+        let complex = VdType::new_item_path(complex.into());
+        let set = VdType::new_item_path(set.into());
+        let prop = VdType::new_item_path(prop.into());
 
         Self {
             nat,
@@ -84,7 +85,6 @@ impl VdTypeMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn vd_ty_menu(db: &::salsa::Db) -> VdTypeMenu {
-    VdTypeMenu::new(db)
+lazy_static! {
+    pub static ref vd_ty_menu: VdTypeMenu = VdTypeMenu::new();
 }

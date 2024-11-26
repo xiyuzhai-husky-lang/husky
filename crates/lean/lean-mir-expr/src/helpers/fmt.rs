@@ -12,7 +12,6 @@ use lean_term::term::literal::LnLiteralData;
 use std::fmt::Write;
 
 pub struct LnMirExprFormatter<'a> {
-    db: &'a ::salsa::Db,
     expr_arena: LnMirExprArenaRef<'a>,
     stmt_arena: LnMirStmtArenaRef<'a>,
     tactic_arena: LnMirTacticArenaRef<'a>,
@@ -38,10 +37,8 @@ impl<'a> LnMirExprFormatter<'a> {
         tactic_arena: LnMirTacticArenaRef<'a>,
         defn_arena: LnItemDefnArenaRef<'a>,
         config: &'a LnMirExprFormatterConfig,
-        db: &'a ::salsa::Db,
     ) -> Self {
         Self {
-            db,
             expr_arena,
             stmt_arena,
             tactic_arena,
@@ -84,14 +81,13 @@ impl<'a> LnMirExprFormatter<'a> {
         // Lean formatter rule: outer expressions should multiline prior to inner expressions.
         // This ensures that subexpressions only attempt multiline formatting if the parent is already multiline.
         let subexpr_try_multiline = multiline;
-        let db = self.db;
         let arena = self.expr_arena;
         match arena[expr] {
             LnMirExprData::ItemPath(item_path) => {
-                self.result += &item_path.show(db);
+                self.result += &item_path.show();
             }
             LnMirExprData::Variable { ident } => {
-                self.write_word(ident.data(db));
+                self.write_word(ident.data());
             }
 
             LnMirExprData::Lambda {
@@ -103,7 +99,7 @@ impl<'a> LnMirExprFormatter<'a> {
                     if i > 0 {
                         self.result.push(' ');
                     }
-                    self.result += param.ident().data(db);
+                    self.result += param.ident().data();
                     self.result.push_str(" : ");
                     self.format_expr(param.ty(), false, LnPrecedenceRange::Any);
                 }
@@ -165,7 +161,7 @@ impl<'a> LnMirExprFormatter<'a> {
                 //             }
             }
             LnMirExprData::Literal(lit) => {
-                self.result += match lit.data(db) {
+                self.result += match lit.data() {
                     LnLiteralData::Nat(s) => s,
                 }
             }
@@ -207,7 +203,7 @@ impl<'a> LnMirExprFormatter<'a> {
         let defn_arena = self.defn_arena;
         match defn_arena[defn] {
             LnItemDefnData::Variable { symbol, ty } => {
-                write!(self.result, "variable ({} : ", symbol.data(self.db));
+                write!(self.result, "variable ({} : ", symbol.data());
                 self.format_expr_ext(ty);
                 write!(self.result, ")");
             }
@@ -215,22 +211,22 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.make_sure_new_paragraph();
                 if let LnMirItemDefnGroupMeta::Division(Some(namespace))
                 | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
-                    && let Some(ident) = namespace.ident(self.db)
+                    && let Some(ident) = namespace.ident()
                 {
                     self.make_sure_new_paragraph();
-                    write!(self.result, "namespace {}\n", ident.data(self.db));
+                    write!(self.result, "namespace {}\n", ident.data());
                 }
                 self.format_defns(defns);
                 if let LnMirItemDefnGroupMeta::Division(Some(namespace))
                 | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
-                    && let Some(ident) = namespace.ident(self.db)
+                    && let Some(ident) = namespace.ident()
                 {
                     self.make_sure_new_line();
-                    write!(self.result, "end {}\n", ident.data(self.db));
+                    write!(self.result, "end {}\n", ident.data());
                 }
             }
             LnItemDefnData::Def { symbol, ty, body } => {
-                write!(self.result, "def {} : ", symbol.data(self.db));
+                write!(self.result, "def {} : ", symbol.data());
                 self.format_expr_ext(ty);
                 self.result += " := ";
                 self.format_def_body(body);

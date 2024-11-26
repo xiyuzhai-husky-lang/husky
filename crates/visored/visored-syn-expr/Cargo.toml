@@ -19,10 +19,9 @@ sealed.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
-salsa.workspace = true
+coword.workspace = true
+salsa = { workspace = true, optional = true }
 idx-arena.workspace = true
-# kernel
-husky-coword.workspace = true
 # latex
 latex-math-letter.workspace = true
 latex-rose-punctuation.workspace = true

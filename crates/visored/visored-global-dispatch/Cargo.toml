@@ -12,9 +12,10 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+lazy_static.workspace = true
 rustc-hash.workspace = true
 # abstractions
-salsa.workspace = true
+salsa = { workspace = true, optional = true }
 # lisp
 lisp-csv.workspace = true
 # utils

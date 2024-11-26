@@ -20,7 +20,6 @@ use latex_ast::{ast::LxAstArenaRef, range::LxAstTokenIdxRangeMap};
 use latex_token::storage::LxTokenStorage;
 
 pub struct VdSemExprDisplayTreeBuilder<'a> {
-    db: &'a salsa::Db,
     input: &'a str,
     token_storage: &'a LxTokenStorage,
     ast_arena: LxAstArenaRef<'a>,
@@ -40,7 +39,6 @@ pub struct VdSemExprDisplayTreeBuilder<'a> {
 }
 impl<'a> VdSemExprDisplayTreeBuilder<'a> {
     pub(crate) fn new(
-        db: &'a salsa::Db,
         input: &'a str,
         token_storage: &'a LxTokenStorage,
         ast_arena: LxAstArenaRef<'a>,
@@ -59,7 +57,6 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
     ) -> Self {
         Self {
-            db,
             input,
             token_storage,
             ast_arena,

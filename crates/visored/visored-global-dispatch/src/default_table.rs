@@ -175,14 +175,13 @@ impl VdDefaultGlobalDispatchTable {
 }
 
 impl VdDefaultGlobalDispatchTable {
-    pub fn from_standard_lisp_csv_file_dir(db: &::salsa::Db) -> Self {
+    pub fn from_standard_lisp_csv_file_dir() -> Self {
         let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
         let specs_dir = husky_lang_dev_paths.specs_dir();
         let dir = &specs_dir.join("visored/global_default_dispatches");
         let signature_table = VdSignatureTable::from_lp_csv_file_path(
             &specs_dir.join("visored/signature_table.lpcsv"),
-            db,
         );
-        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table, db)
+        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table)
     }
 }

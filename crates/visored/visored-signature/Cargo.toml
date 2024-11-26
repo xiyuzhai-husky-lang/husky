@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+lazy_static.workspace = true
 rustc-hash.workspace = true
 salsa.workspace = true
 # abstractions

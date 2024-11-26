@@ -61,8 +61,8 @@ pub struct LxCommandPathMenu {
 }
 
 impl LxCommandPathMenu {
-    fn new(db: &salsa::Db) -> Self {
-        let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(db, data), db);
+    fn new() -> Self {
+        let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(data));
         Self {
             // - general
             begin: p("begin"),
@@ -123,7 +123,7 @@ impl LxCommandPathMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn command_path_menu(db: &salsa::Db) -> LxCommandPathMenu {
-    LxCommandPathMenu::new(db)
+pub fn command_path_menu() -> &'static LxCommandPathMenu {
+    todo!()
+    // &*LxCommandPathMenu::new()
 }

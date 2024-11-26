@@ -13,9 +13,10 @@ keywords.workspace = true
 
 [dependencies]
 either.workspace = true
+lazy_static.workspace = true
 # abstractions
 idx-arena.workspace = true
-salsa.workspace = true
+salsa = { workspace = true, optional = true }
 # latex
 latex-environment.workspace = true
 latex-math-letter.workspace = true

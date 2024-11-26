@@ -8,7 +8,7 @@ use self::{category::*, function::*, set::*, trai::*, trai_item::*};
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdItemPath {
     Category(VdCategoryPath),
     Set(VdSetPath),
@@ -76,30 +76,20 @@ impl VdItemPath {
     }
 }
 
-impl salsa::DebugWithDb for VdItemPath {
-    fn debug_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
-        use salsa::DisplayWithDb;
-
-        self.display_fmt_with_db(f, db)
+impl std::fmt::Debug for VdItemPath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.show_aux(f)
     }
 }
 
-impl salsa::DisplayWithDb for VdItemPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdItemPath {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VdItemPath::Category(category_path) => category_path.display_fmt_with_db(f, db),
-            VdItemPath::Set(set_path) => set_path.display_fmt_with_db(f, db),
-            VdItemPath::Function(function_path) => function_path.display_fmt_with_db(f, db),
-            VdItemPath::Trait(trait_path) => trait_path.display_fmt_with_db(f, db),
-            VdItemPath::TraitItem(trait_item_path) => trait_item_path.display_fmt_with_db(f, db),
+            VdItemPath::Category(category_path) => category_path.show_aux(f),
+            VdItemPath::Set(set_path) => set_path.show_aux(f),
+            VdItemPath::Function(function_path) => function_path.show_aux(f),
+            VdItemPath::Trait(trait_path) => trait_path.show_aux(f),
+            VdItemPath::TraitItem(trait_item_path) => trait_item_path.show_aux(f),
         }
     }
 }

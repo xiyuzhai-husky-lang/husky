@@ -28,11 +28,10 @@ impl VdAnnotationsExample {
             &[((&str, &str), VdTokenAnnotation)],
             &[((&str, &str), VdSpaceAnnotation)],
         )],
-        db: &::salsa::Db,
     ) -> Vec<Self> {
         todo!()
-        // let command_signature_table = LxCommandSignatureTable::new_default(db);
-        // let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
+        // let command_signature_table = LxCommandSignatureTable::new_default();
+        // let environment_signature_table = LxEnvironmentSignatureTable::new_default();
         // examples
         //     .iter()
         //     .map(
@@ -77,37 +76,33 @@ impl VdAnnotationsExample {
     }
 }
 
-pub fn lx_annotations_examples(db: &::salsa::Db) -> Vec<VdAnnotationsExample> {
+pub fn lx_annotations_examples() -> Vec<VdAnnotationsExample> {
     use crate::annotation::{space::*, token::*};
 
-    VdAnnotationsExample::collect_from_sparse(
-        &[
-            (LxMode::Math, "", &[], &[]),
-            (
-                LxMode::Math,
-                "xy",
-                &[(("", "x"), VARIABLE_USAGE), (("x", "y"), VARIABLE_USAGE)],
-                &[(("x", "y"), SCALAR_MUL)],
-            ),
-            (
-                LxMode::Math,
-                "dx",
-                &[
-                    (("", "d"), DIFFERENTIAL),
-                    (("d", "x"), SINGLE_VARIABLE_INTEGRAL_VARIABLE_DECL),
-                ],
-                &[],
-            ),
-        ],
-        db,
-    )
+    VdAnnotationsExample::collect_from_sparse(&[
+        (LxMode::Math, "", &[], &[]),
+        (
+            LxMode::Math,
+            "xy",
+            &[(("", "x"), VARIABLE_USAGE), (("x", "y"), VARIABLE_USAGE)],
+            &[(("x", "y"), SCALAR_MUL)],
+        ),
+        (
+            LxMode::Math,
+            "dx",
+            &[
+                (("", "d"), DIFFERENTIAL),
+                (("d", "x"), SINGLE_VARIABLE_INTEGRAL_VARIABLE_DECL),
+            ],
+            &[],
+        ),
+    ])
 }
 
 #[test]
 #[ignore]
 fn latex_annotations_examples_works() {
-    let db = &DB::default();
-    let examples = lx_annotations_examples(db);
+    let examples = lx_annotations_examples();
     expect_test::expect_file!["../../expect-files/annotations/examples.txt"]
         .assert_eq(&format!("{:#?}", examples));
 }

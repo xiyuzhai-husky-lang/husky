@@ -45,17 +45,15 @@ impl VdSqrtGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
-        db: &'a ::salsa::Db,
     ) -> impl IntoIterator<Item = (VdBaseSqrtKey, VdSqrtGlobalDispatch)> + 'a {
         let LpCsvFileData::Rows(rows) = file.data();
         rows.iter()
-            .map(|row| Self::collect_from_csv_row(row, signature_table, db))
+            .map(|row| Self::collect_from_csv_row(row, signature_table))
     }
 
     pub fn collect_from_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
-        db: &::salsa::Db,
     ) -> (VdBaseSqrtKey, VdSqrtGlobalDispatch) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
@@ -63,7 +61,7 @@ impl VdSqrtGlobalDispatch {
         let &[ref base_ty, ref signature_ident] = exprs as &[_] else {
             todo!()
         };
-        let base_ty = VdType::from_lp_csv_expr(base_ty, db);
+        let base_ty = VdType::from_lp_csv_expr(base_ty);
         let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
             todo!()
         };
@@ -83,11 +81,10 @@ fn vd_sqrt_global_dispatch_standard_defaults_works() {
     use visored_opr::menu::vd_opr_menu;
     use visored_term::menu::vd_ty_menu;
 
-    let db = &DB::default();
-    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
-    let ty_menu = vd_ty_menu(db);
-    let global_dispatch_menu = vd_global_dispatch_menu(db);
-    let opr_menu = vd_opr_menu(db);
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
+    let ty_menu = &vd_ty_menu;
+    let global_dispatch_menu = &vd_global_dispatch_menu;
+    let opr_menu = &vd_opr_menu;
     for ((base_ty), dispatch) in
         VdSqrtGlobalDispatch::standard_defaults(ty_menu, global_dispatch_menu)
     {

@@ -47,8 +47,8 @@ pub fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         let field_ident = &f.ident;
         let field_ty = &f.ty;
         quote! {
-            pub fn #field_ident(&self) -> & #field_ty {
-                &self.0.#field_ident
+            pub fn #field_ident(self) -> &'static #field_ty {
+                &self.0.0.#field_ident
             }
         }
     });
@@ -59,7 +59,7 @@ pub fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
             #(#field_defs),*
         }
 
-        #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+        #[derive(Clone, Copy, PartialEq, Eq, Hash)]
         #vis struct #ty_ident(interned::Interned<#data_ty_ident>);
 
         interned::lazy_static! {
@@ -81,7 +81,7 @@ pub fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 #ty_ident(storage.intern(hidden))
             }
 
-            #(#field_accesses),*
+            #(#field_accesses)*
         }
     };
 

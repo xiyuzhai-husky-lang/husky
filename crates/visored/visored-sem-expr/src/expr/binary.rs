@@ -56,12 +56,11 @@ impl<'a> VdSemExprBuilder<'a> {
                 expr_ty,
             )
         } else {
-            use salsa::DebugWithDb;
             todo!(
                 "no default dispatch for lopd_ty = {:?}, base_opr = {:?}, ropd_ty = {:?}",
-                lopd.ty.debug(self.db()),
+                lopd.ty,
                 base_opr,
-                ropd.ty.debug(self.db())
+                ropd.ty
             )
         }
     }

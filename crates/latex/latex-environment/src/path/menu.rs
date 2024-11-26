@@ -23,8 +23,8 @@ pub struct LxEnvironmentPathMenu {
 }
 
 impl LxEnvironmentPathMenu {
-    fn new(db: &::salsa::Db) -> Self {
-        let p = |s: &str| LxEnvironmentPath::new(s, db);
+    fn new() -> Self {
+        let p = |s: &str| LxEnvironmentPath::new(s);
         Self {
             document: p("document"),
             example: p("example"),
@@ -46,7 +46,7 @@ impl LxEnvironmentPathMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn lx_environment_path_menu(db: &::salsa::Db) -> LxEnvironmentPathMenu {
-    LxEnvironmentPathMenu::new(db)
+pub fn lx_environment_path_menu() -> &'static LxEnvironmentPathMenu {
+    todo!()
+    // LxEnvironmentPathMenu::new(db)
 }

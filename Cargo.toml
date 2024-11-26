@@ -214,6 +214,7 @@ yaml-rust2 = "0.9.0"
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
 composite-pattern = { path = "crates/abstractions/composite-pattern" }
+coword = { path = "crates/abstractions/coword" }
 enum-class = { path = "crates/abstractions/enum-class" }
 enum-class-macros = { path = "crates/abstractions/enum-class-macros" }
 enum-index = { path = "crates/abstractions/enum-index" }
