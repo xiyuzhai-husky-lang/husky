@@ -28,14 +28,21 @@
 
 % prove x + 1/x \geq 2 
 % fail case:
-% when I add 'Assume $x>0$.' after 'Let $x\in\mathbb{R}$.'
-% when I has two eq in a $$, like $x + \frac{1}{x} - 2 = \frac{x^2 + 1 - 2x}{x} = \frac{{(x-1)}^2}{x}$.
+% TODO: when I has two eq in a $$, like $x + \frac{1}{x} - 2 = \frac{x^2 + 1 - 2x}{x} = \frac{{(x-1)}^2}{x}$.
 \begin{example}
-    Let $x\in\mathbb{R}$. Then $x + \frac{1}{x} - 2 = \frac{x^2 + 1 - 2x}{x}$. 
+    Let $x\in\mathbb{R}$. Assume $x>0$. Then $x + \frac{1}{x} - 2 = \frac{x^2 + 1 - 2x}{x}$.
     Then $\frac{x^2 + 1 - 2x}{x} = \frac{{(x-1)}^2}{x}$.
-    Then $x + \frac{1}{x} - 2 = \frac{{(x-1)}^2}{x}$. 
-    Then $\frac{{(x-1)}^2}{x} \ge 0$. 
-    Then $x + \frac{1}{x} - 2 \ge 0$. 
+    Then $x + \frac{1}{x} - 2 = \frac{{(x-1)}^2}{x}$.
+    Then $\frac{{(x-1)}^2}{x} \ge 0$.
+    Then $x + \frac{1}{x} - 2 \ge 0$.
+    Then $x + \frac{1}{x} \ge 2$.
+\end{example}
+\begin{example}
+    Let $x\in\mathbb{R}$. Then $x + \frac{1}{x} - 2 = \frac{x^2 + 1 - 2x}{x}$.
+    Then $\frac{x^2 + 1 - 2x}{x} = \frac{{(x-1)}^2}{x}$.
+    Then $x + \frac{1}{x} - 2 = \frac{{(x-1)}^2}{x}$.
+    Then $\frac{{(x-1)}^2}{x} \ge 0$.
+    Then $x + \frac{1}{x} - 2 \ge 0$.
     Then $x + \frac{1}{x} \ge 2$.
 \end{example}
 
