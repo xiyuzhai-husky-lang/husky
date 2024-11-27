@@ -32,7 +32,7 @@ fn basic_body_to_vd_mir_works() {
               └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                 └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
                   └─ "Let $x\\in\\mathbb{R}$" clause.let
-                    └─ "x\\in\\mathbb{R}" expr.separated_list
+                    └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
                       ├─ "x" expr.letter
                       └─ "\\mathbb{R}" expr.letter
         "#]],
@@ -52,7 +52,7 @@ fn basic_body_to_vd_mir_works() {
                 └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
                     └─ "Let $x\\in\\mathbb{R}$" clause.let
-                      └─ "x\\in\\mathbb{R}" expr.separated_list
+                      └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
                         ├─ "x" expr.letter
                         └─ "\\mathbb{R}" expr.letter
         "#]],

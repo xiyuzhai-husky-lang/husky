@@ -4,6 +4,8 @@ use either::*;
 use lean_mir_expr::expr::application::{LnMirFunc, LnMirFuncKey};
 use smallvec::*;
 use visored_mir_expr::expr::VdMirExprIdxRange;
+use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
     pub(super) fn build_folding_separated_list(
@@ -50,6 +52,7 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
     ) -> LnMirExprData {
         if followers.len() != 1 {
             todo!()

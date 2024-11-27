@@ -32,7 +32,7 @@ Let $x\in\mathbb{R}$.
               └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                 └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
                   └─ "Let $x\\in\\mathbb{R}$" clause.let
-                    └─ "x\\in\\mathbb{R}" expr.separated_list
+                    └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
                       ├─ "x" expr.letter
                       └─ "\\mathbb{R}" expr.letter
         "#]],
@@ -49,7 +49,7 @@ Let $x\in\mathbb{R}$.
                 └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
                     └─ "Let $x\\in\\mathbb{R}$" clause.let
-                      └─ "x\\in\\mathbb{R}" expr.separated_list
+                      └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
                         ├─ "x" expr.letter
                         └─ "\\mathbb{R}" expr.letter
         "#]],
@@ -73,7 +73,7 @@ Let $y\in\mathbb{R}$.
               │ └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
               │   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
               │     └─ "Let $x\\in\\mathbb{R}$" clause.let
-              │       └─ "x\\in\\mathbb{R}" expr.separated_list
+              │       └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
               │         ├─ "x" expr.letter
               │         └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{Hello}\nLet $y\\in\\mathbb{R}$." division.divisions
@@ -81,7 +81,7 @@ Let $y\in\mathbb{R}$.
               │   └─ "Let $y\\in\\mathbb{R}$." stmt.paragraph
               │     └─ "Let $y\\in\\mathbb{R}$." sentence.clauses
               │       └─ "Let $y\\in\\mathbb{R}$" clause.let
-              │         └─ "y\\in\\mathbb{R}" expr.separated_list
+              │         └─ "y\\in\\mathbb{R}" expr.chaining_separated_list
               │           ├─ "y" expr.letter
               │           └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{World}" division.divisions

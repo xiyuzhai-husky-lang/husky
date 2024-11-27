@@ -21,7 +21,7 @@ use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use separator::base::VdBaseSeparatorSignature;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSignature {
     Attach(VdAttachSignature),
     BinaryOpr(VdBinaryOprSignature),
