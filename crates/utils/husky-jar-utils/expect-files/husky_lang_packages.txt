@@ -4620,6 +4620,7 @@
             "latex-command",
             "latex-environment",
             "latex-math-letter",
+            "latex-math-punctuation",
             "latex-prelude",
             "latex-rose-punctuation",
             "latex-token",

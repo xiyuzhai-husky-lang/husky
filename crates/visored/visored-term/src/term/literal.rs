@@ -29,7 +29,7 @@ impl std::fmt::Debug for VdLiteral {
 pub enum VdLiteralData {
     NaturalNumber(String),
     NegativeInteger(String),
-    FiniteDecimalRepresentation(String),
+    Float(String),
     SpecialConstant(VdSpecialConstant),
 }
 
@@ -43,7 +43,7 @@ impl VdLiteral {
                     debug_assert!(n.chars().all(|c| c.is_digit(10)));
                 }
                 VdLiteralData::NegativeInteger(_) => todo!(),
-                VdLiteralData::FiniteDecimalRepresentation(_) => todo!(),
+                VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             }
         }
@@ -68,7 +68,7 @@ fn zfc_literal_ty(literal: VdLiteral) -> VdType {
     match data {
         VdLiteralData::NaturalNumber(_) => menu.nat,
         VdLiteralData::NegativeInteger(_) => todo!(),
-        VdLiteralData::FiniteDecimalRepresentation(_) => todo!(),
+        VdLiteralData::Float(_) => menu.rat,
         VdLiteralData::SpecialConstant(special_constant) => todo!(),
     }
 }
@@ -78,7 +78,7 @@ impl VdLiteralData {
         match self {
             VdLiteralData::NaturalNumber(n) => n,
             VdLiteralData::NegativeInteger(n) => n,
-            VdLiteralData::FiniteDecimalRepresentation(n) => n,
+            VdLiteralData::Float(n) => n,
             VdLiteralData::SpecialConstant(_) => {
                 todo!()
             }

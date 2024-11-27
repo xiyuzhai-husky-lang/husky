@@ -132,6 +132,7 @@ impl<'a> LxLexer<'a> {
             c => {
                 self.chars.eat_char();
                 match c {
+                    '.' => Some(LxMathTokenData::Punctuation(LxMathPunctuation::Ldot)),
                     '_' => Some(LxMathTokenData::Subscript),
                     '^' => Some(LxMathTokenData::Superscript),
                     '{' => Some(LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl)),
