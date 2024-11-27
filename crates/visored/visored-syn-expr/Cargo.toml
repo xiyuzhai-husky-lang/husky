@@ -24,6 +24,7 @@ salsa = { workspace = true, optional = true }
 idx-arena.workspace = true
 # latex
 latex-math-letter.workspace = true
+latex-math-punctuation.workspace = true
 latex-rose-punctuation.workspace = true
 latex-prelude.workspace = true
 latex-token.workspace = true

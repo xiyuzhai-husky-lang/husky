@@ -203,6 +203,7 @@ fn lx_math_punctuation_standard_resolution(
         LxMathPunctuation::Rbox => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::EscapedLcurl => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::EscapedRcurl => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Ldot => Some(VdPunctuationGlobalResolution::Todo),
     }
 }
 

@@ -79,9 +79,7 @@ fn to_lean_literal(literal: VdLiteral) -> LnLiteral {
     let data = match literal.data() {
         VdLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
         VdLiteralData::NegativeInteger(_) => todo!(),
-        VdLiteralData::FiniteDecimalRepresentation(_) => {
-            todo!()
-        }
+        VdLiteralData::Float(lit) => LnLiteralData::Float(lit.to_string()),
         VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };
     LnLiteral::new(data)
