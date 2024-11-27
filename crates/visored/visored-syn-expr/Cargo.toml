@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+codespan-reporting.workspace = true
 either.workspace = true
 enum-class.workspace = true
 itertools.workspace = true
@@ -35,6 +36,7 @@ latex-vfs.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils
+husky-codespan-utils.workspace = true
 husky-debug-utils.workspace = true
 husky-print-utils.workspace = true
 husky-tree-utils.workspace = true

@@ -4286,6 +4286,14 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-codespan-utils",
+        relative_path: "crates/utils/husky-codespan-utils",
+        dependencies: [
+            "codespan-reporting",
+            "termcolor",
+        ],
+    },
+    PackageSummary {
         name: "husky-decl",
         relative_path: "crates/utils/husky-decl",
         dependencies: [],
@@ -4607,9 +4615,11 @@
         name: "visored-syn-expr",
         relative_path: "crates/visored/visored-syn-expr",
         dependencies: [
+            "codespan-reporting",
             "coword",
             "either",
             "enum-class",
+            "husky-codespan-utils",
             "husky-debug-utils",
             "husky-print-utils",
             "husky-text-protocol",

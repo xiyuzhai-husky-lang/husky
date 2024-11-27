@@ -114,6 +114,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         );
         let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard();
         let mut builder = VdSynExprBuilder::new(
+            input.content(),
             input.file_path(),
             &token_storage,
             ast_arena.as_arena_ref(),
