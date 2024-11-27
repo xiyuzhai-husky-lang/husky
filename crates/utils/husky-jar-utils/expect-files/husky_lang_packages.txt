@@ -4580,6 +4580,7 @@
         dependencies: [
             "either",
             "enum-class",
+            "husky-codespan-utils",
             "husky-coword",
             "husky-print-utils",
             "husky-tree-utils",

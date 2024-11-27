@@ -1,3 +1,5 @@
+mod debug;
+
 use latex_token::storage::LxTokenStorage;
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
@@ -47,6 +49,7 @@ use crate::{
 };
 
 pub(crate) struct VdSemExprBuilder<'a> {
+    content: &'a str,
     token_storage: &'a LxTokenStorage,
     annotations: &'a VdAnnotations,
     default_resolution_table: &'a VdDefaultGlobalResolutionTable,
@@ -75,6 +78,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
 
 impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn new(
+        content: &'a str,
         token_storage: &'a LxTokenStorage,
         annotations: &'a VdAnnotations,
         default_resolution_table: &'a VdDefaultGlobalResolutionTable,
@@ -92,6 +96,7 @@ impl<'a> VdSemExprBuilder<'a> {
         division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         let mut slf = Self {
+            content,
             token_storage,
             annotations,
             default_resolution_table,

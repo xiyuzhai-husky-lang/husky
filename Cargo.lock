@@ -12860,6 +12860,7 @@ dependencies = [
  "either",
  "enum-class",
  "expect-test",
+ "husky-codespan-utils",
  "husky-coword",
  "husky-path-utils",
  "husky-print-utils",
