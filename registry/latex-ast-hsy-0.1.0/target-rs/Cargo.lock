@@ -172,6 +172,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "coword"
+version = "0.1.0"
+dependencies = [
+ "interned",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -731,6 +739,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "interned"
+version = "0.1.0"
+dependencies = [
+ "dashmap",
+ "interned-macros",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
+name = "interned-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "itoa"
 version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -751,6 +778,7 @@ dependencies = [
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "enum-class",
  "husky-coword",
  "husky-print-utils",
@@ -764,7 +792,6 @@ dependencies = [
  "latex-rose-punctuation",
  "latex-token",
  "ptree",
- "salsa",
  "smallvec",
  "time-capsule",
 ]
@@ -789,12 +816,13 @@ dependencies = [
 name = "latex-command"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "husky-coword",
  "latex-math-letter",
  "latex-prelude",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash",
- "salsa",
  "thiserror",
 ]
 
@@ -802,10 +830,11 @@ dependencies = [
 name = "latex-environment"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "husky-coword",
  "latex-prelude",
+ "lazy_static 1.5.0",
  "rustc-hash",
- "salsa",
  "thiserror",
 ]
 
@@ -839,10 +868,11 @@ version = "0.1.0"
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "enum-class",
- "husky-coword",
  "husky-print-utils",
  "husky-text-protocol",
+ "interned",
  "latex-command",
  "latex-math-letter",
  "latex-math-punctuation",
@@ -850,7 +880,6 @@ dependencies = [
  "latex-rose-punctuation",
  "ordered-float 4.5.0",
  "rustc-hash",
- "salsa",
  "shifted-unsigned-int",
 ]
 
@@ -858,7 +887,7 @@ dependencies = [
 name = "latex-vfs"
 version = "0.1.0"
 dependencies = [
- "salsa",
+ "interned",
 ]
 
 [[package]]
