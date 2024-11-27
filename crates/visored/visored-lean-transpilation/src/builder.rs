@@ -16,8 +16,9 @@ use visored_mir_expr::{
 };
 
 use crate::{
-    dictionary::VdLeanDictionary, mangle::VdLeanTranspilationMangler,
-    namespace::vd_module_path_to_ln_namespace,
+    dictionary::VdLeanDictionary,
+    mangle::VdLeanTranspilationMangler,
+    namespace::{vd_module_path_to_ln_namespace, vd_module_path_to_ln_namespace_or_inherited},
 };
 
 pub struct VdLeanTranspilationBuilder<'a> {
@@ -91,12 +92,19 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         result
     }
 
+    pub(crate) fn current_module_path(&self) -> VdModulePath {
+        self.current_module_path
+    }
+
     pub(crate) fn mangle_symbol(&mut self, symbol_local_defn: VdMirSymbolLocalDefnIdx) -> LnIdent {
         self.mangler.mangle_symbol(symbol_local_defn)
     }
 
     pub(crate) fn mangle_hypothesis(&mut self) -> LnIdent {
-        self.mangler.mangle_hypothesis()
+        self.mangler
+            .mangle_hypothesis(*vd_module_path_to_ln_namespace_or_inherited(
+                self.current_module_path(),
+            ))
     }
 
     pub(crate) fn sorry(&mut self) -> LnMirDefBody {

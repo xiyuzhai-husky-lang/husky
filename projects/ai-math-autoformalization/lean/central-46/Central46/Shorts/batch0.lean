@@ -10,17 +10,17 @@ end Example1
 namespace Example2
 variable (x : ℝ)
 
-def h1 : x ^ 2 ≥ 0 := sorry
+def h : x ^ 2 ≥ 0 := sorry
 end Example2
 
 namespace Example3
-variable (x1 : ℝ)
+variable (x : ℝ)
 
-def h2 : x1 ^ 2 + 1 ≥ 2 * x1 := sorry
+def h : x ^ 2 + 1 ≥ 2 * x := sorry
 end Example3
 
 namespace Example4
-def h3 : 1 = 1 := by
+def h : 1 = 1 := by
   calc
     1=1 := sorry
     _=1 := sorry
