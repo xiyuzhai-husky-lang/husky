@@ -185,7 +185,11 @@ impl VdGlobalDispatchMenu {
             base_binary_opr,
             signature,
         };
-        let sep = |base_separator, signature| VdSeparatorGlobalDispatch::Normal {
+        let fold = |base_separator, signature| VdSeparatorGlobalDispatch::Folding {
+            base_separator,
+            signature,
+        };
+        let chain = |base_separator, signature| VdSeparatorGlobalDispatch::Chaining {
             base_separator,
             signature,
         };
@@ -216,17 +220,17 @@ impl VdGlobalDispatchMenu {
             complex_div: bin(VdBaseBinaryOpr::Div, complex_div),
             // # separators
             // ## add
-            nat_add: sep(VdBaseSeparator::Add, nat_add),
-            int_add: sep(VdBaseSeparator::Add, int_add),
-            rat_add: sep(VdBaseSeparator::Add, rat_add),
-            real_add: sep(VdBaseSeparator::Add, real_add),
-            complex_add: sep(VdBaseSeparator::Add, complex_add),
+            nat_add: fold(VdBaseSeparator::Add, nat_add),
+            int_add: fold(VdBaseSeparator::Add, int_add),
+            rat_add: fold(VdBaseSeparator::Add, rat_add),
+            real_add: fold(VdBaseSeparator::Add, real_add),
+            complex_add: fold(VdBaseSeparator::Add, complex_add),
             // ## mul
-            nat_space_mul: sep(VdBaseSeparator::Space, nat_mul),
-            int_space_mul: sep(VdBaseSeparator::Space, int_mul),
-            rat_space_mul: sep(VdBaseSeparator::Space, rat_mul),
-            real_space_mul: sep(VdBaseSeparator::Space, real_mul),
-            complex_space_mul: sep(VdBaseSeparator::Space, complex_mul),
+            nat_space_mul: fold(VdBaseSeparator::Space, nat_mul),
+            int_space_mul: fold(VdBaseSeparator::Space, int_mul),
+            rat_space_mul: fold(VdBaseSeparator::Space, rat_mul),
+            real_space_mul: fold(VdBaseSeparator::Space, real_mul),
+            complex_space_mul: fold(VdBaseSeparator::Space, complex_mul),
             // ## power
             nat_to_the_power_of_nat: pow(nat_to_the_power_of_nat),
             int_to_the_power_of_nat: pow(int_to_the_power_of_nat),
@@ -234,37 +238,37 @@ impl VdGlobalDispatchMenu {
             real_to_the_power_of_nat: pow(real_to_the_power_of_nat),
             complex_to_the_power_of_nat: pow(complex_to_the_power_of_nat),
             // ## eq
-            nat_eq: sep(VdBaseSeparator::Eq, nat_eq),
-            int_eq: sep(VdBaseSeparator::Eq, int_eq),
-            rat_eq: sep(VdBaseSeparator::Eq, rat_eq),
-            real_eq: sep(VdBaseSeparator::Eq, real_eq),
-            complex_eq: sep(VdBaseSeparator::Eq, complex_eq),
+            nat_eq: chain(VdBaseSeparator::Eq, nat_eq),
+            int_eq: chain(VdBaseSeparator::Eq, int_eq),
+            rat_eq: chain(VdBaseSeparator::Eq, rat_eq),
+            real_eq: chain(VdBaseSeparator::Eq, real_eq),
+            complex_eq: chain(VdBaseSeparator::Eq, complex_eq),
             // ## ne
-            nat_ne: sep(VdBaseSeparator::Ne, nat_ne),
-            int_ne: sep(VdBaseSeparator::Ne, int_ne),
-            rat_ne: sep(VdBaseSeparator::Ne, rat_ne),
-            real_ne: sep(VdBaseSeparator::Ne, real_ne),
-            complex_ne: sep(VdBaseSeparator::Ne, complex_ne),
+            nat_ne: chain(VdBaseSeparator::Ne, nat_ne),
+            int_ne: chain(VdBaseSeparator::Ne, int_ne),
+            rat_ne: chain(VdBaseSeparator::Ne, rat_ne),
+            real_ne: chain(VdBaseSeparator::Ne, real_ne),
+            complex_ne: chain(VdBaseSeparator::Ne, complex_ne),
             // ## lt
-            nat_lt: sep(VdBaseSeparator::Lt, nat_lt),
-            int_lt: sep(VdBaseSeparator::Lt, int_lt),
-            rat_lt: sep(VdBaseSeparator::Lt, rat_lt),
-            real_lt: sep(VdBaseSeparator::Lt, real_lt),
+            nat_lt: chain(VdBaseSeparator::Lt, nat_lt),
+            int_lt: chain(VdBaseSeparator::Lt, int_lt),
+            rat_lt: chain(VdBaseSeparator::Lt, rat_lt),
+            real_lt: chain(VdBaseSeparator::Lt, real_lt),
             // ## gt
-            nat_gt: sep(VdBaseSeparator::Gt, nat_gt),
-            int_gt: sep(VdBaseSeparator::Gt, int_gt),
-            rat_gt: sep(VdBaseSeparator::Gt, rat_gt),
-            real_gt: sep(VdBaseSeparator::Gt, real_gt),
+            nat_gt: chain(VdBaseSeparator::Gt, nat_gt),
+            int_gt: chain(VdBaseSeparator::Gt, int_gt),
+            rat_gt: chain(VdBaseSeparator::Gt, rat_gt),
+            real_gt: chain(VdBaseSeparator::Gt, real_gt),
             // ## le
-            nat_le: sep(VdBaseSeparator::Le, nat_le),
-            int_le: sep(VdBaseSeparator::Le, int_le),
-            rat_le: sep(VdBaseSeparator::Le, rat_le),
-            real_le: sep(VdBaseSeparator::Le, real_le),
+            nat_le: chain(VdBaseSeparator::Le, nat_le),
+            int_le: chain(VdBaseSeparator::Le, int_le),
+            rat_le: chain(VdBaseSeparator::Le, rat_le),
+            real_le: chain(VdBaseSeparator::Le, real_le),
             // ## ge
-            nat_ge: sep(VdBaseSeparator::Ge, nat_ge),
-            int_ge: sep(VdBaseSeparator::Ge, int_ge),
-            rat_ge: sep(VdBaseSeparator::Ge, rat_ge),
-            real_ge: sep(VdBaseSeparator::Ge, real_ge),
+            nat_ge: chain(VdBaseSeparator::Ge, nat_ge),
+            int_ge: chain(VdBaseSeparator::Ge, int_ge),
+            rat_ge: chain(VdBaseSeparator::Ge, rat_ge),
+            real_ge: chain(VdBaseSeparator::Ge, real_ge),
             // ## in
             in_set: VdSeparatorGlobalDispatch::InSet { expr_ty: prop },
             // # sqrt

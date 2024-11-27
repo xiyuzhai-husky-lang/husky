@@ -21,7 +21,11 @@ use visored_term::{
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSeparatorGlobalDispatch {
-    Normal {
+    Folding {
+        base_separator: VdBaseSeparator,
+        signature: VdBaseSeparatorSignature,
+    },
+    Chaining {
         base_separator: VdBaseSeparator,
         signature: VdBaseSeparatorSignature,
     },
@@ -357,13 +361,14 @@ impl VdSeparatorGlobalDispatch {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
         };
-        let &[ref prev_item_ty, ref base_separator, ref next_item_ty, ref signature_ident] =
+        let &[ref prev_item_ty, ref base_separator, ref next_item_ty, ref dispatch] =
             exprs as &[_]
         else {
             todo!()
         };
         let base_separator = VdBaseSeparator::from_lp_csv_expr(base_separator);
-        let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
+        let (ref dispatch_variant, ref dispatch_arguments) = dispatch.application_expansion();
+        let LpCsvExprData::Ident(ref dispatch_variant_ident) = dispatch_variant.data else {
             todo!()
         };
         let prev_item_ty = VdType::from_lp_csv_expr(prev_item_ty);
@@ -373,26 +378,45 @@ impl VdSeparatorGlobalDispatch {
             prev_item_ty,
             next_item_ty,
         };
-        // ad hoc
-        let dispatch = if signature_ident == "in_set" {
-            let ty_menu = &VD_TYPE_MENU;
-            VdSeparatorGlobalDispatch::InSet {
-                expr_ty: ty_menu.prop,
-            }
-        } else {
-            let VdSignature::Separator(VdSeparatorSignature::Base(signature)) =
-                (if signature_ident == "in_set" {
+        let dispatch = match dispatch_variant_ident.as_str() {
+            "folding" => {
+                let [ref signature] = dispatch_arguments else {
                     todo!()
-                } else {
-                    &signature_table[signature_ident]
-                })
-            else {
-                todo!()
-            };
-            VdSeparatorGlobalDispatch::Normal {
-                base_separator,
-                signature: signature.clone(),
+                };
+                let LpCsvExprData::Ident(ref signature_ident) = signature.data else {
+                    todo!()
+                };
+                let VdSignature::Separator(VdSeparatorSignature::Base(signature)) =
+                    signature_table[signature_ident]
+                else {
+                    todo!()
+                };
+                VdSeparatorGlobalDispatch::Folding {
+                    base_separator,
+                    signature,
+                }
             }
+            "chaining" => {
+                let [ref signature] = dispatch_arguments else {
+                    todo!()
+                };
+                let LpCsvExprData::Ident(ref signature_ident) = signature.data else {
+                    todo!()
+                };
+                let VdSignature::Separator(VdSeparatorSignature::Base(signature)) =
+                    signature_table[signature_ident]
+                else {
+                    todo!()
+                };
+                VdSeparatorGlobalDispatch::Chaining {
+                    base_separator,
+                    signature,
+                }
+            }
+            "in_set" => VdSeparatorGlobalDispatch::InSet {
+                expr_ty: VD_TYPE_MENU.prop,
+            },
+            ident => todo!("ident: {ident} not handled"),
         };
         (key, dispatch)
     }

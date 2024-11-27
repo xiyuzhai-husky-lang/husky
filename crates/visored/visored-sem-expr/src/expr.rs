@@ -84,8 +84,8 @@ pub enum VdSemExprData {
     },
     SeparatedList {
         separator_class: VdSeparatorClass,
-        items: VdSemExprIdxRange,
-        dispatch: VdSemSeparatedListDispatch,
+        leader: VdSemExprIdx,
+        followers: VdSemSeparatedListFollowers,
     },
     // TODO: maybe these two are just separated lists?
     UniadicChain,
@@ -313,7 +313,22 @@ impl VdSemExprData {
             VdSemExprData::UniadicArray => vec![],
             // ad hoc
             VdSemExprData::VariadicArray => vec![],
-            VdSemExprData::SeparatedList { ref items, .. } => items.into_iter().collect(),
+            VdSemExprData::SeparatedList {
+                leader,
+                ref followers,
+                ..
+            } => [leader]
+                .into_iter()
+                .chain(
+                    followers
+                        .iter()
+                        .map(|f| match f.separator {
+                            VdSemSeparator::Base(..) => vec![f.expr],
+                            VdSemSeparator::Composite(expr, _) => vec![expr, f.expr],
+                        })
+                        .flatten(),
+                )
+                .collect(),
             VdSemExprData::LxDelimited { item, .. } => vec![item],
             VdSemExprData::Delimited {
                 left_delimiter,
@@ -368,11 +383,7 @@ impl<'db> VdSemExprBuilder<'db> {
                 ref scripts,
                 ref dispatch,
             } => todo!(),
-            VdSemExprData::SeparatedList {
-                separator_class,
-                items,
-                ref dispatch,
-            } => todo!(),
+            VdSemExprData::SeparatedList { .. } => todo!(),
             VdSemExprData::UniadicChain => todo!(),
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),
