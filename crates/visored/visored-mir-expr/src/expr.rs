@@ -15,7 +15,7 @@ use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
-    prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListDispatch,
+    prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListFollowerDispatch,
     sqrt::VdSemSqrtDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_term::term::literal::VdLiteral;
@@ -131,18 +131,19 @@ impl<'db> VdMirExprBuilder<'db> {
                 }
             },
             VdSemExprData::BaseOpr { opr } => todo!(),
-            VdSemExprData::SeparatedList {
-                items, dispatch, ..
-            } => VdMirExprData::Application {
-                function: match dispatch {
-                    VdSemSeparatedListDispatch::Normal {
-                        base_separator,
-                        signature,
-                    } => VdMirFunc::NormalBaseSeparator(signature),
-                    VdSemSeparatedListDispatch::InSet { expr_ty } => VdMirFunc::InSet,
-                },
-                arguments: items.to_vd_mir(self),
-            },
+            VdSemExprData::SeparatedList { .. } => {
+                todo!()
+                // VdMirExprData::Application {
+                //             function: match dispatch {
+                //                 VdSemSeparatedListFollowerDispatch::Normal {
+                //                     base_separator,
+                //                     signature,
+                //                 } => VdMirFunc::NormalBaseSeparator(signature),
+                //                 VdSemSeparatedListFollowerDispatch::InSet { expr_ty } => VdMirFunc::InSet,
+                //             },
+                //             arguments: items.to_vd_mir(self),
+                //         }
+            }
             VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
                 self.build_expr(item)
             }
