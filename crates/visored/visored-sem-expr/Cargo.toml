@@ -30,6 +30,7 @@ latex-prelude.workspace = true
 latex-token.workspace = true
 latex-math-letter.workspace = true
 # utils
+husky-codespan-utils.workspace = true
 husky-print-utils.workspace = true
 husky-tree-utils.workspace = true
 # visored

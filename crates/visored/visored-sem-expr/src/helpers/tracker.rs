@@ -133,6 +133,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         let default_global_dispatch_table =
             VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
         let mut builder = VdSemExprBuilder::new(
+            input.content(),
             &token_storage,
             &annotations,
             &default_resolution_table,
