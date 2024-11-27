@@ -202,7 +202,7 @@ impl<'a> LnMirExprFormatter<'a> {
         self.make_sure_new_paragraph();
         let defn_arena = self.defn_arena;
         match defn_arena[defn] {
-            LnItemDefnData::Variable { symbol, ty } => {
+            LnItemDefnData::Variable { ident: symbol, ty } => {
                 write!(self.result, "variable ({} : ", symbol.data());
                 self.format_expr_ext(ty);
                 write!(self.result, ")");
