@@ -7,6 +7,5 @@ pub mod path;
 #[cfg(test)]
 mod tests;
 
-use self::jar::VdEntityPathJar as Jar;
 #[cfg(test)]
 use crate::tests::*;

@@ -43,12 +43,8 @@ impl VdTraitItemPath {
     pub const GE: Self = VdTraitItemPath::Ge;
 }
 
-impl salsa::DisplayWithDb for VdTraitItemPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdTraitItemPath {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdTraitItemPath::GroupMul => write!(f, "*"),
             VdTraitItemPath::AbelianGroupAdd => write!(f, "+(abelian_group_add)"),

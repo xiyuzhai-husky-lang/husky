@@ -30,7 +30,6 @@ impl VdSynExprEntityTreeNode {
 }
 
 pub(crate) fn build_entity_tree_with(
-    db: &::salsa::Db,
     default_global_resolution_table: &VdDefaultGlobalResolutionTable,
     file_path: LxFilePath,
     stmt_arena: VdSynStmtArenaRef,
@@ -42,7 +41,6 @@ pub(crate) fn build_entity_tree_with(
     VdSynDivisionMap<VdSynExprEntityTreeNode>,
 ) {
     let mut builder = VdSynExprEntityTreeBuilder::new(
-        db,
         default_global_resolution_table,
         file_path,
         stmt_arena,

@@ -59,7 +59,7 @@ impl VdCompositePrefixOpr {
 }
 
 impl VdBasePrefixOpr {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &::salsa::Db) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr) -> Self {
         let LpCsvExprData::Ident(ref ident) = expr.data else {
             todo!()
         };

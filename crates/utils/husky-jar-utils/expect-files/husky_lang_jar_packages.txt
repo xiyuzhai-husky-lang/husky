@@ -1262,38 +1262,8 @@
         ],
     },
     JarPackageSummary {
-        name: "latex-ast",
-        dependencies: [
-            "husky-coword",
-            "latex-command",
-            "latex-environment",
-            "latex-token",
-            "latex-command",
-            "latex-vfs",
-        ],
-    },
-    JarPackageSummary {
-        name: "latex-command",
-        dependencies: [
-            "husky-coword",
-        ],
-    },
-    JarPackageSummary {
-        name: "latex-vfs",
-        dependencies: [],
-    },
-    JarPackageSummary {
-        name: "latex-environment",
-        dependencies: [
-            "husky-coword",
-        ],
-    },
-    JarPackageSummary {
         name: "latex-token",
-        dependencies: [
-            "husky-coword",
-            "latex-command",
-        ],
+        dependencies: [],
     },
     JarPackageSummary {
         name: "husky-completion",
@@ -1309,25 +1279,6 @@
         ],
     },
     JarPackageSummary {
-        name: "lean-entity-path",
-        dependencies: [
-            "husky-coword",
-        ],
-    },
-    JarPackageSummary {
-        name: "lean-mir-expr",
-        dependencies: [
-            "lean-entity-path",
-            "lean-term",
-        ],
-    },
-    JarPackageSummary {
-        name: "lean-term",
-        dependencies: [
-            "lean-entity-path",
-        ],
-    },
-    JarPackageSummary {
         name: "lean-sem-expr",
         dependencies: [],
     },
@@ -1339,121 +1290,6 @@
         name: "visored-entity-path",
         dependencies: [
             "husky-coword",
-            "latex-vfs",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-global-dispatch",
-        dependencies: [
-            "visored-opr",
-            "visored-signature",
-            "visored-term",
-            "husky-coword",
-            "latex-vfs",
-            "visored-entity-path",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-opr",
-        dependencies: [],
-    },
-    JarPackageSummary {
-        name: "visored-signature",
-        dependencies: [
-            "visored-term",
-            "husky-coword",
-            "latex-vfs",
-            "visored-entity-path",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-term",
-        dependencies: [
-            "visored-entity-path",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-lean-transpilation",
-        dependencies: [
-            "lean-entity-path",
-            "lean-mir-expr",
-            "lean-term",
-            "visored-entity-path",
-            "visored-mir-expr",
-            "visored-opr",
-            "visored-term",
-            "husky-coword",
-            "latex-ast",
-            "latex-command",
-            "latex-environment",
-            "latex-token",
-            "latex-vfs",
-            "lean-sem-expr",
-            "lean-term",
-            "visored-global-dispatch",
-            "visored-sem-expr",
-            "visored-signature",
-            "visored-syn-expr",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-mir-expr",
-        dependencies: [
-            "latex-environment",
-            "latex-vfs",
-            "visored-entity-path",
-            "visored-global-dispatch",
-            "visored-opr",
-            "visored-sem-expr",
-            "visored-signature",
-            "visored-term",
-            "husky-coword",
-            "latex-ast",
-            "latex-command",
-            "latex-token",
-            "visored-entity-path",
-            "visored-global-dispatch",
-            "visored-sem-expr",
-            "visored-signature",
-            "visored-syn-expr",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-sem-expr",
-        dependencies: [
-            "husky-coword",
-            "latex-ast",
-            "latex-command",
-            "latex-environment",
-            "latex-token",
-            "visored-entity-path",
-            "visored-global-dispatch",
-            "visored-opr",
-            "visored-signature",
-            "visored-syn-expr",
-            "visored-term",
-            "husky-coword",
-            "latex-command",
-            "latex-environment",
-            "latex-vfs",
-            "visored-entity-path",
-        ],
-    },
-    JarPackageSummary {
-        name: "visored-syn-expr",
-        dependencies: [
-            "husky-coword",
-            "latex-ast",
-            "latex-command",
-            "latex-environment",
-            "latex-token",
-            "latex-vfs",
-            "visored-entity-path",
-            "visored-opr",
-            "visored-term",
-            "husky-coword",
-            "latex-command",
-            "visored-entity-path",
         ],
     },
 ]

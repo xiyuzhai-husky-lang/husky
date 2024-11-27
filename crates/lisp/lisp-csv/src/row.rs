@@ -27,33 +27,38 @@ impl<'a> LpCsvParser<'a> {
                     match self.chars.peek() {
                         Some(c) if self.is_cell_separator(c) => (),
                         Some('\n') | None => break,
-                        Some(_) => todo!(),
+                        Some(c) => todo!("c: {c:?}"),
                     }
                 }
                 JustOk(LpCsvRow::SeparatedExprs(exprs))
             }
             Some('\n') | None => JustOk(LpCsvRow::Expr(expr)),
-            Some(_) => todo!(),
+            Some(c) => todo!("c: {c:?}"),
         }
     }
 }
 
-#[test]
-fn parse_lp_csv_row_works() {
+#[cfg(test)]
+mod tests {
+    use super::*;
+
     fn t(input: &str, expect: Expect) {
         let mut parser = LpCsvParser::new(input);
         let row = parser.parse_row();
         expect.assert_debug_eq(&row);
     }
-    t(
-        "",
-        expect![[r#"
+
+    #[test]
+    fn parse_lp_csv_row_works() {
+        t(
+            "",
+            expect![[r#"
         Nothing
     "#]],
-    );
-    t(
-        "1",
-        expect![[r#"
+        );
+        t(
+            "1",
+            expect![[r#"
             JustOk(
                 Expr(
                     LpCsvExpr {
@@ -68,10 +73,10 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
-    );
-    t(
-        "1,2",
-        expect![[r#"
+        );
+        t(
+            "1,2",
+            expect![[r#"
             JustOk(
                 SeparatedExprs(
                     [
@@ -97,10 +102,10 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
-    );
-    t(
-        "mathbb,1,2",
-        expect![[r#"
+        );
+        t(
+            "mathbb,1,2",
+            expect![[r#"
             JustOk(
                 SeparatedExprs(
                     [
@@ -133,11 +138,11 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
-    );
-    t(
-        r#"1,2
+        );
+        t(
+            r#"1,2
 3,4"#,
-        expect![[r#"
+            expect![[r#"
             JustOk(
                 SeparatedExprs(
                     [
@@ -163,10 +168,10 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
-    );
-    t(
-        r#"1,2;3,4"#,
-        expect![[r#"
+        );
+        t(
+            r#"1,2;3,4"#,
+            expect![[r#"
             JustOk(
                 SeparatedExprs(
                     [
@@ -210,10 +215,10 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
-    );
-    t(
-        "# comment\n1",
-        expect![[r#"
+        );
+        t(
+            "# comment\n1",
+            expect![[r#"
             JustOk(
                 Expr(
                     LpCsvExpr {
@@ -228,5 +233,26 @@ fn parse_lp_csv_row_works() {
                 ),
             )
         "#]],
-    );
+        );
+    }
+
+    #[test]
+    fn dbg() {
+        t(
+            "[]",
+            expect![[r#"
+            JustOk(
+                Expr(
+                    LpCsvExpr {
+                        data: List(
+                            [],
+                        ),
+                        offset_range: 0..2,
+                        position_range: [1:1, 1:3),
+                    },
+                ),
+            )
+        "#]],
+        );
+    }
 }

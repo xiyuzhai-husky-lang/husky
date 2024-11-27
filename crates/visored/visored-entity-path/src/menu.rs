@@ -2,6 +2,7 @@ use crate::path::{
     category::VdCategoryPath, function::VdFunctionPath, set::VdSetPath, trai::VdTraitPath,
     trai_item::VdTraitItemPath,
 };
+use lazy_static::lazy_static;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdItemPathMenu {
@@ -42,7 +43,7 @@ pub struct VdItemPathMenu {
 }
 
 impl VdItemPathMenu {
-    pub fn new(db: &::salsa::Db) -> Self {
+    pub fn new() -> Self {
         Self {
             // # categories
             set: VdCategoryPath::SET,
@@ -82,7 +83,6 @@ impl VdItemPathMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn vd_item_path_menu(db: &::salsa::Db) -> VdItemPathMenu {
-    VdItemPathMenu::new(db)
+lazy_static! {
+    pub static ref VD_ITEM_PATH_MENU: VdItemPathMenu = VdItemPathMenu::new();
 }

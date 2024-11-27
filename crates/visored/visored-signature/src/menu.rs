@@ -1,12 +1,12 @@
-use visored_term::{
-    instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu},
-    menu::{vd_ty_menu, VdTypeMenu},
-};
-
 use crate::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
     frac::VdBaseFracSignature, prefix_opr::VdBasePrefixOprSignature,
     separator::base::VdBaseSeparatorSignature, sqrt::VdBaseSqrtSignature,
+};
+use lazy_static::lazy_static;
+use visored_term::{
+    instantiation::menu::{VdInstantiationMenu, VD_INSTANTIATION_MENU},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -87,7 +87,7 @@ pub struct VdSignatureMenu {
 }
 
 impl VdSignatureMenu {
-    fn new(db: &::salsa::Db) -> Self {
+    fn new() -> Self {
         let VdTypeMenu {
             nat,
             int,
@@ -96,7 +96,7 @@ impl VdSignatureMenu {
             complex,
             set,
             prop,
-        } = *vd_ty_menu(db);
+        } = *VD_TYPE_MENU;
         let VdInstantiationMenu {
             int_pos,
             rat_pos,
@@ -155,7 +155,7 @@ impl VdSignatureMenu {
             rat_ge,
             real_ge,
             real_sqrt,
-        } = *vd_instantiation_menu(db);
+        } = *VD_INSTANTIATION_MENU;
         let pre = VdBasePrefixOprSignature::new;
         let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
@@ -244,7 +244,6 @@ impl VdSignatureMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn vd_signature_menu(db: &::salsa::Db) -> VdSignatureMenu {
-    VdSignatureMenu::new(db)
+lazy_static! {
+    pub static ref vd_signature_menu: VdSignatureMenu = VdSignatureMenu::new();
 }
