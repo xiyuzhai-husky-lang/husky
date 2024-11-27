@@ -1,7 +1,7 @@
 pub mod table;
 
 use crate::{
-    menu::{vd_ty_menu, VdTypeMenu},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
     term::{VdTerm, VdTermData, VdTermId},
 };
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
@@ -42,32 +42,34 @@ impl VdType {
         // TODO: check this is actually a type?
         VdType(VdTerm::new_item_path(item_path))
     }
+
+    pub fn new(term: VdTerm) -> Self {
+        // TODO: check this is actually a type?
+        VdType(term)
+    }
 }
 
 impl VdType {
     pub fn is_function_like(self) -> bool {
-        todo!()
-        // is_vd_ty_function_like(db, **self)
+        *is_vd_ty_function_like(**self)
     }
 }
 
-// #[salsa::tracked]
+#[interned::memo]
 fn is_vd_ty_function_like(ty: VdTermId) -> bool {
-    // TODO: ad hoc implementation
-    todo!()
-    // match *ty.data() {
-    //     VdTermData::ItemPath(_) => false,
-    //     VdTermData::Literal(_) => todo!(),
-    //     VdTermData::ForAll(_) => todo!(),
-    //     VdTermData::Exists(_) => todo!(),
-    //     VdTermData::Limit(_) => todo!(),
-    //     VdTermData::Eval(_) => todo!(),
-    //     VdTermData::SymbolicVariable(_) => todo!(),
-    //     VdTermData::AbstractVariable(_) => todo!(),
-    //     VdTermData::StackVariable(_) => todo!(),
-    //     VdTermData::Application(_) => todo!(),
-    //     VdTermData::Abstraction(_) => todo!(),
-    // }
+    match *ty.data() {
+        VdTermData::ItemPath(_) => false,
+        VdTermData::Literal(_) => todo!(),
+        VdTermData::ForAll(_) => todo!(),
+        VdTermData::Exists(_) => todo!(),
+        VdTermData::Limit(_) => todo!(),
+        VdTermData::Eval(_) => todo!(),
+        VdTermData::SymbolicVariable(_) => todo!(),
+        VdTermData::AbstractVariable(_) => todo!(),
+        VdTermData::StackVariable(_) => todo!(),
+        VdTermData::Application(_) => todo!(),
+        VdTermData::Abstraction(_) => todo!(),
+    }
 }
 
 impl VdType {
@@ -90,7 +92,7 @@ impl VdType {
             complex,
             set,
             prop,
-        } = *vd_ty_menu;
+        } = *VD_TYPE_MENU;
         match ident as &str {
             "true" => todo!(),
             "false" => todo!(),

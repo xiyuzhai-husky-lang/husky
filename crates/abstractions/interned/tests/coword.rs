@@ -1,4 +1,4 @@
-use interned::interned;
+use interned::{interned, memo};
 
 #[interned]
 pub struct Coword {
@@ -33,4 +33,9 @@ fn coword_works() {
     assert_eq!(word3.data(), "world");
 
     assert_eq!(__COWORD_STORAGE.lock().unwrap().len_checked(), 2);
+}
+
+#[memo]
+fn first_letter(word: Coword) -> char {
+    word.data().chars().next().unwrap()
 }

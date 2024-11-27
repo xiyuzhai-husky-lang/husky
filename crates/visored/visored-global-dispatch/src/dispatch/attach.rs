@@ -13,7 +13,7 @@ use visored_signature::{
 };
 use visored_term::{
     instantiation::VdInstantiation,
-    menu::{vd_ty_menu, VdTypeMenu},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
     ty::VdType,
 };
 
@@ -97,7 +97,7 @@ impl VdAttachGlobalDispatch {
 #[test]
 fn vd_attach_global_dispatch_standard_defaults_works() {
     let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
-    let zfc_ty_menu = &vd_ty_menu;
+    let zfc_ty_menu = &VD_TYPE_MENU;
     let global_dispatch_menu = &vd_global_dispatch_menu;
     for (key, dispatch) in
         VdAttachGlobalDispatch::standard_defaults(zfc_ty_menu, global_dispatch_menu)

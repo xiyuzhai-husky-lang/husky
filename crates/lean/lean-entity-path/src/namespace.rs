@@ -1,4 +1,5 @@
 use crate::*;
+use interned::memo;
 use lean_coword::ident::LnIdent;
 use smallvec::{smallvec, SmallVec, ToSmallVec};
 
@@ -68,16 +69,15 @@ impl std::fmt::Debug for LnNamespace {
 }
 
 #[memo]
-fn ln_namespace_all_idents(namespace: LnNamespace) -> &'static SmallVec<[LnIdent; 4]> {
-    todo!()
-    // match namespace.data() {
-    //     LnNamespaceData::Root => smallvec![],
-    //     LnNamespaceData::Child(parent, ident) => {
-    //         let mut ids = parent.all_idents().to_smallvec();
-    //         ids.push(ident);
-    //         ids
-    //     }
-    // }
+fn ln_namespace_all_idents(namespace: LnNamespace) -> SmallVec<[LnIdent; 4]> {
+    match *namespace.data() {
+        LnNamespaceData::Root => smallvec![],
+        LnNamespaceData::Child(parent, ident) => {
+            let mut ids = parent.all_idents().to_smallvec();
+            ids.push(ident);
+            ids
+        }
+    }
 }
 
 #[test]

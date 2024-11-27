@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+dashmap.workspace = true
 lazy_static.workspace = true
 # abstractions
 interned-macros.workspace = true

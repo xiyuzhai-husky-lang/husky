@@ -8,7 +8,7 @@ pub(crate) use expect_test::*;
 // #[test]
 // fn one_add_one_to_lean_works() {
 //     let db = &DB::default();
-//     let menu = vd_ty_menu();
+//     let menu = VD_TYPE_MENU();
 //     let mut builder = VdSemExprTestBuilder::new();
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {
@@ -40,7 +40,7 @@ pub(crate) use expect_test::*;
 // #[test]
 // fn one_add_one_eqs_two_to_lean_works() {
 //     let db = &DB::default();
-//     let menu = vd_ty_menu();
+//     let menu = VD_TYPE_MENU();
 //     let mut builder = VdSemExprTestBuilder::new();
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {

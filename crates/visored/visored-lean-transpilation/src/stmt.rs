@@ -33,7 +33,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
                     VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
-                        todo!(), // vd_module_path_to_ln_namespace(module_path).unwrap(),
+                        *vd_module_path_to_ln_namespace(module_path),
                     ),
                     VdMirBlockMeta::Environment(_, module_path) => {
                         LnMirItemDefnGroupMeta::Environment(

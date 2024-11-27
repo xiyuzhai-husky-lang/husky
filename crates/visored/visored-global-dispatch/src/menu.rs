@@ -11,7 +11,7 @@ use visored_signature::{
         separator::base::VdBaseSeparatorSignature,
     },
 };
-use visored_term::menu::{vd_ty_menu, VdTypeMenu};
+use visored_term::menu::{VdTypeMenu, VD_TYPE_MENU};
 
 use crate::dispatch::{
     attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
@@ -117,7 +117,7 @@ impl VdGlobalDispatchMenu {
             complex,
             set,
             prop,
-        } = *vd_ty_menu;
+        } = *VD_TYPE_MENU;
         let VdSignatureMenu {
             int_pos,
             rat_pos,

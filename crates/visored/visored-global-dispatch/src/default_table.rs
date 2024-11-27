@@ -16,7 +16,7 @@ use visored_opr::{
     separator::VdBaseSeparator,
 };
 use visored_signature::{menu::vd_signature_menu, table::VdSignatureTable};
-use visored_term::{menu::vd_ty_menu, ty::VdType};
+use visored_term::{menu::VD_TYPE_MENU, ty::VdType};
 
 pub struct VdDefaultGlobalDispatchTable {
     base_prefix_opr_default_dispatch_table:

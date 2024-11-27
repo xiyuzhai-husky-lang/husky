@@ -1,11 +1,12 @@
 mod pool;
 mod vec_array;
 
-use std::collections::HashMap;
+pub use dashmap::DashMap;
+pub use interned_macros::{interned, memo};
+pub use lazy_static::lazy_static;
 
 use self::pool::Pool;
-pub use interned_macros::interned;
-pub use lazy_static::lazy_static;
+use std::collections::HashMap;
 
 pub struct Storage<T: 'static, const N: usize> {
     pool: Pool<T, N>,

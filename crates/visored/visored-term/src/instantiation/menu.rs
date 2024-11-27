@@ -1,10 +1,11 @@
 use super::*;
 use crate::{
-    menu::{vd_ty_menu, VdTypeMenu},
-    term::menu::{vd_term_menu, VdTermMenu},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
+    term::menu::{VdTermMenu, VD_TERM_MENU},
 };
+use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
-use visored_entity_path::menu::{vd_item_path_menu, VdItemPathMenu};
+use visored_entity_path::menu::{VdItemPathMenu, VD_ITEM_PATH_MENU};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdInstantiationMenu {
@@ -116,7 +117,7 @@ impl VdInstantiationMenu {
             gt,
             le,
             ge,
-        } = *vd_item_path_menu();
+        } = *VD_ITEM_PATH_MENU;
         let VdTermMenu {
             zero,
             one,
@@ -126,7 +127,7 @@ impl VdInstantiationMenu {
             rat,
             real,
             complex,
-        } = *vd_term_menu();
+        } = *VD_TERM_MENU;
         macro_rules! ins{
             ($path: expr $(, $args: expr)*) => {
                 VdInstantiation::new($path.into(), smallvec![$($args),*])
@@ -285,7 +286,6 @@ impl VdInstantiationMenu {
     }
 }
 
-pub fn vd_instantiation_menu() -> &'static VdInstantiationMenu {
-    todo!()
-    // VdInstantiationMenu::new()
+lazy_static! {
+    pub static ref VD_INSTANTIATION_MENU: VdInstantiationMenu = VdInstantiationMenu::new();
 }
