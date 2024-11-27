@@ -96,7 +96,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                     self.result.push_str(s);
                 }
                 VdLiteralData::NegativeInteger(_) => todo!(),
-                VdLiteralData::FiniteDecimalRepresentation(_) => {
+                VdLiteralData::Float(_) => {
                     todo!()
                 }
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),

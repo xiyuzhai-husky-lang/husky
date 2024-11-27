@@ -167,6 +167,7 @@ impl<'a> LnMirExprFormatter<'a> {
             LnMirExprData::Literal(lit) => {
                 self.result += match lit.data() {
                     LnLiteralData::Nat(s) => s,
+                    LnLiteralData::Float(s) => s,
                 }
             }
             LnMirExprData::Sorry => self.write_word("sorry"),

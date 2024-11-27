@@ -432,7 +432,7 @@ impl VdSynExprData {
             } => match literal.data() {
                 VdLiteralData::NaturalNumber(n) => n.to_string(),
                 VdLiteralData::NegativeInteger(n) => n.to_string(),
-                VdLiteralData::FiniteDecimalRepresentation(n) => n.to_string(),
+                VdLiteralData::Float(n) => n.to_string(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },
             VdSynExprData::Letter { letter, .. } => letter.latex_code().to_string(),
