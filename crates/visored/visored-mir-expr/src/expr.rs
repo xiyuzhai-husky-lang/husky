@@ -14,12 +14,16 @@ use visored_global_dispatch::dispatch::{
     binary_opr::VdBinaryOprGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
 };
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdSeparatorClass};
+use visored_opr::{
+    opr::binary::VdBaseBinaryOpr,
+    separator::{VdBaseSeparator, VdSeparatorClass},
+};
 use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
     prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListFollowerDispatch,
     sqrt::VdSemSqrtDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
+use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_term::term::literal::VdLiteral;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -37,6 +41,7 @@ pub enum VdMirExprData {
     ChainingSeparatedList {
         leader: VdMirExprIdx,
         followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]>,
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
     },
     ItemPath(VdItemPath),
 }
@@ -141,12 +146,22 @@ impl<'db> VdMirExprBuilder<'db> {
                 }
             },
             VdSemExprData::BaseOpr { opr } => todo!(),
-            VdSemExprData::SeparatedList {
+            VdSemExprData::FoldingSeparatedList {
                 separator_class,
                 leader,
                 ref followers,
                 ..
-            } => self.build_separated_list(separator_class, leader, followers),
+            } => self.build_folding_separated_list(leader, followers),
+            VdSemExprData::ChainingSeparatedList {
+                separator_class,
+                leader,
+                ref followers,
+                joined_separator_and_signature,
+            } => self.build_chaining_separated_list(
+                leader,
+                followers,
+                joined_separator_and_signature,
+            ),
             VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
                 self.build_expr(item)
             }

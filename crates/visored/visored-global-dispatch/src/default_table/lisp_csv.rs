@@ -14,6 +14,7 @@ impl VdDefaultGlobalDispatchTable {
         let power_file = dir.join("power.lpcsv");
         let base_sqrt_file = dir.join("base_sqrt.lpcsv");
         let base_frac_file = dir.join("base_frac.lpcsv");
+        let base_chaining_separator_join_file = dir.join("base_chaining_separator_join.lpcsv");
         Self::from_lisp_csv_file_paths(
             &base_prefix_opr_file,
             &base_binary_opr_file,
@@ -21,6 +22,7 @@ impl VdDefaultGlobalDispatchTable {
             &power_file,
             &base_sqrt_file,
             &base_frac_file,
+            &base_chaining_separator_join_file,
             signature_table,
         )
     }
@@ -32,6 +34,7 @@ impl VdDefaultGlobalDispatchTable {
         power_file: &Path,
         base_sqrt_file: &Path,
         base_frac_file: &Path,
+        base_chaining_separator_join_file: &Path,
         signature_table: &VdSignatureTable,
     ) -> Self {
         let base_prefix_opr_file = parse_lp_csv_filepath(base_prefix_opr_file).unwrap();
@@ -40,6 +43,8 @@ impl VdDefaultGlobalDispatchTable {
         let power_file = parse_lp_csv_filepath(power_file).unwrap();
         let base_sqrt_file = parse_lp_csv_filepath(base_sqrt_file).unwrap();
         let base_frac_file = parse_lp_csv_filepath(base_frac_file).unwrap();
+        let base_chaining_separator_join_file =
+            parse_lp_csv_filepath(base_chaining_separator_join_file).unwrap();
         Self::from_lisp_csv_files(
             &base_prefix_opr_file,
             &base_binary_opr_file,
@@ -47,6 +52,7 @@ impl VdDefaultGlobalDispatchTable {
             &power_file,
             &base_sqrt_file,
             &base_frac_file,
+            &base_chaining_separator_join_file,
             &signature_table,
         )
     }
@@ -58,6 +64,7 @@ impl VdDefaultGlobalDispatchTable {
         power_file: &LpCsvFile,
         base_sqrt_file: &LpCsvFile,
         base_frac_file: &LpCsvFile,
+        base_chaining_separator_join_file: &LpCsvFile,
         signature_table: &VdSignatureTable,
     ) -> Self {
         let base_prefix_opr_table = VdPrefixOprGlobalDispatch::collect_from_lisp_csv_files(
@@ -78,6 +85,11 @@ impl VdDefaultGlobalDispatchTable {
             VdSqrtGlobalDispatch::collect_from_lisp_csv_files(base_sqrt_file, signature_table);
         let base_frac_table =
             VdFracGlobalDispatch::collect_from_lisp_csv_files(base_frac_file, signature_table);
+        let base_chaining_separator_join_default_dispatches =
+            VdBaseChainingSeparatorJoinDispatch::collect_from_lisp_csv_files(
+                base_chaining_separator_join_file,
+                signature_table,
+            );
         Self::new(
             base_prefix_opr_table,
             base_binary_opr_table,
@@ -85,6 +97,7 @@ impl VdDefaultGlobalDispatchTable {
             power_table,
             base_sqrt_table,
             base_frac_table,
+            base_chaining_separator_join_default_dispatches,
         )
     }
 }

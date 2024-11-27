@@ -1,6 +1,8 @@
 use super::*;
 use smallvec::{smallvec, SmallVec};
-use visored_global_dispatch::dispatch::separator::VdSeparatorGlobalDispatch;
+use visored_global_dispatch::dispatch::separator::{
+    join::VdBaseChainingSeparatorJoinDispatch, VdSeparatorGlobalDispatch,
+};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_syn_expr::expr::VdSynExprIdxRange;
 
@@ -88,10 +90,23 @@ impl<'db> VdSemExprBuilder<'db> {
         let followers = self.calc_separated_list_dispatches(&leader, followers);
         let leader = self.alloc_expr(items.first().unwrap(), leader);
         let ty = followers.last().unwrap().dispatch.expr_ty();
-        let data = VdSemExprData::SeparatedList {
-            separator_class,
-            leader,
-            followers,
+        let joined_separator_and_signature = self.infer_joined_separator_and_signature(&followers);
+        let data = match separator_class {
+            VdSeparatorClass::Relation => VdSemExprData::ChainingSeparatedList {
+                separator_class,
+                leader,
+                followers,
+                joined_separator_and_signature,
+            },
+            VdSeparatorClass::Comma => todo!(),
+            VdSeparatorClass::Semicolon => todo!(),
+            VdSeparatorClass::Space | VdSeparatorClass::Mul | VdSeparatorClass::Add => {
+                VdSemExprData::FoldingSeparatedList {
+                    separator_class,
+                    leader,
+                    followers,
+                }
+            }
         };
         VdSemExprEntry::new(data, ty)
     }
@@ -194,5 +209,62 @@ impl<'db> VdSemExprBuilder<'db> {
             separator,
             next_item_ty
         )
+    }
+
+    fn infer_joined_separator_and_signature(
+        &mut self,
+        followers: &VdSemSeparatedListFollowers,
+    ) -> Option<(VdBaseSeparator, VdBaseSeparatorSignature)> {
+        let mut follower_iter = followers.iter().copied();
+        let mut prev = follower_iter.next().unwrap();
+        let next = follower_iter.next()?;
+        let (mut opr, mut signature) = self.infer_joined_separator_and_signature_step(prev, next);
+        for follower in follower_iter {
+            (opr, signature) = self.infer_joined_separator_and_signature_step(prev, follower);
+            prev = follower;
+        }
+        Some((opr, signature))
+    }
+
+    fn infer_joined_separator_and_signature_step(
+        &mut self,
+        prev: VdSemSeparatedListFollower,
+        next: VdSemSeparatedListFollower,
+    ) -> (VdBaseSeparator, VdBaseSeparatorSignature) {
+        let VdSemSeparatedListFollowerDispatch::Chaining {
+            base_separator: prev_base_separator,
+            signature: prev_signature,
+        } = prev.dispatch
+        else {
+            unreachable!()
+        };
+        let VdSemSeparatedListFollowerDispatch::Chaining {
+            base_separator: next_base_separator,
+            signature: next_signature,
+        } = next.dispatch
+        else {
+            unreachable!()
+        };
+        if prev_signature == next_signature {
+            debug_assert_eq!(prev_base_separator, next_base_separator);
+            return (next_base_separator, next_signature);
+        }
+        let Some(dispatch) = self
+            .default_global_dispatch_table()
+            .base_chaining_separator_join_default_dispatch(prev_signature, next_signature)
+        else {
+            todo!(
+                "prev_signature = {:?}, next_signature = {:?}",
+                prev_signature,
+                next_signature
+            )
+        };
+        match dispatch {
+            VdBaseChainingSeparatorJoinDispatch::Ok {
+                base_separator,
+                signature,
+            } => (base_separator, signature),
+            VdBaseChainingSeparatorJoinDispatch::Err => todo!(),
+        }
     }
 }

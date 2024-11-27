@@ -3,23 +3,7 @@ use visored_sem_expr::expr::separated_list::VdSemSeparatedListFollower;
 use super::*;
 
 impl<'a> VdMirExprBuilder<'a> {
-    pub(super) fn build_separated_list(
-        &mut self,
-        separator_class: VdSeparatorClass,
-        leader: VdSemExprIdx,
-        followers: &[VdSemSeparatedListFollower],
-    ) -> VdMirExprData {
-        match separator_class {
-            VdSeparatorClass::Relation => self.build_chaining_separated_list(leader, followers),
-            VdSeparatorClass::Comma => todo!(),
-            VdSeparatorClass::Semicolon => todo!(),
-            VdSeparatorClass::Space | VdSeparatorClass::Mul | VdSeparatorClass::Add => {
-                self.build_folding_separated_list(leader, followers)
-            }
-        }
-    }
-
-    fn build_folding_separated_list(
+    pub(super) fn build_folding_separated_list(
         &mut self,
         leader: VdSemExprIdx,
         followers: &[VdSemSeparatedListFollower],
@@ -44,10 +28,11 @@ impl<'a> VdMirExprBuilder<'a> {
         }
     }
 
-    fn build_chaining_separated_list(
+    pub(super) fn build_chaining_separated_list(
         &mut self,
         leader: VdSemExprIdx,
         followers: &[VdSemSeparatedListFollower],
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
     ) -> VdMirExprData {
         VdMirExprData::ChainingSeparatedList {
             leader: leader.to_vd_mir(self),
@@ -71,6 +56,7 @@ impl<'a> VdMirExprBuilder<'a> {
                     } => unreachable!("follower.dispatch = {:?}", follower.dispatch),
                 })
                 .collect(),
+            joined_separator_and_signature,
         }
     }
 }
