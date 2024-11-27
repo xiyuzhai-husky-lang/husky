@@ -236,7 +236,7 @@ impl<'db> VdSemExprBuilder<'db> {
             signature: prev_signature,
         } = prev.dispatch
         else {
-            unreachable!()
+            unreachable!("prev.dispatch = {:?}", prev.dispatch)
         };
         let VdSemSeparatedListFollowerDispatch::Chaining {
             base_separator: next_base_separator,

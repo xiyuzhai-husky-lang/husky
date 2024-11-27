@@ -63,7 +63,13 @@ impl<'db> VdSynExprBuilder<'db> {
             if let Some(ast_idx) = asts.next() {
                 match self.ast_arena()[ast_idx] {
                     LxRoseAstData::TextEdit { .. } => todo!(),
-                    LxRoseAstData::Word(token_idx, coword) => todo!("coword: {}", coword),
+                    LxRoseAstData::Word(token_idx, coword) => {
+                        self.emit_message_over_token_to_stdout(
+                            *token_idx,
+                            format!("coword: {}", coword),
+                        );
+                        todo!("coword: {}", coword)
+                    }
                     LxRoseAstData::Punctuation(pucntuation_token_idx, punctuation) => {
                         match punctuation {
                             LxRosePunctuation::Comma => todo!(),

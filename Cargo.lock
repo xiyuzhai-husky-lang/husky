@@ -4606,6 +4606,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-codespan-utils"
+version = "0.1.0"
+dependencies = [
+ "codespan-reporting",
+ "termcolor",
+]
+
+[[package]]
 name = "husky-color"
 version = "0.1.0"
 dependencies = [
@@ -12899,10 +12907,12 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "codespan-reporting",
  "coword",
  "either",
  "enum-class",
  "expect-test",
+ "husky-codespan-utils",
  "husky-coword",
  "husky-debug-utils",
  "husky-path-utils",
