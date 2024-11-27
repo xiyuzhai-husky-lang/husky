@@ -2,7 +2,7 @@ pub mod special_constant;
 
 use self::special_constant::VdSpecialConstant;
 use super::*;
-use crate::{menu::vd_ty_menu, ty::VdType};
+use crate::{menu::VD_TYPE_MENU, ty::VdType};
 
 // #[salsa::derive_debug_with_db]
 // #[salsa::as_id]
@@ -63,15 +63,14 @@ impl VdLiteral {
 }
 
 fn zfc_literal_ty(literal: VdLiteral) -> VdType {
-    todo!()
-    // let data = literal.data();
-    // let menu = vd_ty_menu();
-    // match data {
-    //     VdLiteralData::NaturalNumber(_) => menu.nat,
-    //     VdLiteralData::NegativeInteger(_) => todo!(),
-    //     VdLiteralData::FiniteDecimalRepresentation(_) => todo!(),
-    //     VdLiteralData::SpecialConstant(special_constant) => todo!(),
-    // }
+    let data = literal.data();
+    let menu = &VD_TYPE_MENU;
+    match data {
+        VdLiteralData::NaturalNumber(_) => menu.nat,
+        VdLiteralData::NegativeInteger(_) => todo!(),
+        VdLiteralData::FiniteDecimalRepresentation(_) => todo!(),
+        VdLiteralData::SpecialConstant(special_constant) => todo!(),
+    }
 }
 
 impl VdLiteralData {

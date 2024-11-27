@@ -79,10 +79,10 @@ fn vd_sqrt_global_dispatch_standard_defaults_works() {
     use crate::default_table::VdDefaultGlobalDispatchTable;
     use crate::menu::{vd_global_dispatch_menu, VdGlobalDispatchMenu};
     use visored_opr::menu::vd_opr_menu;
-    use visored_term::menu::vd_ty_menu;
+    use visored_term::menu::VD_TYPE_MENU;
 
     let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
-    let ty_menu = &vd_ty_menu;
+    let ty_menu = &VD_TYPE_MENU;
     let global_dispatch_menu = &vd_global_dispatch_menu;
     let opr_menu = &vd_opr_menu;
     for ((base_ty), dispatch) in

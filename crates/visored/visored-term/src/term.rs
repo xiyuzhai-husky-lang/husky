@@ -27,7 +27,7 @@ use self::{
 use crate::ty::VdType;
 use item_path::VdItemPathTermData;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
-use menu::{vd_term_menu, VdTermMenu};
+use menu::{VdTermMenu, VD_TERM_MENU};
 use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
 
@@ -115,7 +115,7 @@ pub enum VdTermData {
 
 impl VdTerm {
     pub fn to_ty(self) -> VdType {
-        todo!()
+        VdType::new(self)
     }
 }
 
@@ -140,7 +140,7 @@ impl VdTerm {
             rat,
             real,
             complex,
-        } = *vd_term_menu();
+        } = *VD_TERM_MENU;
         match ident as &str {
             "true" => todo!(),
             "false" => todo!(),

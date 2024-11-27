@@ -79,7 +79,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
             module_path.show(),
             self.current_module_path.show(),
         );
-        let namespace = vd_module_path_to_ln_namespace(module_path);
+        let namespace = *vd_module_path_to_ln_namespace(module_path);
         let prev_module_path = self.current_module_path;
         self.current_module_path = module_path;
         let result = if let Some(namespace) = namespace {

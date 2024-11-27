@@ -1,6 +1,6 @@
 use super::*;
 use lazy_static::lazy_static;
-use visored_term::instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu};
+use visored_term::instantiation::menu::{VdInstantiationMenu, VD_INSTANTIATION_MENU};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdMirFuncKeyMenu {
@@ -144,7 +144,7 @@ impl VdMirFuncKeyMenu {
             rat_ge,
             real_ge,
             real_sqrt,
-        } = *vd_instantiation_menu();
+        } = *VD_INSTANTIATION_MENU;
         Self {
             int_pos: VdMirFuncKey::NormalBasePrefixOpr(int_pos),
             rat_pos: VdMirFuncKey::NormalBasePrefixOpr(rat_pos),

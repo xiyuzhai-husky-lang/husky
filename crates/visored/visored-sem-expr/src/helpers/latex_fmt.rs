@@ -1,6 +1,6 @@
 use expr::binary::VdSemBinaryDispatch;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_term::{menu::vd_ty_menu, term::literal::VdLiteralData};
+use visored_term::{menu::VD_TYPE_MENU, term::literal::VdLiteralData};
 
 use super::*;
 use crate::{
@@ -154,7 +154,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 // #[test]
 // fn latex_fmt_works() {
 //     let db = &DB::default();
-//     let menu = vd_ty_menu();
+//     let menu = VD_TYPE_MENU();
 //     let mut builder = VdSemExprTestBuilder::new();
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {

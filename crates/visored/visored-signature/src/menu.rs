@@ -5,8 +5,8 @@ use crate::signature::{
 };
 use lazy_static::lazy_static;
 use visored_term::{
-    instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu},
-    menu::{vd_ty_menu, VdTypeMenu},
+    instantiation::menu::{VdInstantiationMenu, VD_INSTANTIATION_MENU},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -96,7 +96,7 @@ impl VdSignatureMenu {
             complex,
             set,
             prop,
-        } = *vd_ty_menu;
+        } = *VD_TYPE_MENU;
         let VdInstantiationMenu {
             int_pos,
             rat_pos,
@@ -155,7 +155,7 @@ impl VdSignatureMenu {
             rat_ge,
             real_ge,
             real_sqrt,
-        } = *vd_instantiation_menu();
+        } = *VD_INSTANTIATION_MENU;
         let pre = VdBasePrefixOprSignature::new;
         let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
