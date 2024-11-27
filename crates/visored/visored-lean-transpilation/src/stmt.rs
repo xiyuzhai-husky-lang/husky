@@ -3,6 +3,7 @@ use lean_mir_expr::item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefn
 use namespace::vd_module_path_to_ln_namespace;
 use ty::VdTypeLeanTranspilation;
 use visored_mir_expr::{
+    expr::VdMirExprIdx,
     pattern::VdMirPattern,
     stmt::{block::VdMirBlockMeta, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
 };
@@ -65,19 +66,17 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     fn build_ln_item_from_vd_let_placeholder_stmt(
         &mut self,
         pattern: &VdMirPattern,
-        ty: VdType,
+        ty: VdMirExprIdx,
     ) -> LnItemDefnData {
-        match *pattern {
+        let ident = match *pattern {
             VdMirPattern::Letter {
                 symbol_local_defn, ..
-            } => {
-                let ident = self.mangle_symbol(symbol_local_defn);
-                match ty.to_lean(self) {
-                    VdTypeLeanTranspilation::Type(ty) => {
-                        LnItemDefnData::Variable { symbol: ident, ty }
-                    }
-                }
-            }
+            } => self.mangle_symbol(symbol_local_defn),
+            VdMirPattern::Assumed => self.mangle_hypothesis(),
+        };
+        LnItemDefnData::Variable {
+            ident,
+            ty: ty.to_lean(self),
         }
     }
 }

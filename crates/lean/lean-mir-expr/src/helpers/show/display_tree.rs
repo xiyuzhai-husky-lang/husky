@@ -71,7 +71,9 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn render_defn(&self, defn: LnItemDefnIdx) -> DisplayTree {
         let defn_data = &self.defn_arena[defn];
         let value = match defn_data {
-            LnItemDefnData::Variable { symbol, ty } => format!("variable: `{}`", symbol.data()),
+            LnItemDefnData::Variable { ident: symbol, ty } => {
+                format!("variable: `{}`", symbol.data())
+            }
             LnItemDefnData::Group { defns, ref meta } => format!("group: `{}`", meta),
             LnItemDefnData::Def { symbol, ty, body } => format!("def: `{}`", symbol.data()),
         };
