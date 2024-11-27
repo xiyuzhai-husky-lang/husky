@@ -1,3 +1,5 @@
+pub mod join;
+
 use super::*;
 use crate::menu::VdGlobalDispatchMenu;
 use default_table::VdBaseSeparatorKey;

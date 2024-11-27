@@ -61,6 +61,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
             | VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
+                ..
             } => (
                 format!("folding separated list"),
                 [self.render_expr(leader)]

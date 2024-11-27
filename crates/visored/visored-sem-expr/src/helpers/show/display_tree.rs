@@ -105,7 +105,12 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             } => format!("{:?} expr.binary", source),
             VdSemExprData::Prefix { opr, opd, .. } => format!("{:?} expr.prefix", source),
             VdSemExprData::Suffix { opd, opr, .. } => format!("{:?} expr.suffix", source),
-            VdSemExprData::SeparatedList { .. } => format!("{:?} expr.separated_list", source),
+            VdSemExprData::FoldingSeparatedList { .. } => {
+                format!("{:?} expr.folding_separated_list", source)
+            }
+            VdSemExprData::ChainingSeparatedList { .. } => {
+                format!("{:?} expr.chaining_separated_list", source)
+            }
             VdSemExprData::Attach { .. } => format!("{:?} expr.attach", source),
             VdSemExprData::UniadicChain => format!("{:?} expr.uniadic_chain", source),
             VdSemExprData::VariadicChain => format!("{:?} expr.variadic_chain", source),

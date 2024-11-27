@@ -38,6 +38,7 @@ use visored_opr::{
     },
     separator::{VdBaseSeparator, VdSeparatorClass},
 };
+use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_syn_expr::expr::{VdSynExprData, VdSynSeparator};
 use visored_term::{
     term::{literal::VdLiteral, VdTerm},
@@ -82,10 +83,16 @@ pub enum VdSemExprData {
         scripts: Vec<(LxScriptKind, VdSemExprIdx)>,
         dispatch: VdSemAttachDispatch,
     },
-    SeparatedList {
+    FoldingSeparatedList {
         separator_class: VdSeparatorClass,
         leader: VdSemExprIdx,
         followers: VdSemSeparatedListFollowers,
+    },
+    ChainingSeparatedList {
+        separator_class: VdSeparatorClass,
+        leader: VdSemExprIdx,
+        followers: VdSemSeparatedListFollowers,
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
     },
     // TODO: maybe these two are just separated lists?
     UniadicChain,
@@ -313,7 +320,12 @@ impl VdSemExprData {
             VdSemExprData::UniadicArray => vec![],
             // ad hoc
             VdSemExprData::VariadicArray => vec![],
-            VdSemExprData::SeparatedList {
+            VdSemExprData::FoldingSeparatedList {
+                leader,
+                ref followers,
+                ..
+            }
+            | VdSemExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
                 ..
@@ -383,7 +395,8 @@ impl<'db> VdSemExprBuilder<'db> {
                 ref scripts,
                 ref dispatch,
             } => todo!(),
-            VdSemExprData::SeparatedList { .. } => todo!(),
+            VdSemExprData::FoldingSeparatedList { .. } => todo!(),
+            VdSemExprData::ChainingSeparatedList { .. } => todo!(),
             VdSemExprData::UniadicChain => todo!(),
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),

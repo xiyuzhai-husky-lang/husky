@@ -80,7 +80,7 @@ impl VdFracGlobalDispatch {
     pub fn collect_from_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
-    ) -> (VdBaseFracKey, VdFracGlobalDispatch) {
+    ) -> (VdBaseFracKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
         };

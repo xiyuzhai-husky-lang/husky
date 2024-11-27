@@ -103,7 +103,8 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
             },
             VdSemExprData::Letter { .. } => todo!(),
             VdSemExprData::BaseOpr { .. } => todo!(),
-            VdSemExprData::SeparatedList { .. } => todo!(),
+            VdSemExprData::FoldingSeparatedList { .. } => todo!(),
+            VdSemExprData::ChainingSeparatedList { .. } => todo!(),
             VdSemExprData::Binary {
                 lopd,
                 opr,

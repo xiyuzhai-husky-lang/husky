@@ -28,7 +28,7 @@ fn parse_vd_syn_divisions_works() {
               └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                 └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
                   └─ "Let $x\\in\\mathbb{R}$" clause.let
-                    └─ "x\\in\\mathbb{R}" expr.separated_list
+                    └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
                       ├─ "x" expr.letter
                       └─ "\\mathbb{R}" expr.letter
         "#]],
@@ -41,7 +41,7 @@ fn parse_vd_syn_divisions_works() {
                 └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
                   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
                     └─ "Let $x\\in\\mathbb{R}$" clause.let
-                      └─ "x\\in\\mathbb{R}" expr.separated_list
+                      └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
                         ├─ "x" expr.letter
                         └─ "\\mathbb{R}" expr.letter
         "#]],
@@ -54,7 +54,7 @@ fn parse_vd_syn_divisions_works() {
               │ └─ "Let $x\\in\\mathbb{R}$." stmt.paragraph
               │   └─ "Let $x\\in\\mathbb{R}$." sentence.clauses
               │     └─ "Let $x\\in\\mathbb{R}$" clause.let
-              │       └─ "x\\in\\mathbb{R}" expr.separated_list
+              │       └─ "x\\in\\mathbb{R}" expr.chaining_separated_list
               │         ├─ "x" expr.letter
               │         └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{Hello}Let $y\\in\\mathbb{R}$." division.divisions
@@ -62,7 +62,7 @@ fn parse_vd_syn_divisions_works() {
               │   └─ "Let $y\\in\\mathbb{R}$." stmt.paragraph
               │     └─ "Let $y\\in\\mathbb{R}$." sentence.clauses
               │       └─ "Let $y\\in\\mathbb{R}$" clause.let
-              │         └─ "y\\in\\mathbb{R}" expr.separated_list
+              │         └─ "y\\in\\mathbb{R}" expr.chaining_separated_list
               │           ├─ "y" expr.letter
               │           └─ "\\mathbb{R}" expr.letter
               ├─ "\\subsection{World}" division.divisions

@@ -184,7 +184,12 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),
             VdSemExprData::VariadicArray => todo!(),
-            VdSemExprData::SeparatedList {
+            VdSemExprData::FoldingSeparatedList {
+                leader,
+                ref followers,
+                ..
+            }
+            | VdSemExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
                 ..
