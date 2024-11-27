@@ -1,3 +1,5 @@
+mod debug;
+
 use std::iter::Peekable;
 
 use crate::{
@@ -35,6 +37,7 @@ use visored_global_resolution::{
 };
 
 pub struct VdSynExprBuilder<'db> {
+    content: &'db str,
     file_path: LxFilePath,
     token_storage: &'db LxTokenStorage,
     ast_arena: LxAstArenaRef<'db>,
@@ -52,6 +55,7 @@ pub struct VdSynExprBuilder<'db> {
 /// # constructor
 impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
+        content: &'db str,
         file_path: LxFilePath,
         token_storage: &'db LxTokenStorage,
         ast_arena: LxAstArenaRef<'db>,
@@ -60,6 +64,7 @@ impl<'db> VdSynExprBuilder<'db> {
         default_resolution_table: &'db VdDefaultGlobalResolutionTable,
     ) -> Self {
         Self {
+            content,
             file_path,
             token_storage,
             ast_arena,

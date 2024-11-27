@@ -193,6 +193,7 @@ smallvec = { version = "1.12", features = [
 stacker = "0.1.16"
 syn = { version = "2.0.76", features = ["full", "extra-traits", "visit-mut"] }
 tempfile = "3.12"
+termcolor = "1.4.1"
 thin-vec = "0.2.12"
 thiserror = "1.0.63"
 threadpool = "1.7.1"
@@ -405,6 +406,7 @@ husky-adversarial-utils = { path = "crates/utils/husky-adversarial-utils" }
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-cli-utils = { path = "crates/utils/husky-cli-utils" }
+husky-codespan-utils = { path = "crates/utils/husky-codespan-utils" }
 husky-control-flow-utils = { path = "crates/utils/husky-control-flow-utils" }
 husky-config-utils = { path = "crates/utils/husky-config-utils" }
 husky-debug-utils = { path = "crates/utils/husky-debug-utils" }
