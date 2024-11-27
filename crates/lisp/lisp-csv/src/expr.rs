@@ -117,11 +117,25 @@ impl<'a> LpCsvParser<'a> {
         while let Some(expr) = self.parse_expr() {
             list.push(expr);
             self.ignore_whitespaces_and_tabs_and_comments();
-            match self.chars.next() {
-                Some(']') => break,
-                Some(c) if self.is_list_item_separator(c) => (),
-                _ => todo!(),
+            match self.peek_token() {
+                Some(token) => match token {
+                    LpCsvToken::Separator(lp_csv_separator) => {
+                        self.eat_token();
+                    }
+                    LpCsvToken::RightBracket => break,
+                    _ => todo!(),
+                },
+                None => todo!(),
+                // Some(']') => break,
+                // Some(c) if self.is_list_item_separator(c) => (),
+                // _ => todo!(),
             }
+        }
+        let Some(token) = self.next_token() else {
+            todo!()
+        };
+        if token != LpCsvToken::RightBracket {
+            todo!()
         }
         list
     }
@@ -414,6 +428,20 @@ fn parse_lp_csv_expr_works() {
                     ),
                     offset_range: 0..7,
                     position_range: [1:1, 1:8),
+                },
+            )
+        "#]],
+    );
+    t(
+        "[]",
+        expect![[r#"
+            Some(
+                LpCsvExpr {
+                    data: List(
+                        [],
+                    ),
+                    offset_range: 0..2,
+                    position_range: [1:1, 1:3),
                 },
             )
         "#]],

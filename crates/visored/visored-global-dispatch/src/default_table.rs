@@ -1,5 +1,6 @@
 mod lisp_csv;
 
+use crate::dispatch::separator::join::VdBaseChainingSeparatorJoinKey;
 use crate::{
     dispatch::{
         attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
@@ -9,14 +10,18 @@ use crate::{
     menu::vd_global_dispatch_menu,
     *,
 };
+use dispatch::separator::join::VdBaseChainingSeparatorJoinDispatch;
 use rustc_hash::FxHashMap;
 use visored_opr::{
     menu::vd_opr_menu,
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
     separator::VdBaseSeparator,
 };
-use visored_signature::{menu::vd_signature_menu, table::VdSignatureTable};
-use visored_term::{menu::vd_ty_menu, ty::VdType};
+use visored_signature::{
+    menu::vd_signature_menu, signature::separator::base::VdBaseSeparatorSignature,
+    table::VdSignatureTable,
+};
+use visored_term::{menu::VD_TYPE_MENU, ty::VdType};
 
 pub struct VdDefaultGlobalDispatchTable {
     base_prefix_opr_default_dispatch_table:
@@ -27,6 +32,8 @@ pub struct VdDefaultGlobalDispatchTable {
     attach_default_dispatch_table: FxHashMap<VdAttachKey, VdAttachGlobalDispatch>,
     base_sqrt_default_dispatch_table: FxHashMap<VdBaseSqrtKey, VdSqrtGlobalDispatch>,
     base_frac_default_dispatch_table: FxHashMap<VdBaseFracKey, VdFracGlobalDispatch>,
+    base_chaining_separator_join_dispatch_table:
+        FxHashMap<VdBaseChainingSeparatorJoinKey, VdBaseChainingSeparatorJoinDispatch>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -82,6 +89,12 @@ impl VdDefaultGlobalDispatchTable {
         attach_default_dispatches: impl IntoIterator<Item = (VdAttachKey, VdAttachGlobalDispatch)>,
         sqrt_default_dispatches: impl IntoIterator<Item = (VdBaseSqrtKey, VdSqrtGlobalDispatch)>,
         frac_default_dispatches: impl IntoIterator<Item = (VdBaseFracKey, VdFracGlobalDispatch)>,
+        base_chaining_separator_join_default_dispatches: impl IntoIterator<
+            Item = (
+                VdBaseChainingSeparatorJoinKey,
+                VdBaseChainingSeparatorJoinDispatch,
+            ),
+        >,
     ) -> Self {
         Self {
             base_prefix_opr_default_dispatch_table: base_prefix_opr_default_dispatches
@@ -96,6 +109,10 @@ impl VdDefaultGlobalDispatchTable {
             attach_default_dispatch_table: attach_default_dispatches.into_iter().collect(),
             base_sqrt_default_dispatch_table: sqrt_default_dispatches.into_iter().collect(),
             base_frac_default_dispatch_table: frac_default_dispatches.into_iter().collect(),
+            base_chaining_separator_join_dispatch_table:
+                base_chaining_separator_join_default_dispatches
+                    .into_iter()
+                    .collect(),
         }
     }
 }
@@ -128,6 +145,16 @@ impl VdDefaultGlobalDispatchTable {
                 prev_item_ty,
                 next_item_ty,
             })
+            .copied()
+    }
+
+    pub fn base_chaining_separator_join_default_dispatch(
+        &self,
+        prev: VdBaseSeparatorSignature,
+        next: VdBaseSeparatorSignature,
+    ) -> Option<VdBaseChainingSeparatorJoinDispatch> {
+        self.base_chaining_separator_join_dispatch_table
+            .get(&VdBaseChainingSeparatorJoinKey { prev, next })
             .copied()
     }
 
@@ -175,14 +202,13 @@ impl VdDefaultGlobalDispatchTable {
 }
 
 impl VdDefaultGlobalDispatchTable {
-    pub fn from_standard_lisp_csv_file_dir(db: &::salsa::Db) -> Self {
+    pub fn from_standard_lisp_csv_file_dir() -> Self {
         let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
         let specs_dir = husky_lang_dev_paths.specs_dir();
         let dir = &specs_dir.join("visored/global_default_dispatches");
         let signature_table = VdSignatureTable::from_lp_csv_file_path(
             &specs_dir.join("visored/signature_table.lpcsv"),
-            db,
         );
-        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table, db)
+        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table)
     }
 }

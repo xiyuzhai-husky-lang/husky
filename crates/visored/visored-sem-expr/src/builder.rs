@@ -1,3 +1,5 @@
+mod debug;
+
 use latex_token::storage::LxTokenStorage;
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
@@ -13,7 +15,7 @@ use visored_syn_expr::{
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
 use visored_term::{
-    menu::{vd_ty_menu, VdTypeMenu},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
     term::VdTerm,
     ty::{table::VdItemPathZfcTypeTable, VdType},
 };
@@ -47,7 +49,7 @@ use crate::{
 };
 
 pub(crate) struct VdSemExprBuilder<'a> {
-    db: &'a ::salsa::Db,
+    content: &'a str,
     token_storage: &'a LxTokenStorage,
     annotations: &'a VdAnnotations,
     default_resolution_table: &'a VdDefaultGlobalResolutionTable,
@@ -76,7 +78,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
 
 impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn new(
-        db: &'a ::salsa::Db,
+        content: &'a str,
         token_storage: &'a LxTokenStorage,
         annotations: &'a VdAnnotations,
         default_resolution_table: &'a VdDefaultGlobalResolutionTable,
@@ -94,7 +96,7 @@ impl<'a> VdSemExprBuilder<'a> {
         division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         let mut slf = Self {
-            db,
+            content,
             token_storage,
             annotations,
             default_resolution_table,
@@ -106,7 +108,7 @@ impl<'a> VdSemExprBuilder<'a> {
             syn_division_arena,
             symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
             syn_symbol_resolution_table,
-            zfc_ty_menu: vd_ty_menu(db),
+            zfc_ty_menu: &VD_TYPE_MENU,
             item_path_zfc_ty_table,
             default_global_dispatch_table,
             stmt_entity_tree_node_map,
@@ -129,10 +131,6 @@ impl<'a> VdSemExprBuilder<'a> {
 
 /// # getters
 impl<'a> VdSemExprBuilder<'a> {
-    pub fn db(&self) -> &'a ::salsa::Db {
-        self.db
-    }
-
     pub fn syn_expr_arena(&self) -> VdSynExprArenaRef<'a> {
         self.syn_expr_arena
     }

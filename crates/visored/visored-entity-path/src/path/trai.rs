@@ -13,12 +13,8 @@ impl VdTraitPath {
     pub const RING: Self = VdTraitPath::Ring;
 }
 
-impl salsa::DisplayWithDb for VdTraitPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdTraitPath {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdTraitPath::Group => write!(f, "Grp"),
             VdTraitPath::AbelianGroup => write!(f, "Ab"),

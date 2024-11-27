@@ -22,24 +22,16 @@ impl VdSetPath {
     pub const COMPLEX_NUMBER: Self = Self::Prelude(VdPreludeSetPath::ComplexNumber);
 }
 
-impl salsa::DisplayWithDb for VdSetPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdSetPath {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VdSetPath::Prelude(path) => path.display_fmt_with_db(f, db),
+            VdSetPath::Prelude(path) => path.show_aux(f),
         }
     }
 }
 
-impl salsa::DisplayWithDb for VdPreludeSetPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdPreludeSetPath {
+    fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdPreludeSetPath::NaturalNumber => write!(f, "ℕ"),
             VdPreludeSetPath::RationalNumber => write!(f, "ℚ"),

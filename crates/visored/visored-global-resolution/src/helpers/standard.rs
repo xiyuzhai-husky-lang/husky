@@ -1,5 +1,5 @@
-use latex_command::path::menu::{command_path_menu, LxCommandPathMenu};
-use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
+use latex_command::path::menu::{LxCommandPathMenu, LX_COMMAND_PATH_MENU};
+use latex_environment::path::menu::{LxEnvironmentPathMenu, LX_ENVIRONMENT_PATH_MENU};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_entity_path::path::VdItemPath;
@@ -15,12 +15,12 @@ use crate::{
 };
 
 impl VdDefaultGlobalResolutionTable {
-    pub fn new_standard(db: &salsa::Db) -> Self {
+    pub fn new_standard() -> Self {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
-        let command_resolution_map = standard_command_resolution_map(db);
-        let environment_resolution_map = standard_environment_resolution_map(db);
-        let letter_resolution_map = standard_letter_resolution_map(db);
+        let command_resolution_map = standard_command_resolution_map();
+        let environment_resolution_map = standard_environment_resolution_map();
+        let letter_resolution_map = standard_letter_resolution_map();
         Self::new(
             punctuation_resolution_map,
             command_resolution_map,
@@ -30,9 +30,7 @@ impl VdDefaultGlobalResolutionTable {
     }
 }
 
-fn standard_command_resolution_map(
-    db: &salsa::Db,
-) -> std::collections::HashMap<
+fn standard_command_resolution_map() -> std::collections::HashMap<
     latex_command::path::LxCommandPath,
     crate::resolution::command::VdCompleteCommandGlobalResolution,
     rustc_hash::FxBuildHasher,
@@ -91,7 +89,7 @@ fn standard_command_resolution_map(
         frac,
         // - environments
         text,
-    } = *command_path_menu(db);
+    } = *LX_COMMAND_PATH_MENU;
     VdCompleteCommandGlobalResolutionMap::from_iter([
         // - root
         (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
@@ -145,7 +143,7 @@ fn standard_command_resolution_map(
     ])
 }
 
-fn standard_environment_resolution_map(db: &salsa::Db) -> VdEnvironmentGlobalResolutionMap {
+fn standard_environment_resolution_map() -> VdEnvironmentGlobalResolutionMap {
     let LxEnvironmentPathMenu {
         document,
         example,
@@ -163,7 +161,7 @@ fn standard_environment_resolution_map(db: &salsa::Db) -> VdEnvironmentGlobalRes
         equation,
         figure,
         table,
-    } = *lx_environment_path_menu(db);
+    } = *LX_ENVIRONMENT_PATH_MENU;
     [
         (document, VdEnvironmentGlobalResolution::DOCUMENT),
         (example, VdEnvironmentGlobalResolution::EXAMPLE),
@@ -205,10 +203,11 @@ fn lx_math_punctuation_standard_resolution(
         LxMathPunctuation::Rbox => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::EscapedLcurl => Some(VdPunctuationGlobalResolution::Todo),
         LxMathPunctuation::EscapedRcurl => Some(VdPunctuationGlobalResolution::Todo),
+        LxMathPunctuation::Ldot => Some(VdPunctuationGlobalResolution::Todo),
     }
 }
 
-fn standard_letter_resolution_map(db: &salsa::Db) -> VdLetterGlobalResolutionMap {
+fn standard_letter_resolution_map() -> VdLetterGlobalResolutionMap {
     [
         (
             LxMathLetter::MATHBB_N,

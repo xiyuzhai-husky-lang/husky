@@ -19,10 +19,10 @@ impl VdLeanDictionary {
         todo!()
     }
 
-    pub fn new_standard(db: &::salsa::Db) -> Self {
+    pub fn new_standard() -> Self {
         Self {
             item_path_translation_table: VdItemPathDictionary::new_standard(),
-            func_key_translation_table: VdFuncKeyDictionary::new_standard(db),
+            func_key_translation_table: VdFuncKeyDictionary::new_standard(),
         }
     }
 }

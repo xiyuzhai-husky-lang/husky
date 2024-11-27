@@ -1,860 +1,561 @@
 VdSignatureTable {
     table: {
-        "real_ne": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_ne": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≠(ne),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: ≠(ne) ...,
                     item_ty: ℝ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "rat_gt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_gt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: >(gt),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: >(gt) ...,
                     item_ty: ℚ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "nat_add": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_add": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: +(nat_add),
-                        arguments: [],
-                    },
+                    instantiation: +(nat_add) ...,
                     item_ty: ℕ,
                     expr_ty: ℕ,
                 },
             ),
         ),
-        "rat_ge": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_ge": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≥(ge),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: ≥(ge) ...,
                     item_ty: ℚ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "int_le": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_le": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≤(le),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: ≤(le) ...,
                     item_ty: ℤ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_eq": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_eq": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: =(eq),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: =(eq) ...,
                     item_ty: ℝ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "nat_ne": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_ne": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≠(ne),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: ≠(ne) ...,
                     item_ty: ℕ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_sub": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "real_sub": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_sub),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: -(ring_sub) ...,
                     lopd_ty: ℝ,
                     ropd_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "int_mul": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_mul": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: *(ring_mul),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: *(ring_mul) ...,
                     item_ty: ℤ,
                     expr_ty: ℤ,
                 },
             ),
         ),
-        "real_lt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_lt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: <(lt),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: <(lt) ...,
                     item_ty: ℝ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_le": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_le": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≤(le),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: ≤(le) ...,
                     item_ty: ℝ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "nat_lt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_lt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: <(lt),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: <(lt) ...,
                     item_ty: ℕ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "rat_mul": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_mul": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: *(ring_mul),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: *(ring_mul) ...,
                     item_ty: ℚ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "nat_ge": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_ge": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≥(ge),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: ≥(ge) ...,
                     item_ty: ℕ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_ne": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_ne": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≠(ne),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: ≠(ne) ...,
                     item_ty: ℂ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_to_the_power_of_nat": VdSignature::Attach(
-            VdAttachSignature::Power(
+        "complex_to_the_power_of_nat": Attach(
+            Power(
                 VdPowerSignature {
-                    instantiation: VdInstantiation {
-                        path: ^(ring_power),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: ^(ring_power) ...,
                     base_ty: ℂ,
                     exponent_ty: ℕ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "rat_ne": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_ne": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≠(ne),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: ≠(ne) ...,
                     item_ty: ℚ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_neg": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "real_neg": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_neg),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: -(ring_neg) ...,
                     opd_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "rat_to_the_power_of_nat": VdSignature::Attach(
-            VdAttachSignature::Power(
+        "rat_to_the_power_of_nat": Attach(
+            Power(
                 VdPowerSignature {
-                    instantiation: VdInstantiation {
-                        path: ^(ring_power),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: ^(ring_power) ...,
                     base_ty: ℚ,
                     exponent_ty: ℕ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "int_eq": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_eq": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: =(eq),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: =(eq) ...,
                     item_ty: ℤ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_div": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "real_div": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: /(field_div),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: /(field_div) ...,
                     lopd_ty: ℝ,
                     ropd_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "real_mul": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_mul": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: *(ring_mul),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: *(ring_mul) ...,
                     item_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "nat_to_the_power_of_nat": VdSignature::Attach(
-            VdAttachSignature::Power(
+        "nat_to_the_power_of_nat": Attach(
+            Power(
                 VdPowerSignature {
-                    instantiation: VdInstantiation {
-                        path: ^(ring_power),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: ^(ring_power) ...,
                     base_ty: ℕ,
                     exponent_ty: ℕ,
                     expr_ty: ℕ,
                 },
             ),
         ),
-        "int_add": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_add": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_add),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: +(ring_add) ...,
                     item_ty: ℤ,
                     expr_ty: ℤ,
                 },
             ),
         ),
-        "int_gt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_gt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: >(gt),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: >(gt) ...,
                     item_ty: ℤ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_gt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_gt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: >(gt),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: >(gt) ...,
                     item_ty: ℂ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_mul": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_mul": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: *(ring_mul),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: *(ring_mul) ...,
                     item_ty: ℂ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "complex_lt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_lt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: <(lt),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: <(lt) ...,
                     item_ty: ℂ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "nat_gt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_gt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: >(gt),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: >(gt) ...,
                     item_ty: ℕ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_sqrt": VdSignature::Sqrt(
-            VdSqrtSignature::Base(
+        "real_sqrt": Sqrt(
+            Base(
                 VdBaseSqrtSignature {
-                    instantiation: VdInstantiation {
-                        path: √(real_sqrt),
-                        arguments: [],
-                    },
+                    instantiation: √(real_sqrt) ...,
                     base_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "rat_pos": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "rat_pos": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_pos),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: +(ring_pos) ...,
                     opd_ty: ℚ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "real_pos": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "real_pos": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_pos),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: +(ring_pos) ...,
                     opd_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "real_gt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_gt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: >(gt),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: >(gt) ...,
                     item_ty: ℝ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "int_neg": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "int_neg": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_neg),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: -(ring_neg) ...,
                     opd_ty: ℤ,
                     expr_ty: ℤ,
                 },
             ),
         ),
-        "rat_lt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_lt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: <(lt),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: <(lt) ...,
                     item_ty: ℚ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "real_ge": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_ge": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≥(ge),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: ≥(ge) ...,
                     item_ty: ℝ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "nat_le": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_le": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≤(le),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: ≤(le) ...,
                     item_ty: ℕ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "rat_add": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_add": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_add),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: +(ring_add) ...,
                     item_ty: ℚ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "complex_add": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_add": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_add),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: +(ring_add) ...,
                     item_ty: ℂ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "real_add": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "real_add": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_add),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: +(ring_add) ...,
                     item_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "rat_neg": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "rat_neg": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_neg),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: -(ring_neg) ...,
                     opd_ty: ℚ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "int_ne": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_ne": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≠(ne),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: ≠(ne) ...,
                     item_ty: ℤ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_ge": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_ge": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≥(ge),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: ≥(ge) ...,
                     item_ty: ℂ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_div": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "complex_div": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: /(field_div),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: /(field_div) ...,
                     lopd_ty: ℂ,
                     ropd_ty: ℂ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "int_pos": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "int_pos": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_pos),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: +(ring_pos) ...,
                     opd_ty: ℤ,
                     expr_ty: ℤ,
                 },
             ),
         ),
-        "rat_div": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "rat_div": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: /(field_div),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: /(field_div) ...,
                     lopd_ty: ℚ,
                     ropd_ty: ℚ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "nat_mul": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_mul": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: *,
-                        arguments: [],
-                    },
+                    instantiation: * ...,
                     item_ty: ℕ,
                     expr_ty: ℕ,
                 },
             ),
         ),
-        "int_to_the_power_of_nat": VdSignature::Attach(
-            VdAttachSignature::Power(
+        "int_to_the_power_of_nat": Attach(
+            Power(
                 VdPowerSignature {
-                    instantiation: VdInstantiation {
-                        path: ^(ring_power),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: ^(ring_power) ...,
                     base_ty: ℤ,
                     exponent_ty: ℕ,
                     expr_ty: ℤ,
                 },
             ),
         ),
-        "rat_sub": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "rat_sub": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_sub),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: -(ring_sub) ...,
                     lopd_ty: ℚ,
                     ropd_ty: ℚ,
                     expr_ty: ℚ,
                 },
             ),
         ),
-        "nat_eq": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "nat_eq": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: =(eq),
-                        arguments: [
-                            ℕ,
-                        ],
-                    },
+                    instantiation: =(eq) ...,
                     item_ty: ℕ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "int_lt": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_lt": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: <(lt),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: <(lt) ...,
                     item_ty: ℤ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_pos": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "complex_pos": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: +(ring_pos),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: +(ring_pos) ...,
                     opd_ty: ℂ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "complex_neg": VdSignature::PrefixOpr(
-            VdPrefixOprSignature::Base(
+        "complex_neg": PrefixOpr(
+            Base(
                 VdBasePrefixOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_neg),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: -(ring_neg) ...,
                     opd_ty: ℂ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "rat_eq": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_eq": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: =(eq),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: =(eq) ...,
                     item_ty: ℚ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "int_sub": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "int_sub": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_sub),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: -(ring_sub) ...,
                     lopd_ty: ℤ,
                     ropd_ty: ℤ,
                     expr_ty: ℤ,
                 },
             ),
         ),
-        "real_to_the_power_of_nat": VdSignature::Attach(
-            VdAttachSignature::Power(
+        "real_to_the_power_of_nat": Attach(
+            Power(
                 VdPowerSignature {
-                    instantiation: VdInstantiation {
-                        path: ^(ring_power),
-                        arguments: [
-                            ℝ,
-                        ],
-                    },
+                    instantiation: ^(ring_power) ...,
                     base_ty: ℝ,
                     exponent_ty: ℕ,
                     expr_ty: ℝ,
                 },
             ),
         ),
-        "rat_le": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "rat_le": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≤(le),
-                        arguments: [
-                            ℚ,
-                        ],
-                    },
+                    instantiation: ≤(le) ...,
                     item_ty: ℚ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_sub": VdSignature::BinaryOpr(
-            VdBinaryOprSignature::Base(
+        "complex_sub": BinaryOpr(
+            Base(
                 VdBaseBinaryOprSignature {
-                    instantiation: VdInstantiation {
-                        path: -(ring_sub),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: -(ring_sub) ...,
                     lopd_ty: ℂ,
                     ropd_ty: ℂ,
                     expr_ty: ℂ,
                 },
             ),
         ),
-        "complex_eq": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_eq": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: =(eq),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: =(eq) ...,
                     item_ty: ℂ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "complex_le": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "complex_le": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≤(le),
-                        arguments: [
-                            ℂ,
-                        ],
-                    },
+                    instantiation: ≤(le) ...,
                     item_ty: ℂ,
                     expr_ty: Prop,
                 },
             ),
         ),
-        "int_ge": VdSignature::Separator(
-            VdSeparatorSignature::Base(
+        "int_ge": Separator(
+            Base(
                 VdBaseSeparatorSignature {
-                    instantiation: VdInstantiation {
-                        path: ≥(ge),
-                        arguments: [
-                            ℤ,
-                        ],
-                    },
+                    instantiation: ≥(ge) ...,
                     item_ty: ℤ,
                     expr_ty: Prop,
                 },

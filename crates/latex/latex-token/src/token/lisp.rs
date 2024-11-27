@@ -6,13 +6,12 @@ pub mod literal;
 use self::{delimiter::LxLispDelimiter, ident::LxLispIdent, literal::LxLispLiteral};
 use super::*;
 use crate::idx::LxLispTokenIdx;
-use husky_coword::Coword;
+use coword::Coword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use label::LxLispXlabel;
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxLispTokenData {
     Literal(LxLispLiteral),
@@ -56,7 +55,6 @@ impl<'a> LxLexer<'a> {
     }
 
     pub(crate) fn next_lisp_token_data(&mut self) -> Option<LxLispTokenData> {
-        let db = self.db;
         Some(match self.chars.peek()? {
             '}' => return None,
             '\\' => {
@@ -66,7 +64,6 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => {
                             let Ok(command_name) = LxCommandName::new2(
                                 self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
-                                db,
                             ) else {
                                 todo!()
                             };
@@ -114,18 +111,15 @@ impl<'a> LxLexer<'a> {
                 let ident = LxLispIdent::new(
                     self.chars
                         .next_str_slice_while(|c| c.is_ascii_alphanumeric() || c == '_'),
-                    db,
                 );
                 LxLispTokenData::Ident(ident)
             }
             '\'' => {
                 self.chars.eat_char();
-                let label = LxLispXlabel::new(
-                    self.chars.next_str_slice_while(|c| {
+                let label =
+                    LxLispXlabel::new(self.chars.next_str_slice_while(|c| {
                         c.is_ascii_alphanumeric() || c == '-' || c == ':'
-                    }),
-                    db,
-                );
+                    }));
                 LxLispTokenData::Xlabel(label)
             }
             '"' => {
@@ -145,7 +139,7 @@ impl<'a> LxLexer<'a> {
                         c => data.push(c),
                     }
                 }
-                LxLispTokenData::Literal(LxLispLiteral::String(Coword::from_owned(db, data)))
+                LxLispTokenData::Literal(LxLispLiteral::String(Coword::new(data)))
             }
             c => {
                 self.chars.eat_char();

@@ -12,9 +12,11 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+lazy_static.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa.workspace = true
+interned.workspace = true
+salsa = { workspace = true, optional = true }
 # lean
 lean-coword.workspace = true
 
