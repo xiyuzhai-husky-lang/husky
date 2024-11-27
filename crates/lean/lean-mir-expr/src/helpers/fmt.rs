@@ -126,11 +126,7 @@ impl<'a> LnMirExprFormatter<'a> {
                         let lopd = arguments.first().unwrap();
                         let ropd = arguments.last().unwrap();
                         self.format_expr(lopd, subexpr_try_multiline, opr.left_precedence_range());
-                        if !self.result.ends_with(' ') {
-                            self.result.push(' ');
-                        }
                         self.result += opr.fmt_str();
-                        self.result.push(' ');
                         self.format_expr(ropd, subexpr_try_multiline, opr.right_precedence_range());
                     }
                     LnMirFunc::PrefixOpr { opr, instantiation } => {
