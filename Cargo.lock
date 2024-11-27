@@ -8391,6 +8391,7 @@ version = "0.1.0"
 name = "lean-mir-expr"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "husky-tree-utils",
  "idx-arena",
  "lazy_static 1.5.0",
@@ -12810,6 +12811,7 @@ dependencies = [
  "latex-vfs",
  "lazy_static 1.5.0",
  "salsa",
+ "smallvec",
  "visored-annotation",
  "visored-entity-path",
  "visored-global-dispatch",

@@ -1,9 +1,14 @@
+mod then;
+
 use crate::*;
-use lean_mir_expr::item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta};
+use lean_mir_expr::{
+    expr::LnMirExprData,
+    item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta},
+};
 use namespace::vd_module_path_to_ln_namespace;
 use ty::VdTypeLeanTranspilation;
 use visored_mir_expr::{
-    expr::VdMirExprIdx,
+    expr::{VdMirExprData, VdMirExprIdx},
     pattern::VdMirPattern,
     stmt::{block::VdMirBlockMeta, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
 };
@@ -51,15 +56,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                 ref pattern,
                 assignment,
             } => todo!(),
-            VdMirStmtData::Then { formula } => {
-                let symbol = self.mangle_hypothesis();
-                LnItemDefnData::Def {
-                    symbol,
-                    ty: formula.to_lean(self),
-                    // TODO: better??
-                    body: self.sorry(),
-                }
-            }
+            VdMirStmtData::Then { formula } => self.build_then_stmt(formula),
         }
     }
 

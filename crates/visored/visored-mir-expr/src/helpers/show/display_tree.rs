@@ -54,6 +54,25 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 )
             }
             VdMirExprData::ItemPath(item_path) => todo!(),
+            VdMirExprData::FoldingSeparatedList {
+                leader,
+                ref followers,
+            }
+            | VdMirExprData::ChainingSeparatedList {
+                leader,
+                ref followers,
+            } => (
+                format!("folding separated list"),
+                [self.render_expr(leader)]
+                    .into_iter()
+                    .chain(
+                        followers
+                            .iter()
+                            .copied()
+                            .map(|(_, expr)| self.render_expr(expr)),
+                    )
+                    .collect(),
+            ),
         };
         DisplayTree::new(value, children)
     }
