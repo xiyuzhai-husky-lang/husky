@@ -9,6 +9,12 @@ impl std::fmt::Debug for Coword {
     }
 }
 
+impl std::fmt::Display for Coword {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.data())
+    }
+}
+
 #[test]
 fn coword_new_works() {
     // Test creation and basic equality

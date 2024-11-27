@@ -1,5 +1,5 @@
 use super::*;
-use expr::{VdSynExprData, VdSynPrefixOpr};
+use expr::{VdSynExprData, VdSynLeftDelimiter, VdSynPrefixOpr};
 use expr_stack::TopVdSynExpr;
 use incomplete_expr::IncompleteVdSynExprData;
 use latex_token::idx::LxTokenIdx;
@@ -13,7 +13,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     }
 
     pub(super) fn calc_expr_data_first_token_idx(&self, expr: &VdSynExprData) -> LxTokenIdx {
-        match expr {
+        match *expr {
             VdSynExprData::Literal {
                 token_idx_range, ..
             }
@@ -27,7 +27,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             VdSynExprData::SeparatedList {
                 separator_class,
                 items,
-                separators,
+                ref separators,
             } => todo!(),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
@@ -36,12 +36,10 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 right_delimiter_token_idx,
                 right_delimiter,
             } => todo!(),
-            VdSynExprData::Delimited {
-                left_delimiter,
-                item,
-                right_delimiter,
-            } => todo!(),
-            VdSynExprData::Attach { base, scripts } => todo!(),
+            VdSynExprData::Delimited { left_delimiter, .. } => {
+                self.calc_left_delimiter_first_token_idx(left_delimiter)
+            }
+            VdSynExprData::Attach { base, ref scripts } => todo!(),
             VdSynExprData::Fraction {
                 command_token_idx,
                 numerator,
@@ -53,12 +51,12 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 radicand_lcurl_token_idx,
                 radicand,
                 radicand_rcurl_token_idx,
-            } => todo!(),
+            } => *command_token_idx,
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
             VdSynExprData::VariadicArray => todo!(),
-            VdSynExprData::Err(vd_syn_expr_error) => todo!(),
+            VdSynExprData::Err(_) => todo!(),
         }
     }
 
@@ -75,7 +73,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 ref items,
                 ref separators,
             } => todo!(),
-            IncompleteVdSynExprData::Delimited { left_delimiter } => todo!(),
+            IncompleteVdSynExprData::Delimited { left_delimiter } => {
+                self.calc_left_delimiter_first_token_idx(left_delimiter)
+            }
         }
     }
 
@@ -83,6 +83,16 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         match opr {
             VdSynPrefixOpr::Base(token_idx_range, _) => token_idx_range.start(),
             VdSynPrefixOpr::Composite(expr, _) => self.calc_expr_first_token_idx(expr),
+        }
+    }
+
+    fn calc_left_delimiter_first_token_idx(
+        &self,
+        left_delimiter: VdSynLeftDelimiter,
+    ) -> LxTokenIdx {
+        match left_delimiter {
+            VdSynLeftDelimiter::Base(token_idx_range, _) => token_idx_range.start(),
+            VdSynLeftDelimiter::Composite(expr, _) => self.calc_expr_first_token_idx(expr),
         }
     }
 }
