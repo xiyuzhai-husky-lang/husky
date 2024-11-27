@@ -21,6 +21,7 @@
         name: "interned",
         relative_path: "crates/abstractions/interned",
         dependencies: [
+            "dashmap",
             "interned-macros",
             "lazy_static",
         ],
@@ -4391,6 +4392,7 @@
             "interned",
             "latex-prelude",
             "latex-vfs",
+            "lazy_static",
             "lisp-csv",
             "rustc-hash",
             "smallvec",
@@ -4494,6 +4496,7 @@
             "either",
             "husky-print-utils",
             "husky-tree-utils",
+            "interned",
             "latex-prelude",
             "lean-coword",
             "lean-entity-path",

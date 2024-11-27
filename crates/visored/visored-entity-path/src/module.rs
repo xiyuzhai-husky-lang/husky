@@ -107,17 +107,16 @@ impl VdModulePath {
 }
 
 /// includes the module itself
-// #[interned::memo]
-fn vd_module_lineage(module_path: VdModulePath) -> &'static SmallVec<[VdModulePath; 8]> {
-    todo!()
-    // match module_path.parent() {
-    //     Some(parent) => {
-    //         let mut ancestry = vd_module_lineage(parent).to_smallvec();
-    //         ancestry.push(module_path);
-    //         ancestry
-    //     }
-    //     None => smallvec![module_path],
-    // }
+#[interned::memo]
+fn vd_module_lineage(module_path: VdModulePath) -> SmallVec<[VdModulePath; 8]> {
+    match module_path.parent() {
+        Some(parent) => {
+            let mut ancestry = vd_module_lineage(parent).to_smallvec();
+            ancestry.push(module_path);
+            ancestry
+        }
+        None => smallvec![module_path],
+    }
 }
 
 #[test]

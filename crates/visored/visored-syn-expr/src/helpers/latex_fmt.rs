@@ -13,7 +13,7 @@ use expr::VdSynBinaryOpr;
 use latex_token::idx::LxTokenIdxRange;
 use sentence::VdSynSentenceEnd;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_term::{menu::vd_ty_menu, term::literal::VdLiteralData};
+use visored_term::{menu::VD_TYPE_MENU, term::literal::VdLiteralData};
 
 pub struct VdSynExprLaTeXFormatter<'a> {
     expr_arena: VdSynExprArenaRef<'a>,
@@ -156,7 +156,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
 #[ignore]
 fn latex_fmt_works() {
     // let db = &DB::default();
-    // let menu = vd_ty_menu();
+    // let menu = VD_TYPE_MENU();
     // let mut builder = VdSynExprTestBuilder::new();
     // let one = builder.new_expr_checked(
     //     VdSynExprData::Literal {

@@ -9,7 +9,7 @@ use crate::{
 use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::{
-    menu::{vd_item_path_menu, VdItemPathMenu},
+    menu::{VdItemPathMenu, VD_ITEM_PATH_MENU},
     path::VdItemPath,
 };
 
@@ -63,7 +63,7 @@ impl VdTypeMenu {
             le,
             ge,
             real_sqrt,
-        } = *vd_item_path_menu();
+        } = *VD_ITEM_PATH_MENU;
 
         let nat = VdType::new_item_path(nat.into());
         let int = VdType::new_item_path(int.into());
@@ -86,5 +86,5 @@ impl VdTypeMenu {
 }
 
 lazy_static! {
-    pub static ref vd_ty_menu: VdTypeMenu = VdTypeMenu::new();
+    pub static ref VD_TYPE_MENU: VdTypeMenu = VdTypeMenu::new();
 }

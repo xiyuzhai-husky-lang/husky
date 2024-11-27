@@ -13,7 +13,7 @@ use visored_syn_expr::{
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
 use visored_term::{
-    menu::{vd_ty_menu, VdTypeMenu},
+    menu::{VdTypeMenu, VD_TYPE_MENU},
     term::VdTerm,
     ty::{table::VdItemPathZfcTypeTable, VdType},
 };
@@ -103,7 +103,7 @@ impl<'a> VdSemExprBuilder<'a> {
             syn_division_arena,
             symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
             syn_symbol_resolution_table,
-            zfc_ty_menu: &vd_ty_menu,
+            zfc_ty_menu: &VD_TYPE_MENU,
             item_path_zfc_ty_table,
             default_global_dispatch_table,
             stmt_entity_tree_node_map,

@@ -1,5 +1,6 @@
 use super::*;
-use visored_entity_path::menu::{vd_item_path_menu, VdItemPathMenu};
+use lazy_static::lazy_static;
+use visored_entity_path::menu::{VdItemPathMenu, VD_ITEM_PATH_MENU};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdTermMenu {
@@ -47,7 +48,7 @@ impl VdTermMenu {
             le,
             ge,
             real_sqrt,
-        } = *vd_item_path_menu();
+        } = *VD_ITEM_PATH_MENU;
 
         let zero = VdLiteral::new(VdLiteralData::NaturalNumber("0".to_string()));
         let one = VdLiteral::new(VdLiteralData::NaturalNumber("1".to_string()));
@@ -70,7 +71,6 @@ impl VdTermMenu {
     }
 }
 
-pub fn vd_term_menu() -> &'static VdTermMenu {
-    todo!()
-    // VdTermMenu::new()
+lazy_static! {
+    pub static ref VD_TERM_MENU: VdTermMenu = VdTermMenu::new();
 }

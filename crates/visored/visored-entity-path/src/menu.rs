@@ -2,6 +2,7 @@ use crate::path::{
     category::VdCategoryPath, function::VdFunctionPath, set::VdSetPath, trai::VdTraitPath,
     trai_item::VdTraitItemPath,
 };
+use lazy_static::lazy_static;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdItemPathMenu {
@@ -82,7 +83,6 @@ impl VdItemPathMenu {
     }
 }
 
-pub fn vd_item_path_menu() -> &'static VdItemPathMenu {
-    todo!()
-    // VdItemPathMenu::new()
+lazy_static! {
+    pub static ref VD_ITEM_PATH_MENU: VdItemPathMenu = VdItemPathMenu::new();
 }
