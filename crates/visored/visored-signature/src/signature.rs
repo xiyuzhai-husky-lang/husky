@@ -71,7 +71,16 @@ impl VdSignature {
                 }
                 .into()
             }
-            "base_separator" => {
+            "base_folding" => {
+                assert_eq!(args.len(), 2);
+                VdBaseSeparatorSignature::new(
+                    instantiation,
+                    VdType::from_lp_csv_expr(&args[0]),
+                    VdType::from_lp_csv_expr(&args[1]),
+                )
+                .into()
+            }
+            "base_chaining" => {
                 assert_eq!(args.len(), 2);
                 VdBaseSeparatorSignature::new(
                     instantiation,
