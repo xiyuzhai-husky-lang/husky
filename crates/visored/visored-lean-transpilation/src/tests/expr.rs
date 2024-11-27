@@ -60,7 +60,9 @@ fn basic_visored_expr_to_lean_works() {
     t(
         "1\\in\\mathbb{N}",
         &expect![[r#"
-            sorry
+            application
+            ├─ literal: `1`
+            └─ item path: `ℕ`
         "#]],
         &expect!["sorry"],
     );

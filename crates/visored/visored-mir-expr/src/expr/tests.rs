@@ -28,7 +28,7 @@ fn basic_to_vd_mir_works() {
     t(
         "1 + 1",
         &expect![[r#"
-            separator
+            folding separated list
             ├─ 1
             └─ 1
         "#]],
@@ -49,7 +49,7 @@ fn basic_to_vd_mir_works() {
     t(
         "1<2",
         &expect![[r#"
-            separator
+            folding separated list
             ├─ 1
             └─ 2
         "#]],

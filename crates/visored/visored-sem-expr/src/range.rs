@@ -184,11 +184,19 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             VdSemExprData::VariadicChain => todo!(),
             VdSemExprData::UniadicArray => todo!(),
             VdSemExprData::VariadicArray => todo!(),
-            VdSemExprData::SeparatedList { .. } => {
-                todo!()
-                // let first_range = self.get_expr(items.start());
-                // let last_range = self.get_expr(items.last().expect("items are always non-empty"));
-                // first_range.join(last_range)
+            VdSemExprData::SeparatedList {
+                leader,
+                ref followers,
+                ..
+            } => {
+                let first_range = self.get_expr(leader);
+                let last_range = self.get_expr(
+                    followers
+                        .last()
+                        .expect("followers are always non-empty")
+                        .expr,
+                );
+                first_range.join(last_range)
             }
             VdSemExprData::LxDelimited {
                 left_delimiter_token_idx,

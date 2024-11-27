@@ -18,3 +18,10 @@ variable (x1 : ℝ)
 
 def h2 : x1 ^ 2 + 1 ≥ 2 * x1 := sorry
 end Example3
+
+namespace Example4
+def h3 : 1 = 1 := by
+  calc
+    1=1 := sorry
+    _=1 := sorry
+end Example4
