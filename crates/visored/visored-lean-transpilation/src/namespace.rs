@@ -74,7 +74,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(module_path: VdModulePath) ->
         VdModulePathData::Paragraph {
             parent,
             disambiguator,
-        } => todo!(),
+        } => *vd_module_path_to_ln_namespace_or_inherited(parent),
         VdModulePathData::Environment {
             parent,
             environment_path,
