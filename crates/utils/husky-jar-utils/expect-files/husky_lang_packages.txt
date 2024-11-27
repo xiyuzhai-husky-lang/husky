@@ -4033,6 +4033,7 @@
         name: "lean-mir-expr",
         relative_path: "crates/lean/lean-mir-expr",
         dependencies: [
+            "enum-class",
             "husky-tree-utils",
             "idx-arena",
             "lazy_static",
@@ -4542,6 +4543,7 @@
             "latex-vfs",
             "lazy_static",
             "salsa",
+            "smallvec",
             "visored-annotation",
             "visored-entity-path",
             "visored-global-dispatch",

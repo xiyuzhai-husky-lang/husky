@@ -5,7 +5,7 @@ use crate::{
         LnMirItemDefnGroupMeta,
     },
     stmt::LnMirStmtArenaRef,
-    tactic::{LnMirTacticArenaRef, LnMirTacticIdxRange},
+    tactic::{LnMirTacticArenaRef, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
@@ -18,15 +18,20 @@ pub struct LnMirExprFormatter<'a> {
     defn_arena: LnItemDefnArenaRef<'a>,
     config: &'a LnMirExprFormatterConfig,
     result: String,
+    indent_level: usize,
 }
 
 pub struct LnMirExprFormatterConfig {
     line_max_len: usize,
+    spaces_per_indent: usize,
 }
 
 impl Default for LnMirExprFormatterConfig {
     fn default() -> Self {
-        Self { line_max_len: 80 }
+        Self {
+            line_max_len: 80,
+            spaces_per_indent: 2,
+        }
     }
 }
 
@@ -45,6 +50,7 @@ impl<'a> LnMirExprFormatter<'a> {
             defn_arena,
             config,
             result: Default::default(),
+            indent_level: 0,
         }
     }
 }
@@ -143,6 +149,8 @@ impl<'a> LnMirExprFormatter<'a> {
                             self.format_expr(arg, subexpr_try_multiline, LnPrecedenceRange::Any);
                         }
                     }
+                    // ad hoc
+                    LnMirFunc::InSet => self.result += "sorry",
                 }
                 // for expr in arguments {
                 //     self.format_expr(
@@ -237,19 +245,70 @@ impl<'a> LnMirExprFormatter<'a> {
     pub fn format_def_body(&mut self, body: LnMirDefBody) {
         match body {
             LnMirDefBody::Expr(expr) => self.format_expr_ext(expr),
-            LnMirDefBody::Tactics(tactics) => todo!(),
+            LnMirDefBody::Tactics(tactics) => {
+                self.result += "by";
+                self.indented(|slf| slf.format_tactics(tactics))
+            }
             LnMirDefBody::Stmts(stmts) => todo!(),
         }
     }
 
     pub fn format_tactics(&mut self, tactics: LnMirTacticIdxRange) {
-        self.result += "by ";
-        todo!()
+        for tactic in tactics {
+            self.format_tactic(tactic);
+        }
+    }
+
+    fn format_tactic(&mut self, tactic: LnMirTacticIdx) {
+        self.make_sure_new_line();
+        let tactic_arena = self.tactic_arena;
+        match tactic_arena[tactic] {
+            LnMirTacticData::Obtain => todo!(),
+            LnMirTacticData::Exact => todo!(),
+            LnMirTacticData::Cases => todo!(),
+            LnMirTacticData::Rcases => todo!(),
+            LnMirTacticData::Have => todo!(),
+            LnMirTacticData::Show => todo!(),
+            LnMirTacticData::Calc {
+                leader,
+                ref followers,
+            } => {
+                self.result += "calc";
+                self.indented(|slf| {
+                    for (i, ((opr, _), follower)) in followers.iter().copied().enumerate() {
+                        slf.make_sure_new_line();
+                        if i == 0 {
+                            slf.format_expr_ext(leader);
+                            slf.result += opr.fmt_str();
+                            slf.format_expr_ext(follower);
+                            slf.result += " := sorry"
+                        } else {
+                            slf.result += "_";
+                            slf.result += opr.fmt_str();
+                            slf.format_expr_ext(follower);
+                            slf.result += " := sorry"
+                        }
+                    }
+                });
+            }
+            LnMirTacticData::Sorry => {
+                self.result += "sorry";
+            }
+        }
+    }
+
+    fn indented(&mut self, f: impl FnOnce(&mut Self)) {
+        self.indent_level += 1;
+        f(self);
+        self.indent_level -= 1;
     }
 
     fn make_sure_new_line(&mut self) {
         if !self.result.is_empty() && !self.result.ends_with('\n') {
             self.result += "\n";
+        }
+        for _ in 0..(self.indent_level * self.config.spaces_per_indent) {
+            self.result.push(' ');
         }
     }
 

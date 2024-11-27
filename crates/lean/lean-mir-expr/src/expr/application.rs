@@ -29,6 +29,8 @@ pub enum LnMirFunc {
         instantiation: LnInstantiation,
     },
     Expr(LnMirExprIdx),
+    // ad hoc
+    InSet,
 }
 
 impl LnMirFunc {
@@ -45,6 +47,7 @@ impl LnMirFunc {
             LnMirFunc::BinaryOpr { opr, instantiation } => opr.outer_precedence(),
             LnMirFunc::SuffixOpr { opr, instantiation } => opr.outer_precedence(),
             LnMirFunc::Expr(expr) => LnPrecedence::Application,
+            LnMirFunc::InSet => LnPrecedence::Application,
         }
     }
 }

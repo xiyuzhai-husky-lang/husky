@@ -1,18 +1,20 @@
 pub mod application;
 pub mod attach;
+pub mod separated_list;
 #[cfg(test)]
 pub mod tests;
 
 use crate::*;
 use application::VdMirFunc;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use smallvec::SmallVec;
 use symbol::local_defn::VdMirSymbolLocalDefnIdx;
 use visored_entity_path::path::VdItemPath;
 use visored_global_dispatch::dispatch::{
     binary_opr::VdBinaryOprGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
 };
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
-use visored_opr::opr::binary::VdBaseBinaryOpr;
+use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdSeparatorClass};
 use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
     prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListFollowerDispatch,
@@ -27,6 +29,14 @@ pub enum VdMirExprData {
     Application {
         function: VdMirFunc,
         arguments: VdMirExprIdxRange,
+    },
+    FoldingSeparatedList {
+        leader: VdMirExprIdx,
+        followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]>,
+    },
+    ChainingSeparatedList {
+        leader: VdMirExprIdx,
+        followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]>,
     },
     ItemPath(VdItemPath),
 }
@@ -131,19 +141,12 @@ impl<'db> VdMirExprBuilder<'db> {
                 }
             },
             VdSemExprData::BaseOpr { opr } => todo!(),
-            VdSemExprData::SeparatedList { .. } => {
-                todo!()
-                // VdMirExprData::Application {
-                //             function: match dispatch {
-                //                 VdSemSeparatedListFollowerDispatch::Normal {
-                //                     base_separator,
-                //                     signature,
-                //                 } => VdMirFunc::NormalBaseSeparator(signature),
-                //                 VdSemSeparatedListFollowerDispatch::InSet { expr_ty } => VdMirFunc::InSet,
-                //             },
-                //             arguments: items.to_vd_mir(self),
-                //         }
-            }
+            VdSemExprData::SeparatedList {
+                separator_class,
+                leader,
+                ref followers,
+                ..
+            } => self.build_separated_list(separator_class, leader, followers),
             VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
                 self.build_expr(item)
             }
