@@ -374,7 +374,7 @@ impl VdSynExprData {
             VdSynExprData::Binary { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
             VdSynExprData::Prefix { opr, .. } => VdSynExprClass::Complete(opr.precedence()),
             VdSynExprData::Suffix { .. } => todo!(),
-            VdSynExprData::Attach { .. } => todo!(),
+            VdSynExprData::Attach { .. } => VdSynExprClass::ATOM,
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
