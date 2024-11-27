@@ -90,14 +90,17 @@ impl<'db> VdSemExprBuilder<'db> {
         let followers = self.calc_separated_list_dispatches(&leader, followers);
         let leader = self.alloc_expr(items.first().unwrap(), leader);
         let ty = followers.last().unwrap().dispatch.expr_ty();
-        let joined_separator_and_signature = self.infer_joined_separator_and_signature(&followers);
         let data = match separator_class {
-            VdSeparatorClass::Relation => VdSemExprData::ChainingSeparatedList {
-                separator_class,
-                leader,
-                followers,
-                joined_separator_and_signature,
-            },
+            VdSeparatorClass::Relation => {
+                let joined_separator_and_signature =
+                    self.infer_joined_separator_and_signature(&followers);
+                VdSemExprData::ChainingSeparatedList {
+                    separator_class,
+                    leader,
+                    followers,
+                    joined_separator_and_signature,
+                }
+            }
             VdSeparatorClass::Comma => todo!(),
             VdSeparatorClass::Semicolon => todo!(),
             VdSeparatorClass::Space | VdSeparatorClass::Mul | VdSeparatorClass::Add => {
@@ -236,6 +239,14 @@ impl<'db> VdSemExprBuilder<'db> {
             signature: prev_signature,
         } = prev.dispatch
         else {
+            match prev.separator {
+                VdSemSeparator::Base(token_idx_range, vd_base_separator) => self
+                    .emit_message_over_token_to_stdout(
+                        token_idx_range.start(),
+                        "prev.dispatch = {:?}".to_string(),
+                    ),
+                VdSemSeparator::Composite(arena_idx, vd_separator_class) => todo!(),
+            };
             unreachable!("prev.dispatch = {:?}", prev.dispatch)
         };
         let VdSemSeparatedListFollowerDispatch::Chaining {
