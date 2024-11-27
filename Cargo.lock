@@ -1761,6 +1761,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "coword"
+version = "0.1.0"
+dependencies = [
+ "interned",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4598,6 +4606,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-codespan-utils"
+version = "0.1.0"
+dependencies = [
+ "codespan-reporting",
+ "termcolor",
+]
+
+[[package]]
 name = "husky-color"
 version = "0.1.0"
 dependencies = [
@@ -4937,6 +4953,16 @@ dependencies = [
 [[package]]
 name = "husky-dev-utils"
 version = "0.1.0"
+
+[[package]]
+name = "husky-developer"
+version = "0.1.0"
+dependencies = [
+ "clap 4.5.16",
+ "husky-devtime",
+ "husky-session",
+ "husky-standard-devsoul",
+]
 
 [[package]]
 name = "husky-devsoul"
@@ -5702,6 +5728,7 @@ dependencies = [
  "composite-pattern",
  "husky-print-utils",
  "relative-path",
+ "thiserror",
 ]
 
 [[package]]
@@ -6051,6 +6078,7 @@ name = "husky-minimal-toml-utils"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "husky-io-utils",
  "husky-print-utils",
  "salsa",
  "thiserror",
@@ -6135,14 +6163,16 @@ dependencies = [
 name = "husky-notebook"
 version = "0.1.0"
 dependencies = [
+ "clap 4.5.16",
  "eframe",
  "egui",
  "egui_dock",
  "enum-index",
  "husky-code-editor",
+ "husky-devtime",
  "husky-gui",
  "husky-print-utils",
- "husky-standard-linket-impl",
+ "husky-session",
  "husky-standard-trace-protocol",
  "husky-token-protocol",
  "husky-trace-doc",
@@ -6668,6 +6698,16 @@ dependencies = [
  "itertools 0.11.0",
  "lsp-types 0.95.0",
  "salsa",
+]
+
+[[package]]
+name = "husky-session"
+version = "0.1.0"
+dependencies = [
+ "husky-path-utils",
+ "husky-yaml-utils",
+ "serde",
+ "serde_yaml",
 ]
 
 [[package]]
@@ -7601,6 +7641,7 @@ version = "0.1.0"
 dependencies = [
  "hashlink 0.9.1",
  "serde",
+ "thiserror",
  "vec-like",
  "yaml-rust2 0.9.0",
 ]
@@ -7867,6 +7908,25 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e0242819d153cba4b4b05a5a8f2a7e9bbf97b6055b2a002b395c96b5ff3c0222"
 dependencies = [
  "cfg-if",
+]
+
+[[package]]
+name = "interned"
+version = "0.1.0"
+dependencies = [
+ "dashmap 6.0.1",
+ "interned-macros",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
+name = "interned-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.76",
 ]
 
 [[package]]
@@ -8149,10 +8209,12 @@ dependencies = [
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "egui",
  "enum-class",
  "expect-test",
  "husky-coword",
+ "husky-path-utils",
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
@@ -8171,12 +8233,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "latex-ast-hsy"
+version = "0.1.0"
+dependencies = [
+ "latex-ast",
+]
+
+[[package]]
 name = "latex-command"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "husky-coword",
+ "husky-path-utils",
+ "latex-command",
  "latex-math-letter",
  "latex-prelude",
+ "lazy_static 1.5.0",
+ "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
  "thiserror",
@@ -8195,8 +8269,10 @@ dependencies = [
 name = "latex-environment"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "husky-coword",
  "latex-prelude",
+ "lazy_static 1.5.0",
  "rustc-hash 2.0.0",
  "salsa",
  "thiserror",
@@ -8232,11 +8308,12 @@ version = "0.1.0"
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "enum-class",
  "expect-test",
- "husky-coword",
  "husky-print-utils",
  "husky-text-protocol",
+ "interned",
  "latex-command",
  "latex-math-letter",
  "latex-math-punctuation",
@@ -8252,7 +8329,7 @@ dependencies = [
 name = "latex-vfs"
 version = "0.1.0"
 dependencies = [
- "salsa",
+ "interned",
 ]
 
 [[package]]
@@ -8294,8 +8371,8 @@ version = "0.1.0"
 name = "lean-coword"
 version = "0.1.0"
 dependencies = [
- "husky-coword",
- "salsa",
+ "coword",
+ "interned",
 ]
 
 [[package]]
@@ -8303,6 +8380,8 @@ name = "lean-entity-path"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "interned",
+ "lazy_static 1.5.0",
  "lean-coword",
  "salsa",
  "smallvec",
@@ -8320,8 +8399,10 @@ version = "0.1.0"
 name = "lean-mir-expr"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "husky-tree-utils",
  "idx-arena",
+ "lazy_static 1.5.0",
  "lean-coword",
  "lean-entity-path",
  "lean-opr",
@@ -8350,6 +8431,8 @@ name = "lean-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "interned",
+ "lazy_static 1.5.0",
  "lean-entity-path",
  "salsa",
  "smallvec",
@@ -11262,6 +11345,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_yaml"
+version = "0.9.34+deprecated"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a8b1a1a2ebf674015cc02edccce75287f1a0130d394307b36743c2f5d504b47"
+dependencies = [
+ "indexmap 2.4.0",
+ "itoa",
+ "ryu",
+ "serde",
+ "unsafe-libyaml",
+]
+
+[[package]]
 name = "sha1"
 version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -12461,6 +12557,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c7de7d73e1754487cb58364ee906a499937a0dfabd86bcb980fa99ec8c8fa2ce"
 
 [[package]]
+name = "unsafe-libyaml"
+version = "0.2.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "673aac59facbab8a9007c7f6108d11f63b603f7cabff99fabf650fea5c32b861"
+
+[[package]]
 name = "ureq"
 version = "2.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -12608,11 +12710,12 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
+ "interned",
  "latex-prelude",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
- "salsa",
  "smallvec",
  "visored-prelude",
 ]
@@ -12625,6 +12728,7 @@ dependencies = [
  "husky-path-utils",
  "husky-print-utils",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
@@ -12668,6 +12772,7 @@ dependencies = [
  "husky-path-utils",
  "husky-print-utils",
  "husky-tree-utils",
+ "interned",
  "latex-ast",
  "latex-command",
  "latex-environment",
@@ -12702,6 +12807,7 @@ dependencies = [
  "either",
  "expect-test",
  "husky-coword",
+ "husky-path-utils",
  "husky-tree-utils",
  "idx-arena",
  "latex-ast",
@@ -12711,7 +12817,9 @@ dependencies = [
  "latex-prelude",
  "latex-token",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "salsa",
+ "smallvec",
  "visored-annotation",
  "visored-entity-path",
  "visored-global-dispatch",
@@ -12730,8 +12838,8 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "enum-index",
+ "lazy_static 1.5.0",
  "lisp-csv",
- "salsa",
 ]
 
 [[package]]
@@ -12752,7 +12860,9 @@ dependencies = [
  "either",
  "enum-class",
  "expect-test",
+ "husky-codespan-utils",
  "husky-coword",
+ "husky-path-utils",
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
@@ -12786,6 +12896,7 @@ dependencies = [
  "husky-coword",
  "husky-path-utils",
  "latex-vfs",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",
@@ -12797,11 +12908,15 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "codespan-reporting",
+ "coword",
  "either",
  "enum-class",
  "expect-test",
+ "husky-codespan-utils",
  "husky-coword",
  "husky-debug-utils",
+ "husky-path-utils",
  "husky-print-utils",
  "husky-text-protocol",
  "husky-tree-utils",
@@ -12811,6 +12926,7 @@ dependencies = [
  "latex-command",
  "latex-environment",
  "latex-math-letter",
+ "latex-math-punctuation",
  "latex-prelude",
  "latex-rose-punctuation",
  "latex-token",
@@ -12832,6 +12948,8 @@ name = "visored-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "interned",
+ "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",
  "salsa",

@@ -21,24 +21,16 @@ impl VdFunctionPath {
     pub const COS: Self = VdFunctionPath::Prelude(VdPreludeFunctionPath::COS);
 }
 
-impl salsa::DisplayWithDb for VdFunctionPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdFunctionPath {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VdFunctionPath::Prelude(path) => path.display_fmt_with_db(f, db),
+            VdFunctionPath::Prelude(path) => path.show_aux(f),
         }
     }
 }
 
-impl salsa::DisplayWithDb for VdPreludeFunctionPath {
-    fn display_fmt_with_db(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &salsa::Db,
-    ) -> std::fmt::Result {
+impl VdPreludeFunctionPath {
+    fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdPreludeFunctionPath::Sin => write!(f, "sin"),
             VdPreludeFunctionPath::Cos => write!(f, "cos"),

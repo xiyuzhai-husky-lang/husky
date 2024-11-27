@@ -11,7 +11,7 @@ use lean_entity_path::namespace::LnNamespace;
 
 pub enum LnItemDefnData {
     Variable {
-        symbol: LnIdent,
+        ident: LnIdent,
         ty: LnMirExprIdx,
     },
     Def {

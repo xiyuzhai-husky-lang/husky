@@ -71,17 +71,15 @@ impl VdPrefixOprGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
-        db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = (VdBasePrefixOprKey, Self)> + 'a {
         let LpCsvFileData::Rows(rows) = file.data();
         rows.iter()
-            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table, db))
+            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table))
     }
 
     fn collect_from_lisp_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
-        db: &::salsa::Db,
     ) -> (VdBasePrefixOprKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
@@ -89,8 +87,8 @@ impl VdPrefixOprGlobalDispatch {
         let &[ref base_opr, ref opd_ty, ref signature_ident] = exprs as &[_] else {
             todo!()
         };
-        let base_opr = VdBasePrefixOpr::from_lp_csv_expr(base_opr, db);
-        let opd_ty = VdType::from_lp_csv_expr(opd_ty, db);
+        let base_opr = VdBasePrefixOpr::from_lp_csv_expr(base_opr);
+        let opd_ty = VdType::from_lp_csv_expr(opd_ty);
         let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
             todo!()
         };
@@ -112,13 +110,12 @@ fn vd_prefix_opr_global_dispatch_standard_defaults_works() {
     use crate::default_table::VdDefaultGlobalDispatchTable;
     use crate::menu::{vd_global_dispatch_menu, VdGlobalDispatchMenu};
     use visored_opr::menu::vd_opr_menu;
-    use visored_term::menu::vd_ty_menu;
+    use visored_term::menu::VD_TYPE_MENU;
 
-    let db = &DB::default();
-    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
-    let zfc_ty_menu = vd_ty_menu(db);
-    let opr_menu = vd_opr_menu(db);
-    let global_dispatch_menu = vd_global_dispatch_menu(db);
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
+    let zfc_ty_menu = &VD_TYPE_MENU;
+    let opr_menu = &vd_opr_menu;
+    let global_dispatch_menu = &vd_global_dispatch_menu;
     for ((base_opr, opd_ty), dispatch) in
         VdPrefixOprGlobalDispatch::standard_defaults(&zfc_ty_menu, &opr_menu, &global_dispatch_menu)
     {

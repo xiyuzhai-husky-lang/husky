@@ -26,7 +26,6 @@ pub struct VdSynExprVariableIdx {}
 pub struct VdSynExprVariableData {}
 
 pub(crate) fn build_all_symbol_defns_and_resolutions_with(
-    db: &::salsa::Db,
     token_storage: &LxTokenStorage,
     ast_arena: LxAstArenaRef,
     ast_token_idx_range_map: &LxAstTokenIdxRangeMap,
@@ -50,7 +49,6 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     t: impl IsVdSynOutput,
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
-        db,
         default_resolution_table,
         expr_arena,
         phrase_arena,

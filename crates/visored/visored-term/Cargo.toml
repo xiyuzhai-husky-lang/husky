@@ -12,11 +12,13 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+lazy_static.workspace = true
 rustc-hash.workspace = true
 smallvec.workspace = true
 # abstraction
 enum-class.workspace = true
-salsa.workspace = true
+interned.workspace = true
+salsa = { workspace = true, optional = true }
 # lisp
 lisp-csv.workspace = true
 # visored

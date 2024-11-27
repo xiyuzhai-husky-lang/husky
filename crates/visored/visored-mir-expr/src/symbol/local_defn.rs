@@ -41,6 +41,10 @@ impl VdMirSymbolLocalDefnData {
     pub fn body(&self) -> &VdMirSymbolLocalDefnBody {
         &self.body
     }
+
+    pub fn module_path(&self) -> VdModulePath {
+        self.module_path
+    }
 }
 
 impl<'a> VdMirExprBuilder<'a> {

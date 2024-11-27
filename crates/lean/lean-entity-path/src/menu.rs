@@ -1,4 +1,5 @@
 use crate::LnItemPath;
+use lazy_static::lazy_static;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LnItemPathMenu {
@@ -19,7 +20,7 @@ pub struct LnItemPathMenu {
 }
 
 impl LnItemPathMenu {
-    pub fn new(db: &::salsa::Db) -> Self {
+    pub fn new() -> Self {
         Self {
             nat: LnItemPath::NAT,
             rat: LnItemPath::RAT,
@@ -39,7 +40,6 @@ impl LnItemPathMenu {
     }
 }
 
-#[salsa::tracked(return_ref)]
-pub fn ln_item_path_menu(db: &::salsa::Db) -> LnItemPathMenu {
-    LnItemPathMenu::new(db)
+lazy_static! {
+    pub static ref ln_item_path_menu: LnItemPathMenu = LnItemPathMenu::new();
 }

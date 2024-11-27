@@ -71,26 +71,24 @@ impl VdFracGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
-        db: &'a ::salsa::Db,
     ) -> impl IntoIterator<Item = (VdBaseFracKey, VdFracGlobalDispatch)> + 'a {
         let LpCsvFileData::Rows(rows) = file.data();
         rows.iter()
-            .map(|row| Self::collect_from_csv_row(row, signature_table, db))
+            .map(|row| Self::collect_from_csv_row(row, signature_table))
     }
 
     pub fn collect_from_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
-        db: &::salsa::Db,
-    ) -> (VdBaseFracKey, VdFracGlobalDispatch) {
+    ) -> (VdBaseFracKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
         };
         let &[ref numerator_ty, ref denominator_ty, ref signature_ident] = exprs as &[_] else {
             todo!()
         };
-        let numerator_ty = VdType::from_lp_csv_expr(numerator_ty, db);
-        let denominator_ty = VdType::from_lp_csv_expr(denominator_ty, db);
+        let numerator_ty = VdType::from_lp_csv_expr(numerator_ty);
+        let denominator_ty = VdType::from_lp_csv_expr(denominator_ty);
         let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
             todo!()
         };
@@ -115,13 +113,12 @@ fn vd_frac_global_dispatch_standard_defaults_works() {
     use crate::default_table::VdDefaultGlobalDispatchTable;
     use crate::menu::{vd_global_dispatch_menu, VdGlobalDispatchMenu};
     use visored_opr::menu::vd_opr_menu;
-    use visored_term::menu::vd_ty_menu;
+    use visored_term::menu::VD_TYPE_MENU;
 
-    let db = &DB::default();
-    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
-    let ty_menu = vd_ty_menu(db);
-    let global_dispatch_menu = vd_global_dispatch_menu(db);
-    let opr_menu = vd_opr_menu(db);
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
+    let ty_menu = &VD_TYPE_MENU;
+    let global_dispatch_menu = &vd_global_dispatch_menu;
+    let opr_menu = &vd_opr_menu;
     for ((numerator_ty, denominator_ty), dispatch) in
         VdFracGlobalDispatch::standard_defaults(ty_menu, global_dispatch_menu)
     {

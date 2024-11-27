@@ -16,7 +16,6 @@ use crate::{
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use rustc_hash::FxHashMap;
 
-#[salsa::derive_debug_with_db]
 #[derive(Default, Debug)]
 pub struct LxTokenStorage {
     main_ranged_tokens: Vec<LxTokenEntry>,
