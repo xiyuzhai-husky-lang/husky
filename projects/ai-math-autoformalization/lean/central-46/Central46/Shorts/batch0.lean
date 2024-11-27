@@ -22,6 +22,6 @@ end Example3
 namespace Example4
 def h : 1 = 1 := by
   calc
-    1=1 := sorry
-    _=1 := sorry
+    1 = 1 := sorry
+    _ = 1 := sorry
 end Example4
