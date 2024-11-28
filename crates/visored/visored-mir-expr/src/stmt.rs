@@ -4,7 +4,9 @@ mod tests;
 
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use idx_arena::{
+    map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
+};
 use visored_entity_path::module::VdModulePath;
 use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
@@ -38,9 +40,19 @@ pub enum VdMirStmtData {
 }
 
 pub type VdMirStmtArena = Arena<VdMirStmtData>;
+pub type VdMirStmtOrderedMap<T> = ArenaOrderedMap<VdMirStmtData, T>;
+pub type VdMirStmtMap<T> = ArenaMap<VdMirStmtData, T>;
 pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
 pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
 pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+pub enum VdMirStmtSource {
+    Stmt(VdSemStmtIdx),
+    Division(VdSemDivisionIdx),
+    Sentence(VdSemSentenceIdx),
+    Clause(VdSemClauseIdx),
+}
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
@@ -48,7 +60,8 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
             .into_iter()
             .map(|division| builder.build_stmt_from_sem_division(division))
             .collect::<Vec<_>>();
-        builder.alloc_stmts(data)
+        let sources = self.into_iter().map(VdMirStmtSource::Division);
+        builder.alloc_stmts(data, sources)
     }
 }
 
@@ -86,7 +99,8 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
             .into_iter()
             .map(|stmt| builder.build_stmt_from_sem_stmt(stmt))
             .collect::<Vec<_>>();
-        builder.alloc_stmts(data)
+        let sources = self.into_iter().map(VdMirStmtSource::Stmt);
+        builder.alloc_stmts(data, sources)
     }
 }
 
@@ -119,7 +133,8 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemSentenceIdxRange {
             .into_iter()
             .map(|sentence| builder.build_stmt_from_sem_sentence(sentence))
             .collect::<Vec<_>>();
-        builder.alloc_stmts(data)
+        let sources = self.into_iter().map(VdMirStmtSource::Sentence);
+        builder.alloc_stmts(data, sources)
     }
 }
 
@@ -140,7 +155,8 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
             .into_iter()
             .map(|clause| builder.build_stmt_from_sem_clause(clause))
             .collect::<Vec<_>>();
-        builder.alloc_stmts(data)
+        let sources = self.into_iter().map(VdMirStmtSource::Clause);
+        builder.alloc_stmts(data, sources)
     }
 }
 

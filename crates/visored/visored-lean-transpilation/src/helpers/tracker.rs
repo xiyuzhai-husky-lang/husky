@@ -66,6 +66,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             expr_arena: vd_mir_expr_arena,
             stmt_arena: vd_mir_stmt_arena,
             symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
+            source_map: vd_mir_source_map,
             output,
         } = VdMirExprTracker::new(input, &[], &[]);
         let dictionary = &VdLeanDictionary::new_standard();
