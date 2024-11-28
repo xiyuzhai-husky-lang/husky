@@ -12,11 +12,18 @@ use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
+use latex_token::storage::LxTokenStorage;
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
-use visored_sem_expr::helpers::tracker::{IsVdSemExprInput, VdSemExprTracker};
+use visored_sem_expr::{
+    helpers::tracker::{IsVdSemExprInput, VdSemExprTracker},
+    range::{
+        VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap, VdSemExprTokenIdxRangeMap,
+        VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap, VdSemStmtTokenIdxRangeMap,
+    },
+};
 
 pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub root_module_path: VdModulePath,
@@ -24,6 +31,13 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub stmt_arena: VdMirStmtArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     pub source_map: VdMirSourceMap,
+    pub sem_expr_range_map: VdSemExprTokenIdxRangeMap,
+    pub sem_phrase_range_map: VdSemPhraseTokenIdxRangeMap,
+    pub sem_clause_range_map: VdSemClauseTokenIdxRangeMap,
+    pub sem_sentence_range_map: VdSemSentenceTokenIdxRangeMap,
+    pub sem_stmt_range_map: VdSemStmtTokenIdxRangeMap,
+    pub sem_division_range_map: VdSemDivisionTokenIdxRangeMap,
+    pub token_storage: LxTokenStorage,
     pub output: Input::VdMirExprOutput,
 }
 
@@ -94,6 +108,13 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             stmt_arena,
             symbol_local_defn_storage,
             source_map,
+            sem_expr_range_map,
+            sem_phrase_range_map,
+            sem_clause_range_map,
+            sem_sentence_range_map,
+            sem_stmt_range_map,
+            sem_division_range_map,
+            token_storage,
             output: result,
         }
     }

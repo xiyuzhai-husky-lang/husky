@@ -42,6 +42,16 @@ impl<T, V> ArenaOrderedMap<T, V> {
     pub unsafe fn insert_next_unchecked(&mut self, v: V) {
         self.data.push(v)
     }
+
+    pub fn insert_next_batch(
+        &mut self,
+        items: impl IntoIterator<Item = ArenaIdx<T>>,
+        comments: impl IntoIterator<Item = V>,
+    ) {
+        for (idx, comment) in items.into_iter().zip(comments) {
+            self.insert_next(idx, comment);
+        }
+    }
 }
 
 impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaOrderedMap<T, V> {

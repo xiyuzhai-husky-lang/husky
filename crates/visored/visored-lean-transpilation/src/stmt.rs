@@ -3,14 +3,16 @@ mod then;
 use crate::*;
 use lean_mir_expr::{
     expr::LnMirExprData,
-    item_defn::{LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta},
+    item_defn::{LnItemDefnComment, LnItemDefnData, LnItemDefnIdxRange, LnMirItemDefnGroupMeta},
 };
 use namespace::vd_module_path_to_ln_namespace;
 use ty::VdTypeLeanTranspilation;
 use visored_mir_expr::{
     expr::{VdMirExprData, VdMirExprIdx},
     pattern::VdMirPattern,
-    stmt::{block::VdMirBlockMeta, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
+    stmt::{
+        block::VdMirBlockMeta, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange, VdMirStmtSource,
+    },
 };
 use visored_term::ty::VdType;
 
@@ -20,7 +22,28 @@ impl VdTranspileToLean<LnItemDefnIdxRange> for VdMirStmtIdxRange {
             .into_iter()
             .map(|stmt| builder.build_ln_item_defn_from_vd_stmt(stmt))
             .collect();
-        builder.alloc_item_defns(item_defns)
+        let source_map = builder.source_map();
+        let input = builder.input();
+        let token_storage = builder.token_storage();
+        let sem_expr_range_map = builder.sem_expr_range_map();
+        let sem_phrase_range_map = builder.sem_phrase_range_map();
+        let sem_clause_range_map = builder.sem_clause_range_map();
+        let sem_sentence_range_map = builder.sem_sentence_range_map();
+        let sem_division_range_map = builder.sem_division_range_map();
+        let sem_stmt_range_map = builder.sem_stmt_range_map();
+        builder.alloc_item_defns(
+            item_defns,
+            self.into_iter().map(|stmt| {
+                let token_idx_range = match source_map[stmt] {
+                    VdMirStmtSource::Stmt(stmt) => sem_stmt_range_map[stmt],
+                    VdMirStmtSource::Division(division) => sem_division_range_map[division],
+                    VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
+                    VdMirStmtSource::Clause(clause) => sem_clause_range_map[clause],
+                };
+                let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
+                LnItemDefnComment::from_latex_source(&input[offset_range])
+            }),
+        )
     }
 }
 

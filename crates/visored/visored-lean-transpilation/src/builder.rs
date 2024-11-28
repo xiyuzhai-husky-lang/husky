@@ -1,6 +1,7 @@
+use latex_token::storage::LxTokenStorage;
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
-    builder::{LnMirExprBuilder, WithLnNamespace},
+    constructor::{LnMirExprConstructor, WithLnNamespace},
     expr::{LnMirExprArena, LnMirExprData},
     item_defn::{def::LnMirDefBody, LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
     stmt::LnMirStmtArena,
@@ -11,8 +12,13 @@ use visored_entity_path::module::VdModulePath;
 use visored_mir_expr::{
     expr::VdMirExprArenaRef,
     region::VdMirExprRegionData,
+    source_map::VdMirSourceMap,
     stmt::VdMirStmtArenaRef,
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
+};
+use visored_sem_expr::range::{
+    VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap, VdSemExprTokenIdxRangeMap,
+    VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap, VdSemStmtTokenIdxRangeMap,
 };
 
 use crate::{
@@ -22,49 +28,94 @@ use crate::{
 };
 
 pub struct VdLeanTranspilationBuilder<'a> {
-    lean_hir_expr_builder: LnMirExprBuilder,
+    lean_hir_expr_builder: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
     current_module_path: VdModulePath,
+    source_map: &'a VdMirSourceMap,
+    sem_expr_range_map: &'a VdSemExprTokenIdxRangeMap,
+    sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
+    sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
+    sem_sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
+    sem_stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+    sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
+    token_storage: &'a LxTokenStorage,
+    input: &'a str,
 }
 
 impl<'a> WithLnNamespace for VdLeanTranspilationBuilder<'a> {
-    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprBuilder {
+    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprConstructor {
         &mut self.lean_hir_expr_builder
     }
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
+        input: &'a str,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
+        source_map: &'a VdMirSourceMap,
         dictionary: &'a VdLeanDictionary,
         root_module_path: VdModulePath,
+        sem_expr_range_map: &'a VdSemExprTokenIdxRangeMap,
+        sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
+        sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
+        sem_sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
+        sem_stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+        sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
+        token_storage: &'a LxTokenStorage,
     ) -> Self {
         Self::new(
+            input,
             vd_mir_expr_region_data.expr_arena(),
             vd_mir_expr_region_data.stmt_arena(),
             vd_mir_expr_region_data.symbol_local_defn_storage(),
+            source_map,
             dictionary,
             root_module_path,
+            sem_expr_range_map,
+            sem_phrase_range_map,
+            sem_clause_range_map,
+            sem_sentence_range_map,
+            sem_stmt_range_map,
+            sem_division_range_map,
+            token_storage,
         )
     }
 
     pub fn new(
+        input: &'a str,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
+        source_map: &'a VdMirSourceMap,
         dictionary: &'a VdLeanDictionary,
         root_module_path: VdModulePath,
+        sem_expr_range_map: &'a VdSemExprTokenIdxRangeMap,
+        sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
+        sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
+        sem_sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
+        sem_stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+        sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
+        token_storage: &'a LxTokenStorage,
     ) -> Self {
         Self {
-            lean_hir_expr_builder: LnMirExprBuilder::new(),
+            lean_hir_expr_builder: LnMirExprConstructor::new(),
             expr_arena,
             stmt_arena,
+            source_map,
             dictionary,
             mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage),
             current_module_path: root_module_path,
+            sem_expr_range_map,
+            sem_phrase_range_map,
+            sem_clause_range_map,
+            sem_sentence_range_map,
+            sem_stmt_range_map,
+            sem_division_range_map,
+            token_storage,
+            input,
         }
     }
 
@@ -121,13 +172,49 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         self.stmt_arena
     }
 
-    pub fn dictionary(&self) -> &VdLeanDictionary {
+    pub fn source_map(&self) -> &'db VdMirSourceMap {
+        self.source_map
+    }
+
+    pub fn dictionary(&self) -> &'db VdLeanDictionary {
         self.dictionary
+    }
+
+    pub fn input(&self) -> &'db str {
+        self.input
+    }
+
+    pub fn token_storage(&self) -> &'db LxTokenStorage {
+        self.token_storage
+    }
+
+    pub fn sem_expr_range_map(&self) -> &'db VdSemExprTokenIdxRangeMap {
+        self.sem_expr_range_map
+    }
+
+    pub fn sem_phrase_range_map(&self) -> &'db VdSemPhraseTokenIdxRangeMap {
+        self.sem_phrase_range_map
+    }
+
+    pub fn sem_clause_range_map(&self) -> &'db VdSemClauseTokenIdxRangeMap {
+        self.sem_clause_range_map
+    }
+
+    pub fn sem_sentence_range_map(&self) -> &'db VdSemSentenceTokenIdxRangeMap {
+        self.sem_sentence_range_map
+    }
+
+    pub fn sem_stmt_range_map(&self) -> &'db VdSemStmtTokenIdxRangeMap {
+        self.sem_stmt_range_map
+    }
+
+    pub fn sem_division_range_map(&self) -> &'db VdSemDivisionTokenIdxRangeMap {
+        self.sem_division_range_map
     }
 }
 
 impl<'db> Deref for VdLeanTranspilationBuilder<'db> {
-    type Target = LnMirExprBuilder;
+    type Target = LnMirExprConstructor;
 
     fn deref(&self) -> &Self::Target {
         &self.lean_hir_expr_builder

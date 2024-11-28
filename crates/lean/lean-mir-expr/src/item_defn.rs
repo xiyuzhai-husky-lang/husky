@@ -5,7 +5,9 @@ pub mod variable;
 use self::{def::*, variable::*};
 use crate::*;
 use expr::LnMirExprIdx;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use idx_arena::{
+    map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
+};
 use lean_coword::ident::LnIdent;
 use lean_entity_path::namespace::LnNamespace;
 
@@ -53,6 +55,8 @@ pub enum LnMirItemDefnGroupMeta {
 }
 
 pub type LnItemDefnArena = Arena<LnItemDefnData>;
+pub type LnItemDefnMap<T> = ArenaMap<LnItemDefnData, T>;
+pub type LnItemDefnOrderedMap<T> = ArenaOrderedMap<LnItemDefnData, T>;
 pub type LnItemDefnArenaRef<'a> = ArenaRef<'a, LnItemDefnData>;
 pub type LnItemDefnIdx = ArenaIdx<LnItemDefnData>;
 pub type LnItemDefnIdxRange = ArenaIdxRange<LnItemDefnData>;
@@ -65,5 +69,21 @@ impl std::fmt::Display for LnMirItemDefnGroupMeta {
             LnMirItemDefnGroupMeta::Division(_) => write!(f, "division"),
             LnMirItemDefnGroupMeta::Environment(_) => write!(f, "environment"),
         }
+    }
+}
+
+pub enum LnItemDefnComment {
+    Void,
+    Lines(Vec<String>),
+}
+
+impl LnItemDefnComment {
+    pub fn from_latex_source(input: &str) -> Self {
+        let lines = input
+            .lines()
+            .into_iter()
+            .map(|line| line.to_string())
+            .collect();
+        Self::Lines(lines)
     }
 }
