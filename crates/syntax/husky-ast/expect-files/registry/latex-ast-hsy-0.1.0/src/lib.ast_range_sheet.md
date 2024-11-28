@@ -3,6 +3,7 @@ AstTokenIdxRangeSheet {
     ast_token_idx_ranges: [
         0..15,
         15..19,
+        19..26,
     ],
 }
 ```

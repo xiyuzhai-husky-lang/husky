@@ -12,6 +12,9 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+husky-core.workspace = true
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
 # latex
 latex-ast.workspace = true
 

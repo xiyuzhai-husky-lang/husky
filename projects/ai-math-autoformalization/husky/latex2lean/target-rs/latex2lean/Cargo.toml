@@ -8,3 +8,6 @@ workspace = true
 
 [dependencies.husky-core]
 workspace = true
+
+[dependencies.latex-ast-hsy]
+workspace = true

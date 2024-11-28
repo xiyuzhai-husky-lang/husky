@@ -21,5 +21,13 @@
         ),
         None,
     ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Form(
+                MajorFormSynNodePath(`latex_ast_hsy::AST`, `StaticVar`, (0)),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

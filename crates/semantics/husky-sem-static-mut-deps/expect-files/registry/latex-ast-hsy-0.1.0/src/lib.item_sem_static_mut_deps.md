@@ -5,3 +5,11 @@ SemValueStaticMutDeps(
     [],
 )
 ```
+
+## `AST`
+
+```rust
+SemValueStaticMutDeps(
+    [],
+)
+```
