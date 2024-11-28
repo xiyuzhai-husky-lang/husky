@@ -8238,8 +8238,13 @@ version = "0.1.0"
 dependencies = [
  "husky-core",
  "husky-linket-impl",
+ "husky-path-utils",
  "husky-standard-linket-impl",
+ "idx-arena",
  "latex-ast",
+ "latex-prelude",
+ "latex-vfs",
+ "lazy_static 1.5.0",
 ]
 
 [[package]]
