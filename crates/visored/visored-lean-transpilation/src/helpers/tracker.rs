@@ -33,7 +33,7 @@ pub struct VdLeanTranspilationTracker<'a, Input: IsVdLeanTranspilationInput<'a>>
     output: Input::VdLeanTranspilationOutput,
 }
 
-pub trait IsVdLeanTranspilationInput<'a>: IsVdMirExprInput<'a> + Copy {
+pub trait IsVdLeanTranspilationInput<'a>: IsVdMirExprInput<'a> {
     type VdLeanTranspilationOutput: IsVdLeanTranspilationOutput
         + FromVdTranspileToLean<Self::VdMirExprOutput>;
 }
@@ -62,6 +62,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
     ) -> Self {
+        let content = input.content();
         let VdMirExprTracker {
             root_module_path,
             expr_arena: vd_mir_expr_arena,
@@ -79,7 +80,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         } = VdMirExprTracker::new(input, &[], &[]);
         let dictionary = &VdLeanDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
-            input.content(),
+            content,
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),
             &vd_mir_symbol_local_defn_storage,
