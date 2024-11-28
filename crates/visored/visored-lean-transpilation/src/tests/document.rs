@@ -39,7 +39,9 @@ Let $x\in\mathbb{R}$.
                 └─ group: `sentence`
                   └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℝ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{R}$
+            variable (x : ℝ)"#]],
     );
     t(
         r#"\documentclass{article}
@@ -57,6 +59,7 @@ Let $x\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
+            -- Let $x\in\mathbb{R}$
             variable (x : ℝ)
             end Section1
         "#]],
@@ -92,9 +95,11 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
+            -- Let $x\in\mathbb{R}$
             variable (x : ℝ)
 
             namespace Subsection1
+            -- Let $y\in\mathbb{R}$
             variable (y : ℝ)
             end Subsection1
 

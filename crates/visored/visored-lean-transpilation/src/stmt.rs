@@ -35,9 +35,9 @@ impl VdTranspileToLean<LnItemDefnIdxRange> for VdMirStmtIdxRange {
             item_defns,
             self.into_iter().map(|stmt| {
                 let token_idx_range = match source_map[stmt] {
-                    VdMirStmtSource::Stmt(stmt) => sem_stmt_range_map[stmt],
-                    VdMirStmtSource::Division(division) => sem_division_range_map[division],
-                    VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
+                    VdMirStmtSource::Stmt(_)
+                    | VdMirStmtSource::Division(_)
+                    | VdMirStmtSource::Sentence(_) => return LnItemDefnComment::Void,
                     VdMirStmtSource::Clause(clause) => sem_clause_range_map[clause],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);

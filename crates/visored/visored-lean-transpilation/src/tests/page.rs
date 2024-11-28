@@ -31,7 +31,9 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℕ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{N}$
+            variable (x : ℕ)"#]],
     );
     t(
         "Let $x\\in\\mathbb{Z}$.",
@@ -40,7 +42,9 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℤ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{Z}$
+            variable (x : ℤ)"#]],
     );
     t(
         "Let $x\\in\\mathbb{Q}$.",
@@ -49,7 +53,9 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℚ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{Q}$
+            variable (x : ℚ)"#]],
     );
     t(
         "Let $x\\in\\mathbb{R}$.",
@@ -58,7 +64,9 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℝ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{R}$
+            variable (x : ℝ)"#]],
     );
     t(
         "Let $x\\in\\mathbb{C}$.",
@@ -67,7 +75,9 @@ fn basic_visored_clause_to_lean_works() {
               └─ group: `sentence`
                 └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℂ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{C}$
+            variable (x : ℂ)"#]],
     );
     t(
         "Let $x\\in\\mathbb{R}$. Then $x=x$.",
@@ -83,8 +93,10 @@ fn basic_visored_clause_to_lean_works() {
                   └─ sorry
         "#]],
         &expect![[r#"
+            -- Let $x\in\mathbb{R}$
             variable (x : ℝ)
 
+            -- Then $x=x$
             def h : x = x := sorry"#]],
     );
     t(
@@ -103,8 +115,10 @@ fn basic_visored_clause_to_lean_works() {
                   └─ sorry
         "#]],
         &expect![[r#"
+            -- Let $x\in\mathbb{N}$
             variable (x : ℕ)
 
+            -- Then $2x\ge x$
             def h : 2 * x ≥ x := sorry"#]],
     );
     t(
@@ -151,12 +165,16 @@ fn basic_visored_clause_to_lean_works() {
                   └─ sorry
         "#]],
         &expect![[r#"
+            -- Let $x\in\mathbb{R}$
             variable (x : ℝ)
 
+            -- Then ${(x-1)}^2 \ge 0$
             def h : (x - 1) ^ 2 ≥ 0 := sorry
 
+            -- Then $x^2-2x+1 \ge 0$
             def h1 : x ^ 2 - 2 * x + 1 ≥ 0 := sorry
 
+            -- Then $x^2 + 1\ge 2x$
             def h2 : x ^ 2 + 1 ≥ 2 * x := sorry"#]],
     );
 }

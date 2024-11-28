@@ -2,8 +2,8 @@ use crate::{
     expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
     helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
     item_defn::{
-        LnItemDefnArena, LnItemDefnComment, LnItemDefnData, LnItemDefnIdxRange,
-        LnItemDefnOrderedMap,
+        LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData,
+        LnItemDefnIdxRange, LnItemDefnOrderedMap,
     },
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
     tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
@@ -39,6 +39,7 @@ impl LnMirExprConstructor {
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
             self.item_defn_arena.as_arena_ref(),
+            &self.item_defn_comments,
             config,
         )
     }
@@ -96,12 +97,14 @@ impl LnMirExprConstructor {
         LnMirStmtArena,
         LnMirTacticArena,
         LnItemDefnArena,
+        LnItemDefnCommentMap,
     ) {
         (
             self.expr_arena,
             self.stmt_arena,
             self.tactic_arena,
             self.item_defn_arena,
+            self.item_defn_comments,
         )
     }
 }
