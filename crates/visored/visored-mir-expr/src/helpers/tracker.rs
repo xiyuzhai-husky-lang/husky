@@ -12,6 +12,7 @@ use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
+use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
@@ -22,6 +23,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
+    pub source_map: VdMirSourceMap,
     pub output: Input::VdMirExprOutput,
 }
 
@@ -85,12 +87,13 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             &sem_symbol_local_defn_storage,
         );
         let result = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (expr_arena, stmt_arena, symbol_local_defn_storage) = builder.finish();
+        let (expr_arena, stmt_arena, symbol_local_defn_storage, source_map) = builder.finish();
         Self {
             root_module_path,
             expr_arena,
             stmt_arena,
             symbol_local_defn_storage,
+            source_map,
             output: result,
         }
     }

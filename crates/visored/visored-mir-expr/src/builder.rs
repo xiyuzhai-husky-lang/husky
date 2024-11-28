@@ -1,7 +1,8 @@
 use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange},
     region::VdMirExprRegionData,
-    stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdxRange},
+    source_map::VdMirSourceMap,
+    stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdxRange, VdMirStmtSource},
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
 };
 use visored_sem_expr::{
@@ -20,6 +21,7 @@ pub struct VdMirExprBuilder<'db> {
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
+    source_map: VdMirSourceMap,
 }
 
 impl<'db> VdMirExprBuilder<'db> {
@@ -54,6 +56,7 @@ impl<'db> VdMirExprBuilder<'db> {
             expr_arena: VdMirExprArena::default(),
             stmt_arena: VdMirStmtArena::default(),
             symbol_local_defn_storage: VdMirSymbolLocalDefnStorage::new_empty(),
+            source_map: Default::default(),
         };
         slf.build_symbol_local_defns(sem_symbol_local_defn_storage);
         slf
@@ -110,8 +113,11 @@ impl<'db> VdMirExprBuilder<'db> {
     pub(crate) fn alloc_stmts(
         &mut self,
         data: impl IntoIterator<Item = VdMirStmtData>,
+        sources: impl IntoIterator<Item = VdMirStmtSource>,
     ) -> VdMirStmtIdxRange {
-        self.stmt_arena.alloc_batch(data)
+        let stmts = self.stmt_arena.alloc_batch(data);
+        self.source_map.set_stmts(stmts, sources);
+        stmts
     }
 
     pub(crate) fn alloc_symbol_local_defns(&mut self, data: Vec<VdMirSymbolLocalDefnData>) {
@@ -126,11 +132,19 @@ impl<'db> VdMirExprBuilder<'db> {
         )
     }
 
-    pub fn finish(self) -> (VdMirExprArena, VdMirStmtArena, VdMirSymbolLocalDefnStorage) {
+    pub fn finish(
+        self,
+    ) -> (
+        VdMirExprArena,
+        VdMirStmtArena,
+        VdMirSymbolLocalDefnStorage,
+        VdMirSourceMap,
+    ) {
         (
             self.expr_arena,
             self.stmt_arena,
             self.symbol_local_defn_storage,
+            self.source_map,
         )
     }
 }
