@@ -59,6 +59,34 @@ EntityTreeCrateBundle {
                         ident: `LxAstId`,
                         visibility: Scope::Pub,
                     },
+                    ItemNodeEntry {
+                        node: ItemSynNode::MajorItem(
+                            MajorItemSynNode {
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    MajorFormSynNodePath(`latex_ast_hsy::AST`, `StaticVar`, (0)),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 2,
+                                ident_token: IdentToken {
+                                    ident: `AST`,
+                                    token_idx: TokenIdx(
+                                        23,
+                                    ),
+                                },
+                                block: DefnBlock::Form {
+                                    path: MajorFormPath(`latex_ast_hsy::AST`, `StaticVar`),
+                                    body: None,
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Form(
+                                MajorFormSynNodePath(`latex_ast_hsy::AST`, `StaticVar`, (0)),
+                            ),
+                        ),
+                        ident: `AST`,
+                        visibility: Scope::Pub,
+                    },
                 ],
             },
             item_symbol_table: EntitySymbolTable(
@@ -69,6 +97,15 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`latex_ast_hsy::LxAstId`, `Extern`),
+                            ),
+                        },
+                    },
+                    EntitySymbolEntry {
+                        ident: `AST`,
+                        visible_scope: Scope::Pub,
+                        symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Form(
+                                MajorFormPath(`latex_ast_hsy::AST`, `StaticVar`),
                             ),
                         },
                     },

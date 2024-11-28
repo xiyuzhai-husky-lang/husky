@@ -22,5 +22,27 @@
             ),
         ),
     ),
+    (
+        MajorItem(
+            Form(
+                MajorFormPath(
+                    ItemPathId(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 2,
+                    },
+                ),
+            ),
+        ),
+    ),
 ]
 ```

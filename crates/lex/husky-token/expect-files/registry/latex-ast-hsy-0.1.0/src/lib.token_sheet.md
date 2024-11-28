@@ -88,6 +88,33 @@ TokenSheetData {
                 PunctuationMapped::Semicolon,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Form(
+                Static,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Var,
+        ),
+        TokenData::Ident(
+            `AST`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `LxAstId`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
     ],
     token_verses: TokenVerses {
         main_sequence: MainTokenVerseSequence {
@@ -104,6 +131,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             16,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            20,
                         ),
                     ),
                     indent: 0,

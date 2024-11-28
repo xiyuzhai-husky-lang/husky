@@ -13,5 +13,14 @@
             },
         ),
     ),
+    (
+        ItemPath(`latex_ast_hsy::AST`),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
 ]
 ```

@@ -8236,6 +8236,9 @@ dependencies = [
 name = "latex-ast-hsy"
 version = "0.1.0"
 dependencies = [
+ "husky-core",
+ "husky-linket-impl",
+ "husky-standard-linket-impl",
  "latex-ast",
 ]
 
