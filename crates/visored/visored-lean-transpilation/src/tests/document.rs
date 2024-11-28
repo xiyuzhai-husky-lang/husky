@@ -14,7 +14,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdLeanTranspilationTracker::new(
         LxDocumentInput {
-            specs_dir: dev_paths.specs_dir(),
+            specs_dir: dev_paths.specs_dir().to_path_buf(),
             file_path,
             content,
         },
@@ -138,7 +138,7 @@ fn latex_shorts_to_lean_works() {
         let file_path = LxFilePath::new(file_path.clone());
         let tracker = VdLeanTranspilationTracker::new(
             LxDocumentInput {
-                specs_dir: dev_paths.specs_dir(),
+                specs_dir: dev_paths.specs_dir().to_path_buf(),
                 file_path,
                 content,
             },

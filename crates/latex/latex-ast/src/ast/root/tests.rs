@@ -11,7 +11,7 @@ fn t(content: &str, expected: Expect) {
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = LxAstTracker::new(LxDocumentInput {
-        specs_dir: dev_paths.specs_dir(),
+        specs_dir: dev_paths.specs_dir().to_path_buf(),
         file_path,
         content,
     });

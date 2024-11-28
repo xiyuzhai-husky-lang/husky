@@ -4684,8 +4684,13 @@
         dependencies: [
             "husky-core",
             "husky-linket-impl",
+            "husky-path-utils",
             "husky-standard-linket-impl",
+            "idx-arena",
             "latex-ast",
+            "latex-prelude",
+            "latex-vfs",
+            "lazy_static",
         ],
     },
     PackageSummary {
