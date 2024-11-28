@@ -4682,6 +4682,9 @@
         name: "latex-ast-hsy",
         relative_path: "registry/latex-ast-hsy-0.1.0",
         dependencies: [
+            "husky-core",
+            "husky-linket-impl",
+            "husky-standard-linket-impl",
             "latex-ast",
         ],
     },

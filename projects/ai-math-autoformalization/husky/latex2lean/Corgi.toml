@@ -1,2 +1,5 @@
 [package]
 name = "latex2lean"
+
+[dependencies]
+latex-ast-hsy = "0.1.0"

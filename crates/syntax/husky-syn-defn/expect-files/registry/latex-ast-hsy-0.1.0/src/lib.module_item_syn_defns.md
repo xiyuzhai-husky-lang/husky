@@ -4,5 +4,9 @@
         ItemPath(`latex_ast_hsy::LxAstId`),
         None,
     ),
+    (
+        ItemPath(`latex_ast_hsy::AST`),
+        None,
+    ),
 ]
 ```
