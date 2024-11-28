@@ -13,7 +13,7 @@ use lean_mir_expr::{
         fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
         show::display_tree::LnMirExprDisplayTreeBuilder,
     },
-    item_defn::{LnItemDefnArena, LnItemDefnIdxRange},
+    item_defn::{LnItemDefnArena, LnItemDefnComment, LnItemDefnIdxRange, LnItemDefnOrderedMap},
     stmt::{LnMirStmtArena, LnMirStmtIdxRange},
     tactic::LnMirTacticArena,
 };
@@ -29,6 +29,7 @@ pub struct VdLeanTranspilationTracker<'a, Input: IsVdLeanTranspilationInput<'a>>
     stmt_arena: LnMirStmtArena,
     tactic_arena: LnMirTacticArena,
     defn_arena: LnItemDefnArena,
+    defn_comments: LnItemDefnOrderedMap<LnItemDefnComment>,
     output: Input::VdLeanTranspilationOutput,
 }
 
@@ -94,12 +95,13 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             &token_storage,
         );
         let output = FromVdTranspileToLean::from_transpile_to_lean(output, &mut builder);
-        let (expr_arena, stmt_arena, tactic_arena, defn_arena) = builder.finish();
+        let (expr_arena, stmt_arena, tactic_arena, defn_arena, defn_comments) = builder.finish();
         Self {
             expr_arena,
             stmt_arena,
             tactic_arena,
             defn_arena,
+            defn_comments,
             output,
         }
     }
@@ -127,6 +129,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
             self.defn_arena.as_arena_ref(),
+            &self.defn_comments,
             config,
         )
     }
