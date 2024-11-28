@@ -1,6 +1,6 @@
 use crate::{
     expr::VdMirExprOrderedMap,
-    stmt::{VdMirStmtIdxRange, VdMirStmtOrderedMap, VdMirStmtSource},
+    stmt::{VdMirStmtIdx, VdMirStmtIdxRange, VdMirStmtOrderedMap, VdMirStmtSource},
 };
 use visored_sem_expr::{
     clause::VdSemClauseIdx, division::VdSemDivisionIdx, expr::VdSemExprIdx,
@@ -11,6 +11,7 @@ use visored_sem_expr::{
 pub struct VdMirSourceMap {
     stmt_map: VdMirStmtOrderedMap<VdMirStmtSource>,
 }
+
 impl VdMirSourceMap {
     pub(crate) fn set_stmts(
         &mut self,
@@ -22,5 +23,13 @@ impl VdMirSourceMap {
             self.stmt_map.insert_next(stmt, source_iter.next().unwrap())
         }
         debug_assert!(source_iter.next().is_none())
+    }
+}
+
+impl std::ops::Index<VdMirStmtIdx> for VdMirSourceMap {
+    type Output = VdMirStmtSource;
+
+    fn index(&self, index: VdMirStmtIdx) -> &Self::Output {
+        &self.stmt_map[index]
     }
 }

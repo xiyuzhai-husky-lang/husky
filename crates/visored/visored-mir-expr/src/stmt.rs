@@ -46,7 +46,7 @@ pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
 pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
 pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirStmtSource {
     Stmt(VdSemStmtIdx),
     Division(VdSemDivisionIdx),

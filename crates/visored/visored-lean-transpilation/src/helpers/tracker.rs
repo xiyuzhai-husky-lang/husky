@@ -67,15 +67,31 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             stmt_arena: vd_mir_stmt_arena,
             symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
             source_map: vd_mir_source_map,
+            sem_expr_range_map,
+            sem_phrase_range_map,
+            sem_clause_range_map,
+            sem_sentence_range_map,
+            sem_stmt_range_map,
+            sem_division_range_map,
+            token_storage,
             output,
         } = VdMirExprTracker::new(input, &[], &[]);
         let dictionary = &VdLeanDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
+            input.content(),
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),
             &vd_mir_symbol_local_defn_storage,
+            &vd_mir_source_map,
             dictionary,
             root_module_path,
+            &sem_expr_range_map,
+            &sem_phrase_range_map,
+            &sem_clause_range_map,
+            &sem_sentence_range_map,
+            &sem_stmt_range_map,
+            &sem_division_range_map,
+            &token_storage,
         );
         let output = FromVdTranspileToLean::from_transpile_to_lean(output, &mut builder);
         let (expr_arena, stmt_arena, tactic_arena, defn_arena) = builder.finish();
