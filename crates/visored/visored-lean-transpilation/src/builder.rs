@@ -3,7 +3,10 @@ use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
     constructor::{LnMirExprConstructor, WithLnNamespace},
     expr::{LnMirExprArena, LnMirExprData},
-    item_defn::{def::LnMirDefBody, LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
+    item_defn::{
+        def::LnMirDefBody, LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap,
+        LnItemDefnData, LnItemDefnIdxRange,
+    },
     stmt::LnMirStmtArena,
     tactic::LnMirTacticArena,
 };
@@ -235,6 +238,7 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
         LnMirStmtArena,
         LnMirTacticArena,
         LnItemDefnArena,
+        LnItemDefnCommentMap,
     ) {
         self.lean_hir_expr_builder.finish()
     }

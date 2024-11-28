@@ -77,6 +77,8 @@ pub enum LnItemDefnComment {
     Lines(Vec<String>),
 }
 
+pub type LnItemDefnCommentMap = LnItemDefnOrderedMap<LnItemDefnComment>;
+
 impl LnItemDefnComment {
     pub fn from_latex_source(input: &str) -> Self {
         let lines = input
