@@ -41,6 +41,7 @@ use latex_token::{
         rose::LxRoseTokenData,
     },
 };
+use serde::{Deserialize, Serialize};
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -138,7 +139,7 @@ impl<T> LxAstArenaMap<T> {
 }
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum LxAstIdx {
     Math(LxMathAstIdx),
     Rose(LxRoseAstIdx),

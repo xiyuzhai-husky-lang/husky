@@ -1,3 +1,4 @@
+pub mod copyable;
 mod option;
 pub mod owned;
 mod primitive;
@@ -13,6 +14,7 @@ use crate::{
     thawed::{Thawed, ThawedDyn},
     *,
 };
+use copyable::CopyableConverter;
 use frozen::{Frozen, FrozenDyn, FrozenValue};
 use husky_decl_macro_utils::*;
 #[cfg(feature = "constant")]
@@ -35,7 +37,6 @@ use thawed::{FromThawedValue, ThawedValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
-/// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 #[value_ty]
 #[derive(Debug)]
 #[repr(u8)]
@@ -75,7 +76,26 @@ pub enum Value {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
-    U32U32Pair(u32, u32),
+    Copyable(CopyableConverter, u128),
+}
+
+impl Value {
+    pub fn new_copyable<T>(t: T) -> Self
+    where
+        T: Copy + Immortal + Into<u128> + Eq,
+        for<'a> &'a T: From<&'a u128>,
+    {
+        let (converter, v) = CopyableConverter::new(t);
+        Value::Copyable(converter, v)
+    }
+}
+
+#[test]
+fn value_size_works() {
+    assert_eq!(
+        std::mem::size_of::<Value>(),
+        4 * std::mem::size_of::<usize>()
+    )
 }
 
 impl Eq for Value {}
@@ -269,7 +289,7 @@ impl Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 }
@@ -336,7 +356,7 @@ impl IsValue for Value {
             Value::OptionBox(ref slf) => Value::OptionLeash(slf.as_ref().map(|v| &**v)), // Clone the boxed option
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::EnumUnit { index, presenter } => Value::EnumUnit { index, presenter },
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -442,7 +462,7 @@ impl IsValue for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -483,7 +503,7 @@ impl IsValue for Value {
             Value::EnumUnit { index, presenter } => {
                 presenter(index, cache, value_presentation_synchrotron)
             }
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -519,7 +539,7 @@ impl IsValue for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => Visual::Void,
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -558,7 +578,7 @@ impl IsValue for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -832,7 +852,7 @@ impl std::ops::Neg for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
-            Value::U32U32Pair(_, _) => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 }
