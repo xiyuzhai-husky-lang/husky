@@ -39,7 +39,7 @@ use ui::visual::cache::VisualUiCache;
 pub enum StandardFigure {
     Void,
     Specific(SpecificFigure),
-    Dim1(GalleryFigure),
+    Gallery(GalleryFigure),
     Text(TextFigure),
 }
 
@@ -51,7 +51,7 @@ impl IsFigure for StandardFigure {
         match self {
             StandardFigure::Void => (),
             StandardFigure::Specific(slf) => slf.for_all_joint_pedestals(f),
-            StandardFigure::Dim1(slf) => slf.for_all_joint_pedestals(f),
+            StandardFigure::Gallery(slf) => slf.for_all_joint_pedestals(f),
             StandardFigure::Text(slf) => slf.for_all_joint_pedestals(f),
         }
     }
@@ -96,7 +96,7 @@ impl FigureUi<Ui> for StandardFigure {
         match self {
             StandardFigure::Void => (),
             StandardFigure::Specific(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
-            StandardFigure::Dim1(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
+            StandardFigure::Gallery(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
             StandardFigure::Text(text_figure) => todo!(),
         }
     }
