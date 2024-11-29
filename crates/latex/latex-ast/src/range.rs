@@ -51,6 +51,19 @@ impl std::ops::Index<LxRoseAstIdx> for LxAstTokenIdxRangeMap {
     }
 }
 
+impl std::ops::Index<LxAstIdx> for LxAstTokenIdxRangeMap {
+    type Output = LxTokenIdxRange;
+
+    fn index(&self, index: LxAstIdx) -> &Self::Output {
+        match index {
+            LxAstIdx::Math(index) => &self.math[index],
+            LxAstIdx::Rose(index) => &self.rose[index],
+            LxAstIdx::Lisp(index) => &self.lisp[index],
+            LxAstIdx::Root(index) => &self.root[index],
+        }
+    }
+}
+
 impl LxAstTokenIdxRangeMap {
     pub fn math_asts_token_idx_range(&self, asts: LxMathAstIdxRange) -> LxTokenIdxRange {
         todo!()
