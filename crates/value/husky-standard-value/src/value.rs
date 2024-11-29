@@ -75,6 +75,7 @@ pub enum Value {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
+    U32U32Pair(u32, u32),
 }
 
 impl Eq for Value {}
@@ -268,6 +269,7 @@ impl Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 }
@@ -334,6 +336,7 @@ impl IsValue for Value {
             Value::OptionBox(ref slf) => Value::OptionLeash(slf.as_ref().map(|v| &**v)), // Clone the boxed option
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::EnumUnit { index, presenter } => Value::EnumUnit { index, presenter },
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 
@@ -439,6 +442,7 @@ impl IsValue for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 
@@ -479,6 +483,7 @@ impl IsValue for Value {
             Value::EnumUnit { index, presenter } => {
                 presenter(index, cache, value_presentation_synchrotron)
             }
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 
@@ -514,6 +519,7 @@ impl IsValue for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => Visual::Void,
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 
@@ -552,6 +558,7 @@ impl IsValue for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 
@@ -825,6 +832,7 @@ impl std::ops::Neg for Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 }
