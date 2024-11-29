@@ -1,3 +1,5 @@
+pub mod map;
+
 use lazy_static::lazy_static;
 use std::ops::Deref;
 
