@@ -170,7 +170,7 @@ impl __IsStaticVar<__VarId> for AST {
         figure_zone: __FigureZone,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<__VarId> {
-        let file_idx = file_idx();
+        let file_idx: LxFileIdx = 0.into();
         let ast_idx = first_ast(file_idx);
         Ok(LxAstId { file_idx, ast_idx }.into())
     }
