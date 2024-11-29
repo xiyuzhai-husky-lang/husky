@@ -4,6 +4,12 @@ use std::ops::Deref;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxFileIdx(u32);
 
+impl LxFileIdx {
+    pub fn index(self) -> usize {
+        self.0 as usize
+    }
+}
+
 pub struct LxFileStorage {
     files: Vec<String>,
 }

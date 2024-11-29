@@ -5,7 +5,7 @@ use crate::{
         parse_latex_input_into_asts,
         root::LxRootAstIdxRange,
         rose::LxRoseAstIdxRange,
-        LxAstArena, LxAstIdxRange,
+        LxAstArena, LxAstIdx, LxAstIdxRange,
     },
     helpers::show::display_tree::LxAstDisplayTreeBuilder,
     parser::LxAstParser,

@@ -9,8 +9,8 @@ use latex_ast::ast::LxAstIdx;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxAstId {
-    pub file: LxFileIdx,
-    pub idx: LxAstIdx,
+    pub file_idx: LxFileIdx,
+    pub ast_idx: LxAstIdx,
 }
 
 impl From<__VarId> for LxAstId {
@@ -19,15 +19,18 @@ impl From<__VarId> for LxAstId {
             todo!()
         };
         Self {
-            file: fst.into(),
-            idx: unsafe { lx_ast_idx_from_u32(snd) },
+            file_idx: fst.into(),
+            ast_idx: unsafe { lx_ast_idx_from_u32(snd) },
         }
     }
 }
 
 impl Into<__VarId> for LxAstId {
     fn into(self) -> __VarId {
-        [self.file.into(), unsafe { lx_ast_idx_to_u32(self.idx) }].into()
+        [self.file_idx.into(), unsafe {
+            lx_ast_idx_to_u32(self.ast_idx)
+        }]
+        .into()
     }
 }
 
@@ -128,6 +131,11 @@ thread_local! {
     static __AST_ID: std::cell::Cell<Option<LxAstId>> = Default::default();
 }
 
+pub(crate) fn file_idx() -> LxFileIdx {
+    // TODO: use a dedicated static for this?
+    ast_id().file_idx
+}
+
 pub(crate) fn ast_id() -> LxAstId {
     __AST_ID.get().unwrap()
 }
@@ -155,14 +163,19 @@ impl __IsStaticVar<__VarId> for AST {
     }
 
     fn page_var_ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
-        [todo!()].into_iter()
+        all_asts_within_file(file_idx()).map(Into::into)
     }
 
     fn default_page_start(
         figure_zone: __FigureZone,
         locked: &[__ItemPathIdInterface],
-    ) -> husky_linket_impl::static_var::StaticVarResult<__VarId, __VarId> {
-        todo!()
+    ) -> __StaticVarResult<__VarId> {
+        Ok(LxAstId {
+            file_idx: file_idx(),
+            ast_idx: todo!(),
+            //  unsafe { ArenaIdx::new_ext(0) },
+        }
+        .into())
     }
 
     fn get_id() -> __VarId {
@@ -192,7 +205,7 @@ impl __IsStaticVar<__VarId> for AST {
 
     fn get_value() -> Self::Value {
         let id = AST();
-        __Value::U32U32Pair(id.file.into(), lx_ast_idx_to_u32(id.idx))
+        __Value::U32U32Pair(id.file_idx.into(), lx_ast_idx_to_u32(id.ast_idx))
     }
 
     fn zones() -> &'static [__FigureZone] {
