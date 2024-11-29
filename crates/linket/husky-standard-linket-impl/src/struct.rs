@@ -33,7 +33,7 @@ macro_rules! struct_field_linket_impl {
         fn struct_field_wrapper(owner: Value) -> Value {
             match owner {
                 Value::Owned(owner) => owner.downcast_into_owned::<$self_ty>().$field.into_value(),
-                Value::Leash(owner) => class_specific_leashed_field_into_value!(
+                Value::LeashSized(owner) => class_specific_leashed_field_into_value!(
                     $class
                         & (owner as &'static dyn std::any::Any)
                             .downcast_ref::<$self_ty>()

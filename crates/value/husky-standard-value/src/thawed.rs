@@ -1212,7 +1212,7 @@ impl From<Value> for ThawedValue {
             Value::F64(f) => ThawedValue::F64(f.into()),
             Value::StringLiteral(id) => ThawedValue::StringLiteral(id),
             Value::Owned(owned_value) => todo!(),
-            Value::Leash(leashed_value) => ThawedValue::Leash(leashed_value),
+            Value::LeashSized(leashed_value) => ThawedValue::Leash(leashed_value),
             Value::OptionBox(immortal_dyn) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => ThawedValue::EnumUnit { index, presenter },
