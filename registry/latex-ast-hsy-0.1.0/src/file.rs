@@ -1,7 +1,7 @@
 use lazy_static::lazy_static;
 use std::ops::Deref;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxFileIdx(u32);
 
 pub struct LxFileStorage {

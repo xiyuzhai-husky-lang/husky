@@ -7,6 +7,7 @@ use husky_standard_linket_impl::ugly::*;
 use idx_arena::ArenaIdx;
 use latex_ast::ast::LxAstIdx;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxAstId {
     pub file: LxFileIdx,
     pub idx: LxAstIdx,
@@ -24,6 +25,12 @@ impl From<__VarId> for LxAstId {
     }
 }
 
+impl Into<__VarId> for LxAstId {
+    fn into(self) -> __VarId {
+        [self.file.into(), unsafe { lx_ast_idx_to_u32(self.idx) }].into()
+    }
+}
+
 unsafe fn lx_ast_idx_from_u32(idx: u32) -> LxAstIdx {
     match idx >> 30 {
         0 => LxAstIdx::Math(ArenaIdx::new_ext(idx as usize & 0x3FFFFFFF)),
@@ -34,7 +41,7 @@ unsafe fn lx_ast_idx_from_u32(idx: u32) -> LxAstIdx {
     }
 }
 
-unsafe fn lx_ast_idx_to_u32(idx: LxAstIdx) -> u32 {
+fn lx_ast_idx_to_u32(idx: LxAstIdx) -> u32 {
     match idx {
         LxAstIdx::Math(idx) => {
             assert!(idx.index() <= 0x3FFFFFFF);
@@ -114,15 +121,37 @@ pub static mut __AST__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = No
 
 #[allow(non_snake_case)]
 pub fn AST() -> LxAstId {
-    todo!()
-    // MNIST_DATASET.input_leashed(input_id())
+    ast_id()
+}
+
+thread_local! {
+    static __AST_ID: std::cell::Cell<Option<LxAstId>> = Default::default();
+}
+
+pub(crate) fn ast_id() -> LxAstId {
+    __AST_ID.get().unwrap()
+}
+
+pub(crate) fn with_ast_id<R>(ast_id: LxAstId, f: impl Fn() -> R) -> R {
+    let old = __AST_ID.replace(Some(ast_id));
+    let r = f();
+    __AST_ID.set(old);
+    r
+}
+
+pub(crate) fn replace_ast_id(ast_id: LxAstId) -> Option<LxAstId> {
+    __AST_ID.replace(Some(ast_id))
+}
+
+pub(crate) fn set_ast_id(ast_id: Option<LxAstId>) {
+    __AST_ID.set(ast_id)
 }
 
 pub struct AST {}
 
 impl __IsStaticVar<__VarId> for AST {
     fn item_path_id_interface() -> __ItemPathIdInterface {
-        todo!()
+        unsafe { __AST__ITEM_PATH_ID_INTERFACE.unwrap() }
     }
 
     fn page_var_ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
@@ -137,7 +166,7 @@ impl __IsStaticVar<__VarId> for AST {
     }
 
     fn get_id() -> __VarId {
-        todo!()
+        AST().into()
     }
 
     fn try_set_var_id_aux(
@@ -162,10 +191,11 @@ impl __IsStaticVar<__VarId> for AST {
     type Value = __Value;
 
     fn get_value() -> Self::Value {
-        todo!()
+        let id = AST();
+        __Value::U32U32Pair(id.file.into(), lx_ast_idx_to_u32(id.idx))
     }
 
     fn zones() -> &'static [__FigureZone] {
-        todo!()
+        &[__FigureZone::Text]
     }
 }

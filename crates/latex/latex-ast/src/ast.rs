@@ -129,7 +129,7 @@ impl<T> LxAstArenaMap<T> {
 }
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LxAstIdx {
     Math(LxMathAstIdx),
     Rose(LxRoseAstIdx),
