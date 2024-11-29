@@ -348,3 +348,4 @@ out
 data/mini-husky/basic/
 experiments/transformer-vs-recursive/results/
 experiments/transformer-vs-recursive/figures/
+projects/ai-math-autoformalization/python/.chat_completion_cache/cache.db
