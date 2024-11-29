@@ -1,4 +1,4 @@
-use crate::FILE_STORAGE;
+use crate::{LxAstId, LxFileIdx, FILE_STORAGE};
 use husky_path_utils::HuskyLangDevPaths;
 use latex_ast::helpers::tracker::LxAstTracker;
 use latex_prelude::helper::tracker::LxDocumentInput;
@@ -33,4 +33,12 @@ fn trackers() -> Vec<LxAstTracker<'static, LxDocumentInput<'static>>> {
 fn trackers_works() {
     let trackers = trackers();
     assert_eq!(trackers.len(), FILE_STORAGE.files().len());
+}
+
+pub(crate) fn all_asts_within_file(file_idx: LxFileIdx) -> impl Iterator<Item = LxAstId> {
+    let tracker = &TRACKERS[file_idx.index()];
+    tracker
+        .ast_arena
+        .all_asts()
+        .map(move |ast_idx| LxAstId { file_idx, ast_idx })
 }

@@ -65,6 +65,15 @@ impl LxAstArena {
             root: self.root.as_arena_ref(),
         }
     }
+
+    pub fn all_asts(&self) -> impl Iterator<Item = LxAstIdx> {
+        self.math
+            .indices()
+            .map(LxAstIdx::Math)
+            .chain(self.rose.indices().map(LxAstIdx::Rose))
+            .chain(self.lisp.indices().map(LxAstIdx::Lisp))
+            .chain(self.root.indices().map(LxAstIdx::Root))
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
