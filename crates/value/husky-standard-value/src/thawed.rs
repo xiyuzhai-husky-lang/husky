@@ -1216,6 +1216,7 @@ impl From<Value> for ThawedValue {
             Value::OptionBox(immortal_dyn) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => ThawedValue::EnumUnit { index, presenter },
+            Value::U32U32Pair(_, _) => todo!(),
         }
     }
 }
