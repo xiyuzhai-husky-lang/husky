@@ -7,7 +7,8 @@ use husky_standard_linket_impl::ugly::*;
 use idx_arena::ArenaIdx;
 use latex_ast::ast::LxAstIdx;
 
-#[husky_standard_value::copyable_value_conversion]
+// #[husky_standard_value::copyable_value_conversion]
+#[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxAstId {
     pub file_idx: LxFileIdx,
@@ -176,7 +177,7 @@ impl __IsStaticVar<__VarId> for AST {
     }
 
     fn page_var_ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
-        all_asts_within_file(file_idx()).map(Into::into)
+        all_asts_within_file(0.into()).map(Into::into)
     }
 
     fn default_page_start(
