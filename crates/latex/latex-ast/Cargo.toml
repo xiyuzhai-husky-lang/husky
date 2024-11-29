@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 egui = { workspace = true, optional = true }
+serde.workspace = true
 smallvec.workspace = true
 # abstractions
 coword.workspace = true

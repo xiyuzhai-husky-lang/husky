@@ -7735,6 +7735,7 @@ dependencies = [
  "husky-check-utils",
  "husky-print-utils",
  "salsa",
+ "serde",
 ]
 
 [[package]]
@@ -8228,6 +8229,7 @@ dependencies = [
  "latex-vfs",
  "ptree",
  "salsa",
+ "serde",
  "smallvec",
  "time-capsule",
 ]
@@ -8240,11 +8242,13 @@ dependencies = [
  "husky-linket-impl",
  "husky-path-utils",
  "husky-standard-linket-impl",
+ "husky-standard-value",
  "idx-arena",
  "latex-ast",
  "latex-prelude",
  "latex-vfs",
  "lazy_static 1.5.0",
+ "serde",
  "vec-like",
 ]
 

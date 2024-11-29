@@ -9,6 +9,7 @@ edition = "2021"
 doctest = false
 
 [dependencies]
+serde.workspace = true
 # abstractions
 salsa.workspace = true
 # utils

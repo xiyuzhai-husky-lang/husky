@@ -7,10 +7,23 @@ use husky_standard_linket_impl::ugly::*;
 use idx_arena::ArenaIdx;
 use latex_ast::ast::LxAstIdx;
 
+#[husky_standard_value::copyable_value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LxAstId {
     pub file_idx: LxFileIdx,
     pub ast_idx: LxAstIdx,
+}
+
+impl From<&u128> for &LxAstId {
+    fn from(value: &u128) -> Self {
+        todo!()
+    }
+}
+
+impl Into<u128> for LxAstId {
+    fn into(self) -> u128 {
+        todo!()
+    }
 }
 
 impl From<__VarId> for LxAstId {
@@ -201,8 +214,7 @@ impl __IsStaticVar<__VarId> for AST {
     type Value = __Value;
 
     fn get_value() -> Self::Value {
-        let id = AST();
-        __Value::U32U32Pair(id.file_idx.into(), lx_ast_idx_to_u32(id.ast_idx))
+        AST().into_value()
     }
 
     fn zones() -> &'static [__FigureZone] {
