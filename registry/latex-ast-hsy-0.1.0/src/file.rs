@@ -1,9 +1,11 @@
 pub mod map;
 
+use crate::*;
 use lazy_static::lazy_static;
+use serde::{Deserialize, Serialize};
 use std::ops::Deref;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct LxFileIdx(u32);
 
 impl LxFileIdx {

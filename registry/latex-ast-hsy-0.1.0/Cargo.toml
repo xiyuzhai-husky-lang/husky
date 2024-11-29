@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 lazy_static.workspace = true
+serde.workspace = true
 # abstractions
 idx-arena.workspace = true
 vec-like.workspace = true
@@ -25,6 +26,8 @@ husky-linket-impl.workspace = true
 husky-standard-linket-impl.workspace = true
 # utils
 husky-path-utils.workspace = true
+# value
+husky-standard-value.workspace = true
 # library
 husky-core.workspace = true
 
