@@ -8245,6 +8245,7 @@ dependencies = [
  "latex-prelude",
  "latex-vfs",
  "lazy_static 1.5.0",
+ "vec-like",
 ]
 
 [[package]]

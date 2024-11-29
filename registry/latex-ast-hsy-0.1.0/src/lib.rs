@@ -170,12 +170,9 @@ impl __IsStaticVar<__VarId> for AST {
         figure_zone: __FigureZone,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<__VarId> {
-        Ok(LxAstId {
-            file_idx: file_idx(),
-            ast_idx: todo!(),
-            //  unsafe { ArenaIdx::new_ext(0) },
-        }
-        .into())
+        let file_idx = file_idx();
+        let ast_idx = first_ast(file_idx);
+        Ok(LxAstId { file_idx, ast_idx }.into())
     }
 
     fn get_id() -> __VarId {
@@ -186,18 +183,18 @@ impl __IsStaticVar<__VarId> for AST {
         new: __VarId,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        let old = replace_ast_id(new.into());
         Ok(move || {
-            todo!()
-            // set_input_id(old);
+            set_ast_id(old);
         })
     }
 
     fn try_set_default_var_id(
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
-        // TODO: is this correct?
-        todo!();
-        let default = [0, 0].into();
+        let file_idx: LxFileIdx = 0.into();
+        let ast_idx = first_ast(file_idx);
+        let default = LxAstId { file_idx, ast_idx }.into();
         Ok((default, Self::try_set_var_id(default, locked)?))
     }
 
