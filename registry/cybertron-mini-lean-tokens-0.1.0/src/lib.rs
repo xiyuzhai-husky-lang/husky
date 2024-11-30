@@ -95,6 +95,6 @@ impl __IsStaticVar<__VarId> for TOKEN_FILE_POSITION {
     }
 
     fn zones() -> &'static [__FigureZone] {
-        &[__FigureZone::Text]
+        &[__FigureZone::Roll]
     }
 }

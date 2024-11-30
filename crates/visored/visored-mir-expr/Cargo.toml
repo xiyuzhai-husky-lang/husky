@@ -22,6 +22,7 @@ salsa = { workspace = true, optional = true }
 latex-environment.workspace = true
 latex-math-letter.workspace = true
 latex-prelude.workspace = true
+latex-token.workspace = true
 # utils
 husky-tree-utils.workspace = true
 # visored

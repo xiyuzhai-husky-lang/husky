@@ -1,3 +1,4 @@
+pub mod copyable;
 mod option;
 pub mod owned;
 mod primitive;
@@ -13,6 +14,7 @@ use crate::{
     thawed::{Thawed, ThawedDyn},
     *,
 };
+use copyable::CopyableConverter;
 use frozen::{Frozen, FrozenDyn, FrozenValue};
 use husky_decl_macro_utils::*;
 #[cfg(feature = "constant")]
@@ -35,7 +37,6 @@ use thawed::{FromThawedValue, ThawedValue};
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
-/// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 #[value_ty]
 #[derive(Debug)]
 #[repr(u8)]
@@ -68,13 +69,33 @@ pub enum Value {
     Owned(OwnedValue),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn ImmortalDyn),
+    LeashSized(&'static dyn ImmortalDyn),
     OptionBox(Option<Box<dyn ImmortalDyn>>),
     OptionLeash(Option<&'static dyn ImmortalDyn>),
     EnumUnit {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
+    Copyable(CopyableConverter, u128),
+}
+
+impl Value {
+    pub fn new_copyable<T>(t: T) -> Self
+    where
+        T: Copy + Immortal + Into<u128> + Eq,
+        for<'a> &'a T: From<&'a u128>,
+    {
+        let (converter, v) = CopyableConverter::new(t);
+        Value::Copyable(converter, v)
+    }
+}
+
+#[test]
+fn value_size_works() {
+    assert_eq!(
+        std::mem::size_of::<Value>(),
+        4 * std::mem::size_of::<usize>()
+    )
 }
 
 impl Eq for Value {}
@@ -194,7 +215,7 @@ impl Value {
         match self {
             Value::Owned(slf) => slf.downcast_into_owned(),
             // ad hoc
-            Value::Leash(slf) => slf.try_copy_dyn().unwrap().into_owned(),
+            Value::LeashSized(slf) => slf.try_copy_dyn().unwrap().into_owned(),
             // *(slf.try_copy_dyn() as Box<dyn std::any::Any>)
             //     .downcast()
             //     .unwrap(),
@@ -206,13 +227,13 @@ impl Value {
     where
         T: ImmortalDyn,
     {
-        Value::Leash(t)
+        Value::LeashSized(t)
     }
 
     pub fn into_leash<T>(self) -> &'static T {
         match self {
             // ad hoc, we maybe encounter &'static Leash<T> here, so can't always just unwrap it
-            Value::Leash(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
+            Value::LeashSized(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
             _ => unreachable!(),
         }
     }
@@ -259,7 +280,7 @@ impl Value {
                     .push(SlushValue::Box(slf.into_inner()));
                 t
             }
-            Value::Leash(slf) => {
+            Value::LeashSized(slf) => {
                 let slf: &T = ((slf as &dyn ImmortalDyn) as &dyn std::any::Any)
                     .downcast_ref()
                     .expect("type id is correct");
@@ -268,6 +289,7 @@ impl Value {
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 }
@@ -329,11 +351,12 @@ impl IsValue for Value {
             Value::F32(slf) => Value::F32(slf),
             Value::F64(slf) => Value::F64(slf),
             Value::StringLiteral(slf) => Value::StringLiteral(slf),
-            Value::Owned(ref slf) => Value::Leash(slf.as_ref()), // Clone the boxed value
-            Value::Leash(slf) => Value::Leash(slf),
+            Value::Owned(ref slf) => Value::LeashSized(slf.as_ref()), // Clone the boxed value
+            Value::LeashSized(slf) => Value::LeashSized(slf),
             Value::OptionBox(ref slf) => Value::OptionLeash(slf.as_ref().map(|v| &**v)), // Clone the boxed option
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::EnumUnit { index, presenter } => Value::EnumUnit { index, presenter },
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -367,7 +390,7 @@ impl IsValue for Value {
         match self {
             Value::OptionBox(opt) => opt.is_none(),
             Value::OptionLeash(opt) => opt.is_none(),
-            Value::Leash(opt) => opt.is_none_dyn(),
+            Value::LeashSized(opt) => opt.is_none_dyn(),
             _ => {
                 unreachable!()
             }
@@ -378,7 +401,7 @@ impl IsValue for Value {
         match self {
             Value::OptionBox(opt) => opt.is_some(),
             Value::OptionLeash(opt) => opt.is_some(),
-            Value::Leash(opt) => opt.is_some_dyn(),
+            Value::LeashSized(opt) => opt.is_some_dyn(),
             _ => unreachable!(),
         }
     }
@@ -435,10 +458,11 @@ impl IsValue for Value {
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
             Value::Owned(slf) => slf.index_owned_dyn(index),
-            Value::Leash(slf) => slf.index_leash_dyn(index),
+            Value::LeashSized(slf) => slf.index_leash_dyn(index),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -473,12 +497,13 @@ impl IsValue for Value {
             Value::F64(f) => ValuePresentation::F64(f.into()),
             Value::StringLiteral(_) => todo!(),
             Value::Owned(ref value) => (**value).present_dyn(),
-            Value::Leash(value) => value.present_dyn(),
+            Value::LeashSized(value) => value.present_dyn(),
             Value::OptionBox(ref value) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => {
                 presenter(index, cache, value_presentation_synchrotron)
             }
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -510,10 +535,11 @@ impl IsValue for Value {
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
             Value::Owned(ref value) => (**value).visualize_or_void_dyn(visual_synchrotron),
-            Value::Leash(value) => value.visualize_or_void_dyn(visual_synchrotron),
+            Value::LeashSized(value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { .. } => Visual::Void,
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -548,10 +574,11 @@ impl IsValue for Value {
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
             Value::Owned(_) => todo!(),
-            Value::Leash(slf) => slf.unwrap_leash_dyn(),
+            Value::LeashSized(slf) => slf.unwrap_leash_dyn(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 
@@ -590,7 +617,7 @@ impl PartialEq for Value {
             (Self::F64(l0), Self::F64(r0)) => l0 == r0,
             (Self::StringLiteral(l0), Self::StringLiteral(r0)) => todo!(),
             (Self::Owned(l0), Self::Owned(r0)) => todo!(),
-            (Self::Leash(l0), Self::Leash(r0)) => todo!(),
+            (Self::LeashSized(l0), Self::LeashSized(r0)) => todo!(),
             (Self::OptionBox(l0), Self::OptionBox(r0)) => todo!(),
             (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
             (Self::EnumUnit { index: l0, .. }, Self::EnumUnit { index: r0, .. }) => l0 == r0,
@@ -622,7 +649,7 @@ impl PartialOrd for Value {
             (F64(f1), F64(f2)) => f1.partial_cmp(f2),
             (StringLiteral(l0), StringLiteral(r0)) => todo!(),
             (Value::Owned(l0), Value::Owned(r0)) => todo!(),
-            (Leash(l0), Leash(r0)) => todo!(),
+            (LeashSized(l0), LeashSized(r0)) => todo!(),
             (OptionBox(l0), OptionBox(r0)) => todo!(),
             (OptionLeash(l0), OptionLeash(r0)) => todo!(),
             (EnumUnit { index: l0, .. }, EnumUnit { index: r0, .. }) => todo!(),
@@ -821,10 +848,11 @@ impl std::ops::Neg for Value {
             Value::F64(f) => Value::F64(-f),
             Value::StringLiteral(_) => todo!(),
             Value::Owned(_) => todo!(),
-            Value::Leash(_) => todo!(),
+            Value::LeashSized(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
+            Value::Copyable(_, _) => todo!(),
         }
     }
 }

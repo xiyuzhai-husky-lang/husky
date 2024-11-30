@@ -80,21 +80,47 @@ impl Diagnose for OriginalSynNodeDeclError {
                 format!("Syntax Error: ExpectEqTokenForVariable",)
             }
             OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(_) => {
-                format!("Syntax Error: expected `{{` `(` or `;` for struct",)
+                format!("Syntax Error: expect `{{`, `(`, or `;`")
             }
-            OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => {
+                format!("Syntax Error: expect `=` for associated type")
+            }
+            OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive(_) => {
+                format!("Syntax Error: expect `(` in derive")
+            }
+            OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive(_) => {
+                format!("Syntax Error: expect `)` in derive")
+            }
+            OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => {
+                format!("Syntax Error: expect `:` before return type")
+            }
+            OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => {
+                format!("Syntax Error: expect `=` for backprop argument")
+            }
+            OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => {
+                format!("Syntax Error: expect expression for backprop argument")
+            }
+            OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => {
+                format!("Syntax Error: expect `:` for trait memoized field")
+            }
+            OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => {
+                format!("Syntax Error: expect `:` before static return type")
+            }
+            OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => {
+                format!("Syntax Error: expect static return type")
+            }
+            OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => {
+                format!("Syntax Error: expect crate declaration narrative")
+            }
+            OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => {
+                format!("Syntax Error: expect `=` for lib crate default const excludes")
+            }
+            OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias(_) => {
+                format!("Syntax Error: expect `=` for type alias")
+            }
+            OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut(_) => {
+                format!("Syntax Error: expect `=` for static mut")
+            }
         }
     }
 
@@ -130,20 +156,38 @@ impl Diagnose for OriginalSynNodeDeclError {
             | OriginalSynNodeDeclError::ExpectedEqTokenForMemo(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(
                 regional_token_stream_state,
-            ) => ctx.token_stream_state_text_range(*regional_token_stream_state),
-            OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut(_) => todo!(),
+            )
+            | OriginalSynNodeDeclError::ExpectedEqForAssocType(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedStaticReturnType(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(
+                regional_token_stream_state,
+            )
+            | OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut(regional_token_stream_state) => {
+                ctx.token_stream_state_text_range(*regional_token_stream_state)
+            }
         }
     }
 }

@@ -41,6 +41,7 @@ use latex_token::{
         rose::LxRoseTokenData,
     },
 };
+use serde::{Deserialize, Serialize};
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -64,6 +65,15 @@ impl LxAstArena {
             lisp: self.lisp.as_arena_ref(),
             root: self.root.as_arena_ref(),
         }
+    }
+
+    pub fn all_asts(&self) -> impl Iterator<Item = LxAstIdx> {
+        self.math
+            .indices()
+            .map(LxAstIdx::Math)
+            .chain(self.rose.indices().map(LxAstIdx::Rose))
+            .chain(self.lisp.indices().map(LxAstIdx::Lisp))
+            .chain(self.root.indices().map(LxAstIdx::Root))
     }
 }
 
@@ -129,7 +139,7 @@ impl<T> LxAstArenaMap<T> {
 }
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum LxAstIdx {
     Math(LxMathAstIdx),
     Rose(LxRoseAstIdx),

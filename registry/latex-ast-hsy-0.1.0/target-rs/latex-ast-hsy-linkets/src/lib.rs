@@ -4,6 +4,7 @@ use ad_hoc_devsoul_dependency::{*, ugly::*};
 
 #[rustfmt::skip]
 linket_impls![
+    static_var_linket_impl!(latex_ast_hsy::AST, latex_ast_hsy::__AST__ITEM_PATH_ID_INTERFACE),
     fn_linket_impl!(<i8>::abs),
     fn_linket_impl!(<i8>::max),
     fn_linket_impl!(<i8 as Add<i8>>::add),

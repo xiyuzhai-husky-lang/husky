@@ -1,8 +1,8 @@
 use crate::{
     expr::{application::LnMirFunc, LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
     item_defn::{
-        def::LnMirDefBody, LnItemDefnArenaRef, LnItemDefnData, LnItemDefnIdx, LnItemDefnIdxRange,
-        LnMirItemDefnGroupMeta,
+        def::LnMirDefBody, LnItemDefnArenaRef, LnItemDefnComment, LnItemDefnData, LnItemDefnIdx,
+        LnItemDefnIdxRange, LnItemDefnOrderedMap, LnMirItemDefnGroupMeta,
     },
     stmt::LnMirStmtArenaRef,
     tactic::{LnMirTacticArenaRef, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
@@ -16,6 +16,7 @@ pub struct LnMirExprFormatter<'a> {
     stmt_arena: LnMirStmtArenaRef<'a>,
     tactic_arena: LnMirTacticArenaRef<'a>,
     defn_arena: LnItemDefnArenaRef<'a>,
+    defn_comments: &'a LnItemDefnOrderedMap<LnItemDefnComment>,
     config: &'a LnMirExprFormatterConfig,
     result: String,
     indent_level: usize,
@@ -41,6 +42,7 @@ impl<'a> LnMirExprFormatter<'a> {
         stmt_arena: LnMirStmtArenaRef<'a>,
         tactic_arena: LnMirTacticArenaRef<'a>,
         defn_arena: LnItemDefnArenaRef<'a>,
+        defn_comments: &'a LnItemDefnOrderedMap<LnItemDefnComment>,
         config: &'a LnMirExprFormatterConfig,
     ) -> Self {
         Self {
@@ -48,6 +50,7 @@ impl<'a> LnMirExprFormatter<'a> {
             stmt_arena,
             tactic_arena,
             defn_arena,
+            defn_comments,
             config,
             result: Default::default(),
             indent_level: 0,
@@ -205,6 +208,7 @@ impl<'a> LnMirExprFormatter<'a> {
 
     pub fn format_defn(&mut self, defn: LnItemDefnIdx) {
         self.make_sure_new_paragraph();
+        self.format_defn_comment(defn);
         let defn_arena = self.defn_arena;
         match defn_arena[defn] {
             LnItemDefnData::Variable { ident: symbol, ty } => {
@@ -235,6 +239,21 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.format_expr_ext(ty);
                 self.result += " := ";
                 self.format_def_body(body);
+            }
+        }
+    }
+
+    pub fn format_defn_comment(&mut self, defn: LnItemDefnIdx) {
+        let comment = &self.defn_comments[defn];
+        match *comment {
+            LnItemDefnComment::Void => {}
+            LnItemDefnComment::Lines(ref lines) => {
+                for line in lines {
+                    self.make_sure_new_line();
+                    self.result += "-- ";
+                    self.result += line;
+                }
+                self.make_sure_new_line();
             }
         }
     }

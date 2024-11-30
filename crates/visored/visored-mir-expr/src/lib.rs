@@ -3,6 +3,7 @@ pub mod expr;
 pub mod helpers;
 pub mod pattern;
 pub mod region;
+pub mod source_map;
 pub mod stmt;
 pub mod symbol;
 #[cfg(test)]

@@ -6,12 +6,12 @@ use husky_standard_linket_impl::pedestal::StandardJointPedestal;
 use ui::visual::cache::VisualUiCache;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct GalleryFigure {
+pub struct ParadingFigure {
     specific_figures: Vec<SpecificFigure>,
 }
 
 /// # constructor
-impl GalleryFigure {
+impl ParadingFigure {
     pub(super) fn from_chart(
         chart: StandardChartDim1<CompositeVisual<TraceId>>,
         trace_plot_map: &TracePlotInfos,
@@ -19,8 +19,9 @@ impl GalleryFigure {
     ) -> Self {
         Self {
             specific_figures: chart
+                .points
                 .into_iter()
-                .map(|chart_dim0| {
+                .map(|(var_id, chart_dim0)| {
                     SpecificFigure::from_chart(chart_dim0, trace_plot_map, visual_synchrotron)
                 })
                 .collect(),
@@ -28,7 +29,7 @@ impl GalleryFigure {
     }
 }
 
-impl GalleryFigure {
+impl ParadingFigure {
     pub(super) fn for_all_joint_pedestals(&self, mut f: impl FnMut(&StandardJointPedestal)) {
         self.specific_figures
             .iter()
@@ -38,7 +39,7 @@ impl GalleryFigure {
 
 /// # ui
 #[cfg(feature = "egui")]
-impl GalleryFigure {
+impl ParadingFigure {
     pub(super) fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,

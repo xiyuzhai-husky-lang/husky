@@ -207,12 +207,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     MajorItemPath::Type(ty_path) => todo!(),
                     MajorItemPath::Trait(trai_path) => todo!(),
                     MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
-                        MajorFormKind::Ritchie(ritchie_item_kind) => {
-                            use husky_print_utils::p;
-                            use salsa::DebugWithDb;
-                            p!(path.debug(db));
-                            VmirExprData::RitchieItemPath
-                        }
+                        MajorFormKind::Ritchie(ritchie_item_kind) => VmirExprData::RitchieItemPath,
                         MajorFormKind::TypeAlias => todo!(),
                         MajorFormKind::TypeVar => todo!(),
                         MajorFormKind::Val => {

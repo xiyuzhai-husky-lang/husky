@@ -44,4 +44,5 @@ linket_impls![
     fn_linket_impl!(<u32>::span),
     fn_linket_impl!(<u32>::right_mass),
     static_var_linket_impl!(husky_core::task::TASK, husky_core::task::__TASK__ITEM_PATH_ID_INTERFACE),
+    static_var_linket_impl!(latex_ast_hsy::AST, latex_ast_hsy::__AST__ITEM_PATH_ID_INTERFACE),
 ];

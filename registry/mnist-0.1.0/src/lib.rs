@@ -165,7 +165,7 @@ impl __IsStaticVar<__VarId> for INPUT {
     }
 
     fn zones() -> &'static [__FigureZone] {
-        &[__FigureZone::Gallery]
+        &[__FigureZone::Parade]
     }
 }
 

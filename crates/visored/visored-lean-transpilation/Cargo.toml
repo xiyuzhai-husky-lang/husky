@@ -21,6 +21,7 @@ interned.workspace = true
 salsa = { workspace = true, optional = true }
 # latex
 latex-prelude.workspace = true
+latex-token.workspace = true
 # lean
 lean-coword.workspace = true
 lean-mir-expr.workspace = true
@@ -33,6 +34,7 @@ husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
 visored-entity-path.workspace = true
+visored-sem-expr.workspace = true
 visored-mir-expr.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true

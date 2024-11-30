@@ -17,5 +17,21 @@
             ),
         ),
     ),
+    (
+        ItemPath(`latex_ast_hsy::AST`),
+        Ok(
+            ItemEthTemplate::MajorItem(
+                MajorItemEthTemplate::Form(
+                    FormEthTemplate::StaticVar(
+                        MajorStaticVarEthTemplate {
+                            path: MajorFormPath(`latex_ast_hsy::AST`, `StaticVar`),
+                            return_ty: EthTerm(`LxAstId`),
+                            expr_ty: EthTerm(`Leash LxAstId`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]
 ```
