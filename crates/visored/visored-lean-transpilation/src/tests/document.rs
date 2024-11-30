@@ -1,5 +1,6 @@
 use super::*;
 use crate::helpers::tracker::VdLeanTranspilationTracker;
+use interned::db::InternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxPageInput},
     mode::LxMode,
@@ -10,6 +11,7 @@ use std::path::PathBuf;
 fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdLeanTranspilationTracker::new(
@@ -20,6 +22,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        db,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree());
     expected_fmt.assert_eq(&tracker.show_fmt());
@@ -124,6 +127,7 @@ fn latex_shorts_to_lean_works() {
     use husky_path_utils::HuskyLangDevPaths;
     use std::fs;
 
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let projects_dir = dev_paths.projects_dir();
 
@@ -144,6 +148,7 @@ fn latex_shorts_to_lean_works() {
             },
             &[],
             &[],
+            db,
         );
         expect_file![projects_dir.join(format!(
             "ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean",

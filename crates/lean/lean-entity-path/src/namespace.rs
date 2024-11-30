@@ -1,5 +1,8 @@
 use crate::*;
-use interned::memo;
+use interned::{
+    db::{attach_interned_db, InternerDb},
+    memo,
+};
 use lean_coword::ident::LnIdent;
 use smallvec::{smallvec, SmallVec, ToSmallVec};
 
@@ -38,13 +41,13 @@ impl LnNamespace {
         }
     }
 
-    pub fn all_idents(self) -> &'static [LnIdent] {
-        ln_namespace_all_idents(self)
+    pub fn all_idents(self, db: &InternerDb) -> &[LnIdent] {
+        ln_namespace_all_idents(self, db)
     }
 
-    pub fn relative_idents(self, other: Self) -> &'static [LnIdent] {
-        let ids = self.all_idents();
-        let other_ids = other.all_idents();
+    pub fn relative_idents(self, other: Self, db: &InternerDb) -> &[LnIdent] {
+        let ids = self.all_idents(db);
+        let other_ids = other.all_idents(db);
         let i = ids
             .iter()
             .zip(other_ids.iter())
@@ -59,7 +62,7 @@ impl std::fmt::Debug for LnNamespace {
         write!(
             f,
             "LnNamespace(`{}`)",
-            self.all_idents()
+            self.all_idents(attach_interned_db())
                 .iter()
                 .map(|id| id.data())
                 .collect::<Vec<_>>()
@@ -69,11 +72,11 @@ impl std::fmt::Debug for LnNamespace {
 }
 
 #[memo]
-fn ln_namespace_all_idents(namespace: LnNamespace) -> SmallVec<[LnIdent; 4]> {
+fn ln_namespace_all_idents(namespace: LnNamespace, db: &InternerDb) -> SmallVec<[LnIdent; 4]> {
     match *namespace.data() {
         LnNamespaceData::Root => smallvec![],
         LnNamespaceData::Child(parent, ident) => {
-            let mut ids = parent.all_idents().to_smallvec();
+            let mut ids = parent.all_idents(db).to_smallvec();
             ids.push(ident);
             ids
         }

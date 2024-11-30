@@ -1,6 +1,7 @@
 use crate::*;
 use environment::VdEnvironmentPath;
 use husky_coword::Coword;
+use interned::db::InternerDb;
 use latex_vfs::path::LxFilePath;
 use rustc_hash::FxHashMap;
 use smallvec::*;
@@ -97,21 +98,21 @@ impl VdModulePath {
     }
 
     /// includes the module itself
-    pub fn lineage(self) -> &'static [VdModulePath] {
-        vd_module_lineage(self)
+    pub fn lineage(self, db: &InternerDb) -> &[VdModulePath] {
+        vd_module_lineage(self, db)
     }
 
-    pub fn contains(self, other: VdModulePath) -> bool {
-        other.lineage().contains(&self)
+    pub fn contains(self, other: VdModulePath, db: &InternerDb) -> bool {
+        other.lineage(db).contains(&self)
     }
 }
 
 /// includes the module itself
 #[interned::memo]
-fn vd_module_lineage(module_path: VdModulePath) -> SmallVec<[VdModulePath; 8]> {
+fn vd_module_lineage(module_path: VdModulePath, db: &InternerDb) -> SmallVec<[VdModulePath; 8]> {
     match module_path.parent() {
         Some(parent) => {
-            let mut ancestry = vd_module_lineage(parent).to_smallvec();
+            let mut ancestry = vd_module_lineage(parent, db).to_smallvec();
             ancestry.push(module_path);
             ancestry
         }
