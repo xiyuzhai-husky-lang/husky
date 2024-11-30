@@ -501,6 +501,7 @@ dependencies = [
 name = "husky-figure-zone-protocol"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "serde",
  "shifted-unsigned-int",
 ]
@@ -708,6 +709,7 @@ name = "husky-visual-protocol"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "husky-figure-zone-protocol",
  "husky-print-utils",
  "ordered-float 4.5.0",
  "serde",

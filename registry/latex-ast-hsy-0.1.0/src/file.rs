@@ -19,7 +19,7 @@ pub struct LxFileStorage {
 }
 
 lazy_static! {
-    pub static ref FILE_STORAGE: LxFileStorage = LxFileStorage::new();
+    pub static ref LX_FILE_STORAGE: LxFileStorage = LxFileStorage::new();
 }
 
 impl LxFileStorage {

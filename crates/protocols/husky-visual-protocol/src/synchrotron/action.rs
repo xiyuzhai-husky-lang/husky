@@ -3,10 +3,16 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum VisualSynchrotronAction {
     AllocVisual { data: VisualData },
+    AllocFigureText { text: FigureTextChunkBaseData },
 }
 
 pub(super) enum VisualSynchrotronActionOutcome {
-    AllocVisual { visual_id: VisualId },
+    AllocVisual {
+        visual_id: VisualId,
+    },
+    AllocFigureText {
+        figure_text_id: FigureTextChunkBaseId,
+    },
 }
 
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -29,6 +35,11 @@ impl VisualSynchrotron {
             VisualSynchrotronAction::AllocVisual { data } => {
                 VisualSynchrotronActionOutcome::AllocVisual {
                     visual_id: self.visual_arena.alloc(data),
+                }
+            }
+            VisualSynchrotronAction::AllocFigureText { text } => {
+                VisualSynchrotronActionOutcome::AllocFigureText {
+                    figure_text_id: self.figure_text_arena.alloc(text),
                 }
             }
         }

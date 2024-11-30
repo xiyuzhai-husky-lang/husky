@@ -206,7 +206,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let &[(path, anchor, ref locked), ref remaining_vars @ ..] = remaining_vars else {
             let joint_pedestal = JointPedestal::new(var_map);
             let r = f(&joint_pedestal)?;
-            return Some((joint_pedestal, r));
+            return Some(ChartDim0 { joint_pedestal, r });
         };
         let db = self.db();
         let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path else {
@@ -270,16 +270,21 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     .filter_map(|var_id| {
                         let mut var_map = var_map.clone();
                         var_map.insert(((*path).into(), var_id));
-                        linket_impl
-                            .with_var_id(var_id, locked, || {
-                                self.with_var_anchors0(var_map, remaining_vars, &mut f)
-                            })
-                            .ok()
-                            .flatten()
+                        Some((
+                            var_id,
+                            linket_impl
+                                .with_var_id(var_id, locked, || {
+                                    self.with_var_anchors0(var_map, remaining_vars, &mut f)
+                                })
+                                .ok()
+                                .flatten()?,
+                        ))
                     });
-                Some(match page_limit {
-                    Some(page_limit) => iter.take(page_limit).collect(),
-                    None => iter.collect(),
+                Some(ChartDim1 {
+                    points: match page_limit {
+                        Some(page_limit) => iter.take(page_limit).collect(),
+                        None => iter.collect(),
+                    },
                 })
             }
         }
