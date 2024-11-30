@@ -304,6 +304,7 @@ dependencies = [
 name = "husky-figure-zone-protocol"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "serde",
  "shifted-unsigned-int",
 ]
@@ -346,6 +347,7 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "husky-wild-utils",
+ "interned",
  "serde",
  "smallvec",
  "vec-like",
@@ -505,6 +507,7 @@ name = "husky-visual-protocol"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "husky-figure-zone-protocol",
  "husky-print-utils",
  "ordered-float",
  "serde",
@@ -524,6 +527,25 @@ checksum = "68b900aa2f7301e21c36462b170ee99994de34dff39a4a6a528e80e7376d07e5"
 dependencies = [
  "equivalent",
  "hashbrown",
+]
+
+[[package]]
+name = "interned"
+version = "0.1.0"
+dependencies = [
+ "dashmap",
+ "interned-macros",
+ "lazy_static",
+]
+
+[[package]]
+name = "interned-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]

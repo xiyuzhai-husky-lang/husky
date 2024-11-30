@@ -501,6 +501,7 @@ dependencies = [
 name = "husky-figure-zone-protocol"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "serde",
  "shifted-unsigned-int",
 ]
@@ -543,6 +544,7 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "husky-wild-utils",
+ "interned",
  "serde",
  "smallvec",
  "vec-like",
@@ -708,6 +710,7 @@ name = "husky-visual-protocol"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "husky-figure-zone-protocol",
  "husky-print-utils",
  "ordered-float 4.5.0",
  "serde",
@@ -726,6 +729,7 @@ dependencies = [
  "husky-check-utils",
  "husky-print-utils",
  "salsa",
+ "serde",
 ]
 
 [[package]]
@@ -784,6 +788,7 @@ dependencies = [
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
+ "interned",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
@@ -792,6 +797,7 @@ dependencies = [
  "latex-rose-punctuation",
  "latex-token",
  "ptree",
+ "serde",
  "smallvec",
  "time-capsule",
 ]
@@ -804,11 +810,13 @@ dependencies = [
  "husky-linket-impl",
  "husky-path-utils",
  "husky-standard-linket-impl",
+ "husky-standard-value",
  "idx-arena",
  "latex-ast",
  "latex-prelude",
  "latex-vfs",
  "lazy_static 1.5.0",
+ "serde",
  "vec-like",
 ]
 

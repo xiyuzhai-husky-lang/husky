@@ -1,6 +1,7 @@
 use super::*;
 use ast::helpers::tracker::LxAstTracker;
 use expect_test::Expect;
+use interned::db::InternerDb;
 use latex_prelude::helper::tracker::LxPageInput;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
@@ -8,13 +9,17 @@ use std::path::PathBuf;
 fn t(content: &str, expected: Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()));
-    let tracker = LxAstTracker::new(LxPageInput {
-        specs_dir: dev_paths.specs_dir(),
-        file_path,
-        content,
-    });
+    let tracker = LxAstTracker::new(
+        LxPageInput {
+            specs_dir: dev_paths.specs_dir(),
+            file_path,
+            content,
+        },
+        db,
+    );
     let show = tracker.show();
     expected.assert_eq(&show);
 }

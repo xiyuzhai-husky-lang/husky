@@ -8,6 +8,7 @@ serde.workspace = true
 smallvec.workspace = true
 vec-like.workspace = true
 # abstractions
+interned.workspace = true
 # kernel
 husky-item-path-interface.workspace = true
 # ki

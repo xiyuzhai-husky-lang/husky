@@ -105,7 +105,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             ast_arena,
             ast_token_idx_range_map,
             output: lx_ast_output,
-        } = LxAstTracker::new(input);
+        } = LxAstTracker::new(input, db);
         // ad hoc
         let whole_token_range = token_storage.whole_token_idx_range(LxTokenLane::Main);
         let annotations = VdAnnotations::from_sparse(
