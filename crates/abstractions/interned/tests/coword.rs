@@ -36,6 +36,6 @@ fn coword_works() {
 }
 
 #[memo]
-fn first_letter(word: Coword) -> char {
+fn first_letter(word: Coword, db: &InternerDb) -> char {
     word.data().chars().next().unwrap()
 }

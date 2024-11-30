@@ -3,6 +3,7 @@ use crate::dictionary::VdLeanDictionary;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
 use either::*;
 use husky_tree_utils::display::DisplayTree;
+use interned::db::InternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
@@ -61,6 +62,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &'a InternerDb,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -77,9 +79,10 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[]);
+        } = VdMirExprTracker::new(input, &[], &[], db);
         let dictionary = &VdLeanDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
+            db,
             content,
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),

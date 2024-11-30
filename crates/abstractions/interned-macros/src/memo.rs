@@ -15,7 +15,12 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
         ReturnType::Default => quote!(()),
         ReturnType::Type(_, ty) => quote!(#ty),
     };
-    let args = sig.inputs.iter().collect::<Vec<_>>();
+    let args = sig
+        .inputs
+        .iter()
+        .take(sig.inputs.len() - 1)
+        .collect::<Vec<_>>();
+    let db_arg = sig.inputs.last().unwrap();
     let arg_tys = args
         .iter()
         .map(|arg| {
@@ -26,6 +31,18 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
             }
         })
         .collect::<Vec<_>>();
+    let db_ty = if let FnArg::Typed(pat_type) = db_arg {
+        if let Type::Path(type_path) = &*pat_type.ty {
+            if let Some(last_segment) = type_path.path.segments.last() {
+                if last_segment.ident.to_string() != "InternerDb" {
+                    panic!("expect last arg to be db:InternerDb");
+                }
+            }
+        }
+        &*pat_type.ty
+    } else {
+        panic!("DB argument must be typed")
+    };
     let arg_names = args
         .iter()
         .map(|arg| {
@@ -42,18 +59,18 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
         .collect::<Vec<_>>();
 
     let output = quote! {
-        #vis fn #fn_name(#(#args),*) -> &'static #ret_type  {
+        #vis fn #fn_name(#(#args),*, db: &::interned::db::InternerDb) -> &'static #ret_type  {
             interned::lazy_static! {
                 static ref #storage_name: interned::DashMap<(#(#arg_tys),*), Box<#ret_type>> = interned::DashMap::new();
             }
 
-            fn #inner_fn_name(#(#args),*) -> #ret_type #body
+            fn #inner_fn_name(#(#args),*, db: &::interned::db::InternerDb) -> #ret_type #body
 
             if let Some(result) = #storage_name.get(&(#(#arg_names),*)) {
                 return unsafe { &*(&**result as *const #ret_type)};
             }
 
-            let result = #inner_fn_name(#(#arg_names),*);
+            let result = #inner_fn_name(#(#arg_names),*, db);
             let result = Box::new(result);
             let result_ptr = &*result as *const #ret_type;
             #storage_name.insert((#(#arg_names),*), result);

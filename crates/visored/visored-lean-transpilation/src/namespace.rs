@@ -5,7 +5,10 @@ use visored_entity_path::module::{VdModulePath, VdModulePathData};
 use visored_prelude::division::VdDivisionLevel;
 
 #[interned::memo]
-pub fn vd_module_path_to_ln_namespace(module_path: VdModulePath) -> Option<LnNamespace> {
+pub fn vd_module_path_to_ln_namespace(
+    module_path: VdModulePath,
+    db: &InternerDb,
+) -> Option<LnNamespace> {
     match *module_path.data() {
         VdModulePathData::Root(_) => Some(LnNamespace::new_root()),
         VdModulePathData::Division {
@@ -21,7 +24,7 @@ pub fn vd_module_path_to_ln_namespace(module_path: VdModulePath) -> Option<LnNam
                 VdDivisionLevel::Subsubsection => (),
                 VdDivisionLevel::Stmts => return None,
             }
-            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent);
+            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent, db);
             Some(parent_namespace.child(format!(
                 "{}{}",
                 division_level.uppercase_code_name(),
@@ -37,7 +40,7 @@ pub fn vd_module_path_to_ln_namespace(module_path: VdModulePath) -> Option<LnNam
             environment_path,
             disambiguator,
         } => {
-            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent);
+            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent, db);
             Some(parent_namespace.child(format!(
                 "{}{}",
                 environment_path.pascal_ident(),
@@ -48,7 +51,10 @@ pub fn vd_module_path_to_ln_namespace(module_path: VdModulePath) -> Option<LnNam
 }
 
 #[interned::memo]
-pub fn vd_module_path_to_ln_namespace_or_inherited(module_path: VdModulePath) -> LnNamespace {
+pub fn vd_module_path_to_ln_namespace_or_inherited(
+    module_path: VdModulePath,
+    db: &InternerDb,
+) -> LnNamespace {
     match *module_path.data() {
         VdModulePathData::Root(lx_file_path) => LnNamespace::new_root(),
         VdModulePathData::Division {
@@ -56,7 +62,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(module_path: VdModulePath) ->
             division_level,
             disambiguator,
         } => {
-            let parent_namespace = *vd_module_path_to_ln_namespace_or_inherited(parent);
+            let parent_namespace = *vd_module_path_to_ln_namespace_or_inherited(parent, db);
             match division_level {
                 VdDivisionLevel::Part => (),
                 VdDivisionLevel::Chapter => (),
@@ -74,13 +80,13 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(module_path: VdModulePath) ->
         VdModulePathData::Paragraph {
             parent,
             disambiguator,
-        } => *vd_module_path_to_ln_namespace_or_inherited(parent),
+        } => *vd_module_path_to_ln_namespace_or_inherited(parent, db),
         VdModulePathData::Environment {
             parent,
             environment_path,
             disambiguator,
         } => {
-            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent);
+            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent, db);
             parent_namespace.child(format!(
                 "{}{}",
                 environment_path.pascal_ident(),

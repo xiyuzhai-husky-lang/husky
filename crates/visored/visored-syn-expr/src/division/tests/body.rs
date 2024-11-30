@@ -1,10 +1,12 @@
 use super::*;
+use interned::db::InternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 
 fn t(content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdSynExprTracker::new(
@@ -15,6 +17,7 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
+        &db,
     );
     expected.assert_eq(&tracker.show_display_tree());
 }

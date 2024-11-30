@@ -17,6 +17,7 @@ use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
+use interned::db::InternerDb;
 use latex_ast::{
     ast::{
         parse_latex_input_into_asts, root::LxRootAstIdxRange, rose::LxRoseAstIdxRange, LxAstArena,
@@ -95,6 +96,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &InternerDb,
     ) -> Self {
         let LxAstTracker {
             command_signature_table,
@@ -114,6 +116,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         );
         let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard();
         let mut builder = VdSynExprBuilder::new(
+            db,
             input.content(),
             input.file_path(),
             &token_storage,

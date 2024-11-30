@@ -20,6 +20,7 @@ use crate::{
 };
 use crate::{division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode, stmt::VdSynStmtMap};
 use either::*;
+use interned::db::InternerDb;
 use latex_ast::{
     ast::{
         rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
@@ -37,6 +38,7 @@ use visored_global_resolution::{
 };
 
 pub struct VdSynExprBuilder<'db> {
+    db: &'db InternerDb,
     content: &'db str,
     file_path: LxFilePath,
     token_storage: &'db LxTokenStorage,
@@ -55,6 +57,7 @@ pub struct VdSynExprBuilder<'db> {
 /// # constructor
 impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
+        db: &'db InternerDb,
         content: &'db str,
         file_path: LxFilePath,
         token_storage: &'db LxTokenStorage,
@@ -64,6 +67,7 @@ impl<'db> VdSynExprBuilder<'db> {
         default_resolution_table: &'db VdDefaultGlobalResolutionTable,
     ) -> Self {
         Self {
+            db,
             content,
             file_path,
             token_storage,
@@ -282,6 +286,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 output,
             );
         let (symbol_defns, symbol_resolutions) = build_all_symbol_defns_and_resolutions_with(
+            self.db,
             self.token_storage,
             self.ast_arena,
             self.ast_token_idx_range_map,

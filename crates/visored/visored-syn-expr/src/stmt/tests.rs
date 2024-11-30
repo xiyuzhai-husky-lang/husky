@@ -1,6 +1,7 @@
 use super::*;
 use crate::helpers::tracker::VdSynExprTracker;
 use expect_test::{expect, Expect};
+use interned::db::InternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
@@ -9,6 +10,7 @@ use std::path::PathBuf;
 fn t(content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdSynExprTracker::new(
@@ -19,6 +21,7 @@ fn t(content: &str, expect: &Expect) {
         },
         &[],
         &[],
+        db,
     );
     expect.assert_eq(&tracker.show_display_tree());
 }
