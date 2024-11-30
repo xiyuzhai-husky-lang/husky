@@ -5,6 +5,7 @@ use super::{
     *,
 };
 use crate::{clause::*, division::*, expr::*, phrase::*, range::*, sentence::*, stmt::*};
+use interned::db::InternerDb;
 use r#let::{
     assigned::VdSynLetAssignedResolution, placeholder::VdSynLetPlaceholderResolution,
     VdSynLetClauseResolution,
@@ -17,6 +18,7 @@ use visored_entity_path::{
 use visored_prelude::division::VdDivisionLevel;
 
 pub struct VdSynSymbolBuilder<'a> {
+    db: &'a InternerDb,
     default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArenaRef<'a>,
     phrase_arena: VdSynPhraseArenaRef<'a>,
@@ -40,6 +42,7 @@ pub struct VdSynSymbolBuilder<'a> {
 
 impl<'a> VdSynSymbolBuilder<'a> {
     pub fn new(
+        db: &'a InternerDb,
         default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
         expr_arena: VdSynExprArenaRef<'a>,
         phrase_arena: VdSynPhraseArenaRef<'a>,
@@ -58,6 +61,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         Self {
+            db,
             default_global_resolution_table,
             expr_arena,
             phrase_arena,
@@ -90,6 +94,10 @@ impl<'a> VdSynSymbolBuilder<'a> {
 
 /// # getters
 impl<'a> VdSynSymbolBuilder<'a> {
+    pub(crate) fn db(&self) -> &'a InternerDb {
+        self.db
+    }
+
     pub(crate) fn default_global_resolution_table(&self) -> &VdDefaultGlobalResolutionTable {
         self.default_global_resolution_table
     }

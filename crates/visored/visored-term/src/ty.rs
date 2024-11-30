@@ -4,6 +4,7 @@ use crate::{
     menu::{VdTypeMenu, VD_TYPE_MENU},
     term::{VdTerm, VdTermData, VdTermId},
 };
+use interned::db::InternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
@@ -50,13 +51,13 @@ impl VdType {
 }
 
 impl VdType {
-    pub fn is_function_like(self) -> bool {
-        *is_vd_ty_function_like(**self)
+    pub fn is_function_like(self, db: &InternerDb) -> bool {
+        *is_vd_ty_function_like(**self, db)
     }
 }
 
 #[interned::memo]
-fn is_vd_ty_function_like(ty: VdTermId) -> bool {
+fn is_vd_ty_function_like(ty: VdTermId, db: &InternerDb) -> bool {
     match *ty.data() {
         VdTermData::ItemPath(_) => false,
         VdTermData::Literal(_) => todo!(),

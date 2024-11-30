@@ -8,6 +8,7 @@ use either::*;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
+use interned::db::InternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
@@ -67,6 +68,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &InternerDb,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -90,7 +92,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             division_range_map: sem_division_range_map,
             symbol_local_defn_storage: sem_symbol_local_defn_storage,
             output,
-        } = VdSemExprTracker::new(input, token_annotations, space_annotations);
+        } = VdSemExprTracker::new(input, token_annotations, space_annotations, db);
         let mut builder = VdMirExprBuilder::new(
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),
