@@ -1,8 +1,9 @@
 use super::*;
 use crate::{
-    menu::{VdTypeMenu, VD_TYPE_MENU},
-    term::menu::{VdTermMenu, VD_TERM_MENU},
+    menu::{vd_ty_menu, VdTypeMenu},
+    term::menu::{vd_term_menu, VdTermMenu},
 };
+use interned::memo;
 use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::menu::{VdItemPathMenu, VD_ITEM_PATH_MENU};
@@ -86,7 +87,7 @@ pub struct VdInstantiationMenu {
 }
 
 impl VdInstantiationMenu {
-    pub fn new() -> Self {
+    pub fn new(db: &InternerDb) -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -127,10 +128,10 @@ impl VdInstantiationMenu {
             rat,
             real,
             complex,
-        } = *VD_TERM_MENU;
+        } = *vd_term_menu(db);
         macro_rules! ins{
             ($path: expr $(, $args: expr)*) => {
-                VdInstantiation::new($path.into(), smallvec![$($args),*])
+                VdInstantiation::new($path.into(), smallvec![$($args),*], db)
             };
         }
         // # prefix
@@ -286,6 +287,7 @@ impl VdInstantiationMenu {
     }
 }
 
-lazy_static! {
-    pub static ref VD_INSTANTIATION_MENU: VdInstantiationMenu = VdInstantiationMenu::new();
+#[memo]
+pub fn vd_instantiation_menu(db: &InternerDb) -> VdInstantiationMenu {
+    VdInstantiationMenu::new(db)
 }

@@ -16,9 +16,9 @@ fn t(
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = InternerDb::default();
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdSynExprTracker::new(
         LxPageInput {
             specs_dir: dev_paths.specs_dir(),

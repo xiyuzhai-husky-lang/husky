@@ -1,3 +1,5 @@
+use interned::db::InternerDb;
+
 use super::{VdTerm, VdTermData, VdTermId, ZfcTerms};
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
@@ -18,8 +20,8 @@ pub struct VdAbstractionData {
 }
 
 impl VdAbstraction {
-    pub fn data(&self) -> &VdAbstractionData {
-        match self.0.data() {
+    pub fn data(&self, db: &InternerDb) -> &VdAbstractionData {
+        match self.0.data(db) {
             VdTermData::Abstraction(data) => data,
             _ => unreachable!(),
         }

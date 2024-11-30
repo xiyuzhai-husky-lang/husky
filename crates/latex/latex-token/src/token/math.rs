@@ -4,6 +4,7 @@ use self::digit::LxMathDigit;
 use super::*;
 use crate::idx::LxMathTokenIdx;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
+use interned::db::InternerDb;
 use latex_command::path::{LxCommandName, LxCommandNameResult};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
@@ -102,6 +103,7 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => {
                             let Ok(command_name) = LxCommandName::new2(
                                 self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
+                                self.db(),
                             ) else {
                                 todo!()
                             };
@@ -157,8 +159,9 @@ fn next_math_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
+        let db = &InternerDb::default();
         let mut storage = LxTokenStorage::default();
-        let stream = LxLexer::new(input, LxTokenLane::Main, &mut storage).into_math_stream();
+        let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage).into_math_stream();
         let tokens: Vec<_> = stream.map(|(_, token_data)| token_data).collect();
         expected.assert_debug_eq(&tokens);
     }

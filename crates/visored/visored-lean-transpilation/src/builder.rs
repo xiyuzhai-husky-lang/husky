@@ -110,7 +110,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     ) -> Self {
         Self {
             db,
-            lean_hir_expr_builder: LnMirExprConstructor::new(),
+            lean_hir_expr_builder: LnMirExprConstructor::new(db),
             expr_arena,
             stmt_arena,
             source_map,
@@ -133,14 +133,15 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         module_path: VdModulePath,
         f: impl FnOnce(&mut Self) -> R,
     ) -> R {
+        let db = self.db();
         debug_assert_eq!(
-            module_path.parent(),
+            module_path.parent(db),
             Some(self.current_module_path),
             "module path = {}, current module path = {}",
-            module_path.show(),
-            self.current_module_path.show(),
+            module_path.show(db),
+            self.current_module_path.show(db),
         );
-        let namespace = *vd_module_path_to_ln_namespace(module_path, self.db());
+        let namespace = *vd_module_path_to_ln_namespace(module_path, db);
         let prev_module_path = self.current_module_path;
         self.current_module_path = module_path;
         let result = if let Some(namespace) = namespace {
@@ -161,11 +162,11 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     }
 
     pub(crate) fn mangle_hypothesis(&mut self) -> LnIdent {
-        self.mangler
-            .mangle_hypothesis(*vd_module_path_to_ln_namespace_or_inherited(
-                self.current_module_path(),
-                self.db(),
-            ))
+        let db = self.db();
+        self.mangler.mangle_hypothesis(
+            *vd_module_path_to_ln_namespace_or_inherited(self.current_module_path, db),
+            db,
+        )
     }
 
     pub(crate) fn sorry(&mut self) -> LnMirDefBody {

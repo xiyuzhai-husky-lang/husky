@@ -6,6 +6,7 @@ use super::{
 };
 use crate::expr::VdSynExprClass;
 use either::*;
+use interned::db::InternerDb;
 use latex_token::idx::LxTokenIdxRange;
 use smallvec::{smallvec, SmallVec};
 use visored_annotation::annotation::space::VdSpaceAnnotation;
@@ -316,8 +317,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     }
 }
 
-impl VdSynExprStack {
-    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
+impl<'db> VdSynExprStack {
+    pub fn show(&self, arena: VdSynExprArenaRef, db: &'db InternerDb) -> String {
         use std::fmt::Write;
 
         let mut s = "Stack { incomplete: [".to_string();
@@ -326,11 +327,17 @@ impl VdSynExprStack {
             if i > 0 {
                 s += ", ";
             }
-            write!(s, "(\"{}\", {})", expr.show(arena), precedence.to_string()).unwrap();
+            write!(
+                s,
+                "(\"{}\", {})",
+                expr.show(arena, db),
+                precedence.to_string()
+            )
+            .unwrap();
         }
         s += "], complete: ";
         if let Some(expr) = &self.complete_expr {
-            write!(s, "\"{}\"", expr.show(arena)).unwrap();
+            write!(s, "\"{}\"", expr.show(arena, db)).unwrap();
         } else {
             s += "None";
         };

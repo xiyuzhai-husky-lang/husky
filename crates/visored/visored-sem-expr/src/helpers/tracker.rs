@@ -131,9 +131,9 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             division_entity_tree_node_map: syn_division_entity_tree_node_map,
             output: syn_output,
         } = VdSynExprTracker::new(input, token_annotations, space_annotations, db);
-        let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard();
+        let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
         let default_global_dispatch_table =
-            VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
+            VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
         let mut builder = VdSemExprBuilder::new(
             db,
             input.content(),

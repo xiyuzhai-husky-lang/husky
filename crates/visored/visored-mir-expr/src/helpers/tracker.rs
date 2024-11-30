@@ -121,13 +121,14 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         }
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
-        let builder = self.display_tree_builder();
+    pub(crate) fn show_display_tree(&self, db: &InternerDb) -> String {
+        let builder = self.display_tree_builder(db);
         self.output.show(&builder)
     }
 
-    fn display_tree_builder<'b>(&'b self) -> VdMirExprDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b InternerDb) -> VdMirExprDisplayTreeBuilder<'b> {
         VdMirExprDisplayTreeBuilder::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
         )

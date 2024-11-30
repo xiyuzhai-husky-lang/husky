@@ -2,6 +2,7 @@ use std::path::Path;
 
 use crate::signature::VdSignature;
 use crate::*;
+use interned::db::InternerDb;
 use lisp_csv::{expr::LpCsvExprData, file::LpCsvFile, row::LpCsvRow};
 use lisp_csv::{file::LpCsvFileData, parse_lp_csv_file};
 use menu::{vd_signature_menu, VdSignatureMenu};
@@ -39,19 +40,19 @@ impl VdSignatureTable {
         Self { table }
     }
 
-    pub fn from_lp_csv_file_path(path: &Path) -> Self {
+    pub fn from_lp_csv_file_path(path: &Path, db: &InternerDb) -> Self {
         let file = std::fs::read_to_string(path).unwrap();
         let file = parse_lp_csv_file(&file).unwrap();
-        Self::from_lp_csv_file(&file)
+        Self::from_lp_csv_file(&file, db)
     }
 
-    pub fn from_lp_csv_file(file: &LpCsvFile) -> Self {
+    pub fn from_lp_csv_file(file: &LpCsvFile, db: &InternerDb) -> Self {
         match file.data() {
-            LpCsvFileData::Rows(rows) => Self::from_lp_csv_rows(&rows),
+            LpCsvFileData::Rows(rows) => Self::from_lp_csv_rows(&rows, db),
         }
     }
 
-    fn from_lp_csv_rows(rows: &[LpCsvRow]) -> Self {
+    fn from_lp_csv_rows(rows: &[LpCsvRow], db: &InternerDb) -> Self {
         let mut table: FxHashMap<String, VdSignature> = FxHashMap::default();
         assert!(!rows.is_empty());
         for row in rows {
@@ -63,7 +64,7 @@ impl VdSignatureTable {
                         LpCsvExprData::Ident(ref ident) => ident.to_string(),
                         _ => todo!(),
                     };
-                    let signature = VdSignature::from_lp_csv_exprs(&exprs[1..]);
+                    let signature = VdSignature::from_lp_csv_exprs(&exprs[1..], db);
                     (ident, signature)
                 }
             };
@@ -82,11 +83,12 @@ impl VdSignatureTable {
 fn vd_signature_table_from_lp_csv_rows_works() {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &InternerDb::default();
     let dev_dirs = HuskyLangDevPaths::new();
     let file = std::fs::read_to_string(dev_dirs.specs_dir().join("visored/signature_table.lpcsv"))
         .unwrap();
     let file = parse_lp_csv_file(&file).unwrap();
-    let table = VdSignatureTable::from_lp_csv_file(&file);
+    let table = VdSignatureTable::from_lp_csv_file(&file, db);
     expect_file!["../expect-files/signature_table.debug.txt"].assert_debug_eq(&table);
     let VdSignatureMenu {
         int_pos,
@@ -146,7 +148,7 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         rat_ge,
         real_ge,
         real_sqrt,
-    } = *vd_signature_menu;
+    } = *vd_signature_menu(db);
     let entries: Vec<(&str, VdSignature)> = vec![
         ("int_pos", int_pos.into()),
         ("rat_pos", rat_pos.into()),

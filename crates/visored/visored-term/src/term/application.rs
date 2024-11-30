@@ -1,3 +1,5 @@
+use interned::db::InternerDb;
+
 use super::{VdTerm, VdTermData, VdTermId, ZfcTerms};
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
@@ -18,8 +20,8 @@ pub struct VdApplicationData {
 }
 
 impl VdApplication {
-    pub fn data(&self) -> &VdApplicationData {
-        match self.0.data() {
+    pub fn data(&self, db: &InternerDb) -> &VdApplicationData {
+        match self.0.data(db) {
             VdTermData::Application(data) => data,
             _ => unreachable!(),
         }

@@ -1,6 +1,6 @@
 use crate::*;
 use interned::{
-    db::{attach_interned_db, InternerDb},
+    db::{attached_interner_db, InternerDb},
     memo,
 };
 use lean_coword::ident::LnIdent;
@@ -18,24 +18,27 @@ pub enum LnNamespaceData {
 }
 
 impl LnNamespace {
-    pub fn new_root() -> Self {
-        Self::new(LnNamespaceData::Root)
+    pub fn new_root(db: &InternerDb) -> Self {
+        Self::new(LnNamespaceData::Root, db)
     }
 
-    pub fn from_ident_strs(idents: &[&str]) -> Self {
-        let mut namespace = LnNamespace::new(LnNamespaceData::Root);
+    pub fn from_ident_strs(idents: &[&str], db: &InternerDb) -> Self {
+        let mut namespace = LnNamespace::new(LnNamespaceData::Root, db);
         for ident in idents {
-            namespace = namespace.child(ident.to_string());
+            namespace = namespace.child(ident.to_string(), db);
         }
         namespace
     }
 
-    pub fn child(self, ident: String) -> Self {
-        Self::new(LnNamespaceData::Child(self, LnIdent::from_owned(ident)))
+    pub fn child(self, ident: String, db: &InternerDb) -> Self {
+        Self::new(
+            LnNamespaceData::Child(self, LnIdent::from_owned(ident, db)),
+            db,
+        )
     }
 
-    pub fn ident(self) -> Option<LnIdent> {
-        match *self.data() {
+    pub fn ident(self, db: &InternerDb) -> Option<LnIdent> {
+        match *self.data(db) {
             LnNamespaceData::Root => None,
             LnNamespaceData::Child(_, ident) => Some(ident),
         }
@@ -59,12 +62,13 @@ impl LnNamespace {
 
 impl std::fmt::Debug for LnNamespace {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let db = attached_interner_db();
         write!(
             f,
             "LnNamespace(`{}`)",
-            self.all_idents(attach_interned_db())
+            self.all_idents(db)
                 .iter()
-                .map(|id| id.data())
+                .map(|id| id.data(db))
                 .collect::<Vec<_>>()
                 .join(".")
         )
@@ -73,7 +77,7 @@ impl std::fmt::Debug for LnNamespace {
 
 #[memo]
 fn ln_namespace_all_idents(namespace: LnNamespace, db: &InternerDb) -> SmallVec<[LnIdent; 4]> {
-    match *namespace.data() {
+    match *namespace.data(db) {
         LnNamespaceData::Root => smallvec![],
         LnNamespaceData::Child(parent, ident) => {
             let mut ids = parent.all_idents(db).to_smallvec();

@@ -8266,6 +8266,7 @@ dependencies = [
  "coword",
  "husky-coword",
  "husky-path-utils",
+ "interned",
  "latex-command",
  "latex-math-letter",
  "latex-prelude",
@@ -8291,6 +8292,7 @@ version = "0.1.0"
 dependencies = [
  "coword",
  "husky-coword",
+ "interned",
  "latex-prelude",
  "lazy_static 1.5.0",
  "rustc-hash 2.0.0",
@@ -8422,6 +8424,7 @@ dependencies = [
  "enum-class",
  "husky-tree-utils",
  "idx-arena",
+ "interned",
  "lazy_static 1.5.0",
  "lean-coword",
  "lean-entity-path",
@@ -12747,6 +12750,7 @@ dependencies = [
  "husky-coword",
  "husky-path-utils",
  "husky-print-utils",
+ "interned",
  "latex-vfs",
  "lazy_static 1.5.0",
  "lisp-csv",
@@ -12763,6 +12767,7 @@ name = "visored-global-resolution"
 version = "0.1.0"
 dependencies = [
  "enum-index",
+ "interned",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
@@ -12859,7 +12864,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "enum-index",
- "lazy_static 1.5.0",
+ "interned",
  "lisp-csv",
 ]
 
@@ -12917,6 +12922,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-path-utils",
+ "interned",
  "latex-vfs",
  "lazy_static 1.5.0",
  "lisp-csv",

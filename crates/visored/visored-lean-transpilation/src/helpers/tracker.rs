@@ -80,7 +80,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             token_storage,
             output,
         } = VdMirExprTracker::new(input, &[], &[], db);
-        let dictionary = &VdLeanDictionary::new_standard();
+        let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
             content,
@@ -110,8 +110,9 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         }
     }
 
-    pub fn show_display_tree(&self) -> String {
+    pub fn show_display_tree(&self, db: &InternerDb) -> String {
         let builder = LnMirExprDisplayTreeBuilder::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
@@ -120,15 +121,20 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         self.output.show_display_tree(&builder)
     }
 
-    pub fn show_fmt(&self) -> String {
+    pub fn show_fmt(&self, db: &InternerDb) -> String {
         let fmt_config = Default::default();
-        let mut formatter = self.formatter(&fmt_config);
+        let mut formatter = self.formatter(&fmt_config, db);
         self.output.show_fmt(&mut formatter);
         formatter.finish()
     }
 
-    fn formatter<'b>(&'b self, config: &'b LnMirExprFormatterConfig) -> LnMirExprFormatter<'b> {
+    fn formatter<'b>(
+        &'b self,
+        config: &'b LnMirExprFormatterConfig,
+        db: &'b InternerDb,
+    ) -> LnMirExprFormatter<'b> {
         LnMirExprFormatter::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),

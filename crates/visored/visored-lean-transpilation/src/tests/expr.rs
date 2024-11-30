@@ -10,7 +10,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
     let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdLeanTranspilationTracker::new(
         LxFormulaInput {
             specs_dir: dev_paths.specs_dir(),
@@ -21,8 +21,8 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         &[],
         db,
     );
-    expected_display_tree.assert_eq(&tracker.show_display_tree());
-    expected_fmt.assert_eq(&tracker.show_fmt());
+    expected_display_tree.assert_eq(&tracker.show_display_tree(db));
+    expected_fmt.assert_eq(&tracker.show_fmt(db));
 }
 
 #[test]

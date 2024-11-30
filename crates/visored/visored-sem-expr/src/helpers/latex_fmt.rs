@@ -1,6 +1,7 @@
 use expr::binary::VdSemBinaryDispatch;
+use interned::db::InternerDb;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
-use visored_term::{menu::VD_TYPE_MENU, term::literal::VdLiteralData};
+use visored_term::{menu::vd_ty_menu, term::literal::VdLiteralData};
 
 use super::*;
 use crate::{
@@ -14,6 +15,7 @@ use crate::{
 };
 
 pub struct VdSemExprLaTeXFormatter<'a> {
+    db: &'a InternerDb,
     expr_arena: VdSemExprArenaRef<'a>,
     phrase_arena: VdSemPhraseArenaRef<'a>,
     clause_arena: VdSemClauseArenaRef<'a>,
@@ -23,18 +25,24 @@ pub struct VdSemExprLaTeXFormatter<'a> {
 
 impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn new(
+        db: &'a InternerDb,
         expr_arena: VdSemExprArenaRef<'a>,
         phrase_arena: VdSemPhraseArenaRef<'a>,
         clause_arena: VdSemClauseArenaRef<'a>,
         sentence_arena: VdSemSentenceArenaRef<'a>,
     ) -> Self {
         Self {
+            db,
             expr_arena,
             phrase_arena,
             clause_arena,
             sentence_arena,
             result: Default::default(),
         }
+    }
+
+    pub fn db(&self) -> &'a InternerDb {
+        self.db
     }
 
     pub fn fmt_sentences(&mut self, sentences: VdSemSentenceIdxRange) {
@@ -82,8 +90,9 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     }
 
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
+        let db = self.db();
         match *self.expr_arena[expr_idx].data() {
-            VdSemExprData::Literal { literal, .. } => match literal.data() {
+            VdSemExprData::Literal { literal, .. } => match literal.data(db) {
                 VdLiteralData::NaturalNumber(s) => {
                     if self
                         .result
@@ -155,7 +164,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
 // #[test]
 // fn latex_fmt_works() {
 //     let db = &DB::default();
-//     let menu = VD_TYPE_MENU();
+//     let menu = vd_ty_menu();
 //     let mut builder = VdSemExprTestBuilder::new();
 //     let one = builder.new_expr_checked(
 //         VdSemExprData::Literal {

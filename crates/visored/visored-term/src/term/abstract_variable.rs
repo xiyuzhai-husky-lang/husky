@@ -17,8 +17,8 @@ pub struct VdAbstractVariableData {
 }
 
 impl VdAbstractVariable {
-    pub fn data(&self) -> &VdAbstractVariableData {
-        match self.0.data() {
+    pub fn data(&self, db: &InternerDb) -> &VdAbstractVariableData {
+        match self.0.data(db) {
             VdTermData::AbstractVariable(data) => data,
             _ => unreachable!(),
         }

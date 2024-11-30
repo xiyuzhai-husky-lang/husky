@@ -43,7 +43,7 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         let field_ident = &f.ident;
         let field_ty = &f.ty;
         quote! {
-            pub fn #field_ident(self) -> &'static #field_ty {
+            pub fn #field_ident(self, db: &::interned::db::InternerDb) -> &'static #field_ty {
                 &self.0.0.#field_ident
             }
         }
@@ -71,7 +71,7 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 }
 
                 impl #ty_ident {
-                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q) -> Self
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &::interned::db::InternerDb) -> Self
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
@@ -99,7 +99,7 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         impl #ty_ident {
-            #vis fn new(#(#ctor_params),*) -> Self {
+            #vis fn new(#(#ctor_params),*, db: &::interned::db::InternerDb) -> Self {
                 use interned::{lazy_static, Interned, Storage};
                 use std::collections::HashSet;
                 use std::sync::Mutex;

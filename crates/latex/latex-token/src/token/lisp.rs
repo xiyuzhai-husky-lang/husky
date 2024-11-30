@@ -64,6 +64,7 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => {
                             let Ok(command_name) = LxCommandName::new2(
                                 self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
+                                self.db(),
                             ) else {
                                 todo!()
                             };
@@ -111,15 +112,18 @@ impl<'a> LxLexer<'a> {
                 let ident = LxLispIdent::new(
                     self.chars
                         .next_str_slice_while(|c| c.is_ascii_alphanumeric() || c == '_'),
+                    self.db(),
                 );
                 LxLispTokenData::Ident(ident)
             }
             '\'' => {
                 self.chars.eat_char();
-                let label =
-                    LxLispXlabel::new(self.chars.next_str_slice_while(|c| {
+                let label = LxLispXlabel::new(
+                    self.chars.next_str_slice_while(|c| {
                         c.is_ascii_alphanumeric() || c == '-' || c == ':'
-                    }));
+                    }),
+                    self.db(),
+                );
                 LxLispTokenData::Xlabel(label)
             }
             '"' => {
@@ -139,7 +143,7 @@ impl<'a> LxLexer<'a> {
                         c => data.push(c),
                     }
                 }
-                LxLispTokenData::Literal(LxLispLiteral::String(Coword::new(data)))
+                LxLispTokenData::Literal(LxLispLiteral::String(Coword::new(data, self.db())))
             }
             c => {
                 self.chars.eat_char();

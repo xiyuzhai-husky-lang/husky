@@ -3647,6 +3647,7 @@
         dependencies: [
             "coword",
             "husky-coword",
+            "interned",
             "latex-math-letter",
             "latex-prelude",
             "lazy_static",
@@ -3698,6 +3699,7 @@
         dependencies: [
             "coword",
             "husky-coword",
+            "interned",
             "latex-prelude",
             "lazy_static",
             "rustc-hash",
@@ -4045,6 +4047,7 @@
             "enum-class",
             "husky-tree-utils",
             "idx-arena",
+            "interned",
             "lazy_static",
             "lean-coword",
             "lean-entity-path",
@@ -4428,6 +4431,7 @@
         dependencies: [
             "husky-path-utils",
             "husky-print-utils",
+            "interned",
             "lazy_static",
             "lisp-csv",
             "rustc-hash",
@@ -4447,7 +4451,7 @@
         dependencies: [
             "enum-class",
             "enum-index",
-            "lazy_static",
+            "interned",
             "lisp-csv",
         ],
     },
@@ -4456,6 +4460,7 @@
         relative_path: "crates/visored/visored-signature",
         dependencies: [
             "enum-class",
+            "interned",
             "lazy_static",
             "lisp-csv",
             "rustc-hash",
@@ -4488,6 +4493,7 @@
         relative_path: "crates/visored/visored-global-resolution",
         dependencies: [
             "enum-index",
+            "interned",
             "latex-command",
             "latex-environment",
             "latex-math-letter",

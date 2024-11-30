@@ -46,9 +46,11 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
         let mut token_storage = LxTokenStorage::default();
         let command_signature_table = LxCommandSignatureTable::new_from_lp_csv_file_paths(
             &input.latex_complete_commands_path(),
+            db,
         );
-        let environment_signature_table = LxEnvironmentSignatureTable::new_default();
+        let environment_signature_table = LxEnvironmentSignatureTable::new_default(db);
         let mut parser = LxAstParser::new(
+            db,
             &command_signature_table,
             &environment_signature_table,
             input.content(),
@@ -71,8 +73,9 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
 }
 
 impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
-    fn display_tree_builder<'b>(&'b self) -> LxAstDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b InternerDb) -> LxAstDisplayTreeBuilder<'b> {
         LxAstDisplayTreeBuilder::new(
+            db,
             self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
@@ -80,8 +83,8 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
         )
     }
 
-    pub fn show(&self) -> String {
-        let display_tree_builder = self.display_tree_builder();
+    pub fn show(&self, db: &InternerDb) -> String {
+        let display_tree_builder = self.display_tree_builder(db);
         Input::show_lx_ast_output(self.output, display_tree_builder)
     }
 }

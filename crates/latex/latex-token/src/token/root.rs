@@ -1,6 +1,7 @@
 use super::*;
 use crate::idx::LxRootTokenIdx;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
+use interned::db::InternerDb;
 use latex_command::path::LxCommandName;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -57,6 +58,7 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => Some(LxRootTokenData::Command(
                             LxCommandName::new(
                                 self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
+                                self.db(),
                             )
                             .unwrap(),
                         )),
@@ -92,8 +94,9 @@ pub fn next_root_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
+        let db = &InternerDb::default();
         let mut storage = LxTokenStorage::default();
-        let stream = LxLexer::new(input, LxTokenLane::Main, &mut storage)
+        let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_root_stream()
             .map(|(_, token_data)| token_data);
         let tokens: Vec<_> = stream.collect();
@@ -143,8 +146,9 @@ pub fn next_root_token_data_with_comments_works() {
         fn f(input: &str) -> Vec<LxRootTokenData> {
             use crate::lane::LxTokenLane;
 
+            let db = &InternerDb::default();
             let mut storage = LxTokenStorage::default();
-            let stream = LxLexer::new(input, LxTokenLane::Main, &mut storage)
+            let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
                 .into_root_stream()
                 .map(|(_, token_data)| token_data);
             stream.collect()

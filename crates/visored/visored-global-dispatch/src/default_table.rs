@@ -11,6 +11,7 @@ use crate::{
     *,
 };
 use dispatch::separator::join::VdBaseChainingSeparatorJoinDispatch;
+use interned::db::InternerDb;
 use rustc_hash::FxHashMap;
 use visored_opr::{
     menu::vd_opr_menu,
@@ -21,7 +22,7 @@ use visored_signature::{
     menu::vd_signature_menu, signature::separator::base::VdBaseSeparatorSignature,
     table::VdSignatureTable,
 };
-use visored_term::{menu::VD_TYPE_MENU, ty::VdType};
+use visored_term::{menu::vd_ty_menu, ty::VdType};
 
 pub struct VdDefaultGlobalDispatchTable {
     base_prefix_opr_default_dispatch_table:
@@ -202,13 +203,14 @@ impl VdDefaultGlobalDispatchTable {
 }
 
 impl VdDefaultGlobalDispatchTable {
-    pub fn from_standard_lisp_csv_file_dir() -> Self {
+    pub fn from_standard_lisp_csv_file_dir(db: &InternerDb) -> Self {
         let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
         let specs_dir = husky_lang_dev_paths.specs_dir();
         let dir = &specs_dir.join("visored/global_default_dispatches");
         let signature_table = VdSignatureTable::from_lp_csv_file_path(
             &specs_dir.join("visored/signature_table.lpcsv"),
+            db,
         );
-        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table)
+        VdDefaultGlobalDispatchTable::from_lisp_csv_file_dir(dir, &signature_table, db)
     }
 }

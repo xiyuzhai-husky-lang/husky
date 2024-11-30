@@ -9,6 +9,7 @@ pub struct LxFilePath {
 
 impl std::fmt::Debug for LxFilePath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("LxFilePath").field(self.data()).finish()
+        let db = interned::db::attached_interner_db();
+        f.debug_tuple("LxFilePath").field(self.data(db)).finish()
     }
 }
