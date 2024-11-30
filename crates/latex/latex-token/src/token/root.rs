@@ -100,7 +100,7 @@ pub fn next_root_token_data_works() {
             .into_root_stream()
             .map(|(_, token_data)| token_data);
         let tokens: Vec<_> = stream.collect();
-        expected.assert_debug_eq(&tokens);
+        db.with_attached(|| expected.assert_debug_eq(&tokens));
     }
     t(
         "\\usepackage",

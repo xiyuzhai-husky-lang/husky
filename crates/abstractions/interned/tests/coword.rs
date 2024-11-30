@@ -1,4 +1,4 @@
-use interned::{interned, memo};
+use interned::{db::InternerDb, interned, memo};
 
 #[interned]
 pub struct Coword {
@@ -14,7 +14,7 @@ impl std::fmt::Debug for Coword {
 
 #[test]
 fn coword_works() {
-    let db = interned::db::attached_interner_db();
+    let db = &InternerDb::default();
     // Test creation and basic equality
     let word1 = Coword::new("hello".to_string(), db);
     let word2 = Coword::new("hello".to_string(), db);

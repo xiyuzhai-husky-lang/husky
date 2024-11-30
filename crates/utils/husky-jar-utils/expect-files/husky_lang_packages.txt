@@ -22,9 +22,15 @@
         relative_path: "crates/abstractions/interned",
         dependencies: [
             "dashmap",
+            "husky-wild-utils",
             "interned-macros",
             "lazy_static",
         ],
+    },
+    PackageSummary {
+        name: "husky-wild-utils",
+        relative_path: "crates/utils/husky-wild-utils",
+        dependencies: [],
     },
     PackageSummary {
         name: "interned-macros",
@@ -197,11 +203,6 @@
             "smallvec",
             "thiserror",
         ],
-    },
-    PackageSummary {
-        name: "husky-wild-utils",
-        relative_path: "crates/utils/husky-wild-utils",
-        dependencies: [],
     },
     PackageSummary {
         name: "idx",
