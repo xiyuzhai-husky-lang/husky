@@ -3,6 +3,7 @@ pub mod join;
 use super::*;
 use crate::menu::VdGlobalDispatchMenu;
 use default_table::VdBaseSeparatorKey;
+use interned::db::InternerDb;
 use lisp_csv::{
     expr::LpCsvExprData,
     file::{LpCsvFile, LpCsvFileData},
@@ -17,7 +18,7 @@ use visored_signature::{
     table::VdSignatureTable,
 };
 use visored_term::{
-    menu::{VdTypeMenu, VD_TYPE_MENU},
+    menu::{vd_ty_menu, VdTypeMenu},
     ty::VdType,
 };
 
@@ -38,9 +39,10 @@ pub enum VdSeparatorGlobalDispatch {
 
 impl VdSeparatorGlobalDispatch {
     pub(crate) fn standard_defaults(
-        zfc_ty_menu: &VdTypeMenu,
+        vd_ty_menu: &VdTypeMenu,
         vd_opr_menu: &VdOprMenu,
         global_dispatch_menu: &VdGlobalDispatchMenu,
+        db: &InternerDb,
     ) -> impl IntoIterator<Item = ((VdType, VdBaseSeparator, VdType), VdSeparatorGlobalDispatch)>
     {
         let VdTypeMenu {
@@ -51,7 +53,7 @@ impl VdSeparatorGlobalDispatch {
             complex,
             set,
             prop,
-        } = *zfc_ty_menu;
+        } = *vd_ty_menu;
         let VdOprMenu {
             pos,
             neg,
@@ -350,15 +352,17 @@ impl VdSeparatorGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         base_separator_file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
+        db: &'a InternerDb,
     ) -> impl Iterator<Item = (VdBaseSeparatorKey, Self)> + 'a {
         let LpCsvFileData::Rows(rows) = base_separator_file.data();
         rows.iter()
-            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table))
+            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table, db))
     }
 
     fn collect_from_lisp_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
+        db: &InternerDb,
     ) -> (VdBaseSeparatorKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
@@ -373,8 +377,8 @@ impl VdSeparatorGlobalDispatch {
         let LpCsvExprData::Ident(ref dispatch_variant_ident) = dispatch_variant.data else {
             todo!()
         };
-        let prev_item_ty = VdType::from_lp_csv_expr(prev_item_ty);
-        let next_item_ty = VdType::from_lp_csv_expr(next_item_ty);
+        let prev_item_ty = VdType::from_lp_csv_expr(prev_item_ty, db);
+        let next_item_ty = VdType::from_lp_csv_expr(next_item_ty, db);
         let key = VdBaseSeparatorKey {
             base_separator,
             prev_item_ty,
@@ -416,7 +420,7 @@ impl VdSeparatorGlobalDispatch {
                 }
             }
             "in_set" => VdSeparatorGlobalDispatch::InSet {
-                expr_ty: VD_TYPE_MENU.prop,
+                expr_ty: vd_ty_menu(db).prop,
             },
             ident => todo!("ident: {ident} not handled"),
         };
@@ -429,14 +433,15 @@ fn vd_separator_global_dispatch_standard_defaults_works() {
     use crate::default_table::VdDefaultGlobalDispatchTable;
     use crate::menu::{vd_global_dispatch_menu, VdGlobalDispatchMenu};
     use visored_opr::menu::vd_opr_menu;
-    use visored_term::menu::VD_TYPE_MENU;
+    use visored_term::menu::vd_ty_menu;
 
-    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
-    let ty_menu = &VD_TYPE_MENU;
-    let global_dispatch_menu = &vd_global_dispatch_menu;
-    let opr_menu = &vd_opr_menu;
+    let db = &InternerDb::default();
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
+    let ty_menu = vd_ty_menu(db);
+    let global_dispatch_menu = vd_global_dispatch_menu(db);
+    let opr_menu = vd_opr_menu(db);
     for ((prev_item_ty, base_separator, next_item_ty), dispatch) in
-        VdSeparatorGlobalDispatch::standard_defaults(&ty_menu, &opr_menu, &global_dispatch_menu)
+        VdSeparatorGlobalDispatch::standard_defaults(&ty_menu, &opr_menu, &global_dispatch_menu, db)
     {
         assert_eq!(
             table.base_separator_default_dispatch(prev_item_ty, base_separator, next_item_ty),

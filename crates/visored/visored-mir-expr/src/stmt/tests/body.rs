@@ -10,9 +10,9 @@ use std::path::PathBuf;
 fn t(content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = InternerDb::default();
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdMirExprTracker::new(
         LxDocumentBodyInput {
             specs_dir: dev_paths.specs_dir(),
@@ -21,9 +21,9 @@ fn t(content: &str, expect: &Expect) {
         },
         &[],
         &[],
-        &db,
+        db,
     );
-    expect.assert_eq(&tracker.show_display_tree());
+    expect.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]

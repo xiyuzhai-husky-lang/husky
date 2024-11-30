@@ -1,4 +1,5 @@
 use husky_tree_utils::display::DisplayTree;
+use interned::db::InternerDb;
 
 use crate::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
@@ -6,13 +7,19 @@ use crate::{
 };
 
 pub struct VdMirExprDisplayTreeBuilder<'a> {
+    db: &'a InternerDb,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
 }
 
 impl<'a> VdMirExprDisplayTreeBuilder<'a> {
-    pub fn new(expr_arena: VdMirExprArenaRef<'a>, stmt_arena: VdMirStmtArenaRef<'a>) -> Self {
+    pub fn new(
+        db: &'a InternerDb,
+        expr_arena: VdMirExprArenaRef<'a>,
+        stmt_arena: VdMirStmtArenaRef<'a>,
+    ) -> Self {
         Self {
+            db,
             expr_arena,
             stmt_arena,
         }
@@ -20,9 +27,16 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
 }
 
 impl<'a> VdMirExprDisplayTreeBuilder<'a> {
+    pub fn db(&self) -> &'a InternerDb {
+        self.db
+    }
+}
+
+impl<'a> VdMirExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: VdMirExprIdx) -> DisplayTree {
+        let db = self.db();
         let (value, children) = match self.expr_arena[expr] {
-            VdMirExprData::Literal(literal) => (literal.data().as_str().to_string(), vec![]),
+            VdMirExprData::Literal(literal) => (literal.data(db).as_str().to_string(), vec![]),
             VdMirExprData::Variable(ref variable) => ("variable".to_string(), vec![]),
             VdMirExprData::Application {
                 function,

@@ -1,6 +1,7 @@
 pub mod literal;
 
 use self::literal::{LnLiteral, LnLiteralData};
+use interned::db::InternerDb;
 use lean_entity_path::LnItemPath;
 
 // TODO: ad hoc, use LnTermId
@@ -34,10 +35,10 @@ pub enum LnTermData {
 }
 
 impl LnTerm {
-    pub fn show(&self) -> String {
+    pub fn show(&self, db: &InternerDb) -> String {
         match self {
-            LnTerm::Literal(literal) => literal.show(),
-            LnTerm::ItemPath(item_path) => item_path.show(),
+            LnTerm::Literal(literal) => literal.show(db),
+            LnTerm::ItemPath(item_path) => item_path.show(db),
         }
     }
 }

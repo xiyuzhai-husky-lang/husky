@@ -10,7 +10,7 @@ fn t(content: &str, expected: Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &InternerDb::default();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let dev_paths = HuskyLangDevPaths::new();
     let tracker = LxAstTracker::new(
         LxLispInput {
@@ -20,7 +20,7 @@ fn t(content: &str, expected: Expect) {
         },
         db,
     );
-    let show = tracker.show();
+    let show = tracker.show(db);
     expected.assert_eq(&show);
 }
 

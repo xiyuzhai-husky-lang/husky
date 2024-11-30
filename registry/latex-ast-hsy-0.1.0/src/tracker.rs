@@ -32,7 +32,7 @@ fn trackers() -> LxFileMap<LxAstTrackerExtended> {
     let specs_dir = dev_paths.specs_dir();
     let db = __dev_eval_context().interner_db();
     LX_FILE_STORAGE.file_map(|i, content| {
-        let file_path = LxFilePath::new(PathBuf::from(format!("lx-file-{i}",)));
+        let file_path = LxFilePath::new(PathBuf::from(format!("lx-file-{i}",)), db);
         let tracker = LxAstTracker::new(
             LxDocumentInput {
                 specs_dir: specs_dir.to_path_buf(),

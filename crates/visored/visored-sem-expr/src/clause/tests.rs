@@ -11,7 +11,7 @@ pub(crate) fn t(content: &str, expected: &Expect) {
 
     let db = InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), &db);
     let tracker = VdSemExprTracker::new(
         LxPageInput {
             specs_dir: dev_paths.specs_dir(),

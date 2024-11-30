@@ -78,13 +78,13 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
 
 #[interned::memo]
 fn to_lean_literal(literal: VdLiteral, db: &InternerDb) -> LnLiteral {
-    let data = match literal.data() {
+    let data = match literal.data(db) {
         VdLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
         VdLiteralData::NegativeInteger(_) => todo!(),
         VdLiteralData::Float(lit) => LnLiteralData::Float(lit.to_string()),
         VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };
-    LnLiteral::new(data)
+    LnLiteral::new(data, db)
 }
 
 impl<'db> VdTranspileToLean<LnMirFunc> for VdMirFunc {

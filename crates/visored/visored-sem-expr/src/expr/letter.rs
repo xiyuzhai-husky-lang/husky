@@ -101,8 +101,9 @@ impl<'a> VdSemExprBuilder<'a> {
         letter: LxMathLetter,
         global_resolution: VdLetterGlobalResolution,
     ) -> VdTerm {
+        let db = self.db();
         match global_resolution {
-            VdLetterGlobalResolution::Item(item_path) => VdTerm::new_item_path(item_path),
+            VdLetterGlobalResolution::Item(item_path) => VdTerm::new_item_path(item_path, db),
         }
     }
 

@@ -1,4 +1,5 @@
 use super::*;
+use interned::memo;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxCommandPathMenu {
@@ -61,8 +62,8 @@ pub struct LxCommandPathMenu {
 }
 
 impl LxCommandPathMenu {
-    fn new() -> Self {
-        let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(data));
+    fn new(db: &InternerDb) -> Self {
+        let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(data, db), db);
         Self {
             // - general
             begin: p("begin"),
@@ -123,6 +124,7 @@ impl LxCommandPathMenu {
     }
 }
 
-lazy_static::lazy_static! {
-    pub static ref LX_COMMAND_PATH_MENU: LxCommandPathMenu = LxCommandPathMenu::new();
+#[memo]
+pub fn lx_command_path_menu(db: &InternerDb) -> LxCommandPathMenu {
+    LxCommandPathMenu::new(db)
 }

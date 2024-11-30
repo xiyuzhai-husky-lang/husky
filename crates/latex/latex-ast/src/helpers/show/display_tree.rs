@@ -15,9 +15,11 @@ use crate::{
     range::LxAstTokenIdxRangeMap,
 };
 use husky_tree_utils::display::DisplayTree;
+use interned::db::InternerDb;
 use latex_token::storage::LxTokenStorage;
 
 pub struct LxAstDisplayTreeBuilder<'a> {
+    db: &'a InternerDb,
     input: &'a str,
     ast_arena: LxAstArenaRef<'a>,
     ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
@@ -27,17 +29,26 @@ pub struct LxAstDisplayTreeBuilder<'a> {
 /// # construction
 impl<'a> LxAstDisplayTreeBuilder<'a> {
     pub fn new(
+        db: &'a InternerDb,
         input: &'a str,
         token_storage: &'a LxTokenStorage,
         ast_arena: LxAstArenaRef<'a>,
         ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
     ) -> Self {
         Self {
+            db,
             input,
             ast_arena,
             ast_token_idx_range_map,
             token_storage,
         }
+    }
+}
+
+/// # getters
+impl<'a> LxAstDisplayTreeBuilder<'a> {
+    pub fn db(&self) -> &'a InternerDb {
+        self.db
     }
 }
 
@@ -257,9 +268,10 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
     }
 
     fn render_root_command_argument(&self, argument: LxRootCompleteCommandArgument) -> DisplayTree {
+        let db = self.db();
         let (value, children) = match argument.data() {
             LxRootCommandArgumentData::Name(lx_name_token_idx, name) => {
-                (name.data().to_string(), vec![])
+                (name.data(db).to_string(), vec![])
             }
         };
         DisplayTree::new(value, children)

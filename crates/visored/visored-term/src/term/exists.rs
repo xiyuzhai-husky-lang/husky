@@ -17,8 +17,8 @@ pub struct VdExistsData {
 }
 
 impl VdExists {
-    pub fn data(&self) -> &VdExistsData {
-        match self.0.data() {
+    pub fn data(&self, db: &InternerDb) -> &VdExistsData {
+        match self.0.data(db) {
             VdTermData::Exists(data) => data,
             _ => unreachable!(),
         }

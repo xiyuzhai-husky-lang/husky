@@ -1,6 +1,7 @@
 pub mod menu;
 
 use crate::term::LnTerm;
+use interned::db::attached_interner_db;
 use lean_entity_path::LnItemPath;
 use smallvec::*;
 
@@ -13,6 +14,7 @@ pub struct LnInstantiation {
 
 impl std::fmt::Debug for LnInstantiation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:?}...", self.item_path())
+        let db = attached_interner_db();
+        write!(f, "{:?}...", self.item_path(db))
     }
 }

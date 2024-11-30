@@ -1,4 +1,5 @@
 use super::*;
+use interned::memo;
 use lazy_static::lazy_static;
 use visored_entity_path::menu::{VdItemPathMenu, VD_ITEM_PATH_MENU};
 
@@ -17,7 +18,7 @@ pub struct VdTermMenu {
 }
 
 impl VdTermMenu {
-    fn new() -> Self {
+    fn new(db: &InternerDb) -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -50,14 +51,14 @@ impl VdTermMenu {
             real_sqrt,
         } = *VD_ITEM_PATH_MENU;
 
-        let zero = VdLiteral::new(VdLiteralData::NaturalNumber("0".to_string()));
-        let one = VdLiteral::new(VdLiteralData::NaturalNumber("1".to_string()));
-        let two = VdLiteral::new(VdLiteralData::NaturalNumber("2".to_string()));
-        let nat = VdTerm::new_item_path(nat.into());
-        let int = VdTerm::new_item_path(int.into());
-        let rat = VdTerm::new_item_path(rat.into());
-        let real = VdTerm::new_item_path(real.into());
-        let complex = VdTerm::new_item_path(complex.into());
+        let zero = VdLiteral::new(VdLiteralData::NaturalNumber("0".to_string()), db);
+        let one = VdLiteral::new(VdLiteralData::NaturalNumber("1".to_string()), db);
+        let two = VdLiteral::new(VdLiteralData::NaturalNumber("2".to_string()), db);
+        let nat = VdTerm::new_item_path(nat.into(), db);
+        let int = VdTerm::new_item_path(int.into(), db);
+        let rat = VdTerm::new_item_path(rat.into(), db);
+        let real = VdTerm::new_item_path(real.into(), db);
+        let complex = VdTerm::new_item_path(complex.into(), db);
         Self {
             zero,
             one,
@@ -71,6 +72,7 @@ impl VdTermMenu {
     }
 }
 
-lazy_static! {
-    pub static ref VD_TERM_MENU: VdTermMenu = VdTermMenu::new();
+#[memo]
+pub fn vd_term_menu(db: &InternerDb) -> VdTermMenu {
+    VdTermMenu::new(db)
 }

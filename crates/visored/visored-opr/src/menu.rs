@@ -1,7 +1,7 @@
 use crate::opr::binary::VdBaseBinaryOpr;
 use crate::separator::VdBaseSeparator;
 use crate::*;
-use lazy_static::lazy_static;
+use interned::{db::InternerDb, memo};
 use opr::prefix::VdBasePrefixOpr;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -23,8 +23,9 @@ pub struct VdOprMenu {
     pub r#in: VdBaseSeparator,
 }
 
-lazy_static! {
-    pub static ref vd_opr_menu: VdOprMenu = VdOprMenu {
+#[memo]
+pub fn vd_opr_menu(db: &InternerDb) -> VdOprMenu {
+    VdOprMenu {
         pos: VdBasePrefixOpr::POS,
         neg: VdBasePrefixOpr::NEG,
         sub: VdBaseBinaryOpr::SUB,
@@ -37,5 +38,5 @@ lazy_static! {
         le: VdBaseSeparator::LE,
         ge: VdBaseSeparator::GE,
         r#in: VdBaseSeparator::IN,
-    };
+    }
 }

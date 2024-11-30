@@ -9,8 +9,10 @@ use crate::{
     tactic::{LnMirTacticArena, LnMirTacticArenaRef, LnMirTacticIdx, LnMirTacticIdxRange},
 };
 use husky_tree_utils::display::DisplayTree;
+use interned::db::InternerDb;
 
 pub struct LnMirExprDisplayTreeBuilder<'a> {
+    db: &'a InternerDb,
     expr_arena: LnMirExprArenaRef<'a>,
     stmt_arena: LnMirStmtArenaRef<'a>,
     tactic_arena: LnMirTacticArenaRef<'a>,
@@ -19,12 +21,14 @@ pub struct LnMirExprDisplayTreeBuilder<'a> {
 
 impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn new(
+        db: &'a InternerDb,
         expr_arena: LnMirExprArenaRef<'a>,
         stmt_arena: LnMirStmtArenaRef<'a>,
         tactic_arena: LnMirTacticArenaRef<'a>,
         defn_arena: LnItemDefnArenaRef<'a>,
     ) -> Self {
         Self {
+            db,
             expr_arena,
             stmt_arena,
             tactic_arena,
@@ -34,11 +38,18 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
 }
 
 impl<'a> LnMirExprDisplayTreeBuilder<'a> {
+    pub fn db(&self) -> &'a InternerDb {
+        self.db
+    }
+}
+
+impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: LnMirExprIdx) -> DisplayTree {
+        let db = self.db();
         let value = match self.expr_arena[expr] {
-            LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data()),
-            LnMirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show()),
-            LnMirExprData::Variable { ident } => format!("variable: `{}`", ident.data()),
+            LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data(db)),
+            LnMirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
+            LnMirExprData::Variable { ident } => format!("variable: `{}`", ident.data(db)),
             LnMirExprData::Lambda {
                 ref parameters,
                 body,
@@ -69,13 +80,14 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     }
 
     pub fn render_defn(&self, defn: LnItemDefnIdx) -> DisplayTree {
+        let db = self.db();
         let defn_data = &self.defn_arena[defn];
         let value = match defn_data {
             LnItemDefnData::Variable { ident: symbol, ty } => {
-                format!("variable: `{}`", symbol.data())
+                format!("variable: `{}`", symbol.data(db))
             }
             LnItemDefnData::Group { defns, ref meta } => format!("group: `{}`", meta),
-            LnItemDefnData::Def { symbol, ty, body } => format!("def: `{}`", symbol.data()),
+            LnItemDefnData::Def { symbol, ty, body } => format!("def: `{}`", symbol.data(db)),
         };
         let children = defn_data.children();
         DisplayTree::new(
