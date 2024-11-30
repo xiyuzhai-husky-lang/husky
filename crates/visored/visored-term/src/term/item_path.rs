@@ -23,13 +23,13 @@ impl VdItemPathTermData {
 }
 
 impl VdItemPathTerm {
-    pub fn new(item_path: VdItemPath) -> Self {
-        VdItemPathTerm(VdTermId::new(VdItemPathTermData { item_path }.into())).into()
+    pub fn new(item_path: VdItemPath, db: &InternerDb) -> Self {
+        VdItemPathTerm(VdTermId::new(VdItemPathTermData { item_path }.into(), db)).into()
     }
 }
 
 impl VdTerm {
-    pub fn new_item_path(item_path: VdItemPath) -> Self {
-        VdTerm::ItemPath(VdItemPathTerm::new(item_path))
+    pub fn new_item_path(item_path: VdItemPath, db: &InternerDb) -> Self {
+        VdTerm::ItemPath(VdItemPathTerm::new(item_path, db))
     }
 }

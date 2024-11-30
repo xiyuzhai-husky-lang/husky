@@ -16,7 +16,7 @@ use visored_syn_expr::{
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
 use visored_term::{
-    menu::{VdTypeMenu, VD_TYPE_MENU},
+    menu::{vd_ty_menu, VdTypeMenu},
     term::VdTerm,
     ty::{table::VdItemPathZfcTypeTable, VdType},
 };
@@ -62,7 +62,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_stmt_arena: VdSynStmtArenaRef<'a>,
     syn_division_arena: VdSynDivisionArenaRef<'a>,
     syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
-    zfc_ty_menu: &'a VdTypeMenu,
+    vd_ty_menu: &'a VdTypeMenu,
     item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
     default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
     stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
@@ -112,7 +112,7 @@ impl<'a> VdSemExprBuilder<'a> {
             syn_division_arena,
             symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
             syn_symbol_resolution_table,
-            zfc_ty_menu: &VD_TYPE_MENU,
+            vd_ty_menu: vd_ty_menu(db),
             item_path_zfc_ty_table,
             default_global_dispatch_table,
             stmt_entity_tree_node_map,
@@ -179,8 +179,8 @@ impl<'a> VdSemExprBuilder<'a> {
         self.default_global_dispatch_table
     }
 
-    pub(crate) fn zfc_ty_menu(&self) -> &'a VdTypeMenu {
-        self.zfc_ty_menu
+    pub(crate) fn vd_ty_menu(&self) -> &'a VdTypeMenu {
+        self.vd_ty_menu
     }
 
     pub(crate) fn expr_arena(&self) -> VdSemExprArenaRef {

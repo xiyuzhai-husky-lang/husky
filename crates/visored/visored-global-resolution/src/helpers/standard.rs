@@ -1,9 +1,3 @@
-use latex_command::path::menu::{LxCommandPathMenu, LX_COMMAND_PATH_MENU};
-use latex_environment::path::menu::{LxEnvironmentPathMenu, LX_ENVIRONMENT_PATH_MENU};
-use latex_math_letter::letter::LxMathLetter;
-use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
-use visored_entity_path::path::VdItemPath;
-
 use crate::{
     default_table::VdDefaultGlobalResolutionTable,
     resolution::{
@@ -13,13 +7,19 @@ use crate::{
         punctuation::VdPunctuationGlobalResolution,
     },
 };
+use interned::db::InternerDb;
+use latex_command::path::menu::{lx_command_path_menu, LxCommandPathMenu};
+use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
+use latex_math_letter::letter::LxMathLetter;
+use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
+use visored_entity_path::path::VdItemPath;
 
 impl VdDefaultGlobalResolutionTable {
-    pub fn new_standard() -> Self {
+    pub fn new_standard(db: &InternerDb) -> Self {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
-        let command_resolution_map = standard_command_resolution_map();
-        let environment_resolution_map = standard_environment_resolution_map();
+        let command_resolution_map = standard_command_resolution_map(&InternerDb::default());
+        let environment_resolution_map = standard_environment_resolution_map(db);
         let letter_resolution_map = standard_letter_resolution_map();
         Self::new(
             punctuation_resolution_map,
@@ -30,7 +30,9 @@ impl VdDefaultGlobalResolutionTable {
     }
 }
 
-fn standard_command_resolution_map() -> std::collections::HashMap<
+fn standard_command_resolution_map(
+    db: &InternerDb,
+) -> std::collections::HashMap<
     latex_command::path::LxCommandPath,
     crate::resolution::command::VdCompleteCommandGlobalResolution,
     rustc_hash::FxBuildHasher,
@@ -89,7 +91,7 @@ fn standard_command_resolution_map() -> std::collections::HashMap<
         frac,
         // - environments
         text,
-    } = *LX_COMMAND_PATH_MENU;
+    } = *lx_command_path_menu(db);
     VdCompleteCommandGlobalResolutionMap::from_iter([
         // - root
         (usepackage, VdCompleteCommandGlobalResolution::USEPACKAGE),
@@ -143,7 +145,7 @@ fn standard_command_resolution_map() -> std::collections::HashMap<
     ])
 }
 
-fn standard_environment_resolution_map() -> VdEnvironmentGlobalResolutionMap {
+fn standard_environment_resolution_map(db: &InternerDb) -> VdEnvironmentGlobalResolutionMap {
     let LxEnvironmentPathMenu {
         document,
         example,
@@ -161,7 +163,7 @@ fn standard_environment_resolution_map() -> VdEnvironmentGlobalResolutionMap {
         equation,
         figure,
         table,
-    } = *LX_ENVIRONMENT_PATH_MENU;
+    } = *lx_environment_path_menu(db);
     [
         (document, VdEnvironmentGlobalResolution::DOCUMENT),
         (example, VdEnvironmentGlobalResolution::EXAMPLE),

@@ -87,6 +87,10 @@ impl<'db> VdSynExprBuilder<'db> {
 
 /// # getters
 impl<'db> VdSynExprBuilder<'db> {
+    pub(crate) fn db(&self) -> &'db InternerDb {
+        self.db
+    }
+
     pub(crate) fn token_storage(&self) -> &LxTokenStorage {
         self.token_storage
     }
@@ -279,6 +283,7 @@ impl<'db> VdSynExprBuilder<'db> {
         );
         let (root_node, stmt_entity_tree_node_map, division_entity_tree_node_map) =
             build_entity_tree_with(
+                self.db,
                 self.default_global_resolution_table,
                 self.file_path,
                 self.stmt_arena.as_arena_ref(),

@@ -9,9 +9,9 @@ use std::path::PathBuf;
 pub(crate) fn t(content: &str, expected: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = InternerDb::default();
+    let db = &InternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdSemExprTracker::new(
         LxFormulaInput {
             specs_dir: dev_paths.specs_dir(),

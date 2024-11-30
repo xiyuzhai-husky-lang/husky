@@ -1,4 +1,5 @@
 use super::LxEnvironmentPath;
+use interned::{db::InternerDb, memo};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxEnvironmentPathMenu {
@@ -23,8 +24,8 @@ pub struct LxEnvironmentPathMenu {
 }
 
 impl LxEnvironmentPathMenu {
-    fn new() -> Self {
-        let p = |s: &str| LxEnvironmentPath::new(s);
+    fn new(db: &InternerDb) -> Self {
+        let p = |s: &str| LxEnvironmentPath::new(s, db);
         Self {
             document: p("document"),
             example: p("example"),
@@ -46,6 +47,7 @@ impl LxEnvironmentPathMenu {
     }
 }
 
-lazy_static::lazy_static! {
-    pub static ref LX_ENVIRONMENT_PATH_MENU: LxEnvironmentPathMenu = LxEnvironmentPathMenu::new();
+#[memo]
+pub fn lx_environment_path_menu(db: &InternerDb) -> LxEnvironmentPathMenu {
+    LxEnvironmentPathMenu::new(db)
 }

@@ -17,8 +17,8 @@ pub struct VdEvalData {
 }
 
 impl VdEval {
-    pub fn data(&self) -> &VdEvalData {
-        match self.0.data() {
+    pub fn data(&self, db: &InternerDb) -> &VdEvalData {
+        match self.0.data(db) {
             VdTermData::Eval(data) => data,
             _ => unreachable!(),
         }

@@ -6,6 +6,7 @@ use crate::{
     },
     ty::{VdType, VdTypeData},
 };
+use interned::{db::InternerDb, memo};
 use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::{
@@ -32,7 +33,7 @@ pub struct VdTypeMenu {
 }
 
 impl VdTypeMenu {
-    fn new() -> Self {
+    fn new(db: &InternerDb) -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -65,13 +66,13 @@ impl VdTypeMenu {
             real_sqrt,
         } = *VD_ITEM_PATH_MENU;
 
-        let nat = VdType::new_item_path(nat.into());
-        let int = VdType::new_item_path(int.into());
-        let rat = VdType::new_item_path(rat.into());
-        let real = VdType::new_item_path(real.into());
-        let complex = VdType::new_item_path(complex.into());
-        let set = VdType::new_item_path(set.into());
-        let prop = VdType::new_item_path(prop.into());
+        let nat = VdType::new_item_path(nat.into(), db);
+        let int = VdType::new_item_path(int.into(), db);
+        let rat = VdType::new_item_path(rat.into(), db);
+        let real = VdType::new_item_path(real.into(), db);
+        let complex = VdType::new_item_path(complex.into(), db);
+        let set = VdType::new_item_path(set.into(), db);
+        let prop = VdType::new_item_path(prop.into(), db);
 
         Self {
             nat,
@@ -85,6 +86,7 @@ impl VdTypeMenu {
     }
 }
 
-lazy_static! {
-    pub static ref VD_TYPE_MENU: VdTypeMenu = VdTypeMenu::new();
+#[memo]
+pub fn vd_ty_menu(db: &InternerDb) -> VdTypeMenu {
+    VdTypeMenu::new(db)
 }

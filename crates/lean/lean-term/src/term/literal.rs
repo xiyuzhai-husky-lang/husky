@@ -1,3 +1,5 @@
+use interned::db::InternerDb;
+
 use super::*;
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
@@ -17,18 +19,18 @@ pub enum LnLiteralData {
 }
 
 impl LnLiteral {
-    pub fn new(data: LnLiteralData) -> Self {
-        Self(LnTermId::new(data.into()))
+    pub fn new(data: LnLiteralData, db: &InternerDb) -> Self {
+        Self(LnTermId::new(data.into(), db))
     }
 
-    pub(crate) fn show(&self) -> String {
+    pub(crate) fn show(&self, db: &InternerDb) -> String {
         todo!()
     }
 }
 
 impl LnLiteral {
-    pub fn data(&self) -> &LnLiteralData {
-        match self.0.data() {
+    pub fn data(&self, db: &InternerDb) -> &LnLiteralData {
+        match self.0.data(db) {
             LnTermData::Literal(data) => data,
             _ => unreachable!(),
         }

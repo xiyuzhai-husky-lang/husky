@@ -114,7 +114,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             space_annotations.iter().copied(),
             &token_storage,
         );
-        let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard();
+        let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard(db);
         let mut builder = VdSynExprBuilder::new(
             db,
             input.content(),
@@ -256,7 +256,10 @@ impl IsVdSynOutput for VdSynExprIdx {
         self,
         builder: &mut VdSynExprEntityTreeBuilder,
     ) -> VdSynExprEntityTreeNode {
-        VdSynExprEntityTreeNode::new(VdModulePath::new_root(builder.file_path()), vec![])
+        VdSynExprEntityTreeNode::new(
+            VdModulePath::new_root(builder.file_path(), builder.db()),
+            vec![],
+        )
     }
 
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {

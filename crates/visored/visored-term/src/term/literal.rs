@@ -1,8 +1,10 @@
 pub mod special_constant;
 
+use interned::db::InternerDb;
+
 use self::special_constant::VdSpecialConstant;
 use super::*;
-use crate::{menu::VD_TYPE_MENU, ty::VdType};
+use crate::{menu::vd_ty_menu, ty::VdType};
 
 // #[salsa::derive_debug_with_db]
 // #[salsa::as_id]
@@ -34,7 +36,7 @@ pub enum VdLiteralData {
 }
 
 impl VdLiteral {
-    pub fn new(data: VdLiteralData) -> Self {
+    pub fn new(data: VdLiteralData, db: &InternerDb) -> Self {
         #[cfg(test)]
         {
             match data {
@@ -47,24 +49,24 @@ impl VdLiteral {
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             }
         }
-        Self(VdTermId::new(data.into()))
+        Self(VdTermId::new(data.into(), db))
     }
 
-    pub fn data(self) -> &'static VdLiteralData {
-        match self.0.data() {
+    pub fn data(self, db: &InternerDb) -> &VdLiteralData {
+        match self.0.data(db) {
             VdTermData::Literal(data) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn ty(self) -> VdType {
-        zfc_literal_ty(self)
+    pub fn ty(self, db: &InternerDb) -> VdType {
+        zfc_literal_ty(self, db)
     }
 }
 
-fn zfc_literal_ty(literal: VdLiteral) -> VdType {
-    let data = literal.data();
-    let menu = &VD_TYPE_MENU;
+fn zfc_literal_ty(literal: VdLiteral, db: &InternerDb) -> VdType {
+    let data = literal.data(db);
+    let menu = vd_ty_menu(db);
     match data {
         VdLiteralData::NaturalNumber(_) => menu.nat,
         VdLiteralData::NegativeInteger(_) => todo!(),

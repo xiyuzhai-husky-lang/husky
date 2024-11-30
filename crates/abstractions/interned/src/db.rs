@@ -9,9 +9,9 @@ pub struct InternerDb {
 }
 
 thread_local! {
-    static ATTACHED_INTERNED_DB: Cell<Option<&'static InternerDb>> = Cell::new(None);
+    static ATTACHED_INTERNER_DB: Cell<Option<&'static InternerDb>> = Cell::new(None);
 }
 
-pub fn attach_interned_db() -> &'static InternerDb {
-    ATTACHED_INTERNED_DB.with(|cell| cell.get().unwrap())
+pub fn attached_interner_db() -> &'static InternerDb {
+    ATTACHED_INTERNER_DB.with(|cell| cell.get().unwrap())
 }

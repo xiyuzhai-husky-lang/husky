@@ -5,22 +5,26 @@ pub struct Coword {
 
 impl std::fmt::Debug for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("Coword").field(self.data()).finish()
+        let db = interned::db::attached_interner_db();
+        f.debug_tuple("Coword").field(&self.data(db)).finish()
     }
 }
 
 impl std::fmt::Display for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.data())
+        let db = interned::db::attached_interner_db();
+        write!(f, "{}", self.data(db))
     }
 }
 
 #[test]
 fn coword_new_works() {
+    let db = &interned::db::InternerDb::default();
+
     // Test creation and basic equality
-    let word1 = Coword::new("hello".to_string());
-    let word2 = Coword::new("hello".to_string());
-    let word3 = Coword::new("world".to_string());
+    let word1 = Coword::new("hello".to_string(), db);
+    let word2 = Coword::new("hello".to_string(), db);
+    let word3 = Coword::new("world".to_string(), db);
 
     // Test equality for same content
     assert_eq!(word1, word2);
@@ -33,16 +37,18 @@ fn coword_new_works() {
     assert_ne!(word1, word3);
 
     // Test access to underlying data
-    assert_eq!(word1.data(), "hello");
-    assert_eq!(word3.data(), "world");
+    assert_eq!(word1.data(db), "hello");
+    assert_eq!(word3.data(db), "world");
 }
 
 #[test]
 fn coword_from_ref_works() {
+    let db = &interned::db::InternerDb::default();
+
     // Test creation and basic equality
-    let word1 = Coword::from_ref("hello");
-    let word2 = Coword::from_ref("hello");
-    let word3 = Coword::from_ref("world");
+    let word1 = Coword::from_ref("hello", db);
+    let word2 = Coword::from_ref("hello", db);
+    let word3 = Coword::from_ref("world", db);
 
     // Test equality for same content
     assert_eq!(word1, word2);
@@ -55,6 +61,6 @@ fn coword_from_ref_works() {
     assert_ne!(word1, word3);
 
     // Test access to underlying data
-    assert_eq!(word1.data(), "hello");
-    assert_eq!(word3.data(), "world");
+    assert_eq!(word1.data(db), "hello");
+    assert_eq!(word3.data(db), "world");
 }

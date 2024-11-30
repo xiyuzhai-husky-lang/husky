@@ -23,7 +23,7 @@ impl VdItemPathDictionary {
         }
     }
 
-    pub fn new_standard() -> Self {
+    pub fn new_standard(db: &InternerDb) -> Self {
         Self::new([
             (
                 VdItemPath::NAT,

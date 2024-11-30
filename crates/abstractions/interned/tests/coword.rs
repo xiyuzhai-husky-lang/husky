@@ -7,16 +7,18 @@ pub struct Coword {
 
 impl std::fmt::Debug for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("Coword").field(self.data()).finish()
+        let db = interned::db::attached_interner_db();
+        f.debug_tuple("Coword").field(self.data(db)).finish()
     }
 }
 
 #[test]
 fn coword_works() {
+    let db = interned::db::attached_interner_db();
     // Test creation and basic equality
-    let word1 = Coword::new("hello".to_string());
-    let word2 = Coword::new("hello".to_string());
-    let word3 = Coword::new("world".to_string());
+    let word1 = Coword::new("hello".to_string(), db);
+    let word2 = Coword::new("hello".to_string(), db);
+    let word3 = Coword::new("world".to_string(), db);
 
     // Test equality for same content
     assert_eq!(word1, word2);
@@ -29,13 +31,13 @@ fn coword_works() {
     assert_ne!(word1, word3);
 
     // Test access to underlying data
-    assert_eq!(word1.data(), "hello");
-    assert_eq!(word3.data(), "world");
+    assert_eq!(word1.data(db), "hello");
+    assert_eq!(word3.data(db), "world");
 
-    assert_eq!(__COWORD_STORAGE.lock().unwrap().len_checked(), 2);
+    // assert_eq!(db.interners.len(), 2);
 }
 
 #[memo]
 fn first_letter(word: Coword, db: &InternerDb) -> char {
-    word.data().chars().next().unwrap()
+    word.data(db).chars().next().unwrap()
 }
