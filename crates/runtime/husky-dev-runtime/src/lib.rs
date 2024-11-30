@@ -36,6 +36,7 @@ use husky_value::ki_control_flow::KiControlFlow;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use husky_vm::runtime::IsVmRuntime;
 use husky_wild_utils::arb_ref;
+use interned::db::InternerDb;
 use std::{
     convert::Infallible,
     path::Path,
@@ -141,6 +142,10 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
 
     unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf {
         &*(unsafe { self as *const _ })
+    }
+
+    fn interner_db(&self) -> &InternerDb {
+        self.comptime.interner_db()
     }
 
     fn eval_eager_val_with(

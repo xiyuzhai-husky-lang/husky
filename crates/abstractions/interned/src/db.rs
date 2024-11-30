@@ -5,7 +5,7 @@ use std::cell::Cell;
 #[derive(Default)]
 pub struct InternerDb {
     interners: DashMap<std::any::TypeId, Interner>,
-    memo_storages: DashMap<std::any::TypeId, Box<dyn std::any::Any>>,
+    memo_storages: DashMap<std::any::TypeId, Box<dyn std::any::Any + Send + Sync>>,
 }
 
 thread_local! {

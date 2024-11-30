@@ -4895,6 +4895,7 @@ dependencies = [
  "husky-trace",
  "husky-vfs",
  "husky-vm",
+ "interned",
  "salsa",
 ]
 
@@ -4942,6 +4943,7 @@ dependencies = [
  "husky-vmir",
  "husky-wild-utils",
  "idx-arena",
+ "interned",
  "lsp-types 0.95.0",
  "relative-path",
  "salsa",
@@ -5988,6 +5990,7 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "husky-wild-utils",
+ "interned",
  "serde",
  "smallvec",
  "vec-like",
@@ -8222,6 +8225,7 @@ dependencies = [
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
+ "interned",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
