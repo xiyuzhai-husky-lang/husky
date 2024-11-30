@@ -835,6 +835,7 @@ version = "0.1.0"
 dependencies = [
  "coword",
  "husky-coword",
+ "interned",
  "latex-math-letter",
  "latex-prelude",
  "lazy_static 1.5.0",
@@ -849,6 +850,7 @@ version = "0.1.0"
 dependencies = [
  "coword",
  "husky-coword",
+ "interned",
  "latex-prelude",
  "lazy_static 1.5.0",
  "rustc-hash",
