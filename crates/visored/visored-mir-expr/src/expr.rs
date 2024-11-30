@@ -6,7 +6,9 @@ pub mod tests;
 
 use crate::*;
 use application::VdMirFunc;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use idx_arena::{
+    map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
+};
 use smallvec::SmallVec;
 use symbol::local_defn::VdMirSymbolLocalDefnIdx;
 use visored_entity_path::path::VdItemPath;
@@ -47,6 +49,8 @@ pub enum VdMirExprData {
 }
 
 pub type VdMirExprArena = Arena<VdMirExprData>;
+pub type VdMirExprMap<T> = ArenaMap<VdMirExprData, T>;
+pub type VdMirExprOrderedMap<T> = ArenaOrderedMap<VdMirExprData, T>;
 pub type VdMirExprArenaRef<'a> = ArenaRef<'a, VdMirExprData>;
 pub type VdMirExprIdx = ArenaIdx<VdMirExprData>;
 pub type VdMirExprIdxRange = ArenaIdxRange<VdMirExprData>;

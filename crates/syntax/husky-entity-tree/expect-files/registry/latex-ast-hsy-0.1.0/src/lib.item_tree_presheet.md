@@ -57,6 +57,34 @@ EntityTreePresheet {
                 ident: `LxAstId`,
                 visibility: Scope::Pub,
             },
+            ItemNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            MajorFormSynNodePath(`latex_ast_hsy::AST`, `StaticVar`, (0)),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 2,
+                        ident_token: IdentToken {
+                            ident: `AST`,
+                            token_idx: TokenIdx(
+                                23,
+                            ),
+                        },
+                        block: DefnBlock::Form {
+                            path: MajorFormPath(`latex_ast_hsy::AST`, `StaticVar`),
+                            body: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Form(
+                        MajorFormSynNodePath(`latex_ast_hsy::AST`, `StaticVar`, (0)),
+                    ),
+                ),
+                ident: `AST`,
+                visibility: Scope::Pub,
+            },
         ],
     },
     once_use_rules: OnceUseRules(

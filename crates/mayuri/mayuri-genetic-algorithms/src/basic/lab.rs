@@ -46,11 +46,6 @@ impl Lab {
             self.population
                 .sort_unstable_by(|a, b| b.fitness.cmp(&a.fitness));
 
-            println!(
-                "Generation {}: Best fitness = {}, Genes = {:?}",
-                generation, self.population[0].fitness, self.population[0].genes
-            );
-
             let new_individuals: Vec<Individual> = (0..self.population_size)
                 .map(|_| {
                     let parent1 = &self.population[self.rng.gen_range(0..self.population.len())];

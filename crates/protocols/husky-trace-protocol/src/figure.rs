@@ -7,7 +7,10 @@ use crate::{
     windlass::Windlass,
     IsTraceProtocol, TraceId, TraceSynchrotron,
 };
-use husky_figure_zone_protocol::FigureZone;
+use husky_figure_zone_protocol::{
+    chunk_base::{text::FigureTextChunkBaseId, FigureChunkBase},
+    FigureZone,
+};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::{
@@ -43,15 +46,16 @@ pub trait IsFigure:
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
-    fn new_gallery(
+    fn new_parading(
         chart: ChartDim1<FigureVarId<Self>, CompositeVisual<TraceId>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
-    fn new_text(
+    fn new_rolling(
         chart: Option<ChartDim1<FigureVarId<Self>, CompositeVisual<TraceId>>>,
         trace_plot_map: &TracePlotInfos,
-        visual_synchrotron: &VisualSynchrotron,
+        visual_synchrotron: &mut VisualSynchrotron,
+        f: impl Fn(u32, &mut VisualSynchrotron) -> FigureChunkBase,
     ) -> Self;
 
     fn for_all_joint_pedestals(
@@ -226,6 +230,13 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
 
     pub fn joint_static_var_anchors(&self) -> &[(ItemPathIdInterface, Anchor<VarId>)] {
         &self.joint_static_var_anchors
+    }
+
+    pub fn generic_joint_static_vars(&self) -> impl Iterator<Item = ItemPathIdInterface> + '_ {
+        self.joint_static_var_anchors
+            .iter()
+            .filter(|(_, anchor)| anchor.is_generic())
+            .map(|(id, _)| *id)
     }
 
     pub fn figure_zone(&self) -> Option<FigureZone> {

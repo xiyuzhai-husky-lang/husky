@@ -1,13 +1,16 @@
 pub mod dim2;
-mod gallery;
+mod parading;
+pub mod rolling;
 mod specific;
-pub mod text;
 
-use self::{gallery::GalleryFigure, specific::SpecificFigure};
+use self::{parading::ParadingFigure, specific::SpecificFigure};
 use crate::chart::{StandardChart, StandardChartDim0, StandardChartDim1};
 #[cfg(feature = "egui")]
 use egui::{pos2, Color32, Rect, Ui, Vec2};
-use husky_figure_zone_protocol::FigureZone;
+use husky_figure_zone_protocol::{
+    chunk_base::{text::FigureTextChunkBaseId, FigureChunkBase},
+    FigureZone,
+};
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull, JointPedestal};
 use husky_standard_linket_impl::pedestal::{StandardJointPedestal, StandardPedestal};
@@ -30,8 +33,8 @@ use husky_visual_protocol::{
         Visual,
     },
 };
+use rolling::RollingFigure;
 use serde::{Deserialize, Serialize};
-use text::TextFigure;
 use ui::visual::cache::VisualUiCache;
 
 #[enum_class::from_variants]
@@ -39,8 +42,8 @@ use ui::visual::cache::VisualUiCache;
 pub enum StandardFigure {
     Void,
     Specific(SpecificFigure),
-    Dim1(GalleryFigure),
-    Text(TextFigure),
+    Marching(ParadingFigure),
+    Rolling(RollingFigure),
 }
 
 /// # impl IsFigure
@@ -51,8 +54,8 @@ impl IsFigure for StandardFigure {
         match self {
             StandardFigure::Void => (),
             StandardFigure::Specific(slf) => slf.for_all_joint_pedestals(f),
-            StandardFigure::Dim1(slf) => slf.for_all_joint_pedestals(f),
-            StandardFigure::Text(slf) => slf.for_all_joint_pedestals(f),
+            StandardFigure::Marching(slf) => slf.for_all_joint_pedestals(f),
+            StandardFigure::Rolling(slf) => slf.for_all_joint_pedestals(f),
         }
     }
 
@@ -68,20 +71,21 @@ impl IsFigure for StandardFigure {
         SpecificFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
     }
 
-    fn new_gallery(
+    fn new_parading(
         chart: StandardChartDim1<CompositeVisual<TraceId>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> StandardFigure {
-        GalleryFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
+        ParadingFigure::from_chart(chart, trace_plot_map, visual_synchrotron).into()
     }
 
-    fn new_text(
+    fn new_rolling(
         chart: Option<StandardChartDim1<CompositeVisual<TraceId>>>,
         trace_plot_map: &TracePlotInfos,
-        visual_synchrotron: &VisualSynchrotron,
+        visual_synchrotron: &mut VisualSynchrotron,
+        f: impl Fn(u32, &mut VisualSynchrotron) -> FigureChunkBase,
     ) -> StandardFigure {
-        todo!()
+        RollingFigure::from_chart(chart, trace_plot_map, visual_synchrotron, f).into()
     }
 }
 
@@ -96,8 +100,8 @@ impl FigureUi<Ui> for StandardFigure {
         match self {
             StandardFigure::Void => (),
             StandardFigure::Specific(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
-            StandardFigure::Dim1(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
-            StandardFigure::Text(text_figure) => todo!(),
+            StandardFigure::Marching(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
+            StandardFigure::Rolling(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
         }
     }
 }

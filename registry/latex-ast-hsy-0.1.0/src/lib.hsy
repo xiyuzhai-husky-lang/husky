@@ -1,2 +1,4 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub extern LxAstId;
+
+pub static var AST: LxAstId;

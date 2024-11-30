@@ -13,7 +13,7 @@ use lean_mir_expr::{
         fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
         show::display_tree::LnMirExprDisplayTreeBuilder,
     },
-    item_defn::{LnItemDefnArena, LnItemDefnIdxRange},
+    item_defn::{LnItemDefnArena, LnItemDefnComment, LnItemDefnIdxRange, LnItemDefnOrderedMap},
     stmt::{LnMirStmtArena, LnMirStmtIdxRange},
     tactic::LnMirTacticArena,
 };
@@ -29,10 +29,11 @@ pub struct VdLeanTranspilationTracker<'a, Input: IsVdLeanTranspilationInput<'a>>
     stmt_arena: LnMirStmtArena,
     tactic_arena: LnMirTacticArena,
     defn_arena: LnItemDefnArena,
+    defn_comments: LnItemDefnOrderedMap<LnItemDefnComment>,
     output: Input::VdLeanTranspilationOutput,
 }
 
-pub trait IsVdLeanTranspilationInput<'a>: IsVdMirExprInput<'a> + Copy {
+pub trait IsVdLeanTranspilationInput<'a>: IsVdMirExprInput<'a> {
     type VdLeanTranspilationOutput: IsVdLeanTranspilationOutput
         + FromVdTranspileToLean<Self::VdMirExprOutput>;
 }
@@ -61,28 +62,47 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
     ) -> Self {
+        let content = input.content();
         let VdMirExprTracker {
             root_module_path,
             expr_arena: vd_mir_expr_arena,
             stmt_arena: vd_mir_stmt_arena,
             symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
+            source_map: vd_mir_source_map,
+            sem_expr_range_map,
+            sem_phrase_range_map,
+            sem_clause_range_map,
+            sem_sentence_range_map,
+            sem_stmt_range_map,
+            sem_division_range_map,
+            token_storage,
             output,
         } = VdMirExprTracker::new(input, &[], &[]);
         let dictionary = &VdLeanDictionary::new_standard();
         let mut builder = VdLeanTranspilationBuilder::new(
+            content,
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),
             &vd_mir_symbol_local_defn_storage,
+            &vd_mir_source_map,
             dictionary,
             root_module_path,
+            &sem_expr_range_map,
+            &sem_phrase_range_map,
+            &sem_clause_range_map,
+            &sem_sentence_range_map,
+            &sem_stmt_range_map,
+            &sem_division_range_map,
+            &token_storage,
         );
         let output = FromVdTranspileToLean::from_transpile_to_lean(output, &mut builder);
-        let (expr_arena, stmt_arena, tactic_arena, defn_arena) = builder.finish();
+        let (expr_arena, stmt_arena, tactic_arena, defn_arena, defn_comments) = builder.finish();
         Self {
             expr_arena,
             stmt_arena,
             tactic_arena,
             defn_arena,
+            defn_comments,
             output,
         }
     }
@@ -110,6 +130,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
             self.defn_arena.as_arena_ref(),
+            &self.defn_comments,
             config,
         )
     }

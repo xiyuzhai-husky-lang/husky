@@ -14,7 +14,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdLeanTranspilationTracker::new(
         LxDocumentInput {
-            specs_dir: dev_paths.specs_dir(),
+            specs_dir: dev_paths.specs_dir().to_path_buf(),
             file_path,
             content,
         },
@@ -39,7 +39,9 @@ Let $x\in\mathbb{R}$.
                 └─ group: `sentence`
                   └─ variable: `x`
         "#]],
-        &expect!["variable (x : ℝ)"],
+        &expect![[r#"
+            -- Let $x\in\mathbb{R}$
+            variable (x : ℝ)"#]],
     );
     t(
         r#"\documentclass{article}
@@ -57,6 +59,7 @@ Let $x\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
+            -- Let $x\in\mathbb{R}$
             variable (x : ℝ)
             end Section1
         "#]],
@@ -92,9 +95,11 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
+            -- Let $x\in\mathbb{R}$
             variable (x : ℝ)
 
             namespace Subsection1
+            -- Let $y\in\mathbb{R}$
             variable (y : ℝ)
             end Subsection1
 
@@ -133,7 +138,7 @@ fn latex_shorts_to_lean_works() {
         let file_path = LxFilePath::new(file_path.clone());
         let tracker = VdLeanTranspilationTracker::new(
             LxDocumentInput {
-                specs_dir: dev_paths.specs_dir(),
+                specs_dir: dev_paths.specs_dir().to_path_buf(),
                 file_path,
                 content,
             },

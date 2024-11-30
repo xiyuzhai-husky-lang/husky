@@ -1,21 +1,25 @@
 use crate::{
     expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
     helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
-    item_defn::{LnItemDefnArena, LnItemDefnData, LnItemDefnIdxRange},
+    item_defn::{
+        LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData,
+        LnItemDefnIdxRange, LnItemDefnOrderedMap,
+    },
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
     tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
 use lean_entity_path::namespace::LnNamespace;
 
-pub struct LnMirExprBuilder {
+pub struct LnMirExprConstructor {
     expr_arena: LnMirExprArena,
     stmt_arena: LnMirStmtArena,
     tactic_arena: LnMirTacticArena,
     item_defn_arena: LnItemDefnArena,
     current_namespace: LnNamespace,
+    item_defn_comments: LnItemDefnOrderedMap<LnItemDefnComment>,
 }
 
-impl LnMirExprBuilder {
+impl LnMirExprConstructor {
     pub fn new() -> Self {
         Self {
             expr_arena: Default::default(),
@@ -23,23 +27,25 @@ impl LnMirExprBuilder {
             tactic_arena: Default::default(),
             item_defn_arena: Default::default(),
             current_namespace: LnNamespace::new_root(),
+            item_defn_comments: Default::default(),
         }
     }
 }
 
-impl LnMirExprBuilder {
+impl LnMirExprConstructor {
     pub fn formatter<'a>(&'a self, config: &'a LnMirExprFormatterConfig) -> LnMirExprFormatter<'a> {
         LnMirExprFormatter::new(
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
             self.item_defn_arena.as_arena_ref(),
+            &self.item_defn_comments,
             config,
         )
     }
 }
 
-impl LnMirExprBuilder {
+impl LnMirExprConstructor {
     pub fn alloc_expr(&mut self, data: LnMirExprData) -> LnMirExprIdx {
         self.expr_arena.alloc_one(data)
     }
@@ -73,8 +79,15 @@ impl LnMirExprBuilder {
         self.tactic_arena.alloc_batch(data)
     }
 
-    pub fn alloc_item_defns(&mut self, item_defns: Vec<LnItemDefnData>) -> LnItemDefnIdxRange {
-        self.item_defn_arena.alloc_batch(item_defns)
+    pub fn alloc_item_defns(
+        &mut self,
+        item_defns: Vec<LnItemDefnData>,
+        comments: impl IntoIterator<Item = LnItemDefnComment>,
+    ) -> LnItemDefnIdxRange {
+        let item_defns = self.item_defn_arena.alloc_batch(item_defns);
+        self.item_defn_comments
+            .insert_next_batch(item_defns, comments);
+        item_defns
     }
 
     pub fn finish(
@@ -84,18 +97,20 @@ impl LnMirExprBuilder {
         LnMirStmtArena,
         LnMirTacticArena,
         LnItemDefnArena,
+        LnItemDefnCommentMap,
     ) {
         (
             self.expr_arena,
             self.stmt_arena,
             self.tactic_arena,
             self.item_defn_arena,
+            self.item_defn_comments,
         )
     }
 }
 
 pub trait WithLnNamespace {
-    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprBuilder;
+    fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprConstructor;
 
     fn with_ln_namespace<R>(
         &mut self,

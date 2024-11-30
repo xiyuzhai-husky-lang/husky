@@ -9,7 +9,7 @@ fn t(content: &str, expected: &Expect) {
     let file_path = LxFilePath::new(PathBuf::from(file!()));
     let tracker = VdSynExprTracker::new(
         LxDocumentInput {
-            specs_dir: dev_paths.specs_dir(),
+            specs_dir: dev_paths.specs_dir().to_path_buf(),
             file_path,
             content,
         },
