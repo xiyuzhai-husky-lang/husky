@@ -11,6 +11,8 @@ ordered-float.workspace = true
 # abstractions
 enum-class.workspace = true
 shifted-unsigned-int.workspace = true
+# protocols
+husky-figure-zone-protocol.workspace = true
 # utils
 husky-print-utils.workspace = true
 

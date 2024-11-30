@@ -7,3 +7,15 @@ Some(
     ),
 )
 ```
+
+## `AST`
+
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`latex_ast_hsy::LxAstId`),
+        ],
+    ),
+)
+```

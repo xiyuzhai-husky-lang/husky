@@ -121,7 +121,7 @@ macro_rules! enum_variant_discriminator_linket_impl {
                 Value::Owned(owner) => {
                     matches!(owner.downcast_into_owned::<$self_ty>(), $variant_path)
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     matches!(
                         (owner as &'static dyn std::any::Any)
                             .downcast_ref::<$self_ty>()
@@ -145,7 +145,7 @@ macro_rules! enum_variant_discriminator_linket_impl {
                         $variant_path { .. }
                     )
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     matches!(
                         (owner as &'static dyn std::any::Any)
                             .downcast_ref::<$self_ty>()
@@ -166,7 +166,7 @@ macro_rules! enum_variant_discriminator_linket_impl {
                 Value::Owned(owner) => {
                     matches!(owner.downcast_into_owned::<$self_ty>(), $variant_path(..))
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     matches!(
                         (owner as &'static dyn std::any::Any)
                             .downcast_ref::<$self_ty>()
@@ -225,7 +225,7 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     $field.into_value()
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     let $variant_path { $field, .. } = (owner as &'static dyn std::any::Any)
                         .downcast_ref::<$self_ty>()
                         .unwrap()
@@ -250,7 +250,7 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     v0.into_value()
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     let $variant_path(v0, ..) = (owner as &'static dyn std::any::Any)
                         .downcast_ref::<$self_ty>()
                         .unwrap()
@@ -275,7 +275,7 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     v1.into_value()
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     let $variant_path(_, v1, ..) = (owner as &'static dyn std::any::Any)
                         .downcast_ref::<$self_ty>()
                         .unwrap()
@@ -301,7 +301,7 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     v1.into_value()
                 }
-                Value::Leash(owner) => {
+                Value::LeashSized(owner) => {
                     let $variant_path(_, _, v2, ..) = (owner as &'static dyn std::any::Any)
                         .downcast_ref::<$self_ty>()
                         .unwrap()

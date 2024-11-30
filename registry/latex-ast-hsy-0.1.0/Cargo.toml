@@ -12,8 +12,24 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+lazy_static.workspace = true
+serde.workspace = true
+# abstractions
+idx-arena.workspace = true
+vec-like.workspace = true
 # latex
 latex-ast.workspace = true
+latex-prelude.workspace = true
+latex-vfs.workspace = true
+# linket
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
+# utils
+husky-path-utils.workspace = true
+# value
+husky-standard-value.workspace = true
+# library
+husky-core.workspace = true
 
 [lints]
 workspace = true

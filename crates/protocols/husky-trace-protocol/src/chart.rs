@@ -11,6 +11,27 @@ pub enum Chart<VarId: IsVarId, R> {
     Dim2(ChartDim2<VarId, R>),
 }
 
-pub type ChartDim0<VarId, R> = (JointPedestal<VarId>, R);
-pub type ChartDim1<VarId, R> = Vec<(JointPedestal<VarId>, R)>;
-pub type ChartDim2<VarId, R> = Vec<Vec<(JointPedestal<VarId>, R)>>;
+#[derive(Debug, PartialEq, Eq)]
+pub struct ChartDim0<VarId, R>
+where
+    VarId: IsVarId,
+{
+    pub joint_pedestal: JointPedestal<VarId>,
+    pub r: R,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ChartDim1<VarId, R>
+where
+    VarId: IsVarId,
+{
+    pub points: Vec<(VarId, ChartDim0<VarId, R>)>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ChartDim2<VarId, R>
+where
+    VarId: IsVarId,
+{
+    pub rows: Vec<(VarId, ChartDim1<VarId, R>)>,
+}

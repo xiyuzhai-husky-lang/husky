@@ -1,5 +1,5 @@
 use super::{LnMirExprData, LnMirExprIdx};
-use crate::builder::LnMirExprBuilder;
+use crate::constructor::LnMirExprConstructor;
 use lazy_static::lazy_static;
 use lean_entity_path::{
     menu::{ln_item_path_menu, LnItemPathMenu},
@@ -69,7 +69,7 @@ pub enum LnMirFuncKey {
     },
 }
 
-impl LnMirExprBuilder {
+impl LnMirExprConstructor {
     pub fn build_func_from_key(&mut self, key: LnMirFuncKey) -> LnMirFunc {
         match key {
             LnMirFuncKey::ItemPath(item_path) => {

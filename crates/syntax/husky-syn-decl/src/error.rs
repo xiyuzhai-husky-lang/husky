@@ -118,9 +118,7 @@ pub enum SynDeclError {
 pub type SynDeclResult<T> = Result<T, SynDeclError>;
 
 impl From<&SynNodeDeclError> for SynDeclError {
-    #[track_caller]
-    fn from(_value: &SynNodeDeclError) -> Self {
-        todo!();
+    fn from(error: &SynNodeDeclError) -> Self {
         SynDeclError::NodeDecl
     }
 }

@@ -11,3 +11,19 @@ Some(
 ```rust
 None
 ```
+
+## `AST` decl
+
+```rust
+Some(
+    [
+        "LxAstId",
+    ],
+)
+```
+
+## `AST` defn
+
+```rust
+None
+```

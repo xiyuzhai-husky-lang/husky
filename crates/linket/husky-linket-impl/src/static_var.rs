@@ -1,6 +1,6 @@
 use crate::*;
 use husky_figure_zone_protocol::{
-    text::{FigureText, FigureTextKey},
+    chunk_base::{text::FigureTextChunkBaseData, FigureChunkBase},
     FigureZone,
 };
 use husky_value::IsValue;
@@ -76,18 +76,9 @@ pub trait IsStaticVar<VarId: IsVarId>: 'static {
 
     fn zones() -> &'static [FigureZone];
 
-    /// override if necessary
-    fn text_key(var_id: VarId) -> FigureTextKey<VarId> {
+    fn figure_chunk_base(chunk_idx: u32) -> FigureTextChunkBaseData {
         unreachable!(
-            "IsStaticVar::text_key() not implemented for `{}`",
-            std::any::type_name::<Self>()
-        )
-    }
-
-    /// override if necessary
-    fn text(key: FigureTextKey<VarId>) -> FigureText {
-        unreachable!(
-            "IsStaticVar::text() not implemented for `{}`",
+            "no implement of `figure_chunk_base` for type {}",
             std::any::type_name::<Self>()
         )
     }
@@ -113,6 +104,7 @@ pub struct StaticVarSvtable<VarId: IsVarId, Value: IsValue> {
         ) -> StaticVarResult<VarId, (VarId, Box<dyn FnOnce() + 'static>)>,
     get_value: fn() -> Value,
     zones: fn() -> &'static [FigureZone], // because rust doesn't support associated static items
+    figure_chunk_base: fn(chunk_idx: u32) -> FigureTextChunkBaseData,
 }
 
 impl<VarId: IsVarId, Value: IsValue> StaticVarSvtable<VarId, Value> {
@@ -136,6 +128,7 @@ impl<VarId: IsVarId, Value: IsValue> StaticVarSvtable<VarId, Value> {
             default_page_start: V::default_page_start,
             get_value: V::get_value,
             zones: V::zones,
+            figure_chunk_base: V::figure_chunk_base,
         }
     }
 
@@ -181,6 +174,10 @@ impl<VarId: IsVarId, Value: IsValue> StaticVarSvtable<VarId, Value> {
 
     pub fn zones(&self) -> &'static [FigureZone] {
         (self.zones)()
+    }
+
+    pub fn figure_chunk_base(&self, chunk_idx: u32) -> FigureTextChunkBaseData {
+        (self.figure_chunk_base)(chunk_idx)
     }
 }
 

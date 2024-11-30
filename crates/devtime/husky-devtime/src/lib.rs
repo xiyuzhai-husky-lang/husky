@@ -2,6 +2,7 @@
 #![feature(result_flattening)]
 #![feature(try_trait_v2)]
 pub mod eval;
+mod figure;
 mod state;
 #[cfg(test)]
 mod tests;
@@ -17,11 +18,11 @@ use husky_devsoul::{
     devsoul::IsDevsoul,
     helpers::{
         DevsoulCaryatid, DevsoulChart, DevsoulFigure, DevsoulKiControlFlow, DevsoulStaticVarResult,
-        DevsoulTraceStalk, DevsoulVmControlFlowFrozen,
+        DevsoulTraceStalk, DevsoulVarId, DevsoulVmControlFlowFrozen,
     },
 };
 use husky_entity_path::path::ItemPathId;
-use husky_figure_zone_protocol::FigureZone;
+use husky_figure_zone_protocol::{chunk_base::FigureChunkBase, FigureZone};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
@@ -66,6 +67,9 @@ pub struct Devtime<Devsoul: IsDevsoul> {
     // when hot reload, reset this
     // TODO benchmark this
     eager_trace_cache: DashMap<(TracePath, Devsoul::Pedestal), Arc<VmHistory<Devsoul::LinketImpl>>>,
+    // cache figure chunk bases
+    // when hot reload, reset this
+    figure_chunk_base_cache: DashMap<(ItemPathIdInterface, u32), FigureChunkBase>,
     vmir_storage: DevVmirStorage<Devsoul::LinketImpl>,
 }
 
@@ -77,6 +81,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         Ok(Self {
             runtime: DevRuntime::new(target_crate, runtime_config)?,
             eager_trace_cache: Default::default(),
+            figure_chunk_base_cache: Default::default(),
             vmir_storage: Default::default(),
         })
     }
@@ -187,26 +192,33 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
         match figure_key.figure_zone() {
             Some(zone) => match zone {
-                FigureZone::Gallery => match chart {
+                FigureZone::Parade => match chart {
                     Some(chart) => match chart {
                         Chart::Dim0(_) => todo!(),
                         Chart::Dim1(chart) => {
-                            IsFigure::new_gallery(chart, trace_plot_map, visual_synchrotron)
+                            IsFigure::new_parading(chart, trace_plot_map, visual_synchrotron)
                         }
                         Chart::Dim2(chart) => todo!(),
                     },
                     None => IsFigure::new_void(), // ad hoc
                 },
-                FigureZone::Text => match chart {
-                    Some(chart) => match chart {
-                        Chart::Dim0(_) => todo!(),
-                        Chart::Dim1(chart) => {
-                            IsFigure::new_text(Some(chart), trace_plot_map, visual_synchrotron)
-                        }
-                        Chart::Dim2(chart) => todo!(),
-                    },
-                    None => IsFigure::new_text(None, trace_plot_map, visual_synchrotron), // ad hoc
-                },
+                FigureZone::Roll => {
+                    debug_assert_eq!(figure_key.generic_joint_static_vars().count(), 1);
+                    let the_static_var = figure_key.generic_joint_static_vars().next().unwrap();
+                    let chart = match chart {
+                        Some(Chart::Dim1(chart)) => Some(chart),
+                        None => None,
+                        _ => unreachable!(),
+                    };
+                    IsFigure::new_rolling(
+                        chart,
+                        trace_plot_map,
+                        visual_synchrotron,
+                        |chunk_idx, visual_synchrotron| {
+                            self.figure_chunk_base(the_static_var, chunk_idx, visual_synchrotron)
+                        },
+                    )
+                }
             },
             None => match chart {
                 Some(chart) => {

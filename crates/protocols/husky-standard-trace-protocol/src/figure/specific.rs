@@ -32,7 +32,10 @@ pub enum StandardPlot {
 /// # constructor
 impl SpecificFigure {
     pub(super) fn from_chart(
-        (joint_pedestal, composite_visual): StandardChartDim0<CompositeVisual<TraceId>>,
+        StandardChartDim0 {
+            joint_pedestal,
+            r: composite_visual,
+        }: StandardChartDim0<CompositeVisual<TraceId>>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {

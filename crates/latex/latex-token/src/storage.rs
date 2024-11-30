@@ -127,6 +127,10 @@ impl LxTokenStorage {
             None => TextOffsetRange::new(0.into(), 0.into()),
         }
     }
+
+    pub fn main_ranged_tokens(&self) -> &[LxTokenEntry] {
+        &self.main_ranged_tokens
+    }
 }
 
 /// # actions

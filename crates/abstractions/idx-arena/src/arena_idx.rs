@@ -1,9 +1,26 @@
 use crate::*;
+use serde::{Deserialize, Serialize};
 use std::{num::NonZeroU32, ops::AddAssign};
 
 pub struct ArenaIdx<T> {
     raw: NonZeroU32,
     phantom: PhantomData<T>,
+}
+
+impl<T> Serialize for ArenaIdx<T> {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        serializer.serialize_u32(self.raw.get())
+    }
+}
+
+impl<'de, T> Deserialize<'de> for ArenaIdx<T> {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let raw = u32::deserialize(deserializer)?;
+        Ok(Self::new(raw as usize))
+    }
 }
 
 #[test]
