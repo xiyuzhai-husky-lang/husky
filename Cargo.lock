@@ -7922,6 +7922,7 @@ name = "interned"
 version = "0.1.0"
 dependencies = [
  "dashmap 6.0.1",
+ "husky-wild-utils",
  "interned-macros",
  "lazy_static 1.5.0",
 ]
