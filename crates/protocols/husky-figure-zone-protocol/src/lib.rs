@@ -1,18 +1,18 @@
-pub mod text;
+pub mod chunk_base;
 
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Hash)]
 pub enum FigureZone {
-    Gallery = 1,
-    Text,
+    Parade = 1,
+    Roll,
 }
 
 impl FigureZone {
     pub fn len(self) -> usize {
         match self {
-            FigureZone::Gallery => 1,
-            FigureZone::Text => 1,
+            FigureZone::Parade => 1,
+            FigureZone::Roll => 1,
         }
     }
 }
