@@ -11,6 +11,7 @@ smallvec.workspace = true
 relative-path = "1.7.2"
 # abstractions
 idx-arena.workspace = true
+interned.workspace = true
 vec-like.workspace = true
 # comptime
 husky-dev-comptime.workspace = true

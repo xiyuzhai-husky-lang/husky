@@ -1,11 +1,11 @@
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
+use husky_value::ki_control_flow::KiControlFlow;
+use interned::db::InternerDb;
 use std::{
     convert::Infallible,
     sync::{Arc, MutexGuard},
 };
-
-use husky_item_path_interface::ItemPathIdInterface;
-use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
-use husky_value::ki_control_flow::KiControlFlow;
 
 use crate::linket_impl::{
     IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue,
@@ -81,7 +81,15 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
     pub fn new(runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>) -> Self {
         Self { runtime }
     }
+}
 
+impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
+    pub fn interner_db(&self) -> &'static InternerDb {
+        self.runtime.interner_db_dyn()
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
     pub fn eval_eager_val_with(
         self,
         item_path_id_interface: ItemPathIdInterface,
@@ -160,6 +168,8 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
 
     unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf;
 
+    fn interner_db(&self) -> &InternerDb;
+
     fn eval_eager_val_with(
         &self,
         val_item_path_id_interface: ItemPathIdInterface,
@@ -216,6 +226,8 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
 }
 
 pub trait IsDevRuntimeInterfaceDyn<LinketImpl: IsLinketImpl> {
+    fn interner_db_dyn(&self) -> &InternerDb;
+
     fn eval_eager_val_with_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
@@ -265,6 +277,10 @@ impl<LinketImpl: IsLinketImpl, Runtime> IsDevRuntimeInterfaceDyn<LinketImpl> for
 where
     Runtime: IsDevRuntimeInterface<LinketImpl>,
 {
+    fn interner_db_dyn(&self) -> &InternerDb {
+        self.interner_db()
+    }
+
     fn eval_eager_val_with_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
