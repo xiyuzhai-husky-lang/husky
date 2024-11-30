@@ -1,4 +1,4 @@
-use crate::{file::map::LxFileMap, LxAstId, LxFileIdx, FILE_STORAGE};
+use crate::{file::map::LxFileMap, LxAstId, LxFileIdx, LX_FILE_STORAGE};
 use husky_path_utils::HuskyLangDevPaths;
 use latex_ast::ast::LxAstIdx;
 use latex_ast::helpers::tracker::LxAstTracker;
@@ -29,7 +29,7 @@ impl std::ops::Deref for LxAstTrackerExtended {
 fn trackers() -> LxFileMap<LxAstTrackerExtended> {
     let dev_paths = HuskyLangDevPaths::new();
     let specs_dir = dev_paths.specs_dir();
-    FILE_STORAGE.file_map(|i, content| {
+    LX_FILE_STORAGE.file_map(|i, content| {
         let file_path = LxFilePath::new(PathBuf::from(format!("lx-file-{i}",)));
         let tracker = LxAstTracker::new(LxDocumentInput {
             specs_dir: specs_dir.to_path_buf(),
@@ -70,7 +70,7 @@ fn calc_asts_over_tokens(
 #[test]
 fn trackers_works() {
     let trackers = trackers();
-    assert_eq!(trackers.len(), FILE_STORAGE.files().len());
+    assert_eq!(trackers.len(), LX_FILE_STORAGE.files().len());
 }
 
 pub(crate) fn all_asts_within_file(file_idx: LxFileIdx) -> impl Iterator<Item = LxAstId> {

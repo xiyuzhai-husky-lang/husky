@@ -219,6 +219,12 @@ impl __IsStaticVar<__VarId> for AST {
     }
 
     fn zones() -> &'static [__FigureZone] {
-        &[__FigureZone::Text]
+        &[__FigureZone::Roll]
+    }
+
+    fn figure_chunk_base(chunk_idx: u32) -> __FigureTextChunkBaseData {
+        __FigureTextChunkBaseData {
+            text: LX_FILE_STORAGE[chunk_idx.into()].to_string(),
+        }
     }
 }
