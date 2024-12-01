@@ -23,6 +23,7 @@
         dependencies: [
             "dashmap",
             "eterned-macros",
+            "husky-sha-utils",
             "husky-wild-utils",
             "sealed",
         ],
@@ -35,6 +36,18 @@
             "proc-macro2",
             "quote",
             "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-sha-utils",
+        relative_path: "crates/utils/husky-sha-utils",
+        dependencies: [
+            "crypto-common",
+            "hex",
+            "sealed",
+            "sha2",
+            "hex",
+            "hex-literal",
         ],
     },
     PackageSummary {
@@ -4148,18 +4161,6 @@
         dependencies: [
             "makefile-lossless",
             "expect-test",
-        ],
-    },
-    PackageSummary {
-        name: "husky-sha-utils",
-        relative_path: "crates/utils/husky-sha-utils",
-        dependencies: [
-            "crypto-common",
-            "hex",
-            "sealed",
-            "sha2",
-            "hex",
-            "hex-literal",
         ],
     },
     PackageSummary {

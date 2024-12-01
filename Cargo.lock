@@ -2714,6 +2714,7 @@ version = "0.1.0"
 dependencies = [
  "dashmap 6.0.1",
  "eterned-macros",
+ "husky-sha-utils",
  "husky-wild-utils",
  "sealed",
 ]
