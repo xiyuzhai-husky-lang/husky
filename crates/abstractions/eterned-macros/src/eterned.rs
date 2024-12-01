@@ -6,11 +6,6 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let vis = input.vis;
     let ty_ident = input.ident;
     let data_ty_ident = format_ident!("__{}Data", ty_ident);
-    let storage_ident = format_ident!(
-        "__{}_STORAGE",
-        ty_ident.to_string().to_case(Case::UpperSnake)
-    );
-
     let fields = match input.data {
         Data::Struct(ref data) => match data.fields {
             Fields::Named(ref fields) => &fields.named,
@@ -75,8 +70,7 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
-                        let mut storage = #storage_ident.lock().unwrap();
-                        #ty_ident(storage.intern_ref(q))
+                        #ty_ident(db.etern_ref::<#data_ty_ident, Q>(q))
                     }
                 }
             }
@@ -91,25 +85,19 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, Hash)]
-        #vis struct #ty_ident(eterned::Interned<#data_ty_ident>);
-
-        eterned::lazy_static! {
-            static ref #storage_ident: std::sync::Mutex<eterned::Storage<#data_ty_ident, 256>> =
-                std::sync::Mutex::new(eterned::Storage::default());
-        }
+        #vis struct #ty_ident(eterned::Eterned<#data_ty_ident>);
 
         impl #ty_ident {
             #vis fn new(#(#ctor_params),*, db: &::eterned::db::EternerDb) -> Self {
-                use eterned::{lazy_static, Interned, Storage};
+                use eterned::{Eterned, Storage};
                 use std::collections::HashSet;
                 use std::sync::Mutex;
 
-                let hidden = #data_ty_ident {
+                let data = #data_ty_ident {
                     #(#field_inits),*
                 };
 
-                let mut storage = #storage_ident.lock().unwrap();
-                #ty_ident(storage.intern(hidden))
+                #ty_ident(db.etern(data))
             }
 
             #(#field_accesses)*

@@ -2715,7 +2715,7 @@ dependencies = [
  "dashmap 6.0.1",
  "eterned-macros",
  "husky-wild-utils",
- "lazy_static 1.5.0",
+ "sealed",
 ]
 
 [[package]]
