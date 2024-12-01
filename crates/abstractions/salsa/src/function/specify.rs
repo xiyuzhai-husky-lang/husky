@@ -3,7 +3,7 @@ use crossbeam::atomic::AtomicCell;
 use crate::{
     runtime::local_state::{QueryOrigin, QueryRevisions},
     tracked_struct::TrackedStructInDb,
-    DatabaseKeyIndex, DebugWithDb,
+    AsIdWithDb, DatabaseKeyIndex, DebugWithDb,
 };
 
 use super::{memo::Memo, Configuration, Db, FunctionIngredient};
@@ -75,7 +75,7 @@ where
             origin: origin(active_query_key),
         };
 
-        if let Some(old_memo) = self.memo_map.get(key) {
+        if let Some(old_memo) = self.memo_map.get(key.as_id_with_db()) {
             self.backdate_if_appropriate(&old_memo, &mut revisions, &value);
             self.diff_outputs(db, database_key_index, &old_memo, &revisions);
         }
@@ -117,7 +117,7 @@ where
     ) {
         let runtime = db.runtime();
 
-        let memo = match self.memo_map.get(key) {
+        let memo = match self.memo_map.get(key.as_id_with_db()) {
             Some(m) => m,
             None => return,
         };

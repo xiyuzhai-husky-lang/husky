@@ -86,18 +86,18 @@ impl AsId for () {
 }
 
 pub trait AsIdWithDb: Sized + Copy + Eq + Debug {
-    fn as_id(self) -> Id;
-    fn from_id(id: Id, db: &Db) -> Self;
+    fn as_id_with_db(self) -> Id;
+    fn from_id_with_db(id: Id, db: &Db) -> Self;
 }
 
 impl<I: eterned::as_id::AsEternedId> AsIdWithDb for I {
-    fn as_id(self) -> Id {
+    fn as_id_with_db(self) -> Id {
         Id::from_u32(<I as eterned::as_id::AsEternedId>::as_id(self))
     }
 
-    fn from_id(id: Id, db: &Db) -> Self {
-        todo!()
-        // <I as eterned::as_id::AsEternedId>::from_id(id.as_u32(), db)
+    #[inline(always)]
+    fn from_id_with_db(id: Id, db: &Db) -> Self {
+        <I as eterned::as_id::AsEternedId>::from_id(id.as_u32(), db)
     }
 }
 
@@ -107,6 +107,16 @@ impl AsId for Id {
     }
 
     fn from_id(id: Id) -> Self {
+        id
+    }
+}
+
+impl AsIdWithDb for Id {
+    fn as_id_with_db(self) -> Id {
+        self
+    }
+
+    fn from_id_with_db(id: Id, _db: &Db) -> Self {
         id
     }
 }

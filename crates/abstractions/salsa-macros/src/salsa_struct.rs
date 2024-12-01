@@ -311,11 +311,11 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         let ident = self.id_ident();
         parse_quote! {
             impl salsa::AsIdWithDb for #ident {
-                fn as_id(self) -> salsa::Id {
+                fn as_id_with_db(self) -> salsa::Id {
                     self.0
                 }
 
-                fn from_id(id: salsa::Id, db: &salsa::Db) -> Self {
+                fn from_id_with_db(id: salsa::Id, db: &salsa::Db) -> Self {
                     #ident(id)
                 }
             }

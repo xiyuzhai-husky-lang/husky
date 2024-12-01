@@ -68,6 +68,18 @@ pub(crate) fn as_id(
                     }
                 }
 
+                impl ::salsa::AsIdWithDb for #self_ty #where_clause {
+                    fn as_id_with_db(self) -> salsa::Id {
+                        self.#field_ident.as_id_with_db()
+                    }
+
+                    fn from_id_with_db(id: salsa::Id, db: &::salsa::Db) -> Self {
+                        #ident {
+                            #field_ident: #field_ty::from_id_with_db(id, db)
+                        }
+                    }
+                }
+
                 impl salsa::salsa_struct::SalsaStructInDb for #self_ty
                 {
                     fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
@@ -115,6 +127,16 @@ pub(crate) fn as_id(
 
                     fn from_id(id: salsa::Id) -> Self {
                         #ident(#field_ty::from_id(id))
+                    }
+                }
+
+                impl ::salsa::AsIdWithDb for #self_ty #where_clause {
+                    fn as_id_with_db(self) -> salsa::Id {
+                        self.0.as_id_with_db()
+                    }
+
+                    fn from_id_with_db(id: salsa::Id, db: &::salsa::Db) -> Self {
+                        #ident(#field_ty::from_id_with_db(id, db))
                     }
                 }
 
