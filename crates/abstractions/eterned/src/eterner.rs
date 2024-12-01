@@ -1,10 +1,37 @@
 use crate::*;
+use husky_sha_utils::Sha512Output;
 use sealed::sealed;
 use std::{pin::Pin, sync::Mutex};
 
 pub struct Eterner<T: Eq + std::hash::Hash + Send + Sync + 'static> {
-    pool: Mutex<Pool<T, 1024>>,
+    pool: Mutex<Pool<EternedEntry<T>, 1024>>,
     map: DashMap<T, Eterned<T>>,
+}
+
+#[derive(Debug)]
+pub struct EternedEntry<T> {
+    pub value: T,
+    pub id: u32,
+    pub sha512: Sha512Output,
+}
+
+impl<T: std::hash::Hash> EternedEntry<T> {
+    pub fn new(value: T, id: usize) -> Self {
+        use husky_sha_utils::ShaHash;
+
+        let sha512 = value.sha512();
+        Self {
+            value,
+            id: id.try_into().unwrap(),
+            sha512,
+        }
+    }
+}
+
+impl<T> std::hash::Hash for EternedEntry<T> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.sha512.hash(state);
+    }
 }
 
 impl<T: Eq + std::hash::Hash + Send + Sync + 'static> Default for Eterner<T> {
@@ -34,7 +61,8 @@ impl<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static> Eterner<T> {
         if let Some(eterned) = self.map.get(&t) {
             return *eterned;
         }
-        let eterned = Eterned(unsafe { &*pool.alloc(t.clone()) });
+        let eterned_entry = EternedEntry::new(t.clone(), pool.len());
+        let eterned = Eterned(unsafe { &*pool.alloc(eterned_entry) });
         self.map.insert(t, eterned);
         eterned
     }
@@ -52,7 +80,8 @@ impl<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static> Eterner<T> {
             return *eterned;
         }
         let t: T = q.into();
-        let eterned = Eterned(unsafe { &*pool.alloc(t.clone()) });
+        let eterned_entry = EternedEntry::new(t.clone(), pool.len());
+        let eterned = Eterned(unsafe { &*pool.alloc(eterned_entry) });
         self.map.insert(t, eterned);
         eterned
     }
