@@ -1764,7 +1764,7 @@ dependencies = [
 name = "coword"
 version = "0.1.0"
 dependencies = [
- "interned",
+ "eterned",
  "lazy_static 1.5.0",
 ]
 
@@ -2707,6 +2707,26 @@ name = "error-code"
 version = "3.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a0474425d51df81997e2f90a21591180b38eccf27292d755f3e30750225c175b"
+
+[[package]]
+name = "eterned"
+version = "0.1.0"
+dependencies = [
+ "dashmap 6.0.1",
+ "eterned-macros",
+ "husky-wild-utils",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
+name = "eterned-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.76",
+]
 
 [[package]]
 name = "event-listener"
@@ -4843,6 +4863,7 @@ name = "husky-dev-comptime"
 version = "0.1.0"
 dependencies = [
  "dashmap 6.0.1",
+ "eterned",
  "husky-ast",
  "husky-corgi-config",
  "husky-corgi-config-ast",
@@ -4895,7 +4916,6 @@ dependencies = [
  "husky-trace",
  "husky-vfs",
  "husky-vm",
- "interned",
  "salsa",
 ]
 
@@ -4903,6 +4923,7 @@ dependencies = [
 name = "husky-dev-runtime"
 version = "0.1.0"
 dependencies = [
+ "eterned",
  "husky-ast",
  "husky-check-utils",
  "husky-coword",
@@ -4943,7 +4964,6 @@ dependencies = [
  "husky-vmir",
  "husky-wild-utils",
  "idx-arena",
- "interned",
  "lsp-types 0.95.0",
  "relative-path",
  "salsa",
@@ -5982,6 +6002,7 @@ dependencies = [
 name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
+ "eterned",
  "husky-core",
  "husky-decl-macro-utils",
  "husky-figure-zone-protocol",
@@ -5990,7 +6011,6 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "husky-wild-utils",
- "interned",
  "serde",
  "smallvec",
  "vec-like",
@@ -7918,26 +7938,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "interned"
-version = "0.1.0"
-dependencies = [
- "dashmap 6.0.1",
- "husky-wild-utils",
- "interned-macros",
- "lazy_static 1.5.0",
-]
-
-[[package]]
-name = "interned-macros"
-version = "0.1.0"
-dependencies = [
- "convert_case",
- "proc-macro2",
- "quote",
- "syn 2.0.76",
-]
-
-[[package]]
 name = "interpolate_name"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8220,13 +8220,13 @@ dependencies = [
  "coword",
  "egui",
  "enum-class",
+ "eterned",
  "expect-test",
  "husky-coword",
  "husky-path-utils",
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
- "interned",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
@@ -8265,9 +8265,9 @@ name = "latex-command"
 version = "0.1.0"
 dependencies = [
  "coword",
+ "eterned",
  "husky-coword",
  "husky-path-utils",
- "interned",
  "latex-command",
  "latex-math-letter",
  "latex-prelude",
@@ -8292,8 +8292,8 @@ name = "latex-environment"
 version = "0.1.0"
 dependencies = [
  "coword",
+ "eterned",
  "husky-coword",
- "interned",
  "latex-prelude",
  "lazy_static 1.5.0",
  "rustc-hash 2.0.0",
@@ -8333,10 +8333,10 @@ version = "0.1.0"
 dependencies = [
  "coword",
  "enum-class",
+ "eterned",
  "expect-test",
  "husky-print-utils",
  "husky-text-protocol",
- "interned",
  "latex-command",
  "latex-math-letter",
  "latex-math-punctuation",
@@ -8352,7 +8352,7 @@ dependencies = [
 name = "latex-vfs"
 version = "0.1.0"
 dependencies = [
- "interned",
+ "eterned",
 ]
 
 [[package]]
@@ -8395,15 +8395,15 @@ name = "lean-coword"
 version = "0.1.0"
 dependencies = [
  "coword",
- "interned",
+ "eterned",
 ]
 
 [[package]]
 name = "lean-entity-path"
 version = "0.1.0"
 dependencies = [
+ "eterned",
  "husky-coword",
- "interned",
  "lazy_static 1.5.0",
  "lean-coword",
  "salsa",
@@ -8423,9 +8423,9 @@ name = "lean-mir-expr"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "eterned",
  "husky-tree-utils",
  "idx-arena",
- "interned",
  "lazy_static 1.5.0",
  "lean-coword",
  "lean-entity-path",
@@ -8455,7 +8455,7 @@ name = "lean-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
- "interned",
+ "eterned",
  "lazy_static 1.5.0",
  "lean-entity-path",
  "salsa",
@@ -12733,8 +12733,8 @@ name = "visored-entity-path"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "eterned",
  "husky-coword",
- "interned",
  "latex-prelude",
  "latex-vfs",
  "lazy_static 1.5.0",
@@ -12748,10 +12748,10 @@ dependencies = [
 name = "visored-global-dispatch"
 version = "0.1.0"
 dependencies = [
+ "eterned",
  "husky-coword",
  "husky-path-utils",
  "husky-print-utils",
- "interned",
  "latex-vfs",
  "lazy_static 1.5.0",
  "lisp-csv",
@@ -12768,7 +12768,7 @@ name = "visored-global-resolution"
 version = "0.1.0"
 dependencies = [
  "enum-index",
- "interned",
+ "eterned",
  "latex-command",
  "latex-environment",
  "latex-math-letter",
@@ -12793,12 +12793,12 @@ version = "0.1.0"
 dependencies = [
  "convert_case",
  "either",
+ "eterned",
  "expect-test",
  "husky-coword",
  "husky-path-utils",
  "husky-print-utils",
  "husky-tree-utils",
- "interned",
  "latex-ast",
  "latex-command",
  "latex-environment",
@@ -12831,12 +12831,12 @@ name = "visored-mir-expr"
 version = "0.1.0"
 dependencies = [
  "either",
+ "eterned",
  "expect-test",
  "husky-coword",
  "husky-path-utils",
  "husky-tree-utils",
  "idx-arena",
- "interned",
  "latex-ast",
  "latex-command",
  "latex-environment",
@@ -12865,7 +12865,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "enum-index",
- "interned",
+ "eterned",
  "lisp-csv",
 ]
 
@@ -12886,6 +12886,7 @@ version = "0.1.0"
 dependencies = [
  "either",
  "enum-class",
+ "eterned",
  "expect-test",
  "husky-codespan-utils",
  "husky-coword",
@@ -12893,7 +12894,6 @@ dependencies = [
  "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
- "interned",
  "latex-ast",
  "latex-command",
  "latex-environment",
@@ -12920,10 +12920,10 @@ name = "visored-signature"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "eterned",
  "expect-test",
  "husky-coword",
  "husky-path-utils",
- "interned",
  "latex-vfs",
  "lazy_static 1.5.0",
  "lisp-csv",
@@ -12941,6 +12941,7 @@ dependencies = [
  "coword",
  "either",
  "enum-class",
+ "eterned",
  "expect-test",
  "husky-codespan-utils",
  "husky-coword",
@@ -12950,7 +12951,6 @@ dependencies = [
  "husky-text-protocol",
  "husky-tree-utils",
  "idx-arena",
- "interned",
  "itertools 0.13.0",
  "latex-ast",
  "latex-command",
@@ -12978,7 +12978,7 @@ name = "visored-term"
 version = "0.1.0"
 dependencies = [
  "enum-class",
- "interned",
+ "eterned",
  "lazy_static 1.5.0",
  "lisp-csv",
  "rustc-hash 2.0.0",

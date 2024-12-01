@@ -1,7 +1,7 @@
 pub mod menu;
 
 use coword::Coword;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use thiserror::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -29,7 +29,7 @@ pub struct OneDigitNonLetterLxCommandName(char);
 
 impl LxCommandPath {
     #[deprecated(note = "ad hoc")]
-    pub fn new_prelude(ident: Coword, db: &InternerDb) -> Self {
+    pub fn new_prelude(ident: Coword, db: &EternerDb) -> Self {
         Self {
             package: LxPackagePath::Prelude,
             name: LxCommandName::new(ident, db).unwrap(),
@@ -48,7 +48,7 @@ impl LxCommandPath {
 }
 
 impl LxCommandName {
-    pub fn new(ident: Coword, db: &InternerDb) -> LxCommandNameResult<Self> {
+    pub fn new(ident: Coword, db: &EternerDb) -> LxCommandNameResult<Self> {
         let data = ident.data(db);
         if data.len() == 0 {
             Err(LxCommandNameError::Empty)?
@@ -67,7 +67,7 @@ impl LxCommandName {
         Ok(Self::LettersOnly(LettersOnlyLxCommandName(ident)))
     }
 
-    pub fn new2(data: &str, db: &InternerDb) -> LxCommandNameResult<Self> {
+    pub fn new2(data: &str, db: &EternerDb) -> LxCommandNameResult<Self> {
         if data.len() == 0 {
             Err(LxCommandNameError::Empty)?
         } else if data.len() == 1 {
@@ -90,7 +90,7 @@ impl LxCommandName {
 
 impl std::fmt::Display for LxCommandName {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = interned::db::attached_interner_db();
+        let db = eterned::db::attached_interner_db();
         match self {
             Self::LettersOnly(LettersOnlyLxCommandName(c)) => write!(f, "{}", c.data(db)),
             Self::Escape(OneDigitNonLetterLxCommandName(c)) => write!(f, "{}", c),

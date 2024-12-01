@@ -1,5 +1,5 @@
 use super::*;
-use interned::memo;
+use eterned::memo;
 use lazy_static::lazy_static;
 use visored_entity_path::menu::{VdItemPathMenu, VD_ITEM_PATH_MENU};
 
@@ -18,7 +18,7 @@ pub struct VdTermMenu {
 }
 
 impl VdTermMenu {
-    fn new(db: &InternerDb) -> Self {
+    fn new(db: &EternerDb) -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -73,6 +73,6 @@ impl VdTermMenu {
 }
 
 #[memo]
-pub fn vd_term_menu(db: &InternerDb) -> VdTermMenu {
+pub fn vd_term_menu(db: &EternerDb) -> VdTermMenu {
     VdTermMenu::new(db)
 }

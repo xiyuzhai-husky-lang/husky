@@ -1,5 +1,5 @@
 use crate::*;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lean_coword::ident::LnIdent;
 use lean_entity_path::namespace::LnNamespace;
 use namespace::vd_module_path_to_ln_namespace_or_inherited;
@@ -21,7 +21,7 @@ pub enum VdLeanMangleSrc {
 }
 
 impl VdLeanTranspilationMangler {
-    pub(crate) fn new(storage: &VdMirSymbolLocalDefnStorage, db: &InternerDb) -> Self {
+    pub(crate) fn new(storage: &VdMirSymbolLocalDefnStorage, db: &EternerDb) -> Self {
         let mut local_defn_mangled_symbols: VdMirSymbolLocalDefnOrderedMap<LnIdent> =
             Default::default();
         let mut ident_to_source_map: FxHashMap<(LnNamespace, LnIdent), VdLeanMangleSrc> =
@@ -49,7 +49,7 @@ impl VdLeanTranspilationMangler {
         self.local_defn_mangled_symbols[symbol_local_defn]
     }
 
-    pub(crate) fn mangle_hypothesis(&mut self, namespace: LnNamespace, db: &InternerDb) -> LnIdent {
+    pub(crate) fn mangle_hypothesis(&mut self, namespace: LnNamespace, db: &EternerDb) -> LnIdent {
         match self
             .disambiguator_map
             .get_mut(&(namespace, "h".to_string()))
@@ -77,7 +77,7 @@ fn mangle_naive_ident(
     namespace: LnNamespace,
     naive_ident: String,
     disambiguator_map: &mut FxHashMap<(LnNamespace, String), usize>,
-    db: &InternerDb,
+    db: &EternerDb,
 ) -> LnIdent {
     // If the identifier hasn't been used before, use it as-is
     let mangled = if !disambiguator_map.contains_key(&(namespace, naive_ident.clone())) {
@@ -99,7 +99,7 @@ fn mangle_naive_ident(
 #[test]
 fn test_mangle_naive_ident() {
     use expect_test::expect;
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let mut disambiguator_map = FxHashMap::default();
 
     // First occurrence should be unchanged

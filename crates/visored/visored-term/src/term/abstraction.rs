@@ -1,4 +1,4 @@
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 
 use super::{VdTerm, VdTermData, VdTermId, ZfcTerms};
 
@@ -20,7 +20,7 @@ pub struct VdAbstractionData {
 }
 
 impl VdAbstraction {
-    pub fn data(&self, db: &InternerDb) -> &VdAbstractionData {
+    pub fn data(&self, db: &EternerDb) -> &VdAbstractionData {
         match self.0.data(db) {
             VdTermData::Abstraction(data) => data,
             _ => unreachable!(),

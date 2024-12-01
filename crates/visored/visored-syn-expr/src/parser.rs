@@ -7,8 +7,8 @@ mod expr_stack;
 pub(crate) mod incomplete_expr;
 mod utils;
 
+use eterned::db::EternerDb;
 use expr::VdSynExprIdx;
-use interned::db::InternerDb;
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use range::VdSynExprTokenIdxRange;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
@@ -32,7 +32,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
 }
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub fn db(&self) -> &'db InternerDb {
+    pub fn db(&self) -> &'db EternerDb {
         self.builder.db()
     }
 }

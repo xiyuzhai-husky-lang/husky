@@ -1,5 +1,5 @@
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 
 use crate::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
@@ -7,14 +7,14 @@ use crate::{
 };
 
 pub struct VdMirExprDisplayTreeBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
 }
 
 impl<'a> VdMirExprDisplayTreeBuilder<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
     ) -> Self {
@@ -27,7 +27,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
 }
 
 impl<'a> VdMirExprDisplayTreeBuilder<'a> {
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 }

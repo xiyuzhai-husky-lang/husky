@@ -14,10 +14,10 @@ use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
 use division::{VdSynDivisionArena, VdSynDivisionIdxRange, VdSynDivisionMap};
 use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
+use eterned::db::EternerDb;
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_ast::{
     ast::{
         parse_latex_input_into_asts, root::LxRootAstIdxRange, rose::LxRoseAstIdxRange, LxAstArena,
@@ -96,7 +96,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let LxAstTracker {
             command_signature_table,
@@ -174,7 +174,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         }
     }
 
-    fn display_tree_builder<'b>(&'b self, db: &'b InternerDb) -> VdSynExprDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b EternerDb) -> VdSynExprDisplayTreeBuilder<'b> {
         VdSynExprDisplayTreeBuilder::new(
             db,
             self.input.content(),
@@ -196,7 +196,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         )
     }
 
-    pub(crate) fn show_display_tree(&self, db: &InternerDb) -> String {
+    pub(crate) fn show_display_tree(&self, db: &EternerDb) -> String {
         let builder = self.display_tree_builder(db);
         self.output.show(&builder)
     }

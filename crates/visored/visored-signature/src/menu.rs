@@ -3,7 +3,7 @@ use crate::signature::{
     frac::VdBaseFracSignature, prefix_opr::VdBasePrefixOprSignature,
     separator::base::VdBaseSeparatorSignature, sqrt::VdBaseSqrtSignature,
 };
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use visored_term::{
     instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu},
@@ -88,7 +88,7 @@ pub struct VdSignatureMenu {
 }
 
 impl VdSignatureMenu {
-    fn new(db: &InternerDb) -> Self {
+    fn new(db: &EternerDb) -> Self {
         let VdTypeMenu {
             nat,
             int,
@@ -246,6 +246,6 @@ impl VdSignatureMenu {
 }
 
 #[memo]
-pub fn vd_signature_menu(db: &InternerDb) -> VdSignatureMenu {
+pub fn vd_signature_menu(db: &EternerDb) -> VdSignatureMenu {
     VdSignatureMenu::new(db)
 }

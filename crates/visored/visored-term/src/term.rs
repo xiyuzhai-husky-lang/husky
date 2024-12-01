@@ -25,7 +25,7 @@ use self::{
     symbolic_variable::{VdSymbolicVariable, VdSymbolicVariableData},
 };
 use crate::ty::VdType;
-use interned::db::{attached_interner_db, InternerDb};
+use eterned::db::{attached_interner_db, EternerDb};
 use item_path::VdItemPathTermData;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use menu::{vd_term_menu, VdTermMenu};
@@ -56,7 +56,7 @@ impl std::fmt::Debug for VdTerm {
 }
 
 impl VdTerm {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &InternerDb) -> std::fmt::Result {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
         match *self.data(db) {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref data) => data.item_path().show_aux(f),
@@ -94,7 +94,7 @@ impl std::ops::Deref for VdTerm {
 
 pub type ZfcTerms = SmallVec<[VdTerm; 4]>;
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct VdTermId {
     pub data: VdTermData,
 }
@@ -122,7 +122,7 @@ impl VdTerm {
 }
 
 impl VdTerm {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &EternerDb) -> Self {
         match expr.data {
             LpCsvExprData::Literal(ref literal) => todo!(),
             LpCsvExprData::Application(ref app) => todo!(),
@@ -132,7 +132,7 @@ impl VdTerm {
         }
     }
 
-    pub fn from_lp_csv_ident(ident: &str, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_ident(ident: &str, db: &EternerDb) -> Self {
         let VdTermMenu {
             zero,
             one,

@@ -3,7 +3,7 @@ use crate::path::{
     menu::{lx_environment_path_menu, LxEnvironmentPathMenu},
     LxEnvironmentName, LxEnvironmentPath,
 };
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_prelude::mode::LxMode;
 use rustc_hash::FxHashMap;
 
@@ -28,7 +28,7 @@ impl LxEnvironmentSignatureTable {
         }
     }
 
-    pub fn new_default(db: &InternerDb) -> Self {
+    pub fn new_default(db: &EternerDb) -> Self {
         let LxEnvironmentPathMenu {
             document,
             example,

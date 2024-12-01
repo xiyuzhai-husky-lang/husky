@@ -17,7 +17,7 @@ pub struct VdStackVariableData {
 }
 
 impl VdStackVariable {
-    pub fn data(&self, db: &InternerDb) -> &VdStackVariableData {
+    pub fn data(&self, db: &EternerDb) -> &VdStackVariableData {
         match self.0.data(db) {
             VdTermData::StackVariable(data) => data,
             _ => unreachable!(),

@@ -11,6 +11,7 @@ mod vm;
 
 pub use self::config::*;
 
+use eterned::db::EternerDb;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_devsoul::{
     devsoul::IsDevsoul,
@@ -36,7 +37,6 @@ use husky_value::ki_control_flow::KiControlFlow;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use husky_vm::runtime::IsVmRuntime;
 use husky_wild_utils::arb_ref;
-use interned::db::InternerDb;
 use std::{
     convert::Infallible,
     path::Path,
@@ -144,7 +144,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
         &*(unsafe { self as *const _ })
     }
 
-    fn interner_db(&self) -> &InternerDb {
+    fn interner_db(&self) -> &EternerDb {
         self.comptime.interner_db()
     }
 

@@ -27,8 +27,8 @@ use self::{
 use crate::parser::LxAstParser;
 #[cfg(test)]
 use crate::*;
+use eterned::db::EternerDb;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
-use interned::db::InternerDb;
 use latex_command::{path::menu::LxCommandPathMenu, signature::table::LxCommandSignatureTable};
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_math_letter::letter::LxMathLetter;
@@ -158,7 +158,7 @@ pub enum LxAstIdxRange {
 }
 
 pub fn parse_latex_input_into_asts<'a>(
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     command_signature_table: &'a LxCommandSignatureTable,
     environment_signature_table: &'a LxEnvironmentSignatureTable,
     input: &'a str,
@@ -200,7 +200,7 @@ fn parse_tex_input_into_asts_works() {
     fn t(input: &str, mode: LxMode, expected: Expect) {
         use husky_path_utils::HuskyLangDevPaths;
 
-        let db = &InternerDb::default();
+        let db = &EternerDb::default();
         let dev_paths = HuskyLangDevPaths::new();
         let complete_commands_path = &dev_paths.specs_dir().join("latex/complete-commands.lpcsv");
         let mut arena = LxAstArena::default();

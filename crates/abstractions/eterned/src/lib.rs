@@ -1,10 +1,10 @@
 pub mod db;
-pub mod interner;
+pub mod eterner;
 mod pool;
 mod vec_array;
 
 pub use dashmap::DashMap;
-pub use interned_macros::{interned, memo};
+pub use eterned_macros::{eterned, memo};
 pub use lazy_static::lazy_static;
 
 use self::pool::Pool;

@@ -1,7 +1,7 @@
 use crate::*;
 use convert_case::{Case, Casing};
 
-pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
+pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let input = parse_macro_input!(item as DeriveInput);
     let vis = input.vis;
     let ty_ident = input.ident;
@@ -43,7 +43,7 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         let field_ident = &f.ident;
         let field_ty = &f.ty;
         quote! {
-            pub fn #field_ident(self, db: &::interned::db::InternerDb) -> &'static #field_ty {
+            pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &'static #field_ty {
                 &self.0.0.#field_ident
             }
         }
@@ -71,7 +71,7 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 }
 
                 impl #ty_ident {
-                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &::interned::db::InternerDb) -> Self
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &::eterned::db::EternerDb) -> Self
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
@@ -91,16 +91,16 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, Hash)]
-        #vis struct #ty_ident(interned::Interned<#data_ty_ident>);
+        #vis struct #ty_ident(eterned::Interned<#data_ty_ident>);
 
-        interned::lazy_static! {
-            static ref #storage_ident: std::sync::Mutex<interned::Storage<#data_ty_ident, 256>> =
-                std::sync::Mutex::new(interned::Storage::default());
+        eterned::lazy_static! {
+            static ref #storage_ident: std::sync::Mutex<eterned::Storage<#data_ty_ident, 256>> =
+                std::sync::Mutex::new(eterned::Storage::default());
         }
 
         impl #ty_ident {
-            #vis fn new(#(#ctor_params),*, db: &::interned::db::InternerDb) -> Self {
-                use interned::{lazy_static, Interned, Storage};
+            #vis fn new(#(#ctor_params),*, db: &::eterned::db::EternerDb) -> Self {
+                use eterned::{lazy_static, Interned, Storage};
                 use std::collections::HashSet;
                 use std::sync::Mutex;
 

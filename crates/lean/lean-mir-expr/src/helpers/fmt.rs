@@ -7,13 +7,13 @@ use crate::{
     stmt::LnMirStmtArenaRef,
     tactic::{LnMirTacticArenaRef, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lean_opr::precedence::LnPrecedenceRange;
 use lean_term::term::literal::LnLiteralData;
 use std::fmt::Write;
 
 pub struct LnMirExprFormatter<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     expr_arena: LnMirExprArenaRef<'a>,
     stmt_arena: LnMirStmtArenaRef<'a>,
     tactic_arena: LnMirTacticArenaRef<'a>,
@@ -40,7 +40,7 @@ impl Default for LnMirExprFormatterConfig {
 
 impl<'a> LnMirExprFormatter<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         expr_arena: LnMirExprArenaRef<'a>,
         stmt_arena: LnMirStmtArenaRef<'a>,
         tactic_arena: LnMirTacticArenaRef<'a>,
@@ -63,7 +63,7 @@ impl<'a> LnMirExprFormatter<'a> {
 }
 
 impl<'a> LnMirExprFormatter<'a> {
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 }

@@ -1,12 +1,12 @@
 use crate::*;
-use interned::{
-    db::{attached_interner_db, InternerDb},
+use eterned::{
+    db::{attached_interner_db, EternerDb},
     memo,
 };
 use lean_coword::ident::LnIdent;
 use smallvec::{smallvec, SmallVec, ToSmallVec};
 
-#[interned::interned(override_debug)]
+#[eterned::eterned(override_debug)]
 pub struct LnNamespace {
     pub data: LnNamespaceData,
 }
@@ -18,11 +18,11 @@ pub enum LnNamespaceData {
 }
 
 impl LnNamespace {
-    pub fn new_root(db: &InternerDb) -> Self {
+    pub fn new_root(db: &EternerDb) -> Self {
         Self::new(LnNamespaceData::Root, db)
     }
 
-    pub fn from_ident_strs(idents: &[&str], db: &InternerDb) -> Self {
+    pub fn from_ident_strs(idents: &[&str], db: &EternerDb) -> Self {
         let mut namespace = LnNamespace::new(LnNamespaceData::Root, db);
         for ident in idents {
             namespace = namespace.child(ident.to_string(), db);
@@ -30,25 +30,25 @@ impl LnNamespace {
         namespace
     }
 
-    pub fn child(self, ident: String, db: &InternerDb) -> Self {
+    pub fn child(self, ident: String, db: &EternerDb) -> Self {
         Self::new(
             LnNamespaceData::Child(self, LnIdent::from_owned(ident, db)),
             db,
         )
     }
 
-    pub fn ident(self, db: &InternerDb) -> Option<LnIdent> {
+    pub fn ident(self, db: &EternerDb) -> Option<LnIdent> {
         match *self.data(db) {
             LnNamespaceData::Root => None,
             LnNamespaceData::Child(_, ident) => Some(ident),
         }
     }
 
-    pub fn all_idents(self, db: &InternerDb) -> &[LnIdent] {
+    pub fn all_idents(self, db: &EternerDb) -> &[LnIdent] {
         ln_namespace_all_idents(self, db)
     }
 
-    pub fn relative_idents(self, other: Self, db: &InternerDb) -> &[LnIdent] {
+    pub fn relative_idents(self, other: Self, db: &EternerDb) -> &[LnIdent] {
         let ids = self.all_idents(db);
         let other_ids = other.all_idents(db);
         let i = ids
@@ -76,7 +76,7 @@ impl std::fmt::Debug for LnNamespace {
 }
 
 #[memo]
-fn ln_namespace_all_idents(namespace: LnNamespace, db: &InternerDb) -> SmallVec<[LnIdent; 4]> {
+fn ln_namespace_all_idents(namespace: LnNamespace, db: &EternerDb) -> SmallVec<[LnIdent; 4]> {
     match *namespace.data(db) {
         LnNamespaceData::Root => smallvec![],
         LnNamespaceData::Child(parent, ident) => {

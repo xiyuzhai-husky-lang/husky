@@ -15,7 +15,7 @@ keywords.workspace = true
 lazy_static.workspace = true
 smallvec.workspace = true
 # abstractions
-interned.workspace = true
+eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # lean
 lean-coword.workspace = true

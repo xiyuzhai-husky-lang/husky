@@ -15,7 +15,7 @@ keywords.workspace = true
 lazy_static.workspace = true
 rustc-hash.workspace = true
 # abstractions
-interned.workspace = true
+eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # lisp
 lisp-csv.workspace = true

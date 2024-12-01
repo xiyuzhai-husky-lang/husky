@@ -1,13 +1,13 @@
 use crate::*;
 use environment::VdEnvironmentPath;
+use eterned::db::{attached_interner_db, EternerDb};
 use husky_coword::Coword;
-use interned::db::{attached_interner_db, InternerDb};
 use latex_vfs::path::LxFilePath;
 use rustc_hash::FxHashMap;
 use smallvec::*;
 use visored_prelude::division::VdDivisionLevel;
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct VdModulePath {
     pub data: VdModulePathData,
 }
@@ -32,7 +32,7 @@ pub enum VdModulePathData {
 }
 
 impl VdModulePath {
-    pub fn new_root(file_path: LxFilePath, db: &InternerDb) -> Self {
+    pub fn new_root(file_path: LxFilePath, db: &EternerDb) -> Self {
         Self::new(VdModulePathData::Root(file_path), db)
     }
 
@@ -40,7 +40,7 @@ impl VdModulePath {
         parent: VdModulePath,
         tag: VdModulePathTag,
         disambiguator: u32,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let data = match tag {
             VdModulePathTag::Division(division_level) => VdModulePathData::Division {
@@ -63,7 +63,7 @@ impl VdModulePath {
 }
 
 impl VdModulePath {
-    pub fn parent(self, db: &InternerDb) -> Option<Self> {
+    pub fn parent(self, db: &EternerDb) -> Option<Self> {
         match *self.data(db) {
             VdModulePathData::Root(_) => None,
             VdModulePathData::Division { parent, .. } => Some(parent),
@@ -72,7 +72,7 @@ impl VdModulePath {
         }
     }
 
-    pub fn show(&self, db: &InternerDb) -> String {
+    pub fn show(&self, db: &EternerDb) -> String {
         match *self.data(db) {
             VdModulePathData::Root(file_path) => "root".to_string(),
             VdModulePathData::Division {
@@ -99,18 +99,18 @@ impl VdModulePath {
     }
 
     /// includes the module itself
-    pub fn lineage(self, db: &InternerDb) -> &[VdModulePath] {
+    pub fn lineage(self, db: &EternerDb) -> &[VdModulePath] {
         vd_module_lineage(self, db)
     }
 
-    pub fn contains(self, other: VdModulePath, db: &InternerDb) -> bool {
+    pub fn contains(self, other: VdModulePath, db: &EternerDb) -> bool {
         other.lineage(db).contains(&self)
     }
 }
 
 /// includes the module itself
-#[interned::memo]
-fn vd_module_lineage(module_path: VdModulePath, db: &InternerDb) -> SmallVec<[VdModulePath; 8]> {
+#[eterned::memo]
+fn vd_module_lineage(module_path: VdModulePath, db: &EternerDb) -> SmallVec<[VdModulePath; 8]> {
     match module_path.parent(db) {
         Some(parent) => {
             let mut ancestry = vd_module_lineage(parent, db).to_smallvec();
@@ -148,24 +148,24 @@ impl VdModulePathRegistry {
     pub fn issue_new_division(
         &mut self,
         division_level: VdDivisionLevel,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> VdModulePath {
         self.issue_new_child(VdModulePathTag::Division(division_level), db)
     }
 
-    pub fn issue_new_paragraph(&mut self, db: &InternerDb) -> VdModulePath {
+    pub fn issue_new_paragraph(&mut self, db: &EternerDb) -> VdModulePath {
         self.issue_new_child(VdModulePathTag::Paragraph, db)
     }
 
     pub fn issue_new_environment(
         &mut self,
         environment_path: VdEnvironmentPath,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> VdModulePath {
         self.issue_new_child(VdModulePathTag::Environment(environment_path), db)
     }
 
-    fn issue_new_child(&mut self, tag: VdModulePathTag, db: &InternerDb) -> VdModulePath {
+    fn issue_new_child(&mut self, tag: VdModulePathTag, db: &EternerDb) -> VdModulePath {
         let disambiguator = match self.map.get_mut(&tag) {
             None => {
                 self.map.insert(tag, 1);
@@ -191,7 +191,7 @@ impl std::fmt::Debug for VdModulePath {
 }
 
 impl VdModulePath {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &InternerDb) -> std::fmt::Result {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
         match self.parent(db) {
             Some(parent) => {
                 parent.show_aux(f, db)?;
@@ -228,7 +228,7 @@ mod tests {
 
     #[test]
     fn test_issue_new_child() {
-        let db = &InternerDb::default();
+        let db = &EternerDb::default();
 
         let file_path = LxFilePath::new(PathBuf::from("test.txt"), db);
 

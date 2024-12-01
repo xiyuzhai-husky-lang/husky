@@ -1,7 +1,7 @@
 pub mod menu;
 
 use coword::Coword;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use thiserror::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -13,7 +13,7 @@ pub struct LxEnvironmentPath {
 pub struct LxEnvironmentName(Coword);
 
 impl LxEnvironmentPath {
-    pub fn new(name: &str, db: &InternerDb) -> Self {
+    pub fn new(name: &str, db: &EternerDb) -> Self {
         Self {
             name: LxEnvironmentName::from_ref(name, db),
         }
@@ -31,7 +31,7 @@ impl LxEnvironmentName {
         Self(coword)
     }
 
-    pub fn from_ref(name: &str, db: &InternerDb) -> Self {
+    pub fn from_ref(name: &str, db: &EternerDb) -> Self {
         Self(Coword::from_ref(name, db))
     }
 }

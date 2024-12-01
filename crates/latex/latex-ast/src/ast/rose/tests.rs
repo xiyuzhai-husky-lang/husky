@@ -1,7 +1,7 @@
 use super::*;
 use ast::helpers::tracker::LxAstTracker;
+use eterned::db::EternerDb;
 use expect_test::Expect;
-use interned::db::InternerDb;
 use latex_prelude::helper::tracker::LxPageInput;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
@@ -9,7 +9,7 @@ use std::path::PathBuf;
 fn t(content: &str, expected: Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = LxAstTracker::new(

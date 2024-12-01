@@ -2,7 +2,7 @@ use crate::{
     menu::{vd_ty_menu, VdTypeMenu},
     ty::VdType,
 };
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use rustc_hash::FxHashMap;
 use visored_entity_path::{
     menu::{VdItemPathMenu, VD_ITEM_PATH_MENU},
@@ -20,7 +20,7 @@ impl VdItemPathZfcTypeTable {
         }
     }
 
-    pub fn new_standard(db: &InternerDb) -> Self {
+    pub fn new_standard(db: &EternerDb) -> Self {
         // TODO: use menu?
         let VdItemPathMenu {
             nat: nat_path,

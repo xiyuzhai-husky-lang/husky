@@ -7,7 +7,7 @@ use crate::{
         punctuation::VdPunctuationGlobalResolution,
     },
 };
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_command::path::menu::{lx_command_path_menu, LxCommandPathMenu};
 use latex_environment::path::menu::{lx_environment_path_menu, LxEnvironmentPathMenu};
 use latex_math_letter::letter::LxMathLetter;
@@ -15,10 +15,10 @@ use latex_math_punctuation::{LxMathPunctuation, LxMathPunctuationMap};
 use visored_entity_path::path::VdItemPath;
 
 impl VdDefaultGlobalResolutionTable {
-    pub fn new_standard(db: &InternerDb) -> Self {
+    pub fn new_standard(db: &EternerDb) -> Self {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
-        let command_resolution_map = standard_command_resolution_map(&InternerDb::default());
+        let command_resolution_map = standard_command_resolution_map(&EternerDb::default());
         let environment_resolution_map = standard_environment_resolution_map(db);
         let letter_resolution_map = standard_letter_resolution_map();
         Self::new(
@@ -31,7 +31,7 @@ impl VdDefaultGlobalResolutionTable {
 }
 
 fn standard_command_resolution_map(
-    db: &InternerDb,
+    db: &EternerDb,
 ) -> std::collections::HashMap<
     latex_command::path::LxCommandPath,
     crate::resolution::command::VdCompleteCommandGlobalResolution,
@@ -145,7 +145,7 @@ fn standard_command_resolution_map(
     ])
 }
 
-fn standard_environment_resolution_map(db: &InternerDb) -> VdEnvironmentGlobalResolutionMap {
+fn standard_environment_resolution_map(db: &EternerDb) -> VdEnvironmentGlobalResolutionMap {
     let LxEnvironmentPathMenu {
         document,
         example,
