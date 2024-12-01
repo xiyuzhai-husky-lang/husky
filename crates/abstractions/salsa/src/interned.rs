@@ -226,8 +226,8 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
 
 impl<Id, Data> Ingredient for InternedIngredient<Id, Data>
 where
-    Id: InternedId,
-    Data: InternedData,
+    Id: InternedId + 'static,
+    Data: InternedData + 'static,
 {
     fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, revision: Revision) -> bool {
         revision < self.reset_at

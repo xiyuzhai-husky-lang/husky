@@ -24,6 +24,8 @@ enum-index.workspace = true
 vec-like.workspace = true
 maybe-result.workspace = true
 husky-salsa-log-utils.workspace = true
+# utils
+husky-wild-utils.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

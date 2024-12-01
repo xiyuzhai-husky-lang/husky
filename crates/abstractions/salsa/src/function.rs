@@ -203,7 +203,7 @@ where
 
 impl<C> Ingredient for FunctionIngredient<C>
 where
-    C: Configuration,
+    C: Configuration + 'static,
 {
     fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
         let key = C::key_from_id(input.key_index.unwrap());
