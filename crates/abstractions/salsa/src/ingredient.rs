@@ -26,7 +26,7 @@ pub trait Ingredient: std::any::Any {
     fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool;
 
     /// What were the inputs (if any) that were used to create the value at `key_index`.
-    fn origin(&self, key_index: Id) -> Option<QueryOrigin>;
+    fn origin(&self, db: &Db, key_index: Id) -> Option<QueryOrigin>;
 
     /// Invoked when the value `output_key` should be marked as valid in the current revision.
     /// This occurs because the value for `executor`, which generated it, was marked as valid

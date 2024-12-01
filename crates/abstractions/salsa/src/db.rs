@@ -83,7 +83,7 @@ impl Db {
         index: crate::DatabaseKeyIndex,
     ) -> Option<crate::runtime::local_state::QueryOrigin> {
         let ingredient = self.storage.ingredient(index.ingredient_index());
-        ingredient.origin(index.key_index())
+        ingredient.origin(self, index.key_index())
     }
     pub fn mark_validated_output(
         &self,
