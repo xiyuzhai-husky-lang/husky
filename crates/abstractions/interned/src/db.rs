@@ -23,9 +23,9 @@ impl InternerDb {
     pub fn with_attached<R>(&self, f: impl FnOnce() -> R) -> R {
         use husky_wild_utils::arb_ref;
 
-        ATTACHED_INTERNER_DB.with(|cell| cell.set(Some(unsafe { arb_ref(self) })));
+        let old = ATTACHED_INTERNER_DB.with(|cell| cell.replace(Some(unsafe { arb_ref(self) })));
         let result = f();
-        ATTACHED_INTERNER_DB.with(|cell| cell.set(None));
+        ATTACHED_INTERNER_DB.with(|cell| cell.set(old));
         result
     }
 }
