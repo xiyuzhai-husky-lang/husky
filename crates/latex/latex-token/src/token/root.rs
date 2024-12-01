@@ -143,19 +143,21 @@ pub fn next_root_token_data_works() {
 #[test]
 pub fn next_root_token_data_with_comments_works() {
     fn t(input_with_comments: &str, input_without_comments: &str) {
-        fn f(input: &str) -> Vec<LxRootTokenData> {
+        fn f(db: &EternerDb, input: &str) -> Vec<LxRootTokenData> {
             use crate::lane::LxTokenLane;
 
-            let db = &EternerDb::default();
             let mut storage = LxTokenStorage::default();
             let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
                 .into_root_stream()
                 .map(|(_, token_data)| token_data);
             stream.collect()
         }
-        let tokens_with_comments = f(input_with_comments);
-        let tokens_without_comments = f(input_without_comments);
-        assert_eq!(tokens_with_comments, tokens_without_comments);
+        let db = &EternerDb::default();
+        let tokens_with_comments = f(db, input_with_comments);
+        let tokens_without_comments = f(db, input_without_comments);
+        db.with_attached(|| {
+            assert_eq!(tokens_with_comments, tokens_without_comments);
+        });
     }
     t(
         r#"% foo

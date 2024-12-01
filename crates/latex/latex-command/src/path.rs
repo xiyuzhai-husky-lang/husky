@@ -90,7 +90,7 @@ impl LxCommandName {
 
 impl std::fmt::Display for LxCommandName {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = eterned::db::attached_interner_db();
+        let db = eterned::db::attached_interner_db().ok_or(std::fmt::Error)?;
         match self {
             Self::LettersOnly(LettersOnlyLxCommandName(c)) => write!(f, "{}", c.data(db)),
             Self::Escape(OneDigitNonLetterLxCommandName(c)) => write!(f, "{}", c),

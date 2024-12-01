@@ -75,13 +75,7 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
             fn #inner_fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> #ret_type #body
 
             let __jar = db.memo_jar::<#fn_name>();
-
-            if let Some(result) = __jar.get(&(#(#arg_names),*)) {
-                return result;
-            }
-
-            let result = #inner_fn_name(#(#arg_names,)* db);
-            __jar.alloc((#(#arg_names),*), result)
+            __jar.get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
         }
     };
 
