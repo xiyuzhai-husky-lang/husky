@@ -1,6 +1,6 @@
 pub mod special_constant;
 
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 
 use self::special_constant::VdSpecialConstant;
 use super::*;
@@ -36,7 +36,7 @@ pub enum VdLiteralData {
 }
 
 impl VdLiteral {
-    pub fn new(data: VdLiteralData, db: &InternerDb) -> Self {
+    pub fn new(data: VdLiteralData, db: &EternerDb) -> Self {
         #[cfg(test)]
         {
             match data {
@@ -52,19 +52,19 @@ impl VdLiteral {
         Self(VdTermId::new(data.into(), db))
     }
 
-    pub fn data(self, db: &InternerDb) -> &VdLiteralData {
+    pub fn data(self, db: &EternerDb) -> &VdLiteralData {
         match self.0.data(db) {
             VdTermData::Literal(data) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn ty(self, db: &InternerDb) -> VdType {
+    pub fn ty(self, db: &EternerDb) -> VdType {
         zfc_literal_ty(self, db)
     }
 }
 
-fn zfc_literal_ty(literal: VdLiteral, db: &InternerDb) -> VdType {
+fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
     let data = literal.data(db);
     let menu = vd_ty_menu(db);
     match data {

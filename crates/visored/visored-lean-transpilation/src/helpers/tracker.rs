@@ -2,8 +2,8 @@ use super::*;
 use crate::dictionary::VdLeanDictionary;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
 use either::*;
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
@@ -62,7 +62,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        db: &'a InternerDb,
+        db: &'a EternerDb,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -110,7 +110,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         }
     }
 
-    pub fn show_display_tree(&self, db: &InternerDb) -> String {
+    pub fn show_display_tree(&self, db: &EternerDb) -> String {
         let builder = LnMirExprDisplayTreeBuilder::new(
             db,
             self.expr_arena.as_arena_ref(),
@@ -121,7 +121,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         self.output.show_display_tree(&builder)
     }
 
-    pub fn show_fmt(&self, db: &InternerDb) -> String {
+    pub fn show_fmt(&self, db: &EternerDb) -> String {
         let fmt_config = Default::default();
         let mut formatter = self.formatter(&fmt_config, db);
         self.output.show_fmt(&mut formatter);
@@ -131,7 +131,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
     fn formatter<'b>(
         &'b self,
         config: &'b LnMirExprFormatterConfig,
-        db: &'b InternerDb,
+        db: &'b EternerDb,
     ) -> LnMirExprFormatter<'b> {
         LnMirExprFormatter::new(
             db,

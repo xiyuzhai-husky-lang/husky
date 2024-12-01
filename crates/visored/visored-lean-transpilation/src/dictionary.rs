@@ -2,7 +2,7 @@ pub mod func_key;
 pub mod item_path;
 
 use self::{func_key::*, item_path::*};
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use rustc_hash::FxHashMap;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::path::VdItemPath;
@@ -20,7 +20,7 @@ impl VdLeanDictionary {
         todo!()
     }
 
-    pub fn new_standard(db: &InternerDb) -> Self {
+    pub fn new_standard(db: &EternerDb) -> Self {
         Self {
             item_path_translation_table: VdItemPathDictionary::new_standard(db),
             func_key_translation_table: VdFuncKeyDictionary::new_standard(db),

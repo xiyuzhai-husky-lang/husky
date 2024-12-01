@@ -4,10 +4,10 @@ use lean_entity_path::namespace::LnNamespace;
 use visored_entity_path::module::{VdModulePath, VdModulePathData};
 use visored_prelude::division::VdDivisionLevel;
 
-#[interned::memo]
+#[eterned::memo]
 pub fn vd_module_path_to_ln_namespace(
     module_path: VdModulePath,
-    db: &InternerDb,
+    db: &EternerDb,
 ) -> Option<LnNamespace> {
     match *module_path.data(db) {
         VdModulePathData::Root(_) => Some(LnNamespace::new_root(db)),
@@ -52,10 +52,10 @@ pub fn vd_module_path_to_ln_namespace(
     }
 }
 
-#[interned::memo]
+#[eterned::memo]
 pub fn vd_module_path_to_ln_namespace_or_inherited(
     module_path: VdModulePath,
-    db: &InternerDb,
+    db: &EternerDb,
 ) -> LnNamespace {
     match *module_path.data(db) {
         VdModulePathData::Root(lx_file_path) => LnNamespace::new_root(db),

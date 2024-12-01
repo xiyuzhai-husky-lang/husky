@@ -1,6 +1,6 @@
 use crate::term::LnTerm;
 use crate::*;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lean_entity_path::LnItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -12,7 +12,7 @@ impl LnType {
         Self(LnTerm::new_item_path(path))
     }
 
-    pub fn show(&self, db: &InternerDb) -> String {
+    pub fn show(&self, db: &EternerDb) -> String {
         self.0.show(db)
     }
 }

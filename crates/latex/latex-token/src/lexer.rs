@@ -19,12 +19,12 @@ use crate::{
     },
 };
 use coword::Coword;
+use eterned::db::EternerDb;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextPositionRange};
-use interned::db::InternerDb;
 use latex_prelude::mode::LxMode;
 
 pub struct LxLexer<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     pub(crate) chars: TextCharIter<'a>,
     lane: LxTokenLane,
     pub(crate) storage: &'a mut LxTokenStorage,
@@ -33,7 +33,7 @@ pub struct LxLexer<'a> {
 /// # constructor
 impl<'a> LxLexer<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         input: &'a str,
         lane: LxTokenLane,
         storage: &'a mut LxTokenStorage,
@@ -49,7 +49,7 @@ impl<'a> LxLexer<'a> {
 
 /// # getters
 impl<'a> LxLexer<'a> {
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 }

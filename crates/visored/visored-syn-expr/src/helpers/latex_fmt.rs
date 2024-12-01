@@ -9,15 +9,15 @@ use crate::{
     sentence::{VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
 };
 use either::*;
+use eterned::db::EternerDb;
 use expr::VdSynBinaryOpr;
-use interned::db::InternerDb;
 use latex_token::idx::LxTokenIdxRange;
 use sentence::VdSynSentenceEnd;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_term::{menu::vd_ty_menu, term::literal::VdLiteralData};
 
 pub struct VdSynExprLaTeXFormatter<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     expr_arena: VdSynExprArenaRef<'a>,
     phrase_arena: VdSynPhraseArenaRef<'a>,
     clause_arena: VdSynClauseArenaRef<'a>,
@@ -27,7 +27,7 @@ pub struct VdSynExprLaTeXFormatter<'a> {
 
 impl<'a> VdSynExprLaTeXFormatter<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         expr_arena: VdSynExprArenaRef<'a>,
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
@@ -43,7 +43,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
         }
     }
 
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 

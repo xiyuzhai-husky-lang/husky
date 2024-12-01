@@ -1,25 +1,25 @@
-#[interned::interned]
+#[eterned::eterned]
 pub struct Coword {
     pub data: String,
 }
 
 impl std::fmt::Debug for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = interned::db::attached_interner_db();
+        let db = eterned::db::attached_interner_db();
         f.debug_tuple("Coword").field(&self.data(db)).finish()
     }
 }
 
 impl std::fmt::Display for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = interned::db::attached_interner_db();
+        let db = eterned::db::attached_interner_db();
         write!(f, "{}", self.data(db))
     }
 }
 
 #[test]
 fn coword_new_works() {
-    let db = &interned::db::InternerDb::default();
+    let db = &eterned::db::EternerDb::default();
 
     // Test creation and basic equality
     let word1 = Coword::new("hello".to_string(), db);
@@ -43,7 +43,7 @@ fn coword_new_works() {
 
 #[test]
 fn coword_from_ref_works() {
-    let db = &interned::db::InternerDb::default();
+    let db = &eterned::db::EternerDb::default();
 
     // Test creation and basic equality
     let word1 = Coword::from_ref("hello", db);

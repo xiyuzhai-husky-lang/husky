@@ -76,8 +76,8 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
     }
 }
 
-#[interned::memo]
-fn to_lean_literal(literal: VdLiteral, db: &InternerDb) -> LnLiteral {
+#[eterned::memo]
+fn to_lean_literal(literal: VdLiteral, db: &EternerDb) -> LnLiteral {
     let data = match literal.data(db) {
         VdLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
         VdLiteralData::NegativeInteger(_) => todo!(),

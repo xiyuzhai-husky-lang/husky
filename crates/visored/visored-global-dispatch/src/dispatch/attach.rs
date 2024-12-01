@@ -1,7 +1,7 @@
 use super::*;
 use crate::{default_table::VdAttachKey, menu::VdGlobalDispatchMenu, *};
 use default_table::VdDefaultGlobalDispatchTable;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lisp_csv::{
     expr::LpCsvExprData,
     file::{LpCsvFile, LpCsvFileData},
@@ -60,7 +60,7 @@ impl VdAttachGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         power_file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
-        db: &'a InternerDb,
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = (VdAttachKey, VdAttachGlobalDispatch)> + 'a {
         let LpCsvFileData::Rows(rows) = power_file.data();
         rows.iter().map(|row| {
@@ -98,7 +98,7 @@ impl VdAttachGlobalDispatch {
 
 #[test]
 fn vd_attach_global_dispatch_standard_defaults_works() {
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
     let vd_ty_menu = &vd_ty_menu(db);
     let global_dispatch_menu = &vd_global_dispatch_menu(db);

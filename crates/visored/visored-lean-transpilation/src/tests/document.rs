@@ -1,6 +1,6 @@
 use super::*;
 use crate::helpers::tracker::VdLeanTranspilationTracker;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxPageInput},
     mode::LxMode,
@@ -11,7 +11,7 @@ use std::path::PathBuf;
 fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdLeanTranspilationTracker::new(
@@ -127,7 +127,7 @@ fn latex_shorts_to_lean_works() {
     use husky_path_utils::HuskyLangDevPaths;
     use std::fs;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let projects_dir = dev_paths.projects_dir();
 

@@ -244,6 +244,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
 
 [[package]]
+name = "eterned"
+version = "0.1.0"
+dependencies = [
+ "dashmap",
+ "eterned-macros",
+ "husky-wild-utils",
+ "lazy_static",
+]
+
+[[package]]
+name = "eterned-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "expect-test"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -380,6 +400,7 @@ dependencies = [
 name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
+ "eterned",
  "husky-decl-macro-utils",
  "husky-figure-zone-protocol",
  "husky-item-path-interface",
@@ -387,7 +408,6 @@ dependencies = [
  "husky-value",
  "husky-value-protocol",
  "husky-wild-utils",
- "interned",
  "serde",
  "smallvec",
  "vec-like",
@@ -567,26 +587,6 @@ checksum = "707907fe3c25f5424cce2cb7e1cbcafee6bdbe735ca90ef77c29e84591e5b9da"
 dependencies = [
  "equivalent",
  "hashbrown 0.15.0",
-]
-
-[[package]]
-name = "interned"
-version = "0.1.0"
-dependencies = [
- "dashmap",
- "husky-wild-utils",
- "interned-macros",
- "lazy_static",
-]
-
-[[package]]
-name = "interned-macros"
-version = "0.1.0"
-dependencies = [
- "convert_case",
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]

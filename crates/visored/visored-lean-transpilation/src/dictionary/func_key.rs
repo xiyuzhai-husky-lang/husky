@@ -1,4 +1,4 @@
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lean_mir_expr::expr::application::{ln_mir_func_key_menu, LnMirFuncKey, LnMirFuncKeyMenu};
 use rustc_hash::FxHashMap;
 use visored_mir_expr::expr::application::{
@@ -23,7 +23,7 @@ pub struct VdFuncKeyDictionary {
 }
 
 impl VdFuncKeyDictionary {
-    pub fn new_standard(db: &InternerDb) -> Self {
+    pub fn new_standard(db: &EternerDb) -> Self {
         use VdFuncKeyTranslation::*;
 
         let VdMirFuncKeyMenu {

@@ -15,13 +15,13 @@ use crate::{
     sentence::{VdSemSentenceArenaRef, VdSemSentenceChild, VdSemSentenceData, VdSemSentenceIdx},
     stmt::{VdSemStmtArenaRef, VdSemStmtChild, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_ast::{ast::LxAstArenaRef, range::LxAstTokenIdxRangeMap};
 use latex_token::storage::LxTokenStorage;
 
 pub struct VdSemExprDisplayTreeBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     input: &'a str,
     token_storage: &'a LxTokenStorage,
     ast_arena: LxAstArenaRef<'a>,
@@ -41,7 +41,7 @@ pub struct VdSemExprDisplayTreeBuilder<'a> {
 }
 impl<'a> VdSemExprDisplayTreeBuilder<'a> {
     pub(crate) fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         input: &'a str,
         token_storage: &'a LxTokenStorage,
         ast_arena: LxAstArenaRef<'a>,

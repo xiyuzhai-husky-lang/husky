@@ -15,9 +15,9 @@ use crate::{
     sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceData, VdSynSentenceIdx},
     stmt::{VdSynStmtArenaRef, VdSynStmtChild, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
 };
+use eterned::db::EternerDb;
 use husky_text_protocol::offset::TextOffsetRange;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_ast::{
     ast::{
         math::{LxMathAstIdx, LxMathAstIdxRange},
@@ -30,7 +30,7 @@ use latex_token::storage::LxTokenStorage;
 use latex_vfs::path::LxFilePath;
 
 pub struct VdSynExprDisplayTreeBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     input: &'a str,
     token_storage: &'a LxTokenStorage,
     ast_arena: LxAstArenaRef<'a>,
@@ -52,7 +52,7 @@ pub struct VdSynExprDisplayTreeBuilder<'a> {
 /// # construction
 impl<'a> VdSynExprDisplayTreeBuilder<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         input: &'a str,
         token_storage: &'a LxTokenStorage,
         ast_arena: LxAstArenaRef<'a>,

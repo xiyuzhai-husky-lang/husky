@@ -5,7 +5,7 @@ use super::{
     *,
 };
 use crate::{clause::*, division::*, expr::*, phrase::*, range::*, sentence::*, stmt::*};
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use r#let::{
     assigned::VdSynLetAssignedResolution, placeholder::VdSynLetPlaceholderResolution,
     VdSynLetClauseResolution,
@@ -18,7 +18,7 @@ use visored_entity_path::{
 use visored_prelude::division::VdDivisionLevel;
 
 pub struct VdSynSymbolBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
     expr_arena: VdSynExprArenaRef<'a>,
     phrase_arena: VdSynPhraseArenaRef<'a>,
@@ -42,7 +42,7 @@ pub struct VdSynSymbolBuilder<'a> {
 
 impl<'a> VdSynSymbolBuilder<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
         expr_arena: VdSynExprArenaRef<'a>,
         phrase_arena: VdSynPhraseArenaRef<'a>,
@@ -94,7 +94,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
 
 /// # getters
 impl<'a> VdSynSymbolBuilder<'a> {
-    pub(crate) fn db(&self) -> &'a InternerDb {
+    pub(crate) fn db(&self) -> &'a EternerDb {
         self.db
     }
 

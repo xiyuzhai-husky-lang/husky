@@ -2,6 +2,7 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 
+use eterned::db::EternerDb;
 use husky_devsoul::devsoul::IsDevsoul;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath};
@@ -23,13 +24,12 @@ use husky_vfs::{
         package_path::PackagePath,
     },
 };
-use interned::db::InternerDb;
 use std::path::Path;
 
 pub struct DevComptime<Devsoul: IsDevsoul> {
     // TODO: put these two together?
     db: DevComptimeDb,
-    interner_db: InternerDb,
+    interner_db: EternerDb,
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
     linktime: Devsoul::Linktime,
@@ -70,7 +70,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
             )),
         };
         Ok(Self {
-            interner_db: InternerDb::default(),
+            interner_db: EternerDb::default(),
             linktime: IsLinktime::new(
                 /* ad hoc */
                 LinktimeTargetPath::new_package(target_crate_path.package_path(&db), &db),
@@ -86,7 +86,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.init(runtime)
     }
 
-    pub fn interner_db(&self) -> &InternerDb {
+    pub fn interner_db(&self) -> &EternerDb {
         &self.interner_db
     }
 
@@ -121,7 +121,7 @@ where
 {
     fn default() -> Self {
         Self {
-            interner_db: InternerDb::default(),
+            interner_db: EternerDb::default(),
             target: DevComptimeTarget::None,
             db: Default::default(),
             linktime: Default::default(),

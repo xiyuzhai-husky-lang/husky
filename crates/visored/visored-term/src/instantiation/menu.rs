@@ -3,7 +3,7 @@ use crate::{
     menu::{vd_ty_menu, VdTypeMenu},
     term::menu::{vd_term_menu, VdTermMenu},
 };
-use interned::memo;
+use eterned::memo;
 use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::menu::{VdItemPathMenu, VD_ITEM_PATH_MENU};
@@ -87,7 +87,7 @@ pub struct VdInstantiationMenu {
 }
 
 impl VdInstantiationMenu {
-    pub fn new(db: &InternerDb) -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -288,6 +288,6 @@ impl VdInstantiationMenu {
 }
 
 #[memo]
-pub fn vd_instantiation_menu(db: &InternerDb) -> VdInstantiationMenu {
+pub fn vd_instantiation_menu(db: &EternerDb) -> VdInstantiationMenu {
     VdInstantiationMenu::new(db)
 }

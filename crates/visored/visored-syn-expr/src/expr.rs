@@ -16,10 +16,10 @@ use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
 use either::*;
 use error::{OriginalVdSynExprError, VdSynExprError};
+use eterned::db::EternerDb;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use interned::db::InternerDb;
 use latex_ast::ast::{
     math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
     LxAstIdxRange,
@@ -208,7 +208,7 @@ impl VdSynBinaryOpr {
 }
 
 impl VdSynBinaryOpr {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef, db: &InternerDb) -> String {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             VdSynBinaryOpr::Base(_, opr) => opr.latex_code().to_string(),
             VdSynBinaryOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
@@ -224,7 +224,7 @@ pub enum VdSynSeparator {
 }
 
 impl VdSynSeparator {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef, db: &InternerDb) -> String {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             VdSynSeparator::Base(_, slf) => slf.latex_code().to_string(),
             VdSynSeparator::Composite(slf, _) => arena[slf].show(arena, db),
@@ -250,7 +250,7 @@ pub enum VdSynLeftDelimiter {
 }
 
 impl VdSynLeftDelimiter {
-    pub(crate) fn show(self, arena: VdSynExprArenaRef, db: &InternerDb) -> String {
+    pub(crate) fn show(self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match self {
             VdSynLeftDelimiter::Base(token_idx_range, left_delimiter) => {
                 left_delimiter.latex_code().to_string()
@@ -267,7 +267,7 @@ pub enum VdSynRightDelimiter {
 }
 
 impl VdSynRightDelimiter {
-    pub(crate) fn show(self, arena: VdSynExprArenaRef, db: &InternerDb) -> String {
+    pub(crate) fn show(self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match self {
             VdSynRightDelimiter::Base(_, right_delimiter) => {
                 right_delimiter.latex_code().to_string()
@@ -425,7 +425,7 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
 }
 
 impl VdSynExprData {
-    pub fn show(&self, arena: VdSynExprArenaRef, db: &InternerDb) -> String {
+    pub fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             VdSynExprData::Literal {
                 token_idx_range,

@@ -1,7 +1,7 @@
+use eterned::db::EternerDb;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeComptermInterface};
 use husky_value::ki_control_flow::KiControlFlow;
-use interned::db::InternerDb;
 use std::{
     convert::Infallible,
     sync::{Arc, MutexGuard},
@@ -84,7 +84,7 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
 }
 
 impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
-    pub fn interner_db(&self) -> &'static InternerDb {
+    pub fn interner_db(&self) -> &'static EternerDb {
         self.runtime.interner_db_dyn()
     }
 }
@@ -168,7 +168,7 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
 
     unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf;
 
-    fn interner_db(&self) -> &InternerDb;
+    fn interner_db(&self) -> &EternerDb;
 
     fn eval_eager_val_with(
         &self,
@@ -226,7 +226,7 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
 }
 
 pub trait IsDevRuntimeInterfaceDyn<LinketImpl: IsLinketImpl> {
-    fn interner_db_dyn(&self) -> &InternerDb;
+    fn interner_db_dyn(&self) -> &EternerDb;
 
     fn eval_eager_val_with_dyn(
         &self,
@@ -277,7 +277,7 @@ impl<LinketImpl: IsLinketImpl, Runtime> IsDevRuntimeInterfaceDyn<LinketImpl> for
 where
     Runtime: IsDevRuntimeInterface<LinketImpl>,
 {
-    fn interner_db_dyn(&self) -> &InternerDb {
+    fn interner_db_dyn(&self) -> &EternerDb {
         self.interner_db()
     }
 

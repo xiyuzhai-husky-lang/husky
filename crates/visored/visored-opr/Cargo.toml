@@ -15,7 +15,7 @@ keywords.workspace = true
 enum-class.workspace = true
 enum-index.workspace = true
 # abstractions
-interned.workspace = true
+eterned.workspace = true
 # lisp
 lisp-csv.workspace = true
 

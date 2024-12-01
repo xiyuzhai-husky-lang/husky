@@ -1,4 +1,4 @@
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 
 use super::*;
 
@@ -28,7 +28,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         &mut self,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Option<VdSynSymbolResolution> {
         let local_resolutions = self.build_letter_local_resolutions(token_idx_range, letter, db);
         match *local_resolutions {
@@ -52,7 +52,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         &mut self,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> VdSynSymbolResolutions {
         self.symbol_local_defn_storage()
             .resolve_letter(self.current_module_path(), token_idx_range, letter, db)

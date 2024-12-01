@@ -4,7 +4,7 @@ use crate::{
     menu::{vd_ty_menu, VdTypeMenu},
     term::{VdTerm, VdTermData, VdTermId},
 };
-use interned::db::{attached_interner_db, InternerDb};
+use eterned::db::{attached_interner_db, EternerDb};
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
@@ -29,7 +29,7 @@ impl std::fmt::Debug for VdType {
 }
 
 impl VdType {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &InternerDb) -> std::fmt::Result {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
         self.0.show_aux(f, db)
     }
 }
@@ -40,7 +40,7 @@ pub enum VdTypeData {
 }
 
 impl VdType {
-    pub fn new_item_path(item_path: VdItemPath, db: &InternerDb) -> Self {
+    pub fn new_item_path(item_path: VdItemPath, db: &EternerDb) -> Self {
         // TODO: check this is actually a type?
         VdType(VdTerm::new_item_path(item_path, db))
     }
@@ -52,13 +52,13 @@ impl VdType {
 }
 
 impl VdType {
-    pub fn is_function_like(self, db: &InternerDb) -> bool {
+    pub fn is_function_like(self, db: &EternerDb) -> bool {
         *is_vd_ty_function_like(**self, db)
     }
 }
 
-#[interned::memo]
-fn is_vd_ty_function_like(ty: VdTermId, db: &InternerDb) -> bool {
+#[eterned::memo]
+fn is_vd_ty_function_like(ty: VdTermId, db: &EternerDb) -> bool {
     match *ty.data(db) {
         VdTermData::ItemPath(_) => false,
         VdTermData::Literal(_) => todo!(),
@@ -75,7 +75,7 @@ fn is_vd_ty_function_like(ty: VdTermId, db: &InternerDb) -> bool {
 }
 
 impl VdType {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &EternerDb) -> Self {
         match expr.data {
             LpCsvExprData::Literal(ref literal) => todo!(),
             LpCsvExprData::Application(ref app) => todo!(),
@@ -85,7 +85,7 @@ impl VdType {
         }
     }
 
-    pub fn from_lp_csv_ident(ident: &str, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_ident(ident: &str, db: &EternerDb) -> Self {
         let VdTypeMenu {
             nat,
             int,

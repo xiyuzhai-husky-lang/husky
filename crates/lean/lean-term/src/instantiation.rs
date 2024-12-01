@@ -1,11 +1,11 @@
 pub mod menu;
 
 use crate::term::LnTerm;
-use interned::db::attached_interner_db;
+use eterned::db::attached_interner_db;
 use lean_entity_path::LnItemPath;
 use smallvec::*;
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct LnInstantiation {
     pub item_path: LnItemPath,
     #[return_ref]

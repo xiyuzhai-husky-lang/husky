@@ -1,20 +1,20 @@
-use interned::{db::InternerDb, interned, memo};
+use eterned::{db::EternerDb, eterned, memo};
 
-#[interned]
+#[eterned]
 pub struct Coword {
     data: String,
 }
 
 impl std::fmt::Debug for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = interned::db::attached_interner_db();
+        let db = eterned::db::attached_interner_db();
         f.debug_tuple("Coword").field(self.data(db)).finish()
     }
 }
 
 #[test]
 fn coword_works() {
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     // Test creation and basic equality
     let word1 = Coword::new("hello".to_string(), db);
     let word2 = Coword::new("hello".to_string(), db);
@@ -38,6 +38,6 @@ fn coword_works() {
 }
 
 #[memo]
-fn first_letter(word: Coword, db: &InternerDb) -> char {
+fn first_letter(word: Coword, db: &EternerDb) -> char {
     word.data(db).chars().next().unwrap()
 }

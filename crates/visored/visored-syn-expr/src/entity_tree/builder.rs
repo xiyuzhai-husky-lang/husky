@@ -6,7 +6,7 @@ use crate::{
     },
     stmt::{VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap},
 };
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use itertools::Itertools;
 use latex_vfs::path::LxFilePath;
 use visored_entity_path::module::{VdModulePath, VdModulePathRegistry};
@@ -16,7 +16,7 @@ use visored_global_resolution::{
 };
 
 pub struct VdSynExprEntityTreeBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
     file_path: LxFilePath,
     stmt_arena: VdSynStmtArenaRef<'a>,
@@ -37,7 +37,7 @@ impl VdSynExprEntityTreeNode {
 
 impl<'a> VdSynExprEntityTreeBuilder<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
         file_path: LxFilePath,
         stmt_arena: VdSynStmtArenaRef<'a>,
@@ -56,7 +56,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
 }
 
 impl<'a> VdSynExprEntityTreeBuilder<'a> {
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 

@@ -1,6 +1,6 @@
 use super::*;
 use crate::helpers::tracker::VdLeanTranspilationTracker;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
@@ -8,7 +8,7 @@ use std::path::PathBuf;
 fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdLeanTranspilationTracker::new(

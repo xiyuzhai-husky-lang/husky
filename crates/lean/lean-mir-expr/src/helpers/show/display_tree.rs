@@ -8,11 +8,11 @@ use crate::{
     stmt::{LnMirStmtArena, LnMirStmtArenaRef, LnMirStmtIdx, LnMirStmtIdxRange},
     tactic::{LnMirTacticArena, LnMirTacticArenaRef, LnMirTacticIdx, LnMirTacticIdxRange},
 };
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 
 pub struct LnMirExprDisplayTreeBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     expr_arena: LnMirExprArenaRef<'a>,
     stmt_arena: LnMirStmtArenaRef<'a>,
     tactic_arena: LnMirTacticArenaRef<'a>,
@@ -21,7 +21,7 @@ pub struct LnMirExprDisplayTreeBuilder<'a> {
 
 impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         expr_arena: LnMirExprArenaRef<'a>,
         stmt_arena: LnMirStmtArenaRef<'a>,
         tactic_arena: LnMirTacticArenaRef<'a>,
@@ -38,7 +38,7 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
 }
 
 impl<'a> LnMirExprDisplayTreeBuilder<'a> {
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 }

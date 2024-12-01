@@ -10,7 +10,7 @@ impl VdDefaultGlobalDispatchTable {
     pub fn from_lisp_csv_file_dir(
         dir: &Path,
         signature_table: &VdSignatureTable,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let base_prefix_opr_file = dir.join("base_prefix_opr.lpcsv");
         let base_binary_opr_file = dir.join("base_binary_opr.lpcsv");
@@ -41,7 +41,7 @@ impl VdDefaultGlobalDispatchTable {
         base_frac_file: &Path,
         base_chaining_separator_join_file: &Path,
         signature_table: &VdSignatureTable,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let base_prefix_opr_file = parse_lp_csv_filepath(base_prefix_opr_file).unwrap();
         let base_binary_opr_file = parse_lp_csv_filepath(base_binary_opr_file).unwrap();
@@ -73,7 +73,7 @@ impl VdDefaultGlobalDispatchTable {
         base_frac_file: &LpCsvFile,
         base_chaining_separator_join_file: &LpCsvFile,
         signature_table: &VdSignatureTable,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let base_prefix_opr_table = VdPrefixOprGlobalDispatch::collect_from_lisp_csv_files(
             base_prefix_opr_file,

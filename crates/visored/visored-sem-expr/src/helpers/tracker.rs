@@ -18,8 +18,8 @@ use crate::{
 };
 use division::VdSemDivisionIdxRange;
 use either::*;
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_ast::{
     ast::{parse_latex_input_into_asts, rose::LxRoseAstIdxRange, LxAstArena, LxAstIdxRange},
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
@@ -103,7 +103,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let VdSynExprTracker {
             input,
@@ -203,7 +203,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         }
     }
 
-    pub(crate) fn show_display_tree(&self, db: &InternerDb) -> String {
+    pub(crate) fn show_display_tree(&self, db: &EternerDb) -> String {
         let builder = VdSemExprDisplayTreeBuilder::new(
             db,
             self.input.content(),
