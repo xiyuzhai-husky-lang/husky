@@ -1,18 +1,19 @@
+#![feature(trait_upcasting)]
 pub mod db;
 pub mod eterner;
+pub mod memo;
 mod pool;
 mod vec_array;
 
 pub use dashmap::DashMap;
 pub use eterned_macros::{eterned, memo};
-pub use lazy_static::lazy_static;
 
 use self::pool::Pool;
 use std::collections::HashMap;
 
 pub struct Storage<T: 'static, const N: usize> {
     pool: Pool<T, N>,
-    map: HashMap<T, Interned<T>>,
+    map: HashMap<T, Eterned<T>>,
 }
 
 impl<T, const N: usize> Storage<T, N> {
@@ -35,17 +36,17 @@ impl<T, const N: usize> Storage<T, N>
 where
     T: Clone + Eq + std::hash::Hash,
 {
-    pub fn intern(&mut self, t: T) -> Interned<T> {
+    pub fn intern(&mut self, t: T) -> Eterned<T> {
         if let Some(interned) = self.map.get(&t) {
             return *interned;
         }
         let ptr = self.pool.alloc(t.clone());
-        let interned = Interned(unsafe { &*ptr });
+        let interned = Eterned(unsafe { &*ptr });
         self.map.insert(t, interned);
         interned
     }
 
-    pub fn intern_ref<Q: Eq + std::hash::Hash + ?Sized>(&mut self, q: &Q) -> Interned<T>
+    pub fn intern_ref<Q: Eq + std::hash::Hash + ?Sized>(&mut self, q: &Q) -> Eterned<T>
     where
         T: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
     {
@@ -54,46 +55,46 @@ where
         }
         let t: T = q.into();
         let ptr = self.pool.alloc(t.clone());
-        let interned = Interned(unsafe { &*ptr });
+        let interned = Eterned(unsafe { &*ptr });
         self.map.insert(t, interned);
         interned
     }
 }
 
 #[derive(Debug, Hash)]
-pub struct Interned<T: 'static>(pub &'static T);
+pub struct Eterned<T: 'static>(pub &'static T);
 
-impl<T: 'static> PartialOrd for Interned<T> {
+impl<T: 'static> PartialOrd for Eterned<T> {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
         (self.0 as *const T as usize).partial_cmp(&(other.0 as *const T as usize))
     }
 }
 
-impl<T: 'static> Ord for Interned<T> {
+impl<T: 'static> Ord for Eterned<T> {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
         (self.0 as *const T as usize).cmp(&(other.0 as *const T as usize))
     }
 }
 
-impl<T: 'static> Clone for Interned<T> {
+impl<T: 'static> Clone for Eterned<T> {
     fn clone(&self) -> Self {
         Self(self.0)
     }
 }
 
-impl<T: 'static> PartialEq for Interned<T> {
+impl<T: 'static> PartialEq for Eterned<T> {
     fn eq(&self, other: &Self) -> bool {
         self.0 as *const T == other.0 as *const T
     }
 }
 
-impl<T: 'static> Eq for Interned<T> {}
+impl<T: 'static> Eq for Eterned<T> {}
 
-impl<T: 'static> Copy for Interned<T> {}
+impl<T: 'static> Copy for Eterned<T> {}
 
-unsafe impl<T> Send for Interned<T> {}
+unsafe impl<T> Send for Eterned<T> {}
 
-impl<T: 'static> std::ops::Deref for Interned<T> {
+impl<T: 'static> std::ops::Deref for Eterned<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {

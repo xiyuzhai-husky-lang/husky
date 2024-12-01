@@ -24,7 +24,7 @@
             "dashmap",
             "eterned-macros",
             "husky-wild-utils",
-            "lazy_static",
+            "sealed",
         ],
     },
     PackageSummary {
