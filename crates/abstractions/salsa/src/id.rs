@@ -97,7 +97,7 @@ impl<I: eterned::as_id::AsEternedId> AsIdWithDb for I {
 
     #[inline(always)]
     fn from_id_with_db(id: Id, db: &Db) -> Self {
-        <I as eterned::as_id::AsEternedId>::from_id(id.as_u32(), db)
+        <I as eterned::as_id::AsEternedId>::from_id(id.as_u32(), db.eterner_db())
     }
 }
 

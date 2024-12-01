@@ -1,10 +1,12 @@
 use crate::{jar::HasJarIndex, routes::Routes, *};
 use ::snapshot::SnapshotClone;
+use eterned::db::EternerDb;
 use husky_salsa_log_utils::HasLogger;
 use std::sync::Arc;
 
 pub struct Db {
     pub(crate) storage: crate::storage::Storage,
+    pub(crate) eterner_db: Arc<EternerDb>,
     pub(crate) logger: Arc<husky_salsa_log_utils::Logger>,
 }
 
@@ -16,6 +18,7 @@ impl SnapshotClone for Db {
     fn snapshot_clone(&self) -> Self {
         Self {
             storage: self.storage.snapshot(),
+            eterner_db: self.eterner_db.clone(),
             logger: self.logger.clone(),
         }
     }
@@ -26,8 +29,13 @@ impl Db {
     pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         Self {
             storage: crate::Storage::new(initialize_jars),
+            eterner_db: Default::default(),
             logger: Default::default(),
         }
+    }
+
+    pub fn eterner_db(&self) -> &EternerDb {
+        &self.eterner_db
     }
 
     pub fn jars(&self) -> (&Jars, &Runtime) {
