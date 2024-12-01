@@ -29,7 +29,6 @@ use std::path::Path;
 pub struct DevComptime<Devsoul: IsDevsoul> {
     // TODO: put these two together?
     db: DevComptimeDb,
-    interner_db: EternerDb,
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
     linktime: Devsoul::Linktime,
@@ -70,7 +69,6 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
             )),
         };
         Ok(Self {
-            interner_db: EternerDb::default(),
             linktime: IsLinktime::new(
                 /* ad hoc */
                 LinktimeTargetPath::new_package(target_crate_path.package_path(&db), &db),
@@ -86,8 +84,8 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.init(runtime)
     }
 
-    pub fn interner_db(&self) -> &EternerDb {
-        &self.interner_db
+    pub fn eterner_db(&self) -> &EternerDb {
+        self.db.eterner_db()
     }
 
     pub fn linktime(&self) -> &Devsoul::Linktime {
@@ -121,7 +119,6 @@ where
 {
     fn default() -> Self {
         Self {
-            interner_db: EternerDb::default(),
             target: DevComptimeTarget::None,
             db: Default::default(),
             linktime: Default::default(),
