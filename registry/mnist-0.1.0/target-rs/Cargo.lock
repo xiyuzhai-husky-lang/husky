@@ -878,6 +878,7 @@ dependencies = [
  "dashmap",
  "either",
  "enum-index",
+ "eterned",
  "hashlink",
  "husky-salsa-log-utils",
  "husky-wild-utils",

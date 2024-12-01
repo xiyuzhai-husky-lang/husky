@@ -11065,6 +11065,7 @@ dependencies = [
  "dashmap 6.0.1",
  "either",
  "enum-index",
+ "eterned",
  "expect-test",
  "hashlink 0.9.1",
  "husky-salsa-log-utils",
