@@ -52,6 +52,15 @@ impl salsa::AsId for Coword {
     }
 }
 
+impl salsa::AsIdWithDb for Coword {
+    fn as_id_with_db(self) -> salsa::Id {
+        self.0
+    }
+    fn from_id_with_db(id: salsa::Id, db: &Db) -> Self {
+        Coword(id)
+    }
+}
+
 impl Coword {
     pub fn data<'db>(self, db: &'db Db) -> &'db str {
         let (jar, runtime) = db.jar::<Jar>();

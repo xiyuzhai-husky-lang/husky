@@ -5,7 +5,7 @@ use crossbeam::atomic::AtomicCell;
 use crate::{
     durability::Durability,
     runtime::local_state::{QueryOrigin, QueryRevisions},
-    Runtime,
+    AsIdWithDb, Runtime,
 };
 
 use super::{memo::Memo, Configuration, FunctionIngredient};
@@ -32,7 +32,7 @@ where
             },
         };
 
-        if let Some(old_value) = self.memo_map.insert(key, Arc::new(memo)) {
+        if let Some(old_value) = self.memo_map.insert(key.as_id_with_db(), Arc::new(memo)) {
             // NB: we don't have to store `old_value` into `deleted_entries` because we have `&mut self`.
             let durability = old_value.load().revisions.durability;
             runtime.report_tracked_write(durability);

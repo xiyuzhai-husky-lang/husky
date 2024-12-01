@@ -7,7 +7,7 @@ use crate::{
         local_state::{ActiveQueryGuard, EdgeKind, QueryOrigin},
         StampedValue,
     },
-    Revision, Runtime,
+    AsIdWithDb, Revision, Runtime,
 };
 
 use super::{memo::Memo, Configuration, Db, FunctionIngredient};
@@ -30,7 +30,7 @@ where
             );
 
             // Check if we have a verified version: this is the hot path.
-            let memo_guard = self.memo_map.get(key);
+            let memo_guard = self.memo_map.get(key.as_id_with_db());
             if let Some(memo) = &memo_guard {
                 if self.shallow_verify_memo(db, runtime, database_key_index, memo) {
                     return memo.revisions.changed_at > revision;
@@ -62,7 +62,7 @@ where
 
         // Load the current memo, if any. Use a real arc, not an arc-swap guard,
         // since we may recurse.
-        let old_memo = match self.memo_map.get(key_index) {
+        let old_memo = match self.memo_map.get(key_index.as_id_with_db()) {
             Some(m) => Guard::into_inner(m),
             None => return Some(true),
         };
