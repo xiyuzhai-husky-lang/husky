@@ -28,6 +28,13 @@ pub struct LnTermId {
     data: LnTermData,
 }
 
+impl std::fmt::Debug for LnTermId {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+        // f.debug_tuple("LnTermId").field(&self.0).finish()
+    }
+}
+
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum LnTermData {

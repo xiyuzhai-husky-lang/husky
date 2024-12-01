@@ -1303,6 +1303,7 @@ dependencies = [
  "dashmap",
  "either",
  "enum-index",
+ "eterned",
  "hashlink 0.9.1",
  "husky-salsa-log-utils",
  "husky-wild-utils",
