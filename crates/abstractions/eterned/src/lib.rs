@@ -1,11 +1,14 @@
 #![feature(trait_upcasting)]
+pub mod as_id;
 pub mod db;
 pub mod eterner;
 pub mod memo;
 mod pool;
 mod vec_array;
 
+use as_id::AsId;
 pub use dashmap::DashMap;
+use db::EternerDb;
 pub use eterned_macros::{eterned, memo};
 use eterner::EternedEntry;
 
@@ -50,3 +53,13 @@ impl<T: 'static> Eq for Eterned<T> {}
 impl<T: 'static> Copy for Eterned<T> {}
 
 unsafe impl<T> Send for Eterned<T> {}
+
+impl<T: 'static> AsId for Eterned<T> {
+    fn as_id(self) -> u32 {
+        self.0.id
+    }
+
+    fn from_id(id: u32, db: &EternerDb) -> Self {
+        todo!()
+    }
+}
