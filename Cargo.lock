@@ -11068,6 +11068,7 @@ dependencies = [
  "expect-test",
  "hashlink 0.9.1",
  "husky-salsa-log-utils",
+ "husky-wild-utils",
  "indexmap 2.4.0",
  "log",
  "maybe-result",
