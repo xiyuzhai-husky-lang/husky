@@ -17,6 +17,7 @@ sealed.workspace = true
 # abstractions
 eterned-macros.workspace = true
 # utils
+husky-sha-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [lints]

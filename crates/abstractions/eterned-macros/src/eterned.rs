@@ -39,7 +39,7 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         let field_ty = &f.ty;
         quote! {
             pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &'static #field_ty {
-                &self.0.0.#field_ident
+                &self.0.0.value.#field_ident
             }
         }
     });
@@ -89,9 +89,7 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
         impl #ty_ident {
             #vis fn new(#(#ctor_params),*, db: &::eterned::db::EternerDb) -> Self {
-                use eterned::{Eterned, Storage};
-                use std::collections::HashSet;
-                use std::sync::Mutex;
+                use eterned::Eterned;
 
                 let data = #data_ty_ident {
                     #(#field_inits),*
