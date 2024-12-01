@@ -19,7 +19,7 @@ fn t(content: &str, expected: &Expect) {
         &[],
         &db,
     );
-    expected.assert_eq(&tracker.show_display_tree());
+    expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]

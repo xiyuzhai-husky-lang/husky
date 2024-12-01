@@ -23,7 +23,7 @@ fn t(content: &str, expect: &Expect) {
         &[],
         db,
     );
-    expect.assert_eq(&tracker.show_display_tree());
+    expect.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]

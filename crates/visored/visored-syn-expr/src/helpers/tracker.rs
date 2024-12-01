@@ -174,8 +174,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         }
     }
 
-    fn display_tree_builder<'b>(&'b self) -> VdSynExprDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b InternerDb) -> VdSynExprDisplayTreeBuilder<'b> {
         VdSynExprDisplayTreeBuilder::new(
+            db,
             self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
@@ -195,8 +196,8 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         )
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
-        let builder = self.display_tree_builder();
+    pub(crate) fn show_display_tree(&self, db: &InternerDb) -> String {
+        let builder = self.display_tree_builder(db);
         self.output.show(&builder)
     }
 }

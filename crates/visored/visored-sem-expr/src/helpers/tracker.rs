@@ -203,8 +203,9 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         }
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
+    pub(crate) fn show_display_tree(&self, db: &InternerDb) -> String {
         let builder = VdSemExprDisplayTreeBuilder::new(
+            db,
             self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
