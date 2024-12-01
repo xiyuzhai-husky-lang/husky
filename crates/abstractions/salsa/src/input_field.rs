@@ -132,7 +132,7 @@ where
         self.map.get(&key.as_id()).unwrap().changed_at > revision
     }
 
-    fn origin(&self, _key_index: Id) -> Option<QueryOrigin> {
+    fn origin(&self, _db: &Db, _key_index: Id) -> Option<QueryOrigin> {
         None
     }
 

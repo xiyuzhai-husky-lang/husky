@@ -117,7 +117,7 @@ pub trait Configuration {
 
     /// Given a salsa Id, returns the key. Convenience function to avoid
     /// having to type `<C::Key as AsId>::from_id`.
-    fn key_from_id(id: Id) -> Self::Key {
+    fn key_from_id(db: &Db, id: Id) -> Self::Key {
         AsId::from_id(id)
     }
 }
@@ -206,7 +206,7 @@ where
     C: Configuration + 'static,
 {
     fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
-        let key = C::key_from_id(input.key_index.unwrap());
+        let key = C::key_from_id(db, input.key_index.unwrap());
         self.maybe_changed_after(db, key, revision)
     }
 
@@ -214,8 +214,8 @@ where
         C::CYCLE_STRATEGY
     }
 
-    fn origin(&self, key_index: Id) -> Option<QueryOrigin> {
-        let key = C::key_from_id(key_index);
+    fn origin(&self, db: &Db, key_index: Id) -> Option<QueryOrigin> {
+        let key = C::key_from_id(db, key_index);
         self.origin(key)
     }
 
@@ -225,7 +225,7 @@ where
         executor: DatabaseKeyIndex,
         output_key: Option<crate::Id>,
     ) {
-        let output_key = C::key_from_id(output_key.unwrap());
+        let output_key = C::key_from_id(db, output_key.unwrap());
         self.validate_specified_value(db, executor, output_key);
     }
 
@@ -248,7 +248,7 @@ where
         // Remove any data keyed by `id`, since `id` no longer
         // exists in this revision.
 
-        let id: C::Key = C::key_from_id(id);
+        let id: C::Key = C::key_from_id(db, id);
         if let Some(origin) = self.delete_memo(id) {
             let key = self.database_key_index(id);
             db.salsa_event(Event {
