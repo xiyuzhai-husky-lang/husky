@@ -18,7 +18,7 @@ impl VdDefaultGlobalResolutionTable {
     pub fn new_standard(db: &EternerDb) -> Self {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
-        let command_resolution_map = standard_command_resolution_map(&EternerDb::default());
+        let command_resolution_map = standard_command_resolution_map(db);
         let environment_resolution_map = standard_environment_resolution_map(db);
         let letter_resolution_map = standard_letter_resolution_map();
         Self::new(

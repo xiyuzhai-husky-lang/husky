@@ -14,7 +14,7 @@ pub struct VdInstantiation {
 
 impl std::fmt::Debug for VdInstantiation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = attached_interner_db();
+        let db = attached_interner_db().ok_or(std::fmt::Error)?;
         write!(f, "{:?} ...", self.path(db))
     }
 }
