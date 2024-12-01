@@ -6,7 +6,7 @@ pub mod memo;
 mod pool;
 mod vec_array;
 
-use as_id::AsId;
+use as_id::AsEternedId;
 pub use dashmap::DashMap;
 use db::EternerDb;
 pub use eterned_macros::{eterned, memo};
@@ -15,8 +15,16 @@ use eterner::EternedEntry;
 use self::pool::Pool;
 use std::collections::HashMap;
 
-#[derive(Debug, Hash)]
+#[derive(Hash)]
 pub struct Eterned<T: 'static>(pub &'static EternedEntry<T>);
+
+impl<T: 'static> std::fmt::Debug for Eterned<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Eterned")
+            .field(&(self.0 as *const _))
+            .finish()
+    }
+}
 
 impl<T: 'static> Eterned<T> {
     pub fn raw_ptr(self) -> *const EternedEntry<T> {
@@ -54,7 +62,7 @@ impl<T: 'static> Copy for Eterned<T> {}
 
 unsafe impl<T> Send for Eterned<T> {}
 
-impl<T: 'static> AsId for Eterned<T> {
+impl<T: 'static> AsEternedId for Eterned<T> {
     fn as_id(self) -> u32 {
         self.0.id
     }

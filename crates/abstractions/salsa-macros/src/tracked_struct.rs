@@ -62,6 +62,7 @@ impl TrackedStruct {
         let salsa_struct_in_db_impl = self.salsa_struct_in_db_impl();
         let tracked_struct_in_db_impl = self.tracked_struct_in_db_impl();
         let as_id_impl = self.as_id_impl();
+        let as_id_with_db_impl = self.as_id_with_db_impl();
         let as_debug_with_db_impl = self.as_debug_with_db_impl();
         Ok(quote! {
             #(#config_structs)*
@@ -71,6 +72,7 @@ impl TrackedStruct {
             #salsa_struct_in_db_impl
             #tracked_struct_in_db_impl
             #as_id_impl
+            #as_id_with_db_impl
             #as_debug_with_db_impl
             #(#config_impls)*
         })
