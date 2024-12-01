@@ -145,7 +145,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
     }
 
     fn interner_db(&self) -> &EternerDb {
-        self.comptime.interner_db()
+        self.comptime.eterner_db()
     }
 
     fn eval_eager_val_with(
