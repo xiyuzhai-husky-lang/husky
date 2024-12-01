@@ -8,7 +8,7 @@ use crate::{
     },
     region::LxAstRegionData,
 };
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_command::{
     path::menu::{lx_command_path_menu, LxCommandPathMenu},
     signature::table::LxCommandSignatureTable,
@@ -42,7 +42,7 @@ pub(crate) struct LxAstParser<'a> {
 /// # constructor
 impl<'a> LxAstParser<'a> {
     pub(crate) fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         command_signature_table: &'a LxCommandSignatureTable,
         environment_signature_table: &'a LxEnvironmentSignatureTable,
         input: &'a str,

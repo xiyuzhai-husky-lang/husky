@@ -11,8 +11,8 @@ use crate::{
     parser::LxAstParser,
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
 };
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_command::signature::table::LxCommandSignatureTable;
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
 use latex_prelude::{
@@ -41,7 +41,7 @@ pub trait IsLxAstInput<'a>: IsLxInput<'a> {
 }
 
 impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
-    pub fn new(input: Input, db: &InternerDb) -> Self {
+    pub fn new(input: Input, db: &EternerDb) -> Self {
         let mut ast_arena = LxAstArena::default();
         let mut token_storage = LxTokenStorage::default();
         let command_signature_table = LxCommandSignatureTable::new_from_lp_csv_file_paths(
@@ -73,7 +73,7 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
 }
 
 impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
-    fn display_tree_builder<'b>(&'b self, db: &'b InternerDb) -> LxAstDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b EternerDb) -> LxAstDisplayTreeBuilder<'b> {
         LxAstDisplayTreeBuilder::new(
             db,
             self.input.content(),
@@ -83,7 +83,7 @@ impl<'a, Input: IsLxAstInput<'a>> LxAstTracker<'a, Input> {
         )
     }
 
-    pub fn show(&self, db: &InternerDb) -> String {
+    pub fn show(&self, db: &EternerDb) -> String {
         let display_tree_builder = self.display_tree_builder(db);
         Input::show_lx_ast_output(self.output, display_tree_builder)
     }

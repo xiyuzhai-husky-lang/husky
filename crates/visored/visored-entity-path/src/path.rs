@@ -5,7 +5,7 @@ pub mod trai;
 pub mod trai_item;
 
 use self::{category::*, function::*, set::*, trai::*, trai_item::*};
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 
 #[enum_class::from_variants]
@@ -51,7 +51,7 @@ impl VdItemPath {
 }
 
 impl VdItemPath {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &EternerDb) -> Self {
         let LpCsvExprData::Ident(ref ident) = expr.data else {
             todo!("expected identifier but got {:#?}", expr.data)
         };

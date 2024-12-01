@@ -34,8 +34,8 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
     let db_ty = if let FnArg::Typed(pat_type) = db_arg {
         if let Type::Path(type_path) = &*pat_type.ty {
             if let Some(last_segment) = type_path.path.segments.last() {
-                if last_segment.ident.to_string() != "InternerDb" {
-                    panic!("expect last arg to be db:InternerDb");
+                if last_segment.ident.to_string() != "EternerDb" {
+                    panic!("expect last arg to be db:EternerDb");
                 }
             }
         }
@@ -59,12 +59,12 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
         .collect::<Vec<_>>();
 
     let output = quote! {
-        #vis fn #fn_name(#(#args,)* db: &::interned::db::InternerDb) -> &'static #ret_type  {
-            interned::lazy_static! {
-                static ref #storage_name: interned::DashMap<(#(#arg_tys),*), Box<#ret_type>> = interned::DashMap::new();
+        #vis fn #fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> &'static #ret_type  {
+            eterned::lazy_static! {
+                static ref #storage_name: eterned::DashMap<(#(#arg_tys),*), Box<#ret_type>> = eterned::DashMap::new();
             }
 
-            fn #inner_fn_name(#(#args,)* db: &::interned::db::InternerDb) -> #ret_type #body
+            fn #inner_fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> #ret_type #body
 
             if let Some(result) = #storage_name.get(&(#(#arg_names),*)) {
                 return unsafe { &*(&**result as *const #ret_type)};

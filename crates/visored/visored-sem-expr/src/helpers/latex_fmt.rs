@@ -1,5 +1,5 @@
+use eterned::db::EternerDb;
 use expr::binary::VdSemBinaryDispatch;
-use interned::db::InternerDb;
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_term::{menu::vd_ty_menu, term::literal::VdLiteralData};
 
@@ -15,7 +15,7 @@ use crate::{
 };
 
 pub struct VdSemExprLaTeXFormatter<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     expr_arena: VdSemExprArenaRef<'a>,
     phrase_arena: VdSemPhraseArenaRef<'a>,
     clause_arena: VdSemClauseArenaRef<'a>,
@@ -25,7 +25,7 @@ pub struct VdSemExprLaTeXFormatter<'a> {
 
 impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         expr_arena: VdSemExprArenaRef<'a>,
         phrase_arena: VdSemPhraseArenaRef<'a>,
         clause_arena: VdSemClauseArenaRef<'a>,
@@ -41,7 +41,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
         }
     }
 
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 

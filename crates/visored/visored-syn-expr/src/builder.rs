@@ -20,7 +20,7 @@ use crate::{
 };
 use crate::{division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode, stmt::VdSynStmtMap};
 use either::*;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_ast::{
     ast::{
         rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange},
@@ -38,7 +38,7 @@ use visored_global_resolution::{
 };
 
 pub struct VdSynExprBuilder<'db> {
-    db: &'db InternerDb,
+    db: &'db EternerDb,
     content: &'db str,
     file_path: LxFilePath,
     token_storage: &'db LxTokenStorage,
@@ -57,7 +57,7 @@ pub struct VdSynExprBuilder<'db> {
 /// # constructor
 impl<'db> VdSynExprBuilder<'db> {
     pub fn new(
-        db: &'db InternerDb,
+        db: &'db EternerDb,
         content: &'db str,
         file_path: LxFilePath,
         token_storage: &'db LxTokenStorage,
@@ -87,7 +87,7 @@ impl<'db> VdSynExprBuilder<'db> {
 
 /// # getters
 impl<'db> VdSynExprBuilder<'db> {
-    pub(crate) fn db(&self) -> &'db InternerDb {
+    pub(crate) fn db(&self) -> &'db EternerDb {
         self.db
     }
 

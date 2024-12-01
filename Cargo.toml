@@ -220,12 +220,12 @@ enum-class = { path = "crates/abstractions/enum-class" }
 enum-class-macros = { path = "crates/abstractions/enum-class-macros" }
 enum-index = { path = "crates/abstractions/enum-index" }
 enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
+eterned = { path = "crates/abstractions/eterned" }
+eterned-macros = { path = "crates/abstractions/eterned-macros" }
 from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
-interned = { path = "crates/abstractions/interned" }
-interned-macros = { path = "crates/abstractions/interned-macros" }
 is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }

@@ -5,10 +5,10 @@ use crate::{
     *,
 };
 use either::*;
+use eterned::db::EternerDb;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
@@ -68,7 +68,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -121,12 +121,12 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         }
     }
 
-    pub(crate) fn show_display_tree(&self, db: &InternerDb) -> String {
+    pub(crate) fn show_display_tree(&self, db: &EternerDb) -> String {
         let builder = self.display_tree_builder(db);
         self.output.show(&builder)
     }
 
-    fn display_tree_builder<'b>(&'b self, db: &'b InternerDb) -> VdMirExprDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b EternerDb) -> VdMirExprDisplayTreeBuilder<'b> {
         VdMirExprDisplayTreeBuilder::new(
             db,
             self.expr_arena.as_arena_ref(),

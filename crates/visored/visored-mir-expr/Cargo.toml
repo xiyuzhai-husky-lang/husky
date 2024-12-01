@@ -17,7 +17,7 @@ lazy_static.workspace = true
 smallvec.workspace = true
 # abstractions
 idx-arena.workspace = true
-interned.workspace = true
+eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # latex
 latex-environment.workspace = true

@@ -1,7 +1,7 @@
 use super::*;
 use crate::idx::LxRootTokenIdx;
+use eterned::db::EternerDb;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
-use interned::db::InternerDb;
 use latex_command::path::LxCommandName;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -94,7 +94,7 @@ pub fn next_root_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
-        let db = &InternerDb::default();
+        let db = &EternerDb::default();
         let mut storage = LxTokenStorage::default();
         let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_root_stream()
@@ -146,7 +146,7 @@ pub fn next_root_token_data_with_comments_works() {
         fn f(input: &str) -> Vec<LxRootTokenData> {
             use crate::lane::LxTokenLane;
 
-            let db = &InternerDb::default();
+            let db = &EternerDb::default();
             let mut storage = LxTokenStorage::default();
             let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
                 .into_root_stream()

@@ -17,7 +17,7 @@ use self::{
     sqrt::*,
 };
 use crate::*;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use separator::base::VdBaseSeparatorSignature;
 
@@ -34,7 +34,7 @@ pub enum VdSignature {
 }
 
 impl VdSignature {
-    pub fn from_lp_csv_exprs(exprs: &[LpCsvExpr], db: &InternerDb) -> Self {
+    pub fn from_lp_csv_exprs(exprs: &[LpCsvExpr], db: &EternerDb) -> Self {
         assert_eq!(exprs.len(), 2);
         let instantiation = VdInstantiation::from_lp_csv_expr(&exprs[0], db);
         let (

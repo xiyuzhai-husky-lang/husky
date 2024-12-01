@@ -14,7 +14,7 @@ keywords.workspace = true
 [dependencies]
 # abstractions
 coword.workspace = true
-interned.workspace = true
+eterned.workspace = true
 
 [lints]
 workspace = true

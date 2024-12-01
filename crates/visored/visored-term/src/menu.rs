@@ -6,7 +6,7 @@ use crate::{
     },
     ty::{VdType, VdTypeData},
 };
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use smallvec::{smallvec, SmallVec};
 use visored_entity_path::{
@@ -33,7 +33,7 @@ pub struct VdTypeMenu {
 }
 
 impl VdTypeMenu {
-    fn new(db: &InternerDb) -> Self {
+    fn new(db: &EternerDb) -> Self {
         let VdItemPathMenu {
             set,
             prop,
@@ -87,6 +87,6 @@ impl VdTypeMenu {
 }
 
 #[memo]
-pub fn vd_ty_menu(db: &InternerDb) -> VdTypeMenu {
+pub fn vd_ty_menu(db: &EternerDb) -> VdTypeMenu {
     VdTypeMenu::new(db)
 }

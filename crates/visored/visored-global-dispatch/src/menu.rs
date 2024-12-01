@@ -1,5 +1,5 @@
-use interned::db::InternerDb;
-use interned::memo;
+use eterned::db::EternerDb;
+use eterned::memo;
 use lazy_static::lazy_static;
 use visored_opr::{
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
@@ -106,12 +106,12 @@ pub struct VdGlobalDispatchMenu {
 }
 
 #[memo]
-pub fn vd_global_dispatch_menu(db: &InternerDb) -> VdGlobalDispatchMenu {
+pub fn vd_global_dispatch_menu(db: &EternerDb) -> VdGlobalDispatchMenu {
     VdGlobalDispatchMenu::new(db)
 }
 
 impl VdGlobalDispatchMenu {
-    pub fn new(db: &InternerDb) -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         let VdTypeMenu {
             nat,
             int,

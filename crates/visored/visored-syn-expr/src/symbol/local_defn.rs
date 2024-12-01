@@ -3,8 +3,8 @@ pub mod punctuation;
 
 use super::*;
 use clause::VdSynClauseIdx;
+use eterned::db::EternerDb;
 use idx_arena::{Arena, ArenaIdx};
-use interned::db::InternerDb;
 use latex_token::idx::LxTokenIdxRange;
 use lineage::VdSynLineage;
 use visored_entity_path::module::VdModulePath;
@@ -38,7 +38,7 @@ impl VdSynSymbolLocalDefnScope {
         &self,
         other_module_path: VdModulePath,
         token_idx_range: LxTokenIdxRange,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> bool {
         match *self {
             VdSynSymbolLocalDefnScope::Module(slf_module_path) => {
@@ -124,7 +124,7 @@ impl VdSynSymbolLocalDefnStorage {
         module_path: VdModulePath,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
-        db: &'a InternerDb,
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = VdSynSymbolLocalDefnIdx> + 'a {
         // TODO: take scope into account
         // already used module_path, but this will not be enough.

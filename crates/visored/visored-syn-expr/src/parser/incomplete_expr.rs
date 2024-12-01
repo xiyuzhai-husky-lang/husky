@@ -56,7 +56,7 @@ impl IncompleteVdSynExprData {
 }
 
 impl IncompleteVdSynExprData {
-    pub fn show(&self, arena: VdSynExprArenaRef, db: &InternerDb) -> String {
+    pub fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             IncompleteVdSynExprData::Binary { lopd, opr } => {
                 format!("{} {}", arena[lopd].show(arena, db), opr.show(arena, db))

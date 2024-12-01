@@ -10,7 +10,7 @@ use crate::{
 };
 use builder::VdSynExprEntityTreeBuilder;
 use either::*;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_vfs::path::LxFilePath;
 use visored_entity_path::module::{VdModulePath, VdModulePathRegistry};
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
@@ -31,7 +31,7 @@ impl VdSynExprEntityTreeNode {
 }
 
 pub(crate) fn build_entity_tree_with(
-    db: &InternerDb,
+    db: &EternerDb,
     default_global_resolution_table: &VdDefaultGlobalResolutionTable,
     file_path: LxFilePath,
     stmt_arena: VdSynStmtArenaRef,

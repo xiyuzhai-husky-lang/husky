@@ -2,7 +2,7 @@ use std::path::Path;
 
 use crate::signature::VdSignature;
 use crate::*;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lisp_csv::{expr::LpCsvExprData, file::LpCsvFile, row::LpCsvRow};
 use lisp_csv::{file::LpCsvFileData, parse_lp_csv_file};
 use menu::{vd_signature_menu, VdSignatureMenu};
@@ -40,19 +40,19 @@ impl VdSignatureTable {
         Self { table }
     }
 
-    pub fn from_lp_csv_file_path(path: &Path, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_file_path(path: &Path, db: &EternerDb) -> Self {
         let file = std::fs::read_to_string(path).unwrap();
         let file = parse_lp_csv_file(&file).unwrap();
         Self::from_lp_csv_file(&file, db)
     }
 
-    pub fn from_lp_csv_file(file: &LpCsvFile, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_file(file: &LpCsvFile, db: &EternerDb) -> Self {
         match file.data() {
             LpCsvFileData::Rows(rows) => Self::from_lp_csv_rows(&rows, db),
         }
     }
 
-    fn from_lp_csv_rows(rows: &[LpCsvRow], db: &InternerDb) -> Self {
+    fn from_lp_csv_rows(rows: &[LpCsvRow], db: &EternerDb) -> Self {
         let mut table: FxHashMap<String, VdSignature> = FxHashMap::default();
         assert!(!rows.is_empty());
         for row in rows {
@@ -83,7 +83,7 @@ impl VdSignatureTable {
 fn vd_signature_table_from_lp_csv_rows_works() {
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let dev_dirs = HuskyLangDevPaths::new();
     let file = std::fs::read_to_string(dev_dirs.specs_dir().join("visored/signature_table.lpcsv"))
         .unwrap();

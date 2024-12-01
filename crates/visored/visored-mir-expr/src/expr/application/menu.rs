@@ -1,5 +1,5 @@
 use super::*;
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use visored_term::instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu};
 
@@ -86,7 +86,7 @@ pub struct VdMirFuncKeyMenu {
 }
 
 impl VdMirFuncKeyMenu {
-    pub fn new(db: &InternerDb) -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         let VdInstantiationMenu {
             int_pos,
             rat_pos,
@@ -213,6 +213,6 @@ impl VdMirFuncKeyMenu {
 }
 
 #[memo]
-pub fn vd_mir_func_key_menu(db: &InternerDb) -> VdMirFuncKeyMenu {
+pub fn vd_mir_func_key_menu(db: &EternerDb) -> VdMirFuncKeyMenu {
     VdMirFuncKeyMenu::new(db)
 }

@@ -1,6 +1,6 @@
 use super::*;
 use crate::{default_table::VdBaseBinaryOprKey, menu::VdGlobalDispatchMenu};
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lisp_csv::{
     expr::LpCsvExprData,
     file::{LpCsvFile, LpCsvFileData},
@@ -93,7 +93,7 @@ impl VdBinaryOprGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         base_binary_opr_file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
-        db: &'a InternerDb,
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = (VdBaseBinaryOprKey, Self)> + 'a {
         let LpCsvFileData::Rows(rows) = base_binary_opr_file.data();
         rows.iter()
@@ -103,7 +103,7 @@ impl VdBinaryOprGlobalDispatch {
     pub fn collect_from_lisp_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
-        db: &InternerDb,
+        db: &EternerDb,
     ) -> (VdBaseBinaryOprKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
@@ -151,7 +151,7 @@ fn vd_binary_opr_global_dispatch_standard_defaults_works() {
     use visored_opr::menu::vd_opr_menu;
     use visored_term::menu::vd_ty_menu;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
     let ty_menu = &vd_ty_menu(db);
     let global_dispatch_menu = &vd_global_dispatch_menu(db);

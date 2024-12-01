@@ -1,15 +1,15 @@
 use coword::Coword;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct LnIdent(Coword);
 
 impl LnIdent {
-    pub fn from_owned(ident: String, db: &InternerDb) -> Self {
+    pub fn from_owned(ident: String, db: &EternerDb) -> Self {
         LnIdent(Coword::new(ident, db))
     }
 
-    pub fn from_ref(ident: &str, db: &InternerDb) -> Self {
+    pub fn from_ref(ident: &str, db: &EternerDb) -> Self {
         // TODO: allow broader idents, like h\1
         assert!(Self::is_valid(ident));
         LnIdent(Coword::from_ref(ident, db))
@@ -45,7 +45,7 @@ impl LnIdent {
         RESERVED_KEYWORDS.contains(&ident)
     }
 
-    pub fn data(&self, db: &InternerDb) -> &str {
+    pub fn data(&self, db: &EternerDb) -> &str {
         self.0.data(db)
     }
 }

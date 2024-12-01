@@ -1,7 +1,7 @@
 use super::*;
+use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdSynExprTracker;
-use interned::db::InternerDb;
 use latex_prelude::{helper::tracker::LxPageInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
@@ -16,7 +16,7 @@ fn t(
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
-    let db = &InternerDb::default();
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdSynExprTracker::new(

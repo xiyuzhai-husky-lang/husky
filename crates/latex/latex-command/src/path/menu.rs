@@ -1,5 +1,5 @@
 use super::*;
-use interned::memo;
+use eterned::memo;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxCommandPathMenu {
@@ -62,7 +62,7 @@ pub struct LxCommandPathMenu {
 }
 
 impl LxCommandPathMenu {
-    fn new(db: &InternerDb) -> Self {
+    fn new(db: &EternerDb) -> Self {
         let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(data, db), db);
         Self {
             // - general
@@ -125,6 +125,6 @@ impl LxCommandPathMenu {
 }
 
 #[memo]
-pub fn lx_command_path_menu(db: &InternerDb) -> LxCommandPathMenu {
+pub fn lx_command_path_menu(db: &EternerDb) -> LxCommandPathMenu {
     LxCommandPathMenu::new(db)
 }

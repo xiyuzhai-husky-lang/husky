@@ -1,6 +1,6 @@
 mod debug;
 
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_token::storage::LxTokenStorage;
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
@@ -50,7 +50,7 @@ use crate::{
 };
 
 pub(crate) struct VdSemExprBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     content: &'a str,
     token_storage: &'a LxTokenStorage,
     annotations: &'a VdAnnotations,
@@ -80,7 +80,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
 
 impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         content: &'a str,
         token_storage: &'a LxTokenStorage,
         annotations: &'a VdAnnotations,
@@ -135,7 +135,7 @@ impl<'a> VdSemExprBuilder<'a> {
 
 /// # getters
 impl<'a> VdSemExprBuilder<'a> {
-    pub(crate) fn db(&self) -> &'a InternerDb {
+    pub(crate) fn db(&self) -> &'a EternerDb {
         self.db
     }
 

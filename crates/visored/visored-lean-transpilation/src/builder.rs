@@ -1,4 +1,4 @@
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use latex_token::storage::LxTokenStorage;
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
@@ -32,7 +32,7 @@ use crate::{
 };
 
 pub struct VdLeanTranspilationBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     lean_hir_expr_builder: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
@@ -58,7 +58,7 @@ impl<'a> WithLnNamespace for VdLeanTranspilationBuilder<'a> {
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         input: &'a str,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
         source_map: &'a VdMirSourceMap,
@@ -92,7 +92,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     }
 
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         input: &'a str,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
@@ -175,7 +175,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
 }
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
-    pub fn db(&self) -> &'db InternerDb {
+    pub fn db(&self) -> &'db EternerDb {
         self.db
     }
 

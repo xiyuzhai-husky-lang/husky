@@ -1,5 +1,5 @@
 use crate::precedence::{VdPrecedence, VdPrecedenceRange};
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
@@ -16,7 +16,7 @@ impl VdBaseBinaryOpr {
 }
 
 impl VdBaseBinaryOpr {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &InternerDb) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &EternerDb) -> Self {
         let LpCsvExprData::Ident(ref ident) = expr.data else {
             todo!()
         };

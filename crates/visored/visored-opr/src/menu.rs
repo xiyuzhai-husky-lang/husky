@@ -1,7 +1,7 @@
 use crate::opr::binary::VdBaseBinaryOpr;
 use crate::separator::VdBaseSeparator;
 use crate::*;
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 use opr::prefix::VdBasePrefixOpr;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -24,7 +24,7 @@ pub struct VdOprMenu {
 }
 
 #[memo]
-pub fn vd_opr_menu(db: &InternerDb) -> VdOprMenu {
+pub fn vd_opr_menu(db: &EternerDb) -> VdOprMenu {
     VdOprMenu {
         pos: VdBasePrefixOpr::POS,
         neg: VdBasePrefixOpr::NEG,

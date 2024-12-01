@@ -1,4 +1,4 @@
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 
 use super::*;
 
@@ -19,17 +19,17 @@ pub enum LnLiteralData {
 }
 
 impl LnLiteral {
-    pub fn new(data: LnLiteralData, db: &InternerDb) -> Self {
+    pub fn new(data: LnLiteralData, db: &EternerDb) -> Self {
         Self(LnTermId::new(data.into(), db))
     }
 
-    pub(crate) fn show(&self, db: &InternerDb) -> String {
+    pub(crate) fn show(&self, db: &EternerDb) -> String {
         todo!()
     }
 }
 
 impl LnLiteral {
-    pub fn data(&self, db: &InternerDb) -> &LnLiteralData {
+    pub fn data(&self, db: &EternerDb) -> &LnLiteralData {
         match self.0.data(db) {
             LnTermData::Literal(data) => data,
             _ => unreachable!(),

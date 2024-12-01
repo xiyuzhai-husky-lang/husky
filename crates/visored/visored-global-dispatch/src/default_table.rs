@@ -11,7 +11,7 @@ use crate::{
     *,
 };
 use dispatch::separator::join::VdBaseChainingSeparatorJoinDispatch;
-use interned::db::InternerDb;
+use eterned::db::EternerDb;
 use rustc_hash::FxHashMap;
 use visored_opr::{
     menu::vd_opr_menu,
@@ -203,7 +203,7 @@ impl VdDefaultGlobalDispatchTable {
 }
 
 impl VdDefaultGlobalDispatchTable {
-    pub fn from_standard_lisp_csv_file_dir(db: &InternerDb) -> Self {
+    pub fn from_standard_lisp_csv_file_dir(db: &EternerDb) -> Self {
         let husky_lang_dev_paths = husky_path_utils::HuskyLangDevPaths::new();
         let specs_dir = husky_lang_dev_paths.specs_dir();
         let dir = &specs_dir.join("visored/global_default_dispatches");

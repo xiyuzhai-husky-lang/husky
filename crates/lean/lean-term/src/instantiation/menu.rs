@@ -1,6 +1,6 @@
 use super::LnInstantiation;
 use crate::menu::{ln_term_menu, LnTermMenu};
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use lean_entity_path::menu::{ln_item_path_menu, LnItemPathMenu};
 use smallvec::*;
@@ -66,7 +66,7 @@ pub struct LnInstantiationMenu {
 }
 
 impl LnInstantiationMenu {
-    pub fn new(db: &InternerDb) -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         let LnItemPathMenu {
             ring_add,
             ring_mul,
@@ -149,6 +149,6 @@ impl LnInstantiationMenu {
 }
 
 #[memo]
-pub fn ln_instantiation_menu(db: &InternerDb) -> LnInstantiationMenu {
+pub fn ln_instantiation_menu(db: &EternerDb) -> LnInstantiationMenu {
     LnInstantiationMenu::new(db)
 }

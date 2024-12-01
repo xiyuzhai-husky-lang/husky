@@ -1,5 +1,5 @@
 use super::LxEnvironmentPath;
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LxEnvironmentPathMenu {
@@ -24,7 +24,7 @@ pub struct LxEnvironmentPathMenu {
 }
 
 impl LxEnvironmentPathMenu {
-    fn new(db: &InternerDb) -> Self {
+    fn new(db: &EternerDb) -> Self {
         let p = |s: &str| LxEnvironmentPath::new(s, db);
         Self {
             document: p("document"),
@@ -48,6 +48,6 @@ impl LxEnvironmentPathMenu {
 }
 
 #[memo]
-pub fn lx_environment_path_menu(db: &InternerDb) -> LxEnvironmentPathMenu {
+pub fn lx_environment_path_menu(db: &EternerDb) -> LxEnvironmentPathMenu {
     LxEnvironmentPathMenu::new(db)
 }

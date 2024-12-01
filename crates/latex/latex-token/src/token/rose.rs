@@ -177,14 +177,14 @@ impl<'a> LxLexer<'a> {
 
 #[cfg(test)]
 mod tests {
-    use interned::db::InternerDb;
+    use eterned::db::EternerDb;
 
     use super::*;
 
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
-        let db = &InternerDb::default();
+        let db = &EternerDb::default();
         let mut storage = LxTokenStorage::default();
         let mut stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_rose_stream()

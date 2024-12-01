@@ -14,12 +14,12 @@ use crate::{
     },
     range::LxAstTokenIdxRangeMap,
 };
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
-use interned::db::InternerDb;
 use latex_token::storage::LxTokenStorage;
 
 pub struct LxAstDisplayTreeBuilder<'a> {
-    db: &'a InternerDb,
+    db: &'a EternerDb,
     input: &'a str,
     ast_arena: LxAstArenaRef<'a>,
     ast_token_idx_range_map: &'a LxAstTokenIdxRangeMap,
@@ -29,7 +29,7 @@ pub struct LxAstDisplayTreeBuilder<'a> {
 /// # construction
 impl<'a> LxAstDisplayTreeBuilder<'a> {
     pub fn new(
-        db: &'a InternerDb,
+        db: &'a EternerDb,
         input: &'a str,
         token_storage: &'a LxTokenStorage,
         ast_arena: LxAstArenaRef<'a>,
@@ -47,7 +47,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
 
 /// # getters
 impl<'a> LxAstDisplayTreeBuilder<'a> {
-    pub fn db(&self) -> &'a InternerDb {
+    pub fn db(&self) -> &'a EternerDb {
         self.db
     }
 }

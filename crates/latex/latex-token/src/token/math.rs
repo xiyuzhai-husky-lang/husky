@@ -3,8 +3,8 @@ pub mod digit;
 use self::digit::LxMathDigit;
 use super::*;
 use crate::idx::LxMathTokenIdx;
+use eterned::db::EternerDb;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
-use interned::db::InternerDb;
 use latex_command::path::{LxCommandName, LxCommandNameResult};
 use latex_math_letter::letter::LxMathLetter;
 use latex_math_punctuation::LxMathPunctuation;
@@ -159,7 +159,7 @@ fn next_math_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
-        let db = &InternerDb::default();
+        let db = &EternerDb::default();
         let mut storage = LxTokenStorage::default();
         let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage).into_math_stream();
         let tokens: Vec<_> = stream.map(|(_, token_data)| token_data).collect();

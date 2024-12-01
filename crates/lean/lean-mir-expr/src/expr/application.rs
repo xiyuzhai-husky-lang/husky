@@ -1,6 +1,6 @@
 use super::{LnMirExprData, LnMirExprIdx};
 use crate::constructor::LnMirExprConstructor;
-use interned::{db::InternerDb, memo};
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use lean_entity_path::{
     menu::{ln_item_path_menu, LnItemPathMenu},
@@ -151,7 +151,7 @@ pub struct LnMirFuncKeyMenu {
 }
 
 impl LnMirFuncKeyMenu {
-    pub fn new(db: &InternerDb) -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         use LnBinaryOpr::*;
         use LnPrefixOpr::*;
 
@@ -280,6 +280,6 @@ impl LnMirFuncKeyMenu {
 }
 
 #[memo]
-pub fn ln_mir_func_key_menu(db: &InternerDb) -> LnMirFuncKeyMenu {
+pub fn ln_mir_func_key_menu(db: &EternerDb) -> LnMirFuncKeyMenu {
     LnMirFuncKeyMenu::new(db)
 }

@@ -1,7 +1,7 @@
 use crate::*;
 use std::path::PathBuf;
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct LxFilePath {
     #[return_ref]
     data: PathBuf,
@@ -9,7 +9,7 @@ pub struct LxFilePath {
 
 impl std::fmt::Debug for LxFilePath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = interned::db::attached_interner_db();
+        let db = eterned::db::attached_interner_db();
         f.debug_tuple("LxFilePath").field(self.data(db)).finish()
     }
 }

@@ -18,7 +18,7 @@ thiserror.workspace = true
 # abstractions
 enum-class.workspace = true
 idx-arena.workspace = true
-interned.workspace = true
+eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # latex
 latex-ast.workspace = true
