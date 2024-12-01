@@ -87,6 +87,16 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         #[derive(Clone, Copy, PartialEq, Eq, Hash)]
         #vis struct #ty_ident(eterned::Eterned<#data_ty_ident>);
 
+        impl ::eterned::as_id::AsId for #ty_ident {
+            fn as_id(self) -> u32 {
+                self.0.as_id()
+            }
+
+            fn from_id(id: u32, db: &::eterned::db::EternerDb) -> Self {
+                Self(eterned::Eterned::from_id(id, db))
+            }
+        }
+
         impl #ty_ident {
             #vis fn new(#(#ctor_params),*, db: &::eterned::db::EternerDb) -> Self {
                 use eterned::Eterned;
