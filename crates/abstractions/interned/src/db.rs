@@ -12,8 +12,11 @@ thread_local! {
     static ATTACHED_INTERNER_DB: Cell<Option<&'static InternerDb>> = Cell::new(None);
 }
 
+#[track_caller]
 pub fn attached_interner_db() -> &'static InternerDb {
-    ATTACHED_INTERNER_DB.with(|cell| cell.get().unwrap())
+    ATTACHED_INTERNER_DB
+        .with(|cell| cell.get())
+        .expect("attached interner db not initialized")
 }
 
 impl InternerDb {
