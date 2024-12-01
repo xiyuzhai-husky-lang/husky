@@ -45,7 +45,7 @@ impl LnIdent {
         RESERVED_KEYWORDS.contains(&ident)
     }
 
-    pub fn data(&self, db: &EternerDb) -> &str {
+    pub fn data(self, db: &EternerDb) -> &str {
         self.0.data(db)
     }
 }
