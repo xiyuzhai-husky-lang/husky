@@ -13,6 +13,7 @@ pub mod hash;
 pub mod id;
 pub mod ingredient;
 pub mod ingredient_list;
+mod ingredient_storage;
 pub mod input;
 pub mod input_field;
 pub mod interned;

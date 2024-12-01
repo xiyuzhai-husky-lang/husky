@@ -120,7 +120,8 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
 
 impl<K, V> Ingredient for InputFieldIngredient<K, V>
 where
-    K: AsId,
+    K: AsId + 'static,
+    V: 'static,
 {
     fn cycle_recovery_strategy(&self) -> CycleRecoveryStrategy {
         CycleRecoveryStrategy::Panic

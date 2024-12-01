@@ -880,6 +880,7 @@ dependencies = [
  "enum-index",
  "hashlink",
  "husky-salsa-log-utils",
+ "husky-wild-utils",
  "indexmap",
  "log",
  "maybe-result",

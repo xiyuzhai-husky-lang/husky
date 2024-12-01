@@ -132,8 +132,8 @@ where
 
 impl<Id, Data> Ingredient for TrackedStructIngredient<Id, Data>
 where
-    Id: TrackedStructId,
-    Data: TrackedStructData,
+    Id: TrackedStructId + 'static,
+    Data: TrackedStructData + 'static,
 {
     fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
         self.interned.maybe_changed_after(db, input, revision)

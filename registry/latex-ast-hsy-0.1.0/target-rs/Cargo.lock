@@ -1305,6 +1305,7 @@ dependencies = [
  "enum-index",
  "hashlink 0.9.1",
  "husky-salsa-log-utils",
+ "husky-wild-utils",
  "indexmap",
  "log",
  "maybe-result",
