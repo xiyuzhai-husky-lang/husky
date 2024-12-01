@@ -1,10 +1,14 @@
-use crate::eterner::Interner;
+use crate::{
+    eterner::{Eterner, EternerDyn},
+    memo::IsMemo,
+    Eterned,
+};
 use dashmap::DashMap;
 use std::cell::Cell;
 
 #[derive(Default)]
 pub struct EternerDb {
-    interners: DashMap<std::any::TypeId, Interner>,
+    eterners: DashMap<std::any::TypeId, EternerDyn>,
     memo_storages: DashMap<std::any::TypeId, Box<dyn std::any::Any + Send + Sync>>,
 }
 
@@ -27,5 +31,36 @@ impl EternerDb {
         let result = f();
         ATTACHED_INTERNER_DB.with(|cell| cell.set(old));
         result
+    }
+
+    pub fn etern<T>(&self, t: T) -> Eterned<T>
+    where
+        T: Eq + std::hash::Hash + Send + Sync + 'static,
+    {
+        self.eterner_with(|eterner| eterner.etern(t))
+    }
+
+    pub fn etern_ref<T, Q>(&self, q: &Q) -> Eterned<T>
+    where
+        T: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
+        T: Eq + std::hash::Hash + Send + Sync + 'static,
+        Q: Eq + std::hash::Hash + ?Sized,
+    {
+        self.eterner_with(|eterner| eterner.etern_ref(q))
+    }
+
+    fn eterner_with<T: Eq + std::hash::Hash + Send + Sync + 'static, R>(
+        &self,
+        f: impl FnOnce(&Eterner<T>) -> R,
+    ) -> R {
+        f(self
+            .eterners
+            .entry(std::any::TypeId::of::<T>())
+            .or_insert_with(|| EternerDyn::new::<T>())
+            .downcast())
+    }
+
+    pub fn memo_jar<M: IsMemo>(&self) -> &M::Jar {
+        todo!()
     }
 }
