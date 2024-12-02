@@ -38,3 +38,15 @@ impl<T, const N: usize> Pool<T, N> {
         }
     }
 }
+
+impl<T, const N: usize> std::ops::Index<u32> for Pool<T, N> {
+    type Output = T;
+
+    fn index(&self, index: u32) -> &Self::Output {
+        let index = index as usize;
+        let block_index = index / N;
+        let block = &self.blocks[block_index];
+        let item_index = index % N;
+        &block[item_index]
+    }
+}

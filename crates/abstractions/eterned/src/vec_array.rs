@@ -1,6 +1,13 @@
 pub struct VecArray<T, const N: usize> {
     data: Vec<T>,
 }
+impl<T, const N: usize> std::ops::Index<usize> for VecArray<T, N> {
+    type Output = T;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.data[index]
+    }
+}
 
 impl<T: std::ops::Deref, const N: usize> std::ops::Deref for VecArray<T, N> {
     type Target = Vec<T>;
