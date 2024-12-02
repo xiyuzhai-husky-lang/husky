@@ -62,12 +62,15 @@ impl<T: 'static> Copy for Eterned<T> {}
 
 unsafe impl<T> Send for Eterned<T> {}
 
-impl<T: 'static> AsEternedId for Eterned<T> {
+impl<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static> AsEternedId for Eterned<T> {
     fn as_id(self) -> u32 {
         self.0.id
     }
 
     fn from_id(id: u32, db: &EternerDb) -> Self {
-        todo!()
+        use husky_wild_utils::arb_ref;
+
+        let eterner = db.eterner::<T>();
+        eterner.with_pool(|pool| Eterned(unsafe { arb_ref(&pool[id]) }))
     }
 }

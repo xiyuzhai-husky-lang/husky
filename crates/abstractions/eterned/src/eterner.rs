@@ -52,6 +52,10 @@ impl<T: Eq + std::hash::Hash + Send + Sync + 'static> IsEternerDyn for Eterner<T
 pub struct EternerDyn(Pin<Box<dyn IsEternerDyn>>);
 
 impl<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static> Eterner<T> {
+    pub fn with_pool<R>(&self, f: impl FnOnce(&Pool<EternedEntry<T>, 1024>) -> R) -> R {
+        f(&self.pool.lock().unwrap())
+    }
+
     pub fn etern(&self, t: T) -> Eterned<T> {
         if let Some(eterned) = self.map.get(&t) {
             return *eterned;
