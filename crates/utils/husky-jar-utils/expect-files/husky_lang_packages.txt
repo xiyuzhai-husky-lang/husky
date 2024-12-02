@@ -166,6 +166,7 @@
             "snapshot",
             "stacker",
             "vec-like",
+            "coword",
             "expect-test",
             "rustversion",
             "test-log",

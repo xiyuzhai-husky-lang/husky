@@ -18,14 +18,14 @@ rustc-hash.workspace = true
 stacker.workspace = true
 smallvec.workspace = true
 # abstractions
+enum-index.workspace = true
 eterned.workspace = true
+maybe-result.workspace = true
 salsa-macros.workspace = true
 snapshot.workspace = true
-enum-index.workspace = true
 vec-like.workspace = true
-maybe-result.workspace = true
-husky-salsa-log-utils.workspace = true
 # utils
+husky-salsa-log-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [dev-dependencies]
@@ -33,6 +33,8 @@ expect-test.workspace = true
 test-log = "0.2.11"
 rustversion = "1.0"
 trybuild = "1.0"
+# abstractions
+coword.workspace = true
 
 [features]
 test_helpers = []

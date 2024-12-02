@@ -11060,6 +11060,7 @@ name = "salsa"
 version = "0.1.0"
 dependencies = [
  "arc-swap",
+ "coword",
  "crossbeam",
  "crossbeam-utils",
  "dashmap 6.0.1",
