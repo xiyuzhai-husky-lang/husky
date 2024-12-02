@@ -158,6 +158,7 @@ fn latex_shorts_to_lean_works() {
             r#"import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 import Mathlib.Data.Real.Basic
+import Mathlib.Data.Real.Sqrt
 import Mathlib.Tactic.Explode
 
 {}"#,
