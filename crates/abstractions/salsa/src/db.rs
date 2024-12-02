@@ -1,11 +1,33 @@
 use crate::{jar::HasJarIndex, routes::Routes, *};
 use ::snapshot::SnapshotClone;
+use eterned::db::EternerDb;
 use husky_salsa_log_utils::HasLogger;
 use std::sync::Arc;
 
 pub struct Db {
     pub(crate) storage: crate::storage::Storage,
+    pub(crate) eterner_db: Arc<EternerDb>,
     pub(crate) logger: Arc<husky_salsa_log_utils::Logger>,
+}
+
+impl std::borrow::Borrow<EternerDb> for Db {
+    fn borrow(&self) -> &EternerDb {
+        &self.eterner_db
+    }
+}
+
+impl std::convert::AsRef<EternerDb> for Db {
+    fn as_ref(&self) -> &EternerDb {
+        &self.eterner_db
+    }
+}
+
+impl std::ops::Deref for Db {
+    type Target = EternerDb;
+
+    fn deref(&self) -> &Self::Target {
+        &self.eterner_db
+    }
 }
 
 pub trait HasDb<'a> {
@@ -16,6 +38,7 @@ impl SnapshotClone for Db {
     fn snapshot_clone(&self) -> Self {
         Self {
             storage: self.storage.snapshot(),
+            eterner_db: self.eterner_db.clone(),
             logger: self.logger.clone(),
         }
     }
@@ -26,8 +49,13 @@ impl Db {
     pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         Self {
             storage: crate::Storage::new(initialize_jars),
+            eterner_db: Default::default(),
             logger: Default::default(),
         }
+    }
+
+    pub fn eterner_db(&self) -> &EternerDb {
+        &self.eterner_db
     }
 
     pub fn jars(&self) -> (&Jars, &Runtime) {
@@ -83,7 +111,7 @@ impl Db {
         index: crate::DatabaseKeyIndex,
     ) -> Option<crate::runtime::local_state::QueryOrigin> {
         let ingredient = self.storage.ingredient(index.ingredient_index());
-        ingredient.origin(index.key_index())
+        ingredient.origin(self, index.key_index())
     }
     pub fn mark_validated_output(
         &self,

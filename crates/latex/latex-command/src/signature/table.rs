@@ -1,8 +1,9 @@
 use std::path::Path;
 
 use super::*;
-use crate::path::{menu::LX_COMMAND_PATH_MENU, LxCommandName};
+use crate::path::{menu::lx_command_path_menu, LxCommandName};
 use coword::Coword;
+use eterned::db::EternerDb;
 use latex_prelude::mode::LxMode;
 use lisp_csv::{
     expr::LpCsvExprData,
@@ -84,7 +85,9 @@ impl std::ops::Deref for LxCommandSignatureTable {
 }
 
 impl LxCommandSignatureTable {
-    fn default_commands() -> [(
+    fn default_commands(
+        db: &EternerDb,
+    ) -> [(
         LxCommandPath,
         &'static [LxMode],
         &'static [LxCommandParameterMode],
@@ -144,7 +147,7 @@ impl LxCommandSignatureTable {
             sqrt,
             frac,
             text,
-        } = *LX_COMMAND_PATH_MENU;
+        } = *lx_command_path_menu(db);
         [
             // - root
             (usepackage, &[LxMode::Root], &[LxCommandParameterMode::Name]),
@@ -208,13 +211,16 @@ impl LxCommandSignatureTable {
         ]
     }
 
-    pub fn new_from_lp_csv_file_paths(complete_commands_path: &Path) -> Self {
+    pub fn new_from_lp_csv_file_paths(complete_commands_path: &Path, db: &EternerDb) -> Self {
         use lisp_csv::parse_lp_csv_filepath;
 
-        Self::new_from_csv_files(&parse_lp_csv_filepath(complete_commands_path).expect("todo"))
+        Self::new_from_csv_files(
+            &parse_lp_csv_filepath(complete_commands_path).expect("todo"),
+            db,
+        )
     }
 
-    pub fn new_from_csv_files(complete_commands_file: &LpCsvFile) -> Self {
+    pub fn new_from_csv_files(complete_commands_file: &LpCsvFile, db: &EternerDb) -> Self {
         let LxCommandPathMenu {
             // - root
             begin,
@@ -238,7 +244,7 @@ impl LxCommandSignatureTable {
             mathsf,
             mathscr,
             ..
-        } = *LX_COMMAND_PATH_MENU;
+        } = *lx_command_path_menu(db);
         Self::new(
             begin,
             end,
@@ -251,26 +257,29 @@ impl LxCommandSignatureTable {
                 (mathsf, LxMathLetterStyle::MATHSF),
                 (mathscr, LxMathLetterStyle::MATHSCR),
             ],
-            Self::complete_commands_from_csv_file(complete_commands_file),
+            Self::complete_commands_from_csv_file(complete_commands_file, db),
         )
     }
 
     fn complete_commands_from_csv_file<'a>(
         complete_commands_file: &'a LpCsvFile,
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = (LxCommandPath, Vec<LxMode>, Vec<LxCommandParameterMode>)> + 'a {
         let LpCsvFileData::Rows(rows) = complete_commands_file.data();
-        Self::complete_commands_from_csv_rows(rows)
+        Self::complete_commands_from_csv_rows(rows, db)
     }
 
     fn complete_commands_from_csv_rows<'a>(
         rows: &'a [LpCsvRow],
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = (LxCommandPath, Vec<LxMode>, Vec<LxCommandParameterMode>)> + 'a {
         rows.iter()
-            .map(|row| Self::complete_command_from_csv_row(row))
+            .map(|row| Self::complete_command_from_csv_row(row, db))
     }
 
     fn complete_command_from_csv_row(
         row: &LpCsvRow,
+        db: &EternerDb,
     ) -> (LxCommandPath, Vec<LxMode>, Vec<LxCommandParameterMode>) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!("row = {:?}", row)
@@ -282,7 +291,7 @@ impl LxCommandSignatureTable {
             todo!()
         };
         // TODO: ad hoc
-        let command_path = LxCommandPath::new_prelude(Coword::from_ref(command_ident));
+        let command_path = LxCommandPath::new_prelude(Coword::from_ref(command_ident, db), db);
         let LpCsvExprData::List(ref allowed_modes) = allowed_modes.data else {
             todo!()
         };
@@ -327,10 +336,11 @@ impl LxCommandSignatureTable {
 fn lx_command_signature_table_works() {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let complete_commands_path = &dev_paths.specs_dir().join("latex/complete-commands.lpcsv");
-    let table = LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path);
-    for (path, allowed_modes, parameter_modes) in LxCommandSignatureTable::default_commands() {
+    let table = LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path, db);
+    for (path, allowed_modes, parameter_modes) in LxCommandSignatureTable::default_commands(db) {
         let Some(signature) = table.signature(path.name()) else {
             todo!()
         };

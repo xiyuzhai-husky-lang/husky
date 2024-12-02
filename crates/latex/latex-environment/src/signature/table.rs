@@ -1,8 +1,9 @@
 use super::LxEnvironmentSignature;
 use crate::path::{
-    menu::{LxEnvironmentPathMenu, LX_ENVIRONMENT_PATH_MENU},
+    menu::{lx_environment_path_menu, LxEnvironmentPathMenu},
     LxEnvironmentName, LxEnvironmentPath,
 };
+use eterned::db::EternerDb;
 use latex_prelude::mode::LxMode;
 use rustc_hash::FxHashMap;
 
@@ -27,7 +28,7 @@ impl LxEnvironmentSignatureTable {
         }
     }
 
-    pub fn new_default() -> Self {
+    pub fn new_default(db: &EternerDb) -> Self {
         let LxEnvironmentPathMenu {
             document,
             example,
@@ -45,7 +46,7 @@ impl LxEnvironmentSignatureTable {
             equation,
             figure,
             table,
-        } = *LX_ENVIRONMENT_PATH_MENU;
+        } = *lx_environment_path_menu(db);
         Self::new([
             (document, (&[LxMode::Root], LxMode::Rose)),
             // theorems

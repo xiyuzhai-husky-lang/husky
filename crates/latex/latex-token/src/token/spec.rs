@@ -55,6 +55,7 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => Some(LxSpecTokenData::Command(
                             LxCommandName::new(
                                 self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
+                                self.db(),
                             )
                             .unwrap(),
                         )),

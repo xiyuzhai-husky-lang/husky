@@ -1,4 +1,5 @@
 use super::*;
+use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdSemExprTracker;
 use latex_prelude::helper::tracker::LxPageInput;
@@ -8,8 +9,9 @@ use std::path::PathBuf;
 pub(crate) fn t(content: &str, expected: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdSemExprTracker::new(
         LxPageInput {
             specs_dir: dev_paths.specs_dir(),
@@ -18,8 +20,9 @@ pub(crate) fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
+        db,
     );
-    expected.assert_eq(&tracker.show_display_tree());
+    expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]

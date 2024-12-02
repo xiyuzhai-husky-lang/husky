@@ -8,8 +8,9 @@ use crate::{
     },
     region::LxAstRegionData,
 };
+use eterned::db::EternerDb;
 use latex_command::{
-    path::menu::{LxCommandPathMenu, LX_COMMAND_PATH_MENU},
+    path::menu::{lx_command_path_menu, LxCommandPathMenu},
     signature::table::LxCommandSignatureTable,
 };
 use latex_environment::signature::table::LxEnvironmentSignatureTable;
@@ -41,6 +42,7 @@ pub(crate) struct LxAstParser<'a> {
 /// # constructor
 impl<'a> LxAstParser<'a> {
     pub(crate) fn new(
+        db: &'a EternerDb,
         command_signature_table: &'a LxCommandSignatureTable,
         environment_signature_table: &'a LxEnvironmentSignatureTable,
         input: &'a str,
@@ -49,12 +51,12 @@ impl<'a> LxAstParser<'a> {
         token_storage: &'a mut LxTokenStorage,
         arena: &'a mut LxAstArena,
     ) -> Self {
-        let command_path_menu = &LX_COMMAND_PATH_MENU;
+        let command_path_menu = &lx_command_path_menu(db);
         Self {
             command_path_menu,
             command_signature_table,
             environment_signature_table,
-            lexer: LxLexer::new(input, lane, token_storage),
+            lexer: LxLexer::new(db, input, lane, token_storage),
             mode,
             arena,
         }

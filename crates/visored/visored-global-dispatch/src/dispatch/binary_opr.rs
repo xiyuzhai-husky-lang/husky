@@ -1,5 +1,6 @@
 use super::*;
 use crate::{default_table::VdBaseBinaryOprKey, menu::VdGlobalDispatchMenu};
+use eterned::db::EternerDb;
 use lisp_csv::{
     expr::LpCsvExprData,
     file::{LpCsvFile, LpCsvFileData},
@@ -25,7 +26,7 @@ pub enum VdBinaryOprGlobalDispatch {
 
 impl VdBinaryOprGlobalDispatch {
     pub fn standard_defaults(
-        zfc_ty_menu: &VdTypeMenu,
+        vd_ty_menu: &VdTypeMenu,
         vd_opr_menu: &VdOprMenu,
         global_dispatch_menu: &VdGlobalDispatchMenu,
     ) -> impl IntoIterator<Item = ((VdType, VdBaseBinaryOpr, VdType), VdBinaryOprGlobalDispatch)>
@@ -38,7 +39,7 @@ impl VdBinaryOprGlobalDispatch {
             complex,
             set,
             prop,
-        } = *zfc_ty_menu;
+        } = *vd_ty_menu;
         let VdOprMenu {
             add,
             sub,
@@ -92,15 +93,17 @@ impl VdBinaryOprGlobalDispatch {
     pub fn collect_from_lisp_csv_files<'a>(
         base_binary_opr_file: &'a LpCsvFile,
         signature_table: &'a VdSignatureTable,
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = (VdBaseBinaryOprKey, Self)> + 'a {
         let LpCsvFileData::Rows(rows) = base_binary_opr_file.data();
         rows.iter()
-            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table))
+            .map(|row| Self::collect_from_lisp_csv_row(row, signature_table, db))
     }
 
     pub fn collect_from_lisp_csv_row(
         row: &LpCsvRow,
         signature_table: &VdSignatureTable,
+        db: &EternerDb,
     ) -> (VdBaseBinaryOprKey, Self) {
         let LpCsvRow::SeparatedExprs(exprs) = row else {
             todo!()
@@ -109,9 +112,9 @@ impl VdBinaryOprGlobalDispatch {
         else {
             todo!()
         };
-        let lopd_ty = VdType::from_lp_csv_expr(lopd_ty);
-        let base_binary_opr = VdBaseBinaryOpr::from_lp_csv_expr(base_binary_opr);
-        let ropd_ty = VdType::from_lp_csv_expr(ropd_ty);
+        let lopd_ty = VdType::from_lp_csv_expr(lopd_ty, db);
+        let base_binary_opr = VdBaseBinaryOpr::from_lp_csv_expr(base_binary_opr, db);
+        let ropd_ty = VdType::from_lp_csv_expr(ropd_ty, db);
         let LpCsvExprData::Ident(ref signature_ident) = signature_ident.data else {
             todo!()
         };
@@ -146,12 +149,13 @@ fn vd_binary_opr_global_dispatch_standard_defaults_works() {
     use crate::default_table::VdDefaultGlobalDispatchTable;
     use crate::menu::{vd_global_dispatch_menu, VdGlobalDispatchMenu};
     use visored_opr::menu::vd_opr_menu;
-    use visored_term::menu::VD_TYPE_MENU;
+    use visored_term::menu::vd_ty_menu;
 
-    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
-    let ty_menu = &VD_TYPE_MENU;
-    let global_dispatch_menu = &vd_global_dispatch_menu;
-    let opr_menu = &vd_opr_menu;
+    let db = &EternerDb::default();
+    let table = VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
+    let ty_menu = &vd_ty_menu(db);
+    let global_dispatch_menu = &vd_global_dispatch_menu(db);
+    let opr_menu = &vd_opr_menu(db);
     for ((lopd_ty, base_binary_opr, ropd_ty), dispatch) in
         VdBinaryOprGlobalDispatch::standard_defaults(ty_menu, opr_menu, global_dispatch_menu)
     {

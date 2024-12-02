@@ -25,9 +25,10 @@ use self::{
     symbolic_variable::{VdSymbolicVariable, VdSymbolicVariableData},
 };
 use crate::ty::VdType;
+use eterned::db::{attached_interner_db, EternerDb};
 use item_path::VdItemPathTermData;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
-use menu::{VdTermMenu, VD_TERM_MENU};
+use menu::{vd_term_menu, VdTermMenu};
 use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
 
@@ -49,13 +50,14 @@ pub enum VdTerm {
 
 impl std::fmt::Debug for VdTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.show_aux(f)
+        let db = attached_interner_db().ok_or(std::fmt::Error)?;
+        self.show_aux(f, &db)
     }
 }
 
 impl VdTerm {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self.data() {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
+        match *self.data(db) {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref data) => data.item_path().show_aux(f),
             VdTermData::ForAll(_) => todo!(),
@@ -92,9 +94,15 @@ impl std::ops::Deref for VdTerm {
 
 pub type ZfcTerms = SmallVec<[VdTerm; 4]>;
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct VdTermId {
     pub data: VdTermData,
+}
+
+impl std::fmt::Debug for VdTermId {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
 }
 
 #[enum_class::from_variants]
@@ -120,17 +128,17 @@ impl VdTerm {
 }
 
 impl VdTerm {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &EternerDb) -> Self {
         match expr.data {
             LpCsvExprData::Literal(ref literal) => todo!(),
             LpCsvExprData::Application(ref app) => todo!(),
             LpCsvExprData::List(ref vec) => todo!(),
-            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident),
+            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident, db),
             LpCsvExprData::Parenthesized(ref lp_csv_expr) => todo!(),
         }
     }
 
-    pub fn from_lp_csv_ident(ident: &str) -> Self {
+    pub fn from_lp_csv_ident(ident: &str, db: &EternerDb) -> Self {
         let VdTermMenu {
             zero,
             one,
@@ -140,7 +148,7 @@ impl VdTerm {
             rat,
             real,
             complex,
-        } = *VD_TERM_MENU;
+        } = *vd_term_menu(db);
         match ident as &str {
             "true" => todo!(),
             "false" => todo!(),

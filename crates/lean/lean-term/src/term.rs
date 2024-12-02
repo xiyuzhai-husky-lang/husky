@@ -1,6 +1,7 @@
 pub mod literal;
 
 use self::literal::{LnLiteral, LnLiteralData};
+use eterned::db::EternerDb;
 use lean_entity_path::LnItemPath;
 
 // TODO: ad hoc, use LnTermId
@@ -22,9 +23,16 @@ impl LnTerm {
     }
 }
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct LnTermId {
     data: LnTermData,
+}
+
+impl std::fmt::Debug for LnTermId {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+        // f.debug_tuple("LnTermId").field(&self.0).finish()
+    }
 }
 
 #[enum_class::from_variants]
@@ -34,10 +42,10 @@ pub enum LnTermData {
 }
 
 impl LnTerm {
-    pub fn show(&self) -> String {
+    pub fn show(&self, db: &EternerDb) -> String {
         match self {
-            LnTerm::Literal(literal) => literal.show(),
-            LnTerm::ItemPath(item_path) => item_path.show(),
+            LnTerm::Literal(literal) => literal.show(db),
+            LnTerm::ItemPath(item_path) => item_path.show(db),
         }
     }
 }

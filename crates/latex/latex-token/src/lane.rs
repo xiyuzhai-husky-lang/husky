@@ -6,7 +6,7 @@ pub enum LxTokenLane {
     Annotation(LxTokenAnnotationLane),
 }
 
-#[interned::interned]
+#[eterned::eterned]
 pub struct LxTokenAnnotationLane {
     pub token_idx_range: LxTokenIdxRange,
     pub channel: LxTokenAnnotationChannel,

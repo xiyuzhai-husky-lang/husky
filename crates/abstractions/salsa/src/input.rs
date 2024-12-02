@@ -67,7 +67,7 @@ where
 
 impl<Id> Ingredient for InputIngredient<Id>
 where
-    Id: InputId,
+    Id: InputId + 'static,
 {
     fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, _revision: Revision) -> bool {
         // Input ingredients are just a counter, they store no data, they are immortal.
@@ -79,7 +79,7 @@ where
         CycleRecoveryStrategy::Panic
     }
 
-    fn origin(&self, _key_index: crate::Id) -> Option<QueryOrigin> {
+    fn origin(&self, _db: &Db, _key_index: crate::Id) -> Option<QueryOrigin> {
         None
     }
 

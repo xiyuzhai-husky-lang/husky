@@ -1,6 +1,7 @@
 pub mod menu;
 
 use coword::Coword;
+use eterned::db::EternerDb;
 use thiserror::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -28,10 +29,10 @@ pub struct OneDigitNonLetterLxCommandName(char);
 
 impl LxCommandPath {
     #[deprecated(note = "ad hoc")]
-    pub fn new_prelude(ident: Coword) -> Self {
+    pub fn new_prelude(ident: Coword, db: &EternerDb) -> Self {
         Self {
             package: LxPackagePath::Prelude,
-            name: LxCommandName::new(ident).unwrap(),
+            name: LxCommandName::new(ident, db).unwrap(),
         }
     }
 }
@@ -47,8 +48,8 @@ impl LxCommandPath {
 }
 
 impl LxCommandName {
-    pub fn new(ident: Coword) -> LxCommandNameResult<Self> {
-        let data = ident.data();
+    pub fn new(ident: Coword, db: &EternerDb) -> LxCommandNameResult<Self> {
+        let data = ident.data(db);
         if data.len() == 0 {
             Err(LxCommandNameError::Empty)?
         } else if data.len() == 1 {
@@ -66,7 +67,7 @@ impl LxCommandName {
         Ok(Self::LettersOnly(LettersOnlyLxCommandName(ident)))
     }
 
-    pub fn new2(data: &str) -> LxCommandNameResult<Self> {
+    pub fn new2(data: &str, db: &EternerDb) -> LxCommandNameResult<Self> {
         if data.len() == 0 {
             Err(LxCommandNameError::Empty)?
         } else if data.len() == 1 {
@@ -82,15 +83,16 @@ impl LxCommandName {
             }
         }
         Ok(Self::LettersOnly(LettersOnlyLxCommandName(
-            Coword::from_ref(data),
+            Coword::from_ref(data, db),
         )))
     }
 }
 
 impl std::fmt::Display for LxCommandName {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let db = eterned::db::attached_interner_db().ok_or(std::fmt::Error)?;
         match self {
-            Self::LettersOnly(LettersOnlyLxCommandName(c)) => write!(f, "{}", c.data()),
+            Self::LettersOnly(LettersOnlyLxCommandName(c)) => write!(f, "{}", c.data(db)),
             Self::Escape(OneDigitNonLetterLxCommandName(c)) => write!(f, "{}", c),
         }
     }

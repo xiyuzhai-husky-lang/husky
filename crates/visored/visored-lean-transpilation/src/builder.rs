@@ -1,3 +1,4 @@
+use eterned::db::EternerDb;
 use latex_token::storage::LxTokenStorage;
 use lean_coword::ident::LnIdent;
 use lean_mir_expr::{
@@ -31,6 +32,7 @@ use crate::{
 };
 
 pub struct VdLeanTranspilationBuilder<'a> {
+    db: &'a EternerDb,
     lean_hir_expr_builder: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
@@ -56,6 +58,7 @@ impl<'a> WithLnNamespace for VdLeanTranspilationBuilder<'a> {
 
 impl<'a> VdLeanTranspilationBuilder<'a> {
     pub fn new0(
+        db: &'a EternerDb,
         input: &'a str,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
         source_map: &'a VdMirSourceMap,
@@ -70,6 +73,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         token_storage: &'a LxTokenStorage,
     ) -> Self {
         Self::new(
+            db,
             input,
             vd_mir_expr_region_data.expr_arena(),
             vd_mir_expr_region_data.stmt_arena(),
@@ -88,6 +92,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     }
 
     pub fn new(
+        db: &'a EternerDb,
         input: &'a str,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
@@ -104,12 +109,13 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         token_storage: &'a LxTokenStorage,
     ) -> Self {
         Self {
-            lean_hir_expr_builder: LnMirExprConstructor::new(),
+            db,
+            lean_hir_expr_builder: LnMirExprConstructor::new(db),
             expr_arena,
             stmt_arena,
             source_map,
             dictionary,
-            mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage),
+            mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage, db),
             current_module_path: root_module_path,
             sem_expr_range_map,
             sem_phrase_range_map,
@@ -127,14 +133,15 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
         module_path: VdModulePath,
         f: impl FnOnce(&mut Self) -> R,
     ) -> R {
+        let db = self.db();
         debug_assert_eq!(
-            module_path.parent(),
+            module_path.parent(db),
             Some(self.current_module_path),
             "module path = {}, current module path = {}",
-            module_path.show(),
-            self.current_module_path.show(),
+            module_path.show(db),
+            self.current_module_path.show(db),
         );
-        let namespace = *vd_module_path_to_ln_namespace(module_path);
+        let namespace = *vd_module_path_to_ln_namespace(module_path, db);
         let prev_module_path = self.current_module_path;
         self.current_module_path = module_path;
         let result = if let Some(namespace) = namespace {
@@ -155,10 +162,11 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     }
 
     pub(crate) fn mangle_hypothesis(&mut self) -> LnIdent {
-        self.mangler
-            .mangle_hypothesis(*vd_module_path_to_ln_namespace_or_inherited(
-                self.current_module_path(),
-            ))
+        let db = self.db();
+        self.mangler.mangle_hypothesis(
+            *vd_module_path_to_ln_namespace_or_inherited(self.current_module_path, db),
+            db,
+        )
     }
 
     pub(crate) fn sorry(&mut self) -> LnMirDefBody {
@@ -167,6 +175,10 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
 }
 
 impl<'db> VdLeanTranspilationBuilder<'db> {
+    pub fn db(&self) -> &'db EternerDb {
+        self.db
+    }
+
     pub fn expr_arena(&self) -> VdMirExprArenaRef<'db> {
         self.expr_arena
     }

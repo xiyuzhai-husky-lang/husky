@@ -19,6 +19,7 @@ smallvec.workspace = true
 coword.workspace = true
 enum-class.workspace = true
 idx-arena.workspace = true
+eterned.workspace = true
 ptree.workspace = true
 salsa = { workspace = true, optional = true }
 time-capsule.workspace = true

@@ -15,6 +15,7 @@ keywords.workspace = true
 rustc-hash.workspace = true
 # abstractions
 enum-index.workspace = true
+eterned.workspace = true
 salsa.workspace = true
 # latex
 latex-command.workspace = true

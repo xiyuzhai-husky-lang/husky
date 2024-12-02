@@ -7,7 +7,11 @@ use std::path::Path;
 use visored_signature::table::VdSignatureTable;
 
 impl VdDefaultGlobalDispatchTable {
-    pub fn from_lisp_csv_file_dir(dir: &Path, signature_table: &VdSignatureTable) -> Self {
+    pub fn from_lisp_csv_file_dir(
+        dir: &Path,
+        signature_table: &VdSignatureTable,
+        db: &EternerDb,
+    ) -> Self {
         let base_prefix_opr_file = dir.join("base_prefix_opr.lpcsv");
         let base_binary_opr_file = dir.join("base_binary_opr.lpcsv");
         let base_separator_file = dir.join("base_separator.lpcsv");
@@ -24,6 +28,7 @@ impl VdDefaultGlobalDispatchTable {
             &base_frac_file,
             &base_chaining_separator_join_file,
             signature_table,
+            db,
         )
     }
 
@@ -36,6 +41,7 @@ impl VdDefaultGlobalDispatchTable {
         base_frac_file: &Path,
         base_chaining_separator_join_file: &Path,
         signature_table: &VdSignatureTable,
+        db: &EternerDb,
     ) -> Self {
         let base_prefix_opr_file = parse_lp_csv_filepath(base_prefix_opr_file).unwrap();
         let base_binary_opr_file = parse_lp_csv_filepath(base_binary_opr_file).unwrap();
@@ -54,6 +60,7 @@ impl VdDefaultGlobalDispatchTable {
             &base_frac_file,
             &base_chaining_separator_join_file,
             &signature_table,
+            db,
         )
     }
 
@@ -66,25 +73,29 @@ impl VdDefaultGlobalDispatchTable {
         base_frac_file: &LpCsvFile,
         base_chaining_separator_join_file: &LpCsvFile,
         signature_table: &VdSignatureTable,
+        db: &EternerDb,
     ) -> Self {
         let base_prefix_opr_table = VdPrefixOprGlobalDispatch::collect_from_lisp_csv_files(
             base_prefix_opr_file,
             signature_table,
+            db,
         );
         let base_binary_opr_table = VdBinaryOprGlobalDispatch::collect_from_lisp_csv_files(
             base_binary_opr_file,
             signature_table,
+            db,
         );
         let base_separator_table = VdSeparatorGlobalDispatch::collect_from_lisp_csv_files(
             base_separator_file,
             signature_table,
+            db,
         );
         let power_table =
-            VdAttachGlobalDispatch::collect_from_lisp_csv_files(power_file, signature_table);
+            VdAttachGlobalDispatch::collect_from_lisp_csv_files(power_file, signature_table, db);
         let base_sqrt_table =
-            VdSqrtGlobalDispatch::collect_from_lisp_csv_files(base_sqrt_file, signature_table);
+            VdSqrtGlobalDispatch::collect_from_lisp_csv_files(base_sqrt_file, signature_table, db);
         let base_frac_table =
-            VdFracGlobalDispatch::collect_from_lisp_csv_files(base_frac_file, signature_table);
+            VdFracGlobalDispatch::collect_from_lisp_csv_files(base_frac_file, signature_table, db);
         let base_chaining_separator_join_default_dispatches =
             VdBaseChainingSeparatorJoinDispatch::collect_from_lisp_csv_files(
                 base_chaining_separator_join_file,

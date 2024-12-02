@@ -62,6 +62,7 @@ impl InternedStruct {
         let data_struct = self.data_struct();
         let ingredients_for_impl = self.ingredients_for_impl();
         let as_id_impl = self.as_id_impl();
+        let as_id_with_db_impl = self.as_id_with_db_impl();
         let named_fields_impl = self.inherent_impl_for_named_fields();
         let salsa_struct_in_db_impl = self.salsa_struct_in_db_impl();
         let as_debug_with_db_impl = (!self.override_debug()).then(|| self.as_debug_with_db_impl());
@@ -70,6 +71,7 @@ impl InternedStruct {
             #data_struct
             #ingredients_for_impl
             #as_id_impl
+            #as_id_with_db_impl
             #named_fields_impl
             #salsa_struct_in_db_impl
             #as_debug_with_db_impl

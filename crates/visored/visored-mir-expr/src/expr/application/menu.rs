@@ -1,6 +1,7 @@
 use super::*;
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
-use visored_term::instantiation::menu::{VdInstantiationMenu, VD_INSTANTIATION_MENU};
+use visored_term::instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VdMirFuncKeyMenu {
@@ -85,7 +86,7 @@ pub struct VdMirFuncKeyMenu {
 }
 
 impl VdMirFuncKeyMenu {
-    pub fn new() -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         let VdInstantiationMenu {
             int_pos,
             rat_pos,
@@ -144,7 +145,7 @@ impl VdMirFuncKeyMenu {
             rat_ge,
             real_ge,
             real_sqrt,
-        } = *VD_INSTANTIATION_MENU;
+        } = *vd_instantiation_menu(db);
         Self {
             int_pos: VdMirFuncKey::NormalBasePrefixOpr(int_pos),
             rat_pos: VdMirFuncKey::NormalBasePrefixOpr(rat_pos),
@@ -211,6 +212,7 @@ impl VdMirFuncKeyMenu {
     }
 }
 
-lazy_static! {
-    pub static ref vd_mir_func_key_menu: VdMirFuncKeyMenu = VdMirFuncKeyMenu::new();
+#[memo]
+pub fn vd_mir_func_key_menu(db: &EternerDb) -> VdMirFuncKeyMenu {
+    VdMirFuncKeyMenu::new(db)
 }

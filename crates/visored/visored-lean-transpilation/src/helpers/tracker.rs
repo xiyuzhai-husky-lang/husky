@@ -2,6 +2,7 @@ use super::*;
 use crate::dictionary::VdLeanDictionary;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
 use either::*;
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
@@ -61,6 +62,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &'a EternerDb,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -77,9 +79,10 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[]);
-        let dictionary = &VdLeanDictionary::new_standard();
+        } = VdMirExprTracker::new(input, &[], &[], db);
+        let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
+            db,
             content,
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),
@@ -107,8 +110,9 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         }
     }
 
-    pub fn show_display_tree(&self) -> String {
+    pub fn show_display_tree(&self, db: &EternerDb) -> String {
         let builder = LnMirExprDisplayTreeBuilder::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),
@@ -117,15 +121,20 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         self.output.show_display_tree(&builder)
     }
 
-    pub fn show_fmt(&self) -> String {
+    pub fn show_fmt(&self, db: &EternerDb) -> String {
         let fmt_config = Default::default();
-        let mut formatter = self.formatter(&fmt_config);
+        let mut formatter = self.formatter(&fmt_config, db);
         self.output.show_fmt(&mut formatter);
         formatter.finish()
     }
 
-    fn formatter<'b>(&'b self, config: &'b LnMirExprFormatterConfig) -> LnMirExprFormatter<'b> {
+    fn formatter<'b>(
+        &'b self,
+        config: &'b LnMirExprFormatterConfig,
+        db: &'b EternerDb,
+    ) -> LnMirExprFormatter<'b> {
         LnMirExprFormatter::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),

@@ -5,6 +5,7 @@ use crate::{
     *,
 };
 use either::*;
+use eterned::db::EternerDb;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
@@ -67,6 +68,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &EternerDb,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -90,7 +92,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             division_range_map: sem_division_range_map,
             symbol_local_defn_storage: sem_symbol_local_defn_storage,
             output,
-        } = VdSemExprTracker::new(input, token_annotations, space_annotations);
+        } = VdSemExprTracker::new(input, token_annotations, space_annotations, db);
         let mut builder = VdMirExprBuilder::new(
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),
@@ -119,13 +121,14 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         }
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
-        let builder = self.display_tree_builder();
+    pub(crate) fn show_display_tree(&self, db: &EternerDb) -> String {
+        let builder = self.display_tree_builder(db);
         self.output.show(&builder)
     }
 
-    fn display_tree_builder<'b>(&'b self) -> VdMirExprDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b EternerDb) -> VdMirExprDisplayTreeBuilder<'b> {
         VdMirExprDisplayTreeBuilder::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
         )

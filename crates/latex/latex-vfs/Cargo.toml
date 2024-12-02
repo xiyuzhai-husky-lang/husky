@@ -13,7 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 # abstractions
-interned.workspace = true
+eterned.workspace = true
 
 [lints]
 workspace = true

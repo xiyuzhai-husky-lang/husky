@@ -15,7 +15,12 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
         ReturnType::Default => quote!(()),
         ReturnType::Type(_, ty) => quote!(#ty),
     };
-    let args = sig.inputs.iter().collect::<Vec<_>>();
+    let args = sig
+        .inputs
+        .iter()
+        .take(sig.inputs.len() - 1)
+        .collect::<Vec<_>>();
+    let db_arg = sig.inputs.last().unwrap();
     let arg_tys = args
         .iter()
         .map(|arg| {
@@ -26,6 +31,18 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
             }
         })
         .collect::<Vec<_>>();
+    let db_ty = if let FnArg::Typed(pat_type) = db_arg {
+        if let Type::Path(type_path) = &*pat_type.ty {
+            if let Some(last_segment) = type_path.path.segments.last() {
+                if last_segment.ident.to_string() != "EternerDb" {
+                    panic!("expect last arg to be db:EternerDb");
+                }
+            }
+        }
+        &*pat_type.ty
+    } else {
+        panic!("DB argument must be typed")
+    };
     let arg_names = args
         .iter()
         .map(|arg| {
@@ -41,24 +58,24 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
         })
         .collect::<Vec<_>>();
 
+    let jar_ty = match args.len() {
+        0 => quote!(::eterned::memo::jar0::Jar0<#ret_type>),
+        _ => quote!(::eterned::memo::jar::Jar<(#(#arg_tys),*), #ret_type>),
+    };
+
     let output = quote! {
-        #vis fn #fn_name(#(#args),*) -> &'static #ret_type  {
-            interned::lazy_static! {
-                static ref #storage_name: interned::DashMap<(#(#arg_tys),*), Box<#ret_type>> = interned::DashMap::new();
-            }
+        #[allow(non_camel_case_types)]
+        struct #fn_name {}
 
-            fn #inner_fn_name(#(#args),*) -> #ret_type #body
+        impl ::eterned::memo::IsMemo for #fn_name {
+            type Jar = #jar_ty;
+        }
 
-            if let Some(result) = #storage_name.get(&(#(#arg_names),*)) {
-                return unsafe { &*(&**result as *const #ret_type)};
-            }
+        #vis fn #fn_name<'db>(#(#args,)* db: &'db ::eterned::db::EternerDb) -> &'db #ret_type  {
+            fn #inner_fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> #ret_type #body
 
-            let result = #inner_fn_name(#(#arg_names),*);
-            let result = Box::new(result);
-            let result_ptr = &*result as *const #ret_type;
-            #storage_name.insert((#(#arg_names),*), result);
-            let result_ref:&'static #ret_type = unsafe { &*result_ptr };
-            result_ref
+            let __jar = db.memo_jar::<#fn_name>();
+            __jar.get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
         }
     };
 

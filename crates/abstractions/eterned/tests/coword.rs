@@ -1,0 +1,43 @@
+use eterned::{db::EternerDb, eterned, memo};
+
+#[eterned]
+pub struct Coword {
+    data: String,
+}
+
+impl std::fmt::Debug for Coword {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let db = eterned::db::attached_interner_db().ok_or(std::fmt::Error)?;
+        f.debug_tuple("Coword").field(self.data(db)).finish()
+    }
+}
+
+#[test]
+fn coword_works() {
+    let db = &EternerDb::default();
+    // Test creation and basic equality
+    let word1 = Coword::new("hello".to_string(), db);
+    let word2 = Coword::new("hello".to_string(), db);
+    let word3 = Coword::new("world".to_string(), db);
+
+    // Test equality for same content
+    assert_eq!(word1, word2);
+
+    // Test inequality for different content
+    assert_ne!(word1, word3);
+
+    // Test interning - should return same instance for same content
+    assert_eq!(word1, word2);
+    assert_ne!(word1, word3);
+
+    // Test access to underlying data
+    assert_eq!(word1.data(db), "hello");
+    assert_eq!(word3.data(db), "world");
+
+    // assert_eq!(db.interners.len(), 2);
+}
+
+#[memo]
+fn first_letter(word: Coword, db: &EternerDb) -> char {
+    word.data(db).chars().next().unwrap()
+}

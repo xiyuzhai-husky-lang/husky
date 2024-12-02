@@ -17,6 +17,7 @@ rustc-hash.workspace = true
 thiserror.workspace = true
 # abstractions
 coword.workspace = true
+eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # kernel
 husky-coword.workspace = true

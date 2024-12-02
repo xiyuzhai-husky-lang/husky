@@ -10,7 +10,7 @@ use crate::{
     key::{DatabaseKeyIndex, DependencyIndex},
     runtime::local_state::QueryOrigin,
     salsa_struct::SalsaStructInDb,
-    Cycle, Db, Event, EventKind, Id, Revision,
+    AsIdWithDb, Cycle, Db, Event, EventKind, Id, Revision,
 };
 
 use super::{ingredient::Ingredient, routes::IngredientIndex, AsId};
@@ -45,7 +45,7 @@ pub struct FunctionIngredient<C: Configuration> {
     index: IngredientIndex,
 
     /// Tracks the keys for which we have memoized values.
-    memo_map: memo::MemoMap<C::Key, C::Value>,
+    memo_map: memo::MemoMap<Id, C::Value>,
 
     /// Tracks the keys that are currently being processed; used to coordinate between
     /// worker threads.
@@ -86,7 +86,7 @@ pub trait Configuration {
     /// What key is used to index the memo. Typically a salsa struct id,
     /// but if this memoized function has multiple arguments it will be a `salsa::Id`
     /// that results from interning those arguments.
-    type Key: AsId;
+    type Key: AsIdWithDb;
 
     /// The value computed by the function.
     type Value: fmt::Debug;
@@ -117,8 +117,8 @@ pub trait Configuration {
 
     /// Given a salsa Id, returns the key. Convenience function to avoid
     /// having to type `<C::Key as AsId>::from_id`.
-    fn key_from_id(id: Id) -> Self::Key {
-        AsId::from_id(id)
+    fn key_from_id(db: &Db, id: Id) -> Self::Key {
+        AsIdWithDb::from_id_with_db(id, db)
     }
 }
 
@@ -152,7 +152,7 @@ where
     fn database_key_index(&self, k: C::Key) -> DatabaseKeyIndex {
         DatabaseKeyIndex {
             ingredient_index: self.index,
-            key_index: k.as_id(),
+            key_index: k.as_id_with_db(),
         }
     }
 
@@ -183,7 +183,7 @@ where
             // value is returned) and anything removed from map is added to deleted entries (ensured elsewhere).
             self.extend_memo_lifetime(&memo)
         };
-        if let Some(old_value) = self.memo_map.insert(key, memo) {
+        if let Some(old_value) = self.memo_map.insert(key.as_id_with_db(), memo) {
             // In case there is a reference to the old memo out there, we have to store it
             // in the deleted entries. This will get cleared when a new revision starts.
             self.deleted_entries.push(old_value);
@@ -203,10 +203,10 @@ where
 
 impl<C> Ingredient for FunctionIngredient<C>
 where
-    C: Configuration,
+    C: Configuration + 'static,
 {
     fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
-        let key = C::key_from_id(input.key_index.unwrap());
+        let key = C::key_from_id(db, input.key_index.unwrap());
         self.maybe_changed_after(db, key, revision)
     }
 
@@ -214,8 +214,8 @@ where
         C::CYCLE_STRATEGY
     }
 
-    fn origin(&self, key_index: Id) -> Option<QueryOrigin> {
-        let key = C::key_from_id(key_index);
+    fn origin(&self, db: &Db, key_index: Id) -> Option<QueryOrigin> {
+        let key = C::key_from_id(db, key_index);
         self.origin(key)
     }
 
@@ -225,7 +225,7 @@ where
         executor: DatabaseKeyIndex,
         output_key: Option<crate::Id>,
     ) {
-        let output_key = C::key_from_id(output_key.unwrap());
+        let output_key = C::key_from_id(db, output_key.unwrap());
         self.validate_specified_value(db, executor, output_key);
     }
 
@@ -248,7 +248,7 @@ where
         // Remove any data keyed by `id`, since `id` no longer
         // exists in this revision.
 
-        let id: C::Key = C::key_from_id(id);
+        let id: C::Key = C::key_from_id(db, id);
         if let Some(origin) = self.delete_memo(id) {
             let key = self.database_key_index(id);
             db.salsa_event(Event {
