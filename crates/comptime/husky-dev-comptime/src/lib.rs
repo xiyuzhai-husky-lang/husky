@@ -2,6 +2,7 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 
+use eterned::db::EternerDb;
 use husky_devsoul::devsoul::IsDevsoul;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath};
@@ -26,6 +27,7 @@ use husky_vfs::{
 use std::path::Path;
 
 pub struct DevComptime<Devsoul: IsDevsoul> {
+    // TODO: put these two together?
     db: DevComptimeDb,
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
@@ -80,6 +82,10 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
 
     pub fn init(&self, runtime: &'static dyn IsDevRuntimeInterfaceDyn<Devsoul::LinketImpl>) {
         self.linktime.init(runtime)
+    }
+
+    pub fn eterner_db(&self) -> &EternerDb {
+        self.db.eterner_db()
     }
 
     pub fn linktime(&self) -> &Devsoul::Linktime {

@@ -132,8 +132,8 @@ where
 
 impl<Id, Data> Ingredient for TrackedStructIngredient<Id, Data>
 where
-    Id: TrackedStructId,
-    Data: TrackedStructData,
+    Id: TrackedStructId + 'static,
+    Data: TrackedStructData + 'static,
 {
     fn maybe_changed_after(&self, db: &Db, input: DependencyIndex, revision: Revision) -> bool {
         self.interned.maybe_changed_after(db, input, revision)
@@ -143,7 +143,7 @@ where
         <_ as Ingredient>::cycle_recovery_strategy(&self.interned)
     }
 
-    fn origin(&self, _key_index: crate::Id) -> Option<QueryOrigin> {
+    fn origin(&self, _db: &Db, _key_index: crate::Id) -> Option<QueryOrigin> {
         None
     }
 

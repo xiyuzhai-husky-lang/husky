@@ -18,6 +18,7 @@ use crate::{
 };
 use division::VdSemDivisionIdxRange;
 use either::*;
+use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
 use latex_ast::{
     ast::{parse_latex_input_into_asts, rose::LxRoseAstIdxRange, LxAstArena, LxAstIdxRange},
@@ -102,6 +103,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &EternerDb,
     ) -> Self {
         let VdSynExprTracker {
             input,
@@ -128,11 +130,12 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             stmt_entity_tree_node_map: syn_stmt_entity_tree_node_map,
             division_entity_tree_node_map: syn_division_entity_tree_node_map,
             output: syn_output,
-        } = VdSynExprTracker::new(input, token_annotations, space_annotations);
-        let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard();
+        } = VdSynExprTracker::new(input, token_annotations, space_annotations, db);
+        let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
         let default_global_dispatch_table =
-            VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir();
+            VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
         let mut builder = VdSemExprBuilder::new(
+            db,
             input.content(),
             &token_storage,
             &annotations,
@@ -200,8 +203,9 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         }
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
+    pub(crate) fn show_display_tree(&self, db: &EternerDb) -> String {
         let builder = VdSemExprDisplayTreeBuilder::new(
+            db,
             self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),

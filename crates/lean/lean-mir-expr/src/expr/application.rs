@@ -1,5 +1,6 @@
 use super::{LnMirExprData, LnMirExprIdx};
 use crate::constructor::LnMirExprConstructor;
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use lean_entity_path::{
     menu::{ln_item_path_menu, LnItemPathMenu},
@@ -150,7 +151,7 @@ pub struct LnMirFuncKeyMenu {
 }
 
 impl LnMirFuncKeyMenu {
-    pub fn new() -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         use LnBinaryOpr::*;
         use LnPrefixOpr::*;
 
@@ -212,7 +213,7 @@ impl LnMirFuncKeyMenu {
             int_ge,
             rat_ge,
             real_ge,
-        } = *ln_instantiation_menu;
+        } = *ln_instantiation_menu(db);
         let i = |instantiation| LnMirFuncKey::ItemPath(instantiation);
         let p = |opr, instantiation| LnMirFuncKey::PrefixOpr { opr, instantiation };
         let b = |opr, instantiation| LnMirFuncKey::BinaryOpr { opr, instantiation };
@@ -278,6 +279,7 @@ impl LnMirFuncKeyMenu {
     }
 }
 
-lazy_static! {
-    pub static ref ln_mir_func_key_menu: LnMirFuncKeyMenu = LnMirFuncKeyMenu::new();
+#[memo]
+pub fn ln_mir_func_key_menu(db: &EternerDb) -> LnMirFuncKeyMenu {
+    LnMirFuncKeyMenu::new(db)
 }

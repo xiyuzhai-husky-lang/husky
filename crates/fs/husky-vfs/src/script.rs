@@ -138,6 +138,16 @@ impl salsa::AsId for Script {
         Script(id)
     }
 }
+
+impl ::salsa::AsIdWithDb for Script {
+    fn as_id_with_db(self) -> salsa::Id {
+        self.0
+    }
+    fn from_id_with_db(id: salsa::Id, db: &::salsa::Db) -> Self {
+        Script(id)
+    }
+}
+
 impl ::salsa::DebugWithDb for Script {
     fn debug_fmt_with_db(
         &self,

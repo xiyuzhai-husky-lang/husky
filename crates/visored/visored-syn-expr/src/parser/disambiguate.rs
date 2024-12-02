@@ -41,6 +41,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     ) -> DisambiguatedAst {
         use crate::builder::ToVdSyn;
 
+        let db = self.db();
+
         let ast_data = &self.builder.ast_arena()[*next];
         *next += 1;
         match *ast_data {
@@ -204,7 +206,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 };
                 let expr_data = VdSynExprData::Literal {
                     token_idx_range: LxTokenIdxRange::new_closed(*first_token_idx, *last_token_idx),
-                    literal: VdLiteral::new(data),
+                    literal: VdLiteral::new(data, db),
                 };
                 DisambiguatedAst::Expr(expr_data, VdSynExprClass::ATOM)
             }
@@ -263,7 +265,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             .default_resolution_table()
             .resolve_complete_command(command_path)
         else {
-            todo!("command_path = {:?}", command_path)
+            self.db()
+                .with_attached(|| todo!("command_path = {:?}", command_path))
         };
         match resolve_complete_command {
             VdCompleteCommandGlobalResolution::Letter(letter) => {

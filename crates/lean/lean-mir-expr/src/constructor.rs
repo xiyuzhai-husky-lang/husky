@@ -8,6 +8,7 @@ use crate::{
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
     tactic::{LnMirTacticArena, LnMirTacticData, LnMirTacticIdx, LnMirTacticIdxRange},
 };
+use eterned::db::EternerDb;
 use lean_entity_path::namespace::LnNamespace;
 
 pub struct LnMirExprConstructor {
@@ -20,21 +21,26 @@ pub struct LnMirExprConstructor {
 }
 
 impl LnMirExprConstructor {
-    pub fn new() -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         Self {
             expr_arena: Default::default(),
             stmt_arena: Default::default(),
             tactic_arena: Default::default(),
             item_defn_arena: Default::default(),
-            current_namespace: LnNamespace::new_root(),
+            current_namespace: LnNamespace::new_root(db),
             item_defn_comments: Default::default(),
         }
     }
 }
 
 impl LnMirExprConstructor {
-    pub fn formatter<'a>(&'a self, config: &'a LnMirExprFormatterConfig) -> LnMirExprFormatter<'a> {
+    pub fn formatter<'a>(
+        &'a self,
+        config: &'a LnMirExprFormatterConfig,
+        db: &'a EternerDb,
+    ) -> LnMirExprFormatter<'a> {
         LnMirExprFormatter::new(
+            db,
             self.expr_arena.as_arena_ref(),
             self.stmt_arena.as_arena_ref(),
             self.tactic_arena.as_arena_ref(),

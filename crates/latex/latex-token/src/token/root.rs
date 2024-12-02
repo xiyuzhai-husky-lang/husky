@@ -1,5 +1,6 @@
 use super::*;
 use crate::idx::LxRootTokenIdx;
+use eterned::db::EternerDb;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 
@@ -57,6 +58,7 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => Some(LxRootTokenData::Command(
                             LxCommandName::new(
                                 self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
+                                self.db(),
                             )
                             .unwrap(),
                         )),
@@ -92,12 +94,13 @@ pub fn next_root_token_data_works() {
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
+        let db = &EternerDb::default();
         let mut storage = LxTokenStorage::default();
-        let stream = LxLexer::new(input, LxTokenLane::Main, &mut storage)
+        let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_root_stream()
             .map(|(_, token_data)| token_data);
         let tokens: Vec<_> = stream.collect();
-        expected.assert_debug_eq(&tokens);
+        db.with_attached(|| expected.assert_debug_eq(&tokens));
     }
     t(
         "\\usepackage",
@@ -140,18 +143,21 @@ pub fn next_root_token_data_works() {
 #[test]
 pub fn next_root_token_data_with_comments_works() {
     fn t(input_with_comments: &str, input_without_comments: &str) {
-        fn f(input: &str) -> Vec<LxRootTokenData> {
+        fn f(db: &EternerDb, input: &str) -> Vec<LxRootTokenData> {
             use crate::lane::LxTokenLane;
 
             let mut storage = LxTokenStorage::default();
-            let stream = LxLexer::new(input, LxTokenLane::Main, &mut storage)
+            let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
                 .into_root_stream()
                 .map(|(_, token_data)| token_data);
             stream.collect()
         }
-        let tokens_with_comments = f(input_with_comments);
-        let tokens_without_comments = f(input_without_comments);
-        assert_eq!(tokens_with_comments, tokens_without_comments);
+        let db = &EternerDb::default();
+        let tokens_with_comments = f(db, input_with_comments);
+        let tokens_without_comments = f(db, input_without_comments);
+        db.with_attached(|| {
+            assert_eq!(tokens_with_comments, tokens_without_comments);
+        });
     }
     t(
         r#"% foo

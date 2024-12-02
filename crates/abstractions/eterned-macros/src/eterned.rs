@@ -1,16 +1,11 @@
 use crate::*;
 use convert_case::{Case, Casing};
 
-pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
+pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let input = parse_macro_input!(item as DeriveInput);
     let vis = input.vis;
     let ty_ident = input.ident;
     let data_ty_ident = format_ident!("__{}Data", ty_ident);
-    let storage_ident = format_ident!(
-        "__{}_STORAGE",
-        ty_ident.to_string().to_case(Case::UpperSnake)
-    );
-
     let fields = match input.data {
         Data::Struct(ref data) => match data.fields {
             Fields::Named(ref fields) => &fields.named,
@@ -43,8 +38,8 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         let field_ident = &f.ident;
         let field_ty = &f.ty;
         quote! {
-            pub fn #field_ident(self) -> &'static #field_ty {
-                &self.0.0.#field_ident
+            pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &'static #field_ty {
+                &self.0.0.value.#field_ident
             }
         }
     });
@@ -71,12 +66,11 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 }
 
                 impl #ty_ident {
-                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q) -> Self
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &::eterned::db::EternerDb) -> Self
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
-                        let mut storage = #storage_ident.lock().unwrap();
-                        #ty_ident(storage.intern_ref(q))
+                        #ty_ident(db.etern_ref::<#data_ty_ident, Q>(q))
                     }
                 }
             }
@@ -91,25 +85,27 @@ pub(crate) fn interned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, Hash)]
-        #vis struct #ty_ident(interned::Interned<#data_ty_ident>);
+        #vis struct #ty_ident(eterned::Eterned<#data_ty_ident>);
 
-        interned::lazy_static! {
-            static ref #storage_ident: std::sync::Mutex<interned::Storage<#data_ty_ident, 256>> =
-                std::sync::Mutex::new(interned::Storage::default());
+        impl ::eterned::as_id::AsEternedId for #ty_ident {
+            fn as_id(self) -> u32 {
+                self.0.as_id()
+            }
+
+            fn from_id(id: u32, db: &::eterned::db::EternerDb) -> Self {
+                Self(eterned::Eterned::from_id(id, db))
+            }
         }
 
         impl #ty_ident {
-            #vis fn new(#(#ctor_params),*) -> Self {
-                use interned::{lazy_static, Interned, Storage};
-                use std::collections::HashSet;
-                use std::sync::Mutex;
+            #vis fn new(#(#ctor_params),*, db: &::eterned::db::EternerDb) -> Self {
+                use eterned::Eterned;
 
-                let hidden = #data_ty_ident {
+                let data = #data_ty_ident {
                     #(#field_inits),*
                 };
 
-                let mut storage = #storage_ident.lock().unwrap();
-                #ty_ident(storage.intern(hidden))
+                #ty_ident(db.etern(data))
             }
 
             #(#field_accesses)*

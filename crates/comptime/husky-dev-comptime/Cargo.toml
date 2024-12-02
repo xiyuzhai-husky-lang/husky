@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 # abstractions
+eterned.workspace = true
 salsa.workspace = true
 # comptime
 husky-rust-transpilation.workspace = true

@@ -16,7 +16,7 @@ lazy_static.workspace = true
 smallvec.workspace = true
 # abstractions
 enum-class.workspace = true
-interned.workspace = true
+eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # lean
 lean-entity-path.workspace = true

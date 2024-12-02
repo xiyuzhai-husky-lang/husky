@@ -97,7 +97,7 @@ impl<Data: Clone> AccumulatorIngredient<Data> {
 
 impl<Data> Ingredient for AccumulatorIngredient<Data>
 where
-    Data: Clone,
+    Data: Clone + 'static,
 {
     fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, _revision: Revision) -> bool {
         panic!("nothing should ever depend on an accumulator directly")
@@ -107,7 +107,7 @@ where
         CycleRecoveryStrategy::Panic
     }
 
-    fn origin(&self, _key_index: crate::Id) -> Option<QueryOrigin> {
+    fn origin(&self, _db: &Db, _key_index: crate::Id) -> Option<QueryOrigin> {
         None
     }
 

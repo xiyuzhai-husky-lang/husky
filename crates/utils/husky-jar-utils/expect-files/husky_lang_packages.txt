@@ -13,28 +13,47 @@
         name: "coword",
         relative_path: "crates/abstractions/coword",
         dependencies: [
-            "interned",
+            "eterned",
             "lazy_static",
         ],
     },
     PackageSummary {
-        name: "interned",
-        relative_path: "crates/abstractions/interned",
+        name: "eterned",
+        relative_path: "crates/abstractions/eterned",
         dependencies: [
             "dashmap",
-            "interned-macros",
-            "lazy_static",
+            "eterned-macros",
+            "husky-sha-utils",
+            "husky-wild-utils",
+            "sealed",
         ],
     },
     PackageSummary {
-        name: "interned-macros",
-        relative_path: "crates/abstractions/interned-macros",
+        name: "eterned-macros",
+        relative_path: "crates/abstractions/eterned-macros",
         dependencies: [
             "convert_case",
             "proc-macro2",
             "quote",
             "syn",
         ],
+    },
+    PackageSummary {
+        name: "husky-sha-utils",
+        relative_path: "crates/utils/husky-sha-utils",
+        dependencies: [
+            "crypto-common",
+            "hex",
+            "sealed",
+            "sha2",
+            "hex",
+            "hex-literal",
+        ],
+    },
+    PackageSummary {
+        name: "husky-wild-utils",
+        relative_path: "crates/utils/husky-wild-utils",
+        dependencies: [],
     },
     PackageSummary {
         name: "cyclic-slice",
@@ -132,8 +151,10 @@
             "dashmap",
             "either",
             "enum-index",
+            "eterned",
             "hashlink",
             "husky-salsa-log-utils",
+            "husky-wild-utils",
             "indexmap",
             "log",
             "maybe-result",
@@ -145,6 +166,7 @@
             "snapshot",
             "stacker",
             "vec-like",
+            "coword",
             "expect-test",
             "rustversion",
             "test-log",
@@ -199,11 +221,6 @@
         ],
     },
     PackageSummary {
-        name: "husky-wild-utils",
-        relative_path: "crates/utils/husky-wild-utils",
-        dependencies: [],
-    },
-    PackageSummary {
         name: "idx",
         relative_path: "crates/abstractions/idx",
         dependencies: [
@@ -217,6 +234,7 @@
             "husky-check-utils",
             "husky-print-utils",
             "salsa",
+            "serde",
         ],
     },
     PackageSummary {
@@ -448,12 +466,22 @@
         dependencies: [
             "egui",
             "enum-class",
+            "husky-figure-zone-protocol",
             "husky-print-utils",
             "ordered-float",
             "serde",
             "shifted-unsigned-int",
             "smallvec",
             "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "husky-figure-zone-protocol",
+        relative_path: "crates/protocols/husky-figure-zone-protocol",
+        dependencies: [
+            "enum-class",
+            "serde",
+            "shifted-unsigned-int",
         ],
     },
     PackageSummary {
@@ -510,6 +538,7 @@
         relative_path: "crates/comptime/husky-dev-comptime",
         dependencies: [
             "dashmap",
+            "eterned",
             "husky-ast",
             "husky-corgi-config",
             "husky-corgi-config-ast",
@@ -2216,6 +2245,7 @@
         name: "husky-linket-impl",
         relative_path: "crates/linket/husky-linket-impl",
         dependencies: [
+            "eterned",
             "husky-decl-macro-utils",
             "husky-figure-zone-protocol",
             "husky-item-path-interface",
@@ -2227,14 +2257,6 @@
             "smallvec",
             "vec-like",
             "husky-core",
-        ],
-    },
-    PackageSummary {
-        name: "husky-figure-zone-protocol",
-        relative_path: "crates/protocols/husky-figure-zone-protocol",
-        dependencies: [
-            "serde",
-            "shifted-unsigned-int",
         ],
     },
     PackageSummary {
@@ -2602,6 +2624,7 @@
             "husky-standard-linket-impl",
             "husky-trace-protocol",
             "husky-visual-protocol",
+            "itertools",
             "rustc-hash",
             "serde",
             "ui",
@@ -2963,6 +2986,7 @@
         name: "husky-dev-runtime",
         relative_path: "crates/runtime/husky-dev-runtime",
         dependencies: [
+            "eterned",
             "husky-ast",
             "husky-check-utils",
             "husky-coword",
@@ -3604,6 +3628,7 @@
             "coword",
             "egui",
             "enum-class",
+            "eterned",
             "husky-coword",
             "husky-print-utils",
             "husky-tree-utils",
@@ -3617,6 +3642,7 @@
             "latex-token",
             "ptree",
             "salsa",
+            "serde",
             "smallvec",
             "time-capsule",
             "expect-test",
@@ -3637,6 +3663,7 @@
         relative_path: "crates/latex/latex-command",
         dependencies: [
             "coword",
+            "eterned",
             "husky-coword",
             "latex-math-letter",
             "latex-prelude",
@@ -3667,7 +3694,7 @@
         name: "latex-vfs",
         relative_path: "crates/latex/latex-vfs",
         dependencies: [
-            "interned",
+            "eterned",
         ],
     },
     PackageSummary {
@@ -3688,6 +3715,7 @@
         relative_path: "crates/latex/latex-environment",
         dependencies: [
             "coword",
+            "eterned",
             "husky-coword",
             "latex-prelude",
             "lazy_static",
@@ -3714,9 +3742,9 @@
         dependencies: [
             "coword",
             "enum-class",
+            "eterned",
             "husky-print-utils",
             "husky-text-protocol",
-            "interned",
             "latex-command",
             "latex-math-letter",
             "latex-math-punctuation",
@@ -4004,14 +4032,14 @@
         relative_path: "crates/lean/lean-coword",
         dependencies: [
             "coword",
-            "interned",
+            "eterned",
         ],
     },
     PackageSummary {
         name: "lean-entity-path",
         relative_path: "crates/lean/lean-entity-path",
         dependencies: [
-            "interned",
+            "eterned",
             "lazy_static",
             "lean-coword",
             "salsa",
@@ -4034,6 +4062,7 @@
         relative_path: "crates/lean/lean-mir-expr",
         dependencies: [
             "enum-class",
+            "eterned",
             "husky-tree-utils",
             "idx-arena",
             "lazy_static",
@@ -4055,7 +4084,7 @@
         relative_path: "crates/lean/lean-term",
         dependencies: [
             "enum-class",
-            "interned",
+            "eterned",
             "lazy_static",
             "lean-entity-path",
             "salsa",
@@ -4135,18 +4164,6 @@
         dependencies: [
             "makefile-lossless",
             "expect-test",
-        ],
-    },
-    PackageSummary {
-        name: "husky-sha-utils",
-        relative_path: "crates/utils/husky-sha-utils",
-        dependencies: [
-            "crypto-common",
-            "hex",
-            "sealed",
-            "sha2",
-            "hex",
-            "hex-literal",
         ],
     },
     PackageSummary {
@@ -4397,8 +4414,8 @@
         relative_path: "crates/visored/visored-entity-path",
         dependencies: [
             "enum-class",
+            "eterned",
             "husky-coword",
-            "interned",
             "latex-prelude",
             "latex-vfs",
             "lazy_static",
@@ -4417,6 +4434,7 @@
         name: "visored-global-dispatch",
         relative_path: "crates/visored/visored-global-dispatch",
         dependencies: [
+            "eterned",
             "husky-path-utils",
             "husky-print-utils",
             "lazy_static",
@@ -4438,7 +4456,7 @@
         dependencies: [
             "enum-class",
             "enum-index",
-            "lazy_static",
+            "eterned",
             "lisp-csv",
         ],
     },
@@ -4447,6 +4465,7 @@
         relative_path: "crates/visored/visored-signature",
         dependencies: [
             "enum-class",
+            "eterned",
             "lazy_static",
             "lisp-csv",
             "rustc-hash",
@@ -4464,7 +4483,7 @@
         relative_path: "crates/visored/visored-term",
         dependencies: [
             "enum-class",
-            "interned",
+            "eterned",
             "lazy_static",
             "lisp-csv",
             "rustc-hash",
@@ -4479,6 +4498,7 @@
         relative_path: "crates/visored/visored-global-resolution",
         dependencies: [
             "enum-index",
+            "eterned",
             "latex-command",
             "latex-environment",
             "latex-math-letter",
@@ -4503,9 +4523,9 @@
         dependencies: [
             "convert_case",
             "either",
+            "eterned",
             "husky-print-utils",
             "husky-tree-utils",
-            "interned",
             "latex-prelude",
             "latex-token",
             "lean-coword",
@@ -4545,6 +4565,7 @@
         relative_path: "crates/visored/visored-mir-expr",
         dependencies: [
             "either",
+            "eterned",
             "husky-tree-utils",
             "idx-arena",
             "latex-environment",
@@ -4583,6 +4604,7 @@
         dependencies: [
             "either",
             "enum-class",
+            "eterned",
             "husky-codespan-utils",
             "husky-coword",
             "husky-print-utils",
@@ -4623,6 +4645,7 @@
             "coword",
             "either",
             "enum-class",
+            "eterned",
             "husky-codespan-utils",
             "husky-debug-utils",
             "husky-print-utils",
@@ -4686,11 +4709,13 @@
             "husky-linket-impl",
             "husky-path-utils",
             "husky-standard-linket-impl",
+            "husky-standard-value",
             "idx-arena",
             "latex-ast",
             "latex-prelude",
             "latex-vfs",
             "lazy_static",
+            "serde",
             "vec-like",
         ],
     },

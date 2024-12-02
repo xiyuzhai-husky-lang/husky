@@ -2,6 +2,8 @@ use std::fmt::Debug;
 use std::hash::Hash;
 use std::num::NonZeroU32;
 
+use crate::Db;
+
 /// An Id is a newtype'd u32 ranging from `0..Id::MAX_U32`.
 /// The maximum range is smaller than a standard u32 to leave
 /// room for niches; currently there is only one niche, so that
@@ -73,6 +75,32 @@ pub trait AsId: Sized + Copy + Eq + Debug {
     fn from_id(id: Id) -> Self;
 }
 
+impl AsId for () {
+    fn as_id(self) -> Id {
+        Id::from_u32(0)
+    }
+
+    fn from_id(id: Id) -> Self {
+        assert_eq!(0, id.as_u32());
+    }
+}
+
+pub trait AsIdWithDb: Sized + Copy + Eq + Debug {
+    fn as_id_with_db(self) -> Id;
+    fn from_id_with_db(id: Id, db: &Db) -> Self;
+}
+
+impl<I: eterned::as_id::AsEternedId> AsIdWithDb for I {
+    fn as_id_with_db(self) -> Id {
+        Id::from_u32(<I as eterned::as_id::AsEternedId>::as_id(self))
+    }
+
+    #[inline(always)]
+    fn from_id_with_db(id: Id, db: &Db) -> Self {
+        <I as eterned::as_id::AsEternedId>::from_id(id.as_u32(), db.eterner_db())
+    }
+}
+
 impl AsId for Id {
     fn as_id(self) -> Id {
         self
@@ -83,14 +111,12 @@ impl AsId for Id {
     }
 }
 
-/// As a special case, we permit `()` to be converted to an `Id`.
-/// This is useful for declaring functions with no arguments.
-impl AsId for () {
-    fn as_id(self) -> Id {
-        Id::from_u32(0)
+impl AsIdWithDb for Id {
+    fn as_id_with_db(self) -> Id {
+        self
     }
 
-    fn from_id(id: Id) -> Self {
-        assert_eq!(0, id.as_u32());
+    fn from_id_with_db(id: Id, _db: &Db) -> Self {
+        id
     }
 }

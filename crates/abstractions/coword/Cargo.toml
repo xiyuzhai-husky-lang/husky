@@ -13,7 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 lazy_static.workspace = true
-interned.workspace = true
+eterned.workspace = true
 
 [lints]
 workspace = true

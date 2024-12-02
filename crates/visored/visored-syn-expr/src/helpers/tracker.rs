@@ -14,6 +14,7 @@ use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
 use division::{VdSynDivisionArena, VdSynDivisionIdxRange, VdSynDivisionMap};
 use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
+use eterned::db::EternerDb;
 use expr::VdSynExprIdx;
 use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
@@ -95,6 +96,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        db: &EternerDb,
     ) -> Self {
         let LxAstTracker {
             command_signature_table,
@@ -103,7 +105,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             ast_arena,
             ast_token_idx_range_map,
             output: lx_ast_output,
-        } = LxAstTracker::new(input);
+        } = LxAstTracker::new(input, db);
         // ad hoc
         let whole_token_range = token_storage.whole_token_idx_range(LxTokenLane::Main);
         let annotations = VdAnnotations::from_sparse(
@@ -112,8 +114,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             space_annotations.iter().copied(),
             &token_storage,
         );
-        let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard();
+        let default_resolution_table = VdDefaultGlobalResolutionTable::new_standard(db);
         let mut builder = VdSynExprBuilder::new(
+            db,
             input.content(),
             input.file_path(),
             &token_storage,
@@ -171,8 +174,9 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         }
     }
 
-    fn display_tree_builder<'b>(&'b self) -> VdSynExprDisplayTreeBuilder<'b> {
+    fn display_tree_builder<'b>(&'b self, db: &'b EternerDb) -> VdSynExprDisplayTreeBuilder<'b> {
         VdSynExprDisplayTreeBuilder::new(
+            db,
             self.input.content(),
             &self.token_storage,
             self.ast_arena.as_arena_ref(),
@@ -192,8 +196,8 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         )
     }
 
-    pub(crate) fn show_display_tree(&self) -> String {
-        let builder = self.display_tree_builder();
+    pub(crate) fn show_display_tree(&self, db: &EternerDb) -> String {
+        let builder = self.display_tree_builder(db);
         self.output.show(&builder)
     }
 }
@@ -253,7 +257,10 @@ impl IsVdSynOutput for VdSynExprIdx {
         self,
         builder: &mut VdSynExprEntityTreeBuilder,
     ) -> VdSynExprEntityTreeNode {
-        VdSynExprEntityTreeNode::new(VdModulePath::new_root(builder.file_path()), vec![])
+        VdSynExprEntityTreeNode::new(
+            VdModulePath::new_root(builder.file_path(), builder.db()),
+            vec![],
+        )
     }
 
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {

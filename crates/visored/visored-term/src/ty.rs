@@ -1,9 +1,10 @@
 pub mod table;
 
 use crate::{
-    menu::{VdTypeMenu, VD_TYPE_MENU},
+    menu::{vd_ty_menu, VdTypeMenu},
     term::{VdTerm, VdTermData, VdTermId},
 };
+use eterned::db::{attached_interner_db, EternerDb};
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
@@ -22,13 +23,14 @@ impl std::ops::Deref for VdType {
 
 impl std::fmt::Debug for VdType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.show_aux(f)
+        let db = attached_interner_db().ok_or(std::fmt::Error)?;
+        self.show_aux(f, db)
     }
 }
 
 impl VdType {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.show_aux(f)
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
+        self.0.show_aux(f, db)
     }
 }
 
@@ -38,9 +40,9 @@ pub enum VdTypeData {
 }
 
 impl VdType {
-    pub fn new_item_path(item_path: VdItemPath) -> Self {
+    pub fn new_item_path(item_path: VdItemPath, db: &EternerDb) -> Self {
         // TODO: check this is actually a type?
-        VdType(VdTerm::new_item_path(item_path))
+        VdType(VdTerm::new_item_path(item_path, db))
     }
 
     pub fn new(term: VdTerm) -> Self {
@@ -50,14 +52,14 @@ impl VdType {
 }
 
 impl VdType {
-    pub fn is_function_like(self) -> bool {
-        *is_vd_ty_function_like(**self)
+    pub fn is_function_like(self, db: &EternerDb) -> bool {
+        *is_vd_ty_function_like(**self, db)
     }
 }
 
-#[interned::memo]
-fn is_vd_ty_function_like(ty: VdTermId) -> bool {
-    match *ty.data() {
+#[eterned::memo]
+fn is_vd_ty_function_like(ty: VdTermId, db: &EternerDb) -> bool {
+    match *ty.data(db) {
         VdTermData::ItemPath(_) => false,
         VdTermData::Literal(_) => todo!(),
         VdTermData::ForAll(_) => todo!(),
@@ -73,17 +75,17 @@ fn is_vd_ty_function_like(ty: VdTermId) -> bool {
 }
 
 impl VdType {
-    pub fn from_lp_csv_expr(expr: &LpCsvExpr) -> Self {
+    pub fn from_lp_csv_expr(expr: &LpCsvExpr, db: &EternerDb) -> Self {
         match expr.data {
             LpCsvExprData::Literal(ref literal) => todo!(),
             LpCsvExprData::Application(ref app) => todo!(),
             LpCsvExprData::List(ref vec) => todo!(),
-            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident),
+            LpCsvExprData::Ident(ref ident) => Self::from_lp_csv_ident(ident, db),
             LpCsvExprData::Parenthesized(ref lp_csv_expr) => todo!(),
         }
     }
 
-    pub fn from_lp_csv_ident(ident: &str) -> Self {
+    pub fn from_lp_csv_ident(ident: &str, db: &EternerDb) -> Self {
         let VdTypeMenu {
             nat,
             int,
@@ -92,7 +94,7 @@ impl VdType {
             complex,
             set,
             prop,
-        } = *VD_TYPE_MENU;
+        } = *vd_ty_menu(db);
         match ident as &str {
             "true" => todo!(),
             "false" => todo!(),

@@ -1,8 +1,7 @@
-use arc_swap::Guard;
-
-use crate::{runtime::StampedValue, AsId, Db};
-
 use super::{Configuration, FunctionIngredient};
+use crate::id::AsIdWithDb;
+use crate::{runtime::StampedValue, AsId, Db};
+use arc_swap::Guard;
 
 impl<C> FunctionIngredient<C>
 where
@@ -19,8 +18,8 @@ where
             changed_at,
         } = self.compute_value(db, key);
 
-        if let Some(evicted) = self.lru.record_use(key.as_id()) {
-            self.evict(AsId::from_id(evicted));
+        if let Some(evicted) = self.lru.record_use(key.as_id_with_db()) {
+            self.evict(AsIdWithDb::from_id_with_db(evicted, db));
         }
 
         db.runtime().report_tracked_read(
@@ -43,7 +42,7 @@ where
 
     #[inline]
     fn fetch_hot(&self, db: &Db, key: C::Key) -> Option<StampedValue<&C::Value>> {
-        let memo_guard = self.memo_map.get(key);
+        let memo_guard = self.memo_map.get(key.as_id_with_db());
         if let Some(memo) = &memo_guard {
             if memo.value.is_some() {
                 let runtime = db.runtime();
@@ -71,7 +70,10 @@ where
 
         // Now that we've claimed the item, check again to see if there's a "hot" value.
         // This time we can do a *deep* verify. Because this can recurse, don't hold the arcswap guard.
-        let opt_old_memo = self.memo_map.get(key).map(Guard::into_inner);
+        let opt_old_memo = self
+            .memo_map
+            .get(key.as_id_with_db())
+            .map(Guard::into_inner);
         if let Some(old_memo) = &opt_old_memo {
             if old_memo.value.is_some() && self.deep_verify_memo(db, old_memo, &active_query) {
                 let value = unsafe {
@@ -86,6 +88,6 @@ where
     }
 
     fn evict(&self, key: C::Key) {
-        self.memo_map.evict(key);
+        self.memo_map.evict(key.as_id_with_db());
     }
 }

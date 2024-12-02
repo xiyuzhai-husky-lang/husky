@@ -3,6 +3,7 @@ pub mod punctuation;
 
 use super::*;
 use clause::VdSynClauseIdx;
+use eterned::db::EternerDb;
 use idx_arena::{Arena, ArenaIdx};
 use latex_token::idx::LxTokenIdxRange;
 use lineage::VdSynLineage;
@@ -31,11 +32,17 @@ pub enum VdSynSymbolLocalDefnScope {
     /// Then the modules will be the theorem environment and the proof environment.
     Modules(SmallVec<[VdModulePath; 2]>),
 }
+
 impl VdSynSymbolLocalDefnScope {
-    fn contains(&self, other_module_path: VdModulePath, token_idx_range: LxTokenIdxRange) -> bool {
+    fn contains(
+        &self,
+        other_module_path: VdModulePath,
+        token_idx_range: LxTokenIdxRange,
+        db: &EternerDb,
+    ) -> bool {
         match *self {
             VdSynSymbolLocalDefnScope::Module(slf_module_path) => {
-                slf_module_path.contains(other_module_path)
+                slf_module_path.contains(other_module_path, db)
             }
             VdSynSymbolLocalDefnScope::Modules(ref module_paths) => todo!(),
         }
@@ -117,14 +124,16 @@ impl VdSynSymbolLocalDefnStorage {
         module_path: VdModulePath,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
+        db: &'a EternerDb,
     ) -> impl Iterator<Item = VdSynSymbolLocalDefnIdx> + 'a {
         // TODO: take scope into account
         // already used module_path, but this will not be enough.
         self.defn_arena
             .indexed_iter()
             .filter_map(move |(idx, defn)| {
-                (defn.head.is_letter(letter) && defn.scope.contains(module_path, token_idx_range))
-                    .then_some(idx)
+                (defn.head.is_letter(letter)
+                    && defn.scope.contains(module_path, token_idx_range, db))
+                .then_some(idx)
             })
     }
 }

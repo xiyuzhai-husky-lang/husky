@@ -17,6 +17,7 @@ rustc-hash.workspace = true
 salsa.workspace = true
 # abstractions
 enum-class.workspace = true
+eterned.workspace = true
 # lisp
 lisp-csv.workspace = true
 # visored

@@ -122,12 +122,13 @@ impl<'db> VdSemExprBuilder<'db> {
         VdSemExprEntry,
         SmallVec<[(VdSemSeparator, VdSynExprIdx, VdSemExprEntry); 4]>,
     ) {
+        let db = self.db();
         debug_assert_eq!(items.len(), separators.len() + 1);
         let mut item_iter = items.into_iter().enumerate();
         let mut t = || -> Option<(usize, VdSynExprIdx, VdSemExprEntry)> {
             let (i, syn_item) = item_iter.next()?;
             let mut item = self.build_expr_entry(syn_item);
-            while item.ty.is_function_like() {
+            while item.ty.is_function_like(db) {
                 todo!()
             }
             Some((i, syn_item, item))

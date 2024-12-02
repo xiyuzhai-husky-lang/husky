@@ -3,10 +3,11 @@ use crate::signature::{
     frac::VdBaseFracSignature, prefix_opr::VdBasePrefixOprSignature,
     separator::base::VdBaseSeparatorSignature, sqrt::VdBaseSqrtSignature,
 };
+use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
 use visored_term::{
-    instantiation::menu::{VdInstantiationMenu, VD_INSTANTIATION_MENU},
-    menu::{VdTypeMenu, VD_TYPE_MENU},
+    instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu},
+    menu::{vd_ty_menu, VdTypeMenu},
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -87,7 +88,7 @@ pub struct VdSignatureMenu {
 }
 
 impl VdSignatureMenu {
-    fn new() -> Self {
+    fn new(db: &EternerDb) -> Self {
         let VdTypeMenu {
             nat,
             int,
@@ -96,7 +97,7 @@ impl VdSignatureMenu {
             complex,
             set,
             prop,
-        } = *VD_TYPE_MENU;
+        } = *vd_ty_menu(db);
         let VdInstantiationMenu {
             int_pos,
             rat_pos,
@@ -155,7 +156,7 @@ impl VdSignatureMenu {
             rat_ge,
             real_ge,
             real_sqrt,
-        } = *VD_INSTANTIATION_MENU;
+        } = *vd_instantiation_menu(db);
         let pre = VdBasePrefixOprSignature::new;
         let bin = VdBaseBinaryOprSignature::new;
         let sep = VdBaseSeparatorSignature::new;
@@ -244,6 +245,7 @@ impl VdSignatureMenu {
     }
 }
 
-lazy_static! {
-    pub static ref vd_signature_menu: VdSignatureMenu = VdSignatureMenu::new();
+#[memo]
+pub fn vd_signature_menu(db: &EternerDb) -> VdSignatureMenu {
+    VdSignatureMenu::new(db)
 }

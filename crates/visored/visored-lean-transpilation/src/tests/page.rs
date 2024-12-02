@@ -1,5 +1,6 @@
 use super::*;
 use crate::helpers::tracker::VdLeanTranspilationTracker;
+use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxPageInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
@@ -7,8 +8,9 @@ use std::path::PathBuf;
 fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdLeanTranspilationTracker::new(
         LxPageInput {
             specs_dir: dev_paths.specs_dir(),
@@ -17,9 +19,10 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        db,
     );
-    expected_display_tree.assert_eq(&tracker.show_display_tree());
-    expected_fmt.assert_eq(&tracker.show_fmt());
+    expected_display_tree.assert_eq(&tracker.show_display_tree(db));
+    expected_fmt.assert_eq(&tracker.show_fmt(db));
 }
 
 #[test]

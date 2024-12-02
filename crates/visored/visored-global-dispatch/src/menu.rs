@@ -1,3 +1,5 @@
+use eterned::db::EternerDb;
+use eterned::memo;
 use lazy_static::lazy_static;
 use visored_opr::{
     opr::{binary::VdBaseBinaryOpr, prefix::VdBasePrefixOpr},
@@ -11,7 +13,7 @@ use visored_signature::{
         separator::base::VdBaseSeparatorSignature,
     },
 };
-use visored_term::menu::{VdTypeMenu, VD_TYPE_MENU};
+use visored_term::menu::{vd_ty_menu, VdTypeMenu};
 
 use crate::dispatch::{
     attach::VdAttachGlobalDispatch, binary_opr::VdBinaryOprGlobalDispatch,
@@ -103,12 +105,13 @@ pub struct VdGlobalDispatchMenu {
     pub complex_frac: VdFracGlobalDispatch,
 }
 
-lazy_static! {
-    pub static ref vd_global_dispatch_menu: VdGlobalDispatchMenu = VdGlobalDispatchMenu::new();
+#[memo]
+pub fn vd_global_dispatch_menu(db: &EternerDb) -> VdGlobalDispatchMenu {
+    VdGlobalDispatchMenu::new(db)
 }
 
 impl VdGlobalDispatchMenu {
-    pub fn new() -> Self {
+    pub fn new(db: &EternerDb) -> Self {
         let VdTypeMenu {
             nat,
             int,
@@ -117,7 +120,7 @@ impl VdGlobalDispatchMenu {
             complex,
             set,
             prop,
-        } = *VD_TYPE_MENU;
+        } = *vd_ty_menu(db);
         let VdSignatureMenu {
             int_pos,
             rat_pos,
@@ -176,7 +179,7 @@ impl VdGlobalDispatchMenu {
             rat_ge,
             real_ge,
             real_sqrt,
-        } = *vd_signature_menu;
+        } = *vd_signature_menu(db);
         let pre = |base_opr, signature| VdPrefixOprGlobalDispatch::Base {
             base_opr,
             signature,
