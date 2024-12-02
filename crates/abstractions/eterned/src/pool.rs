@@ -31,6 +31,10 @@ impl<T, const N: usize> Pool<T, N> {
     }
 
     pub fn len(&self) -> usize {
-        self.blocks.iter().map(|b| b.len()).sum()
+        if self.blocks.is_empty() {
+            0
+        } else {
+            (self.blocks.len() - 1) * N + self.blocks.last().unwrap().len()
+        }
     }
 }
