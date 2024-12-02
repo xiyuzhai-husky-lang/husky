@@ -14,7 +14,8 @@ keywords.workspace = true
 [dependencies]
 enum-class.workspace = true
 enum-index.workspace = true
-lazy_static.workspace = true
+# abstractions
+eterned.workspace = true
 # lisp
 lisp-csv.workspace = true
 

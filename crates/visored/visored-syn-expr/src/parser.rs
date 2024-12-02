@@ -7,6 +7,7 @@ mod expr_stack;
 pub(crate) mod incomplete_expr;
 mod utils;
 
+use eterned::db::EternerDb;
 use expr::VdSynExprIdx;
 use latex_ast::ast::math::{LxMathAstIdx, LxMathAstIdxRange};
 use range::VdSynExprTokenIdxRange;
@@ -27,6 +28,12 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             builder,
             stack: Default::default(),
         }
+    }
+}
+
+impl<'a, 'db> VdSynExprParser<'a, 'db> {
+    pub fn db(&self) -> &'db EternerDb {
+        self.builder.db()
     }
 }
 

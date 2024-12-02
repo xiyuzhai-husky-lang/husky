@@ -1,5 +1,6 @@
 use super::*;
 use crate::helpers::tracker::VdLeanTranspilationTracker;
+use eterned::db::EternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxPageInput},
     mode::LxMode,
@@ -10,8 +11,9 @@ use std::path::PathBuf;
 fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
-    let file_path = LxFilePath::new(PathBuf::from(file!()));
+    let file_path = LxFilePath::new(PathBuf::from(file!()), db);
     let tracker = VdLeanTranspilationTracker::new(
         LxDocumentInput {
             specs_dir: dev_paths.specs_dir().to_path_buf(),
@@ -20,9 +22,10 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        db,
     );
-    expected_display_tree.assert_eq(&tracker.show_display_tree());
-    expected_fmt.assert_eq(&tracker.show_fmt());
+    expected_display_tree.assert_eq(&tracker.show_display_tree(db));
+    expected_fmt.assert_eq(&tracker.show_fmt(db));
 }
 
 #[test]
@@ -124,6 +127,7 @@ fn latex_shorts_to_lean_works() {
     use husky_path_utils::HuskyLangDevPaths;
     use std::fs;
 
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let projects_dir = dev_paths.projects_dir();
 
@@ -135,7 +139,7 @@ fn latex_shorts_to_lean_works() {
         }
         let content = &fs::read_to_string(&file_path).unwrap();
         let filestem = file_path.file_stem().unwrap().to_str().unwrap();
-        let file_path = LxFilePath::new(file_path.clone());
+        let file_path = LxFilePath::new(file_path.clone(), db);
         let tracker = VdLeanTranspilationTracker::new(
             LxDocumentInput {
                 specs_dir: dev_paths.specs_dir().to_path_buf(),
@@ -144,6 +148,7 @@ fn latex_shorts_to_lean_works() {
             },
             &[],
             &[],
+            db,
         );
         expect_file![projects_dir.join(format!(
             "ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean",
@@ -153,10 +158,11 @@ fn latex_shorts_to_lean_works() {
             r#"import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 import Mathlib.Data.Real.Basic
+import Mathlib.Data.Real.Sqrt
 import Mathlib.Tactic.Explode
 
 {}"#,
-            tracker.show_fmt()
+            tracker.show_fmt(db)
         ));
     }
 }

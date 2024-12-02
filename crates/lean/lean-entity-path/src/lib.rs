@@ -3,6 +3,8 @@ pub mod namespace;
 #[cfg(test)]
 pub mod tests;
 
+use eterned::db::EternerDb;
+
 #[cfg(test)]
 use crate::tests::*;
 
@@ -44,7 +46,7 @@ impl LnItemPath {
 }
 
 impl LnItemPath {
-    pub fn show(&self) -> String {
+    pub fn show(&self, db: &EternerDb) -> String {
         match self {
             LnItemPath::Nat => "ℕ".to_string(),
             LnItemPath::Rat => "ℚ".to_string(),

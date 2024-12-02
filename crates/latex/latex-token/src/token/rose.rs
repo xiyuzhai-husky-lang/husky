@@ -104,6 +104,7 @@ impl<'a> LxLexer<'a> {
                         c if c.is_ascii_alphabetic() => Some(LxRoseTokenData::Command(
                             LxCommandName::new(
                                 self.next_coword_with(|c| c.is_ascii_alphabetic()).unwrap(),
+                                self.db(),
                             )
                             .unwrap(),
                         )),
@@ -134,6 +135,7 @@ impl<'a> LxLexer<'a> {
             }
             a if a.is_ascii_alphabetic() => Some(LxRoseTokenData::Word(Coword::from_ref(
                 self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
+                self.db(),
             ))),
             '$' => {
                 self.chars.eat_char();
@@ -175,17 +177,20 @@ impl<'a> LxLexer<'a> {
 
 #[cfg(test)]
 mod tests {
+    use eterned::db::EternerDb;
+
     use super::*;
 
     fn t(input: &str, expected: &Expect) {
         use crate::lane::LxTokenLane;
 
+        let db = &EternerDb::default();
         let mut storage = LxTokenStorage::default();
-        let mut stream = LxLexer::new(input, LxTokenLane::Main, &mut storage)
+        let mut stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage)
             .into_rose_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();
-        expected.assert_debug_eq(&tokens);
+        db.with_attached(|| expected.assert_debug_eq(&tokens));
     }
 
     #[test]

@@ -1,3 +1,5 @@
+use eterned::db::EternerDb;
+
 use super::*;
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
@@ -17,18 +19,18 @@ pub enum LnLiteralData {
 }
 
 impl LnLiteral {
-    pub fn new(data: LnLiteralData) -> Self {
-        Self(LnTermId::new(data.into()))
+    pub fn new(data: LnLiteralData, db: &EternerDb) -> Self {
+        Self(LnTermId::new(data.into(), db))
     }
 
-    pub(crate) fn show(&self) -> String {
+    pub(crate) fn show(&self, db: &EternerDb) -> String {
         todo!()
     }
 }
 
 impl LnLiteral {
-    pub fn data(&self) -> &LnLiteralData {
-        match self.0.data() {
+    pub fn data(&self, db: &EternerDb) -> &LnLiteralData {
+        match self.0.data(db) {
             LnTermData::Literal(data) => data,
             _ => unreachable!(),
         }

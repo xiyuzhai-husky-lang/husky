@@ -1,3 +1,5 @@
+use eterned::db::EternerDb;
+
 use super::*;
 
 impl<'a> VdSynSymbolBuilder<'a> {
@@ -13,7 +15,8 @@ impl<'a> VdSynSymbolBuilder<'a> {
             .into_iter()
             .map(Into::into)
             .collect();
-        if let Some(local_resolution) = self.build_letter_local_resolution(token_idx_range, letter)
+        if let Some(local_resolution) =
+            self.build_letter_local_resolution(token_idx_range, letter, self.db())
         {
             resolutions.push(local_resolution);
         }
@@ -25,8 +28,9 @@ impl<'a> VdSynSymbolBuilder<'a> {
         &mut self,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
+        db: &EternerDb,
     ) -> Option<VdSynSymbolResolution> {
-        let local_resolutions = self.build_letter_local_resolutions(token_idx_range, letter);
+        let local_resolutions = self.build_letter_local_resolutions(token_idx_range, letter, db);
         match *local_resolutions {
             [] => None,
             [single] => Some(single),
@@ -48,9 +52,10 @@ impl<'a> VdSynSymbolBuilder<'a> {
         &mut self,
         token_idx_range: LxTokenIdxRange,
         letter: LxMathLetter,
+        db: &EternerDb,
     ) -> VdSynSymbolResolutions {
         self.symbol_local_defn_storage()
-            .resolve_letter(self.current_module_path(), token_idx_range, letter)
+            .resolve_letter(self.current_module_path(), token_idx_range, letter, db)
             .map(|idx| VdSynLetterSymbolResolution::Local(idx).into())
             .collect()
     }

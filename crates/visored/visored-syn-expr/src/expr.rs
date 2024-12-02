@@ -16,6 +16,7 @@ use crate::builder::{ToVdSyn, VdSynExprBuilder};
 use crate::*;
 use either::*;
 use error::{OriginalVdSynExprError, VdSynExprError};
+use eterned::db::EternerDb;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -207,7 +208,7 @@ impl VdSynBinaryOpr {
 }
 
 impl VdSynBinaryOpr {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             VdSynBinaryOpr::Base(_, opr) => opr.latex_code().to_string(),
             VdSynBinaryOpr::Composite(_, opr) => opr.latex_code().to_string(), // ad hoc
@@ -223,10 +224,10 @@ pub enum VdSynSeparator {
 }
 
 impl VdSynSeparator {
-    pub(crate) fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             VdSynSeparator::Base(_, slf) => slf.latex_code().to_string(),
-            VdSynSeparator::Composite(slf, _) => arena[slf].show(arena),
+            VdSynSeparator::Composite(slf, _) => arena[slf].show(arena, db),
         }
     }
 
@@ -249,12 +250,12 @@ pub enum VdSynLeftDelimiter {
 }
 
 impl VdSynLeftDelimiter {
-    pub(crate) fn show(self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match self {
             VdSynLeftDelimiter::Base(token_idx_range, left_delimiter) => {
                 left_delimiter.latex_code().to_string()
             }
-            VdSynLeftDelimiter::Composite(expr, _) => arena[expr].show(arena),
+            VdSynLeftDelimiter::Composite(expr, _) => arena[expr].show(arena, db),
         }
     }
 }
@@ -266,12 +267,12 @@ pub enum VdSynRightDelimiter {
 }
 
 impl VdSynRightDelimiter {
-    pub(crate) fn show(self, arena: VdSynExprArenaRef) -> String {
+    pub(crate) fn show(self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match self {
             VdSynRightDelimiter::Base(_, right_delimiter) => {
                 right_delimiter.latex_code().to_string()
             }
-            VdSynRightDelimiter::Composite(expr, _) => arena[expr].show(arena),
+            VdSynRightDelimiter::Composite(expr, _) => arena[expr].show(arena, db),
         }
     }
 }
@@ -424,12 +425,12 @@ impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
 }
 
 impl VdSynExprData {
-    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             VdSynExprData::Literal {
                 token_idx_range,
                 literal,
-            } => match literal.data() {
+            } => match literal.data(db) {
                 VdLiteralData::NaturalNumber(n) => n.to_string(),
                 VdLiteralData::NegativeInteger(n) => n.to_string(),
                 VdLiteralData::Float(n) => n.to_string(),
@@ -440,9 +441,9 @@ impl VdSynExprData {
             VdSynExprData::Binary { lopd, opr, ropd } => {
                 format!(
                     "{} {} {}",
-                    arena[lopd].show(arena),
-                    opr.show(arena),
-                    arena[ropd].show(arena)
+                    arena[lopd].show(arena, db),
+                    opr.show(arena, db),
+                    arena[ropd].show(arena, db)
                 )
             }
             VdSynExprData::Prefix { opr, opd } => todo!(),
@@ -456,10 +457,10 @@ impl VdSynExprData {
                 for (i, item) in items.into_iter().enumerate() {
                     if i > 0 && i - 1 < separators.len() {
                         result.push_str(" ");
-                        result.push_str(&separators[i - 1].show(arena));
+                        result.push_str(&separators[i - 1].show(arena, db));
                         result.push_str(" ");
                     }
-                    result.push_str(&arena[item].show(arena));
+                    result.push_str(&arena[item].show(arena, db));
                 }
                 result
             }
@@ -472,7 +473,7 @@ impl VdSynExprData {
             } => format!(
                 "{}{}{}",
                 left_delimiter.left_latex_code(),
-                arena[item].show(arena),
+                arena[item].show(arena, db),
                 right_delimiter.right_latex_code()
             ),
             VdSynExprData::Delimited {
@@ -481,9 +482,9 @@ impl VdSynExprData {
                 right_delimiter,
             } => format!(
                 "{}{}{}",
-                left_delimiter.show(arena),
-                arena[item].show(arena),
-                right_delimiter.show(arena)
+                left_delimiter.show(arena, db),
+                arena[item].show(arena, db),
+                right_delimiter.show(arena, db)
             ),
             VdSynExprData::Fraction {
                 numerator,
@@ -491,11 +492,11 @@ impl VdSynExprData {
                 ..
             } => format!(
                 "\\frac{{{}}}{{{}}}",
-                arena[numerator].show(arena),
-                arena[denominator].show(arena)
+                arena[numerator].show(arena, db),
+                arena[denominator].show(arena, db)
             ),
             VdSynExprData::Sqrt { radicand, .. } => {
-                format!("\\sqrt{{{}}}", arena[radicand].show(arena))
+                format!("\\sqrt{{{}}}", arena[radicand].show(arena, db))
             }
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),

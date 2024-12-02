@@ -11,6 +11,7 @@ mod vm;
 
 pub use self::config::*;
 
+use eterned::db::EternerDb;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_devsoul::{
     devsoul::IsDevsoul,
@@ -141,6 +142,10 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
 
     unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf {
         &*(unsafe { self as *const _ })
+    }
+
+    fn interner_db(&self) -> &EternerDb {
+        self.comptime.eterner_db()
     }
 
     fn eval_eager_val_with(

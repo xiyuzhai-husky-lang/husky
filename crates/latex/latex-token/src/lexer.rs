@@ -19,10 +19,12 @@ use crate::{
     },
 };
 use coword::Coword;
+use eterned::db::EternerDb;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextPositionRange};
 use latex_prelude::mode::LxMode;
 
 pub struct LxLexer<'a> {
+    db: &'a EternerDb,
     pub(crate) chars: TextCharIter<'a>,
     lane: LxTokenLane,
     pub(crate) storage: &'a mut LxTokenStorage,
@@ -30,12 +32,25 @@ pub struct LxLexer<'a> {
 
 /// # constructor
 impl<'a> LxLexer<'a> {
-    pub fn new(input: &'a str, lane: LxTokenLane, storage: &'a mut LxTokenStorage) -> Self {
+    pub fn new(
+        db: &'a EternerDb,
+        input: &'a str,
+        lane: LxTokenLane,
+        storage: &'a mut LxTokenStorage,
+    ) -> Self {
         Self {
+            db,
             chars: TextCharIter::new(input),
             lane,
             storage,
         }
+    }
+}
+
+/// # getters
+impl<'a> LxLexer<'a> {
+    pub fn db(&self) -> &'a EternerDb {
+        self.db
     }
 }
 
@@ -46,7 +61,7 @@ impl<'a> LxLexer<'a> {
         if coword_str_slice.is_empty() {
             return None;
         }
-        Some(Coword::from_ref(coword_str_slice))
+        Some(Coword::from_ref(coword_str_slice, self.db))
     }
 
     pub(crate) fn eat_spaces_and_tabs(&mut self) {

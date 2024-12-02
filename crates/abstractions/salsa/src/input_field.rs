@@ -120,7 +120,8 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
 
 impl<K, V> Ingredient for InputFieldIngredient<K, V>
 where
-    K: AsId,
+    K: AsId + 'static,
+    V: 'static,
 {
     fn cycle_recovery_strategy(&self) -> CycleRecoveryStrategy {
         CycleRecoveryStrategy::Panic
@@ -131,7 +132,7 @@ where
         self.map.get(&key.as_id()).unwrap().changed_at > revision
     }
 
-    fn origin(&self, _key_index: Id) -> Option<QueryOrigin> {
+    fn origin(&self, _db: &Db, _key_index: Id) -> Option<QueryOrigin> {
         None
     }
 

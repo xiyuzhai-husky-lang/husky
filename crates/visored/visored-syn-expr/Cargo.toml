@@ -23,6 +23,7 @@ thiserror.workspace = true
 coword.workspace = true
 salsa = { workspace = true, optional = true }
 idx-arena.workspace = true
+eterned.workspace = true
 # latex
 latex-math-letter.workspace = true
 latex-math-punctuation.workspace = true

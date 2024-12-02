@@ -4,13 +4,16 @@ use std::hash::Hash;
 use std::marker::PhantomData;
 use std::{borrow::Borrow, fmt};
 
-use crate::ingredient::{fmt_index, IngredientRequiresReset};
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
 use crate::DatabaseKeyIndex;
 use crate::{durability::Durability, Db};
 use crate::{id::AsId, Id};
+use crate::{
+    ingredient::{fmt_index, IngredientRequiresReset},
+    AsIdWithDb,
+};
 
 use super::hash::FxDashMap;
 use super::ingredient::Ingredient;
@@ -226,8 +229,8 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
 
 impl<Id, Data> Ingredient for InternedIngredient<Id, Data>
 where
-    Id: InternedId,
-    Data: InternedData,
+    Id: InternedId + 'static,
+    Data: InternedData + 'static,
 {
     fn maybe_changed_after(&self, _db: &Db, _input: DependencyIndex, revision: Revision) -> bool {
         revision < self.reset_at
@@ -237,7 +240,7 @@ where
         crate::cycle::CycleRecoveryStrategy::Panic
     }
 
-    fn origin(&self, _key_index: crate::Id) -> Option<QueryOrigin> {
+    fn origin(&self, _db: &Db, _key_index: crate::Id) -> Option<QueryOrigin> {
         None
     }
 
@@ -289,11 +292,11 @@ where
     const RESET_ON_NEW_REVISION: bool = false;
 }
 
-pub struct IdentityInterner<Id: AsId> {
+pub struct IdentityInterner<Id: AsIdWithDb> {
     data: PhantomData<Id>,
 }
 
-impl<Id: AsId> IdentityInterner<Id> {
+impl<Id: AsIdWithDb> IdentityInterner<Id> {
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         IdentityInterner { data: PhantomData }

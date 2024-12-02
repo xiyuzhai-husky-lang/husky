@@ -1,7 +1,8 @@
 use crate::{
-    menu::{VdTypeMenu, VD_TYPE_MENU},
+    menu::{vd_ty_menu, VdTypeMenu},
     ty::VdType,
 };
+use eterned::db::EternerDb;
 use rustc_hash::FxHashMap;
 use visored_entity_path::{
     menu::{VdItemPathMenu, VD_ITEM_PATH_MENU},
@@ -19,7 +20,7 @@ impl VdItemPathZfcTypeTable {
         }
     }
 
-    pub fn new_standard() -> Self {
+    pub fn new_standard(db: &EternerDb) -> Self {
         // TODO: use menu?
         let VdItemPathMenu {
             nat: nat_path,
@@ -60,7 +61,7 @@ impl VdItemPathZfcTypeTable {
             complex,
             set,
             prop,
-        } = *VD_TYPE_MENU;
+        } = *vd_ty_menu(db);
         Self::new([
             (nat_path.into(), set),
             (rat_path.into(), set),

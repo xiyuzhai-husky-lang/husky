@@ -56,10 +56,10 @@ impl IncompleteVdSynExprData {
 }
 
 impl IncompleteVdSynExprData {
-    pub fn show(&self, arena: VdSynExprArenaRef) -> String {
+    pub fn show(&self, arena: VdSynExprArenaRef, db: &EternerDb) -> String {
         match *self {
             IncompleteVdSynExprData::Binary { lopd, opr } => {
-                format!("{} {}", arena[lopd].show(arena), opr.show(arena))
+                format!("{} {}", arena[lopd].show(arena, db), opr.show(arena, db))
             }
             IncompleteVdSynExprData::Prefix { opr } => opr.show(arena),
             IncompleteVdSynExprData::SeparatedList {
@@ -74,18 +74,18 @@ impl IncompleteVdSynExprData {
                     if !s.is_empty() {
                         s += " ";
                     }
-                    s += &item.show(arena);
+                    s += &item.show(arena, db);
 
                     // Add separator if there is one
                     if i < separators.len() {
                         s += " ";
-                        s += &separators[i].show(arena);
+                        s += &separators[i].show(arena, db);
                     }
                 }
                 s
             }
             IncompleteVdSynExprData::Delimited { left_delimiter } => {
-                format!("{}", left_delimiter.show(arena))
+                format!("{}", left_delimiter.show(arena, db))
             }
         }
     }

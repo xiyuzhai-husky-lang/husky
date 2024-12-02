@@ -17,8 +17,8 @@ pub struct VdForAllData {
 }
 
 impl VdForAll {
-    pub fn data(&self) -> &VdForAllData {
-        match self.0.data() {
+    pub fn data(&self, db: &EternerDb) -> &VdForAllData {
+        match self.0.data(db) {
             VdTermData::ForAll(data) => data,
             _ => unreachable!(),
         }
