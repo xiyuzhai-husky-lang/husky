@@ -47,7 +47,7 @@ impl EternerDb {
     }
 
     /// this is possible because self.eterners contains pointers to the actual eterners
-    fn eterner<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static>(&self) -> &Eterner<T> {
+    pub fn eterner<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static>(&self) -> &Eterner<T> {
         use husky_wild_utils::arb_ref;
 
         unsafe {
