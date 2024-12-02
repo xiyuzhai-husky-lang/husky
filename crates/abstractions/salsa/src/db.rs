@@ -10,6 +10,26 @@ pub struct Db {
     pub(crate) logger: Arc<husky_salsa_log_utils::Logger>,
 }
 
+impl std::borrow::Borrow<EternerDb> for Db {
+    fn borrow(&self) -> &EternerDb {
+        &self.eterner_db
+    }
+}
+
+impl std::convert::AsRef<EternerDb> for Db {
+    fn as_ref(&self) -> &EternerDb {
+        &self.eterner_db
+    }
+}
+
+impl std::ops::Deref for Db {
+    type Target = EternerDb;
+
+    fn deref(&self) -> &Self::Target {
+        &self.eterner_db
+    }
+}
+
 pub trait HasDb<'a> {
     fn db(&self) -> &'a Db;
 }
