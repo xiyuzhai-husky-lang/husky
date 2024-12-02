@@ -4,13 +4,16 @@ use std::hash::Hash;
 use std::marker::PhantomData;
 use std::{borrow::Borrow, fmt};
 
-use crate::ingredient::{fmt_index, IngredientRequiresReset};
 use crate::key::DependencyIndex;
 use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
 use crate::DatabaseKeyIndex;
 use crate::{durability::Durability, Db};
 use crate::{id::AsId, Id};
+use crate::{
+    ingredient::{fmt_index, IngredientRequiresReset},
+    AsIdWithDb,
+};
 
 use super::hash::FxDashMap;
 use super::ingredient::Ingredient;
@@ -289,11 +292,11 @@ where
     const RESET_ON_NEW_REVISION: bool = false;
 }
 
-pub struct IdentityInterner<Id: AsId> {
+pub struct IdentityInterner<Id: AsIdWithDb> {
     data: PhantomData<Id>,
 }
 
-impl<Id: AsId> IdentityInterner<Id> {
+impl<Id: AsIdWithDb> IdentityInterner<Id> {
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         IdentityInterner { data: PhantomData }
