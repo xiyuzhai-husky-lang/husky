@@ -25,6 +25,7 @@ impl LnTerm {
 
 #[eterned::eterned]
 pub struct LnTermId {
+    #[return_ref]
     data: LnTermData,
 }
 

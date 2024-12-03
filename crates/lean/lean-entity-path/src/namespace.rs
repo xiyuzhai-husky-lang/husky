@@ -38,7 +38,7 @@ impl LnNamespace {
     }
 
     pub fn ident(self, db: &EternerDb) -> Option<LnIdent> {
-        match *self.data(db) {
+        match self.data(db) {
             LnNamespaceData::Root => None,
             LnNamespaceData::Child(_, ident) => Some(ident),
         }
@@ -77,7 +77,7 @@ impl std::fmt::Debug for LnNamespace {
 
 #[memo]
 fn ln_namespace_all_idents(namespace: LnNamespace, db: &EternerDb) -> SmallVec<[LnIdent; 4]> {
-    match *namespace.data(db) {
+    match namespace.data(db) {
         LnNamespaceData::Root => smallvec![],
         LnNamespaceData::Child(parent, ident) => {
             let mut ids = parent.all_idents(db).to_smallvec();
