@@ -52,8 +52,8 @@ impl VdLiteral {
         Self(VdTermId::new(data.into(), db))
     }
 
-    pub fn data(self, db: &EternerDb) -> &VdLiteralData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdLiteralData {
+        match self.0.data() {
             VdTermData::Literal(data) => data,
             _ => unreachable!(),
         }
@@ -65,7 +65,7 @@ impl VdLiteral {
 }
 
 fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
-    let data = literal.data(db);
+    let data = literal.data();
     let menu = vd_ty_menu(db);
     match data {
         VdLiteralData::NaturalNumber(_) => menu.nat,

@@ -120,9 +120,7 @@
                                         EtherealRitchieKeyedParameter {
                                             key: Ident(
                                                 Coword(
-                                                    Id {
-                                                        value: 43,
-                                                    },
+                                                    "skip",
                                                 ),
                                             ),
                                             contract: Pure,

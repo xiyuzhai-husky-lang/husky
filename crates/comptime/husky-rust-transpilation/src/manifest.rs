@@ -46,7 +46,7 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
         (
             rust_transpilation_setup_data
                 .task_dependency_name
-                .data(db)
+                .data()
                 .to_string(),
             Dependency::Detailed(DependencyDetail {
                 path: Some(
@@ -106,12 +106,12 @@ pub(crate) fn source_package_manifest(
         "husky-core".to_string(),
         rust_transpilation_setup_data
             .task_dependency_name
-            .data(db)
+            .data()
             .to_string(),
     ]
     .into_iter()
     .chain(package_path.dependencies(db).unwrap().iter().map(|dep| {
-        match dep.package_path().name(db).data(db) {
+        match dep.package_path().name(db).data() {
             "core" => "husky-core",
             name => name,
         }
@@ -121,7 +121,7 @@ pub(crate) fn source_package_manifest(
     .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
-            name: package_path.name(db).data(db).to_owned(),
+            name: package_path.name(db).data().to_owned(),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
             version: Some(MaybeInherited::Local("0.1.0".to_string())),
             build: None,
@@ -164,7 +164,7 @@ pub(crate) fn linkets_package_manifest(
     let rust_transpilation_setup_data = transpilation_setup.rust_data(db).unwrap();
     let dependencies = [rust_transpilation_setup_data
         .task_dependency_name
-        .data(db)
+        .data()
         .to_string()]
     .into_iter()
     .chain(
@@ -173,7 +173,7 @@ pub(crate) fn linkets_package_manifest(
             .unwrap()
             .iter()
             .map(|dep| {
-                match dep.name(db).data(db) {
+                match dep.name(db).data() {
                     "core" => "husky-core",
                     name => name,
                 }
@@ -184,7 +184,7 @@ pub(crate) fn linkets_package_manifest(
     .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
-            name: format!("{}-linkets", target_path.name(db).data(db)),
+            name: format!("{}-linkets", target_path.name(db).data()),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
             version: Some(MaybeInherited::Local("0.1.0".to_string())),
             build: None,

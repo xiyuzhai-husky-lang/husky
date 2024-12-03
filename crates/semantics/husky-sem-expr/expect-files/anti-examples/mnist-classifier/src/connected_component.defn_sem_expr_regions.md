@@ -13118,9 +13118,7 @@
                                         ),
                                         forext_loop_var_ident: Ident(
                                             Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
+                                                "i",
                                             ),
                                         ),
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
@@ -13168,9 +13166,7 @@
                                         ),
                                         forext_loop_var_ident: Ident(
                                             Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
+                                                "i",
                                             ),
                                         ),
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
@@ -33829,9 +33825,7 @@
                                         ),
                                         forext_loop_var_ident: Ident(
                                             Coword(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                "row_start",
                                             ),
                                         ),
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
@@ -33918,9 +33912,7 @@
                                         ),
                                         forext_loop_var_ident: Ident(
                                             Coword(
-                                                Id {
-                                                    value: 41,
-                                                },
+                                                "row_end",
                                             ),
                                         ),
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
@@ -40109,9 +40101,7 @@
                                         ),
                                         forext_loop_var_ident: Ident(
                                             Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
+                                                "i",
                                             ),
                                         ),
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
@@ -43251,9 +43241,7 @@
                                         ),
                                         forext_loop_var_ident: Ident(
                                             Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
+                                                "i",
                                             ),
                                         ),
                                         forext_loop_var_sem_expr_idx: SemExprIdx(

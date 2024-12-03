@@ -237,9 +237,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 45,
-                                                                },
+                                                                "matches",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -257,9 +255,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 277,
-                                                                },
+                                                                "others",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(

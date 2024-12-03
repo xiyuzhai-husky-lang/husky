@@ -117,7 +117,7 @@ impl SynExprData {
                     SynExprError::Original(OriginalSynExprError::UnrecognizedIdent {
                         ident,
                         ..
-                    }) => BaseEntityPathInclination::from_case(ident.case(db)),
+                    }) => BaseEntityPathInclination::from_case(ident.case()),
                     // ad hoc
                     _ => BaseEntityPathInclination::FunctionOrLocalValue,
                 },

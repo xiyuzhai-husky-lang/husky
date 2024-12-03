@@ -8,8 +8,7 @@ pub struct Coword {
 
 impl std::fmt::Debug for Coword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = eterned::db::attached_interner_db().ok_or(std::fmt::Error)?;
-        f.debug_tuple("Coword").field(self.data(db)).finish()
+        f.debug_tuple("Coword").field(&self.data()).finish()
     }
 }
 
@@ -32,13 +31,13 @@ fn coword_works() {
     assert_ne!(word1, word3);
 
     // Test access to underlying data
-    assert_eq!(word1.data(db), "hello");
-    assert_eq!(word3.data(db), "world");
+    assert_eq!(word1.data(), "hello");
+    assert_eq!(word3.data(), "world");
 
     // assert_eq!(db.interners.len(), 2);
 }
 
 #[memo]
 fn first_letter(word: Coword, db: &EternerDb) -> char {
-    word.data(db).chars().next().unwrap()
+    word.data().chars().next().unwrap()
 }

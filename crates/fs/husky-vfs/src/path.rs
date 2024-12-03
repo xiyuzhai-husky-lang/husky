@@ -38,7 +38,7 @@ pub(crate) fn module_virtual_path(
                 } => parent_module_path.data(db).with_extension(""),
                 ModulePathData::Script { .. } => unreachable!(),
             };
-            VirtualPath::try_new(db, &dir.join(ident.data(db)).with_extension("hsy")).map(Some)
+            VirtualPath::try_new(db, &dir.join(ident.data()).with_extension("hsy")).map(Some)
         }
         ModulePathData::Script { .. } => Ok(None),
     }

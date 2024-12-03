@@ -190,9 +190,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 122,
-                                                                },
+                                                                "start",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -210,9 +208,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 123,
-                                                                },
+                                                                "end",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(

@@ -23,7 +23,11 @@ fn ident_debug_works() {
     let db = &*db;
     let haha = Ident::from_ref(db, "haha").unwrap();
     expect_test::expect![[r#"
-        `haha`
+        Ident(
+            Coword(
+                "haha",
+            ),
+        )
     "#]]
     .assert_debug_eq(&haha);
 }

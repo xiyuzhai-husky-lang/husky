@@ -100,9 +100,7 @@
             field: Props {
                 ident: Ident(
                     Coword(
-                        Id {
-                            value: 13,
-                        },
+                        "x",
                     ),
                 ),
             },
@@ -174,9 +172,7 @@
             field: Props {
                 ident: Ident(
                     Coword(
-                        Id {
-                            value: 13,
-                        },
+                        "x",
                     ),
                 ),
             },
@@ -197,9 +193,7 @@
             field: Props {
                 ident: Ident(
                     Coword(
-                        Id {
-                            value: 16,
-                        },
+                        "y",
                     ),
                 ),
             },

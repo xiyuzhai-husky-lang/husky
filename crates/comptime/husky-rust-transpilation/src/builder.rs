@@ -523,7 +523,7 @@ where
 impl<E> TranspileToRustWith<E> for Ident {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
-        builder.word(self.data(db))
+        builder.word(self.data())
     }
 }
 
@@ -531,7 +531,7 @@ impl<E> TranspileToRustWith<E> for Label {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.write_str("'");
-        builder.write_str(self.ident().data(db))
+        builder.write_str(self.ident().data())
     }
 }
 

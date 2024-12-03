@@ -306,9 +306,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 39,
-                                                                },
+                                                                "row_start",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -326,9 +324,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 41,
-                                                                },
+                                                                "row_end",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -346,9 +342,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 42,
-                                                                },
+                                                                "upper_mass",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -366,9 +360,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 43,
-                                                                },
+                                                                "lower_mass",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -598,9 +590,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 45,
-                                                                },
+                                                                "matches",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -999,9 +989,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
+                                                                "mask",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(

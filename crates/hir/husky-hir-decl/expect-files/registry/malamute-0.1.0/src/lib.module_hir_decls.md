@@ -655,9 +655,7 @@
                                 Keyed {
                                     ident: Ident(
                                         Coword(
-                                            Id {
-                                                value: 43,
-                                            },
+                                            "skip",
                                         ),
                                     ),
                                     ty: PathLeading(

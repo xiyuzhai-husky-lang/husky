@@ -89,9 +89,7 @@ fn vd_signature_table_from_lp_csv_rows_works() {
         .unwrap();
     let file = parse_lp_csv_file(&file).unwrap();
     let table = VdSignatureTable::from_lp_csv_file(&file, db);
-    db.with_attached(|| {
-        expect_file!["../expect-files/signature_table.debug.txt"].assert_debug_eq(&table)
-    });
+    expect_file!["../expect-files/signature_table.debug.txt"].assert_debug_eq(&table);
     let VdSignatureMenu {
         int_pos,
         rat_pos,

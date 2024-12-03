@@ -299,9 +299,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 16,
-                                                                },
+                                                                "line_segment_sketch",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -319,9 +317,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 216,
-                                                                },
+                                                                "strokes",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(

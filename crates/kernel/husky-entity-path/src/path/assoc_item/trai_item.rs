@@ -82,7 +82,7 @@ impl TraitItemPathData {
     fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         self.trai_path.show_aux(f, db)?;
         f.write_str("::")?;
-        f.write_str(self.ident.data(db))
+        f.write_str(self.ident.data())
     }
 }
 

@@ -1711,9 +1711,7 @@
                                                     HirEagerHtmlArgumentExpr {
                                                         property_ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 122,
-                                                                },
+                                                                "start",
                                                             ),
                                                         ),
                                                         expr: 1,
@@ -1721,9 +1719,7 @@
                                                     HirEagerHtmlArgumentExpr {
                                                         property_ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 123,
-                                                                },
+                                                                "end",
                                                             ),
                                                         ),
                                                         expr: 3,
@@ -7395,9 +7391,7 @@
                                             particulars: HirEagerForBetweenParticulars {
                                                 for_loop_variable_ident: Ident(
                                                     Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
+                                                        "i",
                                                     ),
                                                 ),
                                                 for_loop_variable_ty_path: I32,
