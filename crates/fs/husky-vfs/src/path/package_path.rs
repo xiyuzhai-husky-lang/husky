@@ -163,7 +163,7 @@ pub(crate) fn package_dir(db: &::salsa::Db, package: PackagePath) -> VfsResult<V
             ..
         } => VirtualPath::try_new(
             db,
-            registry_path.path().data(db).join(format!(
+            registry_path.path().data().join(format!(
                 "{}-{}.{}.{}",
                 package.name(db).data(),
                 version.major,
@@ -192,7 +192,7 @@ pub(crate) fn package_manifest_path(
 ) -> VfsResult<ManifestPath> {
     Ok(ManifestPath(VirtualPath::try_new(
         db,
-        package.dir(db)?.data(db).join("Corgi.toml"),
+        package.dir(db)?.data().join("Corgi.toml"),
     )?))
 }
 

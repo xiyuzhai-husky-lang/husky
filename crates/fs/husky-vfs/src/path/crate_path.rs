@@ -115,7 +115,7 @@ fn package_crate_paths(db: &::salsa::Db, package_path: PackagePath) -> VfsResult
     crate_paths
         .extend(CratePath::new(package_path, CrateKind::Requirements, db).into_result_option()?);
     crate_paths.extend(CratePath::new(package_path, CrateKind::Task, db).into_result_option()?);
-    let package_dir = package_path.dir(db).as_ref().unwrap().data(db);
+    let package_dir = package_path.dir(db).as_ref().unwrap().data();
     if package_dir.join("src/bin").exists() {
         todo!()
     }
