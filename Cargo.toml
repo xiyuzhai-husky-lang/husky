@@ -252,6 +252,7 @@ ui = { path = "crates/abstractions/ui" }
 ui-macros = { path = "crates/abstractions/ui-macros" }
 vec-like = { path = "crates/abstractions/vec-like" }
 version-stamp = { path = "crates/abstractions/version-stamp" }
+vfs = { path = "crates/abstractions/vfs" }
 with-db = { path = "crates/abstractions/with-db" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }

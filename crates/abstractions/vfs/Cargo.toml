@@ -1,0 +1,61 @@
+[package]
+name = "vfs"
+version.workspace = true
+edition = "2021"
+resolver = "2"
+
+[dependencies]
+pathdiff = "0.2.1"
+url = "2.3.1"
+thiserror.workspace = true
+notify-debouncer-mini = "0.4.1"
+crossbeam-channel = "0.5.6"
+dashmap.workspace = true
+expect-test = { workspace = true, optional = true }
+eyre = "0.6.8"
+semver = "1.0.14"
+indicatif = { version = "0.17.2", optional = true }
+indexmap.workspace = true
+relative-path = { version = "1.7.2", optional = true }
+rustc-hash.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+lsp-types = { workspace = true, optional = true }
+# abstractions
+enum-class.workspace = true
+eterned.workspace = true
+maybe-result.workspace = true
+salsa.workspace = true
+vec-like.workspace = true
+with-db.workspace = true
+# fs
+# husky-toolchain-config.workspace = true
+husky-fs-specs = { path = "../../fs/husky-fs-specs" }
+# lex
+husky-text-protocol.workspace = true
+# kernel
+husky-coword.workspace = true
+husky-platform = { path = "../../kernel/husky-platform" }
+# utils
+husky-path-utils.workspace = true
+husky-print-utils.workspace = true
+husky-minimal-toml-utils = { workspace = true }
+husky-adversarial-utils = { workspace = true, optional = true }
+husky-io-utils.workspace = true
+husky-rng-utils = { workspace = true, optional = true }
+husky-toml-utils.workspace = true
+
+[dev-dependencies]
+tempfile = "3.3.0"
+# fs
+husky-vfs = { workspace = true, features = ["test_helpers"] }
+
+[features]
+default = ["dep:relative-path"]
+test_helpers = [
+    "dep:expect-test",
+    "dep:indicatif",
+    "dep:husky-rng-utils",
+    "dep:husky-adversarial-utils"
+]
+lsp_support = ["dep:lsp-types", "husky-text-protocol/lsp_support"]
