@@ -5,6 +5,52 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "base-coword",
+        relative_path: "crates/abstractions/base-coword",
+        dependencies: [
+            "eterned",
+            "lazy_static",
+        ],
+    },
+    PackageSummary {
+        name: "eterned",
+        relative_path: "crates/abstractions/eterned",
+        dependencies: [
+            "dashmap",
+            "eterned-macros",
+            "husky-sha-utils",
+            "husky-wild-utils",
+            "sealed",
+        ],
+    },
+    PackageSummary {
+        name: "eterned-macros",
+        relative_path: "crates/abstractions/eterned-macros",
+        dependencies: [
+            "convert_case",
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-sha-utils",
+        relative_path: "crates/utils/husky-sha-utils",
+        dependencies: [
+            "crypto-common",
+            "hex",
+            "sealed",
+            "sha2",
+            "hex",
+            "hex-literal",
+        ],
+    },
+    PackageSummary {
+        name: "husky-wild-utils",
+        relative_path: "crates/utils/husky-wild-utils",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "base-vfs",
         relative_path: "crates/abstractions/base-vfs",
         dependencies: [
@@ -68,44 +114,6 @@
         ],
     },
     PackageSummary {
-        name: "eterned",
-        relative_path: "crates/abstractions/eterned",
-        dependencies: [
-            "dashmap",
-            "eterned-macros",
-            "husky-sha-utils",
-            "husky-wild-utils",
-            "sealed",
-        ],
-    },
-    PackageSummary {
-        name: "eterned-macros",
-        relative_path: "crates/abstractions/eterned-macros",
-        dependencies: [
-            "convert_case",
-            "proc-macro2",
-            "quote",
-            "syn",
-        ],
-    },
-    PackageSummary {
-        name: "husky-sha-utils",
-        relative_path: "crates/utils/husky-sha-utils",
-        dependencies: [
-            "crypto-common",
-            "hex",
-            "sealed",
-            "sha2",
-            "hex",
-            "hex-literal",
-        ],
-    },
-    PackageSummary {
-        name: "husky-wild-utils",
-        relative_path: "crates/utils/husky-wild-utils",
-        dependencies: [],
-    },
-    PackageSummary {
         name: "husky-adversarial-utils",
         relative_path: "crates/utils/husky-adversarial-utils",
         dependencies: [
@@ -125,21 +133,13 @@
         name: "husky-coword",
         relative_path: "crates/kernel/husky-coword",
         dependencies: [
-            "coword",
+            "base-coword",
             "husky-print-utils",
             "husky-unicode-symbols",
             "once_cell",
             "salsa",
             "vec-like",
             "expect-test",
-        ],
-    },
-    PackageSummary {
-        name: "coword",
-        relative_path: "crates/abstractions/coword",
-        dependencies: [
-            "eterned",
-            "lazy_static",
         ],
     },
     PackageSummary {
@@ -177,7 +177,7 @@
             "snapshot",
             "stacker",
             "vec-like",
-            "coword",
+            "base-coword",
             "expect-test",
             "rustversion",
             "test-log",
@@ -3664,7 +3664,7 @@
         name: "latex-ast",
         relative_path: "crates/latex/latex-ast",
         dependencies: [
-            "coword",
+            "base-coword",
             "egui",
             "enum-class",
             "eterned",
@@ -3701,7 +3701,7 @@
         name: "latex-command",
         relative_path: "crates/latex/latex-command",
         dependencies: [
-            "coword",
+            "base-coword",
             "eterned",
             "husky-coword",
             "latex-math-letter",
@@ -3753,7 +3753,7 @@
         name: "latex-environment",
         relative_path: "crates/latex/latex-environment",
         dependencies: [
-            "coword",
+            "base-coword",
             "eterned",
             "husky-coword",
             "latex-prelude",
@@ -3779,7 +3779,7 @@
         name: "latex-token",
         relative_path: "crates/latex/latex-token",
         dependencies: [
-            "coword",
+            "base-coword",
             "enum-class",
             "eterned",
             "husky-print-utils",
@@ -4070,7 +4070,7 @@
         name: "lean-coword",
         relative_path: "crates/lean/lean-coword",
         dependencies: [
-            "coword",
+            "base-coword",
             "eterned",
         ],
     },
@@ -4680,8 +4680,8 @@
         name: "visored-syn-expr",
         relative_path: "crates/visored/visored-syn-expr",
         dependencies: [
+            "base-coword",
             "codespan-reporting",
-            "coword",
             "either",
             "enum-class",
             "eterned",

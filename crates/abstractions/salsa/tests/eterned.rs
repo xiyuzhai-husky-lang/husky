@@ -1,4 +1,4 @@
-use coword::Coword;
+use base_coword::Coword;
 use std::cell::Cell;
 use std::thread_local;
 

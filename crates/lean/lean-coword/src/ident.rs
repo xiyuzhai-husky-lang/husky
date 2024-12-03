@@ -1,4 +1,4 @@
-use coword::Coword;
+use base_coword::Coword;
 use eterned::db::EternerDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]

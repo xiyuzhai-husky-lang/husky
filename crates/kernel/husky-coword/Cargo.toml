@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 once_cell = "1.16.0"
 # abstractions
-coword.workspace = true
+base-coword.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 # utils

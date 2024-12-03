@@ -1,6 +1,6 @@
 use super::*;
 use crate::idx::LxRoseTokenIdx;
-use coword::Coword;
+use base_coword::Coword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 use latex_rose_punctuation::LxRosePunctuation;

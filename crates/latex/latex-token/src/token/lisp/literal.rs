@@ -1,4 +1,4 @@
-use coword::Coword;
+use base_coword::Coword;
 use ordered_float::NotNan;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

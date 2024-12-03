@@ -18,7 +18,7 @@ use crate::{
         spec::LxSpecTokenData,
     },
 };
-use coword::Coword;
+use base_coword::Coword;
 use eterned::db::EternerDb;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextPositionRange};
 use latex_prelude::mode::LxMode;

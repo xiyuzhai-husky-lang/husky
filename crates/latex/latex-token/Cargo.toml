@@ -15,7 +15,7 @@ keywords.workspace = true
 rustc-hash.workspace = true
 # abstractions
 salsa = { workspace = true, optional = true }
-coword.workspace = true
+base-coword.workspace = true
 enum-class.workspace = true
 eterned.workspace = true
 ordered-float.workspace = true
