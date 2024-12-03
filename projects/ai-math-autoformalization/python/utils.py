@@ -1,15 +1,20 @@
 from openai import OpenAI
 import hashlib
 from diskcache import Cache
+import os
 
 cache = Cache(".chat_completion_cache")
 
 class ChatCompletionAPI:
     def __init__(self, type, model=None):
         if type == "local":
-            self.client = OpenAI(base_url="http://172.28.6.60:8000/v1") # DO NOT CHANGE THIS LINE
-            self.model = "/local1/models/models--meta-llama--Llama-3.1-70B-Instruct/snapshots/945c8663693130f8be2ee66210e062158b2a9693"  # DO NOT CHANGE THIS LINE
+            self.client = OpenAI(
+                api_key=os.environ["LOCAL_API_KEY"],
+                base_url=os.environ["LOCAL_URL"]
+            )
+            self.model = os.environ["LOCAL_MODEL"]
         elif type == "openai":
+            # key is set in the environment variable OPENAI_API_KEY
             self.client = OpenAI()
             self.model = model
         else:
