@@ -28,7 +28,7 @@ impl VdLeanTranspilationMangler {
             FxHashMap::default();
         let mut disambiguator_map: FxHashMap<(LnNamespace, String), usize> = FxHashMap::default();
         for (idx, defn) in storage.defn_arena().indexed_iter() {
-            let namespace = *vd_module_path_to_ln_namespace_or_inherited(defn.module_path(), db);
+            let namespace = vd_module_path_to_ln_namespace_or_inherited(defn.module_path(), db);
             let naive_ident = naive_ident(defn.head());
             let mangled_ident =
                 mangle_naive_ident(namespace, naive_ident, &mut disambiguator_map, db);

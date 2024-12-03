@@ -124,7 +124,7 @@ impl LxCommandPathMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn lx_command_path_menu(db: &EternerDb) -> LxCommandPathMenu {
     LxCommandPathMenu::new(db)
 }

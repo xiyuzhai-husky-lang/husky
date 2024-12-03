@@ -64,7 +64,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
             division_level,
             disambiguator,
         } => {
-            let parent_namespace = *vd_module_path_to_ln_namespace_or_inherited(parent, db);
+            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent, db);
             match division_level {
                 VdDivisionLevel::Part => (),
                 VdDivisionLevel::Chapter => (),
@@ -85,7 +85,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
         VdModulePathData::Paragraph {
             parent,
             disambiguator,
-        } => *vd_module_path_to_ln_namespace_or_inherited(parent, db),
+        } => vd_module_path_to_ln_namespace_or_inherited(parent, db),
         VdModulePathData::Environment {
             parent,
             environment_path,

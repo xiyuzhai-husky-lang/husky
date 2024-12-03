@@ -279,7 +279,7 @@ impl LnMirFuncKeyMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn ln_mir_func_key_menu(db: &EternerDb) -> LnMirFuncKeyMenu {
     LnMirFuncKeyMenu::new(db)
 }

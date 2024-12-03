@@ -39,7 +39,7 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
     pub(crate) fn build_expr(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
         match self.expr_arena()[expr] {
             VdMirExprData::Literal(literal) => {
-                LnMirExprData::Literal(*to_lean_literal(literal, self.db()))
+                LnMirExprData::Literal(to_lean_literal(literal, self.db()))
             }
             VdMirExprData::ItemPath(item_path) => {
                 let Some(translation) = self.dictionary().item_path_translation(item_path) else {
