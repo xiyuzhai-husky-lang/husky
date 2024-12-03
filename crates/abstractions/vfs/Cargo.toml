@@ -28,18 +28,11 @@ maybe-result.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 with-db.workspace = true
-# fs
-# husky-toolchain-config.workspace = true
-husky-fs-specs = { path = "../../fs/husky-fs-specs" }
-# lex
-husky-text-protocol.workspace = true
 # kernel
 husky-coword.workspace = true
-husky-platform = { path = "../../kernel/husky-platform" }
 # utils
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true
-husky-minimal-toml-utils = { workspace = true }
 husky-adversarial-utils = { workspace = true, optional = true }
 husky-io-utils.workspace = true
 husky-rng-utils = { workspace = true, optional = true }
@@ -58,4 +51,4 @@ test_helpers = [
     "dep:husky-rng-utils",
     "dep:husky-adversarial-utils"
 ]
-lsp_support = ["dep:lsp-types", "husky-text-protocol/lsp_support"]
+lsp_support = ["dep:lsp-types"]

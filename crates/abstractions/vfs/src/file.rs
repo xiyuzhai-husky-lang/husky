@@ -60,9 +60,9 @@ impl File {
     pub(crate) fn set_content<'db>(
         self,
         db: &'db mut Db,
+        durability: Durability,
     ) -> VfsResult<salsa::setter::Setter<'db, File, FileContent>> {
         let path = self.path(db).data();
-        let durability = db.calc_durability(path)?;
         let (__jar, __runtime) = db.jar_mut();
         let __ingredients =
             <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient_mut(__jar);

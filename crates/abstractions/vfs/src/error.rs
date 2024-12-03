@@ -1,7 +1,5 @@
 use crate::*;
-use husky_fs_specs::FsSpecsError;
 use husky_io_utils::error::IoError;
-use husky_minimal_toml_utils::MinimalTomlError;
 use husky_path_utils::PathUtilsError;
 use maybe_result::MaybeResult;
 use thiserror::Error;
@@ -30,14 +28,10 @@ pub enum VfsError {
     FailToDiff,
     #[error("failed to resolve module path")]
     ModulePathResolveFailure,
-    #[error("minimal toml error")]
-    MinimalToml(#[from] MinimalTomlError),
     #[error("package ident")]
     PackageIdent,
     #[error("derived {0}")]
     PathUtils(#[from] PathUtilsError),
-    #[error("fs specs")]
-    FsSpecs(#[from] FsSpecsError),
     #[error("FailToReadPackageNameFromManifest")]
     FailToReadPackageNameFromManifest,
 }
@@ -45,12 +39,6 @@ pub enum VfsError {
 impl From<&VfsError> for VfsError {
     fn from(value: &VfsError) -> Self {
         value.clone()
-    }
-}
-
-impl From<&FsSpecsError> for VfsError {
-    fn from(_value: &FsSpecsError) -> Self {
-        todo!()
     }
 }
 
