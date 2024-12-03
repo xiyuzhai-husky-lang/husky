@@ -57,7 +57,7 @@ impl std::fmt::Debug for VdTerm {
 
 impl VdTerm {
     pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
-        match *self.data(db) {
+        match self.data(db) {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref data) => data.item_path().show_aux(f),
             VdTermData::ForAll(_) => todo!(),
@@ -96,6 +96,7 @@ pub type ZfcTerms = SmallVec<[VdTerm; 4]>;
 
 #[eterned::eterned]
 pub struct VdTermId {
+    #[return_ref]
     pub data: VdTermData,
 }
 

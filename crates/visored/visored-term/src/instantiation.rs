@@ -9,6 +9,7 @@ use visored_entity_path::path::VdItemPath;
 #[eterned::eterned]
 pub struct VdInstantiation {
     pub path: VdItemPath,
+    #[return_ref]
     pub arguments: SmallVec<[VdTerm; 4]>,
 }
 

@@ -12,7 +12,7 @@ pub struct VdModulePath {
     pub data: VdModulePathData,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum VdModulePathData {
     Root(LxFilePath),
     Division {
@@ -64,7 +64,7 @@ impl VdModulePath {
 
 impl VdModulePath {
     pub fn parent(self, db: &EternerDb) -> Option<Self> {
-        match *self.data(db) {
+        match self.data(db) {
             VdModulePathData::Root(_) => None,
             VdModulePathData::Division { parent, .. } => Some(parent),
             VdModulePathData::Paragraph { parent, .. } => Some(parent),
@@ -73,7 +73,7 @@ impl VdModulePath {
     }
 
     pub fn show(&self, db: &EternerDb) -> String {
-        match *self.data(db) {
+        match self.data(db) {
             VdModulePathData::Root(file_path) => "root".to_string(),
             VdModulePathData::Division {
                 parent,
@@ -245,7 +245,7 @@ mod tests {
         let mut paragraph_paths = Vec::new();
         for expected_disambiguator in 0..10 {
             let path = registry.issue_new_paragraph(db);
-            if let VdModulePathData::Paragraph { disambiguator, .. } = *path.data(db) {
+            if let VdModulePathData::Paragraph { disambiguator, .. } = path.data(db) {
                 assert_eq!(disambiguator, expected_disambiguator);
                 paragraph_paths.push(path);
             } else {
@@ -257,7 +257,7 @@ mod tests {
         let mut division_paths = Vec::new();
         for expected_disambiguator in 0..5 {
             let path = registry.issue_new_division(VdDivisionLevel::Section, db);
-            if let VdModulePathData::Division { disambiguator, .. } = *path.data(db) {
+            if let VdModulePathData::Division { disambiguator, .. } = path.data(db) {
                 assert_eq!(disambiguator, expected_disambiguator);
                 division_paths.push(path);
             } else {
@@ -270,7 +270,7 @@ mod tests {
         let equation = VdEnvironmentPath::Equation;
         for expected_disambiguator in 0..8 {
             let path = registry.issue_new_environment(equation, db);
-            if let VdModulePathData::Environment { disambiguator, .. } = *path.data(db) {
+            if let VdModulePathData::Environment { disambiguator, .. } = path.data(db) {
                 assert_eq!(disambiguator, expected_disambiguator);
                 env_paths.push(path);
             } else {
@@ -297,7 +297,7 @@ mod tests {
 
         // Verify we can still create new items after many iterations
         let last_paragraph = registry.issue_new_paragraph(db);
-        if let VdModulePathData::Paragraph { disambiguator, .. } = *last_paragraph.data(db) {
+        if let VdModulePathData::Paragraph { disambiguator, .. } = last_paragraph.data(db) {
             assert_eq!(disambiguator, 10);
         } else {
             panic!("Expected Paragraph");

@@ -2,6 +2,7 @@ use eterned::{db::EternerDb, eterned, memo};
 
 #[eterned]
 pub struct Coword {
+    #[return_ref]
     data: String,
 }
 
