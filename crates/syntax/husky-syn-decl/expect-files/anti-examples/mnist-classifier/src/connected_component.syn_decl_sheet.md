@@ -304,11 +304,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "row_start",
-                                                            ),
-                                                        ),
+                                                        ident: `row_start`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -322,11 +318,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "row_end",
-                                                            ),
-                                                        ),
+                                                        ident: `row_end`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -340,11 +332,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "upper_mass",
-                                                            ),
-                                                        ),
+                                                        ident: `upper_mass`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             13,
                                                         ),
@@ -358,11 +346,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "lower_mass",
-                                                            ),
-                                                        ),
+                                                        ident: `lower_mass`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             17,
                                                         ),
@@ -588,11 +572,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "matches",
-                                                            ),
-                                                        ),
+                                                        ident: `matches`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -987,11 +967,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "mask",
-                                                            ),
-                                                        ),
+                                                        ident: `mask`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),

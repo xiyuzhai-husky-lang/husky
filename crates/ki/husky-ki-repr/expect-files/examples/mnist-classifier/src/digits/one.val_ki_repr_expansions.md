@@ -1717,11 +1717,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -1870,11 +1866,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2023,11 +2015,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -3271,11 +3259,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -3488,11 +3472,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -4445,11 +4425,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -4691,11 +4667,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -5314,11 +5286,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -5531,11 +5499,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -5874,11 +5838,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -6007,11 +5967,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -6435,11 +6391,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "y",
-                                            ),
-                                        ),
+                                        ident: `y`,
                                     },
                                 },
                             },
@@ -7450,11 +7402,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "x",
-                                            ),
-                                        ),
+                                        ident: `x`,
                                     },
                                 },
                             },
@@ -7566,11 +7514,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "y",
-                                            ),
-                                        ),
+                                        ident: `y`,
                                     },
                                 },
                             },
@@ -7947,11 +7891,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -8193,11 +8133,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -8439,11 +8375,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -9150,11 +9082,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -9283,11 +9211,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -9649,11 +9573,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -9782,11 +9702,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "strokes",
-                                            ),
-                                        ),
+                                        ident: `strokes`,
                                     },
                                 },
                             },
@@ -10210,11 +10126,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "y",
-                                            ),
-                                        ),
+                                        ident: `y`,
                                     },
                                 },
                             },
@@ -10326,11 +10238,7 @@
                                     },
                                     field_ty_leash_class: Copyable,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "y",
-                                            ),
-                                        ),
+                                        ident: `y`,
                                     },
                                 },
                             },

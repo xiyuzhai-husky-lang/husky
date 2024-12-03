@@ -1413,11 +1413,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        "i",
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
@@ -2596,11 +2592,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        "i",
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
@@ -3837,11 +3829,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        "i",
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {

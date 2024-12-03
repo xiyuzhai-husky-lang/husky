@@ -118,11 +118,7 @@
                                     ),
                                     EtherealRitchieParameter::Keyed(
                                         EtherealRitchieKeyedParameter {
-                                            key: Ident(
-                                                Coword(
-                                                    "skip",
-                                                ),
-                                            ),
+                                            key: `skip`,
                                             contract: Pure,
                                             ty: ItemPath(
                                                 TypeOntology(
