@@ -1,15 +1,15 @@
-// use crate::*;
-// use crossbeam_channel::{select, unbounded, Receiver, Sender};
-// use eyre::Result;
-// use notify_debouncer_mini::{
-//     new_debouncer, notify::RecommendedWatcher, DebounceEventResult, DebouncedEvent, Debouncer,
-// };
-// use std::{
-//     marker::PhantomData,
-//     sync::{Arc, Mutex},
-//     thread,
-//     time::Duration,
-// };
+use crate::*;
+use crossbeam_channel::{select, unbounded, Receiver, Sender};
+use eyre::Result;
+use notify_debouncer_mini::{
+    new_debouncer, notify::RecommendedWatcher, DebounceEventResult, DebouncedEvent, Debouncer,
+};
+use std::{
+    marker::PhantomData,
+    sync::{Arc, Mutex},
+    thread,
+    time::Duration,
+};
 
 // pub trait WatchableVfsDb: VfsDb + Send {
 //     fn watcher(&self) -> Option<&VfsWatcher>;
@@ -24,24 +24,24 @@
 //     }
 // }
 
-// #[derive(Clone)]
-// pub struct VfsWatcher(pub(crate) Arc<Mutex<Debouncer<RecommendedWatcher>>>);
+#[derive(Clone)]
+pub struct VfsWatcher(pub(crate) Arc<Mutex<Debouncer<RecommendedWatcher>>>);
 
-// impl VfsWatcher {
-//     fn new(debounce_tx: Sender<DebounceEventResult>) -> Self {
-//         VfsWatcher(Arc::new(Mutex::new(
-//             new_debouncer(DEBOUNCE_TIMEOUT, debounce_tx).unwrap(),
-//         )))
-//     }
-// }
+impl VfsWatcher {
+    fn new(debounce_tx: Sender<DebounceEventResult>) -> Self {
+        VfsWatcher(Arc::new(Mutex::new(
+            new_debouncer(DEBOUNCE_TIMEOUT, debounce_tx).unwrap(),
+        )))
+    }
+}
 
-// const DEBOUNCE_TIMEOUT_RAW: u64 = 50;
+const DEBOUNCE_TIMEOUT_RAW: u64 = 50;
 
-// const DEBOUNCE_TIMEOUT: Duration = Duration::from_millis(DEBOUNCE_TIMEOUT_RAW);
+const DEBOUNCE_TIMEOUT: Duration = Duration::from_millis(DEBOUNCE_TIMEOUT_RAW);
 
-// #[cfg(test)]
-// pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
-//     Duration::from_millis(DEBOUNCE_TIMEOUT_RAW * 4);
+#[cfg(test)]
+pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
+    Duration::from_millis(DEBOUNCE_TIMEOUT_RAW * 4);
 
 // pub struct WatchedVfs {
 //     event_tx: Sender<VfsWatcherEvent>,
