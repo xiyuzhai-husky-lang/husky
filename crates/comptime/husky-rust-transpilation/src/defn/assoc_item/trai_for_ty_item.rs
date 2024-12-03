@@ -102,7 +102,7 @@ impl TranspileToRustWith for TraitForTypeMethodRitchieHirDefn {
             builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                 builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
                 builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter());
-                if path_ident.data(db) == "visualize" {
+                if path_ident.data() == "visualize" {
                     builder.visual_synchrotron_parameter_decl()
                 }
             });

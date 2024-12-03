@@ -17,8 +17,8 @@ pub struct VdLimitData {
 }
 
 impl VdLimit {
-    pub fn data(self, db: &EternerDb) -> &VdLimitData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdLimitData {
+        match self.0.data() {
             VdTermData::Limit(data) => data,
             _ => unreachable!(),
         }

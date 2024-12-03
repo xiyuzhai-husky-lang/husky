@@ -25,7 +25,7 @@ use self::{
     symbolic_variable::{VdSymbolicVariable, VdSymbolicVariableData},
 };
 use crate::ty::VdType;
-use eterned::db::{attached_interner_db, EternerDb};
+use eterned::db::EternerDb;
 use item_path::VdItemPathTermData;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use menu::{vd_term_menu, VdTermMenu};
@@ -50,14 +50,13 @@ pub enum VdTerm {
 
 impl std::fmt::Debug for VdTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = attached_interner_db().ok_or(std::fmt::Error)?;
-        self.show_aux(f, &db)
+        self.show_aux(f)
     }
 }
 
 impl VdTerm {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
-        match self.data(db) {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.data() {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref data) => data.item_path().show_aux(f),
             VdTermData::ForAll(_) => todo!(),

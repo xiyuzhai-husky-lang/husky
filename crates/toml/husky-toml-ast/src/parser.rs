@@ -94,7 +94,7 @@ impl<'a> TomlAstParser<'a> {
         Some(self.exprs.alloc_one(match self.tokens.next()?.data() {
             TomlTokenData::Comment => todo!(),
             TomlTokenData::Special(_) => todo!(),
-            TomlTokenData::Word(word) => match word.data(self.db) {
+            TomlTokenData::Word(word) => match word.data() {
                 "true" => TomlExpr::Boolean(true),
                 "false" => TomlExpr::Boolean(false),
                 _ => todo!(),

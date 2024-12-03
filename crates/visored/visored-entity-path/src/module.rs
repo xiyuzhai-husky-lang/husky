@@ -1,6 +1,6 @@
 use crate::*;
 use environment::VdEnvironmentPath;
-use eterned::db::{attached_interner_db, EternerDb};
+use eterned::db::EternerDb;
 use husky_coword::Coword;
 use latex_vfs::path::LxFilePath;
 use rustc_hash::FxHashMap;
@@ -63,8 +63,8 @@ impl VdModulePath {
 }
 
 impl VdModulePath {
-    pub fn parent(self, db: &EternerDb) -> Option<Self> {
-        match self.data(db) {
+    pub fn parent(self) -> Option<Self> {
+        match self.data() {
             VdModulePathData::Root(_) => None,
             VdModulePathData::Division { parent, .. } => Some(parent),
             VdModulePathData::Paragraph { parent, .. } => Some(parent),
@@ -72,28 +72,28 @@ impl VdModulePath {
         }
     }
 
-    pub fn show(&self, db: &EternerDb) -> String {
-        match self.data(db) {
+    pub fn show(&self) -> String {
+        match self.data() {
             VdModulePathData::Root(file_path) => "root".to_string(),
             VdModulePathData::Division {
                 parent,
                 division_level: division_level,
                 disambiguator,
             } => {
-                format!("{}.{}", parent.show(db), division_level)
+                format!("{}.{}", parent.show(), division_level)
             }
             VdModulePathData::Paragraph {
                 parent,
                 disambiguator,
             } => {
-                format!("{}.paragraph{}", parent.show(db), disambiguator)
+                format!("{}.paragraph{}", parent.show(), disambiguator)
             }
             VdModulePathData::Environment {
                 parent,
                 environment_path,
                 disambiguator,
             } => {
-                format!("{}.{}", parent.show(db), environment_path)
+                format!("{}.{}", parent.show(), environment_path)
             }
         }
     }
@@ -111,7 +111,7 @@ impl VdModulePath {
 /// includes the module itself
 #[eterned::memo(return_ref)]
 fn vd_module_lineage(module_path: VdModulePath, db: &EternerDb) -> SmallVec<[VdModulePath; 8]> {
-    match module_path.parent(db) {
+    match module_path.parent() {
         Some(parent) => {
             let mut ancestry = vd_module_lineage(parent, db).to_smallvec();
             ancestry.push(module_path);
@@ -183,20 +183,19 @@ impl VdModulePathRegistry {
 
 impl std::fmt::Debug for VdModulePath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = attached_interner_db().ok_or(std::fmt::Error)?;
         f.write_str("VdModulePath(`")?;
-        self.show_aux(f, db)?;
+        self.show_aux(f)?;
         f.write_str("`)")
     }
 }
 
 impl VdModulePath {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
-        match self.parent(db) {
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.parent() {
             Some(parent) => {
-                parent.show_aux(f, db)?;
+                parent.show_aux(f)?;
                 f.write_str(".")?;
-                match self.data(db) {
+                match self.data() {
                     VdModulePathData::Root(lx_file_path) => unreachable!(),
                     VdModulePathData::Division {
                         parent,
@@ -245,7 +244,7 @@ mod tests {
         let mut paragraph_paths = Vec::new();
         for expected_disambiguator in 0..10 {
             let path = registry.issue_new_paragraph(db);
-            if let VdModulePathData::Paragraph { disambiguator, .. } = path.data(db) {
+            if let VdModulePathData::Paragraph { disambiguator, .. } = path.data() {
                 assert_eq!(disambiguator, expected_disambiguator);
                 paragraph_paths.push(path);
             } else {
@@ -257,7 +256,7 @@ mod tests {
         let mut division_paths = Vec::new();
         for expected_disambiguator in 0..5 {
             let path = registry.issue_new_division(VdDivisionLevel::Section, db);
-            if let VdModulePathData::Division { disambiguator, .. } = path.data(db) {
+            if let VdModulePathData::Division { disambiguator, .. } = path.data() {
                 assert_eq!(disambiguator, expected_disambiguator);
                 division_paths.push(path);
             } else {
@@ -270,7 +269,7 @@ mod tests {
         let equation = VdEnvironmentPath::Equation;
         for expected_disambiguator in 0..8 {
             let path = registry.issue_new_environment(equation, db);
-            if let VdModulePathData::Environment { disambiguator, .. } = path.data(db) {
+            if let VdModulePathData::Environment { disambiguator, .. } = path.data() {
                 assert_eq!(disambiguator, expected_disambiguator);
                 env_paths.push(path);
             } else {
@@ -297,7 +296,7 @@ mod tests {
 
         // Verify we can still create new items after many iterations
         let last_paragraph = registry.issue_new_paragraph(db);
-        if let VdModulePathData::Paragraph { disambiguator, .. } = last_paragraph.data(db) {
+        if let VdModulePathData::Paragraph { disambiguator, .. } = last_paragraph.data() {
             assert_eq!(disambiguator, 10);
         } else {
             panic!("Expected Paragraph");

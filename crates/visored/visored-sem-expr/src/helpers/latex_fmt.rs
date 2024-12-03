@@ -92,7 +92,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     pub fn fmt_expr(&mut self, expr_idx: VdSemExprIdx) {
         let db = self.db();
         match *self.expr_arena[expr_idx].data() {
-            VdSemExprData::Literal { literal, .. } => match literal.data(db) {
+            VdSemExprData::Literal { literal, .. } => match literal.data() {
                 VdLiteralData::NaturalNumber(s) => {
                     if self
                         .result

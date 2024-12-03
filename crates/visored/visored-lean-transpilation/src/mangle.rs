@@ -105,21 +105,21 @@ fn test_mangle_naive_ident() {
     // First occurrence should be unchanged
     let root = LnNamespace::new_root(db);
     let result1 = mangle_naive_ident(root, "x".to_string(), &mut disambiguator_map, db);
-    expect!["x"].assert_eq(&result1.data(db));
+    expect!["x"].assert_eq(&result1.data());
 
     // Second occurrence should be x1
     let result2 = mangle_naive_ident(root, "x".to_string(), &mut disambiguator_map, db);
-    expect!["x1"].assert_eq(&result2.data(db));
+    expect!["x1"].assert_eq(&result2.data());
 
     // Third occurrence should be x2
     let result3 = mangle_naive_ident(root, "x".to_string(), &mut disambiguator_map, db);
-    expect!["x2"].assert_eq(&result3.data(db));
+    expect!["x2"].assert_eq(&result3.data());
 
     // Different letter should start fresh
     let result4 = mangle_naive_ident(root, "y".to_string(), &mut disambiguator_map, db);
-    expect!["y"].assert_eq(&result4.data(db));
+    expect!["y"].assert_eq(&result4.data());
 
     // Second occurrence of y should be y1
     let result5 = mangle_naive_ident(root, "y".to_string(), &mut disambiguator_map, db);
-    expect!["y1"].assert_eq(&result5.data(db));
+    expect!["y1"].assert_eq(&result5.data());
 }

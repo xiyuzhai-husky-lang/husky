@@ -242,8 +242,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     fn calc_scope_from_module_path(&self, module_path: VdModulePath) -> VdSynSymbolLocalDefnScope {
-        let db = self.db();
-        match module_path.data(db) {
+        match module_path.data() {
             VdModulePathData::Root(_) => VdSynSymbolLocalDefnScope::Module(module_path),
             VdModulePathData::Division {
                 parent,

@@ -41,7 +41,7 @@ impl Kebab {
 /// only use in this module
 #[salsa::tracked]
 pub(crate) fn kebab_to_ident(db: &::salsa::Db, coword: Coword) -> Ident {
-    let kebab = coword.data(db);
+    let kebab = coword.data();
     if !kebab.contains("-") {
         return Ident::from_ref(db, kebab).unwrap();
     } else {
@@ -51,7 +51,7 @@ pub(crate) fn kebab_to_ident(db: &::salsa::Db, coword: Coword) -> Ident {
 
 #[salsa::tracked]
 pub fn is_coword_valid_kebab(db: &::salsa::Db, coword: Coword) -> bool {
-    is_str_valid_kebab(coword.data(db))
+    is_str_valid_kebab(coword.data())
 }
 
 pub fn is_str_valid_kebab(coword: &str) -> bool {
@@ -85,6 +85,6 @@ impl salsa::DebugWithDb for Kebab {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data(db)))
+        f.write_fmt(format_args!("`{}`", self.data()))
     }
 }

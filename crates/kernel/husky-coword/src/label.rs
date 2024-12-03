@@ -56,8 +56,8 @@ impl Label {
 /// # getters
 
 impl Label {
-    pub fn data<'a>(self, db: &'a ::salsa::Db) -> &str {
-        self.ident.data(db)
+    pub fn data(&self) -> &str {
+        self.ident.data()
     }
 
     pub fn coword(self) -> Coword {
@@ -83,6 +83,6 @@ impl salsa::DebugWithDb for Label {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("`'{}`", &self.ident.data(db)))
+        f.write_fmt(format_args!("`'{}`", &self.ident.data()))
     }
 }

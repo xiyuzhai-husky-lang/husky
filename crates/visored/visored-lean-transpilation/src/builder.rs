@@ -135,11 +135,11 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     ) -> R {
         let db = self.db();
         debug_assert_eq!(
-            module_path.parent(db),
+            module_path.parent(),
             Some(self.current_module_path),
             "module path = {}, current module path = {}",
-            module_path.show(db),
-            self.current_module_path.show(db),
+            module_path.show(),
+            self.current_module_path.show(),
         );
         let namespace = vd_module_path_to_ln_namespace(module_path, db);
         let prev_module_path = self.current_module_path;

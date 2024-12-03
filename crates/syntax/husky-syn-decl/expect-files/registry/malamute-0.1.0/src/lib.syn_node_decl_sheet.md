@@ -1255,9 +1255,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 41,
-                                                                },
+                                                                "f",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(

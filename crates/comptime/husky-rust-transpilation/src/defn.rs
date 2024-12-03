@@ -36,7 +36,7 @@ use husky_core::*;
 use {}::{{*, ugly::*}};
 
 "#,
-            setup.rust_data(db).unwrap().task_dependency_ident.data(db),
+            setup.rust_data(db).unwrap().task_dependency_ident.data(),
         ))
     } else {
         None

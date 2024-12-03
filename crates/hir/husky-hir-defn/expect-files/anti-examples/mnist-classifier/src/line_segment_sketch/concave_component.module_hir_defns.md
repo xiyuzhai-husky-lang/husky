@@ -3835,9 +3835,7 @@
                                             particulars: HirEagerForBetweenParticulars {
                                                 for_loop_variable_ident: Ident(
                                                     Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
+                                                        "i",
                                                     ),
                                                 ),
                                                 for_loop_variable_ty_path: I32,
@@ -6092,9 +6090,7 @@
                                             particulars: HirEagerForBetweenParticulars {
                                                 for_loop_variable_ident: Ident(
                                                     Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
+                                                        "i",
                                                     ),
                                                 ),
                                                 for_loop_variable_ty_path: I32,
@@ -9856,9 +9852,7 @@
                                             particulars: HirEagerForBetweenParticulars {
                                                 for_loop_variable_ident: Ident(
                                                     Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
+                                                        "i",
                                                     ),
                                                 ),
                                                 for_loop_variable_ty_path: I32,

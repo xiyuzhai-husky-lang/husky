@@ -29,9 +29,7 @@ Some(
                                 default_const_excludes_ident_token: IdentRegionalToken {
                                     ident: Ident(
                                         Coword(
-                                            Id {
-                                                value: 2,
-                                            },
+                                            "default_const_excludes",
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(

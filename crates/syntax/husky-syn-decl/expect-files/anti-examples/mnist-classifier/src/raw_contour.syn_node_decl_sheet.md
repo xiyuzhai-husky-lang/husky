@@ -276,9 +276,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 102,
-                                                                },
+                                                                "cc",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -296,9 +294,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 68,
-                                                                },
+                                                                "points",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3223,9 +3219,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 157,
-                                                                },
+                                                                "prev1",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3243,9 +3237,7 @@ SynNodeDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: Ident(
                                                             Coword(
-                                                                Id {
-                                                                    value: 158,
-                                                                },
+                                                                "prev2",
                                                             ),
                                                         ),
                                                         regional_token_idx: RegionalTokenIdx(

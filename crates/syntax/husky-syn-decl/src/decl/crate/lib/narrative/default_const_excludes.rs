@@ -43,7 +43,7 @@ impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
         else {
             return Ok(None);
         };
-        if default_const_excludes_ident_token.ident().data(db) != "default_const_excludes" {
+        if default_const_excludes_ident_token.ident().data() != "default_const_excludes" {
             return Ok(None);
         }
         let eq_token = sp.try_parse_expected::<EqRegionalToken, _>(

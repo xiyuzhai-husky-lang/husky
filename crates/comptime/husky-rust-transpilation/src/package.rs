@@ -39,13 +39,13 @@ impl RustTranspilationPackage {
     pub(crate) fn name(self, db: &::salsa::Db) -> String {
         match self.data {
             RustTranspilationPackageData::Source { package_path } => {
-                match package_path.name(db).data(db) {
+                match package_path.name(db).data() {
                     "core" => "husky-core".to_string(),
                     name => name.to_string(),
                 }
             }
             RustTranspilationPackageData::Linkets => {
-                format!("{}-linkets", self.target_path.name(db).data(db))
+                format!("{}-linkets", self.target_path.name(db).data())
             }
         }
     }
@@ -152,7 +152,7 @@ fn transpile_source_package_to_fs(
     if package_path.is_virtual(db) {
         return Ok(());
     }
-    let package_dir = rust_workspace_dir.join(package_path.name(db).data(db));
+    let package_dir = rust_workspace_dir.join(package_path.name(db).data());
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
@@ -209,7 +209,7 @@ fn transpile_linkets_package_to_fs(
     target_path: LinktimeTargetPath,
     db: &::salsa::Db,
 ) -> IoResult<()> {
-    let package_dir = rust_workspace_dir.join(format!("{}-linkets", target_path.name(db).data(db)));
+    let package_dir = rust_workspace_dir.join(format!("{}-linkets", target_path.name(db).data()));
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(

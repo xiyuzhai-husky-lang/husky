@@ -41,20 +41,20 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         if field_attr.return_ref {
             if let Some(ref_ty) = field_attr.return_ref_ty {
                 quote! {
-                    pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &#ref_ty {
+                    pub fn #field_ident(self) -> &'static #ref_ty {
                         &self.0.0.value.#field_ident
                     }
                 }
             } else {
                 quote! {
-                    pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &#field_ty {
+                    pub fn #field_ident(self) -> &'static #field_ty {
                         &self.0.0.value.#field_ident
                     }
                 }
             }
         } else {
             quote! {
-                pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> #field_ty {
+                pub fn #field_ident(self) -> #field_ty {
                     self.0.0.value.#field_ident
                 }
             }

@@ -20,8 +20,8 @@ pub struct VdAbstractionData {
 }
 
 impl VdAbstraction {
-    pub fn data(self, db: &EternerDb) -> &VdAbstractionData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdAbstractionData {
+        match self.0.data() {
             VdTermData::Abstraction(data) => data,
             _ => unreachable!(),
         }

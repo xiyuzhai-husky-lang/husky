@@ -190,7 +190,7 @@ mod tests {
             .into_rose_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();
-        db.with_attached(|| expected.assert_debug_eq(&tokens));
+        expected.assert_debug_eq(&tokens);
     }
 
     #[test]

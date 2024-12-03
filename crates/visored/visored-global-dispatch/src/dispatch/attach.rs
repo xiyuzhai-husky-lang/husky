@@ -110,12 +110,10 @@ fn vd_attach_global_dispatch_standard_defaults_works() {
                 base_ty,
                 exponent_ty,
             } => {
-                db.with_attached(|| {
-                    assert_eq!(
-                        table.power_default_dispatch(base_ty, exponent_ty),
-                        Some(dispatch)
-                    );
-                });
+                assert_eq!(
+                    table.power_default_dispatch(base_ty, exponent_ty),
+                    Some(dispatch)
+                );
             }
         }
     }

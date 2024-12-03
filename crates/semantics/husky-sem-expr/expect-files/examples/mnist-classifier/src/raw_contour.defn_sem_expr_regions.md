@@ -53535,9 +53535,7 @@
                                             property_ident: IdentRegionalToken {
                                                 ident: Ident(
                                                     Coword(
-                                                        Id {
-                                                            value: 68,
-                                                        },
+                                                        "points",
                                                     ),
                                                 ),
                                                 regional_token_idx: RegionalTokenIdx(
