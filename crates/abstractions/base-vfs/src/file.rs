@@ -10,17 +10,17 @@ pub enum FileContent {
     OnDisk(String),
     LiveDoc(String),
     Directory(Vec<VirtualPath>),
-    Err(VfsError),
+    Err(BaseVfsError),
 }
 
 impl File {
-    pub fn text(self, db: &::salsa::Db) -> VfsResult<Option<&str>> {
+    pub fn text(self, db: &::salsa::Db) -> BaseVfsResult<Option<&str>> {
         self.content(db).text(self.path(db).data())
     }
 }
 
 impl FileContent {
-    pub(crate) fn text(&self, _path: &Path) -> VfsResult<Option<&str>> {
+    pub(crate) fn text(&self, _path: &Path) -> BaseVfsResult<Option<&str>> {
         match self {
             FileContent::NotExists => Ok(None),
             FileContent::OnDisk(text) | FileContent::LiveDoc(text) => Ok(Some(text)),
@@ -37,8 +37,8 @@ impl File {
         content: FileContent,
         durability: Durability,
     ) -> Self {
-        let (jar, runtime) = db.jar::<VfsJar>();
-        let ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(jar);
+        let (jar, runtime) = db.jar::<BaseVfsJar>();
+        let ingredients = <BaseVfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(jar);
         let id = ingredients.2.new_input(runtime);
         ingredients.0.store_new(runtime, id, path, Durability::MAX);
         ingredients.1.store_new(runtime, id, content, durability);
@@ -46,14 +46,16 @@ impl File {
     }
 
     pub(crate) fn path(self, __db: &::salsa::Db) -> VirtualPath {
-        let (__jar, __runtime) = __db.jar::<VfsJar>();
-        let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
+        let (__jar, __runtime) = __db.jar::<BaseVfsJar>();
+        let __ingredients =
+            <BaseVfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
     }
 
     pub(crate) fn content<'db>(self, __db: &'db Db) -> &'db FileContent {
-        let (__jar, __runtime) = __db.jar::<VfsJar>();
-        let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
+        let (__jar, __runtime) = __db.jar::<BaseVfsJar>();
+        let __ingredients =
+            <BaseVfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.1.fetch(__runtime, self)
     }
 
@@ -61,11 +63,11 @@ impl File {
         self,
         db: &'db mut Db,
         durability: Durability,
-    ) -> VfsResult<salsa::setter::Setter<'db, File, FileContent>> {
+    ) -> BaseVfsResult<salsa::setter::Setter<'db, File, FileContent>> {
         let path = self.path(db).data();
         let (__jar, __runtime) = db.jar_mut();
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient_mut(__jar);
+            <BaseVfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient_mut(__jar);
         Ok(salsa::setter::Setter::new(
             __runtime,
             self,
@@ -76,7 +78,7 @@ impl File {
 }
 
 impl salsa::storage::IngredientsFor for File {
-    type Jar = VfsJar;
+    type Jar = BaseVfsJar;
     type Ingredients = (
         InputFieldIngredient<File, VirtualPath>,
         InputFieldIngredient<File, FileContent>,

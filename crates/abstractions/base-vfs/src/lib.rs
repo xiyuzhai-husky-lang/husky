@@ -4,6 +4,7 @@
 #![feature(let_chains)]
 #![feature(path_add_extension)]
 mod cache;
+pub mod db;
 pub mod error;
 mod file;
 pub mod jar;
@@ -20,12 +21,15 @@ pub use self::cache::VfsCache;
 #[cfg(feature = "lsp_support")]
 pub use self::lsp_support::*;
 
-use self::error::*;
-use self::file::*;
-use self::jar::{VfsJar as Jar, *};
-use self::path::*;
 #[cfg(feature = "test_helpers")]
 use self::test_helpers::*;
+use self::{
+    db::*,
+    error::*,
+    file::*,
+    jar::{BaseVfsJar as Jar, *},
+    path::*,
+};
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_coword::*;
 use std::path::{Path, PathBuf};
