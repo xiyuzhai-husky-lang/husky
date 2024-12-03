@@ -1,5 +1,5 @@
 [package]
-name = "vfs"
+name = "base-vfs"
 version.workspace = true
 edition = "2021"
 resolver = "2"
