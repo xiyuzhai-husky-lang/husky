@@ -10,8 +10,8 @@ pub struct CorgiConfigAstMenu {
 
 impl CorgiConfigAstMenu {
     fn new(db: &::salsa::Db) -> Self {
-        let registry_coword = Coword::from_ref(db, "registry");
-        let path_coword = Coword::from_ref(db, "path");
+        let registry_coword = Coword::from_ref("registry", db);
+        let path_coword = Coword::from_ref("path", db);
         Self {
             registry_coword,
             path_coword,

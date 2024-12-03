@@ -23,7 +23,7 @@ impl Kebab {
 
     pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         if is_str_valid_kebab(&data) {
-            Some(Self(Coword::from_owned(db, data)))
+            Some(Self(Coword::new(data, db)))
         } else {
             None
         }
@@ -31,7 +31,7 @@ impl Kebab {
 
     pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         if is_str_valid_kebab(data) {
-            Some(Self(Coword::from_ref(db, data)))
+            Some(Self(Coword::from_ref(data, db)))
         } else {
             None
         }
