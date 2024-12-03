@@ -20,7 +20,7 @@ sealed.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
-coword.workspace = true
+base-coword.workspace = true
 salsa = { workspace = true, optional = true }
 idx-arena.workspace = true
 eterned.workspace = true

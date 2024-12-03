@@ -2,7 +2,7 @@ use std::path::Path;
 
 use super::*;
 use crate::path::{menu::lx_command_path_menu, LxCommandName};
-use coword::Coword;
+use base_coword::Coword;
 use eterned::db::EternerDb;
 use latex_prelude::mode::LxMode;
 use lisp_csv::{

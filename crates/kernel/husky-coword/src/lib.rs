@@ -12,7 +12,7 @@ pub use self::kebab::*;
 pub use self::label::*;
 pub use self::menu::*;
 pub use self::style::*;
-pub use coword::Coword;
+pub use base_coword::Coword;
 
 use self::jar::CowordJar as Jar;
 use salsa::Db;

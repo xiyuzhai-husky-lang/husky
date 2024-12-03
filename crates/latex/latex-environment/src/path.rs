@@ -1,6 +1,6 @@
 pub mod menu;
 
-use coword::Coword;
+use base_coword::Coword;
 use eterned::db::EternerDb;
 use thiserror::Error;
 
