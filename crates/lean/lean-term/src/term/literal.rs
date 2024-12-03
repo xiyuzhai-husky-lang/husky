@@ -2,7 +2,7 @@ use eterned::db::EternerDb;
 
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct LnLiteral(LnTermId);
 
 impl std::fmt::Debug for LnLiteral {

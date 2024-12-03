@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdStackVariable(VdTermId);
 
 impl std::ops::Deref for VdStackVariable {
@@ -11,7 +11,7 @@ impl std::ops::Deref for VdStackVariable {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdStackVariableData {
     // Add appropriate fields here
 }

@@ -9,7 +9,7 @@ use crate::{menu::vd_ty_menu, ty::VdType};
 // #[salsa::derive_debug_with_db]
 // #[salsa::as_id]
 // #[salsa::deref_id]
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdLiteral(VdTermId);
 
 impl std::ops::Deref for VdLiteral {
@@ -27,7 +27,7 @@ impl std::fmt::Debug for VdLiteral {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdLiteralData {
     NaturalNumber(String),
     NegativeInteger(String),

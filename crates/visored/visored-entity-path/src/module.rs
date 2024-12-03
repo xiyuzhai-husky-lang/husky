@@ -12,7 +12,7 @@ pub struct VdModulePath {
     pub data: VdModulePathData,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdModulePathData {
     Root(LxFilePath),
     Division {
