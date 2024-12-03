@@ -7,7 +7,7 @@ use crate::{
     symbol::builder::VdSynSymbolBuilder,
     *,
 };
-use coword::Coword;
+use base_coword::Coword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };

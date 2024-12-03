@@ -6,7 +6,7 @@ pub mod tests;
 
 use self::environment::LxRootEnvironmentAstData;
 use super::*;
-use coword::Coword;
+use base_coword::Coword;
 use latex_command::{
     path::{LxCommandName, LxCommandPath},
     signature::{

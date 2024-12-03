@@ -13,7 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 # abstractions
-coword.workspace = true
+base-coword.workspace = true
 eterned.workspace = true
 
 [lints]

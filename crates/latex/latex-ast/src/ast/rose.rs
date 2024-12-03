@@ -8,7 +8,7 @@ pub mod tests;
 
 use self::{complete_command::*, delimited::*, environment::*};
 use super::*;
-use coword::Coword;
+use base_coword::Coword;
 use helpers::LxRoseAstChild;
 use latex_command::{
     path::{LxCommandName, LxCommandPath},

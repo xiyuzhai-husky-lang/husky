@@ -821,6 +821,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "base-coword"
+version = "0.1.0"
+dependencies = [
+ "eterned",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
 name = "base-vfs"
 version = "0.1.0"
 dependencies = [
@@ -1795,14 +1803,6 @@ dependencies = [
  "dashmap 5.5.3",
  "once_cell",
  "rustc-hash 1.1.0",
-]
-
-[[package]]
-name = "coword"
-version = "0.1.0"
-dependencies = [
- "eterned",
- "lazy_static 1.5.0",
 ]
 
 [[package]]
@@ -4759,7 +4759,7 @@ dependencies = [
 name = "husky-coword"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "expect-test",
  "husky-coword",
  "husky-print-utils",
@@ -8257,7 +8257,7 @@ dependencies = [
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "egui",
  "enum-class",
  "eterned",
@@ -8304,7 +8304,7 @@ dependencies = [
 name = "latex-command"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "eterned",
  "husky-coword",
  "husky-path-utils",
@@ -8331,7 +8331,7 @@ dependencies = [
 name = "latex-environment"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "eterned",
  "husky-coword",
  "latex-prelude",
@@ -8371,7 +8371,7 @@ version = "0.1.0"
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "enum-class",
  "eterned",
  "expect-test",
@@ -8434,7 +8434,7 @@ version = "0.1.0"
 name = "lean-coword"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "eterned",
 ]
 
@@ -11099,7 +11099,7 @@ name = "salsa"
 version = "0.1.0"
 dependencies = [
  "arc-swap",
- "coword",
+ "base-coword",
  "crossbeam",
  "crossbeam-utils",
  "dashmap 6.0.1",
@@ -12980,8 +12980,8 @@ dependencies = [
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
+ "base-coword",
  "codespan-reporting",
- "coword",
  "either",
  "enum-class",
  "eterned",

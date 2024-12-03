@@ -6,7 +6,7 @@ pub mod literal;
 use self::{delimiter::LxLispDelimiter, ident::LxLispIdent, literal::LxLispLiteral};
 use super::*;
 use crate::idx::LxLispTokenIdx;
-use coword::Coword;
+use base_coword::Coword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use label::LxLispXlabel;
 use latex_command::path::LxCommandName;

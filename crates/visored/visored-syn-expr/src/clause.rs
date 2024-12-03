@@ -4,8 +4,8 @@ mod tests;
 
 use self::r#let::*;
 use super::*;
+use base_coword::Coword;
 use builder::VdSynExprBuilder;
-use coword::Coword;
 use expr::VdSynExprIdx;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
