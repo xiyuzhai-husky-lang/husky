@@ -4722,6 +4722,7 @@ dependencies = [
 name = "husky-coword"
 version = "0.1.0"
 dependencies = [
+ "coword",
  "expect-test",
  "husky-coword",
  "husky-print-utils",

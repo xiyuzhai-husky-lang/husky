@@ -631,6 +631,7 @@
         name: "husky-coword",
         relative_path: "crates/kernel/husky-coword",
         dependencies: [
+            "coword",
             "husky-print-utils",
             "husky-unicode-symbols",
             "once_cell",

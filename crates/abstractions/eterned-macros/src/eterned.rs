@@ -39,9 +39,17 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
         let field_ident = &field.ident;
         let field_ty = &field.ty;
         if field_attr.return_ref {
-            quote! {
-                pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &#field_ty {
-                    &self.0.0.value.#field_ident
+            if let Some(ref_ty) = field_attr.return_ref_ty {
+                quote! {
+                    pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &#ref_ty {
+                        &self.0.0.value.#field_ident
+                    }
+                }
+            } else {
+                quote! {
+                    pub fn #field_ident(self, db: &::eterned::db::EternerDb) -> &#field_ty {
+                        &self.0.0.value.#field_ident
+                    }
                 }
             }
         } else {
@@ -129,6 +137,7 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
 #[derive(Default)]
 struct FieldAttr {
     return_ref: bool,
+    return_ref_ty: Option<syn::Type>,
 }
 
 impl FieldAttr {
@@ -138,6 +147,16 @@ impl FieldAttr {
             if let Some(ident) = attr.path().get_ident() {
                 if ident == "return_ref" {
                     slf.return_ref = true;
+                    match attr.meta {
+                        Meta::Path(ref path) => (),
+                        Meta::List(ref meta_list) => {
+                            match syn::parse::<syn::Type>(meta_list.tokens.clone().into()) {
+                                Ok(ty) => slf.return_ref_ty = Some(ty),
+                                Err(_) => todo!(),
+                            }
+                        }
+                        Meta::NameValue(ref meta_name_value) => todo!(),
+                    }
                 } else {
                     panic!("Invalid attribute: `{}`", ident);
                 }
