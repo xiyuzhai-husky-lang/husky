@@ -88,12 +88,12 @@ pub(crate) fn eterned(_attr: TokenStream, item: TokenStream) -> TokenStream {
     };
 
     let expanded = quote! {
-        #[derive(Debug, Clone, Hash, Eq, PartialEq)]
+        #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
         #vis struct #data_ty_ident {
             #(#field_defs),*
         }
 
-        #[derive(Clone, Copy, PartialEq, Eq, Hash)]
+        #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
         #vis struct #ty_ident(eterned::Eterned<#data_ty_ident>);
 
         impl ::eterned::as_id::AsEternedId for #ty_ident {

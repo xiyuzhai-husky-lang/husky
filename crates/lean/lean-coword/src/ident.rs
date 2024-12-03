@@ -1,7 +1,7 @@
 use coword::Coword;
 use eterned::db::EternerDb;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct LnIdent(Coword);
 
 impl LnIdent {

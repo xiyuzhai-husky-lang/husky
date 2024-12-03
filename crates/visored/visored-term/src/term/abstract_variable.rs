@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdAbstractVariable(VdTermId);
 
 impl std::ops::Deref for VdAbstractVariable {
@@ -11,7 +11,7 @@ impl std::ops::Deref for VdAbstractVariable {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdAbstractVariableData {
     // Add appropriate fields here
 }

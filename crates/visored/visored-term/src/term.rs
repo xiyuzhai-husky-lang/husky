@@ -33,7 +33,7 @@ use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdTerm {
     Literal(VdLiteral),
     ItemPath(VdItemPathTerm),
@@ -107,7 +107,7 @@ impl std::fmt::Debug for VdTermId {
 }
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdTermData {
     Literal(VdLiteralData),
     ItemPath(VdItemPathTermData),

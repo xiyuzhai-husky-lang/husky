@@ -5,7 +5,7 @@ use eterned::db::EternerDb;
 use lean_entity_path::LnItemPath;
 
 // TODO: ad hoc, use LnTermId
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LnTerm {
     Literal(LnLiteral),
     ItemPath(LnItemPath),
