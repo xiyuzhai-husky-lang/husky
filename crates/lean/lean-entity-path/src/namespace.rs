@@ -11,7 +11,7 @@ pub struct LnNamespace {
     pub data: LnNamespaceData,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum LnNamespaceData {
     Root,
     Child(LnNamespace, LnIdent),

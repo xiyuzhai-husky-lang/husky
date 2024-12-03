@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdLimit(VdTermId);
 
 impl std::ops::Deref for VdLimit {
@@ -11,7 +11,7 @@ impl std::ops::Deref for VdLimit {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdLimitData {
     // Add appropriate fields here
 }
