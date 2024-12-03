@@ -26,14 +26,14 @@ fn update_content(db: &mut Db, path: &Path, f: impl FnOnce(&mut String)) -> VfsR
         .vfs_jar()
         .cache()
         .files()
-        .entry(virtual_path.data(db).to_owned())
+        .entry(virtual_path.data().to_owned())
     {
         Entry::Occupied(entry) => *entry.get(),
         Entry::Vacant(_entry) => return Ok(()),
     };
     let mut text = file.text(db)?.unwrap_or("").to_string();
     f(&mut text);
-    let path = virtual_path.data(db);
+    let path = virtual_path.data();
     let durability = db.calc_durability(path)?;
     file.set_content(db)?.to(FileContent::LiveDoc(text));
     Ok(())

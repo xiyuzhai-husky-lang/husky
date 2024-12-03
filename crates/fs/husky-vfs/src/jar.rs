@@ -48,14 +48,14 @@ impl VfsDbInner for Db {
                 .vfs_jar()
                 .cache()
                 .files()
-                .entry(abs_path.data(self).to_owned())
+                .entry(abs_path.data().to_owned())
             {
                 // If the file already exists in our cache then just return it.
                 Entry::Occupied(entry) => *entry.get(),
                 // If we haven't read this file yet set up the watch, read the
                 // contents, store it in the cache, and return it.
                 Entry::Vacant(entry) => {
-                    let path = abs_path.data(self);
+                    let path = abs_path.data();
                     //  &path.path(self);
                     // ad hoc
                     // if let Some(watcher) = self.watcher() {
@@ -100,13 +100,13 @@ impl VfsDbInner for Db {
 
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
         let virtual_path = VirtualPath::try_new(self, path)?;
-        let path = virtual_path.data(self);
+        let path = virtual_path.data();
         let durability = self.calc_durability(path)?;
         let file = match self
             .vfs_jar()
             .cache()
             .files()
-            .entry(virtual_path.data(self).to_owned())
+            .entry(virtual_path.data().to_owned())
         {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => *entry.get(),
@@ -225,7 +225,7 @@ impl VfsDb for Db {
                 collect_probable_modules_aux(
                     self,
                     root_module_path,
-                    crate_dir.data(self),
+                    crate_dir.data(),
                     &mut module_paths,
                 )
                 .expect("what to do here?")
@@ -290,7 +290,6 @@ pub struct VfsJar(
     ModulePath,
     module_ancestry,
     vfs_path_menu,
-    VirtualPath,
     File,
     package_dir,
     package_manifest_path,

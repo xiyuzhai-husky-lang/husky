@@ -19,7 +19,7 @@ impl Toolchain {
     pub fn library_path(self, db: &::salsa::Db) -> &Path {
         match self.data(db) {
             ToolchainData::Published(_) => todo!(),
-            ToolchainData::Local { library_path } => library_path.data(db),
+            ToolchainData::Local { library_path } => library_path.data(),
         }
     }
 
