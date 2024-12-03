@@ -7,7 +7,7 @@ use thiserror::Error;
 // todo: make this copyable
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db]
-pub enum VfsError {
+pub enum BaseVfsError {
     #[error("file {0:?} not found")]
     FileNotExists(VirtualPath),
     #[error("IO Error: ???")]
@@ -17,6 +17,8 @@ pub enum VfsError {
     },
     #[error("io error: {0}")]
     Io2(#[from] IoError),
+    #[error("fail to diff paths")]
+    FailToDiffPaths,
     #[error("not source file")]
     NotSourceFile(PathBuf),
     #[error("fail to absolutize {path:?} due to IO `{error_message}")]
@@ -24,30 +26,22 @@ pub enum VfsError {
         path: PathBuf,
         error_message: String,
     },
-    #[error("fail to diff")]
-    FailToDiff,
-    #[error("failed to resolve module path")]
-    ModulePathResolveFailure,
-    #[error("package ident")]
-    PackageIdent,
     #[error("derived {0}")]
     PathUtils(#[from] PathUtilsError),
-    #[error("FailToReadPackageNameFromManifest")]
-    FailToReadPackageNameFromManifest,
 }
 
-impl From<&VfsError> for VfsError {
-    fn from(value: &VfsError) -> Self {
+impl From<&BaseVfsError> for BaseVfsError {
+    fn from(value: &BaseVfsError) -> Self {
         value.clone()
     }
 }
 
-pub type VfsResult<T> = Result<T, VfsError>;
-pub type VfsMaybeResult<T> = MaybeResult<T, VfsError>;
+pub type BaseVfsResult<T> = Result<T, BaseVfsError>;
+pub type BaseVfsMaybeResult<T> = MaybeResult<T, BaseVfsError>;
 
-impl VfsError {
-    pub(crate) fn new_io_error(path: PathBuf, e: std::io::Error) -> VfsError {
-        VfsError::Io {
+impl BaseVfsError {
+    pub(crate) fn new_io_error(path: PathBuf, e: std::io::Error) -> BaseVfsError {
+        BaseVfsError::Io {
             path,
             error_message: e.to_string(),
         }

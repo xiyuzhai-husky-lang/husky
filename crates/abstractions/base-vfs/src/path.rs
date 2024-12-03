@@ -37,7 +37,7 @@ impl VirtualPath {
         self._data()
     }
 
-    pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
+    pub fn abs_path(self, db: &::salsa::Db) -> BaseVfsResult<PathBuf> {
         db.vfs_cache()
             .current_dir()
             .join(&self.data())
@@ -52,11 +52,11 @@ impl VirtualPath {
         VirtualPath::new(VirtualPathBuf(self.data().join(path)), db)
     }
 
-    pub fn file(self, db: &::salsa::Db, durability: Durability) -> VfsResult<File> {
+    pub fn file(self, db: &::salsa::Db, durability: Durability) -> BaseVfsResult<File> {
         db.file_from_virtual_path(self, durability)
     }
 
-    pub fn exists(self, db: &::salsa::Db, durability: Durability) -> VfsResult<bool> {
+    pub fn exists(self, db: &::salsa::Db, durability: Durability) -> BaseVfsResult<bool> {
         match self.file(db, durability)?.content(db) {
             FileContent::NotExists => Ok(false),
             FileContent::OnDisk(_) => Ok(true),
@@ -70,7 +70,7 @@ impl VirtualPath {
         self,
         db: &'a ::salsa::Db,
         durability: Durability,
-    ) -> VfsResult<Option<&'a str>> {
+    ) -> BaseVfsResult<Option<&'a str>> {
         let file = self.file(db, durability)?;
         Ok(file.text(db)?)
     }
@@ -79,15 +79,15 @@ impl VirtualPath {
         self,
         db: &'a ::salsa::Db,
         durability: Durability,
-    ) -> VfsResult<&'a str> {
+    ) -> BaseVfsResult<&'a str> {
         let file = self.file(db, durability)?;
-        file.text(db)?.ok_or(VfsError::FileNotExists(self))
+        file.text(db)?.ok_or(BaseVfsError::FileNotExists(self))
     }
 }
 
 impl VirtualPath {
     // todo: room for optimization when path is owned
-    pub fn try_new(db: &::salsa::Db, path: impl AsRef<Path>) -> VfsResult<Self> {
+    pub fn try_new(db: &::salsa::Db, path: impl AsRef<Path>) -> BaseVfsResult<Self> {
         Ok(Self::new(VirtualPathBuf::try_new(db, path.as_ref())?, db))
     }
 }
@@ -102,15 +102,16 @@ fn test_absolute_path_debug() {
 }
 
 impl VirtualPathBuf {
-    pub fn try_new(db: &::salsa::Db, path: &Path) -> VfsResult<Self> {
-        let diff = |path: &Path| -> VfsResult<_> {
-            pathdiff::diff_paths(path, db.vfs_cache().current_dir()).ok_or(VfsError::FailToDiff)
+    pub fn try_new(db: &::salsa::Db, path: &Path) -> BaseVfsResult<Self> {
+        let diff = |path: &Path| -> BaseVfsResult<_> {
+            pathdiff::diff_paths(path, db.vfs_cache().current_dir())
+                .ok_or(BaseVfsError::FailToDiffPaths)
         };
         let diff_path = if path.is_absolute() {
             diff(path)
         } else {
             diff(
-                &std::path::absolute(&path).map_err(|e| VfsError::FailToAbsolutize {
+                &std::path::absolute(&path).map_err(|e| BaseVfsError::FailToAbsolutize {
                     path: path.to_owned(),
                     error_message: e.to_string(),
                 })?,
