@@ -7412,6 +7412,7 @@ dependencies = [
  "crossbeam-channel",
  "dashmap 6.0.1",
  "enum-class",
+ "eterned",
  "expect-test",
  "eyre",
  "husky-adversarial-utils",

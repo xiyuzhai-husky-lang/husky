@@ -23,7 +23,7 @@ pub(crate) fn module_virtual_path(
             db,
             &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
-                .data(db)
+                .data()
                 .join(crate_path.relative_path(db).as_ref()),
         )
         .map(Some)
@@ -31,11 +31,11 @@ pub(crate) fn module_virtual_path(
         ModulePathData::Child { parent, ident } => {
             let parent_module_path = module_virtual_path(db, parent)?.unwrap();
             let dir = match parent.data(db) {
-                ModulePathData::Root(_) => parent_module_path.data(db).parent().unwrap().to_owned(),
+                ModulePathData::Root(_) => parent_module_path.data().parent().unwrap().to_owned(),
                 ModulePathData::Child {
                     parent: _,
                     ident: _,
-                } => parent_module_path.data(db).with_extension(""),
+                } => parent_module_path.data().with_extension(""),
                 ModulePathData::Script { .. } => unreachable!(),
             };
             VirtualPath::try_new(db, &dir.join(ident.data()).with_extension("hsy")).map(Some)
@@ -153,7 +153,7 @@ fn resolve_module_path_works() {
         |db, module_path| {
             if let Some(virtual_path) = module_virtual_path(db, module_path).unwrap() {
                 let item_path_resolved = db
-                    .resolve_module_path_and_update_live_packages(virtual_path.data(db))
+                    .resolve_module_path_and_update_live_packages(virtual_path.data())
                     .unwrap();
                 assert_eq!(module_path, item_path_resolved);
             }

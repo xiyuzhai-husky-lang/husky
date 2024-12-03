@@ -698,6 +698,7 @@
             "crossbeam-channel",
             "dashmap",
             "enum-class",
+            "eterned",
             "expect-test",
             "eyre",
             "husky-adversarial-utils",

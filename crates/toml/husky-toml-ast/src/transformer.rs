@@ -77,7 +77,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
             db,
             visitor: toml_ast_sheet.root_visitor(),
             menu,
-            path: path.data(db).parent().unwrap(), /* ad hoc */
+            path: path.data().parent().unwrap(), /* ad hoc */
             errors,
         }))
     }
@@ -99,7 +99,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
             db,
             visitor: toml_ast_sheet.root_visitor(),
             menu,
-            path: path.data(db),
+            path: path.data(),
             errors,
         })
     }

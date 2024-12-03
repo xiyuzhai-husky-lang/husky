@@ -8,10 +8,16 @@ use std::{
 
 /// `VirtualPath` is the path relative to the current dir of the current program,
 /// it's guaranteed that equivalent paths are interned to the same id
-#[salsa::interned(db = VfsDb, jar = VfsJar, override_debug)]
+#[eterned::eterned]
 pub struct VirtualPath {
     #[return_ref]
     _data: VirtualPathBuf,
+}
+
+impl Debug for VirtualPath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.data().fmt(f)
+    }
 }
 
 impl ::salsa::DebugWithDb for VirtualPath {
@@ -20,29 +26,29 @@ impl ::salsa::DebugWithDb for VirtualPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        self.data(db).fmt(f)
+        self.data().fmt(f)
     }
 }
 
 impl VirtualPath {
     #[inline(always)]
-    pub fn data<'a>(self, db: &'a ::salsa::Db) -> &'a Path {
-        self._data(db)
+    pub fn data(self) -> &'static Path {
+        self._data()
     }
 
     pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
         db.vfs_cache()
             .current_dir()
-            .join(&self.data(db))
+            .join(&self.data())
             .canonicalize()
             .map_err(|e| {
-                p!(db.vfs_cache().current_dir().join(&self.data(db)), e);
+                p!(db.vfs_cache().current_dir().join(&self.data()), e);
                 todo!()
             })
     }
 
     pub fn join(self, path: impl AsRef<Path>, db: &::salsa::Db) -> Self {
-        VirtualPath::new(db, VirtualPathBuf(self.data(db).join(path)))
+        VirtualPath::new(VirtualPathBuf(self.data().join(path)), db)
     }
 
     pub fn file(self, db: &::salsa::Db) -> VfsResult<File> {
@@ -95,11 +101,11 @@ impl VirtualPath {
 impl VirtualPath {
     // todo: room for optimization when path is owned
     pub fn try_new(db: &::salsa::Db, path: impl AsRef<Path>) -> VfsResult<Self> {
-        Ok(Self::new(db, VirtualPathBuf::try_new(db, path.as_ref())?))
+        Ok(Self::new(VirtualPathBuf::try_new(db, path.as_ref())?, db))
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
 pub struct VirtualPathBuf(PathBuf);
 
 #[test]
