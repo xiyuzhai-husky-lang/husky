@@ -75,7 +75,7 @@ impl std::fmt::Debug for LnNamespace {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 fn ln_namespace_all_idents(namespace: LnNamespace, db: &EternerDb) -> SmallVec<[LnIdent; 4]> {
     match namespace.data(db) {
         LnNamespaceData::Root => smallvec![],
