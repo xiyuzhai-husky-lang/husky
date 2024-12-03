@@ -549,11 +549,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -888,11 +884,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2367,11 +2359,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2577,11 +2565,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2787,11 +2771,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                "matches",
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },

@@ -53533,11 +53533,7 @@
                                     arguments: [
                                         Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        "points",
-                                                    ),
-                                                ),
+                                                ident: `points`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),

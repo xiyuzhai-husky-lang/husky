@@ -231,11 +231,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "line_segment_sketch",
-                                                            ),
-                                                        ),
+                                                        ident: `line_segment_sketch`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             4,
                                                         ),
@@ -249,11 +245,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "line_segments",
-                                                            ),
-                                                        ),
+                                                        ident: `line_segments`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),

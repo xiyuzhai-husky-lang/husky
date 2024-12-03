@@ -254,11 +254,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "start",
-                                                            ),
-                                                        ),
+                                                        ident: `start`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -272,11 +268,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "end",
-                                                            ),
-                                                        ),
+                                                        ident: `end`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),

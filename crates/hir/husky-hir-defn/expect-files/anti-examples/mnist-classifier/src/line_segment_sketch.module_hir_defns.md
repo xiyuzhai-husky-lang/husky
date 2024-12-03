@@ -1709,19 +1709,11 @@
                                                 function_ident: `LineSegment`,
                                                 arguments: [
                                                     HirEagerHtmlArgumentExpr {
-                                                        property_ident: Ident(
-                                                            Coword(
-                                                                "start",
-                                                            ),
-                                                        ),
+                                                        property_ident: `start`,
                                                         expr: 1,
                                                     },
                                                     HirEagerHtmlArgumentExpr {
-                                                        property_ident: Ident(
-                                                            Coword(
-                                                                "end",
-                                                            ),
-                                                        ),
+                                                        property_ident: `end`,
                                                         expr: 3,
                                                     },
                                                 ],
@@ -7389,11 +7381,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        "i",
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {

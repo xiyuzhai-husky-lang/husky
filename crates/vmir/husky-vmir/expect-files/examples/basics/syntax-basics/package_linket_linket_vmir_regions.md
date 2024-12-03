@@ -114,11 +114,7 @@
                 },
                 field_ty_leash_class: Copyable,
                 field: Props {
-                    ident: Ident(
-                        Coword(
-                            "x",
-                        ),
-                    ),
+                    ident: `x`,
                 },
             },
         },
@@ -198,11 +194,7 @@
                 },
                 field_ty_leash_class: Copyable,
                 field: Props {
-                    ident: Ident(
-                        Coword(
-                            "x",
-                        ),
-                    ),
+                    ident: `x`,
                 },
             },
         },
@@ -222,11 +214,7 @@
                 },
                 field_ty_leash_class: Copyable,
                 field: Props {
-                    ident: Ident(
-                        Coword(
-                            "y",
-                        ),
-                    ),
+                    ident: `y`,
                 },
             },
         },
