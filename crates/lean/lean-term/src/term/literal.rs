@@ -29,7 +29,7 @@ impl LnLiteral {
 }
 
 impl LnLiteral {
-    pub fn data(&self, db: &EternerDb) -> &LnLiteralData {
+    pub fn data(self, db: &EternerDb) -> &LnLiteralData {
         match self.0.data(db) {
             LnTermData::Literal(data) => data,
             _ => unreachable!(),

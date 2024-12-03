@@ -1,5 +1,6 @@
 #[eterned::eterned]
 pub struct Coword {
+    #[return_ref]
     pub data: String,
 }
 
