@@ -2,7 +2,7 @@ use husky_unicode_symbols::greek::is_greek;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+#[derive(PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Label {
     ident: Ident,
     kind: LabelKind,
@@ -74,6 +74,12 @@ impl Label {
 
     pub fn ident(&self) -> Ident {
         self.ident
+    }
+}
+
+impl std::fmt::Debug for Label {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`'{}`", &self.ident.data()))
     }
 }
 

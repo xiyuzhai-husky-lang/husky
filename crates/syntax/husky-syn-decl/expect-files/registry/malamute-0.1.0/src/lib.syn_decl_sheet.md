@@ -1011,11 +1011,7 @@ SynDeclSheet {
                                             (
                                                 VariadicParenateParameter {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                "f",
-                                                            ),
-                                                        ),
+                                                        ident: `f`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             18,
                                                         ),

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
+#[derive(PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
 #[salsa::deref_id]
 pub struct Kebab(Coword);
 
@@ -77,6 +77,12 @@ pub fn is_char_valid_kebab_first_char(c: char) -> bool {
 pub fn is_char_valid_kebab_nonfirst_char(c: char) -> bool {
     // ad hoc
     c.is_alphanumeric() || c == '-'
+}
+
+impl std::fmt::Debug for Kebab {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.data()))
+    }
 }
 
 impl salsa::DebugWithDb for Kebab {

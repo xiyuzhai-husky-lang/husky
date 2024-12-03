@@ -2,7 +2,7 @@ use crate::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+#[derive(PartialEq, Eq, Hash, Clone, Copy)]
 #[salsa::as_id_with_db(jar = CowordJar)]
 #[salsa::deref_id]
 pub struct Ident(Coword);
@@ -111,6 +111,12 @@ pub fn is_char_valid_ident_first_char(c: char) -> bool {
 pub fn is_char_valid_ident_nonfirst_char(c: char) -> bool {
     // ad hoc
     c.is_alphanumeric() || c == '_'
+}
+
+impl std::fmt::Debug for Ident {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.data()))
+    }
 }
 
 impl DebugWithDb for Ident {

@@ -1336,11 +1336,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "simp_zero_match",
-                                ),
-                            ),
+                            `simp_zero_match`,
                             Some(
                                 2,
                             ),
@@ -3455,11 +3451,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "major_hole",
-                                ),
-                            ),
+                            `major_hole`,
                             Some(
                                 3,
                             ),
@@ -3878,11 +3870,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "a",
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 4,
                             ),
@@ -4491,11 +4479,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "b",
-                                ),
-                            ),
+                            `b`,
                             Some(
                                 5,
                             ),
@@ -4944,11 +4928,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "ratio",
-                                ),
-                            ),
+                            `ratio`,
                             Some(
                                 6,
                             ),
@@ -5452,11 +5432,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "a",
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 7,
                             ),
@@ -6543,11 +6519,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "simp_one_match",
-                                ),
-                            ),
+                            `simp_one_match`,
                             Some(
                                 0,
                             ),
@@ -10038,11 +10010,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "upmost_match",
-                                ),
-                            ),
+                            `upmost_match`,
                             Some(
                                 0,
                             ),
@@ -10586,11 +10554,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -10789,11 +10753,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "lower_excess",
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 2,
                             ),
@@ -15368,11 +15328,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "downarc",
-                                ),
-                            ),
+                            `downarc`,
                             Some(
                                 0,
                             ),
@@ -15758,11 +15714,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "uparc",
-                                ),
-                            ),
+                            `uparc`,
                             Some(
                                 1,
                             ),
@@ -16148,11 +16100,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "back",
-                                ),
-                            ),
+                            `back`,
                             Some(
                                 2,
                             ),
@@ -17303,11 +17251,7 @@
                     syn_pattern_idx: 7,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "de",
-                                ),
-                            ),
+                            `de`,
                             Some(
                                 3,
                             ),
@@ -18225,11 +18169,7 @@
                     syn_pattern_idx: 8,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "downarc_enpoint",
-                                ),
-                            ),
+                            `downarc_enpoint`,
                             Some(
                                 4,
                             ),
@@ -18522,11 +18462,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "uparc_startpoint",
-                                ),
-                            ),
+                            `uparc_startpoint`,
                             Some(
                                 5,
                             ),
@@ -18819,11 +18755,7 @@
                     syn_pattern_idx: 10,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "distance",
-                                ),
-                            ),
+                            `distance`,
                             Some(
                                 6,
                             ),
@@ -22038,11 +21970,7 @@
                     syn_pattern_idx: 4,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 0,
                             ),
@@ -22687,11 +22615,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_match",
-                                ),
-                            ),
+                            `down_match`,
                             Some(
                                 1,
                             ),
@@ -23273,11 +23197,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_match_dp_y",
-                                ),
-                            ),
+                            `down_match_dp_y`,
                             Some(
                                 2,
                             ),
@@ -23633,11 +23553,7 @@
                     syn_pattern_idx: 10,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "higher_excess",
-                                ),
-                            ),
+                            `higher_excess`,
                             Some(
                                 3,
                             ),
@@ -26730,11 +26646,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "simple_match_norm",
-                                ),
-                            ),
+                            `simple_match_norm`,
                             Some(
                                 0,
                             ),
@@ -28281,11 +28193,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "others",
-                                ),
-                            ),
+                            `others`,
                             Some(
                                 5,
                             ),
@@ -29074,11 +28982,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "upper_excess",
-                                ),
-                            ),
+                            `upper_excess`,
                             Some(
                                 0,
                             ),
@@ -30861,11 +30765,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 0,
                             ),
@@ -31508,11 +31408,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_match",
-                                ),
-                            ),
+                            `down_match`,
                             Some(
                                 1,
                             ),
@@ -32094,11 +31990,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_match_dp_y",
-                                ),
-                            ),
+                            `down_match_dp_y`,
                             Some(
                                 2,
                             ),
@@ -32454,11 +32346,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "higher_excess",
-                                ),
-                            ),
+                            `higher_excess`,
                             Some(
                                 3,
                             ),
@@ -34809,11 +34697,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "cc_num",
-                                ),
-                            ),
+                            `cc_num`,
                             Some(
                                 0,
                             ),
@@ -35010,11 +34894,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -35657,11 +35537,7 @@
                     syn_pattern_idx: 3,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "left_cc",
-                                ),
-                            ),
+                            `left_cc`,
                             Some(
                                 2,
                             ),
@@ -36047,11 +35923,7 @@
                     syn_pattern_idx: 4,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "right_cc",
-                                ),
-                            ),
+                            `right_cc`,
                             Some(
                                 3,
                             ),
@@ -36437,11 +36309,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_cc",
-                                ),
-                            ),
+                            `down_cc`,
                             Some(
                                 4,
                             ),
@@ -37074,11 +36942,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "lower_excess",
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 5,
                             ),
@@ -39917,11 +39781,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "i0",
-                                ),
-                            ),
+                            `i0`,
                             Some(
                                 0,
                             ),
@@ -40084,11 +39944,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "max_row_span_sum",
-                                ),
-                            ),
+                            `max_row_span_sum`,
                             Some(
                                 1,
                             ),
@@ -40320,11 +40176,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "row_span_sum",
-                                ),
-                            ),
+                            `row_span_sum`,
                             Some(
                                 3,
                             ),
@@ -41686,11 +41538,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "sum",
-                                ),
-                            ),
+                            `sum`,
                             Some(
                                 0,
                             ),
@@ -45135,11 +44983,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "simp_one_match",
-                                ),
-                            ),
+                            `simp_one_match`,
                             Some(
                                 0,
                             ),
@@ -47999,11 +47843,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "upmost_match",
-                                ),
-                            ),
+                            `upmost_match`,
                             Some(
                                 0,
                             ),
@@ -48547,11 +48387,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -48750,11 +48586,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "lower_excess",
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 2,
                             ),
@@ -53318,11 +53150,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "simp_zero_match",
-                                ),
-                            ),
+                            `simp_zero_match`,
                             Some(
                                 2,
                             ),
@@ -55437,11 +55265,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "major_hole",
-                                ),
-                            ),
+                            `major_hole`,
                             Some(
                                 3,
                             ),
@@ -55860,11 +55684,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "a",
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 4,
                             ),
@@ -56473,11 +56293,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "b",
-                                ),
-                            ),
+                            `b`,
                             Some(
                                 5,
                             ),
@@ -56926,11 +56742,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "ratio",
-                                ),
-                            ),
+                            `ratio`,
                             Some(
                                 6,
                             ),
@@ -57434,11 +57246,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "a",
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 7,
                             ),
@@ -58137,11 +57945,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "simple_match_norm",
-                                ),
-                            ),
+                            `simple_match_norm`,
                             Some(
                                 0,
                             ),
@@ -59688,11 +59492,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "others",
-                                ),
-                            ),
+                            `others`,
                             Some(
                                 5,
                             ),
@@ -60213,11 +60013,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "upper_excess",
-                                ),
-                            ),
+                            `upper_excess`,
                             Some(
                                 0,
                             ),
@@ -61921,11 +61717,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "downarc",
-                                ),
-                            ),
+                            `downarc`,
                             Some(
                                 0,
                             ),
@@ -62311,11 +62103,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "uparc",
-                                ),
-                            ),
+                            `uparc`,
                             Some(
                                 1,
                             ),
@@ -62701,11 +62489,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "back",
-                                ),
-                            ),
+                            `back`,
                             Some(
                                 2,
                             ),
@@ -63856,11 +63640,7 @@
                     syn_pattern_idx: 7,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "de",
-                                ),
-                            ),
+                            `de`,
                             Some(
                                 3,
                             ),
@@ -64778,11 +64558,7 @@
                     syn_pattern_idx: 8,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "downarc_enpoint",
-                                ),
-                            ),
+                            `downarc_enpoint`,
                             Some(
                                 4,
                             ),
@@ -65075,11 +64851,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "uparc_startpoint",
-                                ),
-                            ),
+                            `uparc_startpoint`,
                             Some(
                                 5,
                             ),
@@ -65372,11 +65144,7 @@
                     syn_pattern_idx: 10,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "distance",
-                                ),
-                            ),
+                            `distance`,
                             Some(
                                 6,
                             ),
@@ -66769,11 +66537,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 0,
                             ),
@@ -67416,11 +67180,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_match",
-                                ),
-                            ),
+                            `down_match`,
                             Some(
                                 1,
                             ),
@@ -68002,11 +67762,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_match_dp_y",
-                                ),
-                            ),
+                            `down_match_dp_y`,
                             Some(
                                 2,
                             ),
@@ -68362,11 +68118,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "higher_excess",
-                                ),
-                            ),
+                            `higher_excess`,
                             Some(
                                 3,
                             ),
@@ -70648,11 +70400,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "cc_num",
-                                ),
-                            ),
+                            `cc_num`,
                             Some(
                                 0,
                             ),
@@ -70849,11 +70597,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "eff_holes",
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -71496,11 +71240,7 @@
                     syn_pattern_idx: 3,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "left_cc",
-                                ),
-                            ),
+                            `left_cc`,
                             Some(
                                 2,
                             ),
@@ -71886,11 +71626,7 @@
                     syn_pattern_idx: 4,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "right_cc",
-                                ),
-                            ),
+                            `right_cc`,
                             Some(
                                 3,
                             ),
@@ -72276,11 +72012,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "down_cc",
-                                ),
-                            ),
+                            `down_cc`,
                             Some(
                                 4,
                             ),
@@ -72913,11 +72645,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    "lower_excess",
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 5,
                             ),

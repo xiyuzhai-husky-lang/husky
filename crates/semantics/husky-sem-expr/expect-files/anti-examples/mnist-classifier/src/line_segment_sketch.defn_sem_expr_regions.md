@@ -63373,11 +63373,7 @@
                                     arguments: [
                                         Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        "start",
-                                                    ),
-                                                ),
+                                                ident: `start`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -63403,11 +63399,7 @@
                                         },
                                         Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        "end",
-                                                    ),
-                                                ),
+                                                ident: `end`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),

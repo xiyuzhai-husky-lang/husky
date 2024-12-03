@@ -22466,11 +22466,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -23163,11 +23159,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -24756,11 +24748,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -25952,11 +25940,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -26551,11 +26535,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -28227,11 +28207,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -28849,11 +28825,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -29454,11 +29426,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
@@ -31215,11 +31183,7 @@
                                                         ),
                                                         Keyed(
                                                             FlyRitchieKeyedParameter {
-                                                                key: Ident(
-                                                                    Coword(
-                                                                        "skip",
-                                                                    ),
-                                                                ),
+                                                                key: `skip`,
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     quary: None,
