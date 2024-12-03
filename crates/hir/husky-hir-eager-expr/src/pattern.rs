@@ -196,7 +196,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             SynPatternData::TupleStruct { .. } => todo!(),
             SynPatternData::TupleTypeVariant { path, .. } => {
                 // ad hoc
-                if path.ident(db).data(db) == "Some" {
+                if path.ident(db).data() == "Some" {
                     HirEagerPatternData::Some
                 } else {
                     todo!()

@@ -430,7 +430,7 @@ impl VdSynExprData {
             VdSynExprData::Literal {
                 token_idx_range,
                 literal,
-            } => match literal.data(db) {
+            } => match literal.data() {
                 VdLiteralData::NaturalNumber(n) => n.to_string(),
                 VdLiteralData::NegativeInteger(n) => n.to_string(),
                 VdLiteralData::Float(n) => n.to_string(),

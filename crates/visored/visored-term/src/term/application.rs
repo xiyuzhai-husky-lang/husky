@@ -20,8 +20,8 @@ pub struct VdApplicationData {
 }
 
 impl VdApplication {
-    pub fn data(self, db: &EternerDb) -> &VdApplicationData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdApplicationData {
+        match self.0.data() {
             VdTermData::Application(data) => data,
             _ => unreachable!(),
         }

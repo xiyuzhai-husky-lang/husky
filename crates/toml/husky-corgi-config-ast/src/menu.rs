@@ -39,6 +39,6 @@ fn corgi_config_ast_menu_works() {
     let db = DB::default();
     let db = &*db;
     let menu = corgi_config_ast_menu(db);
-    assert_eq!(menu.registry_coword().data(db), "registry");
-    assert_eq!(menu.path_coword().data(db), "path");
+    assert_eq!(menu.registry_coword().data(), "registry");
+    assert_eq!(menu.path_coword().data(), "path");
 }

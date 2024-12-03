@@ -74,6 +74,6 @@ impl DisplayWithDb for ItemPathTerm {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        f.write_str(self.ident(db).data(db))
+        f.write_str(self.ident(db).data())
     }
 }

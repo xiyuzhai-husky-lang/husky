@@ -100,7 +100,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
     pub fn fmt_expr(&mut self, expr_idx: VdSynExprIdx) {
         let db = self.db();
         match self.expr_arena[expr_idx] {
-            VdSynExprData::Literal { literal, .. } => match literal.data(db) {
+            VdSynExprData::Literal { literal, .. } => match literal.data() {
                 VdLiteralData::NaturalNumber(s) => {
                     if self
                         .result

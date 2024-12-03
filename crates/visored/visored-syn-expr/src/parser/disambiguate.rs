@@ -265,8 +265,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             .default_resolution_table()
             .resolve_complete_command(command_path)
         else {
-            self.db()
-                .with_attached(|| todo!("command_path = {:?}", command_path))
+            todo!("command_path = {:?}", command_path)
         };
         match resolve_complete_command {
             VdCompleteCommandGlobalResolution::Letter(letter) => {

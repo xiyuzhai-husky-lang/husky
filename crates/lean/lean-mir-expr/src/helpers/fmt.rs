@@ -107,7 +107,7 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.result += &item_path.show(db);
             }
             LnMirExprData::Variable { ident } => {
-                self.write_word(ident.data(db));
+                self.write_word(ident.data());
             }
 
             LnMirExprData::Lambda {
@@ -119,7 +119,7 @@ impl<'a> LnMirExprFormatter<'a> {
                     if i > 0 {
                         self.result.push(' ');
                     }
-                    self.result += param.ident().data(db);
+                    self.result += param.ident().data();
                     self.result.push_str(" : ");
                     self.format_expr(param.ty(), false, LnPrecedenceRange::Any);
                 }
@@ -179,7 +179,7 @@ impl<'a> LnMirExprFormatter<'a> {
                 //             }
             }
             LnMirExprData::Literal(lit) => {
-                self.result += match lit.data(db) {
+                self.result += match lit.data() {
                     LnLiteralData::Nat(s) => s,
                     LnLiteralData::Float(s) => s,
                 }
@@ -224,7 +224,7 @@ impl<'a> LnMirExprFormatter<'a> {
         let defn_arena = self.defn_arena;
         match defn_arena[defn] {
             LnItemDefnData::Variable { ident: symbol, ty } => {
-                write!(self.result, "variable ({} : ", symbol.data(db));
+                write!(self.result, "variable ({} : ", symbol.data());
                 self.format_expr_ext(ty);
                 write!(self.result, ")");
             }
@@ -232,22 +232,22 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.make_sure_new_paragraph();
                 if let LnMirItemDefnGroupMeta::Division(Some(namespace))
                 | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
-                    && let Some(ident) = namespace.ident(db)
+                    && let Some(ident) = namespace.ident()
                 {
                     self.make_sure_new_paragraph();
-                    write!(self.result, "namespace {}\n", ident.data(db));
+                    write!(self.result, "namespace {}\n", ident.data());
                 }
                 self.format_defns(defns);
                 if let LnMirItemDefnGroupMeta::Division(Some(namespace))
                 | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
-                    && let Some(ident) = namespace.ident(db)
+                    && let Some(ident) = namespace.ident()
                 {
                     self.make_sure_new_line();
-                    write!(self.result, "end {}\n", ident.data(db));
+                    write!(self.result, "end {}\n", ident.data());
                 }
             }
             LnItemDefnData::Def { symbol, ty, body } => {
-                write!(self.result, "def {} : ", symbol.data(db));
+                write!(self.result, "def {} : ", symbol.data());
                 self.format_expr_ext(ty);
                 self.result += " := ";
                 self.format_def_body(body);

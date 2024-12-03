@@ -241,7 +241,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         let db = self.db();
         let item_path_id: ItemPathId = item_path_id_interface.into();
         ItemPathPresentation::new(
-            format!("{}", item_path_id.ident(db).unwrap().data(db)),
+            format!("{}", item_path_id.ident(db).unwrap().data()),
             format!("{:?}", item_path_id.item_path(db).display(db)),
         )
     }

@@ -114,7 +114,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 .token_idx_range_offset_range(token_idx_range),
         };
         let source = &self.input[offset_range];
-        let value = self.db.with_attached(|| match self.expr_arena[expr] {
+        let value = match self.expr_arena[expr] {
             VdSynExprData::Literal {
                 token_idx_range,
                 literal,
@@ -143,7 +143,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
                 ..
             } => format!("{:?} fraction", source),
             VdSynExprData::Sqrt { radicand, .. } => format!("{:?} sqrt", source),
-        });
+        };
         DisplayTree::new(value, self.render_exprs(self.expr_arena[expr].children()))
     }
 
@@ -153,12 +153,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(clause_range);
         let source = &self.input[offset_range];
-        let value = self.db.with_attached(|| match self.clause_arena[clause] {
+        let value = match self.clause_arena[clause] {
             VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
             VdSynClauseData::Then { .. } => format!("{:?} clause.then", source),
             VdSynClauseData::Todo(..) => format!("{:?} clause.todo", source),
-        });
+        };
         DisplayTree::new(
             value,
             self.render_clause_children(self.clause_arena[clause].children()),
@@ -180,13 +180,11 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(sentence_range);
         let source = &self.input[offset_range];
-        let value = self
-            .db
-            .with_attached(|| match self.sentence_arena[sentence] {
-                VdSynSentenceData::Clauses { clauses, end } => {
-                    format!("{:?} sentence.clauses", source)
-                }
-            });
+        let value = match self.sentence_arena[sentence] {
+            VdSynSentenceData::Clauses { clauses, end } => {
+                format!("{:?} sentence.clauses", source)
+            }
+        };
         DisplayTree::new(
             value,
             self.render_sentence_children(self.sentence_arena[sentence].children()),
@@ -223,10 +221,10 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         let stmt_range = self.stmt_range_map[stmt];
         let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
         let source = &self.input[offset_range];
-        let value = self.db.with_attached(|| match self.stmt_arena[stmt] {
+        let value = match self.stmt_arena[stmt] {
             VdSynStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
             VdSynStmtData::Environment { .. } => format!("{:?} stmt.block", source),
-        });
+        };
         DisplayTree::new(
             value,
             self.render_stmt_children(self.stmt_arena[stmt].children()),
@@ -256,14 +254,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
-        let value = self
-            .db
-            .with_attached(|| match self.division_arena[division] {
-                VdSynDivisionData::Stmts { .. } => format!("{:?} division.stmts", source),
-                VdSynDivisionData::Divisions { level, .. } => {
-                    format!("{:?} division.{level}", source)
-                }
-            });
+        let value = match self.division_arena[division] {
+            VdSynDivisionData::Stmts { .. } => format!("{:?} division.stmts", source),
+            VdSynDivisionData::Divisions { level, .. } => {
+                format!("{:?} division.{level}", source)
+            }
+        };
         DisplayTree::new(
             value,
             self.division_arena[division]

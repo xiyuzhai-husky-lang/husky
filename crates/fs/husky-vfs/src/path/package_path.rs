@@ -49,7 +49,7 @@ impl PackagePath {
     ) -> VfsResult<Self> {
         let manifest_path = path.join("Corgi.toml");
         let name = read_package_name_kebab_from_manifest(db, &manifest_path)??;
-        match name.data(db) {
+        match name.data() {
             "core" | "std" => {
                 debug_assert_eq!(
                     std::fs::canonicalize(path.parent().unwrap()).unwrap(),
@@ -95,11 +95,11 @@ impl PackagePath {
     }
 
     pub fn name_str<'a>(self, db: &'a ::salsa::Db) -> &'a str {
-        self.name(db).data(db)
+        self.name(db).data()
     }
 
     pub fn name_string(self, db: &::salsa::Db) -> String {
-        self.name(db).data(db).to_string()
+        self.name(db).data().to_string()
     }
 
     pub fn dir(self, db: &::salsa::Db) -> VfsResult<VirtualPath> {
@@ -155,7 +155,7 @@ pub(crate) fn package_dir(db: &::salsa::Db, package: PackagePath) -> VfsResult<V
             &package
                 .toolchain(db)
                 .library_path(db)
-                .join(package.name(db).data(db)),
+                .join(package.name(db).data()),
         ),
         PackagePathSource::Registry {
             registry_path,
@@ -165,7 +165,7 @@ pub(crate) fn package_dir(db: &::salsa::Db, package: PackagePath) -> VfsResult<V
             db,
             registry_path.path().data(db).join(format!(
                 "{}-{}.{}.{}",
-                package.name(db).data(db),
+                package.name(db).data(),
                 version.major,
                 version.minor,
                 version.patch

@@ -12,7 +12,7 @@ struct Jar(first_letter);
 #[salsa::tracked]
 fn first_letter(db: &salsa::Db, word: Coword) -> char {
     CALL_COUNT.with(|count| count.set(count.get() + 1));
-    word.data(db).chars().next().unwrap()
+    word.data().chars().next().unwrap()
 }
 
 #[salsa::db(Jar)]

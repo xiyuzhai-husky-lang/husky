@@ -28,8 +28,8 @@ impl Ident {
         }
     }
 
-    pub fn case(self, db: &::salsa::Db) -> IdentCase {
-        let data = self.data(db);
+    pub fn case(self) -> IdentCase {
+        let data = self.data();
         let mut chars = data.chars();
         let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
         // ad hoc
@@ -119,14 +119,14 @@ impl DebugWithDb for Ident {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data(db)))
+        f.write_fmt(format_args!("`{}`", self.data()))
     }
 }
 
 /// only use in this module
 #[salsa::tracked]
 pub fn ident_to_name(db: &::salsa::Db, ident: Ident) -> Kebab {
-    let ident_data = ident.data(db);
+    let ident_data = ident.data();
     if !ident_data.contains("_") {
         return unsafe { Kebab::from_coword_unchecked(ident.0) };
     } else {

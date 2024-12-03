@@ -27,8 +27,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         husky_entity_path::region::RegionPath::CrateDecl(_) => (),
                         husky_entity_path::region::RegionPath::ItemDecl(_) => (),
                         husky_entity_path::region::RegionPath::ItemDefn(item_path) => {
-                            if item_path.ident(db).unwrap().data(db) == "major_line_segment_sketch"
-                            {
+                            if item_path.ident(db).unwrap().data() == "major_line_segment_sketch" {
                                 use husky_print_utils::p;
                                 p!(coercion);
                                 todo!()

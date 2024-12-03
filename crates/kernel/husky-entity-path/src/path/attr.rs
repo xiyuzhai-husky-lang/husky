@@ -49,7 +49,7 @@ impl AttrItemPathData {
         use salsa::DisplayWithDb;
         self.parent_item_path.display_fmt_with_db(f, db)?;
         f.write_str("::#")?;
-        f.write_str(self.ident.data(db))?;
+        f.write_str(self.ident.data())?;
         f.write_fmt(format_args!("({})", self.disambiguator))
     }
 }

@@ -26,25 +26,25 @@ fn item_syn_node_path_section_name_inner(
 ) -> String {
     let item_syn_node_path = item_syn_node_path_id.syn_node_path(db);
     match item_syn_node_path {
-        ItemSynNodePath::Submodule(_, slf) => format!("`{}`", slf.ident(db).data(db)),
-        ItemSynNodePath::MajorItem(slf) => format!("`{}`", slf.ident(db).data(db)),
+        ItemSynNodePath::Submodule(_, slf) => format!("`{}`", slf.ident(db).data()),
+        ItemSynNodePath::MajorItem(slf) => format!("`{}`", slf.ident(db).data()),
         ItemSynNodePath::TypeVariant(_, slf) => {
             format!(
                 "`{}::{}`",
-                slf.parent(db).ident(db).data(db),
-                slf.ident(db).data(db)
+                slf.parent(db).ident(db).data(),
+                slf.ident(db).data()
             )
         }
         ItemSynNodePath::ImplBlock(slf) => match slf {
             ImplBlockSynNodePath::TypeImplBlock(slf) => {
-                format!("`impl {}`", slf.ty_path(db).ident(db).data(db))
+                format!("`impl {}`", slf.ty_path(db).ident(db).data())
             }
             ImplBlockSynNodePath::TraitForTypeImplBlock(slf) => format!(
                 "`impl {} for {}`",
-                slf.trai_path(db).ident(db).data(db),
+                slf.trai_path(db).ident(db).data(),
                 match slf.ty_sketch(db) {
                     TypeSketch::DeriveAny => "_",
-                    TypeSketch::Path(ty_path) => ty_path.ident(db).data(db),
+                    TypeSketch::Path(ty_path) => ty_path.ident(db).data(),
                 }
             ),
             ImplBlockSynNodePath::IllFormedImplBlock(_) => todo!(),
@@ -53,15 +53,15 @@ fn item_syn_node_path_section_name_inner(
             AssocItemSynNodePath::TypeItem(slf) => {
                 format!(
                     "`{}::{}`",
-                    slf.ty_path(db).ident(db).data(db),
-                    slf.ident(db).data(db)
+                    slf.ty_path(db).ident(db).data(),
+                    slf.ident(db).data()
                 )
             }
             AssocItemSynNodePath::TraitItem(slf) => {
                 format!(
                     "`{}::{}`",
-                    slf.parent_trai_syn_node_path(db).ident(db).data(db),
-                    slf.ident(db).data(db)
+                    slf.parent_trai_syn_node_path(db).ident(db).data(),
+                    slf.ident(db).data()
                 )
             }
             AssocItemSynNodePath::TraitForTypeItem(slf) => {
@@ -69,10 +69,10 @@ fn item_syn_node_path_section_name_inner(
                     "`({} as {})::{}`",
                     match slf.ty_sketch(db) {
                         TypeSketch::DeriveAny => "_",
-                        TypeSketch::Path(ty_path) => ty_path.ident(db).data(db),
+                        TypeSketch::Path(ty_path) => ty_path.ident(db).data(),
                     },
-                    slf.trai_path(db).ident(db).data(db),
-                    slf.ident(db).data(db)
+                    slf.trai_path(db).ident(db).data(),
+                    slf.ident(db).data()
                 )
             }
 
@@ -82,7 +82,7 @@ fn item_syn_node_path_section_name_inner(
             format!(
                 "`{}::#{}`",
                 item_syn_node_path_section_name_inner(db, *slf.parent_syn_node_path(db)),
-                slf.ident(db).data(db)
+                slf.ident(db).data()
             )
         }
         ItemSynNodePath::Script(_, _) => todo!(),

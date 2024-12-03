@@ -18,7 +18,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         let db = self.db;
         match self.hir_eager_expr_region().region_path(db) {
             RegionPath::ItemDefn(item_path) => match item_path.ident(db) {
-                Some(ident) => ident.data(db) == ident_str,
+                Some(ident) => ident.data() == ident_str,
                 None => false,
             },
             _ => false,
