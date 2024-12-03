@@ -3,7 +3,7 @@ use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-#[salsa::as_id(jar = CowordJar)]
+#[salsa::as_id_with_db(jar = CowordJar)]
 #[salsa::deref_id]
 pub struct Ident(Coword);
 
@@ -14,7 +14,7 @@ impl Ident {
 
     pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         if is_str_valid_ident(&data) {
-            Some(Self(Coword::from_owned(db, data)))
+            Some(Self(Coword::new(data, db)))
         } else {
             None
         }
@@ -22,7 +22,7 @@ impl Ident {
 
     pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         if is_str_valid_ident(data) {
-            Some(Self(Coword::from_ref(db, data)))
+            Some(Self(Coword::from_ref(data, db)))
         } else {
             None
         }

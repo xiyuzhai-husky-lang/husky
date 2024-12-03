@@ -72,7 +72,7 @@ impl<'db> VdSynExprBuilder<'db> {
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynClauseData {
         let db = self.db();
-        match word.data(db).as_str() {
+        match word.data(db) {
             "Let" | "let" => {
                 let ast = asts.next().expect("expect a let clause");
                 match self.ast_arena()[ast] {

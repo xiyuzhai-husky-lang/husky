@@ -15,10 +15,10 @@ pub(crate) fn manifest_ast_menu(db: &::salsa::Db) -> ManifestAstMenu {
 
 impl ManifestAstMenu {
     fn new(db: &::salsa::Db) -> Self {
-        let package_coword = Coword::from_ref(db, "package");
-        let dependencies_coword = Coword::from_ref(db, "dependencies");
-        let dev_dependencies_coword = Coword::from_ref(db, "dev-dependencies");
-        let features_coword = Coword::from_ref(db, "features");
+        let package_coword = Coword::from_ref("package", db);
+        let dependencies_coword = Coword::from_ref("dependencies", db);
+        let dev_dependencies_coword = Coword::from_ref("dev-dependencies", db);
+        let features_coword = Coword::from_ref("features", db);
         Self {
             package_coword,
             dependencies_coword,
