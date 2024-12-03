@@ -212,7 +212,7 @@ impl VdMirFuncKeyMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_mir_func_key_menu(db: &EternerDb) -> VdMirFuncKeyMenu {
     VdMirFuncKeyMenu::new(db)
 }

@@ -109,7 +109,7 @@ impl VdModulePath {
 }
 
 /// includes the module itself
-#[eterned::memo]
+#[eterned::memo(return_ref)]
 fn vd_module_lineage(module_path: VdModulePath, db: &EternerDb) -> SmallVec<[VdModulePath; 8]> {
     match module_path.parent(db) {
         Some(parent) => {

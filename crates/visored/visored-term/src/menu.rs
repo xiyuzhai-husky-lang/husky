@@ -86,7 +86,7 @@ impl VdTypeMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_ty_menu(db: &EternerDb) -> VdTypeMenu {
     VdTypeMenu::new(db)
 }

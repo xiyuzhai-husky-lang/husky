@@ -53,7 +53,7 @@ impl VdType {
 
 impl VdType {
     pub fn is_function_like(self, db: &EternerDb) -> bool {
-        *is_vd_ty_function_like(**self, db)
+        is_vd_ty_function_like(**self, db)
     }
 }
 

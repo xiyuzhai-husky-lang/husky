@@ -72,7 +72,7 @@ impl VdTermMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_term_menu(db: &EternerDb) -> VdTermMenu {
     VdTermMenu::new(db)
 }
