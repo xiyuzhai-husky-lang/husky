@@ -94,7 +94,6 @@ fn watcher_works() {
     use husky_print_utils::p;
     let db = DB::default();
     let tempdir = tempfile::tempdir_in(".").unwrap();
-    p!(tempdir.path());
     let some_pkg_dir = tempdir.path().join("somepath");
     std::fs::create_dir(&some_pkg_dir).unwrap();
     let path = some_pkg_dir.join("Corgi.toml");
@@ -110,14 +109,6 @@ fn watcher_works() {
     std::fs::write(&path, "Goodbye, world!").expect("can't write");
     let _a = DEBOUNCE_TEST_SLEEP_TIME;
     std::thread::sleep(Duration::from_millis(50));
-    p!(db.query(|db| {
-        format!(
-            "{:?}",
-            db.file_from_virtual_path(abs_path, Durability::LOW)
-                .unwrap()
-                .content(&db)
-        )
-    }));
     assert!(db.query(|db| db
         .file_from_virtual_path(abs_path, Durability::LOW)
         .unwrap()
