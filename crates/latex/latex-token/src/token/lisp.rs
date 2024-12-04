@@ -6,7 +6,7 @@ pub mod literal;
 use self::{delimiter::LxLispDelimiter, ident::LxLispIdent, literal::LxLispLiteral};
 use super::*;
 use crate::idx::LxLispTokenIdx;
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use label::LxLispXlabel;
 use latex_command::path::LxCommandName;
@@ -143,7 +143,7 @@ impl<'a> LxLexer<'a> {
                         c => data.push(c),
                     }
                 }
-                LxLispTokenData::Literal(LxLispLiteral::String(Coword::new(data, self.db())))
+                LxLispTokenData::Literal(LxLispLiteral::String(BaseCoword::new(data, self.db())))
             }
             c => {
                 self.chars.eat_char();

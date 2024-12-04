@@ -8,7 +8,7 @@ pub struct DB;
 fn word_debug_works() {
     let db = DB::default();
     let db = &*db;
-    let haha = Coword::from_ref("haha", db);
+    let haha = BaseCoword::from_ref("haha", db);
     expect_test::expect![[r#"
         Coword(
             "haha",

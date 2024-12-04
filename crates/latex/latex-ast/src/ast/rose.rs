@@ -8,7 +8,7 @@ pub mod tests;
 
 use self::{complete_command::*, delimited::*, environment::*};
 use super::*;
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use helpers::LxRoseAstChild;
 use latex_command::{
     path::{LxCommandName, LxCommandPath},
@@ -27,7 +27,7 @@ pub enum LxRoseAstData {
     TextEdit {
         buffer: String,
     },
-    Word(LxRoseTokenIdx, Coword),
+    Word(LxRoseTokenIdx, BaseCoword),
     Punctuation(LxRoseTokenIdx, LxRosePunctuation),
     /// it might be '$' or '$$' or '\[' but we don't care for now
     Math {

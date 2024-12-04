@@ -4,7 +4,7 @@ mod tests;
 
 use self::r#let::*;
 use super::*;
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use builder::VdSynExprBuilder;
 use expr::VdSynExprIdx;
 use idx_arena::{
@@ -68,7 +68,7 @@ impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_clause(
         &mut self,
         token_idx: LxRoseTokenIdx,
-        word: Coword,
+        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynClauseData {
         let db = self.db();

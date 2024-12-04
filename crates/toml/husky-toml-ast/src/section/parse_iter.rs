@@ -90,7 +90,7 @@ impl<'a> TomlSectionParseIter<'a> {
 
     fn next_section(
         &mut self,
-        title_cowords: SmallVec<[Coword; 2]>,
+        title_cowords: SmallVec<[BaseCoword; 2]>,
         kind: TomlSectionKind,
     ) -> TomlSection {
         let mut entries = VecMap::default();

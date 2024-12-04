@@ -1,6 +1,6 @@
 pub mod menu;
 
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 use thiserror::Error;
 
@@ -22,14 +22,14 @@ pub enum LxCommandName {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct LettersOnlyLxCommandName(Coword);
+pub struct LettersOnlyLxCommandName(BaseCoword);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct OneDigitNonLetterLxCommandName(char);
 
 impl LxCommandPath {
     #[deprecated(note = "ad hoc")]
-    pub fn new_prelude(ident: Coword, db: &EternerDb) -> Self {
+    pub fn new_prelude(ident: BaseCoword, db: &EternerDb) -> Self {
         Self {
             package: LxPackagePath::Prelude,
             name: LxCommandName::new(ident, db).unwrap(),
@@ -48,7 +48,7 @@ impl LxCommandPath {
 }
 
 impl LxCommandName {
-    pub fn new(ident: Coword, db: &EternerDb) -> LxCommandNameResult<Self> {
+    pub fn new(ident: BaseCoword, db: &EternerDb) -> LxCommandNameResult<Self> {
         let data = ident.data();
         if data.len() == 0 {
             Err(LxCommandNameError::Empty)?
@@ -83,7 +83,7 @@ impl LxCommandName {
             }
         }
         Ok(Self::LettersOnly(LettersOnlyLxCommandName(
-            Coword::from_ref(data, db),
+            BaseCoword::from_ref(data, db),
         )))
     }
 }

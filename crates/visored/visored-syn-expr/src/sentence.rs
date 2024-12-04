@@ -4,7 +4,7 @@ use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     clause::{VdSynClauseIdx, VdSynClauseIdxRange},
 };
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -52,7 +52,7 @@ impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_sentence(
         &mut self,
         token_idx: LxRoseTokenIdx,
-        word: Coword,
+        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynSentenceData {
         let clauses = vec![self.parse_clause(token_idx, word, asts)];

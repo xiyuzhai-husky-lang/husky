@@ -7,7 +7,7 @@ use crate::{
     symbol::builder::VdSynSymbolBuilder,
     *,
 };
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -127,7 +127,7 @@ impl<'db> VdSynExprBuilder<'db> {
     fn build_paragraph(
         &mut self,
         token_idx: LxRoseTokenIdx,
-        word: Coword,
+        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynStmtData {
         let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];

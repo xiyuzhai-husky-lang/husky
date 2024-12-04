@@ -1,4 +1,4 @@
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use std::cell::Cell;
 use std::thread_local;
 
@@ -10,7 +10,7 @@ thread_local! {
 struct Jar(first_letter);
 
 #[salsa::tracked]
-fn first_letter(db: &salsa::Db, word: Coword) -> char {
+fn first_letter(db: &salsa::Db, word: BaseCoword) -> char {
     CALL_COUNT.with(|count| count.set(count.get() + 1));
     word.data().chars().next().unwrap()
 }
@@ -24,7 +24,7 @@ fn test_first_letter() {
     let db = &DB::default();
 
     // First call
-    let word = Coword::new("hello".to_string(), db);
+    let word = BaseCoword::new("hello".to_string(), db);
     assert_eq!(first_letter(db, word), 'h');
     assert_eq!(CALL_COUNT.with(|c| c.get()), 1);
 
@@ -33,22 +33,22 @@ fn test_first_letter() {
     assert_eq!(CALL_COUNT.with(|c| c.get()), 1);
 
     // Different input should trigger recomputation
-    let word2 = Coword::new("world".to_string(), db);
+    let word2 = BaseCoword::new("world".to_string(), db);
     assert_eq!(first_letter(db, word2), 'w');
     assert_eq!(CALL_COUNT.with(|c| c.get()), 2);
 
     // Test with uppercase
-    let word3 = Coword::new("Test".to_string(), db);
+    let word3 = BaseCoword::new("Test".to_string(), db);
     assert_eq!(first_letter(db, word3), 'T');
     assert_eq!(CALL_COUNT.with(|c| c.get()), 3);
 
     // Test with non-alphabetic characters
-    let word4 = Coword::new("123abc".to_string(), db);
+    let word4 = BaseCoword::new("123abc".to_string(), db);
     assert_eq!(first_letter(db, word4), '1');
     assert_eq!(CALL_COUNT.with(|c| c.get()), 4);
 
     // Test with Unicode characters
-    let word6 = Coword::new("über".to_string(), db);
+    let word6 = BaseCoword::new("über".to_string(), db);
     assert_eq!(first_letter(db, word6), 'ü');
     assert_eq!(CALL_COUNT.with(|c| c.get()), 5);
 }

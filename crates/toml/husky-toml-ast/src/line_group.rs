@@ -8,10 +8,10 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub enum TomlLineGroup {
     SectionTitle {
-        title: SmallVec<[Coword; 2]>,
+        title: SmallVec<[BaseCoword; 2]>,
         kind: TomlSectionKind,
     },
-    KeyValue(Coword, Option<TomlExprIdx>),
+    KeyValue(BaseCoword, Option<TomlExprIdx>),
     Comment,
     Err,
 }

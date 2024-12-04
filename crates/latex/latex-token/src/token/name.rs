@@ -1,6 +1,6 @@
 use super::*;
 use crate::idx::LxNameTokenIdx;
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandPath;
@@ -9,7 +9,7 @@ use latex_rose_punctuation::LxRosePunctuation;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxNameTokenData {
-    Name(Coword),
+    Name(BaseCoword),
     // Command(LxCommandPath),
 }
 
@@ -78,7 +78,7 @@ impl<'a> LxLexer<'a> {
                 // }
             }
             a if a.is_ascii_alphabetic() => Some(
-                Coword::from_ref(
+                BaseCoword::from_ref(
                     self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
                     self.db(),
                 )

@@ -1,6 +1,6 @@
 pub mod menu;
 
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 use thiserror::Error;
 
@@ -10,7 +10,7 @@ pub struct LxEnvironmentPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct LxEnvironmentName(Coword);
+pub struct LxEnvironmentName(BaseCoword);
 
 impl LxEnvironmentPath {
     pub fn new(name: &str, db: &EternerDb) -> Self {
@@ -27,17 +27,17 @@ impl LxEnvironmentPath {
 }
 
 impl LxEnvironmentName {
-    pub fn new(coword: Coword) -> Self {
+    pub fn new(coword: BaseCoword) -> Self {
         Self(coword)
     }
 
     pub fn from_ref(name: &str, db: &EternerDb) -> Self {
-        Self(Coword::from_ref(name, db))
+        Self(BaseCoword::from_ref(name, db))
     }
 }
 
 impl LxEnvironmentName {
-    pub fn coword(self) -> Coword {
+    pub fn coword(self) -> BaseCoword {
         self.0
     }
 }

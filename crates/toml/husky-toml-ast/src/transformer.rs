@@ -142,7 +142,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
     #[inline(always)]
     fn value_transformer<'c>(
         &'c mut self,
-        key: Coword,
+        key: BaseCoword,
     ) -> Option<TomlTransformer<'a, 'c, Context, TomlExpr>>
     where
         'b: 'c,
@@ -177,7 +177,10 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         }
     }
 
-    pub fn transform_value<Target>(mut self, key: Coword) -> Option<Result<Target, Context::Error>>
+    pub fn transform_value<Target>(
+        mut self,
+        key: BaseCoword,
+    ) -> Option<Result<Target, Context::Error>>
     where
         Target: TransformFromTomlAst<Context, Ast = TomlExpr>,
     {
@@ -228,7 +231,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         self.visitor.line_group_idx()
     }
 
-    pub fn key(&self) -> Coword {
+    pub fn key(&self) -> BaseCoword {
         self.visitor.key()
     }
 }
@@ -237,7 +240,7 @@ pub trait TransformFromTomlParentKeyed<Context>: TransformFromTomlAst<Context>
 where
     Context: TomlDeserializeContext,
 {
-    fn key(menu: &<Context as TomlDeserializeContext>::Menu) -> Coword;
+    fn key(menu: &<Context as TomlDeserializeContext>::Menu) -> BaseCoword;
 }
 
 pub trait TransformFromTomlAst<Context>: Sized
