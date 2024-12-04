@@ -1,18 +1,18 @@
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
-pub struct LnIdent(Coword);
+pub struct LnIdent(BaseCoword);
 
 impl LnIdent {
     pub fn from_owned(ident: String, db: &EternerDb) -> Self {
-        LnIdent(Coword::new(ident, db))
+        LnIdent(BaseCoword::new(ident, db))
     }
 
     pub fn from_ref(ident: &str, db: &EternerDb) -> Self {
         // TODO: allow broader idents, like h\1
         assert!(Self::is_valid(ident));
-        LnIdent(Coword::from_ref(ident, db))
+        LnIdent(BaseCoword::from_ref(ident, db))
     }
 
     pub fn is_valid(ident: &str) -> bool {

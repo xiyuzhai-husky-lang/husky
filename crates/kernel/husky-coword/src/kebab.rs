@@ -2,10 +2,10 @@ use crate::*;
 
 #[derive(PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
 #[salsa::deref_id]
-pub struct Kebab(Coword);
+pub struct Kebab(BaseCoword);
 
 impl Kebab {
-    pub fn coword(self) -> Coword {
+    pub fn coword(self) -> BaseCoword {
         self.0
     }
 
@@ -13,17 +13,17 @@ impl Kebab {
         kebab_to_ident(db, self.0)
     }
 
-    pub(crate) unsafe fn from_coword_unchecked(coword: Coword) -> Self {
+    pub(crate) unsafe fn from_coword_unchecked(coword: BaseCoword) -> Self {
         Self(coword)
     }
 
-    pub fn from_coword(db: &::salsa::Db, coword: Coword) -> Option<Self> {
+    pub fn from_coword(db: &::salsa::Db, coword: BaseCoword) -> Option<Self> {
         is_coword_valid_kebab(db, coword).then_some(Kebab(coword))
     }
 
     pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         if is_str_valid_kebab(&data) {
-            Some(Self(Coword::new(data, db)))
+            Some(Self(BaseCoword::new(data, db)))
         } else {
             None
         }
@@ -31,7 +31,7 @@ impl Kebab {
 
     pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         if is_str_valid_kebab(data) {
-            Some(Self(Coword::from_ref(data, db)))
+            Some(Self(BaseCoword::from_ref(data, db)))
         } else {
             None
         }
@@ -40,7 +40,7 @@ impl Kebab {
 
 /// only use in this module
 #[salsa::tracked]
-pub(crate) fn kebab_to_ident(db: &::salsa::Db, coword: Coword) -> Ident {
+pub(crate) fn kebab_to_ident(db: &::salsa::Db, coword: BaseCoword) -> Ident {
     let kebab = coword.data();
     if !kebab.contains("-") {
         return Ident::from_ref(db, kebab).unwrap();
@@ -50,7 +50,7 @@ pub(crate) fn kebab_to_ident(db: &::salsa::Db, coword: Coword) -> Ident {
 }
 
 #[salsa::tracked]
-pub fn is_coword_valid_kebab(db: &::salsa::Db, coword: Coword) -> bool {
+pub fn is_coword_valid_kebab(db: &::salsa::Db, coword: BaseCoword) -> bool {
     is_str_valid_kebab(coword.data())
 }
 

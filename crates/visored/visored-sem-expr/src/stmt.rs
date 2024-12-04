@@ -3,7 +3,7 @@ mod tests;
 
 use crate::sentence::VdSemSentenceIdxRange;
 use crate::*;
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };

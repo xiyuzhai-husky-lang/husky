@@ -6,6 +6,6 @@ pub(crate) use self::dependencies::*;
 pub(crate) use self::dev_dependencies::*;
 pub(crate) use self::package::*;
 
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 
 use crate::*;

@@ -5,7 +5,7 @@ pub struct TomlSectionVisitor<'a> {
     toml_ast_sheet: &'a TomlAstSheet,
     section_idx: TomlSectionIdx,
     section: &'a TomlSection,
-    visits: VecSet<Coword>,
+    visits: VecSet<BaseCoword>,
 }
 
 impl<'a> TomlSectionVisitor<'a> {
@@ -22,7 +22,7 @@ impl<'a> TomlSectionVisitor<'a> {
         self.toml_ast_sheet
     }
 
-    pub(crate) fn visit(&mut self, key: Coword) -> Option<TomlExprIdx> {
+    pub(crate) fn visit(&mut self, key: BaseCoword) -> Option<TomlExprIdx> {
         self.visits.insert_new(key).unwrap();
         self.section.get_entry(key)?.value()
     }
@@ -67,7 +67,7 @@ impl<'a> TomlSectionEntryVisitor<'a> {
         self.section_idx
     }
 
-    pub fn key(&self) -> Coword {
+    pub fn key(&self) -> BaseCoword {
         self.section_entry.key
     }
 

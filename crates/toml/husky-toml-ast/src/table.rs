@@ -9,7 +9,7 @@ use crate::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlTable {
-    data: BTreeMap<Coword, TomlTableValue>,
+    data: BTreeMap<BaseCoword, TomlTableValue>,
 }
 
 #[salsa::derive_debug_with_db]
@@ -31,7 +31,7 @@ impl TomlTable {
         table
     }
 
-    pub(crate) fn get(&self, key: Coword) -> Option<&TomlTableValue> {
+    pub(crate) fn get(&self, key: BaseCoword) -> Option<&TomlTableValue> {
         self.data.get(&key)
     }
 
