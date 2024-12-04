@@ -13095,6 +13095,11 @@ name = "visored-tactics"
 version = "0.1.0"
 dependencies = [
  "berserk",
+ "husky-sha-utils",
+ "idx-arena",
+ "rustc-hash 2.0.0",
+ "vec-like",
+ "visored-term",
 ]
 
 [[package]]
