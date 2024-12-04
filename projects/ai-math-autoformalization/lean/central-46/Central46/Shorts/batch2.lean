@@ -12,10 +12,10 @@ variable (x : ℝ)
 variable (y : ℝ)
 
 -- Then $4 x^2 + \frac{y^2}{4} - 2 x y = {(2 x)}^2 + {(\frac{y}{2})}^2 - 2 (2 x) (\frac{y}{2})$
-def h : 4 * (x ^ 2) + y ^ 2 / 4 - 2 * x * y = 2 * x ^ 2 + y / 2 ^ 2 - 2 * (2 * x) * (y / 2) := sorry
+def h : 4 * (x ^ 2) + y ^ 2 / 4 - 2 * x * y = (2 * x) ^ 2 + (y / 2) ^ 2 - 2 * (2 * x) * (y / 2) := sorry
 
 -- Then ${(2 x)}^2 + {(\frac{y}{2})}^2 - 2 (2 x) (\frac{y}{2}) = {(2 x - \frac{y}{2})}^2$
-def h1 : 2 * x ^ 2 + y / 2 ^ 2 - 2 * (2 * x) * (y / 2) = (2 * x - y / 2) ^ 2 := sorry
+def h1 : (2 * x) ^ 2 + (y / 2) ^ 2 - 2 * (2 * x) * (y / 2) = (2 * x - y / 2) ^ 2 := sorry
 
 -- Then ${(2 x - \frac{y}{2})}^2 \ge 0$
 def h2 : (2 * x - y / 2) ^ 2 ≥ 0 := sorry

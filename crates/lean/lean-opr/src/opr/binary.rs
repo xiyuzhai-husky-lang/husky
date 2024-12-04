@@ -38,7 +38,7 @@ impl LnBinaryOpr {
             LnBinaryOpr::Sub => LnPrecedenceRange::NoLess(LnPrecedence::AddSub),
             LnBinaryOpr::Mul => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
             LnBinaryOpr::Div => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
-            LnBinaryOpr::Pow => LnPrecedenceRange::NoLess(LnPrecedence::MulDiv),
+            LnBinaryOpr::Pow => LnPrecedenceRange::NoLess(LnPrecedence::Pow),
             LnBinaryOpr::Eq => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
             LnBinaryOpr::Ne => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
             LnBinaryOpr::Lt => LnPrecedenceRange::NoLess(LnPrecedence::Relation),
