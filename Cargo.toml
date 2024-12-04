@@ -225,8 +225,6 @@ enum-index = { path = "crates/abstractions/enum-index" }
 enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
 eterned = { path = "crates/abstractions/eterned" }
 eterned-macros = { path = "crates/abstractions/eterned-macros" }
-berserk = { path = "crates/abstractions/berserk" }
-berserk-macros = { path = "crates/abstractions/berserk-macros" }
 from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }
