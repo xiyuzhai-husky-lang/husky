@@ -17,7 +17,7 @@ pub mod test_helpers;
 mod tests;
 mod watch;
 
-pub use self::cache::VfsCache;
+pub use self::cache::BaseVfsCache;
 #[cfg(feature = "lsp_support")]
 pub use self::lsp_support::*;
 
