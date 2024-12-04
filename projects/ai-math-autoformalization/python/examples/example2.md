@@ -1,7 +1,7 @@
 Problem:
 For any $x \in \mathbb{R}$, $x \ge 0$, prove that $x + 1 \ge 2 \sqrt x$.
 
-LaTex Proof:
+LaTeX Proof:
 Let $x\in\mathbb{R}$. Assume $x > 0$. Then $x + 1 - 2\sqrt{x} = {(\sqrt{x}-1)}^2$. Then ${(\sqrt{x}-1)}^2 \ge 0$. Then $x + 1 - 2\sqrt{x} \ge 0$. Then $x + 1 \ge 2\sqrt{x}$.
 
 Lean Proof:
