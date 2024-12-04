@@ -18,12 +18,32 @@ def h : x ^ 2 ≥ 0 := sorry
 end Example2
 
 namespace Example3
--- Let $x\in\mathbb{R}$
-variable (x : ℝ)
 
--- Then $x^2 + 1\ge 2x$
-def h : x ^ 2 + 1 ≥ 2 * x := sorry
+-- Variable declaration for real numbers
+variable {x : ℝ}
+
+-- Step 1: Rewrite the expression as a square
+def h1 (x : ℝ) : x ^ 2 + 1 - 2 * x = (x - 1) ^ 2 :=
+by
+  ring
+
+-- Step 2: State the non-negativity of the square
+def h2 (x : ℝ) : (x - 1) ^ 2 ≥ 0 :=
+by
+  apply sq_nonneg
+
+-- Step 3: Conclude the inequality
+def h3 (x : ℝ) : x ^ 2 + 1 ≥ 2 * x :=
+by
+  rw [←sub_nonneg, h1 x]
+  exact h2 x
+
 end Example3
+
+
+
+
+
 
 namespace Example4
 -- Then $1=1=1$
