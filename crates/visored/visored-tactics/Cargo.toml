@@ -13,6 +13,14 @@ keywords.workspace = true
 
 [dependencies]
 berserk.workspace = true
+rustc-hash.workspace = true
+# abstractions
+idx-arena.workspace = true
+vec-like.workspace = true
+# visored
+visored-term.workspace = true
+# utils
+husky-sha-utils.workspace = true
 
 [lints]
 workspace = true
