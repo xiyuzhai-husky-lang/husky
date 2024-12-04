@@ -5,6 +5,7 @@ pub enum LnPrecedence {
     Application,
     AddSub,
     MulDiv,
+    Pow,
     // TODO: check this
     Prefix,
     Atom,
