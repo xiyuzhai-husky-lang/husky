@@ -107,8 +107,7 @@ fn watcher_works() {
         .content(&db)
         == &FileContent::OnDisk("Hello, world!".to_owned())),);
     std::fs::write(&path, "Goodbye, world!").expect("can't write");
-    let _a = DEBOUNCE_TEST_SLEEP_TIME;
-    std::thread::sleep(Duration::from_millis(50));
+    std::thread::sleep(Duration::from_secs(2));
     assert!(db.query(|db| db
         .file_from_virtual_path(abs_path, Durability::LOW)
         .unwrap()
