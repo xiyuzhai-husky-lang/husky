@@ -78,7 +78,8 @@ unsafe impl<'db, T: 'db> Send for Berserk<'db, T> {}
 
 impl<'db, T: 'db> AsBerserkId<'db> for Berserk<'db, T>
 where
-    T: Clone + Eq + std::hash::Hash + Send + Sync + 'static,
+    T: AsStatic + Clone + Eq + std::hash::Hash + Send + Sync + 'db,
+    T::Static: Clone + Eq + std::hash::Hash + Send + Sync,
 {
     fn as_id(self) -> u32 {
         self.0.id
@@ -87,7 +88,13 @@ where
     fn from_id(id: u32, db: &BerserkerDb) -> Self {
         use husky_wild_utils::arb_ref;
 
-        let eterner = db.berserker::<T>();
-        eterner.with_pool(|pool| Berserk(unsafe { arb_ref(&pool[id]) }))
+        let eterner = db.berserker::<T::Static>();
+        eterner.with_pool(|pool| Berserk(unsafe { std::mem::transmute(arb_ref(&pool[id])) }))
     }
+}
+
+pub trait AsStatic {
+    type Static: 'static;
+
+    fn as_static(self) -> Self::Static;
 }

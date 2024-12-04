@@ -13091,6 +13091,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-tactics"
+version = "0.1.0"
+dependencies = [
+ "berserk",
+]
+
+[[package]]
 name = "visored-term"
 version = "0.1.0"
 dependencies = [

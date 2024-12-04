@@ -73,7 +73,7 @@ impl<'db, T: Clone + Eq + std::hash::Hash + Send + Sync + 'db> Berserker<T> {
         f(&self.pool.lock().unwrap())
     }
 
-    pub fn etern(&self, t: T) -> Berserk<T> {
+    pub fn berserk(&self, t: T) -> Berserk<T> {
         if let Some(berserk) = self.map.get(&t) {
             return *berserk;
         }
@@ -88,23 +88,23 @@ impl<'db, T: Clone + Eq + std::hash::Hash + Send + Sync + 'db> Berserker<T> {
         berserk
     }
 
-    pub fn etern_ref<Q: Eq + std::hash::Hash + ?Sized>(&self, q: &Q) -> Berserk<T>
+    pub fn berserk_ref<S, Q: Eq + std::hash::Hash + ?Sized>(&self, q: &Q) -> Berserk<S::Static>
     where
-        T: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
+        S: AsStatic<Static = T> + std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
     {
         if let Some(berserk) = self.map.get(q) {
-            return *berserk;
+            return unsafe { std::mem::transmute(*berserk) };
         }
         let mut pool = self.pool.lock().unwrap();
         // in racing conditions, another thread might have already allocated the value
         if let Some(berserk) = self.map.get(q) {
-            return *berserk;
+            return unsafe { std::mem::transmute(*berserk) };
         }
         let t: T = q.into();
         let berserk_entry = BerserkEntry::new(t.clone(), pool.len());
         let berserk = Berserk(unsafe { &*pool.alloc(berserk_entry) });
         self.map.insert(t, berserk);
-        berserk
+        unsafe { std::mem::transmute(berserk) }
     }
 }
 
