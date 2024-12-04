@@ -12,15 +12,25 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-berserk.workspace = true
 rustc-hash.workspace = true
 # abstractions
+eterned.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
+# latex
+latex-prelude.workspace = true
 # visored
+visored-mir-expr.workspace = true
 visored-term.workspace = true
+visored-annotation.workspace = true
 # utils
 husky-sha-utils.workspace = true
+
+[dev-dependencies]
+# latex
+latex-vfs.workspace = true
+# utils
+husky-path-utils.workspace = true
 
 [lints]
 workspace = true

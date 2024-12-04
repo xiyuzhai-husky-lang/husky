@@ -891,27 +891,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8c3c1a368f70d6cf7302d78f8f7093da241fb8e8807c05cc9e51a125895a6d5b"
 
 [[package]]
-name = "berserk"
-version = "0.1.0"
-dependencies = [
- "berserk-macros",
- "dashmap 6.0.1",
- "husky-sha-utils",
- "husky-wild-utils",
- "sealed",
-]
-
-[[package]]
-name = "berserk-macros"
-version = "0.1.0"
-dependencies = [
- "convert_case",
- "proc-macro2",
- "quote",
- "syn 2.0.76",
-]
-
-[[package]]
 name = "bibtex-collector"
 version = "0.1.0"
 
@@ -13094,11 +13073,16 @@ dependencies = [
 name = "visored-tactics"
 version = "0.1.0"
 dependencies = [
- "berserk",
+ "eterned",
+ "husky-path-utils",
  "husky-sha-utils",
  "idx-arena",
+ "latex-prelude",
+ "latex-vfs",
  "rustc-hash 2.0.0",
  "vec-like",
+ "visored-annotation",
+ "visored-mir-expr",
  "visored-term",
 ]
 
