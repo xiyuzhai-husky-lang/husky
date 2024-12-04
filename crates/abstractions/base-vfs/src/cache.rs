@@ -1,4 +1,3 @@
-use crate::watch::VfsWatcher;
 use crate::*;
 use std::sync::RwLock;
 use vec_like::VecSet;
@@ -6,7 +5,6 @@ use vec_like::VecSet;
 pub struct BaseVfsCache {
     files: DashMap<PathBuf, File>,
     current_dir: PathBuf,
-    watcher: Option<VfsWatcher>,
 }
 
 impl Default for BaseVfsCache {
@@ -17,7 +15,6 @@ impl Default for BaseVfsCache {
                 Ok(dir) => std::path::absolute(dir).expect("valid path"),
                 Err(_e) => todo!(),
             },
-            watcher: None,
         }
     }
 }
@@ -29,14 +26,5 @@ impl BaseVfsCache {
 
     pub fn current_dir(&self) -> &Path {
         &self.current_dir
-    }
-
-    pub fn watcher(&self) -> Option<&VfsWatcher> {
-        self.watcher.as_ref()
-    }
-
-    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
-        assert!(self.watcher.is_none());
-        self.watcher = Some(watcher);
     }
 }
