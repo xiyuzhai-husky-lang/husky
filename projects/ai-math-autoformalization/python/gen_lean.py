@@ -1,16 +1,26 @@
 from prompts import SYSTEM_MESSAGE, prompt
 from api import ChatCompletionAPI
+import os
+
+TESTCASES_DIR = "testcases"
+OUTPUT_DIR = "outputs"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 api = ChatCompletionAPI("local")
 
-messages = [
-    {"role": "system", "content": SYSTEM_MESSAGE},
-    {"role": "user", "content": prompt(
-        problem="For any $x \in \mathbb{R}$, $x \ge 0$, prove that $x + 1 \ge 2 \sqrt x$.",
-        latex="Let $x\in\mathbb{R}, x \ge 0$. Then ${\sqrt x}^2 + 1 - 2 \sqrt x = {(\sqrt x - 1)}^2$. Then ${(\sqrt x - 1)}^2 \ge 0$. Then $x + 1 \ge 2 \sqrt x$.",
-        lean="",
-    )},
-]
+files = os.listdir(TESTCASES_DIR)
+for file in files:
+    if file.endswith(".md"):
+        with open(f"{TESTCASES_DIR}/{file}", "r") as f:
+            input = f.read()
 
-completion = api.chat_completion(messages)
-print(completion["content"])
+        messages = [
+            {"role": "system", "content": SYSTEM_MESSAGE},
+            {"role": "user", "content": input},
+        ]
+
+        completion = api.chat_completion(messages)
+        print(completion["content"])
+        
+        with open(f"{OUTPUT_DIR}/{file}", "w") as f:
+            f.write(completion["content"])

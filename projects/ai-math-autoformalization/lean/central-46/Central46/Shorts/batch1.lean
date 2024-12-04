@@ -126,52 +126,64 @@ namespace Example9
 -- Let $x\in\mathbb{R}$
 variable (x : ℝ)
 
+-- Assume $x>0$
+variable (h : x > 0)
+
 -- Let $y\in\mathbb{R}$
 variable (y : ℝ)
 
+-- Assume $y>0$
+variable (h1 : y > 0)
+
 -- Then $\frac{1}{x} + \frac{1}{y} - \frac{4}{x+y} = \frac{y(x+y) + x(x+y) - 4xy}{xy(x+y)}$
-def h : 1 / x + 1 / y - 4 / (x + y) = (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) := sorry
+def h2 : 1 / x + 1 / y - 4 / (x + y) = (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) := sorry
 
 -- Then $\frac{y(x+y) + x(x+y) - 4xy}{xy(x+y)} = \frac{yx + x^2 + x^2 + yx - 4xy}{xy(x+y)}$
-def h1 : (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) = (y * x + x ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) := sorry
+def h3 : (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) = (y * x + x ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) := sorry
 
 -- Then $\frac{yx + x^2 + x^2 + yx - 4xy}{xy(x+y)} = \frac{x^2 + x^2 -2xy}{xy(x+y)}$
-def h2 : (y * x + x ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) = (x ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) := sorry
+def h4 : (y * x + x ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) = (x ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) := sorry
 
 -- Then $\frac{x^2 + x^2 -2xy}{xy(x+y)} = \frac{{(x-y)}^2}{xy(x+y)}$
-def h3 : (x ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) = (x - y) ^ 2 / (x * y * (x + y)) := sorry
+def h5 : (x ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) = (x - y) ^ 2 / (x * y * (x + y)) := sorry
 
 -- Then $\frac{{(x-y)}^2}{xy(x+y)} \ge 0$
-def h4 : (x - y) ^ 2 / (x * y * (x + y)) ≥ 0 := sorry
+def h6 : (x - y) ^ 2 / (x * y * (x + y)) ≥ 0 := sorry
 
 -- Then $\frac{1}{x} + \frac{1}{y} - \frac{4}{x+y} \ge 0$
-def h5 : 1 / x + 1 / y - 4 / (x + y) ≥ 0 := sorry
+def h7 : 1 / x + 1 / y - 4 / (x + y) ≥ 0 := sorry
 
 -- Then $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$
-def h6 : 1 / x + 1 / y ≥ 4 / (x + y) := sorry
+def h8 : 1 / x + 1 / y ≥ 4 / (x + y) := sorry
 end Example9
 
 namespace Example10
 -- Let $a\in\mathbb{R}$
 variable (a : ℝ)
 
+-- Assume $a > 0$
+variable (h : a > 0)
+
 -- Let $b\in\mathbb{R}$
 variable (b : ℝ)
 
+-- Assume $b > 0$
+variable (h1 : b > 0)
+
 -- Then $\frac{a}{b} + \frac{b}{a} - 2 = \frac{a^2 + b^2 - 2ab}{ab}$
-def h : a / b + b / a - 2 = (a ^ 2 + b ^ 2 - 2 * a * b) / (a * b) := sorry
+def h2 : a / b + b / a - 2 = (a ^ 2 + b ^ 2 - 2 * a * b) / (a * b) := sorry
 
 -- Then $\frac{a^2 + b^2 - 2ab}{ab} = \frac{{(a-b)}^2}{ab}$
-def h1 : (a ^ 2 + b ^ 2 - 2 * a * b) / (a * b) = (a - b) ^ 2 / (a * b) := sorry
+def h3 : (a ^ 2 + b ^ 2 - 2 * a * b) / (a * b) = (a - b) ^ 2 / (a * b) := sorry
 
 -- Then $\frac{{(a-b)}^2}{ab} \ge 0$
-def h2 : (a - b) ^ 2 / (a * b) ≥ 0 := sorry
+def h4 : (a - b) ^ 2 / (a * b) ≥ 0 := sorry
 
 -- Then $\frac{a}{b} + \frac{b}{a} - 2 \ge 0$
-def h3 : a / b + b / a - 2 ≥ 0 := sorry
+def h5 : a / b + b / a - 2 ≥ 0 := sorry
 
 -- Then $\frac{a}{b} + \frac{b}{a} \ge 2$
-def h4 : a / b + b / a ≥ 2 := sorry
+def h6 : a / b + b / a ≥ 2 := sorry
 end Example10
 
 namespace Example11
