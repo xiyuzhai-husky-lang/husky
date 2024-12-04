@@ -4,25 +4,34 @@ use eyre::Result;
 use notify_debouncer_mini::{
     new_debouncer, notify::RecommendedWatcher, DebounceEventResult, DebouncedEvent, Debouncer,
 };
+use salsa::{
+    snapshot::{Snapshot, SnapshotClone},
+    Db, Durability,
+};
+use sealed::sealed;
 use std::{
     marker::PhantomData,
-    sync::{Arc, Mutex},
+    sync::{Arc, Mutex, Weak},
     thread,
     time::Duration,
 };
 
-// pub trait WatchableVfsDb: VfsDb + Send {
-//     fn watcher(&self) -> Option<&VfsWatcher>;
-// }
+#[sealed]
+pub trait WatchableVfsDb:
+    std::ops::Deref<Target = Db> + std::ops::DerefMut + SnapshotClone + Send + 'static
+{
+    fn watcher(&self) -> Option<&VfsWatcher>;
+}
 
-// impl<T> WatchableVfsDb for T
-// where
-//     T: VfsDb + Send,
-// {
-//     fn watcher(&self) -> Option<&VfsWatcher> {
-//         self.vfs_jar().cache().watcher()
-//     }
-// }
+#[sealed]
+impl<T> WatchableVfsDb for T
+where
+    T: std::ops::Deref<Target = Db> + std::ops::DerefMut + SnapshotClone + Send + 'static,
+{
+    fn watcher(&self) -> Option<&VfsWatcher> {
+        self.vfs_jar().cache().watcher()
+    }
+}
 
 #[derive(Clone)]
 pub struct VfsWatcher(pub(crate) Arc<Mutex<Debouncer<RecommendedWatcher>>>);
@@ -43,164 +52,101 @@ const DEBOUNCE_TIMEOUT: Duration = Duration::from_millis(DEBOUNCE_TIMEOUT_RAW);
 pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
     Duration::from_millis(DEBOUNCE_TIMEOUT_RAW * 4);
 
-// pub struct WatchedVfs {
-//     event_tx: Sender<VfsWatcherEvent>,
-//     snapshot_rx: Receiver<Snapshot>,
-// }
+pub struct WatchedVfs<DB: WatchableVfsDb> {
+    db: Arc<Mutex<DB>>,
+}
 
-// impl Default for WatchedVfs {
-//     fn default() -> Self {
-//         Self::new(Default::default())
-//     }
-// }
+impl<DB: WatchableVfsDb> Default for WatchedVfs<DB>
+where
+    DB: Default,
+{
+    fn default() -> Self {
+        Self::new(Default::default())
+    }
+}
 
-// impl<DB: WatchableVfsDb> WatchedVfs {
-//     pub fn query<S>(&self, f: impl FnOnce(salsa::Snapshot) -> S) -> S {
-//         match self.event_tx.send(VfsWatcherEvent::Snapshot) {
-//             Ok(_) => (),
-//             Err(_) => todo!(),
-//         };
-//         match self.snapshot_rx.recv() {
-//             Ok(snapshot) => f(snapshot),
-//             Err(_e) => {
-//                 todo!()
-//             }
-//         }
-//     }
-// }
+impl<DB: WatchableVfsDb> WatchedVfs<DB> {
+    pub fn query<S>(&self, f: impl FnOnce(Snapshot<DB>) -> S) -> S {
+        f(self.db.lock().unwrap().snapshot())
+    }
+}
 
-// pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
-//     db: DB,
-//     debounce_rx: Receiver<DebounceEventResult>,
-//     event_rx: Receiver<VfsWatcherEvent>,
-//     snapshot_tx: Sender<Snapshot<DB>>,
-// }
+pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
+    db: Weak<Mutex<DB>>,
+    debounce_rx: Receiver<DebounceEventResult>,
+}
 
-// pub enum VfsWatcherEvent {
-//     Snapshot,
-//     Close,
-// }
+impl<DB: WatchableVfsDb> WatchedVfs<DB> {
+    pub(crate) fn new(mut db: DB) -> Self {
+        let (debounce_tx, debounce_rx) = unbounded();
+        db.vfs_jar_mut().set_watcher(VfsWatcher::new(debounce_tx));
+        let db = Arc::new(Mutex::new(db));
+        thread::spawn({
+            let db = Arc::downgrade(&db);
+            move || match VfsWatcherInstance::new(db, debounce_rx).run() {
+                Ok(_) => (),
+                Err(_) => todo!(),
+            }
+        });
+        Self { db }
+    }
+}
 
-// impl<V: WatchableVfsDb> Drop for WatchedVfs<V>
-// where
-//     V: ParallelDatabase,
-// {
-//     fn drop(&mut self) {
-//         match self.event_tx.send(VfsWatcherEvent::Close) {
-//             Ok(_) => (),
-//             Err(e) => eprintln!("error {e} in sending VfsWatcherEvent::Close"),
-//         }
-//     }
-// }
+impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
+    fn new(db: Weak<Mutex<DB>>, debounce_rx: Receiver<DebounceEventResult>) -> Self {
+        Self { db, debounce_rx }
+    }
 
-// impl<DB: WatchableVfsDb> WatchedVfs<DB>
-// where
-//     DB: ParallelDatabase + 'static,
-// {
-//     pub(crate) fn new(mut db: DB) -> Self {
-//         let (event_tx, event_rx) = unbounded();
-//         let (debounce_tx, debounce_rx) = unbounded();
-//         let (snapshot_tx, snapshot_rx) = unbounded();
-//         db.vfs_jar_mut().set_watcher(VfsWatcher::new(debounce_tx));
-//         thread::spawn(|| {
-//             match VfsWatcherInstance::new(db, debounce_rx, event_rx, snapshot_tx).run() {
-//                 Ok(_) => (),
-//                 Err(_) => todo!(),
-//             }
-//         });
-//         Self {
-//             event_tx,
-//             snapshot_rx,
-//         }
-//     }
-// }
+    fn run(mut self) -> Result<()> {
+        loop {
+            select! {
+                recv(self.debounce_rx) -> debounce => match debounce {
+                        Ok(Ok(debounced_events)) => {
+                            let Some(db) = self.db.upgrade() else{
+                                break Ok(())
+                            };
+                            Self::process_debounced_events(db, debounced_events)
+                        },
+                        Ok(Err(_)) => todo!(),
+                        Err(_) => todo!(),
+                    },
+            }
+        }
+    }
 
-// impl<DB: WatchableVfsDb> VfsWatcherInstance<DB>
-// where
-//     DB: ParallelDatabase + 'static,
-// {
-//     fn new(
-//         db: DB,
-//         debounce_rx: Receiver<DebounceEventResult>,
-//         event_rx: Receiver<VfsWatcherEvent>,
-//         snapshot_tx: Sender<Snapshot<DB>>,
-//     ) -> Self {
-//         Self {
-//             db,
-//             debounce_rx,
-//             event_rx,
-//             snapshot_tx,
-//         }
-//     }
+    fn process_debounced_events(db: Arc<Mutex<DB>>, events: Vec<DebouncedEvent>) {
+        for event in events {
+            db.lock()
+                .unwrap()
+                .refresh_file_from_disk(&event.path, /* ad hoc */ Durability::LOW)
+                .unwrap()
+        }
+    }
+}
 
-//     fn run(mut self) -> Result<()> {
-//         // HELP: GENGTENG
-//         loop {
-//             select! {
-//                 recv(self.debounce_rx) -> debounce => match debounce {
-//                         Ok(Ok(debounced_events)) => self.process_debounced_events(debounced_events),
-//                         Ok(Err(_)) => todo!(),
-//                         Err(_) => todo!(),
-//                     },
-//                 recv(self.event_rx) -> event_result => match event_result {
-//                     Ok(event) => match event {
-//                         VfsWatcherEvent::Snapshot => match self.snapshot_tx.send(self.db.snapshot()) {
-//                             Ok(_) => (),
-//                             Err(_) => todo!(),
-//                         },
-//                         VfsWatcherEvent::Close => return Ok(()),
-//                     },
-//                     Err(_) => todo!(),
-//                 },
-//             }
-//         }
-//         // let initial_file_path = std::env::args_os()
-//         //     .nth(1)
-//         //     .ok_or_else(|| eyre!("Usage: ./lazy-input <input-file>"))?;
+// #[cfg(target_os = "linux")]
+#[test]
+fn watcher_works() {
+    let db = DB::default();
+    let tempdir = tempfile::tempdir().unwrap();
+    let some_pkg_dir = tempdir.path().join("somepath");
+    std::fs::create_dir(&some_pkg_dir).unwrap();
+    let path = some_pkg_dir.join("Corgi.toml");
+    let abs_path: VirtualPath = VirtualPath::try_new(&db, &path).unwrap();
+    let db = WatchedVfs::new(db);
 
-//         // // Create the initial input using the input method so that changes to it
-//         // // will be watched like the other files.
-//         // let initial = db.input(initial_file_path.into())?;
-//         // loop {
-//         //     // Compile the code starting at the provided input, this will read other
-//         //     // needed files using the on-demand mechanism.
-//         //     let sum = compile(&db, initial);
-//         //     let diagnostics = compile::accumulated::<Diagnostic>(&db, initial);
-//         //     if diagnostics.is_empty() {
-//         //         println!("Sum is: {}", sum);
-//         //     } else {
-//         //         for diagnostic in diagnostics {
-//         //             println!("{}", diagnostic);
-//         //         }
-//         //     }
-
-//         //     for log in db.logs.lock().unwrap().drain(..) {
-//         //         eprintln!("{}", log);
-//         //     }
-
-//         //     // Wait for file change events, the output can't change unless the
-//         //     // inputs change.
-//         //     for event in rx.recv()?.unwrap() {
-//         //         let path = event.path.canonicalize().wrap_err_with(|| {
-//         //             format!("Failed to canonicalize path {}", event.path.display())
-//         //         })?;
-//         //         let file = match db.files.get(&path) {
-//         //             Some(file) => *file,
-//         //             None => continue,
-//         //         };
-//         //         // `path` has changed, so read it and update the contents to match.
-//         //         // This creates a new revision and causes the incremental algorithm
-//         //         // to kick in, just like any other update to a salsa input.
-//         //         let contents = std::fs::read_to_string(path)
-//         //             .wrap_err_with(|| format!("Failed to read file {}", event.path.display()))?;
-//         //         file.set_contents(&mut db).to(contents);
-//         //     }
-//         // }
-//     }
-
-//     fn process_debounced_events(&mut self, events: Vec<DebouncedEvent>) {
-//         for event in events {
-//             self.db.refresh_file_from_disk(&event.path).unwrap()
-//         }
-//     }
-// }
+    std::fs::write(&path, "Hello, world!").expect("can't write");
+    assert!(db.query(|db| db
+        .file_from_virtual_path(abs_path, Durability::LOW)
+        .unwrap()
+        .content(&db)
+        == &FileContent::OnDisk("Hello, world!".to_owned())),);
+    std::fs::write(&path, "Hello, world!2").expect("can't write");
+    let _a = DEBOUNCE_TEST_SLEEP_TIME;
+    std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
+    assert!(db.query(|db| db
+        .file_from_virtual_path(abs_path, Durability::LOW)
+        .unwrap()
+        .content(&db)
+        == &FileContent::OnDisk("Hello, world!2".to_owned())))
+}

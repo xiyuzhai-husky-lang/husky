@@ -1,9 +1,11 @@
+use watch::VfsWatcher;
+
 use crate::*;
 
 #[salsa::jar]
-pub struct BaseVfsJar(VfsCache, File);
+pub struct BaseVfsJar(BaseVfsCache, File);
 
-impl salsa::storage::IngredientsFor for VfsCache {
+impl salsa::storage::IngredientsFor for BaseVfsCache {
     type Jar = BaseVfsJar;
 
     type Ingredients = Self;
@@ -14,11 +16,11 @@ impl salsa::storage::IngredientsFor for VfsCache {
 }
 
 impl BaseVfsJar {
-    pub(crate) fn cache(&self) -> &VfsCache {
+    pub(crate) fn cache(&self) -> &BaseVfsCache {
         &self.0
     }
 
-    // pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
-    //     self.0.set_watcher(watcher)
-    // }
+    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
+        self.0.set_watcher(watcher)
+    }
 }
