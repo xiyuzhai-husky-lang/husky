@@ -1,0 +1,19 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{natbib}
+\newtheorem{example}{Example}
+\begin{document}
+
+% prove $4 x^2 + \frac{y^2}{4} \ge 2 x y$.
+\begin{example}
+    Let $x\in\mathbb{R}$. Let $y\in\mathbb{R}$.
+    Then $4 x^2 + \frac{y^2}{4} - 2 x y = {(2 x)}^2 + {(\frac{y}{2})}^2 - 2 (2 x) (\frac{y}{2})$.
+    Then ${(2 x)}^2 + {(\frac{y}{2})}^2 - 2 (2 x) (\frac{y}{2}) = {(2 x - \frac{y}{2})}^2$.
+    Then ${(2 x - \frac{y}{2})}^2 \ge 0$.
+    Then $4 x^2 + \frac{y^2}{4} - 2 x y \ge 0$.
+    Then $4 x^2 + \frac{y^2}{4} \ge 2 x y$.
+\end{example}
+
+\end{document}
