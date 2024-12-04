@@ -60,7 +60,7 @@ impl Label {
         self.ident.data()
     }
 
-    pub fn coword(self) -> Coword {
+    pub fn coword(self) -> BaseCoword {
         self.ident.coword()
     }
 

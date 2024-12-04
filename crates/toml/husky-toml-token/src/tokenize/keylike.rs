@@ -9,7 +9,7 @@ impl<'a> TomlTokenIter<'a> {
             }
             self.next_char();
         }
-        TomlTokenData::Word(Coword::from_ref(
+        TomlTokenData::Word(BaseCoword::from_ref(
             &self.input[TextOffsetRange::from(start..self.current())],
             self.db,
         ))

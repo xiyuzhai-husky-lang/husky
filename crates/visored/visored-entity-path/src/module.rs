@@ -1,7 +1,7 @@
 use crate::*;
 use environment::VdEnvironmentPath;
 use eterned::db::EternerDb;
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 use latex_vfs::path::LxFilePath;
 use rustc_hash::FxHashMap;
 use smallvec::*;

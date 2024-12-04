@@ -2,7 +2,7 @@ use std::path::Path;
 
 use super::*;
 use crate::path::{menu::lx_command_path_menu, LxCommandName};
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 use latex_prelude::mode::LxMode;
 use lisp_csv::{
@@ -291,7 +291,7 @@ impl LxCommandSignatureTable {
             todo!()
         };
         // TODO: ad hoc
-        let command_path = LxCommandPath::new_prelude(Coword::from_ref(command_ident, db), db);
+        let command_path = LxCommandPath::new_prelude(BaseCoword::from_ref(command_ident, db), db);
         let LpCsvExprData::List(ref allowed_modes) = allowed_modes.data else {
             todo!()
         };

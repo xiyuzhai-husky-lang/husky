@@ -6,7 +6,7 @@ pub mod tests;
 
 use self::environment::LxRootEnvironmentAstData;
 use super::*;
-use base_coword::Coword;
+use base_coword::BaseCoword;
 use latex_command::{
     path::{LxCommandName, LxCommandPath},
     signature::{
@@ -56,7 +56,7 @@ pub struct LxRootCompleteCommandArgument {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxRootCommandArgumentData {
-    Name(LxNameTokenIdx, Coword),
+    Name(LxNameTokenIdx, BaseCoword),
 }
 
 pub type LxRootAstArena = Arena<LxRootAstData>;

@@ -1,16 +1,16 @@
 #[eterned::eterned]
-pub struct Coword {
+pub struct BaseCoword {
     #[return_ref(str)]
     pub data: String,
 }
 
-impl std::fmt::Debug for Coword {
+impl std::fmt::Debug for BaseCoword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("Coword").field(&self.data()).finish()
     }
 }
 
-impl std::fmt::Display for Coword {
+impl std::fmt::Display for BaseCoword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.data())
     }
@@ -21,9 +21,9 @@ fn coword_new_works() {
     let db = &eterned::db::EternerDb::default();
 
     // Test creation and basic equality
-    let word1 = Coword::new("hello".to_string(), db);
-    let word2 = Coword::new("hello".to_string(), db);
-    let word3 = Coword::new("world".to_string(), db);
+    let word1 = BaseCoword::new("hello".to_string(), db);
+    let word2 = BaseCoword::new("hello".to_string(), db);
+    let word3 = BaseCoword::new("world".to_string(), db);
 
     // Test equality for same content
     assert_eq!(word1, word2);
@@ -45,9 +45,9 @@ fn coword_from_ref_works() {
     let db = &eterned::db::EternerDb::default();
 
     // Test creation and basic equality
-    let word1 = Coword::from_ref("hello", db);
-    let word2 = Coword::from_ref("hello", db);
-    let word3 = Coword::from_ref("world", db);
+    let word1 = BaseCoword::from_ref("hello", db);
+    let word2 = BaseCoword::from_ref("hello", db);
+    let word3 = BaseCoword::from_ref("world", db);
 
     // Test equality for same content
     assert_eq!(word1, word2);

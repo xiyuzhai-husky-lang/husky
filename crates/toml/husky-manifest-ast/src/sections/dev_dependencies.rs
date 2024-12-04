@@ -18,7 +18,7 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestDevDependenci
 impl TransformFromTomlParentKeyed<ManifestAstTransformContext>
     for ManifestDevDependenciesSectionAst
 {
-    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> Coword {
+    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> BaseCoword {
         menu.dev_dependencies_coword()
     }
 }
