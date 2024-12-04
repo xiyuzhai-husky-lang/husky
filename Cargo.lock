@@ -850,7 +850,7 @@ dependencies = [
  "indicatif",
  "lsp-types 0.95.0",
  "maybe-result",
- "notify-debouncer-mini",
+ "notify-debouncer-mini 0.5.0",
  "pathdiff",
  "relative-path",
  "rustc-hash 2.0.0",
@@ -2048,7 +2048,7 @@ dependencies = [
  "husky-wild-utils",
  "indexmap 2.4.0",
  "lazy_static 1.5.0",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "rmp-serde",
  "serde",
  "serde_json",
@@ -4538,7 +4538,7 @@ dependencies = [
  "husky-vfs",
  "idx-arena",
  "lsp-types 0.95.0",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "original-error",
  "parsec",
  "salsa",
@@ -4717,7 +4717,7 @@ dependencies = [
  "husky-standard-linket-impl",
  "husky-standard-value",
  "husky-visual-protocol",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
 ]
 
 [[package]]
@@ -4846,7 +4846,7 @@ dependencies = [
  "husky-token-data",
  "husky-unicode-symbols",
  "husky-vfs",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "salsa",
  "smallvec",
  "thiserror",
@@ -5312,7 +5312,7 @@ dependencies = [
  "maybe-result",
  "once_cell",
  "optional",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "salsa",
  "smallvec",
  "thiserror",
@@ -5660,7 +5660,7 @@ version = "0.1.0"
 dependencies = [
  "husky-hir-prelude",
  "husky-term-prelude",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "salsa",
 ]
 
@@ -6072,7 +6072,7 @@ name = "husky-literal-value"
 version = "0.1.0"
 dependencies = [
  "husky-value",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
 ]
 
 [[package]]
@@ -6874,7 +6874,7 @@ dependencies = [
  "husky-value-protocol",
  "husky-visual-protocol",
  "husky-wild-utils",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "paste",
  "salsa",
  "serde",
@@ -6999,7 +6999,7 @@ dependencies = [
  "husky-vfs",
  "idx-arena",
  "optional",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "original-error",
  "parsec",
  "salsa",
@@ -7040,7 +7040,7 @@ dependencies = [
  "husky-print-utils",
  "husky-term-prelude",
  "husky-vfs",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "salsa",
  "thiserror",
 ]
@@ -7121,7 +7121,7 @@ dependencies = [
  "husky-wild-utils",
  "indicatif",
  "lsp-types 0.95.0",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "parsec",
  "paste",
  "salsa",
@@ -7153,7 +7153,7 @@ dependencies = [
  "husky-vfs",
  "husky-wild-utils",
  "lsp-types 0.95.0",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "parsec",
  "paste",
  "salsa",
@@ -7229,7 +7229,7 @@ dependencies = [
  "husky-toml-token",
  "husky-vfs",
  "idx-arena",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "salsa",
  "smallvec",
  "thiserror",
@@ -7439,7 +7439,7 @@ dependencies = [
 name = "husky-value-protocol"
 version = "0.1.0"
 dependencies = [
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "serde",
 ]
 
@@ -7469,7 +7469,7 @@ dependencies = [
  "indicatif",
  "lsp-types 0.95.0",
  "maybe-result",
- "notify-debouncer-mini",
+ "notify-debouncer-mini 0.4.1",
  "pathdiff",
  "relative-path",
  "rustc-hash 2.0.0",
@@ -7535,7 +7535,7 @@ dependencies = [
  "expect-test",
  "husky-figure-zone-protocol",
  "husky-print-utils",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "serde",
  "shifted-unsigned-int",
  "smallvec",
@@ -7954,6 +7954,17 @@ name = "inotify"
 version = "0.9.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8069d3ec154eb856955c1c0fbffefbf5f3c40a104ec912d4797314c1801abff"
+dependencies = [
+ "bitflags 1.3.2",
+ "inotify-sys",
+ "libc",
+]
+
+[[package]]
+name = "inotify"
+version = "0.10.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fdd168d97690d0b8c412d6b6c10360277f4d7ee495c5d0d5d5fe0854923255cc"
 dependencies = [
  "bitflags 1.3.2",
  "inotify-sys",
@@ -8383,7 +8394,7 @@ dependencies = [
  "latex-math-punctuation",
  "latex-prelude",
  "latex-rose-punctuation",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "rustc-hash 2.0.0",
  "salsa",
  "shifted-unsigned-int",
@@ -8676,7 +8687,7 @@ dependencies = [
  "husky-print-utils",
  "husky-text-protocol",
  "maybe-result",
- "ordered-float 4.2.2",
+ "ordered-float 4.5.0",
  "thiserror",
 ]
 
@@ -9010,6 +9021,7 @@ checksum = "80e04d1dcff3aae0704555fe5fee3bcfaf3d1fdf8a7e521d5b9d2b42acb52cec"
 dependencies = [
  "hermit-abi 0.3.9",
  "libc",
+ "log",
  "wasi",
  "windows-sys 0.52.0",
 ]
@@ -9306,13 +9318,32 @@ dependencies = [
  "crossbeam-channel",
  "filetime",
  "fsevent-sys",
- "inotify",
+ "inotify 0.9.6",
  "kqueue",
  "libc",
  "log",
  "mio 0.8.11",
  "walkdir",
  "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "notify"
+version = "7.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c533b4c39709f9ba5005d8002048266593c1cfaf3c5f0739d5b8ab0c6c504009"
+dependencies = [
+ "bitflags 2.6.0",
+ "filetime",
+ "fsevent-sys",
+ "inotify 0.10.2",
+ "kqueue",
+ "libc",
+ "log",
+ "mio 1.0.2",
+ "notify-types",
+ "walkdir",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -9327,7 +9358,28 @@ checksum = "5d40b221972a1fc5ef4d858a2f671fb34c75983eb385463dff3780eeff6a9d43"
 dependencies = [
  "crossbeam-channel",
  "log",
- "notify",
+ "notify 6.1.1",
+]
+
+[[package]]
+name = "notify-debouncer-mini"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aaa5a66d07ed97dce782be94dcf5ab4d1b457f4243f7566c7557f15cabc8c799"
+dependencies = [
+ "log",
+ "notify 7.0.0",
+ "notify-types",
+ "tempfile",
+]
+
+[[package]]
+name = "notify-types"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7393c226621f817964ffb3dc5704f9509e107a8b024b489cc2c1b217378785df"
+dependencies = [
+ "instant",
 ]
 
 [[package]]
@@ -9829,9 +9881,9 @@ dependencies = [
 
 [[package]]
 name = "ordered-float"
-version = "4.2.2"
+version = "4.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4a91171844676f8c7990ce64959210cd2eaef32c2612c50f9fae9f8aaa6065a6"
+checksum = "c65ee1f9701bf938026630b455d5315f490640234259037edb259798b3bcf85e"
 dependencies = [
  "num-traits",
  "rand",
