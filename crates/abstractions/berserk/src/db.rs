@@ -1,7 +1,7 @@
 use crate::{
     berserker::{Berserker, BerserkerDyn},
     memo::{IsMemo, MemoJarDyn},
-    Berserk,
+    AsStatic, Berserk,
 };
 use dashmap::DashMap;
 use std::cell::Cell;
@@ -13,20 +13,22 @@ pub struct BerserkerDb {
 }
 
 impl BerserkerDb {
-    pub fn berserk<T>(&self, t: T) -> Berserk<T>
+    pub fn berserk<'db, T>(&'db self, t: T) -> Berserk<'db, T>
     where
-        T: Clone + Eq + std::hash::Hash + Send + Sync + 'static,
+        T: AsStatic,
+        T::Static: Clone + Eq + std::hash::Hash + Send + Sync + 'static,
     {
-        self.berserker().etern(t)
+        unsafe { std::mem::transmute(self.berserker::<T::Static>().berserk(t.as_static())) }
     }
 
-    pub fn berserk_ref<T, Q>(&self, q: &Q) -> Berserk<T>
+    pub fn berserk_ref<'db, T, Q>(&'db self, q: &Q) -> Berserk<'db, T>
     where
+        T: AsStatic,
+        T::Static: Clone + Eq + std::hash::Hash + Send + Sync,
         T: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
-        T: Clone + Eq + std::hash::Hash + Send + Sync + 'static,
         Q: Eq + std::hash::Hash + ?Sized,
     {
-        self.berserker().etern_ref(q)
+        unsafe { std::mem::transmute(self.berserker::<T::Static>().berserk_ref(q)) }
     }
 
     /// this is possible because self.eterners contains pointers to the actual eterners
