@@ -1,3 +1,5 @@
+use std::borrow::{Borrow, BorrowMut};
+
 use crate::*;
 
 use maybe_result::MaybeResult::JustOk;
@@ -14,7 +16,7 @@ pub trait BaseVfsDb {
     fn vfs_jar(&self) -> &BaseVfsJar;
     fn vfs_jar_mut(&mut self) -> &mut BaseVfsJar;
     fn vfs_db_mut(&mut self) -> &mut ::salsa::Db;
-    fn vfs_cache(&self) -> &VfsCache;
+    fn vfs_cache(&self) -> &BaseVfsCache;
     fn set_content(
         &mut self,
         path: &Path,
@@ -55,7 +57,12 @@ impl BaseVfsDb for Db {
                     //         .unwrap();
                     // }
                     let content = read_file_content(path);
-                    *entry.insert(File::new(self, abs_path.clone(), content, durability))
+                    *entry.insert(File::new(
+                        self.borrow(),
+                        abs_path.clone(),
+                        content,
+                        durability,
+                    ))
                 }
             },
         )
@@ -66,10 +73,10 @@ impl BaseVfsDb for Db {
     }
 
     fn vfs_jar_mut(&mut self) -> &mut BaseVfsJar {
-        self.jar_mut::<BaseVfsJar>().0
+        self.borrow_mut().jar_mut::<BaseVfsJar>().0
     }
 
-    fn vfs_cache(&self) -> &VfsCache {
+    fn vfs_cache(&self) -> &BaseVfsCache {
         self.vfs_jar().cache()
     }
 
@@ -114,7 +121,7 @@ impl BaseVfsDb for Db {
                 *entry.insert(File::new(self, virtual_path.clone(), content, durability))
             }
         };
-        file.set_content(self, durability)?.to(content);
+        file.set_content(self.borrow_mut(), durability)?.to(content);
         Ok(())
     }
 

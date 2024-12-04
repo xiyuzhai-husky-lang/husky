@@ -1,15 +1,15 @@
-use std::sync::RwLock;
-
+use crate::watch::VfsWatcher;
 use crate::*;
+use std::sync::RwLock;
 use vec_like::VecSet;
 
-pub struct VfsCache {
+pub struct BaseVfsCache {
     files: DashMap<PathBuf, File>,
     current_dir: PathBuf,
-    // watcher: Option<VfsWatcher>,
+    watcher: Option<VfsWatcher>,
 }
 
-impl Default for VfsCache {
+impl Default for BaseVfsCache {
     fn default() -> Self {
         Self {
             files: Default::default(),
@@ -17,17 +17,26 @@ impl Default for VfsCache {
                 Ok(dir) => std::path::absolute(dir).expect("valid path"),
                 Err(_e) => todo!(),
             },
-            // watcher: None,
+            watcher: None,
         }
     }
 }
 
-impl VfsCache {
+impl BaseVfsCache {
     pub(crate) fn files(&self) -> &DashMap<PathBuf, File> {
         &self.files
     }
 
     pub fn current_dir(&self) -> &Path {
         &self.current_dir
+    }
+
+    pub fn watcher(&self) -> Option<&VfsWatcher> {
+        self.watcher.as_ref()
+    }
+
+    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
+        assert!(self.watcher.is_none());
+        self.watcher = Some(watcher);
     }
 }
