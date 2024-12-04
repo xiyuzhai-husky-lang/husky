@@ -1,8 +1,10 @@
 use crate::*;
-use crossbeam_channel::{select, unbounded, Receiver, Sender};
+use crossbeam_channel::select;
 use eyre::Result;
 use notify_debouncer_mini::{
-    new_debouncer, notify::RecommendedWatcher, DebounceEventResult, DebouncedEvent, Debouncer,
+    new_debouncer,
+    notify::{RecommendedWatcher, RecursiveMode},
+    DebounceEventResult, DebouncedEvent, Debouncer,
 };
 use salsa::{
     snapshot::{Snapshot, SnapshotClone},
@@ -11,7 +13,7 @@ use salsa::{
 use sealed::sealed;
 use std::{
     marker::PhantomData,
-    sync::{Arc, Mutex, Weak},
+    sync::{mpsc::Receiver, Arc, Mutex, Weak},
     thread,
     time::Duration,
 };
@@ -20,28 +22,12 @@ use std::{
 pub trait WatchableVfsDb:
     std::ops::Deref<Target = Db> + std::ops::DerefMut + SnapshotClone + Send + 'static
 {
-    fn watcher(&self) -> Option<&VfsWatcher>;
 }
 
 #[sealed]
-impl<T> WatchableVfsDb for T
-where
-    T: std::ops::Deref<Target = Db> + std::ops::DerefMut + SnapshotClone + Send + 'static,
+impl<T> WatchableVfsDb for T where
+    T: std::ops::Deref<Target = Db> + std::ops::DerefMut + SnapshotClone + Send + 'static
 {
-    fn watcher(&self) -> Option<&VfsWatcher> {
-        self.vfs_jar().cache().watcher()
-    }
-}
-
-#[derive(Clone)]
-pub struct VfsWatcher(pub(crate) Arc<Mutex<Debouncer<RecommendedWatcher>>>);
-
-impl VfsWatcher {
-    fn new(debounce_tx: Sender<DebounceEventResult>) -> Self {
-        VfsWatcher(Arc::new(Mutex::new(
-            new_debouncer(DEBOUNCE_TIMEOUT, debounce_tx).unwrap(),
-        )))
-    }
 }
 
 const DEBOUNCE_TIMEOUT_RAW: u64 = 50;
@@ -54,6 +40,7 @@ pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
 
 pub struct WatchedVfs<DB: WatchableVfsDb> {
     db: Arc<Mutex<DB>>,
+    debouncer: Debouncer<RecommendedWatcher>,
 }
 
 impl<DB: WatchableVfsDb> Default for WatchedVfs<DB>
@@ -71,64 +58,43 @@ impl<DB: WatchableVfsDb> WatchedVfs<DB> {
     }
 }
 
-pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
-    db: Weak<Mutex<DB>>,
-    debounce_rx: Receiver<DebounceEventResult>,
-}
-
 impl<DB: WatchableVfsDb> WatchedVfs<DB> {
     pub(crate) fn new(mut db: DB) -> Self {
-        let (debounce_tx, debounce_rx) = unbounded();
-        db.vfs_jar_mut().set_watcher(VfsWatcher::new(debounce_tx));
         let db = Arc::new(Mutex::new(db));
-        thread::spawn({
+        let mut debouncer = new_debouncer(DEBOUNCE_TIMEOUT, {
             let db = Arc::downgrade(&db);
-            move || match VfsWatcherInstance::new(db, debounce_rx).run() {
-                Ok(_) => (),
-                Err(_) => todo!(),
+            move |res| match res {
+                Ok(events) => process_debounced_events(db.clone(), events),
+                Err(e) => todo!("e: {:?}", e),
             }
-        });
-        Self { db }
+        })
+        .unwrap();
+        debouncer
+            .watcher()
+            .watch(Path::new("."), RecursiveMode::Recursive);
+        Self { db, debouncer }
     }
 }
 
-impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
-    fn new(db: Weak<Mutex<DB>>, debounce_rx: Receiver<DebounceEventResult>) -> Self {
-        Self { db, debounce_rx }
-    }
-
-    fn run(mut self) -> Result<()> {
-        loop {
-            select! {
-                recv(self.debounce_rx) -> debounce => match debounce {
-                        Ok(Ok(debounced_events)) => {
-                            let Some(db) = self.db.upgrade() else{
-                                break Ok(())
-                            };
-                            Self::process_debounced_events(db, debounced_events)
-                        },
-                        Ok(Err(_)) => todo!(),
-                        Err(_) => todo!(),
-                    },
-            }
-        }
-    }
-
-    fn process_debounced_events(db: Arc<Mutex<DB>>, events: Vec<DebouncedEvent>) {
-        for event in events {
-            db.lock()
-                .unwrap()
-                .refresh_file_from_disk(&event.path, /* ad hoc */ Durability::LOW)
-                .unwrap()
-        }
+fn process_debounced_events<DB: WatchableVfsDb>(db: Weak<Mutex<DB>>, events: Vec<DebouncedEvent>) {
+    let Some(db) = db.upgrade() else {
+        return;
+    };
+    for event in events {
+        db.lock()
+            .unwrap()
+            .refresh_file_from_disk(&event.path, /* ad hoc */ Durability::LOW)
+            .unwrap()
     }
 }
 
 // #[cfg(target_os = "linux")]
 #[test]
 fn watcher_works() {
+    use husky_print_utils::p;
     let db = DB::default();
-    let tempdir = tempfile::tempdir().unwrap();
+    let tempdir = tempfile::tempdir_in(".").unwrap();
+    p!(tempdir.path());
     let some_pkg_dir = tempdir.path().join("somepath");
     std::fs::create_dir(&some_pkg_dir).unwrap();
     let path = some_pkg_dir.join("Corgi.toml");
@@ -141,12 +107,20 @@ fn watcher_works() {
         .unwrap()
         .content(&db)
         == &FileContent::OnDisk("Hello, world!".to_owned())),);
-    std::fs::write(&path, "Hello, world!2").expect("can't write");
+    std::fs::write(&path, "Goodbye, world!").expect("can't write");
     let _a = DEBOUNCE_TEST_SLEEP_TIME;
-    std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
+    std::thread::sleep(Duration::from_millis(50));
+    p!(db.query(|db| {
+        format!(
+            "{:?}",
+            db.file_from_virtual_path(abs_path, Durability::LOW)
+                .unwrap()
+                .content(&db)
+        )
+    }));
     assert!(db.query(|db| db
         .file_from_virtual_path(abs_path, Durability::LOW)
         .unwrap()
         .content(&db)
-        == &FileContent::OnDisk("Hello, world!2".to_owned())))
+        == &FileContent::OnDisk("Goodbye, world!".to_owned())));
 }
