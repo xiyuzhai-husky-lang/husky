@@ -386,6 +386,27 @@
         ],
     },
     PackageSummary {
+        name: "berserk",
+        relative_path: "crates/abstractions/berserk",
+        dependencies: [
+            "berserk-macros",
+            "dashmap",
+            "husky-sha-utils",
+            "husky-wild-utils",
+            "sealed",
+        ],
+    },
+    PackageSummary {
+        name: "berserk-macros",
+        relative_path: "crates/abstractions/berserk-macros",
+        dependencies: [
+            "convert_case",
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
         name: "cyclic-slice",
         relative_path: "crates/abstractions/cyclic-slice",
         dependencies: [],
@@ -4724,6 +4745,23 @@
         relative_path: "crates/visored/visored-prototype",
         dependencies: [
             "idx-arena",
+        ],
+    },
+    PackageSummary {
+        name: "visored-tactics",
+        relative_path: "crates/visored/visored-tactics",
+        dependencies: [
+            "eterned",
+            "husky-sha-utils",
+            "idx-arena",
+            "latex-prelude",
+            "rustc-hash",
+            "vec-like",
+            "visored-annotation",
+            "visored-mir-expr",
+            "visored-term",
+            "husky-path-utils",
+            "latex-vfs",
         ],
     },
     PackageSummary {
