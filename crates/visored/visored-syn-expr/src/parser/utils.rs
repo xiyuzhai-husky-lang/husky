@@ -21,14 +21,14 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 token_idx_range, ..
             } => token_idx_range.start(),
             VdSynExprData::BaseOpr { opr } => todo!(),
-            VdSynExprData::Binary { lopd, opr, ropd } => todo!(),
-            VdSynExprData::Prefix { opr, opd } => todo!(),
-            VdSynExprData::Suffix { opd, opr } => todo!(),
+            VdSynExprData::Binary { lopd, opr, ropd } => self.calc_expr_first_token_idx(lopd),
+            VdSynExprData::Prefix { opr, opd } => self.calc_prefix_opr_first_token_idx(opr),
+            VdSynExprData::Suffix { opd, opr } => self.calc_expr_first_token_idx(opd),
             VdSynExprData::SeparatedList {
                 separator_class,
                 items,
                 ref separators,
-            } => todo!(),
+            } => self.calc_expr_first_token_idx(items.first().unwrap()),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -39,13 +39,21 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             VdSynExprData::Delimited { left_delimiter, .. } => {
                 self.calc_left_delimiter_first_token_idx(left_delimiter)
             }
-            VdSynExprData::Attach { base, ref scripts } => todo!(),
+            VdSynExprData::Attach { base, ref scripts } => {
+                self.calc_expr_first_token_idx(base).min(
+                    scripts
+                        .iter()
+                        .map(|&(_, s)| self.calc_expr_first_token_idx(s))
+                        .min()
+                        .unwrap(),
+                )
+            }
             VdSynExprData::Fraction {
                 command_token_idx,
                 numerator,
                 denominator,
                 denominator_rcurl_token_idx,
-            } => todo!(),
+            } => *command_token_idx,
             VdSynExprData::Sqrt {
                 command_token_idx,
                 radicand_lcurl_token_idx,
