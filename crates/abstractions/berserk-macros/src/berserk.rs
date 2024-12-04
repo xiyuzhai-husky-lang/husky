@@ -67,7 +67,7 @@ pub(crate) fn berserk(_attr: TokenStream, item: TokenStream) -> TokenStream {
             let field_ident = &field.ident;
             let field_ty = &field.ty;
             quote! {
-                impl<Q: ?Sized> std::borrow::Borrow<Q> for #data_ty_ident
+                impl<Q: ?Sized> std::borrow::Borrow<Q> for #data_ty_ident<'db>
                 where
                     #field_ty: std::borrow::Borrow<Q>,
                 {
@@ -76,7 +76,7 @@ pub(crate) fn berserk(_attr: TokenStream, item: TokenStream) -> TokenStream {
                     }
                 }
 
-                impl<'a, Q: ?Sized> From<&'a Q> for #data_ty_ident where #field_ty: From<&'a Q> {
+                impl<'a, Q: ?Sized> From<&'a Q> for #data_ty_ident<'db> where #field_ty: From<&'a Q> {
                     fn from(q: &'a Q) -> Self {
                         Self { #field_ident: q.into() }
                     }
@@ -87,7 +87,7 @@ pub(crate) fn berserk(_attr: TokenStream, item: TokenStream) -> TokenStream {
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
-                        #ty_ident(db.berserk_ref::<#data_ty_ident, Q>(q))
+                        #ty_ident(db.berserk_ref::<#data_ty_ident<'db>, Q>(q))
                     }
                 }
             }
@@ -97,12 +97,12 @@ pub(crate) fn berserk(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
     let expanded = quote! {
         #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-        #vis struct #data_ty_ident {
+        #vis struct #data_ty_ident<'db> {
             #(#field_defs),*
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-        #vis struct #ty_ident<'db>(::berserk::Berserk<'db, #data_ty_ident>);
+        #vis struct #ty_ident<'db>(::berserk::Berserk<'db, #data_ty_ident<'db>>);
 
         impl<'db> ::berserk::as_id::AsBerserkId<'db> for #ty_ident<'db> {
             fn as_id(self) -> u32 {
