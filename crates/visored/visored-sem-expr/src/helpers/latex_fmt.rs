@@ -93,6 +93,17 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
         let db = self.db();
         match *self.expr_arena[expr_idx].data() {
             VdSemExprData::Literal { literal, .. } => match literal.data() {
+                VdLiteralData::Nat128(s) => {
+                    if self
+                        .result
+                        .chars()
+                        .last()
+                        .map_or(false, |c| c.is_ascii_alphanumeric())
+                    {
+                        self.result.push(' ');
+                    }
+                    self.result.push_str(&s.to_string());
+                }
                 VdLiteralData::Int128(s) => {
                     if self
                         .result

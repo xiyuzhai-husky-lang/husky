@@ -1,7 +1,7 @@
 mod debug;
 
 use eterned::db::EternerDb;
-use latex_token::storage::LxTokenStorage;
+use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
@@ -11,6 +11,7 @@ use visored_syn_expr::{
     entity_tree::VdSynExprEntityTreeNode,
     expr::{VdSynExprArenaRef, VdSynExprIdx, VdSynExprMap},
     phrase::{VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
+    range::VdSynExprTokenIdxRange,
     sentence::{VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
     stmt::{VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
@@ -61,6 +62,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_sentence_arena: VdSynSentenceArenaRef<'a>,
     syn_stmt_arena: VdSynStmtArenaRef<'a>,
     syn_division_arena: VdSynDivisionArenaRef<'a>,
+    syn_expr_range_map: &'a VdSynExprMap<VdSynExprTokenIdxRange>,
     syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
     vd_ty_menu: &'a VdTypeMenu,
     item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
@@ -91,6 +93,7 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_sentence_arena: VdSynSentenceArenaRef<'a>,
         syn_stmt_arena: VdSynStmtArenaRef<'a>,
         syn_division_arena: VdSynDivisionArenaRef<'a>,
+        syn_expr_range_map: &'a VdSynExprMap<VdSynExprTokenIdxRange>,
         syn_symbol_local_defn_storage: &'a VdSynSymbolLocalDefnStorage,
         syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
         item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
@@ -110,6 +113,7 @@ impl<'a> VdSemExprBuilder<'a> {
             syn_sentence_arena,
             syn_stmt_arena,
             syn_division_arena,
+            syn_expr_range_map,
             symbol_local_defn_storage: VdSemSymbolLocalDefnStorage::new_empty(),
             syn_symbol_resolution_table,
             vd_ty_menu: vd_ty_menu(db),

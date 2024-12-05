@@ -14,6 +14,7 @@ impl std::fmt::Debug for LnLiteral {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum LnLiteralData {
+    Nat(String),
     Int(String),
     Float(String),
 }
@@ -40,6 +41,7 @@ impl LnLiteral {
 impl LnLiteralData {
     pub fn str(&self) -> &str {
         match self {
+            LnLiteralData::Nat(s) => s,
             LnLiteralData::Int(s) => s,
             LnLiteralData::Float(s) => s,
         }

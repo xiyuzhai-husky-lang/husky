@@ -15,6 +15,7 @@ pub enum Term {
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum RationalTerm {
+    Nat128(u128),
     Int128(i128),
     BigInt(/* TODO */),
     Rat128(i128, u128),
@@ -23,7 +24,17 @@ pub enum RationalTerm {
 impl std::ops::AddAssign for RationalTerm {
     fn add_assign(&mut self, rhs: Self) {
         match self {
+            RationalTerm::Nat128(slf) => match rhs {
+                RationalTerm::Nat128(rhs) => match slf.checked_add(rhs) {
+                    Some(sum) => *self = Self::Nat128(sum),
+                    None => todo!(),
+                },
+                RationalTerm::Int128(_) => todo!(),
+                RationalTerm::BigInt() => todo!(),
+                RationalTerm::Rat128(_, _) => todo!(),
+            },
             RationalTerm::Int128(slf) => match rhs {
+                RationalTerm::Nat128(_) => todo!(),
                 RationalTerm::Int128(rhs) => match slf.checked_add(rhs) {
                     Some(sum) => *self = Self::Int128(sum),
                     None => todo!(),
