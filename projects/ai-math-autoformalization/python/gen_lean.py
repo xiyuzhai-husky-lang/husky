@@ -28,7 +28,7 @@ for file in files:
             messages = [
                 {"role": "system", "content": SYSTEM_MESSAGE},
                 {"role": "user", "content": prompt(problem, latex, lean, bug_msg)},
-            ]2
+            ]
 
             print(messages[1]["content"])
 
