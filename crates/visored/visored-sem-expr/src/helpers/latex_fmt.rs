@@ -93,7 +93,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
         let db = self.db();
         match *self.expr_arena[expr_idx].data() {
             VdSemExprData::Literal { literal, .. } => match literal.data() {
-                VdLiteralData::NaturalNumber(s) => {
+                VdLiteralData::Int128(s) => {
                     if self
                         .result
                         .chars()
@@ -102,9 +102,8 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                     {
                         self.result.push(' ');
                     }
-                    self.result.push_str(s);
+                    self.result.push_str(&s.to_string());
                 }
-                VdLiteralData::NegativeInteger(_) => todo!(),
                 VdLiteralData::Float(_) => {
                     todo!()
                 }

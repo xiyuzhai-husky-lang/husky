@@ -80,7 +80,10 @@ fn ring_tactics() {
         }
     }
 
-    let inputs = vec![r#"Let $x\in\mathbb{R}$. Then $x+1=1+x$."#];
+    let inputs = vec![
+        r#"Let $x\in\mathbb{R}$. Then $x+1=1+x$."#,
+        r#"Let $x\in\mathbb{R}$. Let $y\in\mathbb{R}$. Then $x+1+y=y+1+x$."#,
+    ];
     for input in inputs {
         t(&input, 10000);
     }

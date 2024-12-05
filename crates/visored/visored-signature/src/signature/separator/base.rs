@@ -58,6 +58,10 @@ impl VdBaseSeparatorSignature {
         self.instantiation
     }
 
+    pub fn opr(self) -> VdBaseSeparator {
+        self.opr
+    }
+
     pub fn item_ty(self) -> VdType {
         self.item_ty
     }
