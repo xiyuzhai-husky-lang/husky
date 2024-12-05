@@ -9,7 +9,7 @@ Using NLP techniques and rules, visored translates natural language proofs into 
 - **Data Efficiency**: Operates without requiring large formal language datasets
 - **Performance**: Implemented in Rust and optimized for speed, achieving performance thousands of times faster than existing tools
 - **Configurability**: Supports customization through configuration files, easily adapting to output different formal languages (Lean, Coq, Isabelle, Metamath, etc.)
-- **Extensibility**: Handles arbitrary natural language inputs by combining NLP techniques with rules. Integration with Husky enables scaling the system to its full potential
+- **Extensibility**: Handles arbitrary natural language inputs by combining NLP techniques with rules. The Husky programming language will be used to scale the system to its full potential.
 
 ## Pipeline
 
