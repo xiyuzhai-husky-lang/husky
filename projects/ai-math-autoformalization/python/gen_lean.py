@@ -8,6 +8,12 @@ TESTCASES_DIR = "testcases"
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+MAIN_FUNC = \
+'''
+def main : IO Unit :=
+  IO.println "Success!"
+'''
+
 api = ChatCompletionAPI("local")
 
 files = os.listdir(TESTCASES_DIR)
@@ -22,7 +28,7 @@ for file in files:
             messages = [
                 {"role": "system", "content": SYSTEM_MESSAGE},
                 {"role": "user", "content": prompt(problem, latex, lean, bug_msg)},
-            ]
+            ]2
 
             print(messages[1]["content"])
 
@@ -31,11 +37,11 @@ for file in files:
             
             output_file = f"{OUTPUT_DIR}/{file.replace('.md', '.lean')}"
             with open(output_file, "w") as f:
-                f.write(lean)
+                f.write(lean + "\n" + MAIN_FUNC)
 
             exec_result = subprocess.run(["lake", "env", "lean", "--run", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
-            bug_msg = exec_result.stdout[:100]
+            bug_msg = exec_result.stdout[:500]
 
             if bug_msg.strip() == "Success!":
                 break
