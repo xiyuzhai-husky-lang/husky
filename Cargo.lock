@@ -13085,6 +13085,7 @@ dependencies = [
  "vec-like",
  "visored-annotation",
  "visored-mir-expr",
+ "visored-opr",
  "visored-term",
 ]
 

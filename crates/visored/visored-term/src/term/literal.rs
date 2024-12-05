@@ -29,26 +29,23 @@ impl std::fmt::Debug for VdLiteral {
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdLiteralData {
-    NaturalNumber(String),
-    NegativeInteger(String),
+    Int128(i128),
     Float(String),
     SpecialConstant(VdSpecialConstant),
 }
 
+impl std::fmt::Display for VdLiteralData {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdLiteralData::Int128(n) => write!(f, "{}", n),
+            VdLiteralData::Float(n) => write!(f, "{}", n),
+            VdLiteralData::SpecialConstant(n) => todo!(),
+        }
+    }
+}
+
 impl VdLiteral {
     pub fn new(data: VdLiteralData, db: &EternerDb) -> Self {
-        #[cfg(test)]
-        {
-            match data {
-                VdLiteralData::NaturalNumber(ref n) => {
-                    debug_assert!(!n.is_empty());
-                    debug_assert!(n.chars().all(|c| c.is_digit(10)));
-                }
-                VdLiteralData::NegativeInteger(_) => todo!(),
-                VdLiteralData::Float(_) => todo!(),
-                VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
-            }
-        }
         Self(VdTermId::new(data.into(), db))
     }
 
@@ -68,22 +65,8 @@ fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
     let data = literal.data();
     let menu = vd_ty_menu(db);
     match data {
-        VdLiteralData::NaturalNumber(_) => menu.nat,
-        VdLiteralData::NegativeInteger(_) => todo!(),
+        VdLiteralData::Int128(_) => menu.int,
         VdLiteralData::Float(_) => menu.rat,
         VdLiteralData::SpecialConstant(special_constant) => todo!(),
-    }
-}
-
-impl VdLiteralData {
-    pub fn as_str(&self) -> &str {
-        match self {
-            VdLiteralData::NaturalNumber(n) => n,
-            VdLiteralData::NegativeInteger(n) => n,
-            VdLiteralData::Float(n) => n,
-            VdLiteralData::SpecialConstant(_) => {
-                todo!()
-            }
-        }
     }
 }

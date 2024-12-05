@@ -2,14 +2,16 @@ use super::*;
 use husky_sha_utils::ShaHash;
 use rustc_hash::FxHashMap;
 use visored_mir_expr::{
-    expr::{VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
+    expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
     symbol::local_defn::VdMirSymbolLocalDefnIdx,
 };
+use visored_opr::separator::VdBaseSeparator;
+use visored_term::term::literal::VdLiteralData;
 
 pub struct Engine<'db> {
     expr_arena: VdMirExprArenaRef<'db>,
     term_arena: NonLiteralTermArena,
-    interned_terms: FxHashMap<NonLiteralTermData, NonLiteralTerm>,
+    interned_terms: FxHashMap<NonLiteralTermData, IrrationalTerm>,
 }
 
 impl<'db> Engine<'db> {
@@ -30,8 +32,13 @@ impl<'db> Engine<'db> {
     }
 
     pub fn convert(&mut self, expr: VdMirExprIdx) -> Term {
-        match self.expr_arena[expr] {
-            VdMirExprData::Literal(vd_literal) => todo!(),
+        let expr_arena = self.expr_arena;
+        match expr_arena[expr] {
+            VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
+                VdLiteralData::Int128(i) => Term::Rational(RationalTerm::Int128(i)),
+                VdLiteralData::Float(_) => todo!(),
+                VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
+            },
             VdMirExprData::Variable(local_defn) => self.mk_variable(local_defn),
             VdMirExprData::Application {
                 function,
@@ -41,7 +48,35 @@ impl<'db> Engine<'db> {
                 leader,
                 ref followers,
             } => {
-                todo!()
+                let (VdMirFunc::NormalBaseSeparator(signature), fst_follower) = followers[0] else {
+                    unreachable!()
+                };
+                match signature.opr() {
+                    VdBaseSeparator::Space => todo!(),
+                    VdBaseSeparator::Comma => todo!(),
+                    VdBaseSeparator::Semicolon => todo!(),
+                    VdBaseSeparator::Add => self.mk_sum(leader, followers),
+                    VdBaseSeparator::Mul => todo!(),
+                    VdBaseSeparator::Dot => todo!(),
+                    VdBaseSeparator::Eq => todo!(),
+                    VdBaseSeparator::Ne => todo!(),
+                    VdBaseSeparator::Lt => todo!(),
+                    VdBaseSeparator::Gt => todo!(),
+                    VdBaseSeparator::Le => todo!(),
+                    VdBaseSeparator::Ge => todo!(),
+                    VdBaseSeparator::Subset => todo!(),
+                    VdBaseSeparator::Supset => todo!(),
+                    VdBaseSeparator::Subseteq => todo!(),
+                    VdBaseSeparator::Supseteq => todo!(),
+                    VdBaseSeparator::Subseteqq => todo!(),
+                    VdBaseSeparator::Supseteqq => todo!(),
+                    VdBaseSeparator::Subsetneq => todo!(),
+                    VdBaseSeparator::Supsetneq => todo!(),
+                    VdBaseSeparator::In => todo!(),
+                    VdBaseSeparator::Notin => todo!(),
+                    VdBaseSeparator::Times => todo!(),
+                    VdBaseSeparator::Otimes => todo!(),
+                }
             }
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -54,7 +89,7 @@ impl<'db> Engine<'db> {
 }
 
 impl<'db> Engine<'db> {
-    fn intern_term(&mut self, data: NonLiteralTermData) -> NonLiteralTerm {
+    fn intern_term(&mut self, data: NonLiteralTermData) -> IrrationalTerm {
         if let Some(idx) = self.interned_terms.get(&data) {
             return *idx;
         }
@@ -63,8 +98,8 @@ impl<'db> Engine<'db> {
             .alloc_one(NonLiteralTermEntry { data, sha256 })
     }
 
-    fn mk_product(&mut self, factors: impl IntoIterator<Item = NonLiteralTerm>) -> NonLiteralTerm {
-        let mut literal = LiteralTerm::ONE;
+    fn mk_product(&mut self, factors: impl IntoIterator<Item = IrrationalTerm>) -> IrrationalTerm {
+        let mut literal = RationalTerm::ONE;
         let mut nonliteral_atom_exponentials = NonLiteralAtomExponentials::default();
         for factor in factors {
             match self.term_arena[factor].data {
@@ -90,5 +125,48 @@ impl<'db> Engine<'db> {
     fn mk_variable(&mut self, local_defn: VdMirSymbolLocalDefnIdx) -> Term {
         self.intern_term(NonLiteralTermData::Variable(local_defn))
             .into()
+    }
+
+    fn mk_sum(&mut self, leader: VdMirExprIdx, followers: &[(VdMirFunc, VdMirExprIdx)]) -> Term {
+        let mut literal_term = RationalTerm::ZERO;
+        let mut nonliteral_monomial_coefficients = NonLiteralMonomialCoefficients::default();
+        let mut t = |expr: VdMirExprIdx| {
+            let term = self.convert(expr);
+            match term {
+                Term::Rational(new_literal_term) => literal_term += new_literal_term,
+                Term::Irrational(term) => match self.term_arena[term].data {
+                    NonLiteralTermData::Product {
+                        literal,
+                        ref nonliteral_atom_exponentials,
+                    } => todo!(),
+                    NonLiteralTermData::Sum {
+                        constant_term,
+                        ref nonliteral_monomial_coefficients,
+                    } => todo!(),
+                    NonLiteralTermData::Atom | NonLiteralTermData::Variable(_) => {
+                        nonliteral_monomial_coefficients.insert((term, RationalTerm::ONE));
+                    }
+                },
+            }
+        };
+        t(leader);
+        for (func, follower) in followers {
+            let VdMirFunc::NormalBaseSeparator(signature) = func else {
+                unreachable!()
+            };
+            match signature.opr() {
+                VdBaseSeparator::Add => t(*follower),
+                _ => unreachable!(),
+            }
+        }
+        if nonliteral_monomial_coefficients.is_empty() {
+            literal_term.into()
+        } else {
+            self.intern_term(NonLiteralTermData::Sum {
+                constant_term: literal_term,
+                nonliteral_monomial_coefficients,
+            })
+            .into()
+        }
     }
 }
