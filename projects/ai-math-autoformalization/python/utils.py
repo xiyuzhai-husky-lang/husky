@@ -28,16 +28,13 @@ def find_all(s, sub):
 
 def parse_response(response):
     positions = list(find_all(response, "```"))
-    if len(positions) != 2:
+    if len(positions) % 2 != 0 or len(positions) == 0:
         print(response)
         raise ValueError("No paired '```' found in response")
     
-    code_block = response[positions[0]: positions[1] + 3].split("\n")
+    if len(positions) > 2:
+        print("More than one pair of '```' found in response, default to the last pair")
+    
+    code_block = response[positions[-2]: positions[-1] + 3].split("\n")
 
-    main_func = \
-'''
-def main : IO Unit :=
-  IO.println "Success!"
-'''
-
-    return "\n".join(code_block[1: -1]).strip() + main_func
+    return "\n".join(code_block[1: -1]).strip()
