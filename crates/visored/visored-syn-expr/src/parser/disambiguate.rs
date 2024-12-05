@@ -201,7 +201,9 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     *next += 1;
                 }
                 let data = match literal_number_kind {
-                    LiteralNumberKind::NaturalNumber => VdLiteralData::NaturalNumber(s),
+                    LiteralNumberKind::NaturalNumber => {
+                        VdLiteralData::Int128(s.parse().expect("TODO: handle big natural number"))
+                    }
                     LiteralNumberKind::Float => VdLiteralData::Float(s),
                 };
                 let expr_data = VdSynExprData::Literal {
