@@ -176,3 +176,7 @@ debug: chmod-local-scripts
 
 debug-tracked: chmod-local-scripts
 	.local/scripts/debug_tracked.sh
+
+measure-ring:
+	cargo run -p visored-tactics --release --bin measure_ring
+

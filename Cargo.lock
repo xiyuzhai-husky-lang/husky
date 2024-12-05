@@ -13026,6 +13026,7 @@ dependencies = [
  "rustc-hash 2.0.0",
  "salsa",
  "visored-entity-path",
+ "visored-opr",
  "visored-term",
 ]
 
@@ -13073,6 +13074,7 @@ dependencies = [
 name = "visored-tactics"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "eterned",
  "husky-path-utils",
  "husky-sha-utils",
