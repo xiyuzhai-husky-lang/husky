@@ -2,32 +2,38 @@
 
 A tool for verifying natural language reasoning.
 
-Using NLP techniques and rules, it translates detailed natural language proofs into formal proofs.
+Using NLP techniques and rules, visored translates natural language proofs into formal proofs.
 
-It is designed with the following goals:
+## Goals
 
-- data efficiency. No need for large amount of formal language data.
-- computation efficiency. Implemented in Rust. Optimized for speed. More than thousands of times faster than existing tools.
-- configurability. Behaviors can be specified by various configuration files. It's easy to configure it to output to different formal languages like Lean, Rcoq, Isabelle, Metamath, etc.
-- extensibility. It's able to handle quite arbitrary natural language inputs by combining NLP techniques and rules. Husky will be used to scale up the system to its true potential.
+- **Data Efficiency**: Operates without requiring large formal language datasets
+- **Performance**: Implemented in Rust and optimized for speed, achieving performance thousands of times faster than existing tools
+- **Configurability**: Supports customization through configuration files, easily adapting to output different formal languages (Lean, Coq, Isabelle, Metamath, etc.)
+- **Extensibility**: Handles arbitrary natural language inputs by combining NLP techniques with rules. Integration with Husky enables scaling the system to its full potential
 
-The pipeline of visored is as follows:
+## Pipeline
 
-1. Rewrite stage. Rewrite the input into a controlled natural language, using both NLP and rules.
-2. Latex stage. Use latex parser to parse the input into a tree structure.
-3. Syntax stage. Perform constituency parsing and formula parsing. Resolve symbols.
-4. Semantic stage. Type inference, checking and function dispatch.
-5. Mir stage. Reduce the syntax tree into a middle intermediate representation (MIR) for convenience.
-6. Tactics stage. Fill in the missing pieces using tactics.
-7. Output stage. Translate the MIR into a target formal language like Lean, Rcoq, Isabelle, Metamath, etc for soundness.
+1. **Rewrite Stage**: Convert input into controlled natural language using NLP and rules
+2. **LaTeX Stage**: Parse input into a tree structure using LaTeX parser
+3. **Syntax Stage**: Perform constituency parsing and formula parsing, resolving symbols
+4. **Semantic Stage**: Execute type inference, checking, and function dispatch
+5. **MIR Stage**: Reduce syntax tree into a Middle Intermediate Representation (MIR)
+6. **Tactics Stage**: Fill in missing pieces using tactics
+7. **Output Stage**: Translate MIR into target formal languages (Lean, Coq, Isabelle, Metamath, etc.) for soundness verification
 
-It's different from previous projects like Naproche in that
+## Comparison with Naproche
 
-- The CNL(Controlled Natural Language) in visored is not determined by pure rules, but also learned functions over natural language data. Human users don't need to learn CNL to use visored. And LLMs for reasoning don't need extra data to be verified.
-- It's not meant to be a self-consistent system. Signatures are specified by configuration files. Soundness relies on external tools.
-- It's implemented in a system-level language instead of Haskell, optimized for speed and large-scale engineering.
+Key differentiators:
 
-It's significance if design goals are achieved:
+- **Advanced CNL**: The Controlled Natural Language in visored combines rules with learned functions from natural language data. Users and LLMs don't need special training to use the system
+- **External Verification**: Rather than maintaining internal consistency, visored relies on external tools for soundness verification, with signatures specified via configuration
+- **Performance-Focused**: Built in Rust for superior speed and scalability, compared to Haskell-based alternatives
 
-- For interactive theorem proving, it aims to be a fast local analyzer for natural language proofs. Mathematicians or students can have the majority of their proofs verified in real time, without any needs to learn tools like Lean, Coq, etc.
-- For automatic theorem proving, it provides a fast and reliable reward function for RL algorithms to train on.
+## Potential Impact
+
+### Interactive Theorem Proving
+- Provides real-time verification of natural language proofs
+- Eliminates the need for mathematicians and students to learn specialized formal languages
+
+### Automated Theorem Proving
+- Serves as a fast, reliable reward function for reinforcement learning algorithms
