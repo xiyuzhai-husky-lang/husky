@@ -33,3 +33,12 @@ example (x: ℤ) :
 
 example (x: ℤ) :
   ((((x+1)^100+1)^100+1)^100 + 1)^2 = (((x+1)^100+1)^100+1)^200 + 2*(((x+1)^100+1)^100+1)^100 + 1 := by ring
+
+variables {R : Type*} [CommRing R]
+variables (x y z : R)
+
+example : ((x + y + z)^3 - 3*(x + y)*(y + z)*(z + x))^2 - (x^3 + y^3 + z^3)^2 = 0 :=
+by ring
+
+example : ((x + y + z)^3 - 3*(x + y)*(y + z)*(z + x))^2 - (x^3 + y^3 + z^3)^2 = 0 := by
+  ring
