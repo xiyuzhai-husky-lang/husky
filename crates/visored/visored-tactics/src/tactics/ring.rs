@@ -1,11 +1,12 @@
-mod engine;
-mod tracker;
+pub mod engine;
+pub mod tracker;
 
 use husky_sha_utils::Sha256Output;
 use idx_arena::{Arena, ArenaIdx};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_term::term::literal::VdLiteral;
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum Term {
     Literal(LiteralTerm),
@@ -37,6 +38,7 @@ pub enum NonLiteralTermData {
         nonliteral_monomial_coefficients: Vec<NonLiteralTerm>,
         constant_term: LiteralTerm,
     },
+    Variable(ArenaIdx<visored_mir_expr::symbol::local_defn::VdMirSymbolLocalDefnData>),
 }
 
 pub struct NonLiteralTermEntry {

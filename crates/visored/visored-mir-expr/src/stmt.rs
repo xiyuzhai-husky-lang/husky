@@ -35,7 +35,7 @@ pub enum VdMirStmtData {
         assignment: VdMirExprIdx,
     },
     Then {
-        formula: VdMirExprIdx,
+        prop: VdMirExprIdx,
     },
 }
 
@@ -194,7 +194,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 formula,
                 right_dollar_token_idx,
             } => VdMirStmtData::Then {
-                formula: formula.to_vd_mir(self),
+                prop: formula.to_vd_mir(self),
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }
