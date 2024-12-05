@@ -21,6 +21,8 @@ eterned.workspace = true
 # lisp
 lisp-csv.workspace = true
 # visored
+visored-entity-path.workspace = true
+visored-opr.workspace = true
 visored-term.workspace = true
 
 [dev-dependencies]

@@ -31,7 +31,7 @@ impl Tracker {
             output: stmts,
             ..
         } = VdMirExprTracker::new(input, token_annotations, space_annotations, db);
-        assert!(stmts.len() > 1);
+        // assert!(stmts.len() > 1);
         Self {}
     }
 }

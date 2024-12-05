@@ -80,7 +80,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                 ref pattern,
                 assignment,
             } => todo!(),
-            VdMirStmtData::Then { formula } => self.build_then_stmt(formula),
+            VdMirStmtData::Then { prop: formula } => self.build_then_stmt(formula),
         }
     }
 

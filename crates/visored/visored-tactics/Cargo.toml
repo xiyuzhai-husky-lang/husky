@@ -14,23 +14,26 @@ keywords.workspace = true
 [dependencies]
 rustc-hash.workspace = true
 # abstractions
+enum-class.workspace = true
 eterned.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
 # latex
 latex-prelude.workspace = true
+latex-vfs.workspace = true
 # visored
 visored-mir-expr.workspace = true
 visored-term.workspace = true
 visored-annotation.workspace = true
 # utils
 husky-sha-utils.workspace = true
+husky-path-utils.workspace = true
 
 [dev-dependencies]
-# latex
-latex-vfs.workspace = true
-# utils
-husky-path-utils.workspace = true
 
 [lints]
 workspace = true
+
+[[bin]]
+name = "measure_ring"
+path = "bin/measure_ring.rs"

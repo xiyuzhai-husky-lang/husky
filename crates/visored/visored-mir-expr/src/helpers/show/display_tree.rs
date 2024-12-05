@@ -113,7 +113,9 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 ref pattern,
                 assignment,
             } => (format!("let assigned"), vec![self.render_expr(assignment)]),
-            VdMirStmtData::Then { formula } => (format!("then"), vec![self.render_expr(formula)]),
+            VdMirStmtData::Then { prop: formula } => {
+                (format!("then"), vec![self.render_expr(formula)])
+            }
         };
         DisplayTree::new(value, children)
     }
