@@ -101,6 +101,9 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
         let db = self.db();
         match self.expr_arena[expr_idx] {
             VdSynExprData::Literal { literal, .. } => match literal.data() {
+                VdLiteralData::Nat128(s) => {
+                    self.result.push_str(&s.to_string());
+                }
                 VdLiteralData::Int128(s) => {
                     self.result.push_str(&s.to_string());
                 }

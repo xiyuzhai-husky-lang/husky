@@ -64,6 +64,13 @@ impl<'a> VdSemExprBuilder<'a> {
                 }
             }
         }
+        self.emit_message_over_expr_to_stdout(
+            syn_base,
+            format!(
+                "no power dispatch, base.ty = {:?}, exponent.ty = {:?}",
+                base.ty, exponent.ty
+            ),
+        );
         todo!()
     }
 }

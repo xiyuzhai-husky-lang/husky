@@ -35,6 +35,7 @@ impl<'db> Engine<'db> {
         let expr_arena = self.expr_arena;
         match expr_arena[expr] {
             VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
+                VdLiteralData::Nat128(n) => Term::Rational(RationalTerm::Nat128(n)),
                 VdLiteralData::Int128(i) => Term::Rational(RationalTerm::Int128(i)),
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
@@ -144,7 +145,19 @@ impl<'db> Engine<'db> {
                         ref nonliteral_monomial_coefficients,
                     } => todo!(),
                     NonLiteralTermData::Atom | NonLiteralTermData::Variable(_) => {
-                        nonliteral_monomial_coefficients.insert((term, RationalTerm::ONE));
+                        match nonliteral_monomial_coefficients.get_value(term) {
+                            Some(_) => todo!(),
+                            None => {
+                                nonliteral_monomial_coefficients.insert((term, RationalTerm::ONE))
+                            }
+                        }
+                        nonliteral_monomial_coefficients.insert_or_update(
+                            (term, RationalTerm::ONE),
+                            |entry| {
+                                todo!()
+                                // *e += RationalTerm::ONE;
+                            },
+                        );
                     }
                 },
             }
