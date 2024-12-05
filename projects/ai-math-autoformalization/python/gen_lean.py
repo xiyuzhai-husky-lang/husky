@@ -1,6 +1,8 @@
 from prompts import SYSTEM_MESSAGE, prompt
 from api import ChatCompletionAPI
+from utils import parse_testcase, parse_response
 import os
+import subprocess
 
 TESTCASES_DIR = "testcases"
 OUTPUT_DIR = "outputs"
@@ -11,16 +13,29 @@ api = ChatCompletionAPI("local")
 files = os.listdir(TESTCASES_DIR)
 for file in files:
     if file.endswith(".md"):
+
         with open(f"{TESTCASES_DIR}/{file}", "r") as f:
-            input = f.read()
-
-        messages = [
-            {"role": "system", "content": SYSTEM_MESSAGE},
-            {"role": "user", "content": input},
-        ]
-
-        completion = api.chat_completion(messages)
-        print(completion["content"])
+            problem, latex, lean = parse_testcase(f.read())
         
-        with open(f"{OUTPUT_DIR}/{file}", "w") as f:
-            f.write(completion["content"])
+        bug_msg = None
+        for _ in range(10):
+            messages = [
+                {"role": "system", "content": SYSTEM_MESSAGE},
+                {"role": "user", "content": prompt(problem, latex, lean, bug_msg)},
+            ]
+
+            print(messages[1]["content"])
+
+            completion = api.chat_completion(messages)
+            lean = parse_response(completion["content"])
+            
+            output_file = f"{OUTPUT_DIR}/{file.replace('.md', '.lean')}"
+            with open(output_file, "w") as f:
+                f.write(lean)
+
+            exec_result = subprocess.run(["lake", "env", "lean", "--run", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+            bug_msg = exec_result.stdout[:100]
+
+            if bug_msg.strip() == "Success!":
+                break
