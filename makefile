@@ -180,3 +180,5 @@ debug-tracked: chmod-local-scripts
 measure-ring:
 	cargo run -p visored-tactics --release --bin measure_ring
 
+visored-pipeline-try-it:
+	cargo run -p visored-cli --bin visored-cli -- --config projects/ai-math-autoformalization/pipeline/shorts/batch0/config.yaml projects/ai-math-autoformalization/pipeline/shorts/batch0/try_it.tex

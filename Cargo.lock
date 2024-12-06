@@ -307,6 +307,7 @@ dependencies = [
 name = "any-llm"
 version = "0.1.0"
 dependencies = [
+ "husky-print-utils",
  "openai",
  "thiserror",
 ]
@@ -10841,6 +10842,9 @@ name = "relative-path"
 version = "1.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ba39f3699c378cd8970968dcbff9c43159ea4cfbd88d43c00b22f2ef10a435d2"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "renderdoc-sys"
@@ -13238,8 +13242,10 @@ version = "0.1.0"
 dependencies = [
  "any-llm",
  "rayon",
+ "relative-path",
  "serde",
  "serde_yaml",
+ "tempfile",
  "thiserror",
 ]
 
