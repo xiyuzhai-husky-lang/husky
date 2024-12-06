@@ -8,10 +8,11 @@ use self::{
     error::{LlmCacheError, LlmCacheResult},
 };
 use chrono::Duration;
+use dashmap::DashMap;
 use serde::{Deserialize, Serialize};
-use std::io;
-use std::{collections::HashMap, path::Path};
+use std::path::Path;
 use std::{fs, path::PathBuf};
+use std::{io, sync::RwLock};
 
 pub struct LlmCache<Request, Response>
 where
@@ -19,8 +20,8 @@ where
     Response: Serialize + for<'de> Deserialize<'de> + Clone,
 {
     path: PathBuf,
-    entries: Vec<LlmCacheEntry<Request, Response>>,
-    indices: HashMap<Request, usize>,
+    entries: RwLock<Vec<LlmCacheEntry<Request, Response>>>,
+    indices: DashMap<Request, usize>,
 }
 
 impl<Request, Response> LlmCache<Request, Response>
@@ -42,7 +43,7 @@ where
     /// use std::path::PathBuf;
     /// use llm_cache::LlmCache;
     ///
-    /// let cache: LlmCache<String, String> = LlmCache::new(PathBuf::from("cache.json"))?;
+    /// let cache: LlmCache<String, String> = LlmCache::new(PathBuf::from("cache.json")).unwrap();
     /// ```
     pub fn new(path: PathBuf) -> LlmCacheResult<Self> {
         // Create directory if it doesn't exist
@@ -74,7 +75,7 @@ where
             .collect();
         Ok(Self {
             path,
-            entries,
+            entries: RwLock::new(entries),
             indices,
         })
     }
@@ -87,19 +88,22 @@ where
 {
     /// locking is handled here
     pub fn get_or_call(
-        &mut self,
+        &self,
         request: Request,
         f: impl FnOnce(&Request) -> Response,
     ) -> LlmCacheResult<Response> {
         if let Some(index) = self.indices.get(&request) {
-            Ok(self.entries[*index].response.clone())
-        } else {
-            let response = f(&request);
-            self.entries
-                .push(LlmCacheEntry::new(request.clone(), response.clone()));
-            self.indices.insert(request, self.entries.len() - 1);
-            Ok(response)
+            return Ok(self.entries.read().unwrap()[*index].response.clone());
         }
+        let mut entries = self.entries.write().unwrap();
+        // check again in case another thread has added the entry
+        if let Some(index) = self.indices.get(&request) {
+            return Ok(entries[*index].response.clone());
+        }
+        let response = f(&request);
+        entries.push(LlmCacheEntry::new(request.clone(), response.clone()));
+        self.indices.insert(request, entries.len() - 1);
+        Ok(response)
     }
 
     fn save(&self) -> LlmCacheResult<()> {
