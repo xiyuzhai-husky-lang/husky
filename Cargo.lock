@@ -13070,6 +13070,9 @@ dependencies = [
 [[package]]
 name = "visored-cli"
 version = "0.1.0"
+dependencies = [
+ "visored-pipeline",
+]
 
 [[package]]
 name = "visored-coword"
