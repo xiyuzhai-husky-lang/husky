@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdLimit(VdTermId);
 
 impl std::ops::Deref for VdLimit {
@@ -11,14 +11,14 @@ impl std::ops::Deref for VdLimit {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdLimitData {
     // Add appropriate fields here
 }
 
 impl VdLimit {
-    pub fn data(&self, db: &EternerDb) -> &VdLimitData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdLimitData {
+        match self.0.data() {
             VdTermData::Limit(data) => data,
             _ => unreachable!(),
         }

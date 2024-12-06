@@ -9,7 +9,7 @@ use eterned::db::EternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdItemPath {
     Category(VdCategoryPath),
     Set(VdSetPath),

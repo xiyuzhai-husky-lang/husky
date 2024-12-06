@@ -18,7 +18,7 @@ impl std::fmt::Debug for Sha256Output {
     }
 }
 
-#[derive(PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct Sha512Output(crypto_common::Output<Sha512>);
 
 impl Sha512Output {

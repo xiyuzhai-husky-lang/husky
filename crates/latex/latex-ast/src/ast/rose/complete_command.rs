@@ -15,7 +15,7 @@ pub struct LxRoseCompleteCommandArgument {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LxRoseCompleteCommandArgumentData {
-    Name(LxNameTokenIdx, Coword),
+    Name(LxNameTokenIdx, BaseCoword),
     Rose(LxRoseAstIdxRange),
 }
 

@@ -262,11 +262,11 @@ impl ModulePath {
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
         match self.data(db) {
-            ModulePathData::Root(crate_path) => f.write_str(crate_path.package_ident(db).data(db)),
+            ModulePathData::Root(crate_path) => f.write_str(crate_path.package_ident(db).data()),
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
                 f.write_str("::")?;
-                f.write_str(ident.data(db))
+                f.write_str(ident.data())
             }
             ModulePathData::Script { script: snippet } => {
                 f.write_fmt(format_args!("{}", snippet.as_id().as_u32()))

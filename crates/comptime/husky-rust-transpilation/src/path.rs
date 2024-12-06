@@ -117,7 +117,7 @@ impl<E> TranspileToRustWith<E> for ModulePath {
                 } else {
                     let package_path = crate_path.package_path(db);
                     match package_path.data(db) {
-                        PackagePathSource::Library => match package_path.ident(db).data(db) {
+                        PackagePathSource::Library => match package_path.ident(db).data() {
                             "core" => builder.husky_core(),
                             _ => todo!(),
                         },

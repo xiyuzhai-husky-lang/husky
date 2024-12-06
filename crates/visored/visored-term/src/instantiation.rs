@@ -1,7 +1,7 @@
 pub mod menu;
 
 use crate::term::VdTerm;
-use eterned::db::{attached_interner_db, EternerDb};
+use eterned::db::EternerDb;
 use lisp_csv::expr::LpCsvExpr;
 use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
@@ -9,13 +9,13 @@ use visored_entity_path::path::VdItemPath;
 #[eterned::eterned]
 pub struct VdInstantiation {
     pub path: VdItemPath,
+    #[return_ref]
     pub arguments: SmallVec<[VdTerm; 4]>,
 }
 
 impl std::fmt::Debug for VdInstantiation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = attached_interner_db().ok_or(std::fmt::Error)?;
-        write!(f, "{:?} ...", self.path(db))
+        write!(f, "{:?} ...", self.path())
     }
 }
 

@@ -18,21 +18,21 @@ pub(crate) fn item_path_id_interface_cache_path_aux(
         ItemPath::Submodule(_, _) => None,
         ItemPath::MajorItem(path) => Some(format!(
             "__{}__ITEM_PATH_ID_INTERFACE",
-            path.ident(db).data(db)
+            path.ident(db).data()
         )),
         ItemPath::AssocItem(path) => match path {
             AssocItemPath::TypeItem(path) => Some(format!(
                 "__{}__{}__ITEM_PATH_ID_INTERFACE",
-                path.ty_path(db).ident(db).data(db),
-                path.ident(db).data(db)
+                path.ty_path(db).ident(db).data(),
+                path.ident(db).data()
             )),
             AssocItemPath::TraitItem(_) => todo!(),
             AssocItemPath::TraitForTypeItem(path) => Some(format!(
                 "__{}__for__{}__ITEM_PATH_ID_INTERFACE",
-                path.impl_block(db).trai_path(db).ident(db).data(db),
+                path.impl_block(db).trai_path(db).ident(db).data(),
                 match path.impl_block(db).ty_sketch(db) {
                     TypeSketch::DeriveAny => todo!(),
-                    TypeSketch::Path(path) => path.ident(db).data(db),
+                    TypeSketch::Path(path) => path.ident(db).data(),
                 }
             )),
         },

@@ -69,7 +69,7 @@ impl ToHirLazy for BePatternSyndicate {
                 path,
             } => {
                 // ad hoc
-                if path.ident(db).data(db) == "None" {
+                if path.ident(db).data() == "None" {
                     HirLazyBeVariablesPattern::None
                 } else {
                     todo!()
@@ -79,7 +79,7 @@ impl ToHirLazy for BePatternSyndicate {
             SynPatternData::TupleStruct { .. } => todo!(),
             SynPatternData::TupleTypeVariant { path, .. } => {
                 // ad hoc
-                if path.ident(db).data(db) == "Some" {
+                if path.ident(db).data() == "Some" {
                     HirLazyBeVariablesPattern::Some
                 } else {
                     todo!()

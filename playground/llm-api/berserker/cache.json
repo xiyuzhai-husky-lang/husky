@@ -1,0 +1,6 @@
+{
+  "{\"messages\": [{\"content\": \"You are a helpful assistant.\", \"role\": \"system\"}, {\"content\": \"Write a haiku about recursion in programming.\", \"role\": \"user\"}], \"model\": \"gpt-4\"}": {
+    "content": "Code within a code,\nEndless loops in mirrored depth,\nRecursion unfolds.\n",
+    "role": "assistant"
+  }
+}

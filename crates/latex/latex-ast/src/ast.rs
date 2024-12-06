@@ -218,7 +218,7 @@ fn parse_tex_input_into_asts_works() {
             &mut token_storage,
             &mut arena,
         );
-        db.with_attached(|| expected.assert_debug_eq(&(token_storage, arena, asts)));
+        expected.assert_debug_eq(&(token_storage, arena, asts));
     }
     t(
         "",

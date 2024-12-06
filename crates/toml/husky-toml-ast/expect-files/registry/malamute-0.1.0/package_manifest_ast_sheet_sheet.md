@@ -33,9 +33,7 @@ Ok(
                         title: TomlSectionTitle(
                             [
                                 Coword(
-                                    Id {
-                                        value: 2,
-                                    },
+                                    "package",
                                 ),
                             ],
                         ),
@@ -46,9 +44,7 @@ Ok(
                                     1,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 3,
-                                    },
+                                    "name",
                                 ),
                                 value: Some(
                                     0,
@@ -59,9 +55,7 @@ Ok(
                                     3,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 7,
-                                    },
+                                    "license",
                                 ),
                                 value: Some(
                                     1,
@@ -72,9 +66,7 @@ Ok(
                                     4,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 8,
-                                    },
+                                    "repository",
                                 ),
                                 value: Some(
                                     2,
@@ -85,9 +77,7 @@ Ok(
                                     5,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 9,
-                                    },
+                                    "description",
                                 ),
                                 value: Some(
                                     3,
@@ -99,9 +89,7 @@ Ok(
                         title: TomlSectionTitle(
                             [
                                 Coword(
-                                    Id {
-                                        value: 10,
-                                    },
+                                    "lib",
                                 ),
                             ],
                         ),
@@ -112,9 +100,7 @@ Ok(
                                     7,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 11,
-                                    },
+                                    "test",
                                 ),
                                 value: Some(
                                     4,
@@ -125,9 +111,7 @@ Ok(
                                     8,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 13,
-                                    },
+                                    "bench",
                                 ),
                                 value: Some(
                                     5,
@@ -139,9 +123,7 @@ Ok(
                         title: TomlSectionTitle(
                             [
                                 Coword(
-                                    Id {
-                                        value: 14,
-                                    },
+                                    "dependencies",
                                 ),
                             ],
                         ),
@@ -152,9 +134,7 @@ Ok(
                                     10,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 15,
-                                    },
+                                    "ml-task",
                                 ),
                                 value: Some(
                                     6,
@@ -252,25 +232,19 @@ Ok(
         table: TomlTable {
             data: {
                 Coword(
-                    Id {
-                        value: 2,
-                    },
+                    "dependencies",
                 ): Section(
-                    0,
+                    2,
                 ),
                 Coword(
-                    Id {
-                        value: 10,
-                    },
+                    "lib",
                 ): Section(
                     1,
                 ),
                 Coword(
-                    Id {
-                        value: 14,
-                    },
+                    "package",
                 ): Section(
-                    2,
+                    0,
                 ),
             },
         },

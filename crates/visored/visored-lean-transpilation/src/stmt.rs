@@ -63,7 +63,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
                     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
                     VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
-                        *vd_module_path_to_ln_namespace(module_path, db),
+                        vd_module_path_to_ln_namespace(module_path, db),
                     ),
                     VdMirBlockMeta::Environment(_, module_path) => {
                         LnMirItemDefnGroupMeta::Environment(
@@ -80,7 +80,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
                 ref pattern,
                 assignment,
             } => todo!(),
-            VdMirStmtData::Then { formula } => self.build_then_stmt(formula),
+            VdMirStmtData::Then { prop: formula } => self.build_then_stmt(formula),
         }
     }
 

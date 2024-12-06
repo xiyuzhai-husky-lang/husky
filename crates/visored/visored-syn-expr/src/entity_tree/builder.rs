@@ -189,7 +189,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
                 else {
                     todo!(
                         "can't resolve environment `{}`",
-                        environment_signature.path().name().coword().data(self.db)
+                        environment_signature.path().name().coword().data()
                     );
                 };
                 match resolution {

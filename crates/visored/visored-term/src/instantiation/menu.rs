@@ -287,7 +287,7 @@ impl VdInstantiationMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_instantiation_menu(db: &EternerDb) -> VdInstantiationMenu {
     VdInstantiationMenu::new(db)
 }

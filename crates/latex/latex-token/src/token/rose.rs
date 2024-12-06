@@ -1,13 +1,13 @@
 use super::*;
 use crate::idx::LxRoseTokenIdx;
-use coword::Coword;
+use base_coword::BaseCoword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 use latex_rose_punctuation::LxRosePunctuation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LxRoseTokenData {
-    Word(Coword),
+    Word(BaseCoword),
     Command(LxCommandName),
     Nat32(u32),
     NewParagraph,
@@ -133,7 +133,7 @@ impl<'a> LxLexer<'a> {
                     Err(_) => todo!(),
                 }
             }
-            a if a.is_ascii_alphabetic() => Some(LxRoseTokenData::Word(Coword::from_ref(
+            a if a.is_ascii_alphabetic() => Some(LxRoseTokenData::Word(BaseCoword::from_ref(
                 self.chars.next_str_slice_while(|c| c.is_ascii_alphabetic()),
                 self.db(),
             ))),
@@ -190,7 +190,7 @@ mod tests {
             .into_rose_stream()
             .map(|(_, token_data)| token_data);
         let mut tokens: Vec<_> = stream.collect();
-        db.with_attached(|| expected.assert_debug_eq(&tokens));
+        expected.assert_debug_eq(&tokens);
     }
 
     #[test]

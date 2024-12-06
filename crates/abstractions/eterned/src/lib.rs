@@ -32,15 +32,29 @@ impl<T: 'static> Eterned<T> {
     }
 }
 
-impl<T: 'static> PartialOrd for Eterned<T> {
+impl<T: 'static> PartialOrd for Eterned<T>
+where
+    T: PartialOrd,
+{
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        self.raw_ptr().partial_cmp(&other.raw_ptr())
+        match self.0.sha512.cmp(&other.0.sha512) {
+            std::cmp::Ordering::Less => Some(std::cmp::Ordering::Less),
+            std::cmp::Ordering::Equal => self.0.value.partial_cmp(&other.0.value),
+            std::cmp::Ordering::Greater => Some(std::cmp::Ordering::Greater),
+        }
     }
 }
 
-impl<T: 'static> Ord for Eterned<T> {
+impl<T: 'static> Ord for Eterned<T>
+where
+    T: Ord,
+{
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.raw_ptr().cmp(&other.raw_ptr())
+        match self.0.sha512.cmp(&other.0.sha512) {
+            std::cmp::Ordering::Less => std::cmp::Ordering::Less,
+            std::cmp::Ordering::Equal => self.0.value.cmp(&other.0.value),
+            std::cmp::Ordering::Greater => std::cmp::Ordering::Greater,
+        }
     }
 }
 

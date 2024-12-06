@@ -4,8 +4,8 @@ mod tests;
 
 use self::r#let::*;
 use super::*;
+use base_coword::BaseCoword;
 use builder::VdSynExprBuilder;
-use coword::Coword;
 use expr::VdSynExprIdx;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
@@ -68,11 +68,11 @@ impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_clause(
         &mut self,
         token_idx: LxRoseTokenIdx,
-        word: Coword,
+        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynClauseData {
         let db = self.db();
-        match word.data(db).as_str() {
+        match word.data() {
             "Let" | "let" => {
                 let ast = asts.next().expect("expect a let clause");
                 match self.ast_arena()[ast] {

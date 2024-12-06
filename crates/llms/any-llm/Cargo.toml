@@ -1,5 +1,5 @@
 [package]
-name = "coword"
+name = "any-llm"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,8 +12,11 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-lazy_static.workspace = true
-eterned.workspace = true
+thiserror.workspace = true
+# llms
+openai.workspace = true
+# utils
+husky-print-utils.workspace = true
 
 [lints]
 workspace = true
