@@ -2,7 +2,7 @@ use std::fs;
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::{instance::VdPipelineInstance, VdPipelineConfig};
+use crate::{instance::VdPipelineInstance, VdPipelineConfig, VdPipelineResult};
 
 pub struct VdPipelineRunner {
     instances: Vec<VdPipelineInstance>,
@@ -14,8 +14,8 @@ impl VdPipelineRunner {
     pub fn new(
         config_path: impl AsRef<Path>,
         src_file_paths: impl IntoIterator<Item = impl AsRef<Path>>,
-    ) -> Self {
-        let configs = VdPipelineConfig::from_yaml_file(config_path).unwrap();
+    ) -> VdPipelineResult<Self> {
+        let configs = VdPipelineConfig::from_yaml_file(config_path)?;
         let src_files: Vec<Arc<String>> = src_file_paths
             .into_iter()
             .map(|p| {
@@ -33,32 +33,28 @@ impl VdPipelineRunner {
             })
             .collect();
 
-        Self {
+        Ok(Self {
             instances,
             configs,
             src_files,
-        }
+        })
     }
 }
 
 impl VdPipelineRunner {
-    pub fn run_all(&mut self) {
+    pub fn run_all_single_threaded(&mut self) -> VdPipelineResult<()> {
         for instance in &mut self.instances {
-            instance.run()
+            instance.run()?;
         }
+        Ok(())
     }
 
-    fn run_all_single_threaded(&mut self) {
-        for instance in &mut self.instances {
-            instance.run()
-        }
-    }
-
-    fn run_all_multi_threaded(&mut self) {
+    pub fn run_all_multi_threaded(&mut self) -> VdPipelineResult<()> {
         use rayon::prelude::*;
 
-        self.instances.par_iter_mut().for_each(|instance| {
-            instance.run();
-        });
+        self.instances
+            .par_iter_mut()
+            .try_for_each(|instance| instance.run())?;
+        Ok(())
     }
 }
