@@ -33,14 +33,13 @@ impl LlmCountDown {
 
 impl LlmCountDown {
     pub fn try_count_down(&mut self, usage: usize) -> LlmCapResult<()> {
+        if usage == 0 {
+            return Ok(());
+        }
         match self.remaining_count {
             Some(ref mut count) => {
                 if *count == 0 {
-                    if usage > 0 {
-                        Err(LlmCapError::FinalCountDown)
-                    } else {
-                        Ok(())
-                    }
+                    Err(LlmCapError::FinalCountDown)
                 } else {
                     *count -= usage;
                     Ok(())
