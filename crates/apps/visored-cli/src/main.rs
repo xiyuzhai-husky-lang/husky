@@ -6,8 +6,7 @@ use visored_pipeline::{error::VdPipelineResult, runner::VdPipelineRunner};
 #[derive(Parser)]
 struct Cli {
     #[arg(short, long, default_value = "visored-config.yaml")]
-    config_path: PathBuf,
-    #[arg(short, long)]
+    config: PathBuf,
     src_files: Vec<String>,
 }
 
@@ -27,7 +26,7 @@ impl Cli {
 fn main() {
     let cli = Cli::parse();
     let src_file_paths = cli.expanded_src_file_paths();
-    match run(cli.config_path, src_file_paths) {
+    match run(cli.config, src_file_paths) {
         Ok(_) => (),
         Err(e) => eprintln!("Error: {}", e),
     }

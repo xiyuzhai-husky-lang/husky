@@ -1,33 +1,33 @@
-use std::fs;
 use std::path::Path;
 use std::sync::Arc;
+use std::{fs, path::PathBuf};
 
-use crate::{instance::VdPipelineInstance, VdPipelineConfig, VdPipelineResult};
+use crate::{
+    input::VdPipelineInput, instance::VdPipelineInstance, VdPipelineConfig, VdPipelineResult,
+};
 
 pub struct VdPipelineRunner {
     instances: Vec<VdPipelineInstance>,
     configs: Vec<VdPipelineConfig>,
-    src_files: Vec<Arc<String>>,
+    src_inputs: Vec<Arc<VdPipelineInput>>,
 }
 
 impl VdPipelineRunner {
     pub fn new(
         config_path: impl AsRef<Path>,
-        src_file_paths: impl IntoIterator<Item = impl AsRef<Path>>,
+        src_file_paths: impl IntoIterator<Item = PathBuf>,
     ) -> VdPipelineResult<Self> {
         let configs = VdPipelineConfig::from_yaml_file(config_path)?;
-        let src_files: Vec<Arc<String>> = src_file_paths
-            .into_iter()
-            .map(|p| {
-                let content = fs::read_to_string(p).expect("Failed to read source file");
-                Arc::new(content)
-            })
-            .collect();
 
+        let mut src_inputs = vec![];
+        for path in src_file_paths {
+            let examples = VdPipelineInput::read_examples_from_file(path)?;
+            src_inputs.extend(examples);
+        }
         let instances = configs
             .iter()
             .flat_map(|config| {
-                src_files
+                src_inputs
                     .iter()
                     .map(move |src| VdPipelineInstance::new(config.clone(), Arc::clone(src)))
             })
@@ -36,7 +36,7 @@ impl VdPipelineRunner {
         Ok(Self {
             instances,
             configs,
-            src_files,
+            src_inputs,
         })
     }
 }

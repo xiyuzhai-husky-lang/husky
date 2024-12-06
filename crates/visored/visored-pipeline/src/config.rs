@@ -2,6 +2,7 @@ pub mod stages;
 
 use self::stages::*;
 use crate::*;
+use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 
@@ -10,12 +11,12 @@ pub struct VdPipelineConfig {
     // #[serde(default)]
     // stages: VdPipelineStagesConfig,
     #[serde(default = "default_cache_dir")]
-    pub cache_dir: PathBuf,
+    pub cache_dir: RelativePathBuf,
     pub output_name: String,
 }
 
-fn default_cache_dir() -> PathBuf {
-    PathBuf::from(".llm-cache")
+fn default_cache_dir() -> RelativePathBuf {
+    RelativePathBuf::from(".llm-cache")
 }
 
 fn default_true() -> bool {
