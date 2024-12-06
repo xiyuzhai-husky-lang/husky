@@ -1,3 +1,4 @@
+use llm_lock::error::LlmLockError;
 use std::{io, path::PathBuf};
 
 #[derive(Debug, thiserror::Error)]
