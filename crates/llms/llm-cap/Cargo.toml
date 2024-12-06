@@ -1,5 +1,5 @@
 [package]
-name = "llm-lock"
+name = "llm-cap"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -14,6 +14,8 @@ keywords.workspace = true
 [dependencies]
 lazy_static.workspace = true
 thiserror.workspace = true
+# utils
+husky-print-utils.workspace = true
 
 [lints]
 workspace = true
