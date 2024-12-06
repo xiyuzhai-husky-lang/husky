@@ -4170,6 +4170,27 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "llm-cache",
+        relative_path: "crates/llms/llm-cache",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "llm-lock",
+        relative_path: "crates/llms/llm-lock",
+        dependencies: [
+            "lazy_static",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "openai",
+        relative_path: "crates/llms/openai",
+        dependencies: [
+            "openai-api-rs",
+            "tokio",
+        ],
+    },
+    PackageSummary {
         name: "mayuri-core",
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
