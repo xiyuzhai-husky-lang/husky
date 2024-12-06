@@ -12,14 +12,14 @@ use llm_cap::LlmCap;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
-struct OaiClient {
+pub struct OaiClient {
     cache: LlmCache<OaiRequest, OaiResponse>,
     /// None if the environment variable `OPENAI_API_KEY` is not set.
     client_ext: Option<ext::OpenAIClient>,
 }
 
 impl OaiClient {
-    fn new(file_path: PathBuf) -> OaiResult<Self> {
+    pub fn new(file_path: PathBuf) -> OaiResult<Self> {
         let api_key = std::env::var("OPENAI_API_KEY").ok();
         Ok(Self {
             cache: LlmCache::new(file_path)?,
