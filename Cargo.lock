@@ -8769,7 +8769,6 @@ name = "llm-cache"
 version = "0.1.0"
 dependencies = [
  "chrono",
- "llm-lock",
  "serde",
  "serde_json",
  "tempfile",

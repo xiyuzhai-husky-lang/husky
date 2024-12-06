@@ -16,8 +16,6 @@ chrono = { workspace = true, features = ["serde"] }
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
-# llms
-llm-lock.workspace = true
 
 [dev-dependencies]
 tempfile.workspace = true
