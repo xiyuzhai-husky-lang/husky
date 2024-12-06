@@ -1,0 +1,23 @@
+[package]
+name = "openai"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+openai-api-rs.workspace = true
+tokio.workspace = true
+
+[[bin]]
+name = "try-it"
+path = "src/bin/try_it.rs"
+
+[lints]
+workspace = true

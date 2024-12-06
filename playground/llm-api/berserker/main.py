@@ -3,7 +3,7 @@ OpenAI API Wrapper with Caching
 ------------------------------
 This module provides a caching layer for OpenAI API calls with the following behavior:
 - Caches API responses based on model and message content
-- Requires ENABLE_API_CALLING=1 in .env to make actual API calls
+- Requires ENABLE_LLM_API_CALLING=1 in .env to make actual API calls
 - Uses local JSON file for caching
 - Cache key is based on model name and full message content
 """
@@ -17,7 +17,7 @@ from pathlib import Path
 load_dotenv()  # Load environment variables from .env file
 
 # Global flags
-API_ENABLED = os.getenv('ENABLE_API_CALLING') == '1'
+API_ENABLED = os.getenv('ENABLE_LLM_API_CALLING') == '1'
 
 # Add at the top of the file, after other imports
 class Colors:
@@ -37,7 +37,7 @@ client = initialize_client()
 def call_openai_api(model: str, messages: list) -> dict:
     """Make API call to OpenAI if enabled."""
     if not API_ENABLED:
-        raise ValueError(f"{Colors.RED}API calling is disabled. Set ENABLE_API_CALLING=1 to enable.{Colors.RESET}")
+        raise ValueError(f"{Colors.RED}API calling is disabled. Set ENABLE_LLM_API_CALLING=1 to enable.{Colors.RESET}")
     
     if client is None:
         raise ValueError(f"{Colors.RED}OpenAI client is not initialized{Colors.RESET}")
