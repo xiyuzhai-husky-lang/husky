@@ -4172,12 +4172,20 @@
     PackageSummary {
         name: "llm-cache",
         relative_path: "crates/llms/llm-cache",
-        dependencies: [],
+        dependencies: [
+            "chrono",
+            "dashmap",
+            "serde",
+            "serde_json",
+            "thiserror",
+            "tempfile",
+        ],
     },
     PackageSummary {
-        name: "llm-lock",
-        relative_path: "crates/llms/llm-lock",
+        name: "llm-cap",
+        relative_path: "crates/llms/llm-cap",
         dependencies: [
+            "husky-print-utils",
             "lazy_static",
             "thiserror",
         ],
@@ -4186,7 +4194,12 @@
         name: "openai",
         relative_path: "crates/llms/openai",
         dependencies: [
+            "lazy_static",
+            "llm-cache",
+            "llm-cap",
             "openai-api-rs",
+            "serde",
+            "thiserror",
             "tokio",
         ],
     },
