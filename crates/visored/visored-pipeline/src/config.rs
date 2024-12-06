@@ -12,8 +12,6 @@ pub struct VdPipelineConfig {
     #[serde(default = "default_cache_dir")]
     pub cache_dir: PathBuf,
     pub output_name: String,
-    #[serde(default = "default_true")]
-    pub run_in_parallel: bool,
 }
 
 fn default_cache_dir() -> PathBuf {
@@ -26,8 +24,8 @@ fn default_true() -> bool {
 
 impl VdPipelineConfig {
     pub fn from_yaml_file(path: impl AsRef<Path>) -> VdPipelineResult<Vec<Self>> {
-        let file = std::fs::File::open(path)
-            .map_err(|e| VdPipelineError::Io(format!("Failed to open config file: {}", e)))?;
+        let file = std::fs::File::open(&path)
+            .map_err(|e| VdPipelineError::Io(path.as_ref().to_path_buf(), e))?;
 
         let deserializer = serde_yaml::Deserializer::from_reader(file);
         let mut configs = Vec::new();
@@ -53,12 +51,10 @@ fn vd_pipeline_config_from_yaml_file_works() {
             VdPipelineConfig {
                 cache_dir: default_cache_dir(),
                 output_name: "standard".to_string(),
-                run_in_parallel: true,
             },
             VdPipelineConfig {
                 cache_dir: default_cache_dir(),
                 output_name: "standard".to_string(),
-                run_in_parallel: true,
             },
         ]
     );

@@ -1,4 +1,4 @@
-use crate::{tracker::VdPipelineTracker, VdPipelineConfig};
+use crate::{error::VdPipelineResult, tracker::VdPipelineTracker, VdPipelineConfig};
 use std::sync::Arc;
 
 pub struct VdPipelineInstance {
@@ -16,8 +16,9 @@ impl VdPipelineInstance {
 }
 
 impl VdPipelineInstance {
-    pub fn run(&mut self) {
+    pub fn run(&mut self) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
         self.tracker = Some(VdPipelineTracker::new(&self.config));
+        Ok(())
     }
 }
