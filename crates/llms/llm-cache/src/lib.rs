@@ -106,6 +106,7 @@ where
         let response = f(&request)?;
         entries.push(LlmCacheEntry::new(request.clone(), response.clone()));
         self.indices.insert(request, entries.len() - 1);
+        self.save()?;
         Ok(response)
     }
 
