@@ -371,6 +371,10 @@ husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # lisp
 lisp-csv = { path = "crates/lisp/lisp-csv" }
+# llms
+llm-lock = { path = "crates/llms/llm-lock" }
+llm-cache = { path = "crates/llms/llm-cache" }
+openai = { path = "crates/llms/openai" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }

@@ -1,5 +1,5 @@
 mod count_down;
-mod error;
+pub mod error;
 
 use self::{count_down::LlmCountDown, error::LlmLockError};
 use lazy_static::lazy_static;
@@ -16,7 +16,7 @@ impl LlmLock {
     }
 }
 
-pub fn try_call_llm(f: impl FnOnce()) -> Result<(), Box<dyn std::error::Error>> {
+pub fn try_call_llm<R>(f: impl FnOnce() -> R) -> Result<R, Box<dyn std::error::Error>> {
     lazy_static! {
         static ref LLM_LOCK: LlmLock = LlmLock::new();
     }
@@ -25,11 +25,10 @@ pub fn try_call_llm(f: impl FnOnce()) -> Result<(), Box<dyn std::error::Error>> 
 }
 
 impl LlmLock {
-    pub fn try_call_llm(&self, f: impl FnOnce()) -> Result<(), Box<dyn std::error::Error>> {
+    pub fn try_call_llm<R>(&self, f: impl FnOnce() -> R) -> Result<R, Box<dyn std::error::Error>> {
         let mut lock = self.lock.lock().unwrap();
         lock.try_count_down()?;
-        f();
-        Ok(())
+        Ok(f())
     }
 }
 

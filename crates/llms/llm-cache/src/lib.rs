@@ -1,5 +1,5 @@
 mod entry;
-mod error;
+pub mod error;
 #[cfg(test)]
 mod tests;
 
@@ -8,6 +8,7 @@ use self::{
     error::{LlmCacheError, LlmCacheResult},
 };
 use chrono::Duration;
+use llm_lock::try_call_llm;
 use serde::{Deserialize, Serialize};
 use std::io;
 use std::{collections::HashMap, path::Path};
@@ -78,7 +79,7 @@ where
 
 impl<Request, Response> LlmCache<Request, Response>
 where
-    Request: Eq + std::hash::Hash,
+    Request: Eq + std::hash::Hash + Clone,
     Response: Clone,
 {
     /// locking is handled here
@@ -91,7 +92,8 @@ where
             Ok(self.entries[*index].response.clone())
         } else {
             let response = try_call_llm(|| f(&request)).unwrap();
-            self.entries.push(LlmCacheEntry::new(request, response));
+            self.entries
+                .push(LlmCacheEntry::new(request.clone(), response.clone()));
             self.indices.insert(request, self.entries.len() - 1);
             Ok(response)
         }

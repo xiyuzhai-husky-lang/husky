@@ -17,7 +17,7 @@ serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
 # llms
-llms-lock.workspace = true
+llm-lock.workspace = true
 
 [dev-dependencies]
 tempfile.workspace = true
