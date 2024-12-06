@@ -304,6 +304,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "any-llm"
+version = "0.1.0"
+dependencies = [
+ "openai",
+ "thiserror",
+]
+
+[[package]]
 name = "anyhow"
 version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -13225,6 +13233,13 @@ dependencies = [
 [[package]]
 name = "visored-pipeline"
 version = "0.1.0"
+dependencies = [
+ "any-llm",
+ "rayon",
+ "serde",
+ "serde_yaml",
+ "thiserror",
+]
 
 [[package]]
 name = "visored-prelude"
