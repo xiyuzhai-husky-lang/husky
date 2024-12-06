@@ -259,6 +259,10 @@ vec-like = { path = "crates/abstractions/vec-like" }
 version-stamp = { path = "crates/abstractions/version-stamp" }
 vfs = { path = "crates/abstractions/vfs" }
 with-db = { path = "crates/abstractions/with-db" }
+# apps
+husky-analyzer = { path = "crates/apps/husky-analyzer" }
+visored-analyzer = { path = "crates/apps/visored-analyzer" }
+visored-cli = { path = "crates/apps/visored-cli" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
@@ -460,6 +464,7 @@ visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-h
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-mir-expr = { path = "crates/visored/visored-mir-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }
+visored-pipeline = { path = "crates/visored/visored-pipeline" }
 visored-prelude = { path = "crates/visored/visored-prelude" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-signature = { path = "crates/visored/visored-signature" }

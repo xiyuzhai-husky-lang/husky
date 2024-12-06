@@ -3798,6 +3798,23 @@
         ],
     },
     PackageSummary {
+        name: "visored-analyzer",
+        relative_path: "crates/apps/visored-analyzer",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "visored-cli",
+        relative_path: "crates/apps/visored-cli",
+        dependencies: [
+            "visored-pipeline",
+        ],
+    },
+    PackageSummary {
+        name: "visored-pipeline",
+        relative_path: "crates/visored/visored-pipeline",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "husky-aarch64",
         relative_path: "crates/archs/husky-aarch64",
         dependencies: [],
@@ -4194,6 +4211,7 @@
         name: "openai",
         relative_path: "crates/llms/openai",
         dependencies: [
+            "husky-print-utils",
             "lazy_static",
             "llm-cache",
             "llm-cap",
