@@ -31,6 +31,19 @@ done
 
 unset password  # Clear password from memory for security
 
+# Entity name validation - one attempt
+read -p "Enter the LLM entity name: " entity_name
+if [ "${entity_name}" != "OPENAI" ]; then
+    echo "Incorrect entity name. Exiting."
+    exit 1
+fi
+
+# Cap validation - one attempt
+read -p "Enter the API request cap: " api_cap
+if [ "${api_cap}" != "500" ]; then
+    echo "Incorrect API request cap. Exiting."
+    exit 1
+fi
 
 # Check if a command argument was provided
 if [ -z "$1" ]; then
