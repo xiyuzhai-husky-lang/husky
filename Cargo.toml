@@ -453,17 +453,17 @@ husky-virtual-value = { path = "crates/value/husky-virtual-value" }
 # visored
 visored-annotation = { path = "crates/visored/visored-annotation" }
 visored-coword = { path = "crates/visored/visored-coword" }
-visored-mir-expr = { path = "crates/visored/visored-mir-expr" }
-visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-entity-path = { path = "crates/visored/visored-entity-path" }
-visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
-visored-global-resolution = { path = "crates/visored/visored-global-resolution" }
 visored-global-dispatch = { path = "crates/visored/visored-global-dispatch" }
+visored-global-resolution = { path = "crates/visored/visored-global-resolution" }
+visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
+visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
+visored-mir-expr = { path = "crates/visored/visored-mir-expr" }
+visored-opr = { path = "crates/visored/visored-opr" }
 visored-prelude = { path = "crates/visored/visored-prelude" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
-visored-opr = { path = "crates/visored/visored-opr" }
 visored-term = { path = "crates/visored/visored-term" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
