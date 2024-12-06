@@ -13,6 +13,8 @@ use serde::{Deserialize, Serialize};
 use std::path::Path;
 use std::{fs, path::PathBuf};
 use std::{io, sync::RwLock};
+#[cfg(test)]
+use tempfile;
 
 pub struct LlmCache<Request, Response>
 where
@@ -43,7 +45,9 @@ where
     /// use std::path::PathBuf;
     /// use llm_cache::LlmCache;
     ///
-    /// let cache: LlmCache<String, String> = LlmCache::new(PathBuf::from("cache.json")).unwrap();
+    /// let temp_dir = tempfile::tempdir().unwrap();
+    /// let cache_path = temp_dir.path().join("cache.json");
+    /// let cache: LlmCache<String, String> = LlmCache::new(cache_path).unwrap();
     /// ```
     pub fn new(path: PathBuf) -> LlmCacheResult<Self> {
         // Create directory if it doesn't exist
