@@ -146,6 +146,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             syn_sentence_arena.as_arena_ref(),
             syn_stmt_arena.as_arena_ref(),
             syn_division_arena.as_arena_ref(),
+            &syn_expr_range_map,
             &syn_symbol_local_defn_storage,
             &syn_symbol_resolution_table,
             &item_path_zfc_ty_table,

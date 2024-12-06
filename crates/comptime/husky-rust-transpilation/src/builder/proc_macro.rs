@@ -17,7 +17,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let task_dependency_ident = self
             .rust_transpilation_setup_data
             .task_dependency_ident
-            .data(db);
+            .data();
         let var_deps = item_sem_var_deps(path, db);
         let return_leash = !is_return_ty_always_copyable;
         write!(
@@ -46,7 +46,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let task_dependency_ident = self
             .rust_transpilation_setup_data
             .task_dependency_ident
-            .data(db);
+            .data();
         let return_leash = !is_return_ty_always_copyable;
         write!(
             self.result,

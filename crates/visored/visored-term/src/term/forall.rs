@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdForAll(VdTermId);
 
 impl std::ops::Deref for VdForAll {
@@ -11,14 +11,14 @@ impl std::ops::Deref for VdForAll {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdForAllData {
     // Add appropriate fields here
 }
 
 impl VdForAll {
-    pub fn data(&self, db: &EternerDb) -> &VdForAllData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdForAllData {
+        match self.0.data() {
             VdTermData::ForAll(data) => data,
             _ => unreachable!(),
         }

@@ -135,13 +135,13 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     ) -> R {
         let db = self.db();
         debug_assert_eq!(
-            module_path.parent(db),
+            module_path.parent(),
             Some(self.current_module_path),
             "module path = {}, current module path = {}",
-            module_path.show(db),
-            self.current_module_path.show(db),
+            module_path.show(),
+            self.current_module_path.show(),
         );
-        let namespace = *vd_module_path_to_ln_namespace(module_path, db);
+        let namespace = vd_module_path_to_ln_namespace(module_path, db);
         let prev_module_path = self.current_module_path;
         self.current_module_path = module_path;
         let result = if let Some(namespace) = namespace {
@@ -164,7 +164,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     pub(crate) fn mangle_hypothesis(&mut self) -> LnIdent {
         let db = self.db();
         self.mangler.mangle_hypothesis(
-            *vd_module_path_to_ln_namespace_or_inherited(self.current_module_path, db),
+            vd_module_path_to_ln_namespace_or_inherited(self.current_module_path, db),
             db,
         )
     }

@@ -5,7 +5,7 @@ pub mod helpers;
 mod tests;
 
 use super::*;
-use coword::Coword;
+use base_coword::BaseCoword;
 use latex_command::{
     path::{LxCommandName, LxCommandPath},
     signature::{

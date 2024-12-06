@@ -97,7 +97,7 @@ impl JavPath {
                 AssocItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
             ItemPath::TypeVariant(_, path) => {
-                if path.parent_ty_path(db).ident(db).data(db) == "Class" {
+                if path.parent_ty_path(db).ident(db).data() == "Class" {
                     use husky_print_utils::p;
                     use salsa::DebugWithDb;
 

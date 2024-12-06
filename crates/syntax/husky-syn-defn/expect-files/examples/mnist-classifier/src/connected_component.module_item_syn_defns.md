@@ -3466,13 +3466,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             86,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_expr_idx: 38,
                                         bound_expr: 39,
                                         boundary_kind: UpperOpen,
@@ -3500,13 +3494,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             142,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_expr_idx: 73,
                                         bound_expr: 74,
                                         boundary_kind: LowerClosed,
@@ -9585,13 +9573,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             7,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `row_start`,
                                         forext_loop_var_expr_idx: 1,
                                         bound_expr: 2,
                                         boundary_kind: UpperOpen,
@@ -9648,13 +9630,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             28,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `row_end`,
                                         forext_loop_var_expr_idx: 11,
                                         bound_expr: 12,
                                         boundary_kind: UpperOpen,
@@ -11784,13 +11760,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             16,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_expr_idx: 5,
                                         bound_expr: 6,
                                         boundary_kind: UpperOpen,
@@ -12828,13 +12798,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             16,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_expr_idx: 5,
                                         bound_expr: 6,
                                         boundary_kind: UpperOpen,

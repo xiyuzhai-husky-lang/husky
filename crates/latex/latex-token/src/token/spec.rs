@@ -3,7 +3,7 @@ mod literal;
 use self::literal::LxSpecLiteral;
 use super::*;
 use crate::idx::LxSpecTokenIdx;
-use coword::Coword;
+use base_coword::BaseCoword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use latex_command::path::LxCommandName;
 use ordered_float::NotNan;
@@ -12,7 +12,7 @@ use ordered_float::NotNan;
 pub enum LxSpecTokenData {
     Command(LxCommandName),
     RightDelimiter(LxSpecDelimiter),
-    Coword(Coword),
+    Coword(BaseCoword),
     Literal(LxSpecLiteral),
 }
 

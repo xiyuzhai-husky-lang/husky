@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdSymbolicVariable(VdTermId);
 
 impl std::ops::Deref for VdSymbolicVariable {
@@ -11,7 +11,7 @@ impl std::ops::Deref for VdSymbolicVariable {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdSymbolicVariableData {
     // Add appropriate fields here
 }

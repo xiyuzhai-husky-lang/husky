@@ -268,6 +268,20 @@ where
         }
     }
 
+    pub fn insert_or_update(&mut self, new_entry: E, update: impl FnOnce(&mut E))
+    where
+        K: Ord + Copy + std::fmt::Debug,
+    {
+        let key = new_entry.key();
+        match self.entries.binary_search_by(|e| e.key().cmp(&key)) {
+            Ok(old) => {
+                update(&mut self.entries[old]);
+                debug_assert_eq!(self.entries[old].key(), key);
+            }
+            Err(index) => self.entries.insert(index, new_entry),
+        }
+    }
+
     pub fn insert_with_or_update(
         &mut self,
         key: K,

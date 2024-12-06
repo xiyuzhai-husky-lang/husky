@@ -1,6 +1,6 @@
 /// We use `trait` instead of `class` to avoid confusion with the mathematical concept `class`.
 // TODO: ad hoc implementation
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdTraitPath {
     Group,
     AbelianGroup,

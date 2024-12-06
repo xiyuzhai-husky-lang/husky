@@ -71,7 +71,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.db()) {
+                TokenData::Ident(ident) => match ident.data() {
                     "_" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -117,7 +117,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.db()) {
+                TokenData::Ident(ident) => match ident.data() {
                     "derive" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },
@@ -155,7 +155,7 @@ where
     ) -> TokenDataResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                TokenData::Ident(ident) => match ident.data(ctx.db()) {
+                TokenData::Ident(ident) => match ident.data() {
                     "phantom" => Ok(Some(Self { token_idx })),
                     _ => Ok(None),
                 },

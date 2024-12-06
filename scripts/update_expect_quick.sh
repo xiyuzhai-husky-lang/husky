@@ -7,18 +7,18 @@ set -e
 DURATION=0.5
 MONITOR=HDMI-0
 
-# # Define a cleanup function
-# cleanup() {
-#   # Reset screen brightness
-#   # scripts/adjust_screen_brightness.sh 1.0 $MONITOR $DURATION &
-# }
+# Define a cleanup function
+cleanup() {
+  # Reset screen brightness
+  scripts/adjust_screen_brightness.sh 1.0 $MONITOR $DURATION &
+}
 
 # Trap the EXIT signal to call the cleanup function
 # This ensures cleanup runs on any exit, normal or error
-# trap cleanup EXIT
+trap cleanup EXIT
 
 # Set the screen brightness to very low
-# scripts/adjust_screen_brightness.sh 0.0 $MONITOR $DURATION &
+scripts/adjust_screen_brightness.sh 0.0 $MONITOR $DURATION &
 
 # Format the Rust project
 cargo fmt

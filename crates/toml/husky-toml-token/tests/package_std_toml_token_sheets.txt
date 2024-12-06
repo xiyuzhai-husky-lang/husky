@@ -13,9 +13,7 @@ Some(
                 range: [1:2, 1:9),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 60,
-                        },
+                        "package",
                     ),
                 ),
             },
@@ -31,9 +29,7 @@ Some(
                 range: [2:1, 2:5),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 61,
-                        },
+                        "name",
                     ),
                 ),
             },
@@ -57,9 +53,7 @@ Some(
                 range: [3:1, 3:8),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 62,
-                        },
+                        "version",
                     ),
                 ),
             },
@@ -75,9 +69,7 @@ Some(
                 range: [3:9, 3:18),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 63,
-                        },
+                        "workspace",
                     ),
                 ),
             },
@@ -93,9 +85,7 @@ Some(
                 range: [3:21, 3:25),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 64,
-                        },
+                        "true",
                     ),
                 ),
             },
@@ -104,9 +94,7 @@ Some(
                 range: [4:1, 4:8),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 65,
-                        },
+                        "license",
                     ),
                 ),
             },
@@ -130,9 +118,7 @@ Some(
                 range: [5:1, 5:11),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 66,
-                        },
+                        "repository",
                     ),
                 ),
             },
@@ -156,9 +142,7 @@ Some(
                 range: [6:1, 6:12),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 67,
-                        },
+                        "description",
                     ),
                 ),
             },
@@ -182,9 +166,7 @@ Some(
                 range: [7:1, 7:10),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 68,
-                        },
+                        "autotests",
                     ),
                 ),
             },
@@ -200,9 +182,7 @@ Some(
                 range: [7:13, 7:18),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 69,
-                        },
+                        "false",
                     ),
                 ),
             },
@@ -211,9 +191,7 @@ Some(
                 range: [8:1, 8:12),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 70,
-                        },
+                        "autobenches",
                     ),
                 ),
             },
@@ -229,9 +207,7 @@ Some(
                 range: [8:15, 8:20),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 69,
-                        },
+                        "false",
                     ),
                 ),
             },
@@ -250,9 +226,7 @@ Some(
                 range: [11:1, 11:8),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 71,
-                        },
+                        "edition",
                     ),
                 ),
             },
@@ -283,9 +257,7 @@ Some(
                 range: [13:2, 13:5),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 72,
-                        },
+                        "lib",
                     ),
                 ),
             },
@@ -301,9 +273,7 @@ Some(
                 range: [14:1, 14:5),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 39,
-                        },
+                        "test",
                     ),
                 ),
             },
@@ -319,9 +289,7 @@ Some(
                 range: [14:8, 14:13),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 69,
-                        },
+                        "false",
                     ),
                 ),
             },
@@ -330,9 +298,7 @@ Some(
                 range: [15:1, 15:6),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 73,
-                        },
+                        "bench",
                     ),
                 ),
             },
@@ -348,9 +314,7 @@ Some(
                 range: [15:9, 15:14),
                 data: Word(
                     Coword(
-                        Id {
-                            value: 69,
-                        },
+                        "false",
                     ),
                 ),
             },

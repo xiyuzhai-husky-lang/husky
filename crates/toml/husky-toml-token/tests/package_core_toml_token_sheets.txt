@@ -12,9 +12,7 @@ TomlTokenSheet {
             range: [1:2, 1:9),
             data: Word(
                 Coword(
-                    Id {
-                        value: 60,
-                    },
+                    "package",
                 ),
             ),
         },
@@ -30,9 +28,7 @@ TomlTokenSheet {
             range: [2:1, 2:5),
             data: Word(
                 Coword(
-                    Id {
-                        value: 61,
-                    },
+                    "name",
                 ),
             ),
         },
@@ -56,9 +52,7 @@ TomlTokenSheet {
             range: [3:1, 3:8),
             data: Word(
                 Coword(
-                    Id {
-                        value: 62,
-                    },
+                    "version",
                 ),
             ),
         },
@@ -74,9 +68,7 @@ TomlTokenSheet {
             range: [3:9, 3:18),
             data: Word(
                 Coword(
-                    Id {
-                        value: 63,
-                    },
+                    "workspace",
                 ),
             ),
         },
@@ -92,9 +84,7 @@ TomlTokenSheet {
             range: [3:21, 3:25),
             data: Word(
                 Coword(
-                    Id {
-                        value: 64,
-                    },
+                    "true",
                 ),
             ),
         },
@@ -103,9 +93,7 @@ TomlTokenSheet {
             range: [4:1, 4:8),
             data: Word(
                 Coword(
-                    Id {
-                        value: 65,
-                    },
+                    "license",
                 ),
             ),
         },
@@ -129,9 +117,7 @@ TomlTokenSheet {
             range: [5:1, 5:11),
             data: Word(
                 Coword(
-                    Id {
-                        value: 66,
-                    },
+                    "repository",
                 ),
             ),
         },
@@ -155,9 +141,7 @@ TomlTokenSheet {
             range: [6:1, 6:12),
             data: Word(
                 Coword(
-                    Id {
-                        value: 67,
-                    },
+                    "description",
                 ),
             ),
         },
@@ -181,9 +165,7 @@ TomlTokenSheet {
             range: [7:1, 7:10),
             data: Word(
                 Coword(
-                    Id {
-                        value: 68,
-                    },
+                    "autotests",
                 ),
             ),
         },
@@ -199,9 +181,7 @@ TomlTokenSheet {
             range: [7:13, 7:18),
             data: Word(
                 Coword(
-                    Id {
-                        value: 69,
-                    },
+                    "false",
                 ),
             ),
         },
@@ -210,9 +190,7 @@ TomlTokenSheet {
             range: [8:1, 8:12),
             data: Word(
                 Coword(
-                    Id {
-                        value: 70,
-                    },
+                    "autobenches",
                 ),
             ),
         },
@@ -228,9 +206,7 @@ TomlTokenSheet {
             range: [8:15, 8:20),
             data: Word(
                 Coword(
-                    Id {
-                        value: 69,
-                    },
+                    "false",
                 ),
             ),
         },
@@ -249,9 +225,7 @@ TomlTokenSheet {
             range: [11:1, 11:8),
             data: Word(
                 Coword(
-                    Id {
-                        value: 71,
-                    },
+                    "edition",
                 ),
             ),
         },
@@ -282,9 +256,7 @@ TomlTokenSheet {
             range: [13:2, 13:5),
             data: Word(
                 Coword(
-                    Id {
-                        value: 72,
-                    },
+                    "lib",
                 ),
             ),
         },
@@ -300,9 +272,7 @@ TomlTokenSheet {
             range: [14:1, 14:5),
             data: Word(
                 Coword(
-                    Id {
-                        value: 39,
-                    },
+                    "test",
                 ),
             ),
         },
@@ -318,9 +288,7 @@ TomlTokenSheet {
             range: [14:8, 14:13),
             data: Word(
                 Coword(
-                    Id {
-                        value: 69,
-                    },
+                    "false",
                 ),
             ),
         },
@@ -329,9 +297,7 @@ TomlTokenSheet {
             range: [15:1, 15:6),
             data: Word(
                 Coword(
-                    Id {
-                        value: 73,
-                    },
+                    "bench",
                 ),
             ),
         },
@@ -347,9 +313,7 @@ TomlTokenSheet {
             range: [15:9, 15:14),
             data: Word(
                 Coword(
-                    Id {
-                        value: 69,
-                    },
+                    "false",
                 ),
             ),
         },
