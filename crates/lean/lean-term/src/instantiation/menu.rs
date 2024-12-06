@@ -148,7 +148,7 @@ impl LnInstantiationMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn ln_instantiation_menu(db: &EternerDb) -> LnInstantiationMenu {
     LnInstantiationMenu::new(db)
 }

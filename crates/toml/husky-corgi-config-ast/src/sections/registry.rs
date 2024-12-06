@@ -29,7 +29,7 @@ impl TransformFromTomlParentKeyed<CorgiConfigAstTransformContext>
 {
     fn key(
         menu: &<CorgiConfigAstTransformContext as TomlDeserializeContext>::Menu,
-    ) -> husky_coword::Coword {
+    ) -> husky_coword::BaseCoword {
         menu.registry_coword()
     }
 }

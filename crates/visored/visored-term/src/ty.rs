@@ -4,7 +4,7 @@ use crate::{
     menu::{vd_ty_menu, VdTypeMenu},
     term::{VdTerm, VdTermData, VdTermId},
 };
-use eterned::db::{attached_interner_db, EternerDb};
+use eterned::db::EternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
@@ -23,14 +23,13 @@ impl std::ops::Deref for VdType {
 
 impl std::fmt::Debug for VdType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = attached_interner_db().ok_or(std::fmt::Error)?;
-        self.show_aux(f, db)
+        self.show_aux(f)
     }
 }
 
 impl VdType {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>, db: &EternerDb) -> std::fmt::Result {
-        self.0.show_aux(f, db)
+    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.show_aux(f)
     }
 }
 
@@ -53,13 +52,13 @@ impl VdType {
 
 impl VdType {
     pub fn is_function_like(self, db: &EternerDb) -> bool {
-        *is_vd_ty_function_like(**self, db)
+        is_vd_ty_function_like(**self, db)
     }
 }
 
 #[eterned::memo]
 fn is_vd_ty_function_like(ty: VdTermId, db: &EternerDb) -> bool {
-    match *ty.data(db) {
+    match *ty.data() {
         VdTermData::ItemPath(_) => false,
         VdTermData::Literal(_) => todo!(),
         VdTermData::ForAll(_) => todo!(),

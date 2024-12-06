@@ -163,7 +163,7 @@ fn next_math_token_data_works() {
         let mut storage = LxTokenStorage::default();
         let stream = LxLexer::new(db, input, LxTokenLane::Main, &mut storage).into_math_stream();
         let tokens: Vec<_> = stream.map(|(_, token_data)| token_data).collect();
-        db.with_attached(|| expected.assert_debug_eq(&tokens));
+        expected.assert_debug_eq(&tokens);
     }
     t(
         "hello",

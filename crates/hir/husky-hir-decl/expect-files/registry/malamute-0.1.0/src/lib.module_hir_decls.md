@@ -653,13 +653,7 @@
                                     ),
                                 },
                                 Keyed {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `skip`,
                                     ty: PathLeading(
                                         HirTypePathLeading(
                                             Id {

@@ -549,13 +549,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -890,13 +884,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2371,13 +2359,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2583,13 +2565,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },
@@ -2795,13 +2771,7 @@
                                     },
                                     field_ty_leash_class: Other,
                                     field: Props {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                     },
                                 },
                             },

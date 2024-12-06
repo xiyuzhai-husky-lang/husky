@@ -9,7 +9,7 @@ pub fn vd_module_path_to_ln_namespace(
     module_path: VdModulePath,
     db: &EternerDb,
 ) -> Option<LnNamespace> {
-    match *module_path.data(db) {
+    match module_path.data() {
         VdModulePathData::Root(_) => Some(LnNamespace::new_root(db)),
         VdModulePathData::Division {
             parent,
@@ -57,14 +57,14 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
     module_path: VdModulePath,
     db: &EternerDb,
 ) -> LnNamespace {
-    match *module_path.data(db) {
+    match module_path.data() {
         VdModulePathData::Root(lx_file_path) => LnNamespace::new_root(db),
         VdModulePathData::Division {
             parent,
             division_level,
             disambiguator,
         } => {
-            let parent_namespace = *vd_module_path_to_ln_namespace_or_inherited(parent, db);
+            let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent, db);
             match division_level {
                 VdDivisionLevel::Part => (),
                 VdDivisionLevel::Chapter => (),
@@ -85,7 +85,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
         VdModulePathData::Paragraph {
             parent,
             disambiguator,
-        } => *vd_module_path_to_ln_namespace_or_inherited(parent, db),
+        } => vd_module_path_to_ln_namespace_or_inherited(parent, db),
         VdModulePathData::Environment {
             parent,
             environment_path,

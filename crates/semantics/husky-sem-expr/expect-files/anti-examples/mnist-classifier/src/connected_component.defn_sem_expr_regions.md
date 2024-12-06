@@ -13116,13 +13116,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             86,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
                                             35,
                                         ),
@@ -13166,13 +13160,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             142,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
                                             71,
                                         ),
@@ -33827,13 +33815,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             7,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `row_start`,
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
                                             1,
                                         ),
@@ -33916,13 +33898,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             28,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `row_end`,
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
                                             10,
                                         ),
@@ -40107,13 +40083,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             16,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
                                             5,
                                         ),
@@ -43249,13 +43219,7 @@
                                         forext_loop_var_regional_token_idx: RegionalTokenIdx(
                                             16,
                                         ),
-                                        forext_loop_var_ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        forext_loop_var_ident: `i`,
                                         forext_loop_var_sem_expr_idx: SemExprIdx(
                                             5,
                                         ),

@@ -105,7 +105,7 @@ pub struct VdGlobalDispatchMenu {
     pub complex_frac: VdFracGlobalDispatch,
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_global_dispatch_menu(db: &EternerDb) -> VdGlobalDispatchMenu {
     VdGlobalDispatchMenu::new(db)
 }

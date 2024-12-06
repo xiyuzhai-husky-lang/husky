@@ -9,7 +9,7 @@ use crate::{menu::vd_ty_menu, ty::VdType};
 // #[salsa::derive_debug_with_db]
 // #[salsa::as_id]
 // #[salsa::deref_id]
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct VdLiteral(VdTermId);
 
 impl std::ops::Deref for VdLiteral {
@@ -27,33 +27,32 @@ impl std::fmt::Debug for VdLiteral {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdLiteralData {
-    NaturalNumber(String),
-    NegativeInteger(String),
+    Nat128(u128),
+    Int128(i128),
     Float(String),
     SpecialConstant(VdSpecialConstant),
 }
 
+impl std::fmt::Display for VdLiteralData {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdLiteralData::Nat128(n) => write!(f, "{}", n),
+            VdLiteralData::Int128(n) => write!(f, "{}", n),
+            VdLiteralData::Float(n) => write!(f, "{}", n),
+            VdLiteralData::SpecialConstant(n) => todo!(),
+        }
+    }
+}
+
 impl VdLiteral {
     pub fn new(data: VdLiteralData, db: &EternerDb) -> Self {
-        #[cfg(test)]
-        {
-            match data {
-                VdLiteralData::NaturalNumber(ref n) => {
-                    debug_assert!(!n.is_empty());
-                    debug_assert!(n.chars().all(|c| c.is_digit(10)));
-                }
-                VdLiteralData::NegativeInteger(_) => todo!(),
-                VdLiteralData::Float(_) => todo!(),
-                VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
-            }
-        }
         Self(VdTermId::new(data.into(), db))
     }
 
-    pub fn data(self, db: &EternerDb) -> &VdLiteralData {
-        match self.0.data(db) {
+    pub fn data(self) -> &'static VdLiteralData {
+        match self.0.data() {
             VdTermData::Literal(data) => data,
             _ => unreachable!(),
         }
@@ -65,25 +64,12 @@ impl VdLiteral {
 }
 
 fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
-    let data = literal.data(db);
+    let data = literal.data();
     let menu = vd_ty_menu(db);
     match data {
-        VdLiteralData::NaturalNumber(_) => menu.nat,
-        VdLiteralData::NegativeInteger(_) => todo!(),
+        VdLiteralData::Nat128(_) => menu.nat,
+        VdLiteralData::Int128(_) => menu.int,
         VdLiteralData::Float(_) => menu.rat,
         VdLiteralData::SpecialConstant(special_constant) => todo!(),
-    }
-}
-
-impl VdLiteralData {
-    pub fn as_str(&self) -> &str {
-        match self {
-            VdLiteralData::NaturalNumber(n) => n,
-            VdLiteralData::NegativeInteger(n) => n,
-            VdLiteralData::Float(n) => n,
-            VdLiteralData::SpecialConstant(_) => {
-                todo!()
-            }
-        }
     }
 }

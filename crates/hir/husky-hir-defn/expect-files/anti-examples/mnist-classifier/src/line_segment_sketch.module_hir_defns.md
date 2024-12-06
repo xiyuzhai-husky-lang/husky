@@ -1709,23 +1709,11 @@
                                                 function_ident: `LineSegment`,
                                                 arguments: [
                                                     HirEagerHtmlArgumentExpr {
-                                                        property_ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 122,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        property_ident: `start`,
                                                         expr: 1,
                                                     },
                                                     HirEagerHtmlArgumentExpr {
-                                                        property_ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 123,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        property_ident: `end`,
                                                         expr: 3,
                                                     },
                                                 ],
@@ -7393,13 +7381,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {

@@ -2,7 +2,10 @@ use crate::*;
 use convert_case::{Case, Casing};
 
 pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
-    let _attr = attr;
+    let attr = match syn::parse::<MemoAttr>(attr) {
+        Ok(attr) => attr,
+        Err(err) => return err.into_compile_error().into(),
+    };
     let input = parse_macro_input!(item as ItemFn);
     let vis = input.vis;
     let sig = input.sig;
@@ -63,21 +66,60 @@ pub(crate) fn memo(attr: TokenStream, item: TokenStream) -> TokenStream {
         _ => quote!(::eterned::memo::jar::Jar<(#(#arg_tys),*), #ret_type>),
     };
 
-    let output = quote! {
-        #[allow(non_camel_case_types)]
-        struct #fn_name {}
+    let output = if attr.return_ref {
+        quote! {
+                #[allow(non_camel_case_types)]
+                struct #fn_name {}
 
-        impl ::eterned::memo::IsMemo for #fn_name {
-            type Jar = #jar_ty;
+            impl ::eterned::memo::IsMemo for #fn_name {
+                type Jar = #jar_ty;
+            }
+
+            #vis fn #fn_name<'db>(#(#args,)* db: &'db ::eterned::db::EternerDb) -> &'db #ret_type  {
+                fn #inner_fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> #ret_type #body
+
+                db.memo_jar::<#fn_name>().get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
+            }
         }
+    } else {
+        quote! {
+                #[allow(non_camel_case_types)]
+                struct #fn_name {}
 
-        #vis fn #fn_name<'db>(#(#args,)* db: &'db ::eterned::db::EternerDb) -> &'db #ret_type  {
-            fn #inner_fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> #ret_type #body
+            impl ::eterned::memo::IsMemo for #fn_name {
+                type Jar = #jar_ty;
+            }
 
-            let __jar = db.memo_jar::<#fn_name>();
-            __jar.get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
+
+            #vis fn #fn_name<'db>(#(#args,)* db: &'db ::eterned::db::EternerDb) -> #ret_type {
+                fn #inner_fn_name(#(#args,)* db: &::eterned::db::EternerDb) -> #ret_type #body
+
+                *db.memo_jar::<#fn_name>().get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
+            }
         }
     };
 
     output.into()
+}
+
+#[derive(Default)]
+struct MemoAttr {
+    return_ref: bool,
+}
+
+impl syn::parse::Parse for MemoAttr {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        use syn::ext::IdentExt;
+
+        let mut slf = Self::default();
+        while !input.is_empty() {
+            let ident: syn::Ident = syn::Ident::parse_any(input)?;
+            if ident == "return_ref" {
+                slf.return_ref = true;
+            } else {
+                todo!()
+            }
+        }
+        Ok(slf)
+    }
 }

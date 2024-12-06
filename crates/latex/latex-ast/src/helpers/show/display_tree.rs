@@ -271,7 +271,7 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
         let db = self.db();
         let (value, children) = match argument.data() {
             LxRootCommandArgumentData::Name(lx_name_token_idx, name) => {
-                (name.data(db).to_string(), vec![])
+                (name.data().to_string(), vec![])
             }
         };
         DisplayTree::new(value, children)

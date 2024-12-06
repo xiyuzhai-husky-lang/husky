@@ -1,5 +1,15 @@
 [
     JarPackageSummary {
+        name: "husky-coword",
+        dependencies: [],
+    },
+    JarPackageSummary {
+        name: "husky-vfs",
+        dependencies: [
+            "husky-coword",
+        ],
+    },
+    JarPackageSummary {
         name: "husky-ast",
         dependencies: [
             "husky-coword",
@@ -14,21 +24,11 @@
         ],
     },
     JarPackageSummary {
-        name: "husky-coword",
-        dependencies: [],
-    },
-    JarPackageSummary {
         name: "husky-entity-path",
         dependencies: [
             "husky-coword",
             "husky-vfs",
             "husky-vfs",
-        ],
-    },
-    JarPackageSummary {
-        name: "husky-vfs",
-        dependencies: [
-            "husky-coword",
         ],
     },
     JarPackageSummary {

@@ -1307,13 +1307,7 @@
                                                 function_ident: `Contour`,
                                                 arguments: [
                                                     HirEagerHtmlArgumentExpr {
-                                                        property_ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 68,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        property_ident: `points`,
                                                         expr: 1,
                                                     },
                                                 ],
@@ -4920,13 +4914,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {
@@ -9062,13 +9050,7 @@
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
-                                                for_loop_variable_ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
+                                                for_loop_variable_ident: `i`,
                                                 for_loop_variable_ty_path: I32,
                                                 range: HirEagerForBetweenRange {
                                                     initial_boundary: HirEagerForBetweenLoopBoundary {

@@ -7,7 +7,6 @@ use crate::{
 #[derive(Default)]
 pub(crate) struct DB;
 
-// todo, ask Geng Teng for help
 #[cfg(target_os = "linux")]
 #[test]
 fn watcher_works() {

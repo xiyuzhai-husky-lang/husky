@@ -15,7 +15,7 @@ pub enum FileContent {
 
 impl File {
     pub fn text(self, db: &::salsa::Db) -> VfsResult<Option<&str>> {
-        self.content(db).text(self.path(db).data(db))
+        self.content(db).text(self.path(db).data())
     }
 }
 
@@ -61,7 +61,7 @@ impl File {
         self,
         db: &'db mut Db,
     ) -> VfsResult<salsa::setter::Setter<'db, File, FileContent>> {
-        let path = self.path(db).data(db);
+        let path = self.path(db).data();
         let durability = db.calc_durability(path)?;
         let (__jar, __runtime) = db.jar_mut();
         let __ingredients =

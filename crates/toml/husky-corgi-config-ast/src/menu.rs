@@ -1,17 +1,17 @@
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfigAstMenu {
-    registry_coword: Coword,
-    path_coword: Coword,
+    registry_coword: BaseCoword,
+    path_coword: BaseCoword,
 }
 
 impl CorgiConfigAstMenu {
     fn new(db: &::salsa::Db) -> Self {
-        let registry_coword = Coword::from_ref(db, "registry");
-        let path_coword = Coword::from_ref(db, "path");
+        let registry_coword = BaseCoword::from_ref("registry", db);
+        let path_coword = BaseCoword::from_ref("path", db);
         Self {
             registry_coword,
             path_coword,
@@ -20,11 +20,11 @@ impl CorgiConfigAstMenu {
 }
 
 impl CorgiConfigAstMenu {
-    pub(crate) fn registry_coword(&self) -> Coword {
+    pub(crate) fn registry_coword(&self) -> BaseCoword {
         self.registry_coword
     }
 
-    pub(crate) fn path_coword(&self) -> Coword {
+    pub(crate) fn path_coword(&self) -> BaseCoword {
         self.path_coword
     }
 }
@@ -39,6 +39,6 @@ fn corgi_config_ast_menu_works() {
     let db = DB::default();
     let db = &*db;
     let menu = corgi_config_ast_menu(db);
-    assert_eq!(menu.registry_coword().data(db), "registry");
-    assert_eq!(menu.path_coword().data(db), "path");
+    assert_eq!(menu.registry_coword().data(), "registry");
+    assert_eq!(menu.path_coword().data(), "path");
 }

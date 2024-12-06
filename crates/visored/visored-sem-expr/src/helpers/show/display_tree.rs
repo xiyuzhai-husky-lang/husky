@@ -97,44 +97,42 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
                 .token_idx_range_offset_range(token_idx_range),
         };
         let source = &self.input[offset_range];
-        let value = self
-            .db
-            .with_attached(|| match *self.expr_arena[expr].data() {
-                VdSemExprData::Literal {
-                    token_idx_range,
-                    literal,
-                } => format!("{:?} expr.literal", source),
-                VdSemExprData::Letter { letter, .. } => format!("{:?} expr.letter", source),
-                VdSemExprData::BaseOpr { opr } => format!("{:?} expr.base_opr", source),
-                VdSemExprData::Binary {
-                    lopd, opr, ropd, ..
-                } => format!("{:?} expr.binary", source),
-                VdSemExprData::Prefix { opr, opd, .. } => format!("{:?} expr.prefix", source),
-                VdSemExprData::Suffix { opd, opr, .. } => format!("{:?} expr.suffix", source),
-                VdSemExprData::FoldingSeparatedList { .. } => {
-                    format!("{:?} expr.folding_separated_list", source)
-                }
-                VdSemExprData::ChainingSeparatedList { .. } => {
-                    format!("{:?} expr.chaining_separated_list", source)
-                }
-                VdSemExprData::Attach { .. } => format!("{:?} expr.attach", source),
-                VdSemExprData::UniadicChain => format!("{:?} expr.uniadic_chain", source),
-                VdSemExprData::VariadicChain => format!("{:?} expr.variadic_chain", source),
-                VdSemExprData::UniadicArray => format!("{:?} expr.uniadic_array", source),
-                VdSemExprData::VariadicArray => format!("{:?} expr.variadic_array", source),
-                VdSemExprData::LxDelimited { .. } => format!("{:?} expr.latex_delimited", source),
-                VdSemExprData::Delimited {
-                    left_delimiter,
-                    item,
-                    right_delimiter,
-                } => format!("{:?} delimited", source),
-                VdSemExprData::Frac {
-                    numerator,
-                    denominator,
-                    ..
-                } => format!("{:?} fraction", source),
-                VdSemExprData::Sqrt { radicand, .. } => format!("{:?} sqrt", source),
-            });
+        let value = match *self.expr_arena[expr].data() {
+            VdSemExprData::Literal {
+                token_idx_range,
+                literal,
+            } => format!("{:?} expr.literal", source),
+            VdSemExprData::Letter { letter, .. } => format!("{:?} expr.letter", source),
+            VdSemExprData::BaseOpr { opr } => format!("{:?} expr.base_opr", source),
+            VdSemExprData::Binary {
+                lopd, opr, ropd, ..
+            } => format!("{:?} expr.binary", source),
+            VdSemExprData::Prefix { opr, opd, .. } => format!("{:?} expr.prefix", source),
+            VdSemExprData::Suffix { opd, opr, .. } => format!("{:?} expr.suffix", source),
+            VdSemExprData::FoldingSeparatedList { .. } => {
+                format!("{:?} expr.folding_separated_list", source)
+            }
+            VdSemExprData::ChainingSeparatedList { .. } => {
+                format!("{:?} expr.chaining_separated_list", source)
+            }
+            VdSemExprData::Attach { .. } => format!("{:?} expr.attach", source),
+            VdSemExprData::UniadicChain => format!("{:?} expr.uniadic_chain", source),
+            VdSemExprData::VariadicChain => format!("{:?} expr.variadic_chain", source),
+            VdSemExprData::UniadicArray => format!("{:?} expr.uniadic_array", source),
+            VdSemExprData::VariadicArray => format!("{:?} expr.variadic_array", source),
+            VdSemExprData::LxDelimited { .. } => format!("{:?} expr.latex_delimited", source),
+            VdSemExprData::Delimited {
+                left_delimiter,
+                item,
+                right_delimiter,
+            } => format!("{:?} delimited", source),
+            VdSemExprData::Frac {
+                numerator,
+                denominator,
+                ..
+            } => format!("{:?} fraction", source),
+            VdSemExprData::Sqrt { radicand, .. } => format!("{:?} sqrt", source),
+        };
         DisplayTree::new(
             value,
             self.render_exprs(self.expr_arena[expr].data().children()),
@@ -162,17 +160,15 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         let stmt_range = self.stmt_range_map[stmt];
         let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
         let source = &self.input[offset_range];
-        let value = self
-            .db
-            .with_attached(|| match *self.stmt_arena[stmt].data() {
-                VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
-                VdSemStmtData::Environment {
-                    environment_signature,
-                    stmts,
-                    begin_command_token_idx,
-                    end_rcurl_token_idx,
-                } => format!("{:?} stmt.block", source),
-            });
+        let value = match *self.stmt_arena[stmt].data() {
+            VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
+            VdSemStmtData::Environment {
+                environment_signature,
+                stmts,
+                begin_command_token_idx,
+                end_rcurl_token_idx,
+            } => format!("{:?} stmt.block", source),
+        };
         DisplayTree::new(
             value,
             self.render_stmt_children(self.stmt_arena[stmt].data().children()),
@@ -195,13 +191,11 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(sentence_range);
         let source = &self.input[offset_range];
-        let value = self
-            .db
-            .with_attached(|| match self.sentence_arena[sentence] {
-                VdSemSentenceData::Clauses { clauses, end } => {
-                    format!("{:?} sentence.clauses", source)
-                }
-            });
+        let value = match self.sentence_arena[sentence] {
+            VdSemSentenceData::Clauses { clauses, end } => {
+                format!("{:?} sentence.clauses", source)
+            }
+        };
         DisplayTree::new(
             value,
             self.render_sentence_children(self.sentence_arena[sentence].children()),
@@ -223,13 +217,13 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(clause_range);
         let source = &self.input[offset_range];
-        let value = self.db.with_attached(|| match self.clause_arena[clause] {
+        let value = match self.clause_arena[clause] {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSemClauseData::Assume { .. } => format!("{:?} clause.assume", source),
             VdSemClauseData::Then { .. } => format!("{:?} clause.then", source),
             VdSemClauseData::Todo(lx_rose_token_idx) => format!("{:?} clause.todo", source),
-        });
+        };
         DisplayTree::new(
             value,
             self.render_clause_children(self.clause_arena[clause].children()),
@@ -258,12 +252,10 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
-        let value = self
-            .db
-            .with_attached(|| match *self.division_arena[division].data() {
-                VdSemDivisionData::Stmts { stmts } => format!("{:?} division.stmts", source),
-                VdSemDivisionData::Divisions { .. } => format!("{:?} division.divisions", source),
-            });
+        let value = match *self.division_arena[division].data() {
+            VdSemDivisionData::Stmts { stmts } => format!("{:?} division.stmts", source),
+            VdSemDivisionData::Divisions { .. } => format!("{:?} division.divisions", source),
+        };
         DisplayTree::new(
             value,
             self.division_arena[division]

@@ -1,8 +1,5 @@
 use crate::*;
-use eterned::{
-    db::{attached_interner_db, EternerDb},
-    memo,
-};
+use eterned::{db::EternerDb, memo};
 use lean_coword::ident::LnIdent;
 use smallvec::{smallvec, SmallVec, ToSmallVec};
 
@@ -11,7 +8,7 @@ pub struct LnNamespace {
     pub data: LnNamespaceData,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum LnNamespaceData {
     Root,
     Child(LnNamespace, LnIdent),
@@ -37,8 +34,8 @@ impl LnNamespace {
         )
     }
 
-    pub fn ident(self, db: &EternerDb) -> Option<LnIdent> {
-        match *self.data(db) {
+    pub fn ident(self) -> Option<LnIdent> {
+        match self.data() {
             LnNamespaceData::Root => None,
             LnNamespaceData::Child(_, ident) => Some(ident),
         }
@@ -62,22 +59,27 @@ impl LnNamespace {
 
 impl std::fmt::Debug for LnNamespace {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let db = attached_interner_db().ok_or(std::fmt::Error)?;
-        write!(
-            f,
-            "LnNamespace(`{}`)",
-            self.all_idents(db)
-                .iter()
-                .map(|id| id.data(db))
-                .collect::<Vec<_>>()
-                .join(".")
-        )
+        f.write_str("LnNamespace(")?;
+        self.show_aux(f)?;
+        f.write_str(")")
     }
 }
 
-#[memo]
+impl LnNamespace {
+    pub fn show_aux(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.data() {
+            LnNamespaceData::Root => Ok(()),
+            LnNamespaceData::Child(parent, ident) => {
+                parent.show_aux(f)?;
+                write!(f, "{}", ident.data())
+            }
+        }
+    }
+}
+
+#[memo(return_ref)]
 fn ln_namespace_all_idents(namespace: LnNamespace, db: &EternerDb) -> SmallVec<[LnIdent; 4]> {
-    match *namespace.data(db) {
+    match namespace.data() {
         LnNamespaceData::Root => smallvec![],
         LnNamespaceData::Child(parent, ident) => {
             let mut ids = parent.all_idents(db).to_smallvec();
@@ -96,7 +98,7 @@ fn ln_namespace_all_idents_works() {
         let all_idents: Vec<&str> = namespace
             .all_idents(db)
             .iter()
-            .map(|&ident| ident.data(db))
+            .map(|&ident| ident.data())
             .collect();
         assert_eq!(&all_idents as &[_], idents);
     }
@@ -115,7 +117,7 @@ fn ln_namespace_relative_idents_works() {
         assert_eq!(
             slf.relative_idents(other, db)
                 .iter()
-                .map(|&ident| ident.data(db))
+                .map(|&ident| ident.data())
                 .collect::<Vec<_>>(),
             relative_idents,
             "slf: {slf:?}, other: {other:?}",
