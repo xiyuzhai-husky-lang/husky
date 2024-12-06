@@ -3812,7 +3812,56 @@
     PackageSummary {
         name: "visored-pipeline",
         relative_path: "crates/visored/visored-pipeline",
-        dependencies: [],
+        dependencies: [
+            "any-llm",
+            "rayon",
+            "serde",
+            "serde_yaml",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "any-llm",
+        relative_path: "crates/llms/any-llm",
+        dependencies: [
+            "openai",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "openai",
+        relative_path: "crates/llms/openai",
+        dependencies: [
+            "husky-print-utils",
+            "lazy_static",
+            "llm-cache",
+            "llm-cap",
+            "openai-api-rs",
+            "serde",
+            "thiserror",
+            "tokio",
+        ],
+    },
+    PackageSummary {
+        name: "llm-cache",
+        relative_path: "crates/llms/llm-cache",
+        dependencies: [
+            "chrono",
+            "dashmap",
+            "serde",
+            "serde_json",
+            "thiserror",
+            "tempfile",
+        ],
+    },
+    PackageSummary {
+        name: "llm-cap",
+        relative_path: "crates/llms/llm-cap",
+        dependencies: [
+            "husky-print-utils",
+            "lazy_static",
+            "thiserror",
+        ],
     },
     PackageSummary {
         name: "husky-aarch64",
@@ -4185,41 +4234,6 @@
         name: "lisp-prelude",
         relative_path: "crates/lisp/lisp-prelude",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "llm-cache",
-        relative_path: "crates/llms/llm-cache",
-        dependencies: [
-            "chrono",
-            "dashmap",
-            "serde",
-            "serde_json",
-            "thiserror",
-            "tempfile",
-        ],
-    },
-    PackageSummary {
-        name: "llm-cap",
-        relative_path: "crates/llms/llm-cap",
-        dependencies: [
-            "husky-print-utils",
-            "lazy_static",
-            "thiserror",
-        ],
-    },
-    PackageSummary {
-        name: "openai",
-        relative_path: "crates/llms/openai",
-        dependencies: [
-            "husky-print-utils",
-            "lazy_static",
-            "llm-cache",
-            "llm-cap",
-            "openai-api-rs",
-            "serde",
-            "thiserror",
-            "tokio",
-        ],
     },
     PackageSummary {
         name: "mayuri-core",
