@@ -12,6 +12,15 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+chrono = { workspace = true, features = ["serde"] }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+# llms
+llms-lock.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
 
 [lints]
 workspace = true
