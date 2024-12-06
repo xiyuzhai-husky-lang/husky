@@ -98,6 +98,19 @@ where
         if let Some(index) = self.indices.get(&request) {
             return Ok(self.entries.read().unwrap()[*index].response.clone());
         }
+        let response = self.get_or_call_aux(request, f)?;
+        self.save()?;
+        Ok(response)
+    }
+
+    fn get_or_call_aux<E>(
+        &self,
+        request: Request,
+        f: impl FnOnce(&Request) -> Result<Response, E>,
+    ) -> Result<Response, E>
+    where
+        E: From<LlmCacheError>,
+    {
         let mut entries = self.entries.write().unwrap();
         // check again in case another thread has added the entry
         if let Some(index) = self.indices.get(&request) {
@@ -106,12 +119,11 @@ where
         let response = f(&request)?;
         entries.push(LlmCacheEntry::new(request.clone(), response.clone()));
         self.indices.insert(request, entries.len() - 1);
-        self.save()?;
         Ok(response)
     }
 
     fn save(&self) -> LlmCacheResult<()> {
-        let contents = serde_json::to_string(&self.entries).unwrap();
+        let contents = serde_json::to_string_pretty(&self.entries).unwrap();
         fs::write(&self.path, contents).map_err(|e| LlmCacheError::Io(self.path.clone(), e))
     }
 }
