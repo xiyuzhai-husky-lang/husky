@@ -13,14 +13,14 @@ pub(crate) enum OaiRequestExt {
 }
 
 impl OaiRequest {
-    pub fn ext(self) -> OaiRequestExt {
+    pub fn ext(&self) -> OaiRequestExt {
         match self {
             OaiRequest::ChatCompletion(s) => {
                 OaiRequestExt::ChatCompletion(ChatCompletionRequest::new(
                     "gpt-4o".to_string(),
                     vec![ChatCompletionMessage {
                         role: MessageRole::user,
-                        content: Content::Text(s),
+                        content: Content::Text(s.clone()),
                         name: None,
                         tool_calls: None,
                         tool_call_id: None,

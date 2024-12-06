@@ -87,11 +87,14 @@ where
     Response: Serialize + for<'de> Deserialize<'de> + Clone,
 {
     /// locking is handled here
-    pub fn get_or_call(
+    pub fn get_or_call<E>(
         &self,
         request: Request,
-        f: impl FnOnce(&Request) -> Response,
-    ) -> LlmCacheResult<Response> {
+        f: impl FnOnce(&Request) -> Result<Response, E>,
+    ) -> Result<Response, E>
+    where
+        E: From<LlmCacheError>,
+    {
         if let Some(index) = self.indices.get(&request) {
             return Ok(self.entries.read().unwrap()[*index].response.clone());
         }
@@ -100,7 +103,7 @@ where
         if let Some(index) = self.indices.get(&request) {
             return Ok(entries[*index].response.clone());
         }
-        let response = f(&request);
+        let response = f(&request)?;
         entries.push(LlmCacheEntry::new(request.clone(), response.clone()));
         self.indices.insert(request, entries.len() - 1);
         Ok(response)
@@ -118,7 +121,10 @@ where
     Response: Serialize + for<'de> Deserialize<'de> + Clone,
 {
     fn drop(&mut self) {
-        self.save().unwrap();
+        match self.save() {
+            Ok(_) => (),
+            Err(e) => eprintln!("Error saving cache: {}", e),
+        }
         fs::remove_file(lock_file_path(&self.path)).unwrap();
     }
 }
