@@ -22,7 +22,7 @@ fn llm_cache_file_save_works() {
     let path = temp_dir.path().join("cache.json");
     {
         let cache = LlmCache::<String, String>::new(path.clone()).unwrap();
-        cache.get_or_call("request".to_string(), |_| "response".to_string());
+        cache.get_or_call::<LlmCacheError>("request".to_string(), |_| Ok("response".to_string()));
     }
     {
         let cache = LlmCache::<String, String>::new(path.clone()).unwrap();
