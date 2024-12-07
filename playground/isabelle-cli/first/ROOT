@@ -1,0 +1,4 @@
+session My_Session = HOL +
+  options [document = pdf, document_output = "output"]
+  theories [document = false]
+    First 
