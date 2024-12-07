@@ -8,7 +8,14 @@ namespace Example5
 syntax "obvious" : tactic
 
 macro_rules
-  | `(tactic| obvious) => `(tactic| congr; first | (nlinarith) | ((apply div_nonneg; repeat obvious)) | (field_simp; ring) | linarith )
+  | `(tactic| obvious) => `(tactic|
+      congr;
+      first
+      | (nlinarith)
+      | ((apply div_nonneg; repeat obvious))
+      | (field_simp; ring)
+      | linarith
+    )
 
 theorem am_gm_special (x : ℝ) (h : x > 0) : x + 1/x ≥ 2 := by
   have h1 : x + 1/x - 2 = (x^2 + 1 - 2*x)/x := by obvious
