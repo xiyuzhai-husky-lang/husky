@@ -11,4 +11,4 @@ elab "mymy" : tactic => do
 
 example : 2 + 2 = 4 := by
   mymy
-  rfl
+  first | rfl
