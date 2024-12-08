@@ -10,7 +10,9 @@ use crate::expr::LnMirExprIdx;
 pub enum LnMirTacticData {
     Intro {},
     Obtain,
-    Exact,
+    Exact {
+        term: LnMirExprIdx,
+    },
     Cases,
     Rcases,
     Have {
