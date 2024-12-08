@@ -31,11 +31,14 @@ example (x: ℤ) (y: ℕ) : (x^y+1)^2 = (x^(2*y) + 2*x^y + 1) := by ring
 example (x: ℤ) :
   (x+1)^2 = x^2 + 2*x + 1 := by ring
 
+-- this will fail
 example (x: ℤ) :
-  ((((x+1)^100+1)^100+1)^100 + 1)^2 = (((x+1)^100+1)^100+1)^200 + 2*(((x+1)^100+1)^100+1)^100 + 1 := by ring
+  ((((x+1)^100+1)^100+1)^100 + 1)^2 = (((x+1)^100+1)^100+1)^200 + 2*(((x+1)^100+1)^100+1)^100 + 1 := by
+  -- ring
+  sorry
 
-variables {R : Type*} [CommRing R]
-variables (x y z : R)
+variable {R : Type*} [CommRing R]
+variable (x y z : R)
 
 example : ((x + y + z)^3 - 3*(x + y)*(y + z)*(z + x))^2 - (x^3 + y^3 + z^3)^2 = 0 :=
 by ring

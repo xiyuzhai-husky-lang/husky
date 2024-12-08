@@ -34,10 +34,11 @@ Let $x\in\mathbb{R}$.
             └─ group: `division`
               └─ def: `h`
                 └─ tactics
+                  └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
             def h := by
-        "#]],
+              exact ()"#]],
     );
     t(
         r#"\documentclass{article}
@@ -51,10 +52,12 @@ Let $x\in\mathbb{R}$.
               └─ group: `division`
                 └─ def: `h`
                   └─ tactics
+                    └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
             namespace Section1
             def h := by
+              exact ()
             end Section1
         "#]],
     );
@@ -76,10 +79,12 @@ Let $y\in\mathbb{R}$.
               ├─ group: `division`
               │ └─ def: `h`
               │   └─ tactics
+              │     └─ tactic: `Exact { term: 0 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     └─ tactics
+              │       └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -88,9 +93,11 @@ Let $y\in\mathbb{R}$.
         &expect![[r#"
             namespace Section1
             def h := by
+              exact ()
 
             namespace Subsection1
             def h := by
+              exact ()
             end Subsection1
 
             namespace Subsection2
@@ -143,11 +150,10 @@ fn latex_shorts_to_lean_works() {
             filestem
         ))]
         .assert_eq(&format!(
-            r#"import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
-import Mathlib.Data.Real.Basic
-import Mathlib.Data.Real.Sqrt
-import Mathlib.Tactic.Explode
+            r#"import Mathlib
+import Obvious
+
+open Obvious
 
 {}"#,
             tracker.show_fmt(db)

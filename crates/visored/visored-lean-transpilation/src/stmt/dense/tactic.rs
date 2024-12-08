@@ -18,7 +18,10 @@ impl VdTranspileToLean<Dense, LnMirTacticIdxRange> for VdMirStmtIdxRange {
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
-    fn build_ln_tactic_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> Vec<LnMirTacticData> {
+    pub(crate) fn build_ln_tactic_from_vd_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+    ) -> Vec<LnMirTacticData> {
         let db = self.db();
         match self.stmt_arena()[stmt] {
             VdMirStmtData::Block { stmts, ref meta } => match meta {
