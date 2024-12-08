@@ -307,12 +307,12 @@ impl<'a> LnMirExprFormatter<'a> {
 
     pub fn format_tactics(&mut self, tactics: LnMirTacticIdxRange) {
         for tactic in tactics {
+            self.make_sure_new_line();
             self.format_tactic(tactic);
         }
     }
 
     fn format_tactic(&mut self, tactic: LnMirTacticIdx) {
-        self.make_sure_new_line();
         let tactic_arena = self.tactic_arena;
         match tactic_arena[tactic] {
             LnMirTacticData::Intro { .. } => todo!(),
@@ -363,13 +363,15 @@ impl<'a> LnMirExprFormatter<'a> {
     }
 
     fn indented(&mut self, f: impl FnOnce(&mut Self)) {
+        self.make_sure_new_line();
         self.indent_level += 1;
         f(self);
         self.indent_level -= 1;
     }
 
     fn make_sure_new_line(&mut self) {
-        if !self.result.is_empty() && !self.result.ends_with('\n') {
+        let result_trimmed = self.result.trim_end_matches(' ');
+        if !result_trimmed.is_empty() && !result_trimmed.ends_with('\n') {
             self.result += "\n";
         }
         for _ in 0..(self.indent_level * self.config.spaces_per_indent) {
@@ -378,6 +380,7 @@ impl<'a> LnMirExprFormatter<'a> {
     }
 
     fn make_sure_new_paragraph(&mut self) {
+        debug_assert_eq!(self.indent_level, 0);
         self.make_sure_new_line();
         if !self.result.is_empty() {
             let last_line = self.result.lines().last().unwrap_or("");

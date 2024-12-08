@@ -40,7 +40,9 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 └─ tactics
         "#]],
-        &expect!["def h := by"],
+        &expect![[r#"
+            def h := by
+        "#]],
     );
     t(
         r#"\begin{example}\end{example}"#,
@@ -49,7 +51,9 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 └─ tactics
         "#]],
-        &expect!["def h := by"],
+        &expect![[r#"
+            def h := by
+        "#]],
     );
     t(
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
@@ -58,7 +62,9 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 └─ tactics
         "#]],
-        &expect!["def h := by"],
+        &expect![[r#"
+            def h := by
+        "#]],
     );
     t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,

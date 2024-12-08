@@ -35,7 +35,9 @@ Let $x\in\mathbb{R}$.
               └─ def: `h`
                 └─ tactics
         "#]],
-        &expect!["def h := by"],
+        &expect![[r#"
+            def h := by
+        "#]],
     );
     t(
         r#"\documentclass{article}
