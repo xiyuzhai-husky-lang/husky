@@ -4,6 +4,7 @@ use lean_entity_path::namespace::LnNamespace;
 use visored_entity_path::module::{VdModulePath, VdModulePathData};
 use visored_prelude::division::VdDivisionLevel;
 
+// TODO: use scheme
 #[eterned::memo]
 pub fn vd_module_path_to_ln_namespace(
     module_path: VdModulePath,

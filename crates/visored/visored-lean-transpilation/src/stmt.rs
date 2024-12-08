@@ -25,10 +25,3 @@ where
         Scheme::transpile_vd_stmts_to_ln_defns(builder, self)
     }
 }
-
-pub trait IsSchemeForTranspileVdStmtsToLnDefns: Sized {
-    fn transpile_vd_stmts_to_ln_defns(
-        builder: &mut VdLeanTranspilationBuilder<Self>,
-        stmts: VdMirStmtIdxRange,
-    ) -> LnItemDefnIdxRange;
-}

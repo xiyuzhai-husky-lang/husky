@@ -11,6 +11,7 @@ use crate::tests::*;
 // TODO: ad hoc
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum LnItemPath {
+    Unit,
     Nat,
     Rat,
     Int,
@@ -29,6 +30,7 @@ pub enum LnItemPath {
 
 // TODO: maybe use menu?
 impl LnItemPath {
+    pub const UNIT: Self = Self::Unit;
     pub const NAT: Self = Self::Nat;
     pub const RAT: Self = Self::Rat;
     pub const INT: Self = Self::Int;
@@ -48,6 +50,7 @@ impl LnItemPath {
 impl LnItemPath {
     pub fn show(&self, db: &EternerDb) -> String {
         match self {
+            LnItemPath::Unit => "()".to_string(),
             LnItemPath::Nat => "ℕ".to_string(),
             LnItemPath::Rat => "ℚ".to_string(),
             LnItemPath::Int => "ℤ".to_string(),

@@ -164,6 +164,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
             VdSemStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,

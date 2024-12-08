@@ -18,6 +18,10 @@ impl std::fmt::Debug for LnTerm {
 }
 
 impl LnTerm {
+    pub const UNIT: Self = LnTerm::ItemPath(LnItemPath::UNIT);
+}
+
+impl LnTerm {
     pub fn new_item_path(path: LnItemPath) -> Self {
         LnTerm::ItemPath(path)
     }
