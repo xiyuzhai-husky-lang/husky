@@ -13,11 +13,11 @@ macro_rules
       | (congr;(try (
         first
         | simp; done
-        | (nlinarith)
-        | (apply sq_nonneg; repeat obvious)
-        | ((apply div_nonneg; repeat obvious))
-        | ((try field_simp); ring)
-        | linarith)))
-    )
+        | (nlinarith; done)
+        | (apply sq_nonneg; repeat obvious; done)
+        | (apply div_nonneg; repeat obvious; done)
+        | ((try field_simp); ring; done)
+        | linarith; done))
+    ))
 
 end Obvious
