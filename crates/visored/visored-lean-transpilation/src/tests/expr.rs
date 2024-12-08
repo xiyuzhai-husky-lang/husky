@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    helpers::tracker::VdLeanTranspilationTracker, scheme::VdLeanTranspilationSparseScheme,
+    helpers::tracker::VdLeanTranspilationTracker, scheme::sparse::VdLeanTranspilationSparseScheme,
 };
 use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};

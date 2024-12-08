@@ -22,10 +22,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                 joined_signature,
             ),
             _ => {
-                let symbol = self.mangle_hypothesis();
+                let ident = self.mangle_hypothesis();
                 LnItemDefnData::Def {
-                    symbol,
-                    ty: formula.to_lean(self),
+                    ident,
+                    parameters: vec![],
+                    ty: Some(formula.to_lean(self)),
                     // TODO: better??
                     body: self.sorry(),
                 }
@@ -41,7 +42,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnItemDefnData {
         debug_assert!(followers.len() >= 2);
-        let symbol = self.mangle_hypothesis();
+        let ident = self.mangle_hypothesis();
         // TODO: Maye use to_lean trait method?
         let tactic_data = LnMirTacticData::Calc {
             leader: leader.to_lean(self),
@@ -62,11 +63,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         let ultimate_prop_function = VdMirFunc::NormalBaseSeparator(joined_signature).to_lean(self);
         let ultimate_prop_arguments = [leader, followers.last().unwrap().1].to_lean(self);
         LnItemDefnData::Def {
-            symbol,
-            ty: self.alloc_expr(LnMirExprData::Application {
+            ident,
+            parameters: vec![],
+            ty: Some(self.alloc_expr(LnMirExprData::Application {
                 function: ultimate_prop_function,
                 arguments: ultimate_prop_arguments,
-            }),
+            })),
             body: self.alloc_tactics([tactic_data]).into(),
         }
     }

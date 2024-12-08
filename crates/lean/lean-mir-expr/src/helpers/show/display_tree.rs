@@ -59,6 +59,7 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
                 arguments,
             } => format!("application"),
             LnMirExprData::Sorry => "sorry".to_string(),
+            LnMirExprData::By { tactics } => format!("by"),
         };
         let children = self.expr_arena[expr].children();
         DisplayTree::new(
@@ -87,7 +88,12 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
                 format!("variable: `{}`", symbol.data())
             }
             LnItemDefnData::Group { defns, ref meta } => format!("group: `{}`", meta),
-            LnItemDefnData::Def { symbol, ty, body } => format!("def: `{}`", symbol.data()),
+            LnItemDefnData::Def {
+                ident: symbol,
+                ref parameters,
+                ty,
+                body,
+            } => format!("def: `{}`", symbol.data()),
         };
         let children = defn_data.children();
         DisplayTree::new(

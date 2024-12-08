@@ -186,6 +186,16 @@ impl<'a> LnMirExprFormatter<'a> {
                 }
             }
             LnMirExprData::Sorry => self.write_word("sorry"),
+            LnMirExprData::By { tactics } => {
+                self.result += "by";
+                debug_assert!(!tactics.is_empty());
+                if tactics.len() == 1 {
+                    self.result += " ";
+                    self.format_tactic(tactics.first().unwrap());
+                } else {
+                    self.indented(|slf| slf.format_tactics(tactics));
+                }
+            }
         }
     }
 
@@ -247,9 +257,22 @@ impl<'a> LnMirExprFormatter<'a> {
                     write!(self.result, "end {}\n", ident.data());
                 }
             }
-            LnItemDefnData::Def { symbol, ty, body } => {
-                write!(self.result, "def {} : ", symbol.data());
-                self.format_expr_ext(ty);
+            LnItemDefnData::Def {
+                ident,
+                ref parameters,
+                ty,
+                body,
+            } => {
+                write!(self.result, "def {}", ident.data());
+                for param in parameters {
+                    write!(self.result, "({} : ", param.ident.data());
+                    self.format_expr_ext(param.ty);
+                    write!(self.result, ")");
+                }
+                if let Some(ty) = ty {
+                    write!(self.result, " : ");
+                    self.format_expr_ext(ty);
+                }
                 self.result += " := ";
                 self.format_def_body(body);
             }
@@ -297,7 +320,16 @@ impl<'a> LnMirExprFormatter<'a> {
             LnMirTacticData::Exact { .. } => todo!(),
             LnMirTacticData::Cases { .. } => todo!(),
             LnMirTacticData::Rcases { .. } => todo!(),
-            LnMirTacticData::Have { .. } => todo!(),
+            LnMirTacticData::Have {
+                ident,
+                ty,
+                construction,
+            } => {
+                write!(self.result, "have {} : ", ident.data());
+                self.format_expr_ext(ty);
+                write!(self.result, " := ");
+                self.format_expr_ext(construction);
+            }
             LnMirTacticData::Show { .. } => todo!(),
             LnMirTacticData::Calc {
                 leader,
@@ -321,7 +353,9 @@ impl<'a> LnMirExprFormatter<'a> {
                     }
                 });
             }
-            LnMirTacticData::Obvious => todo!(),
+            LnMirTacticData::Obvious => {
+                self.result += "obvious";
+            }
             LnMirTacticData::Sorry => {
                 self.result += "sorry";
             }
