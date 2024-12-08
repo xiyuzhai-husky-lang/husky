@@ -118,6 +118,17 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 })
                 .collect(),
         };
-        vec![tactic_data]
+        let ultimate_prop_function = VdMirFunc::NormalBaseSeparator(joined_signature).to_lean(self);
+        let ultimate_prop_arguments = [leader, followers.last().unwrap().1].to_lean(self);
+        let tactics = self.alloc_tactics(vec![tactic_data]);
+        let construction = self.alloc_expr(LnMirExprData::By { tactics });
+        vec![LnMirTacticData::Have {
+            ident,
+            ty: self.alloc_expr(LnMirExprData::Application {
+                function: ultimate_prop_function,
+                arguments: ultimate_prop_arguments,
+            }),
+            construction,
+        }]
     }
 }

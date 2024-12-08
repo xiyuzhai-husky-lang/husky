@@ -16,13 +16,13 @@ def h4 := by
   exact ()
 
 def h6 := by
-  calc
+  have h7 : 1 = 1 := by calc
       1 = 1 := sorry
     _ = 1 := sorry
-  calc
+  have h8 : 1 < 2 := by calc
       1 = 1 := sorry
     _ < 2 := sorry
-  calc
+  have h9 : 1.0 ≤ 1 := by calc
       1.0 ≤ 1 := sorry
     _ ≤ 1 := sorry
   exact ()
