@@ -4174,6 +4174,7 @@
         dependencies: [
             "enum-class",
             "eterned",
+            "husky-print-utils",
             "husky-tree-utils",
             "idx-arena",
             "lazy_static",
