@@ -33,11 +33,12 @@ Let $x\in\mathbb{R}$.
         &expect![[r#"
             └─ group: `division`
               └─ def: `h`
+                ├─ item path: `ℝ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 0 }`
+                  └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
-            def h := by
+            def h(x : ℝ) := by
               exact ()"#]],
     );
     t(
@@ -51,12 +52,13 @@ Let $x\in\mathbb{R}$.
             └─ group: `division`
               └─ group: `division`
                 └─ def: `h`
+                  ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 0 }`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Section1
-            def h := by
+            def h(x : ℝ) := by
               exact ()
             end Section1
         "#]],
@@ -78,13 +80,15 @@ Let $y\in\mathbb{R}$.
             └─ group: `division`
               ├─ group: `division`
               │ └─ def: `h`
+              │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Exact { term: 0 }`
+              │     └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
+              │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Exact { term: 1 }`
+              │       └─ tactic: `Exact { term: 3 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -92,11 +96,11 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            def h := by
+            def h(x : ℝ) := by
               exact ()
 
             namespace Subsection1
-            def h := by
+            def h(y : ℝ) := by
               exact ()
             end Subsection1
 
