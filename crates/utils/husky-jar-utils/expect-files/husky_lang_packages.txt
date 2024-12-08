@@ -3806,6 +3806,8 @@
         name: "visored-cli",
         relative_path: "crates/apps/visored-cli",
         dependencies: [
+            "clap",
+            "glob",
             "visored-pipeline",
         ],
     },
@@ -3815,15 +3817,18 @@
         dependencies: [
             "any-llm",
             "rayon",
+            "relative-path",
             "serde",
             "serde_yaml",
             "thiserror",
+            "tempfile",
         ],
     },
     PackageSummary {
         name: "any-llm",
         relative_path: "crates/llms/any-llm",
         dependencies: [
+            "husky-print-utils",
             "openai",
             "thiserror",
         ],
