@@ -32,7 +32,7 @@ use crate::{
     scheme::IsVdLeanTranspilationScheme,
 };
 
-pub struct VdLeanTranspilationBuilder<'a, S> {
+pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     db: &'a EternerDb,
     scheme: &'a S,
     lean_hir_expr_builder: LnMirExprConstructor,
@@ -50,6 +50,7 @@ pub struct VdLeanTranspilationBuilder<'a, S> {
     sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
     token_storage: &'a LxTokenStorage,
     input: &'a str,
+    cache: S::Cache,
 }
 
 impl<'a, S> WithLnNamespace for VdLeanTranspilationBuilder<'a, S>
@@ -137,6 +138,7 @@ where
             sem_division_range_map,
             token_storage,
             input,
+            cache: S::Cache::default(),
         }
     }
 
@@ -186,9 +188,9 @@ where
     }
 }
 
-impl<'db, S> VdLeanTranspilationBuilder<'db, S>
+impl<'db, Scheme> VdLeanTranspilationBuilder<'db, Scheme>
 where
-    S: IsVdLeanTranspilationScheme,
+    Scheme: IsVdLeanTranspilationScheme,
 {
     pub fn db(&self) -> &'db EternerDb {
         self.db
@@ -240,6 +242,19 @@ where
 
     pub fn sem_division_range_map(&self) -> &'db VdSemDivisionTokenIdxRangeMap {
         self.sem_division_range_map
+    }
+
+    pub fn cache(&self) -> &Scheme::Cache {
+        &self.cache
+    }
+}
+
+impl<'db, Scheme> VdLeanTranspilationBuilder<'db, Scheme>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
+    pub fn cache_mut(&mut self) -> &mut Scheme::Cache {
+        &mut self.cache
     }
 }
 

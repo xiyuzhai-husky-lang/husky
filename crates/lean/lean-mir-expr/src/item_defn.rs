@@ -17,8 +17,10 @@ pub enum LnItemDefnData {
         ty: LnMirExprIdx,
     },
     Def {
-        symbol: LnIdent,
-        ty: LnMirExprIdx,
+        ident: LnIdent,
+        parameters: Vec<LnDefParameter>,
+        // 'None' means unit type
+        ty: Option<LnMirExprIdx>,
         body: LnMirDefBody,
     },
     Group {
@@ -40,8 +42,21 @@ impl LnItemDefnData {
             LnItemDefnData::Group { defns, .. } => {
                 defns.into_iter().map(LnItemDefnChild::Defn).collect()
             }
-            LnItemDefnData::Def { symbol, ty, body } => {
-                vec![LnItemDefnChild::Expr(ty), LnItemDefnChild::DefBody(body)]
+            LnItemDefnData::Def {
+                ident,
+                ref parameters,
+                ty,
+                body,
+            } => {
+                let mut children: Vec<_> = parameters
+                    .into_iter()
+                    .map(|param| LnItemDefnChild::Expr(param.ty))
+                    .collect();
+                if let Some(ty) = ty {
+                    children.push(LnItemDefnChild::Expr(ty));
+                }
+                children.push(LnItemDefnChild::DefBody(body));
+                children
             }
         }
     }

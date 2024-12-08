@@ -8,6 +8,7 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use visored_entity_path::module::VdModulePath;
+use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
     clause::{
@@ -113,6 +114,7 @@ impl<'db> VdMirExprBuilder<'db> {
             },
             VdSemStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
@@ -120,6 +122,11 @@ impl<'db> VdMirExprBuilder<'db> {
                 stmts: stmts.to_vd_mir(self),
                 meta: VdMirBlockMeta::Environment(
                     environment_signature.path(),
+                    match resolution {
+                        VdEnvironmentGlobalResolution::Environment(vd_environment_path) => {
+                            vd_environment_path
+                        }
+                    },
                     self.sem_stmt_arena()[stmt].module_path(),
                 ),
             },
