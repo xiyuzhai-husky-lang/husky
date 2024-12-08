@@ -1,4 +1,8 @@
-use lean_mir_expr::item_defn::def::{LnDefParameter, LnMirDefBody};
+use lean_entity_path::LnItemPath;
+use lean_mir_expr::{
+    item_defn::def::{LnDefParameter, LnMirDefBody},
+    tactic::LnMirTacticData,
+};
 use lean_term::ty::LnType;
 use visored_entity_path::{environment::VdEnvironmentPath, module::VdModulePath};
 
@@ -91,11 +95,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             .into_iter()
             .map_while(|stmt| self.build_ln_parameter_from_vd_stmt(stmt))
             .collect();
+        let mut tactics: Vec<LnMirTacticData> = stmts
+            .into_iter()
+            .flat_map(|stmt| self.build_ln_tactic_from_vd_stmt(stmt))
+            .collect();
+        // ad hoc
+        tactics.push(LnMirTacticData::Exact {
+            term: self.alloc_expr(LnMirExprData::ItemPath(LnItemPath::UNIT)),
+        });
+        let tactics = self.alloc_tactics(tactics);
         LnItemDefnData::Def {
             ident,
             parameters,
             ty: None,
-            body: LnMirDefBody::Tactics(stmts.to_lean(self)),
+            body: LnMirDefBody::Tactics(tactics),
         }
     }
 
@@ -111,11 +124,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             .into_iter()
             .map_while(|stmt| self.build_ln_parameter_from_vd_stmt(stmt))
             .collect();
+        let mut tactics: Vec<LnMirTacticData> = stmts
+            .into_iter()
+            .flat_map(|stmt| self.build_ln_tactic_from_vd_stmt(stmt))
+            .collect();
+        // ad hoc
+        tactics.push(LnMirTacticData::Exact {
+            term: self.alloc_expr(LnMirExprData::ItemPath(LnItemPath::UNIT)),
+        });
+        let tactics = self.alloc_tactics(tactics);
         LnItemDefnData::Def {
             ident,
             parameters,
             ty: None,
-            body: LnMirDefBody::Tactics(stmts.to_lean(self)),
+            body: LnMirDefBody::Tactics(tactics),
         }
     }
 

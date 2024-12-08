@@ -39,10 +39,11 @@ fn basic_body_to_lean_works() {
             └─ group: `division`
               └─ def: `h`
                 └─ tactics
+                  └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
             def h := by
-        "#]],
+              exact ()"#]],
     );
     t(
         r#"\begin{example}\end{example}"#,
@@ -50,10 +51,11 @@ fn basic_body_to_lean_works() {
             └─ group: `division`
               └─ def: `h`
                 └─ tactics
+                  └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
             def h := by
-        "#]],
+              exact ()"#]],
     );
     t(
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
@@ -61,10 +63,11 @@ fn basic_body_to_lean_works() {
             └─ group: `division`
               └─ def: `h`
                 └─ tactics
+                  └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
             def h := by
-        "#]],
+              exact ()"#]],
     );
     t(
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
@@ -73,10 +76,12 @@ fn basic_body_to_lean_works() {
               └─ group: `division`
                 └─ def: `h`
                   └─ tactics
+                    └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
             namespace Section1
             def h := by
+              exact ()
             end Section1
         "#]],
     );
@@ -87,10 +92,12 @@ fn basic_body_to_lean_works() {
               ├─ group: `division`
               │ └─ def: `h`
               │   └─ tactics
+              │     └─ tactic: `Exact { term: 0 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     └─ tactics
+              │       └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -99,9 +106,11 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             namespace Section1
             def h := by
+              exact ()
 
             namespace Subsection1
             def h := by
+              exact ()
             end Subsection1
 
             namespace Subsection2

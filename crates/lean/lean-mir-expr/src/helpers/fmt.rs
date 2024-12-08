@@ -317,7 +317,10 @@ impl<'a> LnMirExprFormatter<'a> {
         match tactic_arena[tactic] {
             LnMirTacticData::Intro { .. } => todo!(),
             LnMirTacticData::Obtain { .. } => todo!(),
-            LnMirTacticData::Exact { .. } => todo!(),
+            LnMirTacticData::Exact { term } => {
+                write!(self.result, "exact ");
+                self.format_expr_ext(term);
+            }
             LnMirTacticData::Cases { .. } => todo!(),
             LnMirTacticData::Rcases { .. } => todo!(),
             LnMirTacticData::Have {
