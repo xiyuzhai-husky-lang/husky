@@ -38,11 +38,12 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             └─ group: `division`
               └─ def: `h`
+                ├─ item path: `ℕ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 0 }`
+                  └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
-            def h := by
+            def h(x : ℕ) := by
               exact ()"#]],
     );
     t(
@@ -62,11 +63,12 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             └─ group: `division`
               └─ def: `h`
+                ├─ item path: `ℝ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 0 }`
+                  └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
-            def h := by
+            def h(x : ℝ) := by
               exact ()"#]],
     );
     t(
@@ -75,12 +77,13 @@ fn basic_body_to_lean_works() {
             └─ group: `division`
               └─ group: `division`
                 └─ def: `h`
+                  ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 0 }`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Section1
-            def h := by
+            def h(x : ℝ) := by
               exact ()
             end Section1
         "#]],
@@ -91,13 +94,15 @@ fn basic_body_to_lean_works() {
             └─ group: `division`
               ├─ group: `division`
               │ └─ def: `h`
+              │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Exact { term: 0 }`
+              │     └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
+              │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Exact { term: 1 }`
+              │       └─ tactic: `Exact { term: 3 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -105,11 +110,11 @@ fn basic_body_to_lean_works() {
         "#]],
         &expect![[r#"
             namespace Section1
-            def h := by
+            def h(x : ℝ) := by
               exact ()
 
             namespace Subsection1
-            def h := by
+            def h(y : ℝ) := by
               exact ()
             end Subsection1
 
