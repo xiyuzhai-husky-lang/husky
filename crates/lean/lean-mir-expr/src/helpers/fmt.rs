@@ -292,12 +292,13 @@ impl<'a> LnMirExprFormatter<'a> {
         self.make_sure_new_line();
         let tactic_arena = self.tactic_arena;
         match tactic_arena[tactic] {
-            LnMirTacticData::Obtain => todo!(),
-            LnMirTacticData::Exact => todo!(),
-            LnMirTacticData::Cases => todo!(),
-            LnMirTacticData::Rcases => todo!(),
-            LnMirTacticData::Have => todo!(),
-            LnMirTacticData::Show => todo!(),
+            LnMirTacticData::Intro { .. } => todo!(),
+            LnMirTacticData::Obtain { .. } => todo!(),
+            LnMirTacticData::Exact { .. } => todo!(),
+            LnMirTacticData::Cases { .. } => todo!(),
+            LnMirTacticData::Rcases { .. } => todo!(),
+            LnMirTacticData::Have { .. } => todo!(),
+            LnMirTacticData::Show { .. } => todo!(),
             LnMirTacticData::Calc {
                 leader,
                 ref followers,
@@ -320,6 +321,7 @@ impl<'a> LnMirExprFormatter<'a> {
                     }
                 });
             }
+            LnMirTacticData::Obvious => todo!(),
             LnMirTacticData::Sorry => {
                 self.result += "sorry";
             }

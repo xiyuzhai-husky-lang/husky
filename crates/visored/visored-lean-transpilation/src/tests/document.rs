@@ -1,5 +1,7 @@
 use super::*;
-use crate::helpers::tracker::VdLeanTranspilationTracker;
+use crate::{
+    helpers::tracker::VdLeanTranspilationTracker, scheme::VdLeanTranspilationSparseScheme,
+};
 use eterned::db::EternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxPageInput},
@@ -23,6 +25,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         &[],
         &[],
         db,
+        &VdLeanTranspilationSparseScheme,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
@@ -149,6 +152,7 @@ fn latex_shorts_to_lean_works() {
             &[],
             &[],
             db,
+            &VdLeanTranspilationSparseScheme,
         );
         expect_file![projects_dir.join(format!(
             "ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean",

@@ -8,17 +8,24 @@ use crate::expr::LnMirExprIdx;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum LnMirTacticData {
+    Intro {},
     Obtain,
     Exact,
     Cases,
     Rcases,
-    Have,
+    Have {
+        // TODO: pattern??
+        ident: LnIdent,
+        ty: LnMirExprIdx,
+        construction: LnMirExprIdx,
+    },
     Show,
     Calc {
         leader: LnMirExprIdx,
         followers: SmallVec<[((LnBinaryOpr, LnInstantiation), LnMirExprIdx); 4]>,
     },
     Sorry,
+    Obvious,
 }
 
 pub type LnMirTacticArena = Arena<LnMirTacticData>;

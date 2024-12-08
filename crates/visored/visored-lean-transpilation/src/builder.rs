@@ -29,10 +29,12 @@ use crate::{
     dictionary::VdLeanDictionary,
     mangle::VdLeanTranspilationMangler,
     namespace::{vd_module_path_to_ln_namespace, vd_module_path_to_ln_namespace_or_inherited},
+    scheme::IsVdLeanTranspilationScheme,
 };
 
-pub struct VdLeanTranspilationBuilder<'a> {
+pub struct VdLeanTranspilationBuilder<'a, S> {
     db: &'a EternerDb,
+    scheme: &'a S,
     lean_hir_expr_builder: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
@@ -50,15 +52,22 @@ pub struct VdLeanTranspilationBuilder<'a> {
     input: &'a str,
 }
 
-impl<'a> WithLnNamespace for VdLeanTranspilationBuilder<'a> {
+impl<'a, S> WithLnNamespace for VdLeanTranspilationBuilder<'a, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprConstructor {
         &mut self.lean_hir_expr_builder
     }
 }
 
-impl<'a> VdLeanTranspilationBuilder<'a> {
+impl<'a, S> VdLeanTranspilationBuilder<'a, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     pub fn new0(
         db: &'a EternerDb,
+        scheme: &'a S,
         input: &'a str,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
         source_map: &'a VdMirSourceMap,
@@ -74,6 +83,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     ) -> Self {
         Self::new(
             db,
+            scheme,
             input,
             vd_mir_expr_region_data.expr_arena(),
             vd_mir_expr_region_data.stmt_arena(),
@@ -93,6 +103,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
 
     pub fn new(
         db: &'a EternerDb,
+        scheme: &'a S,
         input: &'a str,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
@@ -110,6 +121,7 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     ) -> Self {
         Self {
             db,
+            scheme,
             lean_hir_expr_builder: LnMirExprConstructor::new(db),
             expr_arena,
             stmt_arena,
@@ -174,7 +186,10 @@ impl<'a> VdLeanTranspilationBuilder<'a> {
     }
 }
 
-impl<'db> VdLeanTranspilationBuilder<'db> {
+impl<'db, S> VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     pub fn db(&self) -> &'db EternerDb {
         self.db
     }
@@ -228,7 +243,10 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
     }
 }
 
-impl<'db> Deref for VdLeanTranspilationBuilder<'db> {
+impl<'db, S> Deref for VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     type Target = LnMirExprConstructor;
 
     fn deref(&self) -> &Self::Target {
@@ -236,13 +254,19 @@ impl<'db> Deref for VdLeanTranspilationBuilder<'db> {
     }
 }
 
-impl<'db> DerefMut for VdLeanTranspilationBuilder<'db> {
+impl<'db, S> DerefMut for VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.lean_hir_expr_builder
     }
 }
 
-impl<'db> VdLeanTranspilationBuilder<'db> {
+impl<'db, S> VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     pub fn finish(
         self,
     ) -> (

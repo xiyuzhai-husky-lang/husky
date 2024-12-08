@@ -7,7 +7,10 @@ use visored_mir_expr::expr::VdMirExprIdxRange;
 use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
-impl<'db> VdLeanTranspilationBuilder<'db> {
+impl<'db, S> VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     pub(super) fn build_folding_separated_list(
         &mut self,
         leader: VdMirExprIdx,
