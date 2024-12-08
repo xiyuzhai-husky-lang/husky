@@ -1,5 +1,7 @@
 use super::*;
-use crate::helpers::tracker::VdLeanTranspilationTracker;
+use crate::{
+    helpers::tracker::VdLeanTranspilationTracker, scheme::VdLeanTranspilationSparseScheme,
+};
 use eterned::db::EternerDb;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxPageInput},
@@ -23,6 +25,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         &[],
         &[],
         db,
+        &VdLeanTranspilationSparseScheme,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));

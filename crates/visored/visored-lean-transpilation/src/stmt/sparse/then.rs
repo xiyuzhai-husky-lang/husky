@@ -8,7 +8,7 @@ use visored_mir_expr::expr::application::VdMirFunc;
 use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
-impl<'a> VdLeanTranspilationBuilder<'a> {
+impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     pub(super) fn build_then_stmt(&mut self, formula: VdMirExprIdx) -> LnItemDefnData {
         match self.expr_arena()[formula] {
             VdMirExprData::ChainingSeparatedList {
