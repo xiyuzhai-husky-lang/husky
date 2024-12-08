@@ -45,11 +45,7 @@ def h24(x : ℝ) := by
   exact ()
 
 def h29(x : ℝ)(h30 : x > 0) := by
-  have h31 : x + 1 - 2 * (√ x) = ((√ x) - 1) ^ 2 := by
-    ring_nf
-    sorry
-    -- simp [← Real.sq_sqrt]
-    -- linarith
+  have h31 : x + 1 - 2 * (√ x) = ((√ x) - 1) ^ 2 := by obvious
   have h32 : ((√ x) - 1) ^ 2 ≥ 0 := by obvious
   have h33 : x + 1 - 2 * (√ x) ≥ 0 := by obvious
   have h34 : x + 1 ≥ 2 * (√ x) := by obvious

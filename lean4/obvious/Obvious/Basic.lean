@@ -10,6 +10,13 @@ macro_rules
   | `(tactic| obvious) => `(tactic|
       first
       | ring; done
+      | (
+        ring_nf
+        rw [Real.sq_sqrt]
+        ring
+        repeat obvious
+        done
+      )
       | (congr;(try (
         first
         | simp; done
