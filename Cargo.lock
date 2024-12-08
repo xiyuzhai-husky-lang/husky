@@ -8548,6 +8548,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "eterned",
+ "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
  "lazy_static 1.5.0",
