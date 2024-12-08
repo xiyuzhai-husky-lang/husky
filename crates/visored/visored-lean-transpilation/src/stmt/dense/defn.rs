@@ -91,10 +91,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
 
     fn build_ln_def_from_vd_paragraph(&mut self, stmts: VdMirStmtIdxRange) -> LnItemDefnData {
         let ident = self.mangle_hypothesis();
-        let parameters = stmts
-            .into_iter()
-            .map_while(|stmt| self.build_ln_parameter_from_vd_stmt(stmt))
-            .collect();
+        let mut parameters: Vec<LnDefParameter> = vec![];
+        for stmt in stmts {
+            match self.build_ln_parameter_from_vd_stmt(stmt, &mut parameters) {
+                std::ops::ControlFlow::Continue(()) => (),
+                std::ops::ControlFlow::Break(()) => break,
+            }
+        }
         let mut tactics: Vec<LnMirTacticData> = stmts
             .into_iter()
             .flat_map(|stmt| self.build_ln_tactic_from_vd_stmt(stmt))
@@ -120,10 +123,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     ) -> LnItemDefnData {
         // ad hoc
         let ident = self.mangle_hypothesis();
-        let parameters = stmts
-            .into_iter()
-            .map_while(|stmt| self.build_ln_parameter_from_vd_stmt(stmt))
-            .collect();
+        let mut parameters: Vec<LnDefParameter> = vec![];
+        for stmt in stmts {
+            match self.build_ln_parameter_from_vd_stmt(stmt, &mut parameters) {
+                std::ops::ControlFlow::Continue(()) => (),
+                std::ops::ControlFlow::Break(()) => break,
+            }
+        }
         let mut tactics: Vec<LnMirTacticData> = stmts
             .into_iter()
             .flat_map(|stmt| self.build_ln_tactic_from_vd_stmt(stmt))
@@ -141,21 +147,37 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         }
     }
 
-    fn build_ln_parameter_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> Option<LnDefParameter> {
+    fn build_ln_parameter_from_vd_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        parameters: &mut Vec<LnDefParameter>,
+    ) -> std::ops::ControlFlow<()> {
         let stmt_arena = self.stmt_arena();
         let stmt = &stmt_arena[stmt];
         match stmt {
-            VdMirStmtData::LetPlaceholder { ref pattern, ty } => Some(LnDefParameter {
-                ident: match *pattern {
-                    VdMirPattern::Letter {
-                        letter,
-                        symbol_local_defn,
-                    } => self.mangle_symbol(symbol_local_defn),
-                    VdMirPattern::Assumed => todo!(),
-                },
-                ty: ty.to_lean(self),
-            }),
-            _ => None,
+            VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
+                parameters.push(LnDefParameter {
+                    ident: match *pattern {
+                        VdMirPattern::Letter {
+                            letter,
+                            symbol_local_defn,
+                        } => self.mangle_symbol(symbol_local_defn),
+                        VdMirPattern::Assumed => self.mangle_hypothesis(),
+                    },
+                    ty: ty.to_lean(self),
+                });
+                std::ops::ControlFlow::Continue(())
+            }
+            VdMirStmtData::Block { stmts, ref meta } => {
+                for stmt in stmts {
+                    match self.build_ln_parameter_from_vd_stmt(stmt, parameters) {
+                        std::ops::ControlFlow::Continue(()) => (),
+                        std::ops::ControlFlow::Break(()) => return std::ops::ControlFlow::Break(()),
+                    }
+                }
+                std::ops::ControlFlow::Continue(())
+            }
+            _ => std::ops::ControlFlow::Break(()),
         }
     }
 }

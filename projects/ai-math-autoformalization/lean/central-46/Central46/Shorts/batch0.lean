@@ -7,11 +7,11 @@ def h := by
   have h1 : 1 + 1 = 2 := by obvious
   exact ()
 
-def h2 := by
+def h2(x : ℝ) := by
   have h3 : x ^ 2 ≥ 0 := by obvious
   exact ()
 
-def h4 := by
+def h4(x : ℝ) := by
   have h5 : x ^ 2 + 1 ≥ 2 * x := by obvious
   exact ()
 

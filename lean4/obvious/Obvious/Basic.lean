@@ -10,8 +10,9 @@ macro_rules
   | `(tactic| obvious) => `(tactic|
       congr;
       try first
-      | simp
+      | simp; done
       | (nlinarith)
+      | (apply sq_nonneg; repeat obvious)
       | ((apply div_nonneg; repeat obvious))
       | (field_simp; ring)
       | linarith
