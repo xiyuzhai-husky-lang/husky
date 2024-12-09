@@ -51,7 +51,7 @@ fn vd_pipeline_config_from_yaml_file_works() {
         &[
             VdPipelineConfig {
                 cache_dir: default_cache_dir(),
-                output_name: "standard".to_string(),
+                output_name: "baseline".to_string(),
             },
             VdPipelineConfig {
                 cache_dir: default_cache_dir(),
