@@ -361,7 +361,7 @@ fn transpile_hir_eager_expr_to_rust(
                         },
                         _ => todo!(),
                     }
-                    match path.ident(db).unwrap().data(db) {
+                    match path.ident(db).unwrap().data() {
                         // ad hoc, should use path menu instead or refinement
                         "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
                             builder.visual_synchrotron_argument()

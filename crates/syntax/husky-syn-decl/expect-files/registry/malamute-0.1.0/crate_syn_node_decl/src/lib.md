@@ -27,13 +27,7 @@ Some(
                         narrative: DefaultConstExcludes(
                             LibCrateSynDeclDefaultConstExcludes {
                                 default_const_excludes_ident_token: IdentRegionalToken {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `default_const_excludes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),

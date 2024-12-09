@@ -2,7 +2,7 @@ use husky_unicode_symbols::greek::is_greek;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+#[derive(PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Label {
     ident: Ident,
     kind: LabelKind,
@@ -56,11 +56,11 @@ impl Label {
 /// # getters
 
 impl Label {
-    pub fn data<'a>(self, db: &'a ::salsa::Db) -> &str {
-        self.ident.data(db)
+    pub fn data(&self) -> &str {
+        self.ident.data()
     }
 
-    pub fn coword(self) -> Coword {
+    pub fn coword(self) -> BaseCoword {
         self.ident.coword()
     }
 
@@ -77,12 +77,18 @@ impl Label {
     }
 }
 
+impl std::fmt::Debug for Label {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`'{}`", &self.ident.data()))
+    }
+}
+
 impl salsa::DebugWithDb for Label {
     fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("`'{}`", &self.ident.data(db)))
+        f.write_fmt(format_args!("`'{}`", &self.ident.data()))
     }
 }

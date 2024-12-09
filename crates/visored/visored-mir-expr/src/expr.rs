@@ -38,6 +38,7 @@ pub enum VdMirExprData {
     },
     FoldingSeparatedList {
         leader: VdMirExprIdx,
+        /// TODO: should we use VdBaseSeparatorSignature instead?
         followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]>,
     },
     ChainingSeparatedList {

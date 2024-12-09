@@ -2,19 +2,19 @@ use crate::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-#[salsa::as_id(jar = CowordJar)]
+#[derive(PartialEq, Eq, Hash, Clone, Copy)]
+#[salsa::as_id_with_db(jar = CowordJar)]
 #[salsa::deref_id]
-pub struct Ident(Coword);
+pub struct Ident(BaseCoword);
 
 impl Ident {
-    pub fn coword(self) -> Coword {
+    pub fn coword(self) -> BaseCoword {
         self.0
     }
 
     pub fn from_owned(db: &::salsa::Db, data: String) -> Option<Self> {
         if is_str_valid_ident(&data) {
-            Some(Self(Coword::from_owned(db, data)))
+            Some(Self(BaseCoword::new(data, db)))
         } else {
             None
         }
@@ -22,14 +22,14 @@ impl Ident {
 
     pub fn from_ref(db: &::salsa::Db, data: &str) -> Option<Self> {
         if is_str_valid_ident(data) {
-            Some(Self(Coword::from_ref(db, data)))
+            Some(Self(BaseCoword::from_ref(data, db)))
         } else {
             None
         }
     }
 
-    pub fn case(self, db: &::salsa::Db) -> IdentCase {
-        let data = self.data(db);
+    pub fn case(self) -> IdentCase {
+        let data = self.data();
         let mut chars = data.chars();
         let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
         // ad hoc
@@ -113,20 +113,26 @@ pub fn is_char_valid_ident_nonfirst_char(c: char) -> bool {
     c.is_alphanumeric() || c == '_'
 }
 
+impl std::fmt::Debug for Ident {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.data()))
+    }
+}
+
 impl DebugWithDb for Ident {
     fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data(db)))
+        f.write_fmt(format_args!("`{}`", self.data()))
     }
 }
 
 /// only use in this module
 #[salsa::tracked]
 pub fn ident_to_name(db: &::salsa::Db, ident: Ident) -> Kebab {
-    let ident_data = ident.data(db);
+    let ident_data = ident.data();
     if !ident_data.contains("_") {
         return unsafe { Kebab::from_coword_unchecked(ident.0) };
     } else {

@@ -65,6 +65,11 @@ pub fn as_id(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_attribute]
+pub fn as_id_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
+    as_id::as_id_with_db(args, input)
+}
+
+#[proc_macro_attribute]
 pub fn deref_id(args: TokenStream, input: TokenStream) -> TokenStream {
     deref_id::deref_id(args, input)
 }

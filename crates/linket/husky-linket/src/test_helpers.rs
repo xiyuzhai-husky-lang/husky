@@ -73,7 +73,7 @@ impl IsVfsTestUnit<Jar> for TestLinket {
         // match path.data(db).connection() {
         //     MajorItemConnection::Connected => stem.join(format!(
         //         "{}.{}",
-        //         path.ident(db).data(db),
+        //         path.ident(db).data(),
         //         config.expect_file_extension().str()
         //     )),
         //     MajorItemConnection::Disconnected(_) => todo!(),

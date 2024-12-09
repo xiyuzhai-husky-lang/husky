@@ -1,7 +1,7 @@
 Problem:
 For any $x \in \mathbb{R}$, prove that $x^2 + 1 \ge 2 x$.
 
-LaTex Proof:
+LaTeX Proof:
 Let $x\in\mathbb{R}$. Then $x^2 + 1 - 2 x = {(x - 1)}^2$. Then ${(x - 1)}^2 \ge 0$. Then $x^2 + 1 \ge 2 x$.
 
 Lean Proof:

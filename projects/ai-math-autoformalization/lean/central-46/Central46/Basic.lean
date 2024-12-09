@@ -64,5 +64,3 @@ theorem inequality_example (x : ℝ) : x^2 + 1 ≥ 2 * x := by
       linarith
 
 open Mathlib.Explode
-
-#explode inequality_example

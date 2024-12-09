@@ -23,7 +23,7 @@ pub struct VdOprMenu {
     pub r#in: VdBaseSeparator,
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_opr_menu(db: &EternerDb) -> VdOprMenu {
     VdOprMenu {
         pos: VdBasePrefixOpr::POS,

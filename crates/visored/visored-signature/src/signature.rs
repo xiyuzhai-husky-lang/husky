@@ -64,12 +64,12 @@ impl VdSignature {
                     "exprs[0].position_range = {}",
                     exprs[0].position_range
                 );
-                VdBaseBinaryOprSignature {
+                VdBaseBinaryOprSignature::new(
                     instantiation,
-                    lopd_ty: VdType::from_lp_csv_expr(&args[0], db),
-                    ropd_ty: VdType::from_lp_csv_expr(&args[1], db),
-                    expr_ty: VdType::from_lp_csv_expr(&args[2], db),
-                }
+                    VdType::from_lp_csv_expr(&args[0], db),
+                    VdType::from_lp_csv_expr(&args[1], db),
+                    VdType::from_lp_csv_expr(&args[2], db),
+                )
                 .into()
             }
             "base_folding" => {

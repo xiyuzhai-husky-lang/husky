@@ -71,6 +71,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ace50bade8e6234aa140d9a2f552bbee1db4d353f69b8217bc503490fc1a9f26"
 
 [[package]]
+name = "base-coword"
+version = "0.1.0"
+dependencies = [
+ "eterned",
+ "lazy_static 1.5.0",
+]
+
+[[package]]
 name = "base64"
 version = "0.21.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -169,14 +177,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec182b0ca2f35d8fc196cf3404988fd8b8c739a4d270ff118a398feb0cbec1ca"
 dependencies = [
  "unicode-segmentation",
-]
-
-[[package]]
-name = "coword"
-version = "0.1.0"
-dependencies = [
- "eterned",
- "lazy_static 1.5.0",
 ]
 
 [[package]]
@@ -516,6 +516,7 @@ dependencies = [
 name = "husky-coword"
 version = "0.1.0"
 dependencies = [
+ "base-coword",
  "husky-print-utils",
  "husky-unicode-symbols",
  "once_cell",
@@ -806,7 +807,7 @@ dependencies = [
 name = "latex-ast"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "enum-class",
  "eterned",
  "husky-coword",
@@ -857,7 +858,7 @@ dependencies = [
 name = "latex-command"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "eterned",
  "husky-coword",
  "latex-math-letter",
@@ -872,7 +873,7 @@ dependencies = [
 name = "latex-environment"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "eterned",
  "husky-coword",
  "latex-prelude",
@@ -911,7 +912,7 @@ version = "0.1.0"
 name = "latex-token"
 version = "0.1.0"
 dependencies = [
- "coword",
+ "base-coword",
  "enum-class",
  "eterned",
  "husky-print-utils",

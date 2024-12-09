@@ -352,6 +352,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             }
             VdSemStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,

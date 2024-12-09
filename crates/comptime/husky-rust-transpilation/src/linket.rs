@@ -49,7 +49,7 @@ pub(crate) fn package_linkets_transpilation(
 use husky_core::*;
 use {}::{{*, ugly::*}};
 "#,
-            setup.rust_data(db).unwrap().task_dependency_ident.data(db),
+            setup.rust_data(db).unwrap().task_dependency_ident.data(),
         )),
         None,
     );
@@ -403,7 +403,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
         builder.delimited(RustDelimiter::Angle, |builder| {
             match self_ty {
                 LinType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
-                    Left(PreludeTypePath::VEC) => match ident.data(db) {
+                    Left(PreludeTypePath::VEC) => match ident.data() {
                         "first" | "last" => {
                             // `first` or `last` are methods from slice,
                             // so we write down Rust's slice type `[T]` instead

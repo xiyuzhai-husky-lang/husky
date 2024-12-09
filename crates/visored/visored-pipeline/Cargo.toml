@@ -1,0 +1,27 @@
+[package]
+name = "visored-pipeline"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+rayon.workspace = true
+relative-path = { workspace = true, features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml.workspace = true
+thiserror.workspace = true
+# llms
+any-llm.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

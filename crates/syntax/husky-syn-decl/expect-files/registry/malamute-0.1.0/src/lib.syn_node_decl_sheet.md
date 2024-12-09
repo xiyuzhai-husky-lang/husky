@@ -1253,13 +1253,7 @@ SynNodeDeclSheet {
                                             (
                                                 VariadicParenateParameter {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 41,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `f`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             18,
                                                         ),

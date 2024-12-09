@@ -116,6 +116,8 @@ Then `husky-sem-expr::jar::SemExprJar` and `crate::jar::SemExprJar` have differe
 #[derive(Debug, PartialEq, Eq, Clone, Copy, enum_index::IsEnumIndex)]
 pub enum JarIndex {
     Jar,
+    // abstractions
+    BaseVfsJar,
     // comptime
     RustTranspilationJar,
     // devtime
