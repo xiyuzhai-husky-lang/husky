@@ -6,9 +6,9 @@ use crate::{
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
 };
 use visored_sem_expr::{
-    clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef, expr::VdSemExprArenaRef,
-    phrase::VdSemPhraseArenaRef, region::VdSemExprRegionData, sentence::VdSemSentenceArenaRef,
-    stmt::VdSemStmtArenaRef, symbol::local_defn::storage::VdSemSymbolLocalDefnStorage,
+    block::VdSemBlockArenaRef, clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef,
+    expr::VdSemExprArenaRef, phrase::VdSemPhraseArenaRef, region::VdSemExprRegionData,
+    sentence::VdSemSentenceArenaRef, symbol::local_defn::storage::VdSemSymbolLocalDefnStorage,
 };
 
 pub struct VdMirExprBuilder<'db> {
@@ -16,7 +16,7 @@ pub struct VdMirExprBuilder<'db> {
     sem_phrase_arena: VdSemPhraseArenaRef<'db>,
     sem_clause_arena: VdSemClauseArenaRef<'db>,
     sem_sentence_arena: VdSemSentenceArenaRef<'db>,
-    sem_stmt_arena: VdSemStmtArenaRef<'db>,
+    sem_stmt_arena: VdSemBlockArenaRef<'db>,
     sem_division_arena: VdSemDivisionArenaRef<'db>,
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
@@ -42,7 +42,7 @@ impl<'db> VdMirExprBuilder<'db> {
         sem_phrase_arena: VdSemPhraseArenaRef<'db>,
         sem_clause_arena: VdSemClauseArenaRef<'db>,
         sem_sentence_arena: VdSemSentenceArenaRef<'db>,
-        sem_stmt_arena: VdSemStmtArenaRef<'db>,
+        sem_stmt_arena: VdSemBlockArenaRef<'db>,
         sem_division_arena: VdSemDivisionArenaRef<'db>,
         sem_symbol_local_defn_storage: &VdSemSymbolLocalDefnStorage,
     ) -> Self {
@@ -80,7 +80,7 @@ impl<'db> VdMirExprBuilder<'db> {
         self.sem_sentence_arena
     }
 
-    pub fn sem_stmt_arena(&self) -> VdSemStmtArenaRef<'db> {
+    pub fn sem_stmt_arena(&self) -> VdSemBlockArenaRef<'db> {
         self.sem_stmt_arena
     }
 

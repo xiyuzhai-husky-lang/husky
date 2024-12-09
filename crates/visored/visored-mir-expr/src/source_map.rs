@@ -3,8 +3,8 @@ use crate::{
     stmt::{VdMirStmtIdx, VdMirStmtIdxRange, VdMirStmtOrderedMap, VdMirStmtSource},
 };
 use visored_sem_expr::{
-    clause::VdSemClauseIdx, division::VdSemDivisionIdx, expr::VdSemExprIdx,
-    sentence::VdSemSentenceIdx, stmt::VdSemStmtIdx,
+    block::VdSemBlockIdx, clause::VdSemClauseIdx, division::VdSemDivisionIdx, expr::VdSemExprIdx,
+    sentence::VdSemSentenceIdx,
 };
 
 #[derive(Default, Debug, PartialEq, Eq)]

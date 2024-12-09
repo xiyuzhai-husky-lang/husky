@@ -23,6 +23,10 @@ use visored_term::{
 };
 
 use crate::{
+    block::{
+        VdSemBlockArena, VdSemBlockArenaRef, VdSemBlockData, VdSemBlockEntry, VdSemBlockIdx,
+        VdSemBlockIdxRange,
+    },
     clause::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
@@ -40,10 +44,6 @@ use crate::{
     sentence::{
         VdSemSentenceArena, VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceIdx,
         VdSemSentenceIdxRange,
-    },
-    stmt::{
-        VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtEntry, VdSemStmtIdx,
-        VdSemStmtIdxRange,
     },
     symbol::local_defn::{
         storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData, VdSemSymbolLocalDefnIdx,
@@ -73,7 +73,7 @@ pub(crate) struct VdSemExprBuilder<'a> {
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
     sentence_arena: VdSemSentenceArena,
-    stmt_arena: VdSemStmtArena,
+    stmt_arena: VdSemBlockArena,
     division_arena: VdSemDivisionArena,
     /// only needs to keep track of syn to sem expr map because of possible repetition
     syn_to_sem_expr_map: VdSynExprMap<VdSemExprIdx>,
@@ -125,7 +125,7 @@ impl<'a> VdSemExprBuilder<'a> {
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
             sentence_arena: VdSemSentenceArena::default(),
-            stmt_arena: VdSemStmtArena::default(),
+            stmt_arena: VdSemBlockArena::default(),
             division_arena: VdSemDivisionArena::default(),
             syn_to_sem_expr_map: VdSynExprMap::new2(syn_expr_arena),
         };
@@ -203,7 +203,7 @@ impl<'a> VdSemExprBuilder<'a> {
         self.sentence_arena.as_arena_ref()
     }
 
-    pub(crate) fn stmt_arena(&self) -> VdSemStmtArenaRef {
+    pub(crate) fn stmt_arena(&self) -> VdSemBlockArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 
@@ -273,7 +273,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.sentence_arena.alloc_batch(sentences)
     }
 
-    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemStmtEntry>) -> VdSemStmtIdxRange {
+    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemBlockEntry>) -> VdSemBlockIdxRange {
         self.stmt_arena.alloc_batch(stmts)
     }
 
@@ -319,7 +319,7 @@ impl<'db> VdSemExprBuilder<'db> {
         VdSemPhraseArena,
         VdSemClauseArena,
         VdSemSentenceArena,
-        VdSemStmtArena,
+        VdSemBlockArena,
         VdSemDivisionArena,
         VdSemSymbolLocalDefnStorage,
     ) {

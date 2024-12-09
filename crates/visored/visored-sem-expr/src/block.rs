@@ -14,37 +14,37 @@ use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_syn_expr::block::{VdSynBlockData, VdSynBlockIdx};
 
-pub struct VdSemStmtEntry {
-    data: VdSemStmtData,
+pub struct VdSemBlockEntry {
+    data: VdSemBlockData,
     module_path: VdModulePath,
 }
 
-pub enum VdSemStmtData {
+pub enum VdSemBlockData {
     Paragraph(VdSemSentenceIdxRange),
     Environment {
         begin_command_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
         resolution: VdEnvironmentGlobalResolution,
-        stmts: VdSemStmtIdxRange,
+        stmts: VdSemBlockIdxRange,
         end_rcurl_token_idx: LxRoseTokenIdx,
     },
 }
 
-pub type VdSemStmtArena = Arena<VdSemStmtEntry>;
-pub type VdSemStmtArenaRef<'a> = ArenaRef<'a, VdSemStmtEntry>;
-pub type VdSemStmtIdx = ArenaIdx<VdSemStmtEntry>;
-pub type VdSemStmtIdxRange = ArenaIdxRange<VdSemStmtEntry>;
-pub type VdSemStmtMap<T> = ArenaMap<VdSemStmtEntry, T>;
-pub type VdSemStmtOrderedMap<T> = ArenaOrderedMap<VdSemStmtEntry, T>;
+pub type VdSemBlockArena = Arena<VdSemBlockEntry>;
+pub type VdSemBlockArenaRef<'a> = ArenaRef<'a, VdSemBlockEntry>;
+pub type VdSemBlockIdx = ArenaIdx<VdSemBlockEntry>;
+pub type VdSemBlockIdxRange = ArenaIdxRange<VdSemBlockEntry>;
+pub type VdSemBlockMap<T> = ArenaMap<VdSemBlockEntry, T>;
+pub type VdSemBlockOrderedMap<T> = ArenaOrderedMap<VdSemBlockEntry, T>;
 
-impl VdSemStmtEntry {
-    pub fn new(data: VdSemStmtData, module_path: VdModulePath) -> Self {
+impl VdSemBlockEntry {
+    pub fn new(data: VdSemBlockData, module_path: VdModulePath) -> Self {
         Self { data, module_path }
     }
 }
 
-impl VdSemStmtEntry {
-    pub fn data(&self) -> &VdSemStmtData {
+impl VdSemBlockEntry {
+    pub fn data(&self) -> &VdSemBlockData {
         &self.data
     }
 
@@ -53,23 +53,23 @@ impl VdSemStmtEntry {
     }
 }
 
-impl ToVdSem<VdSemStmtIdxRange> for VdSynBlockIdxRange {
+impl ToVdSem<VdSemBlockIdxRange> for VdSynBlockIdxRange {
     // there is no need to cache because stmts will be created in one go
-    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemStmtIdxRange {
-        let mut stmts: Vec<VdSemStmtEntry> = vec![];
+    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemBlockIdxRange {
+        let mut stmts: Vec<VdSemBlockEntry> = vec![];
         for stmt in self {
             let module_path = builder.stmt_entity_tree_node_map()[stmt].module_path();
-            stmts.push(VdSemStmtEntry::new(builder.build_stmt(stmt), module_path));
+            stmts.push(VdSemBlockEntry::new(builder.build_stmt(stmt), module_path));
         }
         builder.alloc_stmts(stmts)
     }
 }
 
 impl<'a> VdSemExprBuilder<'a> {
-    pub(crate) fn build_stmt(&mut self, stmt: VdSynBlockIdx) -> VdSemStmtData {
+    pub(crate) fn build_stmt(&mut self, stmt: VdSynBlockIdx) -> VdSemBlockData {
         match self.syn_stmt_arena()[stmt] {
             VdSynBlockData::Paragraph(sentences) => {
-                VdSemStmtData::Paragraph(sentences.to_vd_sem(self))
+                VdSemBlockData::Paragraph(sentences.to_vd_sem(self))
             }
             VdSynBlockData::Environment {
                 environment_signature,
@@ -77,7 +77,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
-            } => VdSemStmtData::Environment {
+            } => VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts: stmts.to_vd_sem(self),
@@ -88,25 +88,28 @@ impl<'a> VdSemExprBuilder<'a> {
     }
 }
 
-pub enum VdSemStmtChild {
+pub enum VdSemBlockChild {
     Sentence(VdSemSentenceIdx),
-    Stmt(VdSemStmtIdx),
+    Stmt(VdSemBlockIdx),
 }
 
-impl VdSemStmtData {
-    pub fn children(&self) -> Vec<VdSemStmtChild> {
+impl VdSemBlockData {
+    pub fn children(&self) -> Vec<VdSemBlockChild> {
         match *self {
-            VdSemStmtData::Paragraph(sentences) => sentences
+            VdSemBlockData::Paragraph(sentences) => sentences
                 .into_iter()
-                .map(|s| VdSemStmtChild::Sentence(s))
+                .map(|s| VdSemBlockChild::Sentence(s))
                 .collect(),
-            VdSemStmtData::Environment {
+            VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
-            } => stmts.into_iter().map(|s| VdSemStmtChild::Stmt(s)).collect(),
+            } => stmts
+                .into_iter()
+                .map(|s| VdSemBlockChild::Stmt(s))
+                .collect(),
         }
     }
 }
