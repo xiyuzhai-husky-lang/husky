@@ -2,8 +2,6 @@ import Mathlib
 
 namespace Obvious
 
-def hello := "world"
-
 syntax "attack" : tactic
 
 macro_rules
@@ -28,5 +26,3 @@ macro "obvious": tactic =>`(tactic|
 )
 
 end Obvious
-
-declare_syntax_cat index
