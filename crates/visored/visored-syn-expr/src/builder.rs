@@ -3,6 +3,10 @@ mod debug;
 use std::iter::Peekable;
 
 use crate::{
+    block::VdSynBlockMap, division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode,
+};
+use crate::{
+    block::{VdSynBlockArena, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange},
     clause::{VdSynClauseArena, VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRange},
     division::{VdSynDivisionArena, VdSynDivisionData, VdSynDivisionIdxRange},
     entity_tree::build_entity_tree_with,
@@ -12,13 +16,11 @@ use crate::{
     range::*,
     region::VdSynExprRegionData,
     sentence::{VdSynSentenceArena, VdSynSentenceData, VdSynSentenceIdx, VdSynSentenceIdxRange},
-    stmt::{VdSynStmtArena, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
     symbol::{
         build_all_symbol_defns_and_resolutions_with, builder::VdSynSymbolBuilder,
         local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable,
     },
 };
-use crate::{division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode, stmt::VdSynStmtMap};
 use either::*;
 use eterned::db::EternerDb;
 use latex_ast::{
@@ -50,7 +52,7 @@ pub struct VdSynExprBuilder<'db> {
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
     sentence_arena: VdSynSentenceArena,
-    stmt_arena: VdSynStmtArena,
+    stmt_arena: VdSynBlockArena,
     division_arena: VdSynDivisionArena,
 }
 
@@ -186,11 +188,11 @@ impl<'db> VdSynExprBuilder<'db> {
         self.sentence_arena.alloc_batch(data)
     }
 
-    pub(crate) fn alloc_stmt(&mut self, data: VdSynStmtData) -> VdSynStmtIdx {
+    pub(crate) fn alloc_stmt(&mut self, data: VdSynBlockData) -> VdSynBlockIdx {
         self.stmt_arena.alloc_one(data)
     }
 
-    pub(crate) fn alloc_stmts(&mut self, data: Vec<VdSynStmtData>) -> VdSynStmtIdxRange {
+    pub(crate) fn alloc_stmts(&mut self, data: Vec<VdSynBlockData>) -> VdSynBlockIdxRange {
         self.stmt_arena.alloc_batch(data)
     }
 
@@ -231,7 +233,7 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynPhraseArena,
         VdSynClauseArena,
         VdSynSentenceArena,
-        VdSynStmtArena,
+        VdSynBlockArena,
         VdSynDivisionArena,
     ) {
         (
@@ -252,16 +254,16 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynPhraseArena,
         VdSynClauseArena,
         VdSynSentenceArena,
-        VdSynStmtArena,
+        VdSynBlockArena,
         VdSynDivisionArena,
         VdSynExprTokenIdxRangeMap,
         VdSynPhraseTokenIdxRangeMap,
         VdSynClauseTokenIdxRangeMap,
         VdSynSentenceTokenIdxRangeMap,
-        VdSynStmtTokenIdxRangeMap,
+        VdSynBlockTokenIdxRangeMap,
         VdSynDivisionTokenIdxRangeMap,
         VdSynExprEntityTreeNode,
-        VdSynStmtMap<VdSynExprEntityTreeNode>,
+        VdSynBlockMap<VdSynExprEntityTreeNode>,
         VdSynDivisionMap<VdSynExprEntityTreeNode>,
         VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,

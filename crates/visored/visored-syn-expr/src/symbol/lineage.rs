@@ -1,13 +1,13 @@
 use super::*;
 use crate::{
-    clause::VdSynClauseIdx, division::VdSynDivisionIdx, expr::VdSynExprIdx, phrase::VdSynPhraseIdx,
-    sentence::VdSynSentenceIdx, stmt::VdSynStmtIdx,
+    block::VdSynBlockIdx, clause::VdSynClauseIdx, division::VdSynDivisionIdx, expr::VdSynExprIdx,
+    phrase::VdSynPhraseIdx, sentence::VdSynSentenceIdx,
 };
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct VdSynLineage {
     pub(super) divisions: SmallVec<[VdSynDivisionIdx; 8]>,
-    pub(super) stmts: SmallVec<[VdSynStmtIdx; 8]>,
+    pub(super) stmts: SmallVec<[VdSynBlockIdx; 8]>,
     pub(super) sentence: Option<VdSynSentenceIdx>,
     pub(super) clause: Option<VdSynClauseIdx>,
     pub(super) phrases: SmallVec<[VdSynPhraseIdx; 8]>,
@@ -16,7 +16,7 @@ pub struct VdSynLineage {
 impl VdSynLineage {
     pub(crate) fn current_stmt_or_division(
         &self,
-    ) -> Either<VdSynStmtIdx, Option<VdSynDivisionIdx>> {
+    ) -> Either<VdSynBlockIdx, Option<VdSynDivisionIdx>> {
         self.stmts
             .last()
             .copied()

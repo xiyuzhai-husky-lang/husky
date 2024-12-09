@@ -1,10 +1,10 @@
 use crate::{
+    block::{VdSynBlockArena, VdSynBlockArenaRef},
     clause::{VdSynClauseArena, VdSynClauseArenaRef},
     division::{VdSynDivisionArena, VdSynDivisionArenaRef},
     expr::{VdSynExprArena, VdSynExprArenaRef, VdSynExprData, VdSynExprIdx},
     phrase::{VdSynPhraseArena, VdSynPhraseArenaRef, VdSynPhraseData, VdSynPhraseIdx},
     sentence::{VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx},
-    stmt::{VdSynStmtArena, VdSynStmtArenaRef},
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
 
@@ -13,7 +13,7 @@ pub struct VdSynExprRegionData {
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
     sentence_arena: VdSynSentenceArena,
-    stmt_arena: VdSynStmtArena,
+    stmt_arena: VdSynBlockArena,
     division_arena: VdSynDivisionArena,
     symbol_defns: VdSynSymbolLocalDefnStorage,
     symbol_resolutions: VdSynSymbolResolutionsTable,
@@ -25,7 +25,7 @@ impl VdSynExprRegionData {
         phrase_arena: VdSynPhraseArena,
         clause_arena: VdSynClauseArena,
         sentence_arena: VdSynSentenceArena,
-        stmt_arena: VdSynStmtArena,
+        stmt_arena: VdSynBlockArena,
         division_arena: VdSynDivisionArena,
         symbol_defns: VdSynSymbolLocalDefnStorage,
         symbol_resolutions: VdSynSymbolResolutionsTable,
@@ -58,7 +58,7 @@ impl VdSynExprRegionData {
         self.sentence_arena.as_arena_ref()
     }
 
-    pub fn stmt_arena(&self) -> VdSynStmtArenaRef {
+    pub fn stmt_arena(&self) -> VdSynBlockArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 

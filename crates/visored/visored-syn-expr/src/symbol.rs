@@ -6,16 +6,16 @@ pub mod scope;
 
 use self::{builder::*, local_defn::*, resolution::*};
 use crate::{
-    clause::VdSynClauseArenaRef, division::VdSynDivisionArenaRef, expr::VdSynExprArenaRef,
-    phrase::VdSynPhraseArenaRef, range::*, sentence::VdSynSentenceArenaRef,
-    stmt::VdSynStmtArenaRef, *,
+    block::VdSynBlockArenaRef, clause::VdSynClauseArenaRef, division::VdSynDivisionArenaRef,
+    expr::VdSynExprArenaRef, phrase::VdSynPhraseArenaRef, range::*,
+    sentence::VdSynSentenceArenaRef, *,
 };
+use block::{VdSynBlockIdxRange, VdSynBlockMap};
 use division::VdSynDivisionMap;
 use entity_tree::VdSynExprEntityTreeNode;
 use eterned::db::EternerDb;
 use helpers::tracker::IsVdSynOutput;
 use latex_math_letter::letter::LxMathLetter;
-use stmt::{VdSynStmtIdxRange, VdSynStmtMap};
 use visored_entity_path::module::VdModulePath;
 
 pub enum VdSynSymbol {
@@ -37,16 +37,16 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     phrase_arena: VdSynPhraseArenaRef,
     clause_arena: VdSynClauseArenaRef,
     sentence_arena: VdSynSentenceArenaRef,
-    stmt_arena: VdSynStmtArenaRef,
+    stmt_arena: VdSynBlockArenaRef,
     division_arena: VdSynDivisionArenaRef,
     expr_range_map: &VdSynExprTokenIdxRangeMap,
     phrase_range_map: &VdSynPhraseTokenIdxRangeMap,
     clause_range_map: &VdSynClauseTokenIdxRangeMap,
     sentence_range_map: &VdSynSentenceTokenIdxRangeMap,
-    stmt_range_map: &VdSynStmtTokenIdxRangeMap,
+    stmt_range_map: &VdSynBlockTokenIdxRangeMap,
     division_range_map: &VdSynDivisionTokenIdxRangeMap,
     root_node: &VdSynExprEntityTreeNode,
-    stmt_entity_tree_node_map: &VdSynStmtMap<VdSynExprEntityTreeNode>,
+    stmt_entity_tree_node_map: &VdSynBlockMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &VdSynDivisionMap<VdSynExprEntityTreeNode>,
     t: impl IsVdSynOutput,
 ) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {

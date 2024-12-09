@@ -1,10 +1,10 @@
 use super::*;
 use crate::{
+    block::{VdSynBlockArenaRef, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange, VdSynBlockMap},
     division::{
         VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionData, VdSynDivisionIdx,
         VdSynDivisionIdxRange, VdSynDivisionMap,
     },
-    stmt::{VdSynStmtArenaRef, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap},
 };
 use eterned::db::EternerDb;
 use itertools::Itertools;
@@ -19,9 +19,9 @@ pub struct VdSynExprEntityTreeBuilder<'a> {
     db: &'a EternerDb,
     default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
     file_path: LxFilePath,
-    stmt_arena: VdSynStmtArenaRef<'a>,
+    stmt_arena: VdSynBlockArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
-    stmt_entity_tree_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    stmt_entity_tree_node_map: VdSynBlockMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
 }
 
@@ -40,7 +40,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         db: &'a EternerDb,
         default_global_resolution_table: &'a VdDefaultGlobalResolutionTable,
         file_path: LxFilePath,
-        stmt_arena: VdSynStmtArenaRef<'a>,
+        stmt_arena: VdSynBlockArenaRef<'a>,
         division_arena: VdSynDivisionArenaRef<'a>,
     ) -> Self {
         Self {
@@ -49,7 +49,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
             file_path,
             stmt_arena,
             division_arena,
-            stmt_entity_tree_node_map: VdSynStmtMap::new2(stmt_arena),
+            stmt_entity_tree_node_map: VdSynBlockMap::new2(stmt_arena),
             division_entity_tree_node_map: VdSynDivisionMap::new2(division_arena),
         }
     }
@@ -79,7 +79,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
         }
     }
 
-    pub fn build_root_stmts(&mut self, stmts: VdSynStmtIdxRange) -> VdSynExprEntityTreeNode {
+    pub fn build_root_stmts(&mut self, stmts: VdSynBlockIdxRange) -> VdSynExprEntityTreeNode {
         let module_path = VdModulePath::new_root(self.file_path, self.db);
         let mut registry = VdModulePathRegistry::new(module_path);
         let children = self.build_stmts(stmts, &mut registry);
@@ -146,7 +146,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
 
     fn build_stmts(
         &mut self,
-        stmts: VdSynStmtIdxRange,
+        stmts: VdSynBlockIdxRange,
         registry: &mut VdModulePathRegistry,
     ) -> Vec<VdModulePath> {
         stmts
@@ -157,7 +157,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
 
     fn build_stmt(
         &mut self,
-        stmt: VdSynStmtIdx,
+        stmt: VdSynBlockIdx,
         registry: &mut VdModulePathRegistry,
     ) -> VdModulePath {
         let node = self.calc_stmt(stmt, registry);
@@ -168,16 +168,16 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
 
     fn calc_stmt(
         &mut self,
-        stmt: VdSynStmtIdx,
+        stmt: VdSynBlockIdx,
         registry: &mut VdModulePathRegistry,
     ) -> VdSynExprEntityTreeNode {
         let stmt_arena = self.stmt_arena;
         let (module_path, children) = match stmt_arena[stmt] {
-            VdSynStmtData::Paragraph(_) => {
+            VdSynBlockData::Paragraph(_) => {
                 let module_path = registry.issue_new_paragraph(self.db);
                 (module_path, vec![])
             }
-            VdSynStmtData::Environment {
+            VdSynBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts,
@@ -212,7 +212,7 @@ impl<'a> VdSynExprEntityTreeBuilder<'a> {
     pub(super) fn finish(
         self,
     ) -> (
-        VdSynStmtMap<VdSynExprEntityTreeNode>,
+        VdSynBlockMap<VdSynExprEntityTreeNode>,
         VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) {
         (

@@ -12,7 +12,7 @@ use latex_token::idx::LxRoseTokenIdx;
 use sentence::VdSemSentenceIdx;
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
-use visored_syn_expr::stmt::{VdSynStmtData, VdSynStmtIdx};
+use visored_syn_expr::block::{VdSynBlockData, VdSynBlockIdx};
 
 pub struct VdSemStmtEntry {
     data: VdSemStmtData,
@@ -53,7 +53,7 @@ impl VdSemStmtEntry {
     }
 }
 
-impl ToVdSem<VdSemStmtIdxRange> for VdSynStmtIdxRange {
+impl ToVdSem<VdSemStmtIdxRange> for VdSynBlockIdxRange {
     // there is no need to cache because stmts will be created in one go
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemStmtIdxRange {
         let mut stmts: Vec<VdSemStmtEntry> = vec![];
@@ -66,12 +66,12 @@ impl ToVdSem<VdSemStmtIdxRange> for VdSynStmtIdxRange {
 }
 
 impl<'a> VdSemExprBuilder<'a> {
-    pub(crate) fn build_stmt(&mut self, stmt: VdSynStmtIdx) -> VdSemStmtData {
+    pub(crate) fn build_stmt(&mut self, stmt: VdSynBlockIdx) -> VdSemStmtData {
         match self.syn_stmt_arena()[stmt] {
-            VdSynStmtData::Paragraph(sentences) => {
+            VdSynBlockData::Paragraph(sentences) => {
                 VdSemStmtData::Paragraph(sentences.to_vd_sem(self))
             }
-            VdSynStmtData::Environment {
+            VdSynBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts,
