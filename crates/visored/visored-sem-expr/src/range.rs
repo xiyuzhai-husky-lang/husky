@@ -1,4 +1,5 @@
 use crate::{
+    block::{VdSemBlockArena, VdSemBlockArenaRef, VdSemBlockData, VdSemBlockIdx, VdSemBlockMap},
     clause::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseMap,
     },
@@ -16,7 +17,6 @@ use crate::{
         VdSemSentenceArena, VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceEnd,
         VdSemSentenceIdx, VdSemSentenceMap,
     },
-    stmt::{VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtIdx, VdSemStmtMap},
 };
 use either::*;
 use latex_token::idx::LxTokenIdxRange;
@@ -38,13 +38,13 @@ impl VdSemExprTokenIdxRange {
 pub type VdSemPhraseTokenIdxRange = LxTokenIdxRange;
 pub type VdSemClauseTokenIdxRange = LxTokenIdxRange;
 pub type VdSemSentenceTokenIdxRange = LxTokenIdxRange;
-pub type VdSemStmtTokenIdxRange = LxTokenIdxRange;
+pub type VdSemBlockTokenIdxRange = LxTokenIdxRange;
 pub type VdSemDivisionTokenIdxRange = LxTokenIdxRange;
 pub type VdSemExprTokenIdxRangeMap = VdSemExprMap<VdSemExprTokenIdxRange>;
 pub type VdSemPhraseTokenIdxRangeMap = VdSemPhraseMap<VdSemPhraseTokenIdxRange>;
 pub type VdSemClauseTokenIdxRangeMap = VdSemClauseMap<VdSemClauseTokenIdxRange>;
 pub type VdSemSentenceTokenIdxRangeMap = VdSemSentenceMap<VdSemSentenceTokenIdxRange>;
-pub type VdSemStmtTokenIdxRangeMap = VdSemStmtMap<VdSemStmtTokenIdxRange>;
+pub type VdSemBlockTokenIdxRangeMap = VdSemBlockMap<VdSemBlockTokenIdxRange>;
 pub type VdSemDivisionTokenIdxRangeMap = VdSemDivisionMap<VdSemDivisionTokenIdxRange>;
 
 pub fn calc_expr_range_map(
@@ -52,14 +52,14 @@ pub fn calc_expr_range_map(
     phrase_arena: &VdSemPhraseArena,
     clause_arena: &VdSemClauseArena,
     sentence_arena: &VdSemSentenceArena,
-    stmt_arena: &VdSemStmtArena,
+    stmt_arena: &VdSemBlockArena,
     division_arena: &VdSemDivisionArena,
 ) -> (
     VdSemExprTokenIdxRangeMap,
     VdSemPhraseTokenIdxRangeMap,
     VdSemClauseTokenIdxRangeMap,
     VdSemSentenceTokenIdxRangeMap,
-    VdSemStmtTokenIdxRangeMap,
+    VdSemBlockTokenIdxRangeMap,
     VdSemDivisionTokenIdxRangeMap,
 ) {
     let mut calculator = VdSemExprRangeCalculator::new(
@@ -79,13 +79,13 @@ struct VdSemExprRangeCalculator<'db> {
     phrase_arena: VdSemPhraseArenaRef<'db>,
     clause_arena: VdSemClauseArenaRef<'db>,
     sentence_arena: VdSemSentenceArenaRef<'db>,
-    stmt_arena: VdSemStmtArenaRef<'db>,
+    stmt_arena: VdSemBlockArenaRef<'db>,
     division_arena: VdSemDivisionArenaRef<'db>,
     expr_range_map: VdSemExprTokenIdxRangeMap,
     phrase_range_map: VdSemPhraseTokenIdxRangeMap,
     clause_range_map: VdSemClauseTokenIdxRangeMap,
     sentence_range_map: VdSemSentenceTokenIdxRangeMap,
-    stmt_range_map: VdSemStmtTokenIdxRangeMap,
+    stmt_range_map: VdSemBlockTokenIdxRangeMap,
     division_range_map: VdSemDivisionTokenIdxRangeMap,
 }
 
@@ -95,7 +95,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         phrase_arena: &'db VdSemPhraseArena,
         clause_arena: &'db VdSemClauseArena,
         sentence_arena: &'db VdSemSentenceArena,
-        stmt_arena: &'db VdSemStmtArena,
+        stmt_arena: &'db VdSemBlockArena,
         division_arena: &'db VdSemDivisionArena,
     ) -> Self {
         Self {
@@ -109,7 +109,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             phrase_range_map: VdSemPhraseTokenIdxRangeMap::new(phrase_arena),
             clause_range_map: VdSemClauseTokenIdxRangeMap::new(clause_arena),
             sentence_range_map: VdSemSentenceTokenIdxRangeMap::new(sentence_arena),
-            stmt_range_map: VdSemStmtTokenIdxRangeMap::new(stmt_arena),
+            stmt_range_map: VdSemBlockTokenIdxRangeMap::new(stmt_arena),
             division_range_map: VdSemDivisionTokenIdxRangeMap::new(division_arena),
         }
     }
@@ -334,7 +334,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         self.sentence_range_map[sentence]
     }
 
-    fn infer_stmt(&mut self, stmt: VdSemStmtIdx) {
+    fn infer_stmt(&mut self, stmt: VdSemBlockIdx) {
         if self.stmt_range_map.has(stmt) {
             return;
         }
@@ -342,15 +342,15 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         self.stmt_range_map.insert(stmt, range);
     }
 
-    fn calc_stmt(&mut self, stmt: VdSemStmtIdx) -> VdSemStmtTokenIdxRange {
+    fn calc_stmt(&mut self, stmt: VdSemBlockIdx) -> VdSemBlockTokenIdxRange {
         match *self.stmt_arena[stmt].data() {
-            VdSemStmtData::Paragraph(sentences) => {
+            VdSemBlockData::Paragraph(sentences) => {
                 let first = self.get_sentence(sentences.start());
                 let last =
                     self.get_sentence(sentences.last().expect("sentences are always non-empty"));
                 first.join(last)
             }
-            VdSemStmtData::Environment {
+            VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts,
@@ -360,7 +360,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         }
     }
 
-    fn get_stmt(&mut self, stmt: VdSemStmtIdx) -> VdSemStmtTokenIdxRange {
+    fn get_stmt(&mut self, stmt: VdSemBlockIdx) -> VdSemBlockTokenIdxRange {
         self.infer_stmt(stmt);
         self.stmt_range_map[stmt]
     }
@@ -404,7 +404,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         VdSemPhraseTokenIdxRangeMap,
         VdSemClauseTokenIdxRangeMap,
         VdSemSentenceTokenIdxRangeMap,
-        VdSemStmtTokenIdxRangeMap,
+        VdSemBlockTokenIdxRangeMap,
         VdSemDivisionTokenIdxRangeMap,
     ) {
         (
