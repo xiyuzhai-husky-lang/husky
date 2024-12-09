@@ -16,7 +16,7 @@ egui = { workspace = true, optional = true }
 serde.workspace = true
 smallvec.workspace = true
 # abstractions
-coword.workspace = true
+base-coword.workspace = true
 enum-class.workspace = true
 idx-arena.workspace = true
 eterned.workspace = true

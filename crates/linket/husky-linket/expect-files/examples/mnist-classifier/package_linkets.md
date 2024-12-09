@@ -42,13 +42,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 25,
-                        },
-                    ),
-                ),
+                ident: `row_start`,
             },
         },
     },
@@ -60,13 +54,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 27,
-                        },
-                    ),
-                ),
+                ident: `row_end`,
             },
         },
     },
@@ -78,13 +66,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 28,
-                        },
-                    ),
-                ),
+                ident: `upper_mass`,
             },
         },
     },
@@ -96,13 +78,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 29,
-                        },
-                    ),
-                ),
+                ident: `lower_mass`,
             },
         },
     },
@@ -135,13 +111,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 31,
-                        },
-                    ),
-                ),
+                ident: `matches`,
             },
         },
     },
@@ -189,13 +159,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 39,
-                        },
-                    ),
-                ),
+                ident: `mask`,
             },
         },
     },
@@ -462,13 +426,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 88,
-                        },
-                    ),
-                ),
+                ident: `cc`,
             },
         },
     },
@@ -480,13 +438,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 54,
-                        },
-                    ),
-                ),
+                ident: `points`,
             },
         },
     },
@@ -750,13 +702,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 143,
-                        },
-                    ),
-                ),
+                ident: `prev1`,
             },
         },
     },
@@ -768,13 +714,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 144,
-                        },
-                    ),
-                ),
+                ident: `prev2`,
             },
         },
     },
@@ -939,13 +879,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 74,
-                        },
-                    ),
-                ),
+                ident: `x`,
             },
         },
     },
@@ -957,13 +891,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 75,
-                        },
-                    ),
-                ),
+                ident: `y`,
             },
         },
     },
@@ -996,13 +924,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 74,
-                        },
-                    ),
-                ),
+                ident: `x`,
             },
         },
     },
@@ -1014,13 +936,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 75,
-                        },
-                    ),
-                ),
+                ident: `y`,
             },
         },
     },
@@ -1053,13 +969,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 74,
-                        },
-                    ),
-                ),
+                ident: `x`,
             },
         },
     },
@@ -1071,13 +981,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 75,
-                        },
-                    ),
-                ),
+                ident: `y`,
             },
         },
     },
@@ -1110,13 +1014,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 101,
-                        },
-                    ),
-                ),
+                ident: `min`,
             },
         },
     },
@@ -1128,13 +1026,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 57,
-                        },
-                    ),
-                ),
+                ident: `max`,
             },
         },
     },
@@ -1167,13 +1059,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 194,
-                        },
-                    ),
-                ),
+                ident: `xrange`,
             },
         },
     },
@@ -1185,13 +1071,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 195,
-                        },
-                    ),
-                ),
+                ident: `yrange`,
             },
         },
     },
@@ -1224,13 +1104,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 194,
-                        },
-                    ),
-                ),
+                ident: `xrange`,
             },
         },
     },
@@ -1242,13 +1116,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 195,
-                        },
-                    ),
-                ),
+                ident: `yrange`,
             },
         },
     },
@@ -1831,13 +1699,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 54,
-                        },
-                    ),
-                ),
+                ident: `points`,
             },
         },
     },
@@ -1849,13 +1711,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 108,
-                        },
-                    ),
-                ),
+                ident: `start`,
             },
         },
     },
@@ -1867,13 +1723,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 109,
-                        },
-                    ),
-                ),
+                ident: `end`,
             },
         },
     },
@@ -1906,13 +1756,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 154,
-                        },
-                    ),
-                ),
+                ident: `contour`,
             },
         },
     },
@@ -1924,13 +1768,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+                ident: `strokes`,
             },
         },
     },
@@ -2144,13 +1982,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                ident: `line_segment_sketch`,
             },
         },
     },
@@ -2162,13 +1994,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+                ident: `strokes`,
             },
         },
     },
@@ -2468,13 +2294,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                ident: `line_segment_sketch`,
             },
         },
     },
@@ -2486,13 +2306,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+                ident: `line_segments`,
             },
         },
     },
@@ -2540,13 +2354,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 108,
-                        },
-                    ),
-                ),
+                ident: `start`,
             },
         },
     },
@@ -2558,13 +2366,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 109,
-                        },
-                    ),
-                ),
+                ident: `end`,
             },
         },
     },
@@ -2641,13 +2443,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 31,
-                        },
-                    ),
-                ),
+                ident: `matches`,
             },
         },
     },
@@ -2659,13 +2455,7 @@
             },
             field_ty_leash_class: Other,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 267,
-                        },
-                    ),
-                ),
+                ident: `others`,
             },
         },
     },

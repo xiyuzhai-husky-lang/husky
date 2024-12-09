@@ -29,7 +29,7 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestDependenciesS
 }
 
 impl TransformFromTomlParentKeyed<ManifestAstTransformContext> for ManifestDependenciesSectionAst {
-    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> Coword {
+    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> BaseCoword {
         menu.dependencies_coword()
     }
 }

@@ -16,3 +16,7 @@ impl LnType {
         self.0.show(db)
     }
 }
+
+impl LnType {
+    pub const UNIT: Self = Self(LnTerm::UNIT);
+}

@@ -63,7 +63,7 @@ pub struct LxCommandPathMenu {
 
 impl LxCommandPathMenu {
     fn new(db: &EternerDb) -> Self {
-        let p = |data: &str| LxCommandPath::new_prelude(Coword::from_ref(data, db), db);
+        let p = |data: &str| LxCommandPath::new_prelude(BaseCoword::from_ref(data, db), db);
         Self {
             // - general
             begin: p("begin"),
@@ -124,7 +124,7 @@ impl LxCommandPathMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn lx_command_path_menu(db: &EternerDb) -> LxCommandPathMenu {
     LxCommandPathMenu::new(db)
 }

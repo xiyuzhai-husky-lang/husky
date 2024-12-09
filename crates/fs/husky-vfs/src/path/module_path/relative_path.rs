@@ -19,7 +19,7 @@ fn module_relative_dir_for_submodules(
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => crate_path.relative_dir_for_submodules(db).clone(),
         ModulePathData::Child { parent, ident } => {
-            module_relative_dir_for_submodules(db, parent).join(ident.data(db))
+            module_relative_dir_for_submodules(db, parent).join(ident.data())
         }
         ModulePathData::Script { .. } => unreachable!(),
     }

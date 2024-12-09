@@ -245,7 +245,7 @@ impl VdSignatureMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_signature_menu(db: &EternerDb) -> VdSignatureMenu {
     VdSignatureMenu::new(db)
 }

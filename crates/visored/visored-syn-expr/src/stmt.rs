@@ -7,7 +7,7 @@ use crate::{
     symbol::builder::VdSynSymbolBuilder,
     *,
 };
-use coword::Coword;
+use base_coword::BaseCoword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -19,13 +19,16 @@ use latex_ast::ast::{
 use latex_environment::signature::LxEnvironmentSignature;
 use latex_token::idx::{LxNameTokenIdx, LxRoseTokenIdx, LxTokenIdxRange};
 use std::iter::Peekable;
-use visored_global_resolution::resolution::command::VdCompleteCommandGlobalResolution;
+use visored_global_resolution::resolution::{
+    command::VdCompleteCommandGlobalResolution, environment::VdEnvironmentGlobalResolution,
+};
 
 pub enum VdSynStmtData {
     Paragraph(VdSynSentenceIdxRange),
     Environment {
         begin_command_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
+        resolution: VdEnvironmentGlobalResolution,
         stmts: VdSynStmtIdxRange,
         end_rcurl_token_idx: LxRoseTokenIdx,
     },
@@ -127,7 +130,7 @@ impl<'db> VdSynExprBuilder<'db> {
     fn build_paragraph(
         &mut self,
         token_idx: LxRoseTokenIdx,
-        word: Coword,
+        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
     ) -> VdSynStmtData {
         let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];
@@ -188,6 +191,10 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynStmtData::Environment {
             begin_command_token_idx,
             environment_signature,
+            resolution: self
+                .default_resolution_table()
+                .resolve_environment(environment_signature.path())
+                .unwrap(),
             stmts: match asts {
                 LxAstIdxRange::Math(arena_idx_range) => todo!(),
                 LxAstIdxRange::Root(arena_idx_range) => todo!(),
@@ -224,6 +231,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
             VdSynStmtData::Paragraph(sentences) => self.build_sentences(sentences),
             VdSynStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,

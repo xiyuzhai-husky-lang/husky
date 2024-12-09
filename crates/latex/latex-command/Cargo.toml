@@ -16,7 +16,7 @@ lazy_static.workspace = true
 rustc-hash.workspace = true
 thiserror.workspace = true
 # abstractions
-coword.workspace = true
+base-coword.workspace = true
 eterned.workspace = true
 salsa = { workspace = true, optional = true }
 # kernel

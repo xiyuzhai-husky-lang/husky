@@ -107,7 +107,7 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.result += &item_path.show(db);
             }
             LnMirExprData::Variable { ident } => {
-                self.write_word(ident.data(db));
+                self.write_word(ident.data());
             }
 
             LnMirExprData::Lambda {
@@ -119,7 +119,7 @@ impl<'a> LnMirExprFormatter<'a> {
                     if i > 0 {
                         self.result.push(' ');
                     }
-                    self.result += param.ident().data(db);
+                    self.result += param.ident().data();
                     self.result.push_str(" : ");
                     self.format_expr(param.ty(), false, LnPrecedenceRange::Any);
                 }
@@ -179,12 +179,23 @@ impl<'a> LnMirExprFormatter<'a> {
                 //             }
             }
             LnMirExprData::Literal(lit) => {
-                self.result += match lit.data(db) {
+                self.result += match lit.data() {
                     LnLiteralData::Nat(s) => s,
+                    LnLiteralData::Int(s) => s,
                     LnLiteralData::Float(s) => s,
                 }
             }
             LnMirExprData::Sorry => self.write_word("sorry"),
+            LnMirExprData::By { tactics } => {
+                self.result += "by";
+                debug_assert!(!tactics.is_empty());
+                if tactics.len() == 1 {
+                    self.result += " ";
+                    self.format_tactic(tactics.first().unwrap());
+                } else {
+                    self.indented(|slf| slf.format_tactics(tactics));
+                }
+            }
         }
     }
 
@@ -224,7 +235,7 @@ impl<'a> LnMirExprFormatter<'a> {
         let defn_arena = self.defn_arena;
         match defn_arena[defn] {
             LnItemDefnData::Variable { ident: symbol, ty } => {
-                write!(self.result, "variable ({} : ", symbol.data(db));
+                write!(self.result, "variable ({} : ", symbol.data());
                 self.format_expr_ext(ty);
                 write!(self.result, ")");
             }
@@ -232,23 +243,36 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.make_sure_new_paragraph();
                 if let LnMirItemDefnGroupMeta::Division(Some(namespace))
                 | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
-                    && let Some(ident) = namespace.ident(db)
+                    && let Some(ident) = namespace.ident()
                 {
                     self.make_sure_new_paragraph();
-                    write!(self.result, "namespace {}\n", ident.data(db));
+                    write!(self.result, "namespace {}\n", ident.data());
                 }
                 self.format_defns(defns);
                 if let LnMirItemDefnGroupMeta::Division(Some(namespace))
                 | LnMirItemDefnGroupMeta::Environment(namespace) = *meta
-                    && let Some(ident) = namespace.ident(db)
+                    && let Some(ident) = namespace.ident()
                 {
                     self.make_sure_new_line();
-                    write!(self.result, "end {}\n", ident.data(db));
+                    write!(self.result, "end {}\n", ident.data());
                 }
             }
-            LnItemDefnData::Def { symbol, ty, body } => {
-                write!(self.result, "def {} : ", symbol.data(db));
-                self.format_expr_ext(ty);
+            LnItemDefnData::Def {
+                ident,
+                ref parameters,
+                ty,
+                body,
+            } => {
+                write!(self.result, "def {}", ident.data());
+                for param in parameters {
+                    write!(self.result, "({} : ", param.ident.data());
+                    self.format_expr_ext(param.ty);
+                    write!(self.result, ")");
+                }
+                if let Some(ty) = ty {
+                    write!(self.result, " : ");
+                    self.format_expr_ext(ty);
+                }
                 self.result += " := ";
                 self.format_def_body(body);
             }
@@ -283,20 +307,33 @@ impl<'a> LnMirExprFormatter<'a> {
 
     pub fn format_tactics(&mut self, tactics: LnMirTacticIdxRange) {
         for tactic in tactics {
+            self.make_sure_new_line();
             self.format_tactic(tactic);
         }
     }
 
     fn format_tactic(&mut self, tactic: LnMirTacticIdx) {
-        self.make_sure_new_line();
         let tactic_arena = self.tactic_arena;
         match tactic_arena[tactic] {
-            LnMirTacticData::Obtain => todo!(),
-            LnMirTacticData::Exact => todo!(),
-            LnMirTacticData::Cases => todo!(),
-            LnMirTacticData::Rcases => todo!(),
-            LnMirTacticData::Have => todo!(),
-            LnMirTacticData::Show => todo!(),
+            LnMirTacticData::Intro { .. } => todo!(),
+            LnMirTacticData::Obtain { .. } => todo!(),
+            LnMirTacticData::Exact { term } => {
+                write!(self.result, "exact ");
+                self.format_expr_ext(term);
+            }
+            LnMirTacticData::Cases { .. } => todo!(),
+            LnMirTacticData::Rcases { .. } => todo!(),
+            LnMirTacticData::Have {
+                ident,
+                ty,
+                construction,
+            } => {
+                write!(self.result, "have {} : ", ident.data());
+                self.format_expr_ext(ty);
+                write!(self.result, " := ");
+                self.format_expr_ext(construction);
+            }
+            LnMirTacticData::Show { .. } => todo!(),
             LnMirTacticData::Calc {
                 leader,
                 ref followers,
@@ -319,6 +356,9 @@ impl<'a> LnMirExprFormatter<'a> {
                     }
                 });
             }
+            LnMirTacticData::Obvious => {
+                self.result += "obvious";
+            }
             LnMirTacticData::Sorry => {
                 self.result += "sorry";
             }
@@ -326,13 +366,15 @@ impl<'a> LnMirExprFormatter<'a> {
     }
 
     fn indented(&mut self, f: impl FnOnce(&mut Self)) {
+        self.make_sure_new_line();
         self.indent_level += 1;
         f(self);
         self.indent_level -= 1;
     }
 
     fn make_sure_new_line(&mut self) {
-        if !self.result.is_empty() && !self.result.ends_with('\n') {
+        let result_trimmed = self.result.trim_end_matches(' ');
+        if !result_trimmed.is_empty() && !result_trimmed.ends_with('\n') {
             self.result += "\n";
         }
         for _ in 0..(self.indent_level * self.config.spaces_per_indent) {
@@ -341,6 +383,7 @@ impl<'a> LnMirExprFormatter<'a> {
     }
 
     fn make_sure_new_paragraph(&mut self) {
+        debug_assert_eq!(self.indent_level, 0);
         self.make_sure_new_line();
         if !self.result.is_empty() {
             let last_line = self.result.lines().last().unwrap_or("");

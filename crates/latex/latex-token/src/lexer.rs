@@ -18,7 +18,7 @@ use crate::{
         spec::LxSpecTokenData,
     },
 };
-use coword::Coword;
+use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 use husky_text_protocol::{char::TextCharIter, offset::TextOffsetRange, range::TextPositionRange};
 use latex_prelude::mode::LxMode;
@@ -56,12 +56,15 @@ impl<'a> LxLexer<'a> {
 
 /// # actions
 impl<'a> LxLexer<'a> {
-    pub(crate) fn next_coword_with(&mut self, predicate: impl Fn(char) -> bool) -> Option<Coword> {
+    pub(crate) fn next_coword_with(
+        &mut self,
+        predicate: impl Fn(char) -> bool,
+    ) -> Option<BaseCoword> {
         let coword_str_slice = self.chars.next_str_slice_while(predicate);
         if coword_str_slice.is_empty() {
             return None;
         }
-        Some(Coword::from_ref(coword_str_slice, self.db))
+        Some(BaseCoword::from_ref(coword_str_slice, self.db))
     }
 
     pub(crate) fn eat_spaces_and_tabs(&mut self) {

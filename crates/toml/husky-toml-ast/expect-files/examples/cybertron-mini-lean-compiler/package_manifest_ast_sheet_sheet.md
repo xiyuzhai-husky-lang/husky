@@ -24,9 +24,7 @@ Ok(
                         title: TomlSectionTitle(
                             [
                                 Coword(
-                                    Id {
-                                        value: 2,
-                                    },
+                                    "package",
                                 ),
                             ],
                         ),
@@ -37,9 +35,7 @@ Ok(
                                     1,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 3,
-                                    },
+                                    "name",
                                 ),
                                 value: Some(
                                     0,
@@ -50,9 +46,7 @@ Ok(
                                     3,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 7,
-                                    },
+                                    "description",
                                 ),
                                 value: Some(
                                     1,
@@ -63,9 +57,7 @@ Ok(
                                     4,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 8,
-                                    },
+                                    "license",
                                 ),
                                 value: Some(
                                     2,
@@ -77,9 +69,7 @@ Ok(
                         title: TomlSectionTitle(
                             [
                                 Coword(
-                                    Id {
-                                        value: 9,
-                                    },
+                                    "dependencies",
                                 ),
                             ],
                         ),
@@ -90,9 +80,7 @@ Ok(
                                     6,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 10,
-                                    },
+                                    "cybertron-mini-lean-tokens",
                                 ),
                                 value: Some(
                                     3,
@@ -158,18 +146,14 @@ Ok(
         table: TomlTable {
             data: {
                 Coword(
-                    Id {
-                        value: 2,
-                    },
-                ): Section(
-                    0,
-                ),
-                Coword(
-                    Id {
-                        value: 9,
-                    },
+                    "dependencies",
                 ): Section(
                     1,
+                ),
+                Coword(
+                    "package",
+                ): Section(
+                    0,
                 ),
             },
         },

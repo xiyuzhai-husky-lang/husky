@@ -5,7 +5,10 @@ use lean_mir_expr::expr::application::LnMirFuncKey;
 use smallvec::*;
 use visored_mir_expr::expr::VdMirExprIdxRange;
 
-impl<'db> VdLeanTranspilationBuilder<'db> {
+impl<'db, S> VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     pub(super) fn build_application(
         &mut self,
         expr: VdMirExprIdx,

@@ -17,7 +17,7 @@ pub use self::stream::*;
 
 use self::jar::TomlTokenJar as Jar;
 use crate::jar::TomlTokenDb;
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 use husky_text_protocol::{offset::TextOffsetRange, range::TextPositionRange};
 use std::char;
 use std::str;
@@ -61,7 +61,7 @@ impl TomlToken {
 pub enum TomlTokenData {
     Comment,
     Special(TomlSpecialToken),
-    Word(Coword),
+    Word(BaseCoword),
     StringLiteral { val: StringValue, multiline: bool },
     Err(TomlTokenError),
 }

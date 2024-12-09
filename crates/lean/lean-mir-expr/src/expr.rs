@@ -11,6 +11,8 @@ use lean_opr::{
 use lean_term::term::literal::LnLiteral;
 use smallvec::SmallVec;
 
+use crate::tactic::LnMirTacticIdxRange;
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum LnMirExprData {
     Literal(LnLiteral),
@@ -27,6 +29,9 @@ pub enum LnMirExprData {
         arguments: LnMirExprIdxRange,
     },
     Sorry,
+    By {
+        tactics: LnMirTacticIdxRange,
+    },
 }
 
 pub type LnMirExprArena = Arena<LnMirExprData>;
@@ -49,6 +54,7 @@ impl LnMirExprData {
                 function,
                 arguments,
             } => function.outer_precedence(),
+            LnMirExprData::By { tactics } => LnPrecedence::Min,
         }
     }
 
@@ -66,6 +72,7 @@ impl LnMirExprData {
                 function,
                 arguments,
             } => function.expr().into_iter().chain(arguments).collect(),
+            LnMirExprData::By { tactics } => todo!(),
         }
     }
 }

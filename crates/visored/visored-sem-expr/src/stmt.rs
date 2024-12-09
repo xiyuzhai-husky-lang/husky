@@ -3,7 +3,7 @@ mod tests;
 
 use crate::sentence::VdSemSentenceIdxRange;
 use crate::*;
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -11,6 +11,7 @@ use latex_environment::signature::LxEnvironmentSignature;
 use latex_token::idx::LxRoseTokenIdx;
 use sentence::VdSemSentenceIdx;
 use visored_entity_path::module::VdModulePath;
+use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_syn_expr::stmt::{VdSynStmtData, VdSynStmtIdx};
 
 pub struct VdSemStmtEntry {
@@ -23,6 +24,7 @@ pub enum VdSemStmtData {
     Environment {
         begin_command_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
+        resolution: VdEnvironmentGlobalResolution,
         stmts: VdSemStmtIdxRange,
         end_rcurl_token_idx: LxRoseTokenIdx,
     },
@@ -71,11 +73,13 @@ impl<'a> VdSemExprBuilder<'a> {
             }
             VdSynStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
             } => VdSemStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts: stmts.to_vd_sem(self),
                 begin_command_token_idx,
                 end_rcurl_token_idx,
@@ -98,6 +102,7 @@ impl VdSemStmtData {
                 .collect(),
             VdSemStmtData::Environment {
                 environment_signature,
+                resolution,
                 stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,

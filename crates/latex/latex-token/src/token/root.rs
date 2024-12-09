@@ -100,7 +100,7 @@ pub fn next_root_token_data_works() {
             .into_root_stream()
             .map(|(_, token_data)| token_data);
         let tokens: Vec<_> = stream.collect();
-        db.with_attached(|| expected.assert_debug_eq(&tokens));
+        expected.assert_debug_eq(&tokens);
     }
     t(
         "\\usepackage",
@@ -155,9 +155,7 @@ pub fn next_root_token_data_with_comments_works() {
         let db = &EternerDb::default();
         let tokens_with_comments = f(db, input_with_comments);
         let tokens_without_comments = f(db, input_without_comments);
-        db.with_attached(|| {
-            assert_eq!(tokens_with_comments, tokens_without_comments);
-        });
+        assert_eq!(tokens_with_comments, tokens_without_comments);
     }
     t(
         r#"% foo

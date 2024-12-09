@@ -47,9 +47,9 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: LnMirExprIdx) -> DisplayTree {
         let db = self.db();
         let value = match self.expr_arena[expr] {
-            LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data(db)),
+            LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data()),
             LnMirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
-            LnMirExprData::Variable { ident } => format!("variable: `{}`", ident.data(db)),
+            LnMirExprData::Variable { ident } => format!("variable: `{}`", ident.data()),
             LnMirExprData::Lambda {
                 ref parameters,
                 body,
@@ -59,6 +59,7 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
                 arguments,
             } => format!("application"),
             LnMirExprData::Sorry => "sorry".to_string(),
+            LnMirExprData::By { tactics } => format!("by"),
         };
         let children = self.expr_arena[expr].children();
         DisplayTree::new(
@@ -84,10 +85,15 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
         let defn_data = &self.defn_arena[defn];
         let value = match defn_data {
             LnItemDefnData::Variable { ident: symbol, ty } => {
-                format!("variable: `{}`", symbol.data(db))
+                format!("variable: `{}`", symbol.data())
             }
             LnItemDefnData::Group { defns, ref meta } => format!("group: `{}`", meta),
-            LnItemDefnData::Def { symbol, ty, body } => format!("def: `{}`", symbol.data(db)),
+            LnItemDefnData::Def {
+                ident: symbol,
+                ref parameters,
+                ty,
+                body,
+            } => format!("def: `{}`", symbol.data()),
         };
         let children = defn_data.children();
         DisplayTree::new(

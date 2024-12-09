@@ -41,14 +41,14 @@ fn basic_body_to_vd_mir_works() {
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
-              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, VdModulePath(`root.stmts1.example1`))
+              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, Example, VdModulePath(`root.stmts1.example1`))
         "#]],
     );
     t(
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
-              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, VdModulePath(`root.stmts1.example1`))
+              └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, Example, VdModulePath(`root.stmts1.example1`))
                 └─ block: Paragraph
                   └─ block: Sentence
                     └─ let placeholder

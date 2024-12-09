@@ -113,7 +113,7 @@ impl Diagnose for ImplBlockIllForm {
                     OriginalMajorItemPathExprError::UnrecognizedIdent(ident_token) => {
                         format!(
                             "Syntax Error: unrecognized identifier `{}` for major entity path",
-                            ident_token.ident().data(ctx.db())
+                            ident_token.ident().data()
                         )
                     }
                     OriginalMajorItemPathExprError::ExpectedName(_) => {

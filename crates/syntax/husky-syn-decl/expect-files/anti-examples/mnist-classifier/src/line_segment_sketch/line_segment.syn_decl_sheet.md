@@ -188,13 +188,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 122,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `start`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -208,13 +202,7 @@ SynDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 123,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `end`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),

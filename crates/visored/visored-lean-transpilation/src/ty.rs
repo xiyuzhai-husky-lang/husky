@@ -12,10 +12,13 @@ pub enum VdTypeLeanTranspilation {
     Type(LnMirExprIdx),
 }
 
-impl VdTranspileToLean<VdTypeLeanTranspilation> for VdType {
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> VdTypeLeanTranspilation {
+impl<'a, Scheme> VdTranspileToLean<Scheme, VdTypeLeanTranspilation> for VdType
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<Scheme>) -> VdTypeLeanTranspilation {
         let db = builder.db();
-        match *self.data(db) {
+        match *self.data() {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref item_path) => VdTypeLeanTranspilation::Type(
                 builder.build_ln_ty_from_vd_item_path(item_path.item_path()),
@@ -33,7 +36,10 @@ impl VdTranspileToLean<VdTypeLeanTranspilation> for VdType {
     }
 }
 
-impl<'a> VdLeanTranspilationBuilder<'a> {
+impl<'a, Scheme> VdLeanTranspilationBuilder<'a, Scheme>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     fn build_ln_ty_from_vd_item_path(&mut self, item_path: VdItemPath) -> LnMirExprIdx {
         let Some(translation) = self.dictionary().item_path_translation(item_path) else {
             todo!()

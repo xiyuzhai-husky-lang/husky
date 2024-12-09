@@ -1,6 +1,6 @@
 use super::*;
-use crate::dictionary::VdLeanDictionary;
 use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
+use crate::{dictionary::VdLeanDictionary, scheme::IsVdLeanTranspilationScheme};
 use either::*;
 use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
@@ -25,7 +25,10 @@ use visored_mir_expr::{
     stmt::VdMirStmtIdxRange,
 };
 
-pub struct VdLeanTranspilationTracker<'a, Input: IsVdLeanTranspilationInput<'a>> {
+pub struct VdLeanTranspilationTracker<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     expr_arena: LnMirExprArena,
     stmt_arena: LnMirStmtArena,
     tactic_arena: LnMirTacticArena,
@@ -34,9 +37,12 @@ pub struct VdLeanTranspilationTracker<'a, Input: IsVdLeanTranspilationInput<'a>>
     output: Input::VdLeanTranspilationOutput,
 }
 
-pub trait IsVdLeanTranspilationInput<'a>: IsVdMirExprInput<'a> {
+pub trait IsVdLeanTranspilationInput<'a, Scheme>: IsVdMirExprInput<'a>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     type VdLeanTranspilationOutput: IsVdLeanTranspilationOutput
-        + FromVdTranspileToLean<Self::VdMirExprOutput>;
+        + FromVdTranspileToLean<Scheme, Self::VdMirExprOutput>;
 }
 
 pub trait IsVdLeanTranspilationOutput: std::fmt::Debug + Copy {
@@ -44,25 +50,34 @@ pub trait IsVdLeanTranspilationOutput: std::fmt::Debug + Copy {
     fn show_fmt(self, formatter: &mut LnMirExprFormatter);
 }
 
-pub trait FromVdTranspileToLean<S> {
-    fn from_transpile_to_lean(s: S, builder: &mut VdLeanTranspilationBuilder) -> Self;
+pub trait FromVdTranspileToLean<Scheme, S>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
+    fn from_transpile_to_lean(s: S, builder: &mut VdLeanTranspilationBuilder<Scheme>) -> Self;
 }
 
-impl<S, T> FromVdTranspileToLean<S> for T
+impl<Scheme, S, T> FromVdTranspileToLean<Scheme, S> for T
 where
-    S: VdTranspileToLean<T>,
+    Scheme: IsVdLeanTranspilationScheme,
+    S: VdTranspileToLean<Scheme, T>,
 {
-    fn from_transpile_to_lean(s: S, builder: &mut VdLeanTranspilationBuilder) -> Self {
+    fn from_transpile_to_lean(s: S, builder: &mut VdLeanTranspilationBuilder<Scheme>) -> Self {
         s.to_lean(builder)
     }
 }
 
-impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, Input> {
+impl<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
+    VdLeanTranspilationTracker<'a, Scheme, Input>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     pub fn new(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         db: &'a EternerDb,
+        scheme: &'a Scheme,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -83,6 +98,7 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
+            scheme,
             content,
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),
@@ -145,19 +161,31 @@ impl<'a, Input: IsVdLeanTranspilationInput<'a>> VdLeanTranspilationTracker<'a, I
     }
 }
 
-impl<'a> IsVdLeanTranspilationInput<'a> for LxDocumentInput<'a> {
+impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxDocumentInput<'a>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
 }
 
-impl<'a> IsVdLeanTranspilationInput<'a> for LxDocumentBodyInput<'a> {
+impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxDocumentBodyInput<'a>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
 }
 
-impl<'a> IsVdLeanTranspilationInput<'a> for LxPageInput<'a> {
+impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxPageInput<'a>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
 }
 
-impl<'a> IsVdLeanTranspilationInput<'a> for LxFormulaInput<'a> {
+impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxFormulaInput<'a>
+where
+    Scheme: IsVdLeanTranspilationScheme,
+{
     type VdLeanTranspilationOutput = LnMirExprIdx;
 }
 

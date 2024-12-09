@@ -59,7 +59,7 @@ where
                         self_ty,
                         path,
                         instantiation,
-                    } if path.ident(db).data(db) == "Unknown" => true,
+                    } if path.ident(db).data() == "Unknown" => true,
                     _ => false,
                 })
                 .collect();
