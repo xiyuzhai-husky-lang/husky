@@ -3,10 +3,10 @@ pub mod item;
 pub mod module;
 
 use crate::{
+    block::{VdSynBlockArenaRef, VdSynBlockIdxRange, VdSynBlockMap},
     division::{VdSynDivisionArenaRef, VdSynDivisionMap},
     expr::VdSynExprIdx,
     helpers::tracker::IsVdSynOutput,
-    stmt::{VdSynStmtArenaRef, VdSynStmtIdxRange, VdSynStmtMap},
 };
 use builder::VdSynExprEntityTreeBuilder;
 use either::*;
@@ -34,12 +34,12 @@ pub(crate) fn build_entity_tree_with(
     db: &EternerDb,
     default_global_resolution_table: &VdDefaultGlobalResolutionTable,
     file_path: LxFilePath,
-    stmt_arena: VdSynStmtArenaRef,
+    stmt_arena: VdSynBlockArenaRef,
     division_arena: VdSynDivisionArenaRef,
     output: impl IsVdSynOutput,
 ) -> (
     VdSynExprEntityTreeNode,
-    VdSynStmtMap<VdSynExprEntityTreeNode>,
+    VdSynBlockMap<VdSynExprEntityTreeNode>,
     VdSynDivisionMap<VdSynExprEntityTreeNode>,
 ) {
     let mut builder = VdSynExprEntityTreeBuilder::new(
