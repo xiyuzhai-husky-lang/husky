@@ -19,7 +19,7 @@ pub use self::section::*;
 pub use self::table::*;
 pub use self::transformer::*;
 
-use husky_coword::Coword;
+use husky_coword::BaseCoword;
 use husky_toml_token::*;
 use husky_vfs::{error::VfsResult, path::virtual_path::VirtualPath};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};

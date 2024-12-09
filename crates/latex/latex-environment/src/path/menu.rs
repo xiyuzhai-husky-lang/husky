@@ -47,7 +47,7 @@ impl LxEnvironmentPathMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn lx_environment_path_menu(db: &EternerDb) -> LxEnvironmentPathMenu {
     LxEnvironmentPathMenu::new(db)
 }

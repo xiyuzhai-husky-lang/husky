@@ -5,7 +5,7 @@ use eterned::db::EternerDb;
 use lean_entity_path::LnItemPath;
 
 // TODO: ad hoc, use LnTermId
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LnTerm {
     Literal(LnLiteral),
     ItemPath(LnItemPath),
@@ -18,6 +18,10 @@ impl std::fmt::Debug for LnTerm {
 }
 
 impl LnTerm {
+    pub const UNIT: Self = LnTerm::ItemPath(LnItemPath::UNIT);
+}
+
+impl LnTerm {
     pub fn new_item_path(path: LnItemPath) -> Self {
         LnTerm::ItemPath(path)
     }
@@ -25,6 +29,7 @@ impl LnTerm {
 
 #[eterned::eterned]
 pub struct LnTermId {
+    #[return_ref]
     data: LnTermData,
 }
 

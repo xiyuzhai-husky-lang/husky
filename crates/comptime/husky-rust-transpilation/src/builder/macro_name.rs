@@ -68,7 +68,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustMacroName::TypeDefault => "ty_default_linket_impl!",
             RustMacroName::EnumUnitPresenter => "enum_index_presenter_linket_impl!",
             RustMacroName::HtmlTag(ident) => {
-                self.result += ident.data(db);
+                self.result += ident.data();
                 self.result += "!";
                 return;
             }

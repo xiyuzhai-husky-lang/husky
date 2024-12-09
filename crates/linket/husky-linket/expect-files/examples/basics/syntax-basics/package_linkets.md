@@ -98,13 +98,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                ident: `x`,
             },
         },
     },
@@ -172,13 +166,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                ident: `x`,
             },
         },
     },
@@ -195,13 +183,7 @@
             },
             field_ty_leash_class: Copyable,
             field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                ),
+                ident: `y`,
             },
         },
     },

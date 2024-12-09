@@ -97,7 +97,7 @@ impl Diagnose for OriginalSemExprDataError {
             } => {
                 format!(
                     "Type Error: no field named {} in {}",
-                    ident_token.ident().data(ctx.db()),
+                    ident_token.ident().data(),
                     owner_ty.show2(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
@@ -107,7 +107,7 @@ impl Diagnose for OriginalSemExprDataError {
             } => {
                 format!(
                     "Type Error: no method named `{}` for type `{}`",
-                    ident_token.ident().data(ctx.db()),
+                    ident_token.ident().data(),
                     self_expr_ty.show2(ctx.db(), ctx.fly_term_region().terms()) // ad hoc
                 )
             }

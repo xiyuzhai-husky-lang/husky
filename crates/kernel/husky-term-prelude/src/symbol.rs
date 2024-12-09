@@ -32,8 +32,8 @@ impl salsa::DisplayWithDb for SymbolName {
         db: &salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            SymbolName::Ident(ident) => f.write_str(ident.data(db)),
-            SymbolName::Label(label) => f.write_fmt(format_args!("'{}", label.data(db))),
+            SymbolName::Ident(ident) => f.write_str(ident.data()),
+            SymbolName::Label(label) => f.write_fmt(format_args!("'{}", label.data())),
             SymbolName::SelfType => f.write_str("Self"),
             SymbolName::SelfValue => f.write_str("self"),
             SymbolName::SelfLifetime => f.write_str("'self_lifetime"),

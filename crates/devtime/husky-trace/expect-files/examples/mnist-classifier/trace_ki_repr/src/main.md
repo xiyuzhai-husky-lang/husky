@@ -2039,13 +2039,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 293,
-                                    },
-                                ),
-                            ),
+                            `simp_zero_match`,
                             Some(
                                 2,
                             ),
@@ -4827,13 +4821,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -5548,13 +5536,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -6056,13 +6038,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 297,
-                                    },
-                                ),
-                            ),
+                            `major_hole`,
                             Some(
                                 3,
                             ),
@@ -6360,13 +6336,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -6821,13 +6791,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 4,
                             ),
@@ -7967,13 +7931,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 105,
-                                    },
-                                ),
-                            ),
+                            `b`,
                             Some(
                                 5,
                             ),
@@ -8841,13 +8799,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 299,
-                                    },
-                                ),
-                            ),
+                            `ratio`,
                             Some(
                                 6,
                             ),
@@ -9765,13 +9717,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 7,
                             ),
@@ -11544,13 +11490,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 306,
-                                    },
-                                ),
-                            ),
+                            `simp_one_match`,
                             Some(
                                 0,
                             ),
@@ -17031,13 +16971,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 319,
-                                    },
-                                ),
-                            ),
+                            `upmost_match`,
                             Some(
                                 0,
                             ),
@@ -17212,13 +17146,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -17918,13 +17846,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -18306,13 +18228,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 320,
-                                    },
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 2,
                             ),
@@ -19331,13 +19247,7 @@
                             },
                             field_ty_leash_class: Copyable,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
-                                ),
+                                ident: `y`,
                             },
                         },
                     },
@@ -19453,13 +19363,7 @@
                             },
                             field_ty_leash_class: Copyable,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
-                                ),
+                                ident: `y`,
                             },
                         },
                     },
@@ -19575,13 +19479,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 267,
-                                        },
-                                    ),
-                                ),
+                                ident: `others`,
                             },
                         },
                     },
@@ -20462,13 +20360,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -22454,13 +22346,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -23687,13 +23573,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -25653,13 +25533,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 328,
-                                    },
-                                ),
-                            ),
+                            `downarc`,
                             Some(
                                 0,
                             ),
@@ -26057,13 +25931,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 329,
-                                    },
-                                ),
-                            ),
+                            `uparc`,
                             Some(
                                 1,
                             ),
@@ -26461,13 +26329,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 330,
-                                    },
-                                ),
-                            ),
+                            `back`,
                             Some(
                                 2,
                             ),
@@ -27606,13 +27468,7 @@
                     syn_pattern_idx: 7,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 332,
-                                    },
-                                ),
-                            ),
+                            `de`,
                             Some(
                                 3,
                             ),
@@ -28502,13 +28358,7 @@
                     syn_pattern_idx: 8,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
-                            ),
+                            `downarc_enpoint`,
                             Some(
                                 4,
                             ),
@@ -28793,13 +28643,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 334,
-                                    },
-                                ),
-                            ),
+                            `uparc_startpoint`,
                             Some(
                                 5,
                             ),
@@ -29084,13 +28928,7 @@
                     syn_pattern_idx: 10,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 335,
-                                    },
-                                ),
-                            ),
+                            `distance`,
                             Some(
                                 6,
                             ),
@@ -32447,13 +32285,7 @@
                     syn_pattern_idx: 4,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 0,
                             ),
@@ -33102,13 +32934,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 344,
-                                    },
-                                ),
-                            ),
+                            `down_match`,
                             Some(
                                 1,
                             ),
@@ -33696,13 +33522,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 345,
-                                    },
-                                ),
-                            ),
+                            `down_match_dp_y`,
                             Some(
                                 2,
                             ),
@@ -34048,13 +33868,7 @@
                     syn_pattern_idx: 10,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 346,
-                                    },
-                                ),
-                            ),
+                            `higher_excess`,
                             Some(
                                 3,
                             ),
@@ -37269,13 +37083,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 357,
-                                    },
-                                ),
-                            ),
+                            `simple_match_norm`,
                             Some(
                                 0,
                             ),
@@ -38820,13 +38628,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 267,
-                                    },
-                                ),
-                            ),
+                            `others`,
                             Some(
                                 5,
                             ),
@@ -39687,13 +39489,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 358,
-                                    },
-                                ),
-                            ),
+                            `upper_excess`,
                             Some(
                                 0,
                             ),
@@ -41614,13 +41410,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 0,
                             ),
@@ -42269,13 +42059,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 344,
-                                    },
-                                ),
-                            ),
+                            `down_match`,
                             Some(
                                 1,
                             ),
@@ -42863,13 +42647,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 345,
-                                    },
-                                ),
-                            ),
+                            `down_match_dp_y`,
                             Some(
                                 2,
                             ),
@@ -43215,13 +42993,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 346,
-                                    },
-                                ),
-                            ),
+                            `higher_excess`,
                             Some(
                                 3,
                             ),
@@ -45616,13 +45388,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 372,
-                                    },
-                                ),
-                            ),
+                            `cc_num`,
                             Some(
                                 0,
                             ),
@@ -45837,13 +45603,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -46492,13 +46252,7 @@
                     syn_pattern_idx: 3,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 373,
-                                    },
-                                ),
-                            ),
+                            `left_cc`,
                             Some(
                                 2,
                             ),
@@ -46896,13 +46650,7 @@
                     syn_pattern_idx: 4,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 374,
-                                    },
-                                ),
-                            ),
+                            `right_cc`,
                             Some(
                                 3,
                             ),
@@ -47300,13 +47048,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 375,
-                                    },
-                                ),
-                            ),
+                            `down_cc`,
                             Some(
                                 4,
                             ),
@@ -47943,13 +47685,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 320,
-                                    },
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 5,
                             ),
@@ -50814,13 +50550,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 155,
-                                    },
-                                ),
-                            ),
+                            `i0`,
                             Some(
                                 0,
                             ),
@@ -50983,13 +50713,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 384,
-                                    },
-                                ),
-                            ),
+                            `max_row_span_sum`,
                             Some(
                                 1,
                             ),
@@ -51219,13 +50943,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                            ),
+                            `row_span_sum`,
                             Some(
                                 3,
                             ),
@@ -52647,13 +52365,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 385,
-                                    },
-                                ),
-                            ),
+                            `sum`,
                             Some(
                                 0,
                             ),
@@ -56781,13 +56493,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 306,
-                                    },
-                                ),
-                            ),
+                            `simp_one_match`,
                             Some(
                                 0,
                             ),
@@ -61557,13 +61263,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 319,
-                                    },
-                                ),
-                            ),
+                            `upmost_match`,
                             Some(
                                 0,
                             ),
@@ -61738,13 +61438,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -62444,13 +62138,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -62832,13 +62520,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 320,
-                                    },
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 2,
                             ),
@@ -63857,13 +63539,7 @@
                             },
                             field_ty_leash_class: Copyable,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
-                                ),
+                                ident: `y`,
                             },
                         },
                     },
@@ -63979,13 +63655,7 @@
                             },
                             field_ty_leash_class: Copyable,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
-                                ),
+                                ident: `y`,
                             },
                         },
                     },
@@ -64101,13 +63771,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 267,
-                                        },
-                                    ),
-                                ),
+                                ident: `others`,
                             },
                         },
                     },
@@ -64988,13 +64652,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -66980,13 +66638,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -68213,13 +67865,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -70741,13 +70387,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 293,
-                                    },
-                                ),
-                            ),
+                            `simp_zero_match`,
                             Some(
                                 2,
                             ),
@@ -73529,13 +73169,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -74250,13 +73884,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -74758,13 +74386,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 297,
-                                    },
-                                ),
-                            ),
+                            `major_hole`,
                             Some(
                                 3,
                             ),
@@ -75062,13 +74684,7 @@
                             },
                             field_ty_leash_class: Other,
                             field: Props {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
+                                ident: `matches`,
                             },
                         },
                     },
@@ -75523,13 +75139,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 4,
                             ),
@@ -76669,13 +76279,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 105,
-                                    },
-                                ),
-                            ),
+                            `b`,
                             Some(
                                 5,
                             ),
@@ -77543,13 +77147,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 299,
-                                    },
-                                ),
-                            ),
+                            `ratio`,
                             Some(
                                 6,
                             ),
@@ -78467,13 +78065,7 @@
                     ),
                     hir_lazy_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
+                            `a`,
                             Some(
                                 7,
                             ),
@@ -79379,13 +78971,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 357,
-                                    },
-                                ),
-                            ),
+                            `simple_match_norm`,
                             Some(
                                 0,
                             ),
@@ -80930,13 +80516,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 267,
-                                    },
-                                ),
-                            ),
+                            `others`,
                             Some(
                                 5,
                             ),
@@ -81487,13 +81067,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 358,
-                                    },
-                                ),
-                            ),
+                            `upper_excess`,
                             Some(
                                 0,
                             ),
@@ -83285,13 +82859,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 328,
-                                    },
-                                ),
-                            ),
+                            `downarc`,
                             Some(
                                 0,
                             ),
@@ -83689,13 +83257,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 329,
-                                    },
-                                ),
-                            ),
+                            `uparc`,
                             Some(
                                 1,
                             ),
@@ -84093,13 +83655,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 330,
-                                    },
-                                ),
-                            ),
+                            `back`,
                             Some(
                                 2,
                             ),
@@ -85238,13 +84794,7 @@
                     syn_pattern_idx: 7,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 332,
-                                    },
-                                ),
-                            ),
+                            `de`,
                             Some(
                                 3,
                             ),
@@ -86134,13 +85684,7 @@
                     syn_pattern_idx: 8,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
-                            ),
+                            `downarc_enpoint`,
                             Some(
                                 4,
                             ),
@@ -86425,13 +85969,7 @@
                     syn_pattern_idx: 9,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 334,
-                                    },
-                                ),
-                            ),
+                            `uparc_startpoint`,
                             Some(
                                 5,
                             ),
@@ -86716,13 +86254,7 @@
                     syn_pattern_idx: 10,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 335,
-                                    },
-                                ),
-                            ),
+                            `distance`,
                             Some(
                                 6,
                             ),
@@ -88117,13 +87649,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 0,
                             ),
@@ -88772,13 +88298,7 @@
                     syn_pattern_idx: 2,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 344,
-                                    },
-                                ),
-                            ),
+                            `down_match`,
                             Some(
                                 1,
                             ),
@@ -89366,13 +88886,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 345,
-                                    },
-                                ),
-                            ),
+                            `down_match_dp_y`,
                             Some(
                                 2,
                             ),
@@ -89718,13 +89232,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 346,
-                                    },
-                                ),
-                            ),
+                            `higher_excess`,
                             Some(
                                 3,
                             ),
@@ -92028,13 +91536,7 @@
                     syn_pattern_idx: 0,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 372,
-                                    },
-                                ),
-                            ),
+                            `cc_num`,
                             Some(
                                 0,
                             ),
@@ -92249,13 +91751,7 @@
                     syn_pattern_idx: 1,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
+                            `eff_holes`,
                             Some(
                                 1,
                             ),
@@ -92904,13 +92400,7 @@
                     syn_pattern_idx: 3,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 373,
-                                    },
-                                ),
-                            ),
+                            `left_cc`,
                             Some(
                                 2,
                             ),
@@ -93308,13 +92798,7 @@
                     syn_pattern_idx: 4,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 374,
-                                    },
-                                ),
-                            ),
+                            `right_cc`,
                             Some(
                                 3,
                             ),
@@ -93712,13 +93196,7 @@
                     syn_pattern_idx: 5,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 375,
-                                    },
-                                ),
-                            ),
+                            `down_cc`,
                             Some(
                                 4,
                             ),
@@ -94355,13 +93833,7 @@
                     syn_pattern_idx: 6,
                     hir_eager_runtime_variable_idxs: [
                         (
-                            Ident(
-                                Coword(
-                                    Id {
-                                        value: 320,
-                                    },
-                                ),
-                            ),
+                            `lower_excess`,
                             Some(
                                 5,
                             ),

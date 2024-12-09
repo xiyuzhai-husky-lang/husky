@@ -16,7 +16,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let db = self.db;
         self.on_fresh_semicolon_line(|builder| {
             builder.write_str("pub use self::");
-            builder.write_str(submodule_path.ident(db).data(db));
+            builder.write_str(submodule_path.ident(db).data());
             builder.write_str("::*")
         })
     }
@@ -25,7 +25,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let db = self.db;
         self.on_fresh_semicolon_line(|builder| {
             builder.write_str("use ");
-            builder.write_str(dep.package_path().ident(db).data(db));
+            builder.write_str(dep.package_path().ident(db).data());
             builder.write_str("::*")
         })
     }
@@ -68,7 +68,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn enum_ty_variant_constructor_ident(&mut self, ty_variant_path: TypeVariantPath) {
         let db = self.db;
         self.write_str("__");
-        self.write_str(ty_variant_path.ident(db).data(db));
+        self.write_str(ty_variant_path.ident(db).data());
         self.write_str("_constructor");
     }
 
@@ -146,7 +146,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn method_ritchie_ident_mut(&mut self, ident: Ident) {
         let db = self.db;
-        self.write_str(ident.data(db));
+        self.write_str(ident.data());
         self.write_str("_mut")
     }
 }
@@ -203,7 +203,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         let task_dep = self
             .rust_transpilation_setup_data
             .task_dependency_ident
-            .data(db);
+            .data();
         write!(self.result, "#[{}::value_conversion]\n", task_dep).unwrap()
     }
 

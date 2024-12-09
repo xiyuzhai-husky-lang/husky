@@ -1,46 +1,28 @@
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
-import Mathlib.Data.Real.Basic
-import Mathlib.Data.Real.Sqrt
-import Mathlib.Tactic.Explode
+import Mathlib
+import Obvious
 
-namespace Example1
--- Then $1+1=2$
-def h : 1 + 1 = 2 := sorry
-end Example1
+open Obvious
 
-namespace Example2
--- Let $x\in\mathbb{R}$
-variable (x : ℝ)
+def h := by
+  have h1 : 1 + 1 = 2 := by obvious
+  exact ()
 
--- Then $x^2\ge 0$
-def h : x ^ 2 ≥ 0 := sorry
-end Example2
+def h2(x : ℝ) := by
+  have h3 : x ^ 2 ≥ 0 := by obvious
+  exact ()
 
-namespace Example3
--- Let $x\in\mathbb{R}$
-variable (x : ℝ)
+def h4(x : ℝ) := by
+  have h5 : x ^ 2 + 1 ≥ 2 * x := by obvious
+  exact ()
 
--- Then $x^2 + 1\ge 2x$
-def h : x ^ 2 + 1 ≥ 2 * x := sorry
-end Example3
-
-namespace Example4
--- Then $1=1=1$
-def h : 1 = 1 := by
-  calc
-    1 = 1 := sorry
+def h6 := by
+  have h7 : 1 = 1 := by calc
+      1 = 1 := sorry
     _ = 1 := sorry
-
--- Then $1=1<2$
-def h1 : 1 < 2 := by
-  calc
-    1 = 1 := sorry
+  have h8 : 1 < 2 := by calc
+      1 = 1 := sorry
     _ < 2 := sorry
-
--- Then $1.0 \le 1 \le 1$
-def h2 : 1.0 ≤ 1 := by
-  calc
-    1.0 ≤ 1 := sorry
+  have h9 : 1.0 ≤ 1 := by calc
+      1.0 ≤ 1 := sorry
     _ ≤ 1 := sorry
-end Example4
+  exact ()

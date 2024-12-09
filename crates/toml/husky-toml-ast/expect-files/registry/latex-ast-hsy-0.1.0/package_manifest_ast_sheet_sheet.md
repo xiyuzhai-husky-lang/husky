@@ -18,9 +18,7 @@ Ok(
                         title: TomlSectionTitle(
                             [
                                 Coword(
-                                    Id {
-                                        value: 2,
-                                    },
+                                    "package",
                                 ),
                             ],
                         ),
@@ -31,9 +29,7 @@ Ok(
                                     1,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 3,
-                                    },
+                                    "name",
                                 ),
                                 value: Some(
                                     0,
@@ -44,9 +40,7 @@ Ok(
                                     2,
                                 ),
                                 key: Coword(
-                                    Id {
-                                        value: 4,
-                                    },
+                                    "version",
                                 ),
                                 value: Some(
                                     1,
@@ -87,9 +81,7 @@ Ok(
         table: TomlTable {
             data: {
                 Coword(
-                    Id {
-                        value: 2,
-                    },
+                    "package",
                 ): Section(
                     0,
                 ),

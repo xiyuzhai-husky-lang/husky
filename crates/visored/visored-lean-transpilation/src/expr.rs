@@ -5,6 +5,7 @@ use super::VdTranspileToLean;
 use crate::{
     builder::VdLeanTranspilationBuilder,
     dictionary::{func_key::VdFuncKeyTranslation, item_path::VdItemPathTranslation},
+    scheme::IsVdLeanTranspilationScheme,
 };
 use either::*;
 use lean_mir_expr::expr::{application::LnMirFunc, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange};
@@ -15,18 +16,22 @@ use visored_mir_expr::expr::{
 };
 use visored_term::term::literal::{VdLiteral, VdLiteralData};
 
-impl VdTranspileToLean<LnMirExprIdx> for VdMirExprIdx {
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnMirExprIdx {
+impl<'db, S> VdTranspileToLean<S, LnMirExprIdx> for VdMirExprIdx
+where
+    S: IsVdLeanTranspilationScheme,
+{
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirExprIdx {
         let data = builder.build_expr(self);
         builder.alloc_expr(data)
     }
 }
 
-impl<'db, I> VdTranspileToLean<LnMirExprIdxRange> for I
+impl<'db, S, I> VdTranspileToLean<S, LnMirExprIdxRange> for I
 where
+    S: IsVdLeanTranspilationScheme,
     I: Copy + IntoIterator<Item = VdMirExprIdx>,
 {
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnMirExprIdxRange {
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirExprIdxRange {
         let mut exprs = vec![];
         for expr in self {
             exprs.push(builder.build_expr(expr));
@@ -35,11 +40,14 @@ where
     }
 }
 
-impl<'db> VdLeanTranspilationBuilder<'db> {
+impl<'db, S> VdLeanTranspilationBuilder<'db, S>
+where
+    S: IsVdLeanTranspilationScheme,
+{
     pub(crate) fn build_expr(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
         match self.expr_arena()[expr] {
             VdMirExprData::Literal(literal) => {
-                LnMirExprData::Literal(*to_lean_literal(literal, self.db()))
+                LnMirExprData::Literal(to_lean_literal(literal, self.db()))
             }
             VdMirExprData::ItemPath(item_path) => {
                 let Some(translation) = self.dictionary().item_path_translation(item_path) else {
@@ -78,17 +86,20 @@ impl<'db> VdLeanTranspilationBuilder<'db> {
 
 #[eterned::memo]
 fn to_lean_literal(literal: VdLiteral, db: &EternerDb) -> LnLiteral {
-    let data = match literal.data(db) {
-        VdLiteralData::NaturalNumber(lit) => LnLiteralData::Nat(lit.to_string()),
-        VdLiteralData::NegativeInteger(_) => todo!(),
+    let data = match literal.data() {
+        VdLiteralData::Nat128(lit) => LnLiteralData::Nat(lit.to_string()),
+        VdLiteralData::Int128(lit) => LnLiteralData::Int(lit.to_string()),
         VdLiteralData::Float(lit) => LnLiteralData::Float(lit.to_string()),
         VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };
     LnLiteral::new(data, db)
 }
 
-impl<'db> VdTranspileToLean<LnMirFunc> for VdMirFunc {
-    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder) -> LnMirFunc {
+impl<'db, S> VdTranspileToLean<S, LnMirFunc> for VdMirFunc
+where
+    S: IsVdLeanTranspilationScheme,
+{
+    fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirFunc {
         match self.key_or_expr() {
             Left(key) => {
                 let Some(translation) = builder.dictionary().func_key_translation(key) else {

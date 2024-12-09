@@ -8,13 +8,13 @@ pub struct DB;
 fn word_debug_works() {
     let db = DB::default();
     let db = &*db;
-    let haha = Coword::from_ref(db, "haha");
+    let haha = BaseCoword::from_ref("haha", db);
     expect_test::expect![[r#"
         Coword(
             "haha",
         )
     "#]]
-    .assert_debug_eq(&haha.debug(db));
+    .assert_debug_eq(&haha);
 }
 
 #[test]
@@ -25,5 +25,5 @@ fn ident_debug_works() {
     expect_test::expect![[r#"
         `haha`
     "#]]
-    .assert_debug_eq(&haha.debug(db));
+    .assert_debug_eq(&haha);
 }

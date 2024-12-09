@@ -254,13 +254,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 88,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `x`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -274,13 +268,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 89,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `y`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -581,13 +569,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 88,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `x`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -601,13 +583,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 89,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `y`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -908,13 +884,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 88,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `x`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -928,13 +898,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 89,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `y`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -1235,13 +1199,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 115,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `min`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -1255,13 +1213,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 71,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `max`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),
@@ -1578,13 +1530,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 208,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `xrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             6,
                                                         ),
@@ -1598,13 +1544,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 209,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `yrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             11,
                                                         ),
@@ -1905,13 +1845,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 208,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `xrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),
@@ -1925,13 +1859,7 @@ SynNodeDeclSheet {
                                             (
                                                 FieldVariable {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: Ident(
-                                                            Coword(
-                                                                Id {
-                                                                    value: 209,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `yrange`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
                                                         ),

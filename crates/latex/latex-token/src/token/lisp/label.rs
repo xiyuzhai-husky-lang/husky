@@ -2,7 +2,7 @@ use super::*;
 use eterned::db::EternerDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct LxLispXlabel(Coword);
+pub struct LxLispXlabel(BaseCoword);
 
 impl LxLispXlabel {
     pub fn new(s: &str, db: &EternerDb) -> Self {
@@ -11,6 +11,6 @@ impl LxLispXlabel {
                 .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == ':')
         }
         debug_assert!(is_valid_ident(s));
-        Self(Coword::from_ref(s, db))
+        Self(BaseCoword::from_ref(s, db))
     }
 }

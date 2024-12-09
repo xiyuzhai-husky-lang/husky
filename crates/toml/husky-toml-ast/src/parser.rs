@@ -41,7 +41,7 @@ impl<'a> TomlAstParser<'a> {
     }
 
     fn parse_section_title(mut self) -> TomlLineGroup {
-        let mut title: SmallVec<[Coword; 2]> = Default::default();
+        let mut title: SmallVec<[BaseCoword; 2]> = Default::default();
         let kind: TomlSectionKind = TomlSectionKind::Normal;
         let token = self.tokens.next().ok_or(TomlAstError::Expect)?;
         match token.data() {
@@ -73,7 +73,7 @@ impl<'a> TomlAstParser<'a> {
         TomlLineGroup::SectionTitle { title, kind }
     }
 
-    fn parse_key_value(mut self, word: Coword) -> TomlLineGroup {
+    fn parse_key_value(mut self, word: BaseCoword) -> TomlLineGroup {
         match self.eat_special(TomlSpecialToken::Equals) {
             Ok(_) => (),
             Err(_) => return TomlLineGroup::Err,
@@ -94,7 +94,7 @@ impl<'a> TomlAstParser<'a> {
         Some(self.exprs.alloc_one(match self.tokens.next()?.data() {
             TomlTokenData::Comment => todo!(),
             TomlTokenData::Special(_) => todo!(),
-            TomlTokenData::Word(word) => match word.data(self.db) {
+            TomlTokenData::Word(word) => match word.data() {
                 "true" => TomlExpr::Boolean(true),
                 "false" => TomlExpr::Boolean(false),
                 _ => todo!(),

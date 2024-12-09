@@ -51,9 +51,9 @@ impl VdTermMenu {
             real_sqrt,
         } = *VD_ITEM_PATH_MENU;
 
-        let zero = VdLiteral::new(VdLiteralData::NaturalNumber("0".to_string()), db);
-        let one = VdLiteral::new(VdLiteralData::NaturalNumber("1".to_string()), db);
-        let two = VdLiteral::new(VdLiteralData::NaturalNumber("2".to_string()), db);
+        let zero = VdLiteral::new(VdLiteralData::Nat128(0), db);
+        let one = VdLiteral::new(VdLiteralData::Nat128(1), db);
+        let two = VdLiteral::new(VdLiteralData::Nat128(2), db);
         let nat = VdTerm::new_item_path(nat.into(), db);
         let int = VdTerm::new_item_path(int.into(), db);
         let rat = VdTerm::new_item_path(rat.into(), db);
@@ -72,7 +72,7 @@ impl VdTermMenu {
     }
 }
 
-#[memo]
+#[memo(return_ref)]
 pub fn vd_term_menu(db: &EternerDb) -> VdTermMenu {
     VdTermMenu::new(db)
 }
