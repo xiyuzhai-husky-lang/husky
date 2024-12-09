@@ -53,9 +53,9 @@ def h29(x : ℝ)(h30 : x > 0) := by
 
 def h35(x : ℝ)(h36 : x > 0)(y : ℝ)(h37 : y > 0) := by
   have h38 : 1 / x + 1 / y - 4 / (x + y) = (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) := by obvious
-  have h39 : (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) = (y * x + x ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) := by obvious
-  have h40 : (y * x + x ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) = (x ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) := by obvious
-  have h41 : (x ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) = (x - y) ^ 2 / (x * y * (x + y)) := by obvious
+  have h39 : (y * (x + y) + x * (x + y) - 4 * x * y) / (x * y * (x + y)) = (y * x + y ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) := by obvious
+  have h40 : (y * x + y ^ 2 + x ^ 2 + y * x - 4 * x * y) / (x * y * (x + y)) = (y ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) := by obvious
+  have h41 : (y ^ 2 + x ^ 2 - 2 * x * y) / (x * y * (x + y)) = (x - y) ^ 2 / (x * y * (x + y)) := by obvious
   have h42 : (x - y) ^ 2 / (x * y * (x + y)) ≥ 0 := by obvious
   have h43 : 1 / x + 1 / y - 4 / (x + y) ≥ 0 := by obvious
   have h44 : 1 / x + 1 / y ≥ 4 / (x + y) := by obvious
