@@ -1,11 +1,11 @@
 use crate::{
+    block::{VdSemBlockArena, VdSemBlockArenaRef},
     clause::{VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx},
     division::{VdSemDivisionArena, VdSemDivisionArenaRef},
     expr::{VdSemExprArena, VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
     helpers::latex_fmt::VdSemExprLaTeXFormatter,
     phrase::{VdSemPhraseArena, VdSemPhraseArenaRef, VdSemPhraseData, VdSemPhraseIdx},
     sentence::{VdSemSentenceArena, VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceIdx},
-    stmt::{VdSemStmtArena, VdSemStmtArenaRef},
     symbol::local_defn::storage::VdSemSymbolLocalDefnStorage,
 };
 
@@ -14,7 +14,7 @@ pub struct VdSemExprRegionData {
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
     sentence_arena: VdSemSentenceArena,
-    stmt_arena: VdSemStmtArena,
+    stmt_arena: VdSemBlockArena,
     division_arena: VdSemDivisionArena,
     sem_symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
 }
@@ -25,7 +25,7 @@ impl VdSemExprRegionData {
         phrase_arena: VdSemPhraseArena,
         clause_arena: VdSemClauseArena,
         sentence_arena: VdSemSentenceArena,
-        stmt_arena: VdSemStmtArena,
+        stmt_arena: VdSemBlockArena,
         division_arena: VdSemDivisionArena,
         sem_symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
     ) -> Self {
@@ -56,7 +56,7 @@ impl VdSemExprRegionData {
         self.sentence_arena.as_arena_ref()
     }
 
-    pub fn stmt_arena(&self) -> VdSemStmtArenaRef {
+    pub fn stmt_arena(&self) -> VdSemBlockArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 
