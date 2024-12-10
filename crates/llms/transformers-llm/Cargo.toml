@@ -1,5 +1,5 @@
 [package]
-name = "any-llm"
+name = "transformers-llm"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,15 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-thiserror.workspace = true
-# llms
-is-llm.workspace = true
-callm-llm.workspace = true
-mistral-llm.workspace = true
-openai-llm.workspace = true
-transformers-llm.workspace = true
-# utils
-husky-print-utils.workspace = true
+candle-transformers.workspace = true
 
 [lints]
 workspace = true
