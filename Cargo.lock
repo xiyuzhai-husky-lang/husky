@@ -13275,13 +13275,6 @@ name = "visored-prelude"
 version = "0.1.0"
 
 [[package]]
-name = "visored-prototype"
-version = "0.1.0"
-dependencies = [
- "idx-arena",
-]
-
-[[package]]
 name = "visored-sem-expr"
 version = "0.1.0"
 dependencies = [
