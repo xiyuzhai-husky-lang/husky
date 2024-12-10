@@ -12,7 +12,11 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+sealed.workspace = true
+serde.workspace = true
 thiserror.workspace = true
+# llms
+llm-cache.workspace = true
 
 [lints]
 workspace = true
