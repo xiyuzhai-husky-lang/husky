@@ -8822,6 +8822,9 @@ version = "0.1.0"
 name = "is-llm"
 version = "0.1.0"
 dependencies = [
+ "llm-cache",
+ "sealed",
+ "serde",
  "thiserror",
 ]
 

@@ -3,12 +3,12 @@ pub mod error;
 mod save;
 #[cfg(test)]
 mod tests;
-mod traits;
+pub mod traits;
 
 use self::{
     entry::LlmCacheEntry,
     error::{LlmCacheError, LlmCacheResult},
-    traits::{IsRequest, IsResponse},
+    traits::{IsLlmCacheRequest, IsLlmCacheResponse},
 };
 use chrono::Duration;
 use dashmap::DashMap;
@@ -22,8 +22,8 @@ use tempfile;
 
 pub struct LlmCache<Request, Response>
 where
-    Request: IsRequest,
-    Response: IsResponse,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     path: PathBuf,
     entries: RwLock<Vec<LlmCacheEntry<Request, Response>>>,
@@ -33,8 +33,8 @@ where
 
 impl<Request, Response> LlmCache<Request, Response>
 where
-    Request: IsRequest,
-    Response: IsResponse,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     /// Creates a new LLM cache that stores request-response pairs at the specified path.
     ///
@@ -95,8 +95,8 @@ where
 
 impl<Request, Response> LlmCache<Request, Response>
 where
-    Request: IsRequest,
-    Response: IsResponse,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     /// locking is handled here
     pub fn get_or_call<E>(
@@ -138,8 +138,8 @@ where
 
 impl<Request, Response> Drop for LlmCache<Request, Response>
 where
-    Request: IsRequest,
-    Response: IsResponse,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     fn drop(&mut self) {
         fs::remove_file(lock_file_path(&self.path)).unwrap();
