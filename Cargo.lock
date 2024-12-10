@@ -9515,6 +9515,9 @@ dependencies = [
 [[package]]
 name = "llm-benchmarks"
 version = "0.1.0"
+dependencies = [
+ "is-llm",
+]
 
 [[package]]
 name = "llm-cache"
