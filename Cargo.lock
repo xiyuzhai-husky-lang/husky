@@ -9863,6 +9863,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "once-place"
+version = "0.1.0"
+
+[[package]]
 name = "once_cell"
 version = "1.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -13094,6 +13098,15 @@ dependencies = [
  "clap 4.5.16",
  "glob",
  "visored-pipeline",
+]
+
+[[package]]
+name = "visored-cnl-expr"
+version = "0.1.0"
+dependencies = [
+ "idx-arena",
+ "is-llm",
+ "once-place",
 ]
 
 [[package]]
