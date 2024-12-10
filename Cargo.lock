@@ -8107,6 +8107,13 @@ name = "is"
 version = "0.1.0"
 
 [[package]]
+name = "is-llm"
+version = "0.1.0"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
 name = "is-terminal"
 version = "0.4.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
