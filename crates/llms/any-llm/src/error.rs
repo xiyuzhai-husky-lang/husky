@@ -1,4 +1,4 @@
-use openai::error::OaiError;
+use openai_llm::error::OaiError;
 
 #[derive(Debug, thiserror::Error)]
 pub enum AnyLlmError {

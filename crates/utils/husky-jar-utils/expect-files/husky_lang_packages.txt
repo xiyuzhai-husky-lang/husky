@@ -456,6 +456,11 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "once-place",
+        relative_path: "crates/abstractions/once-place",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "parsec",
         relative_path: "crates/abstractions/parsec",
         dependencies: [
@@ -3828,14 +3833,39 @@
         name: "any-llm",
         relative_path: "crates/llms/any-llm",
         dependencies: [
+            "callm-llm",
             "husky-print-utils",
-            "openai",
+            "is-llm",
+            "mistral-llm",
+            "openai-llm",
+            "thiserror",
+            "transformers-llm",
+        ],
+    },
+    PackageSummary {
+        name: "callm-llm",
+        relative_path: "crates/llms/callm-llm",
+        dependencies: [
+            "callm",
+        ],
+    },
+    PackageSummary {
+        name: "is-llm",
+        relative_path: "crates/llms/is-llm",
+        dependencies: [
             "thiserror",
         ],
     },
     PackageSummary {
-        name: "openai",
-        relative_path: "crates/llms/openai",
+        name: "mistral-llm",
+        relative_path: "crates/llms/mistral-llm",
+        dependencies: [
+            "mistralrs",
+        ],
+    },
+    PackageSummary {
+        name: "openai-llm",
+        relative_path: "crates/llms/openai-llm",
         dependencies: [
             "husky-print-utils",
             "lazy_static",
@@ -3866,6 +3896,13 @@
             "husky-print-utils",
             "lazy_static",
             "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "transformers-llm",
+        relative_path: "crates/llms/transformers-llm",
+        dependencies: [
+            "candle-transformers",
         ],
     },
     PackageSummary {
@@ -4242,6 +4279,16 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "allms-llm",
+        relative_path: "crates/llms/allms-llm",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "llm-benchmarks",
+        relative_path: "crates/llms/llm-benchmarks",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "mayuri-core",
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
@@ -4512,6 +4559,15 @@
             "latex-environment",
             "latex-vfs",
             "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "visored-cnl-expr",
+        relative_path: "crates/visored/visored-cnl-expr",
+        dependencies: [
+            "idx-arena",
+            "is-llm",
+            "once-place",
         ],
     },
     PackageSummary {
@@ -4791,13 +4847,6 @@
             "husky-path-utils",
             "latex-command",
             "visored-entity-path",
-        ],
-    },
-    PackageSummary {
-        name: "visored-prototype",
-        relative_path: "crates/visored/visored-prototype",
-        dependencies: [
-            "idx-arena",
         ],
     },
     PackageSummary {
