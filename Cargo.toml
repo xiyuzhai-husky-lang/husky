@@ -235,6 +235,7 @@ idx = { path = "crates/abstractions/idx" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
 is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
+once-place = { path = "crates/abstractions/once-place" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
@@ -378,6 +379,7 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # lisp
 lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
+is-llm = { path = "crates/llms/is-llm" }
 llm-cap = { path = "crates/llms/llm-cap" }
 llm-cache = { path = "crates/llms/llm-cache" }
 any-llm = { path = "crates/llms/any-llm" }
