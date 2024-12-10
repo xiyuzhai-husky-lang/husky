@@ -2,10 +2,10 @@ use crate::{
     clause::VdCnlClauseArena, decompose::Decompose, expr::VdCnlExprArena, phrase::VdCnlPhraseArena,
     sentence::VdCnlSentenceArena,
 };
-use is_llm::IsLlm;
+use is_llm::IsLlmDyn;
 
 pub struct VdCnlParser<'db> {
-    llm: &'db dyn IsLlm,
+    llm: &'db dyn IsLlmDyn,
     expr_arena: VdCnlExprArena,
     phrase_arena: VdCnlPhraseArena,
     clause_arena: VdCnlClauseArena,
@@ -13,7 +13,7 @@ pub struct VdCnlParser<'db> {
 }
 
 impl<'db> VdCnlParser<'db> {
-    pub fn new(llm: &'db dyn IsLlm) -> Self {
+    pub fn new(llm: &'db dyn IsLlmDyn) -> Self {
         Self {
             llm,
             expr_arena: Default::default(),
