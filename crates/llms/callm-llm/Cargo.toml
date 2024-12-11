@@ -11,8 +11,14 @@ license.workspace = true
 categories.workspace = true
 keywords.workspace = true
 
+[[bin]]
+name = "callm-readme-example"
+path = "src/bin/callm_readme_example.rs"
+
 [dependencies]
 callm.workspace = true
+clap.workspace = true
+env_logger.workspace = true
 
 [lints]
 workspace = true
