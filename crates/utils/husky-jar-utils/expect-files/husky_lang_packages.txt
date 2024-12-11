@@ -4369,6 +4369,14 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "spacy-rs",
+        relative_path: "crates/nlp/spacy-rs",
+        dependencies: [
+            "pyo3",
+            "serde",
+        ],
+    },
+    PackageSummary {
         name: "husky-proof-protocol",
         relative_path: "crates/protocols/husky-shard-protocol",
         dependencies: [],
