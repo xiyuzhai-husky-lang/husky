@@ -16,8 +16,14 @@ import benepar
 class Parser:
     def __init__(self, device='cuda' if torch.cuda.is_available() else 'cpu'):
         self.device = device
-        # Load models once during initialization
-        self.nlp = spacy.load("en_core_web_md")
+        # Download models if not present
+        try:
+            self.nlp = spacy.load("en_core_web_md")
+        except OSError:
+            print("Downloading spacy model...")
+            download("en_core_web_md")
+            self.nlp = spacy.load("en_core_web_md")
+        
         if 'benepar' not in self.nlp.pipe_names:
             # benepar.download('benepar_en3')
             self.nlp.add_pipe('benepar', config={'model': 'benepar_en3'})
@@ -42,13 +48,16 @@ def parse_sentence(sentence):
 
 # Example usage
 if __name__ == "__main__":
-    # sentence = "I went home with mom and dad"
-    # parse_tree = parse_sentence(sentence)
-    # print("Parse Tree:")
-    # print(parse_tree)
+    import cProfile
+    import time
 
     # Example of batch processing
-    sentences = ["If the dog barks, the cat will meow."]
+    sentences = ["If the dog barks, the cat will meow."] * 100
+
+    # Time the batch processing
+    start_time = time.time()
     parse_trees = parser.parse_batch(sentences)
-    for tree in parse_trees:
-        print(tree)
+    elapsed_time = time.time() - start_time
+    
+    print(f"Processed {len(sentences)} sentences in {elapsed_time:.2f} seconds")
+    print(f"Average time per sentence: {(elapsed_time/len(sentences))*1000:.2f} ms")
