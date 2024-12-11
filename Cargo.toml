@@ -82,7 +82,6 @@ axum = { version = "0.7.4" }
 bit-set = "0.8.0"
 bitflags = "2.6.0"
 bounded-vec = "0.7.1"
-callm = "0.2.0"
 candle-transformers = "0.8.1"
 cargo = "0.81.0"
 cargo-manifest = "0.15.1"
@@ -386,9 +385,9 @@ lisp-csv = { path = "crates/lisp/lisp-csv" }
 is-llm = { path = "crates/llms/is-llm" }
 llm-cap = { path = "crates/llms/llm-cap" }
 llm-cache = { path = "crates/llms/llm-cache" }
+allms-llm = { path = "crates/llms/allms-llm" }
 any-llm = { path = "crates/llms/any-llm" }
 openai-llm = { path = "crates/llms/openai-llm" }
-callm-llm = { path = "crates/llms/callm-llm" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
 transformers-llm = { path = "crates/llms/transformers-llm" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
