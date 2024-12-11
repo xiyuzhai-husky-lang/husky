@@ -26,6 +26,7 @@ members = [
     "crates/mir/*",
     "crates/mizar/*",
     "crates/namekian/*",
+    "crates/nlp/*",
     "crates/protocols/*",
     "crates/prototypes/*",
     "crates/runtime/*",
@@ -391,6 +392,8 @@ openai-llm = { path = "crates/llms/openai-llm" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
 transformers-py-llm = { path = "crates/llms/transformers-py-llm" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
+# nlp
+spacy-rs = { path = "crates/nlp/spacy-rs" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
