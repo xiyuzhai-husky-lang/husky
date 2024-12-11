@@ -169,7 +169,7 @@ bibtex:
 	scripts/research/bibtex_finder.py references/papers.txt -o references/papers.bib --use semantic --max-sleep 0
 
 chmod-local-scripts:
-	chmod +x .local/scripts/*
+	chmod +x .local/scripts/*G
 
 debug: chmod-local-scripts
 	.local/scripts/debug.sh
@@ -182,3 +182,18 @@ measure-ring:
 
 visored-pipeline-try-it:
 	cargo run -p visored-cli --bin visored-cli -- --config projects/ai-math-autoformalization/pipeline/shorts/batch0/config.yaml projects/ai-math-autoformalization/pipeline/shorts/batch0/try_it.tex
+
+pip-freeze:
+	pip freeze > requirements.txt
+
+pip-upgrade-requirements:
+	pip install --upgrade -r requirements.txt
+
+pip-activate-venv-fish:
+	echo "Type: source .venv/bin/activate.fish"
+
+pip-activate-venv-bash:
+	echo "Type: source .venv/bin/activate"
+
+pip-sync:
+	pip-sync

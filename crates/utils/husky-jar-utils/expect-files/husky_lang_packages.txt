@@ -456,6 +456,11 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "once-place",
+        relative_path: "crates/abstractions/once-place",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "parsec",
         relative_path: "crates/abstractions/parsec",
         dependencies: [
@@ -3828,23 +3833,23 @@
         name: "any-llm",
         relative_path: "crates/llms/any-llm",
         dependencies: [
+            "allms",
             "husky-print-utils",
-            "openai",
+            "is-llm",
+            "mistral-llm",
+            "openai-llm",
             "thiserror",
+            "transformers-py-llm",
         ],
     },
     PackageSummary {
-        name: "openai",
-        relative_path: "crates/llms/openai",
+        name: "is-llm",
+        relative_path: "crates/llms/is-llm",
         dependencies: [
-            "husky-print-utils",
-            "lazy_static",
             "llm-cache",
-            "llm-cap",
-            "openai-api-rs",
+            "sealed",
             "serde",
             "thiserror",
-            "tokio",
         ],
     },
     PackageSummary {
@@ -3860,12 +3865,41 @@
         ],
     },
     PackageSummary {
+        name: "mistral-llm",
+        relative_path: "crates/llms/mistral-llm",
+        dependencies: [
+            "mistralrs",
+        ],
+    },
+    PackageSummary {
+        name: "openai-llm",
+        relative_path: "crates/llms/openai-llm",
+        dependencies: [
+            "husky-print-utils",
+            "lazy_static",
+            "llm-cache",
+            "llm-cap",
+            "openai-api-rs",
+            "serde",
+            "thiserror",
+            "tokio",
+        ],
+    },
+    PackageSummary {
         name: "llm-cap",
         relative_path: "crates/llms/llm-cap",
         dependencies: [
             "husky-print-utils",
             "lazy_static",
             "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "transformers-py-llm",
+        relative_path: "crates/llms/transformers-py-llm",
+        dependencies: [
+            "candle-transformers",
+            "pyo3",
         ],
     },
     PackageSummary {
@@ -4242,6 +4276,18 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "allms-llm",
+        relative_path: "crates/llms/allms-llm",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "llm-benchmarks",
+        relative_path: "crates/llms/llm-benchmarks",
+        dependencies: [
+            "is-llm",
+        ],
+    },
+    PackageSummary {
         name: "mayuri-core",
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
@@ -4321,6 +4367,14 @@
         name: "namekian-grammar-rules",
         relative_path: "crates/namekian/namekian-grammar-rules",
         dependencies: [],
+    },
+    PackageSummary {
+        name: "spacy-rs",
+        relative_path: "crates/nlp/spacy-rs",
+        dependencies: [
+            "pyo3",
+            "serde",
+        ],
     },
     PackageSummary {
         name: "husky-proof-protocol",
@@ -4512,6 +4566,15 @@
             "latex-environment",
             "latex-vfs",
             "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "visored-cnl-expr",
+        relative_path: "crates/visored/visored-cnl-expr",
+        dependencies: [
+            "idx-arena",
+            "is-llm",
+            "once-place",
         ],
     },
     PackageSummary {
@@ -4791,13 +4854,6 @@
             "husky-path-utils",
             "latex-command",
             "visored-entity-path",
-        ],
-    },
-    PackageSummary {
-        name: "visored-prototype",
-        relative_path: "crates/visored/visored-prototype",
-        dependencies: [
-            "idx-arena",
         ],
     },
     PackageSummary {

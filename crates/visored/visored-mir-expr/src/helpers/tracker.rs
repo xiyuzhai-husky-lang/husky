@@ -21,8 +21,8 @@ use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
     helpers::tracker::{IsVdSemExprInput, VdSemExprTracker},
     range::{
-        VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap, VdSemExprTokenIdxRangeMap,
-        VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap, VdSemStmtTokenIdxRangeMap,
+        VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,
+        VdSemExprTokenIdxRangeMap, VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap,
     },
 };
 
@@ -36,7 +36,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub sem_phrase_range_map: VdSemPhraseTokenIdxRangeMap,
     pub sem_clause_range_map: VdSemClauseTokenIdxRangeMap,
     pub sem_sentence_range_map: VdSemSentenceTokenIdxRangeMap,
-    pub sem_stmt_range_map: VdSemStmtTokenIdxRangeMap,
+    pub sem_stmt_range_map: VdSemBlockTokenIdxRangeMap,
     pub sem_division_range_map: VdSemDivisionTokenIdxRangeMap,
     pub token_storage: LxTokenStorage,
     pub output: Input::VdMirExprOutput,

@@ -14,7 +14,11 @@ keywords.workspace = true
 [dependencies]
 thiserror.workspace = true
 # llms
-openai.workspace = true
+is-llm.workspace = true
+allms.workspace = true
+mistral-llm.workspace = true
+openai-llm.workspace = true
+transformers-py-llm.workspace = true
 # utils
 husky-print-utils.workspace = true
 

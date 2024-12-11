@@ -4,7 +4,7 @@ use super::{
     resolution::{VdSynSymbolResolution, VdSynSymbolResolutionsTable},
     *,
 };
-use crate::{clause::*, division::*, expr::*, phrase::*, range::*, sentence::*, stmt::*};
+use crate::{block::*, clause::*, division::*, expr::*, phrase::*, range::*, sentence::*};
 use eterned::db::EternerDb;
 use r#let::{
     assigned::VdSynLetAssignedResolution, placeholder::VdSynLetPlaceholderResolution,
@@ -24,16 +24,16 @@ pub struct VdSynSymbolBuilder<'a> {
     phrase_arena: VdSynPhraseArenaRef<'a>,
     clause_arena: VdSynClauseArenaRef<'a>,
     sentence_arena: VdSynSentenceArenaRef<'a>,
-    stmt_arena: VdSynStmtArenaRef<'a>,
+    stmt_arena: VdSynBlockArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
     expr_range_map: &'a VdSynExprTokenIdxRangeMap,
     phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
     clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
     sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
-    stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+    stmt_range_map: &'a VdSynBlockTokenIdxRangeMap,
     division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
     root_node: &'a VdSynExprEntityTreeNode,
-    stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+    stmt_entity_tree_node_map: &'a VdSynBlockMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
     symbol_resolutions_table: VdSynSymbolResolutionsTable,
@@ -48,16 +48,16 @@ impl<'a> VdSynSymbolBuilder<'a> {
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
         sentence_arena: VdSynSentenceArenaRef<'a>,
-        stmt_arena: VdSynStmtArenaRef<'a>,
+        stmt_arena: VdSynBlockArenaRef<'a>,
         division_arena: VdSynDivisionArenaRef<'a>,
         expr_range_map: &'a VdSynExprTokenIdxRangeMap,
         phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
         clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
-        stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+        stmt_range_map: &'a VdSynBlockTokenIdxRangeMap,
         division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
         root_node: &'a VdSynExprEntityTreeNode,
-        stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+        stmt_entity_tree_node_map: &'a VdSynBlockMap<VdSynExprEntityTreeNode>,
         division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         Self {
@@ -122,7 +122,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
         self.sentence_arena
     }
 
-    pub(crate) fn stmt_arena(&self) -> VdSynStmtArenaRef<'a> {
+    pub(crate) fn stmt_arena(&self) -> VdSynBlockArenaRef<'a> {
         self.stmt_arena
     }
 
@@ -160,13 +160,13 @@ impl<'a> VdSynSymbolBuilder<'a> {
         }
     }
 
-    pub(crate) fn build_stmts(&mut self, stmts: VdSynStmtIdxRange) {
+    pub(crate) fn build_stmts(&mut self, stmts: VdSynBlockIdxRange) {
         for stmt in stmts {
             self.build_stmt(stmt);
         }
     }
 
-    pub(crate) fn build_stmt(&mut self, stmt: VdSynStmtIdx) {
+    pub(crate) fn build_stmt(&mut self, stmt: VdSynBlockIdx) {
         self.lineage.stmts.push(stmt);
         self.build_stmt_aux(stmt);
         self.lineage.stmts.pop();

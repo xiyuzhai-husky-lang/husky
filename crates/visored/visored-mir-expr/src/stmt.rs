@@ -11,13 +11,13 @@ use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_prelude::division::VdDivisionLevel;
 use visored_sem_expr::{
+    block::{VdSemBlockData, VdSemBlockIdx, VdSemBlockIdxRange},
     clause::{
         r#let::{placeholder::VdSemLetClausePlaceholderTypeRepr, VdSemLetClauseDispatch},
         VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
     division::{VdSemDivisionData, VdSemDivisionIdx, VdSemDivisionIdxRange},
     sentence::{VdSemSentenceData, VdSemSentenceIdx, VdSemSentenceIdxRange},
-    stmt::{VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
 use visored_term::ty::VdType;
 
@@ -49,7 +49,7 @@ pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirStmtSource {
-    Stmt(VdSemStmtIdx),
+    Stmt(VdSemBlockIdx),
     Division(VdSemDivisionIdx),
     Sentence(VdSemSentenceIdx),
     Clause(VdSemClauseIdx),
@@ -94,7 +94,7 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
+impl ToVdMir<VdMirStmtIdxRange> for VdSemBlockIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let data = self
             .into_iter()
@@ -106,13 +106,13 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemStmtIdxRange {
 }
 
 impl<'db> VdMirExprBuilder<'db> {
-    fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemStmtIdx) -> VdMirStmtData {
+    fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemBlockIdx) -> VdMirStmtData {
         match *self.sem_stmt_arena()[stmt].data() {
-            VdSemStmtData::Paragraph(sentences) => VdMirStmtData::Block {
+            VdSemBlockData::Paragraph(sentences) => VdMirStmtData::Block {
                 stmts: sentences.to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,
             },
-            VdSemStmtData::Environment {
+            VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts,

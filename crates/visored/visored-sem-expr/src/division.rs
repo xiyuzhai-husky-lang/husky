@@ -2,7 +2,7 @@ pub mod helpers;
 #[cfg(test)]
 mod tests;
 
-use crate::stmt::VdSemStmtIdxRange;
+use crate::block::VdSemBlockIdxRange;
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use latex_token::idx::LxRoseTokenIdx;
@@ -18,7 +18,7 @@ pub struct VdSemDivisionEntry {
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSemDivisionData {
     Stmts {
-        stmts: VdSemStmtIdxRange,
+        stmts: VdSemBlockIdxRange,
     },
     Divisions {
         command_token_idx: LxRoseTokenIdx,

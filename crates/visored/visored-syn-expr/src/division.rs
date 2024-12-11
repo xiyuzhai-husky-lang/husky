@@ -4,8 +4,8 @@ mod tests;
 use std::iter::Peekable;
 
 use crate::{
+    block::{VdSynBlockIdx, VdSynBlockIdxRange},
     builder::{ToVdSyn, VdSynExprBuilder},
-    stmt::{VdSynStmtIdx, VdSynStmtIdxRange},
     *,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
@@ -27,7 +27,7 @@ use visored_prelude::division::{VdDivisionLevel, VdDivisionLevelRange};
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynDivisionData {
     Stmts {
-        stmts: VdSynStmtIdxRange,
+        stmts: VdSynBlockIdxRange,
     },
     Divisions {
         command_token_idx: LxRoseTokenIdx,
@@ -41,8 +41,8 @@ pub enum VdSynDivisionData {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VdSynDivisionChild {
     Division(VdSynDivisionIdx),
-    Stmt(VdSynStmtIdx),
-    Title(VdSynStmtIdxRange),
+    Stmt(VdSynBlockIdx),
+    Title(VdSynBlockIdxRange),
 }
 
 impl VdSynDivisionData {

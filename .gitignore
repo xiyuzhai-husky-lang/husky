@@ -351,3 +351,15 @@ experiments/transformer-vs-recursive/figures/
 projects/ai-math-autoformalization/python/.chat_completion_cache/
 projects/ai-math-autoformalization/python/outputs/
 projects/ai-math-autoformalization/python/__pycache__/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+venv/
+.venv/
+.pytest_cache/
+.coverage
