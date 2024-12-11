@@ -1,14 +1,18 @@
 mod entry;
 pub mod error;
+mod save;
 #[cfg(test)]
 mod tests;
+pub mod traits;
 
 use self::{
     entry::LlmCacheEntry,
     error::{LlmCacheError, LlmCacheResult},
+    traits::{IsLlmCacheRequest, IsLlmCacheResponse},
 };
 use chrono::Duration;
 use dashmap::DashMap;
+use save::LlmCacheSaveThread;
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use std::{fs, path::PathBuf};
@@ -18,18 +22,19 @@ use tempfile;
 
 pub struct LlmCache<Request, Response>
 where
-    Request: Serialize + for<'de> Deserialize<'de> + Eq + std::hash::Hash + Clone,
-    Response: Serialize + for<'de> Deserialize<'de> + Clone,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     path: PathBuf,
     entries: RwLock<Vec<LlmCacheEntry<Request, Response>>>,
     indices: DashMap<Request, usize>,
+    save_thread: LlmCacheSaveThread<Request, Response>,
 }
 
 impl<Request, Response> LlmCache<Request, Response>
 where
-    Request: Serialize + for<'de> Deserialize<'de> + Eq + std::hash::Hash + Clone,
-    Response: Serialize + for<'de> Deserialize<'de> + Clone,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     /// Creates a new LLM cache that stores request-response pairs at the specified path.
     ///
@@ -72,6 +77,8 @@ where
             Default::default()
         };
 
+        let save_thread = LlmCacheSaveThread::new(path.clone(), entries.clone());
+
         let indices = entries
             .iter()
             .enumerate()
@@ -81,14 +88,15 @@ where
             path,
             entries: RwLock::new(entries),
             indices,
+            save_thread,
         })
     }
 }
 
 impl<Request, Response> LlmCache<Request, Response>
 where
-    Request: Serialize + for<'de> Deserialize<'de> + Eq + std::hash::Hash + Clone,
-    Response: Serialize + for<'de> Deserialize<'de> + Clone,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     /// locking is handled here
     pub fn get_or_call<E>(
@@ -103,7 +111,6 @@ where
             return Ok(self.entries.read().unwrap()[*index].response.clone());
         }
         let response = self.get_or_call_aux(request, f)?;
-        self.save()?;
         Ok(response)
     }
 
@@ -121,27 +128,20 @@ where
             return Ok(entries[*index].response.clone());
         }
         let response = f(&request)?;
-        entries.push(LlmCacheEntry::new(request.clone(), response.clone()));
+        let new_entry = LlmCacheEntry::new(request.clone(), response.clone());
+        self.save_thread.save(new_entry.clone())?;
+        entries.push(new_entry);
         self.indices.insert(request, entries.len() - 1);
         Ok(response)
-    }
-
-    fn save(&self) -> LlmCacheResult<()> {
-        let contents = serde_json::to_string_pretty(&self.entries).unwrap();
-        fs::write(&self.path, contents).map_err(|e| LlmCacheError::Io(self.path.clone(), e))
     }
 }
 
 impl<Request, Response> Drop for LlmCache<Request, Response>
 where
-    Request: Serialize + for<'de> Deserialize<'de> + Eq + std::hash::Hash + Clone,
-    Response: Serialize + for<'de> Deserialize<'de> + Clone,
+    Request: IsLlmCacheRequest,
+    Response: IsLlmCacheResponse,
 {
     fn drop(&mut self) {
-        match self.save() {
-            Ok(_) => (),
-            Err(e) => eprintln!("Error saving cache: {}", e),
-        }
         fs::remove_file(lock_file_path(&self.path)).unwrap();
     }
 }

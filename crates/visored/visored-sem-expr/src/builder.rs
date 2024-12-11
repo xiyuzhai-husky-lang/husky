@@ -6,6 +6,7 @@ use visored_annotation::annotations::VdAnnotations;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 use visored_syn_expr::{
+    block::{VdSynBlockArenaRef, VdSynBlockIdx, VdSynBlockMap},
     clause::{VdSynClauseArenaRef, VdSynClauseIdx, VdSynClauseMap},
     division::{VdSynDivisionArenaRef, VdSynDivisionIdx, VdSynDivisionMap},
     entity_tree::VdSynExprEntityTreeNode,
@@ -13,7 +14,6 @@ use visored_syn_expr::{
     phrase::{VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
     range::VdSynExprTokenIdxRange,
     sentence::{VdSynSentenceArenaRef, VdSynSentenceIdx, VdSynSentenceMap},
-    stmt::{VdSynStmtArenaRef, VdSynStmtIdx, VdSynStmtMap},
     symbol::{local_defn::VdSynSymbolLocalDefnStorage, resolution::VdSynSymbolResolutionsTable},
 };
 use visored_term::{
@@ -23,6 +23,10 @@ use visored_term::{
 };
 
 use crate::{
+    block::{
+        VdSemBlockArena, VdSemBlockArenaRef, VdSemBlockData, VdSemBlockEntry, VdSemBlockIdx,
+        VdSemBlockIdxRange,
+    },
     clause::{
         VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
     },
@@ -41,10 +45,6 @@ use crate::{
         VdSemSentenceArena, VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceIdx,
         VdSemSentenceIdxRange,
     },
-    stmt::{
-        VdSemStmtArena, VdSemStmtArenaRef, VdSemStmtData, VdSemStmtEntry, VdSemStmtIdx,
-        VdSemStmtIdxRange,
-    },
     symbol::local_defn::{
         storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData, VdSemSymbolLocalDefnIdx,
     },
@@ -60,20 +60,20 @@ pub(crate) struct VdSemExprBuilder<'a> {
     syn_phrase_arena: VdSynPhraseArenaRef<'a>,
     syn_clause_arena: VdSynClauseArenaRef<'a>,
     syn_sentence_arena: VdSynSentenceArenaRef<'a>,
-    syn_stmt_arena: VdSynStmtArenaRef<'a>,
+    syn_stmt_arena: VdSynBlockArenaRef<'a>,
     syn_division_arena: VdSynDivisionArenaRef<'a>,
     syn_expr_range_map: &'a VdSynExprMap<VdSynExprTokenIdxRange>,
     syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
     vd_ty_menu: &'a VdTypeMenu,
     item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
     default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
-    stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+    stmt_entity_tree_node_map: &'a VdSynBlockMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
     sentence_arena: VdSemSentenceArena,
-    stmt_arena: VdSemStmtArena,
+    stmt_arena: VdSemBlockArena,
     division_arena: VdSemDivisionArena,
     /// only needs to keep track of syn to sem expr map because of possible repetition
     syn_to_sem_expr_map: VdSynExprMap<VdSemExprIdx>,
@@ -91,14 +91,14 @@ impl<'a> VdSemExprBuilder<'a> {
         syn_phrase_arena: VdSynPhraseArenaRef<'a>,
         syn_clause_arena: VdSynClauseArenaRef<'a>,
         syn_sentence_arena: VdSynSentenceArenaRef<'a>,
-        syn_stmt_arena: VdSynStmtArenaRef<'a>,
+        syn_stmt_arena: VdSynBlockArenaRef<'a>,
         syn_division_arena: VdSynDivisionArenaRef<'a>,
         syn_expr_range_map: &'a VdSynExprMap<VdSynExprTokenIdxRange>,
         syn_symbol_local_defn_storage: &'a VdSynSymbolLocalDefnStorage,
         syn_symbol_resolution_table: &'a VdSynSymbolResolutionsTable,
         item_path_zfc_ty_table: &'a VdItemPathZfcTypeTable,
         default_global_dispatch_table: &'a VdDefaultGlobalDispatchTable,
-        stmt_entity_tree_node_map: &'a VdSynStmtMap<VdSynExprEntityTreeNode>,
+        stmt_entity_tree_node_map: &'a VdSynBlockMap<VdSynExprEntityTreeNode>,
         division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
     ) -> Self {
         let mut slf = Self {
@@ -125,7 +125,7 @@ impl<'a> VdSemExprBuilder<'a> {
             phrase_arena: VdSemPhraseArena::default(),
             clause_arena: VdSemClauseArena::default(),
             sentence_arena: VdSemSentenceArena::default(),
-            stmt_arena: VdSemStmtArena::default(),
+            stmt_arena: VdSemBlockArena::default(),
             division_arena: VdSemDivisionArena::default(),
             syn_to_sem_expr_map: VdSynExprMap::new2(syn_expr_arena),
         };
@@ -159,7 +159,7 @@ impl<'a> VdSemExprBuilder<'a> {
         self.syn_sentence_arena
     }
 
-    pub fn syn_stmt_arena(&self) -> VdSynStmtArenaRef<'a> {
+    pub fn syn_stmt_arena(&self) -> VdSynBlockArenaRef<'a> {
         self.syn_stmt_arena
     }
 
@@ -203,7 +203,7 @@ impl<'a> VdSemExprBuilder<'a> {
         self.sentence_arena.as_arena_ref()
     }
 
-    pub(crate) fn stmt_arena(&self) -> VdSemStmtArenaRef {
+    pub(crate) fn stmt_arena(&self) -> VdSemBlockArenaRef {
         self.stmt_arena.as_arena_ref()
     }
 
@@ -215,7 +215,7 @@ impl<'a> VdSemExprBuilder<'a> {
         &self.syn_to_sem_expr_map
     }
 
-    pub(crate) fn stmt_entity_tree_node_map(&self) -> &VdSynStmtMap<VdSynExprEntityTreeNode> {
+    pub(crate) fn stmt_entity_tree_node_map(&self) -> &VdSynBlockMap<VdSynExprEntityTreeNode> {
         self.stmt_entity_tree_node_map
     }
 
@@ -273,7 +273,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.sentence_arena.alloc_batch(sentences)
     }
 
-    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemStmtEntry>) -> VdSemStmtIdxRange {
+    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VdSemBlockEntry>) -> VdSemBlockIdxRange {
         self.stmt_arena.alloc_batch(stmts)
     }
 
@@ -319,7 +319,7 @@ impl<'db> VdSemExprBuilder<'db> {
         VdSemPhraseArena,
         VdSemClauseArena,
         VdSemSentenceArena,
-        VdSemStmtArena,
+        VdSemBlockArena,
         VdSemDivisionArena,
         VdSemSymbolLocalDefnStorage,
     ) {

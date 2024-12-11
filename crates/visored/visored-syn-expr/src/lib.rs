@@ -13,7 +13,6 @@ pub mod phrase;
 pub mod range;
 pub mod region;
 pub mod sentence;
-pub mod stmt;
 pub mod symbol;
 #[cfg(test)]
 mod tests;
@@ -21,6 +20,7 @@ mod tests;
 #[cfg(test)]
 use self::tests::*;
 use crate::builder::ToVdSyn;
+use block::VdSynBlockArena;
 use builder::VdSynExprBuilder;
 use clause::VdSynClauseArena;
 use division::VdSynDivisionArena;
@@ -31,6 +31,5 @@ use latex_token::storage::LxTokenStorage;
 use phrase::VdSynPhraseArena;
 use sentence::VdSynSentenceArena;
 use smallvec::SmallVec;
-use stmt::VdSynStmtArena;
 use visored_annotation::annotations::VdAnnotations;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;

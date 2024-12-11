@@ -1,10 +1,10 @@
 use super::*;
-use stmt::VdSemStmtIdx;
+use block::VdSemBlockIdx;
 
 pub enum VdSemDivisionChild {
     Division(VdSemDivisionIdx),
-    Title(VdSemStmtIdxRange),
-    Stmt(VdSemStmtIdx),
+    Title(VdSemBlockIdxRange),
+    Stmt(VdSemBlockIdx),
 }
 
 impl VdSemDivisionData {

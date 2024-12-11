@@ -1,3 +1,4 @@
+pub mod block;
 mod builder;
 pub mod clause;
 pub mod division;
@@ -9,18 +10,17 @@ pub mod phrase;
 pub mod range;
 pub mod region;
 pub mod sentence;
-pub mod stmt;
 pub mod symbol;
 #[cfg(test)]
 mod tests;
 
 #[cfg(test)]
 use self::tests::*;
+use block::VdSemBlockIdxRange;
 use builder::VdSemExprBuilder;
 use either::*;
 use expr::VdSemExprIdx;
-use stmt::VdSemStmtIdxRange;
-use visored_syn_expr::{expr::VdSynExprIdx, stmt::VdSynStmtIdxRange};
+use visored_syn_expr::{block::VdSynBlockIdxRange, expr::VdSynExprIdx};
 
 pub trait ToVdSem<T> {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> T;

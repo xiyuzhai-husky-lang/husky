@@ -1,4 +1,7 @@
 use crate::{
+    block::{
+        VdSynBlockArenaRef, VdSynBlockChild, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange,
+    },
     builder::VdSynExprBuilder,
     clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
     division::{
@@ -8,12 +11,11 @@ use crate::{
     expr::{VdSynExprArenaRef, VdSynExprData, VdSynExprIdx, VdSynExprIdxRange},
     phrase::VdSynPhraseArenaRef,
     range::{
-        VdSynClauseTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap, VdSynExprTokenIdxRange,
-        VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
-        VdSynStmtTokenIdxRangeMap,
+        VdSynBlockTokenIdxRangeMap, VdSynClauseTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap,
+        VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap,
+        VdSynSentenceTokenIdxRangeMap,
     },
     sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceData, VdSynSentenceIdx},
-    stmt::{VdSynStmtArenaRef, VdSynStmtChild, VdSynStmtData, VdSynStmtIdx, VdSynStmtIdxRange},
 };
 use eterned::db::EternerDb;
 use husky_text_protocol::offset::TextOffsetRange;
@@ -39,13 +41,13 @@ pub struct VdSynExprDisplayTreeBuilder<'a> {
     phrase_arena: VdSynPhraseArenaRef<'a>,
     clause_arena: VdSynClauseArenaRef<'a>,
     sentence_arena: VdSynSentenceArenaRef<'a>,
-    stmt_arena: VdSynStmtArenaRef<'a>,
+    stmt_arena: VdSynBlockArenaRef<'a>,
     division_arena: VdSynDivisionArenaRef<'a>,
     expr_range_map: &'a VdSynExprTokenIdxRangeMap,
     phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
     clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
     sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
-    stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+    stmt_range_map: &'a VdSynBlockTokenIdxRangeMap,
     division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
 }
 
@@ -61,13 +63,13 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         phrase_arena: VdSynPhraseArenaRef<'a>,
         clause_arena: VdSynClauseArenaRef<'a>,
         sentence_arena: VdSynSentenceArenaRef<'a>,
-        stmt_arena: VdSynStmtArenaRef<'a>,
+        stmt_arena: VdSynBlockArenaRef<'a>,
         division_arena: VdSynDivisionArenaRef<'a>,
         expr_range_map: &'a VdSynExprTokenIdxRangeMap,
         phrase_range_map: &'a VdSynPhraseTokenIdxRangeMap,
         clause_range_map: &'a VdSynClauseTokenIdxRangeMap,
         sentence_range_map: &'a VdSynSentenceTokenIdxRangeMap,
-        stmt_range_map: &'a VdSynStmtTokenIdxRangeMap,
+        stmt_range_map: &'a VdSynBlockTokenIdxRangeMap,
         division_range_map: &'a VdSynDivisionTokenIdxRangeMap,
     ) -> Self {
         Self {
@@ -200,7 +202,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .collect()
     }
 
-    pub fn render_all_stmts(&self, stmts: VdSynStmtIdxRange) -> DisplayTree {
+    pub fn render_all_stmts(&self, stmts: VdSynBlockIdxRange) -> DisplayTree {
         let stmts_range =
             self.stmt_range_map[stmts.start()].join(self.stmt_range_map[stmts.last().unwrap()]);
         let offset_range = self.token_storage.token_idx_range_offset_range(stmts_range);
@@ -210,20 +212,20 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         )
     }
 
-    pub fn render_stmts(&self, stmts: VdSynStmtIdxRange) -> Vec<DisplayTree> {
+    pub fn render_stmts(&self, stmts: VdSynBlockIdxRange) -> Vec<DisplayTree> {
         stmts
             .into_iter()
             .map(|stmt| self.render_stmt(stmt))
             .collect()
     }
 
-    pub fn render_stmt(&self, stmt: VdSynStmtIdx) -> DisplayTree {
+    pub fn render_stmt(&self, stmt: VdSynBlockIdx) -> DisplayTree {
         let stmt_range = self.stmt_range_map[stmt];
         let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
         let source = &self.input[offset_range];
         let value = match self.stmt_arena[stmt] {
-            VdSynStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
-            VdSynStmtData::Environment { .. } => format!("{:?} stmt.block", source),
+            VdSynBlockData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
+            VdSynBlockData::Environment { .. } => format!("{:?} stmt.block", source),
         };
         DisplayTree::new(
             value,
@@ -231,12 +233,12 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         )
     }
 
-    fn render_stmt_children(&self, children: Vec<VdSynStmtChild>) -> Vec<DisplayTree> {
+    fn render_stmt_children(&self, children: Vec<VdSynBlockChild>) -> Vec<DisplayTree> {
         children
             .into_iter()
             .map(|child| match child {
-                VdSynStmtChild::Sentence(sentence) => self.render_sentence(sentence),
-                VdSynStmtChild::Stmt(stmt) => self.render_stmt(stmt),
+                VdSynBlockChild::Sentence(sentence) => self.render_sentence(sentence),
+                VdSynBlockChild::Stmt(stmt) => self.render_stmt(stmt),
             })
             .collect()
     }

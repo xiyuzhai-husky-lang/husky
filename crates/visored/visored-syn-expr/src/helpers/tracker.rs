@@ -10,6 +10,7 @@ use crate::{
     },
     sentence::VdSynSentenceArena,
 };
+use block::{VdSynBlockArena, VdSynBlockIdx, VdSynBlockIdxRange, VdSynBlockMap};
 use builder::FromToVdSyn;
 use clause::VdSynClauseIdx;
 use division::{VdSynDivisionArena, VdSynDivisionIdxRange, VdSynDivisionMap};
@@ -34,10 +35,9 @@ use latex_prelude::{
 };
 use latex_token::{idx::LxTokenIdxRange, lane::LxTokenLane, storage::LxTokenStorage};
 use phrase::VdSynPhraseIdx;
-use range::{calc_expr_range_map, VdSynDivisionTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap};
+use range::{calc_expr_range_map, VdSynBlockTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap};
 use sealed::*;
 use sentence::VdSynSentenceIdx;
-use stmt::{VdSynStmtArena, VdSynStmtIdx, VdSynStmtIdxRange, VdSynStmtMap};
 use symbol::{
     builder::VdSynSymbolBuilder, local_defn::VdSynSymbolLocalDefnStorage,
     resolution::VdSynSymbolResolutionsTable,
@@ -60,18 +60,18 @@ pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub phrase_arena: VdSynPhraseArena,
     pub clause_arena: VdSynClauseArena,
     pub sentence_arena: VdSynSentenceArena,
-    pub stmt_arena: VdSynStmtArena,
+    pub stmt_arena: VdSynBlockArena,
     pub division_arena: VdSynDivisionArena,
     pub expr_range_map: VdSynExprTokenIdxRangeMap,
     pub phrase_range_map: VdSynPhraseTokenIdxRangeMap,
     pub clause_range_map: VdSynClauseTokenIdxRangeMap,
     pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
-    pub stmt_range_map: VdSynStmtTokenIdxRangeMap,
+    pub stmt_range_map: VdSynBlockTokenIdxRangeMap,
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
     pub symbol_local_defn_storage: VdSynSymbolLocalDefnStorage,
     pub symbol_resolution_table: VdSynSymbolResolutionsTable,
     pub root_entity_tree_node: VdSynExprEntityTreeNode,
-    pub stmt_entity_tree_node_map: VdSynStmtMap<VdSynExprEntityTreeNode>,
+    pub stmt_entity_tree_node_map: VdSynBlockMap<VdSynExprEntityTreeNode>,
     pub division_entity_tree_node_map: VdSynDivisionMap<VdSynExprEntityTreeNode>,
     pub output: Input::VdSynExprOutput,
 }
@@ -211,7 +211,7 @@ impl<'a> IsVdSynExprInput<'a> for LxDocumentBodyInput<'a> {
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxPageInput<'a> {
-    type VdSynExprOutput = VdSynStmtIdxRange;
+    type VdSynExprOutput = VdSynBlockIdxRange;
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxFormulaInput<'a> {
@@ -235,7 +235,7 @@ impl IsVdSynOutput for VdSynDivisionIdxRange {
     }
 }
 
-impl IsVdSynOutput for VdSynStmtIdxRange {
+impl IsVdSynOutput for VdSynBlockIdxRange {
     fn build_entity_tree_root_node(
         self,
         builder: &mut VdSynExprEntityTreeBuilder,

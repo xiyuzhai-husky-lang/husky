@@ -1,6 +1,6 @@
 use super::*;
-use crate::range::{calc_expr_range_map, VdSemStmtTokenIdxRangeMap};
-use crate::stmt::{VdSemStmtArena, VdSemStmtIdxRange};
+use crate::block::{VdSemBlockArena, VdSemBlockIdxRange};
+use crate::range::{calc_expr_range_map, VdSemBlockTokenIdxRangeMap};
 use crate::{
     builder::VdSemExprBuilder,
     clause::VdSemClauseArena,
@@ -39,17 +39,17 @@ use visored_entity_path::module::VdModulePath;
 use visored_global_dispatch::default_table::VdDefaultGlobalDispatchTable;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
 use visored_syn_expr::{
+    block::VdSynBlockArena,
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,
     expr::VdSynExprArena,
     helpers::tracker::{IsVdSynExprInput, VdSynExprTracker},
     phrase::VdSynPhraseArena,
     range::{
-        VdSynClauseTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap, VdSynExprTokenIdxRangeMap,
-        VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap, VdSynStmtTokenIdxRangeMap,
+        VdSynBlockTokenIdxRangeMap, VdSynClauseTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap,
+        VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
     },
     sentence::VdSynSentenceArena,
-    stmt::VdSynStmtArena,
 };
 use visored_term::ty::table::VdItemPathZfcTypeTable;
 
@@ -65,13 +65,13 @@ pub struct VdSemExprTracker<'a, Input: IsVdSemExprInput<'a>> {
     pub phrase_arena: VdSemPhraseArena,
     pub clause_arena: VdSemClauseArena,
     pub sentence_arena: VdSemSentenceArena,
-    pub stmt_arena: VdSemStmtArena,
+    pub stmt_arena: VdSemBlockArena,
     pub division_arena: VdSemDivisionArena,
     pub expr_range_map: VdSemExprTokenIdxRangeMap,
     pub phrase_range_map: VdSemPhraseTokenIdxRangeMap,
     pub clause_range_map: VdSemClauseTokenIdxRangeMap,
     pub sentence_range_map: VdSemSentenceTokenIdxRangeMap,
-    pub stmt_range_map: VdSemStmtTokenIdxRangeMap,
+    pub stmt_range_map: VdSemBlockTokenIdxRangeMap,
     pub division_range_map: VdSemDivisionTokenIdxRangeMap,
     pub symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
     pub output: Input::VdSemExprOutput,
@@ -241,7 +241,7 @@ impl<'a> IsVdSemExprInput<'a> for LxDocumentBodyInput<'a> {
 }
 
 impl<'a> IsVdSemExprInput<'a> for LxPageInput<'a> {
-    type VdSemExprOutput = VdSemStmtIdxRange;
+    type VdSemExprOutput = VdSemBlockIdxRange;
 }
 
 impl<'a> IsVdSemExprInput<'a> for LxFormulaInput<'a> {
@@ -254,7 +254,7 @@ impl IsVdSemExprOutput for VdSemDivisionIdxRange {
     }
 }
 
-impl IsVdSemExprOutput for VdSemStmtIdxRange {
+impl IsVdSemExprOutput for VdSemBlockIdxRange {
     fn show(self, builder: &VdSemExprDisplayTreeBuilder) -> String {
         builder.render_all_stmts(self).show(&Default::default())
     }
