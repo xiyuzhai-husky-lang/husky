@@ -1,8 +1,8 @@
 .PHONY: env clean install run
 
 env:
-	pyenv install 3.10.13 --skip-existing && \
-	pyenv local 3.10.13 && \
+	pyenv install 3.12.4 --skip-existing && \
+	pyenv local 3.12.4 && \
 	python -m venv .venv
 
 install-pyenv:# Install dependencies
