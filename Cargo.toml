@@ -389,7 +389,7 @@ allms-llm = { path = "crates/llms/allms-llm" }
 any-llm = { path = "crates/llms/any-llm" }
 openai-llm = { path = "crates/llms/openai-llm" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
-transformers-llm = { path = "crates/llms/transformers-llm" }
+transformers-py-llm = { path = "crates/llms/transformers-py-llm" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }

@@ -18,7 +18,7 @@ is-llm.workspace = true
 allms.workspace = true
 mistral-llm.workspace = true
 openai-llm.workspace = true
-transformers-llm.workspace = true
+transformers-py-llm.workspace = true
 # utils
 husky-print-utils.workspace = true
 

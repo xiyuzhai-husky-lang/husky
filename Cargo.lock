@@ -370,7 +370,7 @@ dependencies = [
  "mistral-llm",
  "openai-llm",
  "thiserror",
- "transformers-llm",
+ "transformers-py-llm",
 ]
 
 [[package]]
@@ -14604,7 +14604,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "transformers-llm"
+name = "transformers-py-llm"
 version = "0.1.0"
 dependencies = [
  "candle-transformers",

@@ -3833,27 +3833,35 @@
         name: "any-llm",
         relative_path: "crates/llms/any-llm",
         dependencies: [
-            "callm-llm",
+            "allms",
             "husky-print-utils",
             "is-llm",
             "mistral-llm",
             "openai-llm",
             "thiserror",
-            "transformers-llm",
-        ],
-    },
-    PackageSummary {
-        name: "callm-llm",
-        relative_path: "crates/llms/callm-llm",
-        dependencies: [
-            "callm",
+            "transformers-py-llm",
         ],
     },
     PackageSummary {
         name: "is-llm",
         relative_path: "crates/llms/is-llm",
         dependencies: [
+            "llm-cache",
+            "sealed",
+            "serde",
             "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "llm-cache",
+        relative_path: "crates/llms/llm-cache",
+        dependencies: [
+            "chrono",
+            "dashmap",
+            "serde",
+            "serde_json",
+            "thiserror",
+            "tempfile",
         ],
     },
     PackageSummary {
@@ -3878,18 +3886,6 @@
         ],
     },
     PackageSummary {
-        name: "llm-cache",
-        relative_path: "crates/llms/llm-cache",
-        dependencies: [
-            "chrono",
-            "dashmap",
-            "serde",
-            "serde_json",
-            "thiserror",
-            "tempfile",
-        ],
-    },
-    PackageSummary {
         name: "llm-cap",
         relative_path: "crates/llms/llm-cap",
         dependencies: [
@@ -3899,10 +3895,11 @@
         ],
     },
     PackageSummary {
-        name: "transformers-llm",
-        relative_path: "crates/llms/transformers-llm",
+        name: "transformers-py-llm",
+        relative_path: "crates/llms/transformers-py-llm",
         dependencies: [
             "candle-transformers",
+            "pyo3",
         ],
     },
     PackageSummary {
@@ -4286,7 +4283,9 @@
     PackageSummary {
         name: "llm-benchmarks",
         relative_path: "crates/llms/llm-benchmarks",
-        dependencies: [],
+        dependencies: [
+            "is-llm",
+        ],
     },
     PackageSummary {
         name: "mayuri-core",
