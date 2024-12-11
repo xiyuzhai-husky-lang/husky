@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 candle-transformers.workspace = true
+pyo3.workspace = true
 
 [lints]
 workspace = true
