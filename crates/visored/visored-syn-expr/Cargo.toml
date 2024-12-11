@@ -45,6 +45,7 @@ husky-tree-utils.workspace = true
 visored-annotation.workspace = true
 visored-global-resolution.workspace = true
 visored-entity-path.workspace = true
+visored-llm.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
 visored-term.workspace = true

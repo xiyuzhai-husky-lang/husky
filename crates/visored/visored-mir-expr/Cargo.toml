@@ -31,6 +31,7 @@ visored-annotation.workspace = true
 visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
 visored-entity-path.workspace = true
+visored-llm.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
 visored-sem-expr.workspace = true

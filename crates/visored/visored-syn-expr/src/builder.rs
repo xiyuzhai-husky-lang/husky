@@ -1,7 +1,5 @@
 mod debug;
 
-use std::iter::Peekable;
-
 use crate::{
     block::VdSynBlockMap, division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode,
 };
@@ -32,12 +30,14 @@ use latex_ast::{
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use latex_vfs::path::LxFilePath;
+use std::iter::Peekable;
 use visored_annotation::annotations::VdAnnotations;
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::{
     default_table::VdDefaultGlobalResolutionTable,
     resolution::command::VdCompleteCommandGlobalResolution,
 };
+use visored_llm::VdLlm;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db EternerDb,
@@ -48,6 +48,7 @@ pub struct VdSynExprBuilder<'db> {
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
     annotations: &'db VdAnnotations,
     default_global_resolution_table: &'db VdDefaultGlobalResolutionTable,
+    llm: &'db VdLlm,
     expr_arena: VdSynExprArena,
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
@@ -66,7 +67,8 @@ impl<'db> VdSynExprBuilder<'db> {
         ast_arena: LxAstArenaRef<'db>,
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
         annotations: &'db VdAnnotations,
-        default_resolution_table: &'db VdDefaultGlobalResolutionTable,
+        default_global_resolution_table: &'db VdDefaultGlobalResolutionTable,
+        llm: &'db VdLlm,
     ) -> Self {
         Self {
             db,
@@ -76,7 +78,8 @@ impl<'db> VdSynExprBuilder<'db> {
             ast_arena,
             ast_token_idx_range_map,
             annotations,
-            default_global_resolution_table: default_resolution_table,
+            default_global_resolution_table,
+            llm,
             expr_arena: Default::default(),
             phrase_arena: Default::default(),
             clause_arena: Default::default(),

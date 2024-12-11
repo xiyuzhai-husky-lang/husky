@@ -3,6 +3,7 @@ use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
+use visored_llm::VdLlm;
 use visored_mir_expr::{
     expr::VdMirExprData, helpers::tracker::VdMirExprTracker, stmt::VdMirStmtData,
 };
@@ -31,6 +32,7 @@ fn ring_tactics() {
         };
         let token_annotations = vec![];
         let space_annotations = vec![];
+        let llm = &VdLlm::new();
         let VdMirExprTracker {
             root_module_path,
             expr_arena,
@@ -46,7 +48,7 @@ fn ring_tactics() {
             token_storage,
             output: stmts,
             ..
-        } = VdMirExprTracker::new(input, &token_annotations, &space_annotations, db);
+        } = VdMirExprTracker::new(input, &token_annotations, &space_annotations, llm, db);
         let stmt = stmts.last().unwrap();
         let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
             unreachable!()

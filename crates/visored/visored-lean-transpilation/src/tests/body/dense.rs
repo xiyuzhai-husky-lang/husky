@@ -9,8 +9,9 @@ use latex_prelude::{
 };
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
+use visored_llm::VdLlm;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -24,6 +25,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        llm,
         db,
         &VdLeanTranspilationDenseScheme,
     );
@@ -33,7 +35,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_body_to_lean_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
             └─ group: `division`
@@ -47,6 +51,7 @@ fn basic_body_to_lean_works() {
               exact ()"#]],
     );
     t(
+        llm,
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
             └─ group: `division`
@@ -59,6 +64,7 @@ fn basic_body_to_lean_works() {
               exact ()"#]],
     );
     t(
+        llm,
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
             └─ group: `division`
@@ -72,6 +78,7 @@ fn basic_body_to_lean_works() {
               exact ()"#]],
     );
     t(
+        llm,
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ group: `division`
@@ -89,6 +96,7 @@ fn basic_body_to_lean_works() {
         "#]],
     );
     t(
+        llm,
         r#"\section{Introduction}Let $x\in\mathbb{R}$.\subsection{Hello}Let $y\in\mathbb{R}$.\subsection{World}\subsection{This}\subsubsection{Is}\subsubsection{Bad}"#,
         &expect![[r#"
             └─ group: `division`

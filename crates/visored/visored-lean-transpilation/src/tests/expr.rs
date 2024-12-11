@@ -7,7 +7,7 @@ use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -21,6 +21,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        llm,
         db,
         &VdLeanTranspilationSparseScheme,
     );
@@ -30,7 +31,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_visored_expr_to_lean_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "1",
         &expect![[r#"
             literal: `1`
@@ -38,6 +41,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1"],
     );
     t(
+        llm,
         "-1",
         &expect![[r#"
             application
@@ -46,6 +50,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["-1"],
     );
     t(
+        llm,
         "1 + 1",
         &expect![[r#"
             application
@@ -55,6 +60,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 + 1"],
     );
     t(
+        llm,
         "1 < 2",
         &expect![[r#"
             application
@@ -64,6 +70,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 < 2"],
     );
     t(
+        llm,
         "1\\in\\mathbb{N}",
         &expect![[r#"
             application
@@ -73,6 +80,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["sorry"],
     );
     t(
+        llm,
         "\\frac{1}{2}",
         &expect![[r#"
             application
@@ -82,6 +90,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 / 2"],
     );
     t(
+        llm,
         "\\sqrt{2}",
         &expect![[r#"
             application
@@ -94,7 +103,9 @@ fn basic_visored_expr_to_lean_works() {
 
 #[test]
 fn item_path_to_lean_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "\\mathbb{N}",
         &expect![[r#"
             item path: `ℕ`

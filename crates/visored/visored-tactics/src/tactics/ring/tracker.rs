@@ -2,6 +2,7 @@ use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
+use visored_llm::VdLlm;
 use visored_mir_expr::helpers::tracker::VdMirExprTracker;
 
 pub struct Tracker {}
@@ -13,6 +14,7 @@ impl Tracker {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        llm: &VdLlm,
         db: &EternerDb,
     ) -> Self {
         let VdMirExprTracker {
@@ -30,7 +32,7 @@ impl Tracker {
             token_storage,
             output: stmts,
             ..
-        } = VdMirExprTracker::new(input, token_annotations, space_annotations, db);
+        } = VdMirExprTracker::new(input, token_annotations, space_annotations, llm, db);
         // assert!(stmts.len() > 1);
         Self {}
     }
@@ -53,7 +55,8 @@ fn ring_tactics_tracker_works() {
         };
         let token_annotations = vec![];
         let space_annotations = vec![];
-        let tracker = Tracker::new(input, &token_annotations, &space_annotations, db);
+        let llm = &VdLlm::new();
+        let tracker = Tracker::new(input, &token_annotations, &space_annotations, llm, db);
     }
 
     t(r#"Let $x\in\mathbb{R}$. Then $x^2=x^2$."#);
