@@ -1,7 +1,7 @@
 mod error;
 
 use error::AnyLlmResult;
-use openai::OaiClient;
+use openai_llm::OaiClient;
 use std::path::PathBuf;
 
 pub struct AnyLlmClient {

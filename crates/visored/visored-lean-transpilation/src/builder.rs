@@ -21,8 +21,8 @@ use visored_mir_expr::{
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
 };
 use visored_sem_expr::range::{
-    VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap, VdSemExprTokenIdxRangeMap,
-    VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap, VdSemStmtTokenIdxRangeMap,
+    VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,
+    VdSemExprTokenIdxRangeMap, VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap,
 };
 
 use crate::{
@@ -46,7 +46,7 @@ pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
     sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
     sem_sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
-    sem_stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+    sem_stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
     sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
     token_storage: &'a LxTokenStorage,
     input: &'a str,
@@ -78,7 +78,7 @@ where
         sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
         sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
         sem_sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
-        sem_stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+        sem_stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
         sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
         token_storage: &'a LxTokenStorage,
     ) -> Self {
@@ -116,7 +116,7 @@ where
         sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
         sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
         sem_sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
-        sem_stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+        sem_stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
         sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
         token_storage: &'a LxTokenStorage,
     ) -> Self {
@@ -236,7 +236,7 @@ where
         self.sem_sentence_range_map
     }
 
-    pub fn sem_stmt_range_map(&self) -> &'db VdSemStmtTokenIdxRangeMap {
+    pub fn sem_stmt_range_map(&self) -> &'db VdSemBlockTokenIdxRangeMap {
         self.sem_stmt_range_map
     }
 

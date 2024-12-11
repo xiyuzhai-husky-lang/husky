@@ -26,6 +26,7 @@ members = [
     "crates/mir/*",
     "crates/mizar/*",
     "crates/namekian/*",
+    "crates/nlp/*",
     "crates/protocols/*",
     "crates/prototypes/*",
     "crates/runtime/*",
@@ -74,6 +75,7 @@ opt-level = 3
 lto = true
 
 [workspace.dependencies]
+allms = "0.8.2"
 arc-swap = "1.4.0"
 arrayvec = { version = "0.7", default-features = false }
 atomic_enum = "0.3.0"
@@ -81,6 +83,7 @@ axum = { version = "0.7.4" }
 bit-set = "0.8.0"
 bitflags = "2.6.0"
 bounded-vec = "0.7.1"
+candle-transformers = "0.8.1"
 cargo = "0.81.0"
 cargo-manifest = "0.15.1"
 chinese-number = { version = "0.7.2", default-features = false, features = [
@@ -145,6 +148,7 @@ lsp-server = "=0.7.0"
 lsp-types = { version = "=0.95.0", features = ["proposed"] }
 measureme = "12"
 makefile-lossless = "0.1.5"
+mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git" }
 ndarray = "0.15.6"
 ndarray-stats = "0.5.1"
 notify-debouncer-mini = "0.5.0"
@@ -157,7 +161,7 @@ paste = "1.0.6"
 pathdiff = "0.2.1"
 proc-macro2 = "1.0.86"
 ptree = "0.5.0"
-pyo3 = "0.22.3"
+pyo3 = { version = "0.23.3", features = ["auto-initialize"] }
 quote = "1.0.37"
 rand = "0.8.4"
 rand_chacha = "0.3.1"
@@ -235,6 +239,7 @@ idx = { path = "crates/abstractions/idx" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
 is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
+once-place = { path = "crates/abstractions/once-place" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
@@ -378,10 +383,17 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # lisp
 lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
+is-llm = { path = "crates/llms/is-llm" }
 llm-cap = { path = "crates/llms/llm-cap" }
 llm-cache = { path = "crates/llms/llm-cache" }
+allms-llm = { path = "crates/llms/allms-llm" }
 any-llm = { path = "crates/llms/any-llm" }
-openai = { path = "crates/llms/openai" }
+openai-llm = { path = "crates/llms/openai-llm" }
+mistral-llm = { path = "crates/llms/mistral-llm" }
+transformers-py-llm = { path = "crates/llms/transformers-py-llm" }
+llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
+# nlp
+spacy-rs = { path = "crates/nlp/spacy-rs" }
 # protocols
 husky-ad-hoc-protocol = { path = "crates/protocols/husky-ad-hoc-protocol" }
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }

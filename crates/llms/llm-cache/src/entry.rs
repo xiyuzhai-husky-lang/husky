@@ -3,7 +3,7 @@ use chrono::Utc;
 use chrono::DateTime;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct LlmCacheEntry<Request, Response> {
     pub(crate) request: Request,
     pub(crate) response: Response,

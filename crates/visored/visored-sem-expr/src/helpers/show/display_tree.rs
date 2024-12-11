@@ -1,5 +1,8 @@
 use super::*;
 use crate::{
+    block::{
+        VdSemBlockArenaRef, VdSemBlockChild, VdSemBlockData, VdSemBlockIdx, VdSemBlockIdxRange,
+    },
     clause::{VdSemClauseArenaRef, VdSemClauseChild, VdSemClauseData, VdSemClauseIdx},
     division::{
         helpers::VdSemDivisionChild, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionIdx,
@@ -8,12 +11,11 @@ use crate::{
     expr::{VdSemExprArenaRef, VdSemExprData, VdSemExprIdx},
     phrase::VdSemPhraseArenaRef,
     range::{
-        VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap, VdSemExprTokenIdxRange,
-        VdSemExprTokenIdxRangeMap, VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap,
-        VdSemStmtTokenIdxRangeMap,
+        VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,
+        VdSemExprTokenIdxRange, VdSemExprTokenIdxRangeMap, VdSemPhraseTokenIdxRangeMap,
+        VdSemSentenceTokenIdxRangeMap,
     },
     sentence::{VdSemSentenceArenaRef, VdSemSentenceChild, VdSemSentenceData, VdSemSentenceIdx},
-    stmt::{VdSemStmtArenaRef, VdSemStmtChild, VdSemStmtData, VdSemStmtIdx, VdSemStmtIdxRange},
 };
 use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
@@ -30,13 +32,13 @@ pub struct VdSemExprDisplayTreeBuilder<'a> {
     phrase_arena: VdSemPhraseArenaRef<'a>,
     clause_arena: VdSemClauseArenaRef<'a>,
     sentence_arena: VdSemSentenceArenaRef<'a>,
-    stmt_arena: VdSemStmtArenaRef<'a>,
+    stmt_arena: VdSemBlockArenaRef<'a>,
     division_arena: VdSemDivisionArenaRef<'a>,
     expr_range_map: &'a VdSemExprTokenIdxRangeMap,
     phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
     clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
     sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
-    stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+    stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
     division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
 }
 impl<'a> VdSemExprDisplayTreeBuilder<'a> {
@@ -50,13 +52,13 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         phrase_arena: VdSemPhraseArenaRef<'a>,
         clause_arena: VdSemClauseArenaRef<'a>,
         sentence_arena: VdSemSentenceArenaRef<'a>,
-        stmt_arena: VdSemStmtArenaRef<'a>,
+        stmt_arena: VdSemBlockArenaRef<'a>,
         division_arena: VdSemDivisionArenaRef<'a>,
         expr_range_map: &'a VdSemExprTokenIdxRangeMap,
         phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
         clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
         sentence_range_map: &'a VdSemSentenceTokenIdxRangeMap,
-        stmt_range_map: &'a VdSemStmtTokenIdxRangeMap,
+        stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
         division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
     ) -> Self {
         Self {
@@ -139,7 +141,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         )
     }
 
-    pub fn render_all_stmts(&self, stmts: VdSemStmtIdxRange) -> DisplayTree {
+    pub fn render_all_stmts(&self, stmts: VdSemBlockIdxRange) -> DisplayTree {
         let stmts_range =
             self.stmt_range_map[stmts.start()].join(self.stmt_range_map[stmts.last().unwrap()]);
         let offset_range = self.token_storage.token_idx_range_offset_range(stmts_range);
@@ -149,20 +151,20 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         )
     }
 
-    pub fn render_stmts(&self, stmts: VdSemStmtIdxRange) -> Vec<DisplayTree> {
+    pub fn render_stmts(&self, stmts: VdSemBlockIdxRange) -> Vec<DisplayTree> {
         stmts
             .into_iter()
             .map(|stmt| self.render_stmt(stmt))
             .collect()
     }
 
-    pub fn render_stmt(&self, stmt: VdSemStmtIdx) -> DisplayTree {
+    pub fn render_stmt(&self, stmt: VdSemBlockIdx) -> DisplayTree {
         let stmt_range = self.stmt_range_map[stmt];
         let offset_range = self.token_storage.token_idx_range_offset_range(stmt_range);
         let source = &self.input[offset_range];
         let value = match *self.stmt_arena[stmt].data() {
-            VdSemStmtData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
-            VdSemStmtData::Environment {
+            VdSemBlockData::Paragraph(arena_idx_range) => format!("{:?} stmt.paragraph", source),
+            VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
                 stmts,
@@ -176,12 +178,12 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
         )
     }
 
-    fn render_stmt_children(&self, children: Vec<VdSemStmtChild>) -> Vec<DisplayTree> {
+    fn render_stmt_children(&self, children: Vec<VdSemBlockChild>) -> Vec<DisplayTree> {
         children
             .into_iter()
             .map(|child| match child {
-                VdSemStmtChild::Sentence(sentence) => self.render_sentence(sentence),
-                VdSemStmtChild::Stmt(stmt) => self.render_stmt(stmt),
+                VdSemBlockChild::Sentence(sentence) => self.render_sentence(sentence),
+                VdSemBlockChild::Stmt(stmt) => self.render_stmt(stmt),
             })
             .collect()
     }
