@@ -1197,6 +1197,8 @@ name = "callm-llm"
 version = "0.1.0"
 dependencies = [
  "callm",
+ "clap 4.5.16",
+ "env_logger 0.10.2",
 ]
 
 [[package]]
