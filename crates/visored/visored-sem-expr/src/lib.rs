@@ -20,6 +20,7 @@ use block::VdSemBlockIdxRange;
 use builder::VdSemExprBuilder;
 use either::*;
 use expr::VdSemExprIdx;
+use visored_llm::VdLlm;
 use visored_syn_expr::{block::VdSynBlockIdxRange, expr::VdSynExprIdx};
 
 pub trait ToVdSem<T> {

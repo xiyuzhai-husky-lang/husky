@@ -21,6 +21,7 @@ fn t(content: &str, expect: &Expect) {
         },
         &[],
         &[],
+        &VdLlm::new(),
         db,
     );
     expect.assert_eq(&tracker.show_display_tree(db));

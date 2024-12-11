@@ -9,6 +9,7 @@ fn t(content: &str, expected: &Expect) {
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let llm = &VdLlm::new();
     let tracker = VdSemExprTracker::new(
         LxDocumentBodyInput {
             specs_dir: dev_paths.specs_dir(),
@@ -17,6 +18,7 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
+        llm,
         &db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));

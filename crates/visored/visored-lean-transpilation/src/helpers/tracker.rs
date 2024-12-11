@@ -1,6 +1,8 @@
 use super::*;
-use crate::{builder::VdLeanTranspilationBuilder, VdTranspileToLean};
-use crate::{dictionary::VdLeanDictionary, scheme::IsVdLeanTranspilationScheme};
+use crate::{
+    builder::VdLeanTranspilationBuilder, dictionary::VdLeanDictionary,
+    scheme::IsVdLeanTranspilationScheme, VdTranspileToLean,
+};
 use either::*;
 use eterned::db::EternerDb;
 use husky_tree_utils::display::DisplayTree;
@@ -76,6 +78,7 @@ where
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        llm: &'a VdLlm,
         db: &'a EternerDb,
         scheme: &'a Scheme,
     ) -> Self {
@@ -94,7 +97,7 @@ where
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[], db);
+        } = VdMirExprTracker::new(input, &[], &[], llm, db);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,

@@ -8,6 +8,7 @@ use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
+    llm: &VdLlm,
     content: &str,
     token_annotations: &[((&str, &str), VdTokenAnnotation)],
     space_annotations: &[((&str, &str), VdSpaceAnnotation)],
@@ -27,6 +28,7 @@ fn t(
         },
         token_annotations,
         space_annotations,
+        llm,
         &db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
@@ -34,7 +36,9 @@ fn t(
 
 #[test]
 fn literal_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "",
         &[],
         &[],
@@ -43,6 +47,7 @@ fn literal_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1",
         &[],
         &[],
@@ -51,6 +56,7 @@ fn literal_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "11",
         &[],
         &[],
@@ -59,6 +65,7 @@ fn literal_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1 1",
         &[],
         &[],
@@ -72,7 +79,9 @@ fn literal_vd_syn_expr_parsing_works() {
 
 #[test]
 fn basic_arithematics_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "1 + 1",
         &[],
         &[],
@@ -83,6 +92,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1 + 1 = 2",
         &[],
         &[],
@@ -95,6 +105,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1 + 1 = 2",
         &[],
         &[],
@@ -107,6 +118,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "+1",
         &[],
         &[],
@@ -116,6 +128,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "-1",
         &[],
         &[],
@@ -128,7 +141,9 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
 
 #[test]
 fn relationship_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "1<2",
         &[],
         &[],
@@ -142,7 +157,9 @@ fn relationship_vd_syn_expr_parsing_works() {
 
 #[test]
 fn xyz_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "x",
         &[],
         &[],
@@ -151,6 +168,7 @@ fn xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "y",
         &[],
         &[],
@@ -159,6 +177,7 @@ fn xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "z",
         &[],
         &[],
@@ -167,6 +186,7 @@ fn xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "xyz",
         &[],
         &[],
@@ -181,7 +201,9 @@ fn xyz_vd_syn_expr_parsing_works() {
 
 #[test]
 fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "1+x",
         &[],
         &[],
@@ -192,6 +214,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+2x",
         &[],
         &[],
@@ -204,6 +227,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+2xy",
         &[],
         &[],
@@ -217,6 +241,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+x+2xy",
         &[],
         &[],
@@ -231,6 +256,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+x+2",
         &[],
         &[],
@@ -242,6 +268,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+x+2y",
         &[],
         &[],
@@ -255,6 +282,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+x+y+z+xyz",
         &[],
         &[],
@@ -271,6 +299,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "1+x+y+z+abc",
         &[],
         &[],
@@ -290,7 +319,9 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
 
 #[test]
 fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "0\\ne1",
         &[],
         &[],
@@ -301,6 +332,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "0\\in\\mathbb{N}",
         &[],
         &[],
@@ -311,6 +343,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\subset B",
         &[],
         &[],
@@ -321,6 +354,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\subseteq B",
         &[],
         &[],
@@ -331,6 +365,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\subseteqq B",
         &[],
         &[],
@@ -341,6 +376,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\supseteq B",
         &[],
         &[],
@@ -351,6 +387,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\supseteqq B",
         &[],
         &[],
@@ -361,6 +398,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\subsetneq B",
         &[],
         &[],
@@ -371,6 +409,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "A\\supsetneq B",
         &[],
         &[],
@@ -384,7 +423,9 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
 
 #[test]
 fn delimiters_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "(1)",
         &[],
         &[],
@@ -397,7 +438,9 @@ fn delimiters_vd_syn_expr_parsing_works() {
 
 #[test]
 fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "\\alpha",
         &[],
         &[],
@@ -406,6 +449,7 @@ fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "\\pi",
         &[],
         &[],
@@ -417,7 +461,9 @@ fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
 
 #[test]
 fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "\\frac{1}{2}",
         &[],
         &[],
@@ -428,6 +474,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "\\frac{x+1}{2-2y}",
         &[],
         &[],
@@ -444,6 +491,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "\\sqrt{1}",
         &[],
         &[],
@@ -453,6 +501,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "\\sqrt{x+1}",
         &[],
         &[],
@@ -464,6 +513,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "\\sqrt{\\frac{1}{2+x}}",
         &[],
         &[],
@@ -482,7 +532,9 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
 fn opr_commands_vd_syn_expr_parsing_works() {
     use visored_annotation::annotation::token::DIFFERENTIAL;
 
+    let llm = &VdLlm::new();
     t(
+        llm,
         "\\int xdx",
         &[(("\\int x", "d"), DIFFERENTIAL)],
         &[],
@@ -498,7 +550,9 @@ fn opr_commands_vd_syn_expr_parsing_works() {
 
 #[test]
 fn attach_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "x^2",
         &[],
         &[],
@@ -509,6 +563,7 @@ fn attach_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "{(x+1)}^2",
         &[],
         &[],
@@ -526,7 +581,9 @@ fn attach_vd_syn_expr_parsing_works() {
 
 #[test]
 fn styled_letter_vd_syn_expr_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "\\mathbb{N}",
         &[],
         &[],

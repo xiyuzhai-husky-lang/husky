@@ -1,7 +1,7 @@
 use super::*;
 use crate::scheme::sparse::VdLeanTranspilationSparseScheme;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -15,6 +15,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        llm,
         db,
         &VdLeanTranspilationSparseScheme,
     );
@@ -24,7 +25,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_document_to_vd_mir_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -42,6 +45,7 @@ Let $x\in\mathbb{R}$.
             variable (x : ℝ)"#]],
     );
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -64,6 +68,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

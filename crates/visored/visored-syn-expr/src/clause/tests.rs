@@ -8,6 +8,7 @@ use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
+    llm: &VdLlm,
     content: &str,
     token_annotations: &[((&str, &str), VdTokenAnnotation)],
     space_annotations: &[((&str, &str), VdSpaceAnnotation)],
@@ -27,6 +28,7 @@ fn t(
         },
         token_annotations,
         space_annotations,
+        llm,
         &db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
@@ -34,7 +36,9 @@ fn t(
 
 #[test]
 fn let_clause_parsing_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         "Let $x = 1$.",
         &[],
         &[],
@@ -49,6 +53,7 @@ fn let_clause_parsing_works() {
         "#]],
     );
     t(
+        llm,
         "Let $x \\in \\mathbb{N}$.",
         &[],
         &[],

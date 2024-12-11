@@ -15126,15 +15126,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-cnl-expr"
-version = "0.1.0"
-dependencies = [
- "idx-arena",
- "is-llm",
- "once-place",
-]
-
-[[package]]
 name = "visored-coword"
 version = "0.1.0"
 dependencies = [
@@ -15230,6 +15221,7 @@ dependencies = [
  "visored-annotation",
  "visored-entity-path",
  "visored-global-dispatch",
+ "visored-llm",
  "visored-mir-expr",
  "visored-opr",
  "visored-prelude",
@@ -15237,6 +15229,13 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
+]
+
+[[package]]
+name = "visored-llm"
+version = "0.1.0"
+dependencies = [
+ "any-llm",
 ]
 
 [[package]]
@@ -15264,6 +15263,7 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
+ "visored-llm",
  "visored-opr",
  "visored-prelude",
  "visored-sem-expr",
@@ -15327,6 +15327,7 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
+ "visored-llm",
  "visored-opr",
  "visored-prelude",
  "visored-signature",
@@ -15388,6 +15389,7 @@ dependencies = [
  "visored-annotation",
  "visored-entity-path",
  "visored-global-resolution",
+ "visored-llm",
  "visored-opr",
  "visored-prelude",
  "visored-term",
@@ -15407,6 +15409,7 @@ dependencies = [
  "rustc-hash 2.0.0",
  "vec-like",
  "visored-annotation",
+ "visored-llm",
  "visored-mir-expr",
  "visored-opr",
  "visored-term",
