@@ -34,6 +34,7 @@ husky-tree-utils.workspace = true
 # visored
 visored-annotation.workspace = true
 visored-entity-path.workspace = true
+visored-llm.workspace = true
 visored-sem-expr.workspace = true
 visored-mir-expr.workspace = true
 visored-opr.workspace = true

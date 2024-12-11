@@ -4569,15 +4569,6 @@
         ],
     },
     PackageSummary {
-        name: "visored-cnl-expr",
-        relative_path: "crates/visored/visored-cnl-expr",
-        dependencies: [
-            "idx-arena",
-            "is-llm",
-            "once-place",
-        ],
-    },
-    PackageSummary {
         name: "visored-coword",
         relative_path: "crates/visored/visored-coword",
         dependencies: [
@@ -4715,6 +4706,7 @@
             "smallvec",
             "visored-annotation",
             "visored-entity-path",
+            "visored-llm",
             "visored-mir-expr",
             "visored-opr",
             "visored-prelude",
@@ -4738,6 +4730,13 @@
         ],
     },
     PackageSummary {
+        name: "visored-llm",
+        relative_path: "crates/visored/visored-llm",
+        dependencies: [
+            "any-llm",
+        ],
+    },
+    PackageSummary {
         name: "visored-mir-expr",
         relative_path: "crates/visored/visored-mir-expr",
         dependencies: [
@@ -4757,6 +4756,7 @@
             "visored-entity-path",
             "visored-global-dispatch",
             "visored-global-resolution",
+            "visored-llm",
             "visored-opr",
             "visored-prelude",
             "visored-sem-expr",
@@ -4800,6 +4800,7 @@
             "visored-entity-path",
             "visored-global-dispatch",
             "visored-global-resolution",
+            "visored-llm",
             "visored-opr",
             "visored-prelude",
             "visored-signature",
@@ -4846,6 +4847,7 @@
             "visored-annotation",
             "visored-entity-path",
             "visored-global-resolution",
+            "visored-llm",
             "visored-opr",
             "visored-prelude",
             "visored-term",
@@ -4870,6 +4872,7 @@
             "rustc-hash",
             "vec-like",
             "visored-annotation",
+            "visored-llm",
             "visored-mir-expr",
             "visored-opr",
             "visored-term",

@@ -1,7 +1,7 @@
 use super::*;
 use crate::scheme::dense::VdLeanTranspilationDenseScheme;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -15,6 +15,7 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        llm,
         db,
         &VdLeanTranspilationDenseScheme,
     );
@@ -24,7 +25,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_document_to_vd_mir_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -42,6 +45,7 @@ Let $x\in\mathbb{R}$.
               exact ()"#]],
     );
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -64,6 +68,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -128,7 +133,7 @@ fn latex_shorts_to_lean_works() {
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let projects_dir = dev_paths.projects_dir();
-
+    let llm = &VdLlm::new();
     for file in fs::read_dir(projects_dir.join("ai-math-autoformalization/latex/shorts")).unwrap() {
         let file = file.unwrap();
         let file_path = file.path();
@@ -146,6 +151,7 @@ fn latex_shorts_to_lean_works() {
             },
             &[],
             &[],
+            llm,
             db,
             &VdLeanTranspilationDenseScheme,
         );

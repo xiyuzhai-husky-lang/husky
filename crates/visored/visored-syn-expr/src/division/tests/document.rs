@@ -2,7 +2,7 @@ use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentInput;
 
-fn t(content: &str, expected: &Expect) {
+fn t(llm: &VdLlm, content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
@@ -17,6 +17,7 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
+        llm,
         &db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
@@ -24,7 +25,9 @@ fn t(content: &str, expected: &Expect) {
 
 #[test]
 fn parse_vd_syn_divisions_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -41,6 +44,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -59,6 +63,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        llm,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

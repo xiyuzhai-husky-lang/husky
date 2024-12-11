@@ -7,7 +7,7 @@ use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 
-fn t(content: &str, expect: &Expect) {
+fn t(llm: &VdLlm, content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -21,6 +21,7 @@ fn t(content: &str, expect: &Expect) {
         },
         &[],
         &[],
+        llm,
         db,
     );
     expect.assert_eq(&tracker.show_display_tree(db));
@@ -28,7 +29,9 @@ fn t(content: &str, expect: &Expect) {
 
 #[test]
 fn basic_body_to_vd_mir_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         r#"Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
@@ -38,6 +41,7 @@ fn basic_body_to_vd_mir_works() {
         "#]],
     );
     t(
+        llm,
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
@@ -45,6 +49,7 @@ fn basic_body_to_vd_mir_works() {
         "#]],
     );
     t(
+        llm,
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))

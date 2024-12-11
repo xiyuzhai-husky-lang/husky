@@ -2,7 +2,7 @@ use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 
-fn t(content: &str, expected: &Expect) {
+fn t(llm: &VdLlm, content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
@@ -17,6 +17,7 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
+        llm,
         &db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
@@ -24,7 +25,9 @@ fn t(content: &str, expected: &Expect) {
 
 #[test]
 fn parse_vd_syn_divisions_works() {
+    let llm = &VdLlm::new();
     t(
+        llm,
         r#"Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ "Let $x\\in\\mathbb{R}$." division.stmts
@@ -37,6 +40,7 @@ fn parse_vd_syn_divisions_works() {
         "#]],
     );
     t(
+        llm,
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$." division.section
@@ -50,6 +54,7 @@ fn parse_vd_syn_divisions_works() {
         "#]],
     );
     t(
+        llm,
         r#"\section{Introduction}Let $x\in\mathbb{R}$.\subsection{Hello}Let $y\in\mathbb{R}$.\subsection{World}\subsection{This}\subsubsection{Is}\subsubsection{Bad}"#,
         &expect![[r#"
             └─ "\\section{Introduction}Let $x\\in\\mathbb{R}$.\\subsection{Hello}Let $y\\in\\mathbb{R}$.\\subsection{World}\\subsection{This}\\subsubsection{Is}\\subsubsection{Bad}" division.section

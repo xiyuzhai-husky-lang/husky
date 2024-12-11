@@ -14,6 +14,7 @@ use self::builder::VdLeanTranspilationBuilder;
 use self::scheme::IsVdLeanTranspilationScheme;
 #[cfg(test)]
 use self::tests::*;
+use visored_llm::VdLlm;
 
 pub trait VdTranspileToLean<S, T>: Copy
 where
