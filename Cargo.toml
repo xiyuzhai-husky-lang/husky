@@ -390,7 +390,7 @@ allms-llm = { path = "crates/llms/allms-llm" }
 all-llms = { path = "crates/llms/all-llms" }
 openai-llm = { path = "crates/llms/openai-llm" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
-transformers-py-llm = { path = "crates/llms/transformers-py-llm" }
+pytransformers-llm = { path = "crates/llms/pytransformers-llm" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
 # nlp
 spacy-rs = { path = "crates/nlp/spacy-rs" }

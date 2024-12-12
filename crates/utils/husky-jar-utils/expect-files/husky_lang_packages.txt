@@ -3859,8 +3859,8 @@
             "is-llm",
             "mistral-llm",
             "openai-llm",
+            "pytransformers-llm",
             "thiserror",
-            "transformers-py-llm",
         ],
     },
     PackageSummary {
@@ -3895,8 +3895,8 @@
         ],
     },
     PackageSummary {
-        name: "transformers-py-llm",
-        relative_path: "crates/llms/transformers-py-llm",
+        name: "pytransformers-llm",
+        relative_path: "crates/llms/pytransformers-llm",
         dependencies: [
             "candle-transformers",
             "pyo3",

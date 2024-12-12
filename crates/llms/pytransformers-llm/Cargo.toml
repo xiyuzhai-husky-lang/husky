@@ -1,5 +1,5 @@
 [package]
-name = "transformers-py-llm"
+name = "pytransformers-llm"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
