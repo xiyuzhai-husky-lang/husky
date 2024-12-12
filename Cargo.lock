@@ -202,6 +202,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4aa90d7ce82d4be67b64039a3d588d38dbcc6736577de4a847025ce5b0c468d1"
 
 [[package]]
+name = "all-llms"
+version = "0.1.0"
+dependencies = [
+ "allms",
+ "husky-print-utils",
+ "is-llm",
+ "mistral-llm",
+ "openai-llm",
+ "thiserror",
+ "transformers-py-llm",
+]
+
+[[package]]
 name = "allms"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -358,19 +371,6 @@ checksum = "5bf74e1b6e971609db8ca7a9ce79fd5768ab6ae46441c572e46cf596f59e57f8"
 dependencies = [
  "anstyle",
  "windows-sys 0.52.0",
-]
-
-[[package]]
-name = "any-llm"
-version = "0.1.0"
-dependencies = [
- "allms",
- "husky-print-utils",
- "is-llm",
- "mistral-llm",
- "openai-llm",
- "thiserror",
- "transformers-py-llm",
 ]
 
 [[package]]
@@ -15269,7 +15269,7 @@ dependencies = [
 name = "visored-models"
 version = "0.1.0"
 dependencies = [
- "any-llm",
+ "all-llms",
 ]
 
 [[package]]
@@ -15286,7 +15286,7 @@ dependencies = [
 name = "visored-pipeline"
 version = "0.1.0"
 dependencies = [
- "any-llm",
+ "all-llms",
  "rayon",
  "relative-path",
  "serde",

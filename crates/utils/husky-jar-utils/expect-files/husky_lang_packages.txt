@@ -3832,7 +3832,7 @@
         name: "visored-pipeline",
         relative_path: "crates/visored/visored-pipeline",
         dependencies: [
-            "any-llm",
+            "all-llms",
             "rayon",
             "relative-path",
             "serde",
@@ -3842,8 +3842,8 @@
         ],
     },
     PackageSummary {
-        name: "any-llm",
-        relative_path: "crates/llms/any-llm",
+        name: "all-llms",
+        relative_path: "crates/llms/all-llms",
         dependencies: [
             "allms",
             "husky-print-utils",
@@ -4772,7 +4772,7 @@
         name: "visored-models",
         relative_path: "crates/visored/visored-models",
         dependencies: [
-            "any-llm",
+            "all-llms",
         ],
     },
     PackageSummary {

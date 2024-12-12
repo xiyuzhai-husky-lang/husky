@@ -6,4 +6,4 @@ pub enum AnyLlmError {
     OpenAi(#[from] OaiError),
 }
 
-pub type AnyLlmResult<T> = Result<T, AnyLlmError>;
+pub type AllLlmsResult<T> = Result<T, AnyLlmError>;
