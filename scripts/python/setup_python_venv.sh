@@ -32,6 +32,8 @@ source .venv/bin/activate
 pip install --upgrade pip
 
 pip install pip-tools
+pip install torch --index-url https://download.pytorch.org/whl/cu118  # for CUDA 11.8
+pip install cupy-cuda11x  # replace 11x with your CUDA version
 
 # Check for requirements.txt and install from it
 if [ -f "requirements.txt" ]; then
