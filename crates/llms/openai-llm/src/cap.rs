@@ -1,5 +1,5 @@
 use crate::*;
-use llm_cap::error::{LlmCapError, LlmCapResult};
+use usage_cap::error::{LlmCapError, LlmCapResult};
 
 pub(crate) fn try_call_llm<R>(
     min_usage: usize,

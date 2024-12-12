@@ -1,6 +1,6 @@
 use crate::*;
 use disk_cache::error::LlmCacheError;
-use llm_cap::error::LlmCapError;
+use usage_cap::error::LlmCapError;
 
 #[derive(Debug, thiserror::Error)]
 pub enum OaiError {

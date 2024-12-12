@@ -263,6 +263,7 @@ svtable = { path = "crates/abstractions/svtable" }
 time-capsule = { path = "crates/abstractions/time-capsule" }
 ui = { path = "crates/abstractions/ui" }
 ui-macros = { path = "crates/abstractions/ui-macros" }
+usage-cap = { path = "crates/abstractions/usage-cap" }
 vec-like = { path = "crates/abstractions/vec-like" }
 version-stamp = { path = "crates/abstractions/version-stamp" }
 vfs = { path = "crates/abstractions/vfs" }
@@ -385,7 +386,6 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
 is-llm = { path = "crates/llms/is-llm" }
-llm-cap = { path = "crates/llms/llm-cap" }
 allms-llm = { path = "crates/llms/allms-llm" }
 all-llms = { path = "crates/llms/all-llms" }
 openai-llm = { path = "crates/llms/openai-llm" }

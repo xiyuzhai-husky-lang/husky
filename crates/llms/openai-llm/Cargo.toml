@@ -19,7 +19,7 @@ thiserror.workspace = true
 tokio.workspace = true
 # llms
 disk-cache.workspace = true
-llm-cap.workspace = true
+usage-cap.workspace = true
 # utils
 husky-print-utils.workspace = true
 
