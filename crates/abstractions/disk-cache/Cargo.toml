@@ -1,5 +1,5 @@
 [package]
-name = "llm-cache"
+name = "disk-cache"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

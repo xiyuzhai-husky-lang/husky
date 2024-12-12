@@ -16,7 +16,7 @@ pub struct VdPipelineConfig {
 }
 
 fn default_cache_dir() -> RelativePathBuf {
-    RelativePathBuf::from(".llm-cache")
+    RelativePathBuf::from(".disk-cache")
 }
 
 fn default_true() -> bool {

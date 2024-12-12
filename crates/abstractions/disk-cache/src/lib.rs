@@ -48,7 +48,7 @@ where
     /// # Example
     /// ```
     /// use std::path::PathBuf;
-    /// use llm_cache::LlmCache;
+    /// use disk_cache::LlmCache;
     ///
     /// let temp_dir = tempfile::tempdir().unwrap();
     /// let cache_path = temp_dir.path().join("cache.json");
