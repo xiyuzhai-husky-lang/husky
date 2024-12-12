@@ -387,7 +387,7 @@ lisp-csv = { path = "crates/lisp/lisp-csv" }
 is-llm = { path = "crates/llms/is-llm" }
 llm-cap = { path = "crates/llms/llm-cap" }
 allms-llm = { path = "crates/llms/allms-llm" }
-any-llm = { path = "crates/llms/any-llm" }
+all-llms = { path = "crates/llms/all-llms" }
 openai-llm = { path = "crates/llms/openai-llm" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
 transformers-py-llm = { path = "crates/llms/transformers-py-llm" }

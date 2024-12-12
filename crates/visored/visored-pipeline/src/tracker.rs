@@ -1,5 +1,5 @@
 use crate::{builder::VdPipelineBuilder, input::VdPipelineInput, VdPipelineConfig};
-use any_llm::AnyLlmClient;
+use all_llms::AllLlms;
 use std::sync::Arc;
 
 pub struct VdPipelineTracker {

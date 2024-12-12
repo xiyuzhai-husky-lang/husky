@@ -13,7 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 # llms
-any-llm.workspace = true
+all-llms.workspace = true
 
 [lints]
 workspace = true
