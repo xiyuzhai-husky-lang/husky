@@ -16,7 +16,7 @@ sealed.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 # llms
-llm-cache.workspace = true
+disk-cache.workspace = true
 
 [lints]
 workspace = true

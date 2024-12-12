@@ -391,6 +391,18 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "disk-cache",
+        relative_path: "crates/abstractions/disk-cache",
+        dependencies: [
+            "chrono",
+            "dashmap",
+            "serde",
+            "serde_json",
+            "thiserror",
+            "tempfile",
+        ],
+    },
+    PackageSummary {
         name: "from-str-pos",
         relative_path: "crates/abstractions/from-str-pos",
         dependencies: [],
@@ -3846,22 +3858,10 @@
         name: "is-llm",
         relative_path: "crates/llms/is-llm",
         dependencies: [
-            "llm-cache",
+            "disk-cache",
             "sealed",
             "serde",
             "thiserror",
-        ],
-    },
-    PackageSummary {
-        name: "llm-cache",
-        relative_path: "crates/llms/llm-cache",
-        dependencies: [
-            "chrono",
-            "dashmap",
-            "serde",
-            "serde_json",
-            "thiserror",
-            "tempfile",
         ],
     },
     PackageSummary {
@@ -3875,9 +3875,9 @@
         name: "openai-llm",
         relative_path: "crates/llms/openai-llm",
         dependencies: [
+            "disk-cache",
             "husky-print-utils",
             "lazy_static",
-            "llm-cache",
             "llm-cap",
             "openai-api-rs",
             "serde",
@@ -4856,6 +4856,13 @@
             "husky-path-utils",
             "latex-command",
             "visored-entity-path",
+        ],
+    },
+    PackageSummary {
+        name: "visored-syn-patt",
+        relative_path: "crates/visored/visored-syn-patt",
+        dependencies: [
+            "eterned",
         ],
     },
     PackageSummary {
