@@ -8,9 +8,9 @@ use self::{error::*, request::*, response::*};
 use cap::try_call_llm;
 use disk_cache::LlmCache;
 use lazy_static::lazy_static;
-use llm_cap::LlmCap;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
+use usage_cap::LlmCap;
 
 pub struct OaiLlm {
     cache: LlmCache<OaiRequest, OaiResponse>,
