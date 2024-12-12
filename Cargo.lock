@@ -15221,21 +15221,14 @@ dependencies = [
  "visored-annotation",
  "visored-entity-path",
  "visored-global-dispatch",
- "visored-llm",
  "visored-mir-expr",
+ "visored-models",
  "visored-opr",
  "visored-prelude",
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
-]
-
-[[package]]
-name = "visored-llm"
-version = "0.1.0"
-dependencies = [
- "any-llm",
 ]
 
 [[package]]
@@ -15263,13 +15256,20 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
- "visored-llm",
+ "visored-models",
  "visored-opr",
  "visored-prelude",
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
+]
+
+[[package]]
+name = "visored-models"
+version = "0.1.0"
+dependencies = [
+ "any-llm",
 ]
 
 [[package]]
@@ -15327,7 +15327,7 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
- "visored-llm",
+ "visored-models",
  "visored-opr",
  "visored-prelude",
  "visored-signature",
@@ -15389,7 +15389,7 @@ dependencies = [
  "visored-annotation",
  "visored-entity-path",
  "visored-global-resolution",
- "visored-llm",
+ "visored-models",
  "visored-opr",
  "visored-prelude",
  "visored-term",
@@ -15416,8 +15416,8 @@ dependencies = [
  "rustc-hash 2.0.0",
  "vec-like",
  "visored-annotation",
- "visored-llm",
  "visored-mir-expr",
+ "visored-models",
  "visored-opr",
  "visored-term",
 ]

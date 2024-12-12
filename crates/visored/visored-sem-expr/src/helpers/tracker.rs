@@ -103,7 +103,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        llm: &VdLlm,
+        models: &VdModels,
         db: &EternerDb,
     ) -> Self {
         let VdSynExprTracker {
@@ -131,7 +131,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             stmt_entity_tree_node_map: syn_stmt_entity_tree_node_map,
             division_entity_tree_node_map: syn_division_entity_tree_node_map,
             output: syn_output,
-        } = VdSynExprTracker::new(input, token_annotations, space_annotations, llm, db);
+        } = VdSynExprTracker::new(input, token_annotations, space_annotations, models, db);
         let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
         let default_global_dispatch_table =
             VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);

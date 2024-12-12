@@ -12,7 +12,7 @@ pub(crate) fn t(content: &str, expected: &Expect) {
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
-    let llm = &VdLlm::new();
+    let models = &VdModels::new();
     let tracker = VdSemExprTracker::new(
         LxFormulaInput {
             specs_dir: dev_paths.specs_dir(),
@@ -21,7 +21,7 @@ pub(crate) fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
-        llm,
+        models,
         db,
     );
     expected.assert_eq(&tracker.show_display_tree(db))

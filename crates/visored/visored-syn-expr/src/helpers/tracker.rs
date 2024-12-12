@@ -48,7 +48,7 @@ use visored_annotation::{
 };
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
-use visored_llm::VdLlm;
+use visored_models::VdModels;
 
 pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,
@@ -97,7 +97,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        llm: &VdLlm,
+        models: &VdModels,
         db: &EternerDb,
     ) -> Self {
         let LxAstTracker {
@@ -126,7 +126,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             &ast_token_idx_range_map,
             &annotations,
             &default_resolution_table,
-            llm,
+            models,
         );
         let output = FromToVdSyn::from_to_vd_syn((whole_token_range, lx_ast_output), &mut builder);
         //  = (whole_token_range, asts).to_vd_syn(&mut builder);

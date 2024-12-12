@@ -37,7 +37,7 @@ use visored_global_resolution::{
     default_table::VdDefaultGlobalResolutionTable,
     resolution::command::VdCompleteCommandGlobalResolution,
 };
-use visored_llm::VdLlm;
+use visored_models::VdModels;
 
 pub struct VdSynExprBuilder<'db> {
     db: &'db EternerDb,
@@ -48,7 +48,7 @@ pub struct VdSynExprBuilder<'db> {
     ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
     annotations: &'db VdAnnotations,
     default_global_resolution_table: &'db VdDefaultGlobalResolutionTable,
-    llm: &'db VdLlm,
+    models: &'db VdModels,
     expr_arena: VdSynExprArena,
     phrase_arena: VdSynPhraseArena,
     clause_arena: VdSynClauseArena,
@@ -68,7 +68,7 @@ impl<'db> VdSynExprBuilder<'db> {
         ast_token_idx_range_map: &'db LxAstTokenIdxRangeMap,
         annotations: &'db VdAnnotations,
         default_global_resolution_table: &'db VdDefaultGlobalResolutionTable,
-        llm: &'db VdLlm,
+        models: &'db VdModels,
     ) -> Self {
         Self {
             db,
@@ -79,7 +79,7 @@ impl<'db> VdSynExprBuilder<'db> {
             ast_token_idx_range_map,
             annotations,
             default_global_resolution_table,
-            llm,
+            models,
             expr_arena: Default::default(),
             phrase_arena: Default::default(),
             clause_arena: Default::default(),

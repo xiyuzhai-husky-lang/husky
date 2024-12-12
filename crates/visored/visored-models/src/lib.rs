@@ -1,6 +1,6 @@
-pub struct VdLlm {}
+pub struct VdModels {}
 
-impl VdLlm {
+impl VdModels {
     pub fn new() -> Self {
         Self {}
     }
