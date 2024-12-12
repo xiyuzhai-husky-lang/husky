@@ -7,7 +7,7 @@ use self::{
     request::IsLlmRequest,
     response::IsLlmResponse,
 };
-use llm_cache::{error::LlmCacheError, LlmCache};
+use disk_cache::{error::LlmCacheError, LlmCache};
 use request::{chat_completion::LlmChatCompletionRequest, LlmRequest};
 use response::{chat_completion::LlmChatCompletionResponse, LlmResponse};
 use serde::{Deserialize, Serialize};

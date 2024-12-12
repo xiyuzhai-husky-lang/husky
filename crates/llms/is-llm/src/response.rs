@@ -1,6 +1,6 @@
 pub mod chat_completion;
 
-use llm_cache::traits::IsLlmCacheResponse;
+use disk_cache::traits::IsLlmCacheResponse;
 
 use crate::*;
 

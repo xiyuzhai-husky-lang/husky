@@ -2,7 +2,7 @@ pub mod chat_completion;
 
 use self::chat_completion::LlmChatCompletionRequest;
 use crate::{response::LlmResponse, *};
-use llm_cache::traits::IsLlmCacheRequest;
+use disk_cache::traits::IsLlmCacheRequest;
 
 pub trait IsLlmRequest: IsLlmCacheRequest {
     type Response: IsLlmResponse;

@@ -227,6 +227,7 @@ alt-option = { path = "crates/abstractions/alt-option" }
 base-vfs = { path = "crates/abstractions/base-vfs" }
 composite-pattern = { path = "crates/abstractions/composite-pattern" }
 base-coword = { path = "crates/abstractions/base-coword" }
+disk-cache = { path = "crates/abstractions/disk-cache" }
 enum-class = { path = "crates/abstractions/enum-class" }
 enum-class-macros = { path = "crates/abstractions/enum-class-macros" }
 enum-index = { path = "crates/abstractions/enum-index" }
@@ -385,7 +386,6 @@ lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
 is-llm = { path = "crates/llms/is-llm" }
 llm-cap = { path = "crates/llms/llm-cap" }
-llm-cache = { path = "crates/llms/llm-cache" }
 allms-llm = { path = "crates/llms/allms-llm" }
 any-llm = { path = "crates/llms/any-llm" }
 openai-llm = { path = "crates/llms/openai-llm" }

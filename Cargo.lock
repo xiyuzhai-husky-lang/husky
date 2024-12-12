@@ -2747,6 +2747,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "disk-cache"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "dashmap 6.0.1",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "thiserror",
+]
+
+[[package]]
 name = "dispatch"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8939,7 +8951,7 @@ version = "0.1.0"
 name = "is-llm"
 version = "0.1.0"
 dependencies = [
- "llm-cache",
+ "disk-cache",
  "sealed",
  "serde",
  "thiserror",
@@ -9675,18 +9687,6 @@ name = "llm-benchmarks"
 version = "0.1.0"
 dependencies = [
  "is-llm",
-]
-
-[[package]]
-name = "llm-cache"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "dashmap 6.0.1",
- "serde",
- "serde_json",
- "tempfile",
- "thiserror",
 ]
 
 [[package]]
@@ -11078,9 +11078,9 @@ dependencies = [
 name = "openai-llm"
 version = "0.1.0"
 dependencies = [
+ "disk-cache",
  "husky-print-utils",
  "lazy_static 1.5.0",
- "llm-cache",
  "llm-cap",
  "openai-api-rs",
  "serde",

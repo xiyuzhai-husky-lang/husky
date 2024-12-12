@@ -1,5 +1,5 @@
 use crate::*;
-use llm_cache::error::LlmCacheError;
+use disk_cache::error::LlmCacheError;
 use llm_cap::error::LlmCapError;
 
 #[derive(Debug, thiserror::Error)]
