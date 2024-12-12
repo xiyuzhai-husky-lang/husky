@@ -20,7 +20,7 @@ mod tests {
 fn python_dir() -> std::io::Result<PathBuf> {
     let cargo_manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     assert!(
-        cargo_manifest_dir.ends_with("transformers-py-llm"),
+        cargo_manifest_dir.ends_with("pytransformers-llm"),
         "cargo_manifest_dir: {}",
         cargo_manifest_dir.display()
     );
