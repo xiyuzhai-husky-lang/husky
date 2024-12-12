@@ -1,5 +1,5 @@
 [package]
-name = "visored-llm"
+name = "visored-models"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

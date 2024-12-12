@@ -2,7 +2,7 @@ use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentInput;
 
-fn t(llm: &VdLlm, content: &str, expected: &Expect) {
+fn t(models: &VdModels, content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
@@ -17,7 +17,7 @@ fn t(llm: &VdLlm, content: &str, expected: &Expect) {
         },
         &[],
         &[],
-        llm,
+        models,
         &db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
@@ -25,9 +25,9 @@ fn t(llm: &VdLlm, content: &str, expected: &Expect) {
 
 #[test]
 fn parse_vd_syn_divisions_works() {
-    let llm = &VdLlm::new();
+    let models = &VdModels::new();
     t(
-        llm,
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -44,7 +44,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
-        llm,
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -63,7 +63,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
-        llm,
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

@@ -7,7 +7,7 @@ use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 
-fn t(llm: &VdLlm, content: &str, expect: &Expect) {
+fn t(models: &VdModels, content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -21,7 +21,7 @@ fn t(llm: &VdLlm, content: &str, expect: &Expect) {
         },
         &[],
         &[],
-        llm,
+        models,
         db,
     );
     expect.assert_eq(&tracker.show_display_tree(db));
@@ -29,9 +29,9 @@ fn t(llm: &VdLlm, content: &str, expect: &Expect) {
 
 #[test]
 fn basic_body_to_vd_mir_works() {
-    let llm = &VdLlm::new();
+    let models = &VdModels::new();
     t(
-        llm,
+        models,
         r#"Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ "Let $x\\in\\mathbb{R}$." division.stmts
@@ -44,7 +44,7 @@ fn basic_body_to_vd_mir_works() {
         "#]],
     );
     t(
-        llm,
+        models,
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
             └─ "\\begin{example}\\end{example}" division.stmts
@@ -52,7 +52,7 @@ fn basic_body_to_vd_mir_works() {
         "#]],
     );
     t(
-        llm,
+        models,
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
             └─ "\\begin{example}Let $x\\in\\mathbb{R}$.\\end{example}" division.stmts

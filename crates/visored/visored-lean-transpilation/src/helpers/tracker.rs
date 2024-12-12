@@ -78,7 +78,7 @@ where
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        llm: &'a VdLlm,
+        models: &'a VdModels,
         db: &'a EternerDb,
         scheme: &'a Scheme,
     ) -> Self {
@@ -97,7 +97,7 @@ where
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[], llm, db);
+        } = VdMirExprTracker::new(input, &[], &[], models, db);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
