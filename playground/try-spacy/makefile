@@ -25,4 +25,7 @@ clean:
 	find . -type d -name '__pycache__' -delete
 
 run-constituent-parsing:
-	. .venv/bin/activate && python constituent_parsing.py
+	python constituent_parsing.py
+
+run-inspect-constituent-parsing:
+	python inspect_constituent_parsing.py

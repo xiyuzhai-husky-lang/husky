@@ -147,3 +147,9 @@ crates/vmir/husky-vmir/src/expr.rs not using eval_expr_itself properly
 ## raw string tabs
 
 vscode will convert tab into space even for raw string, be careful
+
+## cuda12.4
+
+https://askubuntu.com/questions/1491254/installing-cuda-on-ubuntu-23-10-libt5info-not-installable
+
+Note that the tutorial for ubuntu24 is different from ubuntu23.
