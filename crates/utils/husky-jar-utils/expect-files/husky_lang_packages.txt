@@ -700,6 +700,15 @@
         ],
     },
     PackageSummary {
+        name: "usage-cap",
+        relative_path: "crates/abstractions/usage-cap",
+        dependencies: [
+            "husky-print-utils",
+            "lazy_static",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
         name: "var-deps-algebra",
         relative_path: "crates/abstractions/var-deps-algebra",
         dependencies: [
@@ -3878,20 +3887,11 @@
             "disk-cache",
             "husky-print-utils",
             "lazy_static",
-            "llm-cap",
             "openai-api-rs",
             "serde",
             "thiserror",
             "tokio",
-        ],
-    },
-    PackageSummary {
-        name: "llm-cap",
-        relative_path: "crates/llms/llm-cap",
-        dependencies: [
-            "husky-print-utils",
-            "lazy_static",
-            "thiserror",
+            "usage-cap",
         ],
     },
     PackageSummary {
