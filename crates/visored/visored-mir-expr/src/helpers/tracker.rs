@@ -68,7 +68,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
-        llm: &VdLlm,
+        models: &VdModels,
         db: &EternerDb,
     ) -> Self {
         let VdSemExprTracker {
@@ -93,7 +93,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             division_range_map: sem_division_range_map,
             symbol_local_defn_storage: sem_symbol_local_defn_storage,
             output,
-        } = VdSemExprTracker::new(input, token_annotations, space_annotations, llm, db);
+        } = VdSemExprTracker::new(input, token_annotations, space_annotations, models, db);
         let mut builder = VdMirExprBuilder::new(
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),

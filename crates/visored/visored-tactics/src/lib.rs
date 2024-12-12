@@ -1,3 +1,3 @@
 pub mod tactics;
 
-use visored_llm::VdLlm;
+use visored_models::VdModels;

@@ -7,7 +7,7 @@ use latex_prelude::{helper::tracker::LxPageInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 
-fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -21,7 +21,7 @@ fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &
         },
         &[],
         &[],
-        llm,
+        models,
         db,
         &VdLeanTranspilationSparseScheme,
     );
@@ -31,9 +31,9 @@ fn t(llm: &VdLlm, content: &str, expected_display_tree: &Expect, expected_fmt: &
 
 #[test]
 fn basic_visored_clause_to_lean_works() {
-    let llm = &VdLlm::new();
+    let models = &VdModels::new();
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -46,7 +46,7 @@ fn basic_visored_clause_to_lean_works() {
             variable (x : ℕ)"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{Z}$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -59,7 +59,7 @@ fn basic_visored_clause_to_lean_works() {
             variable (x : ℤ)"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{Q}$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -72,7 +72,7 @@ fn basic_visored_clause_to_lean_works() {
             variable (x : ℚ)"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{R}$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -85,7 +85,7 @@ fn basic_visored_clause_to_lean_works() {
             variable (x : ℝ)"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{C}$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -98,7 +98,7 @@ fn basic_visored_clause_to_lean_works() {
             variable (x : ℂ)"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{R}$. Then $x=x$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -121,7 +121,7 @@ fn basic_visored_clause_to_lean_works() {
             def h : x = x := sorry"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{N}$. Then $2x\\ge x$.",
         &expect![[r#"
             └─ group: `paragraph`
@@ -146,7 +146,7 @@ fn basic_visored_clause_to_lean_works() {
             def h : 2 * x ≥ x := sorry"#]],
     );
     t(
-        llm,
+        models,
         "Let $x\\in\\mathbb{R}$. Then ${(x-1)}^2 \\ge 0$. Then $x^2-2x+1 \\ge 0$. Then $x^2 + 1\\ge 2x$.",
         &expect![[r#"
             └─ group: `paragraph`
