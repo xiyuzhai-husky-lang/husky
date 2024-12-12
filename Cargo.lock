@@ -15396,6 +15396,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-syn-patt"
+version = "0.1.0"
+dependencies = [
+ "eterned",
+]
+
+[[package]]
 name = "visored-tactics"
 version = "0.1.0"
 dependencies = [
