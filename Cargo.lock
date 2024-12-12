@@ -210,8 +210,8 @@ dependencies = [
  "is-llm",
  "mistral-llm",
  "openai-llm",
+ "pytransformers-llm",
  "thiserror",
- "transformers-py-llm",
 ]
 
 [[package]]
@@ -11869,6 +11869,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "pytransformers-llm"
+version = "0.1.0"
+dependencies = [
+ "candle-transformers",
+ "pyo3",
+]
+
+[[package]]
 name = "qoi"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -14600,14 +14608,6 @@ dependencies = [
  "tracing-core",
  "tracing-log",
  "tracing-subscriber",
-]
-
-[[package]]
-name = "transformers-py-llm"
-version = "0.1.0"
-dependencies = [
- "candle-transformers",
- "pyo3",
 ]
 
 [[package]]
