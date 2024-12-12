@@ -16,6 +16,10 @@ pub struct HuskyLangDevPaths {
     registry_dir: PathBuf,
     sessions_dir: PathBuf,
     specs_dir: PathBuf,
+    python_lib_dir: PathBuf,
+    lean4_lib_dir: PathBuf,
+    rocq_lib_dir: PathBuf,
+    isabelle_lib_dir: PathBuf,
 }
 
 impl HuskyLangDevPaths {
@@ -31,6 +35,10 @@ impl HuskyLangDevPaths {
         let experiments_dir = root.join("experiments");
         let sessions_dir = root.join("sessions");
         let specs_dir = root.join("specs");
+        let python_lib_dir = root.join("python");
+        let lean4_lib_dir = root.join("lean4");
+        let rocq_lib_dir = root.join("rocq");
+        let isabelle_lib_dir = root.join("isabelle");
         Self {
             cargo_manifest_dir,
             root,
@@ -41,6 +49,10 @@ impl HuskyLangDevPaths {
             registry_dir,
             sessions_dir,
             specs_dir,
+            python_lib_dir,
+            lean4_lib_dir,
+            rocq_lib_dir,
+            isabelle_lib_dir,
         }
     }
 
@@ -78,5 +90,21 @@ impl HuskyLangDevPaths {
 
     pub fn specs_dir(&self) -> &PathBuf {
         &self.specs_dir
+    }
+
+    pub fn python_lib_dir(&self) -> &PathBuf {
+        &self.python_lib_dir
+    }
+
+    pub fn lean4_lib_dir(&self) -> &PathBuf {
+        &self.lean4_lib_dir
+    }
+
+    pub fn rocq_lib_dir(&self) -> &PathBuf {
+        &self.rocq_lib_dir
+    }
+
+    pub fn isabelle_lib_dir(&self) -> &PathBuf {
+        &self.isabelle_lib_dir
     }
 }
