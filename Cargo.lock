@@ -7159,6 +7159,13 @@ name = "husky-proof-protocol"
 version = "0.1.0"
 
 [[package]]
+name = "husky-pyo3-utils"
+version = "0.1.0"
+dependencies = [
+ "pyo3",
+]
+
+[[package]]
 name = "husky-qn-prototype"
 version = "0.1.0"
 
