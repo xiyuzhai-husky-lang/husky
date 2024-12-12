@@ -1,13 +1,13 @@
 use std::sync::Arc;
 
 use crate::*;
-use any_llm::AnyLlmClient;
+use all_llms::AllLlms;
 use input::VdPipelineInput;
 
 pub struct VdPipelineBuilder<'db> {
     config: &'db VdPipelineConfig,
     input: &'db VdPipelineInput,
-    llm_client: AnyLlmClient,
+    llm_client: AllLlms,
 }
 
 impl<'db> VdPipelineBuilder<'db> {
@@ -22,7 +22,7 @@ impl<'db> VdPipelineBuilder<'db> {
         Self {
             config,
             input,
-            llm_client: AnyLlmClient::new(cache_dir).unwrap(),
+            llm_client: AllLlms::new(cache_dir).unwrap(),
         }
     }
 }

@@ -5,7 +5,7 @@ pub use openai_api_rs::v1::common::GPT4_O;
 use crate::*;
 use tokio::runtime::Runtime;
 
-impl OaiClient {
+impl OaiLlm {
     pub(crate) fn complete_chat_ext(&self, request: ChatCompletionRequest) -> OaiResult<String> {
         // Create a new tokio runtime
         let rt = Runtime::new().map_err(|_| OaiError::ExtChatCompletion)?;

@@ -12,13 +12,13 @@ use llm_cap::LlmCap;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
-pub struct OaiClient {
+pub struct OaiLlm {
     cache: LlmCache<OaiRequest, OaiResponse>,
     /// None if the environment variable `OPENAI_API_KEY` is not set.
     client_ext: Option<ext::OpenAIClient>,
 }
 
-impl OaiClient {
+impl OaiLlm {
     pub fn new(file_path: PathBuf) -> OaiResult<Self> {
         let api_key = std::env::var("OPENAI_API_KEY").ok();
         Ok(Self {
@@ -31,7 +31,7 @@ impl OaiClient {
     }
 }
 
-impl OaiClient {
+impl OaiLlm {
     pub fn complete_chat(&self, prompt: String) -> OaiResult<String> {
         let min_usage = prompt.len();
         let request = OaiRequest::ChatCompletion(prompt);
@@ -72,7 +72,7 @@ fn openai_client_works() {
     let cache_path = cargo_manifest_dir.join("cache/openai_client_works.json");
     assert!(cache_path.exists());
 
-    let client = OaiClient::new(cache_path).unwrap();
+    let client = OaiLlm::new(cache_path).unwrap();
     let result = client.complete_chat("Hello, world!".to_string());
     assert!(result.is_ok(), "{}", result.unwrap_err());
 }
