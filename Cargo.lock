@@ -7162,6 +7162,7 @@ version = "0.1.0"
 name = "husky-pyo3-utils"
 version = "0.1.0"
 dependencies = [
+ "husky-print-utils",
  "pyo3",
 ]
 
@@ -13535,10 +13536,13 @@ name = "spacy-rs"
 version = "0.1.0"
 dependencies = [
  "disk-cache",
+ "expect-test",
  "husky-path-utils",
+ "husky-print-utils",
  "husky-pyo3-utils",
  "pyo3",
  "serde",
+ "serde_json",
  "thiserror",
 ]
 
