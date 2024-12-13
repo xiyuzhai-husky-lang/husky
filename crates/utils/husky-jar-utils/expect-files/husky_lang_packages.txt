@@ -4518,6 +4518,13 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-pyo3-utils",
+        relative_path: "crates/utils/husky-pyo3-utils",
+        dependencies: [
+            "pyo3",
+        ],
+    },
+    PackageSummary {
         name: "husky-rust-analysis-utils",
         relative_path: "crates/utils/husky-rust-analysis-utils",
         dependencies: [

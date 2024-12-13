@@ -20,7 +20,7 @@ use std::{io, sync::RwLock};
 #[cfg(test)]
 use tempfile;
 
-pub struct LlmCache<Request, Response>
+pub struct DiskCache<Request, Response>
 where
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,
@@ -31,7 +31,7 @@ where
     save_thread: LlmCacheSaveThread<Request, Response>,
 }
 
-impl<Request, Response> LlmCache<Request, Response>
+impl<Request, Response> DiskCache<Request, Response>
 where
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,
@@ -42,17 +42,17 @@ where
     /// * `path` - Path where the cache file will be stored
     ///
     /// # Returns
-    /// * `Ok(LlmCache)` - A new cache instance
+    /// * `Ok(DiskCache)` - A new cache instance
     /// * `Err(LlmCacheError)` - If the cache file is locked or there are IO errors
     ///
     /// # Example
     /// ```
     /// use std::path::PathBuf;
-    /// use disk_cache::LlmCache;
+    /// use disk_cache::DiskCache;
     ///
     /// let temp_dir = tempfile::tempdir().unwrap();
     /// let cache_path = temp_dir.path().join("cache.json");
-    /// let cache: LlmCache<String, String> = LlmCache::new(cache_path).unwrap();
+    /// let cache: DiskCache<String, String> = DiskCache::new(cache_path).unwrap();
     /// ```
     pub fn new(path: PathBuf) -> LlmCacheResult<Self> {
         // Create directory if it doesn't exist
@@ -93,7 +93,7 @@ where
     }
 }
 
-impl<Request, Response> LlmCache<Request, Response>
+impl<Request, Response> DiskCache<Request, Response>
 where
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,
@@ -136,7 +136,7 @@ where
     }
 }
 
-impl<Request, Response> Drop for LlmCache<Request, Response>
+impl<Request, Response> Drop for DiskCache<Request, Response>
 where
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,

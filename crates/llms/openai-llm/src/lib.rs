@@ -6,14 +6,14 @@ pub mod response;
 
 use self::{error::*, request::*, response::*};
 use cap::try_call_llm;
-use disk_cache::LlmCache;
+use disk_cache::DiskCache;
 use lazy_static::lazy_static;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use usage_cap::LlmCap;
 
 pub struct OaiLlm {
-    cache: LlmCache<OaiRequest, OaiResponse>,
+    cache: DiskCache<OaiRequest, OaiResponse>,
     /// None if the environment variable `OPENAI_API_KEY` is not set.
     client_ext: Option<ext::OpenAIClient>,
 }
@@ -22,7 +22,7 @@ impl OaiLlm {
     pub fn new(file_path: PathBuf) -> OaiResult<Self> {
         let api_key = std::env::var("OPENAI_API_KEY").ok();
         Ok(Self {
-            cache: LlmCache::new(file_path)?,
+            cache: DiskCache::new(file_path)?,
             client_ext: match api_key {
                 Some(api_key) => Some(ext::OpenAIClient::builder().with_api_key(api_key).build()?),
                 None => None,

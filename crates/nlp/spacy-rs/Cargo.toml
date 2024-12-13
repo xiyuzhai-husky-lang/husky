@@ -12,8 +12,13 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+disk-cache.workspace = true
 pyo3.workspace = true
 serde.workspace = true
+thiserror.workspace = true
+# utils
+husky-path-utils.workspace = true
+husky-pyo3-utils.workspace = true
 
 [lints]
 workspace = true
