@@ -35,7 +35,10 @@ impl SpacyConstituentParser {
     ) -> SpacyConstituentParsingResult<ConstituentParsingOutput> {
         self.cache.get_or_call(sentence, |sentence| {
             Python::with_gil(|py| {
-                let py_module = self.py_module(py)?;
+                let py_module = match self.py_module(py) {
+                    Ok(py_module) => py_module,
+                    Err(err) => todo!(),
+                };
                 let output = py_module.call_method1("parse", (sentence,))?;
                 output.extract().map_err(Into::into)
             })

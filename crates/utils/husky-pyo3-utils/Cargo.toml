@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 pyo3.workspace = true
+husky-print-utils.workspace = true
 
 [lints]
 workspace = true
