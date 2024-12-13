@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 serde_json.workspace = true
+lazy_static.workspace = true
 
 [lints]
 workspace = true
