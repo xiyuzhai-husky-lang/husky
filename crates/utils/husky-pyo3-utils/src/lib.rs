@@ -1,6 +1,7 @@
 use pyo3::prelude::*;
+use std::path::Path;
 
-pub fn py_module_from_path(path: &str) -> PyResult<Py<PyModule>> {
+pub fn py_module_from_path(path: &Path) -> PyResult<Py<PyModule>> {
     Python::with_gil(|py| {
         // Get the module name from the last component of the path
         let module_name = std::path::Path::new(path)
@@ -26,8 +27,8 @@ pub fn py_module_from_path(path: &str) -> PyResult<Py<PyModule>> {
 
 #[test]
 fn py_module_from_path_works() {
-    let manifest_dir = env!("CARGO_MANIFEST_DIR");
-    assert!(py_module_from_path(&(format!("{}/python/lib.py", manifest_dir))).is_ok());
-    assert!(py_module_from_path(&(format!("{}/python/strange.py", manifest_dir))).is_ok());
-    assert!(py_module_from_path(&(format!("{}/python/diablo2/poe2.py", manifest_dir))).is_ok());
+    let manifest_dir = Path::new(env!("CARGO_MANIFEST_DIR"));
+    assert!(py_module_from_path(&manifest_dir.join("python/lib.py")).is_ok());
+    assert!(py_module_from_path(&manifest_dir.join("python/strange.py")).is_ok());
+    assert!(py_module_from_path(&manifest_dir.join("python/diablo2/poe2.py")).is_ok());
 }

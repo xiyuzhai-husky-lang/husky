@@ -1,24 +1,19 @@
 use crate::*;
-use pyo3::types::{PyInt, PyString};
+use pyo3::prelude::*;
 
+#[pyclass]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SpacyToken {
+    #[pyo3(get)]
     pub text: String,
+    #[pyo3(get)]
     pub lemma: String,
+    #[pyo3(get)]
     pub pos: String,
+    #[pyo3(get)]
     pub tag: String,
+    #[pyo3(get)]
     pub dep: String,
+    #[pyo3(get)]
     pub head: usize,
-}
-
-impl SpacyToken {
-    pub fn from_python(token: &Bound<PyAny>) -> Self {
-        Self {
-            text: token.downcast::<PyString>().unwrap().to_string(),
-            lemma: token.downcast::<PyString>().unwrap().to_string(),
-            pos: token.downcast::<PyString>().unwrap().to_string(),
-            tag: token.downcast::<PyString>().unwrap().to_string(),
-            dep: token.downcast::<PyString>().unwrap().to_string(),
-            head: token.downcast::<PyInt>().unwrap().extract().unwrap(),
-        }
-    }
 }

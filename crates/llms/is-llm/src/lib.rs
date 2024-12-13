@@ -7,7 +7,7 @@ use self::{
     request::IsLlmRequest,
     response::IsLlmResponse,
 };
-use disk_cache::{error::LlmCacheError, LlmCache};
+use disk_cache::{error::LlmCacheError, DiskCache};
 use request::{chat_completion::LlmChatCompletionRequest, LlmRequest};
 use response::{chat_completion::LlmChatCompletionResponse, LlmResponse};
 use serde::{Deserialize, Serialize};
@@ -33,7 +33,7 @@ pub trait IsLlmImpl {
         + From<LlmChatCompletionResponse>
         + Into<Self::Response>;
 
-    fn cache(&self) -> &LlmCache<Self::Request, Self::Response>;
+    fn cache(&self) -> &DiskCache<Self::Request, Self::Response>;
     fn chat_completion_impl(
         &self,
         request: Self::ChatCompletionRequest,

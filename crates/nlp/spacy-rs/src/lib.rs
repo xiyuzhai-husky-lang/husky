@@ -1,9 +1,11 @@
 pub mod constituent_parsing;
 pub mod token;
 
+use self::token::*;
 use pyo3::prelude::*;
-use std::path::PathBuf;
+use serde::{Deserialize, Serialize};
+use std::path::{Path, PathBuf};
 
-fn python_src_dir() -> PathBuf {
-    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("python")
+pub fn python_src_dir(python_lib_dir: &Path) -> PathBuf {
+    python_lib_dir.join("spacy-rs")
 }
