@@ -1,6 +1,8 @@
 pub mod constituent;
 pub mod error;
 pub mod parser;
+#[cfg(test)]
+mod tests;
 
 use self::error::*;
 use crate::*;
