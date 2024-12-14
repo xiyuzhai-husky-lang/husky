@@ -1,5 +1,6 @@
 import os
 import warnings
+from dataclasses import dataclass
 from contextlib import redirect_stderr
 from io import StringIO
 
@@ -39,14 +40,20 @@ if not spacy.require_gpu():
     raise RuntimeError("GPU is required to run this script")
 
 
+@dataclass
+class ConstituentParsingOutput:
+    tokens: list[str]
+    constituents: list[str]
+    parse_string: str
+
 def parse(text):
     doc = nlp(text)
     sent = next(doc.sents)
-    return {
-        "tokens": list(sent),
-        "constituents": list(sent._.constituents),
-        "parse_string": sent._.parse_string,
-    }
+    return ConstituentParsingOutput(
+        tokens=list(sent),
+        constituents=list(sent._.constituents),
+        parse_string=sent._.parse_string,
+    )
 
 
 # # for testing purposes

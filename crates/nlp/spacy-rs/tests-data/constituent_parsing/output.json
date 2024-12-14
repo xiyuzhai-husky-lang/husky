@@ -1,0 +1,26 @@
+{
+  "tokens": [
+    {
+      "text": "Let"
+    },
+    {
+      "text": "FORMULA1"
+    },
+    {
+      "text": "be"
+    },
+    {
+      "text": "a"
+    },
+    {
+      "text": "topological"
+    },
+    {
+      "text": "space"
+    },
+    {
+      "text": "."
+    }
+  ],
+  "parse_string": "(S (VP (VB Let) (S (NP (NN FORMULA1)) (VP (VB be) (NP (DT a) (JJ topological) (NN space))))) (. .))"
+}

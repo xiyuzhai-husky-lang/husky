@@ -1,0 +1,32 @@
+[
+  {
+    "request": "Let FORMULA1 be a topological space.",
+    "response": {
+      "tokens": [
+        {
+          "text": "Let"
+        },
+        {
+          "text": "FORMULA1"
+        },
+        {
+          "text": "be"
+        },
+        {
+          "text": "a"
+        },
+        {
+          "text": "topological"
+        },
+        {
+          "text": "space"
+        },
+        {
+          "text": "."
+        }
+      ],
+      "parse_string": "(S (VP (VB Let) (S (NP (NN FORMULA1)) (VP (VB be) (NP (DT a) (JJ topological) (NN space))))) (. .))"
+    },
+    "time": "2024-12-14T22:31:57.044682414Z"
+  }
+]

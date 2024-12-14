@@ -1,7 +1,7 @@
 use super::*;
 use disk_cache::{error::LlmCacheError, DiskCache};
-use husky_pyo3_utils::py_module_from_path;
-use std::sync::OnceLock;
+use husky_pyo3_utils::py_module::py_module_from_path;
+use std::{borrow::Borrow, sync::OnceLock};
 
 pub struct SpacyConstituentParser {
     python_lib_dir: PathBuf,
@@ -40,7 +40,8 @@ impl SpacyConstituentParser {
                     Err(err) => todo!(),
                 };
                 let output = py_module.call_method1("parse", (sentence,))?;
-                output.extract().map_err(Into::into)
+                ConstituentParsingOutput::from_py_object_bound(output.as_borrowed())
+                    .map_err(Into::into)
             })
         })
     }
