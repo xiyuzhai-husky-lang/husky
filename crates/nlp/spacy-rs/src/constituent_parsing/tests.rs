@@ -18,5 +18,7 @@ fn constituent_parsing_works() {
         .parse("Let FORMULA1 be a topological space.".to_string())
         .unwrap();
     let json_output = serde_json::to_string_pretty(&output).unwrap();
-    expect_file!("tests-data/constituent_parsing/output.json").assert_eq(&json_output);
+    assert!(Path::new("tests-data/constituent_parsing").exists());
+    assert!(Path::new("tests-data/constituent_parsing").is_dir());
+    expect_file!("../../tests-data/constituent_parsing/output.json").assert_eq(&json_output);
 }

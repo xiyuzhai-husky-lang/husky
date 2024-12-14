@@ -1,19 +1,12 @@
 use crate::*;
 use pyo3::prelude::*;
 
-#[pyclass]
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, FromPyObject)]
 pub struct SpacyToken {
-    #[pyo3(get)]
     pub text: String,
-    #[pyo3(get)]
-    pub lemma: String,
-    #[pyo3(get)]
-    pub pos: String,
-    #[pyo3(get)]
-    pub tag: String,
-    #[pyo3(get)]
-    pub dep: String,
-    #[pyo3(get)]
-    pub head: usize,
+    // pub lemma: String,
+    // pub pos: String,
+    // pub tag: String,
+    // pub dep: String,
+    // pub head: usize,
 }
