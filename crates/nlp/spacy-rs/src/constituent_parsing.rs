@@ -6,15 +6,26 @@ mod tests;
 
 use self::error::*;
 use crate::*;
-use pyo3::prelude::*;
+use pyo3::{conversion::FromPyObjectBound, prelude::*, types::PyList};
 
 pub enum Constituent {}
 
-#[pyclass]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ConstituentParsingOutput {
-    #[pyo3(get)]
     pub tokens: Vec<SpacyToken>,
-    #[pyo3(get)]
+    // pub constituents: Vec<String>,
     pub parse_string: String,
+}
+
+impl<'a, 'py> ConstituentParsingOutput {
+    fn from_py_object_bound(ob: Borrowed<'a, 'py, PyAny>) -> PyResult<Self> {
+        let tokens = ob.getattr("tokens")?.extract()?;
+        // let constituents = ob.getattr("constituents")?;
+        let parse_string = ob.getattr("parse_string")?;
+        Ok(Self {
+            tokens,
+            // constituents: constituents.extract()?,
+            parse_string: parse_string.extract()?,
+        })
+    }
 }

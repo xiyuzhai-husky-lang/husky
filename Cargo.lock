@@ -7163,8 +7163,13 @@ name = "husky-pyo3-utils"
 version = "0.1.0"
 dependencies = [
  "husky-print-utils",
+ "husky-pyo3-utils-macros",
  "pyo3",
 ]
+
+[[package]]
+name = "husky-pyo3-utils-macros"
+version = "0.1.0"
 
 [[package]]
 name = "husky-qn-prototype"
