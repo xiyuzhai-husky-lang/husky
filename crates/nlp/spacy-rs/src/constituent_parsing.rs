@@ -10,22 +10,9 @@ use pyo3::{conversion::FromPyObjectBound, prelude::*, types::PyList};
 
 pub enum Constituent {}
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, FromPyObject)]
 pub struct ConstituentParsingOutput {
     pub tokens: Vec<SpacyToken>,
     // pub constituents: Vec<String>,
     pub parse_string: String,
-}
-
-impl<'a, 'py> ConstituentParsingOutput {
-    fn from_py_object_bound(ob: Borrowed<'a, 'py, PyAny>) -> PyResult<Self> {
-        let tokens = ob.getattr("tokens")?.extract()?;
-        // let constituents = ob.getattr("constituents")?;
-        let parse_string = ob.getattr("parse_string")?;
-        Ok(Self {
-            tokens,
-            // constituents: constituents.extract()?,
-            parse_string: parse_string.extract()?,
-        })
-    }
 }
