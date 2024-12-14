@@ -40,8 +40,7 @@ impl SpacyConstituentParser {
                     Err(err) => todo!(),
                 };
                 let output = py_module.call_method1("parse", (sentence,))?;
-                ConstituentParsingOutput::from_py_object_bound(output.as_borrowed())
-                    .map_err(Into::into)
+                output.extract().map_err(Into::into)
             })
         })
     }
