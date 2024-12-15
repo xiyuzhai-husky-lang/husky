@@ -41,8 +41,10 @@ if not spacy.require_gpu():
 
 @dataclass
 class Constituent:
+    text: str
     span: Span
     children: list[Span]
+    labels: list[str]
 
 @dataclass
 class ConstituentParsingOutput:
@@ -58,8 +60,14 @@ def parse(text):
     return ConstituentParsingOutput(
         tokens=list(sent),
         constituents=[
-            Constituent(span=constituent, children=list(constituent._.children))
-            for constituent in sent._.constituents],
+            Constituent(
+                text=constituent.text,
+                span=constituent,
+                children=list(constituent._.children),
+                labels=list(constituent._.labels),
+            )
+            for constituent in sent._.constituents
+        ],
         parse_string=sent._.parse_string,
     )
 
