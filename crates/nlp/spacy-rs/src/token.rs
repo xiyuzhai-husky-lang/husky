@@ -11,13 +11,17 @@ pub struct Token {
     /// The index of the token within the parent document
     pub i: usize,
     /// Base form of the token, with no inflectional suffixes
-    pub lemma_: String,
+    #[pyo3(attribute("lemma_"))]
+    pub lemma: BaseCoword,
     /// Normalized form of the token
-    pub norm_: String,
+    #[pyo3(attribute("norm_"))]
+    pub norm: BaseCoword,
     /// The characters at the start of the token
-    pub prefix_: String,
+    #[pyo3(attribute("prefix_"))]
+    pub prefix: BaseCoword,
     /// The characters at the end of the token
-    pub suffix_: String,
+    #[pyo3(attribute("suffix_"))]
+    pub suffix: BaseCoword,
     /// Does the token consist of ASCII characters?
     /// Equivalent to: all(ord(c) < 128 for c in token.text)
     pub is_ascii: bool,
@@ -62,8 +66,57 @@ pub struct Token {
     pub is_oov: bool,
     /// Is the token part of a "stop list"?
     pub is_stop: bool,
+    #[pyo3(attribute("pos_"))]
     /// Coarse-grained part-of-speech from the Universal POS tag set
-    pub pos: i32,
-    /// String representation of the coarse-grained part-of-speech
-    pub pos_: String,
+    pub part_of_speech: PartOfSpeech,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum PartOfSpeech {
+    Noun,
+    Verb,
+    Adjective,
+    Adverb,
+    Preposition,
+    CoordinatingConjunction,
+    SubordinatingConjunction,
+    Determiner,
+    Pronoun,
+    Numeral,
+    Particle,
+    Interjection,
+    Punctuation,
+    Symbol,
+    Other,
+    ProperNoun,
+    Auxiliary,
+}
+
+impl<'py> FromPyObject<'py> for PartOfSpeech {
+    fn extract_bound(ob: &Bound<'py, PyAny>) -> PyResult<Self> {
+        let s: &str = ob.extract()?;
+        match s {
+            "NOUN" => Ok(PartOfSpeech::Noun),
+            "VERB" => Ok(PartOfSpeech::Verb),
+            "ADJ" => Ok(PartOfSpeech::Adjective),
+            "ADV" => Ok(PartOfSpeech::Adverb),
+            "ADP" => Ok(PartOfSpeech::Preposition),
+            "CCONJ" => Ok(PartOfSpeech::CoordinatingConjunction),
+            "SCONJ" => Ok(PartOfSpeech::SubordinatingConjunction),
+            "DET" => Ok(PartOfSpeech::Determiner),
+            "PRON" => Ok(PartOfSpeech::Pronoun),
+            "NUM" => Ok(PartOfSpeech::Numeral),
+            "PART" => Ok(PartOfSpeech::Particle),
+            "INTJ" => Ok(PartOfSpeech::Interjection),
+            "PUNCT" => Ok(PartOfSpeech::Punctuation),
+            "SYM" => Ok(PartOfSpeech::Symbol),
+            "X" => Ok(PartOfSpeech::Other),
+            "PROPN" => Ok(PartOfSpeech::ProperNoun),
+            "AUX" => Ok(PartOfSpeech::Auxiliary),
+            s => Err(PyErr::new::<pyo3::exceptions::PyValueError, _>(format!(
+                "Unknown POS tag: {:?}",
+                s
+            ))),
+        }
+    }
 }

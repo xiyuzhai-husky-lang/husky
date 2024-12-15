@@ -6,10 +6,10 @@
         {
           "text": "Let",
           "i": 0,
-          "lemma_": "let",
-          "norm_": "let",
-          "prefix_": "L",
-          "suffix_": "Let",
+          "lemma": "let",
+          "norm": "let",
+          "prefix": "L",
+          "suffix": "Let",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": false,
@@ -29,16 +29,15 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": false,
-          "pos": 100,
-          "pos_": "VERB"
+          "part_of_speech": "Verb"
         },
         {
           "text": "FORMULA1",
           "i": 1,
-          "lemma_": "FORMULA1",
-          "norm_": "formula1",
-          "prefix_": "F",
-          "suffix_": "LA1",
+          "lemma": "FORMULA1",
+          "norm": "formula1",
+          "prefix": "F",
+          "suffix": "LA1",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": false,
@@ -58,16 +57,15 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": false,
-          "pos": 96,
-          "pos_": "PROPN"
+          "part_of_speech": "ProperNoun"
         },
         {
           "text": "be",
           "i": 2,
-          "lemma_": "be",
-          "norm_": "be",
-          "prefix_": "b",
-          "suffix_": "be",
+          "lemma": "be",
+          "norm": "be",
+          "prefix": "b",
+          "suffix": "be",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": true,
@@ -87,16 +85,15 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": true,
-          "pos": 87,
-          "pos_": "AUX"
+          "part_of_speech": "Auxiliary"
         },
         {
           "text": "a",
           "i": 3,
-          "lemma_": "a",
-          "norm_": "a",
-          "prefix_": "a",
-          "suffix_": "a",
+          "lemma": "a",
+          "norm": "a",
+          "prefix": "a",
+          "suffix": "a",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": true,
@@ -116,16 +113,15 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": true,
-          "pos": 90,
-          "pos_": "DET"
+          "part_of_speech": "Determiner"
         },
         {
           "text": "topological",
           "i": 4,
-          "lemma_": "topological",
-          "norm_": "topological",
-          "prefix_": "t",
-          "suffix_": "cal",
+          "lemma": "topological",
+          "norm": "topological",
+          "prefix": "t",
+          "suffix": "cal",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": true,
@@ -145,16 +141,15 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": false,
-          "pos": 84,
-          "pos_": "ADJ"
+          "part_of_speech": "Adjective"
         },
         {
           "text": "space",
           "i": 5,
-          "lemma_": "space",
-          "norm_": "space",
-          "prefix_": "s",
-          "suffix_": "ace",
+          "lemma": "space",
+          "norm": "space",
+          "prefix": "s",
+          "suffix": "ace",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": true,
@@ -174,16 +169,15 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": false,
-          "pos": 92,
-          "pos_": "NOUN"
+          "part_of_speech": "Noun"
         },
         {
           "text": ".",
           "i": 6,
-          "lemma_": ".",
-          "norm_": ".",
-          "prefix_": ".",
-          "suffix_": ".",
+          "lemma": ".",
+          "norm": ".",
+          "prefix": ".",
+          "suffix": ".",
           "is_ascii": true,
           "is_digit": false,
           "is_lower": false,
@@ -203,8 +197,7 @@
           "like_email": false,
           "is_oov": true,
           "is_stop": false,
-          "pos": 97,
-          "pos_": "PUNCT"
+          "part_of_speech": "Punctuation"
         }
       ],
       "constituents": [
@@ -367,6 +360,6 @@
       ],
       "parse_string": "(S (VP (VB Let) (S (NP (NN FORMULA1)) (VP (VB be) (NP (DT a) (JJ topological) (NN space))))) (. .))"
     },
-    "time": "2024-12-15T04:17:52.015685054Z"
+    "time": "2024-12-15T07:00:48.554104610Z"
   }
 ]
