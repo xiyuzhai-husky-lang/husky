@@ -1,5 +1,4 @@
-use pyo3::prelude::*;
-use pyo3::types::IntoPyDict;
+use pyo3::{ffi::c_str, prelude::*};
 use std::path::PathBuf;
 
 pub fn add(left: u64, right: u64) -> u64 {
@@ -46,15 +45,8 @@ fn a() {}
 
 fn call_python_function() -> PyResult<()> {
     Python::with_gil(|py| {
-        let sys = py.import_bound("sys")?;
-        let python_dir = python_dir()?;
-
-        // Add our python directory to sys.path
-        sys.getattr("path")?
-            .call_method1("append", (python_dir.to_str().unwrap(),))?;
-
-        // Import our Python module
-        let lib = py.import_bound("lib")?;
+        let py_code = c_str!(include_str!("../python/lib.py"));
+        let lib = PyModule::from_code(py, py_code, c_str!("lib.py"), c_str!("lib"))?;
 
         // Call the Python function
         let result = lib.getattr("example_function")?.call0()?;
