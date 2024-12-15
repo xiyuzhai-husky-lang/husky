@@ -5,6 +5,7 @@ use crate::token::span::Span;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, FromPyObject)]
 pub struct Constituent {
+    pub text: String,
     pub span: Span,
     pub children: Vec<Span>,
     pub labels: Vec<ConstituentLabel>,
