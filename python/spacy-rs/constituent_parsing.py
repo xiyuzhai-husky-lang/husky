@@ -39,19 +39,27 @@ if "benepar" not in nlp.pipe_names:
 if not spacy.require_gpu():
     raise RuntimeError("GPU is required to run this script")
 
+@dataclass
+class Constituent:
+    span: Span
+    children: list[Span]
 
 @dataclass
 class ConstituentParsingOutput:
     tokens: list[str]
-    constituents: list[str]
+    constituents: list[Constituent]
     parse_string: str
+
+
 
 def parse(text):
     doc = nlp(text)
     sent = next(doc.sents)
     return ConstituentParsingOutput(
         tokens=list(sent),
-        constituents=list(sent._.constituents),
+        constituents=[
+            Constituent(span=constituent, children=list(constituent._.children))
+            for constituent in sent._.constituents],
         parse_string=sent._.parse_string,
     )
 

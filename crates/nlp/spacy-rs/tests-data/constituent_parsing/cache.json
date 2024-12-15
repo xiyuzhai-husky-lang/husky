@@ -27,92 +27,210 @@
       ],
       "constituents": [
         {
-          "start": 0,
-          "end": 7,
-          "root": {
-            "text": "Let"
-          }
+          "span": {
+            "start": 0,
+            "end": 7,
+            "root": {
+              "text": "Let"
+            }
+          },
+          "children": [
+            {
+              "start": 0,
+              "end": 6,
+              "root": {
+                "text": "Let"
+              }
+            },
+            {
+              "start": 6,
+              "end": 7,
+              "root": {
+                "text": "."
+              }
+            }
+          ]
         },
         {
-          "start": 0,
-          "end": 6,
-          "root": {
-            "text": "Let"
-          }
+          "span": {
+            "start": 0,
+            "end": 6,
+            "root": {
+              "text": "Let"
+            }
+          },
+          "children": [
+            {
+              "start": 0,
+              "end": 1,
+              "root": {
+                "text": "Let"
+              }
+            },
+            {
+              "start": 1,
+              "end": 6,
+              "root": {
+                "text": "be"
+              }
+            }
+          ]
         },
         {
-          "start": 0,
-          "end": 1,
-          "root": {
-            "text": "Let"
-          }
+          "span": {
+            "start": 0,
+            "end": 1,
+            "root": {
+              "text": "Let"
+            }
+          },
+          "children": []
         },
         {
-          "start": 1,
-          "end": 6,
-          "root": {
-            "text": "be"
-          }
+          "span": {
+            "start": 1,
+            "end": 6,
+            "root": {
+              "text": "be"
+            }
+          },
+          "children": [
+            {
+              "start": 1,
+              "end": 2,
+              "root": {
+                "text": "FORMULA1"
+              }
+            },
+            {
+              "start": 2,
+              "end": 6,
+              "root": {
+                "text": "be"
+              }
+            }
+          ]
         },
         {
-          "start": 1,
-          "end": 2,
-          "root": {
-            "text": "FORMULA1"
-          }
+          "span": {
+            "start": 1,
+            "end": 2,
+            "root": {
+              "text": "FORMULA1"
+            }
+          },
+          "children": []
         },
         {
-          "start": 2,
-          "end": 6,
-          "root": {
-            "text": "be"
-          }
+          "span": {
+            "start": 2,
+            "end": 6,
+            "root": {
+              "text": "be"
+            }
+          },
+          "children": [
+            {
+              "start": 2,
+              "end": 3,
+              "root": {
+                "text": "be"
+              }
+            },
+            {
+              "start": 3,
+              "end": 6,
+              "root": {
+                "text": "space"
+              }
+            }
+          ]
         },
         {
-          "start": 2,
-          "end": 3,
-          "root": {
-            "text": "be"
-          }
+          "span": {
+            "start": 2,
+            "end": 3,
+            "root": {
+              "text": "be"
+            }
+          },
+          "children": []
         },
         {
-          "start": 3,
-          "end": 6,
-          "root": {
-            "text": "space"
-          }
+          "span": {
+            "start": 3,
+            "end": 6,
+            "root": {
+              "text": "space"
+            }
+          },
+          "children": [
+            {
+              "start": 3,
+              "end": 4,
+              "root": {
+                "text": "a"
+              }
+            },
+            {
+              "start": 4,
+              "end": 5,
+              "root": {
+                "text": "topological"
+              }
+            },
+            {
+              "start": 5,
+              "end": 6,
+              "root": {
+                "text": "space"
+              }
+            }
+          ]
         },
         {
-          "start": 3,
-          "end": 4,
-          "root": {
-            "text": "a"
-          }
+          "span": {
+            "start": 3,
+            "end": 4,
+            "root": {
+              "text": "a"
+            }
+          },
+          "children": []
         },
         {
-          "start": 4,
-          "end": 5,
-          "root": {
-            "text": "topological"
-          }
+          "span": {
+            "start": 4,
+            "end": 5,
+            "root": {
+              "text": "topological"
+            }
+          },
+          "children": []
         },
         {
-          "start": 5,
-          "end": 6,
-          "root": {
-            "text": "space"
-          }
+          "span": {
+            "start": 5,
+            "end": 6,
+            "root": {
+              "text": "space"
+            }
+          },
+          "children": []
         },
         {
-          "start": 6,
-          "end": 7,
-          "root": {
-            "text": "."
-          }
+          "span": {
+            "start": 6,
+            "end": 7,
+            "root": {
+              "text": "."
+            }
+          },
+          "children": []
         }
       ],
       "parse_string": "(S (VP (VB Let) (S (NP (NN FORMULA1)) (VP (VB be) (NP (DT a) (JJ topological) (NN space))))) (. .))"
     },
-    "time": "2024-12-15T01:29:52.916537260Z"
+    "time": "2024-12-15T02:03:15.125968742Z"
   }
 ]
