@@ -1,8 +1,10 @@
+pub mod span;
+
 use crate::*;
 use pyo3::prelude::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, FromPyObject)]
-pub struct SpacyToken {
+pub struct Token {
     pub text: String,
     // pub lemma: String,
     // pub pos: String,
