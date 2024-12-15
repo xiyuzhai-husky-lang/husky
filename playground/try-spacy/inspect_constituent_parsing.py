@@ -46,8 +46,11 @@ doc = nlp(text)
 sent = next(doc.sents)
 
 for token in sent:
-    print(f"Token: {token.text} (type: {type(token.text)})")
-    print(f"dir(token): {dir(token)}")
+    print(f"Token:")
+    print(f"  text: {token.text} (type: {type(token.text)})")
+    print(f"  i: {token.i} (type: {type(token.i)})")
+    print(f"  lemma: {token.lemma} (type: {type(token.lemma)})")
+    print(f"  lemma_: {token.lemma_} (type: {type(token.lemma_)})")
     break
 
 for constituent in sent._.constituents:
