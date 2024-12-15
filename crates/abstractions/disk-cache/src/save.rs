@@ -1,78 +1,87 @@
 use crate::entry::LlmCacheEntry;
 use crate::error::LlmCacheResult;
+use attach::Attach;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use std::fs;
 use std::path::PathBuf;
 use std::sync::mpsc::{channel, Sender};
+use std::{fs, marker::PhantomData};
 
-pub struct LlmCacheSaveThread<Request, Response>
+pub struct LlmCacheSaveThread<Db, Request, Response>
 where
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    internal: Option<LlmCacheSaveThreadInternal<Request, Response>>,
+    internal: Option<LlmCacheSaveThreadInternal<Db, Request, Response>>,
 }
 
-struct LlmCacheSaveThreadInternal<Request, Response>
+struct LlmCacheSaveThreadInternal<Db, Request, Response>
 where
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    sender: Sender<LlmCacheEntry<Request, Response>>,
+    db: Db,
+    sender: Sender<String>,
     thread: std::thread::JoinHandle<()>,
+    phantom: PhantomData<(Request, Response)>,
 }
 
-impl<Request, Response> LlmCacheSaveThread<Request, Response>
+impl<Db, Request, Response> LlmCacheSaveThread<Db, Request, Response>
 where
+    Db: Attach,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    pub fn new(path: PathBuf, mut entries: Vec<LlmCacheEntry<Request, Response>>) -> Self {
+    pub fn new(db: Db, path: PathBuf, mut entries: Vec<LlmCacheEntry<Request, Response>>) -> Self {
         let (sender, receiver) = channel();
 
         let thread = std::thread::spawn(move || {
-            while let Ok(entry) = receiver.recv() {
-                entries.push(entry);
-
-                // Write entire cache to file
-                if let Ok(contents) = serde_json::to_string_pretty(&entries) {
-                    // Write to temporary file first
-                    if let Err(e) = fs::write(&path, contents) {
-                        todo!()
-                    }
+            while let Ok(content) = receiver.recv() {
+                if let Err(e) = fs::write(&path, content) {
+                    todo!()
                 }
             }
         });
 
         Self {
-            internal: Some(LlmCacheSaveThreadInternal { sender, thread }),
+            internal: Some(LlmCacheSaveThreadInternal {
+                db,
+                sender,
+                thread,
+                phantom: PhantomData,
+            }),
         }
     }
 
-    pub fn save(&self, entry: LlmCacheEntry<Request, Response>) -> LlmCacheResult<()> {
-        self.internal.as_ref().unwrap().save(entry)
+    pub fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> LlmCacheResult<()> {
+        self.internal.as_ref().unwrap().save(entries)
     }
 }
 
-impl<Request, Response> LlmCacheSaveThreadInternal<Request, Response>
+impl<Db, Request, Response> LlmCacheSaveThreadInternal<Db, Request, Response>
 where
+    Db: Attach,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    fn save(&self, entry: LlmCacheEntry<Request, Response>) -> LlmCacheResult<()> {
-        self.sender.send(entry).map_err(|_| todo!())?;
+    fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> LlmCacheResult<()> {
+        self.sender
+            .send(
+                self.db
+                    .attach(|| serde_json::to_string_pretty(entries).unwrap()),
+            )
+            .map_err(|_| todo!())?;
         Ok(())
     }
 }
 
-impl<Request, Response> Drop for LlmCacheSaveThread<Request, Response>
+impl<Db, Request, Response> Drop for LlmCacheSaveThread<Db, Request, Response>
 where
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
     fn drop(&mut self) {
-        let Some(LlmCacheSaveThreadInternal { sender, thread }) =
+        let Some(LlmCacheSaveThreadInternal { sender, thread, .. }) =
             std::mem::take(&mut self.internal)
         else {
             unreachable!()

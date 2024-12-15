@@ -1,19 +1,21 @@
+use crate::{
+    input::VdPipelineInput, instance::VdPipelineInstance, VdPipelineConfig, VdPipelineResult,
+};
+use eterned::db::EternerDb;
 use std::path::Path;
 use std::sync::Arc;
 use std::{fs, path::PathBuf};
 
-use crate::{
-    input::VdPipelineInput, instance::VdPipelineInstance, VdPipelineConfig, VdPipelineResult,
-};
-
-pub struct VdPipelineRunner {
+pub struct VdPipelineRunner<'db> {
+    db: &'db EternerDb,
     instances: Vec<VdPipelineInstance>,
     configs: Vec<VdPipelineConfig>,
     src_inputs: Vec<Arc<VdPipelineInput>>,
 }
 
-impl VdPipelineRunner {
+impl<'db> VdPipelineRunner<'db> {
     pub fn new(
+        db: &'db EternerDb,
         config_path: impl AsRef<Path>,
         src_file_paths: impl IntoIterator<Item = PathBuf>,
     ) -> VdPipelineResult<Self> {
@@ -34,6 +36,7 @@ impl VdPipelineRunner {
             .collect();
 
         Ok(Self {
+            db,
             instances,
             configs,
             src_inputs,
@@ -41,10 +44,10 @@ impl VdPipelineRunner {
     }
 }
 
-impl VdPipelineRunner {
+impl<'db> VdPipelineRunner<'db> {
     pub fn run_all_single_threaded(&mut self) -> VdPipelineResult<()> {
         for instance in &mut self.instances {
-            instance.run()?;
+            instance.run(self.db)?;
         }
         Ok(())
     }
@@ -54,7 +57,7 @@ impl VdPipelineRunner {
 
         self.instances
             .par_iter_mut()
-            .try_for_each(|instance| instance.run())?;
+            .try_for_each(|instance| instance.run(self.db))?;
         Ok(())
     }
 }

@@ -224,6 +224,7 @@ xxhash-rust = { version = "0.8.5" }
 yaml-rust2 = "0.9.0"
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
+attach = { path = "crates/abstractions/attach" }
 base-vfs = { path = "crates/abstractions/base-vfs" }
 composite-pattern = { path = "crates/abstractions/composite-pattern" }
 base-coword = { path = "crates/abstractions/base-coword" }

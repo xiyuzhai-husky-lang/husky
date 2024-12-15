@@ -10,6 +10,7 @@ use self::{
     error::{LlmCacheError, LlmCacheResult},
     traits::{IsLlmCacheRequest, IsLlmCacheResponse},
 };
+use attach::Attach;
 use chrono::Duration;
 use dashmap::DashMap;
 use save::LlmCacheSaveThread;
@@ -20,19 +21,21 @@ use std::{io, sync::RwLock};
 #[cfg(test)]
 use tempfile;
 
-pub struct DiskCache<Request, Response>
+pub struct DiskCache<Db, Request, Response>
 where
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,
 {
+    db: Db,
     path: PathBuf,
     entries: RwLock<Vec<LlmCacheEntry<Request, Response>>>,
     indices: DashMap<Request, usize>,
-    save_thread: LlmCacheSaveThread<Request, Response>,
+    save_thread: LlmCacheSaveThread<Db, Request, Response>,
 }
 
-impl<Request, Response> DiskCache<Request, Response>
+impl<Db, Request, Response> DiskCache<Db, Request, Response>
 where
+    Db: Attach,
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,
 {
@@ -50,11 +53,12 @@ where
     /// use std::path::PathBuf;
     /// use disk_cache::DiskCache;
     ///
+    /// let db = ();
     /// let temp_dir = tempfile::tempdir().unwrap();
     /// let cache_path = temp_dir.path().join("cache.json");
-    /// let cache: DiskCache<String, String> = DiskCache::new(cache_path).unwrap();
+    /// let cache: DiskCache<(), String, String> = DiskCache::new(db, cache_path).unwrap();
     /// ```
-    pub fn new(path: PathBuf) -> LlmCacheResult<Self> {
+    pub fn new(db: Db, path: PathBuf) -> LlmCacheResult<Self> {
         // Create directory if it doesn't exist
         if let Some(parent) = path.parent() {
             fs::create_dir_all(parent).map_err(|e| LlmCacheError::Io(path.clone(), e))?;
@@ -72,12 +76,12 @@ where
         let entries: Vec<LlmCacheEntry<Request, Response>> = if path.exists() {
             let contents =
                 fs::read_to_string(&path).map_err(|e| LlmCacheError::Io(path.clone(), e))?;
-            serde_json::from_str(&contents).unwrap_or_default()
+            db.attach(|| serde_json::from_str(&contents).unwrap_or_default())
         } else {
             Default::default()
         };
 
-        let save_thread = LlmCacheSaveThread::new(path.clone(), entries.clone());
+        let save_thread = LlmCacheSaveThread::new(db, path.clone(), entries.clone());
 
         let indices = entries
             .iter()
@@ -85,6 +89,7 @@ where
             .map(|(i, e)| (e.request.clone(), i))
             .collect();
         Ok(Self {
+            db,
             path,
             entries: RwLock::new(entries),
             indices,
@@ -93,8 +98,9 @@ where
     }
 }
 
-impl<Request, Response> DiskCache<Request, Response>
+impl<Db, Request, Response> DiskCache<Db, Request, Response>
 where
+    Db: Attach,
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,
 {
@@ -129,14 +135,14 @@ where
         }
         let response = f(&request)?;
         let new_entry = LlmCacheEntry::new(request.clone(), response.clone());
-        self.save_thread.save(new_entry.clone())?;
         entries.push(new_entry);
+        self.save_thread.save(&entries)?;
         self.indices.insert(request, entries.len() - 1);
         Ok(response)
     }
 }
 
-impl<Request, Response> Drop for DiskCache<Request, Response>
+impl<Db, Request, Response> Drop for DiskCache<Db, Request, Response>
 where
     Request: IsLlmCacheRequest,
     Response: IsLlmCacheResponse,

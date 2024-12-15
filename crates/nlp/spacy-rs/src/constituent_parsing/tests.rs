@@ -5,11 +5,13 @@ use husky_path_utils::HuskyLangDevPaths;
 
 #[test]
 fn constituent_parsing_works() {
+    use eterned::db::EternerDb;
+
+    let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let python_lib_dir = python_src_dir(dev_paths.python_lib_dir()).join("constituent_parsing.py");
-    use husky_print_utils::p;
-    p!(python_lib_dir);
     let parser = SpacyConstituentParser::new(
+        db,
         python_lib_dir,
         PathBuf::from("tests-data/constituent_parsing/cache.json"),
     )
