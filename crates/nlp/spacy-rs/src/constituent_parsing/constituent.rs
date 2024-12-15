@@ -1,5 +1,8 @@
 use super::*;
 use crate::token::span::Span;
 
-// ad hoc
-pub type Constituent = Span;
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, FromPyObject)]
+pub struct Constituent {
+    pub span: Span,
+    pub children: Vec<Span>,
+}
