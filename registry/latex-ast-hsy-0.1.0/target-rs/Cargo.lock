@@ -65,6 +65,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "attach"
+version = "0.1.0"
+
+[[package]]
 name = "autocfg"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -378,6 +382,7 @@ checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
 name = "eterned"
 version = "0.1.0"
 dependencies = [
+ "attach",
  "dashmap",
  "eterned-macros",
  "husky-sha-utils",

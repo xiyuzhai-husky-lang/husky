@@ -363,5 +363,3 @@ venv/
 .venv/
 .pytest_cache/
 .coverage
-
-*.json.lock

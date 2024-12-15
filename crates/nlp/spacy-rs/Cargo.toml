@@ -16,6 +16,10 @@ disk-cache.workspace = true
 pyo3.workspace = true
 serde.workspace = true
 thiserror.workspace = true
+# abstractions
+attach.workspace = true
+base-coword = { workspace = true, features = ["pyo3"] }
+eterned.workspace = true
 # utils
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true

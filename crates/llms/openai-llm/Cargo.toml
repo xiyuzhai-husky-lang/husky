@@ -17,9 +17,11 @@ openai-api-rs.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 tokio.workspace = true
-# llms
+# abstractions
 disk-cache.workspace = true
+eterned.workspace = true
 usage-cap.workspace = true
+# llms
 # utils
 husky-print-utils.workspace = true
 

@@ -1,5 +1,5 @@
 [package]
-name = "visored-cli"
+name = "attach"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,12 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-clap.workspace = true
-glob.workspace = true
-# abstractions
-eterned.workspace = true
-# visored
-visored-pipeline.workspace = true
 
 [lints]
 workspace = true
