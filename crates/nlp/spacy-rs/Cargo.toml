@@ -13,6 +13,8 @@ keywords.workspace = true
 
 [dependencies]
 disk-cache.workspace = true
+force-send-sync.workspace = true
+lazy_static.workspace = true
 pyo3.workspace = true
 serde.workspace = true
 thiserror.workspace = true
