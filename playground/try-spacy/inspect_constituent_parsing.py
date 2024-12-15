@@ -45,6 +45,11 @@ doc = nlp(text)
 # Get the first sentence's constituency parse
 sent = next(doc.sents)
 
+for token in sent:
+    print(f"Token: {token.text} (type: {type(token.text)})")
+    print(f"dir(token): {dir(token)}")
+    break
+
 for constituent in sent._.constituents:
     print(f"Type of constituent: {type(constituent)}")
     print(f"Constituent: '{constituent.text}'")  # The text content
