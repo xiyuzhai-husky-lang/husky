@@ -7,7 +7,7 @@ use crate::token::span::Span;
 pub struct Constituent {
     pub text: String,
     pub span: Span,
-    pub children: Vec<Span>,
+    pub children: Vec<Constituent>,
     pub labels: Vec<ConstituentLabel>,
 }
 

@@ -46,28 +46,27 @@ class Constituent:
     children: list[Span]
     labels: list[str]
 
+    def __init__(self, span: Span):
+        self.text = span.text
+        self.span = span
+        self.children = [Constituent(child) for child in span._.children]
+        self.labels = list(span._.labels)
+
 @dataclass
 class ConstituentParsingOutput:
     tokens: list[str]
-    constituents: list[Constituent]
+    constituent: Constituent
     parse_string: str
-
 
 
 def parse(text):
     doc = nlp(text)
-    sent = next(doc.sents)
+    sents = list(doc.sents)
+    assert len(sents) == 1
+    sent = sents[0]
     return ConstituentParsingOutput(
         tokens=list(sent),
-        constituents=[
-            Constituent(
-                text=constituent.text,
-                span=constituent,
-                children=list(constituent._.children),
-                labels=list(constituent._.labels),
-            )
-            for constituent in sent._.constituents
-        ],
+        constituent=Constituent(sent),
         parse_string=sent._.parse_string,
     )
 
