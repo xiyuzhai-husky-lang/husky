@@ -1,12 +1,13 @@
 pub mod span;
 
 use crate::*;
+use base_coword::BaseCoword;
 use pyo3::prelude::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, FromPyObject)]
 pub struct Token {
     /// The original text of the token
-    pub text: String,
+    pub text: BaseCoword,
     /// The index of the token within the parent document
     pub i: usize,
     /// Base form of the token, with no inflectional suffixes

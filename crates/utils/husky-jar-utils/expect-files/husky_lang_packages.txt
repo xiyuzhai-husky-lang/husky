@@ -5,17 +5,25 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "attach",
+        relative_path: "crates/abstractions/attach",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "base-coword",
         relative_path: "crates/abstractions/base-coword",
         dependencies: [
             "eterned",
             "lazy_static",
+            "pyo3",
+            "serde",
         ],
     },
     PackageSummary {
         name: "eterned",
         relative_path: "crates/abstractions/eterned",
         dependencies: [
+            "attach",
             "dashmap",
             "eterned-macros",
             "husky-sha-utils",
@@ -394,6 +402,7 @@
         name: "disk-cache",
         relative_path: "crates/abstractions/disk-cache",
         dependencies: [
+            "attach",
             "chrono",
             "dashmap",
             "serde",
@@ -3833,6 +3842,7 @@
         relative_path: "crates/apps/visored-cli",
         dependencies: [
             "clap",
+            "eterned",
             "glob",
             "visored-pipeline",
         ],
@@ -3842,6 +3852,7 @@
         relative_path: "crates/visored/visored-pipeline",
         dependencies: [
             "all-llms",
+            "eterned",
             "rayon",
             "relative-path",
             "serde",
@@ -3855,6 +3866,7 @@
         relative_path: "crates/llms/all-llms",
         dependencies: [
             "allms",
+            "eterned",
             "husky-print-utils",
             "is-llm",
             "mistral-llm",
@@ -3867,6 +3879,7 @@
         name: "is-llm",
         relative_path: "crates/llms/is-llm",
         dependencies: [
+            "attach",
             "disk-cache",
             "sealed",
             "serde",
@@ -3885,6 +3898,7 @@
         relative_path: "crates/llms/openai-llm",
         dependencies: [
             "disk-cache",
+            "eterned",
             "husky-print-utils",
             "lazy_static",
             "openai-api-rs",
@@ -4372,9 +4386,33 @@
         name: "spacy-rs",
         relative_path: "crates/nlp/spacy-rs",
         dependencies: [
+            "attach",
+            "base-coword",
+            "disk-cache",
+            "eterned",
+            "husky-path-utils",
+            "husky-print-utils",
+            "husky-pyo3-utils",
             "pyo3",
             "serde",
+            "thiserror",
+            "expect-test",
+            "serde_json",
         ],
+    },
+    PackageSummary {
+        name: "husky-pyo3-utils",
+        relative_path: "crates/utils/husky-pyo3-utils",
+        dependencies: [
+            "husky-print-utils",
+            "husky-pyo3-utils-macros",
+            "pyo3",
+        ],
+    },
+    PackageSummary {
+        name: "husky-pyo3-utils-macros",
+        relative_path: "crates/utils/husky-pyo3-utils-macros",
+        dependencies: [],
     },
     PackageSummary {
         name: "husky-proof-protocol",
@@ -4516,13 +4554,6 @@
         name: "husky-marker-utils",
         relative_path: "crates/utils/husky-marker-utils",
         dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-pyo3-utils",
-        relative_path: "crates/utils/husky-pyo3-utils",
-        dependencies: [
-            "pyo3",
-        ],
     },
     PackageSummary {
         name: "husky-rust-analysis-utils",

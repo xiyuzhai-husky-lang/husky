@@ -7,6 +7,7 @@ use self::{
     request::IsLlmRequest,
     response::IsLlmResponse,
 };
+use attach::Attach;
 use disk_cache::{error::LlmCacheError, DiskCache};
 use request::{chat_completion::LlmChatCompletionRequest, LlmRequest};
 use response::{chat_completion::LlmChatCompletionResponse, LlmResponse};
@@ -23,6 +24,7 @@ pub trait IsLlm: IsLlmImpl {
 }
 
 pub trait IsLlmImpl {
+    type Db: Attach;
     type Error: From<LlmCacheError> + From<LlmError> + Into<LlmError>;
     type Request: IsLlmRequest + From<LlmRequest>;
     type Response: IsLlmResponse + Into<LlmResponse>;
@@ -33,7 +35,7 @@ pub trait IsLlmImpl {
         + From<LlmChatCompletionResponse>
         + Into<Self::Response>;
 
-    fn cache(&self) -> &DiskCache<Self::Request, Self::Response>;
+    fn cache(&self) -> &DiskCache<Self::Db, Self::Request, Self::Response>;
     fn chat_completion_impl(
         &self,
         request: Self::ChatCompletionRequest,

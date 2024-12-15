@@ -1,12 +1,15 @@
 use super::*;
+use attach::Attach;
 use disk_cache::{error::LlmCacheError, DiskCache};
+use eterned::db::EternerDb;
 use husky_pyo3_utils::py_module::py_module_from_path;
 use std::{borrow::Borrow, sync::OnceLock};
 
-pub struct SpacyConstituentParser {
+pub struct SpacyConstituentParser<'db> {
+    db: &'db EternerDb,
     python_lib_dir: PathBuf,
     py_module: OnceLock<PyResult<Py<PyModule>>>,
-    cache: DiskCache<String, ConstituentParsingOutput>,
+    cache: DiskCache<&'db EternerDb, String, ConstituentParsingOutput>,
 }
 
 impl From<&PyErr> for SpacyConstituentParserError {
@@ -15,20 +18,22 @@ impl From<&PyErr> for SpacyConstituentParserError {
     }
 }
 
-impl SpacyConstituentParser {
+impl<'db> SpacyConstituentParser<'db> {
     pub fn new(
+        db: &'db EternerDb,
         python_lib_dir: PathBuf,
         disk_cache_path: PathBuf,
     ) -> SpacyConstituentParsingResult<Self> {
         Ok(Self {
+            db,
             python_lib_dir,
             py_module: OnceLock::new(),
-            cache: DiskCache::new(disk_cache_path)?,
+            cache: DiskCache::new(db, disk_cache_path)?,
         })
     }
 }
 
-impl SpacyConstituentParser {
+impl<'db> SpacyConstituentParser<'db> {
     pub fn parse(
         &self,
         sentence: String,
@@ -40,7 +45,7 @@ impl SpacyConstituentParser {
                     Err(err) => todo!(),
                 };
                 let output = py_module.call_method1("parse", (sentence,))?;
-                output.extract().map_err(Into::into)
+                self.db.attach(|| output.extract().map_err(Into::into))
             })
         })
     }

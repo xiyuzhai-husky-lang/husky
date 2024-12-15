@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 pub mod as_id;
+pub mod attach;
 pub mod db;
 pub mod eterner;
 pub mod memo;

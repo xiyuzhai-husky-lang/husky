@@ -2,16 +2,21 @@ use std::sync::Arc;
 
 use crate::*;
 use all_llms::AllLlms;
+use eterned::db::EternerDb;
 use input::VdPipelineInput;
 
-pub struct VdPipelineBuilder<'db> {
-    config: &'db VdPipelineConfig,
-    input: &'db VdPipelineInput,
-    llm_client: AllLlms,
+pub struct VdPipelineBuilder<'a, 'db> {
+    config: &'a VdPipelineConfig,
+    input: &'a VdPipelineInput,
+    llm_client: AllLlms<'db>,
 }
 
-impl<'db> VdPipelineBuilder<'db> {
-    pub fn new(config: &'db VdPipelineConfig, input: &'db VdPipelineInput) -> Self {
+impl<'a, 'db> VdPipelineBuilder<'a, 'db> {
+    pub fn new(
+        db: &'db EternerDb,
+        config: &'a VdPipelineConfig,
+        input: &'a VdPipelineInput,
+    ) -> Self {
         let base = input.file_path.parent().unwrap();
         let cache_dir = config.cache_dir.to_logical_path(base).join(format!(
             "{}/example-{}",
@@ -22,7 +27,7 @@ impl<'db> VdPipelineBuilder<'db> {
         Self {
             config,
             input,
-            llm_client: AllLlms::new(cache_dir).unwrap(),
+            llm_client: AllLlms::new(db, cache_dir).unwrap(),
         }
     }
 }

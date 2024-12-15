@@ -1,3 +1,5 @@
+use eterned::db::EternerDb;
+
 use crate::{
     error::VdPipelineResult, input::VdPipelineInput, tracker::VdPipelineTracker, VdPipelineConfig,
 };
@@ -20,9 +22,9 @@ impl VdPipelineInstance {
 }
 
 impl VdPipelineInstance {
-    pub fn run(&mut self) -> VdPipelineResult<()> {
+    pub fn run(&mut self, db: &EternerDb) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
-        self.tracker = Some(VdPipelineTracker::new(&self.config, self.input.clone()));
+        self.tracker = Some(VdPipelineTracker::new(db, &self.config, self.input.clone()));
         Ok(())
     }
 }

@@ -206,6 +206,7 @@ name = "all-llms"
 version = "0.1.0"
 dependencies = [
  "allms",
+ "eterned",
  "husky-print-utils",
  "is-llm",
  "mistral-llm",
@@ -787,6 +788,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "attach"
+version = "0.1.0"
+
+[[package]]
 name = "atty"
 version = "0.2.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -905,6 +910,8 @@ version = "0.1.0"
 dependencies = [
  "eterned",
  "lazy_static 1.5.0",
+ "pyo3",
+ "serde",
 ]
 
 [[package]]
@@ -2750,6 +2757,7 @@ dependencies = [
 name = "disk-cache"
 version = "0.1.0"
 dependencies = [
+ "attach",
  "chrono",
  "dashmap 6.0.1",
  "serde",
@@ -3271,6 +3279,7 @@ dependencies = [
 name = "eterned"
 version = "0.1.0"
 dependencies = [
+ "attach",
  "dashmap 6.0.1",
  "eterned-macros",
  "husky-sha-utils",
@@ -8964,6 +8973,7 @@ version = "0.1.0"
 name = "is-llm"
 version = "0.1.0"
 dependencies = [
+ "attach",
  "disk-cache",
  "sealed",
  "serde",
@@ -11083,6 +11093,7 @@ name = "openai-llm"
 version = "0.1.0"
 dependencies = [
  "disk-cache",
+ "eterned",
  "husky-print-utils",
  "lazy_static 1.5.0",
  "openai-api-rs",
@@ -13540,7 +13551,10 @@ dependencies = [
 name = "spacy-rs"
 version = "0.1.0"
 dependencies = [
+ "attach",
+ "base-coword",
  "disk-cache",
+ "eterned",
  "expect-test",
  "husky-path-utils",
  "husky-print-utils",
@@ -15141,6 +15155,7 @@ name = "visored-cli"
 version = "0.1.0"
 dependencies = [
  "clap 4.5.16",
+ "eterned",
  "glob",
  "visored-pipeline",
 ]
@@ -15307,6 +15322,7 @@ name = "visored-pipeline"
 version = "0.1.0"
 dependencies = [
  "all-llms",
+ "eterned",
  "rayon",
  "relative-path",
  "serde",
