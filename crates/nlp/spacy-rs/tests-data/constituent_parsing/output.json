@@ -215,6 +215,9 @@
           "end": 7,
           "root": 6
         }
+      ],
+      "labels": [
+        "Sentence"
       ]
     },
     {
@@ -234,6 +237,9 @@
           "end": 6,
           "root": 2
         }
+      ],
+      "labels": [
+        "VerbPhrase"
       ]
     },
     {
@@ -242,7 +248,8 @@
         "end": 1,
         "root": 0
       },
-      "children": []
+      "children": [],
+      "labels": []
     },
     {
       "span": {
@@ -261,6 +268,9 @@
           "end": 6,
           "root": 2
         }
+      ],
+      "labels": [
+        "Sentence"
       ]
     },
     {
@@ -269,7 +279,10 @@
         "end": 2,
         "root": 1
       },
-      "children": []
+      "children": [],
+      "labels": [
+        "NounPhrase"
+      ]
     },
     {
       "span": {
@@ -288,6 +301,9 @@
           "end": 6,
           "root": 5
         }
+      ],
+      "labels": [
+        "VerbPhrase"
       ]
     },
     {
@@ -296,7 +312,8 @@
         "end": 3,
         "root": 2
       },
-      "children": []
+      "children": [],
+      "labels": []
     },
     {
       "span": {
@@ -320,6 +337,9 @@
           "end": 6,
           "root": 5
         }
+      ],
+      "labels": [
+        "NounPhrase"
       ]
     },
     {
@@ -328,7 +348,8 @@
         "end": 4,
         "root": 3
       },
-      "children": []
+      "children": [],
+      "labels": []
     },
     {
       "span": {
@@ -336,7 +357,8 @@
         "end": 5,
         "root": 4
       },
-      "children": []
+      "children": [],
+      "labels": []
     },
     {
       "span": {
@@ -344,7 +366,8 @@
         "end": 6,
         "root": 5
       },
-      "children": []
+      "children": [],
+      "labels": []
     },
     {
       "span": {
@@ -352,7 +375,8 @@
         "end": 7,
         "root": 6
       },
-      "children": []
+      "children": [],
+      "labels": []
     }
   ],
   "parse_string": "(S (VP (VB Let) (S (NP (NN FORMULA1)) (VP (VB be) (NP (DT a) (JJ topological) (NN space))))) (. .))"

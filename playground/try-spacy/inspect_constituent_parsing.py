@@ -58,6 +58,7 @@ for constituent in sent._.constituents:
     print(f"Constituent: '{constituent.text}'")  # The text content
     print(f"  text: '{constituent.text}' (type: {type(constituent.text)})")
     print(f"  labels: {constituent._.labels} (type: {type(constituent._.labels)})")
+    print(f"  label[0]: {constituent._.labels[0]} (type: {type(constituent._.labels[0])})")
     print(f"  start: {constituent.start} (type: {type(constituent.start)})")
     print(f"  end: {constituent.end} (type: {type(constituent.end)})")
     print(f"  root: {constituent.root} (type: {type(constituent.root)})")
