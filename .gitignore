@@ -363,3 +363,5 @@ venv/
 .venv/
 .pytest_cache/
 .coverage
+
+virtualenvs
