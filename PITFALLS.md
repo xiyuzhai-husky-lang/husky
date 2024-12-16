@@ -153,3 +153,11 @@ vscode will convert tab into space even for raw string, be careful
 https://askubuntu.com/questions/1491254/installing-cuda-on-ubuntu-23-10-libt5info-not-installable
 
 Note that the tutorial for ubuntu24 is different from ubuntu23.
+
+## fish environment variables
+
+Please check fish_variables and config.fish
+
+## python module not found
+
+Please check $PYTHONPATH
