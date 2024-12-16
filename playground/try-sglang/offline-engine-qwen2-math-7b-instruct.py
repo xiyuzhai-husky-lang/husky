@@ -19,7 +19,7 @@ async def run_async_main(llm):
 
 def main():
     # Initialize the engine here, inside __main__ and after freeze_support
-    llm = sgl.Engine(model_path=os.path.expandvars("$HOME/.llms/models/Qwen2.5-Math-7B-Instruct"))
+    llm = sgl.Engine(model_path=os.path.expandvars("$HOME/.llms/models/Qwen2-Math-7B-Instruct"))
 
     print("\n=== Testing asynchronous batch generation ===")
     asyncio.run(run_async_main(llm))
