@@ -161,3 +161,11 @@ Please check fish_variables and config.fish
 ## python module not found
 
 Please check $PYTHONPATH
+
+## docker gpu support
+
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+
+install nvidia container toolkit
+
+don't listen to llms, they suck at this.
