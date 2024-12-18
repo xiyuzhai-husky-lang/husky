@@ -22,6 +22,7 @@ members = [
     "crates/linktime/*",
     "crates/lisp/*",
     "crates/llms/*",
+    "crates/llms/sglang-llm/internal/*", # this is just for better IDE experience
     "crates/mayuri/*",
     "crates/mir/*",
     "crates/mizar/*",
