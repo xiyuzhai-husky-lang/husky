@@ -13285,6 +13285,43 @@ dependencies = [
 ]
 
 [[package]]
+name = "sglang-llm"
+version = "0.1.0"
+dependencies = [
+ "lazy_static 1.5.0",
+ "sglang-llm-docker-ipc",
+ "sglang-llm-pixi-ipc",
+ "sglang-llm-prelude",
+]
+
+[[package]]
+name = "sglang-llm-docker-ipc"
+version = "0.1.0"
+dependencies = [
+ "sglang-llm-ffi",
+ "sglang-llm-prelude",
+]
+
+[[package]]
+name = "sglang-llm-ffi"
+version = "0.1.0"
+dependencies = [
+ "sglang-llm-prelude",
+]
+
+[[package]]
+name = "sglang-llm-pixi-ipc"
+version = "0.1.0"
+dependencies = [
+ "sglang-llm-ffi",
+ "sglang-llm-prelude",
+]
+
+[[package]]
+name = "sglang-llm-prelude"
+version = "0.1.0"
+
+[[package]]
 name = "sha1"
 version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"

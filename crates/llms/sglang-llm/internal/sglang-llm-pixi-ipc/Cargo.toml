@@ -1,0 +1,8 @@
+[package]
+name = "sglang-llm-pixi-ipc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sglang-llm-prelude = { path = "../sglang-llm-prelude" }
+sglang-llm-ffi = { path = "../sglang-llm-ffi" }

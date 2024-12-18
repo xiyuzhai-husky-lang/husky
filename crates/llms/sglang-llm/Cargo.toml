@@ -1,0 +1,26 @@
+[package]
+name = "sglang-llm"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+lazy_static = "1.4.0"
+# internal
+sglang-llm-prelude = { path = "internal/sglang-llm-prelude" }
+sglang-llm-docker-ipc = { path = "internal/sglang-llm-docker-ipc", optional = true }
+sglang-llm-pixi-ipc = { path = "internal/sglang-llm-pixi-ipc", optional = true }
+
+[lints]
+workspace = true
+
+[features]
+docker-ipc = ["dep:sglang-llm-docker-ipc"]
+pixi-ipc = ["dep:sglang-llm-pixi-ipc"]
