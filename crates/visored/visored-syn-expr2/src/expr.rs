@@ -411,8 +411,8 @@ impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
                 OriginalVdSynExprError::Empty(token_range).into(),
             ))
         } else {
-            let parser = builder.parser();
-            parser.parse_asts(asts)
+            let parser = builder.expr_parser();
+            parser.parse_expr_from_math_asts(asts)
         }
     }
 }
