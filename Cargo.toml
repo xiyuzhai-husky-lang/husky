@@ -33,6 +33,7 @@ members = [
     "crates/runtime/*",
     "crates/rocq/*",
     "crates/semantics/*",
+    "crates/snl/*",
     "crates/syntax/*",
     "crates/devsoul/*",
     "crates/utils/*",
@@ -417,6 +418,9 @@ husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" 
 husky-sem-item-path-deps = { path = "crates/semantics/husky-sem-item-path-deps" }
 husky-sem-static-mut-deps = { path = "crates/semantics/husky-sem-static-mut-deps" }
 husky-sem-var-deps = { path = "crates/semantics/husky-sem-var-deps" }
+# snl
+snl-prelude = { path = "crates/snl/snl-prelude" }
+snl-grammar = { path = "crates/snl/snl-grammar" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-crate-decl-ast = { path = "crates/syntax/husky-crate-decl-ast" }
