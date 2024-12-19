@@ -440,6 +440,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "arrancar-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "arraydeque"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
