@@ -31,6 +31,7 @@ use latex_ast::{
 };
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use latex_vfs::path::LxFilePath;
+use sealed::sealed;
 use std::iter::Peekable;
 use visored_annotation::annotations::VdAnnotations;
 use visored_entity_path::module::VdModulePath;
@@ -57,6 +58,12 @@ pub struct VdSynExprBuilder<'db> {
     stmt_arena: VdSynBlockArena,
     division_arena: VdSynDivisionArena,
 }
+
+#[sealed]
+pub(crate) trait IsVdSynExprBuilderMut {}
+
+#[sealed]
+impl IsVdSynExprBuilderMut for VdSynExprBuilder<'_> {}
 
 /// # constructor
 impl<'db> VdSynExprBuilder<'db> {
