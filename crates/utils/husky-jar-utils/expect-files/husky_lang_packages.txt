@@ -4302,6 +4302,44 @@
         ],
     },
     PackageSummary {
+        name: "sglang-llm",
+        relative_path: "crates/llms/sglang-llm",
+        dependencies: [
+            "lazy_static",
+            "sglang-llm-docker-ipc",
+            "sglang-llm-pixi-ipc",
+            "sglang-llm-prelude",
+        ],
+    },
+    PackageSummary {
+        name: "sglang-llm-docker-ipc",
+        relative_path: "crates/llms/sglang-llm/internal/sglang-llm-docker-ipc",
+        dependencies: [
+            "sglang-llm-ffi",
+            "sglang-llm-prelude",
+        ],
+    },
+    PackageSummary {
+        name: "sglang-llm-ffi",
+        relative_path: "crates/llms/sglang-llm/internal/sglang-llm-ffi",
+        dependencies: [
+            "sglang-llm-prelude",
+        ],
+    },
+    PackageSummary {
+        name: "sglang-llm-prelude",
+        relative_path: "crates/llms/sglang-llm/internal/sglang-llm-prelude",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "sglang-llm-pixi-ipc",
+        relative_path: "crates/llms/sglang-llm/internal/sglang-llm-pixi-ipc",
+        dependencies: [
+            "sglang-llm-ffi",
+            "sglang-llm-prelude",
+        ],
+    },
+    PackageSummary {
         name: "mayuri-core",
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
@@ -4485,6 +4523,29 @@
         name: "husky-trai-analysis",
         relative_path: "crates/semantics/husky-trai-analysis",
         dependencies: [],
+    },
+    PackageSummary {
+        name: "snl-grammar",
+        relative_path: "crates/snl/snl-grammar",
+        dependencies: [
+            "eterned",
+            "serde",
+            "snl-prelude",
+            "thiserror",
+            "vec-like",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "snl-prelude",
+        relative_path: "crates/snl/snl-prelude",
+        dependencies: [
+            "base-coword",
+            "eterned",
+            "serde",
+            "thiserror",
+            "vec-like",
+        ],
     },
     PackageSummary {
         name: "husky-entity-path-expr",

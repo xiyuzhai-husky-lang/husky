@@ -13560,6 +13560,29 @@ name = "snapshot"
 version = "0.1.0"
 
 [[package]]
+name = "snl-grammar"
+version = "0.1.0"
+dependencies = [
+ "eterned",
+ "expect-test",
+ "serde",
+ "snl-prelude",
+ "thiserror",
+ "vec-like",
+]
+
+[[package]]
+name = "snl-prelude"
+version = "0.1.0"
+dependencies = [
+ "base-coword",
+ "eterned",
+ "serde",
+ "thiserror",
+ "vec-like",
+]
+
+[[package]]
 name = "socket2"
 version = "0.4.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
