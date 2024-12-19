@@ -3,6 +3,7 @@ members = [
     "crates/abstractions/*",
     "crates/apps/*",
     "crates/archs/*",
+    "crates/arrancar/*",
     "crates/benchmarks/*",
     "crates/comptime/*",
     "crates/corgi/*",
@@ -277,6 +278,8 @@ with-db = { path = "crates/abstractions/with-db" }
 husky-analyzer = { path = "crates/apps/husky-analyzer" }
 visored-analyzer = { path = "crates/apps/visored-analyzer" }
 visored-cli = { path = "crates/apps/visored-cli" }
+# arrancar
+arrancar-prototype = { path = "crates/arrancar/arrancar-prototype" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }

@@ -3922,6 +3922,11 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "arrancar-prototype",
+        relative_path: "crates/arrancar/arrancar-prototype",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "simple-profile",
         relative_path: "crates/benchmarks/simple-profile",
         dependencies: [],
