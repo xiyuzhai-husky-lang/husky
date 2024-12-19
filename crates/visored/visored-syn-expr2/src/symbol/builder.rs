@@ -186,7 +186,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
     }
 
     pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
-        match self.sentence_arena[sentence] {
+        match *self.sentence_arena[sentence].data() {
             VdSynSentenceData::Clauses { clauses, .. } => self.build_clauses(clauses),
         }
     }

@@ -307,7 +307,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn calc_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSynSentenceTokenIdxRange {
-        match self.sentence_arena[sentence] {
+        match *self.sentence_arena[sentence].data() {
             VdSynSentenceData::Clauses { clauses, end } => {
                 let clauses_range = self.get_clause(clauses.start());
                 match end {
