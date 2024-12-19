@@ -4548,6 +4548,11 @@
         ],
     },
     PackageSummary {
+        name: "snl-models",
+        relative_path: "crates/snl/snl-models",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "husky-entity-path-expr",
         relative_path: "crates/syntax/husky-item-path-expr",
         dependencies: [],
@@ -4874,6 +4879,7 @@
         relative_path: "crates/visored/visored-models",
         dependencies: [
             "all-llms",
+            "snl-models",
         ],
     },
     PackageSummary {
