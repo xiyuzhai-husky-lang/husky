@@ -13572,6 +13572,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "snl-models"
+version = "0.1.0"
+
+[[package]]
 name = "snl-prelude"
 version = "0.1.0"
 dependencies = [
@@ -15373,6 +15377,7 @@ name = "visored-models"
 version = "0.1.0"
 dependencies = [
  "all-llms",
+ "snl-models",
 ]
 
 [[package]]
