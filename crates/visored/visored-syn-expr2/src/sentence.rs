@@ -1,3 +1,5 @@
+pub mod helpers;
+
 use std::iter::Peekable;
 
 use crate::{
@@ -20,18 +22,16 @@ pub enum VdSynSentenceData {
     },
 }
 
-pub enum VdSynSentenceChild {
-    Clause(VdSynClauseIdx),
+#[derive(Debug, PartialEq, Eq)]
+pub struct VdSynSentenceEntry {
+    data: VdSynSentenceData,
 }
 
-impl VdSynSentenceData {
-    pub(crate) fn children(&self) -> Vec<VdSynSentenceChild> {
-        match self {
-            VdSynSentenceData::Clauses { clauses, .. } => clauses
-                .into_iter()
-                .map(VdSynSentenceChild::Clause)
-                .collect(),
-        }
+impl std::ops::Deref for VdSynSentenceEntry {
+    type Target = VdSynSentenceData;
+
+    fn deref(&self) -> &Self::Target {
+        &self.data
     }
 }
 
@@ -41,12 +41,18 @@ pub enum VdSynSentenceEnd {
     Void,
 }
 
-pub type VdSynSentenceArena = Arena<VdSynSentenceData>;
-pub type VdSynSentenceArenaRef<'a> = ArenaRef<'a, VdSynSentenceData>;
-pub type VdSynSentenceIdx = ArenaIdx<VdSynSentenceData>;
-pub type VdSynSentenceIdxRange = ArenaIdxRange<VdSynSentenceData>;
-pub type VdSynSentenceMap<T> = ArenaMap<VdSynSentenceData, T>;
-pub type VdSynSentenceOrderedMap<T> = ArenaOrderedMap<VdSynSentenceData, T>;
+pub type VdSynSentenceArena = Arena<VdSynSentenceEntry>;
+pub type VdSynSentenceArenaRef<'a> = ArenaRef<'a, VdSynSentenceEntry>;
+pub type VdSynSentenceIdx = ArenaIdx<VdSynSentenceEntry>;
+pub type VdSynSentenceIdxRange = ArenaIdxRange<VdSynSentenceEntry>;
+pub type VdSynSentenceMap<T> = ArenaMap<VdSynSentenceEntry, T>;
+pub type VdSynSentenceOrderedMap<T> = ArenaOrderedMap<VdSynSentenceEntry, T>;
+
+impl VdSynSentenceEntry {
+    pub fn data(&self) -> &VdSynSentenceData {
+        &self.data
+    }
+}
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_sentence(
@@ -54,7 +60,7 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
-    ) -> VdSynSentenceData {
+    ) -> VdSynSentenceEntry {
         let clauses = vec![self.parse_clause(token_idx, word, asts)];
         let end = loop {
             if self.peek_new_division(asts).is_some() {
@@ -111,6 +117,7 @@ impl<'db> VdSynExprBuilder<'db> {
             }
         };
         let clauses = self.alloc_clauses(clauses);
-        VdSynSentenceData::Clauses { clauses, end }
+        let data = VdSynSentenceData::Clauses { clauses, end };
+        VdSynSentenceEntry { data }
     }
 }
