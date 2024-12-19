@@ -2,6 +2,7 @@ mod debug;
 
 use crate::{
     block::VdSynBlockMap, division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode,
+    sentence::VdSynSentenceEntry,
 };
 use crate::{
     block::{VdSynBlockArena, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange},
@@ -180,13 +181,13 @@ impl<'db> VdSynExprBuilder<'db> {
         self.clause_arena.alloc_batch(data)
     }
 
-    pub(crate) fn alloc_sentence(&mut self, data: VdSynSentenceData) -> VdSynSentenceIdx {
+    pub(crate) fn alloc_sentence(&mut self, data: VdSynSentenceEntry) -> VdSynSentenceIdx {
         self.sentence_arena.alloc_one(data)
     }
 
     pub(crate) fn alloc_sentences(
         &mut self,
-        data: Vec<VdSynSentenceData>,
+        data: Vec<VdSynSentenceEntry>,
     ) -> VdSynSentenceIdxRange {
         self.sentence_arena.alloc_batch(data)
     }
