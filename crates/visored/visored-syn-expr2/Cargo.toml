@@ -36,6 +36,9 @@ latex-environment.workspace = true
 latex-vfs.workspace = true
 # protocols
 husky-text-protocol.workspace = true
+# snl
+snl-prelude.workspace = true
+snl-grammar.workspace = true
 # utils
 husky-codespan-utils.workspace = true
 husky-debug-utils.workspace = true

@@ -15539,6 +15539,8 @@ dependencies = [
  "salsa",
  "sealed",
  "smallvec",
+ "snl-grammar",
+ "snl-prelude",
  "thiserror",
  "visored-annotation",
  "visored-entity-path",
