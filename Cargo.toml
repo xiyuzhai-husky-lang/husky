@@ -419,8 +419,9 @@ husky-sem-item-path-deps = { path = "crates/semantics/husky-sem-item-path-deps" 
 husky-sem-static-mut-deps = { path = "crates/semantics/husky-sem-static-mut-deps" }
 husky-sem-var-deps = { path = "crates/semantics/husky-sem-var-deps" }
 # snl
-snl-prelude = { path = "crates/snl/snl-prelude" }
 snl-grammar = { path = "crates/snl/snl-grammar" }
+snl-models = { path = "crates/snl/snl-models" }
+snl-prelude = { path = "crates/snl/snl-prelude" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-crate-decl-ast = { path = "crates/syntax/husky-crate-decl-ast" }

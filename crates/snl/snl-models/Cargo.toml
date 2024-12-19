@@ -1,5 +1,5 @@
 [package]
-name = "visored-models"
+name = "snl-models"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,10 +12,6 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-# llms
-all-llms.workspace = true
-# snl
-snl-models.workspace = true
 
 [lints]
 workspace = true
