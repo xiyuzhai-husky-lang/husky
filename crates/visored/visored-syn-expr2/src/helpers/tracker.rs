@@ -98,6 +98,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &VdModels,
+        vibe: VdSynExprVibe,
         db: &EternerDb,
     ) -> Self {
         let LxAstTracker {
@@ -128,7 +129,8 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             &default_resolution_table,
             models,
         );
-        let output = FromToVdSyn::from_to_vd_syn((whole_token_range, lx_ast_output), &mut builder);
+        let output =
+            FromToVdSyn::from_to_vd_syn((whole_token_range, lx_ast_output), &mut builder, vibe);
         //  = (whole_token_range, asts).to_vd_syn(&mut builder);
         let (
             expr_arena,

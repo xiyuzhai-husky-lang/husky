@@ -77,15 +77,23 @@ pub type VdSynDivisionIdx = ArenaIdx<VdSynDivisionData>;
 pub type VdSynDivisionIdxRange = ArenaIdxRange<VdSynDivisionData>;
 
 impl ToVdSyn<VdSynDivisionIdxRange> for (LxTokenIdxRange, LxRootAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
-        self.1.to_vd_syn(builder)
+    fn to_vd_syn(
+        self,
+        builder: &mut VdSynExprBuilder,
+        vibe: VdSynExprVibe,
+    ) -> VdSynDivisionIdxRange {
+        self.1.to_vd_syn(builder, vibe)
         // let (_, ast_idx_range) = self;
         // builder.parse_stmts(ast_idx_range)
     }
 }
 
 impl ToVdSyn<VdSynDivisionIdxRange> for LxRootAstIdxRange {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
+    fn to_vd_syn(
+        self,
+        builder: &mut VdSynExprBuilder,
+        vibe: VdSynExprVibe,
+    ) -> VdSynDivisionIdxRange {
         let (begin_rcurl_token_idx, asts, end_command_token_idx) = self
             .into_iter()
             .find_map(|root_ast| match builder.ast_arena().root()[root_ast] {
@@ -118,16 +126,21 @@ impl ToVdSyn<VdSynDivisionIdxRange> for LxRootAstIdxRange {
             LxTokenIdxRange::new(*begin_rcurl_token_idx + 1, *end_command_token_idx),
             asts,
         )
-            .to_vd_syn(builder)
+            .to_vd_syn(builder, vibe)
     }
 }
 
 impl ToVdSyn<VdSynDivisionIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynDivisionIdxRange {
+    fn to_vd_syn(
+        self,
+        builder: &mut VdSynExprBuilder,
+        vibe: VdSynExprVibe,
+    ) -> VdSynDivisionIdxRange {
         let (token_range, asts) = self;
         let mut ast_iter = asts.into_iter().peekable();
         let mut divisions = vec![];
-        while let Some(division) = builder.build_division(&mut ast_iter, VdDivisionLevelRange::ANY)
+        while let Some(division) =
+            builder.build_division(&mut ast_iter, VdDivisionLevelRange::ANY, vibe)
         {
             divisions.push(division);
         }
@@ -140,9 +153,10 @@ impl<'a> VdSynExprBuilder<'a> {
         &mut self,
         ast_iter: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
         division_level_range: VdDivisionLevelRange,
+        vibe: VdSynExprVibe,
     ) -> VdSynDivisionIdxRange {
         let mut divisions = vec![];
-        while let Some(division) = self.build_division(ast_iter, division_level_range) {
+        while let Some(division) = self.build_division(ast_iter, division_level_range, vibe) {
             divisions.push(division);
         }
         self.alloc_divisions(divisions)
@@ -152,6 +166,7 @@ impl<'a> VdSynExprBuilder<'a> {
         &mut self,
         ast_iter: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
         division_level_range: VdDivisionLevelRange,
+        vibe: VdSynExprVibe,
     ) -> Option<VdSynDivisionData> {
         let ast_arena = self.ast_arena();
         let ast = *ast_iter.peek()?;
@@ -175,10 +190,10 @@ impl<'a> VdSynExprBuilder<'a> {
                     else {
                         unreachable!()
                     };
-                    let title = title_asts.to_vd_syn(self);
+                    let title = title_asts.to_vd_syn(self, vibe);
                     let rcurl_token_idx = argument.rcurl_token_idx();
                     let subdivisions =
-                        self.build_divisions(ast_iter, VdDivisionLevelRange::Below(level));
+                        self.build_divisions(ast_iter, VdDivisionLevelRange::Below(level), vibe);
                     Some(VdSynDivisionData::Divisions {
                         command_token_idx,
                         level,
@@ -191,7 +206,7 @@ impl<'a> VdSynExprBuilder<'a> {
                 }
             }
             _ => Some(VdSynDivisionData::Stmts {
-                stmts: self.build_stmt_aux(ast_iter),
+                stmts: self.build_stmt_aux(ast_iter, vibe),
             }),
         }
     }

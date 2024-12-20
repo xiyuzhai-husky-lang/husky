@@ -4,6 +4,7 @@ mod builder;
 pub mod clause;
 pub mod division;
 pub mod entity_tree;
+mod environment;
 pub mod error;
 pub mod expr;
 pub mod helpers;
@@ -19,11 +20,11 @@ mod tests;
 
 #[cfg(test)]
 use self::tests::*;
+use self::{
+    block::VdSynBlockArena, builder::VdSynExprBuilder, clause::VdSynClauseArena,
+    division::VdSynDivisionArena, environment::VdSynExprVibe,
+};
 use crate::builder::ToVdSyn;
-use block::VdSynBlockArena;
-use builder::VdSynExprBuilder;
-use clause::VdSynClauseArena;
-use division::VdSynDivisionArena;
 use either::*;
 use expr::{VdSynExprArena, VdSynExprIdx};
 use latex_ast::{ast::LxAstArenaRef, range::LxAstTokenIdxRangeMap};

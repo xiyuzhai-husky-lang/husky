@@ -2,7 +2,7 @@ mod debug;
 
 use crate::{
     block::VdSynBlockMap, division::VdSynDivisionMap, entity_tree::VdSynExprEntityTreeNode,
-    sentence::VdSynSentenceEntry,
+    environment::VdSynExprVibe, sentence::VdSynSentenceEntry,
 };
 use crate::{
     block::{VdSynBlockArena, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange},
@@ -32,6 +32,7 @@ use latex_ast::{
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use latex_vfs::path::LxFilePath;
 use sealed::sealed;
+use snl_prelude::mode::SnlMode;
 use std::{iter::Peekable, sync::Mutex};
 use visored_annotation::annotations::VdAnnotations;
 use visored_entity_path::module::VdModulePath;
@@ -337,33 +338,18 @@ impl<'db> VdSynExprBuilder<'db> {
     }
 }
 pub trait ToVdSyn<T> {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> T;
-}
-
-impl<R> ToVdSyn<Either<VdSynExprIdx, R>> for (LxTokenIdxRange, LxAstIdxRange)
-where
-    (LxTokenIdxRange, LxRoseAstIdxRange): ToVdSyn<R>,
-{
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> Either<VdSynExprIdx, R> {
-        let (token_range, asts) = self;
-        match asts {
-            LxAstIdxRange::Lisp(asts) => todo!(),
-            LxAstIdxRange::Math(asts) => Either::Left((token_range, asts).to_vd_syn(builder)),
-            LxAstIdxRange::Root(arena_idx_range) => todo!(),
-            LxAstIdxRange::Rose(asts) => Either::Right((token_range, asts).to_vd_syn(builder)),
-        }
-    }
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> T;
 }
 
 pub trait FromToVdSyn<S> {
-    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self;
+    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> Self;
 }
 
 impl<S, T> FromToVdSyn<S> for T
 where
     S: ToVdSyn<T>,
 {
-    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder) -> Self {
-        s.to_vd_syn(builder)
+    fn from_to_vd_syn(s: S, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> Self {
+        s.to_vd_syn(builder, vibe)
     }
 }
