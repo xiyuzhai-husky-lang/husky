@@ -83,11 +83,11 @@ impl<'a> SnlMarkupParser<'a> {
         };
         Ok(Some(SnlMarkupPatternArgument {
             command_offset_range,
-            key_curled_offset_range: TextOffsetRange::new(key_lcurl_offset, key_rcurl_offset),
+            key_curled_offset_range: TextOffsetRange::new(key_lcurl_offset, key_rcurl_offset + 1),
             key_ident,
             value_curled_offset_range: TextOffsetRange::new(
                 content_lcurl_offset,
-                content_rcurl_offset,
+                content_rcurl_offset + 1,
             ),
             value_content: self.markup_content
                 [(content_lcurl_offset.index() + 1)..(content_rcurl_offset.index())]
