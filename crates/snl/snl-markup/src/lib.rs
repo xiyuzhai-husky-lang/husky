@@ -34,7 +34,7 @@ impl std::fmt::Display for SnlMarkup {
 }
 
 const PATTERN_COMMAND: char = 'π';
-const PATTERN_ARGUMENT_COMMAND: char = 'α';
+const PATTERN_ARGUMENT_COMMAND: char = 'σ';
 const LCURL: char = '{';
 const RCURL: char = '}';
 
@@ -159,10 +159,10 @@ mod tests {
         );
         t(
             db,
-            r#"π{α{lopd}{1} + α{ropd}{2}}"#,
+            r#"π{σ{lopd}{1} + σ{ropd}{2}}"#,
             expect![[r#"
                 SnlMarkup {
-                    markup_content: "π{α{lopd}{1} + α{ropd}{2}}",
+                    markup_content: "π{σ{lopd}{1} + σ{ropd}{2}}",
                     pattern_arguments: [
                         `lopd = 1`,
                         `ropd = 2`,
