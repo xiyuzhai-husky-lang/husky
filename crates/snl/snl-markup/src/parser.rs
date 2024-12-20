@@ -99,17 +99,14 @@ impl<'a> SnlMarkupParser<'a> {
         loop {
             let offset_start = self.char_iter.current_offset();
             match self.char_iter.peek() {
+                Some('α') => {
+                    self.char_iter.eat_char();
+                    let offset_end = self.char_iter.current_offset();
+                    return Some(TextOffsetRange::new(offset_start, offset_end));
+                }
                 Some('\\') => {
                     self.char_iter.eat_char();
-                    let ident = self
-                        .char_iter
-                        .next_str_slice_while(|c| c.is_ascii_alphabetic());
-                    if ident.is_empty() {
-                        self.char_iter.eat_char();
-                    } else if ident == "patternArgument" {
-                        let offset_end = self.char_iter.current_offset();
-                        return Some(TextOffsetRange::new(offset_start, offset_end));
-                    }
+                    self.char_iter.eat_char();
                 }
                 Some('{') => {
                     *layer += 1;
