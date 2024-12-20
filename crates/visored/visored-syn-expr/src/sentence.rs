@@ -1,8 +1,11 @@
-use std::iter::Peekable;
+mod cnl;
+pub mod helpers;
+mod unl;
 
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     clause::{VdSynClauseIdx, VdSynClauseIdxRange},
+    vibe::VdSynExprVibe,
 };
 use base_coword::BaseCoword;
 use idx_arena::{
@@ -11,6 +14,9 @@ use idx_arena::{
 use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::idx::LxRoseTokenIdx;
+use once_place::OncePlace;
+use snl_prelude::mode::SnlMode;
+use std::iter::Peekable;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSentenceData {
@@ -20,18 +26,22 @@ pub enum VdSynSentenceData {
     },
 }
 
-pub enum VdSynSentenceChild {
-    Clause(VdSynClauseIdx),
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdSynSentenceEntry {
+    Cnl {
+        data: VdSynSentenceData,
+    },
+    Unl {
+        tokens: (),
+        data: OncePlace<VdSynSentenceData>,
+    },
 }
 
-impl VdSynSentenceData {
-    pub(crate) fn children(&self) -> Vec<VdSynSentenceChild> {
-        match self {
-            VdSynSentenceData::Clauses { clauses, .. } => clauses
-                .into_iter()
-                .map(VdSynSentenceChild::Clause)
-                .collect(),
-        }
+impl std::ops::Deref for VdSynSentenceEntry {
+    type Target = VdSynSentenceData;
+
+    fn deref(&self) -> &Self::Target {
+        self.data()
     }
 }
 
@@ -41,12 +51,21 @@ pub enum VdSynSentenceEnd {
     Void,
 }
 
-pub type VdSynSentenceArena = Arena<VdSynSentenceData>;
-pub type VdSynSentenceArenaRef<'a> = ArenaRef<'a, VdSynSentenceData>;
-pub type VdSynSentenceIdx = ArenaIdx<VdSynSentenceData>;
-pub type VdSynSentenceIdxRange = ArenaIdxRange<VdSynSentenceData>;
-pub type VdSynSentenceMap<T> = ArenaMap<VdSynSentenceData, T>;
-pub type VdSynSentenceOrderedMap<T> = ArenaOrderedMap<VdSynSentenceData, T>;
+pub type VdSynSentenceArena = Arena<VdSynSentenceEntry>;
+pub type VdSynSentenceArenaRef<'a> = ArenaRef<'a, VdSynSentenceEntry>;
+pub type VdSynSentenceIdx = ArenaIdx<VdSynSentenceEntry>;
+pub type VdSynSentenceIdxRange = ArenaIdxRange<VdSynSentenceEntry>;
+pub type VdSynSentenceMap<T> = ArenaMap<VdSynSentenceEntry, T>;
+pub type VdSynSentenceOrderedMap<T> = ArenaOrderedMap<VdSynSentenceEntry, T>;
+
+impl VdSynSentenceEntry {
+    pub fn data(&self) -> &VdSynSentenceData {
+        match self {
+            VdSynSentenceEntry::Cnl { data } => data,
+            VdSynSentenceEntry::Unl { data, .. } => data,
+        }
+    }
+}
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_sentence(
@@ -54,63 +73,11 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
-    ) -> VdSynSentenceData {
-        let clauses = vec![self.parse_clause(token_idx, word, asts)];
-        let end = loop {
-            if self.peek_new_division(asts).is_some() {
-                break VdSynSentenceEnd::Void;
-            }
-            if let Some(ast_idx) = asts.next() {
-                match self.ast_arena()[ast_idx] {
-                    LxRoseAstData::TextEdit { .. } => todo!(),
-                    LxRoseAstData::Word(token_idx, coword) => {
-                        self.emit_message_over_token_to_stdout(
-                            *token_idx,
-                            format!("coword: {}", coword),
-                        );
-                        todo!("coword: {}", coword)
-                    }
-                    LxRoseAstData::Punctuation(pucntuation_token_idx, punctuation) => {
-                        match punctuation {
-                            LxRosePunctuation::Comma => todo!(),
-                            LxRosePunctuation::Period => {
-                                break VdSynSentenceEnd::Period(pucntuation_token_idx)
-                            }
-                            LxRosePunctuation::Colon => todo!(),
-                            LxRosePunctuation::Semicolon => todo!(),
-                            LxRosePunctuation::Exclamation => todo!(),
-                            LxRosePunctuation::Question => todo!(),
-                            LxRosePunctuation::LeftCurl => todo!(),
-                            LxRosePunctuation::RightCurl => todo!(),
-                            LxRosePunctuation::LeftBox => todo!(),
-                            LxRosePunctuation::RightBox => todo!(),
-                            LxRosePunctuation::EscapedBackslash => todo!(),
-                            LxRosePunctuation::EscapedLcurl => todo!(),
-                            LxRosePunctuation::EscapedRcurl => todo!(),
-                        }
-                    }
-                    LxRoseAstData::Math { .. } => todo!(),
-                    LxRoseAstData::Delimited {
-                        left_delimiter_token_idx,
-                        left_delimiter,
-                        asts,
-                        right_delimiter_token_idx,
-                        right_delimiter,
-                    } => todo!(),
-                    LxRoseAstData::CompleteCommand {
-                        command_token_idx,
-                        command_path,
-                        options,
-                        ref arguments,
-                    } => todo!(),
-                    LxRoseAstData::Environment { .. } => todo!(),
-                    LxRoseAstData::NewParagraph(_) => todo!(),
-                }
-            } else {
-                break VdSynSentenceEnd::Void;
-            }
-        };
-        let clauses = self.alloc_clauses(clauses);
-        VdSynSentenceData::Clauses { clauses, end }
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        match vibe.snl_mode() {
+            SnlMode::Unl => todo!(),
+            SnlMode::Cnl => self.parse_cnl_sentence(token_idx, word, asts, vibe),
+        }
     }
 }

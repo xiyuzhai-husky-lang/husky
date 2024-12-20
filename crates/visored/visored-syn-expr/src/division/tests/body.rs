@@ -9,6 +9,7 @@ fn t(models: &VdModels, content: &str, expected: &Expect) {
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let vibe = VdSynExprVibe::ROOT_CNL;
     let tracker = VdSynExprTracker::new(
         LxDocumentBodyInput {
             specs_dir: dev_paths.specs_dir(),
@@ -18,7 +19,8 @@ fn t(models: &VdModels, content: &str, expected: &Expect) {
         &[],
         &[],
         models,
-        &db,
+        vibe,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }

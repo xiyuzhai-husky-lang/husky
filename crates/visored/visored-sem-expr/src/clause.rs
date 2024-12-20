@@ -57,14 +57,16 @@ impl<'a> VdSemExprBuilder<'a> {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
                 right_math_delimiter_token_idx: right_dollar_token_idx,
-                ref resolution,
-            } => self.build_let_clause(
-                let_token_idx,
-                left_dollar_token_idx,
-                formula,
-                right_dollar_token_idx,
-                resolution,
-            ),
+            } => {
+                let resolution = &self.syn_let_clause_resolutions()[clause];
+                self.build_let_clause(
+                    let_token_idx,
+                    left_dollar_token_idx,
+                    formula,
+                    right_dollar_token_idx,
+                    resolution,
+                )
+            }
             VdSynClauseData::Assume {
                 assume_token_idx,
                 left_dollar_token_idx,

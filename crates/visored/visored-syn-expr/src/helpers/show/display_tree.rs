@@ -15,7 +15,9 @@ use crate::{
         VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap,
         VdSynSentenceTokenIdxRangeMap,
     },
-    sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceData, VdSynSentenceIdx},
+    sentence::{
+        helpers::VdSynSentenceChild, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx,
+    },
 };
 use eterned::db::EternerDb;
 use husky_text_protocol::offset::TextOffsetRange;
@@ -182,7 +184,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(sentence_range);
         let source = &self.input[offset_range];
-        let value = match self.sentence_arena[sentence] {
+        let value = match *self.sentence_arena[sentence].data() {
             VdSynSentenceData::Clauses { clauses, end } => {
                 format!("{:?} sentence.clauses", source)
             }

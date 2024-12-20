@@ -26,6 +26,7 @@ use visored_mir_expr::{
     helpers::tracker::{IsVdMirExprInput, VdMirExprTracker},
     stmt::VdMirStmtIdxRange,
 };
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 pub struct VdLeanTranspilationTracker<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
 where
@@ -79,6 +80,7 @@ where
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &'a VdModels,
+        vibe: VdSynExprVibe,
         db: &'a EternerDb,
         scheme: &'a Scheme,
     ) -> Self {
@@ -97,7 +99,7 @@ where
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[], models, db);
+        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,

@@ -17,6 +17,7 @@ use latex_ast::ast::{
 use latex_token::idx::LxRoseTokenIdx;
 use std::iter::Peekable;
 use symbol::builder::VdSynSymbolBuilder;
+use vibe::VdSynExprVibe;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynClauseData {
@@ -25,7 +26,6 @@ pub enum VdSynClauseData {
         left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_math_delimiter_token_idx: LxRoseTokenIdx,
-        resolution: VdSynLetClauseResolution,
     },
     Assume {
         assume_token_idx: LxRoseTokenIdx,
@@ -70,6 +70,7 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynClauseData {
         let db = self.db();
         match word.data() {
@@ -85,14 +86,12 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self);
-                        let resolution = self.build_let_stmt_resolution(formula);
+                            .to_vd_syn(self, vibe);
                         VdSynClauseData::Let {
                             let_token_idx: token_idx,
                             left_math_delimiter_token_idx: left_delimiter_token_idx,
                             formula,
                             right_math_delimiter_token_idx: right_delimiter_token_idx,
-                            resolution,
                         }
                     }
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
@@ -129,7 +128,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
+                            .to_vd_syn(self, vibe),
                         right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
@@ -166,7 +165,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
+                            .to_vd_syn(self, vibe),
                         right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
@@ -197,8 +196,9 @@ impl<'db> VdSynExprBuilder<'db> {
 impl<'db> VdSynSymbolBuilder<'db> {
     pub(crate) fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
         match self.clause_arena()[clause] {
-            VdSynClauseData::Let { ref resolution, .. } => {
-                self.build_let_resolution(clause, resolution)
+            VdSynClauseData::Let { formula, .. } => {
+                let resolution = self.infer_let_clause_resolution(clause, formula);
+                self.build_symbols_in_let_resolution(clause, resolution)
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Then { formula, .. } => self.build_expr(formula),
@@ -206,17 +206,17 @@ impl<'db> VdSynSymbolBuilder<'db> {
         }
     }
 
-    pub(crate) fn build_let_resolution(
+    pub(crate) fn build_symbols_in_let_resolution(
         &mut self,
         clause: VdSynClauseIdx,
-        resolution: &VdSynLetClauseResolution,
+        resolution: VdSynLetClauseResolution,
     ) {
-        match *resolution {
-            VdSynLetClauseResolution::Assigned(ref resolution) => {
-                self.build_let_assigned_resolution(clause, resolution)
+        match resolution {
+            VdSynLetClauseResolution::Assigned(resolution) => {
+                self.build_symbols_in_let_assigned_resolution(clause, resolution)
             }
-            VdSynLetClauseResolution::Placeholder(ref resolution) => {
-                self.build_let_placeholder_resolution(clause, resolution)
+            VdSynLetClauseResolution::Placeholder(resolution) => {
+                self.build_symbols_in_let_placeholder_resolution(clause, resolution)
             }
         }
     }

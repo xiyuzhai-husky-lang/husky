@@ -6,6 +6,7 @@ use latex_prelude::helper::tracker::LxPageInput;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 pub(crate) fn t(content: &str, expected: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
@@ -23,6 +24,7 @@ pub(crate) fn t(content: &str, expected: &Expect) {
         &[],
         &[],
         models,
+        VdSynExprVibe::ROOT_CNL,
         db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));

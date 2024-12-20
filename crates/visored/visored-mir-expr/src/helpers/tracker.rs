@@ -25,6 +25,7 @@ use visored_sem_expr::{
         VdSemExprTokenIdxRangeMap, VdSemPhraseTokenIdxRangeMap, VdSemSentenceTokenIdxRangeMap,
     },
 };
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub root_module_path: VdModulePath,
@@ -69,6 +70,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &VdModels,
+        vibe: VdSynExprVibe,
         db: &EternerDb,
     ) -> Self {
         let VdSemExprTracker {
@@ -93,7 +95,14 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             division_range_map: sem_division_range_map,
             symbol_local_defn_storage: sem_symbol_local_defn_storage,
             output,
-        } = VdSemExprTracker::new(input, token_annotations, space_annotations, models, db);
+        } = VdSemExprTracker::new(
+            input,
+            token_annotations,
+            space_annotations,
+            models,
+            vibe,
+            db,
+        );
         let mut builder = VdMirExprBuilder::new(
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),

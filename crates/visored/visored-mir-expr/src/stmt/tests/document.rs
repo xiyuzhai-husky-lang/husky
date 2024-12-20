@@ -6,6 +6,7 @@ use latex_prelude::helper::tracker::LxDocumentInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
@@ -22,6 +23,7 @@ fn t(models: &VdModels, content: &str, expect: &Expect) {
         &[],
         &[],
         models,
+        VdSynExprVibe::ROOT_CNL,
         db,
     );
     expect.assert_eq(&tracker.show_display_tree(db));

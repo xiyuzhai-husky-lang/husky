@@ -55,7 +55,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
     }
 
     pub fn fmt_sentence(&mut self, sentence_idx: VdSynSentenceIdx) {
-        match self.sentence_arena[sentence_idx] {
+        match *self.sentence_arena[sentence_idx].data() {
             VdSynSentenceData::Clauses { clauses, end } => {
                 for (index, clause_idx) in clauses.into_iter().enumerate() {
                     self.fmt_clause(clause_idx);

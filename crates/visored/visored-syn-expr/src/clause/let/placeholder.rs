@@ -4,7 +4,7 @@ use symbol::local_defn::{
     VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead, VdSynSymbolLocalDefnSrc,
 };
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdSynLetPlaceholderResolution {
     pattern: VdSynPattern,
     pattern_expr: VdSynExprIdx,
@@ -31,7 +31,7 @@ impl VdSynLetPlaceholderResolution {
     }
 }
 
-impl<'db> VdSynExprBuilder<'db> {
+impl<'db> VdSynSymbolBuilder<'db> {
     pub fn build_let_placeholder_resolution(
         &self,
         pattern_expr: VdSynExprIdx,
@@ -46,10 +46,10 @@ impl<'db> VdSynExprBuilder<'db> {
 }
 
 impl<'db> VdSynSymbolBuilder<'db> {
-    pub(crate) fn build_let_placeholder_resolution(
+    pub(crate) fn build_symbols_in_let_placeholder_resolution(
         &mut self,
         clause: VdSynClauseIdx,
-        resolution: &VdSynLetPlaceholderResolution,
+        resolution: VdSynLetPlaceholderResolution,
     ) {
         // Order matters!
         self.build_let_clause_placeholder_ty(resolution.ty);
