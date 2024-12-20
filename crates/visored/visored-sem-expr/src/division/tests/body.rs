@@ -1,6 +1,7 @@
 use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSemExprDisplayTreeBuilder;
@@ -19,7 +20,8 @@ fn t(content: &str, expected: &Expect) {
         &[],
         &[],
         models,
-        &db,
+        VdSynExprVibe::ROOT_CNL,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }

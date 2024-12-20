@@ -34,6 +34,7 @@ visored-entity-path.workspace = true
 visored-models.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
+visored-syn-expr.workspace = true
 visored-sem-expr.workspace = true
 visored-signature.workspace = true
 visored-term.workspace = true
