@@ -5,8 +5,14 @@ use base_coword::BaseCoword;
 use eterned::db::EternerDb;
 use vec_like::ordered_vec_map::OrderedVecPairMap;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SnlIdent(BaseCoword);
+
+impl std::fmt::Debug for SnlIdent {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "`{}`", self.0)
+    }
+}
 
 impl SnlIdent {
     pub fn from_ref(s: &str, db: &EternerDb) -> SnlCowordResult<Self> {
