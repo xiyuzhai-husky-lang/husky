@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 use smallvec::{smallvec, SmallVec};
 use snl_prelude::coword::{SnlIdent, SnlIdentMap};
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 struct SnlMarkup {
     markup_content: String,
     pattern_command_offset_range: TextOffsetRange,
@@ -22,6 +22,15 @@ struct SnlMarkup {
     pattern_arguments: SnlMarkupPatternArguments,
     pattern_arguments_map: SnlIdentMap<SnlMarkupPatternArguments>,
     rcurl_offset: TextOffset,
+}
+
+impl std::fmt::Display for SnlMarkup {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("SnlMarkup")
+            .field("markup_content", &self.markup_content)
+            .field("pattern_arguments", &self.pattern_arguments)
+            .finish()
+    }
 }
 
 const PATTERN_COMMAND: &str = "\\pattern";
@@ -57,13 +66,19 @@ impl SnlMarkup {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct SnlMarkupPatternArgument {
     command_offset_range: TextOffsetRange,
     key_curled_offset_range: TextOffsetRange,
     key_ident: SnlIdent,
     value_curled_offset_range: TextOffsetRange,
     value_content: String,
+}
+
+impl std::fmt::Debug for SnlMarkupPatternArgument {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "`{} = {}`", self.key_ident.data(), self.value_content)
+    }
 }
 
 pub type SnlMarkupPatternArguments = SmallVec<[SnlMarkupPatternArgument; 4]>;
@@ -120,7 +135,7 @@ mod tests {
         fn t(db: &EternerDb, input: &str, expect: expect_test::Expect) {
             let markup = SnlMarkup::try_from_string(input.to_string(), db)
                 .expect("Should parse valid markup");
-            expect.assert_debug_eq(&markup);
+            expect.assert_eq(&format!("{:#}", markup));
         }
 
         let db = &EternerDb::default();
@@ -130,17 +145,8 @@ mod tests {
             expect![[r#"
                 SnlMarkup {
                     markup_content: "\\pattern { hello }",
-                    pattern_command_offset_range: 0..8,
-                    lcurl_offset: TextOffset(
-                        9,
-                    ),
                     pattern_arguments: [],
-                    pattern_arguments_map: [],
-                    rcurl_offset: TextOffset(
-                        17,
-                    ),
-                }
-            "#]],
+                }"#]],
         );
         t(
             db,
@@ -148,17 +154,8 @@ mod tests {
             expect![[r#"
                 SnlMarkup {
                     markup_content: "\\pattern    { test }",
-                    pattern_command_offset_range: 0..8,
-                    lcurl_offset: TextOffset(
-                        12,
-                    ),
                     pattern_arguments: [],
-                    pattern_arguments_map: [],
-                    rcurl_offset: TextOffset(
-                        19,
-                    ),
-                }
-            "#]],
+                }"#]],
         );
         t(
             db,
@@ -166,57 +163,11 @@ mod tests {
             expect![[r#"
                 SnlMarkup {
                     markup_content: "\\pattern{\\patternArgument{lopd}{1} + \\patternArgument{ropd}{2}}",
-                    pattern_command_offset_range: 0..8,
-                    lcurl_offset: TextOffset(
-                        8,
-                    ),
                     pattern_arguments: [
-                        SnlMarkupPatternArgument {
-                            command_offset_range: 9..25,
-                            key_curled_offset_range: 25..30,
-                            key_ident: `lopd`,
-                            value_curled_offset_range: 31..33,
-                            value_content: "1",
-                        },
-                        SnlMarkupPatternArgument {
-                            command_offset_range: 37..53,
-                            key_curled_offset_range: 53..58,
-                            key_ident: `ropd`,
-                            value_curled_offset_range: 59..61,
-                            value_content: "2",
-                        },
+                        `lopd = 1`,
+                        `ropd = 2`,
                     ],
-                    pattern_arguments_map: [
-                        (
-                            `lopd`,
-                            [
-                                SnlMarkupPatternArgument {
-                                    command_offset_range: 9..25,
-                                    key_curled_offset_range: 25..30,
-                                    key_ident: `lopd`,
-                                    value_curled_offset_range: 31..33,
-                                    value_content: "1",
-                                },
-                            ],
-                        ),
-                        (
-                            `ropd`,
-                            [
-                                SnlMarkupPatternArgument {
-                                    command_offset_range: 37..53,
-                                    key_curled_offset_range: 53..58,
-                                    key_ident: `ropd`,
-                                    value_curled_offset_range: 59..61,
-                                    value_content: "2",
-                                },
-                            ],
-                        ),
-                    ],
-                    rcurl_offset: TextOffset(
-                        62,
-                    ),
-                }
-            "#]],
+                }"#]],
         );
     }
 }
