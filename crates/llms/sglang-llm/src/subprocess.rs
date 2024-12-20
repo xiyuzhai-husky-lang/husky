@@ -6,18 +6,31 @@ use std::{
     sync::Mutex,
 };
 
-pub struct Subprocess {
+pub struct SglangLlmSubprocess {
     child: Child,
     stdin: ChildStdin,
     stdout_lines: Lines<BufReader<ChildStdout>>,
 }
 
-impl Subprocess {
+impl SglangLlmSubprocess {
     pub fn new() -> Self {
         use std::io::BufRead;
 
+        const DOCKER_IMAGE: &str = "sglang-llm-server";
+
+        // First, build the Docker image
+        let build_status = Command::new("docker")
+            .args(["build", "-t", DOCKER_IMAGE, "."])
+            .status()
+            .expect("Failed to build Docker image");
+
+        if !build_status.success() {
+            panic!("Failed to build Docker image");
+        }
+
+        // Then run the container as before
         let mut child = Command::new("docker")
-            .args(["run", "--gpus", "all", "-i", "rust-calculator"])
+            .args(["run", "--gpus", "all", "-i", DOCKER_IMAGE])
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
             .spawn()
@@ -41,7 +54,7 @@ impl Subprocess {
     }
 }
 
-impl Drop for Subprocess {
+impl Drop for SglangLlmSubprocess {
     fn drop(&mut self) {
         if let Err(e) = self.child.kill() {
             eprintln!("Warning: Failed to kill Docker container: {}", e);
@@ -56,14 +69,22 @@ impl Drop for Subprocess {
 }
 
 lazy_static! {
-    pub(crate) static ref SUBPROCESS: Mutex<Subprocess> = Mutex::new(Subprocess::new());
+    pub(crate) static ref SUBPROCESS: Mutex<SglangLlmSubprocess> =
+        Mutex::new(SglangLlmSubprocess::new());
 }
 
-impl Subprocess {
+impl SglangLlmSubprocess {
     pub fn write_line(&mut self, line: impl AsRef<str>) {
         use std::io::Write;
 
-        writeln!(self.stdin, "{}", line.as_ref()).expect("Failed to write to stdin");
+        if let Err(e) = writeln!(self.stdin, "{}", line.as_ref()) {
+            // Check if the process is still running
+            match self.child.try_wait() {
+                Ok(Some(status)) => panic!("Container exited with status: {}", status),
+                Ok(None) => panic!("Failed to write to stdin (container still running): {}", e),
+                Err(e) => panic!("Failed to check container status: {}", e),
+            }
+        }
     }
 
     pub fn read_line(&mut self) -> io::Result<String> {

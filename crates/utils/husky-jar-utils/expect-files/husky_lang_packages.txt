@@ -4976,6 +4976,13 @@
         ],
     },
     PackageSummary {
+        name: "visored-snl-prelude",
+        relative_path: "crates/visored/visored-snl-prelude",
+        dependencies: [
+            "snl-prelude",
+        ],
+    },
+    PackageSummary {
         name: "visored-syn-patt",
         relative_path: "crates/visored/visored-syn-patt",
         dependencies: [
