@@ -1,6 +1,6 @@
 use super::{
     expr::{VdSynExprClass, VdSynExprData, VdSynExprIdx},
-    VdSynExprParser,
+    VdSynExprParser, VdSynExprVibe,
 };
 use latex_ast::ast::math::{
     LxMathAstData, LxMathAstIdx, LxMathCommandArgumentData, LxMathCompleteCommandArgument,
@@ -38,6 +38,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         &mut self,
         next: &mut LxMathAstIdx,
         end: LxMathAstIdx,
+        vibe: VdSynExprVibe,
     ) -> DisambiguatedAst {
         use crate::builder::ToVdSyn;
 
@@ -214,11 +215,13 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             }
             LxMathAstData::TextEdit { ref buffer } => todo!(),
             LxMathAstData::Attach { base, ref scripts } => {
-                let base = base.to_vd_syn(self.builder);
+                let base = base.to_vd_syn(self.builder, vibe);
                 let scripts = scripts
                     .iter()
                     .copied()
-                    .map(|(script_kind, script)| (script_kind, script.to_vd_syn(self.builder)))
+                    .map(|(script_kind, script)| {
+                        (script_kind, script.to_vd_syn(self.builder, vibe))
+                    })
                     .collect();
                 DisambiguatedAst::Expr(
                     VdSynExprData::Attach { base, scripts },
@@ -239,7 +242,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                         ((*left_delimiter_token_idx + 1)..(*right_delimiter_token_idx)).into(),
                         asts,
                     )
-                        .to_vd_syn(self.builder),
+                        .to_vd_syn(self.builder, vibe),
                     right_delimiter_token_idx,
                     right_delimiter,
                 },
@@ -249,7 +252,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 command_token_idx,
                 command_path,
                 ref arguments,
-            } => self.resolve_complete_command(command_token_idx, command_path, arguments),
+            } => self.resolve_complete_command(command_token_idx, command_path, arguments, vibe),
             LxMathAstData::Environment { .. } => todo!(),
         }
     }
@@ -259,6 +262,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         command_token_idx: LxMathTokenIdx,
         command_path: LxCommandPath,
         arguments: &[LxMathCompleteCommandArgument],
+        vibe: VdSynExprVibe,
     ) -> DisambiguatedAst {
         use crate::builder::ToVdSyn;
 
@@ -297,14 +301,14 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 let LxMathCommandArgumentData::Math(numerator_asts) = *numerator_arg.data() else {
                     unreachable!()
                 };
-                let numerator =
-                    (numerator_arg.asts_token_idx_range(), numerator_asts).to_vd_syn(self.builder);
+                let numerator = (numerator_arg.asts_token_idx_range(), numerator_asts)
+                    .to_vd_syn(self.builder, vibe);
                 let LxMathCommandArgumentData::Math(denominator_asts) = *denominator_arg.data()
                 else {
                     unreachable!()
                 };
                 let denominator = (denominator_arg.asts_token_idx_range(), denominator_asts)
-                    .to_vd_syn(self.builder);
+                    .to_vd_syn(self.builder, vibe);
                 DisambiguatedAst::Expr(
                     VdSynExprData::Fraction {
                         command_token_idx,
@@ -323,8 +327,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 let LxMathCommandArgumentData::Math(radicand_asts) = *radicand_arg.data() else {
                     unreachable!()
                 };
-                let radicand =
-                    (radicand_arg.asts_token_idx_range(), radicand_asts).to_vd_syn(self.builder);
+                let radicand = (radicand_arg.asts_token_idx_range(), radicand_asts)
+                    .to_vd_syn(self.builder, vibe);
                 DisambiguatedAst::Expr(
                     VdSynExprData::Sqrt {
                         command_token_idx,

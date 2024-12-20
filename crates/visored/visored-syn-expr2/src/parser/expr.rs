@@ -44,24 +44,33 @@ impl<'db> VdSynExprBuilder<'db> {
 }
 
 impl<'a, 'db> VdSynExprParser<'a, 'db> {
-    pub fn parse_expr_from_math_asts(mut self, asts: LxMathAstIdxRange) -> VdSynExprIdx {
+    pub fn parse_expr_from_math_asts(
+        mut self,
+        asts: LxMathAstIdxRange,
+        vibe: VdSynExprVibe,
+    ) -> VdSynExprIdx {
         let mut next = asts.start();
         let end = asts.end();
         while next < end {
-            self.parse_next_expr_since_nath_ast(&mut next, end);
+            self.parse_next_expr_since_nath_ast(&mut next, end, vibe);
         }
         self.reduce(VdPrecedenceRange::Any, None);
         let Self { builder, stack } = self;
         builder.alloc_expr(stack.finish())
     }
 
-    fn parse_next_expr_since_nath_ast(&mut self, next: &mut LxMathAstIdx, end: LxMathAstIdx) {
+    fn parse_next_expr_since_nath_ast(
+        &mut self,
+        next: &mut LxMathAstIdx,
+        end: LxMathAstIdx,
+        vibe: VdSynExprVibe,
+    ) {
         let range = self.builder.ast_token_idx_range_map()[*next];
         let preceding_space_annotation = self
             .builder
             .annotations()
             .preceding_space_annotation(range.start());
-        let token = self.resolve_token(next, end);
+        let token = self.resolve_token(next, end, vibe);
         let range = range.join(self.builder.ast_token_idx_range_map()[*next - 1]);
         self.accept_ast(preceding_space_annotation, range, token);
     }

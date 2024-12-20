@@ -404,7 +404,7 @@ impl VdSynExprClass {
 // token idx range is needed because the ast idx range might be empty,
 // in which case we need to return an error yet can't determine the token idx range from the ast idx range alone
 impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynExprIdx {
         let (token_range, asts) = self;
         if asts.is_empty() {
             builder.alloc_expr(VdSynExprData::Err(
@@ -412,15 +412,15 @@ impl ToVdSyn<VdSynExprIdx> for (LxTokenIdxRange, LxMathAstIdxRange) {
             ))
         } else {
             let parser = builder.expr_parser();
-            parser.parse_expr_from_math_asts(asts)
+            parser.parse_expr_from_math_asts(asts, vibe)
         }
     }
 }
 
 impl ToVdSyn<VdSynExprIdx> for LxMathAstIdx {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynExprIdx {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynExprIdx {
         let token_idx_range = builder.ast_token_idx_range_map()[self];
-        (token_idx_range, LxMathAstIdxRange::new_single(self)).to_vd_syn(builder)
+        (token_idx_range, LxMathAstIdxRange::new_single(self)).to_vd_syn(builder, vibe)
     }
 }
 

@@ -3,6 +3,7 @@ pub mod helpers;
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     clause::{VdSynClauseIdx, VdSynClauseIdxRange},
+    environment::VdSynExprVibe,
 };
 use base_coword::BaseCoword;
 use idx_arena::{
@@ -69,8 +70,9 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynSentenceEntry {
-        let clauses = vec![self.parse_clause(token_idx, word, asts)];
+        let clauses = vec![self.parse_clause(token_idx, word, asts, vibe)];
         let end = loop {
             if self.peek_new_division(asts).is_some() {
                 break VdSynSentenceEnd::Void;

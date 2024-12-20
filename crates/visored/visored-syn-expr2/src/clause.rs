@@ -6,6 +6,7 @@ use self::r#let::*;
 use super::*;
 use base_coword::BaseCoword;
 use builder::VdSynExprBuilder;
+use environment::VdSynExprVibe;
 use expr::VdSynExprIdx;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
@@ -69,6 +70,7 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynClauseData {
         let db = self.db();
         match word.data() {
@@ -84,7 +86,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self);
+                            .to_vd_syn(self, vibe);
                         VdSynClauseData::Let {
                             let_token_idx: token_idx,
                             left_math_delimiter_token_idx: left_delimiter_token_idx,
@@ -126,7 +128,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
+                            .to_vd_syn(self, vibe),
                         right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
@@ -163,7 +165,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
+                            .to_vd_syn(self, vibe),
                         right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
