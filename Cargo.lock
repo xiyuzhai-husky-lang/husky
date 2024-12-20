@@ -13578,7 +13578,12 @@ dependencies = [
 name = "snl-markup"
 version = "0.1.0"
 dependencies = [
+ "eterned",
  "expect-test",
+ "husky-text-protocol",
+ "serde",
+ "smallvec",
+ "snl-prelude",
  "thiserror",
 ]
 
