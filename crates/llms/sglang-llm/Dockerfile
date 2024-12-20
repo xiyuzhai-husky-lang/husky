@@ -11,16 +11,35 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Setup git-lfs and clone model
+RUN git lfs install && \
+    mkdir -p /root/.llms/models && \
+    git clone https://huggingface.co/Qwen/Qwen2-7B-Instruct /root/.llms/models/Qwen2-7B-Instruct
+
+# Install Rust and required dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    build-essential \
+    pkg-config \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Rust and verify installation
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+    /root/.cargo/bin/cargo --version
+
+# Set PATH for subsequent container runs
+ENV PATH="/root/.cargo/bin:${PATH}"
+
 # Set the working directory
 WORKDIR /app
 
 # Copy application files
 COPY internal .
 
-# Setup git-lfs and clone model
-RUN git lfs install && \
-    mkdir -p /root/.llms/models && \
-    git clone https://huggingface.co/Qwen/Qwen2-7B-Instruct /root/.llms/models/Qwen2-7B-Instruct
+# For the build command later
+RUN cd sglang-llm-docker-ipc && /root/.cargo/bin/cargo build --release
 
 # Run the script
-CMD ["/bin/bash", "-c", "source .venv/bin/activate && cargo run sglang-llm-docker-ipc"]
+# CMD ["/bin/bash", "-c", "source .venv/bin/activate && cargo run sglang-llm-docker-ipc"]
+CMD ["sglang-llm-docker-ipc/target/release/sglang-llm-docker-ipc"]
