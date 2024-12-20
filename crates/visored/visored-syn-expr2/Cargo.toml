@@ -21,9 +21,10 @@ smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
 base-coword.workspace = true
-salsa = { workspace = true, optional = true }
-idx-arena.workspace = true
 eterned.workspace = true
+idx-arena.workspace = true
+salsa = { workspace = true, optional = true }
+once-place.workspace = true
 # latex
 latex-math-letter.workspace = true
 latex-math-punctuation.workspace = true
