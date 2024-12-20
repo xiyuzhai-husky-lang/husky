@@ -42,29 +42,30 @@ pub type VdSynBlockMap<T> = ArenaMap<VdSynBlockData, T>;
 pub type VdSynBlockOrderedMap<T> = ArenaOrderedMap<VdSynBlockData, T>;
 
 impl ToVdSyn<VdSynBlockIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynBlockIdxRange {
-        self.1.to_vd_syn(builder)
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynBlockIdxRange {
+        self.1.to_vd_syn(builder, vibe)
     }
 }
 
 impl ToVdSyn<VdSynBlockIdxRange> for LxRoseAstIdxRange {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynBlockIdxRange {
-        builder.build_stmts(self)
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynBlockIdxRange {
+        builder.build_stmts(self, vibe)
     }
 }
 
 impl<'db> VdSynExprBuilder<'db> {
-    fn build_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynBlockIdxRange {
+    fn build_stmts(&mut self, asts: LxRoseAstIdxRange, vibe: VdSynExprVibe) -> VdSynBlockIdxRange {
         let mut asts = asts.into_iter().peekable();
-        self.build_stmt_aux(&mut asts)
+        self.build_stmt_aux(&mut asts, vibe)
     }
 
     pub(crate) fn build_stmt_aux(
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynBlockIdxRange {
         let mut stmts: Vec<VdSynBlockData> = Vec::new();
-        while let Some(stmt) = self.build_stmt(asts) {
+        while let Some(stmt) = self.build_stmt(asts, vibe) {
             stmts.push(stmt);
         }
         self.alloc_stmts(stmts)
@@ -73,6 +74,7 @@ impl<'db> VdSynExprBuilder<'db> {
     fn build_stmt(
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> Option<VdSynBlockData> {
         // stop on new division
         if self.peek_new_division(asts).is_some() {
@@ -82,7 +84,9 @@ impl<'db> VdSynExprBuilder<'db> {
         let ast_idx = asts.next()?;
         Some(match self.ast_arena()[ast_idx] {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
-            LxRoseAstData::Word(token_idx, word) => self.build_paragraph(token_idx, word, asts),
+            LxRoseAstData::Word(token_idx, word) => {
+                self.build_paragraph(token_idx, word, asts, vibe)
+            }
             LxRoseAstData::Punctuation(token_idx, punctuation) => {
                 todo!("punctuation: {}", punctuation)
             }
@@ -122,8 +126,9 @@ impl<'db> VdSynExprBuilder<'db> {
                 end_environment_name_token_idx,
                 end_rcurl_token_idx,
                 environment_signature,
+                vibe,
             ),
-            LxRoseAstData::NewParagraph(_) => self.build_stmt(asts)?,
+            LxRoseAstData::NewParagraph(_) => self.build_stmt(asts, vibe)?,
         })
     }
 
@@ -132,8 +137,9 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynBlockData {
-        let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];
+        let mut sentences = vec![self.parse_sentence(token_idx, word, asts, vibe)];
         loop {
             // stop on new division
             if self.peek_new_division(asts).is_some() {
@@ -143,7 +149,7 @@ impl<'db> VdSynExprBuilder<'db> {
             match self.ast_arena()[ast_idx] {
                 LxRoseAstData::TextEdit { .. } => todo!(),
                 LxRoseAstData::Word(lx_rose_token_idx, coword) => {
-                    sentences.push(self.parse_sentence(lx_rose_token_idx, coword, asts));
+                    sentences.push(self.parse_sentence(lx_rose_token_idx, coword, asts, vibe));
                 }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
                 LxRoseAstData::Math {
@@ -187,6 +193,7 @@ impl<'db> VdSynExprBuilder<'db> {
         end_environment_name_token_idx: LxNameTokenIdx,
         end_rcurl_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
+        vibe: VdSynExprVibe,
     ) -> VdSynBlockData {
         VdSynBlockData::Environment {
             begin_command_token_idx,
@@ -198,7 +205,7 @@ impl<'db> VdSynExprBuilder<'db> {
             stmts: match asts {
                 LxAstIdxRange::Math(arena_idx_range) => todo!(),
                 LxAstIdxRange::Root(arena_idx_range) => todo!(),
-                LxAstIdxRange::Rose(asts) => asts.to_vd_syn(self),
+                LxAstIdxRange::Rose(asts) => asts.to_vd_syn(self, vibe),
                 LxAstIdxRange::Lisp(arena_idx_range) => todo!(),
             },
             end_rcurl_token_idx,
