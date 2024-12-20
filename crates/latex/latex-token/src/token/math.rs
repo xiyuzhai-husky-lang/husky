@@ -91,7 +91,7 @@ impl<'a> LxLexer<'a> {
         Some(token_data)
     }
     pub(crate) fn next_math_token_data(&mut self) -> Option<LxMathTokenData> {
-        let s = self.chars.peek_str();
+        let s = self.chars.remaining_str();
         if s.starts_with("\\]") || s.starts_with("$") {
             return None;
         }
