@@ -13,6 +13,7 @@ use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::idx::LxRoseTokenIdx;
 use once_place::OncePlace;
+use snl_prelude::mode::SnlMode;
 use std::iter::Peekable;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -66,6 +67,19 @@ impl VdSynSentenceEntry {
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_sentence(
+        &mut self,
+        token_idx: LxRoseTokenIdx,
+        word: BaseCoword,
+        asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        match vibe.snl_mode() {
+            SnlMode::Unl => todo!(),
+            SnlMode::Cnl => self.parse_cnl_sentence(token_idx, word, asts, vibe),
+        }
+    }
+
+    fn parse_cnl_sentence(
         &mut self,
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
