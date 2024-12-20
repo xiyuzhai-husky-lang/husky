@@ -13,8 +13,8 @@ pub enum VdSynLetClauseResolution {
     Placeholder(VdSynLetPlaceholderResolution),
 }
 
-impl<'db> VdSynExprBuilder<'db> {
-    pub(crate) fn build_let_stmt_resolution(
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub(crate) fn infer_let_stmt_resolution(
         &self,
         formula: VdSynExprIdx,
     ) -> VdSynLetClauseResolution {
@@ -35,7 +35,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 separator_class,
                 items,
                 ref separators,
-            } => self.build_let_stmt_resolution_from_separated_list(items, separators),
+            } => self.infer_let_stmt_resolution_from_separated_list(items, separators),
             VdSynExprData::LxDelimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -69,7 +69,7 @@ impl<'db> VdSynExprBuilder<'db> {
         }
     }
 
-    fn build_let_stmt_resolution_from_separated_list(
+    fn infer_let_stmt_resolution_from_separated_list(
         &self,
         items: VdSynExprIdxRange,
         separators: &[VdSynSeparator],
@@ -78,7 +78,7 @@ impl<'db> VdSynExprBuilder<'db> {
             0 | 1 => unreachable!(),
             2 => {
                 debug_assert_eq!(separators.len(), 1);
-                self.build_let_stmt_resolution_from_separated_two_items(
+                self.infer_let_stmt_resolution_from_separated_two_items(
                     items.first().unwrap(),
                     items.last().unwrap(),
                     separators[0],
@@ -88,7 +88,7 @@ impl<'db> VdSynExprBuilder<'db> {
         }
     }
 
-    fn build_let_stmt_resolution_from_separated_two_items(
+    fn infer_let_stmt_resolution_from_separated_two_items(
         &self,
         fst: VdSynExprIdx,
         snd: VdSynExprIdx,
@@ -102,7 +102,7 @@ impl<'db> VdSynExprBuilder<'db> {
                 VdBaseSeparator::Add => todo!(),
                 VdBaseSeparator::Mul => todo!(),
                 VdBaseSeparator::Dot => todo!(),
-                VdBaseSeparator::Eq => self.build_let_assigned_resolution(fst, snd).into(),
+                VdBaseSeparator::Eq => self.infer_let_assigned_resolution(fst, snd).into(),
                 VdBaseSeparator::Ne => todo!(),
                 VdBaseSeparator::Lt => todo!(),
                 VdBaseSeparator::Gt => todo!(),

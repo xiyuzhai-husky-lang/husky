@@ -6,8 +6,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         let db = self.db();
         format!(
             "{}",
-            self.stack
-                .show(self.builder.expr_arena().as_arena_ref(), db)
+            self.builder
+                .with_expr_arena(|expr_arena| self.stack.show(expr_arena.as_arena_ref(), db))
         )
     }
 }
