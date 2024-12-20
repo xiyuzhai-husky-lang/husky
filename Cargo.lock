@@ -15543,6 +15543,7 @@ dependencies = [
  "latex-rose-punctuation",
  "latex-token",
  "latex-vfs",
+ "once-place",
  "salsa",
  "sealed",
  "smallvec",

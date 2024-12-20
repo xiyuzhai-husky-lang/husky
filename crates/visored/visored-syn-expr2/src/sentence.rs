@@ -1,7 +1,5 @@
 pub mod helpers;
 
-use std::iter::Peekable;
-
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     clause::{VdSynClauseIdx, VdSynClauseIdxRange},
@@ -13,6 +11,8 @@ use idx_arena::{
 use latex_ast::ast::rose::{LxRoseAstData, LxRoseAstIdx, LxRoseAstIdxRange};
 use latex_rose_punctuation::LxRosePunctuation;
 use latex_token::idx::LxRoseTokenIdx;
+use once_place::OncePlace;
+use std::iter::Peekable;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSentenceData {
@@ -23,15 +23,21 @@ pub enum VdSynSentenceData {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdSynSentenceEntry {
-    data: VdSynSentenceData,
+pub enum VdSynSentenceEntry {
+    Cnl {
+        data: VdSynSentenceData,
+    },
+    Unl {
+        tokens: (),
+        data: OncePlace<VdSynSentenceData>,
+    },
 }
 
 impl std::ops::Deref for VdSynSentenceEntry {
     type Target = VdSynSentenceData;
 
     fn deref(&self) -> &Self::Target {
-        &self.data
+        self.data()
     }
 }
 
@@ -50,7 +56,10 @@ pub type VdSynSentenceOrderedMap<T> = ArenaOrderedMap<VdSynSentenceEntry, T>;
 
 impl VdSynSentenceEntry {
     pub fn data(&self) -> &VdSynSentenceData {
-        &self.data
+        match self {
+            VdSynSentenceEntry::Cnl { data } => data,
+            VdSynSentenceEntry::Unl { data, .. } => data,
+        }
     }
 }
 
@@ -118,6 +127,7 @@ impl<'db> VdSynExprBuilder<'db> {
         };
         let clauses = self.alloc_clauses(clauses);
         let data = VdSynSentenceData::Clauses { clauses, end };
-        VdSynSentenceEntry { data }
+        // TODO: match snl mode
+        VdSynSentenceEntry::Cnl { data }
     }
 }
