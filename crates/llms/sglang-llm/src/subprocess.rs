@@ -1,4 +1,3 @@
-use lazy_static::lazy_static;
 use sglang_llm_prelude::greeting::IPC_GREETING;
 use std::{
     io::{self, BufReader, Lines},
