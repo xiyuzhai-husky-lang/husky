@@ -33,10 +33,10 @@ impl std::fmt::Display for SnlMarkup {
     }
 }
 
-const PATTERN_COMMAND: &str = "π";
-const PATTERN_ARGUMENT_COMMAND: &str = "α";
-const LCURL: &str = "{";
-const RCURL: &str = "}";
+const PATTERN_COMMAND: char = 'π';
+const PATTERN_ARGUMENT_COMMAND: char = 'α';
+const LCURL: char = '{';
+const RCURL: char = '}';
 
 impl SnlMarkup {
     pub fn try_from_string(markup_content: String, db: &EternerDb) -> SnlMarkupResult<Self> {
