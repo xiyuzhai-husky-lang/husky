@@ -33,8 +33,8 @@ impl std::fmt::Display for SnlMarkup {
     }
 }
 
-const PATTERN_COMMAND: &str = "\\pattern";
-const PATTERN_ARGUMENT_COMMAND: &str = "\\patternArgument";
+const PATTERN_COMMAND: &str = "π";
+const PATTERN_ARGUMENT_COMMAND: &str = "α";
 const LCURL: &str = "{";
 const RCURL: &str = "}";
 
@@ -141,28 +141,28 @@ mod tests {
         let db = &EternerDb::default();
         t(
             db,
-            r#"\pattern { hello }"#,
+            r#"π { hello }"#,
             expect![[r#"
                 SnlMarkup {
-                    markup_content: "\\pattern { hello }",
+                    markup_content: "π { hello }",
                     pattern_arguments: [],
                 }"#]],
         );
         t(
             db,
-            r#"\pattern    { test }"#,
+            r#"π    { test }"#,
             expect![[r#"
                 SnlMarkup {
-                    markup_content: "\\pattern    { test }",
+                    markup_content: "π    { test }",
                     pattern_arguments: [],
                 }"#]],
         );
         t(
             db,
-            r#"\pattern{\patternArgument{lopd}{1} + \patternArgument{ropd}{2}}"#,
+            r#"π{α{lopd}{1} + α{ropd}{2}}"#,
             expect![[r#"
                 SnlMarkup {
-                    markup_content: "\\pattern{\\patternArgument{lopd}{1} + \\patternArgument{ropd}{2}}",
+                    markup_content: "π{α{lopd}{1} + α{ropd}{2}}",
                     pattern_arguments: [
                         `lopd = 1`,
                         `ropd = 2`,
