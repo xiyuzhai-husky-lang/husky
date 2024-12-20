@@ -68,11 +68,6 @@ impl Drop for SglangLlmSubprocess {
     }
 }
 
-lazy_static! {
-    pub(crate) static ref SUBPROCESS: Mutex<SglangLlmSubprocess> =
-        Mutex::new(SglangLlmSubprocess::new());
-}
-
 impl SglangLlmSubprocess {
     pub fn write_line(&mut self, line: impl AsRef<str>) {
         use std::io::Write;
