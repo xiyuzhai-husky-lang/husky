@@ -28,6 +28,12 @@ impl SnlIdent {
     }
 }
 
+impl SnlIdent {
+    pub fn data(&self) -> &str {
+        &self.0.data()
+    }
+}
+
 pub type SnlIdentMap<T> = OrderedVecPairMap<SnlIdent, T>;
 
 impl serde::Serialize for SnlIdent {
