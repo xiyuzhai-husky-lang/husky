@@ -69,8 +69,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
     }
 
     fn calc_expr_first_token_idx(&self, expr: VdSynExprIdx) -> LxTokenIdx {
-        self.builder
-            .with_expr_arena(|expr_arena| self.calc_expr_data_first_token_idx(&expr_arena[expr]))
+        self.calc_expr_data_first_token_idx(&self.builder.expr_arena()[expr])
     }
 
     fn calc_incomplete_expr_first_token_idx(&self, expr: &IncompleteVdSynExprData) -> LxTokenIdx {
