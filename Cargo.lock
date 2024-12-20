@@ -15475,6 +15475,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-snl-prelude"
+version = "0.1.0"
+dependencies = [
+ "snl-prelude",
+]
+
+[[package]]
 name = "visored-syn-expr"
 version = "0.1.0"
 dependencies = [
