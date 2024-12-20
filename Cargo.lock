@@ -13575,6 +13575,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "snl-markup"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
+ "thiserror",
+]
+
+[[package]]
 name = "snl-models"
 version = "0.1.0"
 
