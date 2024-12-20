@@ -32,7 +32,7 @@ use latex_ast::{
 use latex_token::{idx::LxTokenIdxRange, storage::LxTokenStorage};
 use latex_vfs::path::LxFilePath;
 use sealed::sealed;
-use std::iter::Peekable;
+use std::{iter::Peekable, sync::Mutex};
 use visored_annotation::annotations::VdAnnotations;
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::{
@@ -51,19 +51,13 @@ pub struct VdSynExprBuilder<'db> {
     annotations: &'db VdAnnotations,
     default_global_resolution_table: &'db VdDefaultGlobalResolutionTable,
     models: &'db VdModels,
-    expr_arena: VdSynExprArena,
-    phrase_arena: VdSynPhraseArena,
-    clause_arena: VdSynClauseArena,
-    sentence_arena: VdSynSentenceArena,
-    stmt_arena: VdSynBlockArena,
-    division_arena: VdSynDivisionArena,
+    expr_arena: Mutex<VdSynExprArena>,
+    phrase_arena: Mutex<VdSynPhraseArena>,
+    clause_arena: Mutex<VdSynClauseArena>,
+    sentence_arena: Mutex<VdSynSentenceArena>,
+    stmt_arena: Mutex<VdSynBlockArena>,
+    division_arena: Mutex<VdSynDivisionArena>,
 }
-
-#[sealed]
-pub(crate) trait IsVdSynExprBuilderMut {}
-
-#[sealed]
-impl IsVdSynExprBuilderMut for VdSynExprBuilder<'_> {}
 
 /// # constructor
 impl<'db> VdSynExprBuilder<'db> {
@@ -125,19 +119,8 @@ impl<'db> VdSynExprBuilder<'db> {
     }
 
     pub(crate) fn expr_arena(&self) -> &VdSynExprArena {
-        &self.expr_arena
-    }
-
-    pub(crate) fn phrase_arena(&self) -> &VdSynPhraseArena {
-        &self.phrase_arena
-    }
-
-    pub(crate) fn clause_arena(&self) -> &VdSynClauseArena {
-        &self.clause_arena
-    }
-
-    pub(crate) fn sentence_arena(&self) -> &VdSynSentenceArena {
-        &self.sentence_arena
+        todo!()
+        // &self.expr_arena
     }
 }
 
@@ -162,56 +145,56 @@ impl<'db> VdSynExprBuilder<'db> {
 /// # actions
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn alloc_expr(&mut self, data: VdSynExprData) -> VdSynExprIdx {
-        self.expr_arena.alloc_one(data)
+        self.expr_arena.lock().unwrap().alloc_one(data)
     }
 
     pub(crate) fn alloc_exprs(
         &mut self,
         data: impl IntoIterator<Item = VdSynExprData>,
     ) -> VdSynExprIdxRange {
-        self.expr_arena.alloc_batch(data)
+        self.expr_arena.lock().unwrap().alloc_batch(data)
     }
 
     pub(crate) fn alloc_phrase(&mut self, data: VdSynPhraseData) -> VdSynPhraseIdx {
-        self.phrase_arena.alloc_one(data)
+        self.phrase_arena.lock().unwrap().alloc_one(data)
     }
 
     pub(crate) fn alloc_phrases(&mut self, data: Vec<VdSynPhraseData>) -> VdSynPhraseIdxRange {
-        self.phrase_arena.alloc_batch(data)
+        self.phrase_arena.lock().unwrap().alloc_batch(data)
     }
 
     pub(crate) fn alloc_clause(&mut self, data: VdSynClauseData) -> VdSynClauseIdx {
-        self.clause_arena.alloc_one(data)
+        self.clause_arena.lock().unwrap().alloc_one(data)
     }
 
     pub(crate) fn alloc_clauses(&mut self, data: Vec<VdSynClauseData>) -> VdSynClauseIdxRange {
-        self.clause_arena.alloc_batch(data)
+        self.clause_arena.lock().unwrap().alloc_batch(data)
     }
 
     pub(crate) fn alloc_sentence(&mut self, data: VdSynSentenceEntry) -> VdSynSentenceIdx {
-        self.sentence_arena.alloc_one(data)
+        self.sentence_arena.lock().unwrap().alloc_one(data)
     }
 
     pub(crate) fn alloc_sentences(
         &mut self,
         data: Vec<VdSynSentenceEntry>,
     ) -> VdSynSentenceIdxRange {
-        self.sentence_arena.alloc_batch(data)
+        self.sentence_arena.lock().unwrap().alloc_batch(data)
     }
 
     pub(crate) fn alloc_stmt(&mut self, data: VdSynBlockData) -> VdSynBlockIdx {
-        self.stmt_arena.alloc_one(data)
+        self.stmt_arena.lock().unwrap().alloc_one(data)
     }
 
     pub(crate) fn alloc_stmts(&mut self, data: Vec<VdSynBlockData>) -> VdSynBlockIdxRange {
-        self.stmt_arena.alloc_batch(data)
+        self.stmt_arena.lock().unwrap().alloc_batch(data)
     }
 
     pub(crate) fn alloc_divisions(
         &mut self,
         data: Vec<VdSynDivisionData>,
     ) -> VdSynDivisionIdxRange {
-        self.division_arena.alloc_batch(data)
+        self.division_arena.lock().unwrap().alloc_batch(data)
     }
 
     // pub fn finish_to_region_data(self) -> VdSynExprRegionData {
@@ -248,12 +231,12 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynDivisionArena,
     ) {
         (
-            self.expr_arena,
-            self.phrase_arena,
-            self.clause_arena,
-            self.sentence_arena,
-            self.stmt_arena,
-            self.division_arena,
+            self.expr_arena.into_inner().unwrap(),
+            self.phrase_arena.into_inner().unwrap(),
+            self.clause_arena.into_inner().unwrap(),
+            self.sentence_arena.into_inner().unwrap(),
+            self.stmt_arena.into_inner().unwrap(),
+            self.division_arena.into_inner().unwrap(),
         )
     }
 
@@ -279,6 +262,12 @@ impl<'db> VdSynExprBuilder<'db> {
         VdSynSymbolLocalDefnStorage,
         VdSynSymbolResolutionsTable,
     ) {
+        let expr_arena = self.expr_arena.into_inner().unwrap();
+        let phrase_arena = self.phrase_arena.into_inner().unwrap();
+        let clause_arena = self.clause_arena.into_inner().unwrap();
+        let sentence_arena = self.sentence_arena.into_inner().unwrap();
+        let stmt_arena = self.stmt_arena.into_inner().unwrap();
+        let division_arena = self.division_arena.into_inner().unwrap();
         let (
             expr_range_map,
             phrase_range_map,
@@ -287,20 +276,20 @@ impl<'db> VdSynExprBuilder<'db> {
             stmt_range_map,
             division_range_map,
         ) = calc_expr_range_map(
-            &self.expr_arena,
-            &self.phrase_arena,
-            &self.clause_arena,
-            &self.sentence_arena,
-            &self.stmt_arena,
-            &self.division_arena,
+            &expr_arena,
+            &phrase_arena,
+            &clause_arena,
+            &sentence_arena,
+            &stmt_arena,
+            &division_arena,
         );
         let (root_node, stmt_entity_tree_node_map, division_entity_tree_node_map) =
             build_entity_tree_with(
                 self.db,
                 self.default_global_resolution_table,
                 self.file_path,
-                self.stmt_arena.as_arena_ref(),
-                self.division_arena.as_arena_ref(),
+                stmt_arena.as_arena_ref(),
+                division_arena.as_arena_ref(),
                 output,
             );
         let (symbol_defns, symbol_resolutions) = build_all_symbol_defns_and_resolutions_with(
@@ -310,12 +299,12 @@ impl<'db> VdSynExprBuilder<'db> {
             self.ast_token_idx_range_map,
             self.annotations,
             self.default_global_resolution_table,
-            self.expr_arena.as_arena_ref(),
-            self.phrase_arena.as_arena_ref(),
-            self.clause_arena.as_arena_ref(),
-            self.sentence_arena.as_arena_ref(),
-            self.stmt_arena.as_arena_ref(),
-            self.division_arena.as_arena_ref(),
+            expr_arena.as_arena_ref(),
+            phrase_arena.as_arena_ref(),
+            clause_arena.as_arena_ref(),
+            sentence_arena.as_arena_ref(),
+            stmt_arena.as_arena_ref(),
+            division_arena.as_arena_ref(),
             &expr_range_map,
             &phrase_range_map,
             &clause_range_map,
@@ -328,12 +317,12 @@ impl<'db> VdSynExprBuilder<'db> {
             output,
         );
         (
-            self.expr_arena,
-            self.phrase_arena,
-            self.clause_arena,
-            self.sentence_arena,
-            self.stmt_arena,
-            self.division_arena,
+            expr_arena,
+            phrase_arena,
+            clause_arena,
+            sentence_arena,
+            stmt_arena,
+            division_arena,
             expr_range_map,
             phrase_range_map,
             clause_range_map,
