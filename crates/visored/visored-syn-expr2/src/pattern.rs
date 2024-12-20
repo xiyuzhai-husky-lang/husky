@@ -1,7 +1,7 @@
 use crate::{
     builder::VdSynExprBuilder,
     expr::{VdSynExprData, VdSynExprIdx},
-    symbol::local_defn::VdSynSymbolLocalDefnIdx,
+    symbol::{builder::VdSynSymbolBuilder, local_defn::VdSynSymbolLocalDefnIdx},
 };
 use latex_math_letter::letter::LxMathLetter;
 use latex_token::idx::LxTokenIdxRange;
@@ -17,7 +17,7 @@ pub enum VdSynPattern {
     },
 }
 
-impl<'db> VdSynExprBuilder<'db> {
+impl<'db> VdSynSymbolBuilder<'db> {
     pub fn build_pattern(&self, pattern_expr: VdSynExprIdx) -> VdSynPattern {
         match self.expr_arena()[pattern_expr] {
             VdSynExprData::Literal {

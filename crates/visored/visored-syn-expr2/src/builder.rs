@@ -118,9 +118,8 @@ impl<'db> VdSynExprBuilder<'db> {
         self.default_global_resolution_table
     }
 
-    pub(crate) fn expr_arena(&self) -> &VdSynExprArena {
-        todo!()
-        // &self.expr_arena
+    pub(crate) fn with_expr_arena<R>(&self, f: impl FnOnce(&VdSynExprArena) -> R) -> R {
+        f(&self.expr_arena.lock().unwrap())
     }
 }
 
