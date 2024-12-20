@@ -13580,6 +13580,7 @@ version = "0.1.0"
 dependencies = [
  "eterned",
  "expect-test",
+ "husky-print-utils",
  "husky-text-protocol",
  "serde",
  "smallvec",

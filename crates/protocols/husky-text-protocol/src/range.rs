@@ -9,6 +9,10 @@ pub struct TextPositionRange {
 }
 
 impl TextPositionRange {
+    pub fn new(start: TextPosition, end: TextPosition) -> Self {
+        Self { start, end }
+    }
+
     pub fn join(self, other: Self) -> Self {
         Self {
             start: self.start,
