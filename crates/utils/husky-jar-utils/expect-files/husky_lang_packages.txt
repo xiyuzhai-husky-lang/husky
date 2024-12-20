@@ -5110,4 +5110,11 @@
             "pyo3",
         ],
     },
+    PackageSummary {
+        name: "test-sealed",
+        relative_path: "playground/test-sealed",
+        dependencies: [
+            "sealed",
+        ],
+    },
 ]
