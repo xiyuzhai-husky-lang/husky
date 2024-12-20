@@ -22,6 +22,7 @@ struct SnlMarkup {
     pattern_arguments: SnlMarkupPatternArguments,
     pattern_arguments_map: SnlIdentMap<SnlMarkupPatternArguments>,
     rcurl_offset: TextOffset,
+    original_content: String,
 }
 
 impl std::fmt::Display for SnlMarkup {
@@ -29,6 +30,7 @@ impl std::fmt::Display for SnlMarkup {
         f.debug_struct("SnlMarkup")
             .field("markup_content", &self.markup_content)
             .field("pattern_arguments", &self.pattern_arguments)
+            .field("original_content", &self.original_content)
             .finish()
     }
 }
@@ -55,6 +57,36 @@ impl SnlMarkup {
         let Some(rcurl_offset) = rcurl_offset else {
             todo!()
         };
+        let mut original_content =
+            markup_content[..(pattern_command_offset_range.start().index())].to_string();
+        match pattern_arguments.len() {
+            0 => {
+                original_content +=
+                    &markup_content[(lcurl_offset.index() + 1)..rcurl_offset.index()];
+            }
+            _ => {
+                let first = pattern_arguments.first().unwrap();
+                original_content += &markup_content
+                    [(lcurl_offset.index() + 1)..first.command_offset_range.start().index()];
+
+                // Handle content between pattern arguments
+                for window in pattern_arguments.windows(2) {
+                    let current = &window[0];
+                    let next = &window[1];
+                    original_content += &current.value_content;
+                    original_content +=
+                        &markup_content[current.value_curled_offset_range.end().index()
+                            ..next.command_offset_range.start().index()];
+                }
+
+                let last = pattern_arguments.last().unwrap();
+                original_content += &last.value_content;
+                original_content += &markup_content
+                    [last.value_curled_offset_range.end().index()..rcurl_offset.index()];
+            }
+        }
+
+        original_content += &markup_content[(rcurl_offset.index() + 1)..];
         Ok(Self {
             markup_content,
             pattern_command_offset_range,
@@ -62,6 +94,7 @@ impl SnlMarkup {
             pattern_arguments,
             pattern_arguments_map,
             rcurl_offset,
+            original_content,
         })
     }
 }
@@ -146,6 +179,7 @@ mod tests {
                 SnlMarkup {
                     markup_content: "π { hello }",
                     pattern_arguments: [],
+                    original_content: " hello ",
                 }"#]],
         );
         t(
@@ -155,6 +189,7 @@ mod tests {
                 SnlMarkup {
                     markup_content: "π    { test }",
                     pattern_arguments: [],
+                    original_content: " test ",
                 }"#]],
         );
         t(
@@ -167,6 +202,7 @@ mod tests {
                         `lopd = 1`,
                         `ropd = 2`,
                     ],
+                    original_content: "1 + 2",
                 }"#]],
         );
     }
