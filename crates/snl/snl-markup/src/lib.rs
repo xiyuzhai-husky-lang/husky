@@ -23,6 +23,7 @@ struct SnlMarkup {
     pattern_arguments_map: SnlIdentMap<SnlMarkupPatternArguments>,
     rcurl_offset: TextOffset,
     original_content: String,
+    latex: String,
 }
 
 impl std::fmt::Display for SnlMarkup {
@@ -31,6 +32,7 @@ impl std::fmt::Display for SnlMarkup {
             .field("markup_content", &self.markup_content)
             .field("pattern_arguments", &self.pattern_arguments)
             .field("original_content", &self.original_content)
+            .field("latex", &self.latex)
             .finish()
     }
 }
@@ -59,6 +61,8 @@ impl SnlMarkup {
         };
         let mut original_content =
             markup_content[..(pattern_command_offset_range.start().index())].to_string();
+        let mut latex = original_content.clone();
+        latex += "\\pattern{";
         match pattern_arguments.len() {
             0 => {
                 original_content +=
@@ -68,12 +72,19 @@ impl SnlMarkup {
                 let first = pattern_arguments.first().unwrap();
                 original_content += &markup_content
                     [(lcurl_offset.index() + 1)..first.command_offset_range.start().index()];
+                latex += &markup_content
+                    [(lcurl_offset.index() + 1)..first.command_offset_range.start().index()];
 
                 // Handle content between pattern arguments
                 for window in pattern_arguments.windows(2) {
                     let current = &window[0];
                     let next = &window[1];
                     original_content += &current.value_content;
+                    latex += &format!(
+                        "\\patternArgument{{{}}}{{{}}}",
+                        current.key_ident.data(),
+                        &current.value_content
+                    );
                     original_content +=
                         &markup_content[current.value_curled_offset_range.end().index()
                             ..next.command_offset_range.start().index()];
@@ -87,6 +98,7 @@ impl SnlMarkup {
         }
 
         original_content += &markup_content[(rcurl_offset.index() + 1)..];
+        latex += &markup_content[(rcurl_offset.index() + 1)..];
         Ok(Self {
             markup_content,
             pattern_command_offset_range,
@@ -95,6 +107,7 @@ impl SnlMarkup {
             pattern_arguments_map,
             rcurl_offset,
             original_content,
+            latex,
         })
     }
 }
@@ -180,6 +193,7 @@ mod tests {
                     markup_content: "π { hello }",
                     pattern_arguments: [],
                     original_content: " hello ",
+                    latex: "\\pattern{",
                 }"#]],
         );
         t(
@@ -190,6 +204,7 @@ mod tests {
                     markup_content: "π    { test }",
                     pattern_arguments: [],
                     original_content: " test ",
+                    latex: "\\pattern{",
                 }"#]],
         );
         t(
@@ -203,6 +218,7 @@ mod tests {
                         `ropd = 2`,
                     ],
                     original_content: "1 + 2",
+                    latex: "\\pattern{\\patternArgument{lopd}{1}",
                 }"#]],
         );
     }
