@@ -1,5 +1,6 @@
 use super::*;
 use crate::scheme::sparse::VdLeanTranspilationSparseScheme;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
@@ -16,6 +17,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         &[],
         &[],
         models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
     );

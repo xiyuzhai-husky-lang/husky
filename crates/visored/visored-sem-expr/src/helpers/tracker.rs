@@ -50,6 +50,7 @@ use visored_syn_expr::{
         VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap, VdSynSentenceTokenIdxRangeMap,
     },
     sentence::VdSynSentenceArena,
+    vibe::VdSynExprVibe,
 };
 use visored_term::ty::table::VdItemPathZfcTypeTable;
 
@@ -104,6 +105,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &VdModels,
+        vibe: VdSynExprVibe,
         db: &EternerDb,
     ) -> Self {
         let VdSynExprTracker {
@@ -125,13 +127,21 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             sentence_range_map: syn_sentence_range_map,
             stmt_range_map: syn_stmt_range_map,
             division_range_map: syn_division_range_map,
+            let_clause_resolutions: syn_let_clause_resolutions,
             symbol_local_defn_storage: syn_symbol_local_defn_storage,
             symbol_resolution_table: syn_symbol_resolution_table,
             root_entity_tree_node,
             stmt_entity_tree_node_map: syn_stmt_entity_tree_node_map,
             division_entity_tree_node_map: syn_division_entity_tree_node_map,
             output: syn_output,
-        } = VdSynExprTracker::new(input, token_annotations, space_annotations, models, db);
+        } = VdSynExprTracker::new(
+            input,
+            token_annotations,
+            space_annotations,
+            models,
+            vibe,
+            db,
+        );
         let item_path_zfc_ty_table = VdItemPathZfcTypeTable::new_standard(db);
         let default_global_dispatch_table =
             VdDefaultGlobalDispatchTable::from_standard_lisp_csv_file_dir(db);
@@ -148,6 +158,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             syn_stmt_arena.as_arena_ref(),
             syn_division_arena.as_arena_ref(),
             &syn_expr_range_map,
+            &syn_let_clause_resolutions,
             &syn_symbol_local_defn_storage,
             &syn_symbol_resolution_table,
             &item_path_zfc_ty_table,

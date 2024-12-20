@@ -7,6 +7,7 @@ use visored_mir_expr::{
     expr::VdMirExprData, helpers::tracker::VdMirExprTracker, stmt::VdMirStmtData,
 };
 use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 use visored_tactics::tactics::ring::{tracker::*, *};
 
 fn main() {
@@ -48,7 +49,14 @@ fn ring_tactics() {
             token_storage,
             output: stmts,
             ..
-        } = VdMirExprTracker::new(input, &token_annotations, &space_annotations, models, db);
+        } = VdMirExprTracker::new(
+            input,
+            &token_annotations,
+            &space_annotations,
+            models,
+            VdSynExprVibe::ROOT_CNL,
+            db,
+        );
         let stmt = stmts.last().unwrap();
         let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
             unreachable!()

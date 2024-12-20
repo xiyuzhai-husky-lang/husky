@@ -1,3 +1,5 @@
+use visored_syn_expr::vibe::VdSynExprVibe;
+
 use super::*;
 use crate::scheme::dense::VdLeanTranspilationDenseScheme;
 
@@ -16,6 +18,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         &[],
         &[],
         models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
     );
@@ -152,6 +155,7 @@ fn latex_shorts_to_lean_works() {
             &[],
             &[],
             models,
+            VdSynExprVibe::ROOT_CNL,
             db,
             &VdLeanTranspilationDenseScheme,
         );

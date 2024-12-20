@@ -10,6 +10,7 @@ use latex_prelude::{
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
@@ -26,6 +27,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         &[],
         &[],
         models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
     );

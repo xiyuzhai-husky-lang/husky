@@ -20,6 +20,7 @@ fn t(
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let vibe = VdSynExprVibe::ROOT_CNL;
     let tracker = VdSynExprTracker::new(
         LxFormulaInput {
             specs_dir: dev_paths.specs_dir(),
@@ -29,7 +30,8 @@ fn t(
         token_annotations,
         space_annotations,
         models,
-        &db,
+        vibe,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }

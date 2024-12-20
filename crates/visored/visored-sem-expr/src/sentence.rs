@@ -41,7 +41,7 @@ impl ToVdSem<VdSemSentenceIdxRange> for VdSynSentenceIdxRange {
 
 impl<'a> VdSemExprBuilder<'a> {
     fn build_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSemSentenceData {
-        match self.syn_sentence_arena()[sentence] {
+        match *self.syn_sentence_arena()[sentence].data() {
             VdSynSentenceData::Clauses { clauses, end } => VdSemSentenceData::Clauses {
                 clauses: clauses.to_vd_sem(self),
                 end: end.to_vd_sem(self),
