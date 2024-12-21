@@ -1,15 +1,10 @@
 mod error;
 mod parser;
-mod search;
 
-use self::{
-    error::{SnlMarkupError, SnlMarkupResult},
-    search::search_pattern_rec,
-};
+use self::error::{SnlMarkupError, SnlMarkupResult};
 use eterned::{attach::with_attached_eterner_db, db::EternerDb};
 use husky_text_protocol::offset::{TextOffset, TextOffsetRange};
 use parser::SnlMarkupParser;
-use search::search_for_outstanding_rcurl;
 use serde::{Deserialize, Serialize};
 use smallvec::{smallvec, SmallVec};
 use snl_prelude::coword::{SnlIdent, SnlIdentMap};
