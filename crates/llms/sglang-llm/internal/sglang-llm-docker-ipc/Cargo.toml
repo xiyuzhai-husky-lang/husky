@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+serde_json = { version = "1.0.127", features = ["preserve_order"] }
 sglang-llm-prelude = { path = "../sglang-llm-prelude" }
 sglang-llm-ffi = { path = "../sglang-llm-ffi" }
