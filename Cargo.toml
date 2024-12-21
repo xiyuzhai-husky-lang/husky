@@ -46,7 +46,8 @@ members = [
     "registry/*",
     "playground/learn-rusqlite",
     "playground/egui/*",
-    "playground/try-py-ffi-in-rs", "playground/test-sealed",
+    "playground/try-py-ffi-in-rs",
+    "playground/test-sealed",
 ]
 resolver = "2"
 
@@ -126,7 +127,6 @@ env_logger = "0.10"
 env_proxy = "0.4"
 epaint = { git = "https://github.com/xiyuzhai-husky-lang/egui.git" }
 expect-test = "1.5.0"
-force-send-sync = "1.1.0"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
     "sink",
