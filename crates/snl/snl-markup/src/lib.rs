@@ -176,7 +176,7 @@ impl<'de> Deserialize<'de> for SnlMarkup {
         let markup = with_attached_eterner_db(|db| {
             SnlMarkup::try_from_string(s, db).map_err(|e| serde::de::Error::custom(e.to_string()))
         })
-        .unwrap()?;
+        .expect("No eterner db attached")?;
         Ok(markup)
     }
 }
