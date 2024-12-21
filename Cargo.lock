@@ -3572,12 +3572,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
 
 [[package]]
-name = "force-send-sync"
-version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32688dcc448aa684426ecc398f9af78c55b0769515ccd12baa565daf6f32feb6"
-
-[[package]]
 name = "foreign-types"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -13292,6 +13286,7 @@ dependencies = [
 name = "sglang-llm"
 version = "0.1.0"
 dependencies = [
+ "serde_json",
  "sglang-llm-docker-ipc",
  "sglang-llm-pixi-ipc",
  "sglang-llm-prelude",
@@ -13301,6 +13296,7 @@ dependencies = [
 name = "sglang-llm-docker-ipc"
 version = "0.1.0"
 dependencies = [
+ "serde_json",
  "sglang-llm-ffi",
  "sglang-llm-prelude",
 ]
@@ -13309,6 +13305,8 @@ dependencies = [
 name = "sglang-llm-ffi"
 version = "0.1.0"
 dependencies = [
+ "lazy_static 1.5.0",
+ "pyo3",
  "sglang-llm-prelude",
 ]
 
@@ -13643,7 +13641,6 @@ dependencies = [
  "disk-cache",
  "eterned",
  "expect-test",
- "force-send-sync",
  "husky-path-utils",
  "husky-print-utils",
  "husky-pyo3-utils",

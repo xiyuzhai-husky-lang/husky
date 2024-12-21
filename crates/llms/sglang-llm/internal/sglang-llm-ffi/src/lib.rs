@@ -1,3 +1,5 @@
+pub mod chat;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Model {
     Qwen2,

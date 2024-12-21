@@ -2,20 +2,28 @@ mod subprocess;
 
 use self::subprocess::SglangLlmSubprocess;
 
-#[test]
-fn add_works() {
-    pub fn add(left: u64, right: u64) -> u64 {
+impl SglangLlmSubprocess {
+    pub fn generate_batch(&self, prompts: Vec<String>) -> Vec<String> {
         // Example: Send numbers to container program for addition
-        let numbers = vec!["5", "3"];
 
         let mut subprocess = SglangLlmSubprocess::new();
-        subprocess.write_line(numbers.join(" "));
+        subprocess.write_line(serde_json::to_string(&prompts).unwrap());
 
         // Read result from container's stdout
         let line = subprocess.read_line().unwrap();
         // Only print lines that contain numeric results
-        line.trim().parse().unwrap()
+        serde_json::from_str(&line).unwrap()
     }
+}
 
-    assert_eq!(add(5, 3), 8);
+#[test]
+fn add_works() {
+    let subprocess = SglangLlmSubprocess::new();
+    println!(
+        "{:?}",
+        subprocess.generate_batch(vec![
+            "Why Soifon hates Urahara?".to_string(),
+            "How is Ywach defeated?".to_string()
+        ])
+    );
 }
