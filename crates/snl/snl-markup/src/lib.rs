@@ -88,17 +88,27 @@ impl SnlMarkup {
                     original_content +=
                         &markup_content[current.value_curled_offset_range.end().index()
                             ..next.command_offset_range.start().index()];
+                    latex += &markup_content[current.value_curled_offset_range.end().index()
+                        ..next.command_offset_range.start().index()];
                 }
 
                 let last = pattern_arguments.last().unwrap();
                 original_content += &last.value_content;
+                latex += &format!(
+                    "\\patternArgument{{{}}}{{{}}}",
+                    last.key_ident.data(),
+                    &last.value_content
+                );
                 original_content += &markup_content
+                    [last.value_curled_offset_range.end().index()..rcurl_offset.index()];
+                latex += &markup_content
                     [last.value_curled_offset_range.end().index()..rcurl_offset.index()];
             }
         }
 
         original_content += &markup_content[(rcurl_offset.index() + 1)..];
         latex += &markup_content[(rcurl_offset.index() + 1)..];
+        latex += "}";
         Ok(Self {
             markup_content,
             pattern_command_offset_range,
@@ -193,7 +203,7 @@ mod tests {
                     markup_content: "π { hello }",
                     pattern_arguments: [],
                     original_content: " hello ",
-                    latex: "\\pattern{",
+                    latex: "\\pattern{}",
                 }"#]],
         );
         t(
@@ -204,7 +214,7 @@ mod tests {
                     markup_content: "π    { test }",
                     pattern_arguments: [],
                     original_content: " test ",
-                    latex: "\\pattern{",
+                    latex: "\\pattern{}",
                 }"#]],
         );
         t(
@@ -218,7 +228,7 @@ mod tests {
                         `ropd = 2`,
                     ],
                     original_content: "1 + 2",
-                    latex: "\\pattern{\\patternArgument{lopd}{1}",
+                    latex: "\\pattern{\\patternArgument{lopd}{1} + \\patternArgument{ropd}{2}}",
                 }"#]],
         );
     }
