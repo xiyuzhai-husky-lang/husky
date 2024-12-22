@@ -15,7 +15,7 @@ pub enum GeminiError {
         error: serde_json::Error,
         response_text: String,
     },
-    #[error("API error: {status} ({code}): {message}")]
+    #[error("API error: code = {code}, status = {status}, message = {message}")]
     ApiError {
         code: i32,
         message: String,
