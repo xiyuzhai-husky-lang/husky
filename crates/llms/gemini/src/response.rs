@@ -30,30 +30,30 @@ pub struct Candidate {
 
 // Add new response types
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct GeminiErrorResponse {
-    pub error: GeminiApiError,
+pub struct GeminiErrorRawResponse {
+    pub error: GeminiApiRawError,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct GeminiApiError {
+pub struct GeminiApiRawError {
     pub code: i32,
     pub message: String,
     pub status: String,
 }
 
-pub fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiRawResponse> {
+pub fn parse_response_result(
+    response_bytes: &[u8],
+) -> GeminiResult<Result<GeminiRawResponse, GeminiErrorRawResponse>> {
     // First try to parse as an error response
-    if let Ok(error_response) = serde_json::from_slice::<GeminiErrorResponse>(response_bytes) {
-        return Err(crate::error::GeminiError::ApiError {
-            code: error_response.error.code,
-            message: error_response.error.message,
-            status: error_response.error.status,
-        });
+    if let Ok(error_response) = serde_json::from_slice::<GeminiErrorRawResponse>(response_bytes) {
+        return Ok(Err(error_response));
     }
 
     // If not an error, try to parse as success response
-    serde_json::from_slice(response_bytes).map_err(|error| GeminiError::ResponseParseFailed {
-        error,
-        response_text: String::from_utf8_lossy(response_bytes).to_string(),
-    })
+    serde_json::from_slice(response_bytes)
+        .map(Ok)
+        .map_err(|error| GeminiError::ResponseParseFailed {
+            error,
+            response_text: String::from_utf8_lossy(response_bytes).to_string(),
+        })
 }
