@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use disk_cache::error::DiskCacheError;
 use thiserror::Error;
 
@@ -18,6 +20,8 @@ pub enum SglangError {
         message: String,
         status: String,
     },
+    #[error("Invalid cache directory: {0}")]
+    InvalidCacheDir(PathBuf),
 }
 
 pub type SglangResult<T> = Result<T, SglangError>;
