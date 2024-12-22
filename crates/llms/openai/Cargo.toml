@@ -19,6 +19,7 @@ thiserror.workspace = true
 tokio.workspace = true
 # abstractions
 disk-cache.workspace = true
+enum-index.workspace = true
 eterned.workspace = true
 usage-cap.workspace = true
 # llms

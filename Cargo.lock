@@ -9933,6 +9933,7 @@ name = "openai"
 version = "0.1.0"
 dependencies = [
  "disk-cache",
+ "enum-index",
  "eterned",
  "husky-print-utils",
  "lazy_static 1.5.0",
