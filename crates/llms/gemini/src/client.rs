@@ -99,7 +99,7 @@ impl<'db> GeminiClient<'db> {
                 }
                 Err(e) => match e.error.status.as_str() {
                     "RESOURCE_EXHAUSTED" => {
-                        println!("RESOURCE_EXHAUSTED, retrying...");
+                        tracing::info!("RESOURCE_EXHAUSTED, retrying in {:?}...", self.retry_delay);
                         tokio::time::sleep(tokio::time::Duration::from(self.retry_delay)).await;
                         None
                     }
