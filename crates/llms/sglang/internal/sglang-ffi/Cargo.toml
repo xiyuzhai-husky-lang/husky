@@ -1,5 +1,5 @@
 [package]
-name = "sglang-llm-ffi"
+name = "sglang-ffi"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,4 +7,4 @@ edition = "2021"
 lazy_static = "1.5.0"
 pyo3 = { version = "0.23.3", features = ["auto-initialize"] }
 # internal
-sglang-llm-prelude = { path = "../sglang-llm-prelude" }
+sglang-prelude = { path = "../sglang-prelude" }

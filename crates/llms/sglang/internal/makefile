@@ -1,4 +1,4 @@
-CONTAINER_NAME = sglang-llm-qwen2-7b-instruct-rs-ffi
+CONTAINER_NAME = sglang-qwen2-7b-instruct-rs-ffi
 
 create-venv:
 	python3 -m venv .venv

@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "sglang-llm-prelude"
+name = "sglang-prelude"
 version = "0.1.0"

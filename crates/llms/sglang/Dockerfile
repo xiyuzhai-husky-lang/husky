@@ -45,7 +45,7 @@ RUN python3 -m venv .venv && \
     pip install "sglang[all]" --find-links https://flashinfer.ai/whl/cu124/torch2.4/flashinfer/
 
 # For the build command later
-RUN cd sglang-llm-docker-ipc && /root/.cargo/bin/cargo build --release
+RUN cd sglang-docker-ipc && /root/.cargo/bin/cargo build --release
 
 # Run the script
-CMD ["/bin/bash", "-c", "source .venv/bin/activate && ./sglang-llm-docker-ipc/target/release/sglang-llm-docker-ipc"]
+CMD ["/bin/bash", "-c", "source .venv/bin/activate && ./sglang-docker-ipc/target/release/sglang-docker-ipc"]
