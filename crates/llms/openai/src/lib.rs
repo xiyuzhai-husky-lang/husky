@@ -1,6 +1,7 @@
 pub mod cap;
 pub mod error;
 mod ext;
+pub mod model;
 pub mod request;
 pub mod response;
 
