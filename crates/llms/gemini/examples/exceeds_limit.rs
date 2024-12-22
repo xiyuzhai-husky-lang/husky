@@ -1,10 +1,13 @@
 use eterned::db::EternerDb;
 use gemini::client::GeminiClient;
 use std::path::PathBuf;
+use tempfile::TempDir;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let db = EternerDb::default();
-    let client = GeminiClient::new(&db, PathBuf::from("gemini_cache")).unwrap();
+    let temp_dir = TempDir::new().unwrap();
+    let cache_path = temp_dir.path().join("gemini_responses.json");
+    let client = GeminiClient::new(&db, cache_path).unwrap();
     for i in 0..20 {
         let response = client
             .generate_text("Write a story about a magic backpack.")
