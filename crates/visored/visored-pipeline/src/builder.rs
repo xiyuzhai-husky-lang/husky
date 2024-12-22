@@ -1,14 +1,14 @@
 use std::sync::Arc;
 
 use crate::*;
-use all_llms::AllLlms;
+use all_llms::AllLlmsClient;
 use eterned::db::EternerDb;
 use input::VdPipelineInput;
 
 pub struct VdPipelineBuilder<'a, 'db> {
     config: &'a VdPipelineConfig,
     input: &'a VdPipelineInput,
-    llm_client: AllLlms<'db>,
+    llm_client: AllLlmsClient<'db>,
 }
 
 impl<'a, 'db> VdPipelineBuilder<'a, 'db> {
@@ -27,7 +27,7 @@ impl<'a, 'db> VdPipelineBuilder<'a, 'db> {
         Self {
             config,
             input,
-            llm_client: AllLlms::new(db, cache_dir).unwrap(),
+            llm_client: AllLlmsClient::new(db, cache_dir).unwrap(),
         }
     }
 }
