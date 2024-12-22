@@ -3870,7 +3870,7 @@
             "husky-print-utils",
             "is-llm",
             "mistral-llm",
-            "openai-llm",
+            "openai-api",
             "pytransformers-llm",
             "thiserror",
         ],
@@ -3894,8 +3894,8 @@
         ],
     },
     PackageSummary {
-        name: "openai-llm",
-        relative_path: "crates/llms/openai-llm",
+        name: "openai-api",
+        relative_path: "crates/llms/openai-api",
         dependencies: [
             "disk-cache",
             "eterned",
