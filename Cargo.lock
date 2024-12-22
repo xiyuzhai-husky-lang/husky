@@ -194,6 +194,7 @@ name = "all-llms"
 version = "0.1.0"
 dependencies = [
  "eterned",
+ "gemini-api",
  "husky-print-utils",
  "is-llm",
  "mistral-llm",
