@@ -1,0 +1,35 @@
+scripts/update_expect_quick.sh
+
+running 1 test
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: ==========
+SGLANG-LLM-SUBPROCESS: == CUDA ==
+SGLANG-LLM-SUBPROCESS: ==========
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: CUDA Version 12.6.0
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+SGLANG-LLM-SUBPROCESS: By pulling and using the container, you accept the terms and conditions of this license:
+SGLANG-LLM-SUBPROCESS: https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: sglang-llm-ipc is running
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: ==========
+SGLANG-LLM-SUBPROCESS: == CUDA ==
+SGLANG-LLM-SUBPROCESS: ==========
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: CUDA Version 12.6.0
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+SGLANG-LLM-SUBPROCESS: By pulling and using the container, you accept the terms and conditions of this license:
+SGLANG-LLM-SUBPROCESS: https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+SGLANG-LLM-SUBPROCESS: 
+SGLANG-LLM-SUBPROCESS: sglang-llm-ipc is running
