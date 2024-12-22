@@ -1,5 +1,5 @@
 use eterned::db::EternerDb;
-use gemini::client::GeminiClient;
+use gemini::{client::GeminiClient, model::GeminiModel};
 use std::path::PathBuf;
 use tempfile::TempDir;
 use tracing::{error, info, warn};
@@ -14,26 +14,27 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .init();
 
     let db = EternerDb::default();
-    let temp_dir = TempDir::new().map_err(|e| {
+    let cache_dir = &TempDir::new().map_err(|e| {
         error!("Failed to create temp directory: {}", e);
         e
     })?;
 
-    let cache_path = temp_dir.path().join("gemini_responses.json");
-    let client = GeminiClient::new(&db, cache_path).map_err(|e| {
+    let client = GeminiClient::new(&db, cache_dir.path()).map_err(|e| {
         error!("Failed to create Gemini client: {}", e);
         e
     })?;
 
+    let model = GeminiModel::Gemini1_5Flash;
+
     for i in 0..20 {
         info!("Generating response for i={}", i);
-        let response = match client.generate_text(&format!(
-            "What is {i} + {i} equal to? Just give the number."
-        )) {
+        let response = match client.generate_text(
+            model,
+            &format!("What is {i} + {i} equal to? Just give the number."),
+        ) {
             Ok(resp) => resp,
             Err(e) => {
-                error!("Failed to generate text for i={}: {}", i, e);
-                continue;
+                panic!("Failed to generate text for i={}: {}", i, e);
             }
         };
 

@@ -3209,6 +3209,7 @@ name = "gemini"
 version = "0.1.0"
 dependencies = [
  "disk-cache",
+ "enum-index",
  "eterned",
  "lazy_static 1.5.0",
  "reqwest",

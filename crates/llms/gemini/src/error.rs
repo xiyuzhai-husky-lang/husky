@@ -1,4 +1,5 @@
 use disk_cache::error::DiskCacheError;
+use std::path::PathBuf;
 use thiserror::Error;
 use usage_cap::error::UsageCapError;
 
@@ -21,6 +22,8 @@ pub enum GeminiError {
         message: String,
         status: String,
     },
+    #[error("Invalid cache directory: {0}")]
+    InvalidCacheDir(PathBuf),
 }
 
 pub type GeminiResult<T> = Result<T, GeminiError>;
