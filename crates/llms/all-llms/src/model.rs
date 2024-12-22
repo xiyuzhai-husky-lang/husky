@@ -10,6 +10,11 @@ pub enum AllLlmModel {
 }
 
 impl AllLlmModel {
+    pub const GPT4O: Self = Self::Openai(OpenaiModel::Gpt4o);
+    pub const GEMINI_1_5_FLASH: Self = Self::Gemini(GeminiModel::Gemini1_5Flash);
+}
+
+impl AllLlmModel {
     pub fn as_str(&self) -> &str {
         match self {
             AllLlmModel::Openai(model) => model.as_str(),

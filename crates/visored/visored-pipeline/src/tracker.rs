@@ -1,5 +1,5 @@
 use crate::{builder::VdPipelineBuilder, input::VdPipelineInput, VdPipelineConfig};
-use all_llms::AllLlms;
+use all_llms::AllLlmsClient;
 use eterned::db::EternerDb;
 use std::sync::Arc;
 

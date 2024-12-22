@@ -25,7 +25,8 @@ impl<'db> GeminiClient<'db> {
             if !cache_dir.is_dir() {
                 return Err(GeminiError::InvalidCacheDir(cache_dir.to_owned()));
             }
-            DiskCache::new(db, cache_dir.join(model.as_str())).map_err(Into::into)
+            DiskCache::new(db, cache_dir.join(format!("{}.json", model.as_str())))
+                .map_err(Into::into)
         })?;
 
         Ok(Self {
