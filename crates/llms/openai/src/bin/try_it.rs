@@ -3,7 +3,7 @@ use openai_api_rs::v1::chat_completion::{self, ChatCompletionRequest};
 use openai_api_rs::v1::common::GPT4_O;
 use std::env;
 
-// TODO: use `openai-api`
+// TODO: use `openai`
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let api_key = env::var("OPENAI_API_KEY").unwrap().to_string();

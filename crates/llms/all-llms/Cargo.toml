@@ -19,7 +19,7 @@ eterned.workspace = true
 is-llm.workspace = true
 mistral-llm.workspace = true
 gemini.workspace = true
-openai-api.workspace = true
+openai.workspace = true
 # utils
 husky-print-utils.workspace = true
 

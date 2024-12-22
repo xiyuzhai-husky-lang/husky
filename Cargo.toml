@@ -396,7 +396,7 @@ lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
 is-llm = { path = "crates/llms/is-llm" }
 all-llms = { path = "crates/llms/all-llms" }
-openai-api = { path = "crates/llms/openai-api" }
+openai = { path = "crates/llms/openai" }
 gemini = { path = "crates/llms/gemini" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
