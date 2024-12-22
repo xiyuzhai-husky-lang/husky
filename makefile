@@ -3,6 +3,7 @@ examples_dir=examples
 tests_dir=tests
 
 include examples/makefile
+include sglang/makefile
 
 default:
 
