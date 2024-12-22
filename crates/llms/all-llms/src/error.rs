@@ -7,6 +7,8 @@ pub enum AnyLlmError {
     OpenAi(#[from] OpenaiError),
     #[error("Gemini error: {0}")]
     Gemini(#[from] GeminiError),
+    #[error("Invalid cache dir: {0}")]
+    InvalidCacheDir(#[from] std::io::Error),
 }
 
 pub type AllLlmsResult<T> = Result<T, AnyLlmError>;

@@ -1,7 +1,7 @@
 mod error;
 pub mod model;
 
-use error::AllLlmsResult;
+use error::{AllLlmsResult, AnyLlmError};
 use eterned::db::EternerDb;
 use gemini::client::GeminiClient;
 use openai::OpenaiClient;
@@ -14,13 +14,29 @@ pub struct AllLlms<'db> {
 
 impl<'db> AllLlms<'db> {
     pub fn new(db: &'db EternerDb, cache_dir: PathBuf) -> AllLlmsResult<Self> {
-        let oai_cache_path = cache_dir.join("openai");
-        let gemini_cache_path = &cache_dir.join("gemini");
-        assert!(oai_cache_path.parent().unwrap().exists());
-        assert!(gemini_cache_path.parent().unwrap().exists());
+        assert!(cache_dir.exists());
+        assert!(cache_dir.is_dir());
+        let openai_cache_dir = &cache_dir.join("openai");
+        if !openai_cache_dir.exists() {
+            std::fs::create_dir_all(openai_cache_dir)
+                .map_err(|e| AnyLlmError::InvalidCacheDir(e))?;
+        }
+        if !openai_cache_dir.is_dir() {
+            todo!()
+            // return Err(AllLlmsError::InvalidCacheDir(gemini_cache_dir.to_owned()));
+        }
+        let gemini_cache_dir = &cache_dir.join("gemini");
+        if !gemini_cache_dir.exists() {
+            std::fs::create_dir_all(gemini_cache_dir)
+                .map_err(|e| AnyLlmError::InvalidCacheDir(e))?;
+        }
+        if !gemini_cache_dir.is_dir() {
+            todo!()
+            // return Err(AllLlmsError::InvalidCacheDir(gemini_cache_dir.to_owned()));
+        }
         Ok(Self {
-            openai: OpenaiClient::new(db, oai_cache_path)?,
-            gemini: GeminiClient::new(db, gemini_cache_path)?,
+            openai: OpenaiClient::new(db, openai_cache_dir)?,
+            gemini: GeminiClient::new(db, gemini_cache_dir)?,
         })
     }
 }
