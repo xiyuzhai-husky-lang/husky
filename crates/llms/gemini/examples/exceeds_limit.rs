@@ -7,7 +7,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = GeminiClient::new(&db, PathBuf::from("gemini_cache")).unwrap();
     for i in 0..20 {
         let response = client
-            .generate_content("Write a story about a magic backpack.")
+            .generate_text("Write a story about a magic backpack.")
             .unwrap();
         let response_str = response.to_string();
         if response_str.len() > 50 {

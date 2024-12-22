@@ -11755,41 +11755,13 @@ dependencies = [
 name = "sglang"
 version = "0.1.0"
 dependencies = [
+ "disk-cache",
+ "eterned",
+ "reqwest",
+ "serde",
  "serde_json",
- "sglang-docker-ipc",
- "sglang-pixi-ipc",
- "sglang-prelude",
+ "thiserror",
 ]
-
-[[package]]
-name = "sglang-docker-ipc"
-version = "0.1.0"
-dependencies = [
- "serde_json",
- "sglang-ffi",
- "sglang-prelude",
-]
-
-[[package]]
-name = "sglang-ffi"
-version = "0.1.0"
-dependencies = [
- "lazy_static 1.5.0",
- "pyo3",
- "sglang-prelude",
-]
-
-[[package]]
-name = "sglang-pixi-ipc"
-version = "0.1.0"
-dependencies = [
- "sglang-ffi",
- "sglang-prelude",
-]
-
-[[package]]
-name = "sglang-prelude"
-version = "0.1.0"
 
 [[package]]
 name = "sha1"

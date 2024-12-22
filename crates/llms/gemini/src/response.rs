@@ -1,15 +1,31 @@
-use crate::{common::Content, *};
+use crate::{raw::GeminiRawContent, *};
+use request::GeminiRequest;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct GeminiResponse {
+#[derive(Deserialize)]
+pub struct GeminiRawResponse {
     pub candidates: Vec<Candidate>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
+pub enum GeminiResponse {
+    TextGeneration { text: String },
+}
+
+impl From<(GeminiRawResponse, &GeminiRequest)> for GeminiResponse {
+    fn from((raw, request): (GeminiRawResponse, &GeminiRequest)) -> Self {
+        match request {
+            GeminiRequest::TextGeneration { .. } => GeminiResponse::TextGeneration {
+                text: raw.candidates[0].content.parts[0].text.clone(),
+            },
+        }
+    }
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Candidate {
-    pub content: Content,
+    pub content: GeminiRawContent,
 }
 
 // Add new response types
@@ -25,7 +41,7 @@ pub struct GeminiApiError {
     pub status: String,
 }
 
-fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiResponse> {
+fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiRawResponse> {
     // First try to parse as an error response
     if let Ok(error_response) = serde_json::from_slice::<GeminiErrorResponse>(response_bytes) {
         return Err(crate::error::GeminiError::ApiError {

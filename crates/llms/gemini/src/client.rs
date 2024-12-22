@@ -1,7 +1,9 @@
-use crate::{request::GeminiRequest, response::GeminiResponse, *};
+use crate::{request::GeminiRawRequest, response::GeminiRawResponse, *};
 use disk_cache::DiskCache;
 use eterned::db::EternerDb;
+use request::GeminiRequest;
 use reqwest::Client;
+use response::GeminiResponse;
 use std::path::PathBuf;
 use usage_cap::UsageCap;
 
@@ -21,27 +23,29 @@ impl<'db> GeminiClient<'db> {
         })
     }
 
-    fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiResponse> {
+    fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiRawResponse> {
         serde_json::from_slice(response_bytes).map_err(|error| GeminiError::ResponseParseFailed {
             error,
             response_text: String::from_utf8_lossy(response_bytes).to_string(),
         })
     }
 
-    pub fn generate_content(&self, prompt: impl Into<String>) -> GeminiResult<String> {
-        let prompt = prompt.into();
-        let min_usage = prompt.len();
-        let request = GeminiRequest {
-            contents: vec![Content {
-                parts: vec![Part { text: prompt }],
-            }],
-        };
+    pub fn generate_text(&self, input: impl Into<String>) -> GeminiResult<String> {
+        match self.generate(GeminiRequest::TextGeneration {
+            input: input.into(),
+        })? {
+            GeminiResponse::TextGeneration { text } => Ok(text),
+        }
+    }
+
+    pub fn generate(&self, request: GeminiRequest) -> GeminiResult<GeminiResponse> {
+        let min_usage = request.min_usage();
         let response =
             self.cache
                 .get_or_call(request, |request| -> GeminiResult<GeminiResponse> {
                     match try_call_gemini::<GeminiResult<GeminiResponse>>(min_usage, || {
                         let rt = tokio::runtime::Runtime::new().unwrap();
-                        rt.block_on(self.generate_content_aux(request))
+                        rt.block_on(self.generate_aux(request))
                     })? {
                         Ok(result) => match result {
                             Ok(s) => Ok(s),
@@ -51,20 +55,18 @@ impl<'db> GeminiClient<'db> {
                     }
                 })?;
 
-        Ok(response.candidates[0].content.parts[0].text.clone())
+        Ok(response)
     }
 
-    async fn generate_content_aux(
-        &self,
-        request: &GeminiRequest,
-    ) -> (usize, GeminiResult<GeminiResponse>) {
-        let mut usage = request.contents[0].parts[0].text.len();
+    async fn generate_aux(&self, request: &GeminiRequest) -> (usize, GeminiResult<GeminiResponse>) {
+        let mut usage = 0;
+        let raw_request: GeminiRawRequest = request.into();
         let response = match self.client
             .post(format!(
                 "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={}",
                 self.api_key
             ))
-            .json(&request)
+            .json(&raw_request)
             .send()
             .await {
                 Ok(resp) => resp,
@@ -83,7 +85,7 @@ impl<'db> GeminiClient<'db> {
             Ok(resp) => {
                 usage +=
                     POST_CALL_USAGE_MULTIPLIER * resp.candidates[0].content.parts[0].text.len();
-                (usage, Ok(resp))
+                (usage, Ok((resp, request).into()))
             }
             Err(e) => (usage, Err(e)),
         }
