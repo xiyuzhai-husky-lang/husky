@@ -1,6 +1,6 @@
 use super::*;
 use attach::Attach;
-use disk_cache::{error::LlmCacheError, DiskCache};
+use disk_cache::{error::DiskCacheError, DiskCache};
 use eterned::db::EternerDb;
 use husky_pyo3_utils::py_module::py_module_from_path;
 use py_modules::get_constituent_parsing_module;

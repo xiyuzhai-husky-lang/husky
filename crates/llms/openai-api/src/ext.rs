@@ -5,24 +5,24 @@ pub use openai_api_rs::v1::common::GPT4_O;
 use crate::*;
 use tokio::runtime::Runtime;
 
-impl<'db> OpenaiApiClient<'db> {
-    pub(crate) fn complete_chat_ext(&self, request: ChatCompletionRequest) -> OaiResult<String> {
+impl<'db> OpenaiClient<'db> {
+    pub(crate) fn complete_chat_ext(&self, request: ChatCompletionRequest) -> OpenaiResult<String> {
         // Create a new tokio runtime
-        let rt = Runtime::new().map_err(|_| OaiError::ExtChatCompletion)?;
+        let rt = Runtime::new().map_err(|_| OpenaiError::ExtChatCompletion)?;
 
         // Block on the async chat completion request using tokio
         let Some(ref client_ext) = self.client_ext else {
-            return Err(OaiError::EnvApiKeyNotSet);
+            return Err(OpenaiError::EnvApiKeyNotSet);
         };
         let response = rt
             .block_on(client_ext.chat_completion(request))
-            .map_err(|_| OaiError::ExtChatCompletion)?;
+            .map_err(|_| OpenaiError::ExtChatCompletion)?;
 
         // Extract the message content from the first choice
         Ok(response
             .choices
             .first()
-            .ok_or(OaiError::NoChoicesReturned)?
+            .ok_or(OpenaiError::NoChoicesReturned)?
             .message
             .content
             .clone()

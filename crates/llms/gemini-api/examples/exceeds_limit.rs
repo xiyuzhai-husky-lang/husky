@@ -1,12 +1,14 @@
+use eterned::db::EternerDb;
 use gemini_api::client::GeminiClient;
+use std::path::PathBuf;
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = GeminiClient::new();
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let db = EternerDb::default();
+    let client = GeminiClient::new(&db, PathBuf::from("gemini_cache")).unwrap();
     for i in 0..20 {
         let response = client
             .generate_content("Write a story about a magic backpack.")
-            .await?;
+            .unwrap();
         let response_str = response.to_string();
         if response_str.len() > 50 {
             println!("{i}th response: {:.50}...", response_str);

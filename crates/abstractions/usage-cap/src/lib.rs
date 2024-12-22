@@ -1,21 +1,25 @@
 mod count_down;
 pub mod error;
 
-use self::{count_down::LlmCountDown, error::LlmCapError};
+use self::{count_down::UsageCountDown, error::UsageCapError};
 use error::LlmCapResult;
 use lazy_static::lazy_static;
 use std::sync::Mutex;
 
-pub struct LlmCap {
-    count_down: std::sync::Mutex<LlmCountDown>,
+pub struct UsageCap {
+    count_down: std::sync::Mutex<UsageCountDown>,
     post_call_usage_multiplier: usize,
 }
 
-impl LlmCap {
-    pub fn new(entity_name: &'static str, var_name: &'static str) -> Self {
+impl UsageCap {
+    pub fn new(
+        entity_name: &'static str,
+        var_name: &'static str,
+        post_call_usage_multiplier: usize,
+    ) -> Self {
         Self {
-            count_down: std::sync::Mutex::new(LlmCountDown::new(entity_name, var_name)),
-            post_call_usage_multiplier: 2,
+            count_down: std::sync::Mutex::new(UsageCountDown::new(entity_name, var_name)),
+            post_call_usage_multiplier,
         }
     }
 
@@ -24,12 +28,12 @@ impl LlmCap {
     }
 }
 
-impl LlmCap {
-    pub fn try_call_llm<R>(
+impl UsageCap {
+    pub fn try_use<R>(
         &self,
         min_usage: usize,
         f: impl FnOnce() -> (usize, R),
-    ) -> LlmCapResult<Result<R, (R, LlmCapError)>> {
+    ) -> LlmCapResult<Result<R, (R, UsageCapError)>> {
         use husky_print_utils::p;
         let mut count_down = self.count_down.lock().unwrap();
         count_down.try_count_down(min_usage)?;
@@ -61,7 +65,7 @@ fn llm_cap_works() {
     let original_var = std::env::var(var_name).ok();
     std::env::set_var(var_name, "3");
 
-    let cap = LlmCap::new(entity_name, var_name);
+    let cap = UsageCap::new(entity_name, var_name, 2);
 
     // Create a test function that increments the counter
     let test_fn = move || {
@@ -75,7 +79,7 @@ fn llm_cap_works() {
 
     // Try calling the function 5 times (should only work 3 times)
     for i in 0..5 {
-        let result = cap.try_call_llm(1, &test_fn);
+        let result = cap.try_use(1, &test_fn);
         match result {
             Ok(_) => (),
             Err(e) => {

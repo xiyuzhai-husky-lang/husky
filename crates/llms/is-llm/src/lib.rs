@@ -8,7 +8,7 @@ use self::{
     response::IsLlmResponse,
 };
 use attach::Attach;
-use disk_cache::{error::LlmCacheError, DiskCache};
+use disk_cache::{error::DiskCacheError, DiskCache};
 use request::{chat_completion::LlmChatCompletionRequest, LlmRequest};
 use response::{chat_completion::LlmChatCompletionResponse, LlmResponse};
 use serde::{Deserialize, Serialize};
@@ -25,7 +25,7 @@ pub trait IsLlm: IsLlmImpl {
 
 pub trait IsLlmImpl {
     type Db: Attach;
-    type Error: From<LlmCacheError> + From<LlmError> + Into<LlmError>;
+    type Error: From<DiskCacheError> + From<LlmError> + Into<LlmError>;
     type Request: IsLlmRequest + From<LlmRequest>;
     type Response: IsLlmResponse + Into<LlmResponse>;
     type ChatCompletionRequest: TryFrom<Self::Request>

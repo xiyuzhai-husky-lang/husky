@@ -5,22 +5,22 @@ pub mod request;
 pub mod response;
 
 use self::{error::*, request::*, response::*};
-use cap::try_call_llm;
+use cap::try_call_openai;
 use disk_cache::DiskCache;
 use eterned::db::EternerDb;
 use lazy_static::lazy_static;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
-use usage_cap::LlmCap;
+use usage_cap::UsageCap;
 
-pub struct OpenaiApiClient<'db> {
-    cache: DiskCache<&'db EternerDb, OaiRequest, OaiResponse>,
+pub struct OpenaiClient<'db> {
+    cache: DiskCache<&'db EternerDb, OpenaiRequest, OpenaiResponse>,
     /// None if the environment variable `OPENAI_API_KEY` is not set.
     client_ext: Option<ext::OpenAIClient>,
 }
 
-impl<'db> OpenaiApiClient<'db> {
-    pub fn new(db: &'db EternerDb, file_path: PathBuf) -> OaiResult<Self> {
+impl<'db> OpenaiClient<'db> {
+    pub fn new(db: &'db EternerDb, file_path: PathBuf) -> OpenaiResult<Self> {
         let api_key = std::env::var("OPENAI_API_KEY").ok();
         Ok(Self {
             cache: DiskCache::new(db, file_path)?,
@@ -32,18 +32,18 @@ impl<'db> OpenaiApiClient<'db> {
     }
 }
 
-impl<'db> OpenaiApiClient<'db> {
-    pub fn complete_chat(&self, prompt: String) -> OaiResult<String> {
+impl<'db> OpenaiClient<'db> {
+    pub fn complete_chat(&self, prompt: String) -> OpenaiResult<String> {
         let min_usage = prompt.len();
-        let request = OaiRequest::ChatCompletion(prompt);
-        let OaiResponse::ChatCompletion(response) =
+        let request = OpenaiRequest::ChatCompletion(prompt);
+        let OpenaiResponse::ChatCompletion(response) =
             self.cache
-                .get_or_call(request, |request| -> OaiResult<OaiResponse> {
-                    match try_call_llm::<OaiResult<String>>(min_usage, || {
+                .get_or_call(request, |request| -> OpenaiResult<OpenaiResponse> {
+                    match try_call_openai::<OpenaiResult<String>>(min_usage, || {
                         self.complete_chat_aux(request)
                     })? {
                         Ok(result) => match result {
-                            Ok(s) => Ok(OaiResponse::ChatCompletion(s)),
+                            Ok(s) => Ok(OpenaiResponse::ChatCompletion(s)),
                             Err(e) => Err(todo!()),
                         },
                         Err(e) => todo!(),
@@ -52,7 +52,7 @@ impl<'db> OpenaiApiClient<'db> {
         Ok(response)
     }
 
-    fn complete_chat_aux(&self, request: &OaiRequest) -> (usize, OaiResult<String>) {
+    fn complete_chat_aux(&self, request: &OpenaiRequest) -> (usize, OpenaiResult<String>) {
         let OaiRequestExt::ChatCompletion(request_ext) = request.ext() else {
             unreachable!()
         };
@@ -75,7 +75,7 @@ fn openai_client_works() {
     let cache_path = cargo_manifest_dir.join("cache/openai_client_works.json");
     assert!(cache_path.exists());
 
-    let client = OpenaiApiClient::new(db, cache_path).unwrap();
+    let client = OpenaiClient::new(db, cache_path).unwrap();
     let result = client.complete_chat("Hello, world!".to_string());
     assert!(result.is_ok(), "{}", result.unwrap_err());
 }

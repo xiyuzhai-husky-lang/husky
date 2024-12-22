@@ -1,13 +1,13 @@
 use crate::*;
-use disk_cache::error::LlmCacheError;
-use usage_cap::error::LlmCapError;
+use disk_cache::error::DiskCacheError;
+use usage_cap::error::UsageCapError;
 
 #[derive(Debug, thiserror::Error)]
-pub enum OaiError {
+pub enum OpenaiError {
     #[error("DiskCache error: {0}")]
-    DiskCache(#[from] LlmCacheError),
-    #[error("LlmCap error: {0}")]
-    Cap(#[from] LlmCapError),
+    DiskCache(#[from] DiskCacheError),
+    #[error("UsageCap error: {0}")]
+    UsageCap(#[from] UsageCapError),
     #[error("Environment variable OPENAI_API_KEY not set")]
     EnvApiKeyNotSet,
     #[error("OpenAI client error: {0}")]
@@ -18,4 +18,4 @@ pub enum OaiError {
     ExtChatCompletion,
 }
 
-pub type OaiResult<T> = Result<T, OaiError>;
+pub type OpenaiResult<T> = Result<T, OpenaiError>;

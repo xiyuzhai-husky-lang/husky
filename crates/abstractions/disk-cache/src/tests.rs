@@ -11,7 +11,7 @@ fn llm_cache_lock_works() {
         assert!(lock_file_path(&cache.path).exists());
         assert!(matches!(
             DiskCache::<(), (), ()>::new(db, path.clone()),
-            Err(LlmCacheError::CacheFileLockedByAnotherProcess)
+            Err(DiskCacheError::CacheFileLockedByAnotherProcess)
         ));
     }
     assert!(!lock_file_path(&path).exists());
@@ -24,7 +24,7 @@ fn llm_cache_file_save_works() {
     let path = temp_dir.path().join("cache.json");
     {
         let cache = DiskCache::<(), String, String>::new(db, path.clone()).unwrap();
-        cache.get_or_call::<LlmCacheError>("request".to_string(), |_| Ok("response".to_string()));
+        cache.get_or_call::<DiskCacheError>("request".to_string(), |_| Ok("response".to_string()));
     }
     {
         let cache = DiskCache::<(), String, String>::new(db, path.clone()).unwrap();
