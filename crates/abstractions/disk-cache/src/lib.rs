@@ -7,7 +7,7 @@ pub mod traits;
 
 use self::{
     entry::LlmCacheEntry,
-    error::{LlmCacheError, LlmCacheResult},
+    error::{DiskCacheError, DiskCacheResult},
     traits::{IsLlmCacheRequest, IsLlmCacheResponse},
 };
 use attach::Attach;
@@ -58,24 +58,24 @@ where
     /// let cache_path = temp_dir.path().join("cache.json");
     /// let cache: DiskCache<(), String, String> = DiskCache::new(db, cache_path).unwrap();
     /// ```
-    pub fn new(db: Db, path: PathBuf) -> LlmCacheResult<Self> {
+    pub fn new(db: Db, path: PathBuf) -> DiskCacheResult<Self> {
         // Create directory if it doesn't exist
         if let Some(parent) = path.parent() {
-            fs::create_dir_all(parent).map_err(|e| LlmCacheError::Io(path.clone(), e))?;
+            fs::create_dir_all(parent).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
         }
 
         // check lock file does not exist
         if lock_file_path(&path).exists() {
-            return Err(LlmCacheError::CacheFileLockedByAnotherProcess);
+            return Err(DiskCacheError::CacheFileLockedByAnotherProcess);
         }
 
         // create lock file
-        fs::File::create(lock_file_path(&path)).map_err(|e| LlmCacheError::Io(path.clone(), e))?;
+        fs::File::create(lock_file_path(&path)).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
 
         // Try to load existing cache
         let entries: Vec<LlmCacheEntry<Request, Response>> = if path.exists() {
             let contents =
-                fs::read_to_string(&path).map_err(|e| LlmCacheError::Io(path.clone(), e))?;
+                fs::read_to_string(&path).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
             db.attach(|| serde_json::from_str(&contents).unwrap_or_default())
         } else {
             Default::default()
@@ -111,7 +111,7 @@ where
         f: impl FnOnce(&Request) -> Result<Response, E>,
     ) -> Result<Response, E>
     where
-        E: From<LlmCacheError>,
+        E: From<DiskCacheError>,
     {
         if let Some(index) = self.indices.get(&request) {
             return Ok(self.entries.read().unwrap()[*index].response.clone());
@@ -126,7 +126,7 @@ where
         f: impl FnOnce(&Request) -> Result<Response, E>,
     ) -> Result<Response, E>
     where
-        E: From<LlmCacheError>,
+        E: From<DiskCacheError>,
     {
         let mut entries = self.entries.write().unwrap();
         // check again in case another thread has added the entry

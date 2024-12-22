@@ -1,5 +1,5 @@
 use crate::entry::LlmCacheEntry;
-use crate::error::LlmCacheResult;
+use crate::error::DiskCacheResult;
 use attach::Attach;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
@@ -53,7 +53,7 @@ where
         }
     }
 
-    pub fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> LlmCacheResult<()> {
+    pub fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> DiskCacheResult<()> {
         self.internal.as_ref().unwrap().save(entries)
     }
 }
@@ -64,7 +64,7 @@ where
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> LlmCacheResult<()> {
+    fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> DiskCacheResult<()> {
         self.sender
             .send(
                 self.db

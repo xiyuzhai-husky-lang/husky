@@ -3604,11 +3604,15 @@ dependencies = [
 name = "gemini-api"
 version = "0.1.0"
 dependencies = [
+ "disk-cache",
+ "eterned",
+ "lazy_static 1.5.0",
  "reqwest",
  "serde",
  "serde_json",
  "thiserror",
  "tokio",
+ "usage-cap",
 ]
 
 [[package]]

@@ -12,11 +12,16 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+lazy_static.workspace = true
 reqwest.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
 tokio.workspace = true
+# abstractions
+disk-cache.workspace = true
+eterned.workspace = true
+usage-cap.workspace = true
 
 [lints]
 workspace = true
