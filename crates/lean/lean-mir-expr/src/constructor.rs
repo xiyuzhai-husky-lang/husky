@@ -2,7 +2,7 @@ use crate::{
     expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
     helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
     item_defn::{
-        LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData,
+        LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData, LnItemDefnIdx,
         LnItemDefnIdxRange, LnItemDefnOrderedMap,
     },
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
@@ -83,6 +83,16 @@ impl LnMirExprConstructor {
         data: impl IntoIterator<Item = LnMirTacticData>,
     ) -> LnMirTacticIdxRange {
         self.tactic_arena.alloc_batch(data)
+    }
+
+    pub fn alloc_item_defn(
+        &mut self,
+        data: LnItemDefnData,
+        comment: LnItemDefnComment,
+    ) -> LnItemDefnIdx {
+        let item_defn = self.item_defn_arena.alloc_one(data);
+        self.item_defn_comments.insert_next(item_defn, comment);
+        item_defn
     }
 
     pub fn alloc_item_defns(

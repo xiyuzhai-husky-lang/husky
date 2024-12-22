@@ -57,27 +57,35 @@ fn basic_body_to_lean_works() {
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
             └─ group: `division`
-              └─ def: `h`
-                └─ tactics
-                  └─ tactic: `Exact { term: 0 }`
+              └─ group: `environment`
+                └─ def: `h`
+                  └─ tactics
+                    └─ tactic: `Exact { term: 0 }`
         "#]],
         &expect![[r#"
+            namespace Example1
             def h := by
-              exact ()"#]],
+              exact ()
+            end Example1
+        "#]],
     );
     t(
         models,
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
             └─ group: `division`
-              └─ def: `h`
-                ├─ item path: `ℝ`
-                └─ tactics
-                  └─ tactic: `Exact { term: 1 }`
+              └─ group: `environment`
+                └─ def: `h`
+                  ├─ item path: `ℝ`
+                  └─ tactics
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
+            namespace Example1
             def h(x : ℝ) := by
-              exact ()"#]],
+              exact ()
+            end Example1
+        "#]],
     );
     t(
         models,
