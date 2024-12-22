@@ -23,6 +23,7 @@ tracing.workspace = true
 tracing-subscriber.workspace = true
 # abstractions
 disk-cache.workspace = true
+enum-index.workspace = true
 eterned.workspace = true
 usage-cap.workspace = true
 

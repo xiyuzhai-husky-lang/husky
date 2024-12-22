@@ -17,14 +17,13 @@ impl<'db> SglangClient<'db> {
             return Err(SglangError::InvalidCacheDir(cache_dir));
         }
 
-        Ok(Self {
-            caches: EnumFullVecMap::try_new(|model: SglangModel| {
-                if !cache_dir.is_dir() {
-                    return Err(SglangError::InvalidCacheDir(cache_dir.clone()));
-                }
-                DiskCache::new(db, cache_dir.join(model.as_str())).map_err(Into::into)
-            })?,
-            client: Client::new(),
-        })
+        let caches = EnumFullVecMap::try_new(|model: SglangModel| {
+            if !cache_dir.is_dir() {
+                return Err(SglangError::InvalidCacheDir(cache_dir.clone()));
+            }
+            DiskCache::new(db, cache_dir.join(model.as_str())).map_err(Into::into)
+        })?;
+        let client = Client::new();
+        Ok(Self { caches, client })
     }
 }
