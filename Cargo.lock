@@ -3782,6 +3782,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "gemini-api"
+version = "0.1.0"
+dependencies = [
+ "reqwest 0.12.9",
+ "serde",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
 name = "gemm"
 version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
