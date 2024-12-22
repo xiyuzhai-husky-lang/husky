@@ -1,5 +1,5 @@
 use eterned::db::EternerDb;
-use gemini_api::client::GeminiClient;
+use gemini::client::GeminiClient;
 use std::path::PathBuf;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {

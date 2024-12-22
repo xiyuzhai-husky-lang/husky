@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 use eterned::db::EternerDb;
-use gemini_api::client::GeminiClient;
+use gemini::client::GeminiClient;
 
 fn main() {
     let db = EternerDb::default();
