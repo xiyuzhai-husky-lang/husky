@@ -3,7 +3,7 @@ mod error;
 use error::AllLlmsResult;
 use eterned::db::EternerDb;
 use gemini::client::GeminiClient;
-use openai_api::OpenaiClient;
+use openai::OpenaiClient;
 use std::path::PathBuf;
 
 pub struct AllLlms<'db> {

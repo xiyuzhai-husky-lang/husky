@@ -1,5 +1,5 @@
 use gemini::error::GeminiError;
-use openai_api::error::OpenaiError;
+use openai::error::OpenaiError;
 
 #[derive(Debug, thiserror::Error)]
 pub enum AnyLlmError {
