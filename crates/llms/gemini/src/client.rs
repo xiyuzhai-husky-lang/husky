@@ -3,7 +3,7 @@ use disk_cache::DiskCache;
 use eterned::db::EternerDb;
 use request::GeminiRequest;
 use reqwest::Client;
-use response::GeminiResponse;
+use response::{parse_response, GeminiResponse};
 use std::path::PathBuf;
 use usage_cap::UsageCap;
 
@@ -20,13 +20,6 @@ impl<'db> GeminiClient<'db> {
             cache: DiskCache::new(db, file_path)?,
             api_key,
             client: Client::new(),
-        })
-    }
-
-    fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiRawResponse> {
-        serde_json::from_slice(response_bytes).map_err(|error| GeminiError::ResponseParseFailed {
-            error,
-            response_text: String::from_utf8_lossy(response_bytes).to_string(),
         })
     }
 
@@ -49,7 +42,7 @@ impl<'db> GeminiClient<'db> {
                     })? {
                         Ok(result) => match result {
                             Ok(s) => Ok(s),
-                            Err(e) => Err(todo!()),
+                            Err(e) => Err(todo!("e: {e}")),
                         },
                         Err(e) => todo!(),
                     }
@@ -81,7 +74,7 @@ impl<'db> GeminiClient<'db> {
             Err(e) => return (usage, Err(e.into())),
         };
 
-        match Self::parse_response(&response_bytes) {
+        match parse_response(&response_bytes) {
             Ok(resp) => {
                 usage +=
                     POST_CALL_USAGE_MULTIPLIER * resp.candidates[0].content.parts[0].text.len();

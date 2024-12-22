@@ -41,7 +41,7 @@ pub struct GeminiApiError {
     pub status: String,
 }
 
-fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiRawResponse> {
+pub fn parse_response(response_bytes: &[u8]) -> GeminiResult<GeminiRawResponse> {
     // First try to parse as an error response
     if let Ok(error_response) = serde_json::from_slice::<GeminiErrorResponse>(response_bytes) {
         return Err(crate::error::GeminiError::ApiError {

@@ -10,7 +10,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = GeminiClient::new(&db, cache_path).unwrap();
     for i in 0..20 {
         let response = client
-            .generate_text("Write a story about a magic backpack.")
+            .generate_text(&format!(
+                "What is {i} + {i} equal to? Just give the number."
+            ))
             .unwrap();
         let response_str = response.to_string();
         if response_str.len() > 50 {
