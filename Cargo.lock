@@ -197,7 +197,7 @@ dependencies = [
  "husky-print-utils",
  "is-llm",
  "mistral-llm",
- "openai-llm",
+ "openai-api",
  "thiserror",
 ]
 
@@ -10713,6 +10713,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "openai-api"
+version = "0.1.0"
+dependencies = [
+ "disk-cache",
+ "eterned",
+ "husky-print-utils",
+ "lazy_static 1.5.0",
+ "openai-api-rs",
+ "serde",
+ "thiserror",
+ "tokio",
+ "usage-cap",
+]
+
+[[package]]
 name = "openai-api-rs"
 version = "5.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10725,21 +10740,6 @@ dependencies = [
  "serde_json",
  "tokio",
  "tokio-tungstenite 0.24.0",
-]
-
-[[package]]
-name = "openai-llm"
-version = "0.1.0"
-dependencies = [
- "disk-cache",
- "eterned",
- "husky-print-utils",
- "lazy_static 1.5.0",
- "openai-api-rs",
- "serde",
- "thiserror",
- "tokio",
- "usage-cap",
 ]
 
 [[package]]

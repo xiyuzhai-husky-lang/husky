@@ -2,11 +2,11 @@ mod error;
 
 use error::AllLlmsResult;
 use eterned::db::EternerDb;
-use openai_llm::OaiLlm;
+use openai_api::OpenaiApiClient;
 use std::path::PathBuf;
 
 pub struct AllLlms<'db> {
-    openai: OaiLlm<'db>,
+    openai: OpenaiApiClient<'db>,
 }
 
 impl<'db> AllLlms<'db> {
@@ -14,7 +14,7 @@ impl<'db> AllLlms<'db> {
         let oai_cache_path = cache_dir.join("openai.json");
         assert!(oai_cache_path.parent().unwrap().exists());
         Ok(Self {
-            openai: OaiLlm::new(db, oai_cache_path)?,
+            openai: OpenaiApiClient::new(db, oai_cache_path)?,
         })
     }
 }

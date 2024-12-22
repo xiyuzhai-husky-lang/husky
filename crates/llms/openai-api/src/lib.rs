@@ -13,13 +13,13 @@ use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use usage_cap::LlmCap;
 
-pub struct OaiLlm<'db> {
+pub struct OpenaiApiClient<'db> {
     cache: DiskCache<&'db EternerDb, OaiRequest, OaiResponse>,
     /// None if the environment variable `OPENAI_API_KEY` is not set.
     client_ext: Option<ext::OpenAIClient>,
 }
 
-impl<'db> OaiLlm<'db> {
+impl<'db> OpenaiApiClient<'db> {
     pub fn new(db: &'db EternerDb, file_path: PathBuf) -> OaiResult<Self> {
         let api_key = std::env::var("OPENAI_API_KEY").ok();
         Ok(Self {
@@ -32,7 +32,7 @@ impl<'db> OaiLlm<'db> {
     }
 }
 
-impl<'db> OaiLlm<'db> {
+impl<'db> OpenaiApiClient<'db> {
     pub fn complete_chat(&self, prompt: String) -> OaiResult<String> {
         let min_usage = prompt.len();
         let request = OaiRequest::ChatCompletion(prompt);
@@ -71,11 +71,11 @@ fn openai_client_works() {
     assert!(cargo_manifest_dir
         .canonicalize()
         .unwrap()
-        .ends_with("crates/llms/openai-llm"));
+        .ends_with("crates/llms/openai-api"));
     let cache_path = cargo_manifest_dir.join("cache/openai_client_works.json");
     assert!(cache_path.exists());
 
-    let client = OaiLlm::new(db, cache_path).unwrap();
+    let client = OpenaiApiClient::new(db, cache_path).unwrap();
     let result = client.complete_chat("Hello, world!".to_string());
     assert!(result.is_ok(), "{}", result.unwrap_err());
 }
