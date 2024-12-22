@@ -23,7 +23,7 @@ members = [
     "crates/linktime/*",
     "crates/lisp/*",
     "crates/llms/*",
-    "crates/llms/sglang-llm/internal/*", # this is just for better IDE experience
+    "crates/llms/sglang/internal/*", # this is just for better IDE experience
     "crates/mayuri/*",
     "crates/mir/*",
     "crates/mizar/*",
@@ -398,7 +398,7 @@ is-llm = { path = "crates/llms/is-llm" }
 all-llms = { path = "crates/llms/all-llms" }
 openai = { path = "crates/llms/openai" }
 gemini = { path = "crates/llms/gemini" }
-mistral-llm = { path = "crates/llms/mistral-llm" }
+sglang = { path = "crates/llms/sglang" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
 # nlp
 spacy-rs = { path = "crates/nlp/spacy-rs" }

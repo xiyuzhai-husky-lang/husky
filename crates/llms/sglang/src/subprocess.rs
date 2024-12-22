@@ -1,4 +1,4 @@
-use sglang_llm_prelude::greeting::IPC_GREETING;
+use sglang_prelude::greeting::IPC_GREETING;
 use std::{
     io::{self, BufReader, Lines},
     process::{Child, ChildStdin, ChildStdout, Command, Stdio},
@@ -15,7 +15,7 @@ impl SglangLlmSubprocess {
     pub fn new() -> Self {
         use std::io::BufRead;
 
-        const DOCKER_IMAGE: &str = "sglang-llm-server";
+        const DOCKER_IMAGE: &str = "sglang-server";
 
         // First, build the Docker image
         let build_status = Command::new("docker")
