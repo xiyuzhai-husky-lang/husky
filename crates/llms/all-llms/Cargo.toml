@@ -17,10 +17,8 @@ thiserror.workspace = true
 eterned.workspace = true
 # llms
 is-llm.workspace = true
-allms.workspace = true
 mistral-llm.workspace = true
 openai-llm.workspace = true
-pytransformers-llm.workspace = true
 # utils
 husky-print-utils.workspace = true
 
