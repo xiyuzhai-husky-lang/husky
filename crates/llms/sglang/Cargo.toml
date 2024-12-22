@@ -1,5 +1,5 @@
 [package]
-name = "sglang-llm"
+name = "sglang"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -14,13 +14,13 @@ keywords.workspace = true
 [dependencies]
 serde_json = { version = "1.0.127", features = ["preserve_order"] }
 # internal
-sglang-llm-prelude = { path = "internal/sglang-llm-prelude" }
-sglang-llm-docker-ipc = { path = "internal/sglang-llm-docker-ipc", optional = true }
-sglang-llm-pixi-ipc = { path = "internal/sglang-llm-pixi-ipc", optional = true }
+sglang-prelude = { path = "internal/sglang-prelude" }
+sglang-docker-ipc = { path = "internal/sglang-docker-ipc", optional = true }
+sglang-pixi-ipc = { path = "internal/sglang-pixi-ipc", optional = true }
 
 [lints]
 workspace = true
 
 [features]
-docker-ipc = ["dep:sglang-llm-docker-ipc"]
-pixi-ipc = ["dep:sglang-llm-pixi-ipc"]
+docker-ipc = ["dep:sglang-docker-ipc"]
+pixi-ipc = ["dep:sglang-pixi-ipc"]

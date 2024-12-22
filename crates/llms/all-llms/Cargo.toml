@@ -17,9 +17,9 @@ thiserror.workspace = true
 eterned.workspace = true
 # llms
 is-llm.workspace = true
-mistral-llm.workspace = true
 gemini.workspace = true
 openai.workspace = true
+sglang.workspace = true
 # utils
 husky-print-utils.workspace = true
 

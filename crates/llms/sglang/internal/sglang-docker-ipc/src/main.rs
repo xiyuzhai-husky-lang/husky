@@ -1,5 +1,5 @@
-use sglang_llm_ffi::chat::generate_text_batch;
-use sglang_llm_prelude::greeting::IPC_GREETING;
+use sglang_ffi::chat::generate_text_batch;
+use sglang_prelude::greeting::IPC_GREETING;
 use std::io::{self, BufRead};
 
 fn main() {
