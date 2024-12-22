@@ -1,4 +1,4 @@
-use crate::error::{UsageCapError, LlmCapResult};
+use crate::error::{LlmCapResult, UsageCapError};
 use crate::*;
 use lazy_static::lazy_static;
 use std::sync::Mutex;
@@ -6,6 +6,7 @@ use std::sync::Mutex;
 #[derive(Debug)]
 pub struct UsageCountDown {
     entity_name: &'static str,
+    var_name: &'static str,
     /// `None` if the environment variable `ENABLE_LLM_API_CALLING` is not set.
     remaining_count: Option<usize>,
 }
@@ -20,6 +21,7 @@ impl UsageCountDown {
             .ok();
         Self {
             entity_name,
+            var_name,
             remaining_count: maximal_count,
         }
     }
@@ -41,11 +43,14 @@ impl UsageCountDown {
                 if *count == 0 {
                     Err(UsageCapError::FinalCountDown)
                 } else {
-                    *count -= usage;
+                    *count = count.saturating_sub(usage);
                     Ok(())
                 }
             }
-            None => Err(UsageCapError::LlmApiCallingDisabled(self.entity_name)),
+            None => Err(UsageCapError::LlmApiCallingDisabled {
+                entity_name: self.entity_name,
+                var_name: self.var_name,
+            }),
         }
     }
 }
