@@ -178,6 +178,7 @@ name = "all-llms"
 version = "0.1.0"
 dependencies = [
  "eterned",
+ "expect-test",
  "gemini",
  "husky-print-utils",
  "is-llm",
