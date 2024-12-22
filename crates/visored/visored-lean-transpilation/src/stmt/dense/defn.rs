@@ -45,7 +45,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 match *meta {
                     VdMirBlockMeta::Paragraph => self.build_ln_def_from_vd_paragraph(stmts),
                     VdMirBlockMeta::Environment(_, environment_path, module_path) => {
-                        self.build_ln_def_from_vd_environment(stmts, environment_path, module_path)
+                        let defn = self.with_module_path(module_path, |builder| {
+                            builder.build_ln_def_from_vd_environment(
+                                stmts,
+                                environment_path,
+                                module_path,
+                            )
+                        });
+                        let defn = self.alloc_item_defn(defn, LnItemDefnComment::Void);
+                        LnItemDefnData::Group {
+                            defns: LnItemDefnIdxRange::new_single(defn),
+                            meta: LnMirItemDefnGroupMeta::Environment(
+                                vd_module_path_to_ln_namespace(module_path, db).unwrap(), // TODO: maybe not unwrap here?
+                            ),
+                        }
                     }
                     VdMirBlockMeta::Division(_, module_path) => {
                         let defns =
