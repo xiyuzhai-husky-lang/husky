@@ -11759,6 +11759,7 @@ name = "sglang"
 version = "0.1.0"
 dependencies = [
  "disk-cache",
+ "enum-index",
  "eterned",
  "reqwest",
  "serde",

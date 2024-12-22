@@ -46,6 +46,16 @@ impl<I: IsEnumIndex, T> EnumFullVecMap<I, T> {
         )
     }
 
+    pub fn try_new<E>(f: impl Fn(I) -> Result<T, E>) -> Result<Self, E> {
+        Ok(Self(
+            (0..I::N)
+                .into_iter()
+                .map(|i| f(I::from_index(i)))
+                .collect::<Result<Vec<_>, E>>()?,
+            PhantomData,
+        ))
+    }
+
     pub fn indexed_iter<'a>(&'a self) -> impl Iterator<Item = (I, &'a T)> + 'a {
         self.0
             .iter()

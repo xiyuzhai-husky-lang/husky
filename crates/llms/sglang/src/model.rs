@@ -1,4 +1,7 @@
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+use enum_index::IsEnumIndex;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, IsEnumIndex)]
+#[repr(u8)]
 pub enum SglangModel {
     Llama3_1_8bInstruct,
 }
