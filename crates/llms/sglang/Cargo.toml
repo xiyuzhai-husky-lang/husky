@@ -12,15 +12,13 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-serde_json = { version = "1.0.127", features = ["preserve_order"] }
-# internal
-sglang-prelude = { path = "internal/sglang-prelude" }
-sglang-docker-ipc = { path = "internal/sglang-docker-ipc", optional = true }
-sglang-pixi-ipc = { path = "internal/sglang-pixi-ipc", optional = true }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+# abstractions
+disk-cache.workspace = true
+eterned.workspace = true
+reqwest.workspace = true
 
 [lints]
 workspace = true
-
-[features]
-docker-ipc = ["dep:sglang-docker-ipc"]
-pixi-ipc = ["dep:sglang-pixi-ipc"]

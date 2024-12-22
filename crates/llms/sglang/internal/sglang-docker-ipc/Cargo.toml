@@ -1,9 +1,0 @@
-[package]
-name = "sglang-docker-ipc"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-serde_json = { version = "1.0.127", features = ["preserve_order"] }
-sglang-prelude = { path = "../sglang-prelude" }
-sglang-ffi = { path = "../sglang-ffi" }
