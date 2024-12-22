@@ -3865,14 +3865,32 @@
         name: "all-llms",
         relative_path: "crates/llms/all-llms",
         dependencies: [
-            "allms",
             "eterned",
+            "gemini",
             "husky-print-utils",
             "is-llm",
-            "mistral-llm",
             "openai",
-            "pytransformers-llm",
+            "sglang",
             "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "gemini",
+        relative_path: "crates/llms/gemini",
+        dependencies: [
+            "disk-cache",
+            "enum-index",
+            "eterned",
+            "lazy_static",
+            "reqwest",
+            "serde",
+            "serde_json",
+            "tempfile",
+            "thiserror",
+            "tokio",
+            "tracing",
+            "tracing-subscriber",
+            "usage-cap",
         ],
     },
     PackageSummary {
@@ -3887,17 +3905,11 @@
         ],
     },
     PackageSummary {
-        name: "mistral-llm",
-        relative_path: "crates/llms/mistral-llm",
-        dependencies: [
-            "mistralrs",
-        ],
-    },
-    PackageSummary {
         name: "openai",
         relative_path: "crates/llms/openai",
         dependencies: [
             "disk-cache",
+            "enum-index",
             "eterned",
             "husky-print-utils",
             "lazy_static",
@@ -3909,11 +3921,16 @@
         ],
     },
     PackageSummary {
-        name: "pytransformers-llm",
-        relative_path: "crates/llms/pytransformers-llm",
+        name: "sglang",
+        relative_path: "crates/llms/sglang",
         dependencies: [
-            "candle-transformers",
-            "pyo3",
+            "disk-cache",
+            "enum-index",
+            "eterned",
+            "reqwest",
+            "serde",
+            "serde_json",
+            "thiserror",
         ],
     },
     PackageSummary {
@@ -4295,53 +4312,10 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "allms-llm",
-        relative_path: "crates/llms/allms-llm",
-        dependencies: [],
-    },
-    PackageSummary {
         name: "llm-benchmarks",
         relative_path: "crates/llms/llm-benchmarks",
         dependencies: [
             "is-llm",
-        ],
-    },
-    PackageSummary {
-        name: "sglang",
-        relative_path: "crates/llms/sglang",
-        dependencies: [
-            "lazy_static",
-            "sglang-docker-ipc",
-            "sglang-pixi-ipc",
-            "sglang-prelude",
-        ],
-    },
-    PackageSummary {
-        name: "sglang-docker-ipc",
-        relative_path: "crates/llms/sglang/internal/sglang-docker-ipc",
-        dependencies: [
-            "sglang-ffi",
-            "sglang-prelude",
-        ],
-    },
-    PackageSummary {
-        name: "sglang-ffi",
-        relative_path: "crates/llms/sglang/internal/sglang-ffi",
-        dependencies: [
-            "sglang-prelude",
-        ],
-    },
-    PackageSummary {
-        name: "sglang-prelude",
-        relative_path: "crates/llms/sglang/internal/sglang-prelude",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "sglang-pixi-ipc",
-        relative_path: "crates/llms/sglang/internal/sglang-pixi-ipc",
-        dependencies: [
-            "sglang-ffi",
-            "sglang-prelude",
         ],
     },
     PackageSummary {
@@ -4433,7 +4407,6 @@
             "base-coword",
             "disk-cache",
             "eterned",
-            "force-send-sync",
             "husky-path-utils",
             "husky-print-utils",
             "husky-pyo3-utils",
@@ -4550,6 +4523,20 @@
             "serde",
             "thiserror",
             "vec-like",
+        ],
+    },
+    PackageSummary {
+        name: "snl-markup",
+        relative_path: "crates/snl/snl-markup",
+        dependencies: [
+            "eterned",
+            "husky-print-utils",
+            "husky-text-protocol",
+            "serde",
+            "smallvec",
+            "snl-prelude",
+            "thiserror",
+            "expect-test",
         ],
     },
     PackageSummary {
