@@ -1,4 +1,5 @@
 mod error;
+pub mod model;
 
 use error::AllLlmsResult;
 use eterned::db::EternerDb;
