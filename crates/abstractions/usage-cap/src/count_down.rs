@@ -1,16 +1,16 @@
-use crate::error::{LlmCapError, LlmCapResult};
+use crate::error::{UsageCapError, LlmCapResult};
 use crate::*;
 use lazy_static::lazy_static;
 use std::sync::Mutex;
 
 #[derive(Debug)]
-pub struct LlmCountDown {
+pub struct UsageCountDown {
     entity_name: &'static str,
     /// `None` if the environment variable `ENABLE_LLM_API_CALLING` is not set.
     remaining_count: Option<usize>,
 }
 
-impl LlmCountDown {
+impl UsageCountDown {
     pub fn new(entity_name: &'static str, var_name: &'static str) -> Self {
         let maximal_count = std::env::var(var_name)
             .map(|v| {
@@ -25,13 +25,13 @@ impl LlmCountDown {
     }
 }
 
-impl LlmCountDown {
+impl UsageCountDown {
     pub fn remaining_count(&self) -> Option<usize> {
         self.remaining_count
     }
 }
 
-impl LlmCountDown {
+impl UsageCountDown {
     pub fn try_count_down(&mut self, usage: usize) -> LlmCapResult<()> {
         if usage == 0 {
             return Ok(());
@@ -39,13 +39,13 @@ impl LlmCountDown {
         match self.remaining_count {
             Some(ref mut count) => {
                 if *count == 0 {
-                    Err(LlmCapError::FinalCountDown)
+                    Err(UsageCapError::FinalCountDown)
                 } else {
                     *count -= usage;
                     Ok(())
                 }
             }
-            None => Err(LlmCapError::LlmApiCallingDisabled(self.entity_name)),
+            None => Err(UsageCapError::LlmApiCallingDisabled(self.entity_name)),
         }
     }
 }
@@ -62,14 +62,14 @@ fn llm_count_down_works() {
     let original_var = std::env::var(var_name).ok();
 
     // Test initialization without env var
-    let count_down = LlmCountDown::new("MIMIC_AI", var_name);
+    let count_down = UsageCountDown::new("MIMIC_AI", var_name);
     assert!(count_down.remaining_count.is_none());
 
     // Set environment variable for remaining tests
     std::env::set_var(var_name, "5");
 
     // Test initialization with env var
-    let mut count_down = LlmCountDown::new("MIMIC_AI", var_name);
+    let mut count_down = UsageCountDown::new("MIMIC_AI", var_name);
     assert_eq!(count_down.remaining_count, Some(5));
 
     // Test successful countdown
@@ -84,7 +84,7 @@ fn llm_count_down_works() {
 
     // Test error when count is 0
     match count_down.try_count_down(1) {
-        Err(LlmCapError::FinalCountDown) => (),
+        Err(UsageCapError::FinalCountDown) => (),
         _ => panic!("Expected FinalCountDown error"),
     }
 
@@ -107,7 +107,7 @@ fn llm_count_down_invalid_env_var() {
     let original_var = std::env::var(var_name).ok();
 
     std::env::set_var(var_name, "not_a_number");
-    let result = std::panic::catch_unwind(|| LlmCountDown::new(entity_name, var_name));
+    let result = std::panic::catch_unwind(|| UsageCountDown::new(entity_name, var_name));
     assert!(result.is_err());
 
     // Restore original environment state
