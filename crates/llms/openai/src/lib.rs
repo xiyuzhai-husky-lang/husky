@@ -71,7 +71,7 @@ fn openai_client_works() {
     assert!(cargo_manifest_dir
         .canonicalize()
         .unwrap()
-        .ends_with("crates/llms/openai-api"));
+        .ends_with("crates/llms/openai"));
     let cache_path = cargo_manifest_dir.join("cache/openai_client_works.json");
     assert!(cache_path.exists());
 

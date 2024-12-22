@@ -198,7 +198,7 @@ dependencies = [
  "husky-print-utils",
  "is-llm",
  "mistral-llm",
- "openai-api",
+ "openai",
  "thiserror",
 ]
 
@@ -10718,7 +10718,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openai-api"
+name = "openai"
 version = "0.1.0"
 dependencies = [
  "disk-cache",
