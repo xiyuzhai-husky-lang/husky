@@ -1,4 +1,4 @@
-use gemini_api::error::GeminiError;
+use gemini::error::GeminiError;
 use openai_api::error::OpenaiError;
 
 #[derive(Debug, thiserror::Error)]

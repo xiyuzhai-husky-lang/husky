@@ -397,7 +397,7 @@ lisp-csv = { path = "crates/lisp/lisp-csv" }
 is-llm = { path = "crates/llms/is-llm" }
 all-llms = { path = "crates/llms/all-llms" }
 openai-api = { path = "crates/llms/openai-api" }
-gemini-api = { path = "crates/llms/gemini-api" }
+gemini = { path = "crates/llms/gemini" }
 mistral-llm = { path = "crates/llms/mistral-llm" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
 # nlp

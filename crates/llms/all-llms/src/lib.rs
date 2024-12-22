@@ -2,7 +2,7 @@ mod error;
 
 use error::AllLlmsResult;
 use eterned::db::EternerDb;
-use gemini_api::client::GeminiClient;
+use gemini::client::GeminiClient;
 use openai_api::OpenaiClient;
 use std::path::PathBuf;
 
