@@ -1,0 +1,13 @@
+[
+  {
+    "request": {
+      "TextGeneration": {
+        "input": "Hello, world!"
+      }
+    },
+    "response": {
+      "TextGeneration": "Hello! How can I assist you today?"
+    },
+    "time": "2024-12-22T21:31:17.956322486Z"
+  }
+]

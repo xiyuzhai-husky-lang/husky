@@ -5,7 +5,7 @@ use openai_api_rs::v1::chat_completion::{
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum OpenaiRequest {
-    ChatCompletion(String),
+    TextGeneration { input: String },
 }
 
 pub(crate) enum OaiRequestExt {
@@ -13,14 +13,14 @@ pub(crate) enum OaiRequestExt {
 }
 
 impl OpenaiRequest {
-    pub fn ext(&self) -> OaiRequestExt {
+    pub fn ext(&self, model: OpenaiModel) -> OaiRequestExt {
         match self {
-            OpenaiRequest::ChatCompletion(s) => {
+            OpenaiRequest::TextGeneration { input } => {
                 OaiRequestExt::ChatCompletion(ChatCompletionRequest::new(
-                    "gpt-4o".to_string(),
+                    model.as_str().to_string(),
                     vec![ChatCompletionMessage {
                         role: MessageRole::user,
-                        content: Content::Text(s.clone()),
+                        content: Content::Text(input.clone()),
                         name: None,
                         tool_calls: None,
                         tool_call_id: None,
