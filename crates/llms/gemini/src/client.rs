@@ -3,14 +3,17 @@ use disk_cache::DiskCache;
 use eterned::db::EternerDb;
 use request::GeminiRequest;
 use reqwest::Client;
-use response::{parse_response, GeminiResponse};
+use response::{parse_response_result, GeminiResponse};
 use std::path::PathBuf;
 use usage_cap::UsageCap;
+
+const DEFAULT_RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(30);
 
 pub struct GeminiClient<'db> {
     cache: DiskCache<&'db EternerDb, GeminiRequest, GeminiResponse>,
     api_key: String,
     client: Client,
+    retry_delay: std::time::Duration,
 }
 
 impl<'db> GeminiClient<'db> {
@@ -20,6 +23,7 @@ impl<'db> GeminiClient<'db> {
             cache: DiskCache::new(db, file_path)?,
             api_key,
             client: Client::new(),
+            retry_delay: DEFAULT_RETRY_DELAY,
         })
     }
 
@@ -42,7 +46,7 @@ impl<'db> GeminiClient<'db> {
                     })? {
                         Ok(result) => match result {
                             Ok(s) => Ok(s),
-                            Err(e) => Err(todo!("e: {e}")),
+                            Err(e) => Err(e),
                         },
                         Err(e) => todo!(),
                     }
@@ -52,6 +56,18 @@ impl<'db> GeminiClient<'db> {
     }
 
     async fn generate_aux(&self, request: &GeminiRequest) -> (usize, GeminiResult<GeminiResponse>) {
+        loop {
+            match self.generate_step(request).await {
+                Some(result) => return result,
+                None => continue,
+            }
+        }
+    }
+
+    async fn generate_step(
+        &self,
+        request: &GeminiRequest,
+    ) -> Option<(usize, GeminiResult<GeminiResponse>)> {
         let mut usage = 0;
         let raw_request: GeminiRawRequest = request.into();
         let response = match self.client
@@ -63,7 +79,7 @@ impl<'db> GeminiClient<'db> {
             .send()
             .await {
                 Ok(resp) => resp,
-                Err(e) => return (usage, Err(e.into())),
+                Err(e) => return Some((usage, Err(e.into()))),
             };
 
         let response_bytes = match response.bytes().await {
@@ -71,16 +87,26 @@ impl<'db> GeminiClient<'db> {
                 usage += POST_CALL_USAGE_MULTIPLIER * bytes.len();
                 bytes
             }
-            Err(e) => return (usage, Err(e.into())),
+            Err(e) => return Some((usage, Err(e.into()))),
         };
 
-        match parse_response(&response_bytes) {
-            Ok(resp) => {
-                usage +=
-                    POST_CALL_USAGE_MULTIPLIER * resp.candidates[0].content.parts[0].text.len();
-                (usage, Ok((resp, request).into()))
-            }
-            Err(e) => (usage, Err(e)),
+        match parse_response_result(&response_bytes) {
+            Ok(resp_result) => match resp_result {
+                Ok(resp) => {
+                    usage +=
+                        POST_CALL_USAGE_MULTIPLIER * resp.candidates[0].content.parts[0].text.len();
+                    Some((usage, Ok((resp, request).into())))
+                }
+                Err(e) => match e.error.status.as_str() {
+                    "RESOURCE_EXHAUSTED" => {
+                        println!("RESOURCE_EXHAUSTED, retrying...");
+                        tokio::time::sleep(tokio::time::Duration::from(self.retry_delay)).await;
+                        None
+                    }
+                    _ => todo!(),
+                },
+            },
+            Err(e) => Some((usage, Err(e))),
         }
     }
 }
