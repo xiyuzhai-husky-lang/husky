@@ -168,6 +168,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "alien-seed"
+version = "0.1.0"
+
+[[package]]
 name = "aligned-vec"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
