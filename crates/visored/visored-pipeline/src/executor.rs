@@ -65,11 +65,13 @@ The previous solution is:
 {}
 ```
 
-You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution."#,
+You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution. Don't include any \label or \ref."#,
             self.input.content,
             self.raw_solution.as_ref().unwrap(),
         );
-        self.simplified_solution = Some(self.llm_client.generate_text(model, prompt).unwrap());
+        self.simplified_solution = Some(extract_latex(
+            &self.llm_client.generate_text(model, prompt).unwrap(),
+        ));
     }
 
     pub(crate) fn finish(self) -> (String, String) {
@@ -85,7 +87,7 @@ fn extract_latex(s: &str) -> String {
         let content = &s[start + 8..end];
         content.trim().to_string()
     } else {
-        String::new()
+        s.to_string()
     }
 }
 

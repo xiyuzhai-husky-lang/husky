@@ -88,22 +88,13 @@ impl VdPipelineInstance {
             latex_content,
             r#"
 
-Raw solution:
-\begin{{tcolorbox}}[colback=blue!10, width=\linewidth]
-\begin{{lstlisting}}[language=LaTeX]
-{}
-\end{{lstlisting}}
-\end{{tcolorbox}}
-
 Simplified solution:
 \begin{{tcolorbox}}[colback=blue!10, width=\linewidth]
-\begin{{lstlisting}}[language=LaTeX]
 {}
-\end{{lstlisting}}
 \end{{tcolorbox}}
 
 "#,
-            tracker.raw_solution, tracker.simplified_solution
+            tracker.simplified_solution
         )
         .unwrap();
     }
