@@ -29,3 +29,11 @@ impl VdPipelineInstanceStorage {
         unsafe { self.arena.data_mut() }
     }
 }
+
+impl std::ops::Index<VdPipelineInstanceIdx> for VdPipelineInstanceStorage {
+    type Output = VdPipelineInstance;
+
+    fn index(&self, idx: VdPipelineInstanceIdx) -> &Self::Output {
+        &self.arena[idx]
+    }
+}
