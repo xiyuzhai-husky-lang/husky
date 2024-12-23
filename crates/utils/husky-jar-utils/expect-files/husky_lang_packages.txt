@@ -3884,6 +3884,7 @@
             "openai",
             "sglang",
             "thiserror",
+            "alien-seed",
             "expect-test",
         ],
     },

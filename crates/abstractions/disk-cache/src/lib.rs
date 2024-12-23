@@ -60,7 +60,7 @@ where
     /// let db = ();
     /// let temp_dir = tempfile::tempdir().unwrap();
     /// let cache_path = temp_dir.path().join("cache.json");
-    /// let cache: DiskCache<(), String, String> = DiskCache::new(db, cache_path).unwrap();
+    /// let cache: DiskCache<(), (), String, String> = DiskCache::new(db, cache_path).unwrap();
     /// ```
     pub fn new(db: Db, path: PathBuf) -> DiskCacheResult<Self> {
         // Create directory if it doesn't exist
