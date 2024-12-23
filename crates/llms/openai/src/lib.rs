@@ -6,7 +6,10 @@ pub mod request;
 pub mod response;
 
 use self::{error::*, request::*, response::*};
-use alien_seed::{attach::attached_seed, AlienSeed};
+use alien_seed::{
+    attach::{attached_seed, with_seed},
+    AlienSeed,
+};
 use cap::try_call_openai;
 use disk_cache::DiskCache;
 use enum_index::full_map::EnumFullVecMap;
@@ -101,6 +104,9 @@ fn openai_client_works() {
 
     let client = OpenaiClient::new(db, &cache_dir).unwrap();
     let model = OpenaiModel::Gpt4o;
-    let result = client.generate_text(model, "Hello, world!".to_string());
-    assert!(result.is_ok(), "{}", result.unwrap_err());
+    let seed = AlienSeed::new(0);
+    with_seed(seed, || {
+        let result = client.generate_text(model, "Hello, world!".to_string());
+        assert!(result.is_ok(), "{}", result.unwrap_err());
+    });
 }
