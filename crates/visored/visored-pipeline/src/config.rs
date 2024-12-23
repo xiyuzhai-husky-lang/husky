@@ -4,10 +4,20 @@ use self::stages::*;
 use crate::*;
 use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
-use std::path::{Path, PathBuf};
+use std::{
+    path::{Path, PathBuf},
+    sync::Arc,
+};
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct VdPipelineConfig {
+    pub src_file_path: PathBuf,
+    pub index: usize,
+    pub data: VdPipelineConfigData,
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
-pub struct VdPipelineConfig {
+pub struct VdPipelineConfigData {
     // #[serde(default)]
     // stages: VdPipelineStagesConfig,
     #[serde(default = "default_cache_dir")]
@@ -24,18 +34,23 @@ fn default_true() -> bool {
 }
 
 impl VdPipelineConfig {
-    pub fn from_yaml_file(path: impl AsRef<Path>) -> VdPipelineResult<Vec<Self>> {
-        let file = std::fs::File::open(&path)
-            .map_err(|e| VdPipelineError::Io(path.as_ref().to_path_buf(), e))?;
+    pub fn from_yaml_file(path: impl AsRef<Path>) -> VdPipelineResult<Vec<Arc<Self>>> {
+        let path = path.as_ref();
+        let file =
+            std::fs::File::open(path).map_err(|e| VdPipelineError::Io(path.to_path_buf(), e))?;
 
         let deserializer = serde_yaml::Deserializer::from_reader(file);
         let mut configs = Vec::new();
 
-        for document in deserializer {
-            let config = Self::deserialize(document).map_err(|e| {
+        for (index, document) in deserializer.enumerate() {
+            let data = VdPipelineConfigData::deserialize(document).map_err(|e| {
                 VdPipelineError::ConfigParsing(format!("Failed to parse YAML document: {}", e))
             })?;
-            configs.push(config);
+            configs.push(Arc::new(Self {
+                src_file_path: path.to_path_buf(),
+                index,
+                data,
+            }));
         }
 
         Ok(configs)
@@ -49,14 +64,22 @@ fn vd_pipeline_config_from_yaml_file_works() {
     assert_eq!(
         &configs,
         &[
-            VdPipelineConfig {
-                cache_dir: default_cache_dir(),
-                output_name: "baseline".to_string(),
-            },
-            VdPipelineConfig {
-                cache_dir: default_cache_dir(),
-                output_name: "standard".to_string(),
-            },
+            Arc::new(VdPipelineConfig {
+                src_file_path: PathBuf::from("config-examples/standard.yaml"),
+                index: 0,
+                data: VdPipelineConfigData {
+                    cache_dir: default_cache_dir(),
+                    output_name: "baseline".to_string(),
+                },
+            }),
+            Arc::new(VdPipelineConfig {
+                src_file_path: PathBuf::from("config-examples/standard.yaml"),
+                index: 1,
+                data: VdPipelineConfigData {
+                    cache_dir: default_cache_dir(),
+                    output_name: "standard".to_string(),
+                },
+            }),
         ]
     );
 }
