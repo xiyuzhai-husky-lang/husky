@@ -13435,6 +13435,7 @@ version = "0.1.0"
 dependencies = [
  "all-llms",
  "eterned",
+ "expect-test",
  "husky-print-utils",
  "idx-arena",
  "rayon",

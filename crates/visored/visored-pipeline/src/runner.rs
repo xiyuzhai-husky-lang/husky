@@ -14,11 +14,13 @@ use std::{fs, path::PathBuf};
 pub struct VdPipelineRunner<'db> {
     db: &'db EternerDb,
     instance_storage: VdPipelineInstanceStorage,
-    instances_per_file: Vec<(
-        PathBuf,
-        Vec<(Arc<VdPipelineInput>, VdPipelineInstanceIdxRange)>,
-    )>,
+    instance_files: Vec<VdPipelineInstanceFile>,
     configs: Vec<Arc<VdPipelineConfig>>,
+}
+
+pub struct VdPipelineInstanceFile {
+    pub path: PathBuf,
+    pub instances: Vec<(Arc<VdPipelineInput>, VdPipelineInstanceIdxRange)>,
 }
 
 impl<'db> VdPipelineRunner<'db> {
@@ -29,39 +31,51 @@ impl<'db> VdPipelineRunner<'db> {
     ) -> VdPipelineResult<Self> {
         let configs = VdPipelineConfig::from_yaml_file(config_path)?;
         let mut instance_storage = VdPipelineInstanceStorage::new_empty();
-        let instances_per_file: Vec<(
-            PathBuf,
-            Vec<(Arc<VdPipelineInput>, VdPipelineInstanceIdxRange)>,
-        )> = src_file_paths
+
+        // Collect, sort, and deduplicate paths
+        let mut unique_src_file_paths: Vec<PathBuf> = src_file_paths.into_iter().collect();
+        unique_src_file_paths.sort();
+        unique_src_file_paths.dedup();
+
+        let instance_files = unique_src_file_paths
             .into_iter()
-            .map(
-                |path| -> VdPipelineResult<(
-                    PathBuf,
-                    Vec<(Arc<VdPipelineInput>, VdPipelineInstanceIdxRange)>,
-                )> {
-                    let examples = VdPipelineInput::read_examples_from_file(&path)?;
-                    let instances = examples
-                        .iter()
-                        .map(|input| {
-                            (
-                                input.clone(),
-                                instance_storage.alloc_instances(configs.iter().map(|config| {
-                                    VdPipelineInstance::new(config.clone(), input.clone())
-                                })),
-                            )
-                        })
-                        .collect::<Vec<_>>();
-                    Ok((path, instances))
-                },
-            )
+            .map(|path| {
+                let examples = VdPipelineInput::read_examples_from_file(&path)?;
+                let instances = examples
+                    .iter()
+                    .map(|input| {
+                        (
+                            input.clone(),
+                            instance_storage.alloc_instances(configs.iter().map(|config| {
+                                VdPipelineInstance::new(config.clone(), input.clone())
+                            })),
+                        )
+                    })
+                    .collect();
+                Ok(VdPipelineInstanceFile { path, instances })
+            })
             .collect::<VdPipelineResult<Vec<_>>>()?;
 
         Ok(Self {
             db,
-            instances_per_file,
+            instance_files,
             configs,
             instance_storage,
         })
+    }
+}
+
+impl<'db> VdPipelineRunner<'db> {
+    pub fn instance_files(&self) -> &[VdPipelineInstanceFile] {
+        &self.instance_files
+    }
+}
+
+impl<'db> std::ops::Index<VdPipelineInstanceIdx> for VdPipelineRunner<'db> {
+    type Output = VdPipelineInstance;
+
+    fn index(&self, idx: VdPipelineInstanceIdx) -> &Self::Output {
+        &self.instance_storage[idx]
     }
 }
 

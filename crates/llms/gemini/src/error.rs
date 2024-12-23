@@ -24,6 +24,8 @@ pub enum GeminiError {
     },
     #[error("Invalid cache directory: {0}")]
     InvalidCacheDir(PathBuf),
+    #[error("API key not set")]
+    ApiKeyNotSet,
 }
 
 pub type GeminiResult<T> = Result<T, GeminiError>;

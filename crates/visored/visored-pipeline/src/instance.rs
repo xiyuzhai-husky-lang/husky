@@ -28,6 +28,13 @@ impl VdPipelineInstance {
 }
 
 impl VdPipelineInstance {
+    #[track_caller]
+    pub fn tracker(&self) -> &VdPipelineTracker {
+        self.tracker.as_ref().unwrap()
+    }
+}
+
+impl VdPipelineInstance {
     pub fn run(&mut self, db: &EternerDb) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
         self.tracker = Some(VdPipelineTracker::new(

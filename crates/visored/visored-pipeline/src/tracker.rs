@@ -6,10 +6,10 @@ use eterned::db::EternerDb;
 use std::sync::Arc;
 
 pub struct VdPipelineTracker {
-    input: Arc<VdPipelineInput>,
-    config: Arc<VdPipelineConfig>,
-    raw_solution: String,
-    simplified_solution: String,
+    pub input: Arc<VdPipelineInput>,
+    pub config: Arc<VdPipelineConfig>,
+    pub raw_solution: String,
+    pub simplified_solution: String,
 }
 
 impl VdPipelineTracker {
