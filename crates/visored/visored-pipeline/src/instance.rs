@@ -1,4 +1,7 @@
+pub mod storage;
+
 use eterned::db::EternerDb;
+use idx_arena::{ArenaIdx, ArenaIdxRange};
 
 use crate::{
     error::VdPipelineResult, input::VdPipelineInput, tracker::VdPipelineTracker, VdPipelineConfig,
@@ -6,13 +9,16 @@ use crate::{
 use std::sync::Arc;
 
 pub struct VdPipelineInstance {
-    config: VdPipelineConfig,
+    config: Arc<VdPipelineConfig>,
     input: Arc<VdPipelineInput>,
     tracker: Option<VdPipelineTracker>,
 }
 
+pub type VdPipelineInstanceIdx = ArenaIdx<VdPipelineInstance>;
+pub type VdPipelineInstanceIdxRange = ArenaIdxRange<VdPipelineInstance>;
+
 impl VdPipelineInstance {
-    pub fn new(config: VdPipelineConfig, src_file: Arc<VdPipelineInput>) -> Self {
+    pub fn new(config: Arc<VdPipelineConfig>, src_file: Arc<VdPipelineInput>) -> Self {
         Self {
             config,
             input: src_file,
@@ -24,7 +30,11 @@ impl VdPipelineInstance {
 impl VdPipelineInstance {
     pub fn run(&mut self, db: &EternerDb) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
-        self.tracker = Some(VdPipelineTracker::new(db, &self.config, self.input.clone()));
+        self.tracker = Some(VdPipelineTracker::new(
+            db,
+            self.input.clone(),
+            self.config.clone(),
+        ));
         Ok(())
     }
 }

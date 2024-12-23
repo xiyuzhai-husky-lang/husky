@@ -1,5 +1,5 @@
 use crate::{VdPipelineError, VdPipelineResult};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 /// Represents a single input unit for the Visored pipeline
@@ -24,9 +24,9 @@ impl VdPipelineInput {
     ///
     /// # Returns
     /// * A vector of Arc-wrapped VdPipelineInput, each containing one example
-    pub fn read_examples_from_file(file_path: PathBuf) -> VdPipelineResult<Vec<Arc<Self>>> {
-        let content = std::fs::read_to_string(&file_path)
-            .map_err(|e| VdPipelineError::Io(file_path.clone(), e))?;
+    pub fn read_examples_from_file(file_path: &Path) -> VdPipelineResult<Vec<Arc<Self>>> {
+        let content = std::fs::read_to_string(file_path)
+            .map_err(|e| VdPipelineError::Io(file_path.to_path_buf(), e))?;
 
         // Extract all example environments
         let mut inputs = Vec::new();
@@ -43,7 +43,7 @@ impl VdPipelineInput {
                 let example_content = content[start + 15..end].trim().to_string();
 
                 inputs.push(Arc::new(Self {
-                    file_path: file_path.clone(),
+                    file_path: file_path.to_path_buf(),
                     index,
                     content: example_content,
                 }));
@@ -73,8 +73,7 @@ mod tests {
         let temp_file = NamedTempFile::new().unwrap();
         fs::write(&temp_file, content).unwrap();
 
-        let inputs =
-            VdPipelineInput::read_examples_from_file(temp_file.path().to_path_buf()).unwrap();
+        let inputs = VdPipelineInput::read_examples_from_file(temp_file.path()).unwrap();
 
         assert_eq!(inputs.len(), 1);
         assert_eq!(inputs[0].index, 0);
@@ -93,8 +92,7 @@ mod tests {
         let temp_file = NamedTempFile::new().unwrap();
         fs::write(&temp_file, content).unwrap();
 
-        let inputs =
-            VdPipelineInput::read_examples_from_file(temp_file.path().to_path_buf()).unwrap();
+        let inputs = VdPipelineInput::read_examples_from_file(temp_file.path()).unwrap();
 
         assert_eq!(inputs.len(), 2);
         assert_eq!(inputs[0].index, 0);
@@ -107,8 +105,7 @@ mod tests {
     fn test_read_from_file_empty() {
         let temp_file = NamedTempFile::new().unwrap();
 
-        let inputs =
-            VdPipelineInput::read_examples_from_file(temp_file.path().to_path_buf()).unwrap();
+        let inputs = VdPipelineInput::read_examples_from_file(temp_file.path()).unwrap();
 
         assert_eq!(inputs.len(), 0);
     }
@@ -119,8 +116,7 @@ mod tests {
         let temp_file = NamedTempFile::new().unwrap();
         fs::write(&temp_file, content).unwrap();
 
-        let inputs =
-            VdPipelineInput::read_examples_from_file(temp_file.path().to_path_buf()).unwrap();
+        let inputs = VdPipelineInput::read_examples_from_file(temp_file.path()).unwrap();
 
         assert_eq!(inputs.len(), 0);
     }

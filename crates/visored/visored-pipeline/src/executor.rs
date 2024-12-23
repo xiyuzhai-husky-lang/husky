@@ -6,8 +6,8 @@ use eterned::db::EternerDb;
 use input::VdPipelineInput;
 
 pub struct VdPipelineExecutor<'a, 'db> {
-    config: &'a VdPipelineConfig,
     input: &'a VdPipelineInput,
+    config: &'a VdPipelineConfig,
     llm_client: AllLlmsClient<'db>,
     raw_solution: Option<String>,
     simplified_solution: Option<String>,
@@ -16,19 +16,19 @@ pub struct VdPipelineExecutor<'a, 'db> {
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
     pub fn new(
         db: &'db EternerDb,
-        config: &'a VdPipelineConfig,
         input: &'a VdPipelineInput,
+        config: &'a VdPipelineConfig,
     ) -> Self {
         let base = input.file_path.parent().unwrap();
-        let cache_dir = config.cache_dir.to_logical_path(base).join(format!(
+        let cache_dir = config.data.cache_dir.to_logical_path(base).join(format!(
             "{}/example-{}",
             input.file_path.file_stem().unwrap().to_str().unwrap(),
             input.index
         ));
         std::fs::create_dir_all(&cache_dir).unwrap();
         Self {
-            config,
             input,
+            config,
             llm_client: AllLlmsClient::new(db, cache_dir).unwrap(),
             raw_solution: None,
             simplified_solution: None,
