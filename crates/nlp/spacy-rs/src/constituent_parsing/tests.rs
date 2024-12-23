@@ -4,9 +4,7 @@ use alien_seed::{attach::with_seed, AlienSeed};
 use expect_test::expect_file;
 use husky_path_utils::HuskyLangDevPaths;
 
-// TODO: use the right python interpreter
 #[test]
-#[ignore]
 fn constituent_parsing_works() {
     use eterned::db::EternerDb;
 
