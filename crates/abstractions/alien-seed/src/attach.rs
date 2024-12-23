@@ -21,6 +21,11 @@ where
     result
 }
 
+#[track_caller]
+pub fn attached_seed() -> AlienSeed {
+    SEED.with(|cell| cell.get()).expect("Seed not set.")
+}
+
 fn with_seed_replaced<F, R>(seed: AlienSeed, f: F) -> R
 where
     F: FnOnce() -> R,

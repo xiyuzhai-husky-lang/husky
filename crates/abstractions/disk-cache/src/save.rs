@@ -1,5 +1,5 @@
-use crate::entry::LlmCacheEntry;
 use crate::error::DiskCacheResult;
+use crate::{entry::LlmCacheEntry, seed::IsDiskCacheSeed};
 use attach::Attach;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
@@ -7,32 +7,39 @@ use std::path::PathBuf;
 use std::sync::mpsc::{channel, Sender};
 use std::{fs, marker::PhantomData};
 
-pub struct LlmCacheSaveThread<Db, Request, Response>
+pub struct LlmCacheSaveThread<Db, Seed, Request, Response>
 where
+    Seed: IsDiskCacheSeed,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    internal: Option<LlmCacheSaveThreadInternal<Db, Request, Response>>,
+    internal: Option<LlmCacheSaveThreadInternal<Db, Seed, Request, Response>>,
 }
 
-struct LlmCacheSaveThreadInternal<Db, Request, Response>
+struct LlmCacheSaveThreadInternal<Db, Seed, Request, Response>
 where
+    Seed: IsDiskCacheSeed,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
     db: Db,
     sender: Sender<String>,
     thread: std::thread::JoinHandle<()>,
-    phantom: PhantomData<(Request, Response)>,
+    phantom: PhantomData<(Seed, Request, Response)>,
 }
 
-impl<Db, Request, Response> LlmCacheSaveThread<Db, Request, Response>
+impl<Db, Seed, Request, Response> LlmCacheSaveThread<Db, Seed, Request, Response>
 where
     Db: Attach,
+    Seed: IsDiskCacheSeed,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    pub fn new(db: Db, path: PathBuf, mut entries: Vec<LlmCacheEntry<Request, Response>>) -> Self {
+    pub fn new(
+        db: Db,
+        path: PathBuf,
+        mut entries: Vec<LlmCacheEntry<Seed, Request, Response>>,
+    ) -> Self {
         let (sender, receiver) = channel();
 
         let thread = std::thread::spawn(move || {
@@ -53,18 +60,19 @@ where
         }
     }
 
-    pub fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> DiskCacheResult<()> {
+    pub fn save(&self, entries: &[LlmCacheEntry<Seed, Request, Response>]) -> DiskCacheResult<()> {
         self.internal.as_ref().unwrap().save(entries)
     }
 }
 
-impl<Db, Request, Response> LlmCacheSaveThreadInternal<Db, Request, Response>
+impl<Db, Seed, Request, Response> LlmCacheSaveThreadInternal<Db, Seed, Request, Response>
 where
     Db: Attach,
+    Seed: IsDiskCacheSeed,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {
-    fn save(&self, entries: &[LlmCacheEntry<Request, Response>]) -> DiskCacheResult<()> {
+    fn save(&self, entries: &[LlmCacheEntry<Seed, Request, Response>]) -> DiskCacheResult<()> {
         self.sender
             .send(
                 self.db
@@ -75,8 +83,9 @@ where
     }
 }
 
-impl<Db, Request, Response> Drop for LlmCacheSaveThread<Db, Request, Response>
+impl<Db, Seed, Request, Response> Drop for LlmCacheSaveThread<Db, Seed, Request, Response>
 where
+    Seed: IsDiskCacheSeed,
     Request: Serialize + DeserializeOwned + Eq + std::hash::Hash + Clone + Send + 'static,
     Response: Serialize + DeserializeOwned + Clone + Send + 'static,
 {

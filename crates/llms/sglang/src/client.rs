@@ -1,4 +1,5 @@
 use crate::{request::SglangRequest, response::SglangResponse, *};
+use alien_seed::AlienSeed;
 use disk_cache::DiskCache;
 use enum_index::full_map::EnumFullVecMap;
 use eterned::db::EternerDb;
@@ -7,7 +8,10 @@ use reqwest::Client;
 use std::path::PathBuf;
 
 pub struct SglangClient<'db> {
-    caches: EnumFullVecMap<SglangModel, DiskCache<&'db EternerDb, SglangRequest, SglangResponse>>,
+    caches: EnumFullVecMap<
+        SglangModel,
+        DiskCache<&'db EternerDb, AlienSeed, SglangRequest, SglangResponse>,
+    >,
     client: Client,
 }
 

@@ -6,6 +6,7 @@ use crate::{
     },
     VdPipelineConfig, VdPipelineConfigData, VdPipelineResult,
 };
+use alien_seed::AlienSeed;
 use eterned::db::EternerDb;
 use std::path::Path;
 use std::sync::Arc;
@@ -80,20 +81,20 @@ impl<'db> std::ops::Index<VdPipelineInstanceIdx> for VdPipelineRunner<'db> {
 }
 
 impl<'db> VdPipelineRunner<'db> {
-    pub fn run_all_single_threaded(&mut self) -> VdPipelineResult<()> {
+    pub fn run_all_single_threaded(&mut self, seed: AlienSeed) -> VdPipelineResult<()> {
         for instance in self.instance_storage.all_instances_mut() {
-            instance.run(self.db)?;
+            instance.run(seed, self.db)?;
         }
         Ok(())
     }
 
-    pub fn run_all_multi_threaded(&mut self) -> VdPipelineResult<()> {
+    pub fn run_all_multi_threaded(&mut self, seed: AlienSeed) -> VdPipelineResult<()> {
         use rayon::prelude::*;
 
         self.instance_storage
             .all_instances_mut()
             .par_iter_mut()
-            .try_for_each(|instance| instance.run(self.db))?;
+            .try_for_each(|instance| instance.run(seed, self.db))?;
         Ok(())
     }
 }

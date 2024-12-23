@@ -1,6 +1,7 @@
 mod entry;
 pub mod error;
 mod save;
+pub mod seed;
 #[cfg(test)]
 mod tests;
 pub mod traits;
@@ -8,12 +9,13 @@ pub mod traits;
 use self::{
     entry::LlmCacheEntry,
     error::{DiskCacheError, DiskCacheResult},
-    traits::{IsLlmCacheRequest, IsLlmCacheResponse},
+    traits::{IsDiskCacheRequest, IsDiskCacheResponse},
 };
 use attach::Attach;
 use chrono::Duration;
 use dashmap::DashMap;
 use save::LlmCacheSaveThread;
+use seed::IsDiskCacheSeed;
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use std::{fs, path::PathBuf};
@@ -21,23 +23,25 @@ use std::{io, sync::RwLock};
 #[cfg(test)]
 use tempfile;
 
-pub struct DiskCache<Db, Request, Response>
+pub struct DiskCache<Db, Seed, Request, Response>
 where
-    Request: IsLlmCacheRequest,
-    Response: IsLlmCacheResponse,
+    Seed: IsDiskCacheSeed,
+    Request: IsDiskCacheRequest,
+    Response: IsDiskCacheResponse,
 {
     db: Db,
     path: PathBuf,
-    entries: RwLock<Vec<LlmCacheEntry<Request, Response>>>,
-    indices: DashMap<Request, usize>,
-    save_thread: LlmCacheSaveThread<Db, Request, Response>,
+    entries: RwLock<Vec<LlmCacheEntry<Seed, Request, Response>>>,
+    indices: DashMap<(Seed, Request), usize>,
+    save_thread: LlmCacheSaveThread<Db, Seed, Request, Response>,
 }
 
-impl<Db, Request, Response> DiskCache<Db, Request, Response>
+impl<Db, Seed, Request, Response> DiskCache<Db, Seed, Request, Response>
 where
     Db: Attach,
-    Request: IsLlmCacheRequest,
-    Response: IsLlmCacheResponse,
+    Seed: IsDiskCacheSeed,
+    Request: IsDiskCacheRequest,
+    Response: IsDiskCacheResponse,
 {
     /// Creates a new LLM cache that stores request-response pairs at the specified path.
     ///
@@ -73,7 +77,7 @@ where
         fs::File::create(lock_file_path(&path)).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
 
         // Try to load existing cache
-        let entries: Vec<LlmCacheEntry<Request, Response>> = if path.exists() {
+        let entries: Vec<LlmCacheEntry<Seed, Request, Response>> = if path.exists() {
             let contents =
                 fs::read_to_string(&path).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
             db.attach(|| serde_json::from_str(&contents).unwrap_or_default())
@@ -86,7 +90,7 @@ where
         let indices = entries
             .iter()
             .enumerate()
-            .map(|(i, e)| (e.request.clone(), i))
+            .map(|(i, e)| ((e.seed, e.request.clone()), i))
             .collect();
         Ok(Self {
             db,
@@ -98,30 +102,33 @@ where
     }
 }
 
-impl<Db, Request, Response> DiskCache<Db, Request, Response>
+impl<Db, Seed, Request, Response> DiskCache<Db, Seed, Request, Response>
 where
     Db: Attach,
-    Request: IsLlmCacheRequest,
-    Response: IsLlmCacheResponse,
+    Seed: IsDiskCacheSeed,
+    Request: IsDiskCacheRequest,
+    Response: IsDiskCacheResponse,
 {
     /// locking is handled here
     pub fn get_or_call<E>(
         &self,
+        seed: Seed,
         request: Request,
         f: impl FnOnce(&Request) -> Result<Response, E>,
     ) -> Result<Response, E>
     where
         E: From<DiskCacheError>,
     {
-        if let Some(index) = self.indices.get(&request) {
+        if let Some(index) = self.indices.get(&(seed, request.clone())) {
             return Ok(self.entries.read().unwrap()[*index].response.clone());
         }
-        let response = self.get_or_call_aux(request, f)?;
+        let response = self.get_or_call_aux(seed, request, f)?;
         Ok(response)
     }
 
     fn get_or_call_aux<E>(
         &self,
+        seed: Seed,
         request: Request,
         f: impl FnOnce(&Request) -> Result<Response, E>,
     ) -> Result<Response, E>
@@ -130,22 +137,24 @@ where
     {
         let mut entries = self.entries.write().unwrap();
         // check again in case another thread has added the entry
-        if let Some(index) = self.indices.get(&request) {
+        if let Some(index) = self.indices.get(&(seed, request.clone())) {
             return Ok(entries[*index].response.clone());
         }
         let response = f(&request)?;
-        let new_entry = LlmCacheEntry::new(request.clone(), response.clone());
+        let new_entry = LlmCacheEntry::new(seed, request.clone(), response.clone());
         entries.push(new_entry);
         self.save_thread.save(&entries)?;
-        self.indices.insert(request, entries.len() - 1);
+        self.indices
+            .insert((seed, request.clone()), entries.len() - 1);
         Ok(response)
     }
 }
 
-impl<Db, Request, Response> Drop for DiskCache<Db, Request, Response>
+impl<Db, Seed, Request, Response> Drop for DiskCache<Db, Seed, Request, Response>
 where
-    Request: IsLlmCacheRequest,
-    Response: IsLlmCacheResponse,
+    Seed: IsDiskCacheSeed,
+    Request: IsDiskCacheRequest,
+    Response: IsDiskCacheResponse,
 {
     fn drop(&mut self) {
         fs::remove_file(lock_file_path(&self.path)).unwrap();

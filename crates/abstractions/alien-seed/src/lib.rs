@@ -1,9 +1,23 @@
-mod attach;
+pub mod attach;
 
+use serde::{Deserialize, Serialize};
 use std::num::NonZeroU64;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct AlienSeed(NonZeroU64);
+
+impl AlienSeed {
+    pub fn new(seed: u64) -> Self {
+        let mut x = seed;
+        x = x ^ (x >> 30);
+        x = x.wrapping_mul(0xbf58476d1ce4e5b9);
+        x = x ^ (x >> 27);
+        x = x.wrapping_mul(0x94d049bb133111eb);
+        x = x ^ (x >> 31);
+
+        Self(NonZeroU64::new(x.wrapping_add(1)).unwrap())
+    }
+}
 
 impl AlienSeed {
     /// Creates a new seed by combining this seed with an index.
@@ -30,13 +44,6 @@ impl AlienSeed {
 
 impl From<u64> for AlienSeed {
     fn from(seed: u64) -> Self {
-        let mut x = seed;
-        x = x ^ (x >> 30);
-        x = x.wrapping_mul(0xbf58476d1ce4e5b9);
-        x = x ^ (x >> 27);
-        x = x.wrapping_mul(0x94d049bb133111eb);
-        x = x ^ (x >> 31);
-
-        Self(NonZeroU64::new(x.wrapping_add(1)).unwrap())
+        AlienSeed::new(seed)
     }
 }

@@ -18,6 +18,7 @@ pyo3.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 # abstractions
+alien-seed.workspace = true
 attach.workspace = true
 base-coword = { workspace = true, features = ["pyo3"] }
 eterned.workspace = true
