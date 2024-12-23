@@ -12,6 +12,7 @@ pub enum AllLlmModel {
 impl AllLlmModel {
     pub const GPT4O: Self = Self::Openai(OpenaiModel::Gpt4o);
     pub const GEMINI_1_5_FLASH: Self = Self::Gemini(GeminiModel::Gemini1_5Flash);
+    pub const GEMINI_1_5_PRO: Self = Self::Gemini(GeminiModel::Gemini1_5Pro);
 }
 
 impl AllLlmModel {
