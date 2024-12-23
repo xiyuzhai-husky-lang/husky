@@ -2,11 +2,30 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fvextra}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage[left=3cm,right=3cm]{geometry}
 \fvset{breaklines=true}
+
 \begin{document}
+\lstdefinelanguage{LaTeX}{
+    breaklines=true,
+    basicstyle=\ttfamily\footnotesize,
+    morekeywords={
+            \begin,\end,\usepackage,\documentclass,\maketitle,
+            \title,\author,\section,\subsection,\textbf
+        },
+    alsoletter={\\},      % Treat backslash as part of keywords
+    morecomment=[l]{\%},  % Line comment starts with '%'
+    morestring=[b]",      % Strings in double quotes
+    sensitive=true        % Case-sensitive
+}
+
+
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} (a+b)^2 &= (a+b)(a+b) \\ &= a(a+b) + b(a+b) \\ &= a^2 + ab + ba + b^2 \\ &= a^2 + 2ab + b^2\end{align*} 
 Let $x = a^2 + 2ab + b^2$.  Then $x = a^2 + 2ab + b^2 = (a+b)^2$.
 We know that $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$.
@@ -14,20 +33,24 @@ Consider the case where $ab \ge 0$. Then $a^2 + 2ab + b^2 \ge 0$.
 Consider the case where $ab < 0$. Then $2ab < 0$. However, $a^2 + b^2 \ge 0$.  If $a^2 + b^2 \ge |2ab|$, then $a^2 + 2ab + b^2 \ge 0$.  If $a^2 + b^2 < |2ab|$, then we can rewrite $a^2 + 2ab + b^2 = a^2 + 2ab + b^2$. Then we have $a^2 + b^2 \ge 0$ and $a^2 + 2ab + b^2 = (a+b)^2$. Since the square of any real number is non-negative, $(a+b)^2 \ge 0$.
 Alternatively, since the square of any real number is non-negative, $(a+b)^2 \ge 0$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 Since the square of any real number is non-negative, $(a+b)^2 \ge 0$.
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} (a+b)^2 &= (a+b)(a+b) \\ &= a(a+b) + b(a+b) \\ &= a^2 + ab + ba + b^2 \\ &= a^2 + 2ab + b^2\end{align*} 
 Let $x = a^2 + 2ab + b^2$.  Then $x = a^2 + 2ab + b^2 = (a+b)^2$.
 We know that $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$.
@@ -35,20 +58,24 @@ Consider the case where $ab \ge 0$. Then $a^2 + 2ab + b^2 \ge 0$.
 Consider the case where $ab < 0$. Then $2ab < 0$. However, $a^2 + b^2 \ge 0$.  If $a^2 + b^2 \ge |2ab|$, then $a^2 + 2ab + b^2 \ge 0$.  If $a^2 + b^2 < |2ab|$, then we can rewrite $a^2 + 2ab + b^2 = a^2 + 2ab + b^2$. Then we have $a^2 + b^2 \ge 0$ and $a^2 + 2ab + b^2 = (a+b)^2$. Since the square of any real number is non-negative, $(a+b)^2 \ge 0$.
 Alternatively, since the square of any real number is non-negative, $(a+b)^2 \ge 0$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 Since the square of any real number is non-negative, $(a+b)^2 \ge 0$.
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -57,20 +84,24 @@ Since $x$ and $y$ are positive real numbers, we can consider their squares. We h
 \end{proof}
 \end{document}
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 Since $(x-y)^2 \ge 0$, we have $x^2 - 2xy + y^2 \ge 0$.  Then $x^2 + 2xy + y^2 \ge 4xy$, so $(x+y)^2 \ge 4xy$. Taking the square root (since $x, y > 0$) gives $x+y \ge 2\sqrt{xy}$, and dividing by 2 yields $\frac{x+y}{2} \ge \sqrt{xy}$.
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -79,54 +110,66 @@ Since $x$ and $y$ are positive real numbers, we can consider their squares. We h
 \end{proof}
 \end{document}
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 Since $(x-y)^2 \ge 0$, we have $x^2 - 2xy + y^2 \ge 0$.  Then $x^2 + 2xy + y^2 \ge 4xy$, so $(x+y)^2 \ge 4xy$. Taking the square root (since $x, y > 0$) gives $x+y \ge 2\sqrt{xy}$, and dividing by 2 yields $\frac{x+y}{2} \ge \sqrt{xy}$.
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\ &\geq 0\end{align*} 
 Since $(a-b)^2 \ge 0$, $(b-c)^2 \ge 0$, and $(c-a)^2 \ge 0$ for all real numbers $a$, $b$, and $c$. Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 \begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2 \end{align*} 
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\ &\geq 0\end{align*} 
 Since $(a-b)^2 \ge 0$, $(b-c)^2 \ge 0$, and $(c-a)^2 \ge 0$ for all real numbers $a$, $b$, and $c$. Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 \begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2 \end{align*} 
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -134,19 +177,23 @@ Let $x$ be a positive real number. Consider the expression $(x-1)^2$. Since squa
 
 \end{document}
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} \label{eq:1}\left( \sqrt{x} - \frac{1}{\sqrt{x}} \right)^2 &\ge 0 \\ x - 2 + \frac{1}{x} &\ge 0 \\ x + \frac{1}{x} &\ge 2\end{align*} 
 Equality holds when $x=1$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -154,26 +201,32 @@ Let $x$ be a positive real number. Consider the expression $(x-1)^2$. Since squa
 
 \end{document}
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} \label{eq:1}\left( \sqrt{x} - \frac{1}{\sqrt{x}} \right)^2 &\ge 0 \\ x - 2 + \frac{1}{x} &\ge 0 \\ x + \frac{1}{x} &\ge 2\end{align*} 
 Equality holds when $x=1$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} \label{eq:1} 2(a+b)^2 &\leq 4(a^2+b^2) \\ 2(a^2+2ab+b^2) &\leq 4a^2+4b^2 \\ 2a^2+4ab+2b^2 &\leq 4a^2+4b^2 \\ 0 &\leq 2a^2-4ab+2b^2 \\ 0 &\leq 2(a^2-2ab+b^2) \\ 0 &\leq 2(a-b)^2\end{align*} 
 Since $(a-b)^2 \geq 0$ for all real numbers $a$ and $b$, the inequality holds.  The inequality is strict unless $a=b$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 \begin{align*}
 \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 &= \frac{a^2+b^2}{2} - \frac{a^2+2ab+b^2}{4} \\
@@ -184,19 +237,23 @@ Simplified solution:
 Since $\frac{(a-b)^2}{4} \geq 0$, we have $\frac{a^2+b^2}{2} \geq \left(\frac{a+b}{2}\right)^2$.
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 
 
 Raw solution:
-\begin{verbatim}
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 \begin{align*} \label{eq:1} 2(a+b)^2 &\leq 4(a^2+b^2) \\ 2(a^2+2ab+b^2) &\leq 4a^2+4b^2 \\ 2a^2+4ab+2b^2 &\leq 4a^2+4b^2 \\ 0 &\leq 2a^2-4ab+2b^2 \\ 0 &\leq 2(a^2-2ab+b^2) \\ 0 &\leq 2(a-b)^2\end{align*} 
 Since $(a-b)^2 \geq 0$ for all real numbers $a$ and $b$, the inequality holds.  The inequality is strict unless $a=b$.
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
-\begin{verbatim}
 Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+    \begin{lstlisting}[language=LaTeX]
 ```latex
 \begin{align*}
 \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 &= \frac{a^2+b^2}{2} - \frac{a^2+2ab+b^2}{4} \\
@@ -207,6 +264,7 @@ Simplified solution:
 Since $\frac{(a-b)^2}{4} \geq 0$, we have $\frac{a^2+b^2}{2} \geq \left(\frac{a+b}{2}\right)^2$.
 ```
 
-\end{verbatim}
+\end{lstlisting}
+\end{tcolorbox}
 
 \end{document}
