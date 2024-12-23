@@ -170,6 +170,9 @@ dependencies = [
 [[package]]
 name = "alien-seed"
 version = "0.1.0"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "aligned-vec"
@@ -3213,6 +3216,7 @@ dependencies = [
 name = "gemini"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "disk-cache",
  "enum-index",
  "eterned",
@@ -8181,6 +8185,7 @@ version = "0.1.0"
 name = "is-llm"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "attach",
  "disk-cache",
  "sealed",
@@ -9937,6 +9942,7 @@ checksum = "1261fe7e33c73b354eab43b1273a57c8f967d0391e80353e51f764ac02cf6775"
 name = "openai"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "disk-cache",
  "enum-index",
  "eterned",
@@ -11765,6 +11771,7 @@ dependencies = [
 name = "sglang"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "disk-cache",
  "enum-index",
  "eterned",
@@ -12050,6 +12057,7 @@ dependencies = [
 name = "spacy-rs"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "attach",
  "base-coword",
  "disk-cache",
@@ -13269,6 +13277,7 @@ dependencies = [
 name = "visored-cli"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "clap 4.5.16",
  "eterned",
  "glob",
@@ -13437,6 +13446,7 @@ dependencies = [
 name = "visored-pipeline"
 version = "0.1.0"
 dependencies = [
+ "alien-seed",
  "all-llms",
  "eterned",
  "expect-test",

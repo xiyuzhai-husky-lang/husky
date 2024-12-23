@@ -15,6 +15,7 @@ keywords.workspace = true
 clap.workspace = true
 glob.workspace = true
 # abstractions
+alien-seed.workspace = true
 eterned.workspace = true
 # visored
 visored-pipeline.workspace = true

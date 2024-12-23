@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait IsLlmCacheRequest:
+pub trait IsDiskCacheRequest:
     Serialize + for<'de> Deserialize<'de> + Eq + std::hash::Hash + Clone + Send + Sync + 'static
 {
 }
@@ -14,16 +14,16 @@ impl<
             + Send
             + Sync
             + 'static,
-    > IsLlmCacheRequest for T
+    > IsDiskCacheRequest for T
 {
 }
 
-pub trait IsLlmCacheResponse:
+pub trait IsDiskCacheResponse:
     Serialize + for<'de> Deserialize<'de> + Clone + Send + Sync + 'static
 {
 }
 
-impl<T: Serialize + for<'de> Deserialize<'de> + Clone + Send + Sync + 'static> IsLlmCacheResponse
+impl<T: Serialize + for<'de> Deserialize<'de> + Clone + Send + Sync + 'static> IsDiskCacheResponse
     for T
 {
 }

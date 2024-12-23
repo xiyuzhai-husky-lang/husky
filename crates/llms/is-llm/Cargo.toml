@@ -16,6 +16,7 @@ sealed.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 # abstractions
+alien-seed.workspace = true
 attach.workspace = true
 # llms
 disk-cache.workspace = true

@@ -1,5 +1,12 @@
 [
     PackageSummary {
+        name: "alien-seed",
+        relative_path: "crates/abstractions/alien-seed",
+        dependencies: [
+            "serde",
+        ],
+    },
+    PackageSummary {
         name: "alt-option",
         relative_path: "crates/abstractions/alt-option",
         dependencies: [],
@@ -3841,6 +3848,7 @@
         name: "visored-cli",
         relative_path: "crates/apps/visored-cli",
         dependencies: [
+            "alien-seed",
             "clap",
             "eterned",
             "glob",
@@ -3851,13 +3859,17 @@
         name: "visored-pipeline",
         relative_path: "crates/visored/visored-pipeline",
         dependencies: [
+            "alien-seed",
             "all-llms",
             "eterned",
+            "husky-print-utils",
+            "idx-arena",
             "rayon",
             "relative-path",
             "serde",
             "serde_yaml",
             "thiserror",
+            "expect-test",
             "tempfile",
         ],
     },
@@ -3872,12 +3884,14 @@
             "openai",
             "sglang",
             "thiserror",
+            "expect-test",
         ],
     },
     PackageSummary {
         name: "gemini",
         relative_path: "crates/llms/gemini",
         dependencies: [
+            "alien-seed",
             "disk-cache",
             "enum-index",
             "eterned",
@@ -3897,6 +3911,7 @@
         name: "is-llm",
         relative_path: "crates/llms/is-llm",
         dependencies: [
+            "alien-seed",
             "attach",
             "disk-cache",
             "sealed",
@@ -3908,6 +3923,7 @@
         name: "openai",
         relative_path: "crates/llms/openai",
         dependencies: [
+            "alien-seed",
             "disk-cache",
             "enum-index",
             "eterned",
@@ -3924,6 +3940,7 @@
         name: "sglang",
         relative_path: "crates/llms/sglang",
         dependencies: [
+            "alien-seed",
             "disk-cache",
             "enum-index",
             "eterned",
@@ -4403,6 +4420,7 @@
         name: "spacy-rs",
         relative_path: "crates/nlp/spacy-rs",
         dependencies: [
+            "alien-seed",
             "attach",
             "base-coword",
             "disk-cache",

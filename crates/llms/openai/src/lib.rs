@@ -6,6 +6,7 @@ pub mod request;
 pub mod response;
 
 use self::{error::*, request::*, response::*};
+use alien_seed::{attach::attached_seed, AlienSeed};
 use cap::try_call_openai;
 use disk_cache::DiskCache;
 use enum_index::full_map::EnumFullVecMap;
@@ -17,7 +18,10 @@ use std::path::{Path, PathBuf};
 use usage_cap::UsageCap;
 
 pub struct OpenaiClient<'db> {
-    caches: EnumFullVecMap<OpenaiModel, DiskCache<&'db EternerDb, OpenaiRequest, OpenaiResponse>>,
+    caches: EnumFullVecMap<
+        OpenaiModel,
+        DiskCache<&'db EternerDb, AlienSeed, OpenaiRequest, OpenaiResponse>,
+    >,
     /// None if the environment variable `OPENAI_API_KEY` is not set.
     client_ext: Option<ext::OpenAIClient>,
 }
@@ -41,8 +45,10 @@ impl<'db> OpenaiClient<'db> {
     pub fn generate_text(&self, model: OpenaiModel, input: String) -> OpenaiResult<String> {
         let min_usage = input.len();
         let request = OpenaiRequest::TextGeneration { input };
-        let OpenaiResponse::TextGeneration(response) =
-            self.caches[model].get_or_call(request, |request| -> OpenaiResult<OpenaiResponse> {
+        let OpenaiResponse::TextGeneration(response) = self.caches[model].get_or_call(
+            attached_seed(),
+            request,
+            |request| -> OpenaiResult<OpenaiResponse> {
                 match try_call_openai::<OpenaiResult<String>>(min_usage, || {
                     self.complete_chat_aux(model, request)
                 })? {
@@ -52,7 +58,8 @@ impl<'db> OpenaiClient<'db> {
                     },
                     Err(e) => todo!(),
                 }
-            })?;
+            },
+        )?;
         Ok(response)
     }
 
