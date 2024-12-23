@@ -1,19 +1,23 @@
-use crate::{builder::VdPipelineBuilder, input::VdPipelineInput, VdPipelineConfig};
+use crate::{executor::VdPipelineExecutor, input::VdPipelineInput, VdPipelineConfig};
 use all_llms::AllLlmsClient;
 use eterned::db::EternerDb;
 use std::sync::Arc;
 
 pub struct VdPipelineTracker {
     input: Arc<VdPipelineInput>,
+    raw_solution: String,
+    simplified_solution: String,
 }
 
 impl VdPipelineTracker {
     pub fn new(db: &EternerDb, config: &VdPipelineConfig, input: Arc<VdPipelineInput>) -> Self {
-        let mut builder = VdPipelineBuilder::new(db, config, &*input);
-        use husky_print_utils::p;
-        p!(input);
-        todo!();
-        let () = builder.finish();
-        Self { input }
+        let mut executor = VdPipelineExecutor::new(db, config, &*input);
+        executor.execute_all();
+        let (raw_solution, simplified_solution) = executor.finish();
+        Self {
+            input,
+            raw_solution,
+            simplified_solution,
+        }
     }
 }
