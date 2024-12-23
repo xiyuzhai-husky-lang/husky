@@ -30,4 +30,8 @@ impl<'a, 'db> VdPipelineBuilder<'a, 'db> {
             llm_client: AllLlmsClient::new(db, cache_dir).unwrap(),
         }
     }
+
+    pub(crate) fn finish(self) -> () {
+        ()
+    }
 }

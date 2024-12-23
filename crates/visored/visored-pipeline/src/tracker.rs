@@ -10,6 +10,7 @@ pub struct VdPipelineTracker {
 impl VdPipelineTracker {
     pub fn new(db: &EternerDb, config: &VdPipelineConfig, input: Arc<VdPipelineInput>) -> Self {
         let mut builder = VdPipelineBuilder::new(db, config, &*input);
+        let () = builder.finish();
         Self { input }
     }
 }
