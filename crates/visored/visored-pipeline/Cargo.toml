@@ -21,6 +21,8 @@ thiserror.workspace = true
 eterned.workspace = true
 # llms
 all-llms.workspace = true
+# utils
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 tempfile.workspace = true

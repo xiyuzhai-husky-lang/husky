@@ -10,6 +10,9 @@ pub struct VdPipelineTracker {
 impl VdPipelineTracker {
     pub fn new(db: &EternerDb, config: &VdPipelineConfig, input: Arc<VdPipelineInput>) -> Self {
         let mut builder = VdPipelineBuilder::new(db, config, &*input);
+        use husky_print_utils::p;
+        p!(input);
+        todo!();
         let () = builder.finish();
         Self { input }
     }
