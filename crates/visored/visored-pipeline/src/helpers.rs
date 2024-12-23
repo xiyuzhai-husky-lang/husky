@@ -10,8 +10,27 @@ const LATEX_DOCUMENT_PREFIX: &'static str = r#"\documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fvextra}
+\usepackage{tcolorbox}
+\usepackage{listings}
 \fvset{breaklines=true}
-\begin{document}"#;
+
+\begin{document}
+\lstdefinelanguage{LaTeX}{
+    breaklines=true,
+    basicstyle=\ttfamily\normalsize,
+    basewidth={0.6em,0.45em},
+    keepspaces=true,
+    morekeywords={
+            \begin,\end,\usepackage,\documentclass,\maketitle,
+            \title,\author,\section,\subsection,\textbf
+        },
+    alsoletter={\\},      % Treat backslash as part of keywords
+    morecomment=[l]{\%},  % Line comment starts with '%'
+    morestring=[b]",      % Strings in double quotes
+    sensitive=true        % Case-sensitive
+}
+
+"#;
 
 const LATEX_DOCUMENT_SUFFIX: &'static str = r#"\end{document}"#;
 
@@ -70,14 +89,18 @@ impl VdPipelineInstance {
             r#"
 
 Raw solution:
-\begin{{verbatim}}
+\begin{{tcolorbox}}[colback=blue!10, width=\linewidth]
+\begin{{lstlisting}}[language=LaTeX]
 {}
-\end{{verbatim}}
+\end{{lstlisting}}
+\end{{tcolorbox}}
 
-\begin{{verbatim}}
 Simplified solution:
+\begin{{tcolorbox}}[colback=blue!10, width=\linewidth]
+\begin{{lstlisting}}[language=LaTeX]
 {}
-\end{{verbatim}}
+\end{{lstlisting}}
+\end{{tcolorbox}}
 
 "#,
             tracker.raw_solution, tracker.simplified_solution
