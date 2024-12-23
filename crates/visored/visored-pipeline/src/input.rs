@@ -6,6 +6,7 @@ use std::sync::Arc;
 ///
 /// Each input contains the content of a single LaTeX example environment,
 /// along with its source file path and index number within the file.
+#[derive(Debug)]
 pub struct VdPipelineInput {
     /// Path to the source LaTeX file
     pub file_path: PathBuf,
