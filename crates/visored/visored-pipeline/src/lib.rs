@@ -2,6 +2,7 @@ pub mod config;
 pub mod error;
 /// builder builds one instance of the pipeline, returns a tracker
 mod executor;
+pub mod helpers;
 pub mod input;
 /// smallest unit of the pipeline
 mod instance;

@@ -52,7 +52,7 @@ You should give directly the latex code for the solution, without any other text
             self.input.content
         );
         // TODO: use config
-        let model = AllLlmModel::GEMINI_1_5_PRO;
+        let model = AllLlmModel::GEMINI_1_5_FLASH;
         self.raw_solution = Some(self.llm_client.generate_text(model, prompt).unwrap());
         let prompt = format!(
             r#"Please provide a simplified solution to the following problem:

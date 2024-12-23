@@ -13,14 +13,14 @@ const DEFAULT_RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(
 
 pub struct GeminiClient<'db> {
     caches: EnumFullVecMap<GeminiModel, DiskCache<&'db EternerDb, GeminiRequest, GeminiResponse>>,
-    api_key: String,
+    api_key: Option<String>,
     client: Client,
     retry_delay: std::time::Duration,
 }
 
 impl<'db> GeminiClient<'db> {
     pub fn new(db: &'db EternerDb, cache_dir: &Path) -> GeminiResult<Self> {
-        let api_key = std::env::var("GEMINI_API_KEY").expect("GEMINI_API_KEY not set");
+        let api_key = std::env::var("GEMINI_API_KEY").ok();
         let caches = EnumFullVecMap::try_new(|model: GeminiModel| {
             if !cache_dir.is_dir() {
                 return Err(GeminiError::InvalidCacheDir(cache_dir.to_owned()));
@@ -95,12 +95,15 @@ impl<'db> GeminiClient<'db> {
     ) -> Option<(usize, GeminiResult<GeminiResponse>)> {
         let mut usage = 0;
         let raw_request: GeminiRawRequest = request.into();
+        let Some(ref api_key) = self.api_key else {
+            return Some((usage, Err(GeminiError::ApiKeyNotSet)));
+        };
         let response = match self
             .client
             .post(format!(
                 "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent?key={}",
                 model.url_name(),
-                self.api_key
+                api_key
             ))
             .json(&raw_request)
             .send()
