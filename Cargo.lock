@@ -13436,6 +13436,7 @@ dependencies = [
  "all-llms",
  "eterned",
  "husky-print-utils",
+ "idx-arena",
  "rayon",
  "relative-path",
  "serde",
