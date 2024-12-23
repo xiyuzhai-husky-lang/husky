@@ -16,6 +16,7 @@ serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
 # abstractions
+alien-seed.workspace = true
 disk-cache.workspace = true
 enum-index.workspace = true
 eterned.workspace = true

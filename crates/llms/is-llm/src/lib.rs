@@ -7,6 +7,7 @@ use self::{
     request::IsLlmRequest,
     response::IsLlmResponse,
 };
+use alien_seed::{attach::attached_seed, AlienSeed};
 use attach::Attach;
 use disk_cache::{error::DiskCacheError, DiskCache};
 use request::{chat_completion::LlmChatCompletionRequest, LlmRequest};
@@ -35,7 +36,7 @@ pub trait IsLlmImpl {
         + From<LlmChatCompletionResponse>
         + Into<Self::Response>;
 
-    fn cache(&self) -> &DiskCache<Self::Db, Self::Request, Self::Response>;
+    fn cache(&self) -> &DiskCache<Self::Db, AlienSeed, Self::Request, Self::Response>;
     fn chat_completion_impl(
         &self,
         request: Self::ChatCompletionRequest,
@@ -50,9 +51,11 @@ impl<T: IsLlmImpl> IsLlm for T {
         }
         .into();
         self.cache()
-            .get_or_call(request.into(), |request| match request.clone().try_into() {
-                Ok(request) => self.chat_completion_impl(request),
-                Err(_) => unreachable!(),
+            .get_or_call(attached_seed(), request.into(), |request| {
+                match request.clone().try_into() {
+                    Ok(request) => self.chat_completion_impl(request),
+                    Err(_) => unreachable!(),
+                }
             })
             .map(|response| match response.try_into() {
                 Ok(response) => response,

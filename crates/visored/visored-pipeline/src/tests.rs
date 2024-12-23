@@ -1,4 +1,5 @@
 use crate::runner::VdPipelineRunner;
+use alien_seed::AlienSeed;
 use eterned::db::EternerDb;
 use std::path::{Path, PathBuf};
 
@@ -12,7 +13,8 @@ fn visored_pipeline_works() {
     ) {
         let db = &EternerDb::default();
         let mut runner = VdPipelineRunner::new(db, config_path, src_file_paths).unwrap();
-        runner.run_all_single_threaded().unwrap();
+        let seed = AlienSeed::new(0);
+        runner.run_all_single_threaded(seed).unwrap();
         let latex_files = runner.export_result_latex_files(parent_dir).unwrap();
         for latex_file in latex_files {
             use expect_test::expect_file;

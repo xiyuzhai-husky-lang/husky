@@ -18,6 +18,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_yaml.workspace = true
 thiserror.workspace = true
 # abstractions
+alien-seed.workspace = true
 eterned.workspace = true
 idx-arena.workspace = true
 # llms

@@ -1,5 +1,6 @@
 pub mod storage;
 
+use alien_seed::{attach::with_seed, AlienSeed};
 use eterned::db::EternerDb;
 use idx_arena::{ArenaIdx, ArenaIdxRange};
 
@@ -35,13 +36,15 @@ impl VdPipelineInstance {
 }
 
 impl VdPipelineInstance {
-    pub fn run(&mut self, db: &EternerDb) -> VdPipelineResult<()> {
+    pub fn run(&mut self, seed: AlienSeed, db: &EternerDb) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
-        self.tracker = Some(VdPipelineTracker::new(
-            db,
-            self.input.clone(),
-            self.config.clone(),
-        ));
+        with_seed(seed, || {
+            self.tracker = Some(VdPipelineTracker::new(
+                db,
+                self.input.clone(),
+                self.config.clone(),
+            ));
+        });
         Ok(())
     }
 }

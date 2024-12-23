@@ -1,4 +1,5 @@
 use crate::{request::GeminiRawRequest, response::GeminiRawResponse, *};
+use alien_seed::{attach::attached_seed, AlienSeed};
 use disk_cache::DiskCache;
 use enum_index::full_map::EnumFullVecMap;
 use eterned::db::EternerDb;
@@ -12,7 +13,10 @@ use usage_cap::UsageCap;
 const DEFAULT_RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(30);
 
 pub struct GeminiClient<'db> {
-    caches: EnumFullVecMap<GeminiModel, DiskCache<&'db EternerDb, GeminiRequest, GeminiResponse>>,
+    caches: EnumFullVecMap<
+        GeminiModel,
+        DiskCache<&'db EternerDb, AlienSeed, GeminiRequest, GeminiResponse>,
+    >,
     api_key: Option<String>,
     client: Client,
     retry_delay: std::time::Duration,
@@ -58,8 +62,10 @@ impl<'db> GeminiClient<'db> {
         request: GeminiRequest,
     ) -> GeminiResult<GeminiResponse> {
         let min_usage = request.min_usage();
-        let response =
-            self.caches[model].get_or_call(request, |request| -> GeminiResult<GeminiResponse> {
+        let response = self.caches[model].get_or_call(
+            attached_seed(),
+            request,
+            |request| -> GeminiResult<GeminiResponse> {
                 match try_call_gemini::<GeminiResult<GeminiResponse>>(min_usage, || {
                     let rt = tokio::runtime::Runtime::new().unwrap();
                     rt.block_on(self.generate_aux(model, request))
@@ -70,7 +76,8 @@ impl<'db> GeminiClient<'db> {
                     },
                     Err(e) => todo!(),
                 }
-            })?;
+            },
+        )?;
 
         Ok(response)
     }

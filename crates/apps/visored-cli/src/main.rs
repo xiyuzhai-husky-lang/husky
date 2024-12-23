@@ -1,3 +1,4 @@
+use alien_seed::AlienSeed;
 use clap::Parser;
 use eterned::db::EternerDb;
 use glob::glob;
@@ -36,6 +37,6 @@ fn main() {
 
 fn run(db: &EternerDb, config_path: PathBuf, src_file_paths: Vec<PathBuf>) -> VdPipelineResult<()> {
     let mut runner = VdPipelineRunner::new(db, config_path, src_file_paths)?;
-    runner.run_all_single_threaded()?;
+    runner.run_all_single_threaded(AlienSeed::new(0))?;
     Ok(())
 }
