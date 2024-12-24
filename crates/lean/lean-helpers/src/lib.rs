@@ -21,7 +21,7 @@ pub fn lake_lean(path: &Path) -> LeanOutput {
 
     let output = std::process::Command::new("lake")
         .arg("lean")
-        .arg(path)
+        .arg(path.canonicalize().expect("Failed to get absolute path"))
         .current_dir(package_dir)
         .output()
         .expect("Failed to execute lake lean");
