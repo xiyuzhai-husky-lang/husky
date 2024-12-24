@@ -12,6 +12,8 @@ const LATEX_DOCUMENT_PREFIX: &'static str = r#"\documentclass{article}
 \usepackage{fvextra}
 \usepackage{tcolorbox}
 \usepackage{listings}
+\usepackage{amsthm}
+\newtheorem{example}{Example}
 \fvset{breaklines=true}
 
 \begin{document}
@@ -88,13 +90,20 @@ impl VdPipelineInstance {
             latex_content,
             r#"
 
+\begin{{example}}
+Problem:
+\begin{{tcolorbox}}[colback=yellow!10, width=\linewidth]
+{}
+\end{{tcolorbox}}
+
 Simplified solution:
 \begin{{tcolorbox}}[colback=blue!10, width=\linewidth]
 {}
 \end{{tcolorbox}}
+\end{{example}}
 
 "#,
-            tracker.simplified_solution.1
+            tracker.input.content, tracker.simplified_solution.1
         )
         .unwrap();
     }

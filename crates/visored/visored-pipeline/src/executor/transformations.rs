@@ -9,8 +9,20 @@ pub(super) fn simplification_transformations() -> Vec<AllLlmsStringTransformatio
                 main: "Please simplify the following mathematical proof:".to_string(),
                 side: Some(format!(
                     r#"
-    You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution."#
+    
+    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.
+
+The solution should move forward logically, building upon previous steps to reach the conclusion. Avoid working backwards from what we want to prove.
+    "#
                 )),
+            },
+            examples: vec![],
+        },
+        AllLlmsStringTransformation {
+            model: AllLlmModel::GEMINI_1_5_FLASH,
+            instruction: LlmStringTransformationInstruction::MainInputSide {
+                main: r#"Make sure the solution doesn't contain any \begin{{document}}, \end{{document}}, \begin{{proof}}, or \end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode."#.to_string(),
+                side: None,
             },
             examples: vec![],
         },
@@ -31,11 +43,8 @@ pub(super) fn visored_preprocessing_transformations() -> Vec<AllLlmsStringTransf
     vec![AllLlmsStringTransformation {
         model: AllLlmModel::GEMINI_1_5_FLASH,
         instruction: LlmStringTransformationInstruction::MainInputSide {
-            main: "Please provide a simplified solution to the following problem".to_string(),
-            side: Some(format!(
-                r#"
-You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution. Don't include any \label or \ref."#
-            )),
+            main: "Remove discussion of equality holds. These are not needed.".to_string(),
+            side: None,
         },
         examples: vec![],
     }]
