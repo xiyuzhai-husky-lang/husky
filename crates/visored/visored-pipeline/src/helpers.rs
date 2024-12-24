@@ -102,8 +102,13 @@ Simplified solution:
 \end{{tcolorbox}}
 \end{{example}}
 
+Elaborated solution:
+\begin{{tcolorbox}}[colback=green!10, width=\linewidth]
+{}
+\end{{tcolorbox}}
+
 "#,
-            tracker.input.content, tracker.simplified_solution.1
+            tracker.input.content, tracker.simplified_solution.1, tracker.elaborated_solution.1,
         )
         .unwrap();
     }
