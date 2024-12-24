@@ -96,19 +96,19 @@ Problem:
 {}
 \end{{tcolorbox}}
 
-Simplified solution:
+Simplified proof:
 \begin{{tcolorbox}}[colback=blue!10, width=\linewidth]
 {}
 \end{{tcolorbox}}
 \end{{example}}
 
-Elaborated solution:
+Elaborated proof:
 \begin{{tcolorbox}}[colback=green!10, width=\linewidth]
 {}
 \end{{tcolorbox}}
 
 "#,
-            tracker.input.content, tracker.simplified_solution.1, tracker.elaborated_solution.1,
+            tracker.input.content, tracker.simplified_proof.1, tracker.elaborated_proof.1,
         )
         .unwrap();
     }

@@ -12,17 +12,9 @@ pub(super) fn simplification_transformations() -> Vec<AllLlmsStringTransformatio
     
     There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.
 
-The solution should move forward logically, building upon previous steps to reach the conclusion. Avoid working backwards from what we want to prove.
+    Wrap the proof in \begin{{proof}} and \end{{proof}}.
     "#
                 )),
-            },
-            examples: vec![],
-        },
-        AllLlmsStringTransformation {
-            model: AllLlmModel::GEMINI_1_5_FLASH,
-            instruction: LlmStringTransformationInstruction::MainInputSide {
-                main: r#"Make sure the solution doesn't contain any \begin{{document}}, \end{{document}}, \begin{{proof}}, or \end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode."#.to_string(),
-                side: None,
             },
             examples: vec![],
         },
@@ -48,7 +40,7 @@ pub(super) fn elaboration_transformations() -> Vec<AllLlmsStringTransformation> 
             side: Some(
                 r#"
 
-    Don't include \begin{{document}}, \end{{document}}, \begin{{proof}}, or \end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.
+    Wrap the proof in \begin{{proof}} and \end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.
     "#
                 .to_string(),
             ),
@@ -62,7 +54,9 @@ pub(super) fn elaboration_transformations() -> Vec<AllLlmsStringTransformation> 
 
         ---- OUTPUT ----
         ```latex
+        \begin{{proof}}
         We have $a + b = (\sqrt{a})^2 + (\sqrt{b})^2 \ge 2 \sqrt{a} \sqrt{b} = 2\sqrt{ab}$.
+        \end{{proof}}
         ```
         "#.to_string()
         ],
