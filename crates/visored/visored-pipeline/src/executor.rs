@@ -1,17 +1,19 @@
 mod transformations;
 
 use crate::*;
+use all_llms::transformation::AllLlmsStringTransformationRecord;
 use all_llms::{model::AllLlmModel, AllLlmsClient};
 use eterned::db::EternerDb;
 use input::VdPipelineInput;
 use std::sync::Arc;
+use transformations::simplification_transformations;
 
 pub struct VdPipelineExecutor<'a, 'db> {
     input: &'a VdPipelineInput,
     config: &'a VdPipelineConfig,
     llm_client: AllLlmsClient<'db>,
     raw_solution: Option<String>,
-    simplified_solution: Option<String>,
+    simplified_solution: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
 }
 
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
@@ -48,33 +50,48 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 ```latex
 {}
 ```
+
+You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution.
 "#,
             self.input.content
         );
         // TODO: use config
         let model = AllLlmModel::GEMINI_1_5_FLASH;
         self.raw_solution = Some(self.llm_client.generate_text(model, prompt).unwrap());
-        let prompt = format!(
-            r#"Please provide a simplified solution to the following problem:
-```latex
-{}
-```
+        //         let prompt = format!(
+        //             r#"Please provide a simplified solution to the following problem:
+        // ```latex
+        // {}
+        // ```
 
-The previous solution is:
-```latex
-{}
-```
+        // The previous solution is:
+        // ```latex
+        // {}
+        // ```
 
-You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution. Don't include any \label or \ref."#,
-            self.input.content,
-            self.raw_solution.as_ref().unwrap(),
+        // You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution. Don't include any \label or \ref."#,
+        //             self.input.content,
+        //             self.raw_solution.as_ref().unwrap(),
+        //         );
+        self.simplified_solution = Some(
+            self.llm_client
+                .apply_transformations_sequentially(
+                    &simplification_transformations(),
+                    format!(
+                        r#"```latex
+{}
+```"#,
+                        self.input.content
+                    ),
+                )
+                .unwrap(),
         );
-        self.simplified_solution = Some(extract_latex(
-            &self.llm_client.generate_text(model, prompt).unwrap(),
-        ));
+        // Some(extract_latex(
+        //     &self.llm_client.generate_text(model, prompt).unwrap(),
+        // ));
     }
 
-    pub(crate) fn finish(self) -> (String, String) {
+    pub(crate) fn finish(self) -> (String, (Vec<AllLlmsStringTransformationRecord>, String)) {
         (
             self.raw_solution.unwrap(),
             self.simplified_solution.unwrap(),
