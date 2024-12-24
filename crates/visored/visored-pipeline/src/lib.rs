@@ -6,6 +6,7 @@ pub mod helpers;
 pub mod input;
 /// smallest unit of the pipeline
 mod instance;
+pub mod lean4;
 /// runner orchestrates all instances
 pub mod runner;
 #[cfg(test)]
