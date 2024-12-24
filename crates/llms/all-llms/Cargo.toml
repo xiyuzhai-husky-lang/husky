@@ -16,7 +16,7 @@ thiserror.workspace = true
 # abstractions
 eterned.workspace = true
 # llms
-is-llm.workspace = true
+llm-prelude.workspace = true
 gemini.workspace = true
 openai.workspace = true
 sglang.workspace = true

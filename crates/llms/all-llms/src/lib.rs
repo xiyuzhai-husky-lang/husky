@@ -2,6 +2,7 @@ mod error;
 pub mod model;
 #[cfg(test)]
 mod tests;
+pub mod transformation;
 
 use error::{AllLlmsResult, AnyLlmError};
 use eterned::db::EternerDb;

@@ -394,7 +394,7 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # lisp
 lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
-is-llm = { path = "crates/llms/is-llm" }
+llm-prelude = { path = "crates/llms/llm-prelude" }
 all-llms = { path = "crates/llms/all-llms" }
 openai = { path = "crates/llms/openai" }
 gemini = { path = "crates/llms/gemini" }
