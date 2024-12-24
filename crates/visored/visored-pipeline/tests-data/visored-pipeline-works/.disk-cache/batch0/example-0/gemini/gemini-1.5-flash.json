@@ -600,5 +600,103 @@
       }
     },
     "time": "2024-12-24T13:33:00.972546288Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to prove that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nSince the square of any real number is non-negative, we have $(a+b)^2 = (a+b)(a+b) = a^2 + 2ab + b^2$. Since $a^2 \\ge 0$ and $b^2 \\ge 0$, we know that $a^2 + 2ab + b^2 \\ge 0$, thus $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $(a+b)^2 \\ge 0$. We have $(a+b)^2 = (a+b)(a+b) = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by addition of inequalities. We have $(a+b)^2 \\ge 0$ by substitution.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:57:25.522166767Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to prove that $(a+b)^2 \\ge 0$. We have $(a+b)^2 = (a+b)(a+b) = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by addition of inequalities. We have $(a+b)^2 \\ge 0$ by substitution.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $(a+b)^2 \\ge 0$. We have $(a+b)^2 = (a+b)(a+b) = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by addition of inequalities. We have $(a+b)^2 \\ge 0$ by substitution.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:57:26.850980417Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nLet $a$ and $b$ be real numbers.  We know that the square of any real number is non-negative. Therefore, $a^2 \\geq 0$ and $b^2 \\geq 0$.  Also, $2ab$ is a real number.  Expanding $(a+b)^2$, we have $(a+b)^2 = a^2 + 2ab + b^2$.  Since $a^2 \\geq 0$ and $b^2 \\geq 0$, we have $a^2 + b^2 \\geq 0$.  Then, $a^2 + 2ab + b^2 = (a^2 + b^2) + 2ab$. While $a^2 + b^2 \\ge 0$, we have that $(a+b)^2 = a^2 + 2ab + b^2 = (a+b)^2$. Since $(a+b)$ is a real number, its square is non-negative. Therefore, $(a+b)^2 \\geq 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\nThere should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n\nWrap the proof in \\begin{proof} and \\end{proof}.\n    \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:59:30.751696125Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 = (a+b)(a+b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:59:31.506012261Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 = (a+b)(a+b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 = (a+b)(a+b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:59:32.285797498Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to prove that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 = (a+b)(a+b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $(a+b)^2 \\geq 0$. We have $(a+b)^2 = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by the fact that the sum of non-negative numbers is non-negative. We have $(a+b)^2 \\geq 0$ by algebra.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:59:33.625386776Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to prove that $(a+b)^2 \\geq 0$. We have $(a+b)^2 = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by the fact that the sum of non-negative numbers is non-negative. We have $(a+b)^2 \\geq 0$ by algebra.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $(a+b)^2 \\geq 0$. We have $(a+b)^2 = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by the fact that the sum of non-negative numbers is non-negative. We have $(a+b)^2 \\geq 0$ by algebra.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-24T13:59:35.159916837Z"
   }
 ]
