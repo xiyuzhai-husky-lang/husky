@@ -46,13 +46,18 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 
     fn query_raw_solution(&mut self) {
         let prompt = format!(
-            r#"Please provide the raw solution to the following problem:
+            r#"Please provide the raw solution to the following problem. The solution should be a complete mathematical proof written in LaTeX, using forward reasoning - meaning each step should build upon previous steps to reach the conclusion, rather than working backwards from what we want to prove.
+
 ```latex
 {}
 ```
 
-You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution.
-"#,
+Provide only the LaTeX code for the solution, without any surrounding text. Do not include \begin{{document}}, \end{{document}}, \begin{{proof}}, or \end{{proof}}. The solution should:
+- Start from given information and progress logically forward to the conclusion
+- Show each step's reasoning clearly
+- Build upon previous steps in a natural progression
+- Use appropriate mathematical notation and LaTeX environments
+- Avoid unnecessary labels or references"#,
             self.input.content
         );
         // TODO: use config

@@ -4,6 +4,8 @@
 \usepackage{fvextra}
 \usepackage{tcolorbox}
 \usepackage{listings}
+\usepackage{amsthm}
+\newtheorem{example}{Example}
 \fvset{breaklines=true}
 
 \begin{document}
@@ -24,86 +26,96 @@
 
 
 
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $(a+b)^2 = a^2 + 2ab + b^2$, and $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$, we have that $(a+b)^2 \ge 0$. Alternatively, the square of any real number is nonnegative.  Since $a+b$ is a real number, $(a+b)^2 \ge 0$.
-
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Prove that for all real numbers $a$ and $b$:
+    $$(a+b)^2 \geq 0.$$
 \end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $(a+b)^2 = a^2 + 2ab + b^2$, and $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$, we have that $(a+b)^2 \ge 0$. Alternatively, the square of any real number is nonnegative.  Since $a+b$ is a real number, $(a+b)^2 \ge 0$.
-
-\end{tcolorbox}
-
-
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} (x-y)^2 &\ge 0 \\ x^2 - 2xy + y^2 &\ge 0 \\ x^2 + 2xy + y^2 &\ge 4xy \\ (x+y)^2 &\ge 4xy \\ x+y &\ge 2\sqrt{xy} \\ \frac{x+y}{2} &\ge \sqrt{xy}\end{align*} 
+Since $(a+b)^2 = a^2 + 2ab + b^2$, and $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$, then $(a+b)^2 \ge 0$.
 
 \end{tcolorbox}
+\end{example}
 
 
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Prove that for any positive real numbers $x$ and $y$:
+    $$\frac{x+y}{2} \geq \sqrt{xy}.$$
+\end{tcolorbox}
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} (x-y)^2 &\ge 0 \\ x^2 - 2xy + y^2 &\ge 0 \\ x^2 + 2xy + y^2 &\ge 4xy \\ (x+y)^2 &\ge 4xy \\ x+y &\ge 2\sqrt{xy} \\ \frac{x+y}{2} &\ge \sqrt{xy}\end{align*} 
+By AM-GM inequality, $\frac{x+y}{2} \ge \sqrt{xy}$ for any non-negative real numbers $x$ and $y$.
 
 \end{tcolorbox}
+\end{example}
 
 
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Show that for all real numbers $a$, $b$, and $c$:
+    $$a^2 + b^2 + c^2 \geq ab + bc + ca.$$
+\end{tcolorbox}
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\ &\geq 0\end{align*} 
-Since $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+We have
+\[ 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \geq 0 \]
+Since $(a-b)^2 \geq 0$, $(b-c)^2 \geq 0$, and $(c-a)^2 \geq 0$ for all real numbers $a$, $b$, and $c$.
+Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+
 
 \end{tcolorbox}
+\end{example}
 
 
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Prove that for any positive real number $x$:
+    $$x + \frac{1}{x} \geq 2.$$
+\end{tcolorbox}
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\ &\geq 0\end{align*} 
-Since $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+By AM-GM inequality, $\frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} = 1$, so $x + \frac{1}{x} \ge 2$.
 
 \end{tcolorbox}
+\end{example}
 
 
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+For positive real numbers $a$ and $b$, prove:
+    $$\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}.$$
+\end{tcolorbox}
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} x + \frac{1}{x} - 2 &\geq 0 \\ x^2 + 1 - 2x &\geq 0 \\ (x-1)^2 &\geq 0\end{align*} 
+By expanding the left side, we have
+\[ \left(\frac{a+b}{2}\right)^2 = \frac{a^2 + 2ab + b^2}{4}.\]
+The inequality becomes
+\[ \frac{a^2 + 2ab + b^2}{4} \leq \frac{a^2+b^2}{2}.\]
+Multiplying both sides by 4, we get
+\[ a^2 + 2ab + b^2 \leq 2a^2 + 2b^2.\]
+Subtracting $a^2 + b^2$ from both sides gives
+\[ 2ab \leq a^2 + b^2.\]
+This is equivalent to
+\[ 0 \leq a^2 - 2ab + b^2 = (a-b)^2,\]
+which is true for all real numbers $a$ and $b$.  Therefore, the original inequality holds.
 
 \end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} x + \frac{1}{x} - 2 &\geq 0 \\ x^2 + 1 - 2x &\geq 0 \\ (x-1)^2 &\geq 0\end{align*} 
-
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 2(a+b)^2 &\leq 4(a^2+b^2) \\ 2(a^2+2ab+b^2) &\leq 4a^2+4b^2 \\ 2a^2+4ab+2b^2 &\leq 4a^2+4b^2 \\ 0 &\leq 2a^2-4ab+2b^2 \\ 0 &\leq 2(a^2-2ab+b^2) \\ 0 &\leq 2(a-b)^2\end{align*} 
-Since $(a-b)^2 \ge 0$, the inequality holds.
-
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 2(a+b)^2 &\leq 4(a^2+b^2) \\ 2(a^2+2ab+b^2) &\leq 4a^2+4b^2 \\ 2a^2+4ab+2b^2 &\leq 4a^2+4b^2 \\ 0 &\leq 2a^2-4ab+2b^2 \\ 0 &\leq 2(a^2-2ab+b^2) \\ 0 &\leq 2(a-b)^2\end{align*} 
-Since $(a-b)^2 \ge 0$, the inequality holds.
-
-\end{tcolorbox}
+\end{example}
 
 \end{document}
