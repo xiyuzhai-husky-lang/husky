@@ -94,7 +94,7 @@ Simplified solution:
 \end{{tcolorbox}}
 
 "#,
-            tracker.simplified_solution
+            tracker.simplified_solution.1
         )
         .unwrap();
     }

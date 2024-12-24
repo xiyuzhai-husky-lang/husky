@@ -16,7 +16,9 @@ Hello, world!
             model: (),
             instruction: LlmStringTransformationInstruction::MainInputSide {
                 main: "Replace each word `hello` with `goodbye` in the following text:".to_string(),
-                side: "Addtionally, you should wrap the output in a ```text``` block.".to_string(),
+                side: Some(
+                    "Addtionally, you should wrap the output in a ```text``` block.".to_string(),
+                ),
             },
             examples: vec![r#"Given:
 

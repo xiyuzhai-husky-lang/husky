@@ -5,5 +5,8 @@
     "cSpell.words": ["defns", "morphism", "trai"],
     "rust-analyzer.showUnlinkedFileNotification": false,
     "editor.formatOnSave": true,
-    "dependi.rust.lockFileEnabled": true
+    "dependi.rust.lockFileEnabled": true,
+    "[latex]": {
+        "editor.formatOnSave": false
+    }
 }
