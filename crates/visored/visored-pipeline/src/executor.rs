@@ -1,9 +1,10 @@
-use std::sync::Arc;
+mod transformations;
 
 use crate::*;
 use all_llms::{model::AllLlmModel, AllLlmsClient};
 use eterned::db::EternerDb;
 use input::VdPipelineInput;
+use std::sync::Arc;
 
 pub struct VdPipelineExecutor<'a, 'db> {
     input: &'a VdPipelineInput,
@@ -47,8 +48,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 ```latex
 {}
 ```
-
-You should give directly the latex code for the solution, without any other text. Don't include \begin{{document}} or \end{{document}} or \begin{{proof}} or \end{{proof}}. Just the latex code inside the proof environment for the solution."#,
+"#,
             self.input.content
         );
         // TODO: use config
