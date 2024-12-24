@@ -12,9 +12,9 @@ pub struct VdPipelineExecutor<'a, 'db> {
     input: &'a VdPipelineInput,
     config: &'a VdPipelineConfig,
     llm_client: AllLlmsClient<'db>,
-    raw_solution: Option<String>,
-    simplified_solution: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
-    elaborated_solution: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
+    raw_proof: Option<String>,
+    simplified_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
+    elaborated_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
 }
 
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
@@ -34,19 +34,19 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
             input,
             config,
             llm_client: AllLlmsClient::new(db, cache_dir).unwrap(),
-            raw_solution: None,
-            simplified_solution: None,
-            elaborated_solution: None,
+            raw_proof: None,
+            simplified_proof: None,
+            elaborated_proof: None,
         }
     }
 }
 
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
     pub(crate) fn execute_all(&mut self) {
-        self.query_raw_solution();
+        self.query_raw_proof();
     }
 
-    fn query_raw_solution(&mut self) {
+    fn query_raw_proof(&mut self) {
         let prompt = format!(
             r#"Please provide the raw solution to the following problem. The solution should be a complete mathematical proof written in LaTeX, using forward reasoning - meaning each step should build upon previous steps to reach the conclusion, rather than working backwards from what we want to prove.
 
@@ -54,41 +54,63 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 {}
 ```
 
-Provide only the LaTeX code for the solution, without any surrounding text. Do not include \begin{{document}}, \end{{document}}, \begin{{proof}}, or \end{{proof}}. The solution should:
+Provide only the LaTeX code for the solution, without any surrounding text. Wrap the proof in \begin{{proof}} and \end{{proof}}. The solution should:
 - Start from given information and progress logically forward to the conclusion
 - Show each step's reasoning clearly
 - Build upon previous steps in a natural progression
 - Use appropriate mathematical notation and LaTeX environments
-- Avoid unnecessary labels or references"#,
+- Avoid unnecessary labels or references
+- If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details."#,
             self.input.content
         );
         // TODO: use config
         let model = AllLlmModel::GEMINI_1_5_FLASH;
-        self.raw_solution = Some(self.llm_client.generate_text(model, prompt).unwrap());
-        self.simplified_solution = Some(
-            self.llm_client
-                .apply_transformations_sequentially(
-                    &simplification_transformations(),
-                    format!(
-                        r#"```latex
+        self.raw_proof = Some(extract_proof(
+            &self.llm_client.generate_text(model, prompt).unwrap(),
+        ));
+        let input_and_raw_proof = format!(
+            r#"```latex
+\begin{{example}}
 {}
+\end{{example}}
+
+\begin{{proof}}
+{}
+\end{{proof}}
 ```"#,
-                        self.input.content
-                    ),
-                )
-                .unwrap(),
+            self.input.content,
+            self.raw_proof.as_ref().unwrap()
         );
-        self.elaborated_solution = Some(
-            self.llm_client
-                .apply_transformations_sequentially(
-                    &elaboration_transformations(),
-                    self.raw_solution.as_ref().unwrap().clone(),
-                )
-                .unwrap(),
+        let (transformations, simplified_proof) = self
+            .llm_client
+            .apply_transformations_sequentially(
+                &simplification_transformations(),
+                input_and_raw_proof,
+            )
+            .unwrap();
+        let simplified_proof = extract_proof(&simplified_proof);
+        let input_and_simplified_proof = format!(
+            r#"```latex
+\begin{{example}}
+{}
+\end{{example}}
+
+\begin{{proof}}
+{}
+\end{{proof}}
+```"#,
+            self.input.content, simplified_proof
         );
-        // Some(extract_latex(
-        //     &self.llm_client.generate_text(model, prompt).unwrap(),
-        // ));
+        self.simplified_proof = Some((transformations, simplified_proof));
+        let (transformations, elaborated_proof) = self
+            .llm_client
+            .apply_transformations_sequentially(
+                &elaboration_transformations(),
+                input_and_simplified_proof,
+            )
+            .unwrap();
+        let elaborated_proof = extract_proof(&elaborated_proof);
+        self.elaborated_proof = Some((transformations, elaborated_proof));
     }
 
     pub(crate) fn finish(
@@ -99,36 +121,41 @@ Provide only the LaTeX code for the solution, without any surrounding text. Do n
         (Vec<AllLlmsStringTransformationRecord>, String),
     ) {
         (
-            self.raw_solution.unwrap(),
-            self.simplified_solution.unwrap(),
-            self.elaborated_solution.unwrap(),
+            self.raw_proof.unwrap(),
+            self.simplified_proof.unwrap(),
+            self.elaborated_proof.unwrap(),
         )
     }
 }
 
-fn extract_latex(s: &str) -> String {
-    if let (Some(start), Some(end)) = (s.find("```latex"), s.rfind("```")) {
-        let content = &s[start + 8..end];
-        content.trim().to_string()
-    } else {
-        s.to_string()
-    }
+const PROOF_BEGIN: &str = "\\begin{proof}";
+const PROOF_END: &str = "\\end{proof}";
+
+fn extract_proof(s: &str) -> String {
+    assert!(s.contains(PROOF_BEGIN));
+    assert!(s.contains(PROOF_END));
+    let start = s.find(PROOF_BEGIN).unwrap();
+    let end = s.find(PROOF_END).unwrap();
+    let content = &s[start + PROOF_BEGIN.len()..end];
+    content.trim().to_string()
 }
 
 #[test]
-fn extract_latex_works() {
+fn extract_proof_works() {
     #[track_caller]
     fn t(input: &str, expected: &str) {
-        assert_eq!(extract_latex(input), expected);
+        assert_eq!(extract_proof(input), expected);
     }
     t(
         r"
 Here's the solution:
 
 ```latex
+\begin{proof}
 \begin{align*}
 x^2 + 2x + 1 = 0
 \end{align*}
+\end{proof}
 ```
 ",
         r"\begin{align*}
