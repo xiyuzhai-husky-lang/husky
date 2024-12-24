@@ -26,7 +26,7 @@
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Let $x = a+b$.  Since $x$ is a real number, $x^2 \ge 0$.  Therefore, $(a+b)^2 \ge 0$.
+Let $x = a+b$.  Since $a$ and $b$ are real numbers, $x$ is a real number.  Then $x^2 \ge 0$, so $(a+b)^2 \ge 0$.
 
 \end{tcolorbox}
 
@@ -34,7 +34,7 @@ Let $x = a+b$.  Since $x$ is a real number, $x^2 \ge 0$.  Therefore, $(a+b)^2 \g
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Let $x = a+b$.  Since $x$ is a real number, $x^2 \ge 0$.  Therefore, $(a+b)^2 \ge 0$.
+Let $x = a+b$.  Since $a$ and $b$ are real numbers, $x$ is a real number.  Then $x^2 \ge 0$, so $(a+b)^2 \ge 0$.
 
 \end{tcolorbox}
 
@@ -42,42 +42,60 @@ Let $x = a+b$.  Since $x$ is a real number, $x^2 \ge 0$.  Therefore, $(a+b)^2 \g
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $(x-y)^2 \ge 0$, we have $x^2 - 2xy + y^2 \ge 0$.  Adding $4xy$ to both sides gives $x^2 + 2xy + y^2 \ge 4xy$, which simplifies to $(x+y)^2 \ge 4xy$.  Since $x$ and $y$ are positive, we can take the square root of both sides to get $x+y \ge 2\sqrt{xy}$. Dividing by 2 yields $\frac{x+y}{2} \ge \sqrt{xy}$.
+$(\sqrt{x} - \sqrt{y})^2 \ge 0$
+$x - 2\sqrt{xy} + y \ge 0$
+$x + y \ge 2\sqrt{xy}$
+$\frac{x+y}{2} \ge \sqrt{xy}$
 \end{tcolorbox}
 
 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $(x-y)^2 \ge 0$, we have $x^2 - 2xy + y^2 \ge 0$.  Adding $4xy$ to both sides gives $x^2 + 2xy + y^2 \ge 4xy$, which simplifies to $(x+y)^2 \ge 4xy$.  Since $x$ and $y$ are positive, we can take the square root of both sides to get $x+y \ge 2\sqrt{xy}$. Dividing by 2 yields $\frac{x+y}{2} \ge \sqrt{xy}$.
+$(\sqrt{x} - \sqrt{y})^2 \ge 0$
+$x - 2\sqrt{xy} + y \ge 0$
+$x + y \ge 2\sqrt{xy}$
+$\frac{x+y}{2} \ge \sqrt{xy}$
 \end{tcolorbox}
 
 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2 \end{align*}
+\begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2\end{align*}
 \end{tcolorbox}
 
 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2 \end{align*}
+\begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2\end{align*}
 \end{tcolorbox}
 
 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Let $x$ be a positive real number.  Since $(\sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge 0$, we have $x - 2 + \frac{1}{x} \ge 0$, which implies $x + \frac{1}{x} \ge 2$.
+Since $x$ is a positive real number, we can use the AM-GM inequality:
+\[ \frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} = \sqrt{1} = 1 \]
+Multiplying both sides by 2, we get:
+\[ x + \frac{1}{x} \ge 2 \]
+Alternatively, consider $( \sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge 0$. Expanding this gives:
+\[ x - 2 + \frac{1}{x} \ge 0 \]
+\[ x + \frac{1}{x} \ge 2 \]
 \end{tcolorbox}
 
 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Let $x$ be a positive real number.  Since $(\sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge 0$, we have $x - 2 + \frac{1}{x} \ge 0$, which implies $x + \frac{1}{x} \ge 2$.
+Since $x$ is a positive real number, we can use the AM-GM inequality:
+\[ \frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} = \sqrt{1} = 1 \]
+Multiplying both sides by 2, we get:
+\[ x + \frac{1}{x} \ge 2 \]
+Alternatively, consider $( \sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge 0$. Expanding this gives:
+\[ x - 2 + \frac{1}{x} \ge 0 \]
+\[ x + \frac{1}{x} \ge 2 \]
 \end{tcolorbox}
 
 
@@ -85,15 +103,24 @@ Let $x$ be a positive real number.  Since $(\sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
 \[
-\begin{aligned}
-\left(\frac{a+b}{2}\right)^2 &\leq \frac{a^2+b^2}{2} \\
-(a+b)^2 &\leq 2(a^2+b^2) \\
-a^2 + 2ab + b^2 &\leq 2a^2 + 2b^2 \\
-0 &\leq a^2 - 2ab + b^2 \\
-0 &\leq (a-b)^2
-\end{aligned}
+\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}
 \]
-Since $(a-b)^2 \ge 0$ for all real numbers $a$ and $b$, the inequality holds. Equality holds if and only if $a=b$.
+\[
+\frac{(a+b)^2}{4} \leq \frac{a^2+b^2}{2}
+\]
+\[
+(a+b)^2 \leq 2(a^2+b^2)
+\]
+\[
+a^2 + 2ab + b^2 \leq 2a^2 + 2b^2
+\]
+\[
+0 \leq a^2 - 2ab + b^2
+\]
+\[
+0 \leq (a-b)^2
+\]
+This is true for all real numbers $a$ and $b$, since the square of a real number is always non-negative.
 
 \end{tcolorbox}
 
@@ -102,15 +129,24 @@ Since $(a-b)^2 \ge 0$ for all real numbers $a$ and $b$, the inequality holds. Eq
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
 \[
-\begin{aligned}
-\left(\frac{a+b}{2}\right)^2 &\leq \frac{a^2+b^2}{2} \\
-(a+b)^2 &\leq 2(a^2+b^2) \\
-a^2 + 2ab + b^2 &\leq 2a^2 + 2b^2 \\
-0 &\leq a^2 - 2ab + b^2 \\
-0 &\leq (a-b)^2
-\end{aligned}
+\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}
 \]
-Since $(a-b)^2 \ge 0$ for all real numbers $a$ and $b$, the inequality holds. Equality holds if and only if $a=b$.
+\[
+\frac{(a+b)^2}{4} \leq \frac{a^2+b^2}{2}
+\]
+\[
+(a+b)^2 \leq 2(a^2+b^2)
+\]
+\[
+a^2 + 2ab + b^2 \leq 2a^2 + 2b^2
+\]
+\[
+0 \leq a^2 - 2ab + b^2
+\]
+\[
+0 \leq (a-b)^2
+\]
+This is true for all real numbers $a$ and $b$, since the square of a real number is always non-negative.
 
 \end{tcolorbox}
 
