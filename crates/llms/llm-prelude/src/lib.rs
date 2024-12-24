@@ -1,6 +1,7 @@
 pub mod error;
 pub mod request;
 pub mod response;
+pub mod transformation;
 
 use self::{
     error::{LlmError, LlmResult},

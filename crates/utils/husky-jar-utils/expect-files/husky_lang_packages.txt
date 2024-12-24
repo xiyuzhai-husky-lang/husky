@@ -3880,7 +3880,7 @@
             "eterned",
             "gemini",
             "husky-print-utils",
-            "is-llm",
+            "llm-prelude",
             "openai",
             "sglang",
             "thiserror",
@@ -3909,8 +3909,8 @@
         ],
     },
     PackageSummary {
-        name: "is-llm",
-        relative_path: "crates/llms/is-llm",
+        name: "llm-prelude",
+        relative_path: "crates/llms/llm-prelude",
         dependencies: [
             "alien-seed",
             "attach",
@@ -4333,7 +4333,7 @@
         name: "llm-benchmarks",
         relative_path: "crates/llms/llm-benchmarks",
         dependencies: [
-            "is-llm",
+            "llm-prelude",
         ],
     },
     PackageSummary {

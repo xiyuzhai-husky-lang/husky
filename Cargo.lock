@@ -189,7 +189,7 @@ dependencies = [
  "expect-test",
  "gemini",
  "husky-print-utils",
- "is-llm",
+ "llm-prelude",
  "openai",
  "sglang",
  "thiserror",
@@ -8183,18 +8183,6 @@ name = "is"
 version = "0.1.0"
 
 [[package]]
-name = "is-llm"
-version = "0.1.0"
-dependencies = [
- "alien-seed",
- "attach",
- "disk-cache",
- "sealed",
- "serde",
- "thiserror",
-]
-
-[[package]]
 name = "is-terminal"
 version = "0.4.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8866,7 +8854,20 @@ checksum = "b4ce301924b7887e9d637144fdade93f9dfff9b60981d4ac161db09720d39aa5"
 name = "llm-benchmarks"
 version = "0.1.0"
 dependencies = [
- "is-llm",
+ "llm-prelude",
+]
+
+[[package]]
+name = "llm-prelude"
+version = "0.1.0"
+dependencies = [
+ "alien-seed",
+ "attach",
+ "disk-cache",
+ "expect-test",
+ "sealed",
+ "serde",
+ "thiserror",
 ]
 
 [[package]]
@@ -13453,6 +13454,7 @@ dependencies = [
  "expect-test",
  "husky-print-utils",
  "idx-arena",
+ "llm-prelude",
  "rayon",
  "relative-path",
  "serde",
