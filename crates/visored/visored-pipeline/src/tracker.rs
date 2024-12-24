@@ -10,18 +10,20 @@ pub struct VdPipelineTracker {
     pub config: Arc<VdPipelineConfig>,
     pub raw_solution: String,
     pub simplified_solution: (Vec<AllLlmsStringTransformationRecord>, String),
+    pub elaborated_solution: (Vec<AllLlmsStringTransformationRecord>, String),
 }
 
 impl VdPipelineTracker {
     pub fn new(db: &EternerDb, input: Arc<VdPipelineInput>, config: Arc<VdPipelineConfig>) -> Self {
         let mut executor = VdPipelineExecutor::new(db, &*input, &*config);
         executor.execute_all();
-        let (raw_solution, simplified_solution) = executor.finish();
+        let (raw_solution, simplified_solution, elaborated_solution) = executor.finish();
         Self {
             input,
             config,
             raw_solution,
             simplified_solution,
+            elaborated_solution,
         }
     }
 }
