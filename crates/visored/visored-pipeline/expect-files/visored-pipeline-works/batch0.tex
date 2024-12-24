@@ -40,6 +40,23 @@ Since $(a+b)^2 = a^2 + 2ab + b^2$, and $a^2 \ge 0$ and $b^2 \ge 0$ for all real 
 \end{tcolorbox}
 \end{example}
 
+Elaborated solution:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+\begin{align*} (a+b)^2 &= (a+b)(a+b) \\ &= a(a+b) + b(a+b) \\ &= a^2 + ab + ba + b^2 \\ &= a^2 + ab + ab + b^2 \\ &= a^2 + 2ab + b^2 \\ &= a^2 + 2ab + b^2\end{align*} 
+Let $x = a^2 + 2ab + b^2$. We consider the expression $x = a^2 + 2ab + b^2$. We can rewrite this as $x = a^2 + 2ab + b^2 = (a+b)(a+b) = (a+b)^2$.
+Adding and subtracting $b^2$ to complete the square, we have:
+\begin{align*} x &= a^2 + 2ab + b^2 \\ &= (a^2 + 2ab + b^2) \\ &= (a+b)^2\end{align*} 
+Since the square of any real number is non-negative, we have $(a+b)^2 \ge 0$, because $(a+b)^2 = (a+b)(a+b) = a(a+b) + b(a+b) = a^2 + ab + ab + b^2 = a^2 + 2ab + b^2 \ge 0$.  Alternatively, we can consider the following:
+Since $a$ is a real number, $a^2 \ge 0$. Similarly, since $b$ is a real number, $b^2 \ge 0$.
+Then $a^2 + b^2 \ge 0$. Also we have $a^2 + 2ab + b^2 = (a+b)^2 \ge 0$.
+We know that $ (a+b)^2 = a^2 + 2ab + b^2 $.
+Consider the case where $ab \ge 0$. Then $2ab \ge 0$, so $(a+b)^2 = a^2 + 2ab + b^2 \ge 0$.
+Consider the case where $ab < 0$. Then $2ab < 0$. However, $a^2 + b^2 \ge 0$, and  $a^2 + b^2 \ge |2ab|$, since $a^2 + 2ab + b^2 = (a+b)^2 = (a+b)(a+b) = a(a+b) + b(a+b) = a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$.
+Thus, $ a^2 + b^2 \ge |2ab| \ge 2ab$. Thus $a^2 + 2ab + b^2 \ge 0$.
+Therefore, in all cases, $(a+b)^2 \ge 0$.
+
+\end{tcolorbox}
+
 
 
 \begin{example}
@@ -55,6 +72,19 @@ By AM-GM inequality, $\frac{x+y}{2} \ge \sqrt{xy}$ for any non-negative real num
 
 \end{tcolorbox}
 \end{example}
+
+Elaborated solution:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+\begin{align*} (x-y)^2 &\geq 0 \\ x^2 - 2xy + y^2 &\geq 0 \\ x^2 + y^2 &\geq 2xy \\ x^2 + 2xy + y^2 &\geq 2xy + 2xy \\ x^2 + 2xy + y^2 &\geq 4xy \\ (x+y)^2 &\geq 4xy\end{align*} 
+Since $x$ and $y$ are positive real numbers, $x+y \geq 0$ and $4xy > 0$.  Therefore, we can take the square root of both sides without changing the inequality sign:
+\[ \sqrt{(x+y)^2} \geq \sqrt{4xy} \]
+\[ |x+y| \geq 2\sqrt{xy} \]
+Since $x$ and $y$ are positive, $x+y > 0$, so $|x+y| = x+y$. Thus,
+\[ x+y \geq 2\sqrt{xy} \]
+Dividing both sides by 2, we obtain
+\[ \frac{x+y}{2} \geq \sqrt{xy} \]
+
+\end{tcolorbox}
 
 
 
@@ -76,6 +106,12 @@ Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which implies $a^2 + b^2 +
 \end{tcolorbox}
 \end{example}
 
+Elaborated solution:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+\begin{align*} 0 &\leq (a-b)^2 \\ 0 &\leq a^2 - 2ab + b^2 \\ 0 + 2ab &\leq a^2 - 2ab + b^2 + 2ab \\ 2ab &\leq a^2 + b^2 \\ 0 &\leq (b-c)^2 \\ 0 &\leq b^2 - 2bc + c^2 \\ 0 + 2bc &\leq b^2 - 2bc + c^2 + 2bc \\ 2bc &\leq b^2 + c^2 \\ 0 &\leq (c-a)^2 \\ 0 &\leq c^2 - 2ca + a^2 \\ 0 + 2ca &\leq c^2 - 2ca + a^2 + 2ca \\ 2ca &\leq c^2 + a^2 \\ 2ab + 2bc + 2ca &\leq a^2 + b^2 + c^2 + a^2 + b^2 + c^2 \\ 2ab + 2bc + 2ca &\leq 2(a^2 + b^2 + c^2) \\ 2(ab + bc + ca) &\leq 2(a^2 + b^2 + c^2) \\ ab + bc + ca &\leq a^2 + b^2 + c^2 \\ a^2 + b^2 + c^2 &\geq ab + bc + ca\end{align*} 
+
+\end{tcolorbox}
+
 
 
 \begin{example}
@@ -91,6 +127,17 @@ By AM-GM inequality, $\frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} =
 
 \end{tcolorbox}
 \end{example}
+
+Elaborated solution:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Let $x$ be a positive real number.
+Consider the expression $(x-1)^2$. Since squares of real numbers are non-negative, we have $(x-1)^2 = x^2 - 2x + 1 \geq 0$.
+Expanding this expression, we get $x^2 - 2x + 1 \geq 0$. Since $x$ is positive, we can divide the inequality by $x$ without changing the direction of the inequality: $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x} = x - 2 + \frac{1}{x} \geq 0$.
+This simplifies to $x - 2 + \frac{1}{x} \geq 0$.
+Adding 2 to both sides of the inequality, we obtain $x - 2 + \frac{1}{x} + 2 \geq 0 + 2$, which simplifies to $x + \frac{1}{x} \geq 2$.
+Thus, for any positive real number $x$, $x + \frac{1}{x} \geq 2$.
+
+\end{tcolorbox}
 
 
 
@@ -117,5 +164,11 @@ which is true for all real numbers $a$ and $b$.  Therefore, the original inequal
 
 \end{tcolorbox}
 \end{example}
+
+Elaborated solution:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+\begin{align*} 0 &\le (a-b)^2 \\ 0 &\le a^2 - 2ab + b^2 \\ 2ab &\le a^2 + b^2 \\ 4ab &\le 2(a^2 + b^2) \\ 4ab &\le 2a^2 + 2b^2 \\ a^2 + 2ab + b^2 &\le a^2 + 2ab + b^2 + 2a^2 + 2b^2 - 4ab \\ a^2 + 2ab + b^2 &\le 3a^2 + 3b^2 - 4ab \\ (a+b)^2 &\le 3a^2 + 3b^2 - 4ab \\ (a+b)^2 &\le 3a^2 - 2ab + 3b^2 - 2ab \\ (a+b)^2 &\le 2a^2 + 2b^2 + a^2 - 2ab + b^2 \\ (a+b)^2 &\le 2a^2 + a^2 - 2ab + b^2 + 2b^2 \\ (a+b)^2 &\le 2a^2 + (a-b)^2 + 2b^2 \\ (a+b)^2 &\le 2a^2 + 2b^2 + (a-b)^2 \\ (a+b)^2 &\le 2(a^2 + b^2) + (a-b)^2 \\ (a+b)^2 &\le 2(a^2 + b^2) \\ \frac{(a+b)^2}{4} &\le \frac{2(a^2+b^2)}{4} \\ \left(\frac{a+b}{2}\right)^2 &\le \frac{a^2+b^2}{2}\end{align*} 
+
+\end{tcolorbox}
 
 \end{document}
