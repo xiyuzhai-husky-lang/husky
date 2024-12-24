@@ -8611,6 +8611,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "lean-helpers"
+version = "0.1.0"
+dependencies = [
+ "husky-path-utils",
+]
+
+[[package]]
 name = "lean-hir-decl"
 version = "0.1.0"
 
