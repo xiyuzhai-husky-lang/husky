@@ -11,19 +11,21 @@ pub struct VdPipelineTracker {
     pub raw_proof: String,
     pub simplified_proof: (Vec<AllLlmsStringTransformationRecord>, String),
     pub elaborated_proof: (Vec<AllLlmsStringTransformationRecord>, String),
+    pub regularized_proof: (Vec<AllLlmsStringTransformationRecord>, String),
 }
 
 impl VdPipelineTracker {
     pub fn new(db: &EternerDb, input: Arc<VdPipelineInput>, config: Arc<VdPipelineConfig>) -> Self {
         let mut executor = VdPipelineExecutor::new(db, &*input, &*config);
         executor.execute_all();
-        let (raw_proof, simplified_proof, elaborated_proof) = executor.finish();
+        let (raw_proof, simplified_proof, elaborated_proof, regularized_proof) = executor.finish();
         Self {
             input,
             config,
             raw_proof,
             simplified_proof,
             elaborated_proof,
+            regularized_proof,
         }
     }
 }

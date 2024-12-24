@@ -6,7 +6,9 @@ use all_llms::{model::AllLlmModel, AllLlmsClient};
 use eterned::db::EternerDb;
 use input::VdPipelineInput;
 use std::sync::Arc;
-use transformations::{elaboration_transformations, simplification_transformations};
+use transformations::{
+    elaboration_transformations, regularization_transformations, simplification_transformations,
+};
 
 pub struct VdPipelineExecutor<'a, 'db> {
     input: &'a VdPipelineInput,
@@ -15,6 +17,7 @@ pub struct VdPipelineExecutor<'a, 'db> {
     raw_proof: Option<String>,
     simplified_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
     elaborated_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
+    regularized_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
 }
 
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
@@ -37,6 +40,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
             raw_proof: None,
             simplified_proof: None,
             elaborated_proof: None,
+            regularized_proof: None,
         }
     }
 }
@@ -110,7 +114,28 @@ Provide only the LaTeX code for the solution, without any surrounding text. Wrap
             )
             .unwrap();
         let elaborated_proof = extract_proof(&elaborated_proof);
+        let input_and_elaborated_proof = format!(
+            r#"```latex
+\begin{{example}}
+{}
+\end{{example}}
+
+\begin{{proof}}
+{}
+\end{{proof}}
+```"#,
+            self.input.content, elaborated_proof
+        );
         self.elaborated_proof = Some((transformations, elaborated_proof));
+        let (transformations, regularized_proof) = self
+            .llm_client
+            .apply_transformations_sequentially(
+                &regularization_transformations(),
+                input_and_elaborated_proof,
+            )
+            .unwrap();
+        let regularized_proof = extract_proof(&regularized_proof);
+        self.regularized_proof = Some((transformations, regularized_proof));
     }
 
     pub(crate) fn finish(
@@ -119,11 +144,13 @@ Provide only the LaTeX code for the solution, without any surrounding text. Wrap
         String,
         (Vec<AllLlmsStringTransformationRecord>, String),
         (Vec<AllLlmsStringTransformationRecord>, String),
+        (Vec<AllLlmsStringTransformationRecord>, String),
     ) {
         (
             self.raw_proof.unwrap(),
             self.simplified_proof.unwrap(),
             self.elaborated_proof.unwrap(),
+            self.regularized_proof.unwrap(),
         )
     }
 }

@@ -9,10 +9,9 @@ pub(super) fn simplification_transformations() -> Vec<AllLlmsStringTransformatio
                 main: "Please simplify the following mathematical proof:".to_string(),
                 side: Some(format!(
                     r#"
-    
-    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.
+There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.
 
-    Wrap the proof in \begin{{proof}} and \end{{proof}}.
+Wrap the proof in \begin{{proof}} and \end{{proof}}.
     "#
                 )),
             },
@@ -38,10 +37,7 @@ pub(super) fn elaboration_transformations() -> Vec<AllLlmsStringTransformation> 
             main: "Elaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output."
                 .to_string(),
             side: Some(
-                r#"
-
-    Wrap the proof in \begin{{proof}} and \end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.
-    "#
+                r#"Wrap the proof in \begin{{proof}} and \end{{proof}}."#
                 .to_string(),
             ),
         },
@@ -60,6 +56,35 @@ pub(super) fn elaboration_transformations() -> Vec<AllLlmsStringTransformation> 
         ```
         "#.to_string()
         ],
+    },
+        AllLlmsStringTransformation {
+            model: AllLlmModel::GEMINI_1_5_FLASH,
+            instruction: LlmStringTransformationInstruction::MainInputSide {
+                main:
+                    "Please remove all labels in align environments from the following latex code:"
+                        .to_string(),
+                side: None,
+            },
+            examples: vec![],
+        },
+]
+}
+
+pub(super) fn regularization_transformations() -> Vec<AllLlmsStringTransformation> {
+    vec![AllLlmsStringTransformation {
+        model: AllLlmModel::GEMINI_1_5_FLASH,
+        instruction: LlmStringTransformationInstruction::MainInputSide {
+            main: "Regularize the proof by using only the following sentences:
+- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.
+- It's enough to prove that <proposition>. This is for changing the goal of the proof in backward reasoning.
+            "
+                .to_string(),
+            side: Some(
+                r#"Wrap the proof in \begin{{proof}} and \end{{proof}}."#
+                .to_string(),
+            ),
+        },
+        examples: vec![],
     },
         AllLlmsStringTransformation {
             model: AllLlmModel::GEMINI_1_5_FLASH,

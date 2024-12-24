@@ -107,8 +107,16 @@ Elaborated proof:
 {}
 \end{{tcolorbox}}
 
+Regularized proof:
+\begin{{tcolorbox}}[colback=red!10, width=\linewidth]
+{}
+\end{{tcolorbox}}
+
 "#,
-            tracker.input.content, tracker.simplified_proof.1, tracker.elaborated_proof.1,
+            tracker.input.content,
+            tracker.simplified_proof.1,
+            tracker.elaborated_proof.1,
+            tracker.regularized_proof.1
         )
         .unwrap();
     }
