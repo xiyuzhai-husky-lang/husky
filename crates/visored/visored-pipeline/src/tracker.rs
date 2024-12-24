@@ -1,7 +1,7 @@
 use crate::{
     executor::VdPipelineExecutor, input::VdPipelineInput, VdPipelineConfig, VdPipelineConfigData,
 };
-use all_llms::AllLlmsClient;
+use all_llms::{transformation::AllLlmsStringTransformationRecord, AllLlmsClient};
 use eterned::db::EternerDb;
 use std::sync::Arc;
 
@@ -9,7 +9,7 @@ pub struct VdPipelineTracker {
     pub input: Arc<VdPipelineInput>,
     pub config: Arc<VdPipelineConfig>,
     pub raw_solution: String,
-    pub simplified_solution: String,
+    pub simplified_solution: (Vec<AllLlmsStringTransformationRecord>, String),
 }
 
 impl VdPipelineTracker {

@@ -26,7 +26,7 @@
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Let $x = a+b$.  Since $a$ and $b$ are real numbers, $x$ is a real number.  Then $x^2 \ge 0$, so $(a+b)^2 \ge 0$.
+Since $(a+b)^2 = a^2 + 2ab + b^2$, and $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$, we have that $(a+b)^2 \ge 0$. Alternatively, the square of any real number is nonnegative.  Since $a+b$ is a real number, $(a+b)^2 \ge 0$.
 
 \end{tcolorbox}
 
@@ -34,7 +34,7 @@ Let $x = a+b$.  Since $a$ and $b$ are real numbers, $x$ is a real number.  Then 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Let $x = a+b$.  Since $a$ and $b$ are real numbers, $x$ is a real number.  Then $x^2 \ge 0$, so $(a+b)^2 \ge 0$.
+Since $(a+b)^2 = a^2 + 2ab + b^2$, and $a^2 \ge 0$ and $b^2 \ge 0$ for all real numbers $a$ and $b$, we have that $(a+b)^2 \ge 0$. Alternatively, the square of any real number is nonnegative.  Since $a+b$ is a real number, $(a+b)^2 \ge 0$.
 
 \end{tcolorbox}
 
@@ -42,85 +42,7 @@ Let $x = a+b$.  Since $a$ and $b$ are real numbers, $x$ is a real number.  Then 
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-$(\sqrt{x} - \sqrt{y})^2 \ge 0$
-$x - 2\sqrt{xy} + y \ge 0$
-$x + y \ge 2\sqrt{xy}$
-$\frac{x+y}{2} \ge \sqrt{xy}$
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-$(\sqrt{x} - \sqrt{y})^2 \ge 0$
-$x - 2\sqrt{xy} + y \ge 0$
-$x + y \ge 2\sqrt{xy}$
-$\frac{x+y}{2} \ge \sqrt{xy}$
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2\end{align*}
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\begin{align*} 0 &\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\ 2ab + 2bc + 2ac &\le 2a^2 + 2b^2 + 2c^2 \\ ab + bc + ac &\le a^2 + b^2 + c^2\end{align*}
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $x$ is a positive real number, we can use the AM-GM inequality:
-\[ \frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} = \sqrt{1} = 1 \]
-Multiplying both sides by 2, we get:
-\[ x + \frac{1}{x} \ge 2 \]
-Alternatively, consider $( \sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge 0$. Expanding this gives:
-\[ x - 2 + \frac{1}{x} \ge 0 \]
-\[ x + \frac{1}{x} \ge 2 \]
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $x$ is a positive real number, we can use the AM-GM inequality:
-\[ \frac{x + \frac{1}{x}}{2} \ge \sqrt{x \cdot \frac{1}{x}} = \sqrt{1} = 1 \]
-Multiplying both sides by 2, we get:
-\[ x + \frac{1}{x} \ge 2 \]
-Alternatively, consider $( \sqrt{x} - \frac{1}{\sqrt{x}})^2 \ge 0$. Expanding this gives:
-\[ x - 2 + \frac{1}{x} \ge 0 \]
-\[ x + \frac{1}{x} \ge 2 \]
-\end{tcolorbox}
-
-
-
-Simplified solution:
-\begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\[
-\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}
-\]
-\[
-\frac{(a+b)^2}{4} \leq \frac{a^2+b^2}{2}
-\]
-\[
-(a+b)^2 \leq 2(a^2+b^2)
-\]
-\[
-a^2 + 2ab + b^2 \leq 2a^2 + 2b^2
-\]
-\[
-0 \leq a^2 - 2ab + b^2
-\]
-\[
-0 \leq (a-b)^2
-\]
-This is true for all real numbers $a$ and $b$, since the square of a real number is always non-negative.
+\begin{align*} (x-y)^2 &\ge 0 \\ x^2 - 2xy + y^2 &\ge 0 \\ x^2 + 2xy + y^2 &\ge 4xy \\ (x+y)^2 &\ge 4xy \\ x+y &\ge 2\sqrt{xy} \\ \frac{x+y}{2} &\ge \sqrt{xy}\end{align*} 
 
 \end{tcolorbox}
 
@@ -128,25 +50,59 @@ This is true for all real numbers $a$ and $b$, since the square of a real number
 
 Simplified solution:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-\[
-\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}
-\]
-\[
-\frac{(a+b)^2}{4} \leq \frac{a^2+b^2}{2}
-\]
-\[
-(a+b)^2 \leq 2(a^2+b^2)
-\]
-\[
-a^2 + 2ab + b^2 \leq 2a^2 + 2b^2
-\]
-\[
-0 \leq a^2 - 2ab + b^2
-\]
-\[
-0 \leq (a-b)^2
-\]
-This is true for all real numbers $a$ and $b$, since the square of a real number is always non-negative.
+\begin{align*} (x-y)^2 &\ge 0 \\ x^2 - 2xy + y^2 &\ge 0 \\ x^2 + 2xy + y^2 &\ge 4xy \\ (x+y)^2 &\ge 4xy \\ x+y &\ge 2\sqrt{xy} \\ \frac{x+y}{2} &\ge \sqrt{xy}\end{align*} 
+
+\end{tcolorbox}
+
+
+
+Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\ &\geq 0\end{align*} 
+Since $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+
+\end{tcolorbox}
+
+
+
+Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\ &\geq 0\end{align*} 
+Since $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+
+\end{tcolorbox}
+
+
+
+Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+\begin{align*} x + \frac{1}{x} - 2 &\geq 0 \\ x^2 + 1 - 2x &\geq 0 \\ (x-1)^2 &\geq 0\end{align*} 
+
+\end{tcolorbox}
+
+
+
+Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+\begin{align*} x + \frac{1}{x} - 2 &\geq 0 \\ x^2 + 1 - 2x &\geq 0 \\ (x-1)^2 &\geq 0\end{align*} 
+
+\end{tcolorbox}
+
+
+
+Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+\begin{align*} 2(a+b)^2 &\leq 4(a^2+b^2) \\ 2(a^2+2ab+b^2) &\leq 4a^2+4b^2 \\ 2a^2+4ab+2b^2 &\leq 4a^2+4b^2 \\ 0 &\leq 2a^2-4ab+2b^2 \\ 0 &\leq 2(a^2-2ab+b^2) \\ 0 &\leq 2(a-b)^2\end{align*} 
+Since $(a-b)^2 \ge 0$, the inequality holds.
+
+\end{tcolorbox}
+
+
+
+Simplified solution:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+\begin{align*} 2(a+b)^2 &\leq 4(a^2+b^2) \\ 2(a^2+2ab+b^2) &\leq 4a^2+4b^2 \\ 2a^2+4ab+2b^2 &\leq 4a^2+4b^2 \\ 0 &\leq 2a^2-4ab+2b^2 \\ 0 &\leq 2(a^2-2ab+b^2) \\ 0 &\leq 2(a-b)^2\end{align*} 
+Since $(a-b)^2 \ge 0$, the inequality holds.
 
 \end{tcolorbox}
 

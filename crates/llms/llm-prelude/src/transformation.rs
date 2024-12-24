@@ -14,13 +14,15 @@ pub struct LlmStringTransformation<Model> {
 pub enum LlmStringTransformationInstruction {
     /// The prompt will be like:
     /// ```text
+    /// You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.
+    ///
     /// {main}
     ///
     /// {input}
     ///
     /// {side}
     /// ```
-    MainInputSide { main: String, side: String },
+    MainInputSide { main: String, side: Option<String> },
 }
 
 impl<Model> LlmStringTransformation<Model> {
@@ -43,11 +45,15 @@ impl LlmStringTransformationInstruction {
         match self {
             LlmStringTransformationInstruction::MainInputSide { main, side } => {
                 format!(
-                    r#"{main}
+                    r#"You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.
 
-{input}
+{main}
 
-{side}"#
+{input}{}"#,
+                    match side.as_ref() {
+                        Some(side) => format!("\n\n{side}"),
+                        None => "".to_string(),
+                    }
                 )
             }
         }
