@@ -698,5 +698,33 @@
       }
     },
     "time": "2024-12-24T13:59:35.159916837Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nSince the square of any real number is non-negative, $(a+b)^2 = (a+b)(a+b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $(a+b)^2 \\geq 0$. We have $(a+b)^2 = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by the fact that the sum of non-negative numbers is non-negative. We have $(a+b)^2 \\geq 0$ by algebra.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-25T02:56:54.572556230Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to show that $(a+b)^2 \\geq 0$. We have $(a+b)^2 = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by the fact that the sum of non-negative numbers is non-negative. We have $(a+b)^2 \\geq 0$ by algebra.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $(a+b)^2 \\geq 0$. We have $(a+b)^2 = a^2 + 2ab + b^2$ by algebra. We have $a^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $b^2 \\ge 0$ by the fact that the square of any real number is non-negative. We have $a^2 + 2ab + b^2 \\ge 0$ by the fact that the sum of non-negative numbers is non-negative. We have $(a+b)^2 \\geq 0$ by algebra.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-25T02:56:55.883622249Z"
   }
 ]

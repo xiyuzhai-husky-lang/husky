@@ -1,7 +1,8 @@
 use crate::{
     block::{VdSynBlockArena, VdSynBlockArenaRef, VdSynBlockData, VdSynBlockIdx, VdSynBlockMap},
     clause::{
-        VdSynClauseArena, VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx, VdSynClauseMap,
+        VdSynClauseArena, VdSynClauseArenaRef, VdSynClauseData, VdSynClauseEntry, VdSynClauseIdx,
+        VdSynClauseMap,
     },
     division::{
         VdSynDivisionArena, VdSynDivisionArenaRef, VdSynDivisionData, VdSynDivisionIdx,
@@ -279,13 +280,8 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn calc_clause(&mut self, clause: VdSynClauseIdx) -> VdSynClauseTokenIdxRange {
-        let clause_entry = &self.clause_arena[clause];
-        match *clause_entry.data() {
-            VdSynClauseData::Let {
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-                ..
-            } => {
-                let tokens = clause_entry.cnl_tokens();
+        match self.clause_arena[clause] {
+            VdSynClauseEntry::Cnl { ref tokens, .. } => {
                 let first = tokens
                     .first()
                     .expect("cnl tokens are always non-empty")
@@ -296,22 +292,7 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                     .lx_ast;
                 self.lx_ast_range_map[first].join(self.lx_ast_range_map[last])
             }
-            VdSynClauseData::Assume {
-                assume_token_idx,
-                right_dollar_token_idx,
-                ..
-            } => LxTokenIdxRange::new_closed(*assume_token_idx, *right_dollar_token_idx),
-            VdSynClauseData::Have {
-                then_token_idx,
-                right_dollar_token_idx,
-                ..
-            } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
-            VdSynClauseData::Show {
-                show_token_idx,
-                left_dollar_token_idx,
-                right_dollar_token_idx,
-                ..
-            } => LxTokenIdxRange::new_closed(*show_token_idx, *right_dollar_token_idx),
+            VdSynClauseEntry::Unl { tokens, .. } => todo!(),
         }
     }
 

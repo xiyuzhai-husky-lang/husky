@@ -70,7 +70,7 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
     }
 
     pub fn fmt_clause(&mut self, clause_idx: VdSemClauseIdx) {
-        match self.clause_arena[clause_idx] {
+        match *self.clause_arena[clause_idx].data() {
             VdSemClauseData::Verb => todo!(),
             _ => todo!(),
         }

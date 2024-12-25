@@ -30,22 +30,19 @@ pub enum VdSynClauseData {
         right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
     Assume {
-        assume_token_idx: LxRoseTokenIdx,
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
     Have {
-        then_token_idx: LxRoseTokenIdx,
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
     Show {
-        show_token_idx: LxRoseTokenIdx,
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
 }
 
@@ -142,14 +139,13 @@ impl<'db> VdSynExprBuilder<'db> {
                         math_asts,
                         right_delimiter_token_idx: right_dollar_token_idx,
                     } => VdSynClauseData::Assume {
-                        assume_token_idx: token_idx,
-                        left_dollar_token_idx,
+                        left_math_delimiter_token_idx: left_dollar_token_idx,
                         formula: (
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
                             .to_vd_syn(self, vibe),
-                        right_dollar_token_idx,
+                        right_math_delimiter_token_idx: right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
@@ -179,14 +175,13 @@ impl<'db> VdSynExprBuilder<'db> {
                         math_asts,
                         right_delimiter_token_idx: right_dollar_token_idx,
                     } => VdSynClauseData::Have {
-                        then_token_idx: token_idx,
-                        left_dollar_token_idx,
+                        left_math_delimiter_token_idx: left_dollar_token_idx,
                         formula: (
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
                             .to_vd_syn(self, vibe),
-                        right_dollar_token_idx,
+                        right_math_delimiter_token_idx: right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
@@ -223,10 +218,9 @@ impl<'db> VdSynSymbolBuilder<'db> {
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Have { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Show {
-                show_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
         }
     }

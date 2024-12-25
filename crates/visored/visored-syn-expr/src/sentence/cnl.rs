@@ -83,65 +83,73 @@ impl<'db> VdSynExprBuilder<'db> {
         for (i, &token) in tokens.iter().enumerate() {
             match prefix.as_str() {
                 "Let" => match token.data {
-                    CnlTokenData::Word(lx_rose_token_idx, base_coword) => todo!(),
                     CnlTokenData::Math {
                         left_delimiter_token_idx,
                         math_asts,
                         right_delimiter_token_idx,
                     } => {
-                        if i != tokens.len() - 2 {
-                            todo!()
-                        }
-                        let formula = (
-                            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
-                            math_asts,
-                        )
-                            .to_vd_syn(self, vibe);
-                        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
-                            tokens: tokens[..(tokens.len() - 1)].to_vec(),
-                            data: VdSynClauseData::Let {
-                                left_math_delimiter_token_idx: left_delimiter_token_idx,
-                                formula,
-                                right_math_delimiter_token_idx: right_delimiter_token_idx,
-                            },
-                        });
-                        let end = match tokens.last().unwrap().data {
-                            CnlTokenData::Word(lx_rose_token_idx, base_coword) => todo!(),
-                            CnlTokenData::Math {
-                                left_delimiter_token_idx,
-                                math_asts,
-                                right_delimiter_token_idx,
-                            } => todo!(),
-                            CnlTokenData::Punctuation(
-                                lx_rose_token_idx,
-                                lx_rose_punctuation,
-                                cnl_punctuation,
-                            ) => match cnl_punctuation {
-                                CnlPunctuation::Comma => todo!(),
-                                CnlPunctuation::Period => {
-                                    VdSynSentenceEnd::Period(lx_rose_token_idx)
-                                }
-                                CnlPunctuation::Colon => todo!(),
-                                CnlPunctuation::Semicolon => todo!(),
-                            },
-                        };
-                        return VdSynSentenceEntry::Cnl {
+                        return self.parse_let_clause_sentence(
                             tokens,
-                            data: VdSynSentenceData::Clauses {
-                                clauses: VdSynClauseIdxRange::new_single(clause),
-                                end,
-                            },
-                        };
+                            i,
+                            left_delimiter_token_idx,
+                            math_asts,
+                            right_delimiter_token_idx,
+                            vibe,
+                        )
                     }
-                    CnlTokenData::Punctuation(
-                        lx_rose_token_idx,
-                        lx_rose_punctuation,
-                        cnl_punctuation,
-                    ) => todo!(),
+                    _ => todo!(),
                 },
-                "Assume" => todo!(),
-                "Then" | "We have" => todo!(),
-                "It's enough to show" | "It's enough to prove" => todo!(),
+                "Assume" => match token.data {
+                    CnlTokenData::Math {
+                        left_delimiter_token_idx,
+                        math_asts,
+                        right_delimiter_token_idx,
+                    } => {
+                        return self.parse_assume_clause_sentence(
+                            tokens,
+                            i,
+                            left_delimiter_token_idx,
+                            math_asts,
+                            right_delimiter_token_idx,
+                            vibe,
+                        )
+                    }
+                    _ => todo!(),
+                },
+                "Then" | "We have" => match token.data {
+                    CnlTokenData::Math {
+                        left_delimiter_token_idx,
+                        math_asts,
+                        right_delimiter_token_idx,
+                    } => {
+                        return self.parse_have_clause_sentence(
+                            tokens,
+                            i,
+                            left_delimiter_token_idx,
+                            math_asts,
+                            right_delimiter_token_idx,
+                            vibe,
+                        )
+                    }
+                    _ => todo!(),
+                },
+                "It's enough to show" | "It's enough to prove" => match token.data {
+                    CnlTokenData::Math {
+                        left_delimiter_token_idx,
+                        math_asts,
+                        right_delimiter_token_idx,
+                    } => {
+                        return self.parse_show_clause_sentence(
+                            tokens,
+                            i,
+                            left_delimiter_token_idx,
+                            math_asts,
+                            right_delimiter_token_idx,
+                            vibe,
+                        )
+                    }
+                    _ => todo!(),
+                },
                 "" => match token.data {
                     CnlTokenData::Math {
                         left_delimiter_token_idx,
@@ -251,6 +259,170 @@ impl<'db> VdSynExprBuilder<'db> {
         };
         Some(CnlToken { lx_ast: ast, data })
     }
+
+    fn parse_let_clause_sentence(
+        &mut self,
+        tokens: Vec<CnlToken>,
+        i: usize,
+        left_delimiter_token_idx: LxRoseTokenIdx,
+        math_asts: LxMathAstIdxRange,
+        right_delimiter_token_idx: LxRoseTokenIdx,
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        if i != tokens.len() - 2 {
+            todo!()
+        }
+
+        let formula = (
+            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
+            math_asts,
+        )
+            .to_vd_syn(self, vibe);
+
+        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
+            tokens: tokens[..(tokens.len() - 1)].to_vec(),
+            data: VdSynClauseData::Let {
+                left_math_delimiter_token_idx: left_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_delimiter_token_idx,
+            },
+        });
+
+        VdSynSentenceEntry::Cnl {
+            data: VdSynSentenceData::Clauses {
+                clauses: VdSynClauseIdxRange::new_single(clause),
+                end: extract_end(&tokens),
+            },
+            tokens,
+        }
+    }
+
+    fn parse_assume_clause_sentence(
+        &mut self,
+        tokens: Vec<CnlToken>,
+        i: usize,
+        left_delimiter_token_idx: LxRoseTokenIdx,
+        math_asts: LxMathAstIdxRange,
+        right_delimiter_token_idx: LxRoseTokenIdx,
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        if i != tokens.len() - 2 {
+            todo!()
+        }
+
+        let formula = (
+            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
+            math_asts,
+        )
+            .to_vd_syn(self, vibe);
+
+        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
+            tokens: tokens[..(tokens.len() - 1)].to_vec(),
+            data: VdSynClauseData::Assume {
+                left_math_delimiter_token_idx: left_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_delimiter_token_idx,
+            },
+        });
+
+        VdSynSentenceEntry::Cnl {
+            data: VdSynSentenceData::Clauses {
+                clauses: VdSynClauseIdxRange::new_single(clause),
+                end: extract_end(&tokens),
+            },
+            tokens,
+        }
+    }
+
+    fn parse_have_clause_sentence(
+        &mut self,
+        tokens: Vec<CnlToken>,
+        i: usize,
+        left_delimiter_token_idx: LxRoseTokenIdx,
+        math_asts: LxMathAstIdxRange,
+        right_delimiter_token_idx: LxRoseTokenIdx,
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        if i != tokens.len() - 2 {
+            todo!()
+        }
+
+        let formula = (
+            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
+            math_asts,
+        )
+            .to_vd_syn(self, vibe);
+
+        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
+            tokens: tokens[..(tokens.len() - 1)].to_vec(),
+            data: VdSynClauseData::Have {
+                left_math_delimiter_token_idx: left_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_delimiter_token_idx,
+            },
+        });
+
+        VdSynSentenceEntry::Cnl {
+            data: VdSynSentenceData::Clauses {
+                clauses: VdSynClauseIdxRange::new_single(clause),
+                end: extract_end(&tokens),
+            },
+            tokens,
+        }
+    }
+
+    fn parse_show_clause_sentence(
+        &mut self,
+        tokens: Vec<CnlToken>,
+        i: usize,
+        left_delimiter_token_idx: LxRoseTokenIdx,
+        math_asts: LxMathAstIdxRange,
+        right_delimiter_token_idx: LxRoseTokenIdx,
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        if i != tokens.len() - 2 {
+            todo!()
+        }
+
+        let formula = (
+            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
+            math_asts,
+        )
+            .to_vd_syn(self, vibe);
+
+        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
+            tokens: tokens[..(tokens.len() - 1)].to_vec(),
+            data: VdSynClauseData::Show {
+                left_math_delimiter_token_idx: left_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_delimiter_token_idx,
+            },
+        });
+
+        VdSynSentenceEntry::Cnl {
+            data: VdSynSentenceData::Clauses {
+                clauses: VdSynClauseIdxRange::new_single(clause),
+                end: extract_end(&tokens),
+            },
+            tokens,
+        }
+    }
+}
+
+fn extract_end(tokens: &Vec<CnlToken>) -> VdSynSentenceEnd {
+    let end = match tokens.last().unwrap().data {
+        CnlTokenData::Word(lx_rose_token_idx, base_coword) => todo!(),
+        CnlTokenData::Math { .. } => todo!(),
+        CnlTokenData::Punctuation(lx_rose_token_idx, lx_rose_punctuation, cnl_punctuation) => {
+            match cnl_punctuation {
+                CnlPunctuation::Comma => todo!(),
+                CnlPunctuation::Period => VdSynSentenceEnd::Period(lx_rose_token_idx),
+                CnlPunctuation::Colon => todo!(),
+                CnlPunctuation::Semicolon => todo!(),
+            }
+        }
+    };
+    end
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
