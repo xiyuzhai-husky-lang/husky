@@ -11,10 +11,9 @@ impl VdSynClauseData {
             VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Have { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Show {
-                show_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
         }
     }

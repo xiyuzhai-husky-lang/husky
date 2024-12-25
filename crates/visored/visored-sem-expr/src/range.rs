@@ -20,6 +20,7 @@ use crate::{
 };
 use either::*;
 use latex_token::idx::LxTokenIdxRange;
+use visored_syn_expr::range::VdSynClauseTokenIdxRangeMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSemExprTokenIdxRange {
@@ -48,6 +49,7 @@ pub type VdSemBlockTokenIdxRangeMap = VdSemBlockMap<VdSemBlockTokenIdxRange>;
 pub type VdSemDivisionTokenIdxRangeMap = VdSemDivisionMap<VdSemDivisionTokenIdxRange>;
 
 pub fn calc_expr_range_map(
+    syn_clause_range_map: &VdSynClauseTokenIdxRangeMap,
     expr_arena: &VdSemExprArena,
     phrase_arena: &VdSemPhraseArena,
     clause_arena: &VdSemClauseArena,
@@ -63,6 +65,7 @@ pub fn calc_expr_range_map(
     VdSemDivisionTokenIdxRangeMap,
 ) {
     let mut calculator = VdSemExprRangeCalculator::new(
+        syn_clause_range_map,
         expr_arena,
         phrase_arena,
         clause_arena,
@@ -75,6 +78,7 @@ pub fn calc_expr_range_map(
 }
 
 struct VdSemExprRangeCalculator<'db> {
+    syn_clause_range_map: &'db VdSynClauseTokenIdxRangeMap,
     expr_arena: VdSemExprArenaRef<'db>,
     phrase_arena: VdSemPhraseArenaRef<'db>,
     clause_arena: VdSemClauseArenaRef<'db>,
@@ -91,6 +95,7 @@ struct VdSemExprRangeCalculator<'db> {
 
 impl<'db> VdSemExprRangeCalculator<'db> {
     fn new(
+        syn_clause_range_map: &'db VdSynClauseTokenIdxRangeMap,
         expr_arena: &'db VdSemExprArena,
         phrase_arena: &'db VdSemPhraseArena,
         clause_arena: &'db VdSemClauseArena,
@@ -99,6 +104,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         division_arena: &'db VdSemDivisionArena,
     ) -> Self {
         Self {
+            syn_clause_range_map,
             expr_arena: expr_arena.as_arena_ref(),
             phrase_arena: phrase_arena.as_arena_ref(),
             clause_arena: clause_arena.as_arena_ref(),
@@ -281,27 +287,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
     }
 
     fn calc_clause(&mut self, clause: VdSemClauseIdx) -> VdSemClauseTokenIdxRange {
-        match self.clause_arena[clause] {
-            VdSemClauseData::Let {
-                right_dollar_token_idx,
-                ..
-            } => todo!(),
-            //  LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
-            VdSemClauseData::Assume {
-                assume_token_idx,
-                right_dollar_token_idx,
-                ..
-            } => LxTokenIdxRange::new_closed(*assume_token_idx, *right_dollar_token_idx),
-            VdSemClauseData::Then {
-                then_token_idx,
-                right_dollar_token_idx,
-                ..
-            } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
-            VdSemClauseData::Verb => todo!(),
-            VdSemClauseData::Todo(lx_rose_token_idx) => {
-                LxTokenIdxRange::new_single(*lx_rose_token_idx)
-            }
-        }
+        self.syn_clause_range_map[self.clause_arena[clause].syn_clause()]
     }
 
     fn get_clause(&mut self, clause: VdSemClauseIdx) -> VdSemClauseTokenIdxRange {

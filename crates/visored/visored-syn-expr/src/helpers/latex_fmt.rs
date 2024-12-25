@@ -73,17 +73,15 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
         match *self.clause_arena[clause_idx].data() {
             VdSynClauseData::Let { .. } => todo!(),
             VdSynClauseData::Assume {
-                assume_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
             VdSynClauseData::Have { formula, .. } => todo!(),
             VdSynClauseData::Show {
-                show_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
         }
     }
