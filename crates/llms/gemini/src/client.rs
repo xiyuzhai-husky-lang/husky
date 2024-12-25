@@ -111,7 +111,7 @@ impl<'db> GeminiClient<'db> {
                         };
                         match tier {
                             GeminiTier::Free => self.generate_on_free_aux(model, request).await,
-                            GeminiTier::Paid => todo!(),
+                            GeminiTier::Paid => self.generate_on_paid_aux(model, request).await,
                         }
                     },
                 )

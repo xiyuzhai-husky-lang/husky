@@ -53,7 +53,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 
     fn query_raw_proof(&mut self) {
         let prompt = format!(
-            r#"Please provide the raw solution to the following problem. The solution should be a complete mathematical proof written in LaTeX, using forward reasoning - meaning each step should build upon previous steps to reach the conclusion, rather than working backwards from what we want to prove.
+            r#"Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX.
 
 ```latex
 {}
@@ -65,11 +65,25 @@ Provide only the LaTeX code for the solution, without any surrounding text. Wrap
 - Build upon previous steps in a natural progression
 - Use appropriate mathematical notation and LaTeX environments
 - Avoid unnecessary labels or references
-- If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details."#,
+- If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details.
+- Avoid unnecessary repetitions.
+
+Here are some examples that help you understand the task.
+
+------- EXAMPLES -------
+Problem: prove that $(x+y)^2 \ge 0$ for all real numbers $x$.
+
+Solution:
+```latex
+\begin{{proof}}
+We have $(x+y)^2 \ge 0$ because these are real numbers.
+\end{{proof}}
+```
+"#,
             self.input.content
         );
         // TODO: use config
-        let model = AllLlmModel::GEMINI_1_5_FLASH;
+        let model = AllLlmModel::GEMINI_1_5_PRO;
         self.raw_proof = Some(extract_proof(
             &self.llm_client.generate_text(model, prompt).unwrap(),
         ));
