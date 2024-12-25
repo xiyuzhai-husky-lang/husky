@@ -23,6 +23,7 @@ pub struct VdPipelineExecutor<'a, 'db> {
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
     pub fn new(
         db: &'db EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
         input: &'a VdPipelineInput,
         config: &'a VdPipelineConfig,
     ) -> Self {
@@ -36,7 +37,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
         Self {
             input,
             config,
-            llm_client: AllLlmsClient::new(db, cache_dir).unwrap(),
+            llm_client: AllLlmsClient::new(db, tokio_runtime, cache_dir).unwrap(),
             raw_proof: None,
             simplified_proof: None,
             elaborated_proof: None,

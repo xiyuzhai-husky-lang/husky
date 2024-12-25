@@ -36,11 +36,17 @@ impl VdPipelineInstance {
 }
 
 impl VdPipelineInstance {
-    pub fn run(&mut self, seed: AlienSeed, db: &EternerDb) -> VdPipelineResult<()> {
+    pub fn run(
+        &mut self,
+        seed: AlienSeed,
+        db: &EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+    ) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
         with_seed(seed, || {
             self.tracker = Some(VdPipelineTracker::new(
                 db,
+                tokio_runtime,
                 self.input.clone(),
                 self.config.clone(),
             ));

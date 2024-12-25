@@ -5,7 +5,7 @@ use disk_cache::{error::DiskCacheError, DiskCache};
 use eterned::db::EternerDb;
 use husky_pyo3_utils::py_module::py_module_from_path;
 use py_modules::get_constituent_parsing_module;
-use std::{borrow::Borrow, sync::OnceLock};
+use std::{borrow::Borrow, sync::Arc, sync::OnceLock};
 
 pub struct SpacyConstituentParser<'db> {
     db: &'db EternerDb,
@@ -21,11 +21,12 @@ impl From<&PyErr> for SpacyConstituentParserError {
 impl<'db> SpacyConstituentParser<'db> {
     pub fn new(
         db: &'db EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
         disk_cache_path: PathBuf,
     ) -> SpacyConstituentParsingResult<Self> {
         Ok(Self {
             db,
-            cache: DiskCache::new(db, disk_cache_path)?,
+            cache: DiskCache::new(db, tokio_runtime.clone(), disk_cache_path)?,
         })
     }
 }

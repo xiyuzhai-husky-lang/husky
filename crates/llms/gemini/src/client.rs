@@ -12,7 +12,10 @@ use model::GeminiModel;
 use request::GeminiRequest;
 use reqwest::Client;
 use response::{parse_response_result, GeminiResponse};
-use std::path::{Path, PathBuf};
+use std::{
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 use tier::GeminiTier;
 use usage_cap::UsageCap;
 
@@ -30,14 +33,22 @@ pub struct GeminiClient<'db> {
 }
 
 impl<'db> GeminiClient<'db> {
-    pub fn new(db: &'db EternerDb, cache_dir: &Path) -> GeminiResult<Self> {
+    pub fn new(
+        db: &'db EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        cache_dir: &Path,
+    ) -> GeminiResult<Self> {
         let meta = GeminiClientMeta::new()?;
         let caches = EnumFullVecMap::try_new(|model: GeminiModel| {
             if !cache_dir.is_dir() {
                 return Err(GeminiError::InvalidCacheDir(cache_dir.to_owned()));
             }
-            DiskCache::new(db, cache_dir.join(format!("{}.json", model.as_str())))
-                .map_err(Into::into)
+            DiskCache::new(
+                db,
+                tokio_runtime.clone(),
+                cache_dir.join(format!("{}.json", model.as_str())),
+            )
+            .map_err(Into::into)
         })?;
 
         Ok(Self {

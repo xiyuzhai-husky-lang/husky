@@ -17,7 +17,10 @@ use eterned::db::EternerDb;
 use lazy_static::lazy_static;
 use model::OpenaiModel;
 use serde::{Deserialize, Serialize};
-use std::path::{Path, PathBuf};
+use std::{
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 use usage_cap::UsageCap;
 
 pub struct OpenaiClient<'db> {
@@ -30,11 +33,19 @@ pub struct OpenaiClient<'db> {
 }
 
 impl<'db> OpenaiClient<'db> {
-    pub fn new(db: &'db EternerDb, cache_dir: &Path) -> OpenaiResult<Self> {
+    pub fn new(
+        db: &'db EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        cache_dir: &Path,
+    ) -> OpenaiResult<Self> {
         let api_key = std::env::var("OPENAI_API_KEY").ok();
         Ok(Self {
             caches: EnumFullVecMap::try_new(|model: OpenaiModel| {
-                DiskCache::new(db, cache_dir.join(format!("{}.json", model.as_str())))
+                DiskCache::new(
+                    db,
+                    tokio_runtime.clone(),
+                    cache_dir.join(format!("{}.json", model.as_str())),
+                )
             })?,
             client_ext: match api_key {
                 Some(api_key) => Some(ext::OpenAIClient::builder().with_api_key(api_key).build()?),
@@ -102,7 +113,8 @@ fn openai_client_works() {
         cache_dir.display()
     );
 
-    let client = OpenaiClient::new(db, &cache_dir).unwrap();
+    let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
+    let client = OpenaiClient::new(db, tokio_runtime, &cache_dir).unwrap();
     let model = OpenaiModel::Gpt4o;
     let seed = AlienSeed::new(0);
     with_seed(seed, || {
