@@ -6,6 +6,7 @@ pub mod model;
 pub mod raw;
 pub mod request;
 pub mod response;
+pub mod tier;
 
 use self::{
     cap::*,
