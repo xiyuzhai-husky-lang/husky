@@ -79,10 +79,18 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
 "#,
             self.input.content
         );
-        // TODO: use config
-        let model = AllLlmModel::GEMINI_1_5_PRO;
         self.raw_proof = Some(extract_proof(
-            &self.llm_client.generate_text(model, prompt).unwrap(),
+            &self
+                .llm_client
+                .generate_text(
+                    self.config
+                        .routing_resolved
+                        .solver
+                        .mathematical_reasoning
+                        .model,
+                    prompt,
+                )
+                .unwrap(),
         ));
         let input_and_raw_proof = format!(
             r#"```latex
