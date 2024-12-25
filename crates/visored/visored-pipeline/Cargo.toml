@@ -17,6 +17,7 @@ relative-path = { workspace = true, features = ["serde"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml.workspace = true
 thiserror.workspace = true
+tokio.workspace = true
 # abstractions
 alien-seed.workspace = true
 eterned.workspace = true

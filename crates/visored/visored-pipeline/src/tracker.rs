@@ -15,8 +15,13 @@ pub struct VdPipelineTracker {
 }
 
 impl VdPipelineTracker {
-    pub fn new(db: &EternerDb, input: Arc<VdPipelineInput>, config: Arc<VdPipelineConfig>) -> Self {
-        let mut executor = VdPipelineExecutor::new(db, &*input, &*config);
+    pub fn new(
+        db: &EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        input: Arc<VdPipelineInput>,
+        config: Arc<VdPipelineConfig>,
+    ) -> Self {
+        let mut executor = VdPipelineExecutor::new(db, tokio_runtime, &*input, &*config);
         executor.execute_all();
         let (raw_proof, simplified_proof, elaborated_proof, regularized_proof) = executor.finish();
         Self {

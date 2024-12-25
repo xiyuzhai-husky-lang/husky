@@ -3,13 +3,14 @@ use alien_seed::attach::with_seed;
 use alien_seed::AlienSeed;
 use eterned::db::EternerDb;
 use expect_test::expect;
-use std::path::PathBuf;
+use std::{path::PathBuf, sync::Arc};
 
 #[test]
 fn all_llms_client_works() {
     let db = &EternerDb::default();
     let cache_dir = PathBuf::from("caches/all_llms_client_works");
-    let client = AllLlmsClient::new(&db, cache_dir).unwrap();
+    let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
+    let client = AllLlmsClient::new(&db, tokio_runtime, cache_dir).unwrap();
     let prompt = "Why does Soifon hate Urahara?";
     let seed = AlienSeed::new(0);
     with_seed(seed, || {
