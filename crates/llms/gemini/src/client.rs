@@ -19,7 +19,8 @@ use std::{
 use tier::GeminiTier;
 use usage_cap::UsageCap;
 
-const DEFAULT_RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(30);
+const DEFAULT_RETRY_DELAY_ON_FREE: std::time::Duration = std::time::Duration::from_secs(30);
+const DEFAULT_RETRY_DELAY_ON_PAID: std::time::Duration = std::time::Duration::from_secs(1);
 
 pub struct GeminiClient<'db> {
     caches: EnumFullVecMap<
@@ -29,7 +30,8 @@ pub struct GeminiClient<'db> {
     /// `None` means disabled
     meta: Option<GeminiClientMeta>,
     client: Client,
-    retry_delay: std::time::Duration,
+    retry_delay_on_free: std::time::Duration,
+    retry_delay_on_paid: std::time::Duration,
 }
 
 impl<'db> GeminiClient<'db> {
@@ -55,7 +57,8 @@ impl<'db> GeminiClient<'db> {
             caches,
             meta,
             client: Client::new(),
-            retry_delay: DEFAULT_RETRY_DELAY,
+            retry_delay_on_free: DEFAULT_RETRY_DELAY_ON_FREE,
+            retry_delay_on_paid: DEFAULT_RETRY_DELAY_ON_PAID,
         })
     }
 }

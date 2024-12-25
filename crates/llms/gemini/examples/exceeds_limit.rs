@@ -1,5 +1,7 @@
+use alien_seed::AlienSeed;
 use eterned::db::EternerDb;
 use gemini::{client::GeminiClient, model::GeminiModel};
+use rayon::prelude::*;
 use std::{path::PathBuf, sync::Arc};
 use tempfile::TempDir;
 use tracing::{error, info, warn};
@@ -25,28 +27,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     })?;
 
     let model = GeminiModel::Gemini1_5Flash;
+    (0..100).into_par_iter().for_each(|i| {
+        AlienSeed::new(0).with(|| {
+            info!("Generating response for i={}", i);
+            let response = match client.generate_text(
+                model,
+                &format!("What is {i} + {i} equal to? Just give the number."),
+            ) {
+                Ok(resp) => resp,
+                Err(e) => {
+                    panic!("Failed to generate text for i={}: {}", i, e);
+                }
+            };
 
-    for i in 0..20 {
-        info!("Generating response for i={}", i);
-        let response = match client.generate_text(
-            model,
-            &format!("What is {i} + {i} equal to? Just give the number."),
-        ) {
-            Ok(resp) => resp,
-            Err(e) => {
-                panic!("Failed to generate text for i={}: {}", i, e);
+            let response_str = response.to_string();
+            if response_str.len() > 50 {
+                warn!("Response exceeded 50 characters");
+                println!("{i}th response: {:.50}...", response_str);
+            } else {
+                info!("Got response of {} characters", response_str.len());
+                println!("{i}th response: {}", response_str);
             }
-        };
-
-        let response_str = response.to_string();
-        if response_str.len() > 50 {
-            warn!("Response exceeded 50 characters");
-            println!("{i}th response: {:.50}...", response_str);
-        } else {
-            info!("Got response of {} characters", response_str.len());
-            println!("{i}th response: {}", response_str);
-        }
-    }
+        });
+    });
 
     Ok(())
 }

@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 serde.workspace = true
+tokio = { workspace = true, features = ["rt"] }
 
 [lints]
 workspace = true

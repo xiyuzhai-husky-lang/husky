@@ -83,7 +83,13 @@ impl<'db> GeminiClient<'db> {
                 }
                 Err(e) => match e.error.status.as_str() {
                     "RESOURCE_EXHAUSTED" => {
-                        todo!("this should be handled carefully. Because it's highly unusual to hit this error")
+                        tracing::info!(
+                            "RESOURCE_EXHAUSTED, retrying in {:?}...",
+                            self.retry_delay_on_paid
+                        );
+                        tokio::time::sleep(tokio::time::Duration::from(self.retry_delay_on_paid))
+                            .await;
+                        None
                     }
                     _ => todo!(),
                 },
