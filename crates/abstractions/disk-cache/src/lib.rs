@@ -1,3 +1,4 @@
+#![feature(async_closure)]
 mod entry;
 pub mod error;
 mod save;
@@ -18,6 +19,7 @@ use save::LlmCacheSaveThread;
 use seed::IsDiskCacheSeed;
 use serde::{Deserialize, Serialize};
 use std::path::Path;
+use std::sync::Arc;
 use std::{fs, path::PathBuf};
 use std::{io, sync::RwLock};
 #[cfg(test)]
@@ -30,6 +32,7 @@ where
     Response: IsDiskCacheResponse,
 {
     db: Db,
+    tokio_runtime: Arc<tokio::runtime::Runtime>,
     path: PathBuf,
     entries: RwLock<Vec<LlmCacheEntry<Seed, Request, Response>>>,
     indices: DashMap<(Seed, Request), usize>,
@@ -62,7 +65,11 @@ where
     /// let cache_path = temp_dir.path().join("cache.json");
     /// let cache: DiskCache<(), (), String, String> = DiskCache::new(db, cache_path).unwrap();
     /// ```
-    pub fn new(db: Db, path: PathBuf) -> DiskCacheResult<Self> {
+    pub fn new(
+        db: Db,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        path: PathBuf,
+    ) -> DiskCacheResult<Self> {
         // Create directory if it doesn't exist
         if let Some(parent) = path.parent() {
             fs::create_dir_all(parent).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
@@ -94,6 +101,7 @@ where
             .collect();
         Ok(Self {
             db,
+            tokio_runtime,
             path,
             entries: RwLock::new(entries),
             indices,
@@ -126,6 +134,22 @@ where
         Ok(response)
     }
 
+    pub fn get_or_call_async<E>(
+        &self,
+        seed: Seed,
+        request: Request,
+        f: impl async FnOnce(&Request) -> Result<Response, E>,
+    ) -> Result<Response, E>
+    where
+        E: From<DiskCacheError>,
+    {
+        if let Some(index) = self.indices.get(&(seed, request.clone())) {
+            return Ok(self.entries.read().unwrap()[*index].response.clone());
+        }
+        let response = self.get_or_call_async_aux(seed, request, f)?;
+        Ok(response)
+    }
+
     fn get_or_call_aux<E>(
         &self,
         seed: Seed,
@@ -141,6 +165,29 @@ where
             return Ok(entries[*index].response.clone());
         }
         let response = f(&request)?;
+        let new_entry = LlmCacheEntry::new(seed, request.clone(), response.clone());
+        entries.push(new_entry);
+        self.save_thread.save(&entries)?;
+        self.indices
+            .insert((seed, request.clone()), entries.len() - 1);
+        Ok(response)
+    }
+
+    fn get_or_call_async_aux<E>(
+        &self,
+        seed: Seed,
+        request: Request,
+        f: impl async FnOnce(&Request) -> Result<Response, E>,
+    ) -> Result<Response, E>
+    where
+        E: From<DiskCacheError>,
+    {
+        let mut entries = self.entries.write().unwrap();
+        // check again in case another thread has added the entry
+        if let Some(index) = self.indices.get(&(seed, request.clone())) {
+            return Ok(entries[*index].response.clone());
+        }
+        let response = self.tokio_runtime.block_on(f(&request))?;
         let new_entry = LlmCacheEntry::new(seed, request.clone(), response.clone());
         entries.push(new_entry);
         self.save_thread.save(&entries)?;

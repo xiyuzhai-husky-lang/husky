@@ -1,18 +1,23 @@
 use crate::runner::VdPipelineRunner;
 use alien_seed::AlienSeed;
 use eterned::db::EternerDb;
-use std::path::{Path, PathBuf};
+use std::{
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 
 #[test]
 fn visored_pipeline_works() {
     fn t(
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
         parent_dir: &Path,
         config_path: PathBuf,
         src_file_paths: Vec<PathBuf>,
         expect_files_dir: &Path,
     ) {
         let db = &EternerDb::default();
-        let mut runner = VdPipelineRunner::new(db, config_path, src_file_paths).unwrap();
+        let mut runner =
+            VdPipelineRunner::new(db, tokio_runtime, config_path, src_file_paths).unwrap();
         let seed = AlienSeed::new(0);
         runner.run_all_single_threaded(seed).unwrap();
         let latex_files = runner.export_result_latex_files(parent_dir).unwrap();
@@ -24,6 +29,7 @@ fn visored_pipeline_works() {
         }
     }
 
+    let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
     // Collect all .tex files from the directory
     let dir_path = &PathBuf::from("tests-data/visored-pipeline-works");
     let config_path = PathBuf::from("tests-data/visored-pipeline-works/config.yaml");
@@ -42,6 +48,7 @@ fn visored_pipeline_works() {
     assert!(!tex_files.is_empty());
 
     t(
+        tokio_runtime,
         dir_path,
         config_path,
         tex_files,

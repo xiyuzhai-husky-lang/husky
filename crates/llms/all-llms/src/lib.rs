@@ -10,6 +10,7 @@ use gemini::client::GeminiClient;
 use model::AllLlmModel;
 use openai::OpenaiClient;
 use std::path::PathBuf;
+use std::sync::Arc;
 
 pub struct AllLlmsClient<'db> {
     openai: OpenaiClient<'db>,
@@ -17,7 +18,11 @@ pub struct AllLlmsClient<'db> {
 }
 
 impl<'db> AllLlmsClient<'db> {
-    pub fn new(db: &'db EternerDb, cache_dir: PathBuf) -> AllLlmsResult<Self> {
+    pub fn new(
+        db: &'db EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        cache_dir: PathBuf,
+    ) -> AllLlmsResult<Self> {
         assert!(cache_dir.exists());
         assert!(cache_dir.is_dir());
         let openai_cache_dir = &cache_dir.join("openai");
@@ -39,8 +44,8 @@ impl<'db> AllLlmsClient<'db> {
             // return Err(AllLlmsError::InvalidCacheDir(gemini_cache_dir.to_owned()));
         }
         Ok(Self {
-            openai: OpenaiClient::new(db, openai_cache_dir)?,
-            gemini: GeminiClient::new(db, gemini_cache_dir)?,
+            openai: OpenaiClient::new(db, tokio_runtime.clone(), openai_cache_dir)?,
+            gemini: GeminiClient::new(db, tokio_runtime, gemini_cache_dir)?,
         })
     }
 }

@@ -1,6 +1,6 @@
 use eterned::db::EternerDb;
 use gemini::{client::GeminiClient, model::GeminiModel};
-use std::path::PathBuf;
+use std::{path::PathBuf, sync::Arc};
 use tempfile::TempDir;
 use tracing::{error, info, warn};
 
@@ -18,8 +18,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         error!("Failed to create temp directory: {}", e);
         e
     })?;
-
-    let client = GeminiClient::new(&db, cache_dir.path()).map_err(|e| {
+    let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
+    let client = GeminiClient::new(&db, tokio_runtime, cache_dir.path()).map_err(|e| {
         error!("Failed to create Gemini client: {}", e);
         e
     })?;
