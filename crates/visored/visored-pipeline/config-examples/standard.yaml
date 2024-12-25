@@ -7,7 +7,7 @@ routing:
   solver:
     mathematical_reasoning: gpt-4o
     mathematical_understanding: gpt-4o
-    latex_cleaner: gpt-4o
+    latex_rewriter: gpt-4o
   verifier:
     snl_dispatcher: gpt-4o
 ---
@@ -21,7 +21,7 @@ routing:
   solver:
     mathematical_reasoning: gemini-1.5-pro
     mathematical_understanding: gemini-1.5-pro
-    latex_cleaner: gemini-1.5-flash
+    latex_rewriter: gemini-1.5-flash
   verifier:
     snl_dispatcher: gemini-1.5-flash
 

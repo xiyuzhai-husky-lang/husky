@@ -9,6 +9,6 @@ routing:
   solver:
     mathematical_reasoning: gemini-1.5-pro
     mathematical_understanding: gemini-1.5-pro
-    latex_cleaner: gemini-1.5-flash
+    latex_rewriter: gemini-1.5-flash
   verifier:
     snl_dispatcher: gemini-1.5-flash
