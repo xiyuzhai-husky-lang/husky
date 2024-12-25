@@ -171,7 +171,7 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
 
 impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_clause(&mut self, clause: VdSemClauseIdx) -> VdMirStmtData {
-        match self.sem_clause_arena()[clause] {
+        match *self.sem_clause_arena()[clause].data() {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
                 left_dollar_token_idx,
@@ -188,7 +188,6 @@ impl<'db> VdMirExprBuilder<'db> {
                 },
             },
             VdSemClauseData::Assume {
-                assume_token_idx,
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,
@@ -196,8 +195,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 pattern: VdMirPattern::Assumed,
                 ty: formula.to_vd_mir(self),
             },
-            VdSemClauseData::Then {
-                then_token_idx,
+            VdSemClauseData::Have {
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,

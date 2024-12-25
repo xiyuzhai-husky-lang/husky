@@ -628,5 +628,33 @@
       }
     },
     "time": "2024-12-24T13:59:50.525809311Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, which means $a^2+b^2+c^2-ab-bc-ca \\ge 0$, so $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2+b^2+c^2 \\ge ab+bc+ca$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by algebra. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by algebra.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-25T02:57:00.509724886Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to show that $a^2+b^2+c^2 \\ge ab+bc+ca$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by algebra. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by algebra.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2+b^2+c^2 \\ge ab+bc+ca$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by algebra. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by algebra.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-25T02:57:02.146698820Z"
   }
 ]

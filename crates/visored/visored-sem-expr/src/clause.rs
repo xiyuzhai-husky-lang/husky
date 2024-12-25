@@ -18,13 +18,11 @@ pub enum VdSemClauseData {
         dispatch: VdSemLetClauseDispatch,
     },
     Assume {
-        assume_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
-    Then {
-        then_token_idx: LxRoseTokenIdx,
+    Have {
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
@@ -32,24 +30,43 @@ pub enum VdSemClauseData {
     Todo(LxRoseTokenIdx),
 }
 
-pub type VdSemClauseArena = Arena<VdSemClauseData>;
-pub type VdSemClauseArenaRef<'a> = ArenaRef<'a, VdSemClauseData>;
-pub type VdSemClauseIdx = ArenaIdx<VdSemClauseData>;
-pub type VdSemClauseIdxRange = ArenaIdxRange<VdSemClauseData>;
-pub type VdSemClauseMap<T> = ArenaMap<VdSemClauseData, T>;
+pub struct VdSemClauseEntry {
+    data: VdSemClauseData,
+    syn_clause: VdSynClauseIdx,
+}
+
+pub type VdSemClauseArena = Arena<VdSemClauseEntry>;
+pub type VdSemClauseArenaRef<'a> = ArenaRef<'a, VdSemClauseEntry>;
+pub type VdSemClauseIdx = ArenaIdx<VdSemClauseEntry>;
+pub type VdSemClauseIdxRange = ArenaIdxRange<VdSemClauseEntry>;
+pub type VdSemClauseMap<T> = ArenaMap<VdSemClauseEntry, T>;
+
+impl VdSemClauseEntry {
+    pub fn data(&self) -> &VdSemClauseData {
+        &self.data
+    }
+
+    pub fn syn_clause(&self) -> VdSynClauseIdx {
+        self.syn_clause
+    }
+}
 
 impl ToVdSem<VdSemClauseIdxRange> for VdSynClauseIdxRange {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemClauseIdxRange {
-        let mut clauses: Vec<VdSemClauseData> = vec![];
+        let mut clauses: Vec<VdSemClauseEntry> = vec![];
         for clause in self {
-            clauses.push(builder.build_clause(clause));
+            let data = builder.build_clause_data(clause);
+            clauses.push(VdSemClauseEntry {
+                data,
+                syn_clause: clause,
+            });
         }
         builder.alloc_clauses(clauses)
     }
 }
 
 impl<'a> VdSemExprBuilder<'a> {
-    fn build_clause(&mut self, clause: VdSynClauseIdx) -> VdSemClauseData {
+    fn build_clause_data(&mut self, clause: VdSynClauseIdx) -> VdSemClauseData {
         match *self.syn_clause_arena()[clause].data() {
             VdSynClauseData::Let {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
@@ -65,32 +82,27 @@ impl<'a> VdSemExprBuilder<'a> {
                 )
             }
             VdSynClauseData::Assume {
-                assume_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdSemClauseData::Assume {
-                assume_token_idx,
                 left_dollar_token_idx,
                 formula: formula.to_vd_sem(self),
                 right_dollar_token_idx,
             },
             VdSynClauseData::Have {
-                then_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
-            } => VdSemClauseData::Then {
-                then_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdSemClauseData::Have {
                 left_dollar_token_idx,
                 formula: formula.to_vd_sem(self),
                 right_dollar_token_idx,
             },
             VdSynClauseData::Show {
-                show_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
         }
     }
@@ -111,13 +123,11 @@ impl VdSemClauseData {
                 ..
             } => vec![VdSemClauseChild::Expr(formula)],
             VdSemClauseData::Assume {
-                assume_token_idx,
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,
             } => vec![VdSemClauseChild::Expr(formula)],
-            VdSemClauseData::Then {
-                then_token_idx,
+            VdSemClauseData::Have {
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,

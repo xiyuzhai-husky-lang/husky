@@ -30,7 +30,8 @@ use crate::{
         VdSemBlockIdxRange,
     },
     clause::{
-        VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseIdx, VdSemClauseIdxRange,
+        VdSemClauseArena, VdSemClauseArenaRef, VdSemClauseData, VdSemClauseEntry, VdSemClauseIdx,
+        VdSemClauseIdxRange,
     },
     division::{
         VdSemDivisionArena, VdSemDivisionArenaRef, VdSemDivisionData, VdSemDivisionEntry,
@@ -271,7 +272,7 @@ impl<'db> VdSemExprBuilder<'db> {
         self.phrase_arena.alloc_one(data)
     }
 
-    pub(crate) fn alloc_clauses(&mut self, clauses: Vec<VdSemClauseData>) -> VdSemClauseIdxRange {
+    pub(crate) fn alloc_clauses(&mut self, clauses: Vec<VdSemClauseEntry>) -> VdSemClauseIdxRange {
         self.clause_arena.alloc_batch(clauses)
     }
 
