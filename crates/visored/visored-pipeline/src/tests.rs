@@ -19,7 +19,7 @@ fn visored_pipeline_works() {
         let mut runner =
             VdPipelineRunner::new(db, tokio_runtime, config_path, src_file_paths).unwrap();
         let seed = AlienSeed::new(0);
-        runner.run_all_multi_threaded(seed).unwrap();
+        runner.run_all_single_threaded(seed).unwrap();
         let latex_files = runner.export_result_latex_files(parent_dir).unwrap();
         for latex_file in latex_files {
             use expect_test::expect_file;
