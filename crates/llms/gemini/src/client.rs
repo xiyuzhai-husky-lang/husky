@@ -64,16 +64,16 @@ impl<'db> GeminiClient<'db> {
 }
 
 impl<'db> GeminiClient<'db> {
-    pub fn meta(&self) -> GeminiResult<&GeminiClientMeta> {
-        self.meta.as_ref().ok_or(GeminiError::GeminiDisabled)
+    pub fn meta(&self) -> Option<&GeminiClientMeta> {
+        self.meta.as_ref()
     }
 
-    pub fn api_key(&self) -> GeminiResult<&str> {
-        Ok(self.meta()?.api_key.as_str())
+    pub fn api_key(&self) -> Option<&str> {
+        self.meta.as_ref().map(|meta| meta.api_key.as_str())
     }
 
-    pub fn tier(&self) -> GeminiResult<GeminiTier> {
-        Ok(self.meta()?.tier)
+    pub fn tier(&self) -> Option<GeminiTier> {
+        self.meta.as_ref().map(|meta| meta.tier)
     }
 }
 
@@ -98,9 +98,34 @@ impl<'db> GeminiClient<'db> {
         model: GeminiModel,
         request: GeminiRequest,
     ) -> GeminiResult<GeminiResponse> {
-        match self.meta()?.tier {
-            GeminiTier::Free => self.generate_on_free(model, request),
-            GeminiTier::Paid => self.generate_on_paid(model, request),
-        }
+        let min_usage = request.min_usage();
+        let response = self.caches[model].get_or_call(
+            attached_seed(),
+            request,
+            async |request| -> GeminiResult<GeminiResponse> {
+                match try_call_gemini::<GeminiResult<GeminiResponse>>(
+                    min_usage,
+                    async || -> (usize, GeminiResult<GeminiResponse>) {
+                        let Some(tier) = self.tier() else {
+                            return (0, Err(GeminiError::GeminiDisabled));
+                        };
+                        match tier {
+                            GeminiTier::Free => self.generate_on_free_aux(model, request).await,
+                            GeminiTier::Paid => todo!(),
+                        }
+                    },
+                )
+                .await?
+                {
+                    Ok(result) => match result {
+                        Ok(s) => Ok(s),
+                        Err(e) => Err(e),
+                    },
+                    Err(e) => todo!(),
+                }
+            },
+        )?;
+
+        Ok(response)
     }
 }
