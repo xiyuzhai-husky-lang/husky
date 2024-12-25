@@ -1,3 +1,4 @@
+pub mod helpers;
 pub mod r#let;
 #[cfg(test)]
 mod tests;
@@ -40,21 +41,6 @@ pub enum VdSynClauseData {
         right_dollar_token_idx: LxRoseTokenIdx,
     },
     Todo(LxRoseTokenIdx),
-}
-
-pub enum VdSynClauseChild {
-    Expr(VdSynExprIdx),
-}
-
-impl VdSynClauseData {
-    pub(crate) fn children(&self) -> Vec<VdSynClauseChild> {
-        match *self {
-            VdSynClauseData::Let { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Then { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Todo(..) => vec![],
-        }
-    }
 }
 
 pub type VdSynClauseArena = Arena<VdSynClauseData>;
