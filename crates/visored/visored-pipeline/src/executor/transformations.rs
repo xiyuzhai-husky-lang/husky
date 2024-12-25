@@ -156,12 +156,13 @@ pub(super) fn regularization_transformations() -> Vec<AllLlmsStringTransformatio
         model: AllLlmModel::GEMINI_1_5_PRO,
         instruction: LlmStringTransformationInstruction::MainInputSide {
             main: "Regularize the proof by using only the following sentences:
-- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.
+- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.
+- We have <proposition> by <reason>/ where <reasons>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.
 - It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.
             "
                 .to_string(),
             side: Some(
-                r#"Wrap the proof in \begin{{proof}} and \end{{proof}}."#
+                r#"Wrap the proof in \begin{{proof}} and \end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. "#
                 .to_string(),
             ),
         },
