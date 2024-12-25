@@ -3,658 +3,280 @@
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide the raw solution to the following problem:\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nYou should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution."
+        "input": "Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX.\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nProvide only the LaTeX code for the solution, without any surrounding text. Wrap the proof in \\begin{proof} and \\end{proof}. The solution should:\n- Start from given information and progress logically forward to the conclusion\n- Show each step's reasoning clearly\n- Build upon previous steps in a natural progression\n- Use appropriate mathematical notation and LaTeX environments\n- Avoid unnecessary labels or references\n- If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details.\n- Avoid unnecessary repetitions.\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nProblem: prove that $(x+y)^2 \\ge 0$ for all real numbers $x$.\n\nSolution:\n```latex\n\\begin{proof}\nWe have $(x+y)^2 \\ge 0$ because these are real numbers.\n\\end{proof}\n```\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "```latex\n\\begin{proof}\nWe have $a^2 + b^2 + c^2 - ab - bc - ca = \\frac{1}{2} (2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca) = \\frac{1}{2} ((a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)) = \\frac{1}{2} ((a-b)^2 + (b-c)^2 + (c-a)^2) \\geq 0$.\nTherefore, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-23T14:07:47.138498274Z"
+    "time": "2024-12-25T10:56:27.270413208Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide a simplified solution to the following problem:\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nThe previous solution is:\n```latex\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\n```\n\nYou should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution. Don't include any \\label or \\ref."
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nWe have $a^2 + b^2 + c^2 - ab - bc - ca = \\frac{1}{2} (2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca) = \\frac{1}{2} ((a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)) = \\frac{1}{2} ((a-b)^2 + (b-c)^2 + (c-a)^2) \\geq 0$.\nTherefore, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\nThere should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n\nWrap the proof in \\begin{proof} and \\end{proof}.\n    \n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "```latex\n\\begin{align*} 0 &\\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\\\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\\\ 2ab + 2bc + 2ac &\\le 2a^2 + 2b^2 + 2c^2 \\\\ ab + bc + ac &\\le a^2 + b^2 + c^2 \\end{align*} \n```\n"
+        "text": "```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-23T14:07:48.470455820Z"
+    "time": "2024-12-25T10:56:32.492479752Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide the raw solution to the following problem:\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE INPUT ----\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n---- EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2  \\ge 0$.\n...\n\\end{{proof}}\n```\n\n---------\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "We want to show that $a^2 + b^2 + c^2 \\geq ab + bc + ca$ for all real numbers $a, b, c$.\n\nConsider the expression:\n$$2(a^2 + b^2 + c^2) - 2(ab + bc + ca)$$\n$$= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$$\n$$= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)$$\n$$= (a - b)^2 + (b - c)^2 + (c - a)^2$$\n\nSince squares of real numbers are non-negative, we have:\n$$(a - b)^2 \\geq 0$$\n$$(b - c)^2 \\geq 0$$\n$$(c - a)^2 \\geq 0$$\n\nTherefore,\n$$(a - b)^2 + (b - c)^2 + (c - a)^2 \\geq 0$$\n$$2(a^2 + b^2 + c^2) - 2(ab + bc + ca) \\geq 0$$\n$$2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$$\n$$a^2 + b^2 + c^2 \\geq ab + bc + ca$$\n\nThus, the inequality holds for all real numbers $a, b, c$.\n"
+        "text": "```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:10:32.460977522Z"
+    "time": "2024-12-25T10:56:36.687238034Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide a simplified solution to the following problem:\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nThe previous solution is:\n```latex\nWe want to show that $a^2 + b^2 + c^2 \\geq ab + bc + ca$ for all real numbers $a, b, c$.\n\nConsider the expression:\n$$2(a^2 + b^2 + c^2) - 2(ab + bc + ca)$$\n$$= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$$\n$$= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)$$\n$$= (a - b)^2 + (b - c)^2 + (c - a)^2$$\n\nSince squares of real numbers are non-negative, we have:\n$$(a - b)^2 \\geq 0$$\n$$(b - c)^2 \\geq 0$$\n$$(c - a)^2 \\geq 0$$\n\nTherefore,\n$$(a - b)^2 + (b - c)^2 + (c - a)^2 \\geq 0$$\n$$2(a^2 + b^2 + c^2) - 2(ab + bc + ca) \\geq 0$$\n$$2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$$\n$$a^2 + b^2 + c^2 \\geq ab + bc + ca$$\n\nThus, the inequality holds for all real numbers $a, b, c$.\n\n```\n\nYou should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution. Don't include any \\label or \\ref."
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation that skips too many steps in the given proof. You should only expand if it's necessary. Don't need to explain how things are derived. For example, don't add extra since clauses because we don't want that. Definitely avoid expanding too much that breaks the form. If a step is already obvious, keep it intact. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        % these expansions make it more obvious how the well known fact $x^2+y^2 \\ge 2xy$ is applied\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\nExample 2:\n\n        ---- EXAMPLE INPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n        ---- EXAMPLE OUTPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n\n        This is because the original proof is already detailed enough.\n        \n---------\n\n\nHere are some antiexamples that show you what you should avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nExample 1:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(a + f(x))^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "```latex\n\\begin{align*} 0 &\\le (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &= a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ac + a^2 \\\\ &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ac \\\\ 2ab + 2bc + 2ac &\\le 2a^2 + 2b^2 + 2c^2 \\\\ ab + bc + ac &\\le a^2 + b^2 + c^2\\end{align*} \n```\n"
+        "text": "```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:10:33.828199562Z"
+    "time": "2024-12-25T10:56:41.601522392Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide the raw solution to the following problem\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n\nYou should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution."
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:19:14.912687955Z"
+    "time": "2024-12-25T10:56:48.054148184Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please simplify the following mathematical proof:\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n\nYou should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution."
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "```latex\nWe have that\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n```\n"
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$ by algebra. We have $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2$ by algebra. We have $a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that squares are nonnegative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by algebra. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by algebra.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:20:05.194205912Z"
+    "time": "2024-12-25T10:56:54.750022881Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide the raw solution to the following problem:\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nYou should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution.\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$ by algebra. We have $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2$ by algebra. We have $a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that squares are nonnegative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by algebra. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by algebra.\n\\end{proof}\n```\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$ by algebra. We have $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2$ by algebra. We have $a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that squares are nonnegative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by algebra. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by algebra.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:26:40.949882403Z"
+    "time": "2024-12-25T10:57:02.354676406Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please simplify the following mathematical proof:\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n\n    You should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution."
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation that skips too many steps in the given proof. You should only expand if it's necessary. Don't need to explain how things are derived. For example, don't add extra since clauses because we don't want that. Definitely avoid expanding too much that breaks the form. If a step is already obvious, keep it intact. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        % these expansions make it more obvious how the well known fact $x^2+y^2 \\ge 2xy$ is applied\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\nExample 2:\n\n        ---- EXAMPLE INPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n        ---- EXAMPLE OUTPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n\n        This is because the original proof is already detailed enough.\n        \n---------\n\n\nHere are some antiexamples that show you what you should avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nExample 1:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(x + y)^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(x + y)^2 = (x + y)(x + y) = x^2 + 2xy + y^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\nExample 2:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(a + f(x))^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:26:42.688046622Z"
+    "time": "2024-12-25T10:58:29.317641619Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please remove all labels in align environments from the following latex code:\n\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "```latex\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n```\n\nThe `*` after `\\begin{align}` removes the equation numbers.\n"
+        "text": "```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:26:44.635910774Z"
+    "time": "2024-12-25T10:58:32.798159865Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\nPlease simplify the following mathematical proof:\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n\n    You should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution."
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that the square of a real number is nonnegative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by transitivity. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by division by 2.\n\\end{proof}\n"
       }
     },
-    "time": "2024-12-24T07:29:01.130888324Z"
+    "time": "2024-12-25T10:58:37.303943178Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\nPlease remove all labels in align environments from the following latex code:\n\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that the square of a real number is nonnegative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by transitivity. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by division by 2.\n\\end{proof}\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$ are all non-negative, their sum is also non-negative.  Therefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which simplifies to $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that the square of a real number is nonnegative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by transitivity. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by division by 2.\n\\end{proof}\n"
       }
     },
-    "time": "2024-12-24T07:29:02.880125211Z"
+    "time": "2024-12-25T10:58:41.604269865Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\nPlease simplify the following mathematical proof:\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n\n    You should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution.\n    \n    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n    "
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation that skips too many steps in the given proof. You should only expand if it's necessary. Don't need to explain how things are derived. For example, don't add extra since clauses because we don't want that. Definitely avoid expanding too much that breaks the form. If a step is already obvious, keep it intact. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        % these expansions make it more obvious how the well known fact $x^2+y^2 \\ge 2xy$ is applied\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\nExample 2:\n\n        ---- EXAMPLE INPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n        ---- EXAMPLE OUTPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n\n        This is because the original proof is already detailed enough.\n        \n---------\n\n\nHere are some antiexamples that show you what you should definitely avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nAntiexample 1:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(x + y)^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(x + y)^2 = (x + y)(x + y) = x^2 + 2xy + y^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\nAntiexample 2:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(a + f(x))^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:49:25.724661446Z"
+    "time": "2024-12-25T11:03:52.718509710Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\nPlease remove all labels in align environments from the following latex code:\n\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \n"
+        "text": "```latex\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:49:27.109285833Z"
+    "time": "2024-12-25T11:03:53.718686624Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n----- SIDE INSTRUCTIONS -----\n\n    You should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution.\n    \n    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n    \n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\n$2(a^2 + b^2 + c^2 - ab - bc - ca) = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$, so $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$, their sum is non-negative.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that squares are non-negative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by transitivity. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by division.\n\\end{proof}\n"
       }
     },
-    "time": "2024-12-24T07:52:12.642267074Z"
+    "time": "2024-12-25T11:03:55.129220604Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$, their sum is non-negative.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that squares are non-negative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by transitivity. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by division.\n\\end{proof}\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a - b)^2 + (b - c)^2 + (c - a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\ge 0$, $(b-c)^2 \\ge 0$, and $(c-a)^2 \\ge 0$, their sum is non-negative.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "\\begin{proof}\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0$ by the fact that squares are non-negative. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\geq 0$ by transitivity. We have $a^2 + b^2 + c^2 \\geq ab + bc + ca$ by division.\n\\end{proof}\n"
       }
     },
-    "time": "2024-12-24T07:52:14.485530836Z"
+    "time": "2024-12-25T11:03:56.484396435Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "Please provide the raw solution to the following problem. The solution should be a complete mathematical proof written in LaTeX, using forward reasoning - meaning each step should build upon previous steps to reach the conclusion, rather than working backwards from what we want to prove.\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nProvide only the LaTeX code for the solution, without any surrounding text. Do not include \\begin{document}, \\end{document}, \\begin{proof}, or \\end{proof}. The solution should:\n- Start from given information and progress logically forward to the conclusion\n- Show each step's reasoning clearly\n- Build upon previous steps in a natural progression\n- Use appropriate mathematical notation and LaTeX environments\n- Avoid unnecessary labels or references"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have\n$$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0. $$\nThus, $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE INPUT ----\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n---- EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2  \\ge 0$.\n...\n\\end{{proof}}\n```\n\n---------\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n"
+        "text": "```latex\n\\begin{proof}\nWe have\n$$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0. $$\nThus, $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:54:57.203788918Z"
+    "time": "2024-12-25T11:12:04.150704322Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n----- SIDE INSTRUCTIONS -----\n\n    You should give directly the latex code for the solution, without any other text. Don't include \\begin{document} or \\end{document} or \\begin{proof} or \\end{proof}. Just the latex code inside the proof environment for the solution.\n    \n    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n\nThe solution should move forward logically, building upon previous steps to reach the conclusion. Avoid working backwards from what we want to prove.\n    \n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have\n$$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0. $$\nThus, $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, so $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, and hence $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\n\\end{proof}\n```\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} \\label{eq:1} 2a^2 + 2b^2 + 2c^2 &\\geq 2ab + 2bc + 2ca \\\\ 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca &\\geq 0 \\\\ a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 &\\geq 0 \\\\ (a-b)^2 + (b-c)^2 + (c-a)^2 &\\geq 0\\end{align*} \nThe last inequality holds since the sum of squares is always non-negative.  Therefore, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
+        "text": "```latex\n\\begin{proof}\nWe have\n$$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0. $$\nThus, $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, so $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, and hence $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:56:51.480253979Z"
+    "time": "2024-12-25T11:12:10.553828291Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n\\begin{align*} \\label{eq:1} 2a^2 + 2b^2 + 2c^2 &\\geq 2ab + 2bc + 2ca \\\\ 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca &\\geq 0 \\\\ a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 &\\geq 0 \\\\ (a-b)^2 + (b-c)^2 + (c-a)^2 &\\geq 0\\end{align*} \nThe last inequality holds since the sum of squares is always non-negative.  Therefore, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nWe have\n$$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0. $$\nThus, $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, so $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, and hence $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "\\begin{align*} 2a^2 + 2b^2 + 2c^2 &\\geq 2ab + 2bc + 2ca \\\\ 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca &\\geq 0 \\\\ a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 &\\geq 0 \\\\ (a-b)^2 + (b-c)^2 + (c-a)^2 &\\geq 0\\end{align*} \n"
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2 + b^2 + c^2 \\ge ab + bc + ca$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0$ by algebra. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by the previous line. We have $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$ by dividing by 2. We have $a^2 + b^2 + c^2 \\ge ab + bc + ca$ by adding $ab + bc + ca$ to both sides.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:56:52.811418540Z"
+    "time": "2024-12-25T11:12:12.035421248Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\n----- SIDE INSTRUCTIONS -----\n\n    \n    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n\nThe solution should move forward logically, building upon previous steps to reach the conclusion. Avoid working backwards from what we want to prove.\n    \n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to show that $a^2 + b^2 + c^2 \\ge ab + bc + ca$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0$ by algebra. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by the previous line. We have $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$ by dividing by 2. We have $a^2 + b^2 + c^2 \\ge ab + bc + ca$ by adding $ab + bc + ca$ to both sides.\n\\end{proof}\n```\n\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "```latex\nWe have\n\\begin{align*} \\label{eq:1} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\geq 0$, $(b-c)^2 \\geq 0$, and $(c-a)^2 \\geq 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n```\n"
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2 + b^2 + c^2 \\ge ab + bc + ca$. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0$ by algebra. We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by the previous line. We have $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$ by dividing by 2. We have $a^2 + b^2 + c^2 \\ge ab + bc + ca$ by adding $ab + bc + ca$ to both sides.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:58:40.093598515Z"
+    "time": "2024-12-25T11:12:13.490184860Z"
   },
   {
     "seed": 1,
     "request": {
       "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nMake sure the solution doesn't contain any \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be contained in the document body, not a full document\n\n----- INPUT -----\n```latex\nWe have\n\\begin{align*} \\label{eq:1} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\geq 0$, $(b-c)^2 \\geq 0$, and $(c-a)^2 \\geq 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n```\n\n"
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to show that $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\nIt's enough to show that $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$.\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$.\nWe have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$ by algebra.\nWe have $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)$ by algebra.\nWe have $(a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra.\nWe have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0$ by the fact that squares are nonnegative.\nWe have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by the previous derivations.\n\\end{proof}\n```\n"
       }
     },
     "response": {
       "TextGeneration": {
-        "text": "```latex\n2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &\\geq 0\n```\n"
+        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2 + b^2 + c^2 \\ge ab + bc + ca$.\nIt's enough to show that $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$.\nIt's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$.\nWe have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$ by algebra.\nWe have $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)$ by algebra.\nWe have $(a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra.\nWe have $(a-b)^2 + (b-c)^2 + (c-a)^2 \\ge 0$ by the fact that squares are nonnegative.\nWe have $2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by the previous derivations.\n\\end{proof}\n```\n"
       }
     },
-    "time": "2024-12-24T07:58:41.394518386Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &\\geq 0\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &\\geq 0\n```\n"
-      }
-    },
-    "time": "2024-12-24T07:58:42.582694545Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nMake sure the solution doesn't contain any \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n\n----- INPUT -----\n```latex\nWe have\n\\begin{align*} \\label{eq:1} 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) &= 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\\\ &= (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) \\\\ &= (a-b)^2 + (b-c)^2 + (c-a)^2 \\\\ &\\geq 0\\end{align*} \nSince $(a-b)^2 \\geq 0$, $(b-c)^2 \\geq 0$, and $(c-a)^2 \\geq 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "We have\n\\[ 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0 \\]\nSince $(a-b)^2 \\geq 0$, $(b-c)^2 \\geq 0$, and $(c-a)^2 \\geq 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
-      }
-    },
-    "time": "2024-12-24T08:00:00.816185862Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\nWe have\n\\[ 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0 \\]\nSince $(a-b)^2 \\geq 0$, $(b-c)^2 \\geq 0$, and $(c-a)^2 \\geq 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "We have\n\\[ 2(a^2 + b^2 + c^2) - 2(ab + bc + ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \\geq 0 \\]\nSince $(a-b)^2 \\geq 0$, $(b-c)^2 \\geq 0$, and $(c-a)^2 \\geq 0$ for all real numbers $a$, $b$, and $c$.\nTherefore, $2(a^2 + b^2 + c^2) \\geq 2(ab + bc + ca)$, which implies $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\n"
-      }
-    },
-    "time": "2024-12-24T08:00:02.556766823Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate the following solution to make it more detailed and complete.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} \\label{eq:1} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\quad (*)\\end{align*} \nSimilarly, we can show that\n\\begin{align*} 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\quad (**)\\end{align*} \nand\n\\begin{align*} 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\quad (***)\\end{align*} \nAdding inequalities (*), (**), and (***), we get\n$$2ab + 2bc + 2ca \\leq a^2 + b^2 + b^2 + c^2 + c^2 + a^2$$\n$$2ab + 2bc + 2ca \\leq 2(a^2 + b^2 + c^2)$$\nDividing by 2, we obtain\n$$ab + bc + ca \\leq a^2 + b^2 + c^2$$\nTherefore, we have shown that\n$$a^2 + b^2 + c^2 \\geq ab + bc + ca$$\nThis inequality is a direct consequence of the non-negativity of the square of a real number.  The inequality holds for all real numbers a, b, and c.\n"
-      }
-    },
-    "time": "2024-12-24T08:05:34.480172051Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate the following solution to make it more detailed and complete.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Don't include \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} \n\\text{We start by applying the property that the square of any real number is non-negative:} \\\\\n(a-b)^2 &\\geq 0 \\\\\na^2 - 2ab + b^2 &\\geq 0 \\\\\n\\text{Adding } 2ab \\text{ to both sides, we get:} \\\\\na^2 + b^2 &\\geq 2ab \\quad (*)\\end{align*} \nSimilarly, we can show that:\n\\begin{align*}\n(b-c)^2 &\\geq 0 \\\\\nb^2 - 2bc + c^2 &\\geq 0 \\\\\nb^2 + c^2 &\\geq 2bc \\quad (**)\\\\\n(c-a)^2 &\\geq 0 \\\\\nc^2 - 2ca + a^2 &\\geq 0 \\\\\nc^2 + a^2 &\\geq 2ca \\quad (***)\\end{align*} \nAdding inequalities (*), (**), and (***), we obtain:\n\\begin{align*}\n(a^2 + b^2) + (b^2 + c^2) + (c^2 + a^2) &\\geq 2ab + 2bc + 2ca \\\\\n2(a^2 + b^2 + c^2) &\\geq 2(ab + bc + ca) \\\\\n\\text{Dividing both sides by 2, we arrive at the desired inequality:} \\\\\na^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n"
-      }
-    },
-    "time": "2024-12-24T08:06:44.857170579Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate the following solution to make the solution more detailed and complete. You should show the intermediate statements as much as possible. However, don't waste time on explaining how overly trivial things are obtained. Try to use formulas as much as possible instead of words.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Don't include \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\le (a-b)^2 \\\\ 0 &\\le a^2 - 2ab + b^2 \\\\ 2ab &\\le a^2 + b^2 \\quad &(1) \\\\ 0 &\\le (b-c)^2 \\\\ 0 &\\le b^2 - 2bc + c^2 \\\\ 2bc &\\le b^2 + c^2 \\quad &(2) \\\\ 0 &\\le (c-a)^2 \\\\ 0 &\\le c^2 - 2ca + a^2 \\\\ 2ca &\\le c^2 + a^2 \\quad &(3) \\\\ (1) + (2) + (3) \\implies 2ab + 2bc + 2ca &\\le a^2 + b^2 + b^2 + c^2 + c^2 + a^2 \\\\ 2(ab + bc + ca) &\\le 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\le a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\ge ab + bc + ca\\end{align*} \n"
-      }
-    },
-    "time": "2024-12-24T08:11:29.561857250Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate the following solution to make the solution more detailed and complete. You should show the intermediate statements as much as possible. However, don't waste time on explaining how overly trivial things are obtained. Try to use formulas as much as possible instead of words. The elaborated solution should strictly follow the original solution, but with more details and more formulas in between.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Don't include \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\quad (*)\\end{align*} \nSimilarly, we have\n\\begin{align*} 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\quad (**)\\end{align*} \nand\n\\begin{align*} 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\quad (***)\\end{align*} \nSumming (*) , (**) and (***), we obtain\n\\begin{align*} 2ab + 2bc + 2ca &\\leq (a^2 + b^2) + (b^2 + c^2) + (c^2 + a^2) \\\\ 2(ab + bc + ca) &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2\\end{align*} \nTherefore, we have $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n"
-      }
-    },
-    "time": "2024-12-24T08:12:27.596408556Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Don't include \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\quad &(1)\\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\quad &(2)\\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\quad &(3)\\\\ (1)+(2)+(3): \\quad 2ab + 2bc + 2ca &\\leq (a^2 + b^2) + (b^2 + c^2) + (c^2 + a^2) \\\\ 2(ab + bc + ca) &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n"
-      }
-    },
-    "time": "2024-12-24T08:16:04.818301993Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check. Keep the same number of sentences but put in more chains of equalities or inequalities.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Don't include \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq a^2 + b^2 + a^2 + b^2 + c^2 + c^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n"
-      }
-    },
-    "time": "2024-12-24T08:17:39.230015407Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq a^2 + b^2 + a^2 + b^2 + c^2 + c^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq a^2 + b^2 + a^2 + b^2 + c^2 + c^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*}\n"
-      }
-    },
-    "time": "2024-12-24T08:18:43.129482789Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Don't include \\begin{{document}}, \\end{{document}}, \\begin{{proof}}, or \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 0 + 2ab &\\leq a^2 - 2ab + b^2 + 2ab \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 0 + 2bc &\\leq b^2 - 2bc + c^2 + 2bc \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 0 + 2ca &\\leq c^2 - 2ca + a^2 + 2ca \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq a^2 + b^2 + c^2 + a^2 + b^2 + c^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ 2(ab + bc + ca) &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n"
-      }
-    },
-    "time": "2024-12-24T08:19:21.944709001Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 0 + 2ab &\\leq a^2 - 2ab + b^2 + 2ab \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 0 + 2bc &\\leq b^2 - 2bc + c^2 + 2bc \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 0 + 2ca &\\leq c^2 - 2ca + a^2 + 2ca \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq a^2 + b^2 + c^2 + a^2 + b^2 + c^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ 2(ab + bc + ca) &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{align*} 0 &\\leq (a-b)^2 \\\\ 0 &\\leq a^2 - 2ab + b^2 \\\\ 0 + 2ab &\\leq a^2 - 2ab + b^2 + 2ab \\\\ 2ab &\\leq a^2 + b^2 \\\\ 0 &\\leq (b-c)^2 \\\\ 0 &\\leq b^2 - 2bc + c^2 \\\\ 0 + 2bc &\\leq b^2 - 2bc + c^2 + 2bc \\\\ 2bc &\\leq b^2 + c^2 \\\\ 0 &\\leq (c-a)^2 \\\\ 0 &\\leq c^2 - 2ca + a^2 \\\\ 0 + 2ca &\\leq c^2 - 2ca + a^2 + 2ca \\\\ 2ca &\\leq c^2 + a^2 \\\\ 2ab + 2bc + 2ca &\\leq a^2 + b^2 + c^2 + a^2 + b^2 + c^2 \\\\ 2ab + 2bc + 2ca &\\leq 2(a^2 + b^2 + c^2) \\\\ 2(ab + bc + ca) &\\leq 2(a^2 + b^2 + c^2) \\\\ ab + bc + ca &\\leq a^2 + b^2 + c^2 \\\\ a^2 + b^2 + c^2 &\\geq ab + bc + ca\\end{align*} \n"
-      }
-    },
-    "time": "2024-12-24T08:19:24.298743317Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "Please provide the raw solution to the following problem. The solution should be a complete mathematical proof written in LaTeX, using forward reasoning - meaning each step should build upon previous steps to reach the conclusion, rather than working backwards from what we want to prove.\n\n```latex\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n```\n\nProvide only the LaTeX code for the solution, without any surrounding text. Wrap the proof in \\begin{proof} and \\end{proof}. The solution should:\n- Start from given information and progress logically forward to the conclusion\n- Show each step's reasoning clearly\n- Build upon previous steps in a natural progression\n- Use appropriate mathematical notation and LaTeX environments\n- Avoid unnecessary labels or references\n- If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details."
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "\\begin{proof}\nWe begin by considering the non-negative expressions $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$.  Expanding these, we have:\n\\begin{align*} (a-b)^2 &= a^2 - 2ab + b^2 \\geq 0 \\\\ (b-c)^2 &= b^2 - 2bc + c^2 \\geq 0 \\\\ (c-a)^2 &= c^2 - 2ca + a^2 \\geq 0 \\end{align*} \nSumming these inequalities, we obtain:\n$$(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 \\geq 0$$\nSimplifying the left-hand side, we get:\n$$2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\geq 0$$\nDividing both sides by 2, we have:\n$$a^2 + b^2 + c^2 - ab - bc - ca \\geq 0$$\nAdding $ab + bc + ca$ to both sides yields:\n$$a^2 + b^2 + c^2 \\geq ab + bc + ca$$\nThus, we have shown that for all real numbers $a$, $b$, and $c$, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n"
-      }
-    },
-    "time": "2024-12-24T13:33:09.984092480Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nWe begin by considering the non-negative expressions $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$.  Expanding these, we have:\n\\begin{align*} (a-b)^2 &= a^2 - 2ab + b^2 \\geq 0 \\\\ (b-c)^2 &= b^2 - 2bc + c^2 \\geq 0 \\\\ (c-a)^2 &= c^2 - 2ca + a^2 \\geq 0 \\end{align*} \nSumming these inequalities, we obtain:\n$$(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 \\geq 0$$\nSimplifying the left-hand side, we get:\n$$2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\geq 0$$\nDividing both sides by 2, we have:\n$$a^2 + b^2 + c^2 - ab - bc - ca \\geq 0$$\nAdding $ab + bc + ca$ to both sides yields:\n$$a^2 + b^2 + c^2 \\geq ab + bc + ca$$\nThus, we have shown that for all real numbers $a$, $b$, and $c$, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\n    \n    There should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n\n    Wrap the proof in \\begin{proof} and \\end{proof}.\n    \n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, we have $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:33:10.907431643Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, we have $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, we have $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:33:11.829295464Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, we have $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\n\n    Wrap the proof in \\begin{{proof}} and \\end{{proof}}. It is intended to be latex code contained in the document body, not a full document. Make sure to make it valid under latex text mode.\n    \n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, we have $2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, which means $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, so $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:33:13.364367195Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, we have $2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, which means $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, so $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, we have $2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, which means $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, so $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:33:14.898110040Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to prove that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nSince $(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$, we have $2(a^2 + b^2 + c^2 - ab - ac - bc) \\ge 0$, which means $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$, so $a^2 + b^2 + c^2 \\ge ab + ac + bc$.\n\\end{proof}\n```\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by expansion. We have $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$ by division by 2 and simplification. We have $a^2 + b^2 + c^2 \\ge ab + bc + ca$ by adding $ab + bc + ca$ to both sides.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:57:31.017890335Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to prove that $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by expansion. We have $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$ by division by 2 and simplification. We have $a^2 + b^2 + c^2 \\ge ab + bc + ca$ by adding $ab + bc + ca$ to both sides.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$. We have $(a-b)^2 + (b-c)^2 + (c-a)^2 = 2(a^2 + b^2 + c^2 - ab - bc - ca) \\ge 0$ by expansion. We have $a^2 + b^2 + c^2 - ab - bc - ca \\ge 0$ by division by 2 and simplification. We have $a^2 + b^2 + c^2 \\ge ab + bc + ca$ by adding $ab + bc + ca$ to both sides.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:57:32.377512987Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nWe begin by considering the non-negative expressions $(a-b)^2$, $(b-c)^2$, and $(c-a)^2$.  Expanding these, we have:\n\\begin{align*} (a-b)^2 &= a^2 - 2ab + b^2 \\geq 0 \\\\ (b-c)^2 &= b^2 - 2bc + c^2 \\geq 0 \\\\ (c-a)^2 &= c^2 - 2ca + a^2 \\geq 0 \\end{align*} \nSumming these inequalities, we obtain:\n$$(a-b)^2 + (b-c)^2 + (c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 \\geq 0$$\nSimplifying the left-hand side, we get:\n$$2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \\geq 0$$\nDividing both sides by 2, we have:\n$$a^2 + b^2 + c^2 - ab - bc - ca \\geq 0$$\nAdding $ab + bc + ca$ to both sides yields:\n$$a^2 + b^2 + c^2 \\geq ab + bc + ca$$\nThus, we have shown that for all real numbers $a$, $b$, and $c$, $a^2 + b^2 + c^2 \\geq ab + bc + ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\nThere should only be one solution. No need to include alternatives. If the problem is entirely trivial, just need to say that it's trivial that XXX holds.\n\nWrap the proof in \\begin{proof} and \\end{proof}.\n    \n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:59:43.249440863Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:59:44.063412473Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation in the given proof. Put in more intermediate formulas to make the proof more obvious and easier to check. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nEXAMPLES:\n---------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, which means $a^2+b^2+c^2-ab-bc-ca \\ge 0$, so $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:59:45.420402844Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, which means $a^2+b^2+c^2-ab-bc-ca \\ge 0$, so $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, which means $a^2+b^2+c^2-ab-bc-ca \\ge 0$, so $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:59:47.030684634Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to prove that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, which means $a^2+b^2+c^2-ab-bc-ca \\ge 0$, so $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca)$ by expansion. We have $(a-b)^2+(b-c)^2+(c-a)^2 \\ge 0$ by the fact that the square of a real number is nonnegative. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by transitivity. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by dividing by 2. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by adding $ab+bc+ca$ to both sides.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:59:48.789505689Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to prove that $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca)$ by expansion. We have $(a-b)^2+(b-c)^2+(c-a)^2 \\ge 0$ by the fact that the square of a real number is nonnegative. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by transitivity. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by dividing by 2. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by adding $ab+bc+ca$ to both sides.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nIt's enough to prove that $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = 2(a^2+b^2+c^2-ab-bc-ca)$ by expansion. We have $(a-b)^2+(b-c)^2+(c-a)^2 \\ge 0$ by the fact that the square of a real number is nonnegative. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by transitivity. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by dividing by 2. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by adding $ab+bc+ca$ to both sides.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-24T13:59:50.525809311Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nShow that for all real numbers $a$, $b$, and $c$:\n    $$a^2 + b^2 + c^2 \\geq ab + bc + ca.$$\n\\end{example}\n\n\\begin{proof}\nSince $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, we have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$, which means $a^2+b^2+c^2-ab-bc-ca \\ge 0$, so $a^2+b^2+c^2 \\ge ab+bc+ca$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2+b^2+c^2 \\ge ab+bc+ca$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by algebra. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by algebra.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-25T02:57:00.509724886Z"
-  },
-  {
-    "seed": 1,
-    "request": {
-      "TextGeneration": {
-        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's enough to show that $a^2+b^2+c^2 \\ge ab+bc+ca$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by algebra. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by algebra.\n\\end{proof}\n```\n\n"
-      }
-    },
-    "response": {
-      "TextGeneration": {
-        "text": "```latex\n\\begin{proof}\nIt's enough to show that $a^2+b^2+c^2 \\ge ab+bc+ca$. We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $2(a^2+b^2+c^2-ab-bc-ca) \\ge 0$ by algebra. We have $a^2+b^2+c^2-ab-bc-ca \\ge 0$ by algebra. We have $a^2+b^2+c^2 \\ge ab+bc+ca$ by algebra.\n\\end{proof}\n```\n"
-      }
-    },
-    "time": "2024-12-25T02:57:02.146698820Z"
+    "time": "2024-12-25T11:13:51.002046199Z"
   }
 ]

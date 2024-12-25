@@ -8,6 +8,7 @@ pub struct LlmStringTransformation<Model> {
     pub model: Model,
     pub instruction: LlmStringTransformationInstruction,
     pub examples: Vec<String>,
+    pub antiexamples: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
@@ -24,6 +25,11 @@ pub enum LlmStringTransformationInstruction {
     ///
     /// ----- SIDE INSTRUCTIONS -----
     /// {side}
+    ///
+    /// Here are some examples that help you understand the task.
+    ///
+    /// ----- EXAMPLES -----
+    /// {examples}
     /// ```
     MainInputSide { main: String, side: Option<String> },
 }
@@ -32,10 +38,28 @@ impl<Model> LlmStringTransformation<Model> {
     pub fn prompt(&self, input: &str) -> String {
         let mut prompt = self.instruction.prompt(input);
         if self.examples.len() > 0 {
-            prompt += "\n\nEXAMPLES:\n---------\n";
+            prompt += r#"
+
+Here are some examples that help you understand the task.
+
+------- EXAMPLES -------
+"#;
             for (i, example) in self.examples.iter().enumerate() {
                 prompt += &format!("Example {}:\n", i + 1);
                 prompt += example;
+                prompt += "\n---------\n";
+            }
+        }
+        if self.antiexamples.len() > 0 {
+            prompt += r#"
+
+Here are some antiexamples that show you what you should definitely avoid at all costs.
+
+------- ANTI-EXAMPLES -------
+"#;
+            for (i, antiexample) in self.antiexamples.iter().enumerate() {
+                prompt += &format!("Antiexample {}:\n", i + 1);
+                prompt += antiexample;
                 prompt += "\n---------\n";
             }
         }

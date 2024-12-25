@@ -32,6 +32,7 @@ The answer should be:
 Goodbye, world!
 ```"#
                 .to_string()],
+            antiexamples: vec![],
         },
         expect![[r#"
             Replace each word `hello` with `goodbye` in the following text:
