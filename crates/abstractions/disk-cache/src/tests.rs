@@ -29,7 +29,7 @@ fn llm_cache_file_save_works() {
         let cache =
             DiskCache::<(), (), String, String>::new(db, tokio_runtime.clone(), path.clone())
                 .unwrap();
-        cache.get_or_call::<DiskCacheError>((), "request".to_string(), |_| {
+        cache.get_or_call::<DiskCacheError>((), "request".to_string(), async |_| {
             Ok("response".to_string())
         });
     }

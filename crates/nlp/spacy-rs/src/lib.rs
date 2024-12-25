@@ -1,3 +1,4 @@
+#![feature(async_closure)]
 pub mod constituent_parsing;
 mod py_modules;
 pub mod token;

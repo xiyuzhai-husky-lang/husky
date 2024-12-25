@@ -1,4 +1,5 @@
 //! Gemini API client implementation for interacting with Google's Gemini language model.
+#![feature(async_closure)]
 mod cap;
 pub mod client;
 pub mod error;

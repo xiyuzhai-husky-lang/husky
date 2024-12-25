@@ -7,9 +7,9 @@ use usage_cap::{
 
 pub const POST_CALL_USAGE_MULTIPLIER: usize = 2;
 
-pub(crate) fn try_call_gemini<R>(
+pub(crate) async fn try_call_gemini<R>(
     min_usage: usize,
-    f: impl FnOnce() -> (usize, R),
+    f: impl async FnOnce() -> (usize, R),
 ) -> LlmCapResult<Result<R, (R, UsageCapError)>> {
     lazy_static! {
         static ref GLOBAL_CAP: UsageCap = UsageCap::new(
@@ -19,5 +19,5 @@ pub(crate) fn try_call_gemini<R>(
         );
     }
 
-    GLOBAL_CAP.try_use(min_usage, f)
+    GLOBAL_CAP.try_use(min_usage, f).await
 }

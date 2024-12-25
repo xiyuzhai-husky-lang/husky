@@ -1,3 +1,4 @@
+#![feature(async_closure)]
 pub mod error;
 pub mod request;
 pub mod response;
@@ -38,7 +39,7 @@ pub trait IsLlmImpl {
         + Into<Self::Response>;
 
     fn cache(&self) -> &DiskCache<Self::Db, AlienSeed, Self::Request, Self::Response>;
-    fn chat_completion_impl(
+    async fn chat_completion_impl(
         &self,
         request: Self::ChatCompletionRequest,
     ) -> Result<Self::Response, Self::Error>;
@@ -52,12 +53,14 @@ impl<T: IsLlmImpl> IsLlm for T {
         }
         .into();
         self.cache()
-            .get_or_call(attached_seed(), request.into(), |request| {
-                match request.clone().try_into() {
-                    Ok(request) => self.chat_completion_impl(request),
+            .get_or_call(
+                attached_seed(),
+                request.into(),
+                async |request| match request.clone().try_into() {
+                    Ok(request) => self.chat_completion_impl(request).await,
                     Err(_) => unreachable!(),
-                }
-            })
+                },
+            )
             .map(|response| match response.try_into() {
                 Ok(response) => response,
                 Err(_) => unreachable!(),

@@ -10,11 +10,12 @@ impl<'db> GeminiClient<'db> {
         let response = self.caches[model].get_or_call(
             attached_seed(),
             request,
-            |request| -> GeminiResult<GeminiResponse> {
-                match try_call_gemini::<GeminiResult<GeminiResponse>>(min_usage, || {
-                    let rt = tokio::runtime::Runtime::new().unwrap();
-                    rt.block_on(self.generate_on_paid_aux(model, request))
-                })? {
+            async |request| -> GeminiResult<GeminiResponse> {
+                match try_call_gemini::<GeminiResult<GeminiResponse>>(min_usage, async || {
+                    self.generate_on_paid_aux(model, request).await
+                })
+                .await?
+                {
                     Ok(result) => match result {
                         Ok(s) => Ok(s),
                         Err(e) => Err(e),
