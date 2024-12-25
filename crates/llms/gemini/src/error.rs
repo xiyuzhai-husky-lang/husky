@@ -26,6 +26,10 @@ pub enum GeminiError {
     InvalidCacheDir(PathBuf),
     #[error("API key not set")]
     ApiKeyNotSet,
+    #[error("Invalid tier: {0}")]
+    InvalidTier(String),
+    #[error("Gemini is disabled")]
+    GeminiDisabled,
 }
 
 pub type GeminiResult<T> = Result<T, GeminiError>;

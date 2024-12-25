@@ -1,3 +1,8 @@
+mod free;
+mod meta;
+mod paid;
+
+use self::meta::*;
 use crate::{request::GeminiRawRequest, response::GeminiRawResponse, *};
 use alien_seed::{attach::attached_seed, AlienSeed};
 use disk_cache::DiskCache;
@@ -8,6 +13,7 @@ use request::GeminiRequest;
 use reqwest::Client;
 use response::{parse_response_result, GeminiResponse};
 use std::path::{Path, PathBuf};
+use tier::GeminiTier;
 use usage_cap::UsageCap;
 
 const DEFAULT_RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(30);
@@ -17,14 +23,15 @@ pub struct GeminiClient<'db> {
         GeminiModel,
         DiskCache<&'db EternerDb, AlienSeed, GeminiRequest, GeminiResponse>,
     >,
-    api_key: Option<String>,
+    /// `None` means disabled
+    meta: Option<GeminiClientMeta>,
     client: Client,
     retry_delay: std::time::Duration,
 }
 
 impl<'db> GeminiClient<'db> {
     pub fn new(db: &'db EternerDb, cache_dir: &Path) -> GeminiResult<Self> {
-        let api_key = std::env::var("GEMINI_API_KEY").ok();
+        let meta = GeminiClientMeta::new()?;
         let caches = EnumFullVecMap::try_new(|model: GeminiModel| {
             if !cache_dir.is_dir() {
                 return Err(GeminiError::InvalidCacheDir(cache_dir.to_owned()));
@@ -35,12 +42,28 @@ impl<'db> GeminiClient<'db> {
 
         Ok(Self {
             caches,
-            api_key,
+            meta,
             client: Client::new(),
             retry_delay: DEFAULT_RETRY_DELAY,
         })
     }
+}
 
+impl<'db> GeminiClient<'db> {
+    pub fn meta(&self) -> GeminiResult<&GeminiClientMeta> {
+        self.meta.as_ref().ok_or(GeminiError::GeminiDisabled)
+    }
+
+    pub fn api_key(&self) -> GeminiResult<&str> {
+        Ok(self.meta()?.api_key.as_str())
+    }
+
+    pub fn tier(&self) -> GeminiResult<GeminiTier> {
+        Ok(self.meta()?.tier)
+    }
+}
+
+impl<'db> GeminiClient<'db> {
     pub fn generate_text(
         &self,
         model: GeminiModel,
@@ -61,90 +84,9 @@ impl<'db> GeminiClient<'db> {
         model: GeminiModel,
         request: GeminiRequest,
     ) -> GeminiResult<GeminiResponse> {
-        let min_usage = request.min_usage();
-        let response = self.caches[model].get_or_call(
-            attached_seed(),
-            request,
-            |request| -> GeminiResult<GeminiResponse> {
-                match try_call_gemini::<GeminiResult<GeminiResponse>>(min_usage, || {
-                    let rt = tokio::runtime::Runtime::new().unwrap();
-                    rt.block_on(self.generate_aux(model, request))
-                })? {
-                    Ok(result) => match result {
-                        Ok(s) => Ok(s),
-                        Err(e) => Err(e),
-                    },
-                    Err(e) => todo!(),
-                }
-            },
-        )?;
-
-        Ok(response)
-    }
-
-    async fn generate_aux(
-        &self,
-        model: GeminiModel,
-        request: &GeminiRequest,
-    ) -> (usize, GeminiResult<GeminiResponse>) {
-        loop {
-            match self.generate_step(model, request).await {
-                Some(result) => return result,
-                None => continue,
-            }
-        }
-    }
-
-    async fn generate_step(
-        &self,
-        model: GeminiModel,
-        request: &GeminiRequest,
-    ) -> Option<(usize, GeminiResult<GeminiResponse>)> {
-        let mut usage = 0;
-        let raw_request: GeminiRawRequest = request.into();
-        let Some(ref api_key) = self.api_key else {
-            return Some((usage, Err(GeminiError::ApiKeyNotSet)));
-        };
-        let response = match self
-            .client
-            .post(format!(
-                "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent?key={}",
-                model.url_name(),
-                api_key
-            ))
-            .json(&raw_request)
-            .send()
-            .await
-        {
-            Ok(resp) => resp,
-            Err(e) => return Some((usage, Err(e.into()))),
-        };
-
-        let response_bytes = match response.bytes().await {
-            Ok(bytes) => {
-                usage += POST_CALL_USAGE_MULTIPLIER * bytes.len();
-                bytes
-            }
-            Err(e) => return Some((usage, Err(e.into()))),
-        };
-
-        match parse_response_result(&response_bytes) {
-            Ok(resp_result) => match resp_result {
-                Ok(resp) => {
-                    usage +=
-                        POST_CALL_USAGE_MULTIPLIER * resp.candidates[0].content.parts[0].text.len();
-                    Some((usage, Ok((resp, request).into())))
-                }
-                Err(e) => match e.error.status.as_str() {
-                    "RESOURCE_EXHAUSTED" => {
-                        tracing::info!("RESOURCE_EXHAUSTED, retrying in {:?}...", self.retry_delay);
-                        tokio::time::sleep(tokio::time::Duration::from(self.retry_delay)).await;
-                        None
-                    }
-                    _ => todo!(),
-                },
-            },
-            Err(e) => Some((usage, Err(e))),
+        match self.meta()?.tier {
+            GeminiTier::Free => self.generate_on_free(model, request),
+            GeminiTier::Paid => self.generate_on_paid(model, request),
         }
     }
 }
