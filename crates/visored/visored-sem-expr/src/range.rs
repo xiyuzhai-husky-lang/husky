@@ -283,10 +283,10 @@ impl<'db> VdSemExprRangeCalculator<'db> {
     fn calc_clause(&mut self, clause: VdSemClauseIdx) -> VdSemClauseTokenIdxRange {
         match self.clause_arena[clause] {
             VdSemClauseData::Let {
-                let_token_idx,
                 right_dollar_token_idx,
                 ..
-            } => LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
+            } => todo!(),
+            //  LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
             VdSemClauseData::Assume {
                 assume_token_idx,
                 right_dollar_token_idx,

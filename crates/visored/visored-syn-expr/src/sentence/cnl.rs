@@ -1,5 +1,7 @@
 use latex_ast::ast::math::LxMathAstIdxRange;
 
+use crate::clause::{VdSynClauseData, VdSynClauseEntry};
+
 use super::*;
 
 impl<'db> VdSynExprBuilder<'db> {
@@ -87,7 +89,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         math_asts,
                         right_delimiter_token_idx,
                     } => {
-                        if i < tokens.len() - 2 {
+                        if i != tokens.len() - 2 {
                             todo!()
                         }
                         let formula = (
@@ -95,12 +97,39 @@ impl<'db> VdSynExprBuilder<'db> {
                             math_asts,
                         )
                             .to_vd_syn(self, vibe);
-                        return VdSynSentenceEntry::Cnl {
-                            tokens,
-                            data: VdSynSentenceData::Let {
+                        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
+                            tokens: tokens[..(tokens.len() - 1)].to_vec(),
+                            data: VdSynClauseData::Let {
                                 left_math_delimiter_token_idx: left_delimiter_token_idx,
                                 formula,
                                 right_math_delimiter_token_idx: right_delimiter_token_idx,
+                            },
+                        });
+                        let end = match tokens.last().unwrap().data {
+                            CnlTokenData::Word(lx_rose_token_idx, base_coword) => todo!(),
+                            CnlTokenData::Math {
+                                left_delimiter_token_idx,
+                                math_asts,
+                                right_delimiter_token_idx,
+                            } => todo!(),
+                            CnlTokenData::Punctuation(
+                                lx_rose_token_idx,
+                                lx_rose_punctuation,
+                                cnl_punctuation,
+                            ) => match cnl_punctuation {
+                                CnlPunctuation::Comma => todo!(),
+                                CnlPunctuation::Period => {
+                                    VdSynSentenceEnd::Period(lx_rose_token_idx)
+                                }
+                                CnlPunctuation::Colon => todo!(),
+                                CnlPunctuation::Semicolon => todo!(),
+                            },
+                        };
+                        return VdSynSentenceEntry::Cnl {
+                            tokens,
+                            data: VdSynSentenceData::Clauses {
+                                clauses: VdSynClauseIdxRange::new_single(clause),
+                                end,
                             },
                         };
                     }
@@ -129,7 +158,10 @@ impl<'db> VdSynExprBuilder<'db> {
                 CnlTokenData::Punctuation(_, _, punctuation) => todo!(),
             }
         }
-        todo!()
+        VdSynSentenceEntry::Cnl {
+            tokens,
+            data: VdSynSentenceData::Pristine,
+        }
     }
 
     fn collect_cnl_tokens(

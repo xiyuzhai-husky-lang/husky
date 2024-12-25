@@ -16,6 +16,8 @@ use latex_ast::ast::{
     rose::{LxRoseAstData, LxRoseAstIdx},
 };
 use latex_token::idx::LxRoseTokenIdx;
+use once_place::OncePlace;
+use sentence::cnl::CnlToken;
 use std::iter::Peekable;
 use symbol::builder::VdSynSymbolBuilder;
 use vibe::VdSynExprVibe;
@@ -23,7 +25,6 @@ use vibe::VdSynExprVibe;
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynClauseData {
     Let {
-        let_token_idx: LxRoseTokenIdx,
         left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_math_delimiter_token_idx: LxRoseTokenIdx,
@@ -48,12 +49,41 @@ pub enum VdSynClauseData {
     },
 }
 
-pub type VdSynClauseArena = Arena<VdSynClauseData>;
-pub type VdSynClauseArenaRef<'a> = ArenaRef<'a, VdSynClauseData>;
-pub type VdSynClauseIdx = ArenaIdx<VdSynClauseData>;
-pub type VdSynClauseIdxRange = ArenaIdxRange<VdSynClauseData>;
-pub type VdSynClauseMap<T> = ArenaMap<VdSynClauseData, T>;
-pub type VdSynClauseOrderedMap<T> = ArenaOrderedMap<VdSynClauseData, T>;
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdSynClauseEntry {
+    Cnl {
+        tokens: Vec<CnlToken>,
+        data: VdSynClauseData,
+    },
+    Unl {
+        tokens: (),
+        data: OncePlace<VdSynClauseData>,
+    },
+}
+
+pub type VdSynClauseArena = Arena<VdSynClauseEntry>;
+pub type VdSynClauseArenaRef<'a> = ArenaRef<'a, VdSynClauseEntry>;
+pub type VdSynClauseIdx = ArenaIdx<VdSynClauseEntry>;
+pub type VdSynClauseIdxRange = ArenaIdxRange<VdSynClauseEntry>;
+pub type VdSynClauseMap<T> = ArenaMap<VdSynClauseEntry, T>;
+pub type VdSynClauseOrderedMap<T> = ArenaOrderedMap<VdSynClauseEntry, T>;
+
+impl VdSynClauseEntry {
+    pub fn data(&self) -> &VdSynClauseData {
+        match self {
+            VdSynClauseEntry::Cnl { data, .. } => data,
+            VdSynClauseEntry::Unl { data, .. } => data,
+        }
+    }
+
+    #[track_caller]
+    pub fn cnl_tokens(&self) -> &[CnlToken] {
+        match self {
+            VdSynClauseEntry::Cnl { tokens, .. } => tokens,
+            VdSynClauseEntry::Unl { .. } => unreachable!(),
+        }
+    }
+}
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_clause(
@@ -79,7 +109,6 @@ impl<'db> VdSynExprBuilder<'db> {
                         )
                             .to_vd_syn(self, vibe);
                         VdSynClauseData::Let {
-                            let_token_idx: token_idx,
                             left_math_delimiter_token_idx: left_delimiter_token_idx,
                             formula,
                             right_math_delimiter_token_idx: right_delimiter_token_idx,
@@ -186,7 +215,7 @@ impl<'db> VdSynExprBuilder<'db> {
 
 impl<'db> VdSynSymbolBuilder<'db> {
     pub(crate) fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
-        match self.clause_arena()[clause] {
+        match *self.clause_arena()[clause].data() {
             VdSynClauseData::Let { formula, .. } => {
                 let resolution = self.infer_let_clause_resolution(clause, formula);
                 self.build_symbols_in_let_resolution(clause, resolution)

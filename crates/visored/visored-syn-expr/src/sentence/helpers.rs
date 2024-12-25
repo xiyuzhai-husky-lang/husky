@@ -11,13 +11,7 @@ impl VdSynSentenceData {
                 .into_iter()
                 .map(VdSynSentenceChild::Clause)
                 .collect(),
-            VdSynSentenceData::Have => todo!(),
-            VdSynSentenceData::Show => todo!(),
-            VdSynSentenceData::Let {
-                left_math_delimiter_token_idx,
-                formula,
-                right_math_delimiter_token_idx,
-            } => todo!(),
+            VdSynSentenceData::Pristine => todo!(),
         }
     }
 }

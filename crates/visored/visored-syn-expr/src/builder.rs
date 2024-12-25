@@ -2,7 +2,7 @@ mod debug;
 
 use crate::{
     block::VdSynBlockMap,
-    clause::{r#let::VdSynLetClauseResolution, VdSynClauseMap},
+    clause::{r#let::VdSynLetClauseResolution, VdSynClauseEntry, VdSynClauseMap},
     division::VdSynDivisionMap,
     entity_tree::VdSynExprEntityTreeNode,
     sentence::VdSynSentenceEntry,
@@ -167,11 +167,11 @@ impl<'db> VdSynExprBuilder<'db> {
         self.phrase_arena.alloc_batch(data)
     }
 
-    pub(crate) fn alloc_clause(&mut self, data: VdSynClauseData) -> VdSynClauseIdx {
-        self.clause_arena.alloc_one(data)
+    pub(crate) fn alloc_clause(&mut self, entry: VdSynClauseEntry) -> VdSynClauseIdx {
+        self.clause_arena.alloc_one(entry)
     }
 
-    pub(crate) fn alloc_clauses(&mut self, data: Vec<VdSynClauseData>) -> VdSynClauseIdxRange {
+    pub(crate) fn alloc_clauses(&mut self, data: Vec<VdSynClauseEntry>) -> VdSynClauseIdxRange {
         self.clause_arena.alloc_batch(data)
     }
 

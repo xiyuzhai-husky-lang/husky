@@ -157,7 +157,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(clause_range);
         let source = &self.input[offset_range];
-        let value = match self.clause_arena[clause] {
+        let value = match *self.clause_arena[clause].data() {
             VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
             VdSynClauseData::Have { .. } => format!("{:?} clause.have", source),
@@ -165,7 +165,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         };
         DisplayTree::new(
             value,
-            self.render_clause_children(self.clause_arena[clause].children()),
+            self.render_clause_children(self.clause_arena[clause].data().children()),
         )
     }
 
@@ -188,13 +188,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             VdSynSentenceData::Clauses { clauses, end } => {
                 format!("{:?} sentence.clauses", source)
             }
-            VdSynSentenceData::Have => todo!(),
-            VdSynSentenceData::Show => todo!(),
-            VdSynSentenceData::Let {
-                left_math_delimiter_token_idx,
-                formula,
-                right_math_delimiter_token_idx,
-            } => todo!(),
+            VdSynSentenceData::Pristine => todo!(),
         };
         DisplayTree::new(
             value,
