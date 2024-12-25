@@ -70,18 +70,61 @@ where
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         path: PathBuf,
     ) -> DiskCacheResult<Self> {
+        fn setup_lock_file(path: &Path) -> DiskCacheResult<()> {
+            use lazy_static::lazy_static;
+            use std::sync::Mutex;
+
+            lazy_static! {
+                static ref CLEANUP_HANDLER: Mutex<CleanupHandler> =
+                    Mutex::new(CleanupHandler::new());
+            }
+
+            struct CleanupHandler {
+                paths: Vec<PathBuf>,
+            }
+
+            impl CleanupHandler {
+                fn new() -> Self {
+                    if let Err(e) = ctrlc::set_handler(move || {
+                        for path in &CLEANUP_HANDLER.lock().unwrap().paths {
+                            let _ = fs::remove_file(lock_file_path(path));
+                        }
+                        std::process::exit(0);
+                    }) {
+                        eprintln!("Warning: Failed to set Ctrl+C handler: {}", e);
+                    }
+
+                    Self { paths: Vec::new() }
+                }
+
+                fn register(&mut self, path: PathBuf) {
+                    self.paths.push(path);
+                }
+            }
+
+            // check lock file does not exist
+            if lock_file_path(path).exists() {
+                return Err(DiskCacheError::CacheFileLockedByAnotherProcess);
+            }
+
+            let mut cleanup_handler = CLEANUP_HANDLER.lock().unwrap();
+
+            // create lock file
+            fs::File::create(lock_file_path(path))
+                .map_err(|e| DiskCacheError::Io(path.to_path_buf(), e))?;
+
+            // Register this lock file with the cleanup handler
+            cleanup_handler.register(path.to_path_buf());
+
+            Ok(())
+        }
+
         // Create directory if it doesn't exist
         if let Some(parent) = path.parent() {
             fs::create_dir_all(parent).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
         }
 
-        // check lock file does not exist
-        if lock_file_path(&path).exists() {
-            return Err(DiskCacheError::CacheFileLockedByAnotherProcess);
-        }
-
-        // create lock file
-        fs::File::create(lock_file_path(&path)).map_err(|e| DiskCacheError::Io(path.clone(), e))?;
+        setup_lock_file(&path)?;
 
         // Try to load existing cache
         let entries: Vec<LlmCacheEntry<Seed, Request, Response>> = if path.exists() {
