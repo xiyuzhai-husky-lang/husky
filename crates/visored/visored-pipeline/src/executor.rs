@@ -179,7 +179,11 @@ fn extract_proof(s: &str) -> String {
     let start = s.find(PROOF_BEGIN).unwrap();
     let end = s.find(PROOF_END).unwrap();
     let content = &s[start + PROOF_BEGIN.len()..end];
-    content.trim().to_string()
+    content
+        .trim()
+        .replace("$$", "$")
+        .replace("\\[", "$")
+        .replace("\\]", "$")
 }
 
 #[test]
