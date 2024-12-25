@@ -13,7 +13,9 @@ keywords.workspace = true
 
 [dependencies]
 chrono = { workspace = true, features = ["serde"] }
+ctrlc.workspace = true
 dashmap.workspace = true
+lazy_static.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true

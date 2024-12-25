@@ -108,6 +108,7 @@ crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
 crypto-common = "0.1.6"
 csv = "1"
+ctrlc = "3.4.5"
 dashmap = "6.0.1"
 dirs = "5.0.1"
 ecolor = { git = "https://github.com/xiyuzhai-husky-lang/egui.git", features = [

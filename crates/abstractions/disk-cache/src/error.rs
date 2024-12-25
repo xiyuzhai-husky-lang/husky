@@ -6,6 +6,8 @@ pub enum DiskCacheError {
     Io(PathBuf, io::Error),
     #[error("cache file is locked by another process")]
     CacheFileLockedByAnotherProcess,
+    #[error("signal handler error: {0}")]
+    SignalHandler(String),
 }
 
 pub type DiskCacheResult<T> = Result<T, DiskCacheError>;
