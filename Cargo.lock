@@ -13180,6 +13180,7 @@ dependencies = [
  "husky-print-utils",
  "lazy_static 1.5.0",
  "thiserror",
+ "tokio",
 ]
 
 [[package]]

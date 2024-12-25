@@ -27,6 +27,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     })?;
 
     let model = GeminiModel::Gemini1_5Flash;
+
+    let start_time = std::time::Instant::now();
+    run(client, model);
+    let duration = start_time.elapsed();
+    info!("Total execution time: {:?}", duration);
+
+    Ok(())
+}
+
+fn run(client: GeminiClient<'_>, model: GeminiModel) {
     (0..100).into_par_iter().for_each(|i| {
         AlienSeed::new(0).with(|| {
             info!("Generating response for i={}", i);
@@ -50,6 +60,4 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         });
     });
-
-    Ok(())
 }

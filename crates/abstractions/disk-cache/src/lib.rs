@@ -117,24 +117,7 @@ where
     Request: IsDiskCacheRequest,
     Response: IsDiskCacheResponse,
 {
-    /// locking is handled here
     pub fn get_or_call<E>(
-        &self,
-        seed: Seed,
-        request: Request,
-        f: impl FnOnce(&Request) -> Result<Response, E>,
-    ) -> Result<Response, E>
-    where
-        E: From<DiskCacheError>,
-    {
-        if let Some(index) = self.indices.get(&(seed, request.clone())) {
-            return Ok(self.entries.read().unwrap()[*index].response.clone());
-        }
-        let response = self.get_or_call_aux(seed, request, f)?;
-        Ok(response)
-    }
-
-    pub fn get_or_call_async<E>(
         &self,
         seed: Seed,
         request: Request,
@@ -146,34 +129,11 @@ where
         if let Some(index) = self.indices.get(&(seed, request.clone())) {
             return Ok(self.entries.read().unwrap()[*index].response.clone());
         }
-        let response = self.get_or_call_async_aux(seed, request, f)?;
+        let response = self.get_or_call_aux(seed, request, f)?;
         Ok(response)
     }
 
     fn get_or_call_aux<E>(
-        &self,
-        seed: Seed,
-        request: Request,
-        f: impl FnOnce(&Request) -> Result<Response, E>,
-    ) -> Result<Response, E>
-    where
-        E: From<DiskCacheError>,
-    {
-        let response = f(&request)?;
-        let mut entries = self.entries.write().unwrap();
-        // check again in case another thread has added the entry
-        if let Some(index) = self.indices.get(&(seed, request.clone())) {
-            return Ok(entries[*index].response.clone());
-        }
-        let new_entry = LlmCacheEntry::new(seed, request.clone(), response.clone());
-        entries.push(new_entry);
-        self.save_thread.save(&entries)?;
-        self.indices
-            .insert((seed, request.clone()), entries.len() - 1);
-        Ok(response)
-    }
-
-    fn get_or_call_async_aux<E>(
         &self,
         seed: Seed,
         request: Request,

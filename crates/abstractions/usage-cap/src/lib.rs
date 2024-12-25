@@ -1,3 +1,4 @@
+#![feature(async_closure)]
 mod count_down;
 pub mod error;
 
@@ -7,7 +8,7 @@ use lazy_static::lazy_static;
 use std::sync::Mutex;
 
 pub struct UsageCap {
-    count_down: std::sync::Mutex<UsageCountDown>,
+    count_down: tokio::sync::Mutex<UsageCountDown>,
     post_call_usage_multiplier: usize,
 }
 
@@ -18,24 +19,41 @@ impl UsageCap {
         post_call_usage_multiplier: usize,
     ) -> Self {
         Self {
-            count_down: std::sync::Mutex::new(UsageCountDown::new(entity_name, var_name)),
+            count_down: tokio::sync::Mutex::new(UsageCountDown::new(entity_name, var_name)),
             post_call_usage_multiplier,
         }
     }
 
-    fn remaining_count(&self) -> Option<usize> {
-        self.count_down.lock().unwrap().remaining_count()
+    async fn remaining_count(&self) -> Option<usize> {
+        self.count_down.lock().await.remaining_count()
     }
 }
 
 impl UsageCap {
-    pub fn try_use<R>(
+    pub async fn try_use<R>(
+        &self,
+        min_usage: usize,
+        f: impl async FnOnce() -> (usize, R),
+    ) -> LlmCapResult<Result<R, (R, UsageCapError)>> {
+        use husky_print_utils::p;
+        let mut count_down = self.count_down.lock().await;
+        count_down.try_count_down(min_usage)?;
+        let (additional_usage, r) = f().await;
+        let post_call =
+            count_down.try_count_down(additional_usage * self.post_call_usage_multiplier);
+        Ok(match post_call {
+            Ok(_) => Ok(r),
+            Err(e) => Err((r, e)),
+        })
+    }
+
+    pub async fn try_use_sync<R>(
         &self,
         min_usage: usize,
         f: impl FnOnce() -> (usize, R),
     ) -> LlmCapResult<Result<R, (R, UsageCapError)>> {
         use husky_print_utils::p;
-        let mut count_down = self.count_down.lock().unwrap();
+        let mut count_down = self.count_down.lock().await;
         count_down.try_count_down(min_usage)?;
         let (additional_usage, r) = f();
         let post_call =
@@ -47,8 +65,8 @@ impl UsageCap {
     }
 }
 
-#[test]
-fn llm_cap_works() {
+#[tokio::test]
+async fn llm_cap_works() {
     let _lock = ENV_TEST_MUTEX.lock().unwrap();
 
     use std::sync::atomic::{AtomicUsize, Ordering};
@@ -75,11 +93,11 @@ fn llm_cap_works() {
 
     let expected_remaining_count = vec![Some(2), Some(1), Some(0), Some(0), Some(0)];
 
-    assert_eq!(cap.remaining_count(), Some(3));
+    assert_eq!(cap.remaining_count().await, Some(3));
 
     // Try calling the function 5 times (should only work 3 times)
     for i in 0..5 {
-        let result = cap.try_use(1, &test_fn);
+        let result = cap.try_use_sync(1, &test_fn).await;
         match result {
             Ok(_) => (),
             Err(e) => {
@@ -88,7 +106,7 @@ fn llm_cap_works() {
                 }
             }
         }
-        assert_eq!(cap.remaining_count(), expected_remaining_count[i]);
+        assert_eq!(cap.remaining_count().await, expected_remaining_count[i]);
     }
 
     // Verify that the function was only called 3 times

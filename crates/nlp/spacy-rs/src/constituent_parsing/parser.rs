@@ -37,7 +37,7 @@ impl<'db> SpacyConstituentParser<'db> {
         sentence: String,
     ) -> SpacyConstituentParsingResult<ConstituentParsingOutput> {
         self.cache
-            .get_or_call(attached_seed(), sentence, |sentence| {
+            .get_or_call(attached_seed(), sentence, async |sentence| {
                 Python::with_gil(|py| {
                     let py_module: &Bound<PyModule> = get_constituent_parsing_module(py);
                     let output = py_module.call_method1("parse", (sentence,))?;
