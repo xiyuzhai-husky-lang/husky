@@ -35,19 +35,18 @@ Prove that for all real numbers $a$ and $b$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $a$ and $b$ are real numbers, $a+b$ is a real number.  The square of any real number is non-negative, so $(a+b)^2 \ge 0$.
+Since the square of any real number is non-negative, we have $(a+b)^2 \ge 0$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Since $a$ and $b$ are real numbers, $a+b$ is a real number.  The square of any real number is non-negative, so $(a+b)^2 \ge 0$.
+Since the square of any real number is non-negative, we have $(a+b)^2 \ge 0$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-We have $a+b$ is a real number by assumption.
-We have $(a+b)^2 \ge 0$ because the square of any real number is non-negative.
+We have $(a+b)^2 \ge 0$ by the fact that the square of any real number is non-negative.
 \end{tcolorbox}
 
 
@@ -61,23 +60,21 @@ Prove that for any positive real numbers $x$ and $y$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $x$ and $y$ are positive, $(\sqrt x - \sqrt y)^2 \ge 0$. Thus $x - 2\sqrt{xy} + y \ge 0$, so $\frac{x+y}{2} \ge \sqrt{xy}$.
+Since $x$ and $y$ are positive, $(\sqrt{x} - \sqrt{y})^2 \ge 0$. Thus $x - 2\sqrt{xy} + y \ge 0$, so $x+y \ge 2\sqrt{xy}$, which implies $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Since $x$ and $y$ are positive, $(\sqrt x - \sqrt y)^2 \ge 0$. Thus $x - 2\sqrt{xy} + y = (\sqrt{x})^2 - 2\sqrt{x}\sqrt{y} + (\sqrt{y})^2 = (\sqrt x - \sqrt y)^2 \ge 0$, so $x+y \ge 2\sqrt{xy}$ and $\frac{x+y}{2} \ge \sqrt{xy}$.
+Since $x$ and $y$ are positive, $(\sqrt{x} - \sqrt{y})^2 \ge 0$. Thus $x - 2\sqrt{xy} + y = (\sqrt{x} - \sqrt{y})^2 \ge 0$, so $x+y \ge 2\sqrt{xy}$, which implies $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-It's enough to show that $\frac{x+y}{2} \geq \sqrt{xy}$.
-We have $(\sqrt{x} - \sqrt{y})^2 \geq 0$ by the properties of real numbers.
-We have $x - 2\sqrt{xy} + y = (\sqrt{x})^2 - 2\sqrt{x}\sqrt{y} + (\sqrt{y})^2 = (\sqrt{x} - \sqrt{y})^2$ by the properties of real numbers.
-We have $x - 2\sqrt{xy} + y \geq 0$ by the properties of inequalities.
-We have $x + y \geq 2\sqrt{xy}$ by the properties of inequalities.
-We have $\frac{x+y}{2} \geq \sqrt{xy}$ by the properties of inequalities.
+We have $(\sqrt{x} - \sqrt{y})^2 \ge 0$ where $x$ and $y$ are positive.
+We have $x - 2\sqrt{xy} + y = (\sqrt{x} - \sqrt{y})^2 \ge 0$.
+We have $x+y \ge 2\sqrt{xy}$.
+We have $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 
 
@@ -91,29 +88,18 @@ Show that for all real numbers $a$, $b$, and $c$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-We have
-$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \ge 0. $
-Thus, $a^2 + b^2 + c^2 \ge ab + bc + ca$.
+We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \geq 0$, which simplifies to $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. Dividing by 2 gives $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-We have
-$ 2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \ge 0. $
-Thus, $2(a^2 + b^2 + c^2 - ab - bc - ca) \ge 0$, so $a^2 + b^2 + c^2 - ab - bc - ca \ge 0$, hence $a^2 + b^2 + c^2 \ge ab + bc + ca$.
+We have $(a-b)^2 + (b-c)^2 + (c-a)^2 = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. Dividing by 2 gives $a^2 + b^2 + c^2 - ab - bc - ca \geq 0$, which implies $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-It's enough to show that $a^2 + b^2 + c^2 \ge ab + bc + ca$.
-It's enough to show that $a^2 + b^2 + c^2 - ab - bc - ca \ge 0$.
-It's enough to show that $2(a^2 + b^2 + c^2 - ab - bc - ca) \ge 0$.
-We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca$ by algebra.
-We have $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2)$ by algebra.
-We have $(a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2$ by algebra.
-We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \ge 0$ by the fact that squares are nonnegative.
-We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \ge 0$ by the previous steps.
+We have $(a-b)^2 + (b-c)^2 + (c-a)^2 = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. We have $a^2 + b^2 + c^2 - ab - bc - ca \geq 0$ by dividing by $2$.  It's enough to show that $a^2 + b^2 + c^2 \geq ab + bc + ca$. We have $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 
 
@@ -127,23 +113,18 @@ Prove that for any positive real number $x$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $x>0$, $(x-1)^2 \ge 0$ implies $x^2 - 2x + 1 \ge 0$. Dividing by $x$ gives $x - 2 + \frac{1}{x} \ge 0$, so $x + \frac{1}{x} \ge 2$.
+Since $x>0$, $(x-1)^2 \ge 0$, so $x^2 - 2x + 1 \ge 0$. Dividing by $x$ gives $x - 2 + \frac{1}{x} \ge 0$, thus $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Since $x>0$, $(x-1)^2 \ge 0$ implies $x^2 - 2x + 1 \ge 0$. Dividing by $x$ gives $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x}= x - 2 + \frac{1}{x} \ge 0$, so $x + \frac{1}{x} \ge 2$.
+Since $x>0$, $(x-1)^2 \ge 0$, so $x^2 - 2x + 1 \ge 0$. Dividing by $x$ gives $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x} = x - 2 + \frac{1}{x} \ge 0$, thus $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-We have $x > 0$ by assumption.
-We have $(x-1)^2 \ge 0$ by the fact that the square of any real number is non-negative.
-We have $x^2 - 2x + 1 \ge 0$ by expanding the square.
-We have $\frac{x^2 - 2x + 1}{x} \ge 0$ by dividing the inequality by $x > 0$.
-We have $x - 2 + \frac{1}{x} \ge 0$ by simplifying the expression.
-We have $x + \frac{1}{x} \ge 2$ by rearranging the terms.
+We have $x > 0$. We have $(x-1)^2 \ge 0$. We have $x^2 - 2x + 1 \ge 0$. We have $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x} = x - 2 + \frac{1}{x} \ge 0$ by dividing by $x$. We have $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 
 
@@ -158,27 +139,22 @@ For positive real numbers $a$ and $b$, prove:
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
 We have
-$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{a^2-2ab+b^2}{4} = \frac{(a-b)^2}{4} \ge 0. $
-Thus, the inequality holds.
+$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{(a-b)^2}{4} \ge 0. $
+Thus, $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
 We have
-$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2}{4} - \frac{(a+b)^2}{4} = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{2a^2+2b^2-a^2-2ab-b^2}{4} = \frac{a^2-2ab+b^2}{4} = \frac{(a-b)^2}{4} \ge 0. $
-Thus, the inequality holds.
+$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2}{4} - \frac{a^2+2ab+b^2}{4} = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{a^2-2ab+b^2}{4} = \frac{(a-b)^2}{4} \ge 0. $
+Thus, $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-It's enough to show that $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
-It's enough to show that $4\left(\frac{a+b}{2}\right)^2 \leq 2(a^2+b^2)$.
-It's enough to show that $(a+b)^2 \leq 2(a^2+b^2)$.
-It's enough to show that $a^2+2ab+b^2 \leq 2a^2+2b^2$.
-It's enough to show that $0 \leq a^2-2ab+b^2$.
-It's enough to show that $0 \leq (a-b)^2$.
-We have $0 \leq (a-b)^2$ by the fact that the square of any real number is non-negative.
+We have $\frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2}{4} - \frac{a^2+2ab+b^2}{4} = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{a^2-2ab+b^2}{4} = \frac{(a-b)^2}{4} \ge 0$.
+We have $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
 \end{tcolorbox}
 
 \end{document}
