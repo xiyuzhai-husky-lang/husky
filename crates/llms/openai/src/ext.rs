@@ -6,16 +6,17 @@ use crate::*;
 use tokio::runtime::Runtime;
 
 impl<'db> OpenaiClient<'db> {
-    pub(crate) fn complete_chat_ext(&self, request: ChatCompletionRequest) -> OpenaiResult<String> {
-        // Create a new tokio runtime
-        let rt = Runtime::new().map_err(|_| OpenaiError::ExtChatCompletion)?;
-
+    pub(crate) async fn complete_chat_ext(
+        &self,
+        request: ChatCompletionRequest,
+    ) -> OpenaiResult<String> {
         // Block on the async chat completion request using tokio
         let Some(ref client_ext) = self.client_ext else {
             return Err(OpenaiError::EnvApiKeyNotSet);
         };
-        let response = rt
-            .block_on(client_ext.chat_completion(request))
+        let response = client_ext
+            .chat_completion(request)
+            .await
             .map_err(|_| OpenaiError::ExtChatCompletion)?;
 
         // Extract the message content from the first choice

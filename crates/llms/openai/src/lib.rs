@@ -1,3 +1,4 @@
+#![feature(async_closure)]
 pub mod cap;
 pub mod error;
 mod ext;
@@ -62,10 +63,12 @@ impl<'db> OpenaiClient<'db> {
         let OpenaiResponse::TextGeneration(response) = self.caches[model].get_or_call(
             attached_seed(),
             request,
-            |request| -> OpenaiResult<OpenaiResponse> {
-                match try_call_openai::<OpenaiResult<String>>(min_usage, || {
-                    self.complete_chat_aux(model, request)
-                })? {
+            async |request| -> OpenaiResult<OpenaiResponse> {
+                match try_call_openai::<OpenaiResult<String>>(min_usage, async || {
+                    self.complete_chat_aux(model, request).await
+                })
+                .await?
+                {
                     Ok(result) => match result {
                         Ok(s) => Ok(OpenaiResponse::TextGeneration(s)),
                         Err(e) => Err(todo!()),
@@ -77,7 +80,7 @@ impl<'db> OpenaiClient<'db> {
         Ok(response)
     }
 
-    fn complete_chat_aux(
+    async fn complete_chat_aux(
         &self,
         model: OpenaiModel,
         request: &OpenaiRequest,
@@ -85,7 +88,7 @@ impl<'db> OpenaiClient<'db> {
         let OaiRequestExt::ChatCompletion(request_ext) = request.ext(model) else {
             unreachable!()
         };
-        match self.complete_chat_ext(request_ext) {
+        match self.complete_chat_ext(request_ext).await {
             Ok(content) => (content.len(), Ok(content)),
             Err(e) => (0, Err(e)), // ad hoc
         }
