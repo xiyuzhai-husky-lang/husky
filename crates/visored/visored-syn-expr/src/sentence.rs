@@ -1,4 +1,4 @@
-mod cnl;
+pub mod cnl;
 pub mod helpers;
 mod unl;
 
@@ -23,17 +23,11 @@ use std::iter::Peekable;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSentenceData {
-    Have,
-    Show,
     Clauses {
         clauses: VdSynClauseIdxRange,
         end: VdSynSentenceEnd,
     },
-    Let {
-        left_math_delimiter_token_idx: LxRoseTokenIdx,
-        formula: VdSynExprIdx,
-        right_math_delimiter_token_idx: LxRoseTokenIdx,
-    },
+    Pristine,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -59,6 +53,7 @@ impl std::ops::Deref for VdSynSentenceEntry {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynSentenceEnd {
     Period(LxRoseTokenIdx),
+    #[deprecated]
     Void,
 }
 
@@ -103,11 +98,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
     pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
         match *self.sentence_arena()[sentence].data() {
             VdSynSentenceData::Clauses { clauses, .. } => self.build_clauses(clauses),
-            VdSynSentenceData::Have => todo!(),
-            VdSynSentenceData::Show => todo!(),
-            VdSynSentenceData::Let { formula, .. } => {
-                todo!()
-            }
+            VdSynSentenceData::Pristine => todo!(),
         }
     }
 }

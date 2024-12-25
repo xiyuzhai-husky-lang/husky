@@ -174,7 +174,6 @@ impl<'db> VdMirExprBuilder<'db> {
         match self.sem_clause_arena()[clause] {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
-                let_token_idx,
                 left_dollar_token_idx,
                 formula,
                 right_dollar_token_idx,

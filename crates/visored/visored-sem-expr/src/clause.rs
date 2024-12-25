@@ -12,7 +12,6 @@ use visored_syn_expr::clause::{VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRa
 pub enum VdSemClauseData {
     Verb,
     Let {
-        let_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
@@ -51,16 +50,14 @@ impl ToVdSem<VdSemClauseIdxRange> for VdSynClauseIdxRange {
 
 impl<'a> VdSemExprBuilder<'a> {
     fn build_clause(&mut self, clause: VdSynClauseIdx) -> VdSemClauseData {
-        match self.syn_clause_arena()[clause] {
+        match *self.syn_clause_arena()[clause].data() {
             VdSynClauseData::Let {
-                let_token_idx,
                 left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => {
                 let resolution = &self.syn_let_clause_resolutions()[clause];
                 self.build_let_clause(
-                    let_token_idx,
                     left_dollar_token_idx,
                     formula,
                     right_dollar_token_idx,
@@ -108,7 +105,6 @@ impl VdSemClauseData {
         match *self {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
-                let_token_idx,
                 left_dollar_token_idx,
                 right_dollar_token_idx,
                 formula,
