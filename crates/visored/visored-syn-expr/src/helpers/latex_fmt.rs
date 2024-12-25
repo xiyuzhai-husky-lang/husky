@@ -65,6 +65,13 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                     VdSynSentenceEnd::Void => (),
                 }
             }
+            VdSynSentenceData::Have => todo!(),
+            VdSynSentenceData::Show => todo!(),
+            VdSynSentenceData::Let {
+                left_math_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx,
+            } => todo!(),
         }
     }
 

@@ -76,7 +76,7 @@ pub(super) fn regularization_transformations() -> Vec<AllLlmsStringTransformatio
         instruction: LlmStringTransformationInstruction::MainInputSide {
             main: "Regularize the proof by using only the following sentences:
 - We have <proposition> by <reason>. This is for stating a proposition derived from existing propositions in forward reasoning.
-- It's enough to prove that <proposition>. This is for changing the goal of the proof in backward reasoning.
+- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.
             "
                 .to_string(),
             side: Some(

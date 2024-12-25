@@ -326,6 +326,8 @@ impl<'db> VdSemExprRangeCalculator<'db> {
                     VdSemSentenceEnd::Void => clauses_range,
                 }
             }
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 
