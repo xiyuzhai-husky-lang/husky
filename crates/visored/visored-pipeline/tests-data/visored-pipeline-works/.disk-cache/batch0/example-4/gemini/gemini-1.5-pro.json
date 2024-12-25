@@ -54,5 +54,75 @@
       }
     },
     "time": "2024-12-25T12:32:12.649124482Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nIn the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$. Let $b\\in\\mathbb{R}$. We have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$. Thus, $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-25T22:06:56.854278455Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nIn the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$. Let $b\\in\\mathbb{R}$.\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nThus, $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-25T22:08:26.564438682Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-25T22:10:09.781769644Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-25T22:22:32.740190857Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're modifying only the chain of equalities or inequalities in the original proof.\n\n            Usually chains of equalities or inequalities are good in the sense that each joining equality or inequality is quite obviously true. However, sometimes one writes the chain in a weird order. For example, consider $A = B = C > 0$. The usual case is that $A=B$, $B=C$, $C>0$ should be obvious to see and the main conclusion is that $A>0$. However, sometimes it could instead be that $A=B,B=C,A>0$ are obvious to see and the main point is $C>0$. For every occurrence of this pattern, you should reorder the chain of equalities or inequalities to make it more obvious. Just make these kind of modifications and don't do anything else.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\left(\\frac{a+b}{2}\\right)^2 \\leq \\frac{a^2+b^2}{2}$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n            ```latex\n            Problem: prove that $x^2+2x+1\\ge 0$.\n\n            \\begin{proof}\n            Let $x\\in\\\\mathbb{R}$. We have $(x+1)^2 = x^2 + 2x + 1 \\ge 0$ because these are real numbers.\n            \\end{proof}\n            ```\n\n            ---- EXAMPLE OUTPUT ----\n            ```latex\n            \\begin{proof}\n            Let $x\\in\\\\mathbb{R}$. We have $x^2 + 2x + 1 = (x+1)^2 \\ge 0$ because these are real numbers.\n            \\end{proof}\n            ```\n            \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $\\frac{a^2+b^2}{2} - \\left(\\frac{a+b}{2}\\right)^2 = \\frac{2a^2+2b^2}{4} - \\frac{a^2+2ab+b^2}{4} = \\frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \\frac{a^2-2ab+b^2}{4} = \\frac{(a-b)^2}{4} \\ge 0$.\nWe have $\\frac{a^2+b^2}{2} \\ge \\frac{2a^2+2b^2}{4} - \\frac{(a-b)^2}{4} = \\frac{2a^2+2b^2}{4} - (\\frac{a^2-2ab+b^2}{4}) = \\frac{a^2+2ab+b^2}{4} = \\left(\\frac{a+b}{2}\\right)^2$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-25T22:22:38.553757834Z"
   }
 ]
