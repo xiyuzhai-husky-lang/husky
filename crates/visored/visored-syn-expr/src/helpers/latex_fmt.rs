@@ -84,8 +84,13 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 formula,
                 right_dollar_token_idx,
             } => todo!(),
-            VdSynClauseData::Then { formula, .. } => todo!(),
-            VdSynClauseData::Todo(..) => todo!(),
+            VdSynClauseData::Have { formula, .. } => todo!(),
+            VdSynClauseData::Show {
+                show_token_idx,
+                left_dollar_token_idx,
+                formula,
+                right_dollar_token_idx,
+            } => todo!(),
         }
     }
 
