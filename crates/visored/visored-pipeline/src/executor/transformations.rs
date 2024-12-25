@@ -171,10 +171,27 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
         antiexamples: vec![],
     },
         AllLlmsStringTransformation {
+        model: self.routing_resolved.solver.mathematical_understanding.model,
+        instruction: LlmStringTransformationInstruction::MainInputSide {
+            main: "You're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:
+- Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.
+- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.
+            "
+                .to_string(),
+            side: Some(
+                r#"Sometimes you need to combine the two. For example, use `Let $x\\in\\mathbb{R}$. Assume $x\\ge 0$` to express `Let $x$ be a positive real number.`.
+                Wrap the proof in \begin{{proof}} and \end{{proof}}. "#
+                .to_string(),
+            ),
+        },
+        examples: vec![],
+        antiexamples: vec![],
+    },
+        AllLlmsStringTransformation {
             model: self.routing_resolved.solver.latex_rewriter.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {
                 main:
-                    "Please remove all labels in align environments from the following latex code:"
+                    "Please remove all labels and refs in math environments. Use `$...$` for all math expressions."
                         .to_string(),
                 side: None,
             },
