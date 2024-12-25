@@ -3,7 +3,7 @@ use crate::{
         VdSynBlockArenaRef, VdSynBlockChild, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange,
     },
     builder::VdSynExprBuilder,
-    clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
+    clause::{helpers::VdSynClauseChild, VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx},
     division::{
         VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionData, VdSynDivisionIdx,
         VdSynDivisionIdxRange,
