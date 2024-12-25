@@ -15,6 +15,8 @@ pub enum VdSemSentenceData {
         clauses: VdSemClauseIdxRange,
         end: VdSemSentenceEnd,
     },
+    Have,
+    Show,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -46,6 +48,13 @@ impl<'a> VdSemExprBuilder<'a> {
                 clauses: clauses.to_vd_sem(self),
                 end: end.to_vd_sem(self),
             },
+            VdSynSentenceData::Have => todo!(),
+            VdSynSentenceData::Show => todo!(),
+            VdSynSentenceData::Let {
+                left_math_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx,
+            } => todo!(),
         }
     }
 }
@@ -72,6 +81,8 @@ impl VdSemSentenceData {
                 .into_iter()
                 .map(|c| VdSemSentenceChild::Clause(c))
                 .collect(),
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 }

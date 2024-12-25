@@ -81,12 +81,10 @@ impl<'db> VdSynExprBuilder<'db> {
             return None;
         }
 
-        let ast_idx = asts.next()?;
+        let ast_idx = *asts.peek()?;
         Some(match self.ast_arena()[ast_idx] {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
-            LxRoseAstData::Word(token_idx, word) => {
-                self.build_paragraph(token_idx, word, asts, vibe)
-            }
+            LxRoseAstData::Word(_, _) => self.build_paragraph(asts, vibe),
             LxRoseAstData::Punctuation(token_idx, punctuation) => {
                 todo!("punctuation: {}", punctuation)
             }
@@ -109,47 +107,51 @@ impl<'db> VdSynExprBuilder<'db> {
                 begin_lcurl_token_idx,
                 begin_environment_name_token_idx,
                 begin_rcurl_token_idx,
-                asts,
+                asts: body,
                 end_command_token_idx,
                 end_lcurl_token_idx,
                 end_environment_name_token_idx,
                 end_rcurl_token_idx,
                 environment_signature,
-            } => self.build_environment(
-                begin_command_token_idx,
-                begin_lcurl_token_idx,
-                begin_environment_name_token_idx,
-                begin_rcurl_token_idx,
-                asts,
-                end_command_token_idx,
-                end_lcurl_token_idx,
-                end_environment_name_token_idx,
-                end_rcurl_token_idx,
-                environment_signature,
-                vibe,
-            ),
-            LxRoseAstData::NewParagraph(_) => self.build_stmt(asts, vibe)?,
+            } => {
+                asts.next();
+                self.build_environment(
+                    begin_command_token_idx,
+                    begin_lcurl_token_idx,
+                    begin_environment_name_token_idx,
+                    begin_rcurl_token_idx,
+                    body,
+                    end_command_token_idx,
+                    end_lcurl_token_idx,
+                    end_environment_name_token_idx,
+                    end_rcurl_token_idx,
+                    environment_signature,
+                    vibe,
+                )
+            }
+            LxRoseAstData::NewParagraph(_) => {
+                asts.next();
+                self.build_stmt(asts, vibe)?
+            }
         })
     }
 
     fn build_paragraph(
         &mut self,
-        token_idx: LxRoseTokenIdx,
-        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
         vibe: VdSynExprVibe,
     ) -> VdSynBlockData {
-        let mut sentences = vec![self.parse_sentence(token_idx, word, asts, vibe)];
+        let mut sentences = vec![self.parse_sentence(asts, vibe)];
         loop {
             // stop on new division
             if self.peek_new_division(asts).is_some() {
                 break;
             }
-            let Some(ast_idx) = asts.next() else { break };
+            let Some(&ast_idx) = asts.peek() else { break };
             match self.ast_arena()[ast_idx] {
                 LxRoseAstData::TextEdit { .. } => todo!(),
-                LxRoseAstData::Word(lx_rose_token_idx, coword) => {
-                    sentences.push(self.parse_sentence(lx_rose_token_idx, coword, asts, vibe));
+                LxRoseAstData::Word(_, _) => {
+                    sentences.push(self.parse_sentence(asts, vibe));
                 }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
                 LxRoseAstData::Math {

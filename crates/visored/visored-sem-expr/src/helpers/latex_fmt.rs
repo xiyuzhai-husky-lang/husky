@@ -64,6 +64,8 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                     }
                 }
             }
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 
