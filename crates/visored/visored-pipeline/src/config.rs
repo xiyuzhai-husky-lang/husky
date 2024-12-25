@@ -91,7 +91,7 @@ fn vd_pipeline_config_from_yaml_file_works() {
                         solver: VdPipelineModelSolverRouting {
                             mathematical_reasoning: "gpt-4o".to_string(),
                             mathematical_understanding: "gpt-4o".to_string(),
-                            latex_cleaner: "gpt-4o".to_string(),
+                            latex_rewriter: "gpt-4o".to_string(),
                         },
                         verifier: VdPipelineModelVerifierRouting {
                             snl_dispatcher: "gpt-4o".to_string(),
@@ -119,7 +119,7 @@ fn vd_pipeline_config_from_yaml_file_works() {
                         solver: VdPipelineModelSolverRouting {
                             mathematical_reasoning: "gemini-1.5-pro".to_string(),
                             mathematical_understanding: "gemini-1.5-pro".to_string(),
-                            latex_cleaner: "gemini-1.5-flash".to_string(),
+                            latex_rewriter: "gemini-1.5-flash".to_string(),
                         },
                         verifier: VdPipelineModelVerifierRouting {
                             snl_dispatcher: "gemini-1.5-flash".to_string(),

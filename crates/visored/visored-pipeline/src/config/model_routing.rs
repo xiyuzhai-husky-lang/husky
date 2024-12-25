@@ -10,7 +10,7 @@ pub struct VdPipelineModelRouting {
 pub struct VdPipelineModelSolverRouting {
     pub mathematical_reasoning: String,
     pub mathematical_understanding: String,
-    pub latex_cleaner: String,
+    pub latex_rewriter: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
@@ -46,7 +46,7 @@ impl VdPipelineModelRoutingResolved {
             solver: VdPipelineModelSolverRoutingResolved {
                 mathematical_reasoning: t(&routing.solver.mathematical_reasoning),
                 mathematical_understanding: t(&routing.solver.mathematical_understanding),
-                latex_cleaner: t(&routing.solver.latex_cleaner),
+                latex_rewriter: t(&routing.solver.latex_rewriter),
             },
             verifier: VdPipelineModelVerifierRoutingResolved {
                 snl_dispatcher: t(&routing.verifier.snl_dispatcher),
@@ -59,7 +59,7 @@ impl VdPipelineModelRoutingResolved {
 pub struct VdPipelineModelSolverRoutingResolved {
     pub mathematical_reasoning: VdPipelineModelPreset,
     pub mathematical_understanding: VdPipelineModelPreset,
-    pub latex_cleaner: VdPipelineModelPreset,
+    pub latex_rewriter: VdPipelineModelPreset,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
