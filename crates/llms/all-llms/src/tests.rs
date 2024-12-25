@@ -22,7 +22,7 @@ fn all_llms_client_works() {
             Additionally, Soifon may also harbor suspicion towards Urahara because of his unconventional methods and his involvement in the controversial creation of the Hōgyoku, which are seen as acts that go against the very fabric of the Soul Society's laws and order. This adds another layer of mistrust and animosity from her perspective."#]]
     .assert_eq(
         &client
-            .generate_text(AllLlmModel::GPT4O, prompt.to_string())
+            .generate_text(AllLlmModel::GPT_4O, prompt.to_string())
             .unwrap(),
     );
         expect![[r#"
