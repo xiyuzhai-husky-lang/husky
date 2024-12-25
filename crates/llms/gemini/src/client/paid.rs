@@ -49,8 +49,8 @@ impl<'db> GeminiClient<'db> {
         let mut usage = 0;
         let raw_request: GeminiRawRequest = request.into();
         let api_key = match self.api_key() {
-            Ok(api_key) => api_key,
-            Err(e) => return Some((usage, Err(e))),
+            Some(api_key) => api_key,
+            None => return Some((usage, Err(GeminiError::GeminiDisabled))),
         };
         let response = match self
             .client
