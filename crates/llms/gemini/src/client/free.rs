@@ -1,34 +1,7 @@
 use super::*;
 
 impl<'db> GeminiClient<'db> {
-    pub fn generate_on_free(
-        &self,
-        model: GeminiModel,
-        request: GeminiRequest,
-    ) -> GeminiResult<GeminiResponse> {
-        let min_usage = request.min_usage();
-        let response = self.caches[model].get_or_call(
-            attached_seed(),
-            request,
-            async |request| -> GeminiResult<GeminiResponse> {
-                match try_call_gemini::<GeminiResult<GeminiResponse>>(min_usage, async || {
-                    self.generate_on_free_aux(model, request).await
-                })
-                .await?
-                {
-                    Ok(result) => match result {
-                        Ok(s) => Ok(s),
-                        Err(e) => Err(e),
-                    },
-                    Err(e) => todo!(),
-                }
-            },
-        )?;
-
-        Ok(response)
-    }
-
-    async fn generate_on_free_aux(
+    pub(super) async fn generate_on_free_aux(
         &self,
         model: GeminiModel,
         request: &GeminiRequest,
@@ -49,8 +22,8 @@ impl<'db> GeminiClient<'db> {
         let mut usage = 0;
         let raw_request: GeminiRawRequest = request.into();
         let api_key = match self.api_key() {
-            Ok(api_key) => api_key,
-            Err(e) => return Some((usage, Err(e))),
+            Some(api_key) => api_key,
+            None => return Some((usage, Err(GeminiError::GeminiDisabled))),
         };
         let response = match self
             .client
