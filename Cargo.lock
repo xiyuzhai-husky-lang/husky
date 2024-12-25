@@ -172,6 +172,7 @@ name = "alien-seed"
 version = "0.1.0"
 dependencies = [
  "serde",
+ "tokio",
 ]
 
 [[package]]
@@ -3224,6 +3225,7 @@ dependencies = [
  "enum-index",
  "eterned",
  "lazy_static 1.5.0",
+ "rayon",
  "reqwest",
  "serde",
  "serde_json",

@@ -159,12 +159,12 @@ where
     where
         E: From<DiskCacheError>,
     {
+        let response = f(&request)?;
         let mut entries = self.entries.write().unwrap();
         // check again in case another thread has added the entry
         if let Some(index) = self.indices.get(&(seed, request.clone())) {
             return Ok(entries[*index].response.clone());
         }
-        let response = f(&request)?;
         let new_entry = LlmCacheEntry::new(seed, request.clone(), response.clone());
         entries.push(new_entry);
         self.save_thread.save(&entries)?;
