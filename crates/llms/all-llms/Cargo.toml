@@ -16,6 +16,7 @@ thiserror.workspace = true
 tokio.workspace = true
 # abstractions
 eterned.workspace = true
+serde.workspace = true
 # llms
 llm-prelude.workspace = true
 gemini.workspace = true

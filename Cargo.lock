@@ -192,6 +192,7 @@ dependencies = [
  "husky-print-utils",
  "llm-prelude",
  "openai",
+ "serde",
  "sglang",
  "thiserror",
  "tokio",
