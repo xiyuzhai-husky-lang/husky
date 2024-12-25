@@ -5,9 +5,12 @@ mod unl;
 use crate::{
     builder::{ToVdSyn, VdSynExprBuilder},
     clause::{VdSynClauseIdx, VdSynClauseIdxRange},
+    expr::VdSynExprIdx,
+    symbol::builder::VdSynSymbolBuilder,
     vibe::VdSynExprVibe,
 };
 use base_coword::BaseCoword;
+use cnl::CnlToken;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -20,15 +23,23 @@ use std::iter::Peekable;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSentenceData {
+    Have,
+    Show,
     Clauses {
         clauses: VdSynClauseIdxRange,
         end: VdSynSentenceEnd,
+    },
+    Let {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
+        formula: VdSynExprIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynSentenceEntry {
     Cnl {
+        tokens: Vec<CnlToken>,
         data: VdSynSentenceData,
     },
     Unl {
@@ -61,8 +72,16 @@ pub type VdSynSentenceOrderedMap<T> = ArenaOrderedMap<VdSynSentenceEntry, T>;
 impl VdSynSentenceEntry {
     pub fn data(&self) -> &VdSynSentenceData {
         match self {
-            VdSynSentenceEntry::Cnl { data } => data,
+            VdSynSentenceEntry::Cnl { data, .. } => data,
             VdSynSentenceEntry::Unl { data, .. } => data,
+        }
+    }
+
+    #[track_caller]
+    pub fn cnl_tokens(&self) -> &[CnlToken] {
+        match self {
+            VdSynSentenceEntry::Cnl { tokens, .. } => tokens,
+            VdSynSentenceEntry::Unl { .. } => unreachable!(),
         }
     }
 }
@@ -70,14 +89,25 @@ impl VdSynSentenceEntry {
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_sentence(
         &mut self,
-        token_idx: LxRoseTokenIdx,
-        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
         vibe: VdSynExprVibe,
     ) -> VdSynSentenceEntry {
         match vibe.snl_mode() {
             SnlMode::Unl => todo!(),
-            SnlMode::Cnl => self.parse_cnl_sentence(token_idx, word, asts, vibe),
+            SnlMode::Cnl => self.parse_cnl_sentence(asts, vibe),
+        }
+    }
+}
+
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
+        match *self.sentence_arena()[sentence].data() {
+            VdSynSentenceData::Clauses { clauses, .. } => self.build_clauses(clauses),
+            VdSynSentenceData::Have => todo!(),
+            VdSynSentenceData::Show => todo!(),
+            VdSynSentenceData::Let { formula, .. } => {
+                todo!()
+            }
         }
     }
 }

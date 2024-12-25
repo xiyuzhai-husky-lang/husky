@@ -152,6 +152,8 @@ impl<'db> VdMirExprBuilder<'db> {
                 stmts: clauses.to_vd_mir(self),
                 meta: VdMirBlockMeta::Sentence,
             },
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 }

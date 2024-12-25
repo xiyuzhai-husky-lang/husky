@@ -198,6 +198,8 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemSentenceData::Clauses { clauses, end } => {
                 format!("{:?} sentence.clauses", source)
             }
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         };
         DisplayTree::new(
             value,

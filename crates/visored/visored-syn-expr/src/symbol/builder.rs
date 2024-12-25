@@ -195,12 +195,6 @@ impl<'a> VdSynSymbolBuilder<'a> {
         self.lineage.sentence = None;
     }
 
-    pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
-        match *self.sentence_arena[sentence].data() {
-            VdSynSentenceData::Clauses { clauses, .. } => self.build_clauses(clauses),
-        }
-    }
-
     pub(crate) fn build_clauses(&mut self, clauses: VdSynClauseIdxRange) {
         for clause in clauses {
             self.build_clause(clause);

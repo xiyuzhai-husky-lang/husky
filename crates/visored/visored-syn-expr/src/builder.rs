@@ -281,6 +281,7 @@ impl<'db> VdSynExprBuilder<'db> {
             stmt_range_map,
             division_range_map,
         ) = calc_expr_range_map(
+            self.ast_token_idx_range_map,
             &expr_arena,
             &phrase_arena,
             &clause_arena,
