@@ -14,7 +14,7 @@ use crate::{
     phrase::{VdSynPhraseArena, VdSynPhraseArenaRef, VdSynPhraseIdx, VdSynPhraseMap},
     sentence::{
         VdSynSentenceArena, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceEnd,
-        VdSynSentenceIdx, VdSynSentenceMap,
+        VdSynSentenceEntry, VdSynSentenceIdx, VdSynSentenceMap,
     },
 };
 use either::*;
@@ -279,12 +279,23 @@ impl<'db> VdSynExprRangeCalculator<'db> {
     }
 
     fn calc_clause(&mut self, clause: VdSynClauseIdx) -> VdSynClauseTokenIdxRange {
-        match self.clause_arena[clause] {
+        let clause_entry = &self.clause_arena[clause];
+        match *clause_entry.data() {
             VdSynClauseData::Let {
-                let_token_idx,
                 right_math_delimiter_token_idx: right_dollar_token_idx,
                 ..
-            } => LxTokenIdxRange::new_closed(*let_token_idx, *right_dollar_token_idx),
+            } => {
+                let tokens = clause_entry.cnl_tokens();
+                let first = tokens
+                    .first()
+                    .expect("cnl tokens are always non-empty")
+                    .lx_ast;
+                let last = tokens
+                    .last()
+                    .expect("cnl tokens are always non-empty")
+                    .lx_ast;
+                self.lx_ast_range_map[first].join(self.lx_ast_range_map[last])
+            }
             VdSynClauseData::Assume {
                 assume_token_idx,
                 right_dollar_token_idx,
@@ -327,18 +338,20 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                     VdSynSentenceEnd::Void => clauses_range,
                 }
             }
-            VdSynSentenceData::Have | VdSynSentenceData::Show | VdSynSentenceData::Let { .. } => {
-                let tokens = sentence_entry.cnl_tokens();
-                let first = tokens
-                    .first()
-                    .expect("cnl tokens are always non-empty")
-                    .lx_ast;
-                let last = tokens
-                    .last()
-                    .expect("cnl tokens are always non-empty")
-                    .lx_ast;
-                self.lx_ast_range_map[first].join(self.lx_ast_range_map[last])
-            }
+            VdSynSentenceData::Pristine => match sentence_entry {
+                VdSynSentenceEntry::Cnl { tokens, .. } => {
+                    let first = tokens
+                        .first()
+                        .expect("cnl tokens are always non-empty")
+                        .lx_ast;
+                    let last = tokens
+                        .last()
+                        .expect("cnl tokens are always non-empty")
+                        .lx_ast;
+                    self.lx_ast_range_map[first].join(self.lx_ast_range_map[last])
+                }
+                VdSynSentenceEntry::Unl { tokens, .. } => todo!(),
+            },
         }
     }
 

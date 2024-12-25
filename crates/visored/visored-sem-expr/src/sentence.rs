@@ -48,13 +48,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 clauses: clauses.to_vd_sem(self),
                 end: end.to_vd_sem(self),
             },
-            VdSynSentenceData::Have => todo!(),
-            VdSynSentenceData::Show => todo!(),
-            VdSynSentenceData::Let {
-                left_math_delimiter_token_idx,
-                formula,
-                right_math_delimiter_token_idx,
-            } => todo!(),
+            VdSynSentenceData::Pristine => todo!(),
         }
     }
 }
