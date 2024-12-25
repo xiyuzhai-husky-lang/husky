@@ -78,7 +78,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 formula: formula.to_vd_sem(self),
                 right_dollar_token_idx,
             },
-            VdSynClauseData::Then {
+            VdSynClauseData::Have {
                 then_token_idx,
                 left_dollar_token_idx,
                 formula,
@@ -89,7 +89,12 @@ impl<'a> VdSemExprBuilder<'a> {
                 formula: formula.to_vd_sem(self),
                 right_dollar_token_idx,
             },
-            VdSynClauseData::Todo(token_idx) => VdSemClauseData::Todo(token_idx),
+            VdSynClauseData::Show {
+                show_token_idx,
+                left_dollar_token_idx,
+                formula,
+                right_dollar_token_idx,
+            } => todo!(),
         }
     }
 }

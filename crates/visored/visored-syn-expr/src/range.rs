@@ -290,12 +290,17 @@ impl<'db> VdSynExprRangeCalculator<'db> {
                 right_dollar_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*assume_token_idx, *right_dollar_token_idx),
-            VdSynClauseData::Then {
+            VdSynClauseData::Have {
                 then_token_idx,
                 right_dollar_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*then_token_idx, *right_dollar_token_idx),
-            VdSynClauseData::Todo(token_idx) => LxTokenIdxRange::new_closed(*token_idx, *token_idx),
+            VdSynClauseData::Show {
+                show_token_idx,
+                left_dollar_token_idx,
+                right_dollar_token_idx,
+                ..
+            } => LxTokenIdxRange::new_closed(*show_token_idx, *right_dollar_token_idx),
         }
     }
 

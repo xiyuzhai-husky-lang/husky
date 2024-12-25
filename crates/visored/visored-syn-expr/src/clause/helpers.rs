@@ -9,8 +9,13 @@ impl VdSynClauseData {
         match *self {
             VdSynClauseData::Let { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
             VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Then { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Todo(..) => vec![],
+            VdSynClauseData::Have { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
+            VdSynClauseData::Show {
+                show_token_idx,
+                left_dollar_token_idx,
+                formula,
+                right_dollar_token_idx,
+            } => todo!(),
         }
     }
 }

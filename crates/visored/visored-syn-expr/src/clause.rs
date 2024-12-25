@@ -34,13 +34,18 @@ pub enum VdSynClauseData {
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
-    Then {
+    Have {
         then_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
     },
-    Todo(LxRoseTokenIdx),
+    Show {
+        show_token_idx: LxRoseTokenIdx,
+        left_dollar_token_idx: LxRoseTokenIdx,
+        formula: VdSynExprIdx,
+        right_dollar_token_idx: LxRoseTokenIdx,
+    },
 }
 
 pub type VdSynClauseArena = Arena<VdSynClauseData>;
@@ -144,7 +149,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         left_delimiter_token_idx: left_dollar_token_idx,
                         math_asts,
                         right_delimiter_token_idx: right_dollar_token_idx,
-                    } => VdSynClauseData::Then {
+                    } => VdSynClauseData::Have {
                         then_token_idx: token_idx,
                         left_dollar_token_idx,
                         formula: (
@@ -174,7 +179,7 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::NewParagraph(_) => todo!(),
                 }
             }
-            _ => VdSynClauseData::Todo(token_idx),
+            _ => todo!(), // VdSynClauseData::Todo(token_idx),
         }
     }
 }
@@ -187,8 +192,13 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 self.build_symbols_in_let_resolution(clause, resolution)
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
-            VdSynClauseData::Then { formula, .. } => self.build_expr(formula),
-            VdSynClauseData::Todo(..) => todo!(),
+            VdSynClauseData::Have { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Show {
+                show_token_idx,
+                left_dollar_token_idx,
+                formula,
+                right_dollar_token_idx,
+            } => todo!(),
         }
     }
 
