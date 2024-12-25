@@ -1,8 +1,9 @@
 use super::*;
 use llm_prelude::transformation::LlmStringTransformationInstruction;
 
-pub(super) fn simplification_transformations() -> Vec<AllLlmsStringTransformation> {
-    vec![
+impl VdPipelineConfig {
+    pub(super) fn simplification_transformations(&self) -> Vec<AllLlmsStringTransformation> {
+        vec![
         AllLlmsStringTransformation {
             model: AllLlmModel::GEMINI_1_5_PRO,
             instruction: LlmStringTransformationInstruction::MainInputSide {
@@ -47,10 +48,10 @@ We have $(a + f(x))^2  \ge 0$.
             antiexamples: vec![],
         },
     ]
-}
+    }
 
-pub(super) fn elaboration_transformations() -> Vec<AllLlmsStringTransformation> {
-    vec![AllLlmsStringTransformation {
+    pub(super) fn elaboration_transformations(&self) -> Vec<AllLlmsStringTransformation> {
+        vec![AllLlmsStringTransformation {
         model: AllLlmModel::GEMINI_1_5_PRO,
         instruction: LlmStringTransformationInstruction::MainInputSide {
             main: "Elaborate formula derivation that skips too many steps by inserting steps in the given proof. You should only insert steps if it's absolutely necessary. Don't bother to explain how things are derived. For example, don't add extra since clauses because we don't want that. Definitely avoid expanding too much that breaks the form. If a step is already obvious, keep it intact. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output."
@@ -149,10 +150,10 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
             antiexamples: vec![],
         },
 ]
-}
+    }
 
-pub(super) fn regularization_transformations() -> Vec<AllLlmsStringTransformation> {
-    vec![AllLlmsStringTransformation {
+    pub(super) fn regularization_transformations(&self) -> Vec<AllLlmsStringTransformation> {
+        vec![AllLlmsStringTransformation {
         model: AllLlmModel::GEMINI_1_5_PRO,
         instruction: LlmStringTransformationInstruction::MainInputSide {
             main: "Regularize the proof by using only the following sentences:
@@ -181,16 +182,17 @@ pub(super) fn regularization_transformations() -> Vec<AllLlmsStringTransformatio
             antiexamples: vec![],
         },
 ]
-}
+    }
 
-pub(super) fn visored_preprocessing_transformations() -> Vec<AllLlmsStringTransformation> {
-    vec![AllLlmsStringTransformation {
-        model: AllLlmModel::GEMINI_1_5_FLASH,
-        instruction: LlmStringTransformationInstruction::MainInputSide {
-            main: "Remove discussion of equality holds. These are not needed.".to_string(),
-            side: None,
-        },
-        examples: vec![],
-        antiexamples: vec![],
-    }]
+    pub(super) fn visored_preprocessing_transformations(&self) -> Vec<AllLlmsStringTransformation> {
+        vec![AllLlmsStringTransformation {
+            model: AllLlmModel::GEMINI_1_5_FLASH,
+            instruction: LlmStringTransformationInstruction::MainInputSide {
+                main: "Remove discussion of equality holds. These are not needed.".to_string(),
+                side: None,
+            },
+            examples: vec![],
+            antiexamples: vec![],
+        }]
+    }
 }

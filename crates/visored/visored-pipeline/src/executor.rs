@@ -6,9 +6,6 @@ use all_llms::{model::AllLlmModel, AllLlmsClient};
 use eterned::db::EternerDb;
 use input::VdPipelineInput;
 use std::sync::Arc;
-use transformations::{
-    elaboration_transformations, regularization_transformations, simplification_transformations,
-};
 
 pub struct VdPipelineExecutor<'a, 'db> {
     input: &'a VdPipelineInput,
@@ -103,7 +100,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
         let (transformations, simplified_proof) = self
             .llm_client
             .apply_transformations_sequentially(
-                &simplification_transformations(),
+                &self.config.simplification_transformations(),
                 input_and_raw_proof,
             )
             .unwrap();
@@ -124,7 +121,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
         let (transformations, elaborated_proof) = self
             .llm_client
             .apply_transformations_sequentially(
-                &elaboration_transformations(),
+                &self.config.elaboration_transformations(),
                 input_and_simplified_proof,
             )
             .unwrap();
@@ -145,7 +142,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
         let (transformations, regularized_proof) = self
             .llm_client
             .apply_transformations_sequentially(
-                &regularization_transformations(),
+                &self.config.regularization_transformations(),
                 input_and_elaborated_proof,
             )
             .unwrap();
