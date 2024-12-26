@@ -21,10 +21,12 @@ impl VdPipelineTracker {
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         // TODO: replace with preloaded specs???
         specs_dir: &Path,
+        lean4_dir: &Path,
         input: Arc<VdPipelineInput>,
         config: Arc<VdPipelineConfig>,
     ) -> Self {
-        let mut executor = VdPipelineExecutor::new(db, tokio_runtime, specs_dir, &*input, &*config);
+        let mut executor =
+            VdPipelineExecutor::new(db, tokio_runtime, specs_dir, lean4_dir, &*input, &*config);
         executor.execute_all();
         let (raw_proof, simplified_proof, elaborated_proof, regularized_proof, lean4_code) =
             executor.finish();

@@ -12,20 +12,28 @@ fn visored_pipeline_works() {
 
     fn t(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
-        parent_dir: &Path,
+        src_root: &Path,
         // TODO: replace with preloaded specs???
         specs_dir: &Path,
+        lean4_dir: &Path,
         config_path: PathBuf,
         src_file_paths: Vec<PathBuf>,
         expect_files_dir: &Path,
     ) {
         let db = &EternerDb::default();
-        let mut runner =
-            VdPipelineRunner::new(db, tokio_runtime, specs_dir, config_path, src_file_paths)
-                .unwrap();
+        let mut runner = VdPipelineRunner::new(
+            db,
+            tokio_runtime,
+            specs_dir,
+            lean4_dir,
+            config_path,
+            src_file_paths,
+            src_root,
+        )
+        .unwrap();
         let seed = AlienSeed::new(0);
         runner.run_all_single_threaded(seed).unwrap();
-        let latex_files = runner.export_result_latex_files(parent_dir).unwrap();
+        let latex_files = runner.export_result_latex_files(src_root).unwrap();
         for latex_file in latex_files {
             use expect_test::expect_file;
 
@@ -38,9 +46,9 @@ fn visored_pipeline_works() {
     let husky_lang_dev_paths = HuskyLangDevPaths::new();
     let specs_dir = husky_lang_dev_paths.specs_dir();
     // Collect all .tex files from the directory
-    let dir_path = &PathBuf::from("tests-data/visored-pipeline-works");
+    let src_root = &PathBuf::from("tests-data/visored-pipeline-works");
     let config_path = PathBuf::from("tests-data/visored-pipeline-works/config.yaml");
-    let tex_files: Vec<PathBuf> = std::fs::read_dir(&dir_path)
+    let tex_files: Vec<PathBuf> = std::fs::read_dir(&src_root)
         .unwrap()
         .filter_map(|entry| {
             let entry = entry.ok()?;
@@ -53,11 +61,13 @@ fn visored_pipeline_works() {
         })
         .collect();
     assert!(!tex_files.is_empty());
+    let lean4_dir = Path::new("lean4/visored-pipeline-tests/VisoredPipelineTests");
 
     t(
         tokio_runtime,
-        dir_path,
+        src_root,
         specs_dir,
+        lean4_dir,
         config_path,
         tex_files,
         Path::new("../expect-files/visored-pipeline-works"),

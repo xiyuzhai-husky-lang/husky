@@ -34,7 +34,17 @@ fn main() {
     let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
     let src_file_paths = cli.expanded_src_file_paths();
     let specs_dir: PathBuf = todo!();
-    match run(db, tokio_runtime, &specs_dir, cli.config, src_file_paths) {
+    let lean4_dir = todo!();
+    let src_root = todo!();
+    match run(
+        db,
+        tokio_runtime,
+        &specs_dir,
+        lean4_dir,
+        cli.config,
+        src_file_paths,
+        src_root,
+    ) {
         Ok(_) => (),
         Err(e) => eprintln!("Error: {}", e),
     }
@@ -45,11 +55,20 @@ fn run(
     tokio_runtime: Arc<tokio::runtime::Runtime>,
     // TODO: replace with preloaded specs???
     specs_dir: &Path,
+    lean4_dir: &Path,
     config_path: PathBuf,
     src_file_paths: Vec<PathBuf>,
+    src_root: &Path,
 ) -> VdPipelineResult<()> {
-    let mut runner =
-        VdPipelineRunner::new(db, tokio_runtime, specs_dir, config_path, src_file_paths)?;
+    let mut runner = VdPipelineRunner::new(
+        db,
+        tokio_runtime,
+        specs_dir,
+        lean4_dir,
+        config_path,
+        src_file_paths,
+        src_root,
+    )?;
     runner.run_all_single_threaded(AlienSeed::new(0))?;
     Ok(())
 }
