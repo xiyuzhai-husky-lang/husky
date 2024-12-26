@@ -1,4 +1,5 @@
-mod then;
+mod have;
+mod show;
 
 use super::*;
 use crate::scheme::sparse::VdLeanTranspilationSparseScheme as Sparse;
@@ -65,7 +66,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                 ref pattern,
                 assignment,
             } => todo!(),
-            VdMirStmtData::Then { prop: formula } => self.build_then_stmt(formula),
+            VdMirStmtData::Have { prop: formula } => self.build_have_stmt(formula),
+            VdMirStmtData::Show { prop: formula } => self.build_show_stmt(formula),
         }
     }
 

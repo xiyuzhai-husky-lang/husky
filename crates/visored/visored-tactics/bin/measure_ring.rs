@@ -70,7 +70,7 @@ fn ring_tactics() {
             unreachable!()
         };
         let stmt = stmts.last().unwrap();
-        let VdMirStmtData::Then { prop } = stmt_arena[stmt] else {
+        let VdMirStmtData::Have { prop } = stmt_arena[stmt] else {
             unreachable!()
         };
         let VdMirExprData::ChainingSeparatedList {

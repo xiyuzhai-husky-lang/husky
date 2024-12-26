@@ -227,6 +227,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSemClauseData::Assume { .. } => format!("{:?} clause.assume", source),
             VdSemClauseData::Have { .. } => format!("{:?} clause.then", source),
+            VdSemClauseData::Show { .. } => format!("{:?} clause.show", source),
             VdSemClauseData::Todo(lx_rose_token_idx) => format!("{:?} clause.todo", source),
         };
         DisplayTree::new(
