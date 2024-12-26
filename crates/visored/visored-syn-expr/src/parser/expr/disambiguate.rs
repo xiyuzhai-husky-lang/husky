@@ -254,6 +254,14 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 ref arguments,
             } => self.resolve_complete_command(command_token_idx, command_path, arguments, vibe),
             LxMathAstData::Environment { .. } => todo!(),
+            LxMathAstData::Lefted {
+                left_command_token_idx,
+                argument,
+            } => todo!(),
+            LxMathAstData::Righted {
+                right_command_token_idx,
+                argument,
+            } => todo!(),
         }
     }
 

@@ -48,5 +48,3 @@ cos, [math], []
 ### layouts
 frac, [math], [math, math]
 text, [math], [rose]
-left, [math], []
-right, [math], []

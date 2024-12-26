@@ -164,6 +164,8 @@ impl<'a> LxAstParser<'a> {
             LxCommandSignature::MathLetterStyle(style) => {
                 todo!("report error")
             }
+            LxCommandSignature::Left => todo!(),
+            LxCommandSignature::Right => todo!(),
         }
     }
 
