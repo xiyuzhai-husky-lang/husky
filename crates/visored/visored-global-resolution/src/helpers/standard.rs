@@ -18,7 +18,7 @@ impl VdDefaultGlobalResolutionTable {
     pub fn new_standard(db: &EternerDb) -> Self {
         let punctuation_resolution_map =
             LxMathPunctuationMap::new(lx_math_punctuation_standard_resolution);
-        let command_resolution_map = standard_command_resolution_map(db);
+        let command_resolution_map = standard_complete_command_resolution_map(db);
         let environment_resolution_map = standard_environment_resolution_map(db);
         let letter_resolution_map = standard_letter_resolution_map();
         Self::new(
@@ -30,7 +30,7 @@ impl VdDefaultGlobalResolutionTable {
     }
 }
 
-fn standard_command_resolution_map(
+fn standard_complete_command_resolution_map(
     db: &EternerDb,
 ) -> std::collections::HashMap<
     latex_command::path::LxCommandPath,
@@ -92,6 +92,8 @@ fn standard_command_resolution_map(
         // - layouts
         sqrt,
         frac,
+        left,
+        right,
         // - environments
         text,
     } = *lx_command_path_menu(db);
@@ -145,9 +147,9 @@ fn standard_command_resolution_map(
             cos,
             VdCompleteCommandGlobalResolution::Item(VdItemPath::COS),
         ),
-        (sqrt, VdCompleteCommandGlobalResolution::Sqrt),
-        (frac, VdCompleteCommandGlobalResolution::Frac),
-        (text, VdCompleteCommandGlobalResolution::Text),
+        (sqrt, VdCompleteCommandGlobalResolution::SQRT),
+        (frac, VdCompleteCommandGlobalResolution::FRAC),
+        (text, VdCompleteCommandGlobalResolution::TEXT),
     ])
 }
 

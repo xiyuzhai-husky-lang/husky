@@ -85,7 +85,7 @@ impl std::ops::Deref for LxCommandSignatureTable {
 }
 
 impl LxCommandSignatureTable {
-    fn default_commands(
+    fn default_complete_commands(
         db: &EternerDb,
     ) -> Vec<(
         LxCommandPath,
@@ -94,8 +94,6 @@ impl LxCommandSignatureTable {
     )> {
         let LxCommandPathMenu {
             // - root
-            begin,
-            end,
             usepackage,
             documentclass,
             newtheorem,
@@ -150,6 +148,7 @@ impl LxCommandSignatureTable {
             sqrt,
             frac,
             text,
+            ..
         } = *lx_command_path_menu(db);
         vec![
             // - root
@@ -346,7 +345,9 @@ fn lx_command_signature_table_works() {
     let dev_paths = HuskyLangDevPaths::new();
     let complete_commands_path = &dev_paths.specs_dir().join("latex/complete-commands.lpcsv");
     let table = LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path, db);
-    for (path, allowed_modes, parameter_modes) in LxCommandSignatureTable::default_commands(db) {
+    for (path, allowed_modes, parameter_modes) in
+        LxCommandSignatureTable::default_complete_commands(db)
+    {
         let Some(signature) = table.signature(path.name()) else {
             todo!()
         };
