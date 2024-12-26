@@ -39,6 +39,8 @@ impl<'a> IsLxInput<'a> for LxDocumentInput<'a> {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LxDocumentBodyInput<'a> {
+    // TODO: replace with preloaded specs???
+    #[deprecated]
     pub specs_dir: &'a Path,
     pub file_path: LxFilePath,
     pub content: &'a str,

@@ -161,8 +161,13 @@ impl<'db> VdSynExprBuilder<'db> {
                 _ => (),
             }
             match token.data {
-                CnlTokenData::Word(_, base_coword) => prefix.push_str(&base_coword.to_string()),
-                CnlTokenData::Math { .. } => todo!(),
+                CnlTokenData::Word(_, base_coword) => {
+                    if !prefix.is_empty() {
+                        prefix.push(' ');
+                    }
+                    prefix.push_str(&base_coword.to_string())
+                }
+                CnlTokenData::Math { .. } => todo!("prefix: {:?}", prefix),
                 CnlTokenData::Punctuation(_, _, punctuation) => todo!(),
             }
         }

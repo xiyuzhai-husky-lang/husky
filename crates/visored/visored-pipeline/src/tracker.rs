@@ -3,7 +3,7 @@ use crate::{
 };
 use all_llms::{transformation::AllLlmsStringTransformationRecord, AllLlmsClient};
 use eterned::db::EternerDb;
-use std::sync::Arc;
+use std::{path::Path, sync::Arc};
 
 pub struct VdPipelineTracker {
     pub input: Arc<VdPipelineInput>,
@@ -18,10 +18,12 @@ impl VdPipelineTracker {
     pub fn new(
         db: &EternerDb,
         tokio_runtime: Arc<tokio::runtime::Runtime>,
+        // TODO: replace with preloaded specs???
+        specs_dir: &Path,
         input: Arc<VdPipelineInput>,
         config: Arc<VdPipelineConfig>,
     ) -> Self {
-        let mut executor = VdPipelineExecutor::new(db, tokio_runtime, &*input, &*config);
+        let mut executor = VdPipelineExecutor::new(db, tokio_runtime, specs_dir, &*input, &*config);
         executor.execute_all();
         let (raw_proof, simplified_proof, elaborated_proof, regularized_proof) = executor.finish();
         Self {
