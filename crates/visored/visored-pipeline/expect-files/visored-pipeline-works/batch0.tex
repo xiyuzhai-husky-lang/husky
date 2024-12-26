@@ -117,8 +117,8 @@ Lean 4 code:
 def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) := by
   have h3 : ((√ x) - (√ y)) ^ 2 ≥ 0 := by obvious
   have h4 : x - 2 * (√ x * y) + y ≥ 0 := by calc
-      x - 2 * (√ x * y) + y = ((√ x) - (√ y)) ^ 2 := sorry
-    _ ≥ 0 := sorry
+      x - 2 * (√ x * y) + y = ((√ x) - (√ y)) ^ 2 := obvious
+    _ ≥ 0 := obvious
   have h5 : x + y ≥ 2 * (√ x * y) := by obvious
   have h6 : (x + y) / 2 ≥ √ x * y := by obvious
   exact ()
@@ -157,9 +157,9 @@ Lean 4 code:
 \begin{lstlisting}[language=Lean4]
 def h(a : ℝ)(b : ℝ)(c : ℝ) := by
   have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ 0 := by calc
-      (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := sorry
-    _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := sorry
-    _ ≥ 0 := sorry
+      (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := obvious
+    _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := obvious
+    _ ≥ 0 := obvious
   have h2 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
   show a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a by obvious
   have h3 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
@@ -200,9 +200,9 @@ def h(x : ℝ)(h1 : x > 0) := by
   have h3 : (x - 1) ^ 2 ≥ 0 := by obvious
   have h4 : x ^ 2 - 2 * x + 1 ≥ 0 := by obvious
   have h5 : (x ^ 2 - 2 * x + 1) / x ≥ 0 := by calc
-      (x ^ 2 - 2 * x + 1) / x = x ^ 2 / x - 2 * x / x + 1 / x := sorry
-    _ = x - 2 + 1 / x := sorry
-    _ ≥ 0 := sorry
+      (x ^ 2 - 2 * x + 1) / x = x ^ 2 / x - 2 * x / x + 1 / x := obvious
+    _ = x - 2 + 1 / x := obvious
+    _ ≥ 0 := obvious
   have h6 : x + 1 / x ≥ 2 := by obvious
   exact ()
 \end{lstlisting}
@@ -244,11 +244,11 @@ Lean 4 code:
 \begin{lstlisting}[language=Lean4]
 def h(a : ℝ)(b : ℝ) := by
   have h1 : (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 ≥ 0 := by calc
-      (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := sorry
-    _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := sorry
-    _ = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := sorry
-    _ = (a - b) ^ 2 / 4 := sorry
-    _ ≥ 0 := sorry
+      (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := obvious
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := obvious
+    _ = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := obvious
+    _ = (a - b) ^ 2 / 4 := obvious
+    _ ≥ 0 := obvious
   have h2 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by obvious
   exact ()
 \end{lstlisting}
