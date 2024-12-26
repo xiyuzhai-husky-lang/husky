@@ -5,9 +5,20 @@ use all_llms::transformation::AllLlmsStringTransformationRecord;
 use all_llms::{model::AllLlmModel, AllLlmsClient};
 use eterned::db::EternerDb;
 use input::VdPipelineInput;
+use latex_prelude::helper::tracker::LxDocumentBodyInput;
+use latex_vfs::path::LxFilePath;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use visored_lean_transpilation::{
+    helpers::tracker::VdLeanTranspilationTracker, scheme::dense::VdLeanTranspilationDenseScheme,
+};
+use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 pub struct VdPipelineExecutor<'a, 'db> {
+    db: &'db EternerDb,
+    // TODO: replace with preloaded specs???
+    specs_dir: &'a Path,
     input: &'a VdPipelineInput,
     config: &'a VdPipelineConfig,
     llm_client: AllLlmsClient<'db>,
@@ -21,6 +32,8 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
     pub fn new(
         db: &'db EternerDb,
         tokio_runtime: Arc<tokio::runtime::Runtime>,
+        // TODO: replace with preloaded specs???
+        specs_dir: &'a Path,
         input: &'a VdPipelineInput,
         config: &'a VdPipelineConfig,
     ) -> Self {
@@ -32,6 +45,8 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
         ));
         std::fs::create_dir_all(&cache_dir).unwrap();
         Self {
+            db,
+            specs_dir,
             input,
             config,
             llm_client: AllLlmsClient::new(db, tokio_runtime, cache_dir).unwrap(),
@@ -155,7 +170,25 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             )
             .unwrap();
         let regularized_proof = extract_proof(&regularized_proof);
-        self.regularized_proof = Some((transformations, regularized_proof));
+        self.regularized_proof = Some((transformations, regularized_proof.clone()));
+        let file_path = LxFilePath::new(PathBuf::from(file!()), self.db);
+        let tracker = VdLeanTranspilationTracker::new(
+            LxDocumentBodyInput {
+                specs_dir: self.specs_dir,
+                file_path,
+                content: &regularized_proof,
+            },
+            &[],
+            &[],
+            &VdModels {},
+            VdSynExprVibe::ROOT_CNL,
+            self.db,
+            &VdLeanTranspilationDenseScheme,
+        );
+        let lean_code_formatted = tracker.show_fmt(self.db);
+        use husky_print_utils::p;
+        p!(lean_code_formatted);
+        todo!();
     }
 
     pub(crate) fn finish(

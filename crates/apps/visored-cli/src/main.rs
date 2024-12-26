@@ -2,7 +2,10 @@ use alien_seed::AlienSeed;
 use clap::Parser;
 use eterned::db::EternerDb;
 use glob::glob;
-use std::{path::PathBuf, sync::Arc};
+use std::{
+    path::{Path, PathBuf},
+    sync::Arc,
+};
 use visored_pipeline::{error::VdPipelineResult, runner::VdPipelineRunner};
 
 #[derive(Parser)]
@@ -30,7 +33,8 @@ fn main() {
     let cli = Cli::parse();
     let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
     let src_file_paths = cli.expanded_src_file_paths();
-    match run(db, tokio_runtime, cli.config, src_file_paths) {
+    let specs_dir: PathBuf = todo!();
+    match run(db, tokio_runtime, &specs_dir, cli.config, src_file_paths) {
         Ok(_) => (),
         Err(e) => eprintln!("Error: {}", e),
     }
@@ -39,10 +43,13 @@ fn main() {
 fn run(
     db: &EternerDb,
     tokio_runtime: Arc<tokio::runtime::Runtime>,
+    // TODO: replace with preloaded specs???
+    specs_dir: &Path,
     config_path: PathBuf,
     src_file_paths: Vec<PathBuf>,
 ) -> VdPipelineResult<()> {
-    let mut runner = VdPipelineRunner::new(db, tokio_runtime, config_path, src_file_paths)?;
+    let mut runner =
+        VdPipelineRunner::new(db, tokio_runtime, specs_dir, config_path, src_file_paths)?;
     runner.run_all_single_threaded(AlienSeed::new(0))?;
     Ok(())
 }

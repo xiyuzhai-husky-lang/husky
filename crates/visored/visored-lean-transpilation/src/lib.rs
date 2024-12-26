@@ -4,7 +4,7 @@ mod expr;
 pub mod helpers;
 pub mod mangle;
 pub mod namespace;
-mod scheme;
+pub mod scheme;
 pub mod stmt;
 #[cfg(test)]
 mod tests;
