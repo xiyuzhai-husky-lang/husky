@@ -98,7 +98,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             }
             VdMirStmtData::LetPlaceholder { .. }
             | VdMirStmtData::LetAssigned { .. }
-            | VdMirStmtData::Then { .. } => unreachable!(),
+            | VdMirStmtData::Have { .. }
+            | VdMirStmtData::Show { .. } => unreachable!(),
         }
     }
 

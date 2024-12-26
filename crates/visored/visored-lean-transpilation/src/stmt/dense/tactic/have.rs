@@ -1,21 +1,16 @@
 use super::*;
-use dictionary::func_key::VdFuncKeyTranslation;
-use either::*;
-use lean_mir_expr::{expr::application::LnMirFunc, tactic::LnMirTacticData};
-use lean_opr::opr::binary::LnBinaryOpr;
-use lean_term::instantiation::LnInstantiation;
-use visored_mir_expr::expr::application::VdMirFunc;
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
-use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
-impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
-    pub(super) fn build_then_stmt(&mut self, formula: VdMirExprIdx) -> LnItemDefnData {
-        match self.expr_arena()[formula] {
+impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
+    pub(super) fn build_ln_tactic_from_vd_have(
+        &mut self,
+        prop: VdMirExprIdx,
+    ) -> Vec<LnMirTacticData> {
+        match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
                 joined_separator_and_signature: Some((joined_separator, joined_signature)),
-            } => self.build_then_nontrivial_chaining_separated_list(
+            } => self.build_show_nontrivial_chaining_separated_list(
                 leader,
                 followers,
                 joined_separator,
@@ -23,24 +18,25 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             ),
             _ => {
                 let ident = self.mangle_hypothesis();
-                LnItemDefnData::Def {
+                let ty = prop.to_lean(self);
+                let tactics = self.alloc_tactics(vec![LnMirTacticData::Obvious]);
+                let construction = self.alloc_expr(LnMirExprData::By { tactics });
+                vec![LnMirTacticData::Have {
                     ident,
-                    parameters: vec![],
-                    ty: Some(formula.to_lean(self)),
-                    // TODO: better??
-                    body: self.sorry(),
-                }
+                    ty,
+                    construction,
+                }]
             }
         }
     }
 
-    fn build_then_nontrivial_chaining_separated_list(
+    fn build_show_nontrivial_chaining_separated_list(
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
-    ) -> LnItemDefnData {
+    ) -> Vec<LnMirTacticData> {
         debug_assert!(followers.len() >= 2);
         let ident = self.mangle_hypothesis();
         // TODO: Maye use to_lean trait method?
@@ -62,14 +58,15 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         };
         let ultimate_prop_function = VdMirFunc::NormalBaseSeparator(joined_signature).to_lean(self);
         let ultimate_prop_arguments = [leader, followers.last().unwrap().1].to_lean(self);
-        LnItemDefnData::Def {
+        let tactics = self.alloc_tactics(vec![tactic_data]);
+        let construction = self.alloc_expr(LnMirExprData::By { tactics });
+        vec![LnMirTacticData::Have {
             ident,
-            parameters: vec![],
-            ty: Some(self.alloc_expr(LnMirExprData::Application {
+            ty: self.alloc_expr(LnMirExprData::Application {
                 function: ultimate_prop_function,
                 arguments: ultimate_prop_arguments,
-            })),
-            body: self.alloc_tactics([tactic_data]).into(),
-        }
+            }),
+            construction,
+        }]
     }
 }
