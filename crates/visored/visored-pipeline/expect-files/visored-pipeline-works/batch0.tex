@@ -161,7 +161,7 @@ def h(a : ℝ)(b : ℝ)(c : ℝ) := by
     _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := sorry
     _ ≥ 0 := sorry
   have h2 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
-  show a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a byobvious
+  show a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a by obvious
   have h3 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
   exact ()
 \end{lstlisting}
