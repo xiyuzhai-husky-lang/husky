@@ -186,9 +186,9 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             &VdLeanTranspilationDenseScheme,
         );
         let lean_code_formatted = tracker.show_fmt(self.db);
-        use husky_print_utils::p;
-        p!(lean_code_formatted);
-        todo!();
+        // use husky_print_utils::{p, DisplayIt};
+        // p!(DisplayIt(lean_code_formatted));
+        // todo!();
     }
 
     pub(crate) fn finish(
