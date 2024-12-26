@@ -201,6 +201,20 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 end_rcurl_token_idx,
                 ..
             } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
+            LxMathAstData::Lefted {
+                left_command_token_idx,
+                argument,
+            } => {
+                let mut argument_range = self.get_math_ast_range(argument);
+                LxTokenIdxRange::new(*left_command_token_idx, argument_range.end())
+            }
+            LxMathAstData::Righted {
+                right_command_token_idx,
+                argument,
+            } => {
+                let mut argument_range = self.get_math_ast_range(argument);
+                LxTokenIdxRange::new(*right_command_token_idx, argument_range.end())
+            }
         }
     }
 

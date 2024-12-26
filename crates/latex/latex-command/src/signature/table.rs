@@ -30,6 +30,8 @@ impl LxCommandSignatureTable {
     fn new(
         begin: LxCommandPath,
         end: LxCommandPath,
+        left: LxCommandPath,
+        right: LxCommandPath,
         letter_style_commands: &[(LxCommandPath, LxMathLetterStyle)],
         complete_commands: impl IntoIterator<
             Item = (
@@ -43,6 +45,8 @@ impl LxCommandSignatureTable {
             signatures: [
                 (begin.name(), LxCommandSignature::Begin),
                 (end.name(), LxCommandSignature::End),
+                (left.name(), LxCommandSignature::Left),
+                (right.name(), LxCommandSignature::Right),
             ]
             .into_iter()
             .chain(
@@ -248,11 +252,15 @@ impl LxCommandSignatureTable {
             mathrm,
             mathsf,
             mathscr,
+            left,
+            right,
             ..
         } = *lx_command_path_menu(db);
         Self::new(
             begin,
             end,
+            left,
+            right,
             &[
                 (mathbb, LxMathLetterStyle::MATHBB),
                 (mathbf, LxMathLetterStyle::MATHFRAK),
