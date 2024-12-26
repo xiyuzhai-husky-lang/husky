@@ -1,3 +1,4 @@
+%!TEX TS-program = xelatex
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -5,23 +6,43 @@
 \usepackage{tcolorbox}
 \usepackage{listings}
 \usepackage{amsthm}
+\usepackage{fontspec}  % For Unicode support
+\setmainfont{DejaVu Sans}  % Or another Unicode-compatible font
+\setmonofont{DejaVu Sans Mono}  % For monospace/code blocks
+\usepackage{unicode-math}
+% \setmathfont{XITS Math}  % Or another Unicode math font
 \newtheorem{example}{Example}
 \fvset{breaklines=true}
 
+
+
 \begin{document}
-\lstdefinelanguage{LaTeX}{
+\lstdefinelanguage{Lean4}{
     breaklines=true,
     basicstyle=\ttfamily\normalsize,
-    basewidth={0.6em,0.45em},
     keepspaces=true,
     morekeywords={
-            \begin,\end,\usepackage,\documentclass,\maketitle,
-            \title,\author,\section,\subsection,\textbf
-        },
-    alsoletter={\\},      % Treat backslash as part of keywords
-    morecomment=[l]{\%},  % Line comment starts with '%'
-    morestring=[b]",      % Strings in double quotes
-    sensitive=true        % Case-sensitive
+        def, theorem, lemma, example, have, show, calc, let, assume, by, exact,
+        sorry, obvious, Type, Prop, where, with, extends, class, instance,
+        structure, inductive, mutual, coinductive, variable, variables,
+        universe, universes, deriving, abbrev, partial, terminating,
+        namespace, import, open, export, private, protected, public,
+        noncomputable, unsafe, macro, syntax, macro_rules, set_option,
+        attribute, local, scoped, section, end, match, fun, if, then, else,
+        return, do, for, in, while, break, continue, try, catch, throw,
+        mut, pure, opaque
+    },
+    morekeywords=[2]{
+        ℕ, ℝ, ∈, ≥, ≤, →, ∀, ∃, ⊢, ∧, ∨, ¬, ≠, ×, ⊗, ⊕, ∘, □, ◇, ∎,
+        ⟨, ⟩, ⦃, ⦄, ▸, ≈, ∼, ≡, ⌊, ⌋, ⌈, ⌉
+    },
+    morecomment=[l]--,     % Line comments start with --
+    morestring=[b]",       % Strings in double quotes
+    sensitive=true,         % Case-sensitive
+    keywordstyle=\color{blue}\bfseries,      % Regular keywords in blue and bold
+    keywordstyle=[2]\color{purple}\bfseries, % Special symbols in purple and bold
+    commentstyle=\color{green!50!black},     % Comments in dark green
+    stringstyle=\color{red},                 % Strings in red
 }
 
 
@@ -51,6 +72,14 @@ Let $b\in\mathbb{R}$.
 We have ${{(a+b)}}^2 \ge 0$.
 \end{tcolorbox}
 
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+def h(a : ℝ)(b : ℝ) := by
+  have h1 : (a + b) ^ 2 ≥ 0 := by obvious
+  exact ()
+\end{lstlisting}
+\end{tcolorbox}
 
 
 \begin{example}
@@ -83,6 +112,19 @@ We have $x+y \ge 2\sqrt{xy}$.
 We have $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) := by
+  have h3 : ((√ x) - (√ y)) ^ 2 ≥ 0 := by obvious
+  have h4 : x - 2 * (√ x * y) + y ≥ 0 := by calc
+      x - 2 * (√ x * y) + y = ((√ x) - (√ y)) ^ 2 := sorry
+    _ ≥ 0 := sorry
+  have h5 : x + y ≥ 2 * (√ x * y) := by obvious
+  have h6 : (x + y) / 2 ≥ √ x * y := by obvious
+  exact ()
+\end{lstlisting}
+\end{tcolorbox}
 
 
 \begin{example}
@@ -111,6 +153,20 @@ Let $c\in\mathbb{R}$.
 We have ${{(a-b)}}^2 + {{(b-c)}}^2 + {{(c-a)}}^2 = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. We have $a^2 + b^2 + c^2 - ab - bc - ca \geq 0$ by dividing by $2$.  It's enough to show that $a^2 + b^2 + c^2 \geq ab + bc + ca$. We have $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+def h(a : ℝ)(b : ℝ)(c : ℝ) := by
+  have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ 0 := by calc
+      (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := sorry
+    _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := sorry
+    _ ≥ 0 := sorry
+  have h2 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
+  show a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a byobvious
+  have h3 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  exact ()
+\end{lstlisting}
+\end{tcolorbox}
 
 
 \begin{example}
@@ -137,6 +193,21 @@ Let $x\in\mathbb{R}$. Assume $x > 0$.
 We have $x > 0$. We have ${(x-1)}^2 \ge 0$. We have $x^2 - 2x + 1 \ge 0$. We have $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x} = x - 2 + \frac{1}{x} \ge 0$. We have $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+def h(x : ℝ)(h1 : x > 0) := by
+  have h2 : x > 0 := by obvious
+  have h3 : (x - 1) ^ 2 ≥ 0 := by obvious
+  have h4 : x ^ 2 - 2 * x + 1 ≥ 0 := by obvious
+  have h5 : (x ^ 2 - 2 * x + 1) / x ≥ 0 := by calc
+      (x ^ 2 - 2 * x + 1) / x = x ^ 2 / x - 2 * x / x + 1 / x := sorry
+    _ = x - 2 + 1 / x := sorry
+    _ ≥ 0 := sorry
+  have h6 : x + 1 / x ≥ 2 := by obvious
+  exact ()
+\end{lstlisting}
+\end{tcolorbox}
 
 
 \begin{example}
@@ -169,4 +240,18 @@ We have $\frac{a^2+b^2}{2} - {\left(\frac{a+b}{2}\right)}^2 = \frac{2a^2+2b^2}{4
 We have ${\left(\frac{a+b}{2}\right)}^2 \leq \frac{a^2+b^2}{2}$.
 \end{tcolorbox}
 
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+def h(a : ℝ)(b : ℝ) := by
+  have h1 : (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 ≥ 0 := by calc
+      (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := sorry
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := sorry
+    _ = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := sorry
+    _ = (a - b) ^ 2 / 4 := sorry
+    _ ≥ 0 := sorry
+  have h2 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by obvious
+  exact ()
+\end{lstlisting}
+\end{tcolorbox}
 \end{document}

@@ -26,6 +26,7 @@ pub struct VdPipelineExecutor<'a, 'db> {
     simplified_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
     elaborated_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
     regularized_proof: Option<(Vec<AllLlmsStringTransformationRecord>, String)>,
+    lean4_code: Option<String>,
 }
 
 impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
@@ -54,6 +55,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
             simplified_proof: None,
             elaborated_proof: None,
             regularized_proof: None,
+            lean4_code: None,
         }
     }
 }
@@ -185,10 +187,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             self.db,
             &VdLeanTranspilationDenseScheme,
         );
-        let lean_code_formatted = tracker.show_fmt(self.db);
-        // use husky_print_utils::{p, DisplayIt};
-        // p!(DisplayIt(lean_code_formatted));
-        // todo!();
+        self.lean4_code = Some(tracker.show_fmt(self.db));
     }
 
     pub(crate) fn finish(
@@ -198,12 +197,14 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
         (Vec<AllLlmsStringTransformationRecord>, String),
         (Vec<AllLlmsStringTransformationRecord>, String),
         (Vec<AllLlmsStringTransformationRecord>, String),
+        String,
     ) {
         (
             self.raw_proof.unwrap(),
             self.simplified_proof.unwrap(),
             self.elaborated_proof.unwrap(),
             self.regularized_proof.unwrap(),
+            self.lean4_code.unwrap(),
         )
     }
 }
