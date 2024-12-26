@@ -133,7 +133,10 @@ impl<'db> VdSynExprBuilder<'db> {
                     }
                     _ => todo!(),
                 },
-                "It's enough to show" | "It's enough to prove" => match token.data {
+                "It's enough to show"
+                | "It's enough to show that"
+                | "It's enough to prove"
+                | "It's enough to prove that" => match token.data {
                     CnlTokenData::Math {
                         left_delimiter_token_idx,
                         math_asts,
@@ -148,7 +151,8 @@ impl<'db> VdSynExprBuilder<'db> {
                             vibe,
                         )
                     }
-                    _ => todo!(),
+                    CnlTokenData::Word(_, _) => (),
+                    _ => todo!("data: {:?}", token.data),
                 },
                 "" => match token.data {
                     CnlTokenData::Math {

@@ -135,7 +135,7 @@ impl<'a> LxLexer<'a> {
             }
             a if a.is_ascii_alphabetic() => Some(LxRoseTokenData::Word(BaseCoword::from_ref(
                 self.chars
-                    .next_str_slice_while(|c| c.is_ascii_alphabetic() || c == '-'),
+                    .next_str_slice_while(|c| c.is_ascii_alphabetic() || c == '-' || c == '\''),
                 self.db(),
             ))),
             '$' => {

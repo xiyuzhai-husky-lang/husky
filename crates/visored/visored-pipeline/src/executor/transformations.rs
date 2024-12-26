@@ -187,17 +187,6 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
         examples: vec![],
         antiexamples: vec![],
     },
-    AllLlmsStringTransformation {
-            model: self.routing_resolved.solver.latex_rewriter.model,
-            instruction: LlmStringTransformationInstruction::MainInputSide {
-                main:
-                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be ${{(a+b)}}^2$."
-                        .to_string(),
-                side: None,
-            },
-            examples: vec![],
-            antiexamples: vec![],
-        },
         AllLlmsStringTransformation {
             model: self.routing_resolved.solver.latex_rewriter.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {
@@ -207,6 +196,33 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
                 side: None,
             },
             examples: vec![],
+            antiexamples: vec![],
+        },
+    AllLlmsStringTransformation {
+            model: self.routing_resolved.solver.mathematical_understanding.model,
+            instruction: LlmStringTransformationInstruction::MainInputSide {
+                main:
+                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. In other words, detect every occurence of $(...)^2$ and replace it with ${{(...)}}^2$."
+                        .to_string(),
+                side: None,
+            },
+            examples: vec![
+                r#"
+                ---- EXAMPLE INPUT ----
+                ```latex
+                ...
+                We have $(a+b)^2 \ge 0$ because these are real numbers.
+                ...
+                ```
+
+                ---- EXAMPLE OUTPUT ----
+                ```latex
+                ...
+                We have ${{(a+b)}}^2 \ge 0$ because these are real numbers.
+                ...
+                ```
+                "#.to_string(),
+            ],
             antiexamples: vec![],
         },
 ]

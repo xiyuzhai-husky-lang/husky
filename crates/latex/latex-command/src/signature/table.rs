@@ -87,11 +87,11 @@ impl std::ops::Deref for LxCommandSignatureTable {
 impl LxCommandSignatureTable {
     fn default_commands(
         db: &EternerDb,
-    ) -> [(
+    ) -> Vec<(
         LxCommandPath,
         &'static [LxMode],
         &'static [LxCommandParameterMode],
-    ); 35] {
+    )> {
         let LxCommandPathMenu {
             // - root
             begin,
@@ -118,8 +118,11 @@ impl LxCommandSignatureTable {
             // -- relations
             eq,
             ne,
+            neq,
             le,
+            leq,
             ge,
+            geq,
             r#in,
             subset,
             supset,
@@ -148,7 +151,7 @@ impl LxCommandSignatureTable {
             frac,
             text,
         } = *lx_command_path_menu(db);
-        [
+        vec![
             // - root
             (usepackage, &[LxMode::Root], &[LxCommandParameterMode::Name]),
             (
@@ -175,8 +178,11 @@ impl LxCommandSignatureTable {
             // -- relations
             (eq, &[LxMode::Math], &[]),
             (ne, &[LxMode::Math], &[]),
+            (neq, &[LxMode::Math], &[]),
             (le, &[LxMode::Math], &[]),
+            (leq, &[LxMode::Math], &[]),
             (ge, &[LxMode::Math], &[]),
+            (geq, &[LxMode::Math], &[]),
             (r#in, &[LxMode::Math], &[]),
             (subset, &[LxMode::Math], &[]),
             (supset, &[LxMode::Math], &[]),
