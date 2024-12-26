@@ -337,10 +337,11 @@ impl<'a> LnMirExprFormatter<'a> {
                 write!(self.result, "show ");
                 self.format_expr_ext(ty);
                 write!(self.result, " by");
-                match tactics.len() {
-                    0 => unreachable!(),
-                    1 => self.format_tactic(tactics.first().unwrap()),
-                    _ => self.indented(|slf| slf.format_tactics(tactics)),
+                if tactics.len() == 1 {
+                    self.result += " ";
+                    self.format_tactic(tactics.first().unwrap());
+                } else {
+                    self.indented(|slf| slf.format_tactics(tactics));
                 }
             }
             LnMirTacticData::Calc {
