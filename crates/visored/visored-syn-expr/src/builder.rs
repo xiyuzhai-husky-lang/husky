@@ -103,6 +103,10 @@ impl<'db> VdSynExprBuilder<'db> {
         self.db
     }
 
+    pub(crate) fn content(&self) -> &'db str {
+        self.content
+    }
+
     pub(crate) fn token_storage(&self) -> &LxTokenStorage {
         self.token_storage
     }

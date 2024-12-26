@@ -25,6 +25,7 @@ use latex_prelude::mode::LxMode;
 
 pub struct LxLexer<'a> {
     db: &'a EternerDb,
+    input: &'a str,
     pub(crate) chars: TextCharIter<'a>,
     lane: LxTokenLane,
     pub(crate) storage: &'a mut LxTokenStorage,
@@ -40,6 +41,7 @@ impl<'a> LxLexer<'a> {
     ) -> Self {
         Self {
             db,
+            input,
             chars: TextCharIter::new(input),
             lane,
             storage,
@@ -51,6 +53,10 @@ impl<'a> LxLexer<'a> {
 impl<'a> LxLexer<'a> {
     pub fn db(&self) -> &'a EternerDb {
         self.db
+    }
+
+    pub fn input(&self) -> &'a str {
+        self.input
     }
 }
 
