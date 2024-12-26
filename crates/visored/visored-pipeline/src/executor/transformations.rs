@@ -202,26 +202,34 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
             model: self.routing_resolved.solver.mathematical_understanding.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {
                 main:
-                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. In other words, detect every occurence of $(...)^2$ and replace it with ${{(...)}}^2$."
+                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$."
                         .to_string(),
-                side: None,
+                side: Some(
+                    r#"
+                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.
+                    
+                    Wrap the proof in \begin{{proof}} and \end{{proof}}."#
+                    .to_string(),
+                ),
             },
             examples: vec![
                 r#"
-                ---- EXAMPLE INPUT ----
-                ```latex
-                ...
-                We have $(a+b)^2 \ge 0$ because these are real numbers.
-                ...
-                ```
-
-                ---- EXAMPLE OUTPUT ----
-                ```latex
-                ...
-                We have ${{(a+b)}}^2 \ge 0$ because these are real numbers.
-                ...
-                ```
-                "#.to_string(),
+---- EXAMPLE
+```latex
+$(a+b)^2 \ge 0$ should be replaced by ${{(a+b)}}^2 \ge 0$.
+```
+"#.to_string(),
+                r#"
+---- EXAMPLE
+```latex
+$\left(a+b\right)^2 \ge 0$ should be replaced by ${\left(a+b\right)}^2 \ge 0$.
+```
+"#.to_string(),r#"
+---- EXAMPLE
+```latex
+$f(a+b)^2 \ge 0$ should be replaced by ${f(a+b)}^2 \ge 0$.
+```
+"#.to_string(),
             ],
             antiexamples: vec![],
         },

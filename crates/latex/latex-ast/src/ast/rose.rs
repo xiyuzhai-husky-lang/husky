@@ -139,7 +139,11 @@ impl<'a> LxAstParser<'a> {
             LxRoseTokenData::Punctuation(lx_rose_punctuation) => {
                 LxRoseAstData::Punctuation(token_idx, lx_rose_punctuation)
             }
-            LxRoseTokenData::LeftDelimiter(lx_rose_delimiter) => todo!(),
+            LxRoseTokenData::LeftDelimiter(lx_rose_delimiter) => {
+                use husky_print_utils::p;
+                p!(self.input());
+                todo!()
+            }
             LxRoseTokenData::RightDelimiter(lx_rose_delimiter) => todo!(),
         })
     }

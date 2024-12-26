@@ -257,11 +257,11 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             LxMathAstData::Lefted {
                 left_command_token_idx,
                 argument,
-            } => todo!(),
+            } => self.resolve_lefted(left_command_token_idx, argument),
             LxMathAstData::Righted {
                 right_command_token_idx,
                 argument,
-            } => todo!(),
+            } => self.resolve_righted(right_command_token_idx, argument),
         }
     }
 
@@ -357,6 +357,54 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             VdCompleteCommandGlobalResolution::UsePackage => todo!(),
             VdCompleteCommandGlobalResolution::NewDivision(_) => todo!(),
             VdCompleteCommandGlobalResolution::DocumentClass => todo!(),
+        }
+    }
+
+    fn resolve_lefted(
+        &mut self,
+        left_command_token_idx: LxMathTokenIdx,
+        argument: LxMathAstIdx,
+    ) -> DisambiguatedAst {
+        match self.builder.ast_arena()[argument] {
+            LxMathAstData::Punctuation(lx_math_token_idx, lx_math_punctuation) => {
+                match lx_math_punctuation {
+                    LxMathPunctuation::Lpar => {
+                        DisambiguatedAst::LeftDelimiter(VdBaseLeftDelimiter::Lpar)
+                    }
+                    LxMathPunctuation::Lbox => todo!(),
+                    LxMathPunctuation::EscapedLcurl => todo!(),
+                    _ => todo!(),
+                }
+            }
+            _ => todo!(),
+        }
+    }
+
+    fn resolve_righted(
+        &mut self,
+        right_command_token_idx: LxMathTokenIdx,
+        argument: LxMathAstIdx,
+    ) -> DisambiguatedAst {
+        match self.builder.ast_arena()[argument] {
+            LxMathAstData::Punctuation(lx_math_token_idx, lx_math_punctuation) => {
+                match lx_math_punctuation {
+                    LxMathPunctuation::Rpar => {
+                        DisambiguatedAst::RightDelimiter(VdBaseRightDelimiter::Rpar)
+                    }
+                    LxMathPunctuation::Rbox => todo!(),
+                    LxMathPunctuation::EscapedRcurl => todo!(),
+                    _ => todo!(),
+                }
+            }
+            ref data => {
+                println!(
+                    r#"content:
+
+{}"#,
+                    self.builder.content()
+                );
+                todo!("data = {:?}", data)
+            }
         }
     }
 }
