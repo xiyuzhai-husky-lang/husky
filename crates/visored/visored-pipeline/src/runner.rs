@@ -15,6 +15,8 @@ use std::{fs, path::PathBuf};
 pub struct VdPipelineRunner<'db> {
     db: &'db EternerDb,
     tokio_runtime: Arc<tokio::runtime::Runtime>,
+    // TODO: replace with preloaded specs???
+    specs_dir: &'db Path,
     instance_storage: VdPipelineInstanceStorage,
     instance_files: Vec<VdPipelineInstanceFile>,
     configs: Vec<Arc<VdPipelineConfig>>,
@@ -29,6 +31,7 @@ impl<'db> VdPipelineRunner<'db> {
     pub fn new(
         db: &'db EternerDb,
         tokio_runtime: Arc<tokio::runtime::Runtime>,
+        specs_dir: &'db Path,
         config_path: impl AsRef<Path>,
         src_file_paths: impl IntoIterator<Item = PathBuf>,
     ) -> VdPipelineResult<Self> {
@@ -62,6 +65,7 @@ impl<'db> VdPipelineRunner<'db> {
         Ok(Self {
             db,
             tokio_runtime,
+            specs_dir,
             instance_files,
             configs,
             instance_storage,
@@ -86,7 +90,7 @@ impl<'db> std::ops::Index<VdPipelineInstanceIdx> for VdPipelineRunner<'db> {
 impl<'db> VdPipelineRunner<'db> {
     pub fn run_all_single_threaded(&mut self, seed: AlienSeed) -> VdPipelineResult<()> {
         for instance in self.instance_storage.all_instances_mut() {
-            instance.run(seed, self.db, self.tokio_runtime.clone())?;
+            instance.run(seed, self.db, self.tokio_runtime.clone(), self.specs_dir)?;
         }
         Ok(())
     }
@@ -97,7 +101,9 @@ impl<'db> VdPipelineRunner<'db> {
         self.instance_storage
             .all_instances_mut()
             .par_iter_mut()
-            .try_for_each(|instance| instance.run(seed, self.db, self.tokio_runtime.clone()))?;
+            .try_for_each(|instance| {
+                instance.run(seed, self.db, self.tokio_runtime.clone(), self.specs_dir)
+            })?;
         Ok(())
     }
 }

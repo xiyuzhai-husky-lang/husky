@@ -7,7 +7,7 @@ use idx_arena::{ArenaIdx, ArenaIdxRange};
 use crate::{
     error::VdPipelineResult, input::VdPipelineInput, tracker::VdPipelineTracker, VdPipelineConfig,
 };
-use std::sync::Arc;
+use std::{path::Path, sync::Arc};
 
 pub struct VdPipelineInstance {
     config: Arc<VdPipelineConfig>,
@@ -41,12 +41,15 @@ impl VdPipelineInstance {
         seed: AlienSeed,
         db: &EternerDb,
         tokio_runtime: Arc<tokio::runtime::Runtime>,
+        // TODO: replace with preloaded specs???
+        specs_dir: &Path,
     ) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
         with_seed(seed, || {
             self.tracker = Some(VdPipelineTracker::new(
                 db,
                 tokio_runtime,
+                specs_dir,
                 self.input.clone(),
                 self.config.clone(),
             ));
