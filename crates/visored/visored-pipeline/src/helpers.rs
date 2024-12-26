@@ -15,7 +15,6 @@ const LATEX_DOCUMENT_PREFIX: &'static str = r#"%!TEX TS-program = xelatex
 \usepackage{listings}
 \usepackage{amsthm}
 \usepackage{fontspec}  % For Unicode support
-\setmainfont{DejaVu Sans}  % Or another Unicode-compatible font
 \setmonofont{DejaVu Sans Mono}  % For monospace/code blocks
 \usepackage{unicode-math}
 % \setmathfont{XITS Math}  % Or another Unicode math font
