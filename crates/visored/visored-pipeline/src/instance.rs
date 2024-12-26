@@ -43,6 +43,7 @@ impl VdPipelineInstance {
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         // TODO: replace with preloaded specs???
         specs_dir: &Path,
+        lean4_dir: &Path,
     ) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
         with_seed(seed, || {
@@ -50,6 +51,7 @@ impl VdPipelineInstance {
                 db,
                 tokio_runtime,
                 specs_dir,
+                lean4_dir,
                 self.input.clone(),
                 self.config.clone(),
             ));

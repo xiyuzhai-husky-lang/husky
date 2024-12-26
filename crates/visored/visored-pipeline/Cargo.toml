@@ -31,6 +31,7 @@ lean-helpers.workspace = true
 all-llms.workspace = true
 llm-prelude.workspace = true
 # utils
+husky-io-utils.workspace = true
 husky-print-utils.workspace = true
 # visored
 visored-models.workspace = true

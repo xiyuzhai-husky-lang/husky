@@ -4,9 +4,11 @@ use crate::*;
 use all_llms::transformation::AllLlmsStringTransformationRecord;
 use all_llms::{model::AllLlmModel, AllLlmsClient};
 use eterned::db::EternerDb;
+use husky_io_utils::diff_write;
 use input::VdPipelineInput;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_vfs::path::LxFilePath;
+use lean_helpers::lake_lean;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use visored_lean_transpilation::{
@@ -19,6 +21,7 @@ pub struct VdPipelineExecutor<'a, 'db> {
     db: &'db EternerDb,
     // TODO: replace with preloaded specs???
     specs_dir: &'a Path,
+    lean4_dir: &'a Path,
     input: &'a VdPipelineInput,
     config: &'a VdPipelineConfig,
     llm_client: AllLlmsClient<'db>,
@@ -35,6 +38,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         // TODO: replace with preloaded specs???
         specs_dir: &'a Path,
+        lean4_dir: &'a Path,
         input: &'a VdPipelineInput,
         config: &'a VdPipelineConfig,
     ) -> Self {
@@ -48,6 +52,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
         Self {
             db,
             specs_dir,
+            lean4_dir,
             input,
             config,
             llm_client: AllLlmsClient::new(db, tokio_runtime, cache_dir).unwrap(),
@@ -187,7 +192,32 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             self.db,
             &VdLeanTranspilationDenseScheme,
         );
-        self.lean4_code = Some(tracker.show_fmt(self.db));
+        self.lean4_code = Some(format!(
+            r#"import Mathlib
+import Obvious
+open Obvious
+
+{}
+"#,
+            tracker.show_fmt(self.db)
+        ));
+        use husky_print_utils::p;
+        assert!(self.lean4_dir.exists());
+        assert!(self.lean4_dir.is_dir());
+        p!(self.lean4_dir);
+        let lean4_code_path = self
+            .input
+            .relative_path
+            .to_logical_path(self.lean4_dir)
+            .with_extension("")
+            .join(format!("example-{}.lean", self.input.index + 1));
+        p!(&lean4_code_path);
+        if let Some(parent) = lean4_code_path.parent() {
+            std::fs::create_dir_all(parent).unwrap();
+        }
+        diff_write(&lean4_code_path, self.lean4_code.as_ref().unwrap(), true);
+        // p!(lake_lean(&lean4_code_path));
+        todo!("compile lean4 code");
     }
 
     pub(crate) fn finish(

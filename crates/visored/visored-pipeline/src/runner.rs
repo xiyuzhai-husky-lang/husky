@@ -17,6 +17,7 @@ pub struct VdPipelineRunner<'db> {
     tokio_runtime: Arc<tokio::runtime::Runtime>,
     // TODO: replace with preloaded specs???
     specs_dir: &'db Path,
+    lean4_dir: &'db Path,
     instance_storage: VdPipelineInstanceStorage,
     instance_files: Vec<VdPipelineInstanceFile>,
     configs: Vec<Arc<VdPipelineConfig>>,
@@ -32,8 +33,10 @@ impl<'db> VdPipelineRunner<'db> {
         db: &'db EternerDb,
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         specs_dir: &'db Path,
+        lean4_dir: &'db Path,
         config_path: impl AsRef<Path>,
         src_file_paths: impl IntoIterator<Item = PathBuf>,
+        src_root: &'db Path,
     ) -> VdPipelineResult<Self> {
         let configs = VdPipelineConfig::from_yaml_file(config_path)?;
         let mut instance_storage = VdPipelineInstanceStorage::new_empty();
@@ -46,7 +49,7 @@ impl<'db> VdPipelineRunner<'db> {
         let instance_files = unique_src_file_paths
             .into_iter()
             .map(|path| {
-                let examples = VdPipelineInput::read_examples_from_file(&path)?;
+                let examples = VdPipelineInput::read_examples_from_file(&path, src_root)?;
                 let instances = examples
                     .iter()
                     .map(|input| {
@@ -66,6 +69,7 @@ impl<'db> VdPipelineRunner<'db> {
             db,
             tokio_runtime,
             specs_dir,
+            lean4_dir,
             instance_files,
             configs,
             instance_storage,
@@ -90,7 +94,13 @@ impl<'db> std::ops::Index<VdPipelineInstanceIdx> for VdPipelineRunner<'db> {
 impl<'db> VdPipelineRunner<'db> {
     pub fn run_all_single_threaded(&mut self, seed: AlienSeed) -> VdPipelineResult<()> {
         for instance in self.instance_storage.all_instances_mut() {
-            instance.run(seed, self.db, self.tokio_runtime.clone(), self.specs_dir)?;
+            instance.run(
+                seed,
+                self.db,
+                self.tokio_runtime.clone(),
+                self.specs_dir,
+                self.lean4_dir,
+            )?;
         }
         Ok(())
     }
@@ -102,7 +112,13 @@ impl<'db> VdPipelineRunner<'db> {
             .all_instances_mut()
             .par_iter_mut()
             .try_for_each(|instance| {
-                instance.run(seed, self.db, self.tokio_runtime.clone(), self.specs_dir)
+                instance.run(
+                    seed,
+                    self.db,
+                    self.tokio_runtime.clone(),
+                    self.specs_dir,
+                    self.lean4_dir,
+                )
             })?;
         Ok(())
     }

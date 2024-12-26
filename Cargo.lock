@@ -13480,6 +13480,7 @@ dependencies = [
  "all-llms",
  "eterned",
  "expect-test",
+ "husky-io-utils",
  "husky-path-utils",
  "husky-print-utils",
  "idx-arena",
