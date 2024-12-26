@@ -12,6 +12,7 @@ pub struct VdPipelineTracker {
     pub simplified_proof: (Vec<AllLlmsStringTransformationRecord>, String),
     pub elaborated_proof: (Vec<AllLlmsStringTransformationRecord>, String),
     pub regularized_proof: (Vec<AllLlmsStringTransformationRecord>, String),
+    pub lean4_code: String,
 }
 
 impl VdPipelineTracker {
@@ -25,7 +26,8 @@ impl VdPipelineTracker {
     ) -> Self {
         let mut executor = VdPipelineExecutor::new(db, tokio_runtime, specs_dir, &*input, &*config);
         executor.execute_all();
-        let (raw_proof, simplified_proof, elaborated_proof, regularized_proof) = executor.finish();
+        let (raw_proof, simplified_proof, elaborated_proof, regularized_proof, lean4_code) =
+            executor.finish();
         Self {
             input,
             config,
@@ -33,6 +35,7 @@ impl VdPipelineTracker {
             simplified_proof,
             elaborated_proof,
             regularized_proof,
+            lean4_code,
         }
     }
 }
