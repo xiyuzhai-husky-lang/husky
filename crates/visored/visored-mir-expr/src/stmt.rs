@@ -35,7 +35,10 @@ pub enum VdMirStmtData {
         pattern: VdMirPattern,
         assignment: VdMirExprIdx,
     },
-    Then {
+    Have {
+        prop: VdMirExprIdx,
+    },
+    Show {
         prop: VdMirExprIdx,
     },
 }
@@ -174,9 +177,9 @@ impl<'db> VdMirExprBuilder<'db> {
         match *self.sem_clause_arena()[clause].data() {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
                 ref dispatch,
             } => match dispatch {
                 VdSemLetClauseDispatch::Assigned(dispatch) => todo!(),
@@ -188,18 +191,25 @@ impl<'db> VdMirExprBuilder<'db> {
                 },
             },
             VdSemClauseData::Assume {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::LetPlaceholder {
                 pattern: VdMirPattern::Assumed,
                 ty: formula.to_vd_mir(self),
             },
             VdSemClauseData::Have {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
-            } => VdMirStmtData::Then {
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdMirStmtData::Have {
+                prop: formula.to_vd_mir(self),
+            },
+            VdSemClauseData::Show {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdMirStmtData::Show {
                 prop: formula.to_vd_mir(self),
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),

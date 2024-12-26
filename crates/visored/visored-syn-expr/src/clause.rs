@@ -217,11 +217,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Have { formula, .. } => self.build_expr(formula),
-            VdSynClauseData::Show {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => todo!(),
+            VdSynClauseData::Show { formula, .. } => self.build_expr(formula),
         }
     }
 

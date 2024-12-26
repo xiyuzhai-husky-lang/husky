@@ -12,20 +12,25 @@ use visored_syn_expr::clause::{VdSynClauseData, VdSynClauseIdx, VdSynClauseIdxRa
 pub enum VdSemClauseData {
     Verb,
     Let {
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
         dispatch: VdSemLetClauseDispatch,
     },
     Assume {
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
     Have {
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
+    },
+    Show {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
+        formula: VdSemExprIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
     Todo(LxRoseTokenIdx),
 }
@@ -69,41 +74,45 @@ impl<'a> VdSemExprBuilder<'a> {
     fn build_clause_data(&mut self, clause: VdSynClauseIdx) -> VdSemClauseData {
         match *self.syn_clause_arena()[clause].data() {
             VdSynClauseData::Let {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
+                left_math_delimiter_token_idx,
                 formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
+                right_math_delimiter_token_idx,
             } => {
                 let resolution = &self.syn_let_clause_resolutions()[clause];
                 self.build_let_clause(
-                    left_dollar_token_idx,
+                    left_math_delimiter_token_idx,
                     formula,
-                    right_dollar_token_idx,
+                    right_math_delimiter_token_idx,
                     resolution,
                 )
             }
             VdSynClauseData::Assume {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
+                left_math_delimiter_token_idx,
                 formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
+                right_math_delimiter_token_idx,
             } => VdSemClauseData::Assume {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx,
                 formula: formula.to_vd_sem(self),
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx,
             },
             VdSynClauseData::Have {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
+                left_math_delimiter_token_idx,
                 formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
+                right_math_delimiter_token_idx,
             } => VdSemClauseData::Have {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx,
                 formula: formula.to_vd_sem(self),
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx,
             },
             VdSynClauseData::Show {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
+                left_math_delimiter_token_idx,
                 formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => todo!(),
+                right_math_delimiter_token_idx,
+            } => VdSemClauseData::Show {
+                left_math_delimiter_token_idx,
+                formula: formula.to_vd_sem(self),
+                right_math_delimiter_token_idx,
+            },
         }
     }
 }
@@ -117,20 +126,25 @@ impl VdSemClauseData {
         match *self {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
-                left_dollar_token_idx,
-                right_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
                 formula,
                 ..
             } => vec![VdSemClauseChild::Expr(formula)],
             VdSemClauseData::Assume {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => vec![VdSemClauseChild::Expr(formula)],
             VdSemClauseData::Have {
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => vec![VdSemClauseChild::Expr(formula)],
+            VdSemClauseData::Show {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => vec![VdSemClauseChild::Expr(formula)],
             VdSemClauseData::Todo(..) => vec![],
         }

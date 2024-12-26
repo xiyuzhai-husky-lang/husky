@@ -333,7 +333,16 @@ impl<'a> LnMirExprFormatter<'a> {
                 write!(self.result, " := ");
                 self.format_expr_ext(construction);
             }
-            LnMirTacticData::Show { .. } => todo!(),
+            LnMirTacticData::Show { ty, tactics } => {
+                write!(self.result, "show ");
+                self.format_expr_ext(ty);
+                write!(self.result, " by");
+                match tactics.len() {
+                    0 => unreachable!(),
+                    1 => self.format_tactic(tactics.first().unwrap()),
+                    _ => self.indented(|slf| slf.format_tactics(tactics)),
+                }
+            }
             LnMirTacticData::Calc {
                 leader,
                 ref followers,
