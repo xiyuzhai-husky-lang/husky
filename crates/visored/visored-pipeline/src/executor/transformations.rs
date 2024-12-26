@@ -187,6 +187,17 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
         examples: vec![],
         antiexamples: vec![],
     },
+    AllLlmsStringTransformation {
+            model: self.routing_resolved.solver.latex_rewriter.model,
+            instruction: LlmStringTransformationInstruction::MainInputSide {
+                main:
+                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be ${{(a+b)}}^2$."
+                        .to_string(),
+                side: None,
+            },
+            examples: vec![],
+            antiexamples: vec![],
+        },
         AllLlmsStringTransformation {
             model: self.routing_resolved.solver.latex_rewriter.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {

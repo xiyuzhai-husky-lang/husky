@@ -221,8 +221,8 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         self.reduce(VdPrecedenceRange::RIGHT_DELIMITER_LEFT, None);
         let Some(item) = self.take_complete_expr() else {
             use husky_print_utils::{p, DisplayIt};
-            p!(self.show());
-            todo!()
+            p!(DisplayIt(self.show()));
+            todo!("this is very likely due to something like $(a+b)^2$ where it should be ${{(a+b)}}^2$")
         };
         let Some(IncompleteVdSynExprData::Delimited { left_delimiter }) =
             self.take_last_incomplete_expr()

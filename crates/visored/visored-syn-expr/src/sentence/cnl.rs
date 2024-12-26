@@ -348,10 +348,6 @@ impl<'db> VdSynExprBuilder<'db> {
         right_delimiter_token_idx: LxRoseTokenIdx,
         vibe: VdSynExprVibe,
     ) -> VdSynSentenceEntry {
-        if i != tokens.len() - 2 {
-            todo!()
-        }
-
         let formula = (
             ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
             math_asts,
