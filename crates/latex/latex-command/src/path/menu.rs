@@ -62,6 +62,9 @@ pub struct LxCommandPathMenu {
     pub frac: LxCommandPath,
     // -- environments
     pub text: LxCommandPath,
+    // - others
+    pub left: LxCommandPath,
+    pub right: LxCommandPath,
 }
 
 impl LxCommandPathMenu {
@@ -126,6 +129,8 @@ impl LxCommandPathMenu {
             sqrt: p("sqrt"),
             frac: p("frac"),
             text: p("text"),
+            left: p("left"),
+            right: p("right"),
         }
     }
 }
