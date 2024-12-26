@@ -124,5 +124,47 @@
       }
     },
     "time": "2024-12-25T22:21:59.430262263Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $(a+b)^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have {$(a+b)}^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-26T02:26:49.364390569Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. In other words, detect every occurence of $(...)^2$ and replace it with ${{(...)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $(a+b)^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n                ---- EXAMPLE INPUT ----\n                ```latex\n                ...\n                We have $(a+b)^2 \\ge 0$ because these are real numbers.\n                ...\n                ```\n\n                ---- EXAMPLE OUTPUT ----\n                ```latex\n                ...\n                We have ${{(a+b)}}^2 \\ge 0$ because these are real numbers.\n                ...\n                ```\n                \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have ${{(a+b)}}^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-26T02:27:48.145680225Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. In other words, detect every occurence of $(...)^2$ and replace it with ${{(...)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n                ---- EXAMPLE INPUT ----\n                ```latex\n                ...\n                We have $(a+b)^2 \\ge 0$ because these are real numbers.\n                ...\n                ```\n\n                ---- EXAMPLE OUTPUT ----\n                ```latex\n                ...\n                We have ${{(a+b)}}^2 \\ge 0$ because these are real numbers.\n                ...\n                ```\n                \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-26T02:30:38.742917690Z"
   }
 ]

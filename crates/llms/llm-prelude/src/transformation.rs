@@ -95,6 +95,7 @@ impl LlmStringTransformationInstruction {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LlmStringTransformationRecord<Model> {
     pub transformation: LlmStringTransformation<Model>,
     pub input: String,
