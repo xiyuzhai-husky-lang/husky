@@ -166,5 +166,33 @@
       }
     },
     "time": "2024-12-26T02:30:38.742917690Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have {{(a+b)}}^2 \\ge 0.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-26T05:05:36.660319739Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nWe have ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-26T05:07:10.879946249Z"
   }
 ]
