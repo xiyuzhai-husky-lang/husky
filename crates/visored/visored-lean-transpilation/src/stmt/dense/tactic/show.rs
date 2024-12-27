@@ -5,8 +5,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         prop: VdMirExprIdx,
         following_stmts: VdMirStmtIdxRange,
-        tactics: &mut Vec<LnMirTacticData>,
-    ) {
+    ) -> LnMirTacticData {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -17,14 +16,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 followers,
                 joined_separator,
                 joined_signature,
-                tactics,
             ),
             _ => {
                 let ty = prop.to_lean(self);
-                tactics.push(LnMirTacticData::Show {
-                    ty,
-                    tactics: following_stmts.to_lean(self),
+                // It's intentional that this is transpiled to have tactic instead of show.
+                // Lean's show will change the goal. However, until lean's show tactic can supply tactics for goal conversion, we will stick to have tactic.
+                let construction_tactics = following_stmts.to_lean(self);
+                let construction = self.alloc_expr(LnMirExprData::By {
+                    tactics: construction_tactics,
                 });
+                LnMirTacticData::Have {
+                    ident: self.mangle_hypothesis(),
+                    ty,
+                    construction,
+                }
             }
         }
     }
@@ -35,8 +40,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
-        tactics: &mut Vec<LnMirTacticData>,
-    ) {
+    ) -> LnMirTacticData {
         todo!()
         // debug_assert!(followers.len() >= 2);
         // let ident = self.mangle_hypothesis();
@@ -63,7 +67,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         //     tactics: self.alloc_tactics(vec![tactic_data]),
         // };
         // let construction = self.alloc_expr(construction_data);
-        // tactics.push(LnMirTacticData::Show {
+        // tactics.push(LnMirTacticData::Have {
         //     ident,
         //     ty: self.alloc_expr(LnMirExprData::Application {
         //         function: ultimate_prop_function,

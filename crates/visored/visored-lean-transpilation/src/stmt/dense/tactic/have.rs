@@ -1,11 +1,7 @@
 use super::*;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
-    pub(super) fn build_ln_tactic_from_vd_have(
-        &mut self,
-        prop: VdMirExprIdx,
-        tactics: &mut Vec<LnMirTacticData>,
-    ) {
+    pub(super) fn build_ln_tactic_from_vd_have(&mut self, prop: VdMirExprIdx) -> LnMirTacticData {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -16,7 +12,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 followers,
                 joined_separator,
                 joined_signature,
-                tactics,
             ),
             _ => {
                 let ident = self.mangle_hypothesis();
@@ -25,11 +20,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 let construction = self.alloc_expr(LnMirExprData::By {
                     tactics: construction_tactics,
                 });
-                tactics.push(LnMirTacticData::Have {
+                LnMirTacticData::Have {
                     ident,
                     ty,
                     construction,
-                });
+                }
             }
         }
     }
@@ -40,8 +35,41 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
-        tactics: &mut Vec<LnMirTacticData>,
-    ) {
+    ) -> LnMirTacticData {
+        let n = calc_number_of_foremost_equivalences(followers);
+        match n {
+            0 => self.build_have_nontrivial_chaining_separated_list_aux(
+                leader,
+                followers,
+                joined_separator,
+                joined_signature,
+            ),
+            n => self.build_have_nontrivial_chaining_separated_list_with_foremost_equivalences(
+                leader,
+                followers,
+                joined_separator,
+                joined_signature,
+            ),
+        }
+    }
+
+    fn build_have_nontrivial_chaining_separated_list_with_foremost_equivalences(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+        joined_separator: VdBaseSeparator,
+        joined_signature: VdBaseSeparatorSignature,
+    ) -> LnMirTacticData {
+        todo!()
+    }
+
+    fn build_have_nontrivial_chaining_separated_list_aux(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+        joined_separator: VdBaseSeparator,
+        joined_signature: VdBaseSeparatorSignature,
+    ) -> LnMirTacticData {
         debug_assert!(followers.len() >= 2);
         let ident = self.mangle_hypothesis();
         // TODO: Maye use to_lean trait method?
@@ -67,13 +95,29 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         let construction = self.alloc_expr(LnMirExprData::By {
             tactics: construction_tactics,
         });
-        tactics.push(LnMirTacticData::Have {
+        LnMirTacticData::Have {
             ident,
             ty: self.alloc_expr(LnMirExprData::Application {
                 function: ultimate_prop_function,
                 arguments: ultimate_prop_arguments,
             }),
             construction,
-        });
+        }
     }
+}
+
+enum NontrivialChainingSeparatedListKind {
+    WithoutForemostEquivalences,
+    WithForemostEquivalences,
+}
+
+fn calc_number_of_foremost_equivalences(followers: &[(VdMirFunc, VdMirExprIdx)]) -> usize {
+    followers
+        .iter()
+        .position(|(func, _)| !is_equivalence(func))
+        .unwrap_or(followers.len())
+}
+
+fn is_equivalence(func: &VdMirFunc) -> bool {
+    todo!()
 }
