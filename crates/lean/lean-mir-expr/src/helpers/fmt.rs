@@ -153,30 +153,23 @@ impl<'a> LnMirExprFormatter<'a> {
                     }
                     LnMirFunc::SuffixOpr { opr, instantiation } => todo!(),
                     LnMirFunc::Expr(expr) => {
-                        self.format_expr(expr, subexpr_try_multiline, LnPrecedenceRange::Any);
+                        self.format_expr(
+                            expr,
+                            subexpr_try_multiline,
+                            LnPrecedenceRange::APPLICATION_SUBEXPR,
+                        );
                         for arg in arguments {
                             self.result.push(' ');
-                            self.format_expr(arg, subexpr_try_multiline, LnPrecedenceRange::Any);
+                            self.format_expr(
+                                arg,
+                                subexpr_try_multiline,
+                                LnPrecedenceRange::APPLICATION_SUBEXPR,
+                            );
                         }
                     }
                     // ad hoc
                     LnMirFunc::InSet => self.result += "sorry",
                 }
-                // for expr in arguments {
-                //     self.format_expr(
-                //         expr,
-                //         subexpr_try_multiline,
-                //         LnPrecedenceRange::APPLICATION_SUBEXPR,
-                //     );
-                // }
-                // LnMirExprData::Prefix { opr, opd } => {
-                //                 self.result += opr.fmt_str();
-                //                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
-                //             }
-                //             LnMirExprData::Suffix { opd, opr } => {
-                //                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
-                //                 self.result += opr.fmt_str();
-                //             }
             }
             LnMirExprData::Literal(lit) => {
                 self.result += match lit.data() {
