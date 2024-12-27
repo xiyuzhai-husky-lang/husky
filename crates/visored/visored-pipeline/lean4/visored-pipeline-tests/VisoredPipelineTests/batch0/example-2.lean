@@ -2,7 +2,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) := by
+def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) : (x + y) / 2 ≥ √ x * y := by
   have h3 : (√ x - √ y) ^ 2 ≥ 0 := by obvious
   first
   | have h4 : x - 2 * √ x * y + y ≥ 0 := by calc

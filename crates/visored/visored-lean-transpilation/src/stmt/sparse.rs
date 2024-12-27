@@ -66,6 +66,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                 ref pattern,
                 assignment,
             } => todo!(),
+            VdMirStmtData::Goal { prop } => todo!(),
             VdMirStmtData::Have { prop: formula } => self.build_have_stmt(formula),
             VdMirStmtData::Show { prop: formula } => self.build_show_stmt(formula),
         }

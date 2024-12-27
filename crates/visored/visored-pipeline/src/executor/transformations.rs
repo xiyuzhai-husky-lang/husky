@@ -176,6 +176,7 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
             main: "You're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:
 - Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.
 - Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.
+- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.
             "
                 .to_string(),
             side: Some(
