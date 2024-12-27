@@ -35,16 +35,23 @@ Goodbye, world!
             antiexamples: vec![],
         },
         expect![[r#"
+            You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.
+
+            ----- MAIN INSTRUCTIONS -----
             Replace each word `hello` with `goodbye` in the following text:
 
+            ----- INPUT -----
             ```text
             Hello, world!
             ```
 
+            ----- SIDE INSTRUCTIONS -----
             Addtionally, you should wrap the output in a ```text``` block.
 
-            EXAMPLES:
-            ---------
+
+            Here are some examples that help you understand the task.
+
+            ------- EXAMPLES -------
             Example 1:
             Given:
 

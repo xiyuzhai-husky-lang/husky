@@ -41,11 +41,11 @@ Let $x\in\mathbb{R}$.
               └─ def: `h`
                 ├─ item path: `ℝ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 1 }`
+                  └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             def h(x : ℝ) := by
-              exact ()"#]],
+              obvious"#]],
     );
     t(
         models,
@@ -61,12 +61,12 @@ Let $x\in\mathbb{R}$.
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 1 }`
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
             end Section1
         "#]],
     );
@@ -90,13 +90,13 @@ Let $y\in\mathbb{R}$.
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Exact { term: 1 }`
+              │     └─ tactic: `Obvious`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Exact { term: 3 }`
+              │       └─ tactic: `Obvious`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -105,11 +105,11 @@ Let $y\in\mathbb{R}$.
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
 
             namespace Subsection1
             def h(y : ℝ) := by
-              exact ()
+              obvious
             end Subsection1
 
             namespace Subsection2
