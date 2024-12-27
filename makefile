@@ -198,3 +198,6 @@ pip-activate-venv-bash:
 
 pip-sync:
 	pip-sync
+
+gemini-exceeds-limit:
+	fish -c '. .llmenvs/ai-math-autoformalization-activate.fish && cargo run -p gemini --example exceeds_limit'
