@@ -197,7 +197,10 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::Letter(letter) => LxMathAstData::PlainLetter(token_idx, letter),
             LxMathTokenData::Punctuation(opr) => LxMathAstData::Punctuation(token_idx, opr), // it's not constructed into a tree yet in the ast stage
             LxMathTokenData::Digit(digit) => LxMathAstData::Digit(token_idx, digit),
-            LxMathTokenData::Other(c) => todo!("c: {:?}", c),
+            LxMathTokenData::Other(c) => {
+                println!("input: \n{}", self.input());
+                todo!("c: {:?}", c)
+            }
             LxMathTokenData::Subscript => todo!(),
             LxMathTokenData::Superscript => todo!(),
             LxMathTokenData::Error(_) => todo!(),
