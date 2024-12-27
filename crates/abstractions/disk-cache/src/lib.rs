@@ -63,7 +63,8 @@ where
     /// let db = ();
     /// let temp_dir = tempfile::tempdir().unwrap();
     /// let cache_path = temp_dir.path().join("cache.json");
-    /// let cache: DiskCache<(), (), String, String> = DiskCache::new(db, cache_path).unwrap();
+    /// let tokio_runtime = std::sync::Arc::new(tokio::runtime::Runtime::new().unwrap());
+    /// let cache: DiskCache<(), (), String, String> = DiskCache::new(db, tokio_runtime, cache_path).unwrap();
     /// ```
     pub fn new(
         db: Db,
