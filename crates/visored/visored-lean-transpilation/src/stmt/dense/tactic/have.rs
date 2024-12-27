@@ -49,6 +49,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 followers,
                 joined_separator,
                 joined_signature,
+                n,
             ),
         }
     }
@@ -59,8 +60,41 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
+        number_of_foremost_equivalences: usize,
     ) -> LnMirTacticData {
-        todo!()
+        let foremost_equivalences = &followers[..number_of_foremost_equivalences];
+        let non_foremost_equivalences = &followers[number_of_foremost_equivalences..];
+        let reverse_leader = foremost_equivalences.last().unwrap().1;
+        let reverse_followers: Vec<_> = (0..number_of_foremost_equivalences)
+            .into_iter()
+            .map(|i| {
+                (
+                    foremost_equivalences[number_of_foremost_equivalences - 1 - i].0,
+                    if i < number_of_foremost_equivalences - 1 {
+                        foremost_equivalences[number_of_foremost_equivalences - 2 - i].1
+                    } else {
+                        leader
+                    },
+                )
+            })
+            .chain(non_foremost_equivalences.iter().copied())
+            .collect();
+        assert!(followers.len() == reverse_followers.len());
+        let forward_tactic_data = self.build_have_nontrivial_chaining_separated_list_aux(
+            leader,
+            &followers,
+            joined_separator,
+            joined_signature,
+        );
+        let backward_tactic_data = self.build_have_nontrivial_chaining_separated_list_aux(
+            reverse_leader,
+            &reverse_followers,
+            joined_separator,
+            joined_signature,
+        );
+        LnMirTacticData::First {
+            arms: self.alloc_tactics([forward_tactic_data, backward_tactic_data]),
+        }
     }
 
     fn build_have_nontrivial_chaining_separated_list_aux(
@@ -119,5 +153,38 @@ fn calc_number_of_foremost_equivalences(followers: &[(VdMirFunc, VdMirExprIdx)])
 }
 
 fn is_equivalence(func: &VdMirFunc) -> bool {
-    todo!()
+    match func {
+        VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+        VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
+            VdBaseSeparator::Space => todo!(),
+            VdBaseSeparator::Comma => todo!(),
+            VdBaseSeparator::Semicolon => todo!(),
+            VdBaseSeparator::Add => todo!(),
+            VdBaseSeparator::Mul => todo!(),
+            VdBaseSeparator::Dot => todo!(),
+            VdBaseSeparator::Eq => true,
+            VdBaseSeparator::Ne => false,
+            VdBaseSeparator::Lt => false,
+            VdBaseSeparator::Gt => false,
+            VdBaseSeparator::Le => false,
+            VdBaseSeparator::Ge => false,
+            VdBaseSeparator::Subset => false,
+            VdBaseSeparator::Supset => false,
+            VdBaseSeparator::Subseteq => false,
+            VdBaseSeparator::Supseteq => false,
+            VdBaseSeparator::Subseteqq => false,
+            VdBaseSeparator::Supseteqq => false,
+            VdBaseSeparator::Subsetneq => false,
+            VdBaseSeparator::Supsetneq => false,
+            VdBaseSeparator::In => false,
+            VdBaseSeparator::Notin => false,
+            VdBaseSeparator::Times => todo!(),
+            VdBaseSeparator::Otimes => todo!(),
+        },
+        VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
+        VdMirFunc::Power(signature) => todo!(),
+        VdMirFunc::InSet => todo!(),
+        VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
+        VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
+    }
 }

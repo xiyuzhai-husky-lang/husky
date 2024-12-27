@@ -125,11 +125,15 @@ open Obvious
 
 def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) := by
   have h3 : (√ x - √ y) ^ 2 ≥ 0 := by obvious
-  have h4 : x - 2 * √ x * y + y ≥ 0 := by calc
-      x - 2 * √ x * y + y = (√ x - √ y) ^ 2 := by obvious
+  first
+  | have h4 : x - 2 * √ x * y + y ≥ 0 := by calc
+    x - 2 * √ x * y + y = (√ x - √ y) ^ 2 := by obvious
     _ ≥ 0 := by obvious
-  have h5 : x + y ≥ 2 * √ x * y := by obvious
-  have h6 : (x + y) / 2 ≥ √ x * y := by obvious
+  | have h5 : (√ x - √ y) ^ 2 ≥ 0 := by calc
+    (√ x - √ y) ^ 2 = x - 2 * √ x * y + y := by obvious
+    _ ≥ 0 := by obvious
+  have h6 : x + y ≥ 2 * √ x * y := by obvious
+  have h7 : (x + y) / 2 ≥ √ x * y := by obvious
   obvious
 
 \end{lstlisting}
@@ -170,13 +174,18 @@ import Obvious
 open Obvious
 
 def h(a : ℝ)(b : ℝ)(c : ℝ) := by
-  have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ 0 := by calc
-      (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := by obvious
+  first
+  | have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ 0 := by calc
+    (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := by obvious
     _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := by obvious
     _ ≥ 0 := by obvious
-  have h2 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
-  have h3 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  | have h2 : 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a ≥ 0 := by calc
+    2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := by obvious
+    _ = (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by obvious
+    _ ≥ 0 := by obvious
+  have h3 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
   have h4 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  have h5 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
   obvious
 
 \end{lstlisting}
@@ -218,11 +227,16 @@ def h(x : ℝ)(h1 : x > 0) := by
   have h2 : x > 0 := by obvious
   have h3 : (x - 1) ^ 2 ≥ 0 := by obvious
   have h4 : x ^ 2 - 2 * x + 1 ≥ 0 := by obvious
-  have h5 : (x ^ 2 - 2 * x + 1) / x ≥ 0 := by calc
-      (x ^ 2 - 2 * x + 1) / x = x ^ 2 / x - 2 * x / x + 1 / x := by obvious
+  first
+  | have h5 : (x ^ 2 - 2 * x + 1) / x ≥ 0 := by calc
+    (x ^ 2 - 2 * x + 1) / x = x ^ 2 / x - 2 * x / x + 1 / x := by obvious
     _ = x - 2 + 1 / x := by obvious
     _ ≥ 0 := by obvious
-  have h6 : x + 1 / x ≥ 2 := by obvious
+  | have h6 : x - 2 + 1 / x ≥ 0 := by calc
+    x - 2 + 1 / x = x ^ 2 / x - 2 * x / x + 1 / x := by obvious
+    _ = (x ^ 2 - 2 * x + 1) / x := by obvious
+    _ ≥ 0 := by obvious
+  have h7 : x + 1 / x ≥ 2 := by obvious
   obvious
 
 \end{lstlisting}
@@ -267,13 +281,20 @@ import Obvious
 open Obvious
 
 def h(a : ℝ)(b : ℝ) := by
-  have h1 : (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 ≥ 0 := by calc
-      (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := by obvious
+  first
+  | have h1 : (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 ≥ 0 := by calc
+    (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := by obvious
     _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := by obvious
     _ = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := by obvious
     _ = (a - b) ^ 2 / 4 := by obvious
     _ ≥ 0 := by obvious
-  have h2 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by obvious
+  | have h2 : (a - b) ^ 2 / 4 ≥ 0 := by calc
+    (a - b) ^ 2 / 4 = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := by obvious
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := by obvious
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := by obvious
+    _ = (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 := by obvious
+    _ ≥ 0 := by obvious
+  have h3 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by obvious
   obvious
 
 \end{lstlisting}
