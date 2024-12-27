@@ -13429,6 +13429,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-path-utils",
+ "husky-print-utils",
  "husky-tree-utils",
  "idx-arena",
  "latex-ast",
