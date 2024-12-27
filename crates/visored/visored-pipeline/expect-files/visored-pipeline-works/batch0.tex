@@ -297,11 +297,11 @@ def h(a : ℝ)(b : ℝ) : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by
     _ = 2 * (a ^ 2 + b ^ 2) := by obvious
   have h5 : (a + b) ^ 2 ≤ 2 * (a ^ 2 + b ^ 2) := by obvious
   first
-  | have h6 : (a + b) ^ 2 / 4 = (a ^ 2 + b ^ 2) / 2 := by calc
+  | have h6 : (a + b) ^ 2 / 4 ≤ (a ^ 2 + b ^ 2) / 2 := by calc
     (a + b) ^ 2 / 4 = ((a + b) / 2) ^ 2 := by obvious
     _ ≤ 2 * (a ^ 2 + b ^ 2) / 4 := by obvious
     _ = (a ^ 2 + b ^ 2) / 2 := by obvious
-  | have h7 : ((a + b) / 2) ^ 2 = (a ^ 2 + b ^ 2) / 2 := by calc
+  | have h7 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by calc
     ((a + b) / 2) ^ 2 = (a + b) ^ 2 / 4 := by obvious
     _ ≤ 2 * (a ^ 2 + b ^ 2) / 4 := by obvious
     _ = (a ^ 2 + b ^ 2) / 2 := by obvious
