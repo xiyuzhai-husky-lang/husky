@@ -84,14 +84,17 @@ pub enum LxMathAstData {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LxMathCompleteCommandArgument {
-    lcurl_token_idx: LxMathTokenIdx,
-    data: LxMathCommandArgumentData,
-    rcurl_token_idx: LxMathTokenIdx,
+pub enum LxMathCompleteCommandArgument {
+    Asts {
+        lcurl_token_idx: LxMathTokenIdx,
+        asts: LxMathCommandArgumentAsts,
+        rcurl_token_idx: LxMathTokenIdx,
+    },
+    MathAst(LxMathAstIdx),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LxMathCommandArgumentData {
+pub enum LxMathCommandArgumentAsts {
     Math(LxMathAstIdxRange),
     Rose(LxRoseAstIdxRange),
     Letter(LxMathTokenIdx, LxMathLetter),
@@ -102,24 +105,6 @@ pub type LxMathAstArenaRef<'a> = ArenaRef<'a, LxMathAstData>;
 pub type LxMathAstArenaMap<T> = ArenaMap<LxMathAstData, T>;
 pub type LxMathAstIdx = ArenaIdx<LxMathAstData>;
 pub type LxMathAstIdxRange = ArenaIdxRange<LxMathAstData>;
-
-impl LxMathCompleteCommandArgument {
-    pub fn lcurl_token_idx(&self) -> LxMathTokenIdx {
-        self.lcurl_token_idx
-    }
-
-    pub fn data(&self) -> &LxMathCommandArgumentData {
-        &self.data
-    }
-
-    pub fn rcurl_token_idx(&self) -> LxMathTokenIdx {
-        self.rcurl_token_idx
-    }
-
-    pub fn asts_token_idx_range(&self) -> LxTokenIdxRange {
-        ((*self.lcurl_token_idx + 1)..*self.rcurl_token_idx).into()
-    }
-}
 
 impl<'a> LxAstParser<'a> {
     pub fn parse_math_asts(&mut self) -> LxMathAstIdxRange {

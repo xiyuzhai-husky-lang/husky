@@ -156,14 +156,10 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
             VdSemExprData::LxDelimited { .. } => todo!(),
             VdSemExprData::Delimited { .. } => todo!(),
             VdSemExprData::Frac {
-                command_token_idx,
-                denominator_rcurl_token_idx,
-                ..
+                command_token_idx, ..
             } => todo!(),
             VdSemExprData::Sqrt {
-                command_token_idx,
-                radicand_rcurl_token_idx,
-                ..
+                command_token_idx, ..
             } => todo!(),
         }
     }

@@ -3,7 +3,7 @@ use crate::{
         lisp::{helpers::LxLispAstChild, LxLispAstData, LxLispAstIdx},
         math::{
             helpers::LxMathAstChild, LxMathAstData, LxMathAstIdx, LxMathAstIdxRange,
-            LxMathCommandArgumentData, LxMathCompleteCommandArgument,
+            LxMathCommandArgumentAsts, LxMathCompleteCommandArgument,
         },
         root::{
             helpers::LxRootAstChild, LxRootAstData, LxRootAstIdx, LxRootCommandArgumentData,
@@ -178,20 +178,28 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
     }
 
     fn render_math_command_argument(&self, argument: LxMathCompleteCommandArgument) -> DisplayTree {
-        match argument.data() {
-            LxMathCommandArgumentData::Math(range) => {
-                let value = if range.is_empty() {
-                    "".to_string()
-                } else {
-                    let range = self.ast_token_idx_range_map[range.start()]
-                        .join(self.ast_token_idx_range_map[range.last().unwrap()]);
-                    self.input[self.token_storage.token_idx_range_offset_range(range)].to_string()
-                };
-                let grandchildren = self.render_math_asts(range);
-                DisplayTree::new(value, grandchildren)
-            }
-            LxMathCommandArgumentData::Rose(range) => todo!(),
-            LxMathCommandArgumentData::Letter(_, _) => todo!(),
+        match argument {
+            LxMathCompleteCommandArgument::Asts {
+                lcurl_token_idx,
+                asts,
+                rcurl_token_idx,
+            } => match asts {
+                LxMathCommandArgumentAsts::Math(range) => {
+                    let value = if range.is_empty() {
+                        "".to_string()
+                    } else {
+                        let range = self.ast_token_idx_range_map[range.start()]
+                            .join(self.ast_token_idx_range_map[range.last().unwrap()]);
+                        self.input[self.token_storage.token_idx_range_offset_range(range)]
+                            .to_string()
+                    };
+                    let grandchildren = self.render_math_asts(range);
+                    DisplayTree::new(value, grandchildren)
+                }
+                LxMathCommandArgumentAsts::Rose(range) => todo!(),
+                LxMathCommandArgumentAsts::Letter(_, _) => todo!(),
+            },
+            LxMathCompleteCommandArgument::MathAst(arena_idx) => todo!(),
         }
     }
 

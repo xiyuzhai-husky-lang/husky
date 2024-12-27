@@ -84,11 +84,12 @@ impl<'db> VdSynExprBuilder<'db> {
         let ast_idx = *asts.peek()?;
         Some(match self.ast_arena()[ast_idx] {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
-            LxRoseAstData::Word(_, _) => self.build_paragraph(asts, vibe),
+            LxRoseAstData::Word(_, _) | LxRoseAstData::Math { .. } => {
+                self.build_paragraph(asts, vibe)
+            }
             LxRoseAstData::Punctuation(token_idx, punctuation) => {
                 todo!("punctuation: {}", punctuation)
             }
-            LxRoseAstData::Math { .. } => todo!(),
             LxRoseAstData::Delimited {
                 left_delimiter_token_idx,
                 left_delimiter,
@@ -150,15 +151,10 @@ impl<'db> VdSynExprBuilder<'db> {
             let Some(&ast_idx) = asts.peek() else { break };
             match self.ast_arena()[ast_idx] {
                 LxRoseAstData::TextEdit { .. } => todo!(),
-                LxRoseAstData::Word(_, _) => {
+                LxRoseAstData::Word(_, _) | LxRoseAstData::Math { .. } => {
                     sentences.push(self.parse_sentence(asts, vibe));
                 }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
-                LxRoseAstData::Math {
-                    left_delimiter_token_idx: left_dollar_token_idx,
-                    math_asts,
-                    right_delimiter_token_idx: right_dollar_token_idx,
-                } => todo!(),
                 LxRoseAstData::Delimited {
                     left_delimiter_token_idx,
                     left_delimiter,
@@ -177,7 +173,7 @@ impl<'db> VdSynExprBuilder<'db> {
                     todo!()
                 }
                 LxRoseAstData::Environment { .. } => todo!(),
-                LxRoseAstData::NewParagraph(_) => todo!(),
+                LxRoseAstData::NewParagraph(_) => break,
             }
         }
         VdSynBlockData::Paragraph(self.alloc_sentences(sentences))

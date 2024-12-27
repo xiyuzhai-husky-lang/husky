@@ -80,7 +80,7 @@ impl<'a> LxAstParser<'a> {
         let Some((lcurl_token_idx, LxRoseTokenData::LeftDelimiter(LxRoseDelimiter::Curl))) =
             self.next_rose_token()
         else {
-            todo!("report errors properly")
+            todo!("maybe this is allowed")
         };
 
         let data = match mode {

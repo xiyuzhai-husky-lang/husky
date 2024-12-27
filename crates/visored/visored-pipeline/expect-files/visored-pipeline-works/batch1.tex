@@ -54,23 +54,21 @@ Prove: $1+1=2$.
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-It's trivial by the Peano axioms that $1+1=2$.
+It's trivial that $1+1=2$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-It's trivial by the Peano axioms that $1+1=2$.
+It's trivial that $1+1=2$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-Let $x \in \mathbb{R}$.
-Let $y \in \mathbb{R}$.
-Assume $x=1$.
-Assume $y=1$.
-The goal is to prove $x+y=2$.
-We have $1+1=2$ by the Peano axioms.
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+The goal is to prove $a+b = 2$.
+We have $1+1=2$.
 \end{tcolorbox}
 
 Lean 4 code:
@@ -80,8 +78,8 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(x : ℝ)(y : ℝ)(h1 : x = 1)(h2 : y = 1) : x + y = 2 := by
-  have h3 : 1 + 1 = 2 := by obvious
+def h(a : ℝ)(b : ℝ) : a + b = 2 := by
+  have h1 : 1 + 1 = 2 := by obvious
   obvious
 
 \end{lstlisting}

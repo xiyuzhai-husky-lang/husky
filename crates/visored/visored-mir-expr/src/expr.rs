@@ -183,10 +183,9 @@ impl<'db> VdMirExprBuilder<'db> {
             },
             VdSemExprData::Sqrt {
                 command_token_idx,
-                radicand_lcurl_token_idx,
                 radicand,
-                radicand_rcurl_token_idx,
                 dispatch,
+                ..
             } => match dispatch {
                 VdSemSqrtDispatch::Base { signature } => VdMirExprData::Application {
                     function: VdMirFunc::NormalBaseSqrt(signature),

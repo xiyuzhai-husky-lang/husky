@@ -222,14 +222,21 @@ We have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \ge 0$ because these are real numb
         instruction: LlmStringTransformationInstruction::MainInputSide {
             main: "Regularize the proof by using only the following sentences:
 - We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.
-- We have <proposition> by <reason>/ where <reasons>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.
+- We have <proposition> by <reason>/ because <reason>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.
 - It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.
 
-You should strictly adhere to the original proof other than modifying the highest level sentence. If the original proof ends with something like \"It's trivially true since XXX\", you should rephrase it as \"We have YYY in an obvious manner.\" where YYY is the proposition that's trivially true referred in the sentence.
+Each sentence in the output should be strictly be one of the above, especially the prefix should be either \"We have\" or \"It's enough to show that\". Long sentences like \"We have YYY in an obvious manner and we have ZZZ in an obvious manner.\" should be split into multiple sentences. The composite \"Since XXX, we have YYY\" should be split into two sentences: \"We have XXX\" and \"We have YYY\" or just \"We have YYY\" if XXX is too obvious to worth mentioning.
+
+You should strictly adhere to the original proof other than modifying the highest level sentence structure. If the original proof ends with something like \"It's trivially true since XXX\", you should rephrase it as \"We have YYY in an obvious manner.\" where YYY is the proposition that's trivially true referred in the sentence.
             "
                 .to_string(),
             side: Some(
-                r#"Wrap the proof in \begin{{proof}} and \end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. "#
+                r#"Wrap the proof in \begin{{proof}} and \end{{proof}}.
+
+Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence.
+
+Make sure that each sentence begins with \"We have\" or \"It's enough to show that\". Be strict about this.
+"#
                 .to_string(),
             ),
         },
@@ -239,8 +246,8 @@ You should strictly adhere to the original proof other than modifying the highes
         AllLlmsStringTransformation {
         model: self.routing_resolved.solver.mathematical_understanding.model,
         instruction: LlmStringTransformationInstruction::MainInputSide {
-            main: "You're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:
-- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Don't introduce variables that are not used in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.
+            main: "You're inserting sentences to the original proof to incorporate the problem description. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:
+- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Only introduce variables that are stated in the problem description but not yet in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.
 - Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.
 - The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.
             "
@@ -258,7 +265,7 @@ You should strictly adhere to the original proof other than modifying the highes
             model: self.routing_resolved.solver.latex_rewriter.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {
                 main:
-                    "Please remove all labels and refs in math environments. Use `$...$` for all math expressions."
+                    "Please remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense."
                         .to_string(),
                 side: None,
             },
@@ -269,7 +276,42 @@ You should strictly adhere to the original proof other than modifying the highes
             model: self.routing_resolved.solver.mathematical_understanding.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {
                 main:
-                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$."
+                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. For example, $\\left(a+b\\right)^2$ should be replaced by ${\\left(a+b\\right)}^2$. Be extremely strict about this. Don't change anything else in the strictest sense."
+                        .to_string(),
+                side: Some(
+                    r#"
+                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.
+                    
+                    Wrap the proof in \begin{{proof}} and \end{{proof}}."#
+                    .to_string(),
+                ),
+            },
+            examples: vec![
+                r#"
+---- EXAMPLE
+```latex
+$(a+b)^2 \ge 0$ should be replaced by ${{(a+b)}}^2 \ge 0$.
+```
+"#.to_string(),
+                r#"
+---- EXAMPLE
+```latex
+$\left(a+b\right)^2 \ge 0$ should be replaced by ${\left(a+b\right)}^2 \ge 0$.
+```
+"#.to_string(),r#"
+---- EXAMPLE
+```latex
+$f(a+b)^2 \ge 0$ should be replaced by ${f(a+b)}^2 \ge 0$.
+```
+"#.to_string(),
+            ],
+            antiexamples: vec![],
+        },
+        AllLlmsStringTransformation {
+            model: self.routing_resolved.solver.mathematical_understanding.model,
+            instruction: LlmStringTransformationInstruction::MainInputSide {
+                main:
+                    "For any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. For example, $\\left(a+b\\right)^2$ should be replaced by ${\\left(a+b\\right)}^2$. Be extremely strict about this. Don't change anything else in the strictest sense."
                         .to_string(),
                 side: Some(
                     r#"
