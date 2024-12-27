@@ -59,6 +59,9 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 });
                 self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);
             }
+            VdMirStmtData::Goal { prop } => {
+                self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);
+            }
             VdMirStmtData::Have { prop } => {
                 tactics.push(self.build_ln_tactic_from_vd_have(prop));
                 self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);

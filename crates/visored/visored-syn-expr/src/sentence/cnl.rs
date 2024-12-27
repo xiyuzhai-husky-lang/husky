@@ -116,6 +116,31 @@ impl<'db> VdSynExprBuilder<'db> {
                     }
                     _ => todo!(),
                 },
+                "The goal is to prove"
+                | "The goal is to prove that"
+                | "The goal is to show"
+                | "The goal is to show that" => match token.data {
+                    CnlTokenData::Word(lx_rose_token_idx, base_coword) => todo!(),
+                    CnlTokenData::Math {
+                        left_delimiter_token_idx,
+                        math_asts,
+                        right_delimiter_token_idx,
+                    } => {
+                        return self.parse_goal_clause_sentence(
+                            tokens,
+                            i,
+                            left_delimiter_token_idx,
+                            math_asts,
+                            right_delimiter_token_idx,
+                            vibe,
+                        )
+                    }
+                    CnlTokenData::Punctuation(
+                        lx_rose_token_idx,
+                        lx_rose_punctuation,
+                        cnl_punctuation,
+                    ) => todo!(),
+                },
                 "Then" | "We have" => match token.data {
                     CnlTokenData::Math {
                         left_delimiter_token_idx,
@@ -328,6 +353,39 @@ impl<'db> VdSynExprBuilder<'db> {
         let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
             tokens: tokens[..(tokens.len() - 1)].to_vec(),
             data: VdSynClauseData::Assume {
+                left_math_delimiter_token_idx: left_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_delimiter_token_idx,
+            },
+        });
+
+        VdSynSentenceEntry::Cnl {
+            data: VdSynSentenceData::Clauses {
+                clauses: VdSynClauseIdxRange::new_single(clause),
+                end: extract_end(&tokens),
+            },
+            tokens,
+        }
+    }
+
+    fn parse_goal_clause_sentence(
+        &mut self,
+        tokens: Vec<CnlToken>,
+        i: usize,
+        left_delimiter_token_idx: LxRoseTokenIdx,
+        math_asts: LxMathAstIdxRange,
+        right_delimiter_token_idx: LxRoseTokenIdx,
+        vibe: VdSynExprVibe,
+    ) -> VdSynSentenceEntry {
+        let formula = (
+            ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
+            math_asts,
+        )
+            .to_vd_syn(self, vibe);
+
+        let clause = self.alloc_clause(VdSynClauseEntry::Cnl {
+            tokens: tokens[..(tokens.len() - 1)].to_vec(),
+            data: VdSynClauseData::Goal {
                 left_math_delimiter_token_idx: left_delimiter_token_idx,
                 formula,
                 right_math_delimiter_token_idx: right_delimiter_token_idx,

@@ -77,6 +77,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                 formula,
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
+            VdSynClauseData::Goal { formula, .. } => todo!(),
             VdSynClauseData::Have { formula, .. } => todo!(),
             VdSynClauseData::Show {
                 left_math_delimiter_token_idx: left_dollar_token_idx,

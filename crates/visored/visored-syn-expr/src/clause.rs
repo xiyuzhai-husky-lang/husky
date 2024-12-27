@@ -44,6 +44,11 @@ pub enum VdSynClauseData {
         formula: VdSynExprIdx,
         right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
+    Goal {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
+        formula: ArenaIdx<crate::expr::VdSynExprData>,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -216,6 +221,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 self.build_symbols_in_let_resolution(clause, resolution)
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Goal { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Have { formula, .. } => self.build_expr(formula),
             VdSynClauseData::Show { formula, .. } => self.build_expr(formula),
         }

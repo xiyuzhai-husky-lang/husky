@@ -22,6 +22,11 @@ pub enum VdSemClauseData {
         formula: VdSemExprIdx,
         right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
+    Goal {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
+        formula: VdSemExprIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
+    },
     Have {
         left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSemExprIdx,
@@ -95,6 +100,15 @@ impl<'a> VdSemExprBuilder<'a> {
                 formula: formula.to_vd_sem(self),
                 right_math_delimiter_token_idx,
             },
+            VdSynClauseData::Goal {
+                left_math_delimiter_token_idx,
+                formula,
+                right_math_delimiter_token_idx,
+            } => VdSemClauseData::Goal {
+                left_math_delimiter_token_idx,
+                formula: formula.to_vd_sem(self),
+                right_math_delimiter_token_idx,
+            },
             VdSynClauseData::Have {
                 left_math_delimiter_token_idx,
                 formula,
@@ -126,6 +140,12 @@ impl VdSemClauseData {
         match *self {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+                formula,
+                ..
+            } => vec![VdSemClauseChild::Expr(formula)],
+            VdSemClauseData::Goal {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
                 right_math_delimiter_token_idx: right_dollar_token_idx,
                 formula,

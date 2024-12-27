@@ -194,5 +194,33 @@
       }
     },
     "time": "2024-12-26T05:07:10.879946249Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T13:18:40.225694656Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\nWe have ${{(a+b)}}^2 \\ge 0$ by the fact that the square of any real number is non-negative.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T13:18:43.335795918Z"
   }
 ]
