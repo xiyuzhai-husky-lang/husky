@@ -11,4 +11,4 @@ def h(x : ℝ)(h1 : x > 0) := by
     _ = x - 2 + 1 / x := by obvious
     _ ≥ 0 := by obvious
   have h6 : x + 1 / x ≥ 2 := by obvious
-  exact ()
+  obvious

@@ -80,7 +80,7 @@ open Obvious
 
 def h(a : ℝ)(b : ℝ) := by
   have h1 : (a + b) ^ 2 ≥ 0 := by obvious
-  exact ()
+  obvious
 
 \end{lstlisting}
 \end{tcolorbox}
@@ -130,7 +130,7 @@ def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) := by
     _ ≥ 0 := by obvious
   have h5 : x + y ≥ 2 * √ x * y := by obvious
   have h6 : (x + y) / 2 ≥ √ x * y := by obvious
-  exact ()
+  obvious
 
 \end{lstlisting}
 \end{tcolorbox}
@@ -175,9 +175,9 @@ def h(a : ℝ)(b : ℝ)(c : ℝ) := by
     _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := by obvious
     _ ≥ 0 := by obvious
   have h2 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
-  show a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a by obvious
   have h3 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
-  exact ()
+  have h4 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  obvious
 
 \end{lstlisting}
 \end{tcolorbox}
@@ -223,7 +223,7 @@ def h(x : ℝ)(h1 : x > 0) := by
     _ = x - 2 + 1 / x := by obvious
     _ ≥ 0 := by obvious
   have h6 : x + 1 / x ≥ 2 := by obvious
-  exact ()
+  obvious
 
 \end{lstlisting}
 \end{tcolorbox}
@@ -274,7 +274,7 @@ def h(a : ℝ)(b : ℝ) := by
     _ = (a - b) ^ 2 / 4 := by obvious
     _ ≥ 0 := by obvious
   have h2 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by obvious
-  exact ()
+  obvious
 
 \end{lstlisting}
 \end{tcolorbox}

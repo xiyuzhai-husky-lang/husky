@@ -112,18 +112,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 std::ops::ControlFlow::Break(()) => break,
             }
         }
-        let mut tactics: Vec<LnMirTacticData> = vec![];
-        self.build_ln_tactics_from_vd_stmts(stmts, &mut tactics);
-        // ad hoc
-        tactics.push(LnMirTacticData::Exact {
-            term: self.alloc_expr(LnMirExprData::ItemPath(LnItemPath::UNIT)),
-        });
-        let tactics = self.alloc_tactics(tactics);
         LnItemDefnData::Def {
             ident,
             parameters,
             ty: None,
-            body: LnMirDefBody::Tactics(tactics),
+            body: LnMirDefBody::Tactics(stmts.to_lean(self)),
         }
     }
 
@@ -142,18 +135,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 std::ops::ControlFlow::Break(()) => break,
             }
         }
-        let mut tactics: Vec<LnMirTacticData> = vec![];
-        self.build_ln_tactics_from_vd_stmts(stmts, &mut tactics);
-        // ad hoc
-        tactics.push(LnMirTacticData::Exact {
-            term: self.alloc_expr(LnMirExprData::ItemPath(LnItemPath::UNIT)),
-        });
-        let tactics = self.alloc_tactics(tactics);
         LnItemDefnData::Def {
             ident,
             parameters,
             ty: None,
-            body: LnMirDefBody::Tactics(tactics),
+            body: LnMirDefBody::Tactics(stmts.to_lean(self)),
         }
     }
 
