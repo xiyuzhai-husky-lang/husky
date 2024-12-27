@@ -374,6 +374,14 @@ impl<'a> LnMirExprFormatter<'a> {
             LnMirTacticData::Sorry => {
                 self.result += "sorry";
             }
+            LnMirTacticData::First { arms } => {
+                self.result += "first";
+                for arm in arms {
+                    self.make_sure_new_line();
+                    self.result += "| ";
+                    self.format_tactic(arm);
+                }
+            }
         }
     }
 
@@ -389,7 +397,8 @@ impl<'a> LnMirExprFormatter<'a> {
         if !result_trimmed.is_empty() && !result_trimmed.ends_with('\n') {
             self.result += "\n";
         }
-        for _ in 0..(self.indent_level * self.config.spaces_per_indent) {
+        let number_of_existing_spaces = self.result.len() - self.result.trim_end_matches(' ').len();
+        for _ in number_of_existing_spaces..(self.indent_level * self.config.spaces_per_indent) {
             self.result.push(' ');
         }
     }

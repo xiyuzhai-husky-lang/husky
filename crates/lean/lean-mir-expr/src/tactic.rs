@@ -30,6 +30,9 @@ pub enum LnMirTacticData {
         followers: SmallVec<[((LnBinaryOpr, LnInstantiation), LnMirExprIdx); 4]>,
     },
     Sorry,
+    First {
+        arms: LnMirTacticIdxRange,
+    },
     Obvious,
 }
 
