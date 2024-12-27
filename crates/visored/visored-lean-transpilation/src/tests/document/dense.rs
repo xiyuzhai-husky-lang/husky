@@ -1,7 +1,9 @@
+use visored_syn_expr::vibe::VdSynExprVibe;
+
 use super::*;
 use crate::scheme::dense::VdLeanTranspilationDenseScheme;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -15,6 +17,8 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
     );
@@ -24,7 +28,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_document_to_vd_mir_works() {
+    let models = &VdModels::new();
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -35,13 +41,14 @@ Let $x\in\mathbb{R}$.
               └─ def: `h`
                 ├─ item path: `ℝ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 1 }`
+                  └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             def h(x : ℝ) := by
-              exact ()"#]],
+              obvious"#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -54,16 +61,17 @@ Let $x\in\mathbb{R}$.
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 1 }`
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
             end Section1
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -82,13 +90,13 @@ Let $y\in\mathbb{R}$.
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Exact { term: 1 }`
+              │     └─ tactic: `Obvious`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Exact { term: 3 }`
+              │       └─ tactic: `Obvious`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -97,11 +105,11 @@ Let $y\in\mathbb{R}$.
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
 
             namespace Subsection1
             def h(y : ℝ) := by
-              exact ()
+              obvious
             end Subsection1
 
             namespace Subsection2
@@ -128,7 +136,7 @@ fn latex_shorts_to_lean_works() {
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let projects_dir = dev_paths.projects_dir();
-
+    let models = &VdModels::new();
     for file in fs::read_dir(projects_dir.join("ai-math-autoformalization/latex/shorts")).unwrap() {
         let file = file.unwrap();
         let file_path = file.path();
@@ -146,6 +154,8 @@ fn latex_shorts_to_lean_works() {
             },
             &[],
             &[],
+            models,
+            VdSynExprVibe::ROOT_CNL,
             db,
             &VdLeanTranspilationDenseScheme,
         );

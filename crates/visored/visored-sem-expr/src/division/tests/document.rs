@@ -1,8 +1,9 @@
 use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentInput;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
-fn t(content: &str, expected: &Expect) {
+fn t(models: &VdModels, content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSemExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
@@ -17,14 +18,18 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
-        &db,
+        models,
+        VdSynExprVibe::ROOT_CNL,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]
 fn parse_document_to_vd_sem_works() {
+    let models = &VdModels::new();
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -41,6 +46,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -58,6 +64,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

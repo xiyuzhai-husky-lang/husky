@@ -4,7 +4,7 @@ mod expr;
 pub mod helpers;
 pub mod mangle;
 pub mod namespace;
-mod scheme;
+pub mod scheme;
 pub mod stmt;
 #[cfg(test)]
 mod tests;
@@ -14,6 +14,7 @@ use self::builder::VdLeanTranspilationBuilder;
 use self::scheme::IsVdLeanTranspilationScheme;
 #[cfg(test)]
 use self::tests::*;
+use visored_models::VdModels;
 
 pub trait VdTranspileToLean<S, T>: Copy
 where

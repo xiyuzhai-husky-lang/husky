@@ -43,7 +43,18 @@ impl<T> Ord for ArenaIdxRange<T> {
 }
 
 impl<T> ArenaIdxRange<T> {
-    pub fn split_last(self) -> (Self, ArenaIdx<T>) {
+    pub fn first_and_others(self) -> Option<(ArenaIdx<T>, Self)> {
+        let first = self.first()?;
+        Some((
+            first,
+            Self {
+                start: self.start + 1,
+                end: self.end,
+            },
+        ))
+    }
+
+    pub fn split_last_unwrap(self) -> (Self, ArenaIdx<T>) {
         debug_assert!(self.start < self.end);
         let last = self.end - 1;
         (

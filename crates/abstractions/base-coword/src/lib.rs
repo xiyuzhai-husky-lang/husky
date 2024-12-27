@@ -1,3 +1,8 @@
+#[cfg(feature = "pyo3")]
+mod pyo3;
+#[cfg(feature = "serde")]
+mod serde;
+
 #[eterned::eterned]
 pub struct BaseCoword {
     #[return_ref(str)]

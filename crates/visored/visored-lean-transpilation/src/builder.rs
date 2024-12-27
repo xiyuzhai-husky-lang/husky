@@ -35,7 +35,7 @@ use crate::{
 pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     db: &'a EternerDb,
     scheme: &'a S,
-    lean_hir_expr_builder: LnMirExprConstructor,
+    lean_hir_expr_constructor: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
@@ -58,7 +58,7 @@ where
     S: IsVdLeanTranspilationScheme,
 {
     fn ln_mir_expr_builder_mut(&mut self) -> &mut LnMirExprConstructor {
-        &mut self.lean_hir_expr_builder
+        &mut self.lean_hir_expr_constructor
     }
 }
 
@@ -123,7 +123,7 @@ where
         Self {
             db,
             scheme,
-            lean_hir_expr_builder: LnMirExprConstructor::new(db),
+            lean_hir_expr_constructor: LnMirExprConstructor::new(db),
             expr_arena,
             stmt_arena,
             source_map,
@@ -265,7 +265,7 @@ where
     type Target = LnMirExprConstructor;
 
     fn deref(&self) -> &Self::Target {
-        &self.lean_hir_expr_builder
+        &self.lean_hir_expr_constructor
     }
 }
 
@@ -274,7 +274,7 @@ where
     S: IsVdLeanTranspilationScheme,
 {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.lean_hir_expr_builder
+        &mut self.lean_hir_expr_constructor
     }
 }
 
@@ -291,6 +291,6 @@ where
         LnItemDefnArena,
         LnItemDefnCommentMap,
     ) {
-        self.lean_hir_expr_builder.finish()
+        self.lean_hir_expr_constructor.finish()
     }
 }

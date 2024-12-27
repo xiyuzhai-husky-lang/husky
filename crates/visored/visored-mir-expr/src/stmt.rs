@@ -35,7 +35,13 @@ pub enum VdMirStmtData {
         pattern: VdMirPattern,
         assignment: VdMirExprIdx,
     },
-    Then {
+    Goal {
+        prop: VdMirExprIdx,
+    },
+    Have {
+        prop: VdMirExprIdx,
+    },
+    Show {
         prop: VdMirExprIdx,
     },
 }
@@ -152,6 +158,8 @@ impl<'db> VdMirExprBuilder<'db> {
                 stmts: clauses.to_vd_mir(self),
                 meta: VdMirBlockMeta::Sentence,
             },
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 }
@@ -169,13 +177,12 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
 
 impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_clause(&mut self, clause: VdSemClauseIdx) -> VdMirStmtData {
-        match self.sem_clause_arena()[clause] {
+        match *self.sem_clause_arena()[clause].data() {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
-                let_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
                 ref dispatch,
             } => match dispatch {
                 VdSemLetClauseDispatch::Assigned(dispatch) => todo!(),
@@ -187,20 +194,32 @@ impl<'db> VdMirExprBuilder<'db> {
                 },
             },
             VdSemClauseData::Assume {
-                assume_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::LetPlaceholder {
                 pattern: VdMirPattern::Assumed,
                 ty: formula.to_vd_mir(self),
             },
-            VdSemClauseData::Then {
-                then_token_idx,
-                left_dollar_token_idx,
+            VdSemClauseData::Goal {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
-            } => VdMirStmtData::Then {
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdMirStmtData::Goal {
+                prop: formula.to_vd_mir(self),
+            },
+            VdSemClauseData::Have {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdMirStmtData::Have {
+                prop: formula.to_vd_mir(self),
+            },
+            VdSemClauseData::Show {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdMirStmtData::Show {
                 prop: formula.to_vd_mir(self),
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),

@@ -78,6 +78,11 @@ impl<T> Arena<T> {
     }
 
     #[inline]
+    pub unsafe fn data_mut(&mut self) -> &mut [T] {
+        &mut self.data
+    }
+
+    #[inline]
     pub fn set(&mut self, idx: ArenaIdx<T>, new_value: T) {
         self.data[idx.index()] = new_value
     }

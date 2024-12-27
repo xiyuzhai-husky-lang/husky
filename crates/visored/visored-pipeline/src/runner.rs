@@ -1,60 +1,125 @@
+use crate::{
+    input::VdPipelineInput,
+    instance::{
+        storage::VdPipelineInstanceStorage, VdPipelineInstance, VdPipelineInstanceIdx,
+        VdPipelineInstanceIdxRange,
+    },
+    VdPipelineConfig, VdPipelineConfigData, VdPipelineResult,
+};
+use alien_seed::AlienSeed;
+use eterned::db::EternerDb;
 use std::path::Path;
 use std::sync::Arc;
 use std::{fs, path::PathBuf};
 
-use crate::{
-    input::VdPipelineInput, instance::VdPipelineInstance, VdPipelineConfig, VdPipelineResult,
-};
-
-pub struct VdPipelineRunner {
-    instances: Vec<VdPipelineInstance>,
-    configs: Vec<VdPipelineConfig>,
-    src_inputs: Vec<Arc<VdPipelineInput>>,
+pub struct VdPipelineRunner<'db> {
+    db: &'db EternerDb,
+    tokio_runtime: Arc<tokio::runtime::Runtime>,
+    // TODO: replace with preloaded specs???
+    specs_dir: &'db Path,
+    lean4_dir: &'db Path,
+    instance_storage: VdPipelineInstanceStorage,
+    instance_files: Vec<VdPipelineInstanceFile>,
+    configs: Vec<Arc<VdPipelineConfig>>,
 }
 
-impl VdPipelineRunner {
+pub struct VdPipelineInstanceFile {
+    pub path: PathBuf,
+    pub instances: Vec<(Arc<VdPipelineInput>, VdPipelineInstanceIdxRange)>,
+}
+
+impl<'db> VdPipelineRunner<'db> {
     pub fn new(
+        db: &'db EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        specs_dir: &'db Path,
+        lean4_dir: &'db Path,
         config_path: impl AsRef<Path>,
         src_file_paths: impl IntoIterator<Item = PathBuf>,
+        src_root: &'db Path,
     ) -> VdPipelineResult<Self> {
         let configs = VdPipelineConfig::from_yaml_file(config_path)?;
+        let mut instance_storage = VdPipelineInstanceStorage::new_empty();
 
-        let mut src_inputs = vec![];
-        for path in src_file_paths {
-            let examples = VdPipelineInput::read_examples_from_file(path)?;
-            src_inputs.extend(examples);
-        }
-        let instances = configs
-            .iter()
-            .flat_map(|config| {
-                src_inputs
+        // Collect, sort, and deduplicate paths
+        let mut unique_src_file_paths: Vec<PathBuf> = src_file_paths.into_iter().collect();
+        unique_src_file_paths.sort();
+        unique_src_file_paths.dedup();
+
+        let instance_files = unique_src_file_paths
+            .into_iter()
+            .map(|path| {
+                let examples = VdPipelineInput::read_examples_from_file(&path, src_root)?;
+                let instances = examples
                     .iter()
-                    .map(move |src| VdPipelineInstance::new(config.clone(), Arc::clone(src)))
+                    .map(|input| {
+                        (
+                            input.clone(),
+                            instance_storage.alloc_instances(configs.iter().map(|config| {
+                                VdPipelineInstance::new(config.clone(), input.clone())
+                            })),
+                        )
+                    })
+                    .collect();
+                Ok(VdPipelineInstanceFile { path, instances })
             })
-            .collect();
+            .collect::<VdPipelineResult<Vec<_>>>()?;
 
         Ok(Self {
-            instances,
+            db,
+            tokio_runtime,
+            specs_dir,
+            lean4_dir,
+            instance_files,
             configs,
-            src_inputs,
+            instance_storage,
         })
     }
 }
 
-impl VdPipelineRunner {
-    pub fn run_all_single_threaded(&mut self) -> VdPipelineResult<()> {
-        for instance in &mut self.instances {
-            instance.run()?;
+impl<'db> VdPipelineRunner<'db> {
+    pub fn instance_files(&self) -> &[VdPipelineInstanceFile] {
+        &self.instance_files
+    }
+}
+
+impl<'db> std::ops::Index<VdPipelineInstanceIdx> for VdPipelineRunner<'db> {
+    type Output = VdPipelineInstance;
+
+    fn index(&self, idx: VdPipelineInstanceIdx) -> &Self::Output {
+        &self.instance_storage[idx]
+    }
+}
+
+impl<'db> VdPipelineRunner<'db> {
+    pub fn run_all_single_threaded(&mut self, seed: AlienSeed) -> VdPipelineResult<()> {
+        for instance in self.instance_storage.all_instances_mut() {
+            instance.run(
+                seed,
+                self.db,
+                self.tokio_runtime.clone(),
+                self.specs_dir,
+                self.lean4_dir,
+            )?;
         }
         Ok(())
     }
 
-    pub fn run_all_multi_threaded(&mut self) -> VdPipelineResult<()> {
+    pub fn run_all_multi_threaded(&mut self, seed: AlienSeed) -> VdPipelineResult<()> {
         use rayon::prelude::*;
 
-        self.instances
+        self.instance_storage
+            .all_instances_mut()
             .par_iter_mut()
-            .try_for_each(|instance| instance.run())?;
+            .try_for_each(|instance| {
+                instance.run(
+                    seed,
+                    self.db,
+                    self.tokio_runtime.clone(),
+                    self.specs_dir,
+                    self.lean4_dir,
+                )
+            })?;
         Ok(())
     }
 }

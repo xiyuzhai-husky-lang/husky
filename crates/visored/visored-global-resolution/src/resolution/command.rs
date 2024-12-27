@@ -69,4 +69,8 @@ impl VdCompleteCommandGlobalResolution {
     pub const LOWER_GAMMA: Self =
         VdCompleteCommandGlobalResolution::Letter(LxMathLetter::LOWER_GAMMA);
     pub const LOWER_PI: Self = VdCompleteCommandGlobalResolution::Letter(LxMathLetter::LOWER_PI);
+    // -- layouts
+    pub const SQRT: Self = VdCompleteCommandGlobalResolution::Sqrt;
+    pub const FRAC: Self = VdCompleteCommandGlobalResolution::Frac;
+    pub const TEXT: Self = VdCompleteCommandGlobalResolution::Text;
 }

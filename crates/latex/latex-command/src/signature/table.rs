@@ -30,6 +30,8 @@ impl LxCommandSignatureTable {
     fn new(
         begin: LxCommandPath,
         end: LxCommandPath,
+        left: LxCommandPath,
+        right: LxCommandPath,
         letter_style_commands: &[(LxCommandPath, LxMathLetterStyle)],
         complete_commands: impl IntoIterator<
             Item = (
@@ -43,6 +45,8 @@ impl LxCommandSignatureTable {
             signatures: [
                 (begin.name(), LxCommandSignature::Begin),
                 (end.name(), LxCommandSignature::End),
+                (left.name(), LxCommandSignature::Left),
+                (right.name(), LxCommandSignature::Right),
             ]
             .into_iter()
             .chain(
@@ -85,17 +89,15 @@ impl std::ops::Deref for LxCommandSignatureTable {
 }
 
 impl LxCommandSignatureTable {
-    fn default_commands(
+    fn default_complete_commands(
         db: &EternerDb,
-    ) -> [(
+    ) -> Vec<(
         LxCommandPath,
         &'static [LxMode],
         &'static [LxCommandParameterMode],
-    ); 35] {
+    )> {
         let LxCommandPathMenu {
             // - root
-            begin,
-            end,
             usepackage,
             documentclass,
             newtheorem,
@@ -118,8 +120,11 @@ impl LxCommandSignatureTable {
             // -- relations
             eq,
             ne,
+            neq,
             le,
+            leq,
             ge,
+            geq,
             r#in,
             subset,
             supset,
@@ -147,8 +152,9 @@ impl LxCommandSignatureTable {
             sqrt,
             frac,
             text,
+            ..
         } = *lx_command_path_menu(db);
-        [
+        vec![
             // - root
             (usepackage, &[LxMode::Root], &[LxCommandParameterMode::Name]),
             (
@@ -175,8 +181,11 @@ impl LxCommandSignatureTable {
             // -- relations
             (eq, &[LxMode::Math], &[]),
             (ne, &[LxMode::Math], &[]),
+            (neq, &[LxMode::Math], &[]),
             (le, &[LxMode::Math], &[]),
+            (leq, &[LxMode::Math], &[]),
             (ge, &[LxMode::Math], &[]),
+            (geq, &[LxMode::Math], &[]),
             (r#in, &[LxMode::Math], &[]),
             (subset, &[LxMode::Math], &[]),
             (supset, &[LxMode::Math], &[]),
@@ -243,11 +252,15 @@ impl LxCommandSignatureTable {
             mathrm,
             mathsf,
             mathscr,
+            left,
+            right,
             ..
         } = *lx_command_path_menu(db);
         Self::new(
             begin,
             end,
+            left,
+            right,
             &[
                 (mathbb, LxMathLetterStyle::MATHBB),
                 (mathbf, LxMathLetterStyle::MATHFRAK),
@@ -340,7 +353,9 @@ fn lx_command_signature_table_works() {
     let dev_paths = HuskyLangDevPaths::new();
     let complete_commands_path = &dev_paths.specs_dir().join("latex/complete-commands.lpcsv");
     let table = LxCommandSignatureTable::new_from_lp_csv_file_paths(complete_commands_path, db);
-    for (path, allowed_modes, parameter_modes) in LxCommandSignatureTable::default_commands(db) {
+    for (path, allowed_modes, parameter_modes) in
+        LxCommandSignatureTable::default_complete_commands(db)
+    {
         let Some(signature) = table.signature(path.name()) else {
             todo!()
         };

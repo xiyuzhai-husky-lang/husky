@@ -11,6 +11,7 @@ use crate::{
     sentence::VdSynSentenceArenaRef, *,
 };
 use block::{VdSynBlockIdxRange, VdSynBlockMap};
+use clause::{r#let::VdSynLetClauseResolution, VdSynClauseMap};
 use division::VdSynDivisionMap;
 use entity_tree::VdSynExprEntityTreeNode;
 use eterned::db::EternerDb;
@@ -49,7 +50,11 @@ pub(crate) fn build_all_symbol_defns_and_resolutions_with(
     stmt_entity_tree_node_map: &VdSynBlockMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &VdSynDivisionMap<VdSynExprEntityTreeNode>,
     t: impl IsVdSynOutput,
-) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
+) -> (
+    VdSynClauseMap<VdSynLetClauseResolution>,
+    VdSynSymbolLocalDefnStorage,
+    VdSynSymbolResolutionsTable,
+) {
     let mut symbol_builder = VdSynSymbolBuilder::new(
         db,
         default_resolution_table,

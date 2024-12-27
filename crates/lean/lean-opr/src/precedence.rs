@@ -3,12 +3,12 @@
 pub enum LnPrecedence {
     Min,
     Relation,
-    Application,
     AddSub,
     MulDiv,
     Pow,
-    // TODO: check this
-    Prefix,
+    Sqrt,
+    Sign,
+    Application,
     Atom,
 }
 
@@ -41,7 +41,7 @@ mod tests {
 
     #[test]
     fn test_precedence_ordering() {
-        assert!(LnPrecedence::Application < LnPrecedence::AddSub);
+        assert!(LnPrecedence::AddSub < LnPrecedence::Application);
         assert!(LnPrecedence::AddSub < LnPrecedence::Atom);
         assert!(LnPrecedence::Application < LnPrecedence::Atom);
     }

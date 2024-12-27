@@ -1,0 +1,34 @@
+[package]
+name = "all-llms"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+tokio.workspace = true
+# abstractions
+eterned.workspace = true
+serde.workspace = true
+# llms
+llm-prelude.workspace = true
+gemini.workspace = true
+openai.workspace = true
+sglang.workspace = true
+# utils
+husky-print-utils.workspace = true
+
+[dev-dependencies]
+expect-test.workspace = true
+# abstractions
+alien-seed.workspace = true
+
+[lints]
+workspace = true

@@ -6,8 +6,9 @@ use latex_prelude::helper::tracker::LxDocumentInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
-fn t(content: &str, expect: &Expect) {
+fn t(models: &VdModels, content: &str, expect: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -21,6 +22,8 @@ fn t(content: &str, expect: &Expect) {
         },
         &[],
         &[],
+        models,
+        VdSynExprVibe::ROOT_CNL,
         db,
     );
     expect.assert_eq(&tracker.show_display_tree(db));
@@ -28,7 +31,9 @@ fn t(content: &str, expect: &Expect) {
 
 #[test]
 fn basic_document_to_vd_mir_works() {
+    let models = &VdModels::new();
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -42,6 +47,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -57,6 +63,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

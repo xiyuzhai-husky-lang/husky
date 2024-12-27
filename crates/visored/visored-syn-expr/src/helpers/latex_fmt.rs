@@ -55,7 +55,7 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
     }
 
     pub fn fmt_sentence(&mut self, sentence_idx: VdSynSentenceIdx) {
-        match self.sentence_arena[sentence_idx] {
+        match *self.sentence_arena[sentence_idx].data() {
             VdSynSentenceData::Clauses { clauses, end } => {
                 for (index, clause_idx) in clauses.into_iter().enumerate() {
                     self.fmt_clause(clause_idx);
@@ -65,20 +65,25 @@ impl<'a> VdSynExprLaTeXFormatter<'a> {
                     VdSynSentenceEnd::Void => (),
                 }
             }
+            VdSynSentenceData::Pristine => todo!(),
         }
     }
 
     pub fn fmt_clause(&mut self, clause_idx: VdSynClauseIdx) {
-        match self.clause_arena[clause_idx] {
+        match *self.clause_arena[clause_idx].data() {
             VdSynClauseData::Let { .. } => todo!(),
             VdSynClauseData::Assume {
-                assume_token_idx,
-                left_dollar_token_idx,
+                left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
-                right_dollar_token_idx,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
             } => todo!(),
-            VdSynClauseData::Then { formula, .. } => todo!(),
-            VdSynClauseData::Todo(..) => todo!(),
+            VdSynClauseData::Goal { formula, .. } => todo!(),
+            VdSynClauseData::Have { formula, .. } => todo!(),
+            VdSynClauseData::Show {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => todo!(),
         }
     }
 

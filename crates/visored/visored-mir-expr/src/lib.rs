@@ -13,6 +13,7 @@ use self::builder::VdMirExprBuilder;
 #[cfg(test)]
 use self::tests::*;
 use either::*;
+use visored_models::VdModels;
 
 pub trait ToVdMir<T>: Copy {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> T;

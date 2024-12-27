@@ -35,6 +35,7 @@ pub struct VdSynSymbolBuilder<'a> {
     root_node: &'a VdSynExprEntityTreeNode,
     stmt_entity_tree_node_map: &'a VdSynBlockMap<VdSynExprEntityTreeNode>,
     division_entity_tree_node_map: &'a VdSynDivisionMap<VdSynExprEntityTreeNode>,
+    let_clause_resolutions: VdSynClauseMap<VdSynLetClauseResolution>,
     symbol_local_defn_table: VdSynSymbolLocalDefnStorage,
     symbol_resolutions_table: VdSynSymbolResolutionsTable,
     lineage: VdSynLineage,
@@ -78,6 +79,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
             stmt_entity_tree_node_map,
             division_entity_tree_node_map,
             root_node,
+            let_clause_resolutions: VdSynClauseMap::new2(clause_arena),
             symbol_local_defn_table: VdSynSymbolLocalDefnStorage::default(),
             symbol_resolutions_table: VdSynSymbolResolutionsTable::new(expr_arena),
             lineage: VdSynLineage {
@@ -133,6 +135,14 @@ impl<'a> VdSynSymbolBuilder<'a> {
 
 /// # actions
 impl<'a> VdSynSymbolBuilder<'a> {
+    pub(crate) fn cache_let_clause_resolution(
+        &mut self,
+        clause: VdSynClauseIdx,
+        resolution: VdSynLetClauseResolution,
+    ) {
+        self.let_clause_resolutions.insert_new(clause, resolution);
+    }
+
     pub(crate) fn build_divisions(&mut self, divisions: VdSynDivisionIdxRange) {
         for division in divisions {
             self.build_division(division);
@@ -183,12 +193,6 @@ impl<'a> VdSynSymbolBuilder<'a> {
         self.lineage.sentence = Some(sentence);
         self.build_sentence_aux(sentence);
         self.lineage.sentence = None;
-    }
-
-    pub(crate) fn build_sentence_aux(&mut self, sentence: VdSynSentenceIdx) {
-        match self.sentence_arena[sentence] {
-            VdSynSentenceData::Clauses { clauses, .. } => self.build_clauses(clauses),
-        }
     }
 
     pub(crate) fn build_clauses(&mut self, clauses: VdSynClauseIdxRange) {
@@ -279,7 +283,17 @@ impl<'a> VdSynSymbolBuilder<'a> {
         }
     }
 
-    pub(super) fn finish(self) -> (VdSynSymbolLocalDefnStorage, VdSynSymbolResolutionsTable) {
-        (self.symbol_local_defn_table, self.symbol_resolutions_table)
+    pub(super) fn finish(
+        self,
+    ) -> (
+        VdSynClauseMap<VdSynLetClauseResolution>,
+        VdSynSymbolLocalDefnStorage,
+        VdSynSymbolResolutionsTable,
+    ) {
+        (
+            self.let_clause_resolutions,
+            self.symbol_local_defn_table,
+            self.symbol_resolutions_table,
+        )
     }
 }

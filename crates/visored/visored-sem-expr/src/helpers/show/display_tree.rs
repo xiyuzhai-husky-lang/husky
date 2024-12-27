@@ -198,6 +198,8 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemSentenceData::Clauses { clauses, end } => {
                 format!("{:?} sentence.clauses", source)
             }
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         };
         DisplayTree::new(
             value,
@@ -220,16 +222,18 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(clause_range);
         let source = &self.input[offset_range];
-        let value = match self.clause_arena[clause] {
+        let value = match *self.clause_arena[clause].data() {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSemClauseData::Assume { .. } => format!("{:?} clause.assume", source),
-            VdSemClauseData::Then { .. } => format!("{:?} clause.then", source),
+            VdSemClauseData::Goal { .. } => format!("{:?} clause.goal", source),
+            VdSemClauseData::Have { .. } => format!("{:?} clause.then", source),
+            VdSemClauseData::Show { .. } => format!("{:?} clause.show", source),
             VdSemClauseData::Todo(lx_rose_token_idx) => format!("{:?} clause.todo", source),
         };
         DisplayTree::new(
             value,
-            self.render_clause_children(self.clause_arena[clause].children()),
+            self.render_clause_children(self.clause_arena[clause].data().children()),
         )
     }
 

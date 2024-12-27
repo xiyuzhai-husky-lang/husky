@@ -5,7 +5,7 @@ use symbol::{
     local_defn::{VdSynSymbolLocalDefnBody, VdSynSymbolLocalDefnHead, VdSynSymbolLocalDefnSrc},
 };
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VdSynLetAssignedResolution {
     pattern: VdSynPattern,
     pattern_expr: VdSynExprIdx,
@@ -23,8 +23,8 @@ impl VdSynLetAssignedResolution {
     }
 }
 
-impl<'db> VdSynExprBuilder<'db> {
-    pub fn build_let_assigned_resolution(
+impl<'db> VdSynSymbolBuilder<'db> {
+    pub fn infer_let_assigned_resolution(
         &self,
         pattern_expr: VdSynExprIdx,
         assignment: VdSynExprIdx,
@@ -42,10 +42,10 @@ impl<'db> VdSynSymbolBuilder<'db> {
     ///
     /// - First, build the assignment.
     /// - Then define the symbols in the pattern.
-    pub(crate) fn build_let_assigned_resolution(
+    pub(crate) fn build_symbols_in_let_assigned_resolution(
         &mut self,
         clause: VdSynClauseIdx,
-        resolution: &VdSynLetAssignedResolution,
+        resolution: VdSynLetAssignedResolution,
     ) {
         self.build_expr(resolution.assignment);
         match resolution.pattern {

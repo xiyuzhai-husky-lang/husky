@@ -1,3 +1,4 @@
+pub mod helpers;
 pub mod r#let;
 #[cfg(test)]
 mod tests;
@@ -15,54 +16,76 @@ use latex_ast::ast::{
     rose::{LxRoseAstData, LxRoseAstIdx},
 };
 use latex_token::idx::LxRoseTokenIdx;
+use once_place::OncePlace;
+use sentence::cnl::CnlToken;
 use std::iter::Peekable;
 use symbol::builder::VdSynSymbolBuilder;
+use vibe::VdSynExprVibe;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSynClauseData {
     Let {
-        let_token_idx: LxRoseTokenIdx,
         left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_math_delimiter_token_idx: LxRoseTokenIdx,
-        resolution: VdSynLetClauseResolution,
     },
     Assume {
-        assume_token_idx: LxRoseTokenIdx,
-        left_dollar_token_idx: LxRoseTokenIdx,
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
-    Then {
-        then_token_idx: LxRoseTokenIdx,
-        left_dollar_token_idx: LxRoseTokenIdx,
+    Have {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
-        right_dollar_token_idx: LxRoseTokenIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
     },
-    Todo(LxRoseTokenIdx),
+    Show {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
+        formula: VdSynExprIdx,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
+    },
+    Goal {
+        left_math_delimiter_token_idx: LxRoseTokenIdx,
+        formula: ArenaIdx<crate::expr::VdSynExprData>,
+        right_math_delimiter_token_idx: LxRoseTokenIdx,
+    },
 }
 
-pub enum VdSynClauseChild {
-    Expr(VdSynExprIdx),
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdSynClauseEntry {
+    Cnl {
+        tokens: Vec<CnlToken>,
+        data: VdSynClauseData,
+    },
+    Unl {
+        tokens: (),
+        data: OncePlace<VdSynClauseData>,
+    },
 }
 
-impl VdSynClauseData {
-    pub(crate) fn children(&self) -> Vec<VdSynClauseChild> {
-        match *self {
-            VdSynClauseData::Let { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Assume { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Then { formula, .. } => vec![VdSynClauseChild::Expr(formula)],
-            VdSynClauseData::Todo(..) => vec![],
+pub type VdSynClauseArena = Arena<VdSynClauseEntry>;
+pub type VdSynClauseArenaRef<'a> = ArenaRef<'a, VdSynClauseEntry>;
+pub type VdSynClauseIdx = ArenaIdx<VdSynClauseEntry>;
+pub type VdSynClauseIdxRange = ArenaIdxRange<VdSynClauseEntry>;
+pub type VdSynClauseMap<T> = ArenaMap<VdSynClauseEntry, T>;
+pub type VdSynClauseOrderedMap<T> = ArenaOrderedMap<VdSynClauseEntry, T>;
+
+impl VdSynClauseEntry {
+    pub fn data(&self) -> &VdSynClauseData {
+        match self {
+            VdSynClauseEntry::Cnl { data, .. } => data,
+            VdSynClauseEntry::Unl { data, .. } => data,
+        }
+    }
+
+    #[track_caller]
+    pub fn cnl_tokens(&self) -> &[CnlToken] {
+        match self {
+            VdSynClauseEntry::Cnl { tokens, .. } => tokens,
+            VdSynClauseEntry::Unl { .. } => unreachable!(),
         }
     }
 }
-
-pub type VdSynClauseArena = Arena<VdSynClauseData>;
-pub type VdSynClauseArenaRef<'a> = ArenaRef<'a, VdSynClauseData>;
-pub type VdSynClauseIdx = ArenaIdx<VdSynClauseData>;
-pub type VdSynClauseIdxRange = ArenaIdxRange<VdSynClauseData>;
-pub type VdSynClauseMap<T> = ArenaMap<VdSynClauseData, T>;
-pub type VdSynClauseOrderedMap<T> = ArenaOrderedMap<VdSynClauseData, T>;
 
 impl<'db> VdSynExprBuilder<'db> {
     pub(crate) fn parse_clause(
@@ -70,6 +93,7 @@ impl<'db> VdSynExprBuilder<'db> {
         token_idx: LxRoseTokenIdx,
         word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynClauseData {
         let db = self.db();
         match word.data() {
@@ -85,14 +109,11 @@ impl<'db> VdSynExprBuilder<'db> {
                             ((*left_delimiter_token_idx + 1)..*right_delimiter_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self);
-                        let resolution = self.build_let_stmt_resolution(formula);
+                            .to_vd_syn(self, vibe);
                         VdSynClauseData::Let {
-                            let_token_idx: token_idx,
                             left_math_delimiter_token_idx: left_delimiter_token_idx,
                             formula,
                             right_math_delimiter_token_idx: right_delimiter_token_idx,
-                            resolution,
                         }
                     }
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
@@ -123,14 +144,13 @@ impl<'db> VdSynExprBuilder<'db> {
                         math_asts,
                         right_delimiter_token_idx: right_dollar_token_idx,
                     } => VdSynClauseData::Assume {
-                        assume_token_idx: token_idx,
-                        left_dollar_token_idx,
+                        left_math_delimiter_token_idx: left_dollar_token_idx,
                         formula: (
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
-                        right_dollar_token_idx,
+                            .to_vd_syn(self, vibe),
+                        right_math_delimiter_token_idx: right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
@@ -159,15 +179,14 @@ impl<'db> VdSynExprBuilder<'db> {
                         left_delimiter_token_idx: left_dollar_token_idx,
                         math_asts,
                         right_delimiter_token_idx: right_dollar_token_idx,
-                    } => VdSynClauseData::Then {
-                        then_token_idx: token_idx,
-                        left_dollar_token_idx,
+                    } => VdSynClauseData::Have {
+                        left_math_delimiter_token_idx: left_dollar_token_idx,
                         formula: (
                             ((*left_dollar_token_idx + 1)..*right_dollar_token_idx).into(),
                             math_asts,
                         )
-                            .to_vd_syn(self),
-                        right_dollar_token_idx,
+                            .to_vd_syn(self, vibe),
+                        right_math_delimiter_token_idx: right_dollar_token_idx,
                     },
                     LxRoseAstData::TextEdit { ref buffer } => todo!(),
                     LxRoseAstData::Word(lx_rose_token_idx, coword) => todo!(),
@@ -189,34 +208,36 @@ impl<'db> VdSynExprBuilder<'db> {
                     LxRoseAstData::NewParagraph(_) => todo!(),
                 }
             }
-            _ => VdSynClauseData::Todo(token_idx),
+            _ => todo!(), // VdSynClauseData::Todo(token_idx),
         }
     }
 }
 
 impl<'db> VdSynSymbolBuilder<'db> {
     pub(crate) fn build_clause_aux(&mut self, clause: VdSynClauseIdx) {
-        match self.clause_arena()[clause] {
-            VdSynClauseData::Let { ref resolution, .. } => {
-                self.build_let_resolution(clause, resolution)
+        match *self.clause_arena()[clause].data() {
+            VdSynClauseData::Let { formula, .. } => {
+                let resolution = self.infer_let_clause_resolution(clause, formula);
+                self.build_symbols_in_let_resolution(clause, resolution)
             }
             VdSynClauseData::Assume { formula, .. } => self.build_expr(formula),
-            VdSynClauseData::Then { formula, .. } => self.build_expr(formula),
-            VdSynClauseData::Todo(..) => todo!(),
+            VdSynClauseData::Goal { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Have { formula, .. } => self.build_expr(formula),
+            VdSynClauseData::Show { formula, .. } => self.build_expr(formula),
         }
     }
 
-    pub(crate) fn build_let_resolution(
+    pub(crate) fn build_symbols_in_let_resolution(
         &mut self,
         clause: VdSynClauseIdx,
-        resolution: &VdSynLetClauseResolution,
+        resolution: VdSynLetClauseResolution,
     ) {
-        match *resolution {
-            VdSynLetClauseResolution::Assigned(ref resolution) => {
-                self.build_let_assigned_resolution(clause, resolution)
+        match resolution {
+            VdSynLetClauseResolution::Assigned(resolution) => {
+                self.build_symbols_in_let_assigned_resolution(clause, resolution)
             }
-            VdSynLetClauseResolution::Placeholder(ref resolution) => {
-                self.build_let_placeholder_resolution(clause, resolution)
+            VdSynLetClauseResolution::Placeholder(resolution) => {
+                self.build_symbols_in_let_placeholder_resolution(clause, resolution)
             }
         }
     }

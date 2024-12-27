@@ -15,7 +15,6 @@ pub enum VdSemLetClauseDispatch {
 impl<'a> VdSemExprBuilder<'a> {
     pub(super) fn build_let_clause(
         &mut self,
-        let_token_idx: LxRoseTokenIdx,
         left_dollar_token_idx: LxRoseTokenIdx,
         formula: VdSynExprIdx,
         right_dollar_token_idx: LxRoseTokenIdx,
@@ -23,10 +22,9 @@ impl<'a> VdSemExprBuilder<'a> {
     ) -> VdSemClauseData {
         let dispatch = resolution.to_vd_sem(self);
         VdSemClauseData::Let {
-            let_token_idx,
-            left_dollar_token_idx,
+            left_math_delimiter_token_idx: left_dollar_token_idx,
             formula: formula.to_vd_sem(self),
-            right_dollar_token_idx,
+            right_math_delimiter_token_idx: right_dollar_token_idx,
             dispatch,
         }
     }

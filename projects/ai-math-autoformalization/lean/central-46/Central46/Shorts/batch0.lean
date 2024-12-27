@@ -3,26 +3,42 @@ import Obvious
 
 open Obvious
 
+namespace Example1
 def h := by
   have h1 : 1 + 1 = 2 := by obvious
-  exact ()
+  obvious
+end Example1
 
-def h2(x : ℝ) := by
-  have h3 : x ^ 2 ≥ 0 := by obvious
-  exact ()
+namespace Example2
+def h(x : ℝ) := by
+  have h1 : x ^ 2 ≥ 0 := by obvious
+  obvious
+end Example2
 
-def h4(x : ℝ) := by
-  have h5 : x ^ 2 + 1 ≥ 2 * x := by obvious
-  exact ()
+namespace Example3
+def h(x : ℝ) := by
+  have h1 : x ^ 2 + 1 ≥ 2 * x := by obvious
+  obvious
+end Example3
 
-def h6 := by
-  have h7 : 1 = 1 := by calc
-      1 = 1 := sorry
-    _ = 1 := sorry
-  have h8 : 1 < 2 := by calc
-      1 = 1 := sorry
-    _ < 2 := sorry
-  have h9 : 1.0 ≤ 1 := by calc
-      1.0 ≤ 1 := sorry
-    _ ≤ 1 := sorry
-  exact ()
+namespace Example4
+def h := by
+  first
+  | have h1 : 1 = 1 := by calc
+    1 = 1 := by obvious
+    _ = 1 := by obvious
+  | have h2 : 1 = 1 := by calc
+    1 = 1 := by obvious
+    _ = 1 := by obvious
+  first
+  | have h3 : 1 < 2 := by calc
+    1 = 1 := by obvious
+    _ < 2 := by obvious
+  | have h4 : 1 < 2 := by calc
+    1 = 1 := by obvious
+    _ < 2 := by obvious
+  have h5 : 1.0 ≤ 1 := by calc
+    1.0 ≤ 1 := by obvious
+    _ ≤ 1 := by obvious
+  obvious
+end Example4

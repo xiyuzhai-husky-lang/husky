@@ -6,6 +6,8 @@ use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::{
     expr::VdMirExprData, helpers::tracker::VdMirExprTracker, stmt::VdMirStmtData,
 };
+use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 use visored_tactics::tactics::ring::{tracker::*, *};
 
 fn main() {
@@ -31,6 +33,7 @@ fn ring_tactics() {
         };
         let token_annotations = vec![];
         let space_annotations = vec![];
+        let models = &VdModels::new();
         let VdMirExprTracker {
             root_module_path,
             expr_arena,
@@ -46,7 +49,14 @@ fn ring_tactics() {
             token_storage,
             output: stmts,
             ..
-        } = VdMirExprTracker::new(input, &token_annotations, &space_annotations, db);
+        } = VdMirExprTracker::new(
+            input,
+            &token_annotations,
+            &space_annotations,
+            models,
+            VdSynExprVibe::ROOT_CNL,
+            db,
+        );
         let stmt = stmts.last().unwrap();
         let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
             unreachable!()
@@ -60,7 +70,7 @@ fn ring_tactics() {
             unreachable!()
         };
         let stmt = stmts.last().unwrap();
-        let VdMirStmtData::Then { prop } = stmt_arena[stmt] else {
+        let VdMirStmtData::Have { prop } = stmt_arena[stmt] else {
             unreachable!()
         };
         let VdMirExprData::ChainingSeparatedList {

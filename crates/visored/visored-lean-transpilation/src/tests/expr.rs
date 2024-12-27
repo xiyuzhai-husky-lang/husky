@@ -6,8 +6,9 @@ use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -21,6 +22,8 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
     );
@@ -30,7 +33,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_visored_expr_to_lean_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "1",
         &expect![[r#"
             literal: `1`
@@ -38,6 +43,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1"],
     );
     t(
+        models,
         "-1",
         &expect![[r#"
             application
@@ -46,6 +52,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["-1"],
     );
     t(
+        models,
         "1 + 1",
         &expect![[r#"
             application
@@ -55,6 +62,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 + 1"],
     );
     t(
+        models,
         "1 < 2",
         &expect![[r#"
             application
@@ -64,6 +72,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 < 2"],
     );
     t(
+        models,
         "1\\in\\mathbb{N}",
         &expect![[r#"
             application
@@ -73,6 +82,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["sorry"],
     );
     t(
+        models,
         "\\frac{1}{2}",
         &expect![[r#"
             application
@@ -82,6 +92,7 @@ fn basic_visored_expr_to_lean_works() {
         &expect!["1 / 2"],
     );
     t(
+        models,
         "\\sqrt{2}",
         &expect![[r#"
             application
@@ -94,7 +105,9 @@ fn basic_visored_expr_to_lean_works() {
 
 #[test]
 fn item_path_to_lean_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "\\mathbb{N}",
         &expect![[r#"
             item path: `ℕ`

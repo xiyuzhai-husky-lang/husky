@@ -8,6 +8,7 @@ use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
+    models: &VdModels,
     content: &str,
     token_annotations: &[((&str, &str), VdTokenAnnotation)],
     space_annotations: &[((&str, &str), VdSpaceAnnotation)],
@@ -19,6 +20,7 @@ fn t(
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let vibe = VdSynExprVibe::ROOT_CNL;
     let tracker = VdSynExprTracker::new(
         LxFormulaInput {
             specs_dir: dev_paths.specs_dir(),
@@ -27,14 +29,18 @@ fn t(
         },
         token_annotations,
         space_annotations,
-        &db,
+        models,
+        vibe,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]
 fn literal_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "",
         &[],
         &[],
@@ -43,6 +49,7 @@ fn literal_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1",
         &[],
         &[],
@@ -51,6 +58,7 @@ fn literal_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "11",
         &[],
         &[],
@@ -59,6 +67,7 @@ fn literal_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1 1",
         &[],
         &[],
@@ -72,7 +81,9 @@ fn literal_vd_syn_expr_parsing_works() {
 
 #[test]
 fn basic_arithematics_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "1 + 1",
         &[],
         &[],
@@ -83,6 +94,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1 + 1 = 2",
         &[],
         &[],
@@ -95,6 +107,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1 + 1 = 2",
         &[],
         &[],
@@ -107,6 +120,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "+1",
         &[],
         &[],
@@ -116,6 +130,7 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "-1",
         &[],
         &[],
@@ -128,7 +143,9 @@ fn basic_arithematics_vd_syn_expr_parsing_works() {
 
 #[test]
 fn relationship_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "1<2",
         &[],
         &[],
@@ -142,7 +159,9 @@ fn relationship_vd_syn_expr_parsing_works() {
 
 #[test]
 fn xyz_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "x",
         &[],
         &[],
@@ -151,6 +170,7 @@ fn xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "y",
         &[],
         &[],
@@ -159,6 +179,7 @@ fn xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "z",
         &[],
         &[],
@@ -167,6 +188,7 @@ fn xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "xyz",
         &[],
         &[],
@@ -181,7 +203,9 @@ fn xyz_vd_syn_expr_parsing_works() {
 
 #[test]
 fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "1+x",
         &[],
         &[],
@@ -192,6 +216,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+2x",
         &[],
         &[],
@@ -204,6 +229,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+2xy",
         &[],
         &[],
@@ -217,6 +243,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+x+2xy",
         &[],
         &[],
@@ -231,6 +258,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+x+2",
         &[],
         &[],
@@ -242,6 +270,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+x+2y",
         &[],
         &[],
@@ -255,6 +284,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+x+y+z+xyz",
         &[],
         &[],
@@ -271,6 +301,7 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "1+x+y+z+abc",
         &[],
         &[],
@@ -290,7 +321,9 @@ fn arithemtics_with_xyz_vd_syn_expr_parsing_works() {
 
 #[test]
 fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "0\\ne1",
         &[],
         &[],
@@ -301,6 +334,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "0\\in\\mathbb{N}",
         &[],
         &[],
@@ -311,6 +345,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\subset B",
         &[],
         &[],
@@ -321,6 +356,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\subseteq B",
         &[],
         &[],
@@ -331,6 +367,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\subseteqq B",
         &[],
         &[],
@@ -341,6 +378,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\supseteq B",
         &[],
         &[],
@@ -351,6 +389,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\supseteqq B",
         &[],
         &[],
@@ -361,6 +400,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\subsetneq B",
         &[],
         &[],
@@ -371,6 +411,7 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "A\\supsetneq B",
         &[],
         &[],
@@ -384,7 +425,9 @@ fn more_operators_with_xyz_vd_syn_expr_parsing_works() {
 
 #[test]
 fn delimiters_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "(1)",
         &[],
         &[],
@@ -397,7 +440,9 @@ fn delimiters_vd_syn_expr_parsing_works() {
 
 #[test]
 fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "\\alpha",
         &[],
         &[],
@@ -406,6 +451,7 @@ fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "\\pi",
         &[],
         &[],
@@ -417,7 +463,9 @@ fn math_zero_argument_commands_vd_syn_expr_parsing_works() {
 
 #[test]
 fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "\\frac{1}{2}",
         &[],
         &[],
@@ -428,6 +476,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "\\frac{x+1}{2-2y}",
         &[],
         &[],
@@ -444,6 +493,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "\\sqrt{1}",
         &[],
         &[],
@@ -453,6 +503,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "\\sqrt{x+1}",
         &[],
         &[],
@@ -464,6 +515,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "\\sqrt{\\frac{1}{2+x}}",
         &[],
         &[],
@@ -482,7 +534,9 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
 fn opr_commands_vd_syn_expr_parsing_works() {
     use visored_annotation::annotation::token::DIFFERENTIAL;
 
+    let models = &VdModels::new();
     t(
+        models,
         "\\int xdx",
         &[(("\\int x", "d"), DIFFERENTIAL)],
         &[],
@@ -498,7 +552,9 @@ fn opr_commands_vd_syn_expr_parsing_works() {
 
 #[test]
 fn attach_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "x^2",
         &[],
         &[],
@@ -509,6 +565,7 @@ fn attach_vd_syn_expr_parsing_works() {
         "#]],
     );
     t(
+        models,
         "{(x+1)}^2",
         &[],
         &[],
@@ -526,7 +583,9 @@ fn attach_vd_syn_expr_parsing_works() {
 
 #[test]
 fn styled_letter_vd_syn_expr_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "\\mathbb{N}",
         &[],
         &[],

@@ -1,16 +1,25 @@
+pub mod storage;
+
+use alien_seed::{attach::with_seed, AlienSeed};
+use eterned::db::EternerDb;
+use idx_arena::{ArenaIdx, ArenaIdxRange};
+
 use crate::{
     error::VdPipelineResult, input::VdPipelineInput, tracker::VdPipelineTracker, VdPipelineConfig,
 };
-use std::sync::Arc;
+use std::{path::Path, sync::Arc};
 
 pub struct VdPipelineInstance {
-    config: VdPipelineConfig,
+    config: Arc<VdPipelineConfig>,
     input: Arc<VdPipelineInput>,
     tracker: Option<VdPipelineTracker>,
 }
 
+pub type VdPipelineInstanceIdx = ArenaIdx<VdPipelineInstance>;
+pub type VdPipelineInstanceIdxRange = ArenaIdxRange<VdPipelineInstance>;
+
 impl VdPipelineInstance {
-    pub fn new(config: VdPipelineConfig, src_file: Arc<VdPipelineInput>) -> Self {
+    pub fn new(config: Arc<VdPipelineConfig>, src_file: Arc<VdPipelineInput>) -> Self {
         Self {
             config,
             input: src_file,
@@ -20,9 +29,33 @@ impl VdPipelineInstance {
 }
 
 impl VdPipelineInstance {
-    pub fn run(&mut self) -> VdPipelineResult<()> {
+    #[track_caller]
+    pub fn tracker(&self) -> &VdPipelineTracker {
+        self.tracker.as_ref().unwrap()
+    }
+}
+
+impl VdPipelineInstance {
+    pub fn run(
+        &mut self,
+        seed: AlienSeed,
+        db: &EternerDb,
+        tokio_runtime: Arc<tokio::runtime::Runtime>,
+        // TODO: replace with preloaded specs???
+        specs_dir: &Path,
+        lean4_dir: &Path,
+    ) -> VdPipelineResult<()> {
         assert!(self.tracker.is_none());
-        self.tracker = Some(VdPipelineTracker::new(&self.config, self.input.clone()));
+        with_seed(seed, || {
+            self.tracker = Some(VdPipelineTracker::new(
+                db,
+                tokio_runtime,
+                specs_dir,
+                lean4_dir,
+                self.input.clone(),
+                self.config.clone(),
+            ));
+        });
         Ok(())
     }
 }

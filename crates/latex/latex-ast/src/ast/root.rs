@@ -129,6 +129,8 @@ impl<'a> LxAstParser<'a> {
             }
             LxCommandSignature::Begin => self.parse_root_environment(command_token_idx),
             LxCommandSignature::End => todo!(),
+            LxCommandSignature::Left => todo!(),
+            LxCommandSignature::Right => todo!(),
         })
     }
 }

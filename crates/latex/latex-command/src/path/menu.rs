@@ -29,8 +29,11 @@ pub struct LxCommandPathMenu {
     // --- relations
     pub eq: LxCommandPath,
     pub ne: LxCommandPath,
+    pub neq: LxCommandPath,
     pub le: LxCommandPath,
+    pub leq: LxCommandPath,
     pub ge: LxCommandPath,
+    pub geq: LxCommandPath,
     pub r#in: LxCommandPath,
     pub subset: LxCommandPath,
     pub supset: LxCommandPath,
@@ -59,6 +62,9 @@ pub struct LxCommandPathMenu {
     pub frac: LxCommandPath,
     // -- environments
     pub text: LxCommandPath,
+    // - others
+    pub left: LxCommandPath,
+    pub right: LxCommandPath,
 }
 
 impl LxCommandPathMenu {
@@ -91,8 +97,11 @@ impl LxCommandPathMenu {
             // -- relations
             eq: p("eq"),
             ne: p("ne"),
+            neq: p("neq"),
             le: p("le"),
+            leq: p("leq"),
             ge: p("ge"),
+            geq: p("geq"),
             r#in: p("in"),
             subset: p("subset"),
             supset: p("supset"),
@@ -120,6 +129,8 @@ impl LxCommandPathMenu {
             sqrt: p("sqrt"),
             frac: p("frac"),
             text: p("text"),
+            left: p("left"),
+            right: p("right"),
         }
     }
 }

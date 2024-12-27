@@ -83,6 +83,10 @@ impl<'a> LxAstParser<'a> {
     pub(crate) fn arena(&self) -> &LxAstArena {
         self.arena
     }
+
+    pub(crate) fn input(&self) -> &'a str {
+        self.lexer.input()
+    }
 }
 
 /// # actions
