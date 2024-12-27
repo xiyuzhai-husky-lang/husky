@@ -356,12 +356,14 @@ impl<'a> LnMirExprFormatter<'a> {
                             slf.format_expr_ext(leader);
                             slf.result += opr.fmt_str();
                             slf.format_expr_ext(follower);
-                            slf.result += " := obvious"
+                            // AD HOC
+                            slf.result += " := by obvious"
                         } else {
                             slf.result += "_";
                             slf.result += opr.fmt_str();
                             slf.format_expr_ext(follower);
-                            slf.result += " := obvious"
+                            // AD HOC
+                            slf.result += " := by obvious"
                         }
                     }
                 });

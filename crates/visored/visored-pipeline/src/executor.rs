@@ -201,23 +201,18 @@ open Obvious
 "#,
             tracker.show_fmt(self.db)
         ));
-        use husky_print_utils::p;
-        assert!(self.lean4_dir.exists());
-        assert!(self.lean4_dir.is_dir());
-        p!(self.lean4_dir);
         let lean4_code_path = self
             .input
             .relative_path
             .to_logical_path(self.lean4_dir)
             .with_extension("")
             .join(format!("example-{}.lean", self.input.index + 1));
-        p!(&lean4_code_path);
         if let Some(parent) = lean4_code_path.parent() {
             std::fs::create_dir_all(parent).unwrap();
         }
         diff_write(&lean4_code_path, self.lean4_code.as_ref().unwrap(), true);
         // p!(lake_lean(&lean4_code_path));
-        todo!("compile lean4 code");
+        // todo!("compile lean4 code");
     }
 
     pub(crate) fn finish(
