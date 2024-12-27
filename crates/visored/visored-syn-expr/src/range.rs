@@ -19,8 +19,8 @@ use crate::{
     },
 };
 use either::*;
-use latex_ast::range::LxAstTokenIdxRangeMap;
-use latex_token::idx::LxTokenIdxRange;
+use latex_ast::{ast::math::LxMathCompleteCommandArgument, range::LxAstTokenIdxRangeMap};
+use latex_token::idx::{LxMathTokenIdx, LxTokenIdxRange};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum VdSynExprTokenIdxRange {
@@ -232,21 +232,30 @@ impl<'db> VdSynExprRangeCalculator<'db> {
             }
             VdSynExprData::Fraction {
                 command_token_idx,
-                denominator_rcurl_token_idx,
+                denominator_arg,
                 ..
-            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
-                *command_token_idx,
-                *denominator_rcurl_token_idx,
-            )),
+            } => self.calc_complete_command(command_token_idx, denominator_arg),
             VdSynExprData::Sqrt {
                 command_token_idx,
-                radicand_rcurl_token_idx,
+                radicand_arg,
                 ..
-            } => VdSynExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
-                *command_token_idx,
-                *radicand_rcurl_token_idx,
-            )),
+            } => self.calc_complete_command(command_token_idx, radicand_arg),
         }
+    }
+
+    fn calc_complete_command(
+        &mut self,
+        command_token_idx: LxMathTokenIdx,
+        last_arg: LxMathCompleteCommandArgument,
+    ) -> VdSynExprTokenIdxRange {
+        VdSynExprTokenIdxRange::Standard(match last_arg {
+            LxMathCompleteCommandArgument::MathAst(ast) => self.lx_ast_range_map[ast],
+            LxMathCompleteCommandArgument::Asts {
+                lcurl_token_idx,
+                asts,
+                rcurl_token_idx,
+            } => LxTokenIdxRange::new_closed(*lcurl_token_idx, *rcurl_token_idx),
+        })
     }
 
     fn get_expr(&mut self, expr: VdSynExprIdx) -> VdSynExprTokenIdxRange {

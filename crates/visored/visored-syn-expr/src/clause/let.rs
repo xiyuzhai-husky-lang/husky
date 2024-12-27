@@ -60,13 +60,12 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 command_token_idx,
                 numerator,
                 denominator,
-                denominator_rcurl_token_idx,
+                ..
             } => todo!(),
             VdSynExprData::Sqrt {
                 command_token_idx,
-                radicand_lcurl_token_idx,
                 radicand,
-                radicand_rcurl_token_idx,
+                ..
             } => todo!(),
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),

@@ -52,13 +52,12 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 command_token_idx,
                 numerator,
                 denominator,
-                denominator_rcurl_token_idx,
+                ..
             } => *command_token_idx,
             VdSynExprData::Sqrt {
                 command_token_idx,
-                radicand_lcurl_token_idx,
                 radicand,
-                radicand_rcurl_token_idx,
+                ..
             } => *command_token_idx,
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),

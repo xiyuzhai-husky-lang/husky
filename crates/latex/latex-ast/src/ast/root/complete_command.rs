@@ -47,7 +47,7 @@ impl<'a> LxAstParser<'a> {
         let Some((lcurl_token_idx, LxRootTokenData::LeftDelimiter(LxRootDelimiter::Curl))) =
             self.next_root_token()
         else {
-            todo!("report errors properly")
+            todo!("maybe this is allowed")
         };
 
         let data = match mode {

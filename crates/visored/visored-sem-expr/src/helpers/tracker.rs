@@ -184,6 +184,7 @@ impl<'a, Input: IsVdSemExprInput<'a>> VdSemExprTracker<'a, Input> {
             stmt_range_map,
             division_range_map,
         ) = calc_expr_range_map(
+            &ast_token_idx_range_map,
             &syn_clause_range_map,
             &expr_arena,
             &phrase_arena,

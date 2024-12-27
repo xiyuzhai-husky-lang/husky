@@ -21,7 +21,7 @@ use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
 use latex_ast::ast::{
-    math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange},
+    math::{LxMathAstData, LxMathAstIdx, LxMathAstIdxRange, LxMathCompleteCommandArgument},
     LxAstIdxRange,
 };
 use latex_math_letter::letter::LxMathLetter;
@@ -111,14 +111,13 @@ pub enum VdSynExprData {
         command_token_idx: LxMathTokenIdx,
         numerator: VdSynExprIdx,
         denominator: VdSynExprIdx,
-        denominator_rcurl_token_idx: LxMathTokenIdx,
+        denominator_arg: LxMathCompleteCommandArgument,
     },
     Sqrt {
         // TODO: add field for the index or degree
         command_token_idx: LxMathTokenIdx,
-        radicand_lcurl_token_idx: LxMathTokenIdx,
         radicand: VdSynExprIdx,
-        radicand_rcurl_token_idx: LxMathTokenIdx,
+        radicand_arg: LxMathCompleteCommandArgument,
     },
     UniadicChain,
     VariadicChain,

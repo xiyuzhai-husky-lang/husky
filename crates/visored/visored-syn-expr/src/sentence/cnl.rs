@@ -141,7 +141,7 @@ impl<'db> VdSynExprBuilder<'db> {
                         cnl_punctuation,
                     ) => todo!(),
                 },
-                "Then" | "We have" => match token.data {
+                "" | "Then" | "We have" => match token.data {
                     CnlTokenData::Math {
                         left_delimiter_token_idx,
                         math_asts,
@@ -156,6 +156,7 @@ impl<'db> VdSynExprBuilder<'db> {
                             vibe,
                         )
                     }
+                    CnlTokenData::Word(_, _) => (),
                     _ => todo!(),
                 },
                 "It's enough to show"
@@ -178,14 +179,6 @@ impl<'db> VdSynExprBuilder<'db> {
                     }
                     CnlTokenData::Word(_, _) => (),
                     _ => todo!("data: {:?}", token.data),
-                },
-                "" => match token.data {
-                    CnlTokenData::Math {
-                        left_delimiter_token_idx,
-                        math_asts,
-                        right_delimiter_token_idx,
-                    } => todo!(),
-                    _ => (),
                 },
                 _ => (),
             }
@@ -217,7 +210,10 @@ impl<'db> VdSynExprBuilder<'db> {
                 CnlTokenData::Word(_, _) => (),
                 CnlTokenData::Math { .. } => (),
                 CnlTokenData::Punctuation(_, _, punctuation) => match punctuation {
-                    CnlPunctuation::Comma => todo!(),
+                    CnlPunctuation::Comma => {
+                        println!("content: \n{}", self.content());
+                        todo!()
+                    }
                     CnlPunctuation::Period => break,
                     CnlPunctuation::Colon => todo!(),
                     CnlPunctuation::Semicolon => todo!(),

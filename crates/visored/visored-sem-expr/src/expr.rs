@@ -20,6 +20,7 @@ use crate::*;
 use either::*;
 use frac::VdSemFracDispatch;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use latex_ast::ast::math::LxMathCompleteCommandArgument;
 use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
@@ -111,19 +112,15 @@ pub enum VdSemExprData {
     },
     Frac {
         command_token_idx: LxMathTokenIdx,
-        // numerator_lcurl_token_idx: LxMathTokenIdx,
         numerator: VdSemExprIdx,
-        // numerator_rcurl_token_idx: LxMathTokenIdx,
-        // denominator_lcurl_token_idx: LxMathTokenIdx,
         denominator: VdSemExprIdx,
-        denominator_rcurl_token_idx: LxMathTokenIdx,
+        denominator_arg: LxMathCompleteCommandArgument,
         dispatch: VdSemFracDispatch,
     },
     Sqrt {
         command_token_idx: LxMathTokenIdx,
-        radicand_lcurl_token_idx: LxMathTokenIdx,
         radicand: VdSemExprIdx,
-        radicand_rcurl_token_idx: LxMathTokenIdx,
+        radicand_arg: LxMathCompleteCommandArgument,
         dispatch: VdSemSqrtDispatch,
     },
 }
@@ -248,24 +245,15 @@ impl<'a> VdSemExprBuilder<'a> {
                 command_token_idx,
                 numerator,
                 denominator,
-                denominator_rcurl_token_idx,
-            } => self.build_frac(
-                command_token_idx,
-                numerator,
-                denominator,
-                denominator_rcurl_token_idx,
-            ),
+                denominator_arg,
+                ..
+            } => self.build_frac(command_token_idx, numerator, denominator, denominator_arg),
             VdSynExprData::Sqrt {
                 command_token_idx,
-                radicand_lcurl_token_idx,
                 radicand,
-                radicand_rcurl_token_idx,
-            } => self.build_sqrt(
-                command_token_idx,
-                radicand_lcurl_token_idx,
-                radicand,
-                radicand_rcurl_token_idx,
-            ),
+                radicand_arg,
+                ..
+            } => self.build_sqrt(command_token_idx, radicand, radicand_arg),
             VdSynExprData::UniadicChain => todo!(),
             VdSynExprData::VariadicChain => todo!(),
             VdSynExprData::UniadicArray => todo!(),
@@ -415,10 +403,8 @@ impl<'db> VdSemExprBuilder<'db> {
             VdSemExprData::Frac { .. } => todo!(),
             VdSemExprData::Sqrt {
                 command_token_idx,
-                radicand_lcurl_token_idx,
                 radicand,
-                radicand_rcurl_token_idx,
-                dispatch,
+                ..
             } => todo!(),
         }
     }

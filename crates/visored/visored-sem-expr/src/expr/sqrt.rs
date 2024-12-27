@@ -11,9 +11,8 @@ impl<'a> VdSemExprBuilder<'a> {
     pub fn build_sqrt(
         &mut self,
         command_token_idx: LxMathTokenIdx,
-        radicand_lcurl_token_idx: LxMathTokenIdx,
         syn_radicand: VdSynExprIdx,
-        radicand_rcurl_token_idx: LxMathTokenIdx,
+        radicand_arg: LxMathCompleteCommandArgument,
     ) -> (VdSemExprData, VdType) {
         let radicand = self.build_expr_entry(syn_radicand);
         if let Some(dispatch) = self
@@ -26,9 +25,8 @@ impl<'a> VdSemExprBuilder<'a> {
                     let radicand = self.alloc_expr(syn_radicand, radicand);
                     let expr_data = VdSemExprData::Sqrt {
                         command_token_idx,
-                        radicand_lcurl_token_idx,
                         radicand,
-                        radicand_rcurl_token_idx,
+                        radicand_arg,
                         dispatch: VdSemSqrtDispatch::Base { signature },
                     };
                     (expr_data, expr_ty)
