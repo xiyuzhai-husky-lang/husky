@@ -35,6 +35,9 @@ pub enum VdMirStmtData {
         pattern: VdMirPattern,
         assignment: VdMirExprIdx,
     },
+    Goal {
+        prop: VdMirExprIdx,
+    },
     Have {
         prop: VdMirExprIdx,
     },
@@ -197,6 +200,13 @@ impl<'db> VdMirExprBuilder<'db> {
             } => VdMirStmtData::LetPlaceholder {
                 pattern: VdMirPattern::Assumed,
                 ty: formula.to_vd_mir(self),
+            },
+            VdSemClauseData::Goal {
+                left_math_delimiter_token_idx: left_dollar_token_idx,
+                formula,
+                right_math_delimiter_token_idx: right_dollar_token_idx,
+            } => VdMirStmtData::Goal {
+                prop: formula.to_vd_mir(self),
             },
             VdSemClauseData::Have {
                 left_math_delimiter_token_idx: left_dollar_token_idx,

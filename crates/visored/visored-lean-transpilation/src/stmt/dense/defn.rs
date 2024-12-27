@@ -100,22 +100,27 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             | VdMirStmtData::LetAssigned { .. }
             | VdMirStmtData::Have { .. }
             | VdMirStmtData::Show { .. } => unreachable!(),
+            VdMirStmtData::Goal { prop } => todo!(),
         }
     }
 
     fn build_ln_def_from_vd_paragraph(&mut self, stmts: VdMirStmtIdxRange) -> LnItemDefnData {
         let ident = self.mangle_hypothesis();
         let mut parameters: Vec<LnDefParameter> = vec![];
+        let mut goal = None;
         for stmt in stmts {
             match self.build_ln_parameter_from_vd_stmt(stmt, &mut parameters) {
                 std::ops::ControlFlow::Continue(()) => (),
-                std::ops::ControlFlow::Break(()) => break,
+                std::ops::ControlFlow::Break(goal1) => {
+                    goal = goal1;
+                    break;
+                }
             }
         }
         LnItemDefnData::Def {
             ident,
             parameters,
-            ty: None,
+            ty: goal.map(|goal| goal.to_lean(self)),
             body: LnMirDefBody::Tactics(stmts.to_lean(self)),
         }
     }
@@ -129,16 +134,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         // ad hoc
         let ident = self.mangle_hypothesis();
         let mut parameters: Vec<LnDefParameter> = vec![];
+        let mut goal: Option<VdMirExprIdx> = None;
         for stmt in stmts {
             match self.build_ln_parameter_from_vd_stmt(stmt, &mut parameters) {
                 std::ops::ControlFlow::Continue(()) => (),
-                std::ops::ControlFlow::Break(()) => break,
+                std::ops::ControlFlow::Break(goal1) => {
+                    goal = goal;
+                    break;
+                }
             }
         }
         LnItemDefnData::Def {
             ident,
             parameters,
-            ty: None,
+            ty: goal.map(|goal| goal.to_lean(self)),
             body: LnMirDefBody::Tactics(stmts.to_lean(self)),
         }
     }
@@ -147,10 +156,9 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         stmt: VdMirStmtIdx,
         parameters: &mut Vec<LnDefParameter>,
-    ) -> std::ops::ControlFlow<()> {
+    ) -> std::ops::ControlFlow<Option<VdMirExprIdx>> {
         let stmt_arena = self.stmt_arena();
-        let stmt = &stmt_arena[stmt];
-        match stmt {
+        match stmt_arena[stmt] {
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 parameters.push(LnDefParameter {
                     ident: match *pattern {
@@ -168,12 +176,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 for stmt in stmts {
                     match self.build_ln_parameter_from_vd_stmt(stmt, parameters) {
                         std::ops::ControlFlow::Continue(()) => (),
-                        std::ops::ControlFlow::Break(()) => return std::ops::ControlFlow::Break(()),
+                        std::ops::ControlFlow::Break(b) => return std::ops::ControlFlow::Break(b),
                     }
                 }
                 std::ops::ControlFlow::Continue(())
             }
-            _ => std::ops::ControlFlow::Break(()),
+            VdMirStmtData::Goal { prop } => std::ops::ControlFlow::Break(Some(prop)),
+            _ => std::ops::ControlFlow::Break(None),
         }
     }
 }

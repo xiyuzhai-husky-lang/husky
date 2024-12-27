@@ -160,6 +160,7 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
         let value = match *self.clause_arena[clause].data() {
             VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
+            VdSynClauseData::Goal { .. } => format!("{:?} clause.goal", source),
             VdSynClauseData::Have { .. } => format!("{:?} clause.have", source),
             VdSynClauseData::Show { .. } => format!("{:?} clause.show", source),
         };

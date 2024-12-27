@@ -226,6 +226,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSemClauseData::Assume { .. } => format!("{:?} clause.assume", source),
+            VdSemClauseData::Goal { .. } => format!("{:?} clause.goal", source),
             VdSemClauseData::Have { .. } => format!("{:?} clause.then", source),
             VdSemClauseData::Show { .. } => format!("{:?} clause.show", source),
             VdSemClauseData::Todo(lx_rose_token_idx) => format!("{:?} clause.todo", source),
