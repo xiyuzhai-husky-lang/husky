@@ -4,39 +4,44 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     pub(super) fn build_ln_tactic_from_vd_have(
         &mut self,
         prop: VdMirExprIdx,
-    ) -> Vec<LnMirTacticData> {
+        tactics: &mut Vec<LnMirTacticData>,
+    ) {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
                 joined_separator_and_signature: Some((joined_separator, joined_signature)),
-            } => self.build_show_nontrivial_chaining_separated_list(
+            } => self.build_have_nontrivial_chaining_separated_list(
                 leader,
                 followers,
                 joined_separator,
                 joined_signature,
+                tactics,
             ),
             _ => {
                 let ident = self.mangle_hypothesis();
                 let ty = prop.to_lean(self);
-                let tactics = self.alloc_tactics(vec![LnMirTacticData::Obvious]);
-                let construction = self.alloc_expr(LnMirExprData::By { tactics });
-                vec![LnMirTacticData::Have {
+                let construction_tactics = self.alloc_tactics(vec![LnMirTacticData::Obvious]);
+                let construction = self.alloc_expr(LnMirExprData::By {
+                    tactics: construction_tactics,
+                });
+                tactics.push(LnMirTacticData::Have {
                     ident,
                     ty,
                     construction,
-                }]
+                });
             }
         }
     }
 
-    fn build_show_nontrivial_chaining_separated_list(
+    fn build_have_nontrivial_chaining_separated_list(
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
-    ) -> Vec<LnMirTacticData> {
+        tactics: &mut Vec<LnMirTacticData>,
+    ) {
         debug_assert!(followers.len() >= 2);
         let ident = self.mangle_hypothesis();
         // TODO: Maye use to_lean trait method?
@@ -58,15 +63,17 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         };
         let ultimate_prop_function = VdMirFunc::NormalBaseSeparator(joined_signature).to_lean(self);
         let ultimate_prop_arguments = [leader, followers.last().unwrap().1].to_lean(self);
-        let tactics = self.alloc_tactics(vec![tactic_data]);
-        let construction = self.alloc_expr(LnMirExprData::By { tactics });
-        vec![LnMirTacticData::Have {
+        let construction_tactics = self.alloc_tactics(vec![tactic_data]);
+        let construction = self.alloc_expr(LnMirExprData::By {
+            tactics: construction_tactics,
+        });
+        tactics.push(LnMirTacticData::Have {
             ident,
             ty: self.alloc_expr(LnMirExprData::Application {
                 function: ultimate_prop_function,
                 arguments: ultimate_prop_arguments,
             }),
             construction,
-        }]
+        });
     }
 }
