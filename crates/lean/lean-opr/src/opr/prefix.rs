@@ -16,15 +16,15 @@ impl LnPrefixOpr {
 
     pub fn outer_precedence(self) -> LnPrecedence {
         match self {
-            Self::Pos => LnPrecedence::Prefix,
-            Self::Neg => LnPrecedence::Prefix,
+            Self::Pos => LnPrecedence::Sign,
+            Self::Neg => LnPrecedence::Sign,
         }
     }
 
     pub fn precedence_range(self) -> LnPrecedenceRange {
         match self {
-            Self::Pos => LnPrecedenceRange::Greater(LnPrecedence::Prefix),
-            Self::Neg => LnPrecedenceRange::Greater(LnPrecedence::Prefix),
+            Self::Pos => LnPrecedenceRange::Greater(LnPrecedence::Sign),
+            Self::Neg => LnPrecedenceRange::Greater(LnPrecedence::Sign),
         }
     }
 }

@@ -3,12 +3,12 @@
 pub enum LnPrecedence {
     Min,
     Relation,
-    Application,
     AddSub,
     MulDiv,
     Pow,
-    // TODO: check this
-    Prefix,
+    Sqrt,
+    Sign,
+    Application,
     Atom,
 }
 
