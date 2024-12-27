@@ -1,3 +1,4 @@
+//! TODO: put this under helpers
 use crate::{
     expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
     helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
@@ -138,5 +139,11 @@ pub trait WithLnNamespace {
         let result = f(self);
         self.ln_mir_expr_builder_mut().current_namespace = previous_namespace;
         result
+    }
+}
+
+impl LnMirExprConstructor {
+    pub fn current_namespace(&self) -> LnNamespace {
+        self.current_namespace
     }
 }

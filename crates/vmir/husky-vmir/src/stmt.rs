@@ -120,7 +120,7 @@ impl<LinketImpl: IsLinketImpl> IntoIterator for VmirStmtIdxRange<LinketImpl> {
 
 impl<LinketImpl: IsLinketImpl> VmirStmtIdxRange<LinketImpl> {
     fn split_last(self) -> (Self, VmirStmtIdx<LinketImpl>) {
-        let (non_lasts, last) = self.0.split_last();
+        let (non_lasts, last) = self.0.split_last_unwrap();
         (Self(non_lasts), VmirStmtIdx(last))
     }
 }

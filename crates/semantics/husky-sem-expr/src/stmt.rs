@@ -227,7 +227,7 @@ impl SemStmtIdxRange {
     }
 
     pub fn split_last(self) -> (Self, SemStmtIdx) {
-        let (range, last) = self.0.split_last();
+        let (range, last) = self.0.split_last_unwrap();
         (Self(range), SemStmtIdx(last))
     }
 }
