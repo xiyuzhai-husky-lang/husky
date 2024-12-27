@@ -10,5 +10,5 @@ def h(x : ℝ)(y : ℝ) := by
   have h3 : (2 * x - y / 2) ^ 2 ≥ 0 := by obvious
   have h4 : 4 * (x ^ 2) + y ^ 2 / 4 - 2 * x * y ≥ 0 := by obvious
   have h5 : 4 * (x ^ 2) + y ^ 2 / 4 ≥ 2 * x * y := by obvious
-  exact ()
+  obvious
 end Example1

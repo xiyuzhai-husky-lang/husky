@@ -46,11 +46,11 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 ├─ item path: `ℕ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 1 }`
+                  └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             def h(x : ℕ) := by
-              exact ()"#]],
+              obvious"#]],
     );
     t(
         models,
@@ -60,12 +60,12 @@ fn basic_body_to_lean_works() {
               └─ group: `environment`
                 └─ def: `h`
                   └─ tactics
-                    └─ tactic: `Exact { term: 0 }`
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Example1
             def h := by
-              exact ()
+              obvious
             end Example1
         "#]],
     );
@@ -78,12 +78,12 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 1 }`
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Example1
             def h(x : ℝ) := by
-              exact ()
+              obvious
             end Example1
         "#]],
     );
@@ -96,12 +96,12 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 1 }`
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
             end Section1
         "#]],
     );
@@ -114,13 +114,13 @@ fn basic_body_to_lean_works() {
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Exact { term: 1 }`
+              │     └─ tactic: `Obvious`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Exact { term: 3 }`
+              │       └─ tactic: `Obvious`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -129,11 +129,11 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
 
             namespace Subsection1
             def h(y : ℝ) := by
-              exact ()
+              obvious
             end Subsection1
 
             namespace Subsection2
