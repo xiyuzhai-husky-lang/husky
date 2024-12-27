@@ -1,12 +1,80 @@
-use offset::TextOffset;
-
 use crate::*;
+use offset::{TextOffset, TextOffsetRange};
+use std::str::pattern::{Pattern, SearchStep, Searcher};
 
 #[derive(Clone)]
 pub struct TextCharIter<'a> {
     pub(super) iter: core::slice::Iter<'a, u8>,
     current_raw_offset: usize,
     current_position: TextPosition,
+}
+
+impl<'a> TextCharIter<'a> {
+    /// `\r` and `\n` are folded into `\n`
+    pub fn find_pattern(
+        &mut self,
+        patt: impl Pattern,
+    ) -> Option<(TextOffsetRange, TextPositionRange)> {
+        let current_raw_offset = self.current_raw_offset;
+        let remaining_str = self.remaining_str();
+
+        let mut searcher = patt.into_searcher(remaining_str);
+        loop {
+            match searcher.next() {
+                SearchStep::Match(start, end) => {
+                    let offset_start = self.current_offset();
+                    let position_start = self.current_position();
+                    self.advance_until(current_raw_offset + end);
+                    let offset_end = self.current_offset();
+                    let position_end = self.current_position();
+                    return Some((
+                        TextOffsetRange::new(offset_start, offset_end),
+                        TextPositionRange::new(position_start, position_end),
+                    ));
+                }
+                SearchStep::Reject(_, end) => {
+                    self.advance_until(current_raw_offset + end);
+                }
+                SearchStep::Done => {
+                    return None;
+                }
+            }
+        }
+    }
+
+    fn advance_until(&mut self, end: usize) {
+        while self.current_raw_offset < end {
+            self.next();
+        }
+    }
+}
+
+#[test]
+fn find_pattern_works() {
+    #[track_caller]
+    fn t(input: &str, pattern: &str, before_and_after: Option<(&str, &str)>) {
+        let mut iter = TextCharIter::new(input);
+        let Some((offset_range, position_range)) = iter.find_pattern(pattern) else {
+            assert!(before_and_after.is_none());
+            return;
+        };
+        let Some((before, after)) = before_and_after else {
+            panic!("no before and after");
+        };
+        assert!(
+            &input[offset_range.clone()] == pattern
+                || (pattern.ends_with("\r")
+                    && input[offset_range.clone()].ends_with("\r\n")
+                    && (format!("{}\n", pattern) == input[offset_range.clone()]))
+        );
+        assert_eq!(&input[..offset_range.start.index()], before);
+        assert_eq!(&input[offset_range.end.index()..], after);
+    }
+
+    t("a\n\r\n", "a", Some(("", "\n\r\n")));
+    t("a\n\r\n", "a\n", Some(("", "\r\n")));
+    t("a\n\r\n", "a\n\r", Some(("", "")));
+    t("a\n\r\n", "a\n\r\n", Some(("", "")));
 }
 
 impl<'a> Iterator for TextCharIter<'a> {
@@ -97,7 +165,7 @@ impl<'a> TextCharIter<'a> {
         unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
     }
 
-    pub fn peek_str(&self) -> &'a str {
+    pub fn remaining_str(&self) -> &'a str {
         let slice = self.iter.as_slice();
         unsafe { std::str::from_utf8_unchecked(slice) }
     }

@@ -147,3 +147,25 @@ crates/vmir/husky-vmir/src/expr.rs not using eval_expr_itself properly
 ## raw string tabs
 
 vscode will convert tab into space even for raw string, be careful
+
+## cuda12.4
+
+https://askubuntu.com/questions/1491254/installing-cuda-on-ubuntu-23-10-libt5info-not-installable
+
+Note that the tutorial for ubuntu24 is different from ubuntu23.
+
+## fish environment variables
+
+Please check fish_variables and config.fish
+
+## python module not found
+
+Please check $PYTHONPATH
+
+## docker gpu support
+
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+
+install nvidia container toolkit
+
+don't listen to llms, they suck at this.

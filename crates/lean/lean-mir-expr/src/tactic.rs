@@ -21,12 +21,18 @@ pub enum LnMirTacticData {
         ty: LnMirExprIdx,
         construction: LnMirExprIdx,
     },
-    Show,
+    Show {
+        ty: LnMirExprIdx,
+        tactics: LnMirTacticIdxRange,
+    },
     Calc {
         leader: LnMirExprIdx,
         followers: SmallVec<[((LnBinaryOpr, LnInstantiation), LnMirExprIdx); 4]>,
     },
     Sorry,
+    First {
+        arms: LnMirTacticIdxRange,
+    },
     Obvious,
 }
 

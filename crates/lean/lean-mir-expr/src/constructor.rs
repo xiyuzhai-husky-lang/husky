@@ -1,8 +1,9 @@
+//! TODO: put this under helpers
 use crate::{
     expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
     helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
     item_defn::{
-        LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData,
+        LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData, LnItemDefnIdx,
         LnItemDefnIdxRange, LnItemDefnOrderedMap,
     },
     stmt::{LnMirStmtArena, LnMirStmtData, LnMirStmtIdx, LnMirStmtIdxRange},
@@ -85,6 +86,16 @@ impl LnMirExprConstructor {
         self.tactic_arena.alloc_batch(data)
     }
 
+    pub fn alloc_item_defn(
+        &mut self,
+        data: LnItemDefnData,
+        comment: LnItemDefnComment,
+    ) -> LnItemDefnIdx {
+        let item_defn = self.item_defn_arena.alloc_one(data);
+        self.item_defn_comments.insert_next(item_defn, comment);
+        item_defn
+    }
+
     pub fn alloc_item_defns(
         &mut self,
         item_defns: Vec<LnItemDefnData>,
@@ -128,5 +139,11 @@ pub trait WithLnNamespace {
         let result = f(self);
         self.ln_mir_expr_builder_mut().current_namespace = previous_namespace;
         result
+    }
+}
+
+impl LnMirExprConstructor {
+    pub fn current_namespace(&self) -> LnNamespace {
+        self.current_namespace
     }
 }

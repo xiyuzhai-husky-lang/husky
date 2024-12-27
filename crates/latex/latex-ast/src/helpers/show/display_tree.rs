@@ -143,6 +143,14 @@ impl<'a> LxAstDisplayTreeBuilder<'a> {
             LxMathAstData::StyledLetter { .. } => format!("{:?} styled letter", value),
             LxMathAstData::Punctuation(_, _) => format!("{:?} punctuation", value),
             LxMathAstData::Digit(_, _) => format!("{:?} digit", value),
+            LxMathAstData::Lefted {
+                left_command_token_idx,
+                argument,
+            } => todo!(),
+            LxMathAstData::Righted {
+                right_command_token_idx,
+                argument,
+            } => todo!(),
         };
         DisplayTree::new(
             value,

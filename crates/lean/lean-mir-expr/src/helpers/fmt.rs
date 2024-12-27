@@ -153,30 +153,23 @@ impl<'a> LnMirExprFormatter<'a> {
                     }
                     LnMirFunc::SuffixOpr { opr, instantiation } => todo!(),
                     LnMirFunc::Expr(expr) => {
-                        self.format_expr(expr, subexpr_try_multiline, LnPrecedenceRange::Any);
+                        self.format_expr(
+                            expr,
+                            subexpr_try_multiline,
+                            LnPrecedenceRange::APPLICATION_SUBEXPR,
+                        );
                         for arg in arguments {
                             self.result.push(' ');
-                            self.format_expr(arg, subexpr_try_multiline, LnPrecedenceRange::Any);
+                            self.format_expr(
+                                arg,
+                                subexpr_try_multiline,
+                                LnPrecedenceRange::APPLICATION_SUBEXPR,
+                            );
                         }
                     }
                     // ad hoc
                     LnMirFunc::InSet => self.result += "sorry",
                 }
-                // for expr in arguments {
-                //     self.format_expr(
-                //         expr,
-                //         subexpr_try_multiline,
-                //         LnPrecedenceRange::APPLICATION_SUBEXPR,
-                //     );
-                // }
-                // LnMirExprData::Prefix { opr, opd } => {
-                //                 self.result += opr.fmt_str();
-                //                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
-                //             }
-                //             LnMirExprData::Suffix { opd, opr } => {
-                //                 self.format_expr(opd, subexpr_try_multiline, opr.precedence_range());
-                //                 self.result += opr.fmt_str();
-                //             }
             }
             LnMirExprData::Literal(lit) => {
                 self.result += match lit.data() {
@@ -333,7 +326,17 @@ impl<'a> LnMirExprFormatter<'a> {
                 write!(self.result, " := ");
                 self.format_expr_ext(construction);
             }
-            LnMirTacticData::Show { .. } => todo!(),
+            LnMirTacticData::Show { ty, tactics } => {
+                write!(self.result, "show ");
+                self.format_expr_ext(ty);
+                write!(self.result, " by");
+                if tactics.len() == 1 {
+                    self.result += " ";
+                    self.format_tactic(tactics.first().unwrap());
+                } else {
+                    self.indented(|slf| slf.format_tactics(tactics));
+                }
+            }
             LnMirTacticData::Calc {
                 leader,
                 ref followers,
@@ -346,12 +349,14 @@ impl<'a> LnMirExprFormatter<'a> {
                             slf.format_expr_ext(leader);
                             slf.result += opr.fmt_str();
                             slf.format_expr_ext(follower);
-                            slf.result += " := sorry"
+                            // AD HOC
+                            slf.result += " := by obvious"
                         } else {
                             slf.result += "_";
                             slf.result += opr.fmt_str();
                             slf.format_expr_ext(follower);
-                            slf.result += " := sorry"
+                            // AD HOC
+                            slf.result += " := by obvious"
                         }
                     }
                 });
@@ -361,6 +366,14 @@ impl<'a> LnMirExprFormatter<'a> {
             }
             LnMirTacticData::Sorry => {
                 self.result += "sorry";
+            }
+            LnMirTacticData::First { arms } => {
+                self.result += "first";
+                for arm in arms {
+                    self.make_sure_new_line();
+                    self.result += "| ";
+                    self.format_tactic(arm);
+                }
             }
         }
     }
@@ -377,7 +390,8 @@ impl<'a> LnMirExprFormatter<'a> {
         if !result_trimmed.is_empty() && !result_trimmed.ends_with('\n') {
             self.result += "\n";
         }
-        for _ in 0..(self.indent_level * self.config.spaces_per_indent) {
+        let number_of_existing_spaces = self.result.len() - self.result.trim_end_matches(' ').len();
+        for _ in number_of_existing_spaces..(self.indent_level * self.config.spaces_per_indent) {
             self.result.push(' ');
         }
     }

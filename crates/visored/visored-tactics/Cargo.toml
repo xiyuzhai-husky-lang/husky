@@ -22,7 +22,9 @@ vec-like.workspace = true
 latex-prelude.workspace = true
 latex-vfs.workspace = true
 # visored
+visored-models.workspace = true
 visored-opr.workspace = true
+visored-syn-expr.workspace = true
 visored-mir-expr.workspace = true
 visored-term.workspace = true
 visored-annotation.workspace = true

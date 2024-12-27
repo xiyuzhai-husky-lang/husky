@@ -1266,6 +1266,16 @@
         dependencies: [],
     },
     JarPackageSummary {
+        name: "visored-entity-path",
+        dependencies: [
+            "husky-coword",
+        ],
+    },
+    JarPackageSummary {
+        name: "lean-sem-expr",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "husky-completion",
         dependencies: [
             "husky-ast",
@@ -1279,17 +1289,7 @@
         ],
     },
     JarPackageSummary {
-        name: "lean-sem-expr",
-        dependencies: [],
-    },
-    JarPackageSummary {
         name: "namekian-ast",
         dependencies: [],
-    },
-    JarPackageSummary {
-        name: "visored-entity-path",
-        dependencies: [
-            "husky-coword",
-        ],
     },
 ]

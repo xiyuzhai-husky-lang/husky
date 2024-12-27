@@ -1,0 +1,27 @@
+[package]
+name = "sglang"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+# abstractions
+alien-seed.workspace = true
+disk-cache.workspace = true
+enum-index.workspace = true
+eterned.workspace = true
+reqwest.workspace = true
+
+[lints]
+workspace = true

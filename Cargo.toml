@@ -3,6 +3,7 @@ members = [
     "crates/abstractions/*",
     "crates/apps/*",
     "crates/archs/*",
+    "crates/arrancar/*",
     "crates/benchmarks/*",
     "crates/comptime/*",
     "crates/corgi/*",
@@ -32,6 +33,7 @@ members = [
     "crates/runtime/*",
     "crates/rocq/*",
     "crates/semantics/*",
+    "crates/snl/*",
     "crates/syntax/*",
     "crates/devsoul/*",
     "crates/utils/*",
@@ -44,6 +46,7 @@ members = [
     "playground/learn-rusqlite",
     "playground/egui/*",
     "playground/try-py-ffi-in-rs",
+    "playground/test-sealed",
 ]
 resolver = "2"
 
@@ -105,6 +108,7 @@ crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
 crypto-common = "0.1.6"
 csv = "1"
+ctrlc = "3.4.5"
 dashmap = "6.0.1"
 dirs = "5.0.1"
 ecolor = { git = "https://github.com/xiyuzhai-husky-lang/egui.git", features = [
@@ -159,6 +163,7 @@ ordered-float = { version = "4.5.0", features = ["serde"] }
 parking_lot = "0.12.1"
 paste = "1.0.6"
 pathdiff = "0.2.1"
+pixi = "0.15.2"
 proc-macro2 = "1.0.86"
 ptree = "0.5.0"
 pyo3 = { version = "0.23.3", features = ["auto-initialize"] }
@@ -167,6 +172,7 @@ rand = "0.8.4"
 rand_chacha = "0.3.1"
 rayon = "1.10.0"
 relative-path = "1.7.2"
+reqwest = { version = "0.12.9", features = ["json"] }
 rfd = "0.15"
 rmp-serde = "1.3.0"
 rowan = "0.15.16"
@@ -223,10 +229,13 @@ winapi = "0.3.9"
 xxhash-rust = { version = "0.8.5" }
 yaml-rust2 = "0.9.0"
 # abstractions
+alien-seed = { path = "crates/abstractions/alien-seed" }
 alt-option = { path = "crates/abstractions/alt-option" }
+attach = { path = "crates/abstractions/attach" }
 base-vfs = { path = "crates/abstractions/base-vfs" }
 composite-pattern = { path = "crates/abstractions/composite-pattern" }
 base-coword = { path = "crates/abstractions/base-coword" }
+disk-cache = { path = "crates/abstractions/disk-cache" }
 enum-class = { path = "crates/abstractions/enum-class" }
 enum-class-macros = { path = "crates/abstractions/enum-class-macros" }
 enum-index = { path = "crates/abstractions/enum-index" }
@@ -262,6 +271,7 @@ svtable = { path = "crates/abstractions/svtable" }
 time-capsule = { path = "crates/abstractions/time-capsule" }
 ui = { path = "crates/abstractions/ui" }
 ui-macros = { path = "crates/abstractions/ui-macros" }
+usage-cap = { path = "crates/abstractions/usage-cap" }
 vec-like = { path = "crates/abstractions/vec-like" }
 version-stamp = { path = "crates/abstractions/version-stamp" }
 vfs = { path = "crates/abstractions/vfs" }
@@ -270,6 +280,8 @@ with-db = { path = "crates/abstractions/with-db" }
 husky-analyzer = { path = "crates/apps/husky-analyzer" }
 visored-analyzer = { path = "crates/apps/visored-analyzer" }
 visored-cli = { path = "crates/apps/visored-cli" }
+# arrancar
+arrancar-prototype = { path = "crates/arrancar/arrancar-prototype" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
@@ -362,6 +374,7 @@ lean-sem-expr = { path = "crates/lean/lean-sem-expr" }
 lean-syn-expr = { path = "crates/lean/lean-syn-expr" }
 lean-term = { path = "crates/lean/lean-term" }
 lean-token = { path = "crates/lean/lean-token" }
+lean-helpers = { path = "crates/lean/lean-helpers" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }
@@ -383,14 +396,11 @@ husky-virtual-linktime = { path = "crates/linktime/husky-virtual-linktime" }
 # lisp
 lisp-csv = { path = "crates/lisp/lisp-csv" }
 # llms
-is-llm = { path = "crates/llms/is-llm" }
-llm-cap = { path = "crates/llms/llm-cap" }
-llm-cache = { path = "crates/llms/llm-cache" }
-allms-llm = { path = "crates/llms/allms-llm" }
-any-llm = { path = "crates/llms/any-llm" }
-openai-llm = { path = "crates/llms/openai-llm" }
-mistral-llm = { path = "crates/llms/mistral-llm" }
-transformers-py-llm = { path = "crates/llms/transformers-py-llm" }
+llm-prelude = { path = "crates/llms/llm-prelude" }
+all-llms = { path = "crates/llms/all-llms" }
+openai = { path = "crates/llms/openai" }
+gemini = { path = "crates/llms/gemini" }
+sglang = { path = "crates/llms/sglang" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
 # nlp
 spacy-rs = { path = "crates/nlp/spacy-rs" }
@@ -413,6 +423,10 @@ husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" 
 husky-sem-item-path-deps = { path = "crates/semantics/husky-sem-item-path-deps" }
 husky-sem-static-mut-deps = { path = "crates/semantics/husky-sem-static-mut-deps" }
 husky-sem-var-deps = { path = "crates/semantics/husky-sem-var-deps" }
+# snl
+snl-grammar = { path = "crates/snl/snl-grammar" }
+snl-models = { path = "crates/snl/snl-models" }
+snl-prelude = { path = "crates/snl/snl-prelude" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-crate-decl-ast = { path = "crates/syntax/husky-crate-decl-ast" }
@@ -452,6 +466,8 @@ husky-proc-macro-utils = { path = "crates/utils/husky-proc-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-profile-utils = { path = "crates/utils/husky-profile-utils" }
+husky-pyo3-utils-macros = { path = "crates/utils/husky-pyo3-utils-macros" }
+husky-pyo3-utils = { path = "crates/utils/husky-pyo3-utils" }
 husky-salsa-log-utils = { path = "crates/utils/husky-salsa-log-utils" }
 husky-screen-utils = { path = "crates/utils/husky-screen-utils" }
 husky-sha-utils = { path = "crates/utils/husky-sha-utils" }
@@ -477,6 +493,7 @@ visored-global-dispatch = { path = "crates/visored/visored-global-dispatch" }
 visored-global-resolution = { path = "crates/visored/visored-global-resolution" }
 visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-hol-transpilation" }
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
+visored-models = { path = "crates/visored/visored-models" }
 visored-mir-expr = { path = "crates/visored/visored-mir-expr" }
 visored-opr = { path = "crates/visored/visored-opr" }
 visored-pipeline = { path = "crates/visored/visored-pipeline" }

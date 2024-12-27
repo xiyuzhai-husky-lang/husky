@@ -3,7 +3,7 @@ use crate::{
         VdSynBlockArenaRef, VdSynBlockChild, VdSynBlockData, VdSynBlockIdx, VdSynBlockIdxRange,
     },
     builder::VdSynExprBuilder,
-    clause::{VdSynClauseArenaRef, VdSynClauseChild, VdSynClauseData, VdSynClauseIdx},
+    clause::{helpers::VdSynClauseChild, VdSynClauseArenaRef, VdSynClauseData, VdSynClauseIdx},
     division::{
         VdSynDivisionArenaRef, VdSynDivisionChild, VdSynDivisionData, VdSynDivisionIdx,
         VdSynDivisionIdxRange,
@@ -15,7 +15,9 @@ use crate::{
         VdSynExprTokenIdxRange, VdSynExprTokenIdxRangeMap, VdSynPhraseTokenIdxRangeMap,
         VdSynSentenceTokenIdxRangeMap,
     },
-    sentence::{VdSynSentenceArenaRef, VdSynSentenceChild, VdSynSentenceData, VdSynSentenceIdx},
+    sentence::{
+        helpers::VdSynSentenceChild, VdSynSentenceArenaRef, VdSynSentenceData, VdSynSentenceIdx,
+    },
 };
 use eterned::db::EternerDb;
 use husky_text_protocol::offset::TextOffsetRange;
@@ -155,15 +157,16 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(clause_range);
         let source = &self.input[offset_range];
-        let value = match self.clause_arena[clause] {
+        let value = match *self.clause_arena[clause].data() {
             VdSynClauseData::Let { .. } => format!("{:?} clause.let", source),
             VdSynClauseData::Assume { .. } => format!("{:?} clause.assume", source),
-            VdSynClauseData::Then { .. } => format!("{:?} clause.then", source),
-            VdSynClauseData::Todo(..) => format!("{:?} clause.todo", source),
+            VdSynClauseData::Goal { .. } => format!("{:?} clause.goal", source),
+            VdSynClauseData::Have { .. } => format!("{:?} clause.have", source),
+            VdSynClauseData::Show { .. } => format!("{:?} clause.show", source),
         };
         DisplayTree::new(
             value,
-            self.render_clause_children(self.clause_arena[clause].children()),
+            self.render_clause_children(self.clause_arena[clause].data().children()),
         )
     }
 
@@ -182,10 +185,11 @@ impl<'a> VdSynExprDisplayTreeBuilder<'a> {
             .token_storage
             .token_idx_range_offset_range(sentence_range);
         let source = &self.input[offset_range];
-        let value = match self.sentence_arena[sentence] {
+        let value = match *self.sentence_arena[sentence].data() {
             VdSynSentenceData::Clauses { clauses, end } => {
                 format!("{:?} sentence.clauses", source)
             }
+            VdSynSentenceData::Pristine => todo!(),
         };
         DisplayTree::new(
             value,

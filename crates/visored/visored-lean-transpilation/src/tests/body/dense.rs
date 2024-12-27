@@ -9,8 +9,10 @@ use latex_prelude::{
 };
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
+use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -24,6 +26,8 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
     );
@@ -33,45 +37,58 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_body_to_lean_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
             └─ group: `division`
               └─ def: `h`
                 ├─ item path: `ℕ`
                 └─ tactics
-                  └─ tactic: `Exact { term: 1 }`
+                  └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             def h(x : ℕ) := by
-              exact ()"#]],
+              obvious"#]],
     );
     t(
+        models,
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
             └─ group: `division`
-              └─ def: `h`
-                └─ tactics
-                  └─ tactic: `Exact { term: 0 }`
+              └─ group: `environment`
+                └─ def: `h`
+                  └─ tactics
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
+            namespace Example1
             def h := by
-              exact ()"#]],
+              obvious
+            end Example1
+        "#]],
     );
     t(
+        models,
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
             └─ group: `division`
-              └─ def: `h`
-                ├─ item path: `ℝ`
-                └─ tactics
-                  └─ tactic: `Exact { term: 1 }`
+              └─ group: `environment`
+                └─ def: `h`
+                  ├─ item path: `ℝ`
+                  └─ tactics
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
+            namespace Example1
             def h(x : ℝ) := by
-              exact ()"#]],
+              obvious
+            end Example1
+        "#]],
     );
     t(
+        models,
         r#"\section{Introduction}Let $x\in\mathbb{R}$."#,
         &expect![[r#"
             └─ group: `division`
@@ -79,16 +96,17 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Exact { term: 1 }`
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
             end Section1
         "#]],
     );
     t(
+        models,
         r#"\section{Introduction}Let $x\in\mathbb{R}$.\subsection{Hello}Let $y\in\mathbb{R}$.\subsection{World}\subsection{This}\subsubsection{Is}\subsubsection{Bad}"#,
         &expect![[r#"
             └─ group: `division`
@@ -96,13 +114,13 @@ fn basic_body_to_lean_works() {
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Exact { term: 1 }`
+              │     └─ tactic: `Obvious`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Exact { term: 3 }`
+              │       └─ tactic: `Obvious`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -111,11 +129,11 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              exact ()
+              obvious
 
             namespace Subsection1
             def h(y : ℝ) := by
-              exact ()
+              obvious
             end Subsection1
 
             namespace Subsection2

@@ -64,11 +64,13 @@ impl<'a> VdSemExprLaTeXFormatter<'a> {
                     }
                 }
             }
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 
     pub fn fmt_clause(&mut self, clause_idx: VdSemClauseIdx) {
-        match self.clause_arena[clause_idx] {
+        match *self.clause_arena[clause_idx].data() {
             VdSemClauseData::Verb => todo!(),
             _ => todo!(),
         }

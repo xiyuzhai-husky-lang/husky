@@ -1,13 +1,14 @@
 use super::*;
+use crate::helpers::tracker::VdSynExprTracker;
 use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
-use helpers::tracker::VdSynExprTracker;
 use latex_prelude::{helper::tracker::LxPageInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 
 fn t(
+    models: &VdModels,
     content: &str,
     token_annotations: &[((&str, &str), VdTokenAnnotation)],
     space_annotations: &[((&str, &str), VdSpaceAnnotation)],
@@ -19,6 +20,7 @@ fn t(
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let vibe = VdSynExprVibe::ROOT_CNL;
     let tracker = VdSynExprTracker::new(
         LxPageInput {
             specs_dir: dev_paths.specs_dir(),
@@ -27,14 +29,18 @@ fn t(
         },
         token_annotations,
         space_annotations,
-        &db,
+        models,
+        vibe,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]
 fn let_clause_parsing_works() {
+    let models = &VdModels::new();
     t(
+        models,
         "Let $x = 1$.",
         &[],
         &[],
@@ -49,6 +55,7 @@ fn let_clause_parsing_works() {
         "#]],
     );
     t(
+        models,
         "Let $x \\in \\mathbb{N}$.",
         &[],
         &[],

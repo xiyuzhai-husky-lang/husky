@@ -42,29 +42,30 @@ pub type VdSynBlockMap<T> = ArenaMap<VdSynBlockData, T>;
 pub type VdSynBlockOrderedMap<T> = ArenaOrderedMap<VdSynBlockData, T>;
 
 impl ToVdSyn<VdSynBlockIdxRange> for (LxTokenIdxRange, LxRoseAstIdxRange) {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynBlockIdxRange {
-        self.1.to_vd_syn(builder)
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynBlockIdxRange {
+        self.1.to_vd_syn(builder, vibe)
     }
 }
 
 impl ToVdSyn<VdSynBlockIdxRange> for LxRoseAstIdxRange {
-    fn to_vd_syn(self, builder: &mut VdSynExprBuilder) -> VdSynBlockIdxRange {
-        builder.build_stmts(self)
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynBlockIdxRange {
+        builder.build_stmts(self, vibe)
     }
 }
 
 impl<'db> VdSynExprBuilder<'db> {
-    fn build_stmts(&mut self, asts: LxRoseAstIdxRange) -> VdSynBlockIdxRange {
+    fn build_stmts(&mut self, asts: LxRoseAstIdxRange, vibe: VdSynExprVibe) -> VdSynBlockIdxRange {
         let mut asts = asts.into_iter().peekable();
-        self.build_stmt_aux(&mut asts)
+        self.build_stmt_aux(&mut asts, vibe)
     }
 
     pub(crate) fn build_stmt_aux(
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynBlockIdxRange {
         let mut stmts: Vec<VdSynBlockData> = Vec::new();
-        while let Some(stmt) = self.build_stmt(asts) {
+        while let Some(stmt) = self.build_stmt(asts, vibe) {
             stmts.push(stmt);
         }
         self.alloc_stmts(stmts)
@@ -73,16 +74,17 @@ impl<'db> VdSynExprBuilder<'db> {
     fn build_stmt(
         &mut self,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> Option<VdSynBlockData> {
         // stop on new division
         if self.peek_new_division(asts).is_some() {
             return None;
         }
 
-        let ast_idx = asts.next()?;
+        let ast_idx = *asts.peek()?;
         Some(match self.ast_arena()[ast_idx] {
             LxRoseAstData::TextEdit { ref buffer } => todo!(),
-            LxRoseAstData::Word(token_idx, word) => self.build_paragraph(token_idx, word, asts),
+            LxRoseAstData::Word(_, _) => self.build_paragraph(asts, vibe),
             LxRoseAstData::Punctuation(token_idx, punctuation) => {
                 todo!("punctuation: {}", punctuation)
             }
@@ -105,45 +107,51 @@ impl<'db> VdSynExprBuilder<'db> {
                 begin_lcurl_token_idx,
                 begin_environment_name_token_idx,
                 begin_rcurl_token_idx,
-                asts,
+                asts: body,
                 end_command_token_idx,
                 end_lcurl_token_idx,
                 end_environment_name_token_idx,
                 end_rcurl_token_idx,
                 environment_signature,
-            } => self.build_environment(
-                begin_command_token_idx,
-                begin_lcurl_token_idx,
-                begin_environment_name_token_idx,
-                begin_rcurl_token_idx,
-                asts,
-                end_command_token_idx,
-                end_lcurl_token_idx,
-                end_environment_name_token_idx,
-                end_rcurl_token_idx,
-                environment_signature,
-            ),
-            LxRoseAstData::NewParagraph(_) => self.build_stmt(asts)?,
+            } => {
+                asts.next();
+                self.build_environment(
+                    begin_command_token_idx,
+                    begin_lcurl_token_idx,
+                    begin_environment_name_token_idx,
+                    begin_rcurl_token_idx,
+                    body,
+                    end_command_token_idx,
+                    end_lcurl_token_idx,
+                    end_environment_name_token_idx,
+                    end_rcurl_token_idx,
+                    environment_signature,
+                    vibe,
+                )
+            }
+            LxRoseAstData::NewParagraph(_) => {
+                asts.next();
+                self.build_stmt(asts, vibe)?
+            }
         })
     }
 
     fn build_paragraph(
         &mut self,
-        token_idx: LxRoseTokenIdx,
-        word: BaseCoword,
         asts: &mut Peekable<impl Iterator<Item = LxRoseAstIdx>>,
+        vibe: VdSynExprVibe,
     ) -> VdSynBlockData {
-        let mut sentences = vec![self.parse_sentence(token_idx, word, asts)];
+        let mut sentences = vec![self.parse_sentence(asts, vibe)];
         loop {
             // stop on new division
             if self.peek_new_division(asts).is_some() {
                 break;
             }
-            let Some(ast_idx) = asts.next() else { break };
+            let Some(&ast_idx) = asts.peek() else { break };
             match self.ast_arena()[ast_idx] {
                 LxRoseAstData::TextEdit { .. } => todo!(),
-                LxRoseAstData::Word(lx_rose_token_idx, coword) => {
-                    sentences.push(self.parse_sentence(lx_rose_token_idx, coword, asts));
+                LxRoseAstData::Word(_, _) => {
+                    sentences.push(self.parse_sentence(asts, vibe));
                 }
                 LxRoseAstData::Punctuation(lx_rose_token_idx, lx_rose_punctuation) => todo!(),
                 LxRoseAstData::Math {
@@ -187,6 +195,7 @@ impl<'db> VdSynExprBuilder<'db> {
         end_environment_name_token_idx: LxNameTokenIdx,
         end_rcurl_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
+        vibe: VdSynExprVibe,
     ) -> VdSynBlockData {
         VdSynBlockData::Environment {
             begin_command_token_idx,
@@ -198,7 +207,7 @@ impl<'db> VdSynExprBuilder<'db> {
             stmts: match asts {
                 LxAstIdxRange::Math(arena_idx_range) => todo!(),
                 LxAstIdxRange::Root(arena_idx_range) => todo!(),
-                LxAstIdxRange::Rose(asts) => asts.to_vd_syn(self),
+                LxAstIdxRange::Rose(asts) => asts.to_vd_syn(self, vibe),
                 LxAstIdxRange::Lisp(arena_idx_range) => todo!(),
             },
             end_rcurl_token_idx,

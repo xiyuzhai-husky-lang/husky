@@ -12,7 +12,7 @@ use crate::{
 };
 use block::{VdSynBlockArena, VdSynBlockIdx, VdSynBlockIdxRange, VdSynBlockMap};
 use builder::FromToVdSyn;
-use clause::VdSynClauseIdx;
+use clause::{r#let::VdSynLetClauseResolution, VdSynClauseIdx, VdSynClauseMap};
 use division::{VdSynDivisionArena, VdSynDivisionIdxRange, VdSynDivisionMap};
 use entity_tree::{builder::VdSynExprEntityTreeBuilder, VdSynExprEntityTreeNode};
 use eterned::db::EternerDb;
@@ -48,6 +48,7 @@ use visored_annotation::{
 };
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::default_table::VdDefaultGlobalResolutionTable;
+use visored_models::VdModels;
 
 pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub input: Input,
@@ -68,6 +69,7 @@ pub struct VdSynExprTracker<'a, Input: IsVdSynExprInput<'a>> {
     pub sentence_range_map: VdSynSentenceTokenIdxRangeMap,
     pub stmt_range_map: VdSynBlockTokenIdxRangeMap,
     pub division_range_map: VdSynDivisionTokenIdxRangeMap,
+    pub let_clause_resolutions: VdSynClauseMap<VdSynLetClauseResolution>,
     pub symbol_local_defn_storage: VdSynSymbolLocalDefnStorage,
     pub symbol_resolution_table: VdSynSymbolResolutionsTable,
     pub root_entity_tree_node: VdSynExprEntityTreeNode,
@@ -96,6 +98,8 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        models: &VdModels,
+        vibe: VdSynExprVibe,
         db: &EternerDb,
     ) -> Self {
         let LxAstTracker {
@@ -124,8 +128,10 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             &ast_token_idx_range_map,
             &annotations,
             &default_resolution_table,
+            models,
         );
-        let output = FromToVdSyn::from_to_vd_syn((whole_token_range, lx_ast_output), &mut builder);
+        let output =
+            FromToVdSyn::from_to_vd_syn((whole_token_range, lx_ast_output), &mut builder, vibe);
         //  = (whole_token_range, asts).to_vd_syn(&mut builder);
         let (
             expr_arena,
@@ -143,6 +149,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             root_entity_tree_node,
             stmt_entity_tree_node_map,
             division_entity_tree_node_map,
+            let_clause_resolutions,
             symbol_defns,
             symbol_resolutions,
         ) = builder.finish_with(output);
@@ -165,6 +172,7 @@ impl<'a, Input: IsVdSynExprInput<'a>> VdSynExprTracker<'a, Input> {
             sentence_range_map,
             stmt_range_map,
             division_range_map,
+            let_clause_resolutions,
             symbol_local_defn_storage: symbol_defns,
             symbol_resolution_table: symbol_resolutions,
             root_entity_tree_node,

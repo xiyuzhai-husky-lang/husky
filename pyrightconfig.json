@@ -1,0 +1,8 @@
+{
+    "typeCheckingMode": "basic",
+    "reportPrivateImportUsage": false,
+    "typeIgnoreModules": [
+        "spacy"
+    ],
+    "reportGeneralTypeIssues": false
+}

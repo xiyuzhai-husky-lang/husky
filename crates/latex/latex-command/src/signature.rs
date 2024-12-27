@@ -14,6 +14,8 @@ pub enum LxCommandSignature {
     MathLetterStyle(LxMathLetterStyle),
     Begin,
     End,
+    Left,
+    Right,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

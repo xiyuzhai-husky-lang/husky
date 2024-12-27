@@ -38,6 +38,14 @@ impl LxMathAstData {
                 LxAstIdxRange::Lisp(asts) => todo!(),
                 LxAstIdxRange::Root(arena_idx_range) => todo!(),
             },
+            LxMathAstData::Lefted {
+                left_command_token_idx,
+                argument,
+            } => todo!(),
+            LxMathAstData::Righted {
+                right_command_token_idx,
+                argument,
+            } => todo!(),
         }
     }
 }

@@ -67,8 +67,8 @@ impl std::ops::Sub<Self> for TextOffset {
 
 #[derive(PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
 pub struct TextOffsetRange {
-    start: TextOffset,
-    end: TextOffset,
+    pub start: TextOffset,
+    pub end: TextOffset,
 }
 
 impl std::fmt::Debug for TextOffsetRange {
@@ -82,6 +82,15 @@ impl From<Range<usize>> for TextOffsetRange {
         Self {
             start: TextOffset::from(range.start),
             end: TextOffset::from(range.end),
+        }
+    }
+}
+
+impl From<(usize, usize)> for TextOffsetRange {
+    fn from(tuple: (usize, usize)) -> Self {
+        Self {
+            start: TextOffset::from(tuple.0),
+            end: TextOffset::from(tuple.1),
         }
     }
 }
@@ -137,6 +146,14 @@ impl TextOffsetRange {
 }
 
 impl std::ops::Index<TextOffsetRange> for str {
+    type Output = str;
+
+    fn index(&self, range: TextOffsetRange) -> &Self::Output {
+        &self[range.start.index()..range.end.index()]
+    }
+}
+
+impl std::ops::Index<TextOffsetRange> for String {
     type Output = str;
 
     fn index(&self, range: TextOffsetRange) -> &Self::Output {

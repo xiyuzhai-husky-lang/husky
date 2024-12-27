@@ -1,0 +1,306 @@
+%!TEX TS-program = xelatex
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fvextra}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{amsthm}
+\usepackage{fontspec}  % For Unicode support
+\setmonofont{DejaVu Sans Mono}  % For monospace/code blocks
+\usepackage{unicode-math}
+% \setmathfont{XITS Math}  % Or another Unicode math font
+\newtheorem{example}{Example}
+\fvset{breaklines=true}
+
+
+
+\begin{document}
+\lstdefinelanguage{Lean4}{
+    breaklines=true,
+    basicstyle=\ttfamily\normalsize,
+    keepspaces=true,
+    morekeywords={
+        def, theorem, lemma, example, have, show, calc, let, assume, by, exact,
+        sorry, obvious, Type, Prop, where, with, extends, class, instance,
+        structure, inductive, mutual, coinductive, variable, variables,
+        universe, universes, deriving, abbrev, partial, terminating,
+        namespace, import, open, export, private, protected, public,
+        noncomputable, unsafe, macro, syntax, macro_rules, set_option,
+        attribute, local, scoped, section, end, match, fun, if, then, else,
+        return, do, for, in, while, break, continue, try, catch, throw,
+        mut, pure, opaque
+    },
+    morekeywords=[2]{
+        ℕ, ℝ, ∈, ≥, ≤, →, ∀, ∃, ⊢, ∧, ∨, ¬, ≠, ×, ⊗, ⊕, ∘, □, ◇, ∎,
+        ⟨, ⟩, ⦃, ⦄, ▸, ≈, ∼, ≡, ⌊, ⌋, ⌈, ⌉
+    },
+    morecomment=[l]--,     % Line comments start with --
+    morestring=[b]",       % Strings in double quotes
+    sensitive=true,         % Case-sensitive
+    keywordstyle=\color{blue}\bfseries,      % Regular keywords in blue and bold
+    keywordstyle=[2]\color{purple}\bfseries, % Special symbols in purple and bold
+    commentstyle=\color{green!50!black},     % Comments in dark green
+    stringstyle=\color{red},                 % Strings in red
+}
+
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Prove that for all real numbers $a$ and $b$:
+    $$(a+b)^2 \geq 0.$$
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since the square of any real number is non-negative, we have $(a+b)^2 \ge 0$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since the square of any real number is non-negative, we have $(a+b)^2 \ge 0$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+The goal is to prove ${{(a+b)}}^2 \ge 0$.
+We have ${{(a+b)}}^2 \ge 0$ by the fact that the square of any real number is non-negative.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+import Obvious
+open Obvious
+
+def h(a : ℝ)(b : ℝ) : (a + b) ^ 2 ≥ 0 := by
+  have h1 : (a + b) ^ 2 ≥ 0 := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Prove that for any positive real numbers $x$ and $y$:
+    $$\frac{x+y}{2} \geq \sqrt{xy}.$$
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $x$ and $y$ are positive, $(\sqrt{x} - \sqrt{y})^2 \ge 0$. Thus $x - 2\sqrt{xy} + y \ge 0$, so $x+y \ge 2\sqrt{xy}$, which implies $\frac{x+y}{2} \ge \sqrt{xy}$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $x$ and $y$ are positive, $(\sqrt{x} - \sqrt{y})^2 \ge 0$. Thus $x - 2\sqrt{xy} + y = (\sqrt{x} - \sqrt{y})^2 \ge 0$, so $x+y \ge 2\sqrt{xy}$, which implies $\frac{x+y}{2} \ge \sqrt{xy}$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Let $y\in\mathbb{R}$.
+Assume $x > 0$.
+Assume $y > 0$.
+The goal is to prove $\frac{x+y}{2} \ge \sqrt{xy}$.
+We have ${(\sqrt{x} - \sqrt{y})}^2 \ge 0$.
+We have $x - 2\sqrt{xy} + y = {(\sqrt{x} - \sqrt{y})}^2 \ge 0$.
+We have $x+y \ge 2\sqrt{xy}$.
+We have $\frac{x+y}{2} \ge \sqrt{xy}$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+import Obvious
+open Obvious
+
+def h(x : ℝ)(y : ℝ)(h1 : x > 0)(h2 : y > 0) : (x + y) / 2 ≥ √ (x * y) := by
+  have h3 : (√ x - √ y) ^ 2 ≥ 0 := by obvious
+  first
+  | have h4 : x - 2 * √ (x * y) + y ≥ 0 := by calc
+    x - 2 * √ (x * y) + y = (√ x - √ y) ^ 2 := by obvious
+    _ ≥ 0 := by obvious
+  | have h5 : (√ x - √ y) ^ 2 ≥ 0 := by calc
+    (√ x - √ y) ^ 2 = x - 2 * √ (x * y) + y := by obvious
+    _ ≥ 0 := by obvious
+  have h6 : x + y ≥ 2 * √ (x * y) := by obvious
+  have h7 : (x + y) / 2 ≥ √ (x * y) := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Show that for all real numbers $a$, $b$, and $c$:
+    $$a^2 + b^2 + c^2 \geq ab + bc + ca.$$
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+We have $(a-b)^2 + (b-c)^2 + (c-a)^2 \geq 0$, which simplifies to $2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. Dividing by 2 gives $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+We have $(a-b)^2 + (b-c)^2 + (c-a)^2 = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. Dividing by 2 gives $a^2 + b^2 + c^2 - ab - bc - ca \geq 0$, which implies $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+Let $c\in\mathbb{R}$.
+The goal is to prove $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+We have ${(a-b)}^2 + {(b-c)}^2 + {(c-a)}^2 = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca \geq 0$. We have $a^2 + b^2 + c^2 - ab - bc - ca \geq 0$ by dividing by $2$.  It's enough to show that $a^2 + b^2 + c^2 \geq ab + bc + ca$. We have $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+import Obvious
+open Obvious
+
+def h(a : ℝ)(b : ℝ)(c : ℝ) : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by
+  first
+  | have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ 0 := by calc
+    (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := by obvious
+    _ = 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a := by obvious
+    _ ≥ 0 := by obvious
+  | have h2 : 2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a ≥ 0 := by calc
+    2 * (a ^ 2) + 2 * (b ^ 2) + 2 * (c ^ 2) - 2 * a * b - 2 * b * c - 2 * c * a = a ^ 2 - 2 * a * b + b ^ 2 + (b ^ 2 - 2 * b * c + c ^ 2) + (c ^ 2 - 2 * c * a + a ^ 2) := by obvious
+    _ = (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by obvious
+    _ ≥ 0 := by obvious
+  have h3 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ 0 := by obvious
+  have h4 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  have h5 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Prove that for any positive real number $x$:
+    $$x + \frac{1}{x} \geq 2.$$
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $x>0$, $(x-1)^2 \ge 0$, so $x^2 - 2x + 1 \ge 0$. Dividing by $x$ gives $x - 2 + \frac{1}{x} \ge 0$, thus $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $x>0$, $(x-1)^2 \ge 0$, so $x^2 - 2x + 1 \ge 0$. Dividing by $x$ gives $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x} = x - 2 + \frac{1}{x} \ge 0$, thus $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Assume $x > 0$. The goal is to prove $x + \frac{1}{x} \ge 2$.
+We have $x > 0$. We have ${(x-1)}^2 \ge 0$. We have $x^2 - 2x + 1 \ge 0$. We have $\frac{x^2 - 2x + 1}{x} = \frac{x^2}{x} - \frac{2x}{x} + \frac{1}{x} = x - 2 + \frac{1}{x} \ge 0$. We have $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+import Obvious
+open Obvious
+
+def h(x : ℝ)(h1 : x > 0) : x + 1 / x ≥ 2 := by
+  have h2 : x > 0 := by obvious
+  have h3 : (x - 1) ^ 2 ≥ 0 := by obvious
+  have h4 : x ^ 2 - 2 * x + 1 ≥ 0 := by obvious
+  first
+  | have h5 : (x ^ 2 - 2 * x + 1) / x ≥ 0 := by calc
+    (x ^ 2 - 2 * x + 1) / x = x ^ 2 / x - 2 * x / x + 1 / x := by obvious
+    _ = x - 2 + 1 / x := by obvious
+    _ ≥ 0 := by obvious
+  | have h6 : x - 2 + 1 / x ≥ 0 := by calc
+    x - 2 + 1 / x = x ^ 2 / x - 2 * x / x + 1 / x := by obvious
+    _ = (x ^ 2 - 2 * x + 1) / x := by obvious
+    _ ≥ 0 := by obvious
+  have h7 : x + 1 / x ≥ 2 := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+For positive real numbers $a$ and $b$, prove:
+    $$\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}.$$
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+We have
+$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{(a-b)^2}{4} \ge 0. $
+Thus, $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+We have
+$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2}{4} - \frac{a^2+2ab+b^2}{4} = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{a^2-2ab+b^2}{4} = \frac{(a-b)^2}{4} \ge 0. $
+Thus, $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+The goal is to prove ${\left(\frac{a+b}{2}\right)}^2 \leq \frac{a^2+b^2}{2}$.
+We have $\frac{a^2+b^2}{2} - {\left(\frac{a+b}{2}\right)}^2 = \frac{2a^2+2b^2}{4} - \frac{a^2+2ab+b^2}{4} = \frac{2a^2+2b^2-(a^2+2ab+b^2)}{4} = \frac{a^2-2ab+b^2}{4} = \frac{{(a-b)}^2}{4} \ge 0$.
+We have ${\left(\frac{a+b}{2}\right)}^2 \leq \frac{a^2+b^2}{2}$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+import Obvious
+open Obvious
+
+def h(a : ℝ)(b : ℝ) : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by
+  first
+  | have h1 : (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 ≥ 0 := by calc
+    (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := by obvious
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := by obvious
+    _ = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := by obvious
+    _ = (a - b) ^ 2 / 4 := by obvious
+    _ ≥ 0 := by obvious
+  | have h2 : (a - b) ^ 2 / 4 ≥ 0 := by calc
+    (a - b) ^ 2 / 4 = (a ^ 2 - 2 * a * b + b ^ 2) / 4 := by obvious
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2) - (a ^ 2 + 2 * a * b + b ^ 2)) / 4 := by obvious
+    _ = (2 * (a ^ 2) + 2 * (b ^ 2)) / 4 - (a ^ 2 + 2 * a * b + b ^ 2) / 4 := by obvious
+    _ = (a ^ 2 + b ^ 2) / 2 - ((a + b) / 2) ^ 2 := by obvious
+    _ ≥ 0 := by obvious
+  have h3 : ((a + b) / 2) ^ 2 ≤ (a ^ 2 + b ^ 2) / 2 := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+\end{document}

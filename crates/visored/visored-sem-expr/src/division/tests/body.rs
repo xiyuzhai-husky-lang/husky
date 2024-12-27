@@ -1,6 +1,7 @@
 use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSemExprDisplayTreeBuilder;
@@ -9,6 +10,7 @@ fn t(content: &str, expected: &Expect) {
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let models = &VdModels::new();
     let tracker = VdSemExprTracker::new(
         LxDocumentBodyInput {
             specs_dir: dev_paths.specs_dir(),
@@ -17,7 +19,9 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
-        &db,
+        models,
+        VdSynExprVibe::ROOT_CNL,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }

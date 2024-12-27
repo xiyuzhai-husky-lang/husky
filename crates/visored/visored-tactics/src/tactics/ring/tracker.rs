@@ -3,6 +3,8 @@ use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::helpers::tracker::VdMirExprTracker;
+use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
 pub struct Tracker {}
 
@@ -13,6 +15,8 @@ impl Tracker {
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
+        models: &VdModels,
+        vibe: VdSynExprVibe,
         db: &EternerDb,
     ) -> Self {
         let VdMirExprTracker {
@@ -30,7 +34,14 @@ impl Tracker {
             token_storage,
             output: stmts,
             ..
-        } = VdMirExprTracker::new(input, token_annotations, space_annotations, db);
+        } = VdMirExprTracker::new(
+            input,
+            token_annotations,
+            space_annotations,
+            models,
+            vibe,
+            db,
+        );
         // assert!(stmts.len() > 1);
         Self {}
     }
@@ -53,7 +64,15 @@ fn ring_tactics_tracker_works() {
         };
         let token_annotations = vec![];
         let space_annotations = vec![];
-        let tracker = Tracker::new(input, &token_annotations, &space_annotations, db);
+        let models = &VdModels::new();
+        let tracker = Tracker::new(
+            input,
+            &token_annotations,
+            &space_annotations,
+            models,
+            VdSynExprVibe::ROOT_CNL,
+            db,
+        );
     }
 
     t(r#"Let $x\in\mathbb{R}$. Then $x^2=x^2$."#);

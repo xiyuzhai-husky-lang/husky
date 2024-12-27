@@ -222,7 +222,19 @@ impl VdFuncKeyDictionary {
         {
             let translations_vec: Vec<_> = translations.clone().into_iter().collect();
             let mut seen = std::collections::HashMap::new();
-            for (idx, (key, _)) in translations_vec.iter().enumerate() {
+            for (idx, (key, translation)) in translations_vec.iter().enumerate() {
+                match translation {
+                    VdFuncKeyTranslation::PrefixOpr(ln_mir_func_key) => match ln_mir_func_key {
+                        LnMirFuncKey::PrefixOpr { opr, instantiation } => (),
+                        _ => unreachable!(),
+                    },
+                    VdFuncKeyTranslation::FoldingBinaryOpr(ln_mir_func_key) => (),
+                    VdFuncKeyTranslation::ChainingBinaryOpr(ln_mir_func_key) => (),
+                    VdFuncKeyTranslation::Power(ln_mir_func_key) => (),
+                    VdFuncKeyTranslation::Function(ln_mir_func_key) => (),
+                    VdFuncKeyTranslation::JustBinaryOpr(ln_mir_func_key) => (),
+                    VdFuncKeyTranslation::InSet => (),
+                }
                 if let Some(prev_idx) = seen.insert(key, idx) {
                     panic!(
                         "Duplicate key {:?} found at positions {} and {}",

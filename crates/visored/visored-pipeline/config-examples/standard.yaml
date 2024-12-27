@@ -1,4 +1,27 @@
 ---
 output_name: baseline
+presets:
+  - model: gpt-4o
+    name: gpt-4o
+routing:
+  solver:
+    mathematical_reasoning: gpt-4o
+    mathematical_understanding: gpt-4o
+    latex_rewriter: gpt-4o
+  verifier:
+    snl_dispatcher: gpt-4o
 ---
 output_name: standard
+presets:
+  - model: gemini-1.5-flash
+    name: gemini-1.5-flash
+  - model: gemini-1.5-pro
+    name: gemini-1.5-pro
+routing:
+  solver:
+    mathematical_reasoning: gemini-1.5-pro
+    mathematical_understanding: gemini-1.5-pro
+    latex_rewriter: gemini-1.5-flash
+  verifier:
+    snl_dispatcher: gemini-1.5-flash
+

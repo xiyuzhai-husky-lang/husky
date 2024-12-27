@@ -1,7 +1,8 @@
 use super::*;
 use crate::scheme::sparse::VdLeanTranspilationSparseScheme;
+use visored_syn_expr::vibe::VdSynExprVibe;
 
-fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
+fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
@@ -15,6 +16,8 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
         },
         &[],
         &[],
+        models,
+        VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
     );
@@ -24,7 +27,9 @@ fn t(content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
 
 #[test]
 fn basic_document_to_vd_mir_works() {
+    let models = &VdModels::new();
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -42,6 +47,7 @@ Let $x\in\mathbb{R}$.
             variable (x : ℝ)"#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -64,6 +70,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

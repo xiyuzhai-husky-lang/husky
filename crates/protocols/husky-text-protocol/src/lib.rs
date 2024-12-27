@@ -1,3 +1,5 @@
+#![feature(iter_advance_by)]
+#![feature(pattern)]
 #![feature(step_trait)]
 #![allow(internal_features)]
 #![feature(str_internals)]

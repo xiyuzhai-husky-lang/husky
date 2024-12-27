@@ -2,13 +2,14 @@ use super::*;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentInput;
 
-fn t(content: &str, expected: &Expect) {
+fn t(models: &VdModels, content: &str, expected: &Expect) {
     use crate::helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
     use husky_path_utils::HuskyLangDevPaths;
 
     let db = &EternerDb::default();
     let dev_paths = HuskyLangDevPaths::new();
     let file_path = LxFilePath::new(PathBuf::from(file!()), db);
+    let vibe = VdSynExprVibe::ROOT_CNL;
     let tracker = VdSynExprTracker::new(
         LxDocumentInput {
             specs_dir: dev_paths.specs_dir().to_path_buf(),
@@ -17,14 +18,18 @@ fn t(content: &str, expected: &Expect) {
         },
         &[],
         &[],
-        &db,
+        models,
+        vibe,
+        db,
     );
     expected.assert_eq(&tracker.show_display_tree(db));
 }
 
 #[test]
 fn parse_vd_syn_divisions_works() {
+    let models = &VdModels::new();
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -41,6 +46,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}
@@ -59,6 +65,7 @@ Let $x\in\mathbb{R}$.
         "#]],
     );
     t(
+        models,
         r#"\documentclass{article}
 \usepackage{amsmath}
 \begin{document}

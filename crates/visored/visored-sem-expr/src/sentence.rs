@@ -15,6 +15,8 @@ pub enum VdSemSentenceData {
         clauses: VdSemClauseIdxRange,
         end: VdSemSentenceEnd,
     },
+    Have,
+    Show,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -41,11 +43,12 @@ impl ToVdSem<VdSemSentenceIdxRange> for VdSynSentenceIdxRange {
 
 impl<'a> VdSemExprBuilder<'a> {
     fn build_sentence(&mut self, sentence: VdSynSentenceIdx) -> VdSemSentenceData {
-        match self.syn_sentence_arena()[sentence] {
+        match *self.syn_sentence_arena()[sentence].data() {
             VdSynSentenceData::Clauses { clauses, end } => VdSemSentenceData::Clauses {
                 clauses: clauses.to_vd_sem(self),
                 end: end.to_vd_sem(self),
             },
+            VdSynSentenceData::Pristine => todo!(),
         }
     }
 }
@@ -72,6 +75,8 @@ impl VdSemSentenceData {
                 .into_iter()
                 .map(|c| VdSemSentenceChild::Clause(c))
                 .collect(),
+            VdSemSentenceData::Have => todo!(),
+            VdSemSentenceData::Show => todo!(),
         }
     }
 }
