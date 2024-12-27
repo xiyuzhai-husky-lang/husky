@@ -148,6 +148,8 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
 ```"#,
             self.input.content, simplified_proof
         );
+        use husky_print_utils::*;
+        p!(DisplayIt(&simplified_proof));
         self.simplified_proof = Some((transformations, simplified_proof));
         let (transformations, elaborated_proof) = self
             .llm_client
@@ -169,6 +171,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
 ```"#,
             self.input.content, elaborated_proof
         );
+        p!(DisplayIt(&elaborated_proof));
         self.elaborated_proof = Some((transformations, elaborated_proof));
         let (transformations, regularized_proof) = self
             .llm_client
@@ -178,6 +181,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             )
             .unwrap();
         let regularized_proof = extract_proof(&regularized_proof);
+        p!(transformations, DisplayIt(&regularized_proof));
         self.regularized_proof = Some((transformations, regularized_proof.clone()));
         let file_path = LxFilePath::new(PathBuf::from(file!()), self.db);
         let tracker = VdLeanTranspilationTracker::new(

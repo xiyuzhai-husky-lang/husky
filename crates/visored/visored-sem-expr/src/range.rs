@@ -19,7 +19,8 @@ use crate::{
     },
 };
 use either::*;
-use latex_token::idx::LxTokenIdxRange;
+use latex_ast::{ast::math::LxMathCompleteCommandArgument, range::LxAstTokenIdxRangeMap};
+use latex_token::idx::{LxMathTokenIdx, LxTokenIdxRange};
 use visored_syn_expr::range::VdSynClauseTokenIdxRangeMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -49,6 +50,7 @@ pub type VdSemBlockTokenIdxRangeMap = VdSemBlockMap<VdSemBlockTokenIdxRange>;
 pub type VdSemDivisionTokenIdxRangeMap = VdSemDivisionMap<VdSemDivisionTokenIdxRange>;
 
 pub fn calc_expr_range_map(
+    lx_ast_range_map: &LxAstTokenIdxRangeMap,
     syn_clause_range_map: &VdSynClauseTokenIdxRangeMap,
     expr_arena: &VdSemExprArena,
     phrase_arena: &VdSemPhraseArena,
@@ -65,6 +67,7 @@ pub fn calc_expr_range_map(
     VdSemDivisionTokenIdxRangeMap,
 ) {
     let mut calculator = VdSemExprRangeCalculator::new(
+        lx_ast_range_map,
         syn_clause_range_map,
         expr_arena,
         phrase_arena,
@@ -78,6 +81,7 @@ pub fn calc_expr_range_map(
 }
 
 struct VdSemExprRangeCalculator<'db> {
+    lx_ast_range_map: &'db LxAstTokenIdxRangeMap,
     syn_clause_range_map: &'db VdSynClauseTokenIdxRangeMap,
     expr_arena: VdSemExprArenaRef<'db>,
     phrase_arena: VdSemPhraseArenaRef<'db>,
@@ -95,6 +99,7 @@ struct VdSemExprRangeCalculator<'db> {
 
 impl<'db> VdSemExprRangeCalculator<'db> {
     fn new(
+        lx_ast_range_map: &'db LxAstTokenIdxRangeMap,
         syn_clause_range_map: &'db VdSynClauseTokenIdxRangeMap,
         expr_arena: &'db VdSemExprArena,
         phrase_arena: &'db VdSemPhraseArena,
@@ -104,6 +109,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
         division_arena: &'db VdSemDivisionArena,
     ) -> Self {
         Self {
+            lx_ast_range_map,
             syn_clause_range_map,
             expr_arena: expr_arena.as_arena_ref(),
             phrase_arena: phrase_arena.as_arena_ref(),
@@ -239,21 +245,30 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             }
             VdSemExprData::Frac {
                 command_token_idx,
-                denominator_rcurl_token_idx,
+                denominator_arg,
                 ..
-            } => VdSemExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
-                *command_token_idx,
-                *denominator_rcurl_token_idx,
-            )),
+            } => self.calc_complete_command(command_token_idx, denominator_arg),
             VdSemExprData::Sqrt {
                 command_token_idx,
-                radicand_rcurl_token_idx,
+                radicand_arg,
                 ..
-            } => VdSemExprTokenIdxRange::Standard(LxTokenIdxRange::new_closed(
-                *command_token_idx,
-                *radicand_rcurl_token_idx,
-            )),
+            } => self.calc_complete_command(command_token_idx, radicand_arg),
         }
+    }
+
+    fn calc_complete_command(
+        &mut self,
+        command_token_idx: LxMathTokenIdx,
+        last_arg: LxMathCompleteCommandArgument,
+    ) -> VdSemExprTokenIdxRange {
+        VdSemExprTokenIdxRange::Standard(match last_arg {
+            LxMathCompleteCommandArgument::MathAst(ast) => self.lx_ast_range_map[ast],
+            LxMathCompleteCommandArgument::Asts {
+                lcurl_token_idx,
+                asts,
+                rcurl_token_idx,
+            } => LxTokenIdxRange::new_closed(*lcurl_token_idx, *rcurl_token_idx),
+        })
     }
 
     fn get_expr(&mut self, expr: VdSemExprIdx) -> VdSemExprTokenIdxRange {

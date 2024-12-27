@@ -278,5 +278,33 @@
       }
     },
     "time": "2024-12-27T14:53:13.775469732Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\n$a\\in\\mathbb{R}$.\n$b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\n$(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:19:12.691565090Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:52:29.308604751Z"
   }
 ]

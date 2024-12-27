@@ -45,14 +45,31 @@ impl<'a> LxAstParser<'a> {
         &mut self,
         mode: LxCommandParameterMode,
     ) -> LxMathCompleteCommandArgument {
+        match self.peek_math_token_data() {
+            Some(math_token_data) => match math_token_data {
+                LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl) => (),
+                _ => {
+                    if mode == LxCommandParameterMode::Math {
+                        let Some(math_ast) = self.parse_atomic_math_ast() else {
+                            todo!()
+                        };
+                        let math_ast = self.alloc_math_ast(math_ast);
+                        return LxMathCompleteCommandArgument::MathAst(math_ast);
+                    } else {
+                        todo!()
+                    }
+                }
+            },
+            None => todo!(),
+        }
         let Some((lcurl_token_idx, LxMathTokenData::LeftDelimiter(LxMathDelimiter::Curl))) =
             self.next_math_token()
         else {
-            todo!("report errors properly")
+            unreachable!()
         };
-        let data = match mode {
-            LxCommandParameterMode::Math => LxMathCommandArgumentData::Math(self.parse_math_asts()),
-            LxCommandParameterMode::Rose => LxMathCommandArgumentData::Rose(self.parse_rose_asts()),
+        let asts = match mode {
+            LxCommandParameterMode::Math => LxMathCommandArgumentAsts::Math(self.parse_math_asts()),
+            LxCommandParameterMode::Rose => LxMathCommandArgumentAsts::Rose(self.parse_rose_asts()),
             LxCommandParameterMode::Name => todo!(),
             LxCommandParameterMode::SingleLetter => todo!(),
         };
@@ -61,9 +78,9 @@ impl<'a> LxAstParser<'a> {
         else {
             todo!("report error properly")
         };
-        LxMathCompleteCommandArgument {
+        LxMathCompleteCommandArgument::Asts {
             lcurl_token_idx,
-            data,
+            asts,
             rcurl_token_idx,
         }
     }

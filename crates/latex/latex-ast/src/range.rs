@@ -190,12 +190,20 @@ impl<'a> LxAstTokenIdxRangeCalculator<'a> {
                 command_path,
                 ref arguments,
             } => match arguments.last() {
-                Some(last_argument) => LxTokenIdxRange::new_closed(
-                    *command_token_idx,
-                    *last_argument.rcurl_token_idx(),
-                ),
+                Some(last_argument) => match *last_argument {
+                    LxMathCompleteCommandArgument::Asts {
+                        lcurl_token_idx,
+                        asts,
+                        rcurl_token_idx,
+                    } => LxTokenIdxRange::new_closed(*command_token_idx, *rcurl_token_idx),
+                    LxMathCompleteCommandArgument::MathAst(ast) => {
+                        let range = self.get_math_ast_range(ast);
+                        LxTokenIdxRange::new(*command_token_idx, range.end())
+                    }
+                },
                 None => LxTokenIdxRange::new_single(*command_token_idx),
             },
+
             LxMathAstData::Environment {
                 begin_command_token_idx,
                 end_rcurl_token_idx,

@@ -149,6 +149,10 @@ impl<'a> VdSemExprBuilder<'a> {
         self.db
     }
 
+    pub(crate) fn content(&self) -> &'a str {
+        self.content
+    }
+
     pub fn syn_expr_arena(&self) -> VdSynExprArenaRef<'a> {
         self.syn_expr_arena
     }

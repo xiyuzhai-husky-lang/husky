@@ -26,7 +26,10 @@ impl<'a> VdSemExprBuilder<'a> {
                 };
                 self.build_letter_dispatch(resolution)
             }
-            Err(e) => todo!("letter = `{letter}`, e = {e}"),
+            Err(e) => {
+                println!("content: \n{}", self.content());
+                todo!("letter = `{letter}`, e = {e}")
+            }
         };
         let ty = match dispatch {
             VdSemLetterDispatch::Global(global_resolution) => {
