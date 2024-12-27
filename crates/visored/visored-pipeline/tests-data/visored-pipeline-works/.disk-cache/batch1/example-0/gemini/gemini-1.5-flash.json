@@ -1,0 +1,44 @@
+[
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE INPUT ----\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n---- EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2  \\ge 0$.\n...\n\\end{{proof}}\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:25:04.709739043Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:25:06.553724528Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x \\in \\mathbb{R}$.\nLet $y \\in \\mathbb{R}$.\nAssume $x=1$.\nAssume $y=1$.\nThe goal is to prove $x+y=2$.\nWe have $1+1=2$ by the Peano axioms.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x \\in \\mathbb{R}$.\nLet $y \\in \\mathbb{R}$.\nAssume $x=1$.\nAssume $y=1$.\nThe goal is to prove $x+y=2$.\nWe have $1+1=2$ by the Peano axioms.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:25:10.852410122Z"
+  }
+]

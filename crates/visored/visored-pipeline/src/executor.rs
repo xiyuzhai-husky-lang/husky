@@ -86,6 +86,7 @@ Provide only the LaTeX code for the solution, without any surrounding text. Wrap
 - Avoid unnecessary labels or references
 - If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details.
 - Avoid unnecessary repetitions.
+- Avoid introducing unnecessary variables.
 
 Here are some examples that help you understand the task.
 
