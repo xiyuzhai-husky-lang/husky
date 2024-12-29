@@ -13632,6 +13632,7 @@ dependencies = [
  "latex-prelude",
  "latex-vfs",
  "rustc-hash 2.0.0",
+ "thiserror",
  "vec-like",
  "visored-annotation",
  "visored-mir-expr",
