@@ -2,6 +2,7 @@ use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef},
     stmt::{VdMirStmtArena, VdMirStmtArenaRef},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
+    tactic::VdMirTacticArena,
 };
 
 pub struct VdMirExprRegionData {
@@ -46,4 +47,5 @@ pub struct VdMirExprRegionDataRef<'a> {
 
 pub struct VdMirExprRegionDataMut<'a> {
     pub(crate) expr_arena: &'a mut VdMirExprArena,
+    pub(crate) tactic_arena: &'a mut VdMirTacticArena,
 }
