@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 rustc-hash.workspace = true
+thiserror.workspace = true
 # abstractions
 enum-class.workspace = true
 eterned.workspace = true

@@ -1,4 +1,6 @@
-mod engine;
+pub mod engine;
+pub mod error;
+pub mod outcome;
 pub mod tactics;
 
 use eterned::db::EternerDb;
