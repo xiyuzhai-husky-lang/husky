@@ -14,6 +14,7 @@ use latex_prelude::{
     mode::LxMode,
 };
 use latex_token::storage::LxTokenStorage;
+use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use tactic::elaboration::IsVdMirTacticElaborator;
@@ -78,7 +79,7 @@ where
         models: &VdModels,
         vibe: VdSynExprVibe,
         db: &EternerDb,
-        elaborator: Elaborator,
+        mut elaborator: Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -120,7 +121,15 @@ where
             &sem_symbol_local_defn_storage,
         );
         let result = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (expr_arena, stmt_arena, symbol_local_defn_storage, source_map) = builder.finish();
+        let (mut expr_arena, stmt_arena, symbol_local_defn_storage, source_map) = builder.finish();
+        elaborator.eval(VdMirExprRegionDataRef {
+            expr_arena: expr_arena.as_arena_ref(),
+            stmt_arena: stmt_arena.as_arena_ref(),
+            symbol_local_defn_storage: &symbol_local_defn_storage,
+        });
+        elaborator.extract(VdMirExprRegionDataMut {
+            expr_arena: &mut expr_arena,
+        });
         Self {
             root_module_path,
             expr_arena,

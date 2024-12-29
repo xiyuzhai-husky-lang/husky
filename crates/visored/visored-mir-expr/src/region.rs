@@ -38,8 +38,12 @@ impl VdMirExprRegionData {
     }
 }
 
-pub struct VdMirExprRegionDataRef<'db> {
-    expr_arena: VdMirExprArenaRef<'db>,
-    stmt_arena: VdMirStmtArenaRef<'db>,
-    symbol_local_defn_storage: &'db VdMirSymbolLocalDefnStorage,
+pub struct VdMirExprRegionDataRef<'a> {
+    pub expr_arena: VdMirExprArenaRef<'a>,
+    pub stmt_arena: VdMirStmtArenaRef<'a>,
+    pub symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
+}
+
+pub struct VdMirExprRegionDataMut<'a> {
+    pub(crate) expr_arena: &'a mut VdMirExprArena,
 }

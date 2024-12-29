@@ -1,16 +1,23 @@
-use crate::region::{VdMirExprRegionData, VdMirExprRegionDataRef};
+pub mod error;
+
+use super::*;
+use crate::region::{VdMirExprRegionData, VdMirExprRegionDataMut, VdMirExprRegionDataRef};
+
+pub enum VdMirTacticElaboration {
+    Ok(VdMirTacticIdxRange),
+}
 
 pub trait IsVdMirTacticElaborator {
-    fn eval(&mut self, region_data_ref: VdMirExprRegionDataRef);
+    fn eval(&mut self, region_data: VdMirExprRegionDataRef);
 
-    fn extract(&self, region_data: &mut VdMirExprRegionData);
+    fn extract(&self, region_data: VdMirExprRegionDataMut);
 }
 
 #[derive(Default)]
 pub struct VdMirTacticTrivialElaborator;
 
 impl IsVdMirTacticElaborator for VdMirTacticTrivialElaborator {
-    fn eval(&mut self, region_data_ref: VdMirExprRegionDataRef) {}
+    fn eval(&mut self, region_data: VdMirExprRegionDataRef) {}
 
-    fn extract(&self, region_data: &mut VdMirExprRegionData) {}
+    fn extract(&self, region_data: VdMirExprRegionDataMut) {}
 }
