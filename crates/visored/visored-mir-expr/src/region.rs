@@ -37,3 +37,9 @@ impl VdMirExprRegionData {
         &self.symbol_local_defn_storage
     }
 }
+
+pub struct VdMirExprRegionDataRef<'db> {
+    expr_arena: VdMirExprArenaRef<'db>,
+    stmt_arena: VdMirStmtArenaRef<'db>,
+    symbol_local_defn_storage: &'db VdMirSymbolLocalDefnStorage,
+}

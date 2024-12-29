@@ -13542,6 +13542,7 @@ dependencies = [
  "thiserror",
  "tokio",
  "visored-lean-transpilation",
+ "visored-mir-expr",
  "visored-models",
  "visored-syn-expr",
 ]

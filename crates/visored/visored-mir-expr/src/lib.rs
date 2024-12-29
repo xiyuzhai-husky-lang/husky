@@ -6,6 +6,7 @@ pub mod region;
 pub mod source_map;
 pub mod stmt;
 pub mod symbol;
+pub mod tactic;
 #[cfg(test)]
 mod tests;
 

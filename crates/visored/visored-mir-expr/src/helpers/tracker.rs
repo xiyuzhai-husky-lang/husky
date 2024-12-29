@@ -16,6 +16,7 @@ use latex_prelude::{
 use latex_token::storage::LxTokenStorage;
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
+use tactic::elaboration::IsVdMirTacticElaborator;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -27,7 +28,7 @@ use visored_sem_expr::{
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
+pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMirTacticElaborator> {
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
@@ -41,6 +42,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub sem_division_range_map: VdSemDivisionTokenIdxRangeMap,
     pub token_storage: LxTokenStorage,
     pub output: Input::VdMirExprOutput,
+    pub elaborator: Elaborator,
 }
 
 pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
@@ -64,7 +66,11 @@ where
     }
 }
 
-impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
+impl<'a, Input, Elaborator> VdMirExprTracker<'a, Input, Elaborator>
+where
+    Input: IsVdMirExprInput<'a>,
+    Elaborator: IsVdMirTacticElaborator,
+{
     pub fn new(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
@@ -72,6 +78,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         models: &VdModels,
         vibe: VdSynExprVibe,
         db: &EternerDb,
+        elaborator: Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -128,6 +135,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             sem_division_range_map,
             token_storage,
             output: result,
+            elaborator,
         }
     }
 
