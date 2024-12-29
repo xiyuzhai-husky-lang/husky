@@ -1,4 +1,3 @@
-use engine::Engine;
 use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
@@ -8,7 +7,10 @@ use visored_mir_expr::{
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
-use visored_tactics::tactics::ring::{tracker::*, *};
+use visored_tactics_evaluation::{
+    tactics::ring::{engine::VdTacticsEvaluationRingEngine, tracker::*, *},
+    VdTacticsEvaluationBaseEngine,
+};
 
 fn main() {
     let start = std::time::Instant::now();
@@ -85,7 +87,10 @@ fn ring_tactics() {
         let lopd = leader;
         let ropd = followers[0].1;
         for _ in 0..repetitions {
-            let mut engine = Engine::new(expr_arena.as_arena_ref());
+            let mut engine = VdTacticsEvaluationRingEngine::new(
+                VdTacticsEvaluationBaseEngine::new(db),
+                expr_arena.as_arena_ref(),
+            );
             engine.judge(lopd, ropd);
         }
     }
