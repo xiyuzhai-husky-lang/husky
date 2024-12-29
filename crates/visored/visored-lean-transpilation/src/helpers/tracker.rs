@@ -25,11 +25,16 @@ use visored_mir_expr::{
     expr::VdMirExprIdx,
     helpers::tracker::{IsVdMirExprInput, VdMirExprTracker},
     stmt::VdMirStmtIdxRange,
+    tactic::elaboration::IsVdMirTacticElaborator,
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdLeanTranspilationTracker<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
-where
+pub struct VdLeanTranspilationTracker<
+    'a,
+    Scheme,
+    Input: IsVdLeanTranspilationInput<'a, Scheme>,
+    Elaborator: IsVdMirTacticElaborator,
+> where
     Scheme: IsVdLeanTranspilationScheme,
 {
     expr_arena: LnMirExprArena,
@@ -38,6 +43,7 @@ where
     defn_arena: LnItemDefnArena,
     defn_comments: LnItemDefnOrderedMap<LnItemDefnComment>,
     output: Input::VdLeanTranspilationOutput,
+    elaborator: Elaborator,
 }
 
 pub trait IsVdLeanTranspilationInput<'a, Scheme>: IsVdMirExprInput<'a>
@@ -70,10 +76,11 @@ where
     }
 }
 
-impl<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
-    VdLeanTranspilationTracker<'a, Scheme, Input>
+impl<'a, Scheme, Input, Elaborator> VdLeanTranspilationTracker<'a, Scheme, Input, Elaborator>
 where
     Scheme: IsVdLeanTranspilationScheme,
+    Input: IsVdLeanTranspilationInput<'a, Scheme>,
+    Elaborator: IsVdMirTacticElaborator,
 {
     pub fn new(
         input: Input,
@@ -83,6 +90,7 @@ where
         vibe: VdSynExprVibe,
         db: &'a EternerDb,
         scheme: &'a Scheme,
+        elaborator: Elaborator,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -99,7 +107,8 @@ where
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db);
+            elaborator,
+        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db, elaborator);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
@@ -128,6 +137,7 @@ where
             defn_arena,
             defn_comments,
             output,
+            elaborator,
         }
     }
 

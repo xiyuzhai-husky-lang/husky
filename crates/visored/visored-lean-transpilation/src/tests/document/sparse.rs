@@ -1,5 +1,6 @@
 use super::*;
 use crate::scheme::sparse::VdLeanTranspilationSparseScheme;
+use visored_mir_expr::tactic::elaboration::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
@@ -20,6 +21,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
+        VdMirTacticTrivialElaborator,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));

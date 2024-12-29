@@ -14,6 +14,7 @@ use std::sync::Arc;
 use visored_lean_transpilation::{
     helpers::tracker::VdLeanTranspilationTracker, scheme::dense::VdLeanTranspilationDenseScheme,
 };
+use visored_mir_expr::tactic::elaboration::VdMirTacticTrivialElaborator;
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
@@ -192,6 +193,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             VdSynExprVibe::ROOT_CNL,
             self.db,
             &VdLeanTranspilationDenseScheme,
+            VdMirTacticTrivialElaborator,
         );
         self.lean4_code = Some(format!(
             r#"import Mathlib
