@@ -1,37 +1,30 @@
 #![feature(trait_upcasting)]
-pub mod as_id;
-pub mod attach;
 pub mod db;
-pub mod eterner;
-pub mod memo;
+pub mod floater;
+pub mod note;
 
+use crate::{db::FloaterDb, floater::FloatedEntry};
 pub use dashmap::DashMap;
-pub use eterned_macros::{eterned, memo};
-
-use as_id::AsEternedId;
-use db::EternerDb;
-use eterner::EternedEntry;
-use pool::Pool;
-use std::collections::HashMap;
+pub use floated_macros::{floated, note};
 
 #[derive(Hash)]
-pub struct Eterned<T: 'static>(pub &'static EternedEntry<T>);
+pub struct Floated<T: 'static>(pub &'static FloatedEntry<T>);
 
-impl<T: 'static> std::fmt::Debug for Eterned<T> {
+impl<T: 'static> std::fmt::Debug for Floated<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("Eterned")
+        f.debug_tuple("Floated")
             .field(&(self.0 as *const _))
             .finish()
     }
 }
 
-impl<T: 'static> Eterned<T> {
-    pub fn raw_ptr(self) -> *const EternedEntry<T> {
+impl<T: 'static> Floated<T> {
+    pub fn raw_ptr(self) -> *const FloatedEntry<T> {
         self.0
     }
 }
 
-impl<T: 'static> PartialOrd for Eterned<T>
+impl<T: 'static> PartialOrd for Floated<T>
 where
     T: PartialOrd,
 {
@@ -44,7 +37,7 @@ where
     }
 }
 
-impl<T: 'static> Ord for Eterned<T>
+impl<T: 'static> Ord for Floated<T>
 where
     T: Ord,
 {
@@ -57,33 +50,20 @@ where
     }
 }
 
-impl<T: 'static> Clone for Eterned<T> {
+impl<T: 'static> Clone for Floated<T> {
     fn clone(&self) -> Self {
         Self(self.0)
     }
 }
 
-impl<T: 'static> PartialEq for Eterned<T> {
+impl<T: 'static> PartialEq for Floated<T> {
     fn eq(&self, other: &Self) -> bool {
         self.raw_ptr() == other.raw_ptr()
     }
 }
 
-impl<T: 'static> Eq for Eterned<T> {}
+impl<T: 'static> Eq for Floated<T> {}
 
-impl<T: 'static> Copy for Eterned<T> {}
+impl<T: 'static> Copy for Floated<T> {}
 
-unsafe impl<T> Send for Eterned<T> {}
-
-impl<T: Clone + Eq + std::hash::Hash + Send + Sync + 'static> AsEternedId for Eterned<T> {
-    fn as_id(self) -> u32 {
-        self.0.id
-    }
-
-    fn from_id(id: u32, db: &EternerDb) -> Self {
-        use husky_wild_utils::arb_ref;
-
-        let eterner = db.eterner::<T>();
-        eterner.with_pool(|pool| Eterned(unsafe { arb_ref(&pool[id]) }))
-    }
-}
+unsafe impl<T> Send for Floated<T> {}

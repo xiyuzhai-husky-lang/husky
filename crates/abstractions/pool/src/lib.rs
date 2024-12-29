@@ -1,4 +1,4 @@
-use crate::vec_array::VecArray;
+use vec_array::VecArray;
 
 pub struct Pool<T, const N: usize> {
     blocks: Vec<VecArray<T, N>>,

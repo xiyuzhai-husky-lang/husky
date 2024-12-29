@@ -1,5 +1,5 @@
 [package]
-name = "eterned"
+name = "pool"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,15 +12,8 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-dashmap.workspace = true
-sealed.workspace = true
 # abstractions
-attach.workspace = true
-eterned-macros.workspace = true
-pool.workspace = true
-# utils
-husky-sha-utils.workspace = true
-husky-wild-utils.workspace = true
+vec-array.workspace = true
 
 [lints]
 workspace = true

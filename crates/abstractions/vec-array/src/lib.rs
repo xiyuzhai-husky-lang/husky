@@ -36,7 +36,7 @@ impl<T, const N: usize> VecArray<T, N> {
         self.data.last()
     }
 
-    pub(crate) fn len(&self) -> usize {
+    pub fn len(&self) -> usize {
         self.data.len()
     }
 }
