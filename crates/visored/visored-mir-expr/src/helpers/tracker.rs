@@ -121,7 +121,8 @@ where
             &sem_symbol_local_defn_storage,
         );
         let result = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (mut expr_arena, stmt_arena, symbol_local_defn_storage, source_map) = builder.finish();
+        let (mut expr_arena, stmt_arena, mut tactic_arena, symbol_local_defn_storage, source_map) =
+            builder.finish();
         elaborator.eval(VdMirExprRegionDataRef {
             expr_arena: expr_arena.as_arena_ref(),
             stmt_arena: stmt_arena.as_arena_ref(),
@@ -129,6 +130,7 @@ where
         });
         elaborator.extract(VdMirExprRegionDataMut {
             expr_arena: &mut expr_arena,
+            tactic_arena: &mut tactic_arena,
         });
         Self {
             root_module_path,
