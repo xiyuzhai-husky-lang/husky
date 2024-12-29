@@ -470,7 +470,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         &[],
         &[],
         &expect![[r#"
-            "\\frac{1}{2}" fraction
+            "{2}" fraction
             ├─ "1" expr.literal
             └─ "2" expr.literal
         "#]],
@@ -481,7 +481,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         &[],
         &[],
         &expect![[r#"
-            "\\frac{x+1}{2-2y}" fraction
+            "{2-2y}" fraction
             ├─ "x+1" expr.separated_list
             │ ├─ "x" expr.letter
             │ └─ "1" expr.literal
@@ -498,7 +498,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         &[],
         &[],
         &expect![[r#"
-            "\\sqrt{1}" sqrt
+            "{1}" sqrt
             └─ "1" expr.literal
         "#]],
     );
@@ -508,7 +508,7 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         &[],
         &[],
         &expect![[r#"
-            "\\sqrt{x+1}" sqrt
+            "{x+1}" sqrt
             └─ "x+1" expr.separated_list
               ├─ "x" expr.letter
               └─ "1" expr.literal
@@ -520,8 +520,8 @@ fn math_commands_with_arguments_vd_syn_expr_parsing_works() {
         &[],
         &[],
         &expect![[r#"
-            "\\sqrt{\\frac{1}{2+x}}" sqrt
-            └─ "\\frac{1}{2+x}" fraction
+            "{\\frac{1}{2+x}}" sqrt
+            └─ "{2+x}" fraction
               ├─ "1" expr.literal
               └─ "2+x" expr.separated_list
                 ├─ "2" expr.literal

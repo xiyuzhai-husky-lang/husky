@@ -84,7 +84,7 @@ fn frac_vd_sem_expr_works() {
     t(
         "\\frac{1}{2}",
         &expect![[r#"
-            "\\frac{1}{2}" fraction
+            "{2}" fraction
             ├─ "1" expr.literal
             └─ "2" expr.literal
         "#]],
@@ -96,8 +96,8 @@ fn sqrt_vd_sem_expr_works() {
     t(
         "\\sqrt{1}",
         &expect![[r#"
-        "\\sqrt{1}" sqrt
-        └─ "1" expr.literal
-    "#]],
+            "{1}" sqrt
+            └─ "1" expr.literal
+        "#]],
     );
 }
