@@ -18,17 +18,45 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
         ReturnType::Default => quote!(()),
         ReturnType::Type(_, ty) => quote!(#ty),
     };
-    let args = sig
+    let ess_args = sig
         .inputs
         .iter()
         .take(sig.inputs.len() - 1)
         .collect::<Vec<_>>();
     let db_arg = sig.inputs.last().unwrap();
-    let arg_tys = args
+    let ess_arg_tys = ess_args
         .iter()
         .map(|arg| {
             if let FnArg::Typed(pat_type) = arg {
                 &*pat_type.ty
+            } else {
+                panic!("Self arguments not supported")
+            }
+        })
+        .collect::<Vec<_>>();
+    let static_ess_arg_tys = ess_args
+        .iter()
+        .map(|arg| {
+            if let FnArg::Typed(pat_type) = arg {
+                match &*pat_type.ty {
+                    Type::Path(type_path) => {
+                        let mut type_path = type_path.clone();
+                        for segment in &mut type_path.path.segments {
+                            if let PathArguments::AngleBracketed(args) = &mut segment.arguments {
+                                for arg in &mut args.args {
+                                    if let GenericArgument::Lifetime(_) = arg {
+                                        *arg = GenericArgument::Lifetime(Lifetime::new(
+                                            "'static",
+                                            proc_macro2::Span::call_site(),
+                                        ));
+                                    }
+                                }
+                            }
+                        }
+                        Type::Path(type_path)
+                    }
+                    _ => panic!("Type not supported"),
+                }
             } else {
                 panic!("Self arguments not supported")
             }
@@ -46,7 +74,7 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
     } else {
         panic!("DB argument must be typed")
     };
-    let arg_names = args
+    let ess_arg_names = ess_args
         .iter()
         .map(|arg| {
             if let FnArg::Typed(pat_type) = arg {
@@ -61,9 +89,9 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
         })
         .collect::<Vec<_>>();
 
-    let jar_ty = match args.len() {
+    let jar_ty = match ess_args.len() {
         0 => quote!(::floated::note::jar0::Jar0<#ret_type>),
-        _ => quote!(::floated::note::jar::Jar<(#(#arg_tys),*), #ret_type>),
+        _ => quote!(::floated::note::jar::Jar<(#(#static_ess_arg_tys),*), #ret_type>),
     };
 
     let output = if attr.return_ref {
@@ -75,10 +103,10 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
                 type Jar = #jar_ty;
             }
 
-            #vis fn #fn_name<'db>(#(#args,)* db: &'db ::floated::db::FloaterDb) -> &'db #ret_type  {
-                fn #inner_fn_name(#(#args,)* db: &::floated::db::FloaterDb) -> #ret_type #body
+            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> &'db #ret_type  {
+                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type #body
 
-                db.note_jar::<#fn_name>().get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
+                db.note_jar::<#fn_name>().get_or_alloc((#(#ess_arg_names),*), || #inner_fn_name(#(#ess_arg_names,)* db))
             }
         }
     } else {
@@ -91,10 +119,17 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
             }
 
 
-            #vis fn #fn_name<'db>(#(#args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type {
-                fn #inner_fn_name(#(#args,)* db: &::floated::db::FloaterDb) -> #ret_type #body
+            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type {
+                use floated::arb_ref;
 
-                *db.note_jar::<#fn_name>().get_or_alloc((#(#arg_names),*), || #inner_fn_name(#(#arg_names,)* db))
+                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type #body
+
+                unsafe {
+                    *db.note_jar::<#fn_name>().get_or_alloc(
+                        std::mem::transmute((#(#ess_arg_names),*)),
+                        || #inner_fn_name(#(std::mem::transmute(#ess_arg_names)),*, arb_ref(db))
+                    )
+                }
             }
         }
     };

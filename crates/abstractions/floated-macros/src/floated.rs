@@ -41,13 +41,13 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
         if field_attr.return_ref {
             if let Some(ref_ty) = field_attr.return_ref_ty {
                 quote! {
-                    pub fn #field_ident(self) -> &'static #ref_ty {
+                    pub fn #field_ident(self) -> &'db #ref_ty {
                         &self.0.0.value.#field_ident
                     }
                 }
             } else {
                 quote! {
-                    pub fn #field_ident(self) -> &'static #field_ty {
+                    pub fn #field_ident(self) -> &'db #field_ty {
                         &self.0.0.value.#field_ident
                     }
                 }
@@ -82,8 +82,8 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
                     }
                 }
 
-                impl #ty_ident {
-                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &::floated::db::FloaterDb) -> Self
+                impl<'db> #ty_ident<'db> {
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &'db ::floated::db::FloaterDb) -> Self
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
@@ -102,10 +102,10 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-        #vis struct #ty_ident(floated::Floated<#data_ty_ident>);
+        #vis struct #ty_ident<'db>(floated::Floated<'db, #data_ty_ident>);
 
-        impl #ty_ident {
-            #vis fn new(#(#ctor_params),*, db: &::floated::db::FloaterDb) -> Self {
+        impl<'db> #ty_ident<'db> {
+            #vis fn new(#(#ctor_params),*, db: &'db ::floated::db::FloaterDb) -> Self {
                 use floated::Floated;
 
                 let data = #data_ty_ident {

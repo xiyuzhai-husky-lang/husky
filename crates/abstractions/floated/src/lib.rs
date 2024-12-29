@@ -3,14 +3,16 @@ pub mod db;
 pub mod floater;
 pub mod note;
 
-use crate::{db::FloaterDb, floater::FloatedEntry};
 pub use dashmap::DashMap;
 pub use floated_macros::{floated, note};
+pub use husky_wild_utils::arb_ref;
+
+use crate::{db::FloaterDb, floater::FloatedEntry};
 
 #[derive(Hash)]
-pub struct Floated<T: 'static>(pub &'static FloatedEntry<T>);
+pub struct Floated<'db, T: 'static>(pub &'db FloatedEntry<T>);
 
-impl<T: 'static> std::fmt::Debug for Floated<T> {
+impl<'db, T: 'static> std::fmt::Debug for Floated<'db, T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("Floated")
             .field(&(self.0 as *const _))
@@ -18,13 +20,13 @@ impl<T: 'static> std::fmt::Debug for Floated<T> {
     }
 }
 
-impl<T: 'static> Floated<T> {
+impl<'db, T: 'static> Floated<'db, T> {
     pub fn raw_ptr(self) -> *const FloatedEntry<T> {
         self.0
     }
 }
 
-impl<T: 'static> PartialOrd for Floated<T>
+impl<'db, T: 'static> PartialOrd for Floated<'db, T>
 where
     T: PartialOrd,
 {
@@ -37,7 +39,7 @@ where
     }
 }
 
-impl<T: 'static> Ord for Floated<T>
+impl<'db, T: 'static> Ord for Floated<'db, T>
 where
     T: Ord,
 {
@@ -50,20 +52,20 @@ where
     }
 }
 
-impl<T: 'static> Clone for Floated<T> {
+impl<'db, T: 'static> Clone for Floated<'db, T> {
     fn clone(&self) -> Self {
         Self(self.0)
     }
 }
 
-impl<T: 'static> PartialEq for Floated<T> {
+impl<'db, T: 'static> PartialEq for Floated<'db, T> {
     fn eq(&self, other: &Self) -> bool {
         self.raw_ptr() == other.raw_ptr()
     }
 }
 
-impl<T: 'static> Eq for Floated<T> {}
+impl<'db, T: 'static> Eq for Floated<'db, T> {}
 
-impl<T: 'static> Copy for Floated<T> {}
+impl<'db, T: 'static> Copy for Floated<'db, T> {}
 
-unsafe impl<T> Send for Floated<T> {}
+unsafe impl<'db, T> Send for Floated<'db, T> {}

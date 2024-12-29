@@ -7,7 +7,7 @@ use std::{pin::Pin, sync::Mutex};
 
 pub struct Floater<T: Eq + std::hash::Hash + Send + Sync + 'static> {
     pool: Mutex<Pool<FloatedEntry<T>, 1024>>,
-    map: DashMap<T, Floated<T>>,
+    map: DashMap<T, Floated<'static, T>>,
 }
 
 #[derive(Debug)]
