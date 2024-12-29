@@ -1,4 +1,4 @@
-use crate::VdTacticsEvaluationBaseEngine;
+use crate::session::VdTacticsEvaluationSession;
 
 use super::*;
 use husky_sha_utils::ShaHash;
@@ -10,20 +10,20 @@ use visored_mir_expr::{
 use visored_opr::separator::VdBaseSeparator;
 use visored_term::term::literal::VdLiteralData;
 
-pub struct VdTacticsEvaluationRingEngine<'db> {
-    base_engine: VdTacticsEvaluationBaseEngine<'db>,
+pub struct VdTacticsEvaluationRingEngine<'db, 'sess> {
+    session: &'sess VdTacticsEvaluationSession<'db>,
     expr_arena: VdMirExprArenaRef<'db>,
     term_arena: NonLiteralTermArena,
     interned_terms: FxHashMap<NonLiteralTermData, IrrationalTerm>,
 }
 
-impl<'db> VdTacticsEvaluationRingEngine<'db> {
+impl<'db, 'sess> VdTacticsEvaluationRingEngine<'db, 'sess> {
     pub fn new(
-        base_engine: VdTacticsEvaluationBaseEngine<'db>,
+        session: &'sess VdTacticsEvaluationSession<'db>,
         expr_arena: VdMirExprArenaRef<'db>,
     ) -> Self {
         Self {
-            base_engine,
+            session,
             expr_arena,
             term_arena: NonLiteralTermArena::default(),
             interned_terms: FxHashMap::default(),
@@ -31,7 +31,7 @@ impl<'db> VdTacticsEvaluationRingEngine<'db> {
     }
 }
 
-impl<'db> VdTacticsEvaluationRingEngine<'db> {
+impl<'db, 'sess> VdTacticsEvaluationRingEngine<'db, 'sess> {
     pub fn judge(&mut self, lopd: VdMirExprIdx, ropd: VdMirExprIdx) -> bool {
         let lterm = self.convert(lopd);
         let rterm = self.convert(ropd);
@@ -96,7 +96,7 @@ impl<'db> VdTacticsEvaluationRingEngine<'db> {
     }
 }
 
-impl<'db> VdTacticsEvaluationRingEngine<'db> {
+impl<'db, 'sess> VdTacticsEvaluationRingEngine<'db, 'sess> {
     fn intern_term(&mut self, data: NonLiteralTermData) -> IrrationalTerm {
         if let Some(idx) = self.interned_terms.get(&data) {
             return *idx;
