@@ -4,6 +4,7 @@ use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::{
     expr::VdMirExprData, helpers::tracker::VdMirExprTracker, stmt::VdMirStmtData,
+    tactic::elaboration::VdMirTacticTrivialElaborator,
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
@@ -58,6 +59,7 @@ fn ring_tactics() {
             models,
             VdSynExprVibe::ROOT_CNL,
             db,
+            VdMirTacticTrivialElaborator, // ad hoc
         );
         let stmt = stmts.last().unwrap();
         let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
