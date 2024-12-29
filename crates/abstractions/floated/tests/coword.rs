@@ -1,12 +1,12 @@
 use ::floated::{db::FloaterDb, *};
 
 #[floated]
-pub struct Coword {
+pub struct Coword<'db> {
     #[return_ref]
     data: String,
 }
 
-impl std::fmt::Debug for Coword {
+impl std::fmt::Debug for Coword<'_> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("Coword").field(&self.data()).finish()
     }
@@ -38,6 +38,6 @@ fn coword_works() {
 }
 
 #[note]
-fn first_letter(word: Coword, db: &FloaterDb) -> char {
+fn first_letter<'db>(word: Coword<'db>, db: &'db FloaterDb) -> char {
     word.data().chars().next().unwrap()
 }
