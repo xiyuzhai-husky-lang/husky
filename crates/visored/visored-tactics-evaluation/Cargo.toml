@@ -15,6 +15,7 @@ keywords.workspace = true
 rustc-hash.workspace = true
 thiserror.workspace = true
 # abstractions
+dashnote.workspace = true
 enum-class.workspace = true
 eterned.workspace = true
 idx-arena.workspace = true
