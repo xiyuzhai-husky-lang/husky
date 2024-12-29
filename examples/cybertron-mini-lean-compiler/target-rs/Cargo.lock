@@ -302,6 +302,7 @@ dependencies = [
  "eterned-macros",
  "husky-sha-utils",
  "husky-wild-utils",
+ "pool",
  "sealed",
 ]
 
@@ -795,6 +796,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d61c5ce1153ab5b689d0c074c4e7fc613e942dfb7dd9eea5ab202d2ad91fe361"
 
 [[package]]
+name = "pool"
+version = "0.1.0"
+dependencies = [
+ "vec-array",
+]
+
+[[package]]
 name = "ppv-lite86"
 version = "0.2.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1101,6 +1109,10 @@ name = "unicode-segmentation"
 version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f6ccf251212114b54433ec949fd6a7841275f9ada20dddd2f29e9ceea4501493"
+
+[[package]]
+name = "vec-array"
+version = "0.1.0"
 
 [[package]]
 name = "vec-like"

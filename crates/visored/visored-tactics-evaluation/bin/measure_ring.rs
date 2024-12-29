@@ -8,8 +8,8 @@ use visored_mir_expr::{
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 use visored_tactics_evaluation::{
+    session::VdTacticsEvaluationSession,
     tactics::ring::{engine::VdTacticsEvaluationRingEngine, tracker::*, *},
-    VdTacticsEvaluationBaseEngine,
 };
 
 fn main() {
@@ -86,11 +86,9 @@ fn ring_tactics() {
         assert_eq!(followers.len(), 1);
         let lopd = leader;
         let ropd = followers[0].1;
+        let sess = VdTacticsEvaluationSession::new(db);
         for _ in 0..repetitions {
-            let mut engine = VdTacticsEvaluationRingEngine::new(
-                VdTacticsEvaluationBaseEngine::new(db),
-                expr_arena.as_arena_ref(),
-            );
+            let mut engine = VdTacticsEvaluationRingEngine::new(&sess, expr_arena.as_arena_ref());
             engine.judge(lopd, ropd);
         }
     }

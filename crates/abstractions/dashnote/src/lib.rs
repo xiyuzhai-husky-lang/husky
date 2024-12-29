@@ -9,9 +9,9 @@
 //! ```
 //! use dashnote::DashNote;
 //!
-//! let cache: DashNote<i32, String> = DashNote::default();
-//! let value = cache.get_or_calc(1, || "computed".to_string());
-//! assert_eq!(value, "computed");
+//! let cache: DashNote<i32, i32> = DashNote::default();
+//! let value = cache.get_or_calc(1, || 42);
+//! assert_eq!(value, 42);
 //! ```
 //!
 //! # Features
