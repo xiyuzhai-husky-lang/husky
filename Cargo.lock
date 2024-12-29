@@ -2816,6 +2816,7 @@ dependencies = [
  "eterned-macros",
  "husky-sha-utils",
  "husky-wild-utils",
+ "pool",
  "sealed",
 ]
 
@@ -2988,6 +2989,29 @@ dependencies = [
  "crc32fast",
  "libz-sys",
  "miniz_oxide 0.8.0",
+]
+
+[[package]]
+name = "floated"
+version = "0.1.0"
+dependencies = [
+ "attach",
+ "dashmap 6.0.1",
+ "floated-macros",
+ "husky-sha-utils",
+ "husky-wild-utils",
+ "pool",
+ "sealed",
+]
+
+[[package]]
+name = "floated-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.87",
 ]
 
 [[package]]
@@ -10484,6 +10508,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "22686f4785f02a4fcc856d3b3bb19bf6c8160d103f7a99cc258bddd0251dc7f2"
 
 [[package]]
+name = "pool"
+version = "0.1.0"
+dependencies = [
+ "vec-array",
+]
+
+[[package]]
 name = "portable-atomic"
 version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -13248,6 +13279,10 @@ name = "vcpkg"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "accd4ea62f7bb7a82fe23066fb0957d48ef677f6eeb8215f372f52e48bb32426"
+
+[[package]]
+name = "vec-array"
+version = "0.1.0"
 
 [[package]]
 name = "vec-like"
