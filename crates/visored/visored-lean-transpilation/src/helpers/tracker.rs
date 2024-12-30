@@ -25,7 +25,7 @@ use visored_mir_expr::{
     expr::VdMirExprIdx,
     helpers::tracker::{IsVdMirExprInput, VdMirExprTracker},
     stmt::VdMirStmtIdxRange,
-    tactic::elaboration::IsVdMirTacticElaborator,
+    tactic::elaboration::elaborator::IsVdMirTacticElaborator,
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
