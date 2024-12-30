@@ -3,7 +3,8 @@ use crate::{
     stmt::{VdMirStmtArena, VdMirStmtArenaRef},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
     tactic::{
-        elaboration::VdMirTacticElaboration, VdMirTacticArena, VdMirTacticArenaRef, VdMirTacticIdx,
+        elaboration::{VdMirTacticElaboration, VdMirTacticElaborationTracker},
+        VdMirTacticArena, VdMirTacticArenaRef, VdMirTacticIdx,
     },
 };
 
@@ -74,8 +75,13 @@ impl<'a> VdMirExprRegionDataMut<'a> {
     }
 
     #[inline(always)]
-    pub fn set_elaboration(&mut self, tactic: VdMirTacticIdx, elaboration: VdMirTacticElaboration) {
-        self.tactic_arena
-            .update(tactic, |entry| entry.set_elaboration(elaboration));
+    pub fn set_elaboration_tracker(
+        &mut self,
+        tactic: VdMirTacticIdx,
+        elaboration_tracker: VdMirTacticElaborationTracker,
+    ) {
+        self.tactic_arena.update(tactic, |entry| {
+            entry.set_elaboration_tracker(elaboration_tracker)
+        });
     }
 }

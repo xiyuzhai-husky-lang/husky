@@ -13487,6 +13487,7 @@ dependencies = [
  "once-place",
  "salsa",
  "smallvec",
+ "thiserror",
  "visored-annotation",
  "visored-entity-path",
  "visored-global-dispatch",

@@ -1,6 +1,6 @@
 pub mod elaboration;
 
-use elaboration::VdMirTacticElaboration;
+use elaboration::VdMirTacticElaborationTracker;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use once_place::OncePlace;
 
@@ -10,7 +10,7 @@ pub enum VdMirTacticData {
 
 pub struct VdMirTacticEntry {
     data: VdMirTacticData,
-    elaboration: OncePlace<VdMirTacticElaboration>,
+    elaboration_tracker: OncePlace<VdMirTacticElaborationTracker>,
 }
 
 pub type VdMirTacticIdx = ArenaIdx<VdMirTacticEntry>;
@@ -23,13 +23,16 @@ impl VdMirTacticEntry {
     pub fn new(data: VdMirTacticData) -> Self {
         Self {
             data,
-            elaboration: OncePlace::default(),
+            elaboration_tracker: OncePlace::default(),
         }
     }
 
     #[track_caller]
-    pub(crate) fn set_elaboration(&mut self, elaboration: VdMirTacticElaboration) {
-        self.elaboration.set(elaboration);
+    pub(crate) fn set_elaboration_tracker(
+        &mut self,
+        elaboration_tracker: VdMirTacticElaborationTracker,
+    ) {
+        self.elaboration_tracker.set(elaboration_tracker);
     }
 }
 
@@ -39,7 +42,7 @@ impl VdMirTacticEntry {
     }
 
     #[track_caller]
-    pub fn elaboration(&self) -> &VdMirTacticElaboration {
-        &*self.elaboration
+    pub fn elaboration_tracker(&self) -> &VdMirTacticElaborationTracker {
+        &*self.elaboration_tracker
     }
 }
