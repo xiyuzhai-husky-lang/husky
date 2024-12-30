@@ -1,7 +1,13 @@
 use super::*;
+use visored_mir_expr::tactic::VdMirTacticIdxRange;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
-    pub(super) fn build_ln_tactic_from_vd_have(&mut self, prop: VdMirExprIdx) -> LnMirTacticData {
+    pub(super) fn build_ln_tactic_from_vd_have(
+        &mut self,
+        prop: VdMirExprIdx,
+        tactics: VdMirTacticIdxRange,
+    ) -> LnMirTacticData {
+        todo!("have tactics");
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
