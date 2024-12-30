@@ -23,6 +23,7 @@ where
 {
     pub(crate) fn build_tactic(&mut self, tactic: VdMirTacticIdx) -> LnMirTacticData {
         let entry = &self.tactic_arena()[tactic];
+        self.debug_tactic(tactic, format!("{:?}", entry.data()));
         match entry.elaboration_tracker().conclusion() {
             Some(_) => todo!(),
             None => todo!(),

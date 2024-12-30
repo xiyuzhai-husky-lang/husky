@@ -4,11 +4,13 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
-serde.workspace = true
 lsp-types = { workspace = true, optional = true }
 rustc-hash.workspace = true
+serde.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
+husky-codespan-utils = { workspace = true, optional = true }
 
 [features]
 lsp_support = ["dep:lsp-types"]
+codespan = ["dep:husky-codespan-utils"]

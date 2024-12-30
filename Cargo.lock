@@ -7241,6 +7241,7 @@ dependencies = [
 name = "husky-text-protocol"
 version = "0.1.0"
 dependencies = [
+ "husky-codespan-utils",
  "lsp-types 0.95.0",
  "rustc-hash 2.0.0",
  "serde",
@@ -13434,6 +13435,7 @@ dependencies = [
  "husky-coword",
  "husky-path-utils",
  "husky-print-utils",
+ "husky-text-protocol",
  "husky-tree-utils",
  "latex-ast",
  "latex-command",
@@ -13469,6 +13471,7 @@ name = "visored-mir-expr"
 version = "0.1.0"
 dependencies = [
  "either",
+ "enum-class",
  "eterned",
  "expect-test",
  "husky-coword",
