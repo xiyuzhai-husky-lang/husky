@@ -1,5 +1,5 @@
 [package]
-name = "visored-tactics-linear-elaborator"
+name = "visored-tactics-standard-linear-elaborator"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
