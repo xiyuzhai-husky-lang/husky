@@ -53,6 +53,12 @@ pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
 
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String;
+
+    fn eval_all_tactics_within_self(
+        self,
+        region_data: VdMirExprRegionDataRef,
+        elaborator: &mut impl IsVdMirTacticElaborator,
+    );
 }
 
 pub trait FromToVdMir<S> {
@@ -121,14 +127,18 @@ where
             sem_division_arena.as_arena_ref(),
             &sem_symbol_local_defn_storage,
         );
-        let result = FromToVdMir::from_to_vd_mir(output, &mut builder);
+        let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
         let (mut expr_arena, stmt_arena, mut tactic_arena, symbol_local_defn_storage, source_map) =
             builder.finish();
-        elaborator.eval(VdMirExprRegionDataRef {
-            expr_arena: expr_arena.as_arena_ref(),
-            stmt_arena: stmt_arena.as_arena_ref(),
-            symbol_local_defn_storage: &symbol_local_defn_storage,
-        });
+        output.eval_all_tactics_within_self(
+            VdMirExprRegionDataRef {
+                expr_arena: expr_arena.as_arena_ref(),
+                stmt_arena: stmt_arena.as_arena_ref(),
+                tactic_arena: tactic_arena.as_arena_ref(),
+                symbol_local_defn_storage: &symbol_local_defn_storage,
+            },
+            &mut elaborator,
+        );
         elaborator.extract(VdMirExprRegionDataMut {
             expr_arena: &mut expr_arena,
             tactic_arena: &mut tactic_arena,
@@ -147,7 +157,7 @@ where
             sem_stmt_range_map,
             sem_division_range_map,
             token_storage,
-            output: result,
+            output,
             elaborator,
         }
     }
@@ -186,10 +196,26 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String {
         DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
+
+    fn eval_all_tactics_within_self(
+        self,
+        region_data: VdMirExprRegionDataRef,
+        elaborator: &mut impl IsVdMirTacticElaborator,
+    ) {
+        elaborator.eval_all_tactics_within_stmts(self, region_data);
+    }
 }
 
 impl IsVdMirExprOutput for VdMirExprIdx {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String {
         builder.render_expr(self).show(&Default::default())
+    }
+
+    fn eval_all_tactics_within_self(
+        self,
+        region_data: VdMirExprRegionDataRef,
+        elaborator: &mut impl IsVdMirTacticElaborator,
+    ) {
+        elaborator.eval_all_tactics_within_expr(self, region_data);
     }
 }
