@@ -14,6 +14,7 @@ pub enum VdMirTacticData {
     Obvious,
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct VdMirTacticEntry {
     data: VdMirTacticData,
     elaboration_tracker: OncePlace<VdMirTacticElaborationTracker>,

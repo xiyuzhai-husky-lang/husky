@@ -2,6 +2,7 @@ use crate::stmt::VdMirStmtData;
 
 use super::*;
 
+#[derive(Debug)]
 pub struct VdMirTacticLinearElaborator<Inner>
 where
     Inner: IsVdMirTacticLinearElaboratorInner,
@@ -10,8 +11,8 @@ where
     inner: Inner,
 }
 
-pub trait IsVdMirTacticLinearElaboratorInner {
-    type ElaborationTracker;
+pub trait IsVdMirTacticLinearElaboratorInner: std::fmt::Debug {
+    type ElaborationTracker: std::fmt::Debug + Eq;
 
     fn eval_tactic(
         &mut self,

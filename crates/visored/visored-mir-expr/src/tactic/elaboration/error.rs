@@ -1,4 +1,4 @@
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug, thiserror::Error, PartialEq, Eq)]
 pub enum VdMirTacticElaborationError {
     #[error("tactic elaboration failed")]
     Failed,
