@@ -113,7 +113,8 @@ fn basic_visored_clause_to_lean_works() {
                   ├─ application
                   │ ├─ variable: `x`
                   │ └─ variable: `x`
-                  └─ sorry
+                  └─ tactics
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.
@@ -122,7 +123,8 @@ fn basic_visored_clause_to_lean_works() {
 
             -- Then $x=x$.
 
-            def h : x = x := sorry"#]],
+            def h : x = x := by
+              obvious"#]],
     );
     t(
         models,
@@ -138,7 +140,8 @@ fn basic_visored_clause_to_lean_works() {
                   │ │ ├─ literal: `2`
                   │ │ └─ variable: `x`
                   │ └─ variable: `x`
-                  └─ sorry
+                  └─ tactics
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{N}$.
@@ -147,7 +150,8 @@ fn basic_visored_clause_to_lean_works() {
 
             -- Then $2x\ge x$.
 
-            def h : 2 * x ≥ x := sorry"#]],
+            def h : 2 * x ≥ x := by
+              obvious"#]],
     );
     t(
         models,
@@ -165,7 +169,8 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ │ └─ literal: `1`
               │   │ │ └─ literal: `2`
               │   │ └─ literal: `0`
-              │   └─ sorry
+              │   └─ tactics
+              │     └─ tactic: `Obvious`
               ├─ group: `sentence`
               │ └─ def: `h1`
               │   ├─ application
@@ -179,7 +184,8 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ │   └─ variable: `x`
               │   │ │ └─ literal: `1`
               │   │ └─ literal: `0`
-              │   └─ sorry
+              │   └─ tactics
+              │     └─ tactic: `Obvious`
               └─ group: `sentence`
                 └─ def: `h2`
                   ├─ application
@@ -191,7 +197,8 @@ fn basic_visored_clause_to_lean_works() {
                   │ └─ application
                   │   ├─ literal: `2`
                   │   └─ variable: `x`
-                  └─ sorry
+                  └─ tactics
+                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.
@@ -200,14 +207,17 @@ fn basic_visored_clause_to_lean_works() {
 
             -- Then ${(x-1)}^2 \ge 0$.
 
-            def h : (x - 1) ^ 2 ≥ 0 := sorry
+            def h : (x - 1) ^ 2 ≥ 0 := by
+              obvious
 
             -- Then $x^2-2x+1 \ge 0$.
 
-            def h1 : x ^ 2 - 2 * x + 1 ≥ 0 := sorry
+            def h1 : x ^ 2 - 2 * x + 1 ≥ 0 := by
+              obvious
 
             -- Then $x^2 + 1\ge 2x$.
 
-            def h2 : x ^ 2 + 1 ≥ 2 * x := sorry"#]],
+            def h2 : x ^ 2 + 1 ≥ 2 * x := by
+              obvious"#]],
     );
 }
