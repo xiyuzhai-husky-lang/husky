@@ -28,6 +28,8 @@ lean-mir-expr.workspace = true
 lean-entity-path.workspace = true
 lean-opr.workspace = true
 lean-term.workspace = true
+# protocols
+husky-text-protocol = { workspace = true, features = ["codespan"] }
 # utils
 husky-print-utils.workspace = true
 husky-tree-utils.workspace = true

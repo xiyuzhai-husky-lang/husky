@@ -1,6 +1,7 @@
 use crate::{
     expr::VdMirExprOrderedMap,
     stmt::{VdMirStmtIdx, VdMirStmtIdxRange, VdMirStmtOrderedMap, VdMirStmtSource},
+    tactic::{VdMirTacticIdx, VdMirTacticIdxRange, VdMirTacticOrderedMap, VdMirTacticSource},
 };
 use visored_sem_expr::{
     block::VdSemBlockIdx, clause::VdSemClauseIdx, division::VdSemDivisionIdx, expr::VdSemExprIdx,
@@ -10,6 +11,7 @@ use visored_sem_expr::{
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct VdMirSourceMap {
     stmt_map: VdMirStmtOrderedMap<VdMirStmtSource>,
+    tactic_map: VdMirTacticOrderedMap<VdMirTacticSource>,
 }
 
 impl VdMirSourceMap {
@@ -18,11 +20,19 @@ impl VdMirSourceMap {
         stmts: VdMirStmtIdxRange,
         sources: impl IntoIterator<Item = VdMirStmtSource>,
     ) {
-        let mut source_iter = sources.into_iter();
-        for stmt in stmts {
-            self.stmt_map.insert_next(stmt, source_iter.next().unwrap())
+        for (stmt, source) in stmts.into_iter().zip(sources) {
+            self.stmt_map.insert_next(stmt, source);
         }
-        debug_assert!(source_iter.next().is_none())
+    }
+
+    pub(crate) fn set_tactics(
+        &mut self,
+        tactics: VdMirTacticIdxRange,
+        sources: impl IntoIterator<Item = VdMirTacticSource>,
+    ) {
+        for (tactic, source) in tactics.into_iter().zip(sources) {
+            self.tactic_map.insert_next(tactic, source);
+        }
     }
 }
 
@@ -31,5 +41,13 @@ impl std::ops::Index<VdMirStmtIdx> for VdMirSourceMap {
 
     fn index(&self, index: VdMirStmtIdx) -> &Self::Output {
         &self.stmt_map[index]
+    }
+}
+
+impl std::ops::Index<VdMirTacticIdx> for VdMirSourceMap {
+    type Output = VdMirTacticSource;
+
+    fn index(&self, index: VdMirTacticIdx) -> &Self::Output {
+        &self.tactic_map[index]
     }
 }
