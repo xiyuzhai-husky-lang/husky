@@ -4,6 +4,7 @@ use husky_tree_utils::display::DisplayTree;
 use crate::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
     stmt::{VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
+    tactic::{VdMirTacticIdx, VdMirTacticIdxRange},
 };
 
 pub struct VdMirExprDisplayTreeBuilder<'a> {
@@ -114,11 +115,30 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 assignment,
             } => (format!("let assigned"), vec![self.render_expr(assignment)]),
             VdMirStmtData::Goal { prop } => (format!("goal"), vec![self.render_expr(prop)]),
-            VdMirStmtData::Have { prop: formula } => {
-                (format!("have"), vec![self.render_expr(formula)])
+            VdMirStmtData::Have { prop, tactics } => (
+                format!("have"),
+                [self.render_expr(prop)]
+                    .into_iter()
+                    .chain(self.render_tactics(tactics))
+                    .collect(),
+            ),
+            VdMirStmtData::Show { prop, tactics } => {
+                (format!("show"), vec![self.render_expr(prop)])
             }
-            VdMirStmtData::Show { prop } => (format!("show"), vec![self.render_expr(prop)]),
         };
         DisplayTree::new(value, children)
+    }
+
+    fn render_tactics<'b>(
+        &'b self,
+        tactics: VdMirTacticIdxRange,
+    ) -> impl Iterator<Item = DisplayTree> + 'b {
+        tactics
+            .into_iter()
+            .map(move |tactic| self.render_tactic(tactic))
+    }
+
+    fn render_tactic(&self, tactic: VdMirTacticIdx) -> DisplayTree {
+        DisplayTree::new(format!("tactic: {:?}", tactic), vec![])
     }
 }
