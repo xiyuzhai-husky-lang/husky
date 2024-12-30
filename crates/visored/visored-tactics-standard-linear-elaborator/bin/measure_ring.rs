@@ -59,7 +59,7 @@ fn ring_tactics() {
             models,
             VdSynExprVibe::ROOT_CNL,
             db,
-            VdMirTacticTrivialElaborator::default(), // ad hoc
+            VdMirTacticTrivialElaborator::new_default, // ad hoc
         );
         let stmt = stmts.last().unwrap();
         let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {

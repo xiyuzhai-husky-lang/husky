@@ -21,7 +21,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
-        VdMirTacticTrivialElaborator::default(),
+        VdMirTacticTrivialElaborator::new_default,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
