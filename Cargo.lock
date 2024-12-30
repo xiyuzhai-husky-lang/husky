@@ -13460,8 +13460,7 @@ dependencies = [
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-tactics-evaluation",
- "visored-tactics-extraction",
+ "visored-tactics-linear-elaborator",
  "visored-term",
 ]
 
@@ -13666,7 +13665,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-tactics-evaluation"
+name = "visored-tactics-linear-elaborator"
 version = "0.1.0"
 dependencies = [
  "enum-class",
@@ -13686,10 +13685,6 @@ dependencies = [
  "visored-syn-expr",
  "visored-term",
 ]
-
-[[package]]
-name = "visored-tactics-extraction"
-version = "0.1.0"
 
 [[package]]
 name = "visored-term"

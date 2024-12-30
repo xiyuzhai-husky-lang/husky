@@ -41,8 +41,7 @@ visored-mir-expr.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
 visored-signature.workspace = true
-visored-tactics-evaluation.workspace = true
-visored-tactics-extraction.workspace = true
+visored-tactics-linear-elaborator.workspace = true
 visored-term.workspace = true
 
 [dev-dependencies]
