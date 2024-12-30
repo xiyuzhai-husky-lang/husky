@@ -1,4 +1,4 @@
-use visored_mir_expr::tactic::elaboration::VdMirTacticTrivialElaborator;
+use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 use super::*;
