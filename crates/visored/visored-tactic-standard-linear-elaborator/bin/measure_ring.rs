@@ -8,9 +8,9 @@ use visored_mir_expr::{
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
-use visored_tactics_standard_linear_elaborator::{
-    session::VdTacticsEvaluationSession,
-    tactics::ring::{engine::VdTacticsEvaluationRingEngine, tracker::*, *},
+use visored_tactic_standard_linear_elaborator::{
+    session::VdMirTacticEvaluationSession,
+    tactics::ring::{engine::VdMirTacticEvaluationRingEngine, tracker::*, *},
 };
 
 fn main() {
@@ -88,9 +88,9 @@ fn ring_tactics() {
         assert_eq!(followers.len(), 1);
         let lopd = leader;
         let ropd = followers[0].1;
-        let sess = VdTacticsEvaluationSession::new(db);
+        let sess = VdMirTacticEvaluationSession::new(db);
         for _ in 0..repetitions {
-            let mut engine = VdTacticsEvaluationRingEngine::new(&sess, expr_arena.as_arena_ref());
+            let mut engine = VdMirTacticEvaluationRingEngine::new(&sess, expr_arena.as_arena_ref());
             engine.judge(lopd, ropd);
         }
     }

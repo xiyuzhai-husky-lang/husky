@@ -1,5 +1,5 @@
 [package]
-name = "visored-tactics-standard-linear-elaborator"
+name = "visored-tactic-standard-linear-elaborator"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+expect-test.workspace = true
 rustc-hash.workspace = true
 thiserror.workspace = true
 # abstractions
@@ -29,11 +30,16 @@ visored-syn-expr.workspace = true
 visored-mir-expr.workspace = true
 visored-term.workspace = true
 visored-annotation.workspace = true
+visored-lean-transpilation.workspace = true
 # utils
 husky-sha-utils.workspace = true
 husky-path-utils.workspace = true
+husky-print-utils.workspace = true
 
 [dev-dependencies]
+relative-path.workspace = true
+# utils
+husky-case-utils = { workspace = true, features = ["relative_path"] }
 
 [lints]
 workspace = true

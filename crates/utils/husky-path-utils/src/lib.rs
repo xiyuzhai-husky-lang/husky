@@ -3,6 +3,7 @@ mod error;
 mod module_tree;
 pub mod rel;
 pub mod rust;
+pub mod search;
 #[cfg(test)]
 mod tests;
 

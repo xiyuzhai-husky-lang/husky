@@ -4725,6 +4725,10 @@ dependencies = [
 [[package]]
 name = "husky-case-utils"
 version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "relative-path",
+]
 
 [[package]]
 name = "husky-check-utils"
@@ -6412,6 +6416,7 @@ dependencies = [
  "pathdiff",
  "relative-path",
  "salsa",
+ "tempfile",
  "thiserror",
 ]
 
@@ -13462,7 +13467,6 @@ dependencies = [
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-tactics-standard-linear-elaborator",
  "visored-term",
 ]
 
@@ -13669,20 +13673,25 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-tactics-standard-linear-elaborator"
+name = "visored-tactic-standard-linear-elaborator"
 version = "0.1.0"
 dependencies = [
  "enum-class",
  "eterned",
+ "expect-test",
+ "husky-case-utils",
  "husky-path-utils",
+ "husky-print-utils",
  "husky-sha-utils",
  "idx-arena",
  "latex-prelude",
  "latex-vfs",
+ "relative-path",
  "rustc-hash 2.0.0",
  "thiserror",
  "vec-like",
  "visored-annotation",
+ "visored-lean-transpilation",
  "visored-mir-expr",
  "visored-models",
  "visored-opr",

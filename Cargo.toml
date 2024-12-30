@@ -451,6 +451,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utils
 husky-adversarial-utils = { path = "crates/utils/husky-adversarial-utils" }
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
+husky-case-utils = { path = "crates/utils/husky-case-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-cli-utils = { path = "crates/utils/husky-cli-utils" }
 husky-codespan-utils = { path = "crates/utils/husky-codespan-utils" }
