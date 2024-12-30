@@ -17,7 +17,7 @@ use latex_token::storage::LxTokenStorage;
 use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
-use tactic::elaboration::IsVdMirTacticElaborator;
+use tactic::{elaboration::IsVdMirTacticElaborator, VdMirTacticArena};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -33,6 +33,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMir
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
+    pub tactic_arena: VdMirTacticArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     pub source_map: VdMirSourceMap,
     pub sem_expr_range_map: VdSemExprTokenIdxRangeMap,
@@ -136,6 +137,7 @@ where
             root_module_path,
             expr_arena,
             stmt_arena,
+            tactic_arena,
             symbol_local_defn_storage,
             source_map,
             sem_expr_range_map,

@@ -4,7 +4,9 @@ use super::*;
 use crate::region::{VdMirExprRegionData, VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 
 pub enum VdMirTacticElaboration {
-    Ok(VdMirTacticIdxRange),
+    Explicit(VdMirTacticIdxRange),
+    Implicit,
+    Illicit,
 }
 
 pub trait IsVdMirTacticElaborator {

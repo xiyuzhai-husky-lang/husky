@@ -17,6 +17,7 @@ impl<T> OncePlace<T> {
 impl<T> std::ops::Deref for OncePlace<T> {
     type Target = T;
 
+    #[track_caller]
     fn deref(&self) -> &Self::Target {
         self.0.as_ref().expect("OncePlace is not set")
     }
