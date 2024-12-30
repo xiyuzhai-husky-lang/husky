@@ -13460,7 +13460,7 @@ dependencies = [
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-tactics-linear-elaborator",
+ "visored-tactics-standard-linear-elaborator",
  "visored-term",
 ]
 
@@ -13665,7 +13665,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-tactics-linear-elaborator"
+name = "visored-tactics-standard-linear-elaborator"
 version = "0.1.0"
 dependencies = [
  "enum-class",

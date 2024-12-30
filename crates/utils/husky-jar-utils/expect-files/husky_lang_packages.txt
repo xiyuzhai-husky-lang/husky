@@ -4052,7 +4052,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-syn-expr",
-            "visored-tactics-linear-elaborator",
+            "visored-tactics-standard-linear-elaborator",
             "visored-term",
             "expect-test",
             "husky-coword",
@@ -4429,8 +4429,8 @@
         ],
     },
     PackageSummary {
-        name: "visored-tactics-linear-elaborator",
-        relative_path: "crates/visored/visored-tactics-linear-elaborator",
+        name: "visored-tactics-standard-linear-elaborator",
+        relative_path: "crates/visored/visored-tactics-standard-linear-elaborator",
         dependencies: [
             "enum-class",
             "eterned",
