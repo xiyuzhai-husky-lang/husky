@@ -6,7 +6,7 @@ use latex_prelude::helper::tracker::LxDocumentInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use tactic::elaboration::VdMirTacticTrivialElaborator;
+use tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expect: &Expect) {

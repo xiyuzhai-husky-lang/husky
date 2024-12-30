@@ -17,7 +17,7 @@ use latex_token::storage::LxTokenStorage;
 use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
-use tactic::{elaboration::IsVdMirTacticElaborator, VdMirTacticArena};
+use tactic::{elaboration::elaborator::IsVdMirTacticElaborator, VdMirTacticArena};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{

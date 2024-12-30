@@ -4,7 +4,9 @@ use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::{
     helpers::tracker::VdMirExprTracker,
-    tactic::elaboration::{VdMirTacticLinearElaborator, VdMirTacticTrivialElaborator},
+    tactic::elaboration::elaborator::{
+        linear::VdMirTacticLinearElaborator, VdMirTacticTrivialElaborator,
+    },
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;

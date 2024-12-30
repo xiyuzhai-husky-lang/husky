@@ -14,7 +14,7 @@ use std::sync::Arc;
 use visored_lean_transpilation::{
     helpers::tracker::VdLeanTranspilationTracker, scheme::dense::VdLeanTranspilationDenseScheme,
 };
-use visored_mir_expr::tactic::elaboration::VdMirTacticTrivialElaborator;
+use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
