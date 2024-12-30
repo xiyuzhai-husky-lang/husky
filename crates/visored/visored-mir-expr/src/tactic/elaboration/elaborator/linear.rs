@@ -6,37 +6,37 @@ pub struct VdMirTacticLinearElaborator<Inner>
 where
     Inner: IsVdMirTacticLinearElaboratorInner,
 {
-    tactic_elaborations: VdMirTacticMap<Inner::Elaboration>,
+    tactic_elaborations: VdMirTacticMap<Inner::ElaborationTracker>,
     inner: Inner,
 }
 
 pub trait IsVdMirTacticLinearElaboratorInner {
-    type Elaboration;
+    type ElaborationTracker;
 
     fn eval_tactic(
         &mut self,
         tactic: VdMirTacticIdx,
         region_data: VdMirExprRegionDataRef,
-    ) -> Self::Elaboration;
+    ) -> Self::ElaborationTracker;
 
-    fn extract_elaboration(
+    fn extract_elaboration_tracker(
         &self,
-        elaboration: &Self::Elaboration,
+        elaboration: &Self::ElaborationTracker,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdMirTacticElaboration;
+    ) -> VdMirTacticElaborationTracker;
 }
 
 impl IsVdMirTacticLinearElaboratorInner for () {
-    type Elaboration = ();
+    type ElaborationTracker = ();
 
     fn eval_tactic(&mut self, tactic: VdMirTacticIdx, region_data: VdMirExprRegionDataRef) -> () {}
 
-    fn extract_elaboration(
+    fn extract_elaboration_tracker(
         &self,
-        elaboration: &Self::Elaboration,
+        elaboration: &Self::ElaborationTracker,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdMirTacticElaboration {
-        VdMirTacticElaboration::Implicit
+    ) -> VdMirTacticElaborationTracker {
+        VdMirTacticElaborationTracker::new_trivial()
     }
 }
 
@@ -105,10 +105,10 @@ where
 
     fn extract(&self, mut region_data: VdMirExprRegionDataMut) {
         for (tactic, elaboration) in self.tactic_elaborations.iter() {
-            let elaboration = self
+            let elaboration_tracker = self
                 .inner
-                .extract_elaboration(elaboration, region_data.as_region_data_ref());
-            region_data.set_elaboration(tactic, elaboration);
+                .extract_elaboration_tracker(elaboration, region_data.as_region_data_ref());
+            region_data.set_elaboration_tracker(tactic, elaboration_tracker);
         }
     }
 }
