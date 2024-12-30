@@ -1,8 +1,18 @@
 pub mod error;
 
-pub enum VdMirTacticStandardLinearElaboration {}
+use self::error::*;
+use std::marker::PhantomData;
 
-pub struct VdMirTacticStandardLinearElaborationTracker {
+pub enum VdMirTacticStandardLinearElaboration<'sess> {
+    PhantomData(PhantomData<&'sess ()>),
+}
+
+pub struct VdMirTacticStandardLinearElaborationTracker<'sess> {
     history: (),
-    conclusion: Option<()>,
+    conclusion: Option<
+        VdMirTacticStandardLinearElaborationResult<
+            'sess,
+            VdMirTacticStandardLinearElaboration<'sess>,
+        >,
+    >,
 }

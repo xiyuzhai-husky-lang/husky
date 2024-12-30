@@ -1,14 +1,17 @@
+use std::marker::PhantomData;
 use visored_mir_expr::tactic::elaboration::elaborator::linear::{
     IsVdMirTacticLinearElaboratorInner, VdMirTacticLinearElaborator,
 };
 
 #[derive(Debug, Default)]
-pub struct VdMirTacticStandardLinearElaboratorInner;
+pub struct VdMirTacticStandardLinearElaboratorInner<'sess> {
+    phantom: PhantomData<&'sess ()>,
+}
 
-pub type VdMirTacticStandardLinearElaborator =
-    VdMirTacticLinearElaborator<VdMirTacticStandardLinearElaboratorInner>;
+pub type VdMirTacticStandardLinearElaborator<'sess> =
+    VdMirTacticLinearElaborator<VdMirTacticStandardLinearElaboratorInner<'sess>>;
 
-impl IsVdMirTacticLinearElaboratorInner for VdMirTacticStandardLinearElaboratorInner {
+impl<'sess> IsVdMirTacticLinearElaboratorInner for VdMirTacticStandardLinearElaboratorInner<'sess> {
     type ElaborationTracker = ();
 
     fn eval_tactic(
