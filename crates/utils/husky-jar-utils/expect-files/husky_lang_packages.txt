@@ -3926,6 +3926,7 @@
             "thiserror",
             "tokio",
             "visored-lean-transpilation",
+            "visored-mir-expr",
             "visored-models",
             "visored-syn-expr",
             "expect-test",
@@ -4051,8 +4052,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-syn-expr",
-            "visored-tactics-evaluation",
-            "visored-tactics-extraction",
+            "visored-tactics-linear-elaborator",
             "visored-term",
             "expect-test",
             "husky-coword",
@@ -4182,6 +4182,7 @@
             "latex-token",
             "latex-vfs",
             "lazy_static",
+            "once-place",
             "salsa",
             "smallvec",
             "visored-annotation",
@@ -4428,8 +4429,8 @@
         ],
     },
     PackageSummary {
-        name: "visored-tactics-evaluation",
-        relative_path: "crates/visored/visored-tactics-evaluation",
+        name: "visored-tactics-linear-elaborator",
+        relative_path: "crates/visored/visored-tactics-linear-elaborator",
         dependencies: [
             "enum-class",
             "eterned",
@@ -4448,11 +4449,6 @@
             "visored-syn-expr",
             "visored-term",
         ],
-    },
-    PackageSummary {
-        name: "visored-tactics-extraction",
-        relative_path: "crates/visored/visored-tactics-extraction",
-        dependencies: [],
     },
     PackageSummary {
         name: "lean-sem-expr",
