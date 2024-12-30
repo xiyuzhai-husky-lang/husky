@@ -8,7 +8,7 @@ use visored_mir_expr::{
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
-use visored_tactics_evaluation::{
+use visored_tactics_linear_elaborator::{
     session::VdTacticsEvaluationSession,
     tactics::ring::{engine::VdTacticsEvaluationRingEngine, tracker::*, *},
 };
