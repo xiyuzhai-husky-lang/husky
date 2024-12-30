@@ -4,6 +4,9 @@ use crate::{
     source_map::VdMirSourceMap,
     stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdxRange, VdMirStmtSource},
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
+    tactic::{
+        VdMirTacticArena, VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange, VdMirTacticSource,
+    },
 };
 use visored_sem_expr::{
     block::VdSemBlockArenaRef, clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef,
@@ -20,6 +23,7 @@ pub struct VdMirExprBuilder<'db> {
     sem_division_arena: VdSemDivisionArenaRef<'db>,
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
+    tactic_arena: VdMirTacticArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     source_map: VdMirSourceMap,
 }
@@ -55,6 +59,7 @@ impl<'db> VdMirExprBuilder<'db> {
             sem_division_arena,
             expr_arena: VdMirExprArena::default(),
             stmt_arena: VdMirStmtArena::default(),
+            tactic_arena: VdMirTacticArena::default(),
             symbol_local_defn_storage: VdMirSymbolLocalDefnStorage::new_empty(),
             source_map: Default::default(),
         };
@@ -120,6 +125,16 @@ impl<'db> VdMirExprBuilder<'db> {
         stmts
     }
 
+    pub(crate) fn alloc_tactics(
+        &mut self,
+        entries: impl IntoIterator<Item = VdMirTacticEntry>,
+        sources: impl IntoIterator<Item = VdMirTacticSource>,
+    ) -> VdMirTacticIdxRange {
+        let tactics = self.tactic_arena.alloc_batch(entries);
+        self.source_map.set_tactics(tactics, sources);
+        tactics
+    }
+
     pub(crate) fn alloc_symbol_local_defns(&mut self, data: Vec<VdMirSymbolLocalDefnData>) {
         self.symbol_local_defn_storage.set_defns(data);
     }
@@ -128,6 +143,7 @@ impl<'db> VdMirExprBuilder<'db> {
         VdMirExprRegionData::new(
             self.expr_arena,
             self.stmt_arena,
+            self.tactic_arena,
             self.symbol_local_defn_storage,
         )
     }
@@ -137,12 +153,14 @@ impl<'db> VdMirExprBuilder<'db> {
     ) -> (
         VdMirExprArena,
         VdMirStmtArena,
+        VdMirTacticArena,
         VdMirSymbolLocalDefnStorage,
         VdMirSourceMap,
     ) {
         (
             self.expr_arena,
             self.stmt_arena,
+            self.tactic_arena,
             self.symbol_local_defn_storage,
             self.source_map,
         )

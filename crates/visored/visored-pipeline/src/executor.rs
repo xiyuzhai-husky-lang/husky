@@ -14,6 +14,7 @@ use std::sync::Arc;
 use visored_lean_transpilation::{
     helpers::tracker::VdLeanTranspilationTracker, scheme::dense::VdLeanTranspilationDenseScheme,
 };
+use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
@@ -86,6 +87,7 @@ Provide only the LaTeX code for the solution, without any surrounding text. Wrap
 - Avoid unnecessary labels or references
 - If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details.
 - Avoid unnecessary repetitions.
+- Avoid introducing unnecessary variables.
 
 Here are some examples that help you understand the task.
 
@@ -191,6 +193,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             VdSynExprVibe::ROOT_CNL,
             self.db,
             &VdLeanTranspilationDenseScheme,
+            VdMirTacticTrivialElaborator::new_default,
         );
         self.lean4_code = Some(format!(
             r#"import Mathlib

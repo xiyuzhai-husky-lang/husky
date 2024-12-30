@@ -1,3 +1,5 @@
+mod debug;
+
 use eterned::db::EternerDb;
 use latex_token::storage::LxTokenStorage;
 use lean_coword::ident::LnIdent;
@@ -19,6 +21,7 @@ use visored_mir_expr::{
     source_map::VdMirSourceMap,
     stmt::VdMirStmtArenaRef,
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
+    tactic::VdMirTacticArenaRef,
 };
 use visored_sem_expr::range::{
     VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,
@@ -35,9 +38,11 @@ use crate::{
 pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     db: &'a EternerDb,
     scheme: &'a S,
+    input: &'a str,
     lean_hir_expr_constructor: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
+    tactic_arena: VdMirTacticArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
     current_module_path: VdModulePath,
@@ -49,7 +54,6 @@ pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     sem_stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
     sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
     token_storage: &'a LxTokenStorage,
-    input: &'a str,
     cache: S::Cache,
 }
 
@@ -88,6 +92,7 @@ where
             input,
             vd_mir_expr_region_data.expr_arena(),
             vd_mir_expr_region_data.stmt_arena(),
+            vd_mir_expr_region_data.tactic_arena(),
             vd_mir_expr_region_data.symbol_local_defn_storage(),
             source_map,
             dictionary,
@@ -108,6 +113,7 @@ where
         input: &'a str,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
+        tactic_arena: VdMirTacticArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
         source_map: &'a VdMirSourceMap,
         dictionary: &'a VdLeanDictionary,
@@ -126,6 +132,7 @@ where
             lean_hir_expr_constructor: LnMirExprConstructor::new(db),
             expr_arena,
             stmt_arena,
+            tactic_arena,
             source_map,
             dictionary,
             mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage, db),
@@ -202,6 +209,10 @@ where
 
     pub fn stmt_arena(&self) -> VdMirStmtArenaRef<'db> {
         self.stmt_arena
+    }
+
+    pub fn tactic_arena(&self) -> VdMirTacticArenaRef<'db> {
+        self.tactic_arena
     }
 
     pub fn source_map(&self) -> &'db VdMirSourceMap {

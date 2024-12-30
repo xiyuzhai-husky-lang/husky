@@ -36,6 +36,7 @@
             "eterned-macros",
             "husky-sha-utils",
             "husky-wild-utils",
+            "pool",
             "sealed",
         ],
     },
@@ -64,6 +65,18 @@
     PackageSummary {
         name: "husky-wild-utils",
         relative_path: "crates/utils/husky-wild-utils",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "pool",
+        relative_path: "crates/abstractions/pool",
+        dependencies: [
+            "vec-array",
+        ],
+    },
+    PackageSummary {
+        name: "vec-array",
+        relative_path: "crates/abstractions/vec-array",
         dependencies: [],
     },
     PackageSummary {
@@ -388,10 +401,19 @@
         name: "husky-text-protocol",
         relative_path: "crates/protocols/husky-text-protocol",
         dependencies: [
+            "husky-codespan-utils",
             "lsp-types",
             "rustc-hash",
             "serde",
             "shifted-unsigned-int",
+        ],
+    },
+    PackageSummary {
+        name: "husky-codespan-utils",
+        relative_path: "crates/utils/husky-codespan-utils",
+        dependencies: [
+            "codespan-reporting",
+            "termcolor",
         ],
     },
     PackageSummary {
@@ -407,6 +429,14 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "dashnote",
+        relative_path: "crates/abstractions/dashnote",
+        dependencies: [
+            "dashmap",
+            "husky-wild-utils",
+        ],
+    },
+    PackageSummary {
         name: "disk-cache",
         relative_path: "crates/abstractions/disk-cache",
         dependencies: [
@@ -420,6 +450,29 @@
             "thiserror",
             "tokio",
             "tempfile",
+        ],
+    },
+    PackageSummary {
+        name: "floated",
+        relative_path: "crates/abstractions/floated",
+        dependencies: [
+            "attach",
+            "dashmap",
+            "floated-macros",
+            "husky-sha-utils",
+            "husky-wild-utils",
+            "pool",
+            "sealed",
+        ],
+    },
+    PackageSummary {
+        name: "floated-macros",
+        relative_path: "crates/abstractions/floated-macros",
+        dependencies: [
+            "convert_case",
+            "proc-macro2",
+            "quote",
+            "syn",
         ],
     },
     PackageSummary {
@@ -3882,6 +3935,7 @@
             "thiserror",
             "tokio",
             "visored-lean-transpilation",
+            "visored-mir-expr",
             "visored-models",
             "visored-syn-expr",
             "expect-test",
@@ -3987,6 +4041,7 @@
             "either",
             "eterned",
             "husky-print-utils",
+            "husky-text-protocol",
             "husky-tree-utils",
             "latex-prelude",
             "latex-token",
@@ -4007,6 +4062,7 @@
             "visored-sem-expr",
             "visored-signature",
             "visored-syn-expr",
+            "visored-tactics-standard-linear-elaborator",
             "visored-term",
             "expect-test",
             "husky-coword",
@@ -4126,7 +4182,9 @@
         relative_path: "crates/visored/visored-mir-expr",
         dependencies: [
             "either",
+            "enum-class",
             "eterned",
+            "husky-print-utils",
             "husky-tree-utils",
             "idx-arena",
             "latex-environment",
@@ -4135,8 +4193,10 @@
             "latex-token",
             "latex-vfs",
             "lazy_static",
+            "once-place",
             "salsa",
             "smallvec",
+            "thiserror",
             "visored-annotation",
             "visored-entity-path",
             "visored-global-dispatch",
@@ -4304,14 +4364,6 @@
         ],
     },
     PackageSummary {
-        name: "husky-codespan-utils",
-        relative_path: "crates/utils/husky-codespan-utils",
-        dependencies: [
-            "codespan-reporting",
-            "termcolor",
-        ],
-    },
-    PackageSummary {
         name: "visored-syn-expr",
         relative_path: "crates/visored/visored-syn-expr",
         dependencies: [
@@ -4378,6 +4430,28 @@
             "serde",
             "thiserror",
             "vec-like",
+        ],
+    },
+    PackageSummary {
+        name: "visored-tactics-standard-linear-elaborator",
+        relative_path: "crates/visored/visored-tactics-standard-linear-elaborator",
+        dependencies: [
+            "enum-class",
+            "eterned",
+            "husky-path-utils",
+            "husky-sha-utils",
+            "idx-arena",
+            "latex-prelude",
+            "latex-vfs",
+            "rustc-hash",
+            "thiserror",
+            "vec-like",
+            "visored-annotation",
+            "visored-mir-expr",
+            "visored-models",
+            "visored-opr",
+            "visored-syn-expr",
+            "visored-term",
         ],
     },
     PackageSummary {
@@ -5022,27 +5096,6 @@
         relative_path: "crates/visored/visored-syn-patt",
         dependencies: [
             "eterned",
-        ],
-    },
-    PackageSummary {
-        name: "visored-tactics",
-        relative_path: "crates/visored/visored-tactics",
-        dependencies: [
-            "enum-class",
-            "eterned",
-            "husky-path-utils",
-            "husky-sha-utils",
-            "idx-arena",
-            "latex-prelude",
-            "latex-vfs",
-            "rustc-hash",
-            "vec-like",
-            "visored-annotation",
-            "visored-mir-expr",
-            "visored-models",
-            "visored-opr",
-            "visored-syn-expr",
-            "visored-term",
         ],
     },
     PackageSummary {

@@ -242,6 +242,8 @@ enum-index = { path = "crates/abstractions/enum-index" }
 enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
 eterned = { path = "crates/abstractions/eterned" }
 eterned-macros = { path = "crates/abstractions/eterned-macros" }
+floated = { path = "crates/abstractions/floated" }
+floated-macros = { path = "crates/abstractions/floated-macros" }
 from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }
@@ -251,6 +253,7 @@ maybe-result = { path = "crates/abstractions/maybe-result" }
 once-place = { path = "crates/abstractions/once-place" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
+pool = { path = "crates/abstractions/pool" }
 propagate = { path = "crates/abstractions/propagate" }
 rustc_arena = { path = "crates/abstractions/rustc_arena" }
 rustc_data_structures = { path = "crates/abstractions/rustc_data_structures" }
@@ -274,6 +277,7 @@ ui-macros = { path = "crates/abstractions/ui-macros" }
 usage-cap = { path = "crates/abstractions/usage-cap" }
 vec-like = { path = "crates/abstractions/vec-like" }
 version-stamp = { path = "crates/abstractions/version-stamp" }
+vec-array = { path = "crates/abstractions/vec-array" }
 vfs = { path = "crates/abstractions/vfs" }
 with-db = { path = "crates/abstractions/with-db" }
 # apps
@@ -501,6 +505,7 @@ visored-prelude = { path = "crates/visored/visored-prelude" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
+visored-tactics-standard-linear-elaborator = { path = "crates/visored/visored-tactics-standard-linear-elaborator" }
 visored-term = { path = "crates/visored/visored-term" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }

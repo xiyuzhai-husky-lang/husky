@@ -17,6 +17,7 @@ sealed.workspace = true
 # abstractions
 attach.workspace = true
 eterned-macros.workspace = true
+pool.workspace = true
 # utils
 husky-sha-utils.workspace = true
 husky-wild-utils.workspace = true

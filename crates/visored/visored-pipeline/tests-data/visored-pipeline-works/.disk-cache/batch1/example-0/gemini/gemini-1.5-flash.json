@@ -1,0 +1,100 @@
+[
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE INPUT ----\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n---- EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2  \\ge 0$.\n...\n\\end{{proof}}\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:25:04.709739043Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's trivial by the Peano axioms that $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:25:06.553724528Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x \\in \\mathbb{R}$.\nLet $y \\in \\mathbb{R}$.\nAssume $x=1$.\nAssume $y=1$.\nThe goal is to prove $x+y=2$.\nWe have $1+1=2$ by the Peano axioms.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x \\in \\mathbb{R}$.\nLet $y \\in \\mathbb{R}$.\nAssume $x=1$.\nAssume $y=1$.\nThe goal is to prove $x+y=2$.\nWe have $1+1=2$ by the Peano axioms.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:25:10.852410122Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE ----\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2  \\ge 0$.\n...\n\\end{{proof}}\n```\n\n---------\n\n\nHere are some antiexamples that show you what you should definitely avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nAntiexample 1:\n\n---- ANTI-EXAMPLE ----\n\nThe following antiexample is bad because it fails to finish the proof of a trivial fact in one sentence. It sounds really stupid\n\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n```latex\n\\begin{{proof}}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${(a+b)}^2 \\ge 0$.\nWe have ${(a+b)}^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = {(|a|-|b|)}^2$.\nWe have ${(|a|-|b|)}^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{{proof}}\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:56:24.533276418Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:56:26.007636873Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x=1$.\nLet $y=1$.\nLet $z=2$.\nThe goal is to prove $x+y=z$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x=1$.\nLet $y=1$.\nLet $z=2$.\nThe goal is to prove $x+y=z$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:56:29.630897156Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $a+b = 2$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $a+b = 2$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T18:02:28.407509974Z"
+  }
+]

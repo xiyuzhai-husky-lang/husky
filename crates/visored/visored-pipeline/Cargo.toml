@@ -37,6 +37,7 @@ husky-print-utils.workspace = true
 visored-models.workspace = true
 visored-syn-expr.workspace = true
 visored-lean-transpilation.workspace = true
+visored-mir-expr.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

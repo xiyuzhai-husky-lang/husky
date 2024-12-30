@@ -222,5 +222,313 @@
       }
     },
     "time": "2024-12-27T13:18:43.335795918Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX.\n\n```latex\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n```\n\nProvide only the LaTeX code for the solution, without any surrounding text. Wrap the proof in \\begin{proof} and \\end{proof}. The solution should:\n- Start from given information and progress logically forward to the conclusion\n- Show each step's reasoning clearly\n- Build upon previous steps in a natural progression\n- Use appropriate mathematical notation and LaTeX environments\n- Avoid unnecessary labels or references\n- If the problem is trivially true, just finish the proof in one sentence by restating the conclusion. Keep the normal amount of details.\n- Avoid unnecessary repetitions.\n- Avoid introducing unnecessary variables.\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nProblem: prove that $(x+y)^2 \\ge 0$ for all real numbers $x$.\n\nSolution:\n```latex\n\\begin{proof}\nWe have $(x+y)^2 \\ge 0$ because these are real numbers.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 = a^2 + 2ab + b^2$. Since the square of any real number is non-negative, $a^2 \\ge 0$ and $b^2 \\ge 0$.  Thus, $(a+b)^2$, being the sum of non-negative terms, is also non-negative. Therefore, $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:29:17.233298107Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease simplify the following mathematical proof:\n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nWe have $(a+b)^2 = a^2 + 2ab + b^2$. Since the square of any real number is non-negative, $a^2 \\ge 0$ and $b^2 \\ge 0$.  Thus, $(a+b)^2$, being the sum of non-negative terms, is also non-negative. Therefore, $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\n\nThere should only be one solution. No need to include alternatives. Remove unnecessary variables. If the problem is entirely trivial or just some straightforward literal calculation, just say that it's trivial that XXX holds.\n\nWrap the proof in \\begin{proof} and \\end{proof}.\n    \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nTrivial since $(a+b)^2 = a^2 + 2ab + b^2$, and $x^2 \\ge 0$ for any real number $x$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:29:18.871447905Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation that skips too many steps by inserting steps in the given proof. You should only insert steps if it's absolutely necessary. Don't bother to explain how things are derived. For example, don't add extra since clauses because we don't want that. Definitely avoid expanding too much that breaks the form. If a step is already obvious, keep it intact. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 = a^2 + 2ab + b^2$, and $x^2 \\ge 0$ for any real number $x$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        % these expansions make it more obvious how the well known fact $x^2+y^2 \\ge 2xy$ is applied\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\nExample 2:\n\n        ---- EXAMPLE INPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n        ---- EXAMPLE OUTPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n\n        This is because the original proof is already detailed enough.\n        \n---------\n\n\nHere are some antiexamples that show you what you should definitely avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nAntiexample 1:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(x + y)^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(x + y)^2 = (x + y)(x + y) = x^2 + 2xy + y^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\nAntiexample 2:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(a + f(x))^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nTrivial since $(a+b)^2 = a^2 + 2ab + b^2 \\ge 0$, since $a^2 \\ge 0$, $b^2 \\ge 0$ and $2ab$ is a real number.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:29:21.536317049Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.\n- We have <proposition> by <reason>/ where <reasons>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 = a^2 + 2ab + b^2 \\ge 0$, since $a^2 \\ge 0$, $b^2 \\ge 0$ and $2ab$ is a real number.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$ by the definition of absolute value.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = (|a|-|b|)^2$.\nWe have $(|a|-|b|)^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:29:27.072619081Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Don't introduce variables that are not used in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(a+b)^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$ by the definition of absolute value.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = (|a|-|b|)^2$.\nWe have $(|a|-|b|)^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$ by the definition of absolute value.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = (|a|-|b|)^2$.\nWe have $(|a|-|b|)^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T14:29:32.594287895Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = (|a|-|b|)^2$.\nWe have $(|a|-|b|)^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${(a+b)}^2 \\ge 0$.\nWe have ${(a+b)}^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = {(|a|-|b|)}^2$.\nWe have ${(|a|-|b|)}^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:29:39.760786675Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFix all unnecessary expansions in the following proof generated by AI. Sometimes LLMs are stupid and do expansion despite it's totally unnecessary for the purpose of the proof.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nTrivial since $(a+b)^2 = a^2 + 2ab + b^2$, and $x^2 \\ge 0$ for any real number $x$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\nThere should only be one solution. No need to include alternatives. Remove unnecessary variables. If the problem is entirely trivial or just some straightforward literal calculation, just say that it's trivial that XXX holds.\n\nWrap the proof in \\begin{proof} and \\end{proof}.\n    \n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE ----\n\nInput:\n\n```latex\nProve: $(x + y)^2 \\ge 0$.\n\\begin{proof}\nWe have $(x + y)^2 = x^2 + 2xy + y^2 \\ge 0$ because these are real numbers.\n\\end{proof}\n```\n\nIn the above proof, the expansion of $(x + y)^2 = x^2 + 2xy + y^2$ is unnecessary and dumb. We should absolutely remove it like below.\n\nOutput:\n\n```latex\nProve: $(x + y)^2 \\ge 0$.\n\\begin{proof}\nWe have $(x + y)^2 \\ge 0$.\n\\end{proof}\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:47:47.852047933Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nElaborate formula derivation that skips too many steps by inserting steps in the given proof. You should only insert steps if it's absolutely necessary. Don't bother to explain how things are derived. For example, don't add extra since clauses because we don't want that. Definitely avoid expanding too much that breaks the form. If a step is already obvious, keep it intact. Keep the same number of sentences but put in more chains of equalities or inequalities. There should be one-to-one correspondence between sentences in the input and output.\n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n            ---- EXAMPLE INPUT ----\n        ```latex\n        We have $a + b \\ge 2\\sqrt{ab}$.\n        ```\n\n        ---- OUTPUT ----\n        ```latex\n        \\begin{{proof}}\n        % these expansions make it more obvious how the well known fact $x^2+y^2 \\ge 2xy$ is applied\n        We have $a + b = (\\sqrt{a})^2 + (\\sqrt{b})^2 \\ge 2 \\sqrt{a} \\sqrt{b} = 2\\sqrt{ab}$.\n        \\end{{proof}}\n        ```\n        \n---------\nExample 2:\n\n        ---- EXAMPLE INPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n        ---- EXAMPLE OUTPUT ----\n        ```latex\n        Problem: ...\n\n        \\begin{{proof}}\n        ...\n        We have $(x+2)^2 \\ge 0$ because these are real numbers.\n        ...\n        \\end{{proof}}\n        ```\n\n        This is because the original proof is already detailed enough.\n        \n---------\n\n\nHere are some antiexamples that show you what you should definitely avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nAntiexample 1:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(x + y)^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(x + y)^2 = (x + y)(x + y) = x^2 + 2xy + y^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\nAntiexample 2:\n\nThe following antiexample is bad because it expands too much and actually make the proof wrong. The original proof is already quite obvious following by the well known fact $x^2$ for any real number $x$.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nWe have $(a + f(x))^2 \\ge 0$ because these are real numbers.\n```\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2 = a^2 + 2af(x) + f(x)^2 \\ge 0$ because these are real numbers.\n...\n\\end{{proof}}\n```\n            \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:47:49.616855316Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.\n- We have <proposition> by <reason>/ where <reasons>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 = a^2 + 2ab + b^2$. Since $a^2 \\ge 0$ and $b^2 \\ge 0$ and $2ab$ is some real number, we have $a^2+2ab+b^2 \\ge 0$, so $(a+b)^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T14:47:52.587030053Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Don't introduce variables that are not used in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(a+b)^2 = a^2 + 2ab + b^2$. Since $a^2 \\ge 0$ and $b^2 \\ge 0$ and $2ab$ is some real number, we have $a^2+2ab+b^2 \\ge 0$, so $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 = a^2 + 2ab + b^2$. Since $a^2 \\ge 0$ and $b^2 \\ge 0$ and $2ab$ is some real number, we have $a^2+2ab+b^2 \\ge 0$, so $(a+b)^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T14:47:55.761424584Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 = a^2 + 2ab + b^2$. Since $a^2 \\ge 0$ and $b^2 \\ge 0$ and $2ab$ is some real number, we have $a^2+2ab+b^2 \\ge 0$, so $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\nWe have ${{(a+b)}}^2 = a^2 + 2ab + b^2$. Since $a^2 \\ge 0$ and $b^2 \\ge 0$ and $2ab$ is some real number, we have $a^2+2ab+b^2 \\ge 0$, so ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:48:00.266707481Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.\n- We have <proposition> by <reason>/ where <reasons>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n\nYou should strictly adhere to the original proof other than modifying the highest level sentence. If the original proof ends with something like \"It's trivially true since XXX\", you should rephrase it as \"We have YYY in an obvious manner.\" where YYY is the proposition that's trivially true referred in the sentence.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:53:11.116569304Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Don't introduce variables that are not used in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:53:12.955296841Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\nWe have ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T14:53:15.706510311Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.\n- We have <proposition> by <reason>/ where <reasons>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n\nEach sentence in the output should be strictly be one of the above, especially the prefix should be either \"We have\" or \"It's enough to show that\". Long sentences like \"We have YYY in an obvious manner and we have ZZZ in an obvious manner.\" should be split into multiple sentences.\n\nYou should strictly adhere to the original proof other than modifying the highest level sentence structure. If the original proof ends with something like \"It's trivially true since XXX\", you should rephrase it as \"We have YYY in an obvious manner.\" where YYY is the proposition that's trivially true referred in the sentence.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:16:51.585314629Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.\n- We have <proposition> by <reason>/ because <reason>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n\nEach sentence in the output should be strictly be one of the above, especially the prefix should be either \"We have\" or \"It's enough to show that\". Long sentences like \"We have YYY in an obvious manner and we have ZZZ in an obvious manner.\" should be split into multiple sentences. The composite \"Since XXX, we have YYY\" should be split into two sentences: \"We have XXX\" and \"We have YYY\" or just \"We have YYY\" if XXX is too obvious to worth mentioning.\n\nYou should strictly adhere to the original proof other than modifying the highest level sentence structure. If the original proof ends with something like \"It's trivially true since XXX\", you should rephrase it as \"We have YYY in an obvious manner.\" where YYY is the proposition that's trivially true referred in the sentence.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}. Don't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T17:19:10.136948045Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Don't introduce variables that are not used in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T17:19:12.002109858Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$.\n\n----- INPUT -----\n```latex\n\\begin{proof}\n$a\\in\\mathbb{R}$.\n$b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\n$(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\n$a\\in\\mathbb{R}$.\n$b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\n${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:19:14.525626122Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nRegularize the proof by using only the following sentences:\n- We have <proposition>. This is for stating a proposition derived in an obvious manner from existing propositions in forward reasoning.\n- We have <proposition> by <reason>/ because <reason>. This is for stating a nontrivial proposition derived from existing propositions in forward reasoning that requires some explanation.\n- It's enough to show that <proposition>. This is for changing the goal of the proof in backward reasoning.\n\nEach sentence in the output should be strictly be one of the above, especially the prefix should be either \"We have\" or \"It's enough to show that\". Long sentences like \"We have YYY in an obvious manner and we have ZZZ in an obvious manner.\" should be split into multiple sentences. The composite \"Since XXX, we have YYY\" should be split into two sentences: \"We have XXX\" and \"We have YYY\" or just \"We have YYY\" if XXX is too obvious to worth mentioning.\n\nYou should strictly adhere to the original proof other than modifying the highest level sentence structure. If the original proof ends with something like \"It's trivially true since XXX\", you should rephrase it as \"We have YYY in an obvious manner.\" where YYY is the proposition that's trivially true referred in the sentence.\n            \n\n----- INPUT -----\n```latex\n\\begin{example}\nProve that for all real numbers $a$ and $b$:\n    $$(a+b)^2 \\geq 0.$$\n\\end{example}\n\n\\begin{proof}\nTrivial since $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nWrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\nDon't break the chain of equalities or inequalities. Keep chain of equalities or inequalities in one sentence.\n\nMake sure that each sentence begins with \\\"We have\\\" or \\\"It's enough to show that\\\". Be strict about this.\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T17:50:19.661037320Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. For example, $\\left(a+b\\right)^2$ should be replaced by ${\\left(a+b\\right)}^2$. Be extremely strict about this. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\nWe have ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:55:39.231174729Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. For example, $\\left(a+b\\right)^2$ should be replaced by ${\\left(a+b\\right)}^2$. Be extremely strict about this. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\nWe have ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${{(a+b)}}^2 \\ge 0$.\nWe have ${{(a+b)}}^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2024-12-27T17:55:41.166974216Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof to incorporate the problem description. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Only introduce variables that are stated in the problem description but not yet in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2024-12-27T18:01:35.034520176Z"
   }
 ]

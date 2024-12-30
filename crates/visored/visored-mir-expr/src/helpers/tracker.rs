@@ -14,8 +14,10 @@ use latex_prelude::{
     mode::LxMode,
 };
 use latex_token::storage::LxTokenStorage;
+use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
+use tactic::{elaboration::elaborator::IsVdMirTacticElaborator, VdMirTacticArena};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -27,10 +29,11 @@ use visored_sem_expr::{
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
+pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMirTacticElaborator> {
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
+    pub tactic_arena: VdMirTacticArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     pub source_map: VdMirSourceMap,
     pub sem_expr_range_map: VdSemExprTokenIdxRangeMap,
@@ -41,6 +44,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub sem_division_range_map: VdSemDivisionTokenIdxRangeMap,
     pub token_storage: LxTokenStorage,
     pub output: Input::VdMirExprOutput,
+    pub elaborator: Elaborator,
 }
 
 pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
@@ -49,6 +53,12 @@ pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
 
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String;
+
+    fn eval_all_tactics_within_self(
+        self,
+        region_data: VdMirExprRegionDataRef,
+        elaborator: &mut impl IsVdMirTacticElaborator,
+    );
 }
 
 pub trait FromToVdMir<S> {
@@ -64,7 +74,11 @@ where
     }
 }
 
-impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
+impl<'a, Input, Elaborator> VdMirExprTracker<'a, Input, Elaborator>
+where
+    Input: IsVdMirExprInput<'a>,
+    Elaborator: IsVdMirTacticElaborator,
+{
     pub fn new(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
@@ -72,6 +86,7 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
         models: &VdModels,
         vibe: VdSynExprVibe,
         db: &EternerDb,
+        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -112,12 +127,35 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             sem_division_arena.as_arena_ref(),
             &sem_symbol_local_defn_storage,
         );
-        let result = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (expr_arena, stmt_arena, symbol_local_defn_storage, source_map) = builder.finish();
+        let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
+        let (mut expr_arena, stmt_arena, mut tactic_arena, symbol_local_defn_storage, source_map) =
+            builder.finish();
+        let mut elaborator = gen_elaborator(VdMirExprRegionDataRef {
+            expr_arena: expr_arena.as_arena_ref(),
+            stmt_arena: stmt_arena.as_arena_ref(),
+            tactic_arena: tactic_arena.as_arena_ref(),
+            symbol_local_defn_storage: &symbol_local_defn_storage,
+        });
+        output.eval_all_tactics_within_self(
+            VdMirExprRegionDataRef {
+                expr_arena: expr_arena.as_arena_ref(),
+                stmt_arena: stmt_arena.as_arena_ref(),
+                tactic_arena: tactic_arena.as_arena_ref(),
+                symbol_local_defn_storage: &symbol_local_defn_storage,
+            },
+            &mut elaborator,
+        );
+        elaborator.extract(VdMirExprRegionDataMut {
+            expr_arena: &mut expr_arena,
+            stmt_arena: stmt_arena.as_arena_ref(),
+            tactic_arena: &mut tactic_arena,
+            symbol_local_defn_storage: &symbol_local_defn_storage,
+        });
         Self {
             root_module_path,
             expr_arena,
             stmt_arena,
+            tactic_arena,
             symbol_local_defn_storage,
             source_map,
             sem_expr_range_map,
@@ -127,7 +165,8 @@ impl<'a, Input: IsVdMirExprInput<'a>> VdMirExprTracker<'a, Input> {
             sem_stmt_range_map,
             sem_division_range_map,
             token_storage,
-            output: result,
+            output,
+            elaborator,
         }
     }
 
@@ -165,10 +204,26 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String {
         DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
+
+    fn eval_all_tactics_within_self(
+        self,
+        region_data: VdMirExprRegionDataRef,
+        elaborator: &mut impl IsVdMirTacticElaborator,
+    ) {
+        elaborator.eval_all_tactics_within_stmts(self, region_data);
+    }
 }
 
 impl IsVdMirExprOutput for VdMirExprIdx {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String {
         builder.render_expr(self).show(&Default::default())
+    }
+
+    fn eval_all_tactics_within_self(
+        self,
+        region_data: VdMirExprRegionDataRef,
+        elaborator: &mut impl IsVdMirTacticElaborator,
+    ) {
+        elaborator.eval_all_tactics_within_expr(self, region_data);
     }
 }

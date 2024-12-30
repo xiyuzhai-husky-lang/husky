@@ -1,9 +1,10 @@
 use super::{
+    builder::VdSynExprBuilder,
     expr::{VdSynExprClass, VdSynExprData, VdSynExprIdx},
-    VdSynExprParser, VdSynExprVibe,
+    ToVdSyn, VdSynExprParser, VdSynExprVibe,
 };
 use latex_ast::ast::math::{
-    LxMathAstData, LxMathAstIdx, LxMathCommandArgumentData, LxMathCompleteCommandArgument,
+    LxMathAstData, LxMathAstIdx, LxMathCommandArgumentAsts, LxMathCompleteCommandArgument,
 };
 use latex_command::path::LxCommandPath;
 use latex_math_letter::letter::LxMathLetter;
@@ -284,9 +285,14 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
         match resolve_complete_command {
             VdCompleteCommandGlobalResolution::Letter(letter) => {
                 let token_idx_range = match arguments.last() {
-                    Some(argument) => {
-                        LxTokenIdxRange::new_closed(*command_token_idx, *argument.rcurl_token_idx())
-                    }
+                    Some(last_argument) => match *last_argument {
+                        LxMathCompleteCommandArgument::Asts {
+                            lcurl_token_idx,
+                            asts,
+                            rcurl_token_idx,
+                        } => LxTokenIdxRange::new_closed(*command_token_idx, *rcurl_token_idx),
+                        LxMathCompleteCommandArgument::MathAst(ast) => todo!(),
+                    },
                     None => LxTokenIdxRange::new_single(*command_token_idx),
                 };
                 DisambiguatedAst::Expr(
@@ -303,46 +309,30 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
             VdCompleteCommandGlobalResolution::Item(_) => todo!(),
             VdCompleteCommandGlobalResolution::Frac => {
                 debug_assert!(arguments.len() == 2);
-                let [numerator_arg, denominator_arg] = arguments else {
+                let [numerator_arg, denominator_arg] = *arguments else {
                     unreachable!()
                 };
-                let LxMathCommandArgumentData::Math(numerator_asts) = *numerator_arg.data() else {
-                    unreachable!()
-                };
-                let numerator = (numerator_arg.asts_token_idx_range(), numerator_asts)
-                    .to_vd_syn(self.builder, vibe);
-                let LxMathCommandArgumentData::Math(denominator_asts) = *denominator_arg.data()
-                else {
-                    unreachable!()
-                };
-                let denominator = (denominator_arg.asts_token_idx_range(), denominator_asts)
-                    .to_vd_syn(self.builder, vibe);
                 DisambiguatedAst::Expr(
                     VdSynExprData::Fraction {
                         command_token_idx,
-                        numerator,
-                        denominator,
-                        denominator_rcurl_token_idx: denominator_arg.rcurl_token_idx(),
+                        numerator: numerator_arg.to_vd_syn(self.builder, vibe),
+                        denominator: denominator_arg.to_vd_syn(self.builder, vibe),
+                        denominator_arg,
                     },
                     VdSynExprClass::ATOM,
                 )
             }
             VdCompleteCommandGlobalResolution::Sqrt => {
                 debug_assert!(arguments.len() == 1);
-                let [radicand_arg] = arguments else {
+                let [radicand_arg] = *arguments else {
                     unreachable!()
                 };
-                let LxMathCommandArgumentData::Math(radicand_asts) = *radicand_arg.data() else {
-                    unreachable!()
-                };
-                let radicand = (radicand_arg.asts_token_idx_range(), radicand_asts)
-                    .to_vd_syn(self.builder, vibe);
+                let radicand = radicand_arg.to_vd_syn(self.builder, vibe);
                 DisambiguatedAst::Expr(
                     VdSynExprData::Sqrt {
                         command_token_idx,
-                        radicand_lcurl_token_idx: radicand_arg.lcurl_token_idx(),
                         radicand,
-                        radicand_rcurl_token_idx: radicand_arg.rcurl_token_idx(),
+                        radicand_arg,
                     },
                     VdSynExprClass::ATOM,
                 )
@@ -405,6 +395,28 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 );
                 todo!("data = {:?}", data)
             }
+        }
+    }
+}
+
+impl<'a> ToVdSyn<VdSynExprIdx> for LxMathCompleteCommandArgument {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynExprIdx {
+        match self {
+            LxMathCompleteCommandArgument::Asts {
+                lcurl_token_idx,
+                asts,
+                rcurl_token_idx,
+            } => {
+                let LxMathCommandArgumentAsts::Math(denominator_asts) = asts else {
+                    unreachable!()
+                };
+                (
+                    LxTokenIdxRange::new_closed(*lcurl_token_idx, *rcurl_token_idx),
+                    denominator_asts,
+                )
+                    .to_vd_syn(builder, vibe)
+            }
+            LxMathCompleteCommandArgument::MathAst(ast) => ast.to_vd_syn(builder, vibe),
         }
     }
 }

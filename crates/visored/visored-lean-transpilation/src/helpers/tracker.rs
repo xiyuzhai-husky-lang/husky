@@ -24,12 +24,18 @@ use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnn
 use visored_mir_expr::{
     expr::VdMirExprIdx,
     helpers::tracker::{IsVdMirExprInput, VdMirExprTracker},
+    region::VdMirExprRegionDataRef,
     stmt::VdMirStmtIdxRange,
+    tactic::elaboration::elaborator::IsVdMirTacticElaborator,
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdLeanTranspilationTracker<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
-where
+pub struct VdLeanTranspilationTracker<
+    'a,
+    Scheme,
+    Input: IsVdLeanTranspilationInput<'a, Scheme>,
+    Elaborator: IsVdMirTacticElaborator,
+> where
     Scheme: IsVdLeanTranspilationScheme,
 {
     expr_arena: LnMirExprArena,
@@ -38,6 +44,7 @@ where
     defn_arena: LnItemDefnArena,
     defn_comments: LnItemDefnOrderedMap<LnItemDefnComment>,
     output: Input::VdLeanTranspilationOutput,
+    elaborator: Elaborator,
 }
 
 pub trait IsVdLeanTranspilationInput<'a, Scheme>: IsVdMirExprInput<'a>
@@ -70,10 +77,11 @@ where
     }
 }
 
-impl<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
-    VdLeanTranspilationTracker<'a, Scheme, Input>
+impl<'a, Scheme, Input, Elaborator> VdLeanTranspilationTracker<'a, Scheme, Input, Elaborator>
 where
     Scheme: IsVdLeanTranspilationScheme,
+    Input: IsVdLeanTranspilationInput<'a, Scheme>,
+    Elaborator: IsVdMirTacticElaborator,
 {
     pub fn new(
         input: Input,
@@ -83,12 +91,14 @@ where
         vibe: VdSynExprVibe,
         db: &'a EternerDb,
         scheme: &'a Scheme,
+        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
             root_module_path,
             expr_arena: vd_mir_expr_arena,
             stmt_arena: vd_mir_stmt_arena,
+            tactic_arena: vd_mir_tactic_arena,
             symbol_local_defn_storage: vd_mir_symbol_local_defn_storage,
             source_map: vd_mir_source_map,
             sem_expr_range_map,
@@ -99,7 +109,8 @@ where
             sem_division_range_map,
             token_storage,
             output,
-        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db);
+            elaborator,
+        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db, gen_elaborator);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
@@ -107,6 +118,7 @@ where
             content,
             vd_mir_expr_arena.as_arena_ref(),
             vd_mir_stmt_arena.as_arena_ref(),
+            vd_mir_tactic_arena.as_arena_ref(),
             &vd_mir_symbol_local_defn_storage,
             &vd_mir_source_map,
             dictionary,
@@ -128,6 +140,7 @@ where
             defn_arena,
             defn_comments,
             output,
+            elaborator,
         }
     }
 

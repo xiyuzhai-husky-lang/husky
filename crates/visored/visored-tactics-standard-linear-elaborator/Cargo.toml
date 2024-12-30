@@ -1,0 +1,43 @@
+[package]
+name = "visored-tactics-standard-linear-elaborator"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+rustc-hash.workspace = true
+thiserror.workspace = true
+# abstractions
+enum-class.workspace = true
+eterned.workspace = true
+idx-arena.workspace = true
+vec-like.workspace = true
+# latex
+latex-prelude.workspace = true
+latex-vfs.workspace = true
+# visored
+visored-models.workspace = true
+visored-opr.workspace = true
+visored-syn-expr.workspace = true
+visored-mir-expr.workspace = true
+visored-term.workspace = true
+visored-annotation.workspace = true
+# utils
+husky-sha-utils.workspace = true
+husky-path-utils.workspace = true
+
+[dev-dependencies]
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "measure_ring"
+path = "bin/measure_ring.rs"

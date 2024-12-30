@@ -6,6 +6,7 @@ use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
+use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
@@ -26,6 +27,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
+        VdMirTacticTrivialElaborator::new_default,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));

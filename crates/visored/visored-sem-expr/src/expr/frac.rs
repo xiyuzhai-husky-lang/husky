@@ -13,7 +13,7 @@ impl<'a> VdSemExprBuilder<'a> {
         command_token_idx: LxMathTokenIdx,
         syn_numerator: VdSynExprIdx,
         syn_denominator: VdSynExprIdx,
-        denominator_rcurl_token_idx: LxMathTokenIdx,
+        denominator_arg: LxMathCompleteCommandArgument,
     ) -> (VdSemExprData, VdType) {
         let numerator = self.build_expr_entry(syn_numerator);
         let denominator = self.build_expr_entry(syn_denominator);
@@ -27,9 +27,9 @@ impl<'a> VdSemExprBuilder<'a> {
                 VdFracGlobalDispatch::Div { signature } => (
                     VdSemExprData::Frac {
                         command_token_idx,
-                        denominator_rcurl_token_idx,
                         numerator,
                         denominator,
+                        denominator_arg,
                         dispatch: VdSemFracDispatch::Div { signature },
                     },
                     signature.expr_ty(),

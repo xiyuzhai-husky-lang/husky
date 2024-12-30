@@ -219,37 +219,35 @@ impl<'db> VdSemExprBuilder<'db> {
         &mut self,
         followers: &VdSemSeparatedListFollowers,
     ) -> Option<(VdBaseSeparator, VdBaseSeparatorSignature)> {
+        if followers.len() == 1 {
+            return None;
+        }
         let mut follower_iter = followers.iter().copied();
-        let mut prev = follower_iter.next().unwrap();
-        let next = follower_iter.next()?;
-        let (mut opr, mut signature) = self.infer_joined_separator_and_signature_step(prev, next);
+        let fst = follower_iter.next().unwrap();
+        let VdSemSeparatedListFollowerDispatch::Chaining {
+            base_separator,
+            signature,
+        } = fst.dispatch
+        else {
+            use husky_print_utils::*;
+            p!(fst.dispatch, followers.len());
+            unreachable!()
+        };
+        let mut opr = base_separator;
+        let mut signature = signature;
         for follower in follower_iter {
-            (opr, signature) = self.infer_joined_separator_and_signature_step(prev, follower);
-            prev = follower;
+            (opr, signature) =
+                self.infer_joined_separator_and_signature_step(opr, signature, follower);
         }
         Some((opr, signature))
     }
 
     fn infer_joined_separator_and_signature_step(
         &mut self,
-        prev: VdSemSeparatedListFollower,
+        cumulative_opr: VdBaseSeparator,
+        cumulative_signature: VdBaseSeparatorSignature,
         next: VdSemSeparatedListFollower,
     ) -> (VdBaseSeparator, VdBaseSeparatorSignature) {
-        let VdSemSeparatedListFollowerDispatch::Chaining {
-            base_separator: prev_base_separator,
-            signature: prev_signature,
-        } = prev.dispatch
-        else {
-            match prev.separator {
-                VdSemSeparator::Base(token_idx_range, vd_base_separator) => self
-                    .emit_message_over_token_to_stdout(
-                        token_idx_range.start(),
-                        "prev.dispatch = {:?}".to_string(),
-                    ),
-                VdSemSeparator::Composite(arena_idx, vd_separator_class) => todo!(),
-            };
-            unreachable!("prev.dispatch = {:?}", prev.dispatch)
-        };
         let VdSemSeparatedListFollowerDispatch::Chaining {
             base_separator: next_base_separator,
             signature: next_signature,
@@ -257,17 +255,17 @@ impl<'db> VdSemExprBuilder<'db> {
         else {
             unreachable!()
         };
-        if prev_signature == next_signature {
-            debug_assert_eq!(prev_base_separator, next_base_separator);
+        if cumulative_signature == next_signature {
+            debug_assert_eq!(cumulative_opr, next_base_separator);
             return (next_base_separator, next_signature);
         }
         let Some(dispatch) = self
             .default_global_dispatch_table()
-            .base_chaining_separator_join_default_dispatch(prev_signature, next_signature)
+            .base_chaining_separator_join_default_dispatch(cumulative_signature, next_signature)
         else {
             todo!(
-                "prev_signature = {:?}, next_signature = {:?}",
-                prev_signature,
+                "cumulative signature = {:?}, next_signature = {:?}",
+                cumulative_signature,
                 next_signature
             )
         };

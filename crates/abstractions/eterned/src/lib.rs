@@ -4,16 +4,14 @@ pub mod attach;
 pub mod db;
 pub mod eterner;
 pub mod memo;
-mod pool;
-mod vec_array;
+
+pub use dashmap::DashMap;
+pub use eterned_macros::{eterned, memo};
 
 use as_id::AsEternedId;
-pub use dashmap::DashMap;
 use db::EternerDb;
-pub use eterned_macros::{eterned, memo};
 use eterner::EternedEntry;
-
-use self::pool::Pool;
+use pool::Pool;
 use std::collections::HashMap;
 
 #[derive(Hash)]

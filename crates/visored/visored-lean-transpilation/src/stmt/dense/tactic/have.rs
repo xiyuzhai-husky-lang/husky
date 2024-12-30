@@ -1,7 +1,12 @@
 use super::*;
+use visored_mir_expr::tactic::VdMirTacticIdxRange;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
-    pub(super) fn build_ln_tactic_from_vd_have(&mut self, prop: VdMirExprIdx) -> LnMirTacticData {
+    pub(super) fn build_ln_tactic_from_vd_have(
+        &mut self,
+        prop: VdMirExprIdx,
+        tactics: VdMirTacticIdxRange,
+    ) -> LnMirTacticData {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -16,10 +21,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             _ => {
                 let ident = self.mangle_hypothesis();
                 let ty = prop.to_lean(self);
-                let construction_tactics = self.alloc_tactics(vec![LnMirTacticData::Obvious]);
-                let construction = self.alloc_expr(LnMirExprData::By {
-                    tactics: construction_tactics,
-                });
+                let tactics = tactics.to_lean(self);
+                let construction = self.alloc_expr(LnMirExprData::By { tactics });
                 LnMirTacticData::Have {
                     ident,
                     ty,
