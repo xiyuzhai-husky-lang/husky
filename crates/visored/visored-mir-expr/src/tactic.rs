@@ -13,6 +13,15 @@ pub struct VdMirTacticEntry {
     elaboration: OncePlace<VdMirTacticElaboration>,
 }
 
+impl VdMirTacticEntry {
+    pub fn new(data: VdMirTacticData) -> Self {
+        Self {
+            data,
+            elaboration: OncePlace::default(),
+        }
+    }
+}
+
 pub type VdMirTacticIdx = ArenaIdx<VdMirTacticEntry>;
 pub type VdMirTacticIdxRange = ArenaIdxRange<VdMirTacticEntry>;
 pub type VdMirTacticArena = Arena<VdMirTacticEntry>;
