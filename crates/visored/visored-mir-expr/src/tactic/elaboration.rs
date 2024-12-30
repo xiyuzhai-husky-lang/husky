@@ -9,10 +9,19 @@ use crate::{
     stmt::VdMirStmtIdxRange,
 };
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct VdMirTacticElaborationTracker {
     history: VdMirTacticElaborationHistory,
     conclusion: Option<VdMirTacticElaborationResult<VdMirTacticElaboration>>,
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdMirTacticElaborationHistory {
+    Trivial,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdMirTacticElaboration {}
 
 impl VdMirTacticElaborationTracker {
     pub fn new_trivial() -> Self {
@@ -22,12 +31,6 @@ impl VdMirTacticElaborationTracker {
         }
     }
 }
-
-pub enum VdMirTacticElaborationHistory {
-    Trivial,
-}
-
-pub enum VdMirTacticElaboration {}
 
 impl VdMirTacticElaborationTracker {
     pub fn conclusion(&self) -> Option<VdMirTacticElaborationResultRef<&VdMirTacticElaboration>> {

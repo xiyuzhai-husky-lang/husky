@@ -3,7 +3,7 @@ pub mod linear;
 use super::*;
 use crate::stmt::VdMirStmtIdx;
 
-pub trait IsVdMirTacticElaborator {
+pub trait IsVdMirTacticElaborator: std::fmt::Debug {
     fn eval_all_tactics_within_stmts(
         &mut self,
         stmts: VdMirStmtIdxRange,
