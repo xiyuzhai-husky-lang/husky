@@ -1,3 +1,5 @@
+mod debug;
+
 use eterned::db::EternerDb;
 use latex_token::storage::LxTokenStorage;
 use lean_coword::ident::LnIdent;
@@ -36,6 +38,7 @@ use crate::{
 pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     db: &'a EternerDb,
     scheme: &'a S,
+    input: &'a str,
     lean_hir_expr_constructor: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
@@ -51,7 +54,6 @@ pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     sem_stmt_range_map: &'a VdSemBlockTokenIdxRangeMap,
     sem_division_range_map: &'a VdSemDivisionTokenIdxRangeMap,
     token_storage: &'a LxTokenStorage,
-    input: &'a str,
     cache: S::Cache,
 }
 

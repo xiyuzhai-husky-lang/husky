@@ -12,7 +12,7 @@ use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use tactic::{VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange};
+use tactic::{VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange, VdMirTacticSource};
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_prelude::division::VdDivisionLevel;
@@ -54,13 +54,6 @@ pub enum VdMirStmtData {
     },
 }
 
-pub type VdMirStmtArena = Arena<VdMirStmtData>;
-pub type VdMirStmtOrderedMap<T> = ArenaOrderedMap<VdMirStmtData, T>;
-pub type VdMirStmtMap<T> = ArenaMap<VdMirStmtData, T>;
-pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
-pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
-pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirStmtSource {
     Stmt(VdSemBlockIdx),
@@ -68,6 +61,13 @@ pub enum VdMirStmtSource {
     Sentence(VdSemSentenceIdx),
     Clause(VdSemClauseIdx),
 }
+
+pub type VdMirStmtArena = Arena<VdMirStmtData>;
+pub type VdMirStmtOrderedMap<T> = ArenaOrderedMap<VdMirStmtData, T>;
+pub type VdMirStmtMap<T> = ArenaMap<VdMirStmtData, T>;
+pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
+pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
+pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
@@ -222,7 +222,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
-                tactics: self.default_tactics(),
+                tactics: self.default_tactics(clause),
             },
             VdSemClauseData::Show {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
@@ -230,13 +230,16 @@ impl<'db> VdMirExprBuilder<'db> {
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::Show {
                 prop: formula.to_vd_mir(self),
-                tactics: self.default_tactics(),
+                tactics: self.default_tactics(clause),
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }
     }
 
-    fn default_tactics(&mut self) -> VdMirTacticIdxRange {
-        self.alloc_tactics(vec![VdMirTacticEntry::new(VdMirTacticData::Obvious)])
+    fn default_tactics(&mut self, source: impl Into<VdMirTacticSource>) -> VdMirTacticIdxRange {
+        self.alloc_tactics(
+            [VdMirTacticEntry::new(VdMirTacticData::Obvious)],
+            [source.into()],
+        )
     }
 }
