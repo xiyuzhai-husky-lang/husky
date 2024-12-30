@@ -23,12 +23,9 @@ where
 {
     pub(crate) fn build_tactic(&mut self, tactic: VdMirTacticIdx) -> LnMirTacticData {
         let entry = &self.tactic_arena()[tactic];
-        match *entry.elaboration() {
-            VdMirTacticElaboration::Explicit(arena_idx_range) => {
-                todo!()
-            }
-            VdMirTacticElaboration::Implicit => todo!(),
-            VdMirTacticElaboration::Illicit => todo!(),
+        match entry.elaboration_tracker().conclusion() {
+            Some(_) => todo!(),
+            None => todo!(),
         }
     }
 }
