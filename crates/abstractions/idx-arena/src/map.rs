@@ -139,6 +139,7 @@ impl<T, V> ArenaMap<T, V> {
         std::mem::replace(&mut self.data[idx.index()], Some(v))
     }
 
+    /// panics if the index is already occupied
     #[track_caller]
     pub fn insert_new(&mut self, idx: ArenaIdx<T>, v: V) {
         should!(self.data[idx.index()].is_none());

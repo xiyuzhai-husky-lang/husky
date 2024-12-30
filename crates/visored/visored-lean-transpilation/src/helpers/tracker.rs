@@ -24,6 +24,7 @@ use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnn
 use visored_mir_expr::{
     expr::VdMirExprIdx,
     helpers::tracker::{IsVdMirExprInput, VdMirExprTracker},
+    region::VdMirExprRegionDataRef,
     stmt::VdMirStmtIdxRange,
     tactic::elaboration::elaborator::IsVdMirTacticElaborator,
 };
@@ -90,7 +91,7 @@ where
         vibe: VdSynExprVibe,
         db: &'a EternerDb,
         scheme: &'a Scheme,
-        elaborator: Elaborator,
+        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -109,7 +110,7 @@ where
             token_storage,
             output,
             elaborator,
-        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db, elaborator);
+        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db, gen_elaborator);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,

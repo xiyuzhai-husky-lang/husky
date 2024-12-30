@@ -86,7 +86,7 @@ where
         models: &VdModels,
         vibe: VdSynExprVibe,
         db: &EternerDb,
-        mut elaborator: Elaborator,
+        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -130,6 +130,12 @@ where
         let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
         let (mut expr_arena, stmt_arena, mut tactic_arena, symbol_local_defn_storage, source_map) =
             builder.finish();
+        let mut elaborator = gen_elaborator(VdMirExprRegionDataRef {
+            expr_arena: expr_arena.as_arena_ref(),
+            stmt_arena: stmt_arena.as_arena_ref(),
+            tactic_arena: tactic_arena.as_arena_ref(),
+            symbol_local_defn_storage: &symbol_local_defn_storage,
+        });
         output.eval_all_tactics_within_self(
             VdMirExprRegionDataRef {
                 expr_arena: expr_arena.as_arena_ref(),
@@ -141,7 +147,9 @@ where
         );
         elaborator.extract(VdMirExprRegionDataMut {
             expr_arena: &mut expr_arena,
+            stmt_arena: stmt_arena.as_arena_ref(),
             tactic_arena: &mut tactic_arena,
+            symbol_local_defn_storage: &symbol_local_defn_storage,
         });
         Self {
             root_module_path,
