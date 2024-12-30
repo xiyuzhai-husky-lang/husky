@@ -6,6 +6,7 @@ pub mod mangle;
 pub mod namespace;
 pub mod scheme;
 pub mod stmt;
+mod tactic;
 #[cfg(test)]
 mod tests;
 pub mod ty;

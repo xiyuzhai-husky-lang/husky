@@ -138,6 +138,7 @@ impl<'db> VdMirExprBuilder<'db> {
         VdMirExprRegionData::new(
             self.expr_arena,
             self.stmt_arena,
+            self.tactic_arena,
             self.symbol_local_defn_storage,
         )
     }
