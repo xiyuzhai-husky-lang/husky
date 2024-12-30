@@ -4,7 +4,7 @@ use crate::{
     source_map::VdMirSourceMap,
     stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdxRange, VdMirStmtSource},
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
-    tactic::VdMirTacticArena,
+    tactic::{VdMirTacticArena, VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange},
 };
 use visored_sem_expr::{
     block::VdSemBlockArenaRef, clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef,
@@ -121,6 +121,13 @@ impl<'db> VdMirExprBuilder<'db> {
         let stmts = self.stmt_arena.alloc_batch(data);
         self.source_map.set_stmts(stmts, sources);
         stmts
+    }
+
+    pub(crate) fn alloc_tactics(
+        &mut self,
+        entries: impl IntoIterator<Item = VdMirTacticEntry>,
+    ) -> VdMirTacticIdxRange {
+        self.tactic_arena.alloc_batch(entries)
     }
 
     pub(crate) fn alloc_symbol_local_defns(&mut self, data: Vec<VdMirSymbolLocalDefnData>) {
