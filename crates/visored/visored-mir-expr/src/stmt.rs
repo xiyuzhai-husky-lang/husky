@@ -12,7 +12,7 @@ use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use tactic::VdMirTacticIdxRange;
+use tactic::{VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange};
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_prelude::division::VdDivisionLevel;
@@ -237,6 +237,6 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 
     fn default_tactics(&mut self) -> VdMirTacticIdxRange {
-        todo!()
+        self.alloc_tactics(vec![VdMirTacticEntry::new(VdMirTacticData::Obvious)])
     }
 }
