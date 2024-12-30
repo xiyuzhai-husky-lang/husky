@@ -1,7 +1,9 @@
 use super::*;
 use dictionary::func_key::VdFuncKeyTranslation;
 use either::*;
-use lean_mir_expr::{expr::application::LnMirFunc, tactic::LnMirTacticData};
+use lean_mir_expr::{
+    expr::application::LnMirFunc, item_defn::def::LnMirDefBody, tactic::LnMirTacticData,
+};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::instantiation::LnInstantiation;
 use visored_mir_expr::{expr::application::VdMirFunc, tactic::VdMirTacticIdxRange};
@@ -14,7 +16,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         prop: VdMirExprIdx,
         tactics: VdMirTacticIdxRange,
     ) -> LnItemDefnData {
-        todo!("have tactics");
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -33,7 +34,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                     parameters: vec![],
                     ty: Some(prop.to_lean(self)),
                     // TODO: better??
-                    body: self.sorry(),
+                    body: LnMirDefBody::Tactics(tactics.to_lean(self)),
                 }
             }
         }

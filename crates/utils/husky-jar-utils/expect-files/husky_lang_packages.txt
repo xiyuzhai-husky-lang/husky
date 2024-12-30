@@ -401,10 +401,19 @@
         name: "husky-text-protocol",
         relative_path: "crates/protocols/husky-text-protocol",
         dependencies: [
+            "husky-codespan-utils",
             "lsp-types",
             "rustc-hash",
             "serde",
             "shifted-unsigned-int",
+        ],
+    },
+    PackageSummary {
+        name: "husky-codespan-utils",
+        relative_path: "crates/utils/husky-codespan-utils",
+        dependencies: [
+            "codespan-reporting",
+            "termcolor",
         ],
     },
     PackageSummary {
@@ -4032,6 +4041,7 @@
             "either",
             "eterned",
             "husky-print-utils",
+            "husky-text-protocol",
             "husky-tree-utils",
             "latex-prelude",
             "latex-token",
@@ -4172,6 +4182,7 @@
         relative_path: "crates/visored/visored-mir-expr",
         dependencies: [
             "either",
+            "enum-class",
             "eterned",
             "husky-print-utils",
             "husky-tree-utils",
@@ -4185,6 +4196,7 @@
             "once-place",
             "salsa",
             "smallvec",
+            "thiserror",
             "visored-annotation",
             "visored-entity-path",
             "visored-global-dispatch",
@@ -4349,14 +4361,6 @@
             "latex-environment",
             "latex-vfs",
             "visored-entity-path",
-        ],
-    },
-    PackageSummary {
-        name: "husky-codespan-utils",
-        relative_path: "crates/utils/husky-codespan-utils",
-        dependencies: [
-            "codespan-reporting",
-            "termcolor",
         ],
     },
     PackageSummary {
