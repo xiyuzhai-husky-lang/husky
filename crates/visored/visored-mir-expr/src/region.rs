@@ -49,6 +49,7 @@ impl VdMirExprRegionData {
 pub struct VdMirExprRegionDataRef<'a> {
     pub expr_arena: VdMirExprArenaRef<'a>,
     pub stmt_arena: VdMirStmtArenaRef<'a>,
+    pub tactic_arena: VdMirTacticArenaRef<'a>,
     pub symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
 }
 

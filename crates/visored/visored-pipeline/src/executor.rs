@@ -193,7 +193,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             VdSynExprVibe::ROOT_CNL,
             self.db,
             &VdLeanTranspilationDenseScheme,
-            VdMirTacticTrivialElaborator,
+            VdMirTacticTrivialElaborator::default(),
         );
         self.lean4_code = Some(format!(
             r#"import Mathlib
