@@ -24,6 +24,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                     VdMirStmtSource::Stmt(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
+                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
@@ -69,6 +70,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             VdMirStmtData::Goal { prop } => todo!(),
             VdMirStmtData::Have { prop, .. } => self.build_have_stmt(stmt, prop),
             VdMirStmtData::Show { prop, .. } => self.build_show_stmt(stmt, prop),
+            VdMirStmtData::Qed => todo!(),
         }
     }
 

@@ -9,4 +9,8 @@ where
         let tactic = self.alloc_tactic(LnMirTacticData::Obvious);
         LnMirTacticIdxRange::new_single(tactic)
     }
+
+    pub fn default_tactic_data(&mut self) -> LnMirTacticData {
+        LnMirTacticData::Obvious
+    }
 }

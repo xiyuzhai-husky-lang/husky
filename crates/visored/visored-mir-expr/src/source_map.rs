@@ -20,9 +20,13 @@ impl VdMirSourceMap {
         stmts: VdMirStmtIdxRange,
         sources: impl IntoIterator<Item = VdMirStmtSource>,
     ) {
-        for (stmt, source) in stmts.into_iter().zip(sources) {
+        let mut sources = sources.into_iter();
+        for stmt in stmts {
+            // make sure they are of the same length
+            let source = sources.next().unwrap();
             self.stmt_map.insert_next(stmt, source);
         }
+        debug_assert!(sources.next().is_none());
     }
 
     pub(crate) fn set_tactics(

@@ -93,7 +93,8 @@ where
             | VdMirStmtData::LetAssigned { .. }
             | VdMirStmtData::Goal { .. }
             | VdMirStmtData::Have { .. }
-            | VdMirStmtData::Show { .. } => (),
+            | VdMirStmtData::Show { .. }
+            | VdMirStmtData::Qed => (),
         }
         let elaboration = self.inner.elaborate_stmt(stmt, region_data);
         self.stmt_elaboration_trackers.insert_new(stmt, elaboration);

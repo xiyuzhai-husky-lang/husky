@@ -28,6 +28,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                     VdMirStmtSource::Stmt(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
+                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
@@ -101,6 +102,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             | VdMirStmtData::Have { .. }
             | VdMirStmtData::Show { .. } => unreachable!(),
             VdMirStmtData::Goal { prop } => todo!(),
+            VdMirStmtData::Qed => todo!(),
         }
     }
 

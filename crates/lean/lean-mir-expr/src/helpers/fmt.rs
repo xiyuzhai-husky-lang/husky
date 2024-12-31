@@ -288,6 +288,10 @@ impl<'a> LnMirExprFormatter<'a> {
                 }
                 self.make_sure_new_line();
             }
+            LnItemDefnComment::Qed => {
+                self.make_sure_new_line();
+                self.result += "-- qed";
+            }
         }
     }
 

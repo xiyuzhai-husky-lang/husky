@@ -90,6 +90,7 @@ impl std::fmt::Display for LnMirItemDefnGroupMeta {
 pub enum LnItemDefnComment {
     Void,
     Lines(Vec<String>),
+    Qed,
 }
 
 pub type LnItemDefnCommentMap = LnItemDefnOrderedMap<LnItemDefnComment>;

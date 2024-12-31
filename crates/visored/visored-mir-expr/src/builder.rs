@@ -121,11 +121,15 @@ impl<'db> VdMirExprBuilder<'db> {
 
     pub(crate) fn alloc_stmts(
         &mut self,
-        entries: impl IntoIterator<Item = VdMirStmtEntry>,
+        mut entries: Vec<VdMirStmtEntry>,
         sources: impl IntoIterator<Item = VdMirStmtSource>,
     ) -> VdMirStmtIdxRange {
+        entries.push(VdMirStmtEntry::new_qed());
         let stmts = self.stmt_arena.alloc_batch(entries);
-        self.source_map.set_stmts(stmts, sources);
+        self.source_map.set_stmts(
+            stmts,
+            sources.into_iter().chain([VdMirStmtSource::Qed(stmts)]),
+        );
         stmts
     }
 

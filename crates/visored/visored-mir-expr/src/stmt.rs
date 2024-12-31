@@ -54,6 +54,7 @@ pub enum VdMirStmtData {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
     },
+    Qed,
 }
 
 pub struct VdMirStmtEntry {
@@ -67,6 +68,7 @@ pub enum VdMirStmtSource {
     Division(VdSemDivisionIdx),
     Sentence(VdSemSentenceIdx),
     Clause(VdSemClauseIdx),
+    Qed(idx_arena::ArenaIdxRange<VdMirStmtEntry>),
 }
 
 pub type VdMirStmtArena = Arena<VdMirStmtEntry>;
@@ -82,6 +84,10 @@ impl VdMirStmtEntry {
             data,
             elaboration_tracker: OncePlace::default(),
         }
+    }
+
+    pub fn new_qed() -> Self {
+        Self::new(VdMirStmtData::Qed)
     }
 }
 
