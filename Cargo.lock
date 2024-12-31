@@ -13519,6 +13519,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-mir-standard-sequential-elaborator"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "eterned",
+ "expect-test",
+ "husky-case-utils",
+ "husky-path-utils",
+ "husky-print-utils",
+ "husky-sha-utils",
+ "idx-arena",
+ "latex-prelude",
+ "latex-vfs",
+ "relative-path",
+ "rustc-hash 2.0.0",
+ "thiserror",
+ "vec-like",
+ "visored-annotation",
+ "visored-lean-transpilation",
+ "visored-mir-expr",
+ "visored-models",
+ "visored-opr",
+ "visored-syn-expr",
+ "visored-term",
+]
+
+[[package]]
 name = "visored-models"
 version = "0.1.0"
 dependencies = [
@@ -13680,33 +13707,6 @@ name = "visored-syn-patt"
 version = "0.1.0"
 dependencies = [
  "eterned",
-]
-
-[[package]]
-name = "visored-tactic-standard-sequential-elaborator"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "eterned",
- "expect-test",
- "husky-case-utils",
- "husky-path-utils",
- "husky-print-utils",
- "husky-sha-utils",
- "idx-arena",
- "latex-prelude",
- "latex-vfs",
- "relative-path",
- "rustc-hash 2.0.0",
- "thiserror",
- "vec-like",
- "visored-annotation",
- "visored-lean-transpilation",
- "visored-mir-expr",
- "visored-models",
- "visored-opr",
- "visored-syn-expr",
- "visored-term",
 ]
 
 [[package]]

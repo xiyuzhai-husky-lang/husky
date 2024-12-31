@@ -1,5 +1,5 @@
 [package]
-name = "visored-tactic-standard-sequential-elaborator"
+name = "visored-mir-standard-sequential-elaborator"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
