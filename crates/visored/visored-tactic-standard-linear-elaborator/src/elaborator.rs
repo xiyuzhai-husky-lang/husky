@@ -5,7 +5,7 @@ use visored_mir_expr::tactic::elaboration::elaborator::linear::{
 
 #[derive(Debug, Default)]
 pub struct VdMirTacticStandardLinearElaboratorInner<'sess> {
-    phantom: PhantomData<&'sess ()>,
+    pub(crate) phantom: PhantomData<&'sess ()>,
 }
 
 pub type VdMirTacticStandardLinearElaborator<'sess> =

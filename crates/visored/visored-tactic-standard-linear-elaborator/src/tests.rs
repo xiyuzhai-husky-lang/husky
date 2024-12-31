@@ -1,8 +1,19 @@
 use eterned::db::EternerDb;
 use husky_path_utils::search::find_files;
+use latex_prelude::helper::tracker::LxDocumentInput;
+use latex_vfs::path::LxFilePath;
 use std::{
+    marker::PhantomData,
     path::{Path, PathBuf},
     sync::Arc,
+};
+use visored_lean_transpilation::scheme::dense::VdLeanTranspilationDenseScheme;
+use visored_models::VdModels;
+use visored_syn_expr::vibe::VdSynExprVibe;
+
+use crate::{
+    elaborator::{VdMirTacticStandardLinearElaborator, VdMirTacticStandardLinearElaboratorInner},
+    helpers::tracker::VdMirTacticStandardLinearElaboratorTracker,
 };
 
 #[test]
@@ -10,7 +21,13 @@ fn visored_tactic_standard_linear_elaborator_works() {
     use husky_case_utils::{Case, ToCase};
     use husky_path_utils::HuskyLangDevPaths;
 
-    fn t(src_root: &Path, src_file_paths: Vec<PathBuf>, lean4_dir: &Path, expect_files_dir: &Path) {
+    fn t(
+        dev_paths: &HuskyLangDevPaths,
+        src_root: &Path,
+        src_file_paths: Vec<PathBuf>,
+        lean4_dir: &Path,
+        expect_files_dir: &Path,
+    ) {
         let db = &EternerDb::default();
         for src_file_path in src_file_paths {
             use expect_test::expect_file;
@@ -21,20 +38,35 @@ fn visored_tactic_standard_linear_elaborator_works() {
                 .unwrap()
                 .to_case(Case::Pascal)
                 .with_extension("lean");
-            use husky_print_utils::p;
-            p!(
-                src_file_path.relative_to(src_root).unwrap(),
-                relative_path,
-                relative_path.to_logical_path(lean4_dir).exists()
+            let content = std::fs::read_to_string(&src_file_path).unwrap();
+            let tracker = VdMirTacticStandardLinearElaboratorTracker::new(
+                LxDocumentInput {
+                    specs_dir: dev_paths.specs_dir().to_path_buf(),
+                    file_path: LxFilePath::new(src_file_path, db),
+                    content: &content,
+                },
+                &[],
+                &[],
+                &VdModels {},
+                VdSynExprVibe::ROOT_CNL,
+                db,
+                &VdLeanTranspilationDenseScheme,
+                |region_data| {
+                    VdMirTacticStandardLinearElaborator::new(
+                        VdMirTacticStandardLinearElaboratorInner {
+                            phantom: PhantomData,
+                        },
+                        region_data,
+                    )
+                },
             );
-            todo!();
-            let lean4_code: String = todo!();
+            let lean4_code: String = tracker.show_fmt(db);
             expect_file!(relative_path.to_logical_path(lean4_dir)).assert_eq(&lean4_code);
         }
     }
 
-    let husky_lang_dev_paths = HuskyLangDevPaths::new();
-    let specs_dir = husky_lang_dev_paths.specs_dir();
+    let dev_paths = HuskyLangDevPaths::new();
+    let specs_dir = dev_paths.specs_dir();
     // Collect all .tex files from the directory
     let src_root = &PathBuf::from("latex/main");
     let tex_files = find_files(src_root, |p| {
@@ -43,6 +75,7 @@ fn visored_tactic_standard_linear_elaborator_works() {
     .unwrap();
     let lean4_dir = Path::new("lean4/mathlib4-tests/Mathlib4Tests");
     t(
+        &dev_paths,
         src_root,
         tex_files,
         lean4_dir,
