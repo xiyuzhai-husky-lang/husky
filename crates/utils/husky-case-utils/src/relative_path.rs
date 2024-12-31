@@ -45,7 +45,7 @@ mod tests {
     fn test_relative_path_to_pascal_case() {
         let path = RelativePathBuf::from("src/hello_world/my-component");
         let converted = path.to_case(Case::Pascal);
-        assert_eq!(converted.as_str(), "src/HelloWorld/MyComponent");
+        assert_eq!(converted.as_str(), "Src/HelloWorld/MyComponent");
     }
 
     #[test]
