@@ -6,7 +6,8 @@ where
     S: IsVdLeanTranspilationScheme,
 {
     pub fn default_tactics(&mut self) -> LnMirTacticIdxRange {
-        let tactic = self.alloc_tactic(LnMirTacticData::Obvious);
+        let tactic_data = self.default_tactic_data();
+        let tactic = self.alloc_tactic(tactic_data);
         LnMirTacticIdxRange::new_single(tactic)
     }
 
