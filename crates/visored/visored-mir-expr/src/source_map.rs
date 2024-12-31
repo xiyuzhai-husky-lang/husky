@@ -1,7 +1,7 @@
 use crate::{
     expr::VdMirExprOrderedMap,
+    hint::{VdMirHintIdx, VdMirHintIdxRange, VdMirTacticOrderedMap, VdMirTacticSource},
     stmt::{VdMirStmtIdx, VdMirStmtIdxRange, VdMirStmtOrderedMap, VdMirStmtSource},
-    tactic::{VdMirTacticIdx, VdMirTacticIdxRange, VdMirTacticOrderedMap, VdMirTacticSource},
 };
 use visored_sem_expr::{
     block::VdSemBlockIdx, clause::VdSemClauseIdx, division::VdSemDivisionIdx, expr::VdSemExprIdx,
@@ -27,7 +27,7 @@ impl VdMirSourceMap {
 
     pub(crate) fn set_tactics(
         &mut self,
-        tactics: VdMirTacticIdxRange,
+        tactics: VdMirHintIdxRange,
         sources: impl IntoIterator<Item = VdMirTacticSource>,
     ) {
         for (tactic, source) in tactics.into_iter().zip(sources) {
@@ -44,10 +44,10 @@ impl std::ops::Index<VdMirStmtIdx> for VdMirSourceMap {
     }
 }
 
-impl std::ops::Index<VdMirTacticIdx> for VdMirSourceMap {
+impl std::ops::Index<VdMirHintIdx> for VdMirSourceMap {
     type Output = VdMirTacticSource;
 
-    fn index(&self, index: VdMirTacticIdx) -> &Self::Output {
+    fn index(&self, index: VdMirHintIdx) -> &Self::Output {
         &self.tactic_map[index]
     }
 }

@@ -40,7 +40,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
         let db = self.db();
-        match self.stmt_arena()[stmt] {
+        match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 match *meta {
                     VdMirBlockMeta::Paragraph => self.build_ln_def_from_vd_paragraph(stmts),
@@ -158,7 +158,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         parameters: &mut Vec<LnDefParameter>,
     ) -> std::ops::ControlFlow<Option<VdMirExprIdx>> {
         let stmt_arena = self.stmt_arena();
-        match stmt_arena[stmt] {
+        match *stmt_arena[stmt].data() {
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 parameters.push(LnDefParameter {
                     ident: match *pattern {

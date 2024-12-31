@@ -3,10 +3,8 @@ use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::{
+    elaborator::{linear::VdMirSequentialElaborator, VdMirTrivialElaborator},
     helpers::tracker::VdMirExprTracker,
-    tactic::elaboration::elaborator::{
-        linear::VdMirSequentialElaborator, VdMirTacticTrivialElaborator,
-    },
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
@@ -46,7 +44,7 @@ impl Tracker {
             models,
             vibe,
             db,
-            VdMirTacticTrivialElaborator::new_default,
+            VdMirTrivialElaborator::new_default,
         );
         // assert!(stmts.len() > 1);
         Self {}

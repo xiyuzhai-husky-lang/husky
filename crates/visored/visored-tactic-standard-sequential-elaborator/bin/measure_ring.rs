@@ -3,8 +3,8 @@ use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::{
-    expr::VdMirExprData, helpers::tracker::VdMirExprTracker, stmt::VdMirStmtData,
-    tactic::elaboration::elaborator::VdMirTacticTrivialElaborator,
+    elaborator::VdMirTrivialElaborator, expr::VdMirExprData, helpers::tracker::VdMirExprTracker,
+    stmt::VdMirStmtData,
 };
 use visored_mir_standard_sequential_elaborator::{
     session::VdMirTacticEvaluationSession,
@@ -59,22 +59,22 @@ fn ring_tactics() {
             models,
             VdSynExprVibe::ROOT_CNL,
             db,
-            VdMirTacticTrivialElaborator::new_default, // ad hoc
+            VdMirTrivialElaborator::new_default, // ad hoc
         );
         let stmt = stmts.last().unwrap();
-        let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
+        let VdMirStmtData::Block { stmts, ref meta } = *stmt_arena[stmt].data() else {
             unreachable!()
         };
         let stmt = stmts.last().unwrap();
-        let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
+        let VdMirStmtData::Block { stmts, ref meta } = *stmt_arena[stmt].data() else {
             unreachable!()
         };
         let stmt = stmts.last().unwrap();
-        let VdMirStmtData::Block { stmts, ref meta } = stmt_arena[stmt] else {
+        let VdMirStmtData::Block { stmts, ref meta } = *stmt_arena[stmt].data() else {
             unreachable!()
         };
         let stmt = stmts.last().unwrap();
-        let VdMirStmtData::Have { prop, tactics } = stmt_arena[stmt] else {
+        let VdMirStmtData::Have { prop, .. } = *stmt_arena[stmt].data() else {
             unreachable!()
         };
         let VdMirExprData::ChainingSeparatedList {

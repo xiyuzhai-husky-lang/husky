@@ -1,7 +1,7 @@
 use std::marker::PhantomData;
-use visored_mir_expr::tactic::elaboration::{
+use visored_mir_expr::{
+    elaboration::VdMirStmtElaborationTracker,
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
-    VdMirTacticElaborationTracker,
 };
 
 #[derive(Debug, Default)]
@@ -15,9 +15,9 @@ pub type VdMirStandardSequentialElaborator<'sess> =
 impl<'sess> IsVdMirSequentialElaboratorInner for VdMirStandardSequentialElaboratorInner<'sess> {
     type ElaborationTracker = ();
 
-    fn eval_tactic(
+    fn elaborate_stmt(
         &mut self,
-        tactic: visored_mir_expr::tactic::VdMirTacticIdx,
+        stmt: visored_mir_expr::stmt::VdMirStmtIdx,
         region_data: visored_mir_expr::region::VdMirExprRegionDataRef,
     ) -> Self::ElaborationTracker {
         ()
@@ -27,7 +27,7 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdMirStandardSequentialElaborat
         &self,
         elaboration: &Self::ElaborationTracker,
         region_data: visored_mir_expr::region::VdMirExprRegionDataRef,
-    ) -> VdMirTacticElaborationTracker {
-        VdMirTacticElaborationTracker::new_trivial()
+    ) -> VdMirStmtElaborationTracker {
+        VdMirStmtElaborationTracker::new_trivial()
     }
 }

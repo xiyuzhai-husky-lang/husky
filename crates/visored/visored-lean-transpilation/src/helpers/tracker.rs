@@ -22,11 +22,11 @@ use lean_mir_expr::{
 };
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_mir_expr::{
+    elaborator::IsVdMirTacticElaborator,
     expr::VdMirExprIdx,
     helpers::tracker::{IsVdMirExprInput, VdMirExprTracker},
     region::VdMirExprRegionDataRef,
     stmt::VdMirStmtIdxRange,
-    tactic::elaboration::elaborator::IsVdMirTacticElaborator,
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 

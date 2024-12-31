@@ -6,16 +6,12 @@ use lean_mir_expr::{
 };
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::instantiation::LnInstantiation;
-use visored_mir_expr::{expr::application::VdMirFunc, tactic::VdMirTacticIdxRange};
+use visored_mir_expr::{expr::application::VdMirFunc, hint::VdMirHintIdxRange};
 use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
-    pub(super) fn build_have_stmt(
-        &mut self,
-        prop: VdMirExprIdx,
-        tactics: VdMirTacticIdxRange,
-    ) -> LnItemDefnData {
+    pub(super) fn build_have_stmt(&mut self, prop: VdMirExprIdx) -> LnItemDefnData {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -34,7 +30,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                     parameters: vec![],
                     ty: Some(prop.to_lean(self)),
                     // TODO: better??
-                    body: LnMirDefBody::Tactics(tactics.to_lean(self)),
+                    body: LnMirDefBody::Tactics(todo!()),
                 }
             }
         }

@@ -21,7 +21,7 @@ use visored_mir_expr::{
     source_map::VdMirSourceMap,
     stmt::VdMirStmtArenaRef,
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
-    tactic::VdMirTacticArenaRef,
+    hint::VdMirTacticArenaRef,
 };
 use visored_sem_expr::range::{
     VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,

@@ -1,3 +1,4 @@
+use crate::elaborator::IsVdMirTacticElaborator;
 use crate::{
     builder::VdMirExprBuilder,
     expr::{VdMirExprArena, VdMirExprIdx},
@@ -8,6 +9,7 @@ use either::*;
 use eterned::db::EternerDb;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
+use hint::VdMirTacticArena;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
@@ -17,7 +19,6 @@ use latex_token::storage::LxTokenStorage;
 use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
-use tactic::{elaboration::elaborator::IsVdMirTacticElaborator, VdMirTacticArena};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -129,8 +130,13 @@ where
             &sem_symbol_local_defn_storage,
         );
         let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (mut expr_arena, stmt_arena, mut tactic_arena, symbol_local_defn_storage, source_map) =
-            builder.finish();
+        let (
+            mut expr_arena,
+            mut stmt_arena,
+            mut tactic_arena,
+            symbol_local_defn_storage,
+            source_map,
+        ) = builder.finish();
         let mut elaborator = gen_elaborator(VdMirExprRegionDataRef {
             expr_arena: expr_arena.as_arena_ref(),
             stmt_arena: stmt_arena.as_arena_ref(),
@@ -148,7 +154,7 @@ where
         );
         elaborator.extract(VdMirExprRegionDataMut {
             expr_arena: &mut expr_arena,
-            stmt_arena: stmt_arena.as_arena_ref(),
+            stmt_arena: &mut stmt_arena,
             tactic_arena: &mut tactic_arena,
             symbol_local_defn_storage: &symbol_local_defn_storage,
         });
@@ -212,7 +218,7 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
         region_data: VdMirExprRegionDataRef,
         elaborator: &mut impl IsVdMirTacticElaborator,
     ) {
-        elaborator.eval_all_tactics_within_stmts(self, region_data);
+        elaborator.elaborate_stmts(self, region_data);
     }
 }
 
@@ -226,6 +232,5 @@ impl IsVdMirExprOutput for VdMirExprIdx {
         region_data: VdMirExprRegionDataRef,
         elaborator: &mut impl IsVdMirTacticElaborator,
     ) {
-        elaborator.eval_all_tactics_within_expr(self, region_data);
     }
 }

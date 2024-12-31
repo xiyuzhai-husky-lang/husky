@@ -1,12 +1,15 @@
 use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange},
+    hint::{
+        VdMirHintIdxRange, VdMirTacticArena, VdMirTacticData, VdMirTacticEntry, VdMirTacticSource,
+    },
     region::VdMirExprRegionData,
     source_map::VdMirSourceMap,
-    stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdxRange, VdMirStmtSource},
-    symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
-    tactic::{
-        VdMirTacticArena, VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange, VdMirTacticSource,
+    stmt::{
+        VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtEntry, VdMirStmtIdxRange,
+        VdMirStmtSource,
     },
+    symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
 };
 use visored_sem_expr::{
     block::VdSemBlockArenaRef, clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef,
@@ -117,10 +120,10 @@ impl<'db> VdMirExprBuilder<'db> {
 
     pub(crate) fn alloc_stmts(
         &mut self,
-        data: impl IntoIterator<Item = VdMirStmtData>,
+        entries: impl IntoIterator<Item = VdMirStmtEntry>,
         sources: impl IntoIterator<Item = VdMirStmtSource>,
     ) -> VdMirStmtIdxRange {
-        let stmts = self.stmt_arena.alloc_batch(data);
+        let stmts = self.stmt_arena.alloc_batch(entries);
         self.source_map.set_stmts(stmts, sources);
         stmts
     }
@@ -129,7 +132,7 @@ impl<'db> VdMirExprBuilder<'db> {
         &mut self,
         entries: impl IntoIterator<Item = VdMirTacticEntry>,
         sources: impl IntoIterator<Item = VdMirTacticSource>,
-    ) -> VdMirTacticIdxRange {
+    ) -> VdMirHintIdxRange {
         let tactics = self.tactic_arena.alloc_batch(entries);
         self.source_map.set_tactics(tactics, sources);
         tactics

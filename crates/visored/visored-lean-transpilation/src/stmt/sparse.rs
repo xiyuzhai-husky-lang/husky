@@ -36,7 +36,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
         let db = self.db();
-        match self.stmt_arena()[stmt] {
+        match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 let defns = match *meta {
                     VdMirBlockMeta::Paragraph | VdMirBlockMeta::Sentence => stmts.to_lean(self),
@@ -67,8 +67,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                 assignment,
             } => todo!(),
             VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Have { prop, tactics } => self.build_have_stmt(prop, tactics),
-            VdMirStmtData::Show { prop, tactics } => self.build_show_stmt(prop, tactics),
+            VdMirStmtData::Have { prop, .. } => self.build_have_stmt(prop),
+            VdMirStmtData::Show { prop, .. } => self.build_show_stmt(prop),
         }
     }
 

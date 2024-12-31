@@ -1,4 +1,6 @@
 pub mod builder;
+pub mod elaboration;
+pub mod elaborator;
 pub mod expr;
 pub mod helpers;
 pub mod pattern;
@@ -6,7 +8,7 @@ pub mod region;
 pub mod source_map;
 pub mod stmt;
 pub mod symbol;
-pub mod tactic;
+pub mod hint;
 #[cfg(test)]
 mod tests;
 

@@ -29,7 +29,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         let Some((stmt, following_stmts)) = stmts.first_and_others() else {
             return;
         };
-        match self.stmt_arena()[stmt] {
+        match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 match meta {
                     VdMirBlockMeta::Paragraph => {
@@ -62,17 +62,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             VdMirStmtData::Goal { prop } => {
                 self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);
             }
-            VdMirStmtData::Have {
-                prop,
-                tactics: have_tactics,
-            } => {
-                tactics.push(self.build_ln_tactic_from_vd_have(prop, have_tactics));
+            VdMirStmtData::Have { prop, .. } => {
+                tactics.push(self.build_ln_tactic_from_vd_have(stmt, prop));
                 self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);
             }
-            VdMirStmtData::Show {
-                prop,
-                tactics: show_tactics,
-            } => {
+            VdMirStmtData::Show { prop, .. } => {
                 // Here, we also provide the following stmts to build the tactic.
                 tactics.push(self.build_ln_tactic_from_vd_show(prop, following_stmts));
                 todo!("show tactics")

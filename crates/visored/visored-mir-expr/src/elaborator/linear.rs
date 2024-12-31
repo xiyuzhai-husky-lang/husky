@@ -1,22 +1,24 @@
-use crate::stmt::VdMirStmtData;
-
 use super::*;
+use crate::{
+    elaboration::VdMirStmtElaborationTracker,
+    stmt::{VdMirStmtData, VdMirStmtMap},
+};
 
 #[derive(Debug)]
 pub struct VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    tactic_elaborations: VdMirTacticMap<Inner::ElaborationTracker>,
+    stmt_elaboration_trackers: VdMirStmtMap<Inner::ElaborationTracker>,
     inner: Inner,
 }
 
 pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
     type ElaborationTracker: std::fmt::Debug + Eq;
 
-    fn eval_tactic(
+    fn elaborate_stmt(
         &mut self,
-        tactic: VdMirTacticIdx,
+        stmt: VdMirStmtIdx,
         region_data: VdMirExprRegionDataRef,
     ) -> Self::ElaborationTracker;
 
@@ -24,20 +26,20 @@ pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
         &self,
         elaboration: &Self::ElaborationTracker,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdMirTacticElaborationTracker;
+    ) -> VdMirStmtElaborationTracker;
 }
 
 impl IsVdMirSequentialElaboratorInner for () {
     type ElaborationTracker = ();
 
-    fn eval_tactic(&mut self, tactic: VdMirTacticIdx, region_data: VdMirExprRegionDataRef) -> () {}
+    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) -> () {}
 
     fn extract_elaboration_tracker(
         &self,
         elaboration: &Self::ElaborationTracker,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdMirTacticElaborationTracker {
-        VdMirTacticElaborationTracker::new_trivial()
+    ) -> VdMirStmtElaborationTracker {
+        VdMirStmtElaborationTracker::new_trivial()
     }
 }
 
@@ -47,7 +49,7 @@ where
 {
     pub fn new(inner: Inner, region_data: VdMirExprRegionDataRef) -> Self {
         Self {
-            tactic_elaborations: VdMirTacticMap::new2(region_data.tactic_arena),
+            stmt_elaboration_trackers: VdMirStmtMap::new2(region_data.stmt_arena),
             inner,
         }
     }
@@ -64,25 +66,15 @@ impl<Inner> IsVdMirTacticElaborator for VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    fn eval_all_tactics_within_stmts(
-        &mut self,
-        stmts: VdMirStmtIdxRange,
-        region_data: VdMirExprRegionDataRef,
-    ) {
+    fn elaborate_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef) {
         for stmt in stmts {
-            self.eval_all_tactics_within_stmt(stmt, region_data);
+            self.elaborate_stmt(stmt, region_data);
         }
     }
 
-    fn eval_all_tactics_within_stmt(
-        &mut self,
-        stmt: VdMirStmtIdx,
-        region_data: VdMirExprRegionDataRef,
-    ) {
-        match region_data.stmt_arena[stmt] {
-            VdMirStmtData::Block { stmts, ref meta } => {
-                self.eval_all_tactics_within_stmts(stmts, region_data)
-            }
+    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) {
+        match *region_data.stmt_arena[stmt].data() {
+            VdMirStmtData::Block { stmts, ref meta } => self.elaborate_stmts(stmts, region_data),
             VdMirStmtData::LetPlaceholder {
                 ref pattern,
                 ref ty,
@@ -92,24 +84,17 @@ where
                 assignment,
             } => (),
             VdMirStmtData::Goal { ref prop } => (),
-            VdMirStmtData::Have { ref prop, tactics } => self.eval_tactics(tactics, region_data),
-            VdMirStmtData::Show { ref prop, tactics } => todo!(),
+            VdMirStmtData::Have { ref prop, hint } => todo!(),
+            VdMirStmtData::Show { ref prop, hint } => todo!(),
         }
     }
 
-    fn eval_all_tactics_within_expr(
-        &mut self,
-        expr: VdMirExprIdx,
-        region_data: VdMirExprRegionDataRef,
-    ) {
-    }
-
     fn extract(&self, mut region_data: VdMirExprRegionDataMut) {
-        for (tactic, elaboration) in self.tactic_elaborations.iter() {
+        for (stmt, elaboration_tracker) in self.stmt_elaboration_trackers.iter() {
             let elaboration_tracker = self
                 .inner
-                .extract_elaboration_tracker(elaboration, region_data.as_region_data_ref());
-            region_data.set_elaboration_tracker(tactic, elaboration_tracker);
+                .extract_elaboration_tracker(elaboration_tracker, region_data.as_region_data_ref());
+            region_data.set_elaboration_tracker(stmt, elaboration_tracker);
         }
     }
 }
@@ -118,10 +103,10 @@ impl<Inner> VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    fn eval_tactics(&mut self, tactics: VdMirTacticIdxRange, region_data: VdMirExprRegionDataRef) {
-        for tactic in tactics {
-            let elaboration = self.inner.eval_tactic(tactic, region_data);
-            self.tactic_elaborations.insert_new(tactic, elaboration);
+    fn eval_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef) {
+        for stmt in stmts {
+            let elaboration = self.inner.elaborate_stmt(stmt, region_data);
+            self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
         }
     }
 }

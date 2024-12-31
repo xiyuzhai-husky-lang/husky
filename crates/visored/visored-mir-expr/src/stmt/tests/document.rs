@@ -1,4 +1,5 @@
 use super::*;
+use crate::elaborator::VdMirTrivialElaborator;
 use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdMirExprTracker;
@@ -6,7 +7,6 @@ use latex_prelude::helper::tracker::LxDocumentInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expect: &Expect) {
@@ -26,7 +26,7 @@ fn t(models: &VdModels, content: &str, expect: &Expect) {
         models,
         VdSynExprVibe::ROOT_CNL,
         db,
-        VdMirTacticTrivialElaborator::new_default,
+        VdMirTrivialElaborator::new_default,
     );
     expect.assert_eq(&tracker.show_display_tree(db));
 }

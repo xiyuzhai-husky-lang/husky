@@ -1,4 +1,4 @@
-use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
+use visored_mir_expr::elaborator::VdMirTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 use super::*;
@@ -22,7 +22,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
-        VdMirTacticTrivialElaborator::new_default,
+        VdMirTrivialElaborator::new_default,
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
@@ -166,7 +166,7 @@ fn latex_shorts_to_lean_works() {
             VdSynExprVibe::ROOT_CNL,
             db,
             &VdLeanTranspilationDenseScheme,
-            VdMirTacticTrivialElaborator::new_default,
+            VdMirTrivialElaborator::new_default,
         );
         expect_file![projects_dir.join(format!(
             "ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean",

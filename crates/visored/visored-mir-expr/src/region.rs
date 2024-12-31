@@ -1,11 +1,9 @@
 use crate::{
+    elaboration::{VdMirStmtElaborationTracker, VdMirTacticElaboration},
     expr::{VdMirExprArena, VdMirExprArenaRef},
-    stmt::{VdMirStmtArena, VdMirStmtArenaRef},
+    stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtIdx},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
-    tactic::{
-        elaboration::{VdMirTacticElaboration, VdMirTacticElaborationTracker},
-        VdMirTacticArena, VdMirTacticArenaRef, VdMirTacticIdx,
-    },
+    hint::{VdMirHintIdx, VdMirTacticArena, VdMirTacticArenaRef},
 };
 
 pub struct VdMirExprRegionData {
@@ -59,7 +57,7 @@ pub struct VdMirExprRegionDataRef<'a> {
 
 pub struct VdMirExprRegionDataMut<'a> {
     pub(crate) expr_arena: &'a mut VdMirExprArena,
-    pub(crate) stmt_arena: VdMirStmtArenaRef<'a>,
+    pub(crate) stmt_arena: &'a mut VdMirStmtArena,
     pub(crate) tactic_arena: &'a mut VdMirTacticArena,
     pub(crate) symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
 }
@@ -68,7 +66,7 @@ impl<'a> VdMirExprRegionDataMut<'a> {
     pub fn as_region_data_ref(&self) -> VdMirExprRegionDataRef {
         VdMirExprRegionDataRef {
             expr_arena: self.expr_arena.as_arena_ref(),
-            stmt_arena: self.stmt_arena,
+            stmt_arena: self.stmt_arena.as_arena_ref(),
             tactic_arena: self.tactic_arena.as_arena_ref(),
             symbol_local_defn_storage: self.symbol_local_defn_storage,
         }
@@ -77,10 +75,10 @@ impl<'a> VdMirExprRegionDataMut<'a> {
     #[inline(always)]
     pub fn set_elaboration_tracker(
         &mut self,
-        tactic: VdMirTacticIdx,
-        elaboration_tracker: VdMirTacticElaborationTracker,
+        stmt: VdMirStmtIdx,
+        elaboration_tracker: VdMirStmtElaborationTracker,
     ) {
-        self.tactic_arena.update(tactic, |entry| {
+        self.stmt_arena.update(stmt, |entry| {
             entry.set_elaboration_tracker(elaboration_tracker)
         });
     }

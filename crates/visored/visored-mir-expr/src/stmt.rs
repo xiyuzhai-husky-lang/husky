@@ -9,10 +9,12 @@ mod tests;
 
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
+use elaboration::VdMirStmtElaborationTracker;
+use hint::{VdMirHintIdx, VdMirHintIdxRange, VdMirTacticData, VdMirTacticEntry, VdMirTacticSource};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
-use tactic::{VdMirTacticData, VdMirTacticEntry, VdMirTacticIdxRange, VdMirTacticSource};
+use once_place::OncePlace;
 use visored_entity_path::module::VdModulePath;
 use visored_global_resolution::resolution::environment::VdEnvironmentGlobalResolution;
 use visored_prelude::division::VdDivisionLevel;
@@ -46,12 +48,17 @@ pub enum VdMirStmtData {
     },
     Have {
         prop: VdMirExprIdx,
-        tactics: VdMirTacticIdxRange,
+        hint: Option<VdMirHintIdx>,
     },
     Show {
         prop: VdMirExprIdx,
-        tactics: VdMirTacticIdxRange,
+        hint: Option<VdMirHintIdx>,
     },
+}
+
+pub struct VdMirStmtEntry {
+    data: VdMirStmtData,
+    elaboration_tracker: OncePlace<VdMirStmtElaborationTracker>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -62,21 +69,51 @@ pub enum VdMirStmtSource {
     Clause(VdSemClauseIdx),
 }
 
-pub type VdMirStmtArena = Arena<VdMirStmtData>;
-pub type VdMirStmtOrderedMap<T> = ArenaOrderedMap<VdMirStmtData, T>;
-pub type VdMirStmtMap<T> = ArenaMap<VdMirStmtData, T>;
-pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtData>;
-pub type VdMirStmtIdx = ArenaIdx<VdMirStmtData>;
-pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtData>;
+pub type VdMirStmtArena = Arena<VdMirStmtEntry>;
+pub type VdMirStmtOrderedMap<T> = ArenaOrderedMap<VdMirStmtEntry, T>;
+pub type VdMirStmtMap<T> = ArenaMap<VdMirStmtEntry, T>;
+pub type VdMirStmtArenaRef<'a> = ArenaRef<'a, VdMirStmtEntry>;
+pub type VdMirStmtIdx = ArenaIdx<VdMirStmtEntry>;
+pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtEntry>;
+
+impl VdMirStmtEntry {
+    pub fn new(data: VdMirStmtData) -> Self {
+        Self {
+            data,
+            elaboration_tracker: OncePlace::default(),
+        }
+    }
+}
+
+impl VdMirStmtEntry {
+    pub fn data(&self) -> &VdMirStmtData {
+        &self.data
+    }
+
+    #[track_caller]
+    pub fn elaboration_tracker(&self) -> &VdMirStmtElaborationTracker {
+        &*self.elaboration_tracker
+    }
+}
+
+impl VdMirStmtEntry {
+    #[track_caller]
+    pub(crate) fn set_elaboration_tracker(
+        &mut self,
+        elaboration_tracker: VdMirStmtElaborationTracker,
+    ) {
+        self.elaboration_tracker.set(elaboration_tracker);
+    }
+}
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let data = self
+        let entries = self
             .into_iter()
-            .map(|division| builder.build_stmt_from_sem_division(division))
+            .map(|division| VdMirStmtEntry::new(builder.build_stmt_from_sem_division(division)))
             .collect::<Vec<_>>();
         let sources = self.into_iter().map(VdMirStmtSource::Division);
-        builder.alloc_stmts(data, sources)
+        builder.alloc_stmts(entries, sources)
     }
 }
 
@@ -110,12 +147,12 @@ impl<'db> VdMirExprBuilder<'db> {
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemBlockIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let data = self
+        let entries = self
             .into_iter()
-            .map(|stmt| builder.build_stmt_from_sem_stmt(stmt))
+            .map(|stmt| VdMirStmtEntry::new(builder.build_stmt_from_sem_stmt(stmt)))
             .collect::<Vec<_>>();
         let sources = self.into_iter().map(VdMirStmtSource::Stmt);
-        builder.alloc_stmts(data, sources)
+        builder.alloc_stmts(entries, sources)
     }
 }
 
@@ -150,12 +187,12 @@ impl<'db> VdMirExprBuilder<'db> {
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemSentenceIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let data = self
+        let entries = self
             .into_iter()
-            .map(|sentence| builder.build_stmt_from_sem_sentence(sentence))
+            .map(|sentence| VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence)))
             .collect::<Vec<_>>();
         let sources = self.into_iter().map(VdMirStmtSource::Sentence);
-        builder.alloc_stmts(data, sources)
+        builder.alloc_stmts(entries, sources)
     }
 }
 
@@ -174,12 +211,12 @@ impl<'db> VdMirExprBuilder<'db> {
 
 impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let data = self
+        let entries = self
             .into_iter()
-            .map(|clause| builder.build_stmt_from_sem_clause(clause))
+            .map(|clause| VdMirStmtEntry::new(builder.build_stmt_from_sem_clause(clause)))
             .collect::<Vec<_>>();
         let sources = self.into_iter().map(VdMirStmtSource::Clause);
-        builder.alloc_stmts(data, sources)
+        builder.alloc_stmts(entries, sources)
     }
 }
 
@@ -222,7 +259,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
-                tactics: self.default_tactics(clause),
+                hint: None, // ad hoc
             },
             VdSemClauseData::Show {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
@@ -230,16 +267,9 @@ impl<'db> VdMirExprBuilder<'db> {
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::Show {
                 prop: formula.to_vd_mir(self),
-                tactics: self.default_tactics(clause),
+                hint: None, // ad hoc
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }
-    }
-
-    fn default_tactics(&mut self, source: impl Into<VdMirTacticSource>) -> VdMirTacticIdxRange {
-        self.alloc_tactics(
-            [VdMirTacticEntry::new(VdMirTacticData::Obvious)],
-            [source.into()],
-        )
     }
 }
