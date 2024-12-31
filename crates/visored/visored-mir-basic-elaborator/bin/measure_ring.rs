@@ -2,13 +2,13 @@ use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
+use visored_mir_basic_elaborator::{
+    session::VdMirSession,
+    tactic::ring::{engine::VdMirRingTacticEngine, tracker::*, *},
+};
 use visored_mir_expr::{
     elaborator::VdMirTrivialElaborator, expr::VdMirExprData, helpers::tracker::VdMirExprTracker,
     stmt::VdMirStmtData,
-};
-use visored_mir_standard_sequential_elaborator::{
-    session::VdMirStmtElaborationSession,
-    stmt::ring::{engine::VdMirStmtElaborationRingEngine, tracker::*, *},
 };
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
@@ -88,9 +88,9 @@ fn ring_tactics() {
         assert_eq!(followers.len(), 1);
         let lopd = leader;
         let ropd = followers[0].1;
-        let sess = VdMirStmtElaborationSession::new(db);
+        let sess = VdMirSession::new(db);
         for _ in 0..repetitions {
-            let mut engine = VdMirStmtElaborationRingEngine::new(&sess, expr_arena.as_arena_ref());
+            let mut engine = VdMirRingTacticEngine::new(&sess, expr_arena.as_arena_ref());
             engine.judge(lopd, ropd);
         }
     }

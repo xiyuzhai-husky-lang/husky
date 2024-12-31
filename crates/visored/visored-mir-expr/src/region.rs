@@ -1,5 +1,5 @@
 use crate::{
-    elaboration::{VdMirStmtElaborationTracker, VdMirTacticElaboration},
+    elaboration::{VdMirTacticElaboration, VdMirTracker},
     expr::{VdMirExprArena, VdMirExprArenaRef},
     hint::{VdMirHintArena, VdMirHintArenaRef, VdMirHintIdx},
     stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtIdx},
@@ -85,7 +85,7 @@ impl<'a> VdMirExprRegionDataMut<'a> {
     pub fn set_elaboration_tracker(
         &mut self,
         stmt: VdMirStmtIdx,
-        elaboration_tracker: VdMirStmtElaborationTracker,
+        elaboration_tracker: VdMirTracker,
     ) {
         self.stmt_arena.update(stmt, |entry| {
             entry.set_elaboration_tracker(elaboration_tracker)

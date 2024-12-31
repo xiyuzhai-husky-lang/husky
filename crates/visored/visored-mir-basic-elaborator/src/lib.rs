@@ -4,7 +4,8 @@ pub mod error;
 pub mod helpers;
 pub mod outcome;
 pub mod session;
-pub mod stmt;
+mod strategy;
+pub mod tactic;
 #[cfg(test)]
 mod tests;
 

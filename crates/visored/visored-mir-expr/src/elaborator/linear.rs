@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    elaboration::VdMirStmtElaborationTracker,
+    elaboration::VdMirTracker,
     stmt::{VdMirStmtData, VdMirStmtMap},
 };
 
@@ -26,7 +26,7 @@ pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
         &self,
         elaboration: &Self::ElaborationTracker,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdMirStmtElaborationTracker;
+    ) -> VdMirTracker;
 }
 
 impl IsVdMirSequentialElaboratorInner for () {
@@ -38,8 +38,8 @@ impl IsVdMirSequentialElaboratorInner for () {
         &self,
         elaboration: &Self::ElaborationTracker,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdMirStmtElaborationTracker {
-        VdMirStmtElaborationTracker::new_trivial()
+    ) -> VdMirTracker {
+        VdMirTracker::new_trivial()
     }
 }
 

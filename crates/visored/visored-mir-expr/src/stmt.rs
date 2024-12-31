@@ -9,7 +9,7 @@ mod tests;
 
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
-use elaboration::VdMirStmtElaborationTracker;
+use elaboration::VdMirTracker;
 use hint::{VdMirHintData, VdMirHintEntry, VdMirHintIdx, VdMirHintIdxRange, VdMirHintSource};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
@@ -59,7 +59,7 @@ pub enum VdMirStmtData {
 
 pub struct VdMirStmtEntry {
     data: VdMirStmtData,
-    elaboration_tracker: OncePlace<VdMirStmtElaborationTracker>,
+    elaboration_tracker: OncePlace<VdMirTracker>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -97,17 +97,14 @@ impl VdMirStmtEntry {
     }
 
     #[track_caller]
-    pub fn elaboration_tracker(&self) -> &VdMirStmtElaborationTracker {
+    pub fn elaboration_tracker(&self) -> &VdMirTracker {
         &*self.elaboration_tracker
     }
 }
 
 impl VdMirStmtEntry {
     #[track_caller]
-    pub(crate) fn set_elaboration_tracker(
-        &mut self,
-        elaboration_tracker: VdMirStmtElaborationTracker,
-    ) {
+    pub(crate) fn set_elaboration_tracker(&mut self, elaboration_tracker: VdMirTracker) {
         self.elaboration_tracker.set(elaboration_tracker);
     }
 }

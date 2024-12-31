@@ -9,29 +9,29 @@ use crate::{
 };
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdMirStmtElaborationTracker {
-    history: VdMirStmtElaborationHistory,
+pub struct VdMirTracker {
+    history: VdMirHistory,
     conclusion: Option<VdMirTacticElaborationResult<VdMirTacticElaboration>>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdMirStmtElaborationHistory {
+pub enum VdMirHistory {
     Trivial,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdMirTacticElaboration {}
 
-impl VdMirStmtElaborationTracker {
+impl VdMirTracker {
     pub fn new_trivial() -> Self {
         Self {
-            history: VdMirStmtElaborationHistory::Trivial,
+            history: VdMirHistory::Trivial,
             conclusion: None,
         }
     }
 }
 
-impl VdMirStmtElaborationTracker {
+impl VdMirTracker {
     pub fn conclusion(&self) -> Option<VdMirTacticElaborationResultRef<&VdMirTacticElaboration>> {
         self.conclusion.as_ref().map(|result| result.as_ref())
     }
