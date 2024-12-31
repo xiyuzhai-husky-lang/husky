@@ -23,7 +23,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 let ty = prop.to_lean(self);
                 let tactics = match self.stmt_arena()[stmt].elaboration_tracker().conclusion() {
                     Some(_) => todo!(),
-                    None => todo!(),
+                    None => self.default_tactics(),
                 };
                 let construction = self.alloc_expr(LnMirExprData::By { tactics });
                 LnMirTacticData::Have {

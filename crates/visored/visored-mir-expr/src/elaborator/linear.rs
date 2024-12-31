@@ -72,23 +72,6 @@ where
         }
     }
 
-    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) {
-        match *region_data.stmt_arena[stmt].data() {
-            VdMirStmtData::Block { stmts, ref meta } => self.elaborate_stmts(stmts, region_data),
-            VdMirStmtData::LetPlaceholder {
-                ref pattern,
-                ref ty,
-            } => (),
-            VdMirStmtData::LetAssigned {
-                ref pattern,
-                assignment,
-            } => (),
-            VdMirStmtData::Goal { ref prop } => (),
-            VdMirStmtData::Have { ref prop, hint } => todo!(),
-            VdMirStmtData::Show { ref prop, hint } => todo!(),
-        }
-    }
-
     fn extract(&self, mut region_data: VdMirExprRegionDataMut) {
         for (stmt, elaboration_tracker) in self.stmt_elaboration_trackers.iter() {
             let elaboration_tracker = self
@@ -103,10 +86,16 @@ impl<Inner> VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    fn eval_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef) {
-        for stmt in stmts {
-            let elaboration = self.inner.elaborate_stmt(stmt, region_data);
-            self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
+    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) {
+        match *region_data.stmt_arena[stmt].data() {
+            VdMirStmtData::Block { stmts, .. } => self.elaborate_stmts(stmts, region_data),
+            VdMirStmtData::LetPlaceholder { .. }
+            | VdMirStmtData::LetAssigned { .. }
+            | VdMirStmtData::Goal { .. }
+            | VdMirStmtData::Have { .. }
+            | VdMirStmtData::Show { .. } => (),
         }
+        let elaboration = self.inner.elaborate_stmt(stmt, region_data);
+        self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
     }
 }

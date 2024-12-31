@@ -9,7 +9,6 @@ use crate::{
 
 pub trait IsVdMirTacticElaborator: std::fmt::Debug {
     fn elaborate_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef);
-    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef);
     fn extract(&self, region_data: VdMirExprRegionDataMut);
 }
 
