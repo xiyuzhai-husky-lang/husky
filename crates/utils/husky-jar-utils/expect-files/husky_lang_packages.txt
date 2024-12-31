@@ -5090,8 +5090,8 @@
         ],
     },
     PackageSummary {
-        name: "visored-tactic-standard-linear-elaborator",
-        relative_path: "crates/visored/visored-tactic-standard-linear-elaborator",
+        name: "visored-tactic-standard-sequential-elaborator",
+        relative_path: "crates/visored/visored-tactic-standard-sequential-elaborator",
         dependencies: [
             "enum-class",
             "eterned",

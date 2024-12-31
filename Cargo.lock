@@ -13683,7 +13683,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-tactic-standard-linear-elaborator"
+name = "visored-tactic-standard-sequential-elaborator"
 version = "0.1.0"
 dependencies = [
  "enum-class",
