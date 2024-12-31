@@ -43,12 +43,14 @@ Let $x\in\mathbb{R}$.
               └─ def: `h`
                 ├─ item path: `ℝ`
                 └─ tactics
+                  ├─ tactic: `Obvious`
                   └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             import Mathlib
 
             def h(x : ℝ) := by
+              obvious
               obvious"#]],
     );
     t(
@@ -65,6 +67,7 @@ Let $x\in\mathbb{R}$.
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
+                    ├─ tactic: `Obvious`
                     └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
@@ -72,6 +75,7 @@ Let $x\in\mathbb{R}$.
 
             namespace Section1
             def h(x : ℝ) := by
+              obvious
               obvious
             end Section1
         "#]],
@@ -96,12 +100,14 @@ Let $y\in\mathbb{R}$.
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
+              │     ├─ tactic: `Obvious`
               │     └─ tactic: `Obvious`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
+              │       ├─ tactic: `Obvious`
               │       └─ tactic: `Obvious`
               ├─ group: `division`
               └─ group: `division`
@@ -114,9 +120,11 @@ Let $y\in\mathbb{R}$.
             namespace Section1
             def h(x : ℝ) := by
               obvious
+              obvious
 
             namespace Subsection1
             def h(y : ℝ) := by
+              obvious
               obvious
             end Subsection1
 

@@ -100,9 +100,9 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             VdMirStmtData::LetPlaceholder { .. }
             | VdMirStmtData::LetAssigned { .. }
             | VdMirStmtData::Have { .. }
-            | VdMirStmtData::Show { .. } => unreachable!(),
-            VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Qed => todo!(),
+            | VdMirStmtData::Show { .. }
+            | VdMirStmtData::Goal { .. }
+            | VdMirStmtData::Qed => unreachable!(),
         }
     }
 

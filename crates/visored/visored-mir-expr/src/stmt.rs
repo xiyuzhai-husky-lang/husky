@@ -68,7 +68,7 @@ pub enum VdMirStmtSource {
     Division(VdSemDivisionIdx),
     Sentence(VdSemSentenceIdx),
     Clause(VdSemClauseIdx),
-    Qed(idx_arena::ArenaIdxRange<VdMirStmtEntry>),
+    Qed(VdSemSentenceIdxRange),
 }
 
 pub type VdMirStmtArena = Arena<VdMirStmtEntry>;
@@ -163,7 +163,7 @@ impl<'db> VdMirExprBuilder<'db> {
     fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemBlockIdx) -> VdMirStmtData {
         match *self.sem_stmt_arena()[stmt].data() {
             VdSemBlockData::Paragraph(sentences) => VdMirStmtData::Block {
-                stmts: sentences.to_vd_mir(self),
+                stmts: (sentences, None).to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,
             },
             VdSemBlockData::Environment {
@@ -188,13 +188,18 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemSentenceIdxRange {
+impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<()>) {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let entries = self
+        let (sentences, goal) = self;
+        let mut entries = sentences
             .into_iter()
             .map(|sentence| VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence)))
             .collect::<Vec<_>>();
-        let sources = self.into_iter().map(VdMirStmtSource::Sentence);
+        entries.push(VdMirStmtEntry::new_qed());
+        let sources = sentences
+            .into_iter()
+            .map(VdMirStmtSource::Sentence)
+            .chain([VdMirStmtSource::Qed(sentences)]);
         builder.alloc_stmts(entries, sources)
     }
 }
