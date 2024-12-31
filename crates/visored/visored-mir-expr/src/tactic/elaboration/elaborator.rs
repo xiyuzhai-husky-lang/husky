@@ -24,4 +24,4 @@ pub trait IsVdMirTacticElaborator: std::fmt::Debug {
     fn extract(&self, region_data: VdMirExprRegionDataMut);
 }
 
-pub type VdMirTacticTrivialElaborator = self::linear::VdMirTacticLinearElaborator<()>;
+pub type VdMirTacticTrivialElaborator = self::linear::VdMirTacticSequentialElaborator<()>;

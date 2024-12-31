@@ -5,7 +5,7 @@ use visored_annotation::annotation::token::VdTokenAnnotation;
 use visored_mir_expr::{
     helpers::tracker::VdMirExprTracker,
     tactic::elaboration::elaborator::{
-        linear::VdMirTacticLinearElaborator, VdMirTacticTrivialElaborator,
+        linear::VdMirTacticSequentialElaborator, VdMirTacticTrivialElaborator,
     },
 };
 use visored_models::VdModels;

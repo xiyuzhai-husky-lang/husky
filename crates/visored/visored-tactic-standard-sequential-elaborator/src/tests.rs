@@ -12,8 +12,10 @@ use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 use crate::{
-    elaborator::{VdMirTacticStandardLinearElaborator, VdMirTacticStandardLinearElaboratorInner},
-    helpers::tracker::VdMirTacticStandardLinearElaboratorTracker,
+    elaborator::{
+        VdMirTacticStandardSequentialElaborator, VdMirTacticStandardSequentialElaboratorInner,
+    },
+    helpers::tracker::VdMirTacticStandardSequentialElaboratorTracker,
 };
 
 #[test]
@@ -39,7 +41,7 @@ fn visored_tactic_standard_linear_elaborator_works() {
                 .to_case(Case::Pascal)
                 .with_extension("lean");
             let content = std::fs::read_to_string(&src_file_path).unwrap();
-            let tracker = VdMirTacticStandardLinearElaboratorTracker::new(
+            let tracker = VdMirTacticStandardSequentialElaboratorTracker::new(
                 LxDocumentInput {
                     specs_dir: dev_paths.specs_dir().to_path_buf(),
                     file_path: LxFilePath::new(src_file_path, db),
@@ -52,8 +54,8 @@ fn visored_tactic_standard_linear_elaborator_works() {
                 db,
                 &VdLeanTranspilationDenseScheme,
                 |region_data| {
-                    VdMirTacticStandardLinearElaborator::new(
-                        VdMirTacticStandardLinearElaboratorInner {
+                    VdMirTacticStandardSequentialElaborator::new(
+                        VdMirTacticStandardSequentialElaboratorInner {
                             phantom: PhantomData,
                         },
                         region_data,
