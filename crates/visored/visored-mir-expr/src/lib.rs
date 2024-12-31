@@ -3,12 +3,12 @@ pub mod elaboration;
 pub mod elaborator;
 pub mod expr;
 pub mod helpers;
+pub mod hint;
 pub mod pattern;
 pub mod region;
 pub mod source_map;
 pub mod stmt;
 pub mod symbol;
-pub mod hint;
 #[cfg(test)]
 mod tests;
 

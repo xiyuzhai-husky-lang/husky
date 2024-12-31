@@ -17,11 +17,11 @@ use std::ops::{Deref, DerefMut};
 use visored_entity_path::module::VdModulePath;
 use visored_mir_expr::{
     expr::VdMirExprArenaRef,
+    hint::VdMirTacticArenaRef,
     region::VdMirExprRegionData,
     source_map::VdMirSourceMap,
     stmt::VdMirStmtArenaRef,
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
-    hint::VdMirTacticArenaRef,
 };
 use visored_sem_expr::range::{
     VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,

@@ -1,9 +1,9 @@
 use crate::{
     elaboration::{VdMirStmtElaborationTracker, VdMirTacticElaboration},
     expr::{VdMirExprArena, VdMirExprArenaRef},
+    hint::{VdMirHintIdx, VdMirTacticArena, VdMirTacticArenaRef},
     stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtIdx},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
-    hint::{VdMirHintIdx, VdMirTacticArena, VdMirTacticArenaRef},
 };
 
 pub struct VdMirExprRegionData {
