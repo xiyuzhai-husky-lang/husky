@@ -54,7 +54,9 @@ pub enum VdMirStmtData {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
     },
-    Qed,
+    Qed {
+        goal: Option<VdMirExprIdx>,
+    },
 }
 
 pub struct VdMirStmtEntry {
@@ -86,8 +88,8 @@ impl VdMirStmtEntry {
         }
     }
 
-    pub fn new_qed() -> Self {
-        Self::new(VdMirStmtData::Qed)
+    pub fn new_qed(goal: Option<VdMirExprIdx>) -> Self {
+        Self::new(VdMirStmtData::Qed { goal })
     }
 }
 
@@ -195,7 +197,21 @@ impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<()>) {
             .into_iter()
             .map(|sentence| VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence)))
             .collect::<Vec<_>>();
-        entries.push(VdMirStmtEntry::new_qed());
+        let goal = match goal {
+            Some(_) => todo!(),
+            None => {
+                let goal_stated = entries
+                    .iter()
+                    .filter_map(|e| match e.data {
+                        VdMirStmtData::Goal { prop } => Some(prop),
+                        _ => None,
+                    })
+                    .collect::<Vec<_>>();
+                assert!(goal_stated.len() <= 1);
+                goal_stated.first().copied()
+            }
+        };
+        entries.push(VdMirStmtEntry::new_qed(goal));
         let sources = sentences
             .into_iter()
             .map(VdMirStmtSource::Sentence)

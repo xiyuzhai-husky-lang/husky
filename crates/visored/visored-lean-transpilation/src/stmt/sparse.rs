@@ -1,4 +1,5 @@
 mod have;
+mod qed;
 mod show;
 
 use super::*;
@@ -11,7 +12,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     ) -> LnItemDefnIdxRange {
         let item_defns: Vec<_> = stmts
             .into_iter()
-            .map(|stmt| self.build_ln_item_defn_from_vd_stmt(stmt))
+            .filter_map(|stmt| self.build_ln_item_defn_from_vd_stmt(stmt))
             .collect();
         let source_map = self.source_map();
         let input = self.input();
@@ -35,7 +36,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
-    pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
+    pub(crate) fn build_ln_item_defn_from_vd_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+    ) -> Option<LnItemDefnData> {
         let db = self.db();
         match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
@@ -58,19 +62,19 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                         )
                     }
                 };
-                LnItemDefnData::Group { defns, meta }
+                Some(LnItemDefnData::Group { defns, meta })
             }
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
-                self.build_ln_item_from_vd_let_placeholder_stmt(pattern, ty)
+                Some(self.build_ln_item_from_vd_let_placeholder_stmt(pattern, ty))
             }
             VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
             } => todo!(),
             VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Have { prop, .. } => self.build_have_stmt(stmt, prop),
-            VdMirStmtData::Show { prop, .. } => self.build_show_stmt(stmt, prop),
-            VdMirStmtData::Qed => todo!(),
+            VdMirStmtData::Have { prop, .. } => Some(self.build_have_stmt(stmt, prop)),
+            VdMirStmtData::Show { prop, .. } => Some(self.build_show_stmt(stmt, prop)),
+            VdMirStmtData::Qed { goal, .. } => Some(self.build_qed_stmt(stmt, goal?)),
         }
     }
 

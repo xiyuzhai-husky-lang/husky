@@ -94,9 +94,10 @@ where
             | VdMirStmtData::Goal { .. }
             | VdMirStmtData::Have { .. }
             | VdMirStmtData::Show { .. }
-            | VdMirStmtData::Qed => (),
+            | VdMirStmtData::Qed { .. } => {
+                let elaboration = self.inner.elaborate_stmt(stmt, region_data);
+                self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
+            }
         }
-        let elaboration = self.inner.elaborate_stmt(stmt, region_data);
-        self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
     }
 }

@@ -102,7 +102,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             | VdMirStmtData::Have { .. }
             | VdMirStmtData::Show { .. }
             | VdMirStmtData::Goal { .. }
-            | VdMirStmtData::Qed => unreachable!(),
+            | VdMirStmtData::Qed { .. } => unreachable!(),
         }
     }
 

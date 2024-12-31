@@ -71,8 +71,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 tactics.push(self.build_ln_tactic_from_vd_show(prop, following_stmts));
                 todo!("show tactics")
             }
-            VdMirStmtData::Qed => {
-                tactics.extend(self.build_qed_tactics(stmt));
+            VdMirStmtData::Qed { goal } => {
+                tactics.extend(self.build_qed_tactics(stmt, goal));
             }
         }
     }
