@@ -67,8 +67,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                 assignment,
             } => todo!(),
             VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Have { prop, .. } => self.build_have_stmt(prop),
-            VdMirStmtData::Show { prop, .. } => self.build_show_stmt(prop),
+            VdMirStmtData::Have { prop, .. } => self.build_have_stmt(stmt, prop),
+            VdMirStmtData::Show { prop, .. } => self.build_show_stmt(stmt, prop),
         }
     }
 

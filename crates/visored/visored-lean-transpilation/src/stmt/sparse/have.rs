@@ -11,7 +11,11 @@ use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
-    pub(super) fn build_have_stmt(&mut self, prop: VdMirExprIdx) -> LnItemDefnData {
+    pub(super) fn build_have_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        prop: VdMirExprIdx,
+    ) -> LnItemDefnData {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
                 leader,
@@ -25,12 +29,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             ),
             _ => {
                 let ident = self.mangle_hypothesis();
+                let tactics = self.build_have_tactics(stmt);
                 LnItemDefnData::Def {
                     ident,
                     parameters: vec![],
                     ty: Some(prop.to_lean(self)),
                     // TODO: better??
-                    body: LnMirDefBody::Tactics(todo!()),
+                    body: LnMirDefBody::Tactics(tactics),
                 }
             }
         }

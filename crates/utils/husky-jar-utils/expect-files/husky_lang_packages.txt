@@ -5091,7 +5091,7 @@
     },
     PackageSummary {
         name: "visored-mir-standard-sequential-elaborator",
-        relative_path: "crates/visored/visored-mir-standard-sequential-elaborator",
+        relative_path: "crates/visored/visored-tactic-standard-sequential-elaborator",
         dependencies: [
             "enum-class",
             "eterned",

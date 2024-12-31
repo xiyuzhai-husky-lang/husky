@@ -9,7 +9,11 @@ use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
-    pub(super) fn build_show_stmt(&mut self, prop: VdMirExprIdx) -> LnItemDefnData {
+    pub(super) fn build_show_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        prop: VdMirExprIdx,
+    ) -> LnItemDefnData {
         todo!()
     }
 }

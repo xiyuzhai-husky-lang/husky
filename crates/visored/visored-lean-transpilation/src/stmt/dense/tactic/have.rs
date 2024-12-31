@@ -21,10 +21,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             _ => {
                 let ident = self.mangle_hypothesis();
                 let ty = prop.to_lean(self);
-                let tactics = match self.stmt_arena()[stmt].elaboration_tracker().conclusion() {
-                    Some(_) => todo!(),
-                    None => self.default_tactics(),
-                };
+                let tactics = self.build_have_tactics(stmt);
                 let construction = self.alloc_expr(LnMirExprData::By { tactics });
                 LnMirTacticData::Have {
                     ident,

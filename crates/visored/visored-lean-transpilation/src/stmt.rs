@@ -1,4 +1,5 @@
 mod dense;
+mod have;
 mod sparse;
 
 use crate::*;
