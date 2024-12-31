@@ -1,5 +1,5 @@
-use crate::elaborator::VdMirTacticStandardSequentialElaborator;
+use crate::elaborator::VdMirStandardSequentialElaborator;
 use visored_lean_transpilation::helpers::tracker::VdLeanTranspilationTracker;
 
-pub type VdMirTacticStandardSequentialElaboratorTracker<'sess, Scheme, Input> =
-    VdLeanTranspilationTracker<'sess, Scheme, Input, VdMirTacticStandardSequentialElaborator<'sess>>;
+pub type VdMirStandardSequentialElaboratorTracker<'sess, Scheme, Input> =
+    VdLeanTranspilationTracker<'sess, Scheme, Input, VdMirStandardSequentialElaborator<'sess>>;

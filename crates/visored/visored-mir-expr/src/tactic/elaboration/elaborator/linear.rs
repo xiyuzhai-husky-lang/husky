@@ -3,15 +3,15 @@ use crate::stmt::VdMirStmtData;
 use super::*;
 
 #[derive(Debug)]
-pub struct VdMirTacticSequentialElaborator<Inner>
+pub struct VdMirSequentialElaborator<Inner>
 where
-    Inner: IsVdMirTacticSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner,
 {
     tactic_elaborations: VdMirTacticMap<Inner::ElaborationTracker>,
     inner: Inner,
 }
 
-pub trait IsVdMirTacticSequentialElaboratorInner: std::fmt::Debug {
+pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
     type ElaborationTracker: std::fmt::Debug + Eq;
 
     fn eval_tactic(
@@ -27,7 +27,7 @@ pub trait IsVdMirTacticSequentialElaboratorInner: std::fmt::Debug {
     ) -> VdMirTacticElaborationTracker;
 }
 
-impl IsVdMirTacticSequentialElaboratorInner for () {
+impl IsVdMirSequentialElaboratorInner for () {
     type ElaborationTracker = ();
 
     fn eval_tactic(&mut self, tactic: VdMirTacticIdx, region_data: VdMirExprRegionDataRef) -> () {}
@@ -41,9 +41,9 @@ impl IsVdMirTacticSequentialElaboratorInner for () {
     }
 }
 
-impl<Inner> VdMirTacticSequentialElaborator<Inner>
+impl<Inner> VdMirSequentialElaborator<Inner>
 where
-    Inner: IsVdMirTacticSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner,
 {
     pub fn new(inner: Inner, region_data: VdMirExprRegionDataRef) -> Self {
         Self {
@@ -60,9 +60,9 @@ where
     }
 }
 
-impl<Inner> IsVdMirTacticElaborator for VdMirTacticSequentialElaborator<Inner>
+impl<Inner> IsVdMirTacticElaborator for VdMirSequentialElaborator<Inner>
 where
-    Inner: IsVdMirTacticSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner,
 {
     fn eval_all_tactics_within_stmts(
         &mut self,
@@ -114,9 +114,9 @@ where
     }
 }
 
-impl<Inner> VdMirTacticSequentialElaborator<Inner>
+impl<Inner> VdMirSequentialElaborator<Inner>
 where
-    Inner: IsVdMirTacticSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner,
 {
     fn eval_tactics(&mut self, tactics: VdMirTacticIdxRange, region_data: VdMirExprRegionDataRef) {
         for tactic in tactics {
