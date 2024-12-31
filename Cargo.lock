@@ -3288,7 +3288,6 @@ version = "0.1.0"
 dependencies = [
  "alt-option",
  "either",
- "rustc-hash 2.0.0",
 ]
 
 [[package]]

@@ -9,14 +9,13 @@ pub trait IsGacSequentialEngineInner<'sess> {
     type Input;
     type State: Copy + 'sess;
     type Output;
-    type Error: 'sess;
 
     fn root(&self) -> Self::Node;
-    fn children(&self, node: Self::Node) -> &'sess [Self::Node];
+    fn children(&self, node: Self::Node) -> impl IntoIterator<Item = Self::Node> + 'sess;
     fn initial_state(&self, input: Self::Input) -> Self::State;
     fn process(
         &mut self,
         node: Self::Node,
         input: &Self::State,
-    ) -> Either<Vec<Self::State>, Self::Error>;
+    ) -> Either<impl IntoIterator<Item = Self::State> + 'sess, Self::Output>;
 }

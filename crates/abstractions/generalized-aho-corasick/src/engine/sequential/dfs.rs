@@ -1,6 +1,5 @@
 use super::*;
-use alt_option::AltOption;
-use rustc_hash::FxHashMap;
+use alt_option::*;
 use std::marker::PhantomData;
 
 pub struct GacDfsSequentialEngine<'sess, Inner>
@@ -34,13 +33,13 @@ where
         match self.inner.process(node, state) {
             Left(states) => {
                 for state in states {
-                    for &child in self.inner.children(node) {
+                    for child in self.inner.children(node) {
                         self.search_aux(&state, child)?;
                     }
                 }
-                AltOption::AltNone
+                AltNone
             }
-            Right(_) => todo!(),
+            Right(output) => AltSome(output),
         }
     }
 }
