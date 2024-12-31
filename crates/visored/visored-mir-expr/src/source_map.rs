@@ -1,6 +1,6 @@
 use crate::{
     expr::VdMirExprOrderedMap,
-    hint::{VdMirHintIdx, VdMirHintIdxRange, VdMirTacticOrderedMap, VdMirTacticSource},
+    hint::{VdMirHintIdx, VdMirHintIdxRange, VdMirHintOrderedMap, VdMirHintSource},
     stmt::{VdMirStmtIdx, VdMirStmtIdxRange, VdMirStmtOrderedMap, VdMirStmtSource},
 };
 use visored_sem_expr::{
@@ -11,7 +11,7 @@ use visored_sem_expr::{
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct VdMirSourceMap {
     stmt_map: VdMirStmtOrderedMap<VdMirStmtSource>,
-    tactic_map: VdMirTacticOrderedMap<VdMirTacticSource>,
+    tactic_map: VdMirHintOrderedMap<VdMirHintSource>,
 }
 
 impl VdMirSourceMap {
@@ -28,7 +28,7 @@ impl VdMirSourceMap {
     pub(crate) fn set_tactics(
         &mut self,
         tactics: VdMirHintIdxRange,
-        sources: impl IntoIterator<Item = VdMirTacticSource>,
+        sources: impl IntoIterator<Item = VdMirHintSource>,
     ) {
         for (tactic, source) in tactics.into_iter().zip(sources) {
             self.tactic_map.insert_next(tactic, source);
@@ -45,7 +45,7 @@ impl std::ops::Index<VdMirStmtIdx> for VdMirSourceMap {
 }
 
 impl std::ops::Index<VdMirHintIdx> for VdMirSourceMap {
-    type Output = VdMirTacticSource;
+    type Output = VdMirHintSource;
 
     fn index(&self, index: VdMirHintIdx) -> &Self::Output {
         &self.tactic_map[index]

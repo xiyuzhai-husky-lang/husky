@@ -7,24 +7,22 @@ use visored_sem_expr::clause::VdSemClauseIdx;
 use crate::stmt::VdMirStmtIdx;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdMirTacticData {
-    Obvious,
-}
+pub enum VdMirHintData {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct VdMirTacticEntry {
-    data: VdMirTacticData,
+pub struct VdMirHintEntry {
+    data: VdMirHintData,
 }
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdMirTacticSource {
+pub enum VdMirHintSource {
     Clause(VdSemClauseIdx),
 }
 
-pub type VdMirHintIdx = ArenaIdx<VdMirTacticEntry>;
-pub type VdMirHintIdxRange = ArenaIdxRange<VdMirTacticEntry>;
-pub type VdMirTacticArena = Arena<VdMirTacticEntry>;
-pub type VdMirTacticMap<T> = ArenaMap<VdMirTacticEntry, T>;
-pub type VdMirTacticOrderedMap<T> = ArenaOrderedMap<VdMirTacticEntry, T>;
-pub type VdMirTacticArenaRef<'a> = ArenaRef<'a, VdMirTacticEntry>;
+pub type VdMirHintIdx = ArenaIdx<VdMirHintEntry>;
+pub type VdMirHintIdxRange = ArenaIdxRange<VdMirHintEntry>;
+pub type VdMirHintArena = Arena<VdMirHintEntry>;
+pub type VdMirHintMap<T> = ArenaMap<VdMirHintEntry, T>;
+pub type VdMirHintOrderedMap<T> = ArenaOrderedMap<VdMirHintEntry, T>;
+pub type VdMirHintArenaRef<'a> = ArenaRef<'a, VdMirHintEntry>;

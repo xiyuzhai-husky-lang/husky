@@ -10,7 +10,7 @@ mod tests;
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use elaboration::VdMirStmtElaborationTracker;
-use hint::{VdMirHintIdx, VdMirHintIdxRange, VdMirTacticData, VdMirTacticEntry, VdMirTacticSource};
+use hint::{VdMirHintData, VdMirHintEntry, VdMirHintIdx, VdMirHintIdxRange, VdMirHintSource};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };

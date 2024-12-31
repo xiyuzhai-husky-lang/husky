@@ -9,7 +9,7 @@ use either::*;
 use eterned::db::EternerDb;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
-use hint::VdMirTacticArena;
+use hint::VdMirHintArena;
 use husky_tree_utils::display::DisplayTree;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
@@ -19,6 +19,7 @@ use latex_token::storage::LxTokenStorage;
 use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
+use tactic::VdMirTacticArena;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -35,6 +36,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMir
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
+    pub hint_arena: VdMirHintArena,
     pub tactic_arena: VdMirTacticArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     pub source_map: VdMirSourceMap,
@@ -133,6 +135,7 @@ where
         let (
             mut expr_arena,
             mut stmt_arena,
+            mut hint_arena,
             mut tactic_arena,
             symbol_local_defn_storage,
             source_map,
@@ -140,14 +143,14 @@ where
         let mut elaborator = gen_elaborator(VdMirExprRegionDataRef {
             expr_arena: expr_arena.as_arena_ref(),
             stmt_arena: stmt_arena.as_arena_ref(),
-            tactic_arena: tactic_arena.as_arena_ref(),
+            hint_arena: hint_arena.as_arena_ref(),
             symbol_local_defn_storage: &symbol_local_defn_storage,
         });
         output.eval_all_tactics_within_self(
             VdMirExprRegionDataRef {
                 expr_arena: expr_arena.as_arena_ref(),
                 stmt_arena: stmt_arena.as_arena_ref(),
-                tactic_arena: tactic_arena.as_arena_ref(),
+                hint_arena: hint_arena.as_arena_ref(),
                 symbol_local_defn_storage: &symbol_local_defn_storage,
             },
             &mut elaborator,
@@ -155,6 +158,7 @@ where
         elaborator.extract(VdMirExprRegionDataMut {
             expr_arena: &mut expr_arena,
             stmt_arena: &mut stmt_arena,
+            hint_arena: &mut hint_arena,
             tactic_arena: &mut tactic_arena,
             symbol_local_defn_storage: &symbol_local_defn_storage,
         });
@@ -163,6 +167,7 @@ where
             root_module_path,
             expr_arena,
             stmt_arena,
+            hint_arena,
             tactic_arena,
             symbol_local_defn_storage,
             source_map,

@@ -1,8 +1,6 @@
 use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange},
-    hint::{
-        VdMirHintIdxRange, VdMirTacticArena, VdMirTacticData, VdMirTacticEntry, VdMirTacticSource,
-    },
+    hint::{VdMirHintArena, VdMirHintData, VdMirHintEntry, VdMirHintIdxRange, VdMirHintSource},
     region::VdMirExprRegionData,
     source_map::VdMirSourceMap,
     stmt::{
@@ -10,6 +8,7 @@ use crate::{
         VdMirStmtSource,
     },
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
+    tactic::VdMirTacticArena,
 };
 use visored_sem_expr::{
     block::VdSemBlockArenaRef, clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef,
@@ -26,6 +25,7 @@ pub struct VdMirExprBuilder<'db> {
     sem_division_arena: VdSemDivisionArenaRef<'db>,
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
+    hint_arena: VdMirHintArena,
     tactic_arena: VdMirTacticArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     source_map: VdMirSourceMap,
@@ -62,6 +62,7 @@ impl<'db> VdMirExprBuilder<'db> {
             sem_division_arena,
             expr_arena: VdMirExprArena::default(),
             stmt_arena: VdMirStmtArena::default(),
+            hint_arena: VdMirHintArena::default(),
             tactic_arena: VdMirTacticArena::default(),
             symbol_local_defn_storage: VdMirSymbolLocalDefnStorage::new_empty(),
             source_map: Default::default(),
@@ -130,10 +131,10 @@ impl<'db> VdMirExprBuilder<'db> {
 
     pub(crate) fn alloc_tactics(
         &mut self,
-        entries: impl IntoIterator<Item = VdMirTacticEntry>,
-        sources: impl IntoIterator<Item = VdMirTacticSource>,
+        entries: impl IntoIterator<Item = VdMirHintEntry>,
+        sources: impl IntoIterator<Item = VdMirHintSource>,
     ) -> VdMirHintIdxRange {
-        let tactics = self.tactic_arena.alloc_batch(entries);
+        let tactics = self.hint_arena.alloc_batch(entries);
         self.source_map.set_tactics(tactics, sources);
         tactics
     }
@@ -146,6 +147,7 @@ impl<'db> VdMirExprBuilder<'db> {
         VdMirExprRegionData::new(
             self.expr_arena,
             self.stmt_arena,
+            self.hint_arena,
             self.tactic_arena,
             self.symbol_local_defn_storage,
         )
@@ -156,6 +158,7 @@ impl<'db> VdMirExprBuilder<'db> {
     ) -> (
         VdMirExprArena,
         VdMirStmtArena,
+        VdMirHintArena,
         VdMirTacticArena,
         VdMirSymbolLocalDefnStorage,
         VdMirSourceMap,
@@ -163,6 +166,7 @@ impl<'db> VdMirExprBuilder<'db> {
         (
             self.expr_arena,
             self.stmt_arena,
+            self.hint_arena,
             self.tactic_arena,
             self.symbol_local_defn_storage,
             self.source_map,
