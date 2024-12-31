@@ -14,7 +14,6 @@ impl VdTranspileToLean<Dense, LnMirTacticIdxRange> for VdMirStmtIdxRange {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<Dense>) -> LnMirTacticIdxRange {
         let mut tactics = Vec::new();
         builder.build_ln_tactics_from_vd_stmts(self, &mut tactics);
-        tactics.push(LnMirTacticData::Obvious);
         builder.alloc_tactics(tactics)
     }
 }

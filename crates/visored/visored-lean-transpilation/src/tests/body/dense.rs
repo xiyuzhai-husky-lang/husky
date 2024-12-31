@@ -48,12 +48,10 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 ├─ item path: `ℕ`
                 └─ tactics
-                  ├─ tactic: `Obvious`
                   └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             def h(x : ℕ) := by
-              obvious
               obvious"#]],
     );
     t(
@@ -64,12 +62,10 @@ fn basic_body_to_lean_works() {
               └─ group: `environment`
                 └─ def: `h`
                   └─ tactics
-                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Example1
             def h := by
-              obvious
             end Example1
         "#]],
     );
@@ -82,13 +78,11 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    ├─ tactic: `Obvious`
                     └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Example1
             def h(x : ℝ) := by
-              obvious
               obvious
             end Example1
         "#]],
@@ -102,13 +96,11 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    ├─ tactic: `Obvious`
                     └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
               obvious
             end Section1
         "#]],
@@ -122,14 +114,12 @@ fn basic_body_to_lean_works() {
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     ├─ tactic: `Obvious`
               │     └─ tactic: `Obvious`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       ├─ tactic: `Obvious`
               │       └─ tactic: `Obvious`
               ├─ group: `division`
               └─ group: `division`
@@ -140,11 +130,9 @@ fn basic_body_to_lean_works() {
             namespace Section1
             def h(x : ℝ) := by
               obvious
-              obvious
 
             namespace Subsection1
             def h(y : ℝ) := by
-              obvious
               obvious
             end Subsection1
 
