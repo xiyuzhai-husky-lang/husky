@@ -53,3 +53,12 @@ impl<T> std::ops::FromResidual<Option<Infallible>> for AltOption<T> {
         AltNone
     }
 }
+
+impl<T> Into<Option<T>> for AltOption<T> {
+    fn into(self) -> Option<T> {
+        match self {
+            AltSome(t) => Some(t),
+            AltNone => None,
+        }
+    }
+}
