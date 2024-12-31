@@ -44,6 +44,8 @@ Let $x\in\mathbb{R}$.
                   └─ variable: `x`
         "#]],
         &expect![[r#"
+            import Mathlib
+
             -- Let $x\in\mathbb{R}$.
 
             variable (x : ℝ)"#]],
@@ -64,6 +66,8 @@ Let $x\in\mathbb{R}$.
                     └─ variable: `x`
         "#]],
         &expect![[r#"
+            import Mathlib
+
             namespace Section1
             -- Let $x\in\mathbb{R}$.
 
@@ -102,6 +106,8 @@ Let $y\in\mathbb{R}$.
                 └─ group: `division`
         "#]],
         &expect![[r#"
+            import Mathlib
+
             namespace Section1
             -- Let $x\in\mathbb{R}$.
 

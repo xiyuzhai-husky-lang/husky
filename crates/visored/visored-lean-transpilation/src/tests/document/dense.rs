@@ -46,6 +46,8 @@ Let $x\in\mathbb{R}$.
                   └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
+            import Mathlib
+
             def h(x : ℝ) := by
               obvious"#]],
     );
@@ -66,6 +68,8 @@ Let $x\in\mathbb{R}$.
                     └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
+            import Mathlib
+
             namespace Section1
             def h(x : ℝ) := by
               obvious
@@ -105,6 +109,8 @@ Let $y\in\mathbb{R}$.
                 └─ group: `division`
         "#]],
         &expect![[r#"
+            import Mathlib
+
             namespace Section1
             def h(x : ℝ) := by
               obvious
