@@ -196,7 +196,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             VdMirTacticTrivialElaborator::new_default,
         );
         self.lean4_code = Some(format!(
-            r#"import Mathlib
+            r#"
 import Obvious
 open Obvious
 

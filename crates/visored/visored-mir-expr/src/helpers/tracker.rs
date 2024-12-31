@@ -30,6 +30,7 @@ use visored_sem_expr::{
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMirTacticElaborator> {
+    pub input: Input,
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
@@ -152,6 +153,7 @@ where
             symbol_local_defn_storage: &symbol_local_defn_storage,
         });
         Self {
+            input,
             root_module_path,
             expr_arena,
             stmt_arena,

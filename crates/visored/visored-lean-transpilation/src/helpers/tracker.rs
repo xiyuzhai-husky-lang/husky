@@ -38,6 +38,7 @@ pub struct VdLeanTranspilationTracker<
 > where
     Scheme: IsVdLeanTranspilationScheme,
 {
+    input: Input,
     expr_arena: LnMirExprArena,
     stmt_arena: LnMirStmtArena,
     tactic_arena: LnMirTacticArena,
@@ -53,11 +54,12 @@ where
 {
     type VdLeanTranspilationOutput: IsVdLeanTranspilationOutput
         + FromVdTranspileToLean<Scheme, Self::VdMirExprOutput>;
+
+    fn show_fmt(&self, output: Self::VdLeanTranspilationOutput, formatter: &mut LnMirExprFormatter);
 }
 
 pub trait IsVdLeanTranspilationOutput: std::fmt::Debug + Copy {
     fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String;
-    fn show_fmt(self, formatter: &mut LnMirExprFormatter);
 }
 
 pub trait FromVdTranspileToLean<Scheme, S>
@@ -95,6 +97,7 @@ where
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
+            input,
             root_module_path,
             expr_arena: vd_mir_expr_arena,
             stmt_arena: vd_mir_stmt_arena,
@@ -134,6 +137,7 @@ where
         let output = FromVdTranspileToLean::from_transpile_to_lean(output, &mut builder);
         let (expr_arena, stmt_arena, tactic_arena, defn_arena, defn_comments) = builder.finish();
         Self {
+            input,
             expr_arena,
             stmt_arena,
             tactic_arena,
@@ -158,7 +162,7 @@ where
     pub fn show_fmt(&self, db: &EternerDb) -> String {
         let fmt_config = Default::default();
         let mut formatter = self.formatter(&fmt_config, db);
-        self.output.show_fmt(&mut formatter);
+        self.input.show_fmt(self.output, &mut formatter);
         formatter.finish()
     }
 
@@ -184,6 +188,15 @@ where
     Scheme: IsVdLeanTranspilationScheme,
 {
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
+
+    fn show_fmt(
+        &self,
+        output: Self::VdLeanTranspilationOutput,
+        formatter: &mut LnMirExprFormatter,
+    ) {
+        formatter.import_mathlib();
+        formatter.format_defns(output);
+    }
 }
 
 impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxDocumentBodyInput<'a>
@@ -191,6 +204,14 @@ where
     Scheme: IsVdLeanTranspilationScheme,
 {
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
+
+    fn show_fmt(
+        &self,
+        output: Self::VdLeanTranspilationOutput,
+        formatter: &mut LnMirExprFormatter,
+    ) {
+        formatter.format_defns(output);
+    }
 }
 
 impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxPageInput<'a>
@@ -198,6 +219,14 @@ where
     Scheme: IsVdLeanTranspilationScheme,
 {
     type VdLeanTranspilationOutput = LnItemDefnIdxRange;
+
+    fn show_fmt(
+        &self,
+        output: Self::VdLeanTranspilationOutput,
+        formatter: &mut LnMirExprFormatter,
+    ) {
+        formatter.format_defns(output);
+    }
 }
 
 impl<'a, Scheme> IsVdLeanTranspilationInput<'a, Scheme> for LxFormulaInput<'a>
@@ -205,24 +234,24 @@ where
     Scheme: IsVdLeanTranspilationScheme,
 {
     type VdLeanTranspilationOutput = LnMirExprIdx;
+
+    fn show_fmt(
+        &self,
+        output: Self::VdLeanTranspilationOutput,
+        formatter: &mut LnMirExprFormatter,
+    ) {
+        formatter.format_expr_ext(output);
+    }
 }
 
 impl<'a> IsVdLeanTranspilationOutput for LnItemDefnIdxRange {
     fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String {
         DisplayTree::show_trees(&builder.render_defns(self), &Default::default())
     }
-
-    fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
-        formatter.format_defns(self);
-    }
 }
 
 impl<'a> IsVdLeanTranspilationOutput for LnMirExprIdx {
     fn show_display_tree(self, builder: &LnMirExprDisplayTreeBuilder) -> String {
         builder.render_expr(self).show(&Default::default())
-    }
-
-    fn show_fmt(self, formatter: &mut LnMirExprFormatter) {
-        formatter.format_expr_ext(self);
     }
 }

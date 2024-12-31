@@ -73,7 +73,7 @@ fn visored_tactic_standard_linear_elaborator_works() {
         p.extension().map_or(false, |ext| ext == "tex")
     })
     .unwrap();
-    let lean4_dir = Path::new("lean4/mathlib4-tests/Mathlib4Tests");
+    let lean4_dir = Path::new("../lean4/mathlib4-tests/Mathlib4Tests");
     t(
         &dev_paths,
         src_root,

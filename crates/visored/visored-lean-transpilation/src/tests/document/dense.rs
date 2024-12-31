@@ -167,9 +167,8 @@ fn latex_shorts_to_lean_works() {
             filestem
         ))]
         .assert_eq(&format!(
-            r#"import Mathlib
+            r#"
 import Obvious
-
 open Obvious
 
 {}"#,
