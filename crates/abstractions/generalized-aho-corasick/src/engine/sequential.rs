@@ -10,7 +10,7 @@ pub trait IsGacSequentialEngineInner<'sess> {
     type State: Copy + 'sess;
     type Output;
 
-    fn root(&self) -> Self::Node;
+    fn roots(&self) -> impl IntoIterator<Item = Self::Node> + 'sess;
     fn children(&self, node: Self::Node) -> impl IntoIterator<Item = Self::Node> + 'sess;
     fn initial_state(&self, input: Self::Input) -> Self::State;
     /// Processes the current node with the given input state, potentially modifying internal state.
@@ -27,6 +27,6 @@ pub trait IsGacSequentialEngineInner<'sess> {
     fn process(
         &mut self,
         node: Self::Node,
-        input: &Self::State,
+        state: Self::State,
     ) -> Either<impl IntoIterator<Item = Self::State> + 'sess, Self::Output>;
 }

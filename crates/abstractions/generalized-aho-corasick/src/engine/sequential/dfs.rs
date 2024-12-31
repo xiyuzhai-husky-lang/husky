@@ -24,18 +24,26 @@ where
     Inner: IsGacSequentialEngineInner<'sess>,
 {
     pub fn search(mut self, input: Inner::Input) -> Option<Inner::Output> {
-        let root = self.inner.root();
         let state = self.inner.initial_state(input);
-        self.search_aux(&state, root).into()
+        self.search_nodes(state, self.inner.roots()).into()
     }
 
-    fn search_aux(&mut self, state: &Inner::State, node: Inner::Node) -> AltOption<Inner::Output> {
+    fn search_nodes(
+        &mut self,
+        state: Inner::State,
+        nodes: impl IntoIterator<Item = Inner::Node>,
+    ) -> AltOption<Inner::Output> {
+        for node in nodes {
+            self.search_node(state, node)?;
+        }
+        AltNone
+    }
+
+    fn search_node(&mut self, state: Inner::State, node: Inner::Node) -> AltOption<Inner::Output> {
         match self.inner.process(node, state) {
             Left(states) => {
                 for state in states {
-                    for child in self.inner.children(node) {
-                        self.search_aux(&state, child)?;
-                    }
+                    self.search_nodes(state, self.inner.children(node))?;
                 }
                 AltNone
             }

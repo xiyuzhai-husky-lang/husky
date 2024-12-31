@@ -1,2 +1,3 @@
 pub mod engine;
-pub mod tests;
+#[cfg(test)]
+mod tests;

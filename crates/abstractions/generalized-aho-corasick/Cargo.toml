@@ -16,5 +16,9 @@ either.workspace = true
 # abstractions
 alt-option.workspace = true
 
+[dev-dependencies]
+eterned.workspace = true
+rustc-hash.workspace = true
+
 [lints]
 workspace = true
