@@ -3,7 +3,7 @@ use alt_option::AltOption;
 use rustc_hash::FxHashMap;
 use std::marker::PhantomData;
 
-pub struct GacDfsSearchEngine<'sess, Inner>
+pub struct GacDfsSequentialEngine<'sess, Inner>
 where
     Inner: IsGacSequentialEngineInner<'sess>,
 {
@@ -11,7 +11,7 @@ where
     _phantom: PhantomData<&'sess ()>,
 }
 
-impl<'sess, Inner: IsGacSequentialEngineInner<'sess>> GacDfsSearchEngine<'sess, Inner> {
+impl<'sess, Inner: IsGacSequentialEngineInner<'sess>> GacDfsSequentialEngine<'sess, Inner> {
     pub fn new(inner: Inner) -> Self {
         Self {
             inner,
@@ -20,7 +20,7 @@ impl<'sess, Inner: IsGacSequentialEngineInner<'sess>> GacDfsSearchEngine<'sess, 
     }
 }
 
-impl<'sess, Inner> GacDfsSearchEngine<'sess, Inner>
+impl<'sess, Inner> GacDfsSequentialEngine<'sess, Inner>
 where
     Inner: IsGacSequentialEngineInner<'sess>,
 {
