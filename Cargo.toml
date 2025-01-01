@@ -242,8 +242,8 @@ enum-index = { path = "crates/abstractions/enum-index" }
 enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
 eterned = { path = "crates/abstractions/eterned" }
 eterned-macros = { path = "crates/abstractions/eterned-macros" }
-floated = { path = "crates/abstractions/floated" }
-floated-macros = { path = "crates/abstractions/floated-macros" }
+floated-parallel = { path = "crates/abstractions/floated-parallel" }
+floated-parallel-macros = { path = "crates/abstractions/floated-parallel-macros" }
 from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }

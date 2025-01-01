@@ -40,8 +40,9 @@ fn basic_body_to_vd_mir_works() {
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
               └─ block: Paragraph
-                └─ block: Sentence
-                  └─ let placeholder
+                ├─ block: Sentence
+                │ └─ let placeholder
+                └─ qed
         "#]],
     );
     t(
@@ -59,8 +60,9 @@ fn basic_body_to_vd_mir_works() {
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
               └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, Example, VdModulePath(`root.stmts1.example1`))
                 └─ block: Paragraph
-                  └─ block: Sentence
-                    └─ let placeholder
+                  ├─ block: Sentence
+                  │ └─ let placeholder
+                  └─ qed
         "#]],
     );
 }

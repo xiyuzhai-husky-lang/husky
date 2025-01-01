@@ -3000,12 +3000,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "floated"
+name = "floated-parallel"
 version = "0.1.0"
 dependencies = [
  "attach",
  "dashmap 6.0.1",
- "floated-macros",
+ "floated-parallel-macros",
  "husky-sha-utils",
  "husky-wild-utils",
  "pool",
@@ -3013,7 +3013,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "floated-macros"
+name = "floated-parallel-macros"
 version = "0.1.0"
 dependencies = [
  "convert_case",

@@ -1,4 +1,4 @@
-use ::floated::{db::FloaterDb, *};
+use floated_parallel::{db::FloaterDb, *};
 
 #[floated]
 pub struct Coword<'db> {

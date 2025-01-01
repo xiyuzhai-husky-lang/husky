@@ -4,7 +4,7 @@ pub mod floater;
 pub mod note;
 
 pub use dashmap::DashMap;
-pub use floated_macros::{floated, note};
+pub use floated_parallel_macros::{floated, note};
 pub use husky_wild_utils::arb_ref;
 
 use crate::{db::FloaterDb, floater::FloatedEntry};

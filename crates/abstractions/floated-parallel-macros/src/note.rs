@@ -90,8 +90,8 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
         .collect::<Vec<_>>();
 
     let jar_ty = match ess_args.len() {
-        0 => quote!(::floated::note::jar0::Jar0<#ret_type>),
-        _ => quote!(::floated::note::jar::Jar<(#(#static_ess_arg_tys),*), #ret_type>),
+        0 => quote!(::floated_parallel::note::jar0::Jar0<#ret_type>),
+        _ => quote!(::floated_parallel::note::jar::Jar<(#(#static_ess_arg_tys),*), #ret_type>),
     };
 
     let output = if attr.return_ref {
@@ -99,12 +99,12 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
                 #[allow(non_camel_case_types)]
                 struct #fn_name {}
 
-            impl ::floated::note::IsNote for #fn_name {
+            impl ::floated_parallel::note::IsNote for #fn_name {
                 type Jar = #jar_ty;
             }
 
-            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> &'db #ret_type  {
-                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type #body
+            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated_parallel::db::FloaterDb) -> &'db #ret_type  {
+                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated_parallel::db::FloaterDb) -> #ret_type #body
 
                 db.note_jar::<#fn_name>().get_or_alloc((#(#ess_arg_names),*), || #inner_fn_name(#(#ess_arg_names,)* db))
             }
@@ -114,15 +114,15 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
                 #[allow(non_camel_case_types)]
                 struct #fn_name {}
 
-            impl ::floated::note::IsNote for #fn_name {
+            impl ::floated_parallel::note::IsNote for #fn_name {
                 type Jar = #jar_ty;
             }
 
 
-            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type {
-                use floated::arb_ref;
+            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated_parallel::db::FloaterDb) -> #ret_type {
+                use ::floated_parallel::arb_ref;
 
-                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated::db::FloaterDb) -> #ret_type #body
+                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated_parallel::db::FloaterDb) -> #ret_type #body
 
                 unsafe {
                     *db.note_jar::<#fn_name>().get_or_alloc(

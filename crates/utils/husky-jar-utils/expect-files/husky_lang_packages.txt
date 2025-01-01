@@ -454,12 +454,12 @@
         ],
     },
     PackageSummary {
-        name: "floated",
-        relative_path: "crates/abstractions/floated",
+        name: "floated-parallel",
+        relative_path: "crates/abstractions/floated-parallel",
         dependencies: [
             "attach",
             "dashmap",
-            "floated-macros",
+            "floated-parallel-macros",
             "husky-sha-utils",
             "husky-wild-utils",
             "pool",
@@ -467,8 +467,8 @@
         ],
     },
     PackageSummary {
-        name: "floated-macros",
-        relative_path: "crates/abstractions/floated-macros",
+        name: "floated-parallel-macros",
+        relative_path: "crates/abstractions/floated-parallel-macros",
         dependencies: [
             "convert_case",
             "proc-macro2",
@@ -5076,22 +5076,8 @@
         ],
     },
     PackageSummary {
-        name: "visored-snl-prelude",
-        relative_path: "crates/visored/visored-snl-prelude",
-        dependencies: [
-            "snl-prelude",
-        ],
-    },
-    PackageSummary {
-        name: "visored-syn-patt",
-        relative_path: "crates/visored/visored-syn-patt",
-        dependencies: [
-            "eterned",
-        ],
-    },
-    PackageSummary {
         name: "visored-mir-basic-elaborator",
-        relative_path: "crates/visored/visored-tactic-standard-sequential-elaborator",
+        relative_path: "crates/visored/visored-mir-basic-elaborator",
         dependencies: [
             "enum-class",
             "eterned",
@@ -5114,6 +5100,20 @@
             "visored-term",
             "husky-case-utils",
             "relative-path",
+        ],
+    },
+    PackageSummary {
+        name: "visored-snl-prelude",
+        relative_path: "crates/visored/visored-snl-prelude",
+        dependencies: [
+            "snl-prelude",
+        ],
+    },
+    PackageSummary {
+        name: "visored-syn-patt",
+        relative_path: "crates/visored/visored-syn-patt",
+        dependencies: [
+            "eterned",
         ],
     },
     PackageSummary {

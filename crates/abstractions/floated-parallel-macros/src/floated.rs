@@ -83,7 +83,7 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 }
 
                 impl<'db> #ty_ident<'db> {
-                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &'db ::floated::db::FloaterDb) -> Self
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &'db ::floated_parallel::db::FloaterDb) -> Self
                     where
                         #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
@@ -102,11 +102,11 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-        #vis struct #ty_ident<'db>(floated::Floated<'db, #data_ty_ident>);
+        #vis struct #ty_ident<'db>(::floated_parallel::Floated<'db, #data_ty_ident>);
 
         impl<'db> #ty_ident<'db> {
-            #vis fn new(#(#ctor_params),*, db: &'db ::floated::db::FloaterDb) -> Self {
-                use floated::Floated;
+            #vis fn new(#(#ctor_params),*, db: &'db ::floated_parallel::db::FloaterDb) -> Self {
+                use ::floated_parallel::Floated;
 
                 let data = #data_ty_ident {
                     #(#field_inits),*

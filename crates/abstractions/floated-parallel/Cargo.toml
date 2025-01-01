@@ -1,5 +1,5 @@
 [package]
-name = "floated"
+name = "floated-parallel"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -16,7 +16,7 @@ dashmap.workspace = true
 sealed.workspace = true
 # abstractions
 attach.workspace = true
-floated-macros.workspace = true
+floated-parallel-macros.workspace = true
 pool.workspace = true
 # utils
 husky-sha-utils.workspace = true
