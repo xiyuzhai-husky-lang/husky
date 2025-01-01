@@ -7,13 +7,9 @@ use self::construction::VdBaseqHypothesisConstruction;
 use crate::expr::VdMirExprFld;
 use idx_arena::{Arena, ArenaIdx};
 
-pub struct VdBaseqHypothesisData<'sess> {
+pub struct VdBaseqHypothesisEntry<'sess> {
     expr: VdMirExprFld<'sess>,
     construction: VdBaseqHypothesisConstruction<'sess>,
-}
-
-pub struct VdBaseqHypothesisEntry<'sess> {
-    data: VdBaseqHypothesisData<'sess>,
 }
 
 pub type VdBaseqHypothesisIdx<'sess> = ArenaIdx<VdBaseqHypothesisEntry<'sess>>;
