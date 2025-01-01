@@ -17,7 +17,7 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
     // Generate the field definitions for both structs
     let field_defs = fields.iter().map(|f| {
         let name = &f.ident;
-        let ty = &f.ty;
+        let ty = make_all_lifetimes_static(&f.ty);
         quote! { #name: #ty }
     });
 
@@ -31,7 +31,7 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
     // Generate field initializers
     let field_inits = fields.iter().map(|f| {
         let field_ident = &f.ident;
-        quote! { #field_ident }
+        quote! { #field_ident: unsafe { std::mem::transmute(#field_ident) } }
     });
 
     let field_accesses = fields.iter().map(|field| {
@@ -42,20 +42,20 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
             if let Some(ref_ty) = field_attr.return_ref_ty {
                 quote! {
                     pub fn #field_ident(self) -> &'db #ref_ty {
-                        &self.0.0.value.#field_ident
+                        unsafe { std::mem::transmute(&self.0.0.value.#field_ident) }
                     }
                 }
             } else {
                 quote! {
                     pub fn #field_ident(self) -> &'db #field_ty {
-                        &self.0.0.value.#field_ident
+                        unsafe { std::mem::transmute(&self.0.0.value.#field_ident) }
                     }
                 }
             }
         } else {
             quote! {
                 pub fn #field_ident(self) -> #field_ty {
-                    self.0.0.value.#field_ident
+                    unsafe { std::mem::transmute(self.0.0.value.#field_ident) }
                 }
             }
         }
@@ -66,17 +66,19 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
             let field = &fields[0];
             let field_ident = &field.ident;
             let field_ty = &field.ty;
+            let field_ty_static = make_all_lifetimes_static(&field.ty);
             quote! {
                 impl<Q: ?Sized> std::borrow::Borrow<Q> for #data_ty_ident
                 where
-                    #field_ty: std::borrow::Borrow<Q>,
+                    #field_ty_static: std::borrow::Borrow<Q>,
                 {
                     fn borrow(&self) -> &Q {
                         self.#field_ident.borrow()
                     }
                 }
 
-                impl<'a, Q: ?Sized> From<&'a Q> for #data_ty_ident where #field_ty: From<&'a Q> {
+                impl<'a, Q: ?Sized> From<&'a Q> for #data_ty_ident
+                where #field_ty_static: From<&'a Q> {
                     fn from(q: &'a Q) -> Self {
                         Self { #field_ident: q.into() }
                     }
@@ -85,7 +87,7 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 impl<'db> #ty_ident<'db> {
                     #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &'db ::floated_parallel::db::FloaterDb) -> Self
                     where
-                        #field_ty: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
+                        #field_ty_static: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
                         #ty_ident(db.float_ref::<#data_ty_ident, Q>(q))
                     }

@@ -32,6 +32,7 @@ visored-lean-transpilation.workspace = true
 visored-mir-expr.workspace = true
 visored-models.workspace = true
 visored-opr.workspace = true
+visored-signature.workspace = true
 visored-syn-expr.workspace = true
 visored-term.workspace = true
 # utils

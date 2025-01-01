@@ -3017,6 +3017,7 @@ name = "floated-parallel-macros"
 version = "0.1.0"
 dependencies = [
  "convert_case",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.87",
@@ -3040,6 +3041,7 @@ name = "floated-sequential-macros"
 version = "0.1.0"
 dependencies = [
  "convert_case",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.87",
@@ -13410,6 +13412,7 @@ dependencies = [
  "visored-mir-expr",
  "visored-models",
  "visored-opr",
+ "visored-signature",
  "visored-syn-expr",
  "visored-term",
 ]

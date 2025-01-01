@@ -19,6 +19,8 @@ convert_case.workspace = true
 syn.workspace = true
 quote.workspace = true
 proc-macro2.workspace = true
+# utils
+husky-proc-macro-utils.workspace = true
 
 [lints]
 workspace = true

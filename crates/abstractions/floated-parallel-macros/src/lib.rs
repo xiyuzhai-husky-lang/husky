@@ -1,6 +1,7 @@
 mod floated;
 mod note;
 
+use husky_proc_macro_utils::ty::make_all_lifetimes_static;
 use proc_macro::TokenStream;
 use quote::{format_ident, quote};
 use syn::*;

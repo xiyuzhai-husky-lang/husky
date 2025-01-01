@@ -1,4 +1,6 @@
 //! useful things for creating procedural macros
+pub mod ty;
+
 use quote::quote;
 
 pub fn generics_with_debug_with_db(generics: &syn::Generics) -> proc_macro2::TokenStream {

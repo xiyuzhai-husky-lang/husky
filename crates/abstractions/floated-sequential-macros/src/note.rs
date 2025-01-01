@@ -38,25 +38,7 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
         .iter()
         .map(|arg| {
             if let FnArg::Typed(pat_type) = arg {
-                match &*pat_type.ty {
-                    Type::Path(type_path) => {
-                        let mut type_path = type_path.clone();
-                        for segment in &mut type_path.path.segments {
-                            if let PathArguments::AngleBracketed(args) = &mut segment.arguments {
-                                for arg in &mut args.args {
-                                    if let GenericArgument::Lifetime(_) = arg {
-                                        *arg = GenericArgument::Lifetime(Lifetime::new(
-                                            "'static",
-                                            proc_macro2::Span::call_site(),
-                                        ));
-                                    }
-                                }
-                            }
-                        }
-                        Type::Path(type_path)
-                    }
-                    _ => panic!("Type not supported"),
-                }
+                make_all_lifetimes_static(&*pat_type.ty)
             } else {
                 panic!("Self arguments not supported")
             }
