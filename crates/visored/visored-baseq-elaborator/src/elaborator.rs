@@ -5,14 +5,13 @@ use visored_mir_expr::{
 };
 
 #[derive(Debug, Default)]
-pub struct VdMirStandardSequentialElaboratorInner<'sess> {
+pub struct VdBaseqElaboratorInner<'sess> {
     pub(crate) phantom: PhantomData<&'sess ()>,
 }
 
-pub type VdMirStandardSequentialElaborator<'sess> =
-    VdMirSequentialElaborator<VdMirStandardSequentialElaboratorInner<'sess>>;
+pub type VdBaseqElaborator<'sess> = VdMirSequentialElaborator<VdBaseqElaboratorInner<'sess>>;
 
-impl<'sess> IsVdMirSequentialElaboratorInner for VdMirStandardSequentialElaboratorInner<'sess> {
+impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
     type ElaborationTracker = ();
 
     fn elaborate_stmt(

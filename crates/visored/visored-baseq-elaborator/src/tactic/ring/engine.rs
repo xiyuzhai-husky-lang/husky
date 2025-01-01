@@ -1,4 +1,4 @@
-use crate::session::VdMirSession;
+use crate::session::VdBaseqSession;
 
 use super::*;
 use husky_sha_utils::ShaHash;
@@ -11,14 +11,14 @@ use visored_opr::separator::VdBaseSeparator;
 use visored_term::term::literal::VdLiteralData;
 
 pub struct VdMirRingTacticEngine<'db, 'sess> {
-    session: &'sess VdMirSession<'db>,
+    session: &'sess VdBaseqSession<'db>,
     expr_arena: VdMirExprArenaRef<'db>,
     term_arena: NonLiteralTermArena,
     interned_terms: FxHashMap<NonLiteralTermData, IrrationalTerm>,
 }
 
 impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
-    pub fn new(session: &'sess VdMirSession<'db>, expr_arena: VdMirExprArenaRef<'db>) -> Self {
+    pub fn new(session: &'sess VdBaseqSession<'db>, expr_arena: VdMirExprArenaRef<'db>) -> Self {
         Self {
             session,
             expr_arena,

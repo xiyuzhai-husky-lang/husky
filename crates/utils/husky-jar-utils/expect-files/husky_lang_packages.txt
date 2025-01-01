@@ -5076,8 +5076,8 @@
         ],
     },
     PackageSummary {
-        name: "visored-mir-basic-elaborator",
-        relative_path: "crates/visored/visored-mir-basic-elaborator",
+        name: "visored-baseq-elaborator",
+        relative_path: "crates/visored/visored-baseq-elaborator",
         dependencies: [
             "enum-class",
             "eterned",

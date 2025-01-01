@@ -508,7 +508,7 @@ visored-prelude = { path = "crates/visored/visored-prelude" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
-visored-mir-basic-elaborator = { path = "crates/visored/visored-mir-basic-elaborator" }
+visored-baseq-elaborator = { path = "crates/visored/visored-baseq-elaborator" }
 visored-term = { path = "crates/visored/visored-term" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }

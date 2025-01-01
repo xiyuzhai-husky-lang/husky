@@ -2,8 +2,8 @@ use eterned::db::EternerDb;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use visored_annotation::annotation::space::VdSpaceAnnotation;
 use visored_annotation::annotation::token::VdTokenAnnotation;
-use visored_mir_basic_elaborator::{
-    session::VdMirSession,
+use visored_baseq_elaborator::{
+    session::VdBaseqSession,
     tactic::ring::{engine::VdMirRingTacticEngine, tracker::*, *},
 };
 use visored_mir_expr::{
@@ -88,7 +88,7 @@ fn ring_tactics() {
         assert_eq!(followers.len(), 1);
         let lopd = leader;
         let ropd = followers[0].1;
-        let sess = VdMirSession::new(db);
+        let sess = VdBaseqSession::new(db);
         for _ in 0..repetitions {
             let mut engine = VdMirRingTacticEngine::new(&sess, expr_arena.as_arena_ref());
             engine.judge(lopd, ropd);

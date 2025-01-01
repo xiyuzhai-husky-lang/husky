@@ -1,5 +1,5 @@
 [package]
-name = "visored-mir-basic-elaborator"
+name = "visored-baseq-elaborator"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -20,6 +20,7 @@ enum-class.workspace = true
 eterned.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
+floated-sequential.workspace = true
 # latex
 latex-prelude.workspace = true
 latex-vfs.workspace = true
