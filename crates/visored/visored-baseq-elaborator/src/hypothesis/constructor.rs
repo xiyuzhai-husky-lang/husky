@@ -3,7 +3,7 @@ use crate::term::VdMirTermFld;
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 
-pub struct VdBaseqHypothesisBuilder<'sess> {
+pub struct VdBaseqHypothesisConstructor<'sess> {
     db: &'sess FloaterDb,
     stack: VdBaseqHypothesisStack<'sess>,
     arena: VdBaseqHypothesisArena<'sess>,
@@ -11,7 +11,7 @@ pub struct VdBaseqHypothesisBuilder<'sess> {
     term_to_hypothesis: FxHashMap<VdMirTermFld<'sess>, VdBaseqHypothesisIdx<'sess>>,
 }
 
-impl<'sess> VdBaseqHypothesisBuilder<'sess> {
+impl<'sess> VdBaseqHypothesisConstructor<'sess> {
     pub(crate) fn new(db: &'sess FloaterDb) -> Self {
         Self {
             db,
@@ -23,7 +23,7 @@ impl<'sess> VdBaseqHypothesisBuilder<'sess> {
     }
 }
 
-impl<'sess> VdBaseqHypothesisBuilder<'sess> {
+impl<'sess> VdBaseqHypothesisConstructor<'sess> {
     /// Attempts to find an existing hypothesis that matches the given expression.
     ///
     /// This method implements functionality similar to the `assumption` tactic in proof

@@ -3,7 +3,7 @@ use visored_mir_expr::{
     elaboration::VdMirTracker,
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
     region::VdMirExprRegionDataRef,
-    stmt::VdMirStmtIdx,
+    stmt::{VdMirStmtData, VdMirStmtIdx},
 };
 
 #[derive(Debug, Default)]
@@ -21,7 +21,18 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
         stmt: VdMirStmtIdx,
         region_data: VdMirExprRegionDataRef,
     ) -> Self::ElaborationTracker {
-        todo!()
+        match *region_data.stmt_arena[stmt].data() {
+            VdMirStmtData::Block { stmts, ref meta } => unreachable!(),
+            VdMirStmtData::LetPlaceholder { ref pattern, ty } => (),
+            VdMirStmtData::LetAssigned {
+                ref pattern,
+                assignment,
+            } => todo!(),
+            VdMirStmtData::Goal { prop } => todo!(),
+            VdMirStmtData::Have { prop, hint } => todo!(),
+            VdMirStmtData::Show { prop, hint } => todo!(),
+            VdMirStmtData::Qed { goal } => todo!(),
+        }
     }
 
     fn extract_elaboration_tracker(
