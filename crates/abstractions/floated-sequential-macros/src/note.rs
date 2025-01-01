@@ -7,9 +7,19 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
         Err(err) => return err.into_compile_error().into(),
     };
     let input = parse_macro_input!(item as ItemFn);
+
+    // Extract lifetime parameter from function signature
+    let lifetime = input
+        .sig
+        .generics
+        .lifetimes()
+        .next()
+        .expect("Function must have a lifetime parameter");
+    let lifetime_ident = &lifetime.lifetime;
+
     let vis = input.vis;
-    let sig = input.sig;
-    let body = input.block;
+    let sig = &input.sig;
+    let body = &input.block;
 
     let fn_name = &sig.ident;
     let storage_name = format_ident!("{}_STORAGE", fn_name.to_string().to_uppercase());
@@ -78,33 +88,32 @@ pub(crate) fn note(attr: TokenStream, item: TokenStream) -> TokenStream {
 
     let output = if attr.return_ref {
         quote! {
-                #[allow(non_camel_case_types)]
-                struct #fn_name {}
+            #[allow(non_camel_case_types)]
+            struct #fn_name {}
 
             impl ::floated_sequential::note::IsNote for #fn_name {
                 type Jar = #jar_ty;
             }
 
-            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated_sequential::db::FloaterDb) -> &'db #ret_type  {
-                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated_sequential::db::FloaterDb) -> #ret_type #body
+            #vis fn #fn_name<#lifetime_ident>(#(#ess_args,)* db: &#lifetime_ident ::floated_sequential::db::FloaterDb) -> &#lifetime_ident #ret_type  {
+                fn #inner_fn_name<#lifetime_ident>(#(#ess_args,)* db: &#lifetime_ident ::floated_sequential::db::FloaterDb) -> #ret_type #body
 
                 db.note_jar::<#fn_name>().get_or_alloc((#(#ess_arg_names),*), || #inner_fn_name(#(#ess_arg_names,)* db))
             }
         }
     } else {
         quote! {
-                #[allow(non_camel_case_types)]
-                struct #fn_name {}
+            #[allow(non_camel_case_types)]
+            struct #fn_name {}
 
             impl ::floated_sequential::note::IsNote for #fn_name {
                 type Jar = #jar_ty;
             }
 
-
-            #vis fn #fn_name<'db>(#(#ess_args,)* db: &'db ::floated_sequential::db::FloaterDb) -> #ret_type {
+            #vis fn #fn_name<#lifetime_ident>(#(#ess_args,)* db: &#lifetime_ident ::floated_sequential::db::FloaterDb) -> #ret_type {
                 use ::floated_sequential::arb_ref;
 
-                fn #inner_fn_name<'db>(#(#ess_args,)* db: &'db ::floated_sequential::db::FloaterDb) -> #ret_type #body
+                fn #inner_fn_name<#lifetime_ident>(#(#ess_args,)* db: &#lifetime_ident ::floated_sequential::db::FloaterDb) -> #ret_type #body
 
                 unsafe {
                     *db.note_jar::<#fn_name>().get_or_alloc(

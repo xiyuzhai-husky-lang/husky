@@ -6,6 +6,15 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let vis = input.vis;
     let ty_ident = input.ident;
     let data_ty_ident = format_ident!("__{}Data", ty_ident);
+
+    // Extract lifetime parameter
+    let lifetime = input
+        .generics
+        .lifetimes()
+        .next()
+        .expect("Struct must have a lifetime parameter");
+    let lifetime_ident = &lifetime.lifetime;
+
     let fields = match input.data {
         Data::Struct(ref data) => match data.fields {
             Fields::Named(ref fields) => &fields.named,
@@ -41,13 +50,13 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
         if field_attr.return_ref {
             if let Some(ref_ty) = field_attr.return_ref_ty {
                 quote! {
-                    pub fn #field_ident(self) -> &'db #ref_ty {
+                    pub fn #field_ident(self) -> &#lifetime_ident #ref_ty {
                         unsafe { std::mem::transmute(&self.0.0.value.#field_ident) }
                     }
                 }
             } else {
                 quote! {
-                    pub fn #field_ident(self) -> &'db #field_ty {
+                    pub fn #field_ident(self) -> &#lifetime_ident #field_ty {
                         unsafe { std::mem::transmute(&self.0.0.value.#field_ident) }
                     }
                 }
@@ -84,8 +93,8 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
                     }
                 }
 
-                impl<'db> #ty_ident<'db> {
-                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &'db ::floated_parallel::db::FloaterDb) -> Self
+                impl<#lifetime_ident> #ty_ident<#lifetime_ident> {
+                    #vis fn from_ref<Q: Eq + std::hash::Hash + ?Sized>(q: &Q, db: &#lifetime_ident ::floated_parallel::db::FloaterDb) -> Self
                     where
                         #field_ty_static: std::borrow::Borrow<Q> + for<'a> From<&'a Q>,
                     {
@@ -104,10 +113,10 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
         }
 
         #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-        #vis struct #ty_ident<'db>(::floated_parallel::Floated<'db, #data_ty_ident>);
+        #vis struct #ty_ident<#lifetime_ident>(::floated_parallel::Floated<#lifetime_ident, #data_ty_ident>);
 
-        impl<'db> #ty_ident<'db> {
-            #vis fn new(#(#ctor_params),*, db: &'db ::floated_parallel::db::FloaterDb) -> Self {
+        impl<#lifetime_ident> #ty_ident<#lifetime_ident> {
+            #vis fn new(#(#ctor_params),*, db: &#lifetime_ident ::floated_parallel::db::FloaterDb) -> Self {
                 use ::floated_parallel::Floated;
 
                 let data = #data_ty_ident {
