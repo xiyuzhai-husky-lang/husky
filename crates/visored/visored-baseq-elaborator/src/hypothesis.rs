@@ -1,13 +1,20 @@
-mod construction;
-mod stack;
-mod storage;
+pub mod builder;
+pub mod construction;
+pub mod region;
+pub mod stack;
 
-use idx_arena::ArenaIdx;
+use self::construction::VdBaseqHypothesisConstruction;
+use crate::expr::VdMirExprFld;
+use idx_arena::{Arena, ArenaIdx};
 
-pub struct VdBaseqHypothesisData {}
-
-pub struct VdBaseqHypothesisEntry {
-    data: VdBaseqHypothesisData,
+pub struct VdBaseqHypothesisData<'sess> {
+    expr: VdMirExprFld<'sess>,
+    construction: VdBaseqHypothesisConstruction<'sess>,
 }
 
-pub type VdBaseqHypothesisIdx = ArenaIdx<VdBaseqHypothesisEntry>;
+pub struct VdBaseqHypothesisEntry<'sess> {
+    data: VdBaseqHypothesisData<'sess>,
+}
+
+pub type VdBaseqHypothesisIdx<'sess> = ArenaIdx<VdBaseqHypothesisEntry<'sess>>;
+pub type VdBaseqHypothesisArena<'sess> = Arena<VdBaseqHypothesisEntry<'sess>>;

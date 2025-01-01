@@ -1,10 +1,12 @@
-use floated_sequential::floated;
+use floated_sequential::{db::FloaterDb, floated};
 use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::{expr::application::VdMirFunc, symbol::local_defn::VdMirSymbolLocalDefnIdx};
 use visored_opr::separator::VdBaseSeparator;
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_term::term::literal::VdLiteral;
+
+use crate::term::VdMirTermFld;
 
 #[floated]
 pub struct VdMirExprFld<'sess> {
@@ -40,3 +42,9 @@ pub enum VdMirExprFldData<'sess> {
 }
 
 pub type VdMirExprFlds<'sess> = SmallVec<[VdMirExprFld<'sess>; 4]>;
+
+impl<'sess> VdMirExprFld<'sess> {
+    pub fn term(self, db: &'sess FloaterDb) -> VdMirTermFld<'sess> {
+        todo!()
+    }
+}

@@ -1,11 +1,19 @@
 use super::*;
 
-pub struct VdBaseqHypothesisStack {
-    hypotheses: Vec<VdBaseqHypothesisIdx>,
+pub struct VdBaseqHypothesisStack<'sess> {
+    hypotheses: Vec<VdBaseqHypothesisIdx<'sess>>,
 }
 
-impl VdBaseqHypothesisStack {
-    pub fn append(&mut self, h: VdBaseqHypothesisIdx) {
+impl<'sess> VdBaseqHypothesisStack<'sess> {
+    pub(super) fn new() -> Self {
+        Self {
+            hypotheses: Vec::new(),
+        }
+    }
+}
+
+impl<'sess> VdBaseqHypothesisStack<'sess> {
+    pub fn append(&mut self, h: VdBaseqHypothesisIdx<'sess>) {
         self.hypotheses.push(h);
     }
 
