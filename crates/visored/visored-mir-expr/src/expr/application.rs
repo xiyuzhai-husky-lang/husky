@@ -9,7 +9,7 @@ use visored_term::instantiation::VdInstantiation;
 
 pub mod menu;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdMirFunc {
     NormalBasePrefixOpr(VdBasePrefixOprSignature),
     NormalBaseSeparator(VdBaseSeparatorSignature),

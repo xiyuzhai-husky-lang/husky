@@ -12,7 +12,7 @@ pub trait IsNote {
 pub trait IsNoteJar: IsNoteJarDyn + Default + 'static {}
 
 #[sealed]
-pub trait IsNoteJarDyn: std::any::Any   + 'static {}
+pub trait IsNoteJarDyn: std::any::Any + 'static {}
 
 pub struct NoteJarDyn(Pin<Box<dyn IsNoteJarDyn>>);
 

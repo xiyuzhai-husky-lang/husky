@@ -2,7 +2,7 @@ use crate::precedence::{VdPrecedence, VdPrecedenceRange};
 use enum_index::IsEnumIndex;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, IsEnumIndex, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, IsEnumIndex, Hash, PartialOrd, Ord)]
 pub enum VdBaseSeparator {
     Space,
     Comma,

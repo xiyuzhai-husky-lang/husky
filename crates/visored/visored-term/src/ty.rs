@@ -10,7 +10,7 @@ use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
 use visored_entity_path::path::VdItemPath;
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdType(VdTerm);
 
 impl std::ops::Deref for VdType {

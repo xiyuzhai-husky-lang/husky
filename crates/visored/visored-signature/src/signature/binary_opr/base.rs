@@ -3,7 +3,7 @@ use visored_entity_path::path::{trai_item::VdTraitItemPath, VdItemPath};
 use visored_opr::opr::binary::VdBaseBinaryOpr;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBaseBinaryOprSignature {
     pub instantiation: VdInstantiation,
     // TODO: replace this with something more ethereal

@@ -8,7 +8,7 @@ pub enum VdSqrtSignature {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBaseSqrtSignature {
     instantiation: VdInstantiation,
     base_ty: VdType,

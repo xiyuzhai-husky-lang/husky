@@ -14,6 +14,7 @@ keywords.workspace = true
 [dependencies]
 expect-test.workspace = true
 rustc-hash.workspace = true
+smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
 enum-class.workspace = true
@@ -25,13 +26,14 @@ floated-sequential.workspace = true
 latex-prelude.workspace = true
 latex-vfs.workspace = true
 # visored
+visored-annotation.workspace = true
+visored-entity-path.workspace = true
+visored-lean-transpilation.workspace = true
+visored-mir-expr.workspace = true
 visored-models.workspace = true
 visored-opr.workspace = true
 visored-syn-expr.workspace = true
-visored-mir-expr.workspace = true
 visored-term.workspace = true
-visored-annotation.workspace = true
-visored-lean-transpilation.workspace = true
 # utils
 husky-sha-utils.workspace = true
 husky-path-utils.workspace = true

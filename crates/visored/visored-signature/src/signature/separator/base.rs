@@ -4,7 +4,7 @@ use visored_opr::separator::VdBaseSeparator;
 use super::*;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBaseSeparatorSignature {
     instantiation: VdInstantiation,
     // TODO: replace this with something more ethereal

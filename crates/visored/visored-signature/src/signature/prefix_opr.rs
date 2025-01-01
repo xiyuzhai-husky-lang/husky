@@ -8,7 +8,7 @@ pub enum VdPrefixOprSignature {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBasePrefixOprSignature {
     pub instantiation: VdInstantiation,
     pub opd_ty: VdType,
