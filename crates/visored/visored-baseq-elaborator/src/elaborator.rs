@@ -2,6 +2,8 @@ use std::marker::PhantomData;
 use visored_mir_expr::{
     elaboration::VdMirTracker,
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
+    region::VdMirExprRegionDataRef,
+    stmt::VdMirStmtIdx,
 };
 
 #[derive(Debug, Default)]
@@ -16,17 +18,18 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
 
     fn elaborate_stmt(
         &mut self,
-        stmt: visored_mir_expr::stmt::VdMirStmtIdx,
-        region_data: visored_mir_expr::region::VdMirExprRegionDataRef,
+        stmt: VdMirStmtIdx,
+        region_data: VdMirExprRegionDataRef,
     ) -> Self::ElaborationTracker {
-        ()
+        todo!()
     }
 
     fn extract_elaboration_tracker(
         &self,
         elaboration: &Self::ElaborationTracker,
-        region_data: visored_mir_expr::region::VdMirExprRegionDataRef,
+        region_data: VdMirExprRegionDataRef,
     ) -> VdMirTracker {
-        VdMirTracker::new_trivial()
+        todo!()
+        // VdMirTracker::new_trivial()
     }
 }
