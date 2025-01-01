@@ -244,6 +244,8 @@ eterned = { path = "crates/abstractions/eterned" }
 eterned-macros = { path = "crates/abstractions/eterned-macros" }
 floated-parallel = { path = "crates/abstractions/floated-parallel" }
 floated-parallel-macros = { path = "crates/abstractions/floated-parallel-macros" }
+floated-sequential = { path = "crates/abstractions/floated-sequential" }
+floated-sequential-macros = { path = "crates/abstractions/floated-sequential-macros" }
 from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }

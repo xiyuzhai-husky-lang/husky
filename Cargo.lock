@@ -3023,6 +3023,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "floated-sequential"
+version = "0.1.0"
+dependencies = [
+ "attach",
+ "floated-sequential-macros",
+ "husky-sha-utils",
+ "husky-wild-utils",
+ "pool",
+ "rustc-hash 2.0.0",
+ "sealed",
+]
+
+[[package]]
+name = "floated-sequential-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.87",
+]
+
+[[package]]
 name = "fluent-bundle"
 version = "0.15.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
