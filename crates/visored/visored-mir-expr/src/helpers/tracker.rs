@@ -61,7 +61,7 @@ pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn elaborate_self(
         self,
         elaborator: impl IsVdMirTacticElaborator,
-        hypothesis_constructor: VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
     );
 }
 
@@ -139,19 +139,17 @@ where
             symbol_local_defn_storage,
             source_map,
         ) = builder.finish();
-        output.elaborate_self(
-            elaborator,
-            VdMirHypothesisConstructor::new(
-                db,
-                VdMirExprRegionDataMut {
-                    expr_arena: &mut expr_arena,
-                    stmt_arena: &mut stmt_arena,
-                    hint_arena: &mut hint_arena,
-                    tactic_arena: &mut tactic_arena,
-                    symbol_local_defn_storage: &symbol_local_defn_storage,
-                },
-            ),
+        let mut hypothesis_constructor = VdMirHypothesisConstructor::new(
+            db,
+            expr_arena,
+            stmt_arena,
+            hint_arena,
+            tactic_arena,
+            symbol_local_defn_storage,
         );
+        output.elaborate_self(elaborator, &mut hypothesis_constructor);
+        let (expr_arena, stmt_arena, hint_arena, tactic_arena, symbol_local_defn_storage) =
+            hypothesis_constructor.finish();
         Self {
             input,
             root_module_path,
@@ -210,9 +208,9 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
     fn elaborate_self(
         self,
         elaborator: impl IsVdMirTacticElaborator,
-        hypothesis_constructor: VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        elaborator.elaborate_stmts_ext(self, hypothesis_constructor);
+        elaborator.elaborate_stmts_ext(self, hypothesis_constructor)
     }
 }
 
@@ -224,8 +222,8 @@ impl IsVdMirExprOutput for VdMirExprIdx {
     fn elaborate_self(
         self,
         elaborator: impl IsVdMirTacticElaborator,
-        hypothesis_constructor: VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        elaborator.elaborate_expr_ext(self, hypothesis_constructor);
+        elaborator.elaborate_expr_ext(self, hypothesis_constructor)
     }
 }

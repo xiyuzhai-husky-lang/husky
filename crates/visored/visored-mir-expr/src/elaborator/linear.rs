@@ -117,25 +117,25 @@ where
     fn elaborate_stmts_ext(
         mut self,
         stmts: VdMirStmtIdxRange,
-        mut hypothesis_constructor: VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        self.elaborate_stmts(stmts, &mut hypothesis_constructor);
+        self.elaborate_stmts(stmts, hypothesis_constructor);
     }
 
     fn elaborate_stmt_ext(
         mut self,
         stmt: VdMirStmtIdx,
-        mut hypothesis_constructor: VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        self.elaborate_stmt(stmt, &mut hypothesis_constructor);
+        self.elaborate_stmt(stmt, hypothesis_constructor);
     }
 
     fn elaborate_expr_ext(
         mut self,
         expr: VdMirExprIdx,
-        mut hypothesis_constructor: VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        self.elaborate_expr(expr, &mut hypothesis_constructor);
+        self.elaborate_expr(expr, hypothesis_constructor);
     }
 }
 
