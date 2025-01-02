@@ -3,7 +3,10 @@ use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
     expr::{VdMirExprArenaRef, VdMirExprIdx, VdMirExprMap, VdMirExprOrderedMap},
     hint::VdMirHintIdx,
-    hypothesis::{constructor::VdMirHypothesisConstructor, VdMirHypothesisIdx},
+    hypothesis::{
+        construction::VdMirHypothesisConstruction, constructor::VdMirHypothesisConstructor,
+        VdMirHypothesisIdx,
+    },
     region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
@@ -11,6 +14,7 @@ use visored_mir_expr::{
 use crate::{
     expr::{build_expr_to_fld_map, VdMirExprFld},
     hypothesis::{
+        construction::VdBaseqHypothesisConstruction,
         constructor::VdBaseqHypothesisConstructor,
         contradiction::{VdBaseqHypothesisContradiction, VdBaseqHypothesisResult},
         VdBaseqHypothesisIdx,
@@ -93,6 +97,10 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         goal: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
-        todo!()
+        let construction = match self.hypothesis_constructor.arena()[hypothesis].construction() {
+            VdBaseqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
+            VdBaseqHypothesisConstruction::Phantom(phantom_data) => todo!(),
+        };
+        hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }
 }

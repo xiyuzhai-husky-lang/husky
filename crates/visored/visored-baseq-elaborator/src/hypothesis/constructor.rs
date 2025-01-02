@@ -18,6 +18,17 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
     }
 }
 
+// # getters
+impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
+    pub fn stack(&self) -> &VdBaseqHypothesisStack<'sess> {
+        &self.stack
+    }
+
+    pub fn arena(&self) -> &VdBaseqHypothesisArena<'sess> {
+        &self.arena
+    }
+}
+
 impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
     /// Attempts to find an existing hypothesis that matches the given expression.
     ///
