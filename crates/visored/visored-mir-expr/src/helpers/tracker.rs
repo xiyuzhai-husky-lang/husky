@@ -11,6 +11,7 @@ use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use hint::VdMirHintArena;
 use husky_tree_utils::display::DisplayTree;
+use hypothesis::constructor::VdMirHypothesisConstructor;
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
@@ -58,10 +59,16 @@ pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String;
 
-    fn eval_all_tactics_within_self(
+    fn elaborate_self(
         self,
         region_data: VdMirExprRegionDataRef,
         elaborator: &mut impl IsVdMirTacticElaborator,
+    );
+
+    fn extract_self_elaborations(
+        self,
+        elaborator: &impl IsVdMirTacticElaborator,
+        hypothesis_constructor: VdMirHypothesisConstructor,
     );
 }
 
@@ -146,7 +153,7 @@ where
             hint_arena: hint_arena.as_arena_ref(),
             symbol_local_defn_storage: &symbol_local_defn_storage,
         });
-        output.eval_all_tactics_within_self(
+        output.elaborate_self(
             VdMirExprRegionDataRef {
                 expr_arena: expr_arena.as_arena_ref(),
                 stmt_arena: stmt_arena.as_arena_ref(),
@@ -155,13 +162,19 @@ where
             },
             &mut elaborator,
         );
-        elaborator.extract(VdMirExprRegionDataMut {
-            expr_arena: &mut expr_arena,
-            stmt_arena: &mut stmt_arena,
-            hint_arena: &mut hint_arena,
-            tactic_arena: &mut tactic_arena,
-            symbol_local_defn_storage: &symbol_local_defn_storage,
-        });
+        output.extract_self_elaborations(
+            &elaborator,
+            VdMirHypothesisConstructor::new(
+                db,
+                VdMirExprRegionDataMut {
+                    expr_arena: &mut expr_arena,
+                    stmt_arena: &mut stmt_arena,
+                    hint_arena: &mut hint_arena,
+                    tactic_arena: &mut tactic_arena,
+                    symbol_local_defn_storage: &symbol_local_defn_storage,
+                },
+            ),
+        );
         Self {
             input,
             root_module_path,
@@ -218,12 +231,20 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
         DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
 
-    fn eval_all_tactics_within_self(
+    fn elaborate_self(
         self,
         region_data: VdMirExprRegionDataRef,
         elaborator: &mut impl IsVdMirTacticElaborator,
     ) {
         elaborator.elaborate_stmts(self, region_data);
+    }
+
+    fn extract_self_elaborations(
+        self,
+        elaborator: &impl IsVdMirTacticElaborator,
+        hypothesis_constructor: VdMirHypothesisConstructor,
+    ) {
+        elaborator.extract_stmts(self, hypothesis_constructor);
     }
 }
 
@@ -232,10 +253,19 @@ impl IsVdMirExprOutput for VdMirExprIdx {
         builder.render_expr(self).show(&Default::default())
     }
 
-    fn eval_all_tactics_within_self(
+    fn elaborate_self(
         self,
         region_data: VdMirExprRegionDataRef,
         elaborator: &mut impl IsVdMirTacticElaborator,
     ) {
+        elaborator.elaborate_expr(self, region_data);
+    }
+
+    fn extract_self_elaborations(
+        self,
+        elaborator: &impl IsVdMirTacticElaborator,
+        hypothesis_constructor: VdMirHypothesisConstructor,
+    ) {
+        elaborator.extract_expr(self, hypothesis_constructor);
     }
 }

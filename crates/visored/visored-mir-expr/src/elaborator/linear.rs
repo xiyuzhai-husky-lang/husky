@@ -1,3 +1,5 @@
+use hint::VdMirHintIdx;
+
 use super::*;
 use crate::{
     elaboration::VdMirTracker,
@@ -16,28 +18,37 @@ where
 pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
     type ElaborationTracker: std::fmt::Debug + Eq;
 
-    fn elaborate_stmt(
+    fn elaborate_have_stmt(
         &mut self,
         stmt: VdMirStmtIdx,
+        prop: VdMirExprIdx,
+        hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Self::ElaborationTracker;
 
-    fn extract_elaboration_tracker(
+    fn extract_elaborations(
         &self,
         elaboration: &Self::ElaborationTracker,
-        region_data: VdMirExprRegionDataRef,
+        hypothesis_constructor: VdMirHypothesisConstructor,
     ) -> VdMirTracker;
 }
 
 impl IsVdMirSequentialElaboratorInner for () {
     type ElaborationTracker = ();
 
-    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) -> () {}
+    fn elaborate_have_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        prop: VdMirExprIdx,
+        hint: Option<VdMirHintIdx>,
+        region_data: VdMirExprRegionDataRef,
+    ) -> () {
+    }
 
-    fn extract_elaboration_tracker(
+    fn extract_elaborations(
         &self,
         elaboration: &Self::ElaborationTracker,
-        region_data: VdMirExprRegionDataRef,
+        hypothesis_constructor: VdMirHypothesisConstructor,
     ) -> VdMirTracker {
         VdMirTracker::new_trivial()
     }
@@ -66,19 +77,34 @@ impl<Inner> IsVdMirTacticElaborator for VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
+    // # elaborate
     fn elaborate_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef) {
         for stmt in stmts {
             self.elaborate_stmt(stmt, region_data);
         }
     }
 
-    fn extract(&self, mut region_data: VdMirExprRegionDataMut) {
+    fn elaborate_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
+        todo!()
+    }
+
+    // # extract
+    fn extract_stmts(
+        &self,
+        stmts: VdMirStmtIdxRange,
+        mut hypothesis_constructor: VdMirHypothesisConstructor,
+    ) {
         for (stmt, elaboration_tracker) in self.stmt_elaboration_trackers.iter() {
-            let elaboration_tracker = self
-                .inner
-                .extract_elaboration_tracker(elaboration_tracker, region_data.as_region_data_ref());
-            region_data.set_elaboration_tracker(stmt, elaboration_tracker);
+            todo!()
+            // let elaboration_tracker = self
+            //     .inner
+            //     .extract_elaborations(elaboration_tracker, hypothesis_constructor);
+            // hypothesis_constructor.add_hypothesis(stmt, elaboration);
         }
+    }
+
+    fn extract_expr(&self, expr: VdMirExprIdx, hypothesis_constructor: VdMirHypothesisConstructor) {
+        todo!()
     }
 }
 
@@ -89,15 +115,16 @@ where
     fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) {
         match *region_data.stmt_arena[stmt].data() {
             VdMirStmtData::Block { stmts, .. } => self.elaborate_stmts(stmts, region_data),
-            VdMirStmtData::LetPlaceholder { .. }
-            | VdMirStmtData::LetAssigned { .. }
-            | VdMirStmtData::Goal { .. }
-            | VdMirStmtData::Have { .. }
-            | VdMirStmtData::Show { .. }
-            | VdMirStmtData::Qed { .. } => {
-                let elaboration = self.inner.elaborate_stmt(stmt, region_data);
+            VdMirStmtData::LetPlaceholder { .. } => todo!(),
+            VdMirStmtData::LetAssigned { .. } => todo!(),
+            VdMirStmtData::Goal { .. } => (),
+            VdMirStmtData::Have { prop, hint } => {
+                let elaboration = self
+                    .inner
+                    .elaborate_have_stmt(stmt, prop, hint, region_data);
                 self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
             }
+            VdMirStmtData::Show { .. } | VdMirStmtData::Qed { .. } => todo!(),
         }
     }
 }

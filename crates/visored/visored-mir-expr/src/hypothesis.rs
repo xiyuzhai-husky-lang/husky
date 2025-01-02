@@ -1,5 +1,5 @@
 pub mod construction;
-pub(crate) mod constructor;
+pub mod constructor;
 pub mod region;
 pub mod stack;
 

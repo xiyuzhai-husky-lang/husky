@@ -2,6 +2,9 @@ use std::marker::PhantomData;
 use visored_mir_expr::{
     elaboration::VdMirTracker,
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
+    expr::VdMirExprIdx,
+    hint::VdMirHintIdx,
+    hypothesis::constructor::VdMirHypothesisConstructor,
     region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
@@ -16,29 +19,20 @@ pub type VdBaseqElaborator<'sess> = VdMirSequentialElaborator<VdBaseqElaboratorI
 impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
     type ElaborationTracker = ();
 
-    fn elaborate_stmt(
+    fn elaborate_have_stmt(
         &mut self,
         stmt: VdMirStmtIdx,
+        prop: VdMirExprIdx,
+        hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Self::ElaborationTracker {
-        match *region_data.stmt_arena[stmt].data() {
-            VdMirStmtData::Block { stmts, ref meta } => unreachable!(),
-            VdMirStmtData::LetPlaceholder { ref pattern, ty } => (),
-            VdMirStmtData::LetAssigned {
-                ref pattern,
-                assignment,
-            } => todo!(),
-            VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Have { prop, hint } => todo!(),
-            VdMirStmtData::Show { prop, hint } => todo!(),
-            VdMirStmtData::Qed { goal } => todo!(),
-        }
+        todo!()
     }
 
-    fn extract_elaboration_tracker(
+    fn extract_elaborations(
         &self,
         elaboration: &Self::ElaborationTracker,
-        region_data: VdMirExprRegionDataRef,
+        hypothesis_constructor: VdMirHypothesisConstructor,
     ) -> VdMirTracker {
         todo!()
         // VdMirTracker::new_trivial()
