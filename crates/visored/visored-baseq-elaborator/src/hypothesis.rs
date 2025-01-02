@@ -1,5 +1,6 @@
 pub mod construction;
 pub mod constructor;
+pub mod contradiction;
 pub mod region;
 pub mod stack;
 

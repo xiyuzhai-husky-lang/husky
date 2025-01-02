@@ -8,6 +8,11 @@ use visored_mir_expr::{
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
 
+use crate::hypothesis::{
+    contradiction::{VdBaseqHypothesisContradiction, VdBaseqHypothesisResult},
+    VdBaseqHypothesisIdx,
+};
+
 #[derive(Debug, Default)]
 pub struct VdBaseqElaboratorInner<'sess> {
     pub(crate) phantom: PhantomData<&'sess ()>,
@@ -16,18 +21,18 @@ pub struct VdBaseqElaboratorInner<'sess> {
 pub type VdBaseqElaborator<'sess> = VdMirSequentialElaborator<VdBaseqElaboratorInner<'sess>>;
 
 impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
-    type HypothesisIdx = ();
-    type Contradiction = ();
+    type HypothesisIdx = VdBaseqHypothesisIdx<'sess>;
+    type Contradiction = VdBaseqHypothesisContradiction<'sess>;
 
-    fn elaborate_let_assigned_stmt(&mut self) -> Result<(), ()> {
+    fn elaborate_let_assigned_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
         Ok(())
     }
 
-    fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), ()> {
+    fn elaborate_let_placeholder_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
         Ok(())
     }
 
-    fn elaborate_goal_stmt(&mut self) -> Result<(), ()> {
+    fn elaborate_goal_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
         Ok(())
     }
 
@@ -38,14 +43,21 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
+        match hint {
+            Some(hint) => todo!(),
+            None => self.obvious(prop),
+        }
+    }
+
+    fn elaborate_show_stmt(
+        &mut self,
+    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
         todo!()
     }
 
-    fn elaborate_show_stmt(&mut self) -> Result<(), ()> {
-        todo!()
-    }
-
-    fn elaborate_qed_stmt(&mut self) -> Result<(), ()> {
+    fn elaborate_qed_stmt(
+        &mut self,
+    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
         todo!()
     }
 
