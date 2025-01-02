@@ -9,12 +9,11 @@ where
     pub(super) fn build_qed_tactics(
         &mut self,
         stmt: VdMirStmtIdx,
-        hypothesis: Option<(VdMirHypothesisIdx)>,
+        hypothesis: Option<VdMirHypothesisIdx>,
     ) -> Vec<LnMirTacticData> {
-        todo!()
-        // match self.stmt_arena()[stmt].elaboration_tracker().conclusion() {
-        //     Some(_) => todo!(),
-        //     None => vec![self.default_tactic_data()],
-        // }
+        match hypothesis {
+            Some(_) => todo!(),
+            None => vec![self.exact_unit()],
+        }
     }
 }

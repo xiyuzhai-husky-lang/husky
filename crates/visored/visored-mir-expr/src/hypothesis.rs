@@ -6,12 +6,29 @@ pub mod stack;
 
 use self::construction::VdMirHypothesisConstruction;
 use crate::expr::VdMirExprIdx;
-use idx_arena::{Arena, ArenaIdx};
+use idx_arena::{Arena, ArenaIdx, ArenaRef};
 
 pub struct VdMirHypothesisEntry {
-    pub expr: VdMirExprIdx,
-    pub construction: VdMirHypothesisConstruction,
+    expr: VdMirExprIdx,
+    construction: VdMirHypothesisConstruction,
 }
 
 pub type VdMirHypothesisIdx = ArenaIdx<VdMirHypothesisEntry>;
 pub type VdMirHypothesisArena = Arena<VdMirHypothesisEntry>;
+pub type VdMirHypothesisArenaRef<'a> = ArenaRef<'a, VdMirHypothesisEntry>;
+
+impl VdMirHypothesisEntry {
+    pub fn new(expr: VdMirExprIdx, construction: VdMirHypothesisConstruction) -> Self {
+        Self { expr, construction }
+    }
+}
+
+impl VdMirHypothesisEntry {
+    pub fn expr(&self) -> VdMirExprIdx {
+        self.expr
+    }
+
+    pub fn construction(&self) -> &VdMirHypothesisConstruction {
+        &self.construction
+    }
+}

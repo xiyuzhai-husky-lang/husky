@@ -48,11 +48,11 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 ├─ item path: `ℕ`
                 └─ tactics
-                  └─ tactic: `Obvious`
+                  └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             def h(x : ℕ) := by
-              obvious"#]],
+              exact ()"#]],
     );
     t(
         models,
@@ -78,12 +78,12 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Example1
             def h(x : ℝ) := by
-              obvious
+              exact ()
             end Example1
         "#]],
     );
@@ -96,12 +96,12 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
+              exact ()
             end Section1
         "#]],
     );
@@ -114,13 +114,13 @@ fn basic_body_to_lean_works() {
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Obvious`
+              │     └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Obvious`
+              │       └─ tactic: `Exact { term: 3 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -129,11 +129,11 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
+              exact ()
 
             namespace Subsection1
             def h(y : ℝ) := by
-              obvious
+              exact ()
             end Subsection1
 
             namespace Subsection2

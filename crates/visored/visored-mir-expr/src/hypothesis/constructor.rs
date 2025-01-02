@@ -1,19 +1,21 @@
 use crate::{
-    expr::VdMirExprArena,
+    expr::{VdMirExprArena, VdMirExprIdx},
     hint::VdMirHintArena,
-    region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef},
+    hypothesis::VdMirHypothesisEntry,
+    region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtArena, VdMirStmtArenaRef},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
-    tactic::VdMirTacticArena,
 };
 use eterned::db::EternerDb;
+
+use super::{construction::VdMirHypothesisConstruction, VdMirHypothesisArena, VdMirHypothesisIdx};
 
 pub struct VdMirHypothesisConstructor<'db> {
     db: &'db EternerDb,
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
     hint_arena: VdMirHintArena,
-    tactic_arena: VdMirTacticArena,
+    hypothesis_arena: VdMirHypothesisArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
 }
 
@@ -23,7 +25,6 @@ impl<'db> VdMirHypothesisConstructor<'db> {
         expr_arena: VdMirExprArena,
         stmt_arena: VdMirStmtArena,
         hint_arena: VdMirHintArena,
-        tactic_arena: VdMirTacticArena,
         symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     ) -> Self {
         Self {
@@ -31,8 +32,8 @@ impl<'db> VdMirHypothesisConstructor<'db> {
             expr_arena,
             stmt_arena,
             hint_arena,
-            tactic_arena,
             symbol_local_defn_storage,
+            hypothesis_arena: Default::default(),
         }
     }
 }
@@ -57,20 +58,30 @@ impl<'db> VdMirHypothesisConstructor<'db> {
 }
 
 impl<'db> VdMirHypothesisConstructor<'db> {
+    // TODO: do more things like handle hypothesis stack, register src, etc.
+    pub fn construct_new_hypothesis(
+        &mut self,
+        expr: VdMirExprIdx,
+        hypothesis: VdMirHypothesisConstruction,
+    ) -> VdMirHypothesisIdx {
+        self.hypothesis_arena
+            .alloc_one(VdMirHypothesisEntry::new(expr, hypothesis))
+    }
+
     pub(crate) fn finish(
         self,
     ) -> (
         VdMirExprArena,
         VdMirStmtArena,
         VdMirHintArena,
-        VdMirTacticArena,
+        VdMirHypothesisArena,
         VdMirSymbolLocalDefnStorage,
     ) {
         (
             self.expr_arena,
             self.stmt_arena,
             self.hint_arena,
-            self.tactic_arena,
+            self.hypothesis_arena,
             self.symbol_local_defn_storage,
         )
     }

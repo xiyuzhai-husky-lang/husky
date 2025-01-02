@@ -6,7 +6,9 @@ use lean_mir_expr::{
 };
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::instantiation::LnInstantiation;
-use visored_mir_expr::{expr::application::VdMirFunc, hint::VdMirHintIdxRange};
+use visored_mir_expr::{
+    expr::application::VdMirFunc, hint::VdMirHintIdxRange, hypothesis::VdMirHypothesisIdx,
+};
 use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
@@ -15,6 +17,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         &mut self,
         stmt: VdMirStmtIdx,
         prop: VdMirExprIdx,
+        hypothesis: VdMirHypothesisIdx,
     ) -> LnItemDefnData {
         match self.expr_arena()[prop] {
             VdMirExprData::ChainingSeparatedList {
@@ -29,7 +32,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             ),
             _ => {
                 let ident = self.mangle_hypothesis();
-                let tactics = self.build_have_tactics(stmt);
+                let tactics = self.build_have_tactics(stmt, hypothesis);
                 LnItemDefnData::Def {
                     ident,
                     parameters: vec![],

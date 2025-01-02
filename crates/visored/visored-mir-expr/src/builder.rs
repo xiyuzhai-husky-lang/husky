@@ -8,7 +8,6 @@ use crate::{
         VdMirStmtSource,
     },
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
-    tactic::VdMirTacticArena,
 };
 use visored_sem_expr::{
     block::VdSemBlockArenaRef, clause::VdSemClauseArenaRef, division::VdSemDivisionArenaRef,
@@ -26,7 +25,6 @@ pub struct VdMirExprBuilder<'db> {
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
     hint_arena: VdMirHintArena,
-    tactic_arena: VdMirTacticArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     source_map: VdMirSourceMap,
 }
@@ -63,7 +61,6 @@ impl<'db> VdMirExprBuilder<'db> {
             expr_arena: VdMirExprArena::default(),
             stmt_arena: VdMirStmtArena::default(),
             hint_arena: VdMirHintArena::default(),
-            tactic_arena: VdMirTacticArena::default(),
             symbol_local_defn_storage: VdMirSymbolLocalDefnStorage::new_empty(),
             source_map: Default::default(),
         };
@@ -143,23 +140,12 @@ impl<'db> VdMirExprBuilder<'db> {
         self.symbol_local_defn_storage.set_defns(data);
     }
 
-    pub fn finish_to_region_data(self) -> VdMirExprRegionData {
-        VdMirExprRegionData::new(
-            self.expr_arena,
-            self.stmt_arena,
-            self.hint_arena,
-            self.tactic_arena,
-            self.symbol_local_defn_storage,
-        )
-    }
-
     pub fn finish(
         self,
     ) -> (
         VdMirExprArena,
         VdMirStmtArena,
         VdMirHintArena,
-        VdMirTacticArena,
         VdMirSymbolLocalDefnStorage,
         VdMirSourceMap,
     ) {
@@ -167,7 +153,6 @@ impl<'db> VdMirExprBuilder<'db> {
             self.expr_arena,
             self.stmt_arena,
             self.hint_arena,
-            self.tactic_arena,
             self.symbol_local_defn_storage,
             self.source_map,
         )

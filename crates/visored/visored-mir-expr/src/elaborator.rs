@@ -3,7 +3,7 @@ pub mod linear;
 use crate::{
     expr::VdMirExprIdx,
     hypothesis::constructor::VdMirHypothesisConstructor,
-    region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef},
+    region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtIdx, VdMirStmtIdxRange},
     *,
 };

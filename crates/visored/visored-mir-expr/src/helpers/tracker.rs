@@ -11,16 +11,15 @@ use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
 use hint::VdMirHintArena;
 use husky_tree_utils::display::DisplayTree;
-use hypothesis::constructor::VdMirHypothesisConstructor;
+use hypothesis::{constructor::VdMirHypothesisConstructor, VdMirHypothesisArena};
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
 use latex_token::storage::LxTokenStorage;
-use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
+use region::VdMirExprRegionDataRef;
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
-use tactic::VdMirTacticArena;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -38,7 +37,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
     pub hint_arena: VdMirHintArena,
-    pub tactic_arena: VdMirTacticArena,
+    pub hypothesis_arena: VdMirHypothesisArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     pub source_map: VdMirSourceMap,
     pub sem_expr_range_map: VdSemExprTokenIdxRangeMap,
@@ -131,24 +130,17 @@ where
             &sem_symbol_local_defn_storage,
         );
         let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (
-            mut expr_arena,
-            mut stmt_arena,
-            mut hint_arena,
-            mut tactic_arena,
-            symbol_local_defn_storage,
-            source_map,
-        ) = builder.finish();
+        let (mut expr_arena, mut stmt_arena, mut hint_arena, symbol_local_defn_storage, source_map) =
+            builder.finish();
         let mut hypothesis_constructor = VdMirHypothesisConstructor::new(
             db,
             expr_arena,
             stmt_arena,
             hint_arena,
-            tactic_arena,
             symbol_local_defn_storage,
         );
         output.elaborate_self(elaborator, &mut hypothesis_constructor);
-        let (expr_arena, stmt_arena, hint_arena, tactic_arena, symbol_local_defn_storage) =
+        let (expr_arena, stmt_arena, hint_arena, hypothesis_arena, symbol_local_defn_storage) =
             hypothesis_constructor.finish();
         Self {
             input,
@@ -156,7 +148,7 @@ where
             expr_arena,
             stmt_arena,
             hint_arena,
-            tactic_arena,
+            hypothesis_arena,
             symbol_local_defn_storage,
             source_map,
             sem_expr_range_map,

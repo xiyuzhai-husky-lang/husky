@@ -1,5 +1,5 @@
 use hint::VdMirHintIdx;
-use hypothesis::VdMirHypothesisIdx;
+use hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
 
 use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
@@ -92,11 +92,11 @@ impl IsVdMirSequentialElaboratorInner for () {
 
     fn transcribe_hypothesis(
         &mut self,
-        hypothesis: Self::HypothesisIdx,
+        hypothesis: (),
         expr: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
-        todo!()
+        hypothesis_constructor.construct_new_hypothesis(expr, VdMirHypothesisConstruction::Sorry)
     }
 }
 
