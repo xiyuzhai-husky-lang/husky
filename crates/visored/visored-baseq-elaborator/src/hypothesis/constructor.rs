@@ -7,8 +7,14 @@ pub struct VdBaseqHypothesisConstructor<'db, 'sess> {
     session: &'sess VdBaseqSession<'db>,
     stack: VdBaseqHypothesisStack<'sess>,
     arena: VdBaseqHypothesisArena<'sess>,
-    expr_to_hypothesis: FxHashMap<VdMirExprFld<'sess>, VdBaseqHypothesisIdx<'sess>>,
-    term_to_hypothesis: FxHashMap<VdMirTermFld<'sess>, VdBaseqHypothesisIdx<'sess>>,
+    expr_to_hypothesis: FxHashMap<VdMirExprFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
+    term_to_hypothesis: FxHashMap<VdMirTermFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct VdBaseqHypothesisRecord<'sess> {
+    stack_idx: usize,
+    hypothesis_idx: VdBaseqHypothesisIdx<'sess>,
 }
 
 impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
@@ -37,8 +43,8 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
         &mut self,
         expr: VdMirExprFld<'sess>,
     ) -> Option<VdBaseqHypothesisIdx<'sess>> {
-        if let Some(&idx) = self.expr_to_hypothesis.get(&expr) {
-            Some(idx)
+        if let Some(&record) = self.expr_to_hypothesis.get(&expr) {
+            Some(record.hypothesis_idx)
         } else if let Some(&idx) = self
             .term_to_hypothesis
             .get(&expr.term(self.session.floater_db()))
