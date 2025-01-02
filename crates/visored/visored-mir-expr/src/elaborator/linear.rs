@@ -1,22 +1,19 @@
 use hint::VdMirHintIdx;
 
 use super::*;
-use crate::{
-    elaboration::VdMirTracker,
-    stmt::{VdMirStmtData, VdMirStmtMap},
-};
+use crate::stmt::{VdMirStmtData, VdMirStmtMap};
 
 #[derive(Debug)]
 pub struct VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    stmt_elaboration_trackers: VdMirStmtMap<Inner::ElaborationTracker>,
+    stmt_elaboration_trackers: VdMirStmtMap<Inner::HypothesisIdx>,
     inner: Inner,
 }
 
 pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
-    type ElaborationTracker: std::fmt::Debug + Eq;
+    type HypothesisIdx: std::fmt::Debug + Eq;
 
     fn elaborate_have_stmt(
         &mut self,
@@ -24,17 +21,17 @@ pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> Self::ElaborationTracker;
+    ) -> Self::HypothesisIdx;
 
     fn extract_elaborations(
         &self,
-        elaboration: &Self::ElaborationTracker,
+        elaboration: &Self::HypothesisIdx,
         hypothesis_constructor: VdMirHypothesisConstructor,
-    ) -> VdMirTracker;
+    );
 }
 
 impl IsVdMirSequentialElaboratorInner for () {
-    type ElaborationTracker = ();
+    type HypothesisIdx = ();
 
     fn elaborate_have_stmt(
         &mut self,
@@ -43,14 +40,15 @@ impl IsVdMirSequentialElaboratorInner for () {
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> () {
+        todo!()
     }
 
     fn extract_elaborations(
         &self,
-        elaboration: &Self::ElaborationTracker,
+        elaboration: &Self::HypothesisIdx,
         hypothesis_constructor: VdMirHypothesisConstructor,
-    ) -> VdMirTracker {
-        VdMirTracker::new_trivial()
+    ) {
+        todo!()
     }
 }
 
@@ -118,7 +116,7 @@ where
             VdMirStmtData::LetPlaceholder { .. } => todo!(),
             VdMirStmtData::LetAssigned { .. } => todo!(),
             VdMirStmtData::Goal { .. } => (),
-            VdMirStmtData::Have { prop, hint } => {
+            VdMirStmtData::Have { prop, hint, .. } => {
                 let elaboration = self
                     .inner
                     .elaborate_have_stmt(stmt, prop, hint, region_data);

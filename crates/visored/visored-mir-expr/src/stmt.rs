@@ -9,8 +9,8 @@ mod tests;
 
 use self::block::*;
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
-use elaboration::VdMirTracker;
 use hint::{VdMirHintData, VdMirHintEntry, VdMirHintIdx, VdMirHintIdxRange, VdMirHintSource};
+use hypothesis::{contradiction::VdMirHypothesisResult, VdMirHypothesisIdx};
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -49,6 +49,7 @@ pub enum VdMirStmtData {
     Have {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
+        hypothesis: OncePlace<VdMirHypothesisResult>,
     },
     Show {
         prop: VdMirExprIdx,
@@ -61,7 +62,6 @@ pub enum VdMirStmtData {
 
 pub struct VdMirStmtEntry {
     data: VdMirStmtData,
-    elaboration_tracker: OncePlace<VdMirTracker>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -82,10 +82,7 @@ pub type VdMirStmtIdxRange = ArenaIdxRange<VdMirStmtEntry>;
 
 impl VdMirStmtEntry {
     pub fn new(data: VdMirStmtData) -> Self {
-        Self {
-            data,
-            elaboration_tracker: OncePlace::default(),
-        }
+        Self { data }
     }
 
     pub fn new_qed(goal: Option<VdMirExprIdx>) -> Self {
@@ -97,17 +94,27 @@ impl VdMirStmtEntry {
     pub fn data(&self) -> &VdMirStmtData {
         &self.data
     }
-
-    #[track_caller]
-    pub fn elaboration_tracker(&self) -> &VdMirTracker {
-        &*self.elaboration_tracker
-    }
 }
 
 impl VdMirStmtEntry {
     #[track_caller]
-    pub(crate) fn set_elaboration_tracker(&mut self, elaboration_tracker: VdMirTracker) {
-        self.elaboration_tracker.set(elaboration_tracker);
+    pub(crate) fn set_hypothesis(&mut self, hypothesis: VdMirHypothesisIdx) {
+        match self.data {
+            VdMirStmtData::Block { stmts, ref meta } => todo!(),
+            VdMirStmtData::LetPlaceholder { ref pattern, ty } => todo!(),
+            VdMirStmtData::LetAssigned {
+                ref pattern,
+                assignment,
+            } => todo!(),
+            VdMirStmtData::Goal { prop } => todo!(),
+            VdMirStmtData::Have {
+                prop,
+                hint,
+                ref mut hypothesis,
+            } => todo!(),
+            VdMirStmtData::Show { prop, hint } => todo!(),
+            VdMirStmtData::Qed { goal } => todo!(),
+        }
     }
 }
 
@@ -284,6 +291,7 @@ impl<'db> VdMirExprBuilder<'db> {
             } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
                 hint: None, // ad hoc
+                hypothesis: OncePlace::default(),
             },
             VdSemClauseData::Show {
                 left_math_delimiter_token_idx: left_dollar_token_idx,

@@ -115,7 +115,9 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 assignment,
             } => (format!("let assigned"), vec![self.render_expr(assignment)]),
             VdMirStmtData::Goal { prop } => (format!("goal"), vec![self.render_expr(prop)]),
-            VdMirStmtData::Have { prop, hint } => (format!("have"), vec![self.render_expr(prop)]),
+            VdMirStmtData::Have { prop, hint, .. } => {
+                (format!("have"), vec![self.render_expr(prop)])
+            }
             VdMirStmtData::Show { prop, hint } => (format!("show"), vec![self.render_expr(prop)]),
             VdMirStmtData::Qed { goal } => (
                 format!("qed"),

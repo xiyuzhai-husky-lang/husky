@@ -1,7 +1,7 @@
 use crate::{
-    elaboration::{VdMirTacticElaboration, VdMirTracker},
     expr::{VdMirExprArena, VdMirExprArenaRef},
     hint::{VdMirHintArena, VdMirHintArenaRef, VdMirHintIdx},
+    hypothesis::VdMirHypothesisIdx,
     stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtIdx},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
     tactic::{VdMirTacticArena, VdMirTacticArenaRef},
@@ -82,13 +82,8 @@ impl<'a> VdMirExprRegionDataMut<'a> {
     }
 
     #[inline(always)]
-    pub fn set_elaboration_tracker(
-        &mut self,
-        stmt: VdMirStmtIdx,
-        elaboration_tracker: VdMirTracker,
-    ) {
-        self.stmt_arena.update(stmt, |entry| {
-            entry.set_elaboration_tracker(elaboration_tracker)
-        });
+    pub fn set_hypothesis(&mut self, stmt: VdMirStmtIdx, hypothesis: VdMirHypothesisIdx) {
+        self.stmt_arena
+            .update(stmt, |entry| entry.set_hypothesis(hypothesis));
     }
 }

@@ -1,4 +1,3 @@
-pub mod elaboration;
 pub mod elaborator;
 mod expr;
 pub mod helpers;

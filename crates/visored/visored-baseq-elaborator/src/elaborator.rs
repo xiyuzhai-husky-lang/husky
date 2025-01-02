@@ -1,6 +1,5 @@
 use std::marker::PhantomData;
 use visored_mir_expr::{
-    elaboration::VdMirTracker,
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
     expr::VdMirExprIdx,
     hint::VdMirHintIdx,
@@ -17,7 +16,7 @@ pub struct VdBaseqElaboratorInner<'sess> {
 pub type VdBaseqElaborator<'sess> = VdMirSequentialElaborator<VdBaseqElaboratorInner<'sess>>;
 
 impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
-    type ElaborationTracker = ();
+    type HypothesisIdx = ();
 
     fn elaborate_have_stmt(
         &mut self,
@@ -25,15 +24,15 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> Self::ElaborationTracker {
+    ) -> Self::HypothesisIdx {
         todo!()
     }
 
     fn extract_elaborations(
         &self,
-        elaboration: &Self::ElaborationTracker,
+        elaboration: &Self::HypothesisIdx,
         hypothesis_constructor: VdMirHypothesisConstructor,
-    ) -> VdMirTracker {
+    ) {
         todo!()
         // VdMirTracker::new_trivial()
     }
