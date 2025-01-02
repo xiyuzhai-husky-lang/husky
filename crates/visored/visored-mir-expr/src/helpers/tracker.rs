@@ -88,7 +88,7 @@ where
         models: &VdModels,
         vibe: VdSynExprVibe,
         db: &EternerDb,
-        elaborator: Elaborator,
+        gen_elaborator: impl Fn(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -132,6 +132,13 @@ where
         let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
         let (mut expr_arena, mut stmt_arena, mut hint_arena, symbol_local_defn_storage, source_map) =
             builder.finish();
+        let region_data = VdMirExprRegionDataRef {
+            expr_arena: expr_arena.as_arena_ref(),
+            stmt_arena: stmt_arena.as_arena_ref(),
+            hint_arena: hint_arena.as_arena_ref(),
+            symbol_local_defn_storage: &symbol_local_defn_storage,
+        };
+        let elaborator = gen_elaborator(region_data);
         let mut hypothesis_constructor = VdMirHypothesisConstructor::new(
             db,
             expr_arena,

@@ -44,7 +44,7 @@ impl Tracker {
             models,
             vibe,
             db,
-            VdMirTrivialElaborator::default(),
+            |_| VdMirTrivialElaborator::default(),
         );
         // assert!(stmts.len() > 1);
         Self {}

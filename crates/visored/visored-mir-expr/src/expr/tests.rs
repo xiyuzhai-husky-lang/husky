@@ -1,5 +1,6 @@
 use crate::elaborator::linear::VdMirSequentialElaborator;
 use crate::*;
+use elaborator::VdMirTrivialElaborator;
 use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdMirExprTracker;
@@ -26,7 +27,7 @@ fn t(content: &str, expect: &Expect) {
         &VdModels::new(),
         VdSynExprVibe::ROOT_CNL,
         db,
-        VdMirSequentialElaborator::<()>::default(),
+        |_| VdMirTrivialElaborator::default(),
     );
     expect.assert_eq(&tracker.show_display_tree(db));
 }
