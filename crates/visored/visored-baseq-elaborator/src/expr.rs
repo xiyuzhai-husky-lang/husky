@@ -3,21 +3,22 @@ use smallvec::SmallVec;
 use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::{
     expr::{
-        application::VdMirFunc, VdMirExprArena, VdMirExprArenaRef, VdMirExprData,
+        application::VdMirFunc, VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprEntry,
         VdMirExprIdxRange, VdMirExprMap, VdMirExprOrderedMap,
     },
     symbol::local_defn::VdMirSymbolLocalDefnIdx,
 };
 use visored_opr::separator::VdBaseSeparator;
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
-use visored_term::term::literal::VdLiteral;
+use visored_term::{term::literal::VdLiteral, ty::VdType};
 
 use crate::{session::VdBaseqSession, term::VdMirTermFld};
 
 #[floated]
 pub struct VdMirExprFld<'sess> {
     #[return_ref]
-    data: VdMirExprFldData<'sess>,
+    pub data: VdMirExprFldData<'sess>,
+    pub ty: VdType,
 }
 
 impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
@@ -61,33 +62,51 @@ pub fn build_expr_to_fld_map<'db, 'sess>(
 ) -> VdMirExprOrderedMap<VdMirExprFld<'sess>> {
     let mut map = VdMirExprOrderedMap::<VdMirExprFld<'sess>>::default();
     for (idx, entry) in expr_arena.indexed_iter() {
-        let expr_fld = build_expr_to_fld_map_step(session, entry.data(), &map);
+        let expr_fld = build_expr_to_fld_map_step(session.floater_db(), entry, &map);
         map.insert_next(idx, expr_fld);
     }
     map
 }
 
-fn build_expr_to_fld_map_step<'db, 'sess>(
-    session: &'sess VdBaseqSession<'db>,
-    expr: &VdMirExprData,
+fn build_expr_to_fld_map_step<'sess>(
+    db: &'sess FloaterDb,
+    entry: &VdMirExprEntry,
     map: &VdMirExprOrderedMap<VdMirExprFld<'sess>>,
 ) -> VdMirExprFld<'sess> {
-    match *expr {
-        VdMirExprData::Literal(vd_literal) => todo!(),
-        VdMirExprData::Variable(arena_idx) => todo!(),
+    let data = match *entry.data() {
+        VdMirExprData::Literal(vd_literal) => VdMirExprFldData::Literal(vd_literal),
+        VdMirExprData::Variable(local_defn_idx) => VdMirExprFldData::Variable(local_defn_idx),
         VdMirExprData::Application {
             function,
             arguments,
-        } => todo!(),
+        } => VdMirExprFldData::Application {
+            function,
+            arguments: arguments.into_iter().map(|arg| map[arg]).collect(),
+        },
         VdMirExprData::FoldingSeparatedList {
             leader,
             ref followers,
-        } => todo!(),
+        } => VdMirExprFldData::FoldingSeparatedList {
+            leader: map[leader],
+            followers: followers
+                .iter()
+                .map(|&(func, follower)| (func, map[follower]))
+                .collect(),
+        },
         VdMirExprData::ChainingSeparatedList {
             leader,
             ref followers,
             joined_separator_and_signature,
-        } => todo!(),
-        VdMirExprData::ItemPath(vd_item_path) => todo!(),
-    }
+        } => VdMirExprFldData::ChainingSeparatedList {
+            leader: map[leader],
+            followers: followers
+                .iter()
+                .map(|&(func, follower)| (func, map[follower]))
+                .collect(),
+            joined_separator_and_signature,
+        },
+        VdMirExprData::ItemPath(vd_item_path) => VdMirExprFldData::ItemPath(vd_item_path),
+    };
+    let ty = entry.ty();
+    VdMirExprFld::new(data, ty, db)
 }

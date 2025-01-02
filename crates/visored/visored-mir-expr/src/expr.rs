@@ -65,6 +65,10 @@ impl VdMirExprEntry {
     pub fn data(&self) -> &VdMirExprData {
         &self.data
     }
+
+    pub fn ty(&self) -> VdType {
+        self.ty
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]

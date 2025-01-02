@@ -60,7 +60,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
-        let prop = todo!();
+        let prop = self.expr_to_fld_map[prop];
         match hint {
             Some(hint) => todo!(),
             None => self.obvious(prop),
