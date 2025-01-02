@@ -49,14 +49,14 @@ pub enum VdMirStmtData {
     Have {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
-        hypothesis: OncePlace<VdMirHypothesisResult>,
+        hypothesis_place: OncePlace<VdMirHypothesisResult>,
     },
     Show {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
     },
     Qed {
-        goal: Option<VdMirExprIdx>,
+        goal_and_hypothesis_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
     },
 }
 
@@ -86,13 +86,19 @@ impl VdMirStmtEntry {
     }
 
     pub fn new_qed(goal: Option<VdMirExprIdx>) -> Self {
-        Self::new(VdMirStmtData::Qed { goal })
+        Self::new(VdMirStmtData::Qed {
+            goal_and_hypothesis_place: goal.map(|goal| (goal, OncePlace::default())),
+        })
     }
 }
 
 impl VdMirStmtEntry {
     pub fn data(&self) -> &VdMirStmtData {
         &self.data
+    }
+
+    pub(crate) fn data_mut(&mut self) -> &mut VdMirStmtData {
+        &mut self.data
     }
 }
 
@@ -110,10 +116,12 @@ impl VdMirStmtEntry {
             VdMirStmtData::Have {
                 prop,
                 hint,
-                ref mut hypothesis,
+                hypothesis_place: ref mut hypothesis,
             } => todo!(),
             VdMirStmtData::Show { prop, hint } => todo!(),
-            VdMirStmtData::Qed { goal } => todo!(),
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_place,
+            } => todo!(),
         }
     }
 }
@@ -291,7 +299,7 @@ impl<'db> VdMirExprBuilder<'db> {
             } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
                 hint: None, // ad hoc
-                hypothesis: OncePlace::default(),
+                hypothesis_place: OncePlace::default(),
             },
             VdSemClauseData::Show {
                 left_math_delimiter_token_idx: left_dollar_token_idx,

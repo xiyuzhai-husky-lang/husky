@@ -70,8 +70,16 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 tactics.push(self.build_ln_tactic_from_vd_show(prop, following_stmts));
                 todo!("show tactics")
             }
-            VdMirStmtData::Qed { goal } => {
-                tactics.extend(self.build_qed_tactics(stmt, goal));
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_place,
+            } => {
+                tactics.extend(
+                    self.build_qed_tactics(
+                        stmt,
+                        goal_and_hypothesis_place
+                            .map(|(_, hypothesis_place)| hypothesis_place.unwrap()),
+                    ),
+                );
             }
         }
     }

@@ -119,10 +119,13 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                 (format!("have"), vec![self.render_expr(prop)])
             }
             VdMirStmtData::Show { prop, hint } => (format!("show"), vec![self.render_expr(prop)]),
-            VdMirStmtData::Qed { goal } => (
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_place,
+            } => (
                 format!("qed"),
-                goal.into_iter()
-                    .map(|goal| self.render_expr(goal))
+                goal_and_hypothesis_place
+                    .into_iter()
+                    .map(|(goal, _)| self.render_expr(goal))
                     .collect(),
             ),
         };

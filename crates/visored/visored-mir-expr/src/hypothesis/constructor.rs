@@ -1,6 +1,6 @@
 use crate::{
     region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef},
-    stmt::VdMirStmtArenaRef,
+    stmt::{VdMirStmtArena, VdMirStmtArenaRef},
 };
 use eterned::db::EternerDb;
 
@@ -18,6 +18,10 @@ impl<'db> VdMirHypothesisConstructor<'db> {
 impl<'db> VdMirHypothesisConstructor<'db> {
     pub fn stmt_arena(&self) -> VdMirStmtArenaRef {
         self.region.stmt_arena.as_arena_ref()
+    }
+
+    pub fn stmt_arena_mut(&mut self) -> &mut VdMirStmtArena {
+        &mut self.region.stmt_arena
     }
 
     pub fn region_data(&self) -> VdMirExprRegionDataRef {

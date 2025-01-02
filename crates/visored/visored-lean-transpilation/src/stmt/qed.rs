@@ -1,6 +1,6 @@
-use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
-
 use super::*;
+use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
+use visored_mir_expr::hypothesis::VdMirHypothesisIdx;
 
 impl<'a, S> VdLeanTranspilationBuilder<'a, S>
 where
@@ -9,7 +9,7 @@ where
     pub(super) fn build_qed_tactics(
         &mut self,
         stmt: VdMirStmtIdx,
-        goal: Option<VdMirExprIdx>,
+        hypothesis: Option<(VdMirHypothesisIdx)>,
     ) -> Vec<LnMirTacticData> {
         todo!()
         // match self.stmt_arena()[stmt].elaboration_tracker().conclusion() {

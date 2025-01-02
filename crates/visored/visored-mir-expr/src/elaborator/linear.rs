@@ -1,4 +1,5 @@
 use hint::VdMirHintIdx;
+use hypothesis::VdMirHypothesisIdx;
 
 use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
@@ -42,8 +43,9 @@ pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
     fn transcribe_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,
+        expr: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
-    ) -> Self::HypothesisIdx;
+    ) -> VdMirHypothesisIdx;
 }
 
 impl IsVdMirSequentialElaboratorInner for () {
@@ -91,8 +93,9 @@ impl IsVdMirSequentialElaboratorInner for () {
     fn transcribe_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,
+        expr: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
-    ) -> Self::HypothesisIdx {
+    ) -> VdMirHypothesisIdx {
         todo!()
     }
 }
@@ -177,11 +180,24 @@ where
                     .expect("handle contradiction");
             }
             VdMirStmtData::Have { prop, hint, .. } => {
-                let elaboration = self
+                let hypothesis = self
                     .inner
                     .elaborate_have_stmt(stmt, prop, hint, hypothesis_constructor.region_data())
                     .expect("handle contradiction");
-                todo!();
+                let hypothesis =
+                    self.inner
+                        .transcribe_hypothesis(hypothesis, prop, hypothesis_constructor);
+                hypothesis_constructor
+                    .stmt_arena_mut()
+                    .update(stmt, |entry| {
+                        let VdMirStmtData::Have {
+                            hypothesis_place, ..
+                        } = entry.data_mut()
+                        else {
+                            unreachable!()
+                        };
+                        hypothesis_place.set(Ok(hypothesis));
+                    });
             }
             VdMirStmtData::Show { .. } => {
                 let elaboration = self
@@ -190,15 +206,30 @@ where
                     .expect("handle contradiction");
                 todo!();
             }
-            VdMirStmtData::Qed { goal, .. } => {
-                let hypothesis = self
-                    .inner
-                    .elaborate_qed_stmt()
-                    .expect("handle contradiction");
-                let hypothesis = self
-                    .inner
-                    .transcribe_hypothesis(hypothesis, hypothesis_constructor);
-                todo!();
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_place,
+            } => {
+                if let Some((goal, _)) = goal_and_hypothesis_place {
+                    let hypothesis = self
+                        .inner
+                        .elaborate_qed_stmt()
+                        .expect("handle contradiction");
+                    let hypothesis =
+                        self.inner
+                            .transcribe_hypothesis(hypothesis, goal, hypothesis_constructor);
+                    hypothesis_constructor
+                        .stmt_arena_mut()
+                        .update(stmt, |entry| {
+                            let VdMirStmtData::Qed {
+                                goal_and_hypothesis_place: Some((_, hypothesis_place)),
+                                ..
+                            } = entry.data_mut()
+                            else {
+                                unreachable!()
+                            };
+                            hypothesis_place.set(Ok(hypothesis));
+                        });
+                }
             }
         }
     }
@@ -208,6 +239,7 @@ where
         expr: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        todo!()
+        // ad hoc
+        // todo!()
     }
 }

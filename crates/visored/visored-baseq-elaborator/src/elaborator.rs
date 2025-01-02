@@ -3,7 +3,7 @@ use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
     expr::VdMirExprIdx,
     hint::VdMirHintIdx,
-    hypothesis::constructor::VdMirHypothesisConstructor,
+    hypothesis::{constructor::VdMirHypothesisConstructor, VdMirHypothesisIdx},
     region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
@@ -60,8 +60,9 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
     fn transcribe_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,
+        goal: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
-    ) -> Self::HypothesisIdx {
+    ) -> VdMirHypothesisIdx {
         todo!()
     }
 }
