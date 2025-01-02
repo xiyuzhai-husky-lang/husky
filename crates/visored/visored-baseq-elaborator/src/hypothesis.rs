@@ -15,3 +15,13 @@ pub struct VdBaseqHypothesisEntry<'sess> {
 
 pub type VdBaseqHypothesisIdx<'sess> = ArenaIdx<VdBaseqHypothesisEntry<'sess>>;
 pub type VdBaseqHypothesisArena<'sess> = Arena<VdBaseqHypothesisEntry<'sess>>;
+
+impl<'sess> VdBaseqHypothesisEntry<'sess> {
+    pub fn expr(&self) -> VdMirExprFld<'sess> {
+        self.expr
+    }
+
+    pub fn construction(&self) -> &VdBaseqHypothesisConstruction<'sess> {
+        &self.construction
+    }
+}

@@ -1,20 +1,11 @@
 use super::{stack::VdBaseqHypothesisStack, *};
 use crate::{session::VdBaseqSession, term::VdMirTermFld};
 use floated_sequential::db::FloaterDb;
-use rustc_hash::FxHashMap;
 
 pub struct VdBaseqHypothesisConstructor<'db, 'sess> {
     session: &'sess VdBaseqSession<'db>,
     stack: VdBaseqHypothesisStack<'sess>,
     arena: VdBaseqHypothesisArena<'sess>,
-    expr_to_hypothesis: FxHashMap<VdMirExprFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
-    term_to_hypothesis: FxHashMap<VdMirTermFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
-}
-
-#[derive(Debug, Clone, Copy)]
-pub struct VdBaseqHypothesisRecord<'sess> {
-    stack_idx: usize,
-    hypothesis_idx: VdBaseqHypothesisIdx<'sess>,
 }
 
 impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
@@ -23,8 +14,6 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
             session,
             stack: VdBaseqHypothesisStack::new(),
             arena: VdBaseqHypothesisArena::default(),
-            expr_to_hypothesis: FxHashMap::default(),
-            term_to_hypothesis: FxHashMap::default(),
         }
     }
 }
@@ -43,14 +32,14 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
         &mut self,
         expr: VdMirExprFld<'sess>,
     ) -> Option<VdBaseqHypothesisIdx<'sess>> {
-        if let Some(&record) = self.expr_to_hypothesis.get(&expr) {
-            Some(record.hypothesis_idx)
-        } else if let Some(&idx) = self
-            .term_to_hypothesis
-            .get(&expr.term(self.session.floater_db()))
+        if let Some(hypothesis) = self.stack.get_active_hypothesis_with_expr(expr) {
+            Some(hypothesis)
+        } else if let Some(hypothesis) = self
+            .stack
+            .get_active_hypothesis_with_term(expr.term(self.session.floater_db()))
         {
             todo!("allocate new hypothesis in stack");
-            Some(idx);
+            Some(hypothesis)
         } else {
             None
         }
@@ -61,6 +50,11 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
         expr: VdMirExprFld<'sess>,
         construction: VdBaseqHypothesisConstruction<'sess>,
     ) -> VdBaseqHypothesisIdx<'sess> {
-        todo!()
+        let hypothesis_idx = self
+            .arena
+            .alloc_one(VdBaseqHypothesisEntry { expr, construction });
+        self.stack
+            .append(hypothesis_idx, &self.arena, self.session.floater_db());
+        hypothesis_idx
     }
 }

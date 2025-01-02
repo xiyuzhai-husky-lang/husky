@@ -52,7 +52,8 @@ pub type VdMirExprFlds<'sess> = SmallVec<[VdMirExprFld<'sess>; 4]>;
 
 impl<'sess> VdMirExprFld<'sess> {
     pub fn term(self, db: &'sess FloaterDb) -> VdMirTermFld<'sess> {
-        todo!()
+        // TODO: implement
+        &()
     }
 }
 
