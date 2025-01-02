@@ -37,7 +37,7 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
 
     pub fn convert(&mut self, expr: VdMirExprIdx) -> Term {
         let expr_arena = self.expr_arena;
-        match expr_arena[expr] {
+        match *expr_arena[expr].data() {
             VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
                 VdLiteralData::Nat128(n) => Term::Rational(RationalTerm::Nat128(n)),
                 VdLiteralData::Int128(i) => Term::Rational(RationalTerm::Int128(i)),

@@ -1,5 +1,8 @@
 use crate::{
-    expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx, VdMirExprIdxRange},
+    expr::{
+        VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprEntry, VdMirExprIdx,
+        VdMirExprIdxRange,
+    },
     hint::{VdMirHintArena, VdMirHintData, VdMirHintEntry, VdMirHintIdxRange, VdMirHintSource},
     region::VdMirExprRegionData,
     source_map::VdMirSourceMap,
@@ -105,15 +108,15 @@ impl<'db> VdMirExprBuilder<'db> {
 
 /// # actions
 impl<'db> VdMirExprBuilder<'db> {
-    pub(crate) fn alloc_expr(&mut self, data: VdMirExprData) -> VdMirExprIdx {
-        self.expr_arena.alloc_one(data)
+    pub(crate) fn alloc_expr(&mut self, entry: VdMirExprEntry) -> VdMirExprIdx {
+        self.expr_arena.alloc_one(entry)
     }
 
     pub(crate) fn alloc_exprs(
         &mut self,
-        data: impl IntoIterator<Item = VdMirExprData>,
+        entries: impl IntoIterator<Item = VdMirExprEntry>,
     ) -> VdMirExprIdxRange {
-        self.expr_arena.alloc_batch(data)
+        self.expr_arena.alloc_batch(entries)
     }
 
     pub(crate) fn alloc_stmts(

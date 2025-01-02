@@ -26,7 +26,7 @@ use visored_sem_expr::expr::{
     sqrt::VdSemSqrtDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
-use visored_term::term::literal::VdLiteral;
+use visored_term::{term::literal::VdLiteral, ty::VdType};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum VdMirExprData {
@@ -49,12 +49,23 @@ pub enum VdMirExprData {
     ItemPath(VdItemPath),
 }
 
-pub type VdMirExprArena = Arena<VdMirExprData>;
-pub type VdMirExprMap<T> = ArenaMap<VdMirExprData, T>;
-pub type VdMirExprOrderedMap<T> = ArenaOrderedMap<VdMirExprData, T>;
-pub type VdMirExprArenaRef<'a> = ArenaRef<'a, VdMirExprData>;
-pub type VdMirExprIdx = ArenaIdx<VdMirExprData>;
-pub type VdMirExprIdxRange = ArenaIdxRange<VdMirExprData>;
+pub struct VdMirExprEntry {
+    data: VdMirExprData,
+    ty: VdType,
+}
+
+pub type VdMirExprArena = Arena<VdMirExprEntry>;
+pub type VdMirExprMap<T> = ArenaMap<VdMirExprEntry, T>;
+pub type VdMirExprOrderedMap<T> = ArenaOrderedMap<VdMirExprEntry, T>;
+pub type VdMirExprArenaRef<'a> = ArenaRef<'a, VdMirExprEntry>;
+pub type VdMirExprIdx = ArenaIdx<VdMirExprEntry>;
+pub type VdMirExprIdxRange = ArenaIdxRange<VdMirExprEntry>;
+
+impl VdMirExprEntry {
+    pub fn data(&self) -> &VdMirExprData {
+        &self.data
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdMirLiteral {}
@@ -64,9 +75,9 @@ pub struct VdMirVariable {}
 
 impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
-        let mut exprs: Vec<VdMirExprData> = Vec::with_capacity(self.len());
+        let mut exprs: Vec<VdMirExprEntry> = Vec::with_capacity(self.len());
         for expr in self {
-            exprs.push(builder.build_expr(expr));
+            exprs.push(builder.build_expr_entry(expr));
         }
         builder.alloc_exprs(exprs)
     }
@@ -74,23 +85,29 @@ impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
 
 impl ToVdMir<VdMirExprIdx> for VdSemExprIdx {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdx {
-        let data = builder.build_expr(self);
-        builder.alloc_expr(data)
+        let entry = builder.build_expr_entry(self);
+        builder.alloc_expr(entry)
     }
 }
 
 impl<const N: usize> ToVdMir<VdMirExprIdxRange> for [VdSemExprIdx; N] {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
-        let data = self
+        let entries = self
             .into_iter()
-            .map(|expr| builder.build_expr(expr))
+            .map(|expr| builder.build_expr_entry(expr))
             .collect::<Vec<_>>();
-        builder.alloc_exprs(data)
+        builder.alloc_exprs(entries)
     }
 }
 
 impl<'db> VdMirExprBuilder<'db> {
-    fn build_expr(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprData {
+    fn build_expr_entry(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprEntry {
+        let data = self.build_expr_data(sem_expr_idx);
+        let ty = self.sem_expr_arena()[sem_expr_idx].ty();
+        VdMirExprEntry { data, ty }
+    }
+
+    fn build_expr_data(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprData {
         match *self.sem_expr_arena()[sem_expr_idx].data() {
             VdSemExprData::Literal { literal, .. } => VdMirExprData::Literal(literal),
             VdSemExprData::Binary {
@@ -168,7 +185,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 joined_separator_and_signature,
             ),
             VdSemExprData::LxDelimited { item, .. } | VdSemExprData::Delimited { item, .. } => {
-                self.build_expr(item)
+                self.build_expr_data(item)
             }
             VdSemExprData::Frac {
                 numerator,

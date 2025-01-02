@@ -36,7 +36,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
 impl<'a> VdMirExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: VdMirExprIdx) -> DisplayTree {
         let db = self.db();
-        let (value, children) = match self.expr_arena[expr] {
+        let (value, children) = match *self.expr_arena[expr].data() {
             VdMirExprData::Literal(literal) => (literal.data().to_string(), vec![]),
             VdMirExprData::Variable(ref variable) => ("variable".to_string(), vec![]),
             VdMirExprData::Application {

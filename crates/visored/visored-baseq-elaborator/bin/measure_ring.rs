@@ -81,9 +81,9 @@ fn ring_tactics() {
             leader,
             ref followers,
             ..
-        } = expr_arena[prop]
+        } = *expr_arena[prop].data()
         else {
-            unreachable!("expr_arena[prop] = {:?}", expr_arena[prop])
+            unreachable!("expr_arena[prop] = {:?}", expr_arena[prop].data())
         };
         assert_eq!(followers.len(), 1);
         let lopd = leader;

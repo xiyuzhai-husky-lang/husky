@@ -45,7 +45,7 @@ where
     S: IsVdLeanTranspilationScheme,
 {
     pub(crate) fn build_expr(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
-        match self.expr_arena()[expr] {
+        match *self.expr_arena()[expr].data() {
             VdMirExprData::Literal(literal) => {
                 LnMirExprData::Literal(to_lean_literal(literal, self.db()))
             }

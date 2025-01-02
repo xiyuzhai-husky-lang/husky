@@ -19,7 +19,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         prop: VdMirExprIdx,
         hypothesis: VdMirHypothesisIdx,
     ) -> LnItemDefnData {
-        match self.expr_arena()[prop] {
+        match *self.expr_arena()[prop].data() {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,

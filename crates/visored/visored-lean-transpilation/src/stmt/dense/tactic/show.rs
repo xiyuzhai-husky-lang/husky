@@ -6,7 +6,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         prop: VdMirExprIdx,
         following_stmts: VdMirStmtIdxRange,
     ) -> LnMirTacticData {
-        match self.expr_arena()[prop] {
+        match *self.expr_arena()[prop].data() {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
