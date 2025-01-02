@@ -51,14 +51,9 @@ fn visored_tactic_basic_elaborator_works() {
                 VdSynExprVibe::ROOT_CNL,
                 db,
                 &VdLeanTranspilationDenseScheme,
-                |region_data| {
-                    VdBaseqElaborator::new(
-                        VdBaseqElaboratorInner {
-                            phantom: PhantomData,
-                        },
-                        region_data,
-                    )
-                },
+                VdBaseqElaborator::new(VdBaseqElaboratorInner {
+                    phantom: PhantomData,
+                }),
             );
             let lean4_code: String = tracker.show_fmt(db);
             expect_file!(relative_path.to_logical_path(lean4_dir)).assert_eq(&lean4_code);

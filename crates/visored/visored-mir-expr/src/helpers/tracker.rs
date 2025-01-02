@@ -32,7 +32,7 @@ use visored_sem_expr::{
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMirTacticElaborator> {
+pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub input: Input,
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
@@ -49,7 +49,6 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMir
     pub sem_division_range_map: VdSemDivisionTokenIdxRangeMap,
     pub token_storage: LxTokenStorage,
     pub output: Input::VdMirExprOutput,
-    pub elaborator: Elaborator,
 }
 
 pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
@@ -61,13 +60,7 @@ pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
 
     fn elaborate_self(
         self,
-        region_data: VdMirExprRegionDataRef,
-        elaborator: &mut impl IsVdMirTacticElaborator,
-    );
-
-    fn extract_self_elaborations(
-        self,
-        elaborator: &impl IsVdMirTacticElaborator,
+        elaborator: impl IsVdMirTacticElaborator,
         hypothesis_constructor: VdMirHypothesisConstructor,
     );
 }
@@ -85,19 +78,18 @@ where
     }
 }
 
-impl<'a, Input, Elaborator> VdMirExprTracker<'a, Input, Elaborator>
+impl<'a, Input> VdMirExprTracker<'a, Input>
 where
     Input: IsVdMirExprInput<'a>,
-    Elaborator: IsVdMirTacticElaborator,
 {
-    pub fn new(
+    pub fn new<Elaborator: IsVdMirTacticElaborator>(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &VdModels,
         vibe: VdSynExprVibe,
         db: &EternerDb,
-        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
+        elaborator: Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -147,23 +139,8 @@ where
             symbol_local_defn_storage,
             source_map,
         ) = builder.finish();
-        let mut elaborator = gen_elaborator(VdMirExprRegionDataRef {
-            expr_arena: expr_arena.as_arena_ref(),
-            stmt_arena: stmt_arena.as_arena_ref(),
-            hint_arena: hint_arena.as_arena_ref(),
-            symbol_local_defn_storage: &symbol_local_defn_storage,
-        });
         output.elaborate_self(
-            VdMirExprRegionDataRef {
-                expr_arena: expr_arena.as_arena_ref(),
-                stmt_arena: stmt_arena.as_arena_ref(),
-                hint_arena: hint_arena.as_arena_ref(),
-                symbol_local_defn_storage: &symbol_local_defn_storage,
-            },
-            &mut elaborator,
-        );
-        output.extract_self_elaborations(
-            &elaborator,
+            elaborator,
             VdMirHypothesisConstructor::new(
                 db,
                 VdMirExprRegionDataMut {
@@ -192,7 +169,6 @@ where
             sem_division_range_map,
             token_storage,
             output,
-            elaborator,
         }
     }
 
@@ -233,18 +209,10 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
 
     fn elaborate_self(
         self,
-        region_data: VdMirExprRegionDataRef,
-        elaborator: &mut impl IsVdMirTacticElaborator,
-    ) {
-        elaborator.elaborate_stmts(self, region_data);
-    }
-
-    fn extract_self_elaborations(
-        self,
-        elaborator: &impl IsVdMirTacticElaborator,
+        elaborator: impl IsVdMirTacticElaborator,
         hypothesis_constructor: VdMirHypothesisConstructor,
     ) {
-        elaborator.extract_stmts(self, hypothesis_constructor);
+        elaborator.elaborate_stmts_ext(self, hypothesis_constructor);
     }
 }
 
@@ -255,17 +223,9 @@ impl IsVdMirExprOutput for VdMirExprIdx {
 
     fn elaborate_self(
         self,
-        region_data: VdMirExprRegionDataRef,
-        elaborator: &mut impl IsVdMirTacticElaborator,
-    ) {
-        elaborator.elaborate_expr(self, region_data);
-    }
-
-    fn extract_self_elaborations(
-        self,
-        elaborator: &impl IsVdMirTacticElaborator,
+        elaborator: impl IsVdMirTacticElaborator,
         hypothesis_constructor: VdMirHypothesisConstructor,
     ) {
-        elaborator.extract_expr(self, hypothesis_constructor);
+        elaborator.elaborate_expr_ext(self, hypothesis_constructor);
     }
 }

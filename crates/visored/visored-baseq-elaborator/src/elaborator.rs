@@ -17,6 +17,19 @@ pub type VdBaseqElaborator<'sess> = VdMirSequentialElaborator<VdBaseqElaboratorI
 
 impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
     type HypothesisIdx = ();
+    type Contradiction = ();
+
+    fn elaborate_let_assigned_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_goal_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
 
     fn elaborate_have_stmt(
         &mut self,
@@ -24,16 +37,31 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> Self::HypothesisIdx {
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
         todo!()
     }
 
-    fn extract_elaborations(
-        &self,
-        elaboration: &Self::HypothesisIdx,
-        hypothesis_constructor: VdMirHypothesisConstructor,
-    ) {
+    fn elaborate_show_stmt(&mut self) -> Result<(), ()> {
         todo!()
-        // VdMirTracker::new_trivial()
+    }
+
+    fn elaborate_qed_stmt(&mut self) -> Result<(), ()> {
+        todo!()
+    }
+
+    fn elaborate_expr(
+        &mut self,
+        expr: VdMirExprIdx,
+        region_data: VdMirExprRegionDataRef,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
+        todo!()
+    }
+
+    fn transcribe_hypothesis(
+        &mut self,
+        hypothesis: Self::HypothesisIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) -> Self::HypothesisIdx {
+        todo!()
     }
 }

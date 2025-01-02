@@ -9,16 +9,21 @@ use crate::{
 };
 
 pub trait IsVdMirTacticElaborator: std::fmt::Debug {
-    // # elaborate
-    fn elaborate_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef);
-    fn elaborate_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef);
-    // # extract
-    fn extract_stmts(
-        &self,
+    fn elaborate_stmts_ext(
+        self,
         stmts: VdMirStmtIdxRange,
         hypothesis_constructor: VdMirHypothesisConstructor,
     );
-    fn extract_expr(&self, expr: VdMirExprIdx, hypothesis_constructor: VdMirHypothesisConstructor);
+    fn elaborate_stmt_ext(
+        self,
+        stmt: VdMirStmtIdx,
+        hypothesis_constructor: VdMirHypothesisConstructor,
+    );
+    fn elaborate_expr_ext(
+        self,
+        expr: VdMirExprIdx,
+        hypothesis_constructor: VdMirHypothesisConstructor,
+    );
 }
 
 pub type VdMirTrivialElaborator = self::linear::VdMirSequentialElaborator<()>;

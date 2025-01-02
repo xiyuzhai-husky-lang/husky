@@ -26,7 +26,7 @@ fn t(content: &str, expect: &Expect) {
         &VdModels::new(),
         VdSynExprVibe::ROOT_CNL,
         db,
-        |region_data| VdMirSequentialElaborator::new((), region_data),
+        VdMirSequentialElaborator::<()>::default(),
     );
     expect.assert_eq(&tracker.show_display_tree(db));
 }

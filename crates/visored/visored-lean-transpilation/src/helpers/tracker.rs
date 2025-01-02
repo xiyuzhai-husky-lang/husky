@@ -30,12 +30,8 @@ use visored_mir_expr::{
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdLeanTranspilationTracker<
-    'a,
-    Scheme,
-    Input: IsVdLeanTranspilationInput<'a, Scheme>,
-    Elaborator: IsVdMirTacticElaborator,
-> where
+pub struct VdLeanTranspilationTracker<'a, Scheme, Input: IsVdLeanTranspilationInput<'a, Scheme>>
+where
     Scheme: IsVdLeanTranspilationScheme,
 {
     input: Input,
@@ -45,7 +41,6 @@ pub struct VdLeanTranspilationTracker<
     defn_arena: LnItemDefnArena,
     defn_comments: LnItemDefnOrderedMap<LnItemDefnComment>,
     output: Input::VdLeanTranspilationOutput,
-    elaborator: Elaborator,
 }
 
 pub trait IsVdLeanTranspilationInput<'a, Scheme>: IsVdMirExprInput<'a>
@@ -79,13 +74,12 @@ where
     }
 }
 
-impl<'a, Scheme, Input, Elaborator> VdLeanTranspilationTracker<'a, Scheme, Input, Elaborator>
+impl<'a, Scheme, Input> VdLeanTranspilationTracker<'a, Scheme, Input>
 where
     Scheme: IsVdLeanTranspilationScheme,
     Input: IsVdLeanTranspilationInput<'a, Scheme>,
-    Elaborator: IsVdMirTacticElaborator,
 {
-    pub fn new(
+    pub fn new<Elaborator: IsVdMirTacticElaborator>(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
@@ -93,7 +87,7 @@ where
         vibe: VdSynExprVibe,
         db: &'a EternerDb,
         scheme: &'a Scheme,
-        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
+        elaborator: Elaborator,
     ) -> Self {
         let content = input.content();
         let VdMirExprTracker {
@@ -113,8 +107,7 @@ where
             sem_division_range_map,
             token_storage,
             output,
-            elaborator,
-        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db, gen_elaborator);
+        } = VdMirExprTracker::new(input, &[], &[], models, vibe, db, elaborator);
         let dictionary = &VdLeanDictionary::new_standard(db);
         let mut builder = VdLeanTranspilationBuilder::new(
             db,
@@ -146,7 +139,6 @@ where
             defn_arena,
             defn_comments,
             output,
-            elaborator,
         }
     }
 

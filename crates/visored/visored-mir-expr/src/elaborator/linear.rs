@@ -3,17 +3,23 @@ use hint::VdMirHintIdx;
 use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    stmt_elaboration_trackers: VdMirStmtMap<Inner::HypothesisIdx>,
     inner: Inner,
 }
 
 pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
     type HypothesisIdx: std::fmt::Debug + Eq;
+    type Contradiction: std::fmt::Debug;
+
+    fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), Self::Contradiction>;
+
+    fn elaborate_let_assigned_stmt(&mut self) -> Result<(), Self::Contradiction>;
+
+    fn elaborate_goal_stmt(&mut self) -> Result<(), Self::Contradiction>;
 
     fn elaborate_have_stmt(
         &mut self,
@@ -21,17 +27,40 @@ pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> Self::HypothesisIdx;
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
-    fn extract_elaborations(
-        &self,
-        elaboration: &Self::HypothesisIdx,
-        hypothesis_constructor: VdMirHypothesisConstructor,
-    );
+    fn elaborate_show_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+
+    fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+
+    fn elaborate_expr(
+        &mut self,
+        expr: VdMirExprIdx,
+        region_data: VdMirExprRegionDataRef,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+
+    fn transcribe_hypothesis(
+        &mut self,
+        hypothesis: Self::HypothesisIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) -> Self::HypothesisIdx;
 }
 
 impl IsVdMirSequentialElaboratorInner for () {
     type HypothesisIdx = ();
+    type Contradiction = ();
+
+    fn elaborate_let_assigned_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_goal_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
 
     fn elaborate_have_stmt(
         &mut self,
@@ -39,15 +68,31 @@ impl IsVdMirSequentialElaboratorInner for () {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> () {
-        todo!()
+    ) -> Result<(), ()> {
+        Ok(())
     }
 
-    fn extract_elaborations(
-        &self,
-        elaboration: &Self::HypothesisIdx,
-        hypothesis_constructor: VdMirHypothesisConstructor,
-    ) {
+    fn elaborate_show_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_qed_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_expr(
+        &mut self,
+        expr: VdMirExprIdx,
+        region_data: VdMirExprRegionDataRef,
+    ) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn transcribe_hypothesis(
+        &mut self,
+        hypothesis: Self::HypothesisIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) -> Self::HypothesisIdx {
         todo!()
     }
 }
@@ -56,18 +101,8 @@ impl<Inner> VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    pub fn new(inner: Inner, region_data: VdMirExprRegionDataRef) -> Self {
-        Self {
-            stmt_elaboration_trackers: VdMirStmtMap::new2(region_data.stmt_arena),
-            inner,
-        }
-    }
-
-    pub fn new_default(region_data: VdMirExprRegionDataRef) -> Self
-    where
-        Inner: Default,
-    {
-        Self::new(Default::default(), region_data)
+    pub fn new(inner: Inner) -> Self {
+        Self { inner }
     }
 }
 
@@ -76,33 +111,28 @@ where
     Inner: IsVdMirSequentialElaboratorInner,
 {
     // # elaborate
-    fn elaborate_stmts(&mut self, stmts: VdMirStmtIdxRange, region_data: VdMirExprRegionDataRef) {
-        for stmt in stmts {
-            self.elaborate_stmt(stmt, region_data);
-        }
-    }
-
-    fn elaborate_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
-        todo!()
-    }
-
-    // # extract
-    fn extract_stmts(
-        &self,
+    fn elaborate_stmts_ext(
+        mut self,
         stmts: VdMirStmtIdxRange,
         mut hypothesis_constructor: VdMirHypothesisConstructor,
     ) {
-        for (stmt, elaboration_tracker) in self.stmt_elaboration_trackers.iter() {
-            todo!()
-            // let elaboration_tracker = self
-            //     .inner
-            //     .extract_elaborations(elaboration_tracker, hypothesis_constructor);
-            // hypothesis_constructor.add_hypothesis(stmt, elaboration);
-        }
+        self.elaborate_stmts(stmts, &mut hypothesis_constructor);
     }
 
-    fn extract_expr(&self, expr: VdMirExprIdx, hypothesis_constructor: VdMirHypothesisConstructor) {
-        todo!()
+    fn elaborate_stmt_ext(
+        mut self,
+        stmt: VdMirStmtIdx,
+        mut hypothesis_constructor: VdMirHypothesisConstructor,
+    ) {
+        self.elaborate_stmt(stmt, &mut hypothesis_constructor);
+    }
+
+    fn elaborate_expr_ext(
+        mut self,
+        expr: VdMirExprIdx,
+        mut hypothesis_constructor: VdMirHypothesisConstructor,
+    ) {
+        self.elaborate_expr(expr, &mut hypothesis_constructor);
     }
 }
 
@@ -110,19 +140,74 @@ impl<Inner> VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
 {
-    fn elaborate_stmt(&mut self, stmt: VdMirStmtIdx, region_data: VdMirExprRegionDataRef) {
-        match *region_data.stmt_arena[stmt].data() {
-            VdMirStmtData::Block { stmts, .. } => self.elaborate_stmts(stmts, region_data),
-            VdMirStmtData::LetPlaceholder { .. } => todo!(),
-            VdMirStmtData::LetAssigned { .. } => todo!(),
-            VdMirStmtData::Goal { .. } => (),
+    fn elaborate_stmts(
+        &mut self,
+        stmts: VdMirStmtIdxRange,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
+        for stmt in stmts {
+            self.elaborate_stmt(stmt, hypothesis_constructor);
+        }
+    }
+
+    fn elaborate_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
+        match *hypothesis_constructor.stmt_arena()[stmt].data() {
+            VdMirStmtData::Block { stmts, .. } => {
+                self.elaborate_stmts(stmts, hypothesis_constructor)
+            }
+            VdMirStmtData::LetPlaceholder { .. } => {
+                self.inner
+                    .elaborate_let_placeholder_stmt()
+                    .expect("handle contradiction");
+            }
+            VdMirStmtData::LetAssigned { .. } => {
+                let elaboration = self
+                    .inner
+                    .elaborate_let_assigned_stmt()
+                    .expect("handle contradiction");
+                todo!();
+            }
+            VdMirStmtData::Goal { .. } => {
+                self.inner
+                    .elaborate_goal_stmt()
+                    .expect("handle contradiction");
+            }
             VdMirStmtData::Have { prop, hint, .. } => {
                 let elaboration = self
                     .inner
-                    .elaborate_have_stmt(stmt, prop, hint, region_data);
-                self.stmt_elaboration_trackers.insert_new(stmt, elaboration);
+                    .elaborate_have_stmt(stmt, prop, hint, hypothesis_constructor.region_data())
+                    .expect("handle contradiction");
+                todo!();
             }
-            VdMirStmtData::Show { .. } | VdMirStmtData::Qed { .. } => todo!(),
+            VdMirStmtData::Show { .. } => {
+                let elaboration = self
+                    .inner
+                    .elaborate_show_stmt()
+                    .expect("handle contradiction");
+                todo!();
+            }
+            VdMirStmtData::Qed { goal, .. } => {
+                let hypothesis = self
+                    .inner
+                    .elaborate_qed_stmt()
+                    .expect("handle contradiction");
+                let hypothesis = self
+                    .inner
+                    .transcribe_hypothesis(hypothesis, hypothesis_constructor);
+                todo!();
+            }
         }
+    }
+
+    fn elaborate_expr(
+        &mut self,
+        expr: VdMirExprIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
+        todo!()
     }
 }

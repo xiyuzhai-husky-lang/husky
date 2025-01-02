@@ -26,7 +26,7 @@ fn t(models: &VdModels, content: &str, expect: &Expect) {
         models,
         VdSynExprVibe::ROOT_CNL,
         db,
-        VdMirTrivialElaborator::new_default,
+        VdMirTrivialElaborator::default(),
     );
     expect.assert_eq(&tracker.show_display_tree(db));
 }
