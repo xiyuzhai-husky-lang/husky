@@ -4,7 +4,7 @@ use hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
 use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
 
-#[derive(Debug, Default)]
+#[derive(Default)]
 pub struct VdMirSequentialElaborator<Inner>
 where
     Inner: IsVdMirSequentialElaboratorInner,
@@ -12,7 +12,7 @@ where
     inner: Inner,
 }
 
-pub trait IsVdMirSequentialElaboratorInner: std::fmt::Debug {
+pub trait IsVdMirSequentialElaboratorInner {
     type HypothesisIdx: std::fmt::Debug + Eq;
     type Contradiction: std::fmt::Debug;
 

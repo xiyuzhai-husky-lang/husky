@@ -14,6 +14,7 @@ use visored_syn_expr::vibe::VdSynExprVibe;
 use crate::{
     elaborator::{VdBaseqElaborator, VdBaseqElaboratorInner},
     helpers::tracker::VdBaseqElaboratorTracker,
+    session::VdBaseqSession,
 };
 
 #[test]
@@ -39,6 +40,7 @@ fn visored_tactic_basic_elaborator_works() {
                 .to_case(Case::Pascal)
                 .with_extension("lean");
             let content = std::fs::read_to_string(&src_file_path).unwrap();
+            let session = &VdBaseqSession::new(db);
             let tracker = VdBaseqElaboratorTracker::new(
                 LxDocumentInput {
                     specs_dir: dev_paths.specs_dir().to_path_buf(),
@@ -51,9 +53,7 @@ fn visored_tactic_basic_elaborator_works() {
                 VdSynExprVibe::ROOT_CNL,
                 db,
                 &VdLeanTranspilationDenseScheme,
-                VdBaseqElaborator::new(VdBaseqElaboratorInner {
-                    phantom: PhantomData,
-                }),
+                VdBaseqElaborator::new(VdBaseqElaboratorInner::new(session)),
             );
             let lean4_code: String = tracker.show_fmt(db);
             expect_file!(relative_path.to_logical_path(lean4_dir)).assert_eq(&lean4_code);

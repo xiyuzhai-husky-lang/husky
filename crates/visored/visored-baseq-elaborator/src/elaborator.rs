@@ -8,19 +8,33 @@ use visored_mir_expr::{
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
 
-use crate::hypothesis::{
-    contradiction::{VdBaseqHypothesisContradiction, VdBaseqHypothesisResult},
-    VdBaseqHypothesisIdx,
+use crate::{
+    hypothesis::{
+        constructor::VdBaseqHypothesisConstructor,
+        contradiction::{VdBaseqHypothesisContradiction, VdBaseqHypothesisResult},
+        VdBaseqHypothesisIdx,
+    },
+    session::VdBaseqSession,
 };
 
-#[derive(Debug, Default)]
-pub struct VdBaseqElaboratorInner<'sess> {
-    pub(crate) phantom: PhantomData<&'sess ()>,
+pub struct VdBaseqElaboratorInner<'db, 'sess> {
+    session: &'sess VdBaseqSession<'db>,
+    pub(crate) hypothesis_constructor: VdBaseqHypothesisConstructor<'db, 'sess>,
 }
 
-pub type VdBaseqElaborator<'sess> = VdMirSequentialElaborator<VdBaseqElaboratorInner<'sess>>;
+pub type VdBaseqElaborator<'db, 'sess> =
+    VdMirSequentialElaborator<VdBaseqElaboratorInner<'db, 'sess>>;
 
-impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
+impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+    pub fn new(session: &'sess VdBaseqSession<'db>) -> Self {
+        Self {
+            session,
+            hypothesis_constructor: VdBaseqHypothesisConstructor::new(session),
+        }
+    }
+}
+
+impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db, 'sess> {
     type HypothesisIdx = VdBaseqHypothesisIdx<'sess>;
     type Contradiction = VdBaseqHypothesisContradiction<'sess>;
 
@@ -43,6 +57,7 @@ impl<'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'sess> {
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
+        let prop = todo!();
         match hint {
             Some(hint) => todo!(),
             None => self.obvious(prop),

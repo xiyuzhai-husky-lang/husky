@@ -18,3 +18,13 @@ impl<'db> VdBaseqSession<'db> {
         }
     }
 }
+
+impl<'db> VdBaseqSession<'db> {
+    pub fn eterner_db(&self) -> &'db EternerDb {
+        self.eterner_db
+    }
+
+    pub fn floater_db(&self) -> &FloaterDb {
+        &self.floater_db
+    }
+}

@@ -8,7 +8,7 @@ use crate::{
     *,
 };
 
-pub trait IsVdMirTacticElaborator: std::fmt::Debug {
+pub trait IsVdMirTacticElaborator {
     fn elaborate_stmts_ext(
         self,
         stmts: VdMirStmtIdxRange,

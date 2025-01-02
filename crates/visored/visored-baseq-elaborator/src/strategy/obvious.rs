@@ -1,14 +1,20 @@
 use elaborator::VdBaseqElaboratorInner;
-use hypothesis::{contradiction::VdBaseqHypothesisResult, VdBaseqHypothesisIdx};
+use expr::VdMirExprFld;
+use hypothesis::{
+    construction::VdBaseqHypothesisConstruction, contradiction::VdBaseqHypothesisResult,
+    VdBaseqHypothesisIdx,
+};
 use visored_mir_expr::{expr::VdMirExprIdx, hint::VdMirHintIdx, stmt::VdMirStmtIdx};
 
 use super::*;
 
-impl<'sess> VdBaseqElaboratorInner<'sess> {
+impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
     pub fn obvious(
         &mut self,
-        prop: VdMirExprIdx,
+        prop: VdMirExprFld<'sess>,
     ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
-        todo!()
+        Ok(self
+            .hypothesis_constructor
+            .construct_new_hypothesis(prop, VdBaseqHypothesisConstruction::Sorry))
     }
 }
