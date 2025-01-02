@@ -25,7 +25,7 @@ impl<T, V> std::ops::Deref for ArenaOrderedMap<T, V> {
 }
 
 impl<T, V> ArenaOrderedMap<T, V> {
-    pub fn new(arena: &Arena<T>, f: impl Fn(&T) -> V) -> Self {
+    pub fn new_with(arena: &Arena<T>, f: impl Fn(&T) -> V) -> Self {
         Self {
             data: arena.iter().map(f).collect(),
             phantom: PhantomData,

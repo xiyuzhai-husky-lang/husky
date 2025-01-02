@@ -1,7 +1,7 @@
 use std::marker::PhantomData;
 use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
-    expr::VdMirExprIdx,
+    expr::{VdMirExprArenaRef, VdMirExprIdx, VdMirExprMap, VdMirExprOrderedMap},
     hint::VdMirHintIdx,
     hypothesis::{constructor::VdMirHypothesisConstructor, VdMirHypothesisIdx},
     region::VdMirExprRegionDataRef,
@@ -9,6 +9,7 @@ use visored_mir_expr::{
 };
 
 use crate::{
+    expr::{build_expr_to_fld_map, VdMirExprFld},
     hypothesis::{
         constructor::VdBaseqHypothesisConstructor,
         contradiction::{VdBaseqHypothesisContradiction, VdBaseqHypothesisResult},
@@ -19,6 +20,7 @@ use crate::{
 
 pub struct VdBaseqElaboratorInner<'db, 'sess> {
     session: &'sess VdBaseqSession<'db>,
+    expr_to_fld_map: VdMirExprOrderedMap<VdMirExprFld<'sess>>,
     pub(crate) hypothesis_constructor: VdBaseqHypothesisConstructor<'db, 'sess>,
 }
 
@@ -26,10 +28,11 @@ pub type VdBaseqElaborator<'db, 'sess> =
     VdMirSequentialElaborator<VdBaseqElaboratorInner<'db, 'sess>>;
 
 impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
-    pub fn new(session: &'sess VdBaseqSession<'db>) -> Self {
+    pub fn new(session: &'sess VdBaseqSession<'db>, expr_arena: VdMirExprArenaRef) -> Self {
         Self {
             session,
             hypothesis_constructor: VdBaseqHypothesisConstructor::new(session),
+            expr_to_fld_map: build_expr_to_fld_map(session, expr_arena),
         }
     }
 }
