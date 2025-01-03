@@ -83,12 +83,14 @@ pub enum VdPrecedenceRange {
 
 /// # constants
 impl VdPrecedenceRange {
+    pub const ANY: Self = VdPrecedenceRange::Any;
     pub const RIGHT_DELIMITER_LEFT: Self =
         VdPrecedenceRange::Greater(VdPrecedence::INCOMPLTE_DELIMITED);
     pub const SPACE_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::SPACE);
     pub const ADD_SUB_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB);
     pub const MUL_DIV_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV);
     pub const COMPARISON_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::RELATION);
+    pub const ATOM: Self = VdPrecedenceRange::NoLess(VdPrecedence::ATOM);
 }
 
 /// # methods

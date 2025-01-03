@@ -1,7 +1,7 @@
 use super::*;
 
 /// only those visually different from the latin letters are listed here
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LxMathDistinctUpperGreekLetter {
     Gamma,
     Delta,
@@ -32,7 +32,7 @@ impl LxMathDistinctUpperGreekLetter {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LxMathDistinctLowerGreekLetter {
     Alpha,
     Beta,

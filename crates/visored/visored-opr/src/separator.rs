@@ -143,6 +143,39 @@ impl VdBaseSeparator {
             VdBaseSeparator::Otimes => "\\otimes",
         }
     }
+
+    pub fn unicode(self) -> &'static str {
+        match self {
+            VdBaseSeparator::Space => "␣",
+            VdBaseSeparator::Comma => ",",
+            VdBaseSeparator::Semicolon => ";",
+            VdBaseSeparator::Add => "+",
+            VdBaseSeparator::Mul => "×",
+            VdBaseSeparator::Dot => "·",
+            VdBaseSeparator::Eq => "=",
+            VdBaseSeparator::Ne => "≠",
+            VdBaseSeparator::Lt => "<",
+            VdBaseSeparator::Gt => ">",
+            VdBaseSeparator::Le => "≤",
+            VdBaseSeparator::Ge => "≥",
+            VdBaseSeparator::Subset => "⊂",
+            VdBaseSeparator::Supset => "⊃",
+            VdBaseSeparator::Subseteq => "⊆",
+            VdBaseSeparator::Supseteq => "⊇",
+            VdBaseSeparator::Subseteqq => "⫅",
+            VdBaseSeparator::Supseteqq => "⫆",
+            VdBaseSeparator::Subsetneq => "⊊",
+            VdBaseSeparator::Supsetneq => "⊋",
+            VdBaseSeparator::In => "∈",
+            VdBaseSeparator::Notin => "∉",
+            VdBaseSeparator::Times => "×",
+            VdBaseSeparator::Otimes => "⊗",
+        }
+    }
+
+    pub fn show(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str(self.unicode())
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

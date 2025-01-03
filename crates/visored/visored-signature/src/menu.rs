@@ -5,6 +5,7 @@ use crate::signature::{
 };
 use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
+use visored_opr::opr::prefix::VdBasePrefixOpr;
 use visored_term::{
     instantiation::menu::{vd_instantiation_menu, VdInstantiationMenu},
     menu::{vd_ty_menu, VdTypeMenu},

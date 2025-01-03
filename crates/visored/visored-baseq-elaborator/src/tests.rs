@@ -54,10 +54,7 @@ fn visored_tactic_basic_elaborator_works() {
                 db,
                 &VdLeanTranspilationDenseScheme,
                 |region_data| {
-                    VdBaseqElaborator::new(VdBaseqElaboratorInner::new(
-                        session,
-                        region_data.expr_arena,
-                    ))
+                    VdBaseqElaborator::new(VdBaseqElaboratorInner::new(session, region_data))
                 },
             );
             let lean4_code: String = tracker.show_fmt(db);

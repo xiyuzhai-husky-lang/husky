@@ -50,11 +50,11 @@ impl VdSignature {
         match variant_ident.as_str() {
             "base_prefix_opr" => {
                 assert_eq!(args.len(), 2);
-                VdBasePrefixOprSignature {
+                VdBasePrefixOprSignature::new(
                     instantiation,
-                    opd_ty: VdType::from_lp_csv_expr(&args[0], db),
-                    expr_ty: VdType::from_lp_csv_expr(&args[1], db),
-                }
+                    VdType::from_lp_csv_expr(&args[0], db),
+                    VdType::from_lp_csv_expr(&args[1], db),
+                )
                 .into()
             }
             "base_binary_opr" => {

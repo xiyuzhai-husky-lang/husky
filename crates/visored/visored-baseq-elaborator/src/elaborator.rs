@@ -32,11 +32,11 @@ pub type VdBaseqElaborator<'db, 'sess> =
     VdMirSequentialElaborator<VdBaseqElaboratorInner<'db, 'sess>>;
 
 impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
-    pub fn new(session: &'sess VdBaseqSession<'db>, expr_arena: VdMirExprArenaRef) -> Self {
+    pub fn new(session: &'sess VdBaseqSession<'db>, region_data: VdMirExprRegionDataRef) -> Self {
         Self {
             session,
             hypothesis_constructor: VdBaseqHypothesisConstructor::new(session),
-            expr_to_fld_map: build_expr_to_fld_map(session, expr_arena),
+            expr_to_fld_map: build_expr_to_fld_map(session, region_data),
         }
     }
 }

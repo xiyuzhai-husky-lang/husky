@@ -24,6 +24,7 @@ idx-arena.workspace = true
 vec-like.workspace = true
 floated-sequential.workspace = true
 # latex
+latex-math-letter.workspace = true
 latex-prelude.workspace = true
 latex-vfs.workspace = true
 # visored
@@ -40,6 +41,7 @@ visored-term.workspace = true
 husky-sha-utils.workspace = true
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true
+husky-unicode-symbols.workspace = true
 
 [dev-dependencies]
 relative-path.workspace = true

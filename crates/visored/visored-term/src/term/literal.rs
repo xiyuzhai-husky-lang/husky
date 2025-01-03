@@ -22,8 +22,20 @@ impl std::ops::Deref for VdLiteral {
 
 impl std::fmt::Debug for VdLiteral {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-        // self.0.fmt(f)
+        f.write_str("VdLiteral(")?;
+        self.show(f)?;
+        f.write_str(")")
+    }
+}
+
+impl VdLiteral {
+    pub fn show(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.data() {
+            VdLiteralData::Nat128(u) => write!(f, "{}", u),
+            VdLiteralData::Int128(i) => write!(f, "{}", i),
+            VdLiteralData::Float(s) => write!(f, "{}", s),
+            VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
+        }
     }
 }
 

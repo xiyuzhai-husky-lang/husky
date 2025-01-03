@@ -7,7 +7,7 @@ use self::latin::*;
 use self::styled::*;
 use crate::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LxMathLetter {
     UpperLatin(LxMathLatinLetter),
     LowerLatin(LxMathLatinLetter),
@@ -36,6 +36,17 @@ impl LxMathLetter {
             }
             LxMathLetter::DistinctUpperGreek(l) => l.latex_code().to_string(),
             LxMathLetter::DistinctLowerGreek(l) => l.latex_code().to_string(),
+        }
+    }
+
+    pub fn unicode(self) -> char {
+        match self {
+            LxMathLetter::UpperLatin(l) => l.upper_case_unicode(),
+            LxMathLetter::LowerLatin(l) => l.lower_case_unicode(),
+            LxMathLetter::StyledUpperLatin(style, l) => l.styled_upper_case_unicode(style),
+            LxMathLetter::StyledLowerLatin(style, l) => l.styled_lower_case_unicode(style),
+            LxMathLetter::DistinctUpperGreek(lx_math_distinct_upper_greek_letter) => todo!(),
+            LxMathLetter::DistinctLowerGreek(lx_math_distinct_lower_greek_letter) => todo!(),
         }
     }
 
@@ -129,5 +140,9 @@ impl LxMathLetter {
             'ω' => LxMathLetter::LOWER_OMEGA,
             _ => return None,
         })
+    }
+
+    pub fn show(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.unicode())
     }
 }

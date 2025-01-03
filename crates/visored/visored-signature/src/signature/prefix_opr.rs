@@ -1,4 +1,6 @@
 use super::*;
+use visored_entity_path::path::{trai_item::VdTraitItemPath, VdItemPath};
+use visored_opr::opr::prefix::VdBasePrefixOpr;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
@@ -11,6 +13,8 @@ pub enum VdPrefixOprSignature {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBasePrefixOprSignature {
     pub instantiation: VdInstantiation,
+    // TODO: replace this with something more ethereal
+    pub opr: VdBasePrefixOpr,
     pub opd_ty: VdType,
     pub expr_ty: VdType,
 }
@@ -23,8 +27,32 @@ impl From<VdBasePrefixOprSignature> for VdSignature {
 
 impl VdBasePrefixOprSignature {
     pub fn new(instantiation: VdInstantiation, opd_ty: VdType, expr_ty: VdType) -> Self {
+        let VdItemPath::TraitItem(path) = instantiation.path() else {
+            unreachable!()
+        };
+        let opr = match path {
+            VdTraitItemPath::GroupMul => todo!(),
+            VdTraitItemPath::AbelianGroupAdd => todo!(),
+            VdTraitItemPath::NatAdd => todo!(),
+            VdTraitItemPath::NatMul => todo!(),
+            VdTraitItemPath::RingAdd => todo!(),
+            VdTraitItemPath::RingSub => todo!(),
+            VdTraitItemPath::RingMul => todo!(),
+            VdTraitItemPath::RingPower => todo!(),
+            VdTraitItemPath::RingPos => VdBasePrefixOpr::POS,
+            VdTraitItemPath::RingNeg => VdBasePrefixOpr::NEG,
+            VdTraitItemPath::Eq => todo!(),
+            VdTraitItemPath::Ne => todo!(),
+            VdTraitItemPath::Lt => todo!(),
+            VdTraitItemPath::Gt => todo!(),
+            VdTraitItemPath::Le => todo!(),
+            VdTraitItemPath::Ge => todo!(),
+            VdTraitItemPath::FieldDiv => todo!(),
+            VdTraitItemPath::RealSqrt => todo!(),
+        };
         Self {
             instantiation,
+            opr,
             opd_ty,
             expr_ty,
         }

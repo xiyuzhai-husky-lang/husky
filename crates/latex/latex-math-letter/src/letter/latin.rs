@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LxMathLatinLetter {
     A,
     B,
@@ -90,6 +90,92 @@ impl LxMathLatinLetter {
             LxMathLatinLetter::X => "x",
             LxMathLatinLetter::Y => "y",
             LxMathLatinLetter::Z => "z",
+        }
+    }
+
+    pub fn upper_case_unicode(self) -> char {
+        match self {
+            LxMathLatinLetter::A => 'A',
+            LxMathLatinLetter::B => 'B',
+            LxMathLatinLetter::C => 'C',
+            LxMathLatinLetter::D => 'D',
+            LxMathLatinLetter::E => 'E',
+            LxMathLatinLetter::F => 'F',
+            LxMathLatinLetter::G => 'G',
+            LxMathLatinLetter::H => 'H',
+            LxMathLatinLetter::I => 'I',
+            LxMathLatinLetter::J => 'J',
+            LxMathLatinLetter::K => 'K',
+            LxMathLatinLetter::L => 'L',
+            LxMathLatinLetter::M => 'M',
+            LxMathLatinLetter::N => 'N',
+            LxMathLatinLetter::O => 'O',
+            LxMathLatinLetter::P => 'P',
+            LxMathLatinLetter::Q => 'Q',
+            LxMathLatinLetter::R => 'R',
+            LxMathLatinLetter::S => 'S',
+            LxMathLatinLetter::T => 'T',
+            LxMathLatinLetter::U => 'U',
+            LxMathLatinLetter::V => 'V',
+            LxMathLatinLetter::W => 'W',
+            LxMathLatinLetter::X => 'X',
+            LxMathLatinLetter::Y => 'Y',
+            LxMathLatinLetter::Z => 'Z',
+        }
+    }
+
+    pub fn lower_case_unicode(self) -> char {
+        match self {
+            LxMathLatinLetter::A => 'a',
+            LxMathLatinLetter::B => 'b',
+            LxMathLatinLetter::C => 'c',
+            LxMathLatinLetter::D => 'd',
+            LxMathLatinLetter::E => 'e',
+            LxMathLatinLetter::F => 'f',
+            LxMathLatinLetter::G => 'g',
+            LxMathLatinLetter::H => 'h',
+            LxMathLatinLetter::I => 'i',
+            LxMathLatinLetter::J => 'j',
+            LxMathLatinLetter::K => 'k',
+            LxMathLatinLetter::L => 'l',
+            LxMathLatinLetter::M => 'm',
+            LxMathLatinLetter::N => 'n',
+            LxMathLatinLetter::O => 'o',
+            LxMathLatinLetter::P => 'p',
+            LxMathLatinLetter::Q => 'q',
+            LxMathLatinLetter::R => 'r',
+            LxMathLatinLetter::S => 's',
+            LxMathLatinLetter::T => 't',
+            LxMathLatinLetter::U => 'u',
+            LxMathLatinLetter::V => 'v',
+            LxMathLatinLetter::W => 'w',
+            LxMathLatinLetter::X => 'x',
+            LxMathLatinLetter::Y => 'y',
+            LxMathLatinLetter::Z => 'z',
+        }
+    }
+
+    pub fn styled_upper_case_unicode(self, style: LxMathLetterStyle) -> char {
+        match style {
+            LxMathLetterStyle::Mathbb => todo!(),
+            LxMathLetterStyle::Mathcal => todo!(),
+            LxMathLetterStyle::Mathfrak => todo!(),
+            LxMathLetterStyle::Mathit => todo!(),
+            LxMathLetterStyle::Mathrm => todo!(),
+            LxMathLetterStyle::Mathscr => todo!(),
+            LxMathLetterStyle::Mathsf => todo!(),
+        }
+    }
+
+    pub fn styled_lower_case_unicode(self, style: LxMathLetterStyle) -> char {
+        match style {
+            LxMathLetterStyle::Mathbb => todo!(),
+            LxMathLetterStyle::Mathcal => todo!(),
+            LxMathLetterStyle::Mathfrak => todo!(),
+            LxMathLetterStyle::Mathit => todo!(),
+            LxMathLetterStyle::Mathrm => todo!(),
+            LxMathLetterStyle::Mathscr => todo!(),
+            LxMathLetterStyle::Mathsf => todo!(),
         }
     }
 }
