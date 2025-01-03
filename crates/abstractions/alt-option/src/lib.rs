@@ -62,3 +62,55 @@ impl<T> Into<Option<T>> for AltOption<T> {
         }
     }
 }
+
+#[macro_export]
+macro_rules! try_alt {
+    ($($e:expr),+) => {
+        $(
+            if let AltSome(value) = $e? {
+                return Ok(AltSome(value));
+            }
+        )+
+    };
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get_some(x: i32) -> Result<AltOption<i32>, ()> {
+        Ok(AltSome(x))
+    }
+
+    fn get_none() -> Result<AltOption<i32>, ()> {
+        Ok(AltNone)
+    }
+
+    fn try_single() -> Result<AltOption<i32>, ()> {
+        try_alt!(get_none());
+        Ok(AltNone)
+    }
+
+    fn try_single_some() -> Result<AltOption<i32>, ()> {
+        try_alt!(get_some(42));
+        Ok(AltNone)
+    }
+
+    fn try_multiple() -> Result<AltOption<i32>, ()> {
+        try_alt!(get_none(), get_some(42), get_some(24));
+        Ok(AltNone)
+    }
+
+    fn try_all_none() -> Result<AltOption<i32>, ()> {
+        try_alt!(get_none(), get_none(), get_none());
+        Ok(AltNone)
+    }
+
+    #[test]
+    fn test_try_alt() {
+        assert_eq!(try_single(), Ok(AltNone));
+        assert_eq!(try_single_some(), Ok(AltSome(42)));
+        assert_eq!(try_multiple(), Ok(AltSome(42)));
+        assert_eq!(try_all_none(), Ok(AltNone));
+    }
+}

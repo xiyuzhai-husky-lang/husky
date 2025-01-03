@@ -41,6 +41,12 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
     }
 }
 
+impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+    pub fn session(&self) -> &'sess VdBaseqSession<'db> {
+        self.session
+    }
+}
+
 impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db, 'sess> {
     type HypothesisIdx = VdBaseqHypothesisIdx<'sess>;
     type Contradiction = VdBaseqHypothesisContradiction<'sess>;

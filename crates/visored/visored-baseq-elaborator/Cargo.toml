@@ -17,6 +17,7 @@ rustc-hash.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
+alt-option.workspace = true
 enum-class.workspace = true
 eterned.workspace = true
 idx-arena.workspace = true
