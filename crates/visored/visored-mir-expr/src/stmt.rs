@@ -39,6 +39,10 @@ pub enum VdMirStmtData {
         pattern: VdMirPattern,
         ty: VdMirExprIdx,
     },
+    Assume {
+        prop: VdMirExprIdx,
+        hypothesis_place: OncePlace<VdMirHypothesisResult>,
+    },
     LetAssigned {
         pattern: VdMirPattern,
         assignment: VdMirExprIdx,
@@ -99,30 +103,6 @@ impl VdMirStmtEntry {
 
     pub(crate) fn data_mut(&mut self) -> &mut VdMirStmtData {
         &mut self.data
-    }
-}
-
-impl VdMirStmtEntry {
-    #[track_caller]
-    pub(crate) fn set_hypothesis(&mut self, hypothesis: VdMirHypothesisIdx) {
-        match self.data {
-            VdMirStmtData::Block { stmts, ref meta } => todo!(),
-            VdMirStmtData::LetPlaceholder { ref pattern, ty } => todo!(),
-            VdMirStmtData::LetAssigned {
-                ref pattern,
-                assignment,
-            } => todo!(),
-            VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Have {
-                prop,
-                hint,
-                hypothesis_place: ref mut hypothesis,
-            } => todo!(),
-            VdMirStmtData::Show { prop, hint } => todo!(),
-            VdMirStmtData::Qed {
-                goal_and_hypothesis_place,
-            } => todo!(),
-        }
     }
 }
 
@@ -281,9 +261,9 @@ impl<'db> VdMirExprBuilder<'db> {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
                 formula,
                 right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::LetPlaceholder {
-                pattern: VdMirPattern::Assumed,
-                ty: formula.to_vd_mir(self),
+            } => VdMirStmtData::Assume {
+                prop: formula.to_vd_mir(self),
+                hypothesis_place: OncePlace::default(),
             },
             VdSemClauseData::Goal {
                 left_math_delimiter_token_idx: left_dollar_token_idx,

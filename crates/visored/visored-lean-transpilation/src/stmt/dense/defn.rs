@@ -98,6 +98,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 // LnItemDefnData::Group { defns, meta }
             }
             VdMirStmtData::LetPlaceholder { .. }
+            | VdMirStmtData::Assume { .. }
             | VdMirStmtData::LetAssigned { .. }
             | VdMirStmtData::Have { .. }
             | VdMirStmtData::Show { .. }
@@ -168,9 +169,15 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                             letter,
                             symbol_local_defn,
                         } => self.mangle_symbol(symbol_local_defn),
-                        VdMirPattern::Assumed => self.mangle_hypothesis(),
                     },
                     ty: ty.to_lean(self),
+                });
+                std::ops::ControlFlow::Continue(())
+            }
+            VdMirStmtData::Assume { prop, .. } => {
+                parameters.push(LnDefParameter {
+                    ident: self.mangle_hypothesis(),
+                    ty: prop.to_lean(self),
                 });
                 std::ops::ControlFlow::Continue(())
             }

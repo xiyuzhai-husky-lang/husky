@@ -18,6 +18,11 @@ pub trait IsVdMirSequentialElaboratorInner {
 
     fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), Self::Contradiction>;
 
+    fn elaborate_assume_stmt(
+        &mut self,
+        prop: VdMirExprIdx,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+
     fn elaborate_let_assigned_stmt(&mut self) -> Result<(), Self::Contradiction>;
 
     fn elaborate_goal_stmt(&mut self) -> Result<(), Self::Contradiction>;
@@ -57,6 +62,10 @@ impl IsVdMirSequentialElaboratorInner for () {
     }
 
     fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), ()> {
+        Ok(())
+    }
+
+    fn elaborate_assume_stmt(&mut self, prop: VdMirExprIdx) -> Result<(), ()> {
         Ok(())
     }
 
@@ -166,6 +175,26 @@ where
                 self.inner
                     .elaborate_let_placeholder_stmt()
                     .expect("handle contradiction");
+            }
+            VdMirStmtData::Assume { prop, .. } => {
+                let hypothesis = self
+                    .inner
+                    .elaborate_assume_stmt(prop)
+                    .expect("handle contradiction");
+                let hypothesis =
+                    self.inner
+                        .transcribe_hypothesis(hypothesis, prop, hypothesis_constructor);
+                hypothesis_constructor
+                    .stmt_arena_mut()
+                    .update(stmt, |entry| {
+                        let VdMirStmtData::Assume {
+                            hypothesis_place, ..
+                        } = entry.data_mut()
+                        else {
+                            unreachable!()
+                        };
+                        hypothesis_place.set(Ok(hypothesis));
+                    });
             }
             VdMirStmtData::LetAssigned { .. } => {
                 let elaboration = self

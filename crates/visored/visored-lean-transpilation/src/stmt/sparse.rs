@@ -65,8 +65,9 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                 Some(LnItemDefnData::Group { defns, meta })
             }
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
-                Some(self.build_ln_item_from_vd_let_placeholder_stmt(pattern, ty))
+                Some(self.build_ln_item_from_let_placeholder_stmt(pattern, ty))
             }
+            VdMirStmtData::Assume { prop, .. } => Some(self.build_ln_item_from_assume_stmt(prop)),
             VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
@@ -85,7 +86,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         }
     }
 
-    fn build_ln_item_from_vd_let_placeholder_stmt(
+    fn build_ln_item_from_let_placeholder_stmt(
         &mut self,
         pattern: &VdMirPattern,
         ty: VdMirExprIdx,
@@ -94,11 +95,18 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             VdMirPattern::Letter {
                 symbol_local_defn, ..
             } => self.mangle_symbol(symbol_local_defn),
-            VdMirPattern::Assumed => self.mangle_hypothesis(),
         };
         LnItemDefnData::Variable {
             ident,
             ty: ty.to_lean(self),
+        }
+    }
+
+    fn build_ln_item_from_assume_stmt(&mut self, prop: VdMirExprIdx) -> LnItemDefnData {
+        let ident = self.mangle_hypothesis();
+        LnItemDefnData::Variable {
+            ident,
+            ty: prop.to_lean(self),
         }
     }
 }

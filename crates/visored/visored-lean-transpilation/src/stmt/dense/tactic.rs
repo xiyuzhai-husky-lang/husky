@@ -44,7 +44,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             }
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 // Empty - no tactics to add
-                // TODO: maybe intro in certain cases?
+                // TODO: maybe intro in certain transpilation style?
+                self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);
+            }
+            VdMirStmtData::Assume { .. } => {
+                // Empty - no tactics to add
+                // TODO: maybe intro in certain transpilation style?
                 self.build_ln_tactics_from_vd_stmts(following_stmts, tactics);
             }
             VdMirStmtData::LetAssigned {

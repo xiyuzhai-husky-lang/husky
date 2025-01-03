@@ -18,7 +18,6 @@ pub enum VdMirPattern {
         letter: LxMathLetter,
         symbol_local_defn: VdMirSymbolLocalDefnIdx,
     },
-    Assumed,
 }
 
 impl ToVdMir<VdMirPattern> for &VdSemPattern {

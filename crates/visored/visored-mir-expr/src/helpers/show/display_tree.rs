@@ -109,6 +109,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 (format!("let placeholder",), vec![])
             }
+            VdMirStmtData::Assume { .. } => todo!(),
             // TODO: render pattern
             VdMirStmtData::LetAssigned {
                 ref pattern,

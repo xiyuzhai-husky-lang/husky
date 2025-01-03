@@ -53,6 +53,14 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         Ok(())
     }
 
+    fn elaborate_assume_stmt(
+        &mut self,
+        prop: VdMirExprIdx,
+    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
+        todo!()
+        // Ok(())
+    }
+
     fn elaborate_goal_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
         Ok(())
     }
@@ -63,7 +71,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
+    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
         let prop = self.expr_to_fld_map[prop];
         match hint {
             Some(hint) => todo!(),
