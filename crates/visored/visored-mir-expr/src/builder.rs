@@ -19,11 +19,12 @@ use visored_sem_expr::{
 };
 
 pub struct VdMirExprBuilder<'db> {
+    input: &'db str,
     sem_expr_arena: VdSemExprArenaRef<'db>,
     sem_phrase_arena: VdSemPhraseArenaRef<'db>,
     sem_clause_arena: VdSemClauseArenaRef<'db>,
     sem_sentence_arena: VdSemSentenceArenaRef<'db>,
-    sem_stmt_arena: VdSemBlockArenaRef<'db>,
+    sem_block_arena: VdSemBlockArenaRef<'db>,
     sem_division_arena: VdSemDivisionArenaRef<'db>,
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
@@ -33,8 +34,9 @@ pub struct VdMirExprBuilder<'db> {
 }
 
 impl<'db> VdMirExprBuilder<'db> {
-    pub fn new0(vd_sem_expr_region_data: &'db VdSemExprRegionData) -> Self {
+    pub fn new0(input: &'db str, vd_sem_expr_region_data: &'db VdSemExprRegionData) -> Self {
         Self::new(
+            input,
             vd_sem_expr_region_data.expr_arena(),
             vd_sem_expr_region_data.phrase_arena(),
             vd_sem_expr_region_data.clause_arena(),
@@ -46,6 +48,7 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 
     pub fn new(
+        input: &'db str,
         sem_expr_arena: VdSemExprArenaRef<'db>,
         sem_phrase_arena: VdSemPhraseArenaRef<'db>,
         sem_clause_arena: VdSemClauseArenaRef<'db>,
@@ -55,11 +58,12 @@ impl<'db> VdMirExprBuilder<'db> {
         sem_symbol_local_defn_storage: &VdSemSymbolLocalDefnStorage,
     ) -> Self {
         let mut slf = Self {
+            input,
             sem_expr_arena,
             sem_phrase_arena,
             sem_clause_arena,
             sem_sentence_arena,
-            sem_stmt_arena,
+            sem_block_arena: sem_stmt_arena,
             sem_division_arena,
             expr_arena: VdMirExprArena::default(),
             stmt_arena: VdMirStmtArena::default(),
@@ -73,6 +77,10 @@ impl<'db> VdMirExprBuilder<'db> {
 }
 
 impl<'db> VdMirExprBuilder<'db> {
+    pub fn input(&self) -> &'db str {
+        self.input
+    }
+
     pub fn sem_expr_arena(&self) -> VdSemExprArenaRef<'db> {
         self.sem_expr_arena
     }
@@ -89,8 +97,8 @@ impl<'db> VdMirExprBuilder<'db> {
         self.sem_sentence_arena
     }
 
-    pub fn sem_stmt_arena(&self) -> VdSemBlockArenaRef<'db> {
-        self.sem_stmt_arena
+    pub fn sem_block_arena(&self) -> VdSemBlockArenaRef<'db> {
+        self.sem_block_arena
     }
 
     pub fn sem_division_arena(&self) -> VdSemDivisionArenaRef<'db> {

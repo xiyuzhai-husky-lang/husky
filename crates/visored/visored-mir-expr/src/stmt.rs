@@ -64,6 +64,7 @@ pub enum VdMirStmtData {
     },
 }
 
+#[derive(Debug)]
 pub struct VdMirStmtEntry {
     data: VdMirStmtData,
 }
@@ -149,7 +150,7 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemBlockIdxRange {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
         let entries = self
             .into_iter()
-            .map(|stmt| VdMirStmtEntry::new(builder.build_stmt_from_sem_stmt(stmt)))
+            .map(|stmt| VdMirStmtEntry::new(builder.build_mir_stmt_from_block(stmt)))
             .collect::<Vec<_>>();
         let sources = self.into_iter().map(VdMirStmtSource::Stmt);
         builder.alloc_stmts(entries, sources)
@@ -157,8 +158,8 @@ impl ToVdMir<VdMirStmtIdxRange> for VdSemBlockIdxRange {
 }
 
 impl<'db> VdMirExprBuilder<'db> {
-    fn build_stmt_from_sem_stmt(&mut self, stmt: VdSemBlockIdx) -> VdMirStmtData {
-        match *self.sem_stmt_arena()[stmt].data() {
+    fn build_mir_stmt_from_block(&mut self, block: VdSemBlockIdx) -> VdMirStmtData {
+        match *self.sem_block_arena()[block].data() {
             VdSemBlockData::Paragraph(sentences) => VdMirStmtData::Block {
                 stmts: (sentences, None).to_vd_mir(self),
                 meta: VdMirBlockMeta::Paragraph,
@@ -178,40 +179,58 @@ impl<'db> VdMirExprBuilder<'db> {
                             vd_environment_path
                         }
                     },
-                    self.sem_stmt_arena()[stmt].module_path(),
+                    self.sem_block_arena()[block].module_path(),
                 ),
             },
         }
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<()>) {
+impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<VdMirExprIdx>) {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let (sentences, goal) = self;
+        let (sentences, mut ext_goal) = self;
         let mut entries = sentences
             .into_iter()
             .map(|sentence| VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence)))
             .collect::<Vec<_>>();
-        let goal = match goal {
-            Some(_) => todo!(),
-            None => {
-                let goal_stated = entries
-                    .iter()
-                    .filter_map(|e| match e.data {
-                        VdMirStmtData::Goal { prop } => Some(prop),
-                        _ => None,
-                    })
-                    .collect::<Vec<_>>();
-                assert!(goal_stated.len() <= 1);
-                goal_stated.first().copied()
-            }
-        };
+        let goal = builder.collect_goal(ext_goal, &entries);
         entries.push(VdMirStmtEntry::new_qed(goal));
         let sources = sentences
             .into_iter()
             .map(VdMirStmtSource::Sentence)
             .chain([VdMirStmtSource::Qed(sentences)]);
         builder.alloc_stmts(entries, sources)
+    }
+}
+
+impl<'db> VdMirExprBuilder<'db> {
+    fn collect_goal(
+        &self,
+        ext_goal: Option<VdMirExprIdx>,
+        entries: &[VdMirStmtEntry],
+    ) -> Option<VdMirExprIdx> {
+        let mut goal = ext_goal;
+        for entry in entries {
+            self.collect_goal_aux(entry, &mut goal);
+        }
+        goal
+    }
+
+    fn collect_goal_aux(&self, entry: &VdMirStmtEntry, goal: &mut Option<VdMirExprIdx>) {
+        match *entry.data() {
+            VdMirStmtData::Goal { prop } => {
+                if goal.is_some() {
+                    todo!();
+                }
+                *goal = Some(prop)
+            }
+            VdMirStmtData::Block { stmts, ref meta } => {
+                for stmt in stmts {
+                    self.collect_goal_aux(&self.stmt_arena()[stmt], goal);
+                }
+            }
+            _ => {}
+        }
     }
 }
 

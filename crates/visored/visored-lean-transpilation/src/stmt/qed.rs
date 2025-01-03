@@ -1,6 +1,6 @@
 use super::*;
 use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
-use visored_mir_expr::hypothesis::VdMirHypothesisIdx;
+use visored_mir_expr::hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
 
 impl<'a, S> VdLeanTranspilationBuilder<'a, S>
 where
@@ -12,7 +12,9 @@ where
         hypothesis: Option<VdMirHypothesisIdx>,
     ) -> Vec<LnMirTacticData> {
         match hypothesis {
-            Some(_) => todo!(),
+            Some(hypothesis) => match self.hypothesis_arena()[hypothesis].construction() {
+                VdMirHypothesisConstruction::Sorry => vec![self.default_tactic_data()],
+            },
             None => vec![self.exact_unit()],
         }
     }

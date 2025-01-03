@@ -121,6 +121,7 @@ where
             db,
         );
         let mut builder = VdMirExprBuilder::new(
+            input.content(),
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),
             sem_clause_arena.as_arena_ref(),
