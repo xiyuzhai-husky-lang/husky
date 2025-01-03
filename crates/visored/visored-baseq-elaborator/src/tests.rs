@@ -57,7 +57,13 @@ fn visored_tactic_basic_elaborator_works() {
                     VdBaseqElaborator::new(VdBaseqElaboratorInner::new(session, region_data))
                 },
             );
-            let lean4_code: String = tracker.show_fmt(db);
+            let lean4_code: String = format!(
+                r#"import Mathlib
+
+{}
+"#,
+                tracker.show_fmt(db)
+            );
             expect_file!(relative_path.to_logical_path(lean4_dir)).assert_eq(&lean4_code);
         }
     }

@@ -175,6 +175,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: Neg,
                     opd_ty: ℝ,
                     expr_ty: ℝ,
                 },
@@ -304,6 +305,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: Pos,
                     opd_ty: ℚ,
                     expr_ty: ℚ,
                 },
@@ -313,6 +315,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: Pos,
                     opd_ty: ℝ,
                     expr_ty: ℝ,
                 },
@@ -332,6 +335,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: Neg,
                     opd_ty: ℤ,
                     expr_ty: ℤ,
                 },
@@ -401,6 +405,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: Neg,
                     opd_ty: ℚ,
                     expr_ty: ℚ,
                 },
@@ -441,6 +446,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: Pos,
                     opd_ty: ℤ,
                     expr_ty: ℤ,
                 },
@@ -512,6 +518,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: Pos,
                     opd_ty: ℂ,
                     expr_ty: ℂ,
                 },
@@ -521,6 +528,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: Neg,
                     opd_ty: ℂ,
                     expr_ty: ℂ,
                 },

@@ -5097,6 +5097,7 @@
         name: "visored-baseq-elaborator",
         relative_path: "crates/visored/visored-baseq-elaborator",
         dependencies: [
+            "alt-option",
             "enum-class",
             "eterned",
             "expect-test",
@@ -5104,7 +5105,9 @@
             "husky-path-utils",
             "husky-print-utils",
             "husky-sha-utils",
+            "husky-unicode-symbols",
             "idx-arena",
+            "latex-math-letter",
             "latex-prelude",
             "latex-vfs",
             "rustc-hash",

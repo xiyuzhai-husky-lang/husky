@@ -1,8 +1,6 @@
-
+import Mathlib
 import Obvious
 open Obvious
-
-import Mathlib
 
 namespace Example1
 def h(x : ℝ)(y : ℝ) := by

@@ -46,8 +46,6 @@ Let $x\in\mathbb{R}$.
                   └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
-            import Mathlib
-
             def h(x : ℝ) := by
               exact ()"#]],
     );
@@ -68,8 +66,6 @@ Let $x\in\mathbb{R}$.
                     └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
-            import Mathlib
-
             namespace Section1
             def h(x : ℝ) := by
               exact ()
@@ -109,8 +105,6 @@ Let $y\in\mathbb{R}$.
                 └─ group: `division`
         "#]],
         &expect![[r#"
-            import Mathlib
-
             namespace Section1
             def h(x : ℝ) := by
               exact ()
@@ -173,7 +167,7 @@ fn latex_shorts_to_lean_works() {
             filestem
         ))]
         .assert_eq(&format!(
-            r#"
+            r#"import Mathlib
 import Obvious
 open Obvious
 

@@ -69,10 +69,6 @@ impl<'a> LnMirExprFormatter<'a> {
 }
 
 impl<'a> LnMirExprFormatter<'a> {
-    pub fn import_mathlib(&mut self) {
-        self.result += "import Mathlib\n";
-    }
-
     pub fn format_expr_ext(&mut self, expr: LnMirExprIdx) {
         self.format_expr(expr, false, LnPrecedenceRange::Any);
     }

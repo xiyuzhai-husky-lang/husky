@@ -188,7 +188,6 @@ where
         output: Self::VdLeanTranspilationOutput,
         formatter: &mut LnMirExprFormatter,
     ) {
-        formatter.import_mathlib();
         formatter.format_defns(output);
     }
 }
