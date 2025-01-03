@@ -10,7 +10,7 @@ impl LnTheoremPath {
 impl LnTheoremPath {
     pub fn code(&self) -> &str {
         match self {
-            Self::SquareNonnegative => "sqnonneg",
+            Self::SquareNonnegative => "sq_nonneg",
         }
     }
 }

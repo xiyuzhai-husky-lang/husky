@@ -1,3 +1,5 @@
+mod helpers;
+
 use floated_sequential::{db::FloaterDb, floated};
 use latex_math_letter::letter::LxMathLetter;
 use smallvec::SmallVec;

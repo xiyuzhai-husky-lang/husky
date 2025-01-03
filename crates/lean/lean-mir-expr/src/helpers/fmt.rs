@@ -386,7 +386,6 @@ impl<'a> LnMirExprFormatter<'a> {
             LnMirTacticData::Apply { path } => {
                 self.result += "apply ";
                 self.result += path.code();
-                self.result += "; obvious";
             }
         }
     }
