@@ -12,9 +12,7 @@ where
         hypothesis: Option<VdMirHypothesisIdx>,
     ) -> Vec<LnMirTacticData> {
         match hypothesis {
-            Some(hypothesis) => match self.hypothesis_arena()[hypothesis].construction() {
-                VdMirHypothesisConstruction::Sorry => vec![self.default_tactic_data()],
-            },
+            Some(hypothesis) => self.build_hypothesis_tactics_data(hypothesis),
             None => vec![self.exact_unit()],
         }
     }

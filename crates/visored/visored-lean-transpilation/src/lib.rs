@@ -2,6 +2,7 @@ mod builder;
 pub mod dictionary;
 mod expr;
 pub mod helpers;
+pub mod hypothesis;
 pub mod mangle;
 pub mod namespace;
 pub mod scheme;

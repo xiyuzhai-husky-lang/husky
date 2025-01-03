@@ -383,6 +383,11 @@ impl<'a> LnMirExprFormatter<'a> {
                     self.format_tactic(arm);
                 }
             }
+            LnMirTacticData::Apply { path } => {
+                self.result += "apply ";
+                self.result += path.code();
+                self.result += "; obvious";
+            }
         }
     }
 

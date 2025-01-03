@@ -11,10 +11,6 @@ where
         stmt: VdMirStmtIdx,
         hypothesis: VdMirHypothesisIdx,
     ) -> LnMirTacticIdxRange {
-        let hypothesis_arena = self.hypothesis_arena();
-        let construction = hypothesis_arena[hypothesis].construction();
-        match construction {
-            VdMirHypothesisConstruction::Sorry => self.default_tactics(),
-        }
+        self.build_hypothesis_tactics(hypothesis)
     }
 }

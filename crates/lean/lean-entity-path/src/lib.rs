@@ -2,6 +2,7 @@ pub mod menu;
 pub mod namespace;
 #[cfg(test)]
 pub mod tests;
+pub mod theorem;
 
 use eterned::db::EternerDb;
 
