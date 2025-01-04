@@ -34,16 +34,16 @@ impl<'sess> VdBaseqHypothesisEntry<'sess> {
 }
 
 impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
-    pub(crate) fn transcribe_implicit_hypothesis(
+    pub(crate) fn prune_implicit_hypothesis(
         &mut self,
         hypothesis: VdBaseqHypothesisIdx<'sess>,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
-        self.transcribe_hypothesis_aux(hypothesis, None, hypothesis_constructor)
+        self.prune_hypothesis_aux(hypothesis, None, hypothesis_constructor)
     }
 
     #[inline(always)]
-    pub(crate) fn transcribe_hypothesis_aux(
+    pub(crate) fn prune_hypothesis_aux(
         &mut self,
         hypothesis: VdBaseqHypothesisIdx<'sess>,
         explicit_goal: Option<VdMirExprIdx>,

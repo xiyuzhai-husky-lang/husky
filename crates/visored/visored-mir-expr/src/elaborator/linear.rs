@@ -45,7 +45,7 @@ pub trait IsVdMirSequentialElaboratorInner {
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
-    fn transcribe_explicit_hypothesis(
+    fn prune_explicit_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,
         expr: VdMirExprIdx,
@@ -99,7 +99,7 @@ impl IsVdMirSequentialElaboratorInner for () {
         Ok(())
     }
 
-    fn transcribe_explicit_hypothesis(
+    fn prune_explicit_hypothesis(
         &mut self,
         hypothesis: (),
         expr: VdMirExprIdx,
@@ -181,11 +181,9 @@ where
                     .inner
                     .elaborate_assume_stmt(prop)
                     .expect("handle contradiction");
-                let hypothesis = self.inner.transcribe_explicit_hypothesis(
-                    hypothesis,
-                    prop,
-                    hypothesis_constructor,
-                );
+                let hypothesis =
+                    self.inner
+                        .prune_explicit_hypothesis(hypothesis, prop, hypothesis_constructor);
                 hypothesis_constructor
                     .stmt_arena_mut()
                     .update(stmt, |entry| {
@@ -215,11 +213,9 @@ where
                     .inner
                     .elaborate_have_stmt(stmt, prop, hint, hypothesis_constructor.region_data())
                     .expect("handle contradiction");
-                let hypothesis = self.inner.transcribe_explicit_hypothesis(
-                    hypothesis,
-                    prop,
-                    hypothesis_constructor,
-                );
+                let hypothesis =
+                    self.inner
+                        .prune_explicit_hypothesis(hypothesis, prop, hypothesis_constructor);
                 hypothesis_constructor
                     .stmt_arena_mut()
                     .update(stmt, |entry| {
@@ -247,7 +243,7 @@ where
                         .inner
                         .elaborate_qed_stmt()
                         .expect("handle contradiction");
-                    let hypothesis = self.inner.transcribe_explicit_hypothesis(
+                    let hypothesis = self.inner.prune_explicit_hypothesis(
                         hypothesis,
                         goal,
                         hypothesis_constructor,
