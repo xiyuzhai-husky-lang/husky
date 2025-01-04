@@ -12,6 +12,7 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
+use visored_term::term::literal::VdLiteralData;
 
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqTerm<'sess> {
@@ -39,7 +40,12 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
     ) -> VdBsqTerm<'sess> {
         match *expr_entry.data() {
-            VdMirExprData::Literal(vd_literal) => todo!(),
+            VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
+                VdLiteralData::Nat128(n) => VdBsqTerm::Rnum(VdBsqRnumTerm::Nat128(n)),
+                VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqRnumTerm::Int128(i)),
+                VdLiteralData::Float(_) => todo!(),
+                VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
+            },
             VdMirExprData::Variable(local_defn_idx) => {
                 let lx_math_letter =
                     match *symbol_local_defn_storage.defn_arena()[local_defn_idx].head() {
