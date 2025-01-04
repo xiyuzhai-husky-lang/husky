@@ -163,7 +163,7 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
         expr_entry: &VdMirExprEntry,
         symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
     ) {
-        let data = self.calc_term_data(expr_entry, symbol_local_defn_storage);
+        let data = self.calc_expr_fld_data(expr_entry, symbol_local_defn_storage);
         let ty = expr_entry.ty();
         let term = todo!();
         let db = self.session().floater_db();
@@ -171,7 +171,7 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
         todo!()
     }
 
-    fn calc_term_data(
+    fn calc_expr_fld_data(
         &self,
         entry: &VdMirExprEntry,
         symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
