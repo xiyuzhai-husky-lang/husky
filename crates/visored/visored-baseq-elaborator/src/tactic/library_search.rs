@@ -1,7 +1,7 @@
 use super::*;
 use crate::{
-    coercion::VdBaseqCoercionOutcome, expr::VdMirExprFldData,
-    hypothesis::construction::VdBaseqHypothesisConstruction,
+    coercion::VdBsqCoercionOutcome, expr::VdMirExprFldData,
+    hypothesis::construction::VdBsqHypothesisConstruction,
 };
 use alt_option::*;
 use visored_entity_path::{
@@ -23,11 +23,11 @@ macro_rules! require {
     };
 }
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn library_search(
         &mut self,
         prop: VdMirExprFld<'sess>,
-    ) -> VdBaseqHypothesisResult<'sess, AltOption<VdBaseqHypothesisIdx<'sess>>> {
+    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         try_alt!(self.square_nonnegative(prop));
         Ok(AltNone)
     }
@@ -35,7 +35,7 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
     fn square_nonnegative(
         &mut self,
         prop: VdMirExprFld<'sess>,
-    ) -> VdBaseqHypothesisResult<'sess, AltOption<VdBaseqHypothesisIdx<'sess>>> {
+    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         use husky_print_utils::*;
         let VdMirExprFldData::ChainingSeparatedList {
             leader,
@@ -66,7 +66,7 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
         let Some(is_real_coercion) = pow_args[0].is_real(self).coercion() else {
             return Ok(AltNone);
         };
-        let construction = VdBaseqHypothesisConstruction::Apply {
+        let construction = VdBsqHypothesisConstruction::Apply {
             path: VdTheoremPath::SquareNonnegative,
             is_real_coercion,
         };

@@ -1,11 +1,11 @@
 pub mod number;
 
 use crate::{
-    elaborator::VdBaseqElaboratorInner,
+    elaborator::VdBsqElaboratorInner,
     expr::VdMirExprFld,
     hypothesis::{
-        construction::VdBaseqHypothesisConstruction, contradiction::VdBaseqHypothesisContradiction,
-        VdBaseqHypothesisIdx,
+        construction::VdBsqHypothesisConstruction, contradiction::VdBsqHypothesisContradiction,
+        VdBsqHypothesisIdx,
     },
 };
 use either::*;
@@ -23,47 +23,45 @@ use visored_mir_expr::{
 use visored_term::term::VdTerm;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdBaseqCoercionOutcome<'sess> {
-    TriviallyTrue(VdBaseqTrivialCoercion),
-    ObviouslyTrue(VdBaseqHypothesisIdx<'sess>),
+pub enum VdBsqCoercionOutcome<'sess> {
+    TriviallyTrue(VdBsqTrivialCoercion),
+    ObviouslyTrue(VdBsqHypothesisIdx<'sess>),
     Unknown,
-    Impossible(VdBaseqHypothesisContradiction<'sess>),
+    Impossible(VdBsqHypothesisContradiction<'sess>),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdBaseqCoercion<'sess> {
-    Trivial(VdBaseqTrivialCoercion),
-    Obvious(VdBaseqHypothesisIdx<'sess>),
+pub enum VdBsqCoercion<'sess> {
+    Trivial(VdBsqTrivialCoercion),
+    Obvious(VdBsqHypothesisIdx<'sess>),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum VdBaseqTrivialCoercion {
+pub enum VdBsqTrivialCoercion {
     Identity,
     NumberToReal,
 }
 
-impl<'sess> VdBaseqCoercionOutcome<'sess> {
-    pub fn coercion(self) -> Option<VdBaseqCoercion<'sess>> {
+impl<'sess> VdBsqCoercionOutcome<'sess> {
+    pub fn coercion(self) -> Option<VdBsqCoercion<'sess>> {
         match self {
-            VdBaseqCoercionOutcome::TriviallyTrue(coercion) => {
-                Some(VdBaseqCoercion::Trivial(coercion))
-            }
-            VdBaseqCoercionOutcome::ObviouslyTrue(idx) => Some(VdBaseqCoercion::Obvious(idx)),
-            VdBaseqCoercionOutcome::Unknown => None,
-            VdBaseqCoercionOutcome::Impossible(_) => None,
+            VdBsqCoercionOutcome::TriviallyTrue(coercion) => Some(VdBsqCoercion::Trivial(coercion)),
+            VdBsqCoercionOutcome::ObviouslyTrue(idx) => Some(VdBsqCoercion::Obvious(idx)),
+            VdBsqCoercionOutcome::Unknown => None,
+            VdBsqCoercionOutcome::Impossible(_) => None,
         }
     }
 }
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn prune_coercion(
         &mut self,
-        coercion: VdBaseqCoercion<'sess>,
+        coercion: VdBsqCoercion<'sess>,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirCoercion {
         match coercion {
-            VdBaseqCoercion::Trivial(vd_baseq_trivial_coercion) => VdMirCoercion::Trivial,
-            VdBaseqCoercion::Obvious(hypothesis) => VdMirCoercion::Obvious(
+            VdBsqCoercion::Trivial(vd_baseq_trivial_coercion) => VdMirCoercion::Trivial,
+            VdBsqCoercion::Obvious(hypothesis) => VdMirCoercion::Obvious(
                 self.prune_implicit_hypothesis(hypothesis, hypothesis_constructor),
             ),
         }

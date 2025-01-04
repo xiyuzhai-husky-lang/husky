@@ -1,5 +1,5 @@
 use super::*;
-use crate::term::VdMirTerm;
+use crate::term::VdBsqTerm;
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 
@@ -22,19 +22,19 @@ use rustc_hash::FxHashMap;
 ///
 /// Both maps are validated during lookups by checking if the recorded hypothesis still exists
 /// at the expected position in the stack. This ensures we only return valid, "live" hypotheses.
-pub struct VdBaseqHypothesisStack<'sess> {
-    active_hypotheses: Vec<VdBaseqHypothesisIdx<'sess>>,
-    expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
-    term_to_hypothesis_map: FxHashMap<VdMirTerm<'sess>, VdBaseqHypothesisRecord<'sess>>,
+pub struct VdBsqHypothesisStack<'sess> {
+    active_hypotheses: Vec<VdBsqHypothesisIdx<'sess>>,
+    expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBsqHypothesisRecord<'sess>>,
+    term_to_hypothesis_map: FxHashMap<VdBsqTerm<'sess>, VdBsqHypothesisRecord<'sess>>,
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct VdBaseqHypothesisRecord<'sess> {
+pub struct VdBsqHypothesisRecord<'sess> {
     stack_idx: usize,
-    hypothesis_idx: VdBaseqHypothesisIdx<'sess>,
+    hypothesis_idx: VdBsqHypothesisIdx<'sess>,
 }
 
-impl<'sess> VdBaseqHypothesisStack<'sess> {
+impl<'sess> VdBsqHypothesisStack<'sess> {
     pub(super) fn new() -> Self {
         Self {
             active_hypotheses: Vec::new(),
@@ -44,7 +44,7 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
     }
 }
 
-impl<'sess> VdBaseqHypothesisStack<'sess> {
+impl<'sess> VdBsqHypothesisStack<'sess> {
     pub fn len(&self) -> usize {
         self.active_hypotheses.len()
     }
@@ -52,7 +52,7 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
     pub(crate) fn get_active_hypothesis_with_expr(
         &self,
         expr: VdMirExprFld<'sess>,
-    ) -> Option<VdBaseqHypothesisIdx<'sess>> {
+    ) -> Option<VdBsqHypothesisIdx<'sess>> {
         let record = self.expr_to_hypothesis_map.get(&expr).copied()?;
         (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
             .then_some(record.hypothesis_idx)
@@ -60,19 +60,19 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
 
     pub(crate) fn get_active_hypothesis_with_term(
         &self,
-        term: VdMirTerm<'sess>,
-    ) -> Option<VdBaseqHypothesisIdx<'sess>> {
+        term: VdBsqTerm<'sess>,
+    ) -> Option<VdBsqHypothesisIdx<'sess>> {
         let record = self.term_to_hypothesis_map.get(&term).copied()?;
         (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
             .then_some(record.hypothesis_idx)
     }
 }
 
-impl<'sess> VdBaseqHypothesisStack<'sess> {
+impl<'sess> VdBsqHypothesisStack<'sess> {
     pub fn append(
         &mut self,
-        hypothesis_idx: VdBaseqHypothesisIdx<'sess>,
-        arena: &VdBaseqHypothesisArena<'sess>,
+        hypothesis_idx: VdBsqHypothesisIdx<'sess>,
+        arena: &VdBsqHypothesisArena<'sess>,
     ) {
         let stack_idx = self.active_hypotheses.len();
         self.active_hypotheses.push(hypothesis_idx);
@@ -82,7 +82,7 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
         debug_assert!(self.get_active_hypothesis_with_expr(expr).is_none());
         self.expr_to_hypothesis_map.insert(
             expr,
-            VdBaseqHypothesisRecord {
+            VdBsqHypothesisRecord {
                 stack_idx,
                 hypothesis_idx,
             },
@@ -91,7 +91,7 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
         if self.get_active_hypothesis_with_term(term).is_none() {
             self.term_to_hypothesis_map.insert(
                 term,
-                VdBaseqHypothesisRecord {
+                VdBsqHypothesisRecord {
                     stack_idx,
                     hypothesis_idx,
                 },

@@ -1,4 +1,10 @@
-use floated_sequential::{db::FloaterDb, floated};
+pub mod inum;
+pub mod rnum;
+
+use self::{inum::*, rnum::*};
+use crate::elaborator::VdBsqElaboratorInner;
+use floated_sequential::db::FloaterDb;
+use floated_sequential::floated;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
     expr::{VdMirExprData, VdMirExprEntry},
@@ -7,80 +13,31 @@ use visored_mir_expr::{
     },
 };
 
-use crate::elaborator::VdBaseqElaboratorInner;
-
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdMirTerm<'sess> {
-    RationalNumeric(RationalNumericVdBaseqTerm),
-    IrrationalNumeric(IrrationalNumericVdBaseqTerm<'sess>),
+pub enum VdBsqTerm<'sess> {
+    Rnum(VdBsqRnumTerm),
+    Inum(VdBsqInumTerm<'sess>),
     Prop,
 }
 
-impl<'sess> std::fmt::Debug for VdMirTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum RationalNumericVdBaseqTerm {
-    Nat128(u128),
-    Int128(i128),
-    BigInt(/* TODO */),
-    Rat128(i128, u128),
-}
-
-#[floated]
-pub struct IrrationalNumericVdBaseqTerm<'sess> {
-    #[return_ref]
-    pub data: IrrationalNumericVdBaseqTermData<'sess>,
-}
-
-#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum IrrationalNumericVdBaseqTermData<'sess> {
-    Product {
-        rational: RationalNumericVdBaseqTerm,
-        irrational_atom_exponentials: IrrationalAtomExponentials<'sess>,
-    },
-    Sum {
-        constant_term: RationalNumericVdBaseqTerm,
-        irrational_monomial_coefficients: IrrationalMonomialCoefficients<'sess>,
-    },
-    Variable(VdMirSymbolLocalDefnIdx),
-}
-
-pub type IrrationalMonomialCoefficients<'sess> =
-    IrrationalTermMap<'sess, RationalNumericVdBaseqTerm>;
-pub type IrrationalAtomExponentials<'sess> =
-    IrrationalTermMap<'sess, IrrationalNumericVdBaseqTerm<'sess>>;
-
-pub type IrrationalTermMap<'sess, T> =
-    OrderedSmallVecPairMap<IrrationalNumericVdBaseqTerm<'sess>, T, 4>;
-
-impl<'sess> std::fmt::Debug for IrrationalNumericVdBaseqTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqInumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl<'sess> VdMirTerm<'sess> {
-    pub fn new_numeric_variable(
-        local_defn_idx: VdMirSymbolLocalDefnIdx,
-        db: &'sess FloaterDb,
-    ) -> Self {
-        VdMirTerm::IrrationalNumeric(IrrationalNumericVdBaseqTerm::new(
-            IrrationalNumericVdBaseqTermData::Variable(local_defn_idx),
-            db,
-        ))
-    }
-}
-
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn calc_expr_term(
         &self,
         expr_entry: &VdMirExprEntry,
         symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
-    ) -> VdMirTerm<'sess> {
+    ) -> VdBsqTerm<'sess> {
         match *expr_entry.data() {
             VdMirExprData::Literal(vd_literal) => todo!(),
             VdMirExprData::Variable(local_defn_idx) => {
@@ -89,7 +46,7 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
                         VdMirSymbolLocalDefnHead::Letter(lx_math_letter) => lx_math_letter,
                     };
                 if expr_entry.ty().is_numeric(self.eterner_db()) {
-                    VdMirTerm::new_numeric_variable(local_defn_idx, self.floater_db())
+                    VdBsqTerm::new_numeric_variable(local_defn_idx, self.floater_db())
                 } else {
                     todo!()
                 }

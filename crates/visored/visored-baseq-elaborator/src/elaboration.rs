@@ -3,11 +3,11 @@ pub mod error;
 use self::error::*;
 use std::marker::PhantomData;
 
-pub enum VdBaseqElaboration<'sess> {
+pub enum VdBsqElaboration<'sess> {
     PhantomData(PhantomData<&'sess ()>),
 }
 
-pub struct VdBaseqElaborationTracker<'sess> {
+pub struct VdBsqElaborationTracker<'sess> {
     history: (),
-    conclusion: Option<VdBaseqElaborationResult<'sess, VdBaseqElaboration<'sess>>>,
+    conclusion: Option<VdBsqElaborationResult<'sess, VdBsqElaboration<'sess>>>,
 }

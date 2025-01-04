@@ -21,35 +21,34 @@ use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use crate::{
     expr::VdMirExprFld,
     hypothesis::{
-        construction::VdBaseqHypothesisConstruction,
-        constructor::VdBaseqHypothesisConstructor,
-        contradiction::{VdBaseqHypothesisContradiction, VdBaseqHypothesisResult},
-        VdBaseqHypothesisIdx,
+        construction::VdBsqHypothesisConstruction,
+        constructor::VdBsqHypothesisConstructor,
+        contradiction::{VdBsqHypothesisContradiction, VdBsqHypothesisResult},
+        VdBsqHypothesisIdx,
     },
-    session::VdBaseqSession,
+    session::VdBsqSession,
 };
 
-pub struct VdBaseqElaboratorInner<'db, 'sess> {
-    session: &'sess VdBaseqSession<'db>,
+pub struct VdBsqElaboratorInner<'db, 'sess> {
+    session: &'sess VdBsqSession<'db>,
     expr_to_fld_map: VdMirExprMap<VdMirExprFld<'sess>>,
-    pub(crate) hypothesis_constructor: VdBaseqHypothesisConstructor<'db, 'sess>,
+    pub(crate) hypothesis_constructor: VdBsqHypothesisConstructor<'db, 'sess>,
 }
 
-pub type VdBaseqElaborator<'db, 'sess> =
-    VdMirSequentialElaborator<VdBaseqElaboratorInner<'db, 'sess>>;
+pub type VdBsqElaborator<'db, 'sess> = VdMirSequentialElaborator<VdBsqElaboratorInner<'db, 'sess>>;
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
-    pub fn new(session: &'sess VdBaseqSession<'db>, region_data: VdMirExprRegionDataRef) -> Self {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub fn new(session: &'sess VdBsqSession<'db>, region_data: VdMirExprRegionDataRef) -> Self {
         Self {
             session,
-            hypothesis_constructor: VdBaseqHypothesisConstructor::new(session),
+            hypothesis_constructor: VdBsqHypothesisConstructor::new(session),
             expr_to_fld_map: VdMirExprMap::new2(region_data.expr_arena),
         }
     }
 }
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
-    pub fn session(&self) -> &'sess VdBaseqSession<'db> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub fn session(&self) -> &'sess VdBsqSession<'db> {
         self.session
     }
 
@@ -67,33 +66,33 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
     }
 }
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn save_expr_fld(&mut self, expr: VdMirExprIdx, fld: VdMirExprFld<'sess>) {
         self.expr_to_fld_map.insert_new(expr, fld);
     }
 }
 
-impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db, 'sess> {
-    type HypothesisIdx = VdBaseqHypothesisIdx<'sess>;
-    type Contradiction = VdBaseqHypothesisContradiction<'sess>;
+impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 'sess> {
+    type HypothesisIdx = VdBsqHypothesisIdx<'sess>;
+    type Contradiction = VdBsqHypothesisContradiction<'sess>;
 
-    fn elaborate_let_assigned_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
+    fn elaborate_let_assigned_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {
         Ok(())
     }
 
-    fn elaborate_let_placeholder_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
+    fn elaborate_let_placeholder_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {
         Ok(())
     }
 
     fn elaborate_assume_stmt(
         &mut self,
         prop: VdMirExprIdx,
-    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         todo!()
         // Ok(())
     }
 
-    fn elaborate_goal_stmt(&mut self) -> VdBaseqHypothesisResult<'sess, ()> {
+    fn elaborate_goal_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {
         Ok(())
     }
 
@@ -103,7 +102,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         let prop = self.expr_to_fld_map[prop];
         match hint {
             Some(hint) => todo!(),
@@ -111,15 +110,11 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         }
     }
 
-    fn elaborate_show_stmt(
-        &mut self,
-    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
+    fn elaborate_show_stmt(&mut self) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         todo!()
     }
 
-    fn elaborate_qed_stmt(
-        &mut self,
-    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
+    fn elaborate_qed_stmt(&mut self) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         todo!()
     }
 
@@ -152,15 +147,15 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
         let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
-            VdBaseqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
-            VdBaseqHypothesisConstruction::Apply {
+            VdBsqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
+            VdBsqHypothesisConstruction::Apply {
                 path,
                 is_real_coercion,
             } => VdMirHypothesisConstruction::Apply {
                 path,
                 is_real_coercion: self.prune_coercion(is_real_coercion, hypothesis_constructor),
             },
-            VdBaseqHypothesisConstruction::Phantom(phantom_data) => todo!(),
+            VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }

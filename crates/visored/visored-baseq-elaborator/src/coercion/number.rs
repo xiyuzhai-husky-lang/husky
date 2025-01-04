@@ -3,8 +3,8 @@ use super::*;
 impl<'sess> VdMirExprFld<'sess> {
     pub fn is_real(
         &self,
-        elaborator: &mut VdBaseqElaboratorInner<'_, 'sess>,
-    ) -> VdBaseqCoercionOutcome<'sess> {
+        elaborator: &mut VdBsqElaboratorInner<'_, 'sess>,
+    ) -> VdBsqCoercionOutcome<'sess> {
         match *self.ty() {
             VdTerm::ItemPath(path) => match path.item_path() {
                 VdItemPath::Category(vd_category_path) => todo!(),
@@ -12,11 +12,11 @@ impl<'sess> VdMirExprFld<'sess> {
                     VdSetPath::Prelude(path) => match path {
                         VdPreludeSetPath::NaturalNumber
                         | VdPreludeSetPath::RationalNumber
-                        | VdPreludeSetPath::Integer => VdBaseqCoercionOutcome::TriviallyTrue(
-                            VdBaseqTrivialCoercion::NumberToReal,
-                        ),
+                        | VdPreludeSetPath::Integer => {
+                            VdBsqCoercionOutcome::TriviallyTrue(VdBsqTrivialCoercion::NumberToReal)
+                        }
                         VdPreludeSetPath::RealNumber => {
-                            VdBaseqCoercionOutcome::TriviallyTrue(VdBaseqTrivialCoercion::Identity)
+                            VdBsqCoercionOutcome::TriviallyTrue(VdBsqTrivialCoercion::Identity)
                         }
                         VdPreludeSetPath::ComplexNumber => todo!(),
                         _ => todo!(),

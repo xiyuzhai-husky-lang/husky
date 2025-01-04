@@ -2,25 +2,25 @@ pub mod library_search;
 pub mod ring;
 
 use crate::{
-    elaborator::VdBaseqElaboratorInner,
+    elaborator::VdBsqElaboratorInner,
     expr::VdMirExprFld,
-    hypothesis::{contradiction::VdBaseqHypothesisResult, VdBaseqHypothesisIdx},
+    hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx},
 };
 use alt_option::AltOption;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdBaseqTactic {
+pub enum VdBsqTactic {
     LibrarySearch,
 }
 
-impl VdBaseqTactic {
+impl VdBsqTactic {
     pub fn run<'db, 'sess>(
         &self,
         prop: VdMirExprFld<'sess>,
-        elaborator: &mut VdBaseqElaboratorInner<'db, 'sess>,
-    ) -> VdBaseqHypothesisResult<'sess, AltOption<VdBaseqHypothesisIdx<'sess>>> {
+        elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
+    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         match self {
-            VdBaseqTactic::LibrarySearch => elaborator.library_search(prop),
+            VdBsqTactic::LibrarySearch => elaborator.library_search(prop),
         }
     }
 }

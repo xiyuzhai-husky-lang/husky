@@ -1,5 +1,5 @@
-use crate::elaborator::VdBaseqElaborator;
+use crate::elaborator::VdBsqElaborator;
 use visored_lean_transpilation::helpers::tracker::VdLeanTranspilationTracker;
 
-pub type VdBaseqElaboratorTracker<'sess, Scheme, Input> =
+pub type VdBsqElaboratorTracker<'sess, Scheme, Input> =
     VdLeanTranspilationTracker<'sess, Scheme, Input>;

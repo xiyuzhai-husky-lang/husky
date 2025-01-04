@@ -12,9 +12,9 @@ use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 use crate::{
-    elaborator::{VdBaseqElaborator, VdBaseqElaboratorInner},
-    helpers::tracker::VdBaseqElaboratorTracker,
-    session::VdBaseqSession,
+    elaborator::{VdBsqElaborator, VdBsqElaboratorInner},
+    helpers::tracker::VdBsqElaboratorTracker,
+    session::VdBsqSession,
 };
 
 #[test]
@@ -40,8 +40,8 @@ fn visored_tactic_basic_elaborator_works() {
                 .to_case(Case::Pascal)
                 .with_extension("lean");
             let content = std::fs::read_to_string(&src_file_path).unwrap();
-            let session = &VdBaseqSession::new(db);
-            let tracker = VdBaseqElaboratorTracker::new(
+            let session = &VdBsqSession::new(db);
+            let tracker = VdBsqElaboratorTracker::new(
                 LxDocumentInput {
                     specs_dir: dev_paths.specs_dir().to_path_buf(),
                     file_path: LxFilePath::new(src_file_path, db),
@@ -53,9 +53,7 @@ fn visored_tactic_basic_elaborator_works() {
                 VdSynExprVibe::ROOT_CNL,
                 db,
                 &VdLeanTranspilationDenseScheme,
-                |region_data| {
-                    VdBaseqElaborator::new(VdBaseqElaboratorInner::new(session, region_data))
-                },
+                |region_data| VdBsqElaborator::new(VdBsqElaboratorInner::new(session, region_data)),
             );
             let lean4_code: String = format!(
                 r#"import Mathlib

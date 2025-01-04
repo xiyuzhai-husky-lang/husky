@@ -1,35 +1,35 @@
-use super::{stack::VdBaseqHypothesisStack, *};
-use crate::{session::VdBaseqSession, term::VdMirTerm};
+use super::{stack::VdBsqHypothesisStack, *};
+use crate::{session::VdBsqSession, term::VdBsqTerm};
 use floated_sequential::db::FloaterDb;
 
-pub struct VdBaseqHypothesisConstructor<'db, 'sess> {
-    session: &'sess VdBaseqSession<'db>,
-    stack: VdBaseqHypothesisStack<'sess>,
-    arena: VdBaseqHypothesisArena<'sess>,
+pub struct VdBsqHypothesisConstructor<'db, 'sess> {
+    session: &'sess VdBsqSession<'db>,
+    stack: VdBsqHypothesisStack<'sess>,
+    arena: VdBsqHypothesisArena<'sess>,
 }
 
-impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
-    pub(crate) fn new(session: &'sess VdBaseqSession<'db>) -> Self {
+impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
+    pub(crate) fn new(session: &'sess VdBsqSession<'db>) -> Self {
         Self {
             session,
-            stack: VdBaseqHypothesisStack::new(),
-            arena: VdBaseqHypothesisArena::default(),
+            stack: VdBsqHypothesisStack::new(),
+            arena: VdBsqHypothesisArena::default(),
         }
     }
 }
 
 // # getters
-impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
-    pub fn stack(&self) -> &VdBaseqHypothesisStack<'sess> {
+impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
+    pub fn stack(&self) -> &VdBsqHypothesisStack<'sess> {
         &self.stack
     }
 
-    pub fn arena(&self) -> &VdBaseqHypothesisArena<'sess> {
+    pub fn arena(&self) -> &VdBsqHypothesisArena<'sess> {
         &self.arena
     }
 }
 
-impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
+impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
     /// Attempts to find an existing hypothesis that matches the given expression.
     ///
     /// This method implements functionality similar to the `assumption` tactic in proof
@@ -42,7 +42,7 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
     pub(crate) fn assumption(
         &mut self,
         expr: VdMirExprFld<'sess>,
-    ) -> Option<VdBaseqHypothesisIdx<'sess>> {
+    ) -> Option<VdBsqHypothesisIdx<'sess>> {
         if let Some(hypothesis) = self.stack.get_active_hypothesis_with_expr(expr) {
             Some(hypothesis)
         } else if let Some(hypothesis) = self.stack.get_active_hypothesis_with_term(expr.term()) {
@@ -56,11 +56,11 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
     pub(crate) fn construct_new_hypothesis(
         &mut self,
         expr: VdMirExprFld<'sess>,
-        construction: VdBaseqHypothesisConstruction<'sess>,
-    ) -> VdBaseqHypothesisIdx<'sess> {
+        construction: VdBsqHypothesisConstruction<'sess>,
+    ) -> VdBsqHypothesisIdx<'sess> {
         let hypothesis_idx = self
             .arena
-            .alloc_one(VdBaseqHypothesisEntry { expr, construction });
+            .alloc_one(VdBsqHypothesisEntry { expr, construction });
         self.stack.append(hypothesis_idx, &self.arena);
         hypothesis_idx
     }

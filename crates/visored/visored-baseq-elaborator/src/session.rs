@@ -1,4 +1,4 @@
-use crate::tactic::VdBaseqTactic;
+use crate::tactic::VdBsqTactic;
 use crate::*;
 use floated_sequential::db::FloaterDb;
 use strategy::obvious::load_obvious_tactics;
@@ -7,13 +7,13 @@ use visored_mir_expr::expr::VdMirExprIdx;
 type SuperVarsContext = ();
 type Term = ();
 
-pub struct VdBaseqSession<'db> {
+pub struct VdBsqSession<'db> {
     eterner_db: &'db EternerDb,
     floater_db: FloaterDb,
-    obvious_tactics: Vec<VdBaseqTactic>,
+    obvious_tactics: Vec<VdBsqTactic>,
 }
 
-impl<'db> VdBaseqSession<'db> {
+impl<'db> VdBsqSession<'db> {
     pub fn new(eterner_db: &'db EternerDb) -> Self {
         Self {
             eterner_db,
@@ -23,7 +23,7 @@ impl<'db> VdBaseqSession<'db> {
     }
 }
 
-impl<'db> VdBaseqSession<'db> {
+impl<'db> VdBsqSession<'db> {
     pub fn eterner_db(&self) -> &'db EternerDb {
         self.eterner_db
     }
@@ -32,7 +32,7 @@ impl<'db> VdBaseqSession<'db> {
         &self.floater_db
     }
 
-    pub fn obvious_tactics(&self) -> &[VdBaseqTactic] {
+    pub fn obvious_tactics(&self) -> &[VdBsqTactic] {
         &self.obvious_tactics
     }
 }

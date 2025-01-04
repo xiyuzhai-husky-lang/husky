@@ -1,20 +1,20 @@
-use crate::tactic::VdBaseqTactic;
+use crate::tactic::VdBsqTactic;
 use alt_option::*;
-use elaborator::VdBaseqElaboratorInner;
+use elaborator::VdBsqElaboratorInner;
 use expr::VdMirExprFld;
 use hypothesis::{
-    construction::VdBaseqHypothesisConstruction, contradiction::VdBaseqHypothesisResult,
-    VdBaseqHypothesisIdx,
+    construction::VdBsqHypothesisConstruction, contradiction::VdBsqHypothesisResult,
+    VdBsqHypothesisIdx,
 };
 use visored_mir_expr::{expr::VdMirExprIdx, hint::VdMirHintIdx, stmt::VdMirStmtIdx};
 
 use super::*;
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn obvious(
         &mut self,
         prop: VdMirExprFld<'sess>,
-    ) -> VdBaseqHypothesisResult<'sess, VdBaseqHypothesisIdx<'sess>> {
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         for tactic in self.session().obvious_tactics() {
             match tactic.run(prop, self)? {
                 AltSome(hypothesis_idx) => return Ok(hypothesis_idx),
@@ -23,11 +23,11 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
         }
         Ok(self
             .hypothesis_constructor
-            .construct_new_hypothesis(prop, VdBaseqHypothesisConstruction::Sorry))
+            .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::Sorry))
     }
 }
 
 #[deprecated = "TODO: load tactics from a file"]
-pub fn load_obvious_tactics() -> Vec<VdBaseqTactic> {
-    vec![VdBaseqTactic::LibrarySearch]
+pub fn load_obvious_tactics() -> Vec<VdBsqTactic> {
+    vec![VdBsqTactic::LibrarySearch]
 }

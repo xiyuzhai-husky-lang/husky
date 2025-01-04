@@ -4,8 +4,8 @@ pub mod contradiction;
 pub mod region;
 pub mod stack;
 
-use self::construction::VdBaseqHypothesisConstruction;
-use crate::{elaborator::VdBaseqElaboratorInner, expr::VdMirExprFld};
+use self::construction::VdBsqHypothesisConstruction;
+use crate::{elaborator::VdBsqElaboratorInner, expr::VdMirExprFld};
 use idx_arena::{Arena, ArenaIdx};
 use visored_mir_expr::{
     expr::VdMirExprIdx,
@@ -15,28 +15,28 @@ use visored_mir_expr::{
     },
 };
 
-pub struct VdBaseqHypothesisEntry<'sess> {
+pub struct VdBsqHypothesisEntry<'sess> {
     expr: VdMirExprFld<'sess>,
-    construction: VdBaseqHypothesisConstruction<'sess>,
+    construction: VdBsqHypothesisConstruction<'sess>,
 }
 
-pub type VdBaseqHypothesisIdx<'sess> = ArenaIdx<VdBaseqHypothesisEntry<'sess>>;
-pub type VdBaseqHypothesisArena<'sess> = Arena<VdBaseqHypothesisEntry<'sess>>;
+pub type VdBsqHypothesisIdx<'sess> = ArenaIdx<VdBsqHypothesisEntry<'sess>>;
+pub type VdBsqHypothesisArena<'sess> = Arena<VdBsqHypothesisEntry<'sess>>;
 
-impl<'sess> VdBaseqHypothesisEntry<'sess> {
+impl<'sess> VdBsqHypothesisEntry<'sess> {
     pub fn expr(&self) -> VdMirExprFld<'sess> {
         self.expr
     }
 
-    pub fn construction(&self) -> &VdBaseqHypothesisConstruction<'sess> {
+    pub fn construction(&self) -> &VdBsqHypothesisConstruction<'sess> {
         &self.construction
     }
 }
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn prune_implicit_hypothesis(
         &mut self,
-        hypothesis: VdBaseqHypothesisIdx<'sess>,
+        hypothesis: VdBsqHypothesisIdx<'sess>,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
         self.prune_hypothesis_aux(hypothesis, None, hypothesis_constructor)
@@ -45,20 +45,20 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
     #[inline(always)]
     pub(crate) fn prune_hypothesis_aux(
         &mut self,
-        hypothesis: VdBaseqHypothesisIdx<'sess>,
+        hypothesis: VdBsqHypothesisIdx<'sess>,
         explicit_goal: Option<VdMirExprIdx>,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
         let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
-            VdBaseqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
-            VdBaseqHypothesisConstruction::Apply {
+            VdBsqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
+            VdBsqHypothesisConstruction::Apply {
                 path,
                 is_real_coercion,
             } => VdMirHypothesisConstruction::Apply {
                 path,
                 is_real_coercion: todo!(),
             },
-            VdBaseqHypothesisConstruction::Phantom(phantom_data) => todo!(),
+            VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
         };
         let goal = match explicit_goal {
             Some(goal) => goal,

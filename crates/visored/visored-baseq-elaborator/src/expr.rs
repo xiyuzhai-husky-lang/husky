@@ -24,14 +24,14 @@ use visored_term::{
     ty::VdType,
 };
 
-use crate::{elaborator::VdBaseqElaboratorInner, session::VdBaseqSession, term::VdMirTerm};
+use crate::{elaborator::VdBsqElaboratorInner, session::VdBsqSession, term::VdBsqTerm};
 
 #[floated]
 pub struct VdMirExprFld<'sess> {
     #[return_ref]
     pub data: VdMirExprFldData<'sess>,
     pub ty: VdType,
-    pub term: VdMirTerm<'sess>,
+    pub term: VdBsqTerm<'sess>,
 }
 
 impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
@@ -157,7 +157,7 @@ impl<'sess> VdMirExprFldData<'sess> {
 
 pub type VdMirExprFlds<'sess> = SmallVec<[VdMirExprFld<'sess>; 4]>;
 
-impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn cache_expr_fld(&mut self, expr_idx: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
         let expr_entry = &region_data.expr_arena[expr_idx];
         let symbol_local_defn_storage = region_data.symbol_local_defn_storage;
