@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqInumSumTerm<'sess>(VdBsqInumTermFld<'sess>);
+pub struct VdBsqSumInumTerm<'sess>(VdBsqInumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqInumSumTermData<'sess> {

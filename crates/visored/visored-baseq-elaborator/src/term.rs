@@ -1,10 +1,14 @@
 pub mod inum;
+pub mod prop;
 pub mod rnum;
 
-use self::{inum::*, rnum::*};
+use self::{inum::*, prop::*, rnum::*};
 use crate::elaborator::VdBsqElaboratorInner;
+use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
+use num_relationship::VdBsqNumRelationshipPropTermKind;
+use product::VdBsqProductInumTerm;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprData, VdMirExprEntry},
@@ -12,13 +16,14 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
+use visored_opr::separator::VdBaseSeparator;
 use visored_term::term::literal::VdLiteralData;
 
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqTerm<'sess> {
     Rnum(VdBsqRnumTerm),
     Inum(VdBsqInumTerm<'sess>),
-    Prop,
+    Prop(VdBsqPropTerm<'sess>),
 }
 
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -27,12 +32,27 @@ pub enum VdBsqNumTerm<'sess> {
     Inum(VdBsqInumTerm<'sess>),
 }
 
+impl<'sess> VdBsqNumTerm<'sess> {
+    pub fn product_or_non_product(
+        self,
+    ) -> Either<VdBsqProductInumTerm<'sess>, VdBsqNonProductNumTerm<'sess>> {
+        match self {
+            VdBsqNumTerm::Rnum(term) => todo!(),
+            VdBsqNumTerm::Inum(term) => match term {
+                VdBsqInumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::AtomInum(term)),
+                VdBsqInumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::SumInum(term)),
+                VdBsqInumTerm::Product(term) => Left(term),
+            },
+        }
+    }
+}
+
 impl<'sess> VdBsqTerm<'sess> {
     pub fn num(self) -> Option<VdBsqNumTerm<'sess>> {
         match self {
             VdBsqTerm::Rnum(rnum) => Some(VdBsqNumTerm::Rnum(rnum)),
             VdBsqTerm::Inum(inum) => Some(VdBsqNumTerm::Inum(inum)),
-            VdBsqTerm::Prop => None,
+            VdBsqTerm::Prop(_) => None,
         }
     }
 }
@@ -95,7 +115,12 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     else {
                         todo!()
                     };
-                    VdBsqTerm::new_power(base, exponent, self.floater_db())
+                    match base.product_or_non_product() {
+                        Either::Left(base) => todo!(),
+                        Either::Right(base) => {
+                            VdBsqTerm::new_power(base, exponent, self.floater_db())
+                        }
+                    }
                 }
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
@@ -114,9 +139,50 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             } => match joined_separator_and_signature {
                 Some(joined_separator_and_signature) => todo!(),
                 None => {
-                    let (func, follower) = followers.first().unwrap();
-                    todo!();
-                    todo!()
+                    use VdBsqNumRelationshipPropTermKind::*;
+
+                    let (func, follower) = *followers.first().unwrap();
+                    let num_relationship = |slf: &Self, kind| {
+                        VdBsqTerm::new_num_relationship(
+                            slf.expr_fld(leader).term().num().unwrap(),
+                            kind,
+                            slf.expr_fld(follower).term().num().unwrap(),
+                        )
+                    };
+                    match func {
+                        VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+                        VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
+                            VdBaseSeparator::Space => todo!(),
+                            VdBaseSeparator::Comma => todo!(),
+                            VdBaseSeparator::Semicolon => todo!(),
+                            VdBaseSeparator::Add => todo!(),
+                            VdBaseSeparator::Mul => todo!(),
+                            VdBaseSeparator::Dot => todo!(),
+                            VdBaseSeparator::Eq => num_relationship(self, Eq),
+                            VdBaseSeparator::Ne => num_relationship(self, Ne),
+                            VdBaseSeparator::Lt => num_relationship(self, Lt),
+                            VdBaseSeparator::Gt => num_relationship(self, Gt),
+                            VdBaseSeparator::Le => num_relationship(self, Le),
+                            VdBaseSeparator::Ge => num_relationship(self, Ge),
+                            VdBaseSeparator::Subset => todo!(),
+                            VdBaseSeparator::Supset => todo!(),
+                            VdBaseSeparator::Subseteq => todo!(),
+                            VdBaseSeparator::Supseteq => todo!(),
+                            VdBaseSeparator::Subseteqq => todo!(),
+                            VdBaseSeparator::Supseteqq => todo!(),
+                            VdBaseSeparator::Subsetneq => todo!(),
+                            VdBaseSeparator::Supsetneq => todo!(),
+                            VdBaseSeparator::In => todo!(),
+                            VdBaseSeparator::Notin => todo!(),
+                            VdBaseSeparator::Times => todo!(),
+                            VdBaseSeparator::Otimes => todo!(),
+                        },
+                        VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
+                        VdMirFunc::Power(signature) => todo!(),
+                        VdMirFunc::InSet => todo!(),
+                        VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
+                        VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
+                    }
                 }
             },
             VdMirExprData::ItemPath(vd_item_path) => todo!(),
