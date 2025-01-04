@@ -13391,6 +13391,7 @@ name = "visored-baseq-elaborator"
 version = "0.1.0"
 dependencies = [
  "alt-option",
+ "either",
  "enum-class",
  "eterned",
  "expect-test",

@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+either.workspace = true
 expect-test.workspace = true
 rustc-hash.workspace = true
 smallvec.workspace = true

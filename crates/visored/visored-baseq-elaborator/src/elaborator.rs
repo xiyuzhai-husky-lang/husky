@@ -105,7 +105,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         todo!()
     }
 
-    fn transcribe_hypothesis(
+    fn transcribe_explicit_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,
         goal: VdMirExprIdx,
@@ -113,9 +113,14 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
     ) -> VdMirHypothesisIdx {
         let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
             VdBaseqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
-            VdBaseqHypothesisConstruction::Apply { path } => {
-                VdMirHypothesisConstruction::Apply { path }
-            }
+            VdBaseqHypothesisConstruction::Apply {
+                path,
+                is_real_coercion,
+            } => VdMirHypothesisConstruction::Apply {
+                path,
+                is_real_coercion: self
+                    .transcrible_coercion(is_real_coercion, hypothesis_constructor),
+            },
             VdBaseqHypothesisConstruction::Phantom(phantom_data) => todo!(),
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)

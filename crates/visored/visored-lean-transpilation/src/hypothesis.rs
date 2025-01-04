@@ -2,7 +2,10 @@ use super::*;
 use lean_entity_path::theorem::LnTheoremPath;
 use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
 use visored_entity_path::theorem::VdTheoremPath;
-use visored_mir_expr::hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
+use visored_mir_expr::{
+    coercion::VdMirCoercion,
+    hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx},
+};
 
 impl<'a, S> VdLeanTranspilationBuilder<'a, S>
 where
@@ -22,7 +25,14 @@ where
     ) -> Vec<LnMirTacticData> {
         match self.hypothesis_arena()[hypothesis].construction() {
             VdMirHypothesisConstruction::Sorry => vec![self.default_tactic_data()],
-            VdMirHypothesisConstruction::Apply { path } => {
+            VdMirHypothesisConstruction::Apply {
+                path,
+                is_real_coercion,
+            } => {
+                match is_real_coercion {
+                    VdMirCoercion::Trivial => (),
+                    VdMirCoercion::Obvious(arena_idx) => todo!("handle this properly."),
+                }
                 vec![LnMirTacticData::Apply {
                     path: match path {
                         VdTheoremPath::SquareNonnegative => LnTheoremPath::SquareNonnegative,

@@ -1,4 +1,5 @@
 pub mod builder;
+pub mod coercion;
 pub mod elaborator;
 pub mod expr;
 pub mod helpers;

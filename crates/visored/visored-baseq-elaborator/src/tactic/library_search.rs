@@ -1,5 +1,8 @@
 use super::*;
-use crate::{expr::VdMirExprFldData, hypothesis::construction::VdBaseqHypothesisConstruction};
+use crate::{
+    coercion::VdBaseqCoercionOutcome, expr::VdMirExprFldData,
+    hypothesis::construction::VdBaseqHypothesisConstruction,
+};
 use alt_option::*;
 use visored_entity_path::{
     path::{
@@ -60,31 +63,16 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
             return Ok(AltNone);
         };
         require!(pow_args[1].eqs_nat128(2));
-        match *pow_args[0].ty() {
-            VdTerm::ItemPath(path) => match path.item_path() {
-                VdItemPath::Category(vd_category_path) => todo!(),
-                VdItemPath::Set(path) => match path {
-                    VdSetPath::Prelude(path) => match path {
-                        VdPreludeSetPath::NaturalNumber
-                        | VdPreludeSetPath::RationalNumber
-                        | VdPreludeSetPath::Integer
-                        | VdPreludeSetPath::RealNumber => {
-                            let construction = VdBaseqHypothesisConstruction::Apply {
-                                path: VdTheoremPath::SquareNonnegative,
-                            };
-                            let hypothesis = self
-                                .hypothesis_constructor
-                                .construct_new_hypothesis(prop, construction);
-                            Ok(AltSome(hypothesis))
-                        }
-                        VdPreludeSetPath::ComplexNumber => Ok(AltNone),
-                    },
-                },
-                VdItemPath::Function(vd_function_path) => todo!(),
-                VdItemPath::Trait(vd_trait_path) => todo!(),
-                VdItemPath::TraitItem(vd_trait_item_path) => todo!(),
-            },
-            _ => todo!(),
-        }
+        let Some(is_real_coercion) = pow_args[0].is_real(self).coercion() else {
+            return Ok(AltNone);
+        };
+        let construction = VdBaseqHypothesisConstruction::Apply {
+            path: VdTheoremPath::SquareNonnegative,
+            is_real_coercion,
+        };
+        let hypothesis = self
+            .hypothesis_constructor
+            .construct_new_hypothesis(prop, construction);
+        Ok(AltSome(hypothesis))
     }
 }
