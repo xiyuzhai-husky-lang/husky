@@ -13,8 +13,8 @@ use visored_term::term::literal::VdLiteralData;
 pub struct VdMirRingTacticEngine<'db, 'sess> {
     session: &'sess VdBaseqSession<'db>,
     expr_arena: VdMirExprArenaRef<'db>,
-    term_arena: NonLiteralTermArena,
-    interned_terms: FxHashMap<NonLiteralTermData, IrrationalTerm>,
+    term_arena: IrrationalTermArena,
+    interned_terms: FxHashMap<IrrationalTermData, IrrationalTerm>,
 }
 
 impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
@@ -22,7 +22,7 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
         Self {
             session,
             expr_arena,
-            term_arena: NonLiteralTermArena::default(),
+            term_arena: IrrationalTermArena::default(),
             interned_terms: FxHashMap::default(),
         }
     }
@@ -94,68 +94,68 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
 }
 
 impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
-    fn intern_term(&mut self, data: NonLiteralTermData) -> IrrationalTerm {
+    fn intern_term(&mut self, data: IrrationalTermData) -> IrrationalTerm {
         if let Some(idx) = self.interned_terms.get(&data) {
             return *idx;
         }
         let sha256 = data.sha256();
         self.term_arena
-            .alloc_one(NonLiteralTermEntry { data, sha256 })
+            .alloc_one(IrrationalTermEntry { data, sha256 })
     }
 
     fn mk_product(&mut self, factors: impl IntoIterator<Item = IrrationalTerm>) -> IrrationalTerm {
         let mut literal = RationalTerm::ONE;
-        let mut nonliteral_atom_exponentials = NonLiteralAtomExponentials::default();
+        let mut irrational_atom_exponentials = IrrationalAtomExponentials::default();
         for factor in factors {
             match self.term_arena[factor].data {
-                NonLiteralTermData::Atom => todo!(),
-                NonLiteralTermData::Product {
+                IrrationalTermData::Atom => todo!(),
+                IrrationalTermData::Product {
                     literal,
-                    ref nonliteral_atom_exponentials,
+                    ref irrational_atom_exponentials,
                 } => todo!(),
-                NonLiteralTermData::Sum {
-                    ref nonliteral_monomial_coefficients,
+                IrrationalTermData::Sum {
+                    ref irrational_monomial_coefficients,
                     constant_term,
                 } => todo!(),
-                NonLiteralTermData::Variable(local_defn) => todo!(),
+                IrrationalTermData::Variable(local_defn) => todo!(),
             }
         }
-        let data = NonLiteralTermData::Product {
+        let data = IrrationalTermData::Product {
             literal,
-            nonliteral_atom_exponentials,
+            irrational_atom_exponentials,
         };
         self.intern_term(data)
     }
 
     fn mk_variable(&mut self, local_defn: VdMirSymbolLocalDefnIdx) -> Term {
-        self.intern_term(NonLiteralTermData::Variable(local_defn))
+        self.intern_term(IrrationalTermData::Variable(local_defn))
             .into()
     }
 
     fn mk_sum(&mut self, leader: VdMirExprIdx, followers: &[(VdMirFunc, VdMirExprIdx)]) -> Term {
         let mut literal_term = RationalTerm::ZERO;
-        let mut nonliteral_monomial_coefficients = NonLiteralMonomialCoefficients::default();
+        let mut irrational_monomial_coefficients = IrrationalMonomialCoefficients::default();
         let mut t = |expr: VdMirExprIdx| {
             let term = self.convert(expr);
             match term {
                 Term::Rational(new_literal_term) => literal_term += new_literal_term,
                 Term::Irrational(term) => match self.term_arena[term].data {
-                    NonLiteralTermData::Product {
+                    IrrationalTermData::Product {
                         literal,
-                        ref nonliteral_atom_exponentials,
+                        ref irrational_atom_exponentials,
                     } => todo!(),
-                    NonLiteralTermData::Sum {
+                    IrrationalTermData::Sum {
                         constant_term,
-                        ref nonliteral_monomial_coefficients,
+                        ref irrational_monomial_coefficients,
                     } => todo!(),
-                    NonLiteralTermData::Atom | NonLiteralTermData::Variable(_) => {
-                        match nonliteral_monomial_coefficients.get_value(term) {
+                    IrrationalTermData::Atom | IrrationalTermData::Variable(_) => {
+                        match irrational_monomial_coefficients.get_value(term) {
                             Some(_) => todo!(),
                             None => {
-                                nonliteral_monomial_coefficients.insert((term, RationalTerm::ONE))
+                                irrational_monomial_coefficients.insert((term, RationalTerm::ONE))
                             }
                         }
-                        nonliteral_monomial_coefficients.insert_or_update(
+                        irrational_monomial_coefficients.insert_or_update(
                             (term, RationalTerm::ONE),
                             |entry| {
                                 todo!()
@@ -176,12 +176,12 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
                 _ => unreachable!(),
             }
         }
-        if nonliteral_monomial_coefficients.is_empty() {
+        if irrational_monomial_coefficients.is_empty() {
             literal_term.into()
         } else {
-            self.intern_term(NonLiteralTermData::Sum {
+            self.intern_term(IrrationalTermData::Sum {
                 constant_term: literal_term,
-                nonliteral_monomial_coefficients,
+                irrational_monomial_coefficients,
             })
             .into()
         }

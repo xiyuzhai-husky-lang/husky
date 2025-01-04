@@ -45,10 +45,7 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
     ) -> Option<VdBaseqHypothesisIdx<'sess>> {
         if let Some(hypothesis) = self.stack.get_active_hypothesis_with_expr(expr) {
             Some(hypothesis)
-        } else if let Some(hypothesis) = self
-            .stack
-            .get_active_hypothesis_with_term(expr.term(self.session.floater_db()))
-        {
+        } else if let Some(hypothesis) = self.stack.get_active_hypothesis_with_term(expr.term()) {
             todo!("allocate new hypothesis in stack");
             Some(hypothesis)
         } else {
@@ -64,8 +61,7 @@ impl<'db, 'sess> VdBaseqHypothesisConstructor<'db, 'sess> {
         let hypothesis_idx = self
             .arena
             .alloc_one(VdBaseqHypothesisEntry { expr, construction });
-        self.stack
-            .append(hypothesis_idx, &self.arena, self.session.floater_db());
+        self.stack.append(hypothesis_idx, &self.arena);
         hypothesis_idx
     }
 }

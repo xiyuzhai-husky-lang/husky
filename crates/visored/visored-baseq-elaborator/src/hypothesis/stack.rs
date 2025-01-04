@@ -73,12 +73,11 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
         &mut self,
         hypothesis_idx: VdBaseqHypothesisIdx<'sess>,
         arena: &VdBaseqHypothesisArena<'sess>,
-        db: &'sess FloaterDb,
     ) {
         let stack_idx = self.active_hypotheses.len();
         self.active_hypotheses.push(hypothesis_idx);
         let expr = arena[hypothesis_idx].expr();
-        let term = expr.term(db);
+        let term = expr.term();
         // never recreate an active hypothesis with the exact same expression
         debug_assert!(self.get_active_hypothesis_with_expr(expr).is_none());
         self.expr_to_hypothesis_map.insert(

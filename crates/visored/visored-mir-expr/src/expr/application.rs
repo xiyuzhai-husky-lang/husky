@@ -55,6 +55,10 @@ impl VdMirFunc {
         }
     }
 
+    pub fn expr(self) -> Option<VdMirExprIdx> {
+        self.key_or_expr().right()
+    }
+
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
             VdMirFunc::NormalBasePrefixOpr(signature) => signature.opr.precedence(),

@@ -1,5 +1,5 @@
 use crate::{
-    expr::{VdMirExprArena, VdMirExprIdx},
+    expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprIdx},
     hint::VdMirHintArena,
     hypothesis::VdMirHypothesisEntry,
     region::VdMirExprRegionDataRef,
@@ -39,6 +39,10 @@ impl<'db> VdMirHypothesisConstructor<'db> {
 }
 
 impl<'db> VdMirHypothesisConstructor<'db> {
+    pub fn expr_arena(&self) -> VdMirExprArenaRef {
+        self.expr_arena.as_arena_ref()
+    }
+
     pub fn stmt_arena(&self) -> VdMirStmtArenaRef {
         self.stmt_arena.as_arena_ref()
     }

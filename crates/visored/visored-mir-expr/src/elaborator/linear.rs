@@ -1,8 +1,12 @@
-use hint::VdMirHintIdx;
-use hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
-
 use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
+use expr::{application::VdMirFunc, VdMirExprData, VdMirExprIdxRange};
+use hint::VdMirHintIdx;
+use hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
+use smallvec::SmallVec;
+use smallvec::ToSmallVec;
+use visored_opr::separator::VdBaseSeparator;
+use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 #[derive(Default)]
 pub struct VdMirSequentialElaborator<Inner>
@@ -39,11 +43,21 @@ pub trait IsVdMirSequentialElaboratorInner {
 
     fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
-    fn elaborate_expr(
+    fn elaborate_application_expr(
         &mut self,
-        expr: VdMirExprIdx,
-        region_data: VdMirExprRegionDataRef,
-    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+        function: VdMirFunc,
+        arguments: VdMirExprIdxRange,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    );
+
+    fn elaborate_chaining_separated_list_expr(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+    );
+
+    fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef);
 
     fn prune_explicit_hypothesis(
         &mut self,
@@ -91,12 +105,26 @@ impl IsVdMirSequentialElaboratorInner for () {
         Ok(())
     }
 
-    fn elaborate_expr(
+    fn elaborate_application_expr(
         &mut self,
-        expr: VdMirExprIdx,
-        region_data: VdMirExprRegionDataRef,
-    ) -> Result<(), ()> {
-        Ok(())
+        function: VdMirFunc,
+        arguments: VdMirExprIdxRange,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
+        ()
+    }
+
+    fn elaborate_chaining_separated_list_expr(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+    ) {
+        ()
+    }
+
+    fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
+        ()
     }
 
     fn prune_explicit_hypothesis(
@@ -209,6 +237,7 @@ where
                     .expect("handle contradiction");
             }
             VdMirStmtData::Have { prop, hint, .. } => {
+                self.elaborate_expr(prop, hypothesis_constructor);
                 let hypothesis = self
                     .inner
                     .elaborate_have_stmt(stmt, prop, hint, hypothesis_constructor.region_data())
@@ -271,6 +300,48 @@ where
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
         // ad hoc
-        // todo!()
+        // TODO: store expr elaboration in expr arena
+        match *hypothesis_constructor.expr_arena()[expr].data() {
+            VdMirExprData::Literal(_) | VdMirExprData::Variable(_) => (),
+            VdMirExprData::Application {
+                function,
+                arguments,
+            } => {
+                if let Some(function) = function.expr() {
+                    self.elaborate_expr(function, hypothesis_constructor);
+                }
+                for arg in arguments {
+                    self.elaborate_expr(arg, hypothesis_constructor);
+                }
+                self.inner
+                    .elaborate_application_expr(function, arguments, hypothesis_constructor);
+            }
+            VdMirExprData::FoldingSeparatedList {
+                leader,
+                ref followers,
+            } => todo!(),
+            VdMirExprData::ChainingSeparatedList {
+                leader,
+                ref followers,
+                joined_separator_and_signature,
+            } => {
+                // need to do this to avoid rustc complaining
+                // we could also unsafe this
+                let followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]> = followers.to_smallvec();
+                let followers: &[(VdMirFunc, VdMirExprIdx)] = &followers;
+                self.elaborate_expr(leader, hypothesis_constructor);
+                for &(_, follower) in followers {
+                    self.elaborate_expr(follower, hypothesis_constructor);
+                }
+                self.inner.elaborate_chaining_separated_list_expr(
+                    leader,
+                    followers,
+                    joined_separator_and_signature,
+                )
+            }
+            VdMirExprData::ItemPath(vd_item_path) => todo!(),
+        }
+        self.inner
+            .cache_expr(expr, hypothesis_constructor.region_data());
     }
 }

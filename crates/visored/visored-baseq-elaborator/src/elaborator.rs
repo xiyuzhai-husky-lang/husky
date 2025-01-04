@@ -1,7 +1,10 @@
 use std::marker::PhantomData;
 use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
-    expr::{VdMirExprArenaRef, VdMirExprIdx, VdMirExprMap, VdMirExprOrderedMap},
+    expr::{
+        application::VdMirFunc, VdMirExprArenaRef, VdMirExprIdx, VdMirExprIdxRange, VdMirExprMap,
+        VdMirExprOrderedMap,
+    },
     hint::VdMirHintIdx,
     hypothesis::{
         construction::VdMirHypothesisConstruction, constructor::VdMirHypothesisConstructor,
@@ -10,9 +13,11 @@ use visored_mir_expr::{
     region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
+use visored_opr::separator::VdBaseSeparator;
+use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 use crate::{
-    expr::{build_expr_to_fld_map, VdMirExprFld},
+    expr::VdMirExprFld,
     hypothesis::{
         construction::VdBaseqHypothesisConstruction,
         constructor::VdBaseqHypothesisConstructor,
@@ -24,7 +29,7 @@ use crate::{
 
 pub struct VdBaseqElaboratorInner<'db, 'sess> {
     session: &'sess VdBaseqSession<'db>,
-    expr_to_fld_map: VdMirExprOrderedMap<VdMirExprFld<'sess>>,
+    expr_to_fld_map: VdMirExprMap<VdMirExprFld<'sess>>,
     pub(crate) hypothesis_constructor: VdBaseqHypothesisConstructor<'db, 'sess>,
 }
 
@@ -36,7 +41,7 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
         Self {
             session,
             hypothesis_constructor: VdBaseqHypothesisConstructor::new(session),
-            expr_to_fld_map: build_expr_to_fld_map(session, region_data),
+            expr_to_fld_map: VdMirExprMap::new2(region_data.expr_arena),
         }
     }
 }
@@ -44,6 +49,11 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
 impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
     pub fn session(&self) -> &'sess VdBaseqSession<'db> {
         self.session
+    }
+
+    #[track_caller]
+    pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdMirExprFld<'sess> {
+        self.expr_to_fld_map[expr]
     }
 }
 
@@ -97,12 +107,29 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
         todo!()
     }
 
-    fn elaborate_expr(
+    fn elaborate_application_expr(
         &mut self,
-        expr: VdMirExprIdx,
-        region_data: VdMirExprRegionDataRef,
-    ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
+        function: VdMirFunc,
+        arguments: VdMirExprIdxRange,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
         todo!()
+    }
+
+    fn elaborate_chaining_separated_list_expr(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+    ) {
+        todo!()
+    }
+
+    fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
+        self.cache_expr_fld(
+            &region_data.expr_arena[expr],
+            region_data.symbol_local_defn_storage,
+        );
     }
 
     fn prune_explicit_hypothesis(

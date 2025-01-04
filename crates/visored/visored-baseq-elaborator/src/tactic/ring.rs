@@ -54,27 +54,27 @@ impl RationalTerm {
 }
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum NonLiteralTermData {
+pub enum IrrationalTermData {
     Atom,
     Product {
         literal: RationalTerm,
-        nonliteral_atom_exponentials: NonLiteralAtomExponentials,
+        irrational_atom_exponentials: IrrationalAtomExponentials,
     },
     Sum {
         constant_term: RationalTerm,
-        nonliteral_monomial_coefficients: NonLiteralMonomialCoefficients,
+        irrational_monomial_coefficients: IrrationalMonomialCoefficients,
     },
     Variable(ArenaIdx<visored_mir_expr::symbol::local_defn::VdMirSymbolLocalDefnData>),
 }
 
-pub type NonLiteralMonomialCoefficients = NonLiteralTermMap<RationalTerm>;
-pub type NonLiteralAtomExponentials = NonLiteralTermMap<Term>;
+pub type IrrationalMonomialCoefficients = IrrationalTermMap<RationalTerm>;
+pub type IrrationalAtomExponentials = IrrationalTermMap<Term>;
 
-pub struct NonLiteralTermEntry {
-    data: NonLiteralTermData,
+pub struct IrrationalTermEntry {
+    data: IrrationalTermData,
     sha256: Sha256Output,
 }
 
-pub type IrrationalTerm = ArenaIdx<NonLiteralTermEntry>;
-pub type NonLiteralTermArena = Arena<NonLiteralTermEntry>;
-pub type NonLiteralTermMap<T> = OrderedSmallVecPairMap<IrrationalTerm, T, 4>;
+pub type IrrationalTerm = ArenaIdx<IrrationalTermEntry>;
+pub type IrrationalTermArena = Arena<IrrationalTermEntry>;
+pub type IrrationalTermMap<T> = OrderedSmallVecPairMap<IrrationalTerm, T, 4>;
