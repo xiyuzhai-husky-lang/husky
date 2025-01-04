@@ -38,7 +38,6 @@ pub struct IrrationalNumericVdBaseqTerm<'sess> {
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum IrrationalNumericVdBaseqTermData<'sess> {
-    Atom,
     Product {
         rational: RationalNumericVdBaseqTerm,
         irrational_atom_exponentials: IrrationalAtomExponentials<'sess>,
