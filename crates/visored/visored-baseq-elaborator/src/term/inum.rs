@@ -9,15 +9,19 @@ pub struct VdBsqInumTerm<'sess> {
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqInumTermData<'sess> {
-    Product {
-        rational: VdBsqRnumTerm,
-        irrational_atom_exponentials: VdBsqInumAtomExponentials<'sess>,
-    },
+    Variable(VdMirSymbolLocalDefnIdx),
     Sum {
         constant_term: VdBsqRnumTerm,
         irrational_monomial_coefficients: VdBsqInumMonomialCoefficients<'sess>,
     },
-    Variable(VdMirSymbolLocalDefnIdx),
+    Product {
+        rational: VdBsqRnumTerm,
+        irrational_atom_exponentials: VdBsqInumAtomExponentials<'sess>,
+    },
+    Power {
+        base: VdBsqNumTerm<'sess>,
+        exponent: VdBsqNumTerm<'sess>,
+    },
 }
 
 pub type VdBsqInumMonomialCoefficients<'sess> = VdBsqInumTermMap<'sess, VdBsqRnumTerm>;
@@ -33,6 +37,17 @@ impl<'sess> VdBsqTerm<'sess> {
     ) -> Self {
         VdBsqTerm::Inum(VdBsqInumTerm::new(
             inum::VdBsqInumTermData::Variable(local_defn_idx),
+            db,
+        ))
+    }
+
+    pub fn new_power(
+        base: VdBsqNumTerm<'sess>,
+        exponent: VdBsqNumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Self {
+        VdBsqTerm::Inum(VdBsqInumTerm::new(
+            VdBsqInumTermData::Power { base, exponent },
             db,
         ))
     }

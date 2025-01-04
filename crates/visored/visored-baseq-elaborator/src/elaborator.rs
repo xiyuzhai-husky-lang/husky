@@ -124,7 +124,15 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         arguments: VdMirExprIdxRange,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
-        todo!()
+        match function {
+            VdMirFunc::NormalBasePrefixOpr(vd_base_prefix_opr_signature) => todo!(),
+            VdMirFunc::NormalBaseSeparator(vd_base_separator_signature) => todo!(),
+            VdMirFunc::NormalBaseBinaryOpr(vd_base_binary_opr_signature) => todo!(),
+            VdMirFunc::Power(vd_power_signature) => (), // ad hoc
+            VdMirFunc::InSet => todo!(),
+            VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
+            VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
+        }
     }
 
     fn elaborate_chaining_separated_list_expr(
@@ -133,7 +141,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
     ) {
-        todo!()
+        // todo!()
     }
 
     fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
