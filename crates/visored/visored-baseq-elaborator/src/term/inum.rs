@@ -1,54 +1,47 @@
+pub mod atom;
+pub mod product;
+pub mod sum;
+
+use self::{atom::*, product::*, sum::*};
 use super::*;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+pub enum VdBsqInumTerm<'sess> {
+    Atom(VdBsqInumAtomTerm<'sess>),
+    Sum(VdBsqInumSumTerm<'sess>),
+    Product(VdBsqInumProductTerm<'sess>),
+}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+pub enum VdBsqNonProductNumTerm<'sess> {
+    Rnum(VdBsqRnumTerm),
+    AtomInum(VdBsqInumAtomTerm<'sess>),
+    SumInum(VdBsqInumSumTerm<'sess>),
+}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+pub enum VdBsqNonSumInumTerm<'sess> {
+    Atom(VdBsqInumAtomTerm<'sess>),
+    Product(VdBsqInumProductTerm<'sess>),
+}
+
 #[floated]
-pub struct VdBsqInumTerm<'sess> {
+pub struct VdBsqInumTermFld<'sess> {
     #[return_ref]
     pub data: VdBsqInumTermData<'sess>,
 }
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqInumTermData<'sess> {
-    Variable(VdMirSymbolLocalDefnIdx),
-    Sum {
-        constant_term: VdBsqRnumTerm,
-        irrational_monomial_coefficients: VdBsqInumMonomialCoefficients<'sess>,
-    },
-    Product {
-        rational: VdBsqRnumTerm,
-        irrational_atom_exponentials: VdBsqInumAtomExponentials<'sess>,
-    },
-    Power {
-        base: VdBsqNumTerm<'sess>,
-        exponent: VdBsqNumTerm<'sess>,
-    },
+    Atom(VdBsqInumAtomTermData),
+    Sum(VdBsqInumSumTermData<'sess>),
+    Product(VdBsqInumProductTermData<'sess>),
 }
 
-pub type VdBsqInumMonomialCoefficients<'sess> = VdBsqInumTermMap<'sess, VdBsqRnumTerm>;
-
-pub type VdBsqInumAtomExponentials<'sess> = VdBsqInumTermMap<'sess, VdBsqInumTerm<'sess>>;
-
-pub type VdBsqInumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqInumTerm<'sess>, T, 4>;
-
-impl<'sess> VdBsqTerm<'sess> {
-    pub fn new_numeric_variable(
-        local_defn_idx: VdMirSymbolLocalDefnIdx,
-        db: &'sess FloaterDb,
-    ) -> Self {
-        VdBsqTerm::Inum(VdBsqInumTerm::new(
-            inum::VdBsqInumTermData::Variable(local_defn_idx),
-            db,
-        ))
-    }
-
-    pub fn new_power(
-        base: VdBsqNumTerm<'sess>,
-        exponent: VdBsqNumTerm<'sess>,
-        db: &'sess FloaterDb,
-    ) -> Self {
-        VdBsqTerm::Inum(VdBsqInumTerm::new(
-            VdBsqInumTermData::Power { base, exponent },
-            db,
-        ))
-    }
-}
+pub type VdBsqNonProductNumTermMap<'sess, T> =
+    OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
+pub type VdBsqInumNonSumTermMap<'sess, T> =
+    OrderedSmallVecPairMap<VdBsqNonSumInumTerm<'sess>, T, 4>;
+pub type VdBsqInumMonomialCoefficients<'sess> = VdBsqInumNonSumTermMap<'sess, VdBsqRnumTerm>;
+pub type VdBsqInumAtomExponentials<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;

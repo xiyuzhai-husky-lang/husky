@@ -43,7 +43,7 @@ impl<'sess> std::fmt::Debug for VdBsqTerm<'sess> {
     }
 }
 
-impl<'sess> std::fmt::Debug for VdBsqInumTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqInumTermFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
@@ -111,10 +111,14 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 leader,
                 ref followers,
                 joined_separator_and_signature,
-            } => {
-                todo!();
-                todo!()
-            }
+            } => match joined_separator_and_signature {
+                Some(joined_separator_and_signature) => todo!(),
+                None => {
+                    let (func, follower) = followers.first().unwrap();
+                    todo!();
+                    todo!()
+                }
+            },
             VdMirExprData::ItemPath(vd_item_path) => todo!(),
         }
     }
