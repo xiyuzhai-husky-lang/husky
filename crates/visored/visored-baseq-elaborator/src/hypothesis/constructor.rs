@@ -1,5 +1,5 @@
 use super::{stack::VdBaseqHypothesisStack, *};
-use crate::{session::VdBaseqSession, term::VdMirTermFld};
+use crate::{session::VdBaseqSession, term::VdMirTerm};
 use floated_sequential::db::FloaterDb;
 
 pub struct VdBaseqHypothesisConstructor<'db, 'sess> {

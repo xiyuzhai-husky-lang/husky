@@ -19,6 +19,7 @@ impl<'sess> VdMirExprFld<'sess> {
                             VdBaseqCoercionOutcome::TriviallyTrue(VdBaseqTrivialCoercion::Identity)
                         }
                         VdPreludeSetPath::ComplexNumber => todo!(),
+                        _ => todo!(),
                     },
                 },
                 VdItemPath::Function(vd_function_path) => todo!(),

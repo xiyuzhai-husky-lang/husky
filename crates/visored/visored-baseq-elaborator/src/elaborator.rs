@@ -1,3 +1,5 @@
+use eterned::db::EternerDb;
+use floated_sequential::db::FloaterDb;
 use std::marker::PhantomData;
 use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
@@ -51,9 +53,23 @@ impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
         self.session
     }
 
+    pub fn eterner_db(&self) -> &'db EternerDb {
+        self.session.eterner_db()
+    }
+
+    pub fn floater_db(&self) -> &'sess FloaterDb {
+        self.session.floater_db()
+    }
+
     #[track_caller]
     pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdMirExprFld<'sess> {
         self.expr_to_fld_map[expr]
+    }
+}
+
+impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
+    pub(crate) fn save_expr_fld(&mut self, expr: VdMirExprIdx, fld: VdMirExprFld<'sess>) {
+        self.expr_to_fld_map.insert_new(expr, fld);
     }
 }
 
@@ -126,10 +142,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBaseqElaboratorInner<'db
     }
 
     fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
-        self.cache_expr_fld(
-            &region_data.expr_arena[expr],
-            region_data.symbol_local_defn_storage,
-        );
+        self.cache_expr_fld(expr, region_data);
     }
 
     fn prune_explicit_hypothesis(

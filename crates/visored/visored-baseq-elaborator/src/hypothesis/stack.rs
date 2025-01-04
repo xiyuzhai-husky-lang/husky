@@ -1,5 +1,5 @@
 use super::*;
-use crate::term::VdMirTermFld;
+use crate::term::VdMirTerm;
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 
@@ -25,7 +25,7 @@ use rustc_hash::FxHashMap;
 pub struct VdBaseqHypothesisStack<'sess> {
     active_hypotheses: Vec<VdBaseqHypothesisIdx<'sess>>,
     expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
-    term_to_hypothesis_map: FxHashMap<VdMirTermFld<'sess>, VdBaseqHypothesisRecord<'sess>>,
+    term_to_hypothesis_map: FxHashMap<VdMirTerm<'sess>, VdBaseqHypothesisRecord<'sess>>,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -60,7 +60,7 @@ impl<'sess> VdBaseqHypothesisStack<'sess> {
 
     pub(crate) fn get_active_hypothesis_with_term(
         &self,
-        term: VdMirTermFld<'sess>,
+        term: VdMirTerm<'sess>,
     ) -> Option<VdBaseqHypothesisIdx<'sess>> {
         let record = self.term_to_hypothesis_map.get(&term).copied()?;
         (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))

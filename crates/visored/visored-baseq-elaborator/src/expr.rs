@@ -7,7 +7,7 @@ use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::{
     expr::{
         application::VdMirFunc, VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprEntry,
-        VdMirExprIdxRange, VdMirExprMap, VdMirExprOrderedMap,
+        VdMirExprIdx, VdMirExprIdxRange, VdMirExprMap, VdMirExprOrderedMap,
     },
     region::VdMirExprRegionDataRef,
     symbol::local_defn::{
@@ -24,14 +24,14 @@ use visored_term::{
     ty::VdType,
 };
 
-use crate::{elaborator::VdBaseqElaboratorInner, session::VdBaseqSession, term::VdMirTermFld};
+use crate::{elaborator::VdBaseqElaboratorInner, session::VdBaseqSession, term::VdMirTerm};
 
 #[floated]
 pub struct VdMirExprFld<'sess> {
     #[return_ref]
     pub data: VdMirExprFldData<'sess>,
     pub ty: VdType,
-    pub term: VdMirTermFld<'sess>,
+    pub term: VdMirTerm<'sess>,
 }
 
 impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
@@ -158,17 +158,15 @@ impl<'sess> VdMirExprFldData<'sess> {
 pub type VdMirExprFlds<'sess> = SmallVec<[VdMirExprFld<'sess>; 4]>;
 
 impl<'db, 'sess> VdBaseqElaboratorInner<'db, 'sess> {
-    pub fn cache_expr_fld(
-        &mut self,
-        expr_entry: &VdMirExprEntry,
-        symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
-    ) {
+    pub fn cache_expr_fld(&mut self, expr_idx: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
+        let expr_entry = &region_data.expr_arena[expr_idx];
+        let symbol_local_defn_storage = region_data.symbol_local_defn_storage;
         let data = self.calc_expr_fld_data(expr_entry, symbol_local_defn_storage);
         let ty = expr_entry.ty();
-        let term = todo!();
+        let term = self.calc_expr_term(expr_entry, symbol_local_defn_storage);
         let db = self.session().floater_db();
         let expr_fld = VdMirExprFld::new(data, ty, term, db);
-        todo!()
+        self.save_expr_fld(expr_idx, expr_fld);
     }
 
     fn calc_expr_fld_data(
