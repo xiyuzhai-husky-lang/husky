@@ -49,7 +49,7 @@ impl FloaterDb {
         unsafe {
             arb_ref(
                 self.note_jars
-                    .entry(std::any::TypeId::of::<N::Jar>())
+                    .entry(std::any::TypeId::of::<N>())
                     .or_insert_with(|| NoteJarDyn::new::<N>())
                     .downcast(),
             )

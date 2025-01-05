@@ -15,8 +15,11 @@ impl<'sess> VdBsqProductInumTermBaseData<'sess> {
 }
 
 impl<'sess> VdBsqProductInumTermBase<'sess> {
-    pub fn new(data: VdBsqProductInumTermBaseData<'sess>, db: &'sess FloaterDb) -> Self {
-        VdBsqProductInumTermBase(VdBsqInumTermFld::new(VdBsqInumTermData::Product(data), db))
+    pub fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
+        VdBsqProductInumTermBase(VdBsqInumTermFld::new(
+            VdBsqInumTermData::Product(VdBsqProductInumTermBaseData { exponentials }),
+            db,
+        ))
     }
 
     pub fn new_power(
@@ -25,7 +28,7 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
         db: &'sess FloaterDb,
     ) -> Self {
         let exponentials = [(base, exponent)].into_iter().collect();
-        Self::new(VdBsqProductInumTermBaseData { exponentials }, db)
+        Self::new(exponentials, db)
     }
 }
 
@@ -39,8 +42,8 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
 }
 
 impl<'sess> VdBsqInumTerm<'sess> {
-    pub fn new_product(data: VdBsqProductInumTermBaseData<'sess>, db: &'sess FloaterDb) -> Self {
-        VdBsqInumTerm::Product(todo!(), VdBsqProductInumTermBase::new(data, db))
+    pub fn new_product(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
+        VdBsqInumTerm::Product(todo!(), VdBsqProductInumTermBase::new(exponentials, db))
     }
 
     pub fn new_power(

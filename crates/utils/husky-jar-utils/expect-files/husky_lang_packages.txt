@@ -572,6 +572,15 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "miracle",
+        relative_path: "crates/abstractions/miracle",
+        dependencies: [
+            "alt-option",
+            "ordered-float",
+            "sealed",
+        ],
+    },
+    PackageSummary {
         name: "notify-change",
         relative_path: "crates/abstractions/notify-change",
         dependencies: [],
@@ -5098,10 +5107,12 @@
         relative_path: "crates/visored/visored-baseq-elaborator",
         dependencies: [
             "alt-option",
+            "either",
             "enum-class",
             "eterned",
             "expect-test",
             "floated-sequential",
+            "husky-debug-utils",
             "husky-path-utils",
             "husky-print-utils",
             "husky-sha-utils",

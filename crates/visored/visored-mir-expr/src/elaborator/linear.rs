@@ -143,6 +143,7 @@ impl IsVdMirSequentialElaboratorInner for () {
         ()
     }
 
+    #[track_caller]
     fn transcribe_explicit_hypothesis(
         &mut self,
         hypothesis: (),
@@ -305,11 +306,14 @@ where
                         .inner
                         .elaborate_qed_stmt()
                         .expect("handle contradiction");
-                    let hypothesis = self.inner.transcribe_explicit_hypothesis(
-                        hypothesis,
-                        goal,
-                        hypothesis_constructor,
-                    );
+                    let hypothesis_chunk = hypothesis_constructor
+                        .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
+                            self.inner.transcribe_explicit_hypothesis(
+                                hypothesis,
+                                goal,
+                                hypothesis_constructor,
+                            )
+                        });
                     hypothesis_constructor
                         .stmt_arena_mut()
                         .update(stmt, |entry| {
@@ -320,8 +324,7 @@ where
                             else {
                                 unreachable!()
                             };
-                            hypothesis_chunk_place
-                                .set(Ok(VdMirHypothesisChunk::new(todo!(), hypothesis)));
+                            hypothesis_chunk_place.set(Ok(hypothesis_chunk));
                         });
                 }
             }
@@ -384,7 +387,7 @@ where
                     joined_separator_and_signature,
                 )
             }
-            VdMirExprData::ItemPath(vd_item_path) => todo!(),
+            VdMirExprData::ItemPath(vd_item_path) => (),
         }
         self.inner
             .cache_expr(expr, hypothesis_constructor.region_data());

@@ -57,4 +57,7 @@ where
     K: Eq + std::hash::Hash + Send + Sync + 'static,
     T: Send + Sync + 'static,
 {
+    fn type_name(&self) -> &'static str {
+        std::any::type_name::<Self>()
+    }
 }

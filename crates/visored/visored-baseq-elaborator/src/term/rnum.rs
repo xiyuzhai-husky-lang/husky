@@ -54,11 +54,16 @@ impl std::ops::SubAssign for VdBsqRnumTerm {
 impl VdBsqRnumTerm {
     pub const ZERO: Self = Self::Int128(0);
     pub const ONE: Self = Self::Int128(1);
+    pub const NEG_ONE: Self = Self::Int128(-1);
 }
 
 impl VdBsqRnumTerm {
     pub fn is_zero(self) -> bool {
         self.eqs_i128(0)
+    }
+
+    pub fn is_one(self) -> bool {
+        self.eqs_i128(1)
     }
 
     pub fn eqs_i128(self, i0: i128) -> bool {

@@ -51,7 +51,7 @@ impl FloaterDb {
             arb_ref(
                 self.note_jars
                     .borrow_mut()
-                    .entry(std::any::TypeId::of::<N::Jar>())
+                    .entry(std::any::TypeId::of::<N>())
                     .or_insert_with(|| NoteJarDyn::new::<N>())
                     .downcast(),
             )

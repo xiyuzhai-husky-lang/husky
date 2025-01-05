@@ -45,7 +45,7 @@ impl<'sess> VdBsqNumTerm<'sess> {
         }
         let mut builder = VdBsqSumBuilder::new(db);
         builder.add_num_term(self);
-        builder.sub_num_term(rhs);
+        builder.sub_num(rhs);
         builder.finish()
     }
 

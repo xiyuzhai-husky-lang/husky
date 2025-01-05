@@ -4,7 +4,7 @@ pub mod jar0;
 use sealed::sealed;
 use std::pin::Pin;
 
-pub trait IsNote {
+pub trait IsNote: 'static {
     type Jar: IsNoteJar;
 }
 
