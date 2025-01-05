@@ -54,7 +54,7 @@ impl<'sess> VdBsqCoercionOutcome<'sess> {
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub(crate) fn prune_coercion(
+    pub(crate) fn transcribe_coercion(
         &mut self,
         coercion: VdBsqCoercion<'sess>,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
@@ -62,7 +62,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         match coercion {
             VdBsqCoercion::Trivial(vd_baseq_trivial_coercion) => VdMirCoercion::Trivial,
             VdBsqCoercion::Obvious(hypothesis) => VdMirCoercion::Obvious(
-                self.prune_implicit_hypothesis(hypothesis, hypothesis_constructor),
+                self.transcribe_implicit_hypothesis(hypothesis, hypothesis_constructor),
             ),
         }
     }

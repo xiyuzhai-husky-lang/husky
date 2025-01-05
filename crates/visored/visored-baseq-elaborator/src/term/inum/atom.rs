@@ -10,6 +10,12 @@ pub enum VdBsqInumAtomTermData {
     Variable(LxMathLetter, VdMirSymbolLocalDefnIdx),
 }
 
+impl<'sess> From<VdBsqAtomInumTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(value: VdBsqAtomInumTerm<'sess>) -> Self {
+        VdBsqNumTerm::Inum(VdBsqInumTerm::Atom(value))
+    }
+}
+
 impl<'sess> VdBsqAtomInumTerm<'sess> {
     pub fn new(data: VdBsqInumAtomTermData, db: &'sess FloaterDb) -> Self {
         VdBsqAtomInumTerm(VdBsqInumTermFld::new(VdBsqInumTermData::Atom(data), db))

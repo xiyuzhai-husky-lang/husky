@@ -1,5 +1,6 @@
 use super::*;
 use crate::term::sum::VdBsqSumInumTerm;
+use builder::sum::VdBsqSumBuilder;
 use smallvec::*;
 
 impl<'sess> VdBsqNumTerm<'sess> {
@@ -26,12 +27,10 @@ impl<'sess> VdBsqNumTerm<'sess> {
         if rhs.is_zero_trivially() {
             return self;
         }
-        let (lhs_constant_term, lhs_irrational_monomial_coefficients) = self.sum_decomposition();
-        let (rhs_constant_term, rhs_irrational_monomial_coefficients) = rhs.sum_decomposition();
-        use husky_print_utils::*;
-        p!(lhs_constant_term, lhs_irrational_monomial_coefficients);
-        p!(rhs_constant_term, rhs_irrational_monomial_coefficients);
-        todo!()
+        let mut builder = VdBsqSumBuilder::new(db);
+        builder.add_num_term(self);
+        builder.sub_num_term(rhs);
+        builder.finish()
     }
 
     pub fn sum_decomposition(self) -> (VdBsqRnumTerm, VdBsqInumMonomialCoefficients<'sess>) {

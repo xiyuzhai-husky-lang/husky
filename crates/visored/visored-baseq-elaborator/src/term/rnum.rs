@@ -34,6 +34,23 @@ impl std::ops::AddAssign for VdBsqRnumTerm {
     }
 }
 
+impl std::ops::SubAssign for VdBsqRnumTerm {
+    fn sub_assign(&mut self, rhs: Self) {
+        match self {
+            VdBsqRnumTerm::Int128(slf) => match rhs {
+                VdBsqRnumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
+                    Some(sum) => *self = VdBsqRnumTerm::Int128(sum),
+                    None => todo!(),
+                },
+                VdBsqRnumTerm::BigInt() => todo!(),
+                VdBsqRnumTerm::Rat128(_, _) => todo!(),
+            },
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+}
+
 impl VdBsqRnumTerm {
     pub const ZERO: Self = Self::Int128(0);
     pub const ONE: Self = Self::Int128(1);

@@ -149,7 +149,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         self.cache_expr_fld(expr, region_data);
     }
 
-    fn prune_explicit_hypothesis(
+    fn transcribe_explicit_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,
         goal: VdMirExprIdx,
@@ -162,10 +162,11 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
                 is_real_coercion,
             } => VdMirHypothesisConstruction::Apply {
                 path,
-                is_real_coercion: self.prune_coercion(is_real_coercion, hypothesis_constructor),
+                is_real_coercion: self
+                    .transcribe_coercion(is_real_coercion, hypothesis_constructor),
             },
             VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
-            VdBsqHypothesisConstruction::Assume => todo!(),
+            VdBsqHypothesisConstruction::Assume => VdMirHypothesisConstruction::Assume,
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }

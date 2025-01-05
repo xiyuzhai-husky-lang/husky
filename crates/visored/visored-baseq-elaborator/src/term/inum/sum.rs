@@ -6,7 +6,29 @@ pub struct VdBsqSumInumTerm<'sess>(VdBsqInumTermFld<'sess>);
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqInumSumTermData<'sess> {
     constant_term: VdBsqRnumTerm,
-    irrational_monomial_coefficients: VdBsqInumMonomialCoefficients<'sess>,
+    monomials: VdBsqInumMonomialCoefficients<'sess>,
+}
+
+impl<'sess> From<VdBsqSumInumTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(value: VdBsqSumInumTerm<'sess>) -> Self {
+        VdBsqNumTerm::Inum(VdBsqInumTerm::Sum(value))
+    }
+}
+
+impl<'sess> VdBsqSumInumTerm<'sess> {
+    pub fn new(
+        constant_term: VdBsqRnumTerm,
+        monomials: VdBsqInumMonomialCoefficients<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Self {
+        Self(VdBsqInumTermFld::new(
+            VdBsqInumTermData::Sum(VdBsqInumSumTermData {
+                constant_term,
+                monomials,
+            }),
+            db,
+        ))
+    }
 }
 
 impl<'sess> VdBsqSumInumTerm<'sess> {
@@ -24,7 +46,7 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
     }
 
     pub fn irrational_monomial_coefficients(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
-        &self.irrational_monomial_coefficients
+        &self.monomials
     }
 }
 
