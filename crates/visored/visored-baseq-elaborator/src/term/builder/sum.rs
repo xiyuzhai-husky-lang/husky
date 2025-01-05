@@ -62,8 +62,6 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn finish(self) -> VdBsqNumTerm<'sess> {
-        use husky_print_utils::*;
-        p!(self.constant_rnum, self.unpruned_monomials);
         let monomials: VdBsqInumMonomialCoefficients = self
             .unpruned_monomials
             .into_iter()

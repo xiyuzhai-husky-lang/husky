@@ -6,6 +6,7 @@ pub mod rnum;
 
 use self::{inum::*, num::*, prop::*, rnum::*};
 use crate::elaborator::VdBsqElaboratorInner;
+use builder::sum::VdBsqSumBuilder;
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
@@ -145,7 +146,56 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 leader,
                 ref followers,
             } => {
-                todo!()
+                let (func, follower) = *followers.first().unwrap();
+                let num_relationship = |slf: &Self, kind| {
+                    VdBsqTerm::new_num_relationship(
+                        slf.expr_fld(leader).term().num().unwrap(),
+                        kind,
+                        slf.expr_fld(follower).term().num().unwrap(),
+                        slf.floater_db(),
+                    )
+                };
+                match func {
+                    VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+                    VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
+                        VdBaseSeparator::Space => todo!(),
+                        VdBaseSeparator::Comma => todo!(),
+                        VdBaseSeparator::Semicolon => todo!(),
+                        VdBaseSeparator::Add => {
+                            let mut builder = VdBsqSumBuilder::new(self.floater_db());
+                            builder.add_num_term(self.expr_fld(leader).term().num().unwrap());
+                            for &(_, follower) in followers.iter() {
+                                builder.add_num_term(self.expr_fld(follower).term().num().unwrap());
+                            }
+                            builder.finish().into()
+                        }
+                        VdBaseSeparator::Mul => todo!(),
+                        VdBaseSeparator::Dot => todo!(),
+                        VdBaseSeparator::Eq => todo!(),
+                        VdBaseSeparator::Ne => todo!(),
+                        VdBaseSeparator::Lt => todo!(),
+                        VdBaseSeparator::Gt => todo!(),
+                        VdBaseSeparator::Le => todo!(),
+                        VdBaseSeparator::Ge => todo!(),
+                        VdBaseSeparator::Subset => todo!(),
+                        VdBaseSeparator::Supset => todo!(),
+                        VdBaseSeparator::Subseteq => todo!(),
+                        VdBaseSeparator::Supseteq => todo!(),
+                        VdBaseSeparator::Subseteqq => todo!(),
+                        VdBaseSeparator::Supseteqq => todo!(),
+                        VdBaseSeparator::Subsetneq => todo!(),
+                        VdBaseSeparator::Supsetneq => todo!(),
+                        VdBaseSeparator::In => todo!(),
+                        VdBaseSeparator::Notin => todo!(),
+                        VdBaseSeparator::Times => todo!(),
+                        VdBaseSeparator::Otimes => todo!(),
+                    },
+                    VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
+                    VdMirFunc::Power(signature) => todo!(),
+                    VdMirFunc::InSet => todo!(),
+                    VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
+                    VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
+                }
             }
             VdMirExprData::ChainingSeparatedList {
                 leader,
