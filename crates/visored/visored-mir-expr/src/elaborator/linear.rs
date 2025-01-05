@@ -205,6 +205,7 @@ where
                     .expect("handle contradiction");
             }
             VdMirStmtData::Assume { prop, .. } => {
+                self.elaborate_expr(prop, hypothesis_constructor);
                 let hypothesis = self
                     .inner
                     .elaborate_assume_stmt(prop)

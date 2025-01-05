@@ -59,6 +59,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 is_real_coercion: todo!(),
             },
             VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
+            VdBsqHypothesisConstruction::Assume => todo!(),
         };
         let goal = match explicit_goal {
             Some(goal) => goal,

@@ -10,5 +10,6 @@ pub enum VdBsqHypothesisConstruction<'sess> {
         path: VdTheoremPath,
         is_real_coercion: VdBsqCoercion<'sess>,
     },
+    Assume,
     Phantom(PhantomData<&'sess ()>),
 }

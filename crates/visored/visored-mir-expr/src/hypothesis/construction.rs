@@ -9,5 +9,6 @@ pub enum VdMirHypothesisConstruction {
         path: VdTheoremPath,
         is_real_coercion: VdMirCoercion,
     },
+    Assume,
     Sorry,
 }

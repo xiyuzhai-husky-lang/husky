@@ -88,8 +88,9 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         &mut self,
         prop: VdMirExprIdx,
     ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
-        todo!()
-        // Ok(())
+        Ok(self
+            .hypothesis_constructor
+            .construct_new_hypothesis(self.expr_fld(prop), VdBsqHypothesisConstruction::Assume))
     }
 
     fn elaborate_goal_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {
@@ -164,6 +165,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
                 is_real_coercion: self.prune_coercion(is_real_coercion, hypothesis_constructor),
             },
             VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
+            VdBsqHypothesisConstruction::Assume => todo!(),
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }

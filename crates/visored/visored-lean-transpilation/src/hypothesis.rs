@@ -39,6 +39,7 @@ where
                     },
                 }]
             }
+            VdMirHypothesisConstruction::Assume => todo!(),
         }
     }
 }
