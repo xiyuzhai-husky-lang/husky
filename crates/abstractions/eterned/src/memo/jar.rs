@@ -1,7 +1,11 @@
 use super::*;
 use dashmap::DashMap;
 
-pub struct Jar<K, T> {
+#[derive(Debug)]
+pub struct Jar<K, T>
+where
+    K: Eq + std::hash::Hash,
+{
     pub data: DashMap<K, Pin<Box<T>>>,
 }
 

@@ -32,7 +32,7 @@ impl std::fmt::Debug for VdType {
 
 impl VdType {
     pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.show_aux(f)
+        self.0.show_fmt(f)
     }
 }
 

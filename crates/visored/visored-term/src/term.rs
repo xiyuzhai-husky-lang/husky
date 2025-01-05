@@ -50,13 +50,19 @@ pub enum VdTerm {
 
 impl std::fmt::Debug for VdTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.show_aux(f)
+        self.show_fmt(f)
     }
 }
 
 impl VdTerm {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self.data() {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.data().show_fmt(f)
+    }
+}
+
+impl VdTermData {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
             VdTermData::Literal(_) => todo!(),
             VdTermData::ItemPath(ref data) => data.item_path().show_aux(f),
             VdTermData::ForAll(_) => todo!(),
@@ -101,7 +107,7 @@ pub struct VdTermId {
 
 impl std::fmt::Debug for VdTermId {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        self.data().show_fmt(f)
     }
 }
 
