@@ -6,3 +6,9 @@ def h(x : ℝ) := by
   exact ()
 end Example1
 
+namespace Example2
+def h(x : ℝ)(h1 : x ≥ 1) := by
+  have h2 : x - 1 ≥ 0 := by obvious
+  exact ()
+end Example2
+

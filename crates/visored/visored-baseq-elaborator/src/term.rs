@@ -4,7 +4,7 @@ mod num;
 pub mod prop;
 pub mod rnum;
 
-use self::{inum::*, prop::*, rnum::*};
+use self::{inum::*, num::*, prop::*, rnum::*};
 use crate::elaborator::VdBsqElaboratorInner;
 use either::*;
 use floated_sequential::db::FloaterDb;
@@ -18,7 +18,7 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
-use visored_opr::separator::VdBaseSeparator;
+use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_term::term::literal::VdLiteralData;
 
 #[enum_class::from_variants]
@@ -27,13 +27,6 @@ pub enum VdBsqTerm<'sess> {
     Rnum(VdBsqRnumTerm),
     Inum(VdBsqInumTerm<'sess>),
     Prop(VdBsqPropTerm<'sess>),
-}
-
-#[enum_class::from_variants]
-#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqNumTerm<'sess> {
-    Rnum(VdBsqRnumTerm),
-    Inum(VdBsqInumTerm<'sess>),
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
@@ -110,10 +103,25 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 function,
                 arguments,
             } => match function {
-                VdMirFunc::NormalBasePrefixOpr(vd_base_prefix_opr_signature) => todo!(),
-                VdMirFunc::NormalBaseSeparator(vd_base_separator_signature) => todo!(),
-                VdMirFunc::NormalBaseBinaryOpr(vd_base_binary_opr_signature) => todo!(),
-                VdMirFunc::Power(vd_power_signature) => {
+                VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+                VdMirFunc::NormalBaseSeparator(signature) => todo!(),
+                VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
+                    VdBaseBinaryOpr::Sub => {
+                        let lopd = self
+                            .expr_fld(arguments.first().unwrap())
+                            .term()
+                            .num()
+                            .unwrap();
+                        let ropd = self
+                            .expr_fld(arguments.last().unwrap())
+                            .term()
+                            .num()
+                            .unwrap();
+                        lopd.sub(ropd, self.floater_db()).into()
+                    }
+                    VdBaseBinaryOpr::Div => todo!(),
+                },
+                VdMirFunc::Power(signature) => {
                     assert_eq!(arguments.len(), 2);
                     let Some(base) = self.expr_fld(arguments.first().unwrap()).term().num() else {
                         todo!()

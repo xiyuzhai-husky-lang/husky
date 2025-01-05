@@ -15,7 +15,7 @@ use visored_mir_expr::{
     region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
-use visored_opr::separator::VdBaseSeparator;
+use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 use crate::{
@@ -126,13 +126,16 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
         match function {
-            VdMirFunc::NormalBasePrefixOpr(vd_base_prefix_opr_signature) => todo!(),
-            VdMirFunc::NormalBaseSeparator(vd_base_separator_signature) => todo!(),
-            VdMirFunc::NormalBaseBinaryOpr(vd_base_binary_opr_signature) => todo!(),
-            VdMirFunc::Power(vd_power_signature) => (), // ad hoc
+            VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+            VdMirFunc::NormalBaseSeparator(signature) => todo!(),
+            VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
+                VdBaseBinaryOpr::Sub => (),
+                VdBaseBinaryOpr::Div => todo!(),
+            },
+            VdMirFunc::Power(signature) => (), // ad hoc
             VdMirFunc::InSet => todo!(),
-            VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-            VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
+            VdMirFunc::NormalBaseSqrt(signature) => todo!(),
+            VdMirFunc::NormalBaseFrac(signature) => todo!(),
         }
     }
 

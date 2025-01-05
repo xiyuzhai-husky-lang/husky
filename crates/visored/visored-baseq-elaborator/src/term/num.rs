@@ -3,6 +3,22 @@ use crate::term::sum::VdBsqSumInumTerm;
 use builder::sum::VdBsqSumBuilder;
 use smallvec::*;
 
+#[enum_class::from_variants]
+#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+pub enum VdBsqNumTerm<'sess> {
+    Rnum(VdBsqRnumTerm),
+    Inum(VdBsqInumTerm<'sess>),
+}
+
+impl<'sess> From<VdBsqNumTerm<'sess>> for VdBsqTerm<'sess> {
+    fn from(term: VdBsqNumTerm<'sess>) -> Self {
+        match term {
+            VdBsqNumTerm::Rnum(term) => VdBsqTerm::Rnum(term),
+            VdBsqNumTerm::Inum(term) => VdBsqTerm::Inum(term),
+        }
+    }
+}
+
 impl<'sess> VdBsqNumTerm<'sess> {
     pub const ZERO: Self = VdBsqNumTerm::Rnum(VdBsqRnumTerm::ZERO);
     pub const ONE: Self = VdBsqNumTerm::Rnum(VdBsqRnumTerm::ONE);
