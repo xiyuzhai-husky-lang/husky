@@ -1,8 +1,9 @@
 pub mod coercion;
 pub mod elaborator;
-mod expr;
+pub mod expr;
 pub mod helpers;
 pub mod hypothesis;
+pub mod maneuver;
 pub mod outcome;
 pub mod session;
 pub mod strategy;
