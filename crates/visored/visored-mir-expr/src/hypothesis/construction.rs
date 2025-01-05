@@ -14,4 +14,5 @@ pub enum VdMirHypothesisConstruction {
     TermEquivalent {
         // hypothesis: VdMirHypothesisIdx,
     },
+    TermTrivial(bool),
 }

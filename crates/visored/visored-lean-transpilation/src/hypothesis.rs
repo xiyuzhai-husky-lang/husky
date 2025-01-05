@@ -37,6 +37,10 @@ where
                 let default_tactic_data = self.default_tactic_data();
                 self.alloc_tactics([default_tactic_data])
             }
+            VdMirHypothesisConstruction::TermTrivial(b) => {
+                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_trivial");
+                self.alloc_tactics([ad_hoc_tactic_data])
+            }
             VdMirHypothesisConstruction::Apply {
                 path,
                 is_real_coercion,

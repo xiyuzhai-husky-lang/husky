@@ -26,15 +26,21 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
         kind: VdBsqNumRelationshipPropTermKind,
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
-    ) -> Self {
+    ) -> VdBsqPropTerm<'sess> {
         let lhs_minus_rhs = lhs.sub(rhs, db);
-        Self(VdBsqPropTermFld::new(
+        match lhs_minus_rhs {
+            VdBsqNumTerm::Rnum(term) => {
+                return VdBsqPropTerm::Trivial(term.compare_with_zero(kind))
+            }
+            VdBsqNumTerm::Inum(term) => (),
+        }
+        VdBsqPropTerm::NumRelationship(Self(VdBsqPropTermFld::new(
             VdBsqPropTermData::NumRelationship(VdBsqNumRelationshipPropTermData {
                 lhs_minus_rhs,
                 kind,
             }),
             db,
-        ))
+        )))
     }
 }
 
@@ -45,7 +51,7 @@ impl<'sess> VdBsqPropTerm<'sess> {
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        Self::NumRelationship(VdBsqNumRelationshipPropTerm::new(lhs, kind, rhs, db))
+        VdBsqNumRelationshipPropTerm::new(lhs, kind, rhs, db)
     }
 }
 

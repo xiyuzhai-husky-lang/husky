@@ -160,6 +160,9 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
     ) -> VdMirHypothesisIdx {
         let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
             VdBsqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
+            VdBsqHypothesisConstruction::TermTrivial(b) => {
+                VdMirHypothesisConstruction::TermTrivial(b)
+            }
             VdBsqHypothesisConstruction::Apply {
                 path,
                 is_real_coercion,
@@ -168,7 +171,6 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
                 is_real_coercion: self
                     .transcribe_coercion(is_real_coercion, hypothesis_constructor),
             },
-            VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
             VdBsqHypothesisConstruction::Assume => VdMirHypothesisConstruction::Assume,
             VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => {
                 VdMirHypothesisConstruction::TermEquivalent {}

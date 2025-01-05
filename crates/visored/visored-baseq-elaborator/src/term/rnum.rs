@@ -79,3 +79,20 @@ impl<'sess> VdBsqRnumTerm {
         }
     }
 }
+
+impl VdBsqRnumTerm {
+    pub fn compare_with_zero(self, kind: VdBsqNumRelationshipPropTermKind) -> bool {
+        match self {
+            VdBsqRnumTerm::Int128(i) => match kind {
+                VdBsqNumRelationshipPropTermKind::Eq => i == 0,
+                VdBsqNumRelationshipPropTermKind::Ne => i != 0,
+                VdBsqNumRelationshipPropTermKind::Lt => i < 0,
+                VdBsqNumRelationshipPropTermKind::Gt => i > 0,
+                VdBsqNumRelationshipPropTermKind::Le => i <= 0,
+                VdBsqNumRelationshipPropTermKind::Ge => i >= 0,
+            },
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+}

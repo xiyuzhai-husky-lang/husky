@@ -7,6 +7,7 @@ use crate::term::num_relationship::*;
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqPropTerm<'sess> {
     NumRelationship(VdBsqNumRelationshipPropTerm<'sess>),
+    Trivial(bool),
 }
 
 #[floated]
