@@ -65,10 +65,18 @@ impl<'sess> VdMirExprFld<'sess> {
                 function,
                 arguments,
             } => match function {
-                VdMirFunc::NormalBasePrefixOpr(vd_base_prefix_opr_signature) => todo!(),
-                VdMirFunc::NormalBaseSeparator(vd_base_separator_signature) => todo!(),
-                VdMirFunc::NormalBaseBinaryOpr(vd_base_binary_opr_signature) => todo!(),
-                VdMirFunc::Power(vd_power_signature) => {
+                VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+                VdMirFunc::NormalBaseSeparator(signature) => todo!(),
+                VdMirFunc::NormalBaseBinaryOpr(signature) => {
+                    let opr = signature.opr;
+                    arguments[0].show(opr.left_precedence_range(), f)?;
+                    f.write_str(" ")?;
+                    f.write_str(opr.unicode())?;
+                    f.write_str(" ")?;
+                    arguments[1].show(opr.right_precedence_range(), f)?;
+                    Ok(())
+                }
+                VdMirFunc::Power(signature) => {
                     match arguments[1].data() {
                         VdMirExprFldData::Literal(literal) => match *literal.data() {
                             VdLiteralData::Int128(i) if i >= 0 && i < 10 => {

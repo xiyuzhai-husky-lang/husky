@@ -44,13 +44,23 @@ impl VdBaseBinaryOpr {
     }
 
     pub fn right_precedence_range(self) -> VdPrecedenceRange {
-        todo!()
+        match self {
+            VdBaseBinaryOpr::Sub => VdPrecedenceRange::ADD_SUB_RIGHT,
+            VdBaseBinaryOpr::Div => todo!(),
+        }
     }
 
     pub fn latex_code(self) -> &'static str {
         match self {
             VdBaseBinaryOpr::Sub => "-",
             VdBaseBinaryOpr::Div => "/",
+        }
+    }
+
+    pub fn unicode(self) -> &'static str {
+        match self {
+            VdBaseBinaryOpr::Sub => "−",
+            VdBaseBinaryOpr::Div => "÷",
         }
     }
 

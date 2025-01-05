@@ -129,7 +129,6 @@ impl IsVdMirSequentialElaboratorInner for () {
         ()
     }
 
-    #[track_caller]
     fn transcribe_explicit_hypothesis(
         &mut self,
         hypothesis: (),

@@ -13406,6 +13406,7 @@ dependencies = [
  "expect-test",
  "floated-sequential",
  "husky-case-utils",
+ "husky-debug-utils",
  "husky-path-utils",
  "husky-print-utils",
  "husky-sha-utils",
