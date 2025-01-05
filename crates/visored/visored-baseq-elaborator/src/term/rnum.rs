@@ -36,9 +36,9 @@ impl VdBsqRnumTerm {
         self.eqs_i128(0)
     }
 
-    pub fn eqs_i128(self, rhs: i128) -> bool {
+    pub fn eqs_i128(self, i0: i128) -> bool {
         match self {
-            VdBsqRnumTerm::Int128(i) => i == rhs,
+            VdBsqRnumTerm::Int128(i) => i == i0,
             VdBsqRnumTerm::BigInt() => todo!(),
             VdBsqRnumTerm::Rat128(_, _) => todo!(),
         }
