@@ -1,4 +1,5 @@
 pub mod inum;
+mod num;
 pub mod prop;
 pub mod rnum;
 
@@ -19,6 +20,7 @@ use visored_mir_expr::{
 use visored_opr::separator::VdBaseSeparator;
 use visored_term::term::literal::VdLiteralData;
 
+#[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqTerm<'sess> {
     Rnum(VdBsqRnumTerm),
@@ -83,8 +85,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     ) -> VdBsqTerm<'sess> {
         match *expr_entry.data() {
             VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
-                VdLiteralData::Nat128(n) => VdBsqTerm::Rnum(VdBsqRnumTerm::Nat128(n)),
                 VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqRnumTerm::Int128(i)),
+                VdLiteralData::BigInt(n) => todo!(),
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },
@@ -94,7 +96,11 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         VdMirSymbolLocalDefnHead::Letter(lx_math_letter) => lx_math_letter,
                     };
                 if expr_entry.ty().is_numeric(self.eterner_db()) {
-                    VdBsqTerm::new_numeric_variable(local_defn_idx, self.floater_db())
+                    if let Some(_) = self.eval_variable() {
+                        todo!()
+                    } else {
+                        VdBsqTerm::new_numeric_variable(local_defn_idx, self.floater_db())
+                    }
                 } else {
                     todo!()
                 }
@@ -147,6 +153,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                             slf.expr_fld(leader).term().num().unwrap(),
                             kind,
                             slf.expr_fld(follower).term().num().unwrap(),
+                            slf.floater_db(),
                         )
                     };
                     match func {

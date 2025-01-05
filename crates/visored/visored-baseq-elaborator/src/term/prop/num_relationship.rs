@@ -5,9 +5,8 @@ pub struct VdBsqNumRelationshipPropTerm<'sess>(VdBsqPropTermFld<'sess>);
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqNumRelationshipPropTermData<'sess> {
-    /// The left-hand side of the inequality.
-    /// The right-hand side is always reduced to `0`.
-    pub lhs: VdBsqNumTerm<'sess>,
+    /// The left-hand side of the inequality minus the right-hand side.
+    pub lhs_minus_rhs: VdBsqNumTerm<'sess>,
     pub kind: VdBsqNumRelationshipPropTermKind,
 }
 
@@ -26,8 +25,27 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
         lhs: VdBsqNumTerm<'sess>,
         kind: VdBsqNumRelationshipPropTermKind,
         rhs: VdBsqNumTerm<'sess>,
+        db: &'sess FloaterDb,
     ) -> Self {
-        todo!()
+        let lhs_minus_rhs = lhs.sub(rhs, db);
+        Self(VdBsqPropTermFld::new(
+            VdBsqPropTermData::NumRelationship(VdBsqNumRelationshipPropTermData {
+                lhs_minus_rhs,
+                kind,
+            }),
+            db,
+        ))
+    }
+}
+
+impl<'sess> VdBsqPropTerm<'sess> {
+    pub fn new_num_relationship(
+        lhs: VdBsqNumTerm<'sess>,
+        kind: VdBsqNumRelationshipPropTermKind,
+        rhs: VdBsqNumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Self {
+        Self::NumRelationship(VdBsqNumRelationshipPropTerm::new(lhs, kind, rhs, db))
     }
 }
 
@@ -36,7 +54,8 @@ impl<'sess> VdBsqTerm<'sess> {
         lhs: VdBsqNumTerm<'sess>,
         kind: VdBsqNumRelationshipPropTermKind,
         rhs: VdBsqNumTerm<'sess>,
+        db: &'sess FloaterDb,
     ) -> Self {
-        todo!()
+        VdBsqPropTerm::new_num_relationship(lhs, kind, rhs, db).into()
     }
 }

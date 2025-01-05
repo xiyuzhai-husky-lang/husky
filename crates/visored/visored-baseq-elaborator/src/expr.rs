@@ -71,11 +71,11 @@ impl<'sess> VdMirExprFld<'sess> {
                 VdMirFunc::Power(vd_power_signature) => {
                     match arguments[1].data() {
                         VdMirExprFldData::Literal(literal) => match *literal.data() {
-                            VdLiteralData::Nat128(n) if n < 10 => {
+                            VdLiteralData::Int128(i) if i >= 0 && i < 10 => {
                                 use husky_unicode_symbols::superscript::superscript;
 
                                 // use unicode to show the superscript
-                                let superscript = superscript(n as u8).unwrap();
+                                let superscript = superscript(i as u8).unwrap();
                                 arguments[0].show(VdPrecedenceRange::ATOM, f)?;
                                 write!(f, "{}", superscript)?;
                                 return Ok(());

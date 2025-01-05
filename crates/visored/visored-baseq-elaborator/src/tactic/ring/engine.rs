@@ -39,8 +39,8 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
         let expr_arena = self.expr_arena;
         match *expr_arena[expr].data() {
             VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
-                VdLiteralData::Nat128(n) => Term::Rational(RationalTerm::Nat128(n)),
                 VdLiteralData::Int128(i) => Term::Rational(RationalTerm::Int128(i)),
+                VdLiteralData::BigInt(n) => todo!(),
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },

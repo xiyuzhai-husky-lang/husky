@@ -86,10 +86,16 @@ where
 
 #[eterned::memo]
 fn to_lean_literal(literal: VdLiteral, db: &EternerDb) -> LnLiteral {
-    let data = match literal.data() {
-        VdLiteralData::Nat128(lit) => LnLiteralData::Nat(lit.to_string()),
-        VdLiteralData::Int128(lit) => LnLiteralData::Int(lit.to_string()),
-        VdLiteralData::Float(lit) => LnLiteralData::Float(lit.to_string()),
+    let data = match *literal.data() {
+        VdLiteralData::Int128(i) => {
+            if i >= 0 {
+                LnLiteralData::Nat(i.to_string())
+            } else {
+                LnLiteralData::Int(i.to_string())
+            }
+        }
+        VdLiteralData::BigInt(n) => todo!(),
+        VdLiteralData::Float(ref lit) => LnLiteralData::Float(lit.to_string()),
         VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };
     LnLiteral::new(data, db)

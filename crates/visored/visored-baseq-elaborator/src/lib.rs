@@ -10,6 +10,7 @@ pub mod tactic;
 pub mod term;
 #[cfg(test)]
 mod tests;
+pub mod variable;
 
 use eterned::db::EternerDb;
 use visored_models::VdModels;

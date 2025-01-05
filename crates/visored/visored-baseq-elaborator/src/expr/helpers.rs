@@ -9,13 +9,13 @@ impl<'sess> VdMirExprFld<'sess> {
         self.eqs_nat128(1)
     }
 
-    pub fn eqs_nat128(self, n: u128) -> bool {
+    pub fn eqs_nat128(self, i: i128) -> bool {
         let VdMirExprFldData::Literal(lit) = self.data() else {
             return false;
         };
-        let VdLiteralData::Nat128(n0) = lit.data() else {
+        let VdLiteralData::Int128(i1) = *lit.data() else {
             return false;
         };
-        n == *n0
+        i1 == i
     }
 }

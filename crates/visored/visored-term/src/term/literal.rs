@@ -31,8 +31,8 @@ impl std::fmt::Debug for VdLiteral {
 impl VdLiteral {
     pub fn show(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
-            VdLiteralData::Nat128(u) => write!(f, "{}", u),
             VdLiteralData::Int128(i) => write!(f, "{}", i),
+            VdLiteralData::BigInt(n) => todo!(),
             VdLiteralData::Float(s) => write!(f, "{}", s),
             VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
         }
@@ -41,8 +41,8 @@ impl VdLiteral {
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdLiteralData {
-    Nat128(u128),
     Int128(i128),
+    BigInt(()),
     Float(String),
     SpecialConstant(VdSpecialConstant),
 }
@@ -50,8 +50,8 @@ pub enum VdLiteralData {
 impl std::fmt::Display for VdLiteralData {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VdLiteralData::Nat128(n) => write!(f, "{}", n),
             VdLiteralData::Int128(n) => write!(f, "{}", n),
+            VdLiteralData::BigInt(n) => todo!(),
             VdLiteralData::Float(n) => write!(f, "{}", n),
             VdLiteralData::SpecialConstant(n) => todo!(),
         }
@@ -78,9 +78,15 @@ impl VdLiteral {
 fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
     let data = literal.data();
     let menu = vd_ty_menu(db);
-    match data {
-        VdLiteralData::Nat128(_) => menu.nat,
-        VdLiteralData::Int128(_) => menu.int,
+    match *data {
+        VdLiteralData::Int128(i) => {
+            if i >= 0 {
+                menu.nat
+            } else {
+                menu.int
+            }
+        }
+        VdLiteralData::BigInt(n) => todo!(),
         VdLiteralData::Float(_) => menu.rat,
         VdLiteralData::SpecialConstant(special_constant) => todo!(),
     }
