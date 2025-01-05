@@ -1,30 +1,41 @@
 use super::*;
 use lean_entity_path::theorem::LnTheoremPath;
-use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
+use lean_mir_expr::{
+    expr::LnMirExprData,
+    tactic::{LnMirTacticData, LnMirTacticIdxRange},
+};
 use visored_entity_path::theorem::VdTheoremPath;
 use visored_mir_expr::{
     coercion::VdMirCoercion,
-    hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx},
+    hypothesis::{
+        chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisIdx,
+    },
 };
 
 impl<'a, S> VdLeanTranspilationBuilder<'a, S>
 where
     S: IsVdLeanTranspilationScheme,
 {
-    pub(crate) fn build_hypothesis_tactics(
+    pub(crate) fn build_hypothesis_chunk_tactics(
         &mut self,
-        hypothesis: VdMirHypothesisIdx,
-    ) -> LnMirTacticIdxRange {
-        let tactics = self.build_hypothesis_tactics_data(hypothesis);
-        self.alloc_tactics(tactics)
+        hypothesis_chunk: VdMirHypothesisChunk,
+        ln_tactics: &mut Vec<LnMirTacticData>,
+    ) {
+        for hypothesis in hypothesis_chunk.new_hypotheses() {
+            self.build_hypothesis_tactics(hypothesis, ln_tactics);
+        }
     }
 
-    pub(super) fn build_hypothesis_tactics_data(
+    fn build_hypothesis_tactics(
         &mut self,
         hypothesis: VdMirHypothesisIdx,
-    ) -> Vec<LnMirTacticData> {
-        match self.hypothesis_arena()[hypothesis].construction() {
-            VdMirHypothesisConstruction::Sorry => vec![self.default_tactic_data()],
+        ln_tactics: &mut Vec<LnMirTacticData>,
+    ) {
+        let hypothesis_entry = &self.hypothesis_arena()[hypothesis];
+        match hypothesis_entry.construction() {
+            VdMirHypothesisConstruction::Sorry => {
+                ln_tactics.push(self.default_tactic_data());
+            }
             VdMirHypothesisConstruction::Apply {
                 path,
                 is_real_coercion,
@@ -33,15 +44,22 @@ where
                     VdMirCoercion::Trivial => (),
                     VdMirCoercion::Obvious(arena_idx) => todo!("handle this properly."),
                 }
-                vec![LnMirTacticData::Apply {
+                let construction_tactics = self.alloc_tactics([LnMirTacticData::Apply {
                     path: match path {
                         VdTheoremPath::SquareNonnegative => LnTheoremPath::SquareNonnegative,
                     },
-                }]
+                }]);
+                let construction = self.alloc_expr(LnMirExprData::By {
+                    tactics: construction_tactics,
+                });
+                let ident = self.mangle_hypothesis();
+                ln_tactics.push(LnMirTacticData::Have {
+                    ident,
+                    ty: hypothesis_entry.expr().to_lean(self),
+                    construction,
+                });
             }
-            VdMirHypothesisConstruction::Assume => {
-                todo!("bad: discern hypothesis established already")
-            }
+            VdMirHypothesisConstruction::Assume => (),
         }
     }
 }

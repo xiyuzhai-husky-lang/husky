@@ -121,7 +121,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
             }
             VdMirStmtData::Show { prop, hint } => (format!("show"), vec![self.render_expr(prop)]),
             VdMirStmtData::Qed {
-                goal_and_hypothesis_place,
+                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
             } => (
                 format!("qed"),
                 goal_and_hypothesis_place

@@ -2,7 +2,9 @@ use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
 use expr::{application::VdMirFunc, VdMirExprData, VdMirExprIdxRange};
 use hint::VdMirHintIdx;
-use hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
+use hypothesis::{
+    chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisIdx,
+};
 use smallvec::SmallVec;
 use smallvec::ToSmallVec;
 use visored_opr::separator::VdBaseSeparator;
@@ -127,6 +129,7 @@ impl IsVdMirSequentialElaboratorInner for () {
         ()
     }
 
+    #[track_caller]
     fn transcribe_explicit_hypothesis(
         &mut self,
         hypothesis: (),
@@ -210,21 +213,27 @@ where
                     .inner
                     .elaborate_assume_stmt(prop)
                     .expect("handle contradiction");
-                let hypothesis = self.inner.transcribe_explicit_hypothesis(
-                    hypothesis,
-                    prop,
-                    hypothesis_constructor,
+                let hypothesis_chunk = hypothesis_constructor.obtain_hypothesis_chunk_within_stmt(
+                    stmt,
+                    |hypothesis_constructor| {
+                        self.inner.transcribe_explicit_hypothesis(
+                            hypothesis,
+                            prop,
+                            hypothesis_constructor,
+                        )
+                    },
                 );
                 hypothesis_constructor
                     .stmt_arena_mut()
                     .update(stmt, |entry| {
                         let VdMirStmtData::Assume {
-                            hypothesis_place, ..
+                            hypothesis_chunk_place,
+                            ..
                         } = entry.data_mut()
                         else {
                             unreachable!()
                         };
-                        hypothesis_place.set(Ok(hypothesis));
+                        hypothesis_chunk_place.set(Ok(hypothesis_chunk));
                     });
             }
             VdMirStmtData::LetAssigned { .. } => {
@@ -245,21 +254,27 @@ where
                     .inner
                     .elaborate_have_stmt(stmt, prop, hint, hypothesis_constructor.region_data())
                     .expect("handle contradiction");
-                let hypothesis = self.inner.transcribe_explicit_hypothesis(
-                    hypothesis,
-                    prop,
-                    hypothesis_constructor,
+                let hypothesis_chunk = hypothesis_constructor.obtain_hypothesis_chunk_within_stmt(
+                    stmt,
+                    |hypothesis_constructor| {
+                        self.inner.transcribe_explicit_hypothesis(
+                            hypothesis,
+                            prop,
+                            hypothesis_constructor,
+                        )
+                    },
                 );
                 hypothesis_constructor
                     .stmt_arena_mut()
                     .update(stmt, |entry| {
                         let VdMirStmtData::Have {
-                            hypothesis_place, ..
+                            hypothesis_chunk_place,
+                            ..
                         } = entry.data_mut()
                         else {
                             unreachable!()
                         };
-                        hypothesis_place.set(Ok(hypothesis));
+                        hypothesis_chunk_place.set(Ok(hypothesis_chunk));
                     });
             }
             VdMirStmtData::Show { .. } => {
@@ -270,7 +285,7 @@ where
                 todo!();
             }
             VdMirStmtData::Qed {
-                goal_and_hypothesis_place,
+                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
             } => {
                 if let Some((goal, _)) = goal_and_hypothesis_place {
                     let hypothesis = self
@@ -286,13 +301,14 @@ where
                         .stmt_arena_mut()
                         .update(stmt, |entry| {
                             let VdMirStmtData::Qed {
-                                goal_and_hypothesis_place: Some((_, hypothesis_place)),
+                                goal_and_hypothesis_chunk_place: Some((_, hypothesis_chunk_place)),
                                 ..
                             } = entry.data_mut()
                             else {
                                 unreachable!()
                             };
-                            hypothesis_place.set(Ok(hypothesis));
+                            hypothesis_chunk_place
+                                .set(Ok(VdMirHypothesisChunk::new(todo!(), hypothesis)));
                         });
                 }
             }

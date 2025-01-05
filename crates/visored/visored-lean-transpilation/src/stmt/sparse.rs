@@ -75,12 +75,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             VdMirStmtData::Goal { prop } => todo!(),
             VdMirStmtData::Have {
                 prop,
-                hypothesis_place,
+                hypothesis_chunk_place,
                 ..
-            } => Some(self.build_have_stmt(stmt, prop, hypothesis_place.unwrap())),
+            } => Some(self.build_have_stmt(stmt, prop, hypothesis_chunk_place.unwrap())),
             VdMirStmtData::Show { prop, .. } => Some(self.build_show_stmt(stmt, prop)),
             VdMirStmtData::Qed {
-                goal_and_hypothesis_place,
+                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
                 ..
             } => Some(self.build_qed_stmt(stmt, goal_and_hypothesis_place.map(|(goal, _)| goal)?)),
         }

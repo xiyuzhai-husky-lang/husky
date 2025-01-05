@@ -1,5 +1,5 @@
-use super::VdMirHypothesisIdx;
+use super::chunk::VdMirHypothesisChunk;
 
 pub type VdMirContradiction = ();
 
-pub type VdMirHypothesisResult = Result<VdMirHypothesisIdx, VdMirContradiction>;
+pub type VdMirHypothesisResult = Result<VdMirHypothesisChunk, VdMirContradiction>;

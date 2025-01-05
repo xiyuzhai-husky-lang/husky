@@ -1,14 +1,17 @@
 use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprIdx},
     hint::VdMirHintArena,
-    hypothesis::VdMirHypothesisEntry,
+    hypothesis::{VdMirHypothesisEntry, VdMirHypothesisIdxRange},
     region::VdMirExprRegionDataRef,
-    stmt::{VdMirStmtArena, VdMirStmtArenaRef},
+    stmt::{VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtIdx},
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
 };
 use eterned::db::EternerDb;
 
-use super::{construction::VdMirHypothesisConstruction, VdMirHypothesisArena, VdMirHypothesisIdx};
+use super::{
+    chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisArena,
+    VdMirHypothesisIdx,
+};
 
 pub struct VdMirHypothesisConstructor<'db> {
     db: &'db EternerDb,
@@ -17,6 +20,7 @@ pub struct VdMirHypothesisConstructor<'db> {
     hint_arena: VdMirHintArena,
     hypothesis_arena: VdMirHypothesisArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
+    current_stmt_and_hypothesis_chunk_start: Option<(VdMirStmtIdx, VdMirHypothesisIdx)>,
 }
 
 impl<'db> VdMirHypothesisConstructor<'db> {
@@ -34,6 +38,7 @@ impl<'db> VdMirHypothesisConstructor<'db> {
             hint_arena,
             symbol_local_defn_storage,
             hypothesis_arena: Default::default(),
+            current_stmt_and_hypothesis_chunk_start: None,
         }
     }
 }
@@ -62,12 +67,38 @@ impl<'db> VdMirHypothesisConstructor<'db> {
 }
 
 impl<'db> VdMirHypothesisConstructor<'db> {
+    pub(crate) fn obtain_hypothesis_chunk_within_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        f: impl FnOnce(&mut Self) -> VdMirHypothesisIdx,
+    ) -> VdMirHypothesisChunk {
+        assert!(self.current_stmt_and_hypothesis_chunk_start.is_none());
+        self.current_stmt_and_hypothesis_chunk_start = Some((stmt, unsafe {
+            VdMirHypothesisIdx::new_ext(self.hypothesis_arena.len())
+        }));
+        let result = f(self);
+        let Some((stmt, chunk_start)) = self.current_stmt_and_hypothesis_chunk_start else {
+            unreachable!()
+        };
+        self.current_stmt_and_hypothesis_chunk_start = None;
+        VdMirHypothesisChunk::new(
+            unsafe {
+                VdMirHypothesisIdxRange::new(chunk_start, unsafe {
+                    VdMirHypothesisIdx::new_ext(self.hypothesis_arena.len())
+                })
+            },
+            result,
+        )
+    }
+
     // TODO: do more things like handle hypothesis stack, register src, etc.
+    #[track_caller]
     pub fn construct_new_hypothesis(
         &mut self,
         expr: VdMirExprIdx,
         hypothesis: VdMirHypothesisConstruction,
     ) -> VdMirHypothesisIdx {
+        assert!(self.current_stmt_and_hypothesis_chunk_start.is_some());
         self.hypothesis_arena
             .alloc_one(VdMirHypothesisEntry::new(expr, hypothesis))
     }

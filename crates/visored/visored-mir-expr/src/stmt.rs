@@ -41,7 +41,7 @@ pub enum VdMirStmtData {
     },
     Assume {
         prop: VdMirExprIdx,
-        hypothesis_place: OncePlace<VdMirHypothesisResult>,
+        hypothesis_chunk_place: OncePlace<VdMirHypothesisResult>,
     },
     LetAssigned {
         pattern: VdMirPattern,
@@ -53,14 +53,14 @@ pub enum VdMirStmtData {
     Have {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
-        hypothesis_place: OncePlace<VdMirHypothesisResult>,
+        hypothesis_chunk_place: OncePlace<VdMirHypothesisResult>,
     },
     Show {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
     },
     Qed {
-        goal_and_hypothesis_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
+        goal_and_hypothesis_chunk_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
     },
 }
 
@@ -92,7 +92,7 @@ impl VdMirStmtEntry {
 
     pub fn new_qed(goal: Option<VdMirExprIdx>) -> Self {
         Self::new(VdMirStmtData::Qed {
-            goal_and_hypothesis_place: goal.map(|goal| (goal, OncePlace::default())),
+            goal_and_hypothesis_chunk_place: goal.map(|goal| (goal, OncePlace::default())),
         })
     }
 }
@@ -282,7 +282,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 right_math_delimiter_token_idx: right_dollar_token_idx,
             } => VdMirStmtData::Assume {
                 prop: formula.to_vd_mir(self),
-                hypothesis_place: OncePlace::default(),
+                hypothesis_chunk_place: OncePlace::default(),
             },
             VdSemClauseData::Goal {
                 left_math_delimiter_token_idx: left_dollar_token_idx,
@@ -298,7 +298,7 @@ impl<'db> VdMirExprBuilder<'db> {
             } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
                 hint: None, // ad hoc
-                hypothesis_place: OncePlace::default(),
+                hypothesis_chunk_place: OncePlace::default(),
             },
             VdSemClauseData::Show {
                 left_math_delimiter_token_idx: left_dollar_token_idx,

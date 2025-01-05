@@ -1,3 +1,4 @@
+pub mod chunk;
 pub mod construction;
 pub mod constructor;
 pub mod contradiction;
@@ -6,7 +7,7 @@ pub mod stack;
 
 use self::construction::VdMirHypothesisConstruction;
 use crate::expr::VdMirExprIdx;
-use idx_arena::{Arena, ArenaIdx, ArenaRef};
+use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
 pub struct VdMirHypothesisEntry {
     expr: VdMirExprIdx,
@@ -14,6 +15,7 @@ pub struct VdMirHypothesisEntry {
 }
 
 pub type VdMirHypothesisIdx = ArenaIdx<VdMirHypothesisEntry>;
+pub type VdMirHypothesisIdxRange = ArenaIdxRange<VdMirHypothesisEntry>;
 pub type VdMirHypothesisArena = Arena<VdMirHypothesisEntry>;
 pub type VdMirHypothesisArenaRef<'a> = ArenaRef<'a, VdMirHypothesisEntry>;
 

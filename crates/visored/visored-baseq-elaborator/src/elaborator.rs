@@ -152,6 +152,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         self.cache_expr_fld(expr, region_data);
     }
 
+    #[track_caller]
     fn transcribe_explicit_hypothesis(
         &mut self,
         hypothesis: Self::HypothesisIdx,

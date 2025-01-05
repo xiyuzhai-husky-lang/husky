@@ -1,6 +1,8 @@
 use super::*;
 use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
-use visored_mir_expr::hypothesis::{construction::VdMirHypothesisConstruction, VdMirHypothesisIdx};
+use visored_mir_expr::hypothesis::{
+    chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisIdx,
+};
 
 impl<'a, S> VdLeanTranspilationBuilder<'a, S>
 where
@@ -9,11 +11,16 @@ where
     pub(super) fn build_qed_tactics(
         &mut self,
         stmt: VdMirStmtIdx,
-        hypothesis: Option<VdMirHypothesisIdx>,
-    ) -> Vec<LnMirTacticData> {
-        match hypothesis {
-            Some(hypothesis) => self.build_hypothesis_tactics_data(hypothesis),
-            None => vec![self.exact_unit()],
+        hypothesis_chunk: Option<VdMirHypothesisChunk>,
+        ln_tactics: &mut Vec<LnMirTacticData>,
+    ) {
+        match hypothesis_chunk {
+            Some(hypothesis_chunk) => {
+                self.build_hypothesis_chunk_tactics(hypothesis_chunk, ln_tactics)
+            }
+            None => {
+                ln_tactics.push(self.exact_unit());
+            }
         }
     }
 }
