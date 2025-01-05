@@ -9302,6 +9302,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "miracle"
+version = "0.1.0"
+dependencies = [
+ "alt-option",
+ "ordered-float 4.5.0",
+ "sealed",
+]
+
+[[package]]
 name = "mizar-hir-expr"
 version = "0.1.0"
 
