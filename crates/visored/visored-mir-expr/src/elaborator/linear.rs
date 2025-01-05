@@ -52,6 +52,12 @@ pub trait IsVdMirSequentialElaboratorInner {
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     );
 
+    fn elaborate_folding_separated_list_expr(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+    );
+
     fn elaborate_chaining_separated_list_expr(
         &mut self,
         leader: VdMirExprIdx,
@@ -112,6 +118,14 @@ impl IsVdMirSequentialElaboratorInner for () {
         function: VdMirFunc,
         arguments: VdMirExprIdxRange,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
+        ()
+    }
+
+    fn elaborate_folding_separated_list_expr(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
     ) {
         ()
     }
@@ -339,7 +353,18 @@ where
             VdMirExprData::FoldingSeparatedList {
                 leader,
                 ref followers,
-            } => todo!(),
+            } => {
+                // need to do this to avoid rustc complaining
+                // we could also unsafe this
+                let followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]> = followers.to_smallvec();
+                let followers: &[(VdMirFunc, VdMirExprIdx)] = &followers;
+                self.elaborate_expr(leader, hypothesis_constructor);
+                for &(_, follower) in followers {
+                    self.elaborate_expr(follower, hypothesis_constructor);
+                }
+                self.inner
+                    .elaborate_folding_separated_list_expr(leader, followers)
+            }
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,

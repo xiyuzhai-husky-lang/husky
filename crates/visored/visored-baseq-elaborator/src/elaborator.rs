@@ -139,6 +139,43 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         }
     }
 
+    fn elaborate_folding_separated_list_expr(
+        &mut self,
+        leader: VdMirExprIdx,
+        followers: &[(VdMirFunc, VdMirExprIdx)],
+    ) {
+        let (fst_func, fst) = followers[0];
+        let VdMirFunc::NormalBaseSeparator(fst_signature) = fst_func else {
+            unreachable!()
+        };
+        match fst_signature.opr() {
+            VdBaseSeparator::Space => todo!(),
+            VdBaseSeparator::Comma => todo!(),
+            VdBaseSeparator::Semicolon => todo!(),
+            VdBaseSeparator::Add => (),
+            VdBaseSeparator::Mul => todo!(),
+            VdBaseSeparator::Dot => todo!(),
+            VdBaseSeparator::Eq => todo!(),
+            VdBaseSeparator::Ne => todo!(),
+            VdBaseSeparator::Lt => todo!(),
+            VdBaseSeparator::Gt => todo!(),
+            VdBaseSeparator::Le => todo!(),
+            VdBaseSeparator::Ge => todo!(),
+            VdBaseSeparator::Subset => todo!(),
+            VdBaseSeparator::Supset => todo!(),
+            VdBaseSeparator::Subseteq => todo!(),
+            VdBaseSeparator::Supseteq => todo!(),
+            VdBaseSeparator::Subseteqq => todo!(),
+            VdBaseSeparator::Supseteqq => todo!(),
+            VdBaseSeparator::Subsetneq => todo!(),
+            VdBaseSeparator::Supsetneq => todo!(),
+            VdBaseSeparator::In => todo!(),
+            VdBaseSeparator::Notin => todo!(),
+            VdBaseSeparator::Times => todo!(),
+            VdBaseSeparator::Otimes => todo!(),
+        }
+    }
+
     fn elaborate_chaining_separated_list_expr(
         &mut self,
         leader: VdMirExprIdx,
