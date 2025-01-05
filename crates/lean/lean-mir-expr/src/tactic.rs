@@ -38,6 +38,9 @@ pub enum LnMirTacticData {
         path: LnTheoremPath,
     },
     Obvious,
+    AdHoc {
+        name: &'static str,
+    },
 }
 
 pub type LnMirTacticArena = Arena<LnMirTacticData>;

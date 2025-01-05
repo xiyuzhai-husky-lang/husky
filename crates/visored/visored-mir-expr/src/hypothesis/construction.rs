@@ -11,4 +11,7 @@ pub enum VdMirHypothesisConstruction {
     },
     Assume,
     Sorry,
+    TermEquivalent {
+        // hypothesis: VdMirHypothesisIdx,
+    },
 }

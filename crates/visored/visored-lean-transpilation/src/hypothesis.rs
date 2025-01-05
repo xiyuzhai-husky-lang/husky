@@ -32,9 +32,10 @@ where
         ln_tactics: &mut Vec<LnMirTacticData>,
     ) {
         let hypothesis_entry = &self.hypothesis_arena()[hypothesis];
-        match hypothesis_entry.construction() {
+        let construction_tactics = match hypothesis_entry.construction() {
             VdMirHypothesisConstruction::Sorry => {
-                ln_tactics.push(self.default_tactic_data());
+                let default_tactic_data = self.default_tactic_data();
+                self.alloc_tactics([default_tactic_data])
             }
             VdMirHypothesisConstruction::Apply {
                 path,
@@ -44,22 +45,26 @@ where
                     VdMirCoercion::Trivial => (),
                     VdMirCoercion::Obvious(arena_idx) => todo!("handle this properly."),
                 }
-                let construction_tactics = self.alloc_tactics([LnMirTacticData::Apply {
+                self.alloc_tactics([LnMirTacticData::Apply {
                     path: match path {
                         VdTheoremPath::SquareNonnegative => LnTheoremPath::SquareNonnegative,
                     },
-                }]);
-                let construction = self.alloc_expr(LnMirExprData::By {
-                    tactics: construction_tactics,
-                });
-                let ident = self.mangle_hypothesis();
-                ln_tactics.push(LnMirTacticData::Have {
-                    ident,
-                    ty: hypothesis_entry.expr().to_lean(self),
-                    construction,
-                });
+                }])
             }
-            VdMirHypothesisConstruction::Assume => (),
-        }
+            VdMirHypothesisConstruction::Assume => return,
+            VdMirHypothesisConstruction::TermEquivalent {} => {
+                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_equivalent");
+                self.alloc_tactics([ad_hoc_tactic_data])
+            }
+        };
+        let construction = self.alloc_expr(LnMirExprData::By {
+            tactics: construction_tactics,
+        });
+        let ident = self.mangle_hypothesis();
+        ln_tactics.push(LnMirTacticData::Have {
+            ident,
+            ty: hypothesis_entry.expr().to_lean(self),
+            construction,
+        });
     }
 }

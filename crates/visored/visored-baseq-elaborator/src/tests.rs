@@ -58,6 +58,15 @@ fn visored_tactic_basic_elaborator_works() {
             let lean4_code: String = format!(
                 r#"import Mathlib
 
+macro "term_equivalent": tactic =>`(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; done
+  | linarith; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 {}
 "#,
                 tracker.show_fmt(db)

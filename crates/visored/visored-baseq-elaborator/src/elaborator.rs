@@ -169,15 +169,10 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
                     .transcribe_coercion(is_real_coercion, hypothesis_constructor),
             },
             VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
-            VdBsqHypothesisConstruction::Assume => {
-                // todo!();
-                use husky_print_utils::p;
-                p!(self.expr_fld(goal));
-                use husky_debug_utils::detonate;
-                detonate!(1, "transcribe_explicit_hypothesis");
-                VdMirHypothesisConstruction::Assume
+            VdBsqHypothesisConstruction::Assume => VdMirHypothesisConstruction::Assume,
+            VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => {
+                VdMirHypothesisConstruction::TermEquivalent {}
             }
-            VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => todo!(),
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }

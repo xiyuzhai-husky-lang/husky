@@ -383,6 +383,9 @@ impl<'a> LnMirExprFormatter<'a> {
                 self.result += "apply ";
                 self.result += path.code();
             }
+            LnMirTacticData::AdHoc { name } => {
+                self.result += name;
+            }
         }
     }
 

@@ -16,6 +16,10 @@ where
         LnMirTacticData::Obvious
     }
 
+    pub fn ad_hoc_tactic_data(&mut self, name: &'static str) -> LnMirTacticData {
+        LnMirTacticData::AdHoc { name }
+    }
+
     pub fn exact_unit(&mut self) -> LnMirTacticData {
         let unit = self.alloc_expr(LnMirExprData::ItemPath(LnItemPath::UNIT));
         LnMirTacticData::Exact { term: unit }
