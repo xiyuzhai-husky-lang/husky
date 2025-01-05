@@ -9,6 +9,15 @@ pub struct VdBsqInumSumTermData<'sess> {
     irrational_monomial_coefficients: VdBsqInumMonomialCoefficients<'sess>,
 }
 
+impl<'sess> VdBsqSumInumTerm<'sess> {
+    pub fn data(self) -> &'sess VdBsqInumSumTermData<'sess> {
+        match self.0.data() {
+            VdBsqInumTermData::Sum(data) => data,
+            _ => unreachable!(),
+        }
+    }
+}
+
 impl<'sess> VdBsqInumSumTermData<'sess> {
     pub fn constant_term(&self) -> VdBsqRnumTerm {
         self.constant_term

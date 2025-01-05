@@ -9,7 +9,7 @@ use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
 use num_relationship::VdBsqNumRelationshipPropTermKind;
-use product::VdBsqProductInumTerm;
+use product::VdBsqProductInumTermBase;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprData, VdMirExprEntry},
@@ -38,13 +38,14 @@ pub enum VdBsqNumTerm<'sess> {
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
-    ) -> Either<VdBsqProductInumTerm<'sess>, VdBsqNonProductNumTerm<'sess>> {
+    ) -> Either<(VdBsqRnumTerm, VdBsqProductInumTermBase<'sess>), VdBsqNonProductNumTerm<'sess>>
+    {
         match self {
             VdBsqNumTerm::Rnum(term) => todo!(),
             VdBsqNumTerm::Inum(term) => match term {
                 VdBsqInumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::AtomInum(term)),
                 VdBsqInumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::SumInum(term)),
-                VdBsqInumTerm::Product(term) => Left(term),
+                VdBsqInumTerm::Product(rnum, term) => Left((rnum, term)),
             },
         }
     }
