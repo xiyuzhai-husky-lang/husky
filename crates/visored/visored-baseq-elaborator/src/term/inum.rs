@@ -6,6 +6,7 @@ use self::{atom::*, product::*, sum::*};
 use super::*;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqInumTerm<'sess> {
     Atom(VdBsqAtomInumTerm<'sess>),
@@ -13,6 +14,7 @@ pub enum VdBsqInumTerm<'sess> {
     Product(VdBsqProductInumTerm<'sess>),
 }
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonProductNumTerm<'sess> {
     Rnum(VdBsqRnumTerm),
@@ -20,6 +22,7 @@ pub enum VdBsqNonProductNumTerm<'sess> {
     SumInum(VdBsqSumInumTerm<'sess>),
 }
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonSumInumTerm<'sess> {
     Atom(VdBsqAtomInumTerm<'sess>),
@@ -32,6 +35,7 @@ pub struct VdBsqInumTermFld<'sess> {
     pub data: VdBsqInumTermData<'sess>,
 }
 
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqInumTermData<'sess> {
     Atom(VdBsqInumAtomTermData),

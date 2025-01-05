@@ -28,6 +28,7 @@ pub enum VdBsqTerm<'sess> {
     Prop(VdBsqPropTerm<'sess>),
 }
 
+#[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNumTerm<'sess> {
     Rnum(VdBsqRnumTerm),
