@@ -1,4 +1,5 @@
 use super::*;
+use latex_math_letter::letter::LxMathLetter;
 use visored_mir_expr::symbol::local_defn::VdMirSymbolLocalDefnIdx;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -6,7 +7,7 @@ pub struct VdBsqAtomInumTerm<'sess>(VdBsqInumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqInumAtomTermData {
-    Variable(VdMirSymbolLocalDefnIdx),
+    Variable(LxMathLetter, VdMirSymbolLocalDefnIdx),
 }
 
 impl<'sess> VdBsqAtomInumTerm<'sess> {
@@ -32,14 +33,34 @@ impl<'sess> VdBsqInumTerm<'sess> {
 
 impl<'sess> VdBsqTerm<'sess> {
     pub fn new_numeric_variable(
+        lx_math_letter: LxMathLetter,
         local_defn_idx: VdMirSymbolLocalDefnIdx,
         db: &'sess FloaterDb,
     ) -> Self {
         VdBsqTerm::Inum(VdBsqInumTerm::Atom(VdBsqAtomInumTerm(
             VdBsqInumTermFld::new(
-                VdBsqInumTermData::Atom(VdBsqInumAtomTermData::Variable(local_defn_idx)),
+                VdBsqInumTermData::Atom(VdBsqInumAtomTermData::Variable(
+                    lx_math_letter,
+                    local_defn_idx,
+                )),
                 db,
             ),
         )))
+    }
+}
+
+impl<'sess> VdBsqAtomInumTerm<'sess> {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.data().show_fmt(f)
+    }
+}
+
+impl<'sess> VdBsqInumAtomTermData {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdBsqInumAtomTermData::Variable(lx_math_letter, _) => {
+                write!(f, "{}", lx_math_letter.unicode())
+            }
+        }
     }
 }

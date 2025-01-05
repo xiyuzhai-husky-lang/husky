@@ -67,12 +67,6 @@ impl<'sess> std::fmt::Debug for VdBsqTerm<'sess> {
     }
 }
 
-impl<'sess> std::fmt::Debug for VdBsqInumTermFld<'sess> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-    }
-}
-
 impl<'sess> std::fmt::Debug for VdBsqNumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
@@ -101,7 +95,11 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     if let Some(_) = self.eval_variable() {
                         todo!()
                     } else {
-                        VdBsqTerm::new_numeric_variable(local_defn_idx, self.floater_db())
+                        VdBsqTerm::new_numeric_variable(
+                            lx_math_letter,
+                            local_defn_idx,
+                            self.floater_db(),
+                        )
                     }
                 } else {
                     todo!()

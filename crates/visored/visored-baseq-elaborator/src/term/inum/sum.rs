@@ -27,3 +27,15 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
         &self.irrational_monomial_coefficients
     }
 }
+
+impl<'sess> VdBsqInumSumTermData<'sess> {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
+}
+
+impl<'sess> VdBsqSumInumTerm<'sess> {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
+}

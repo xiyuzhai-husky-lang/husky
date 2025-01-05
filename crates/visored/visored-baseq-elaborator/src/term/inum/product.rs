@@ -5,7 +5,7 @@ pub struct VdBsqProductInumTermBase<'sess>(VdBsqInumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqProductInumTermBaseData<'sess> {
-    exponentials: VdBsqExponentials<'sess>,
+    exponentials: VdBsqExponentialPowers<'sess>,
 }
 
 impl<'sess> VdBsqProductInumTermBaseData<'sess> {
@@ -81,5 +81,11 @@ impl<'sess> VdBsqTerm<'sess> {
         db: &'sess FloaterDb,
     ) -> Self {
         VdBsqTerm::Inum(VdBsqInumTerm::new_power(base, exponent, db))
+    }
+}
+
+impl<'sess> VdBsqProductInumTermBaseData<'sess> {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
     }
 }

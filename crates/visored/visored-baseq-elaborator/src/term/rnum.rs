@@ -2,11 +2,19 @@ use std::num::NonZeroU128;
 
 use super::*;
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqRnumTerm {
     Int128(i128),
     BigInt(/* TODO */),
     Rat128(i128, u128),
+}
+
+impl std::fmt::Debug for VdBsqRnumTerm {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("`")?;
+        self.show_fmt(f)?;
+        f.write_str("`")
+    }
 }
 
 impl std::ops::AddAssign for VdBsqRnumTerm {
@@ -39,6 +47,16 @@ impl VdBsqRnumTerm {
     pub fn eqs_i128(self, i0: i128) -> bool {
         match self {
             VdBsqRnumTerm::Int128(i) => i == i0,
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+}
+
+impl<'sess> VdBsqRnumTerm {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdBsqRnumTerm::Int128(i) => write!(f, "{}", i),
             VdBsqRnumTerm::BigInt() => todo!(),
             VdBsqRnumTerm::Rat128(_, _) => todo!(),
         }

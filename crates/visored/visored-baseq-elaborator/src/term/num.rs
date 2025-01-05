@@ -28,6 +28,9 @@ impl<'sess> VdBsqNumTerm<'sess> {
         }
         let (lhs_constant_term, lhs_irrational_monomial_coefficients) = self.sum_decomposition();
         let (rhs_constant_term, rhs_irrational_monomial_coefficients) = rhs.sum_decomposition();
+        use husky_print_utils::*;
+        p!(lhs_constant_term, lhs_irrational_monomial_coefficients);
+        p!(rhs_constant_term, rhs_irrational_monomial_coefficients);
         todo!()
     }
 
