@@ -63,6 +63,15 @@ impl<T> Into<Option<T>> for AltOption<T> {
     }
 }
 
+impl<T> From<Option<T>> for AltOption<T> {
+    fn from(value: Option<T>) -> Self {
+        match value {
+            Some(t) => AltSome(t),
+            None => AltNone,
+        }
+    }
+}
+
 #[macro_export]
 macro_rules! try_alt {
     ($($e:expr),+) => {

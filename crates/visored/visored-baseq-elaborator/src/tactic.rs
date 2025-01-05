@@ -1,3 +1,4 @@
+mod assumption;
 pub mod library_search;
 pub mod ring;
 
@@ -10,6 +11,7 @@ use alt_option::AltOption;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdBsqTactic {
+    Assumption,
     LibrarySearch,
 }
 
@@ -20,6 +22,7 @@ impl VdBsqTactic {
         elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         match self {
+            VdBsqTactic::Assumption => elaborator.assumption(prop),
             VdBsqTactic::LibrarySearch => elaborator.library_search(prop),
         }
     }

@@ -29,5 +29,5 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 
 #[deprecated = "TODO: load tactics from a file"]
 pub fn load_obvious_tactics() -> Vec<VdBsqTactic> {
-    vec![VdBsqTactic::LibrarySearch]
+    vec![VdBsqTactic::Assumption, VdBsqTactic::LibrarySearch]
 }

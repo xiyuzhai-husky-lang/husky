@@ -60,6 +60,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             },
             VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
             VdBsqHypothesisConstruction::Assume => todo!(),
+            VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => todo!(),
         };
         let goal = match explicit_goal {
             Some(goal) => goal,

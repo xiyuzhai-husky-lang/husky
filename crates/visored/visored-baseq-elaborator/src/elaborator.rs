@@ -170,6 +170,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             },
             VdBsqHypothesisConstruction::Phantom(phantom_data) => todo!(),
             VdBsqHypothesisConstruction::Assume => VdMirHypothesisConstruction::Assume,
+            VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => todo!(),
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }

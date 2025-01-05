@@ -39,7 +39,9 @@ where
                     },
                 }]
             }
-            VdMirHypothesisConstruction::Assume => todo!(),
+            VdMirHypothesisConstruction::Assume => {
+                todo!("bad: discern hypothesis established already")
+            }
         }
     }
 }
