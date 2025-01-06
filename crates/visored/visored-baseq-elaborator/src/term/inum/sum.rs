@@ -38,6 +38,14 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
             _ => unreachable!(),
         }
     }
+
+    pub fn constant_term(&self) -> VdBsqRnumTerm {
+        self.data().constant_term()
+    }
+
+    pub fn monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
+        self.data().irrational_monomial_coefficients()
+    }
 }
 
 impl<'sess> VdBsqInumSumTermData<'sess> {

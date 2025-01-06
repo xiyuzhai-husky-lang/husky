@@ -54,7 +54,10 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn mul_sum(&mut self, sum: VdBsqSumInumTerm<'sess>) {
-        todo!()
+        self.unpruned_exponentials
+            .insert_or_update((sum.into(), VdBsqNumTerm::ONE), |(_, old_coeff)| {
+                old_coeff.add_assign(VdBsqNumTerm::ONE, self.db)
+            });
     }
 
     pub fn mul_product(&mut self, rnum: VdBsqRnumTerm, product: VdBsqProductInumTermBase<'sess>) {

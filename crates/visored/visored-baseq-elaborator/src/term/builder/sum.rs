@@ -65,7 +65,9 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn sub_sum(&mut self, term: VdBsqSumInumTerm<'sess>) {
-        todo!()
+        for &(monomial, coeff) in term.monomials() {
+            self.add_monomial(monomial, coeff.neg(self.db));
+        }
     }
 
     pub fn add_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqProductInumTermBase<'sess>) {

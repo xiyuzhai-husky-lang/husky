@@ -78,3 +78,9 @@ def h(x : ℝ)(h1 : x ≥ 1) := by
   exact ()
 end Example10
 
+namespace Example11
+def h(x : ℝ) := by
+  have h1 : 2 * (1 + x) = 2 + 2 * x := by obvious
+  exact ()
+end Example11
+

@@ -1,3 +1,5 @@
+mod sum;
+
 use super::*;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
@@ -5,6 +7,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &mut self,
         prop: VdMirExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
-        Ok(self.hypothesis_constructor.assumption(prop).into())
+        todo!()
     }
 }
