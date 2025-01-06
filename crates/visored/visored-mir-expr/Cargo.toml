@@ -36,6 +36,7 @@ visored-global-resolution.workspace = true
 visored-global-dispatch.workspace = true
 visored-entity-path.workspace = true
 visored-models.workspace = true
+visored-mir-opr.workspace = true
 visored-opr.workspace = true
 visored-prelude.workspace = true
 visored-syn-expr.workspace = true

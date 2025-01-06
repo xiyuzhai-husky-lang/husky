@@ -7,7 +7,7 @@ use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
     symbol::local_defn::VdMirSymbolLocalDefnIdx,
 };
-use visored_opr::separator::VdBaseSeparator;
+use visored_mir_opr::separator::VdMirBaseSeparator;
 use visored_term::term::literal::VdLiteralData;
 
 pub struct VdMirRingTacticEngine<'db, 'sess> {
@@ -57,30 +57,14 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
                     unreachable!()
                 };
                 match signature.opr() {
-                    VdBaseSeparator::Space => todo!(),
-                    VdBaseSeparator::Comma => todo!(),
-                    VdBaseSeparator::Semicolon => todo!(),
-                    VdBaseSeparator::Add => self.mk_sum(leader, followers),
-                    VdBaseSeparator::Mul => todo!(),
-                    VdBaseSeparator::Dot => todo!(),
-                    VdBaseSeparator::Eq => todo!(),
-                    VdBaseSeparator::Ne => todo!(),
-                    VdBaseSeparator::Lt => todo!(),
-                    VdBaseSeparator::Gt => todo!(),
-                    VdBaseSeparator::Le => todo!(),
-                    VdBaseSeparator::Ge => todo!(),
-                    VdBaseSeparator::Subset => todo!(),
-                    VdBaseSeparator::Supset => todo!(),
-                    VdBaseSeparator::Subseteq => todo!(),
-                    VdBaseSeparator::Supseteq => todo!(),
-                    VdBaseSeparator::Subseteqq => todo!(),
-                    VdBaseSeparator::Supseteqq => todo!(),
-                    VdBaseSeparator::Subsetneq => todo!(),
-                    VdBaseSeparator::Supsetneq => todo!(),
-                    VdBaseSeparator::In => todo!(),
-                    VdBaseSeparator::Notin => todo!(),
-                    VdBaseSeparator::Times => todo!(),
-                    VdBaseSeparator::Otimes => todo!(),
+                    VdMirBaseSeparator::CommRingAdd => self.mk_sum(leader, followers),
+                    VdMirBaseSeparator::CommRingMul => todo!(),
+                    VdMirBaseSeparator::Eq => todo!(),
+                    VdMirBaseSeparator::Ne => todo!(),
+                    VdMirBaseSeparator::Lt => todo!(),
+                    VdMirBaseSeparator::Gt => todo!(),
+                    VdMirBaseSeparator::Le => todo!(),
+                    VdMirBaseSeparator::Ge => todo!(),
                 }
             }
             VdMirExprData::ChainingSeparatedList {
@@ -172,7 +156,7 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
                 unreachable!()
             };
             match signature.opr() {
-                VdBaseSeparator::Add => t(*follower),
+                VdMirBaseSeparator::CommRingAdd => t(*follower),
                 _ => unreachable!(),
             }
         }

@@ -19,7 +19,7 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_term::term::{literal::VdLiteralData, VdTermData};
 
 #[enum_class::from_variants]
@@ -107,7 +107,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
                 VdMirFunc::NormalBaseSeparator(signature) => todo!(),
                 VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
-                    VdBaseBinaryOpr::Sub => {
+                    VdMirBaseBinaryOpr::CommRingSub => {
                         let lopd = self
                             .expr_fld(arguments.first().unwrap())
                             .term()
@@ -120,7 +120,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                             .unwrap();
                         lopd.sub(ropd, self.floater_db()).into()
                     }
-                    VdBaseBinaryOpr::Div => todo!(),
+                    VdMirBaseBinaryOpr::CommFieldDiv => todo!(),
                 },
                 VdMirFunc::Power(signature) => {
                     assert_eq!(arguments.len(), 2);
@@ -158,10 +158,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 match func {
                     VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
                     VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
-                        VdBaseSeparator::Space => todo!(),
-                        VdBaseSeparator::Comma => todo!(),
-                        VdBaseSeparator::Semicolon => todo!(),
-                        VdBaseSeparator::Add => {
+                        VdMirBaseSeparator::CommRingAdd => {
                             let mut builder = VdBsqSumBuilder::new(self.floater_db());
                             builder.add_num(self.expr_fld(leader).term().num().unwrap());
                             for &(_, follower) in followers.iter() {
@@ -169,7 +166,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                             }
                             builder.finish().into()
                         }
-                        VdBaseSeparator::Mul => {
+                        VdMirBaseSeparator::CommRingMul => {
                             let mut builder = VdBsqProductBuilder::new(self.floater_db());
                             builder.mul_num(self.expr_fld(leader).term().num().unwrap());
                             for &(_, follower) in followers.iter() {
@@ -177,25 +174,12 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                             }
                             builder.finish().into()
                         }
-                        VdBaseSeparator::Dot => todo!(),
-                        VdBaseSeparator::Eq => todo!(),
-                        VdBaseSeparator::Ne => todo!(),
-                        VdBaseSeparator::Lt => todo!(),
-                        VdBaseSeparator::Gt => todo!(),
-                        VdBaseSeparator::Le => todo!(),
-                        VdBaseSeparator::Ge => todo!(),
-                        VdBaseSeparator::Subset => todo!(),
-                        VdBaseSeparator::Supset => todo!(),
-                        VdBaseSeparator::Subseteq => todo!(),
-                        VdBaseSeparator::Supseteq => todo!(),
-                        VdBaseSeparator::Subseteqq => todo!(),
-                        VdBaseSeparator::Supseteqq => todo!(),
-                        VdBaseSeparator::Subsetneq => todo!(),
-                        VdBaseSeparator::Supsetneq => todo!(),
-                        VdBaseSeparator::In => todo!(),
-                        VdBaseSeparator::Notin => todo!(),
-                        VdBaseSeparator::Times => todo!(),
-                        VdBaseSeparator::Otimes => todo!(),
+                        VdMirBaseSeparator::Eq => todo!(),
+                        VdMirBaseSeparator::Ne => todo!(),
+                        VdMirBaseSeparator::Lt => todo!(),
+                        VdMirBaseSeparator::Gt => todo!(),
+                        VdMirBaseSeparator::Le => todo!(),
+                        VdMirBaseSeparator::Ge => todo!(),
                     },
                     VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
                     VdMirFunc::Power(signature) => todo!(),
@@ -225,30 +209,14 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     match func {
                         VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
                         VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
-                            VdBaseSeparator::Space => todo!(),
-                            VdBaseSeparator::Comma => todo!(),
-                            VdBaseSeparator::Semicolon => todo!(),
-                            VdBaseSeparator::Add => todo!(),
-                            VdBaseSeparator::Mul => todo!(),
-                            VdBaseSeparator::Dot => todo!(),
-                            VdBaseSeparator::Eq => num_relationship(self, Eq),
-                            VdBaseSeparator::Ne => num_relationship(self, Ne),
-                            VdBaseSeparator::Lt => num_relationship(self, Lt),
-                            VdBaseSeparator::Gt => num_relationship(self, Gt),
-                            VdBaseSeparator::Le => num_relationship(self, Le),
-                            VdBaseSeparator::Ge => num_relationship(self, Ge),
-                            VdBaseSeparator::Subset => todo!(),
-                            VdBaseSeparator::Supset => todo!(),
-                            VdBaseSeparator::Subseteq => todo!(),
-                            VdBaseSeparator::Supseteq => todo!(),
-                            VdBaseSeparator::Subseteqq => todo!(),
-                            VdBaseSeparator::Supseteqq => todo!(),
-                            VdBaseSeparator::Subsetneq => todo!(),
-                            VdBaseSeparator::Supsetneq => todo!(),
-                            VdBaseSeparator::In => todo!(),
-                            VdBaseSeparator::Notin => todo!(),
-                            VdBaseSeparator::Times => todo!(),
-                            VdBaseSeparator::Otimes => todo!(),
+                            VdMirBaseSeparator::CommRingAdd => todo!(),
+                            VdMirBaseSeparator::CommRingMul => todo!(),
+                            VdMirBaseSeparator::Eq => num_relationship(self, Eq),
+                            VdMirBaseSeparator::Ne => num_relationship(self, Ne),
+                            VdMirBaseSeparator::Lt => num_relationship(self, Lt),
+                            VdMirBaseSeparator::Gt => num_relationship(self, Gt),
+                            VdMirBaseSeparator::Le => num_relationship(self, Le),
+                            VdMirBaseSeparator::Ge => num_relationship(self, Ge),
                         },
                         VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
                         VdMirFunc::Power(signature) => todo!(),

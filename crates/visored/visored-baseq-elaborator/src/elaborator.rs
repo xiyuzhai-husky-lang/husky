@@ -1,3 +1,13 @@
+use crate::{
+    expr::VdMirExprFld,
+    hypothesis::{
+        construction::VdBsqHypothesisConstruction,
+        constructor::VdBsqHypothesisConstructor,
+        contradiction::{VdBsqHypothesisContradiction, VdBsqHypothesisResult},
+        VdBsqHypothesisIdx,
+    },
+    session::VdBsqSession,
+};
 use eterned::db::EternerDb;
 use floated_sequential::db::FloaterDb;
 use std::marker::PhantomData;
@@ -15,19 +25,8 @@ use visored_mir_expr::{
     region::VdMirExprRegionDataRef,
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
-
-use crate::{
-    expr::VdMirExprFld,
-    hypothesis::{
-        construction::VdBsqHypothesisConstruction,
-        constructor::VdBsqHypothesisConstructor,
-        contradiction::{VdBsqHypothesisContradiction, VdBsqHypothesisResult},
-        VdBsqHypothesisIdx,
-    },
-    session::VdBsqSession,
-};
 
 pub struct VdBsqElaboratorInner<'db, 'sess> {
     session: &'sess VdBsqSession<'db>,
@@ -129,8 +128,8 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
             VdMirFunc::NormalBaseSeparator(signature) => todo!(),
             VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
-                VdBaseBinaryOpr::Sub => (),
-                VdBaseBinaryOpr::Div => todo!(),
+                VdMirBaseBinaryOpr::CommRingSub => (),
+                VdMirBaseBinaryOpr::CommFieldDiv => todo!(),
             },
             VdMirFunc::Power(signature) => (), // ad hoc
             VdMirFunc::InSet => todo!(),
@@ -149,30 +148,14 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             unreachable!()
         };
         match fst_signature.opr() {
-            VdBaseSeparator::Space => todo!(),
-            VdBaseSeparator::Comma => todo!(),
-            VdBaseSeparator::Semicolon => todo!(),
-            VdBaseSeparator::Add => (),
-            VdBaseSeparator::Mul => (),
-            VdBaseSeparator::Dot => todo!(),
-            VdBaseSeparator::Eq => todo!(),
-            VdBaseSeparator::Ne => todo!(),
-            VdBaseSeparator::Lt => todo!(),
-            VdBaseSeparator::Gt => todo!(),
-            VdBaseSeparator::Le => todo!(),
-            VdBaseSeparator::Ge => todo!(),
-            VdBaseSeparator::Subset => todo!(),
-            VdBaseSeparator::Supset => todo!(),
-            VdBaseSeparator::Subseteq => todo!(),
-            VdBaseSeparator::Supseteq => todo!(),
-            VdBaseSeparator::Subseteqq => todo!(),
-            VdBaseSeparator::Supseteqq => todo!(),
-            VdBaseSeparator::Subsetneq => todo!(),
-            VdBaseSeparator::Supsetneq => todo!(),
-            VdBaseSeparator::In => todo!(),
-            VdBaseSeparator::Notin => todo!(),
-            VdBaseSeparator::Times => todo!(),
-            VdBaseSeparator::Otimes => todo!(),
+            VdMirBaseSeparator::CommRingAdd => (),
+            VdMirBaseSeparator::CommRingMul => (),
+            VdMirBaseSeparator::Eq => todo!(),
+            VdMirBaseSeparator::Ne => todo!(),
+            VdMirBaseSeparator::Lt => todo!(),
+            VdMirBaseSeparator::Gt => todo!(),
+            VdMirBaseSeparator::Le => todo!(),
+            VdMirBaseSeparator::Ge => todo!(),
         }
     }
 
@@ -180,7 +163,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
     ) {
         // todo!()
     }

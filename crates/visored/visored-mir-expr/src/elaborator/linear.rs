@@ -7,7 +7,7 @@ use hypothesis::{
 };
 use smallvec::SmallVec;
 use smallvec::ToSmallVec;
-use visored_opr::separator::VdBaseSeparator;
+use visored_mir_opr::separator::VdMirBaseSeparator;
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 #[derive(Default)]
@@ -62,7 +62,7 @@ pub trait IsVdMirSequentialElaboratorInner {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
     );
 
     fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef);
@@ -134,7 +134,7 @@ impl IsVdMirSequentialElaboratorInner for () {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
     ) {
         ()
     }

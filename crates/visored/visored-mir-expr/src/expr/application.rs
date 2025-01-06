@@ -1,6 +1,6 @@
 use super::*;
 use either::*;
-use visored_opr::precedence::VdPrecedence;
+use visored_mir_opr::precedence::VdMirPrecedence;
 use visored_signature::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
     prefix_opr::VdBasePrefixOprSignature, separator::base::VdBaseSeparatorSignature,
@@ -59,15 +59,15 @@ impl VdMirFunc {
         self.key_or_expr().right()
     }
 
-    pub fn outer_precedence(&self) -> VdPrecedence {
+    pub fn outer_precedence(&self) -> VdMirPrecedence {
         match self {
             VdMirFunc::NormalBasePrefixOpr(signature) => signature.opr.precedence(),
             VdMirFunc::NormalBaseSeparator(signature) => signature.opr().precedence(),
             VdMirFunc::NormalBaseBinaryOpr(signature) => signature.opr.precedence(),
-            VdMirFunc::Power(signature) => VdPrecedence::ATOM,
+            VdMirFunc::Power(signature) => VdMirPrecedence::ATOM,
             VdMirFunc::InSet => todo!(),
-            VdMirFunc::NormalBaseSqrt(signature) => VdPrecedence::ATOM,
-            VdMirFunc::NormalBaseFrac(signature) => VdPrecedence::ATOM,
+            VdMirFunc::NormalBaseSqrt(signature) => VdMirPrecedence::ATOM,
+            VdMirFunc::NormalBaseFrac(signature) => VdMirPrecedence::ATOM,
         }
     }
 }

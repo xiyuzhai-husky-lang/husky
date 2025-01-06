@@ -7,7 +7,7 @@ use lean_mir_expr::{
     tactic::{LnMirTacticData, LnMirTacticIdxRange},
 };
 use visored_mir_expr::expr::application::VdMirFunc;
-use visored_opr::separator::VdBaseSeparator;
+use visored_mir_opr::separator::VdMirBaseSeparator;
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl VdTranspileToLean<Dense, LnMirTacticIdxRange> for VdMirStmtIdxRange {

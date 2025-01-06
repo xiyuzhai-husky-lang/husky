@@ -16,10 +16,7 @@ use visored_global_dispatch::dispatch::{
     binary_opr::VdBinaryOprGlobalDispatch, prefix_opr::VdPrefixOprGlobalDispatch,
 };
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
-use visored_opr::{
-    opr::binary::VdBaseBinaryOpr,
-    separator::{VdBaseSeparator, VdSeparatorClass},
-};
+use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_sem_expr::expr::{
     binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
     prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListFollowerDispatch,
@@ -44,7 +41,7 @@ pub enum VdMirExprData {
     ChainingSeparatedList {
         leader: VdMirExprIdx,
         followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]>,
-        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
     },
     ItemPath(VdItemPath),
 }

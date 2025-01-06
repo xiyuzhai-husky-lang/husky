@@ -1,6 +1,6 @@
 use super::*;
 use visored_entity_path::path::{trai_item::VdTraitItemPath, VdItemPath};
-use visored_opr::opr::prefix::VdBasePrefixOpr;
+use visored_mir_opr::opr::prefix::VdMirBasePrefixOpr;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
@@ -14,7 +14,7 @@ pub enum VdPrefixOprSignature {
 pub struct VdBasePrefixOprSignature {
     pub instantiation: VdInstantiation,
     // TODO: replace this with something more ethereal
-    pub opr: VdBasePrefixOpr,
+    pub opr: VdMirBasePrefixOpr,
     pub opd_ty: VdType,
     pub expr_ty: VdType,
 }
@@ -39,8 +39,8 @@ impl VdBasePrefixOprSignature {
             VdTraitItemPath::RingSub => todo!(),
             VdTraitItemPath::RingMul => todo!(),
             VdTraitItemPath::RingPower => todo!(),
-            VdTraitItemPath::RingPos => VdBasePrefixOpr::POS,
-            VdTraitItemPath::RingNeg => VdBasePrefixOpr::NEG,
+            VdTraitItemPath::RingPos => VdMirBasePrefixOpr::RING_POS,
+            VdTraitItemPath::RingNeg => VdMirBasePrefixOpr::RING_NEG,
             VdTraitItemPath::Eq => todo!(),
             VdTraitItemPath::Ne => todo!(),
             VdTraitItemPath::Lt => todo!(),

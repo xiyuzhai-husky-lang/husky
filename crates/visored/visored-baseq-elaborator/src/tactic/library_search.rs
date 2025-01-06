@@ -12,7 +12,7 @@ use visored_entity_path::{
     theorem::VdTheoremPath,
 };
 use visored_mir_expr::expr::application::VdMirFunc;
-use visored_opr::separator::VdBaseSeparator;
+use visored_mir_opr::separator::VdMirBaseSeparator;
 use visored_term::term::VdTerm;
 
 macro_rules! require {
@@ -50,7 +50,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let VdMirFunc::NormalBaseSeparator(ge) = ge else {
             unreachable!()
         };
-        require!(ge.opr() == VdBaseSeparator::GE);
+        require!(ge.opr() == VdMirBaseSeparator::GE);
         require!(rhs.is_zero());
         let VdMirExprFldData::Application {
             function: pow,

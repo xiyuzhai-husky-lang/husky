@@ -38,7 +38,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
+        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnMirTacticData {
         todo!()

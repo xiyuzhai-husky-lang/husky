@@ -14,9 +14,9 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
-use visored_opr::{
-    precedence::{VdPrecedence, VdPrecedenceRange},
-    separator::VdBaseSeparator,
+use visored_mir_opr::{
+    precedence::{VdMirPrecedence, VdMirPrecedenceRange},
+    separator::VdMirBaseSeparator,
 };
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_term::{
@@ -37,7 +37,7 @@ pub struct VdMirExprFld<'sess> {
 impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdMirExprFld(`")?;
-        self.show(VdPrecedenceRange::ANY, f)?;
+        self.show(VdMirPrecedenceRange::ANY, f)?;
         f.write_str("`)")
     }
 }
@@ -45,7 +45,7 @@ impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
 impl<'sess> VdMirExprFld<'sess> {
     pub fn show(
         self,
-        precedence_range: VdPrecedenceRange,
+        precedence_range: VdMirPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if precedence_range.contains(self.data().outer_precedence()) {
@@ -84,7 +84,7 @@ impl<'sess> VdMirExprFld<'sess> {
 
                                 // use unicode to show the superscript
                                 let superscript = superscript(i as u8).unwrap();
-                                arguments[0].show(VdPrecedenceRange::ATOM, f)?;
+                                arguments[0].show(VdMirPrecedenceRange::ATOM, f)?;
                                 write!(f, "{}", superscript)?;
                                 return Ok(());
                             }
@@ -114,7 +114,7 @@ impl<'sess> VdMirExprFld<'sess> {
                         todo!("maybe non base separator?")
                     };
                     f.write_str(" ")?;
-                    signature.opr().show(f)?;
+                    signature.opr().show_fmt(f)?;
                     f.write_str(" ")?;
                     follower.show(precedence_range, f)?;
                 }
@@ -141,16 +141,16 @@ pub enum VdMirExprFldData<'sess> {
     ChainingSeparatedList {
         leader: VdMirExprFld<'sess>,
         followers: SmallVec<[(VdMirFunc, VdMirExprFld<'sess>); 4]>,
-        joined_separator_and_signature: Option<(VdBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
     },
     ItemPath(VdItemPath),
 }
 
 impl<'sess> VdMirExprFldData<'sess> {
-    pub fn outer_precedence(&self) -> VdPrecedence {
+    pub fn outer_precedence(&self) -> VdMirPrecedence {
         match self {
-            VdMirExprFldData::Literal(_) => VdPrecedence::ATOM,
-            VdMirExprFldData::Variable(_, _) => VdPrecedence::ATOM,
+            VdMirExprFldData::Literal(_) => VdMirPrecedence::ATOM,
+            VdMirExprFldData::Variable(_, _) => VdMirPrecedence::ATOM,
             VdMirExprFldData::Application { function, .. } => function.outer_precedence(),
             VdMirExprFldData::FoldingSeparatedList { leader, followers } => todo!(),
             VdMirExprFldData::ChainingSeparatedList {

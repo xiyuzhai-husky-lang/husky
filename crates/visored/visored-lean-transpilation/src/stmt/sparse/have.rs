@@ -11,7 +11,7 @@ use visored_mir_expr::{
     hint::VdMirHintIdxRange,
     hypothesis::{chunk::VdMirHypothesisChunk, VdMirHypothesisIdx},
 };
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
@@ -52,7 +52,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
+        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnItemDefnData {
         debug_assert!(followers.len() >= 2);

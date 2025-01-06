@@ -13441,8 +13441,8 @@ dependencies = [
  "visored-entity-path",
  "visored-lean-transpilation",
  "visored-mir-expr",
+ "visored-mir-opr",
  "visored-models",
- "visored-opr",
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
@@ -13558,8 +13558,8 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-mir-expr",
+ "visored-mir-opr",
  "visored-models",
- "visored-opr",
  "visored-prelude",
  "visored-sem-expr",
  "visored-signature",
@@ -13596,6 +13596,7 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
+ "visored-mir-opr",
  "visored-models",
  "visored-opr",
  "visored-prelude",
@@ -13604,6 +13605,10 @@ dependencies = [
  "visored-syn-expr",
  "visored-term",
 ]
+
+[[package]]
+name = "visored-mir-opr"
+version = "0.1.0"
 
 [[package]]
 name = "visored-models"
@@ -13707,7 +13712,7 @@ dependencies = [
  "rustc-hash 2.0.0",
  "salsa",
  "visored-entity-path",
- "visored-opr",
+ "visored-mir-opr",
  "visored-term",
 ]
 
