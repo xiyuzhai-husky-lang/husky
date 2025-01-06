@@ -18,6 +18,12 @@ macro "term_equivalent": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "comm_ring": tactic =>`(tactic|
+  first
+  | ring; done
+  | ring_nf; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
 namespace Example1
 def h := by
   have h1 : 0 = 0 := by term_trivial
@@ -80,7 +86,7 @@ end Example10
 
 namespace Example11
 def h(x : ℝ) := by
-  have h1 : 2 * (1 + x) = 2 + 2 * x := by obvious
+  have h1 : 2 * (1 + x) = 2 + 2 * x := by comm_ring
   exact ()
 end Example11
 

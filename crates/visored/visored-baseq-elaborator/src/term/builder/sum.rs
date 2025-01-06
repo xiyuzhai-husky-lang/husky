@@ -105,7 +105,6 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                 }
             },
         }
-        // self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum);
     }
 
     pub fn sub_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqProductInumTermBase<'sess>) {

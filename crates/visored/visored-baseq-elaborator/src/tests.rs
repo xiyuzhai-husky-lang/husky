@@ -76,6 +76,12 @@ macro "term_equivalent": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "comm_ring": tactic =>`(tactic|
+  first
+  | ring; done
+  | ring_nf; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
 {}
 "#,
                 tracker.show_fmt(db)

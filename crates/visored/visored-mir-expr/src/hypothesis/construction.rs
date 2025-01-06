@@ -15,4 +15,5 @@ pub enum VdMirHypothesisConstruction {
         // hypothesis: VdMirHypothesisIdx,
     },
     TermTrivial(bool),
+    CommRing,
 }
