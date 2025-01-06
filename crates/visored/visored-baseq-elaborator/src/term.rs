@@ -74,7 +74,9 @@ impl<'sess> VdBsqTerm<'sess> {
 
 impl<'sess> std::fmt::Debug for VdBsqNumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        f.write_str("VdBsqNumTerm(`")?;
+        self.show_fmt(f)?;
+        f.write_str("`)")
     }
 }
 

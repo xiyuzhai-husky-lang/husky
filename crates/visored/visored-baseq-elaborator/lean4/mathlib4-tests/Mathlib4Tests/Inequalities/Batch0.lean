@@ -32,7 +32,7 @@ end Example2
 
 namespace Example3
 def h := by
-  have h1 : 1 * 1 = 1 := by obvious
+  have h1 : 1 * 1 = 1 := by term_trivial
   exact ()
 end Example3
 

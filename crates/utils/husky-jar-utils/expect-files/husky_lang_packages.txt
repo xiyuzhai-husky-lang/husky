@@ -4336,7 +4336,9 @@
     PackageSummary {
         name: "visored-mir-opr",
         relative_path: "crates/visored/visored-mir-opr",
-        dependencies: [],
+        dependencies: [
+            "visored-opr",
+        ],
     },
     PackageSummary {
         name: "visored-term",
@@ -5154,6 +5156,7 @@
             "visored-mir-expr",
             "visored-mir-opr",
             "visored-models",
+            "visored-opr",
             "visored-signature",
             "visored-syn-expr",
             "visored-term",

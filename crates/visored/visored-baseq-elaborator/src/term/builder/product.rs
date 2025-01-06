@@ -65,8 +65,13 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         match self.rnum_coefficient {
             VdBsqRnumTerm::ZERO => VdBsqNumTerm::ZERO,
             _ => {
-                let exponentials = self.unpruned_exponentials.into_iter().collect();
-                VdBsqNumTerm::new_product(self.rnum_coefficient, exponentials, self.db)
+                let exponentials: VdBsqExponentialPowers<'sess> =
+                    self.unpruned_exponentials.into_iter().collect();
+                if exponentials.is_empty() {
+                    VdBsqNumTerm::Rnum(self.rnum_coefficient)
+                } else {
+                    VdBsqNumTerm::new_product(self.rnum_coefficient, exponentials, self.db)
+                }
             }
         }
     }

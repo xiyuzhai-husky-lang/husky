@@ -92,8 +92,6 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         match (monomials.len(), self.constant_rnum) {
             (0, _) => self.constant_rnum.into(),
             (1, VdBsqRnumTerm::ZERO) => {
-                use husky_print_utils::p;
-                p!(monomials);
                 let (non_sum, coeff) = monomials.into_iter().next().unwrap();
                 assert!(!coeff.is_zero());
                 if coeff.is_one() {

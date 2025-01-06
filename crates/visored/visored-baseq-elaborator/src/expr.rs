@@ -190,8 +190,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let term = self.calc_expr_term(expr_entry, symbol_local_defn_storage);
         let db = self.session().floater_db();
         let expr_fld = VdMirExprFld::new(data, ty, term, db);
-        use husky_print_utils::p;
-        p!(expr_fld, term);
         self.save_expr_fld(expr_idx, expr_fld);
     }
 

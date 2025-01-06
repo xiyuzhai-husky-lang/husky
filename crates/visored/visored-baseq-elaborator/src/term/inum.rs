@@ -31,6 +31,7 @@ impl<'sess> VdBsqInumTerm<'sess> {
             VdBsqInumTerm::Product(rnum, term) => {
                 debug_assert!(!rnum.is_zero());
                 if rnum.is_one() {
+                    debug_assert!(!term.data().exponentials().is_empty());
                     term.show_fmt(f)
                 } else {
                     rnum.show_fmt(f)?;
