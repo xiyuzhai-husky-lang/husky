@@ -70,7 +70,7 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature,
+                joined_signature: joined_separator_and_signature,
             } => todo!(),
             VdMirExprData::ItemPath(vd_item_path) => todo!(),
         }

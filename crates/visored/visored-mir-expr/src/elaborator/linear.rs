@@ -62,7 +62,7 @@ pub trait IsVdMirSequentialElaboratorInner {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_signature: Option<VdBaseSeparatorSignature>,
     );
 
     fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef);
@@ -134,7 +134,7 @@ impl IsVdMirSequentialElaboratorInner for () {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_signature: Option<VdBaseSeparatorSignature>,
     ) {
         ()
     }
@@ -371,7 +371,7 @@ where
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature,
+                joined_signature,
             } => {
                 // need to do this to avoid rustc complaining
                 // we could also unsafe this
@@ -384,7 +384,7 @@ where
                 self.inner.elaborate_chaining_separated_list_expr(
                     leader,
                     followers,
-                    joined_separator_and_signature,
+                    joined_signature,
                 )
             }
             VdMirExprData::ItemPath(vd_item_path) => (),

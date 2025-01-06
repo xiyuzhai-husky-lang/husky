@@ -56,7 +56,7 @@ impl<'a> VdMirExprBuilder<'a> {
                     } => unreachable!("follower.dispatch = {:?}", follower.dispatch),
                 })
                 .collect(),
-            joined_separator_and_signature: todo!(),
+            joined_signature: todo!(),
         }
     }
 }

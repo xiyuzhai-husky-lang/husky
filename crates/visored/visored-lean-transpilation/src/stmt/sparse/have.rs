@@ -25,11 +25,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature: Some((joined_separator, joined_signature)),
+                joined_signature: Some(joined_signature),
             } => self.build_then_nontrivial_chaining_separated_list(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
             ),
             _ => {
@@ -52,7 +51,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnItemDefnData {
         debug_assert!(followers.len() >= 2);

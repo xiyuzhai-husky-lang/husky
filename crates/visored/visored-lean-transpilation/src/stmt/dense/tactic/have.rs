@@ -16,11 +16,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature: Some((joined_separator, joined_signature)),
+                joined_signature: Some(joined_signature),
             } => self.build_have_nontrivial_chaining_separated_list(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
                 ln_tactics,
             ),
@@ -35,7 +34,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
         ln_tactics: &mut Vec<LnMirTacticData>,
     ) {
@@ -44,14 +42,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             0 => self.build_have_nontrivial_chaining_separated_list_aux(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
                 ln_tactics,
             ),
             n => self.build_have_nontrivial_chaining_separated_list_with_foremost_equivalences(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
                 n,
                 ln_tactics,
@@ -64,7 +60,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
         number_of_foremost_equivalences: usize,
         ln_tactics: &mut Vec<LnMirTacticData>,
@@ -90,14 +85,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         let forward_tactic_data = self.build_have_nontrivial_chaining_separated_list_aux(
             leader,
             &followers,
-            joined_separator,
             joined_signature,
             ln_tactics,
         );
         let backward_tactic_data = self.build_have_nontrivial_chaining_separated_list_aux(
             reverse_leader,
             &reverse_followers,
-            joined_separator,
             joined_signature,
             ln_tactics,
         );
@@ -110,7 +103,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
         ln_tactics: &mut Vec<LnMirTacticData>,
     ) -> LnMirTacticData {

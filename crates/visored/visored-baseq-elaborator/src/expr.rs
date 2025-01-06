@@ -102,7 +102,7 @@ impl<'sess> VdMirExprFld<'sess> {
             VdMirExprFldData::ChainingSeparatedList {
                 leader,
                 followers,
-                joined_separator_and_signature,
+                joined_signature,
             } => {
                 let VdMirFunc::NormalBaseSeparator(signature) = followers.first().unwrap().0 else {
                     todo!("maybe non base separator?")
@@ -141,7 +141,7 @@ pub enum VdMirExprFldData<'sess> {
     ChainingSeparatedList {
         leader: VdMirExprFld<'sess>,
         followers: SmallVec<[(VdMirFunc, VdMirExprFld<'sess>); 4]>,
-        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_signature: Option<VdBaseSeparatorSignature>,
     },
     ItemPath(VdItemPath),
 }
@@ -156,7 +156,7 @@ impl<'sess> VdMirExprFldData<'sess> {
             VdMirExprFldData::ChainingSeparatedList {
                 leader,
                 followers,
-                joined_separator_and_signature,
+                joined_signature,
             } => followers.first().unwrap().0.outer_precedence(),
             VdMirExprFldData::ItemPath(vd_item_path) => todo!(),
         }
@@ -214,14 +214,14 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature,
+                joined_signature,
             } => VdMirExprFldData::ChainingSeparatedList {
                 leader: self.expr_fld(leader),
                 followers: followers
                     .iter()
                     .map(|&(func, follower)| (func, self.expr_fld(follower)))
                     .collect(),
-                joined_separator_and_signature,
+                joined_signature,
             },
             VdMirExprData::ItemPath(vd_item_path) => VdMirExprFldData::ItemPath(vd_item_path),
         }

@@ -40,7 +40,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let VdMirExprFldData::ChainingSeparatedList {
             leader,
             followers,
-            joined_separator_and_signature: None,
+            joined_signature: None,
         } = prop.data()
         else {
             return Ok(AltNone);

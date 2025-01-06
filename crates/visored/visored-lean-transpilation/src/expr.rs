@@ -74,12 +74,8 @@ where
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature,
-            } => self.build_chaining_separated_list(
-                leader,
-                followers,
-                joined_separator_and_signature,
-            ),
+                joined_signature,
+            } => self.build_chaining_separated_list(leader, followers, joined_signature),
         }
     }
 }

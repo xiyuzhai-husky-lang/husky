@@ -41,7 +41,7 @@ pub enum VdMirExprData {
     ChainingSeparatedList {
         leader: VdMirExprIdx,
         followers: SmallVec<[(VdMirFunc, VdMirExprIdx); 4]>,
-        joined_separator_and_signature: Option<(VdMirBaseSeparator, VdBaseSeparatorSignature)>,
+        joined_signature: Option<VdBaseSeparatorSignature>,
     },
     ItemPath(VdItemPath),
 }

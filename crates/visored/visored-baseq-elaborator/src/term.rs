@@ -191,7 +191,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature,
+                joined_signature: joined_separator_and_signature,
             } => match joined_separator_and_signature {
                 Some(joined_separator_and_signature) => todo!(),
                 None => {

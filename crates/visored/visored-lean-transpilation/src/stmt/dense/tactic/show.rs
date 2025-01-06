@@ -10,11 +10,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature: Some((joined_separator, joined_signature)),
+                joined_signature: Some(joined_signature),
             } => self.build_show_nontrivial_chaining_separated_list(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
             ),
             _ => {
@@ -38,7 +37,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdMirBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnMirTacticData {
         todo!()
