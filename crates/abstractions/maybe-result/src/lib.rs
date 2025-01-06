@@ -164,7 +164,7 @@ impl<T, E> MaybeResult<T, E> {
         }
     }
 
-    pub fn into_result(self) -> Result<T, Option<E>> {
+    pub fn into_result_option_err(self) -> Result<T, Option<E>> {
         match self {
             JustOk(t) => Ok(t),
             JustErr(e) => Err(Some(e)),
@@ -227,7 +227,7 @@ where
     #[inline(always)]
     fn from_iter<T: IntoIterator<Item = MaybeResult<A, E>>>(iter: T) -> Self {
         iter.into_iter()
-            .map(MaybeResult::into_result)
+            .map(MaybeResult::into_result_option_err)
             .collect::<Result<V, Option<E>>>()
             .into()
     }

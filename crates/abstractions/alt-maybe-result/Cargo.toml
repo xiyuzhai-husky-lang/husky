@@ -1,0 +1,8 @@
+[package]
+name = "alt-maybe-result"
+version.workspace = true
+edition = "2021"
+
+[dependencies]
+alt-option.workspace = true
+original-error.workspace = true

@@ -23,12 +23,18 @@ pub enum AltOption<T> {
     AltNone,
 }
 
-pub struct AltOptionR<T>(T);
+pub struct AltOptionResidual<T>(T);
+
+impl<T> AltOptionResidual<T> {
+    pub fn into_inner(self) -> T {
+        self.0
+    }
+}
 
 impl<T> std::ops::Try for AltOption<T> {
     type Output = ();
 
-    type Residual = AltOptionR<T>;
+    type Residual = AltOptionResidual<T>;
 
     fn from_output(_output: Self::Output) -> Self {
         AltNone
@@ -36,14 +42,14 @@ impl<T> std::ops::Try for AltOption<T> {
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            AltSome(t) => std::ops::ControlFlow::Break(AltOptionR(t)),
+            AltSome(t) => std::ops::ControlFlow::Break(AltOptionResidual(t)),
             AltNone => std::ops::ControlFlow::Continue(()),
         }
     }
 }
 
-impl<T> std::ops::FromResidual<AltOptionR<T>> for AltOption<T> {
-    fn from_residual(residual: AltOptionR<T>) -> Self {
+impl<T> std::ops::FromResidual<AltOptionResidual<T>> for AltOption<T> {
+    fn from_residual(residual: AltOptionResidual<T>) -> Self {
         AltOption::AltSome(residual.0)
     }
 }
