@@ -9348,6 +9348,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "monadic-fold"
+version = "0.1.0"
+dependencies = [
+ "sealed",
+]
+
+[[package]]
 name = "naga"
 version = "22.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

@@ -591,6 +591,13 @@
         ],
     },
     PackageSummary {
+        name: "monadic-fold",
+        relative_path: "crates/abstractions/monadic-fold",
+        dependencies: [
+            "sealed",
+        ],
+    },
+    PackageSummary {
         name: "notify-change",
         relative_path: "crates/abstractions/notify-change",
         dependencies: [],
