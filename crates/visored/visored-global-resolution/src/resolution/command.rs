@@ -59,9 +59,11 @@ impl VdCompleteCommandGlobalResolution {
     pub const SUPSETNEQ: Self =
         VdCompleteCommandGlobalResolution::Separator(VdBaseSeparator::Supsetneq);
     // -- arithmetic
+    pub const CDOT: Self = VdCompleteCommandGlobalResolution::Separator(VdBaseSeparator::CDOT);
     pub const INT: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::INTEGRAL);
     pub const SUM: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::SUM);
     pub const PROD: Self = VdCompleteCommandGlobalResolution::Opr(VdBaseOpr::PROD);
+    pub const TIMES: Self = VdCompleteCommandGlobalResolution::Separator(VdBaseSeparator::TIMES);
     pub const LOWER_ALPHA: Self =
         VdCompleteCommandGlobalResolution::Letter(LxMathLetter::LOWER_ALPHA);
     pub const LOWER_BETA: Self =

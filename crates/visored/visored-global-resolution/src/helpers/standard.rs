@@ -76,6 +76,7 @@ fn standard_complete_command_resolution_map(
         subsetneq,
         supsetneq,
         // -- arithmetic
+        cdot,
         int,
         sum,
         times,
@@ -131,9 +132,11 @@ fn standard_complete_command_resolution_map(
         (subsetneq, VdCompleteCommandGlobalResolution::SUBSETNEQ),
         (supsetneq, VdCompleteCommandGlobalResolution::SUPSETNEQ),
         // -- arithmetic
+        (cdot, VdCompleteCommandGlobalResolution::CDOT),
         (int, VdCompleteCommandGlobalResolution::INT),
         (sum, VdCompleteCommandGlobalResolution::SUM),
         (prod, VdCompleteCommandGlobalResolution::PROD),
+        (times, VdCompleteCommandGlobalResolution::TIMES),
         // - extended letters
         (alpha, VdCompleteCommandGlobalResolution::LOWER_ALPHA),
         (beta, VdCompleteCommandGlobalResolution::LOWER_BETA),

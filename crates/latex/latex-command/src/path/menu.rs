@@ -44,6 +44,7 @@ pub struct LxCommandPathMenu {
     pub subsetneq: LxCommandPath,
     pub supsetneq: LxCommandPath,
     // -- arithmetics
+    pub cdot: LxCommandPath,
     pub int: LxCommandPath,
     pub sum: LxCommandPath,
     pub times: LxCommandPath,
@@ -112,6 +113,7 @@ impl LxCommandPathMenu {
             subsetneq: p("subsetneq"),
             supsetneq: p("supsetneq"),
             // -- arithmetic
+            cdot: p("cdot"),
             int: p("int"),
             sum: p("sum"),
             times: p("times"),

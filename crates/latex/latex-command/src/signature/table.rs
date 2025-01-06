@@ -135,6 +135,7 @@ impl LxCommandSignatureTable {
             subsetneq,
             supsetneq,
             // -- arithmetic
+            cdot,
             int,
             sum,
             prod,
@@ -196,6 +197,7 @@ impl LxCommandSignatureTable {
             (subsetneq, &[LxMode::Math], &[]),
             (supsetneq, &[LxMode::Math], &[]),
             // -- arithmetic
+            (cdot, &[LxMode::Math], &[]),
             (int, &[LxMode::Math], &[]),
             (sum, &[LxMode::Math], &[]),
             (prod, &[LxMode::Math], &[]),

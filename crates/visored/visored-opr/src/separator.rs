@@ -44,6 +44,7 @@ impl VdBaseSeparator {
     pub const LE: Self = Self::Le;
     pub const GE: Self = Self::Ge;
     pub const IN: Self = Self::In;
+    pub const TIMES: Self = Self::Times;
 }
 
 impl VdBaseSeparator {

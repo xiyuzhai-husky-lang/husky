@@ -32,43 +32,49 @@ end Example2
 
 namespace Example3
 def h := by
-  have h1 : 0 < 1 := by term_trivial
+  have h1 : 1 * 1 = 1 := by obvious
   exact ()
 end Example3
 
 namespace Example4
 def h := by
-  have h1 : 0 ≠ 1 := by term_trivial
+  have h1 : 0 < 1 := by term_trivial
   exact ()
 end Example4
 
 namespace Example5
-def h(x : ℝ) := by
-  have h1 : x = x := by term_trivial
+def h := by
+  have h1 : 0 ≠ 1 := by term_trivial
   exact ()
 end Example5
 
 namespace Example6
 def h(x : ℝ) := by
-  have h1 : x - x = 0 := by term_trivial
+  have h1 : x = x := by term_trivial
   exact ()
 end Example6
 
 namespace Example7
 def h(x : ℝ) := by
-  have h1 : x + x = 2 * x := by term_trivial
+  have h1 : x - x = 0 := by term_trivial
   exact ()
 end Example7
 
 namespace Example8
 def h(x : ℝ) := by
-  have h1 : x ^ 2 ≥ 0 := by apply sq_nonneg
+  have h1 : x + x = 2 * x := by term_trivial
   exact ()
 end Example8
 
 namespace Example9
+def h(x : ℝ) := by
+  have h1 : x ^ 2 ≥ 0 := by apply sq_nonneg
+  exact ()
+end Example9
+
+namespace Example10
 def h(x : ℝ)(h1 : x ≥ 1) := by
   have h2 : x - 1 ≥ 0 := by term_equivalent
   exact ()
-end Example9
+end Example10
 
