@@ -17,6 +17,16 @@ impl std::fmt::Debug for VdBsqRnumTerm {
     }
 }
 
+impl VdBsqRnumTerm {
+    pub fn neg(self, db: &FloaterDb) -> Self {
+        match self {
+            VdBsqRnumTerm::Int128(i) => VdBsqRnumTerm::Int128(-i),
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(a, b) => VdBsqRnumTerm::Rat128(-a, b),
+        }
+    }
+}
+
 impl std::ops::AddAssign for VdBsqRnumTerm {
     fn add_assign(&mut self, rhs: Self) {
         match self {
@@ -40,6 +50,23 @@ impl std::ops::SubAssign for VdBsqRnumTerm {
             VdBsqRnumTerm::Int128(slf) => match rhs {
                 VdBsqRnumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
                     Some(sum) => *self = VdBsqRnumTerm::Int128(sum),
+                    None => todo!(),
+                },
+                VdBsqRnumTerm::BigInt() => todo!(),
+                VdBsqRnumTerm::Rat128(_, _) => todo!(),
+            },
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+}
+
+impl std::ops::MulAssign for VdBsqRnumTerm {
+    fn mul_assign(&mut self, rhs: Self) {
+        match self {
+            VdBsqRnumTerm::Int128(slf) => match rhs {
+                VdBsqRnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
+                    Some(product) => *self = VdBsqRnumTerm::Int128(product),
                     None => todo!(),
                 },
                 VdBsqRnumTerm::BigInt() => todo!(),

@@ -42,8 +42,15 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
 }
 
 impl<'sess> VdBsqInumTerm<'sess> {
-    pub fn new_product(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
-        VdBsqInumTerm::Product(todo!(), VdBsqProductInumTermBase::new(exponentials, db))
+    pub fn new_product(
+        rnum_coefficient: VdBsqRnumTerm,
+        exponentials: VdBsqExponentialPowers<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Self {
+        VdBsqInumTerm::Product(
+            rnum_coefficient,
+            VdBsqProductInumTermBase::new(exponentials, db),
+        )
     }
 
     pub fn new_power(
@@ -68,6 +75,18 @@ impl<'sess> VdBsqInumTerm<'sess> {
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
+    pub fn new_product(
+        rnum_coefficient: VdBsqRnumTerm,
+        exponentials: VdBsqExponentialPowers<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Self {
+        VdBsqNumTerm::Inum(VdBsqInumTerm::new_product(
+            rnum_coefficient,
+            exponentials,
+            db,
+        ))
+    }
+
     pub fn new_power(
         base: VdBsqNonProductNumTerm<'sess>,
         exponent: VdBsqNumTerm<'sess>,

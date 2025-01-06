@@ -1,5 +1,3 @@
-use floated_sequential::db::FloaterDb;
-
 use super::*;
 use crate::term::{
     atom::VdBsqAtomInumTerm,
@@ -7,6 +5,7 @@ use crate::term::{
     sum::VdBsqSumInumTerm,
     VdBsqInumMonomialCoefficients, VdBsqInumTerm, VdBsqNonSumInumTerm, VdBsqNumTerm, VdBsqRnumTerm,
 };
+use floated_sequential::db::FloaterDb;
 
 pub struct VdBsqSumBuilder<'sess> {
     db: &'sess FloaterDb,
@@ -15,6 +14,7 @@ pub struct VdBsqSumBuilder<'sess> {
     constant_rnum: VdBsqRnumTerm,
     unpruned_monomials: VdBsqInumMonomialCoefficients<'sess>,
 }
+
 impl<'sess> VdBsqSumBuilder<'sess> {
     pub fn new(db: &'sess FloaterDb) -> Self {
         Self {
@@ -24,7 +24,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn add_num_term(&mut self, term: VdBsqNumTerm<'sess>) {
+    pub fn add_num(&mut self, term: VdBsqNumTerm<'sess>) {
         match term {
             VdBsqNumTerm::Rnum(term) => {
                 self.constant_rnum += term;
@@ -69,11 +69,11 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn add_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqProductInumTermBase<'sess>) {
-        todo!()
+        self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum);
     }
 
     pub fn sub_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqProductInumTermBase<'sess>) {
-        todo!()
+        self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum.neg(self.db));
     }
 
     pub fn add_monomial(&mut self, term: VdBsqNonSumInumTerm<'sess>, coeff: VdBsqRnumTerm) {
@@ -108,7 +108,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                             ),
                         )
                         .into(),
-                        VdBsqNonSumInumTerm::Product(rnum, term) => todo!(),
+                        VdBsqNonSumInumTerm::Product(term) => todo!(),
                     }
                 }
             }

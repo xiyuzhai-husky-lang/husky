@@ -39,35 +39,27 @@ impl<'sess> VdBsqNumTerm<'sess> {
         }
     }
 
+    pub fn add(self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        if rhs.is_zero_trivially() {
+            return self;
+        }
+        let mut builder = VdBsqSumBuilder::new(db);
+        builder.add_num(self);
+        builder.add_num(rhs);
+        builder.finish()
+    }
+
     pub fn sub(self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         if rhs.is_zero_trivially() {
             return self;
         }
         let mut builder = VdBsqSumBuilder::new(db);
-        builder.add_num_term(self);
+        builder.add_num(self);
         builder.sub_num(rhs);
         builder.finish()
     }
 
-    pub fn sum_decomposition(self) -> (VdBsqRnumTerm, VdBsqInumMonomialCoefficients<'sess>) {
-        match self {
-            VdBsqNumTerm::Rnum(term) => (term, VdBsqInumMonomialCoefficients::default()),
-            VdBsqNumTerm::Inum(term) => match term {
-                VdBsqInumTerm::Atom(term) => (
-                    VdBsqRnumTerm::ZERO,
-                    [(term.into(), VdBsqRnumTerm::ONE)].into_iter().collect(),
-                ),
-                VdBsqInumTerm::Sum(term) => (
-                    term.data().constant_term(),
-                    term.data().irrational_monomial_coefficients().clone(),
-                ),
-                VdBsqInumTerm::Product(rnum, term) => (
-                    VdBsqRnumTerm::ZERO,
-                    [(VdBsqNonSumInumTerm::Product(rnum, term), VdBsqRnumTerm::ONE)]
-                        .into_iter()
-                        .collect(),
-                ),
-            },
-        }
+    pub fn add_assign(&mut self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) {
+        *self = self.add(rhs, db);
     }
 }

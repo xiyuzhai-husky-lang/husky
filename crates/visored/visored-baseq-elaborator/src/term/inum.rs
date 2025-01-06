@@ -45,7 +45,7 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonSumInumTerm<'sess> {
     Atom(VdBsqAtomInumTerm<'sess>),
-    Product(VdBsqRnumTerm, VdBsqProductInumTermBase<'sess>),
+    Product(VdBsqProductInumTermBase<'sess>),
 }
 
 impl<'sess> std::fmt::Debug for VdBsqNonSumInumTerm<'sess> {
@@ -60,7 +60,7 @@ impl<'sess> VdBsqNonSumInumTerm<'sess> {
     pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdBsqNonSumInumTerm::Atom(term) => term.show_fmt(f),
-            VdBsqNonSumInumTerm::Product(_, term) => todo!(),
+            VdBsqNonSumInumTerm::Product(term) => todo!(),
         }
     }
 }

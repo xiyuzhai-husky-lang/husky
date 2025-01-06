@@ -6,7 +6,7 @@ pub mod rnum;
 
 use self::{inum::*, num::*, prop::*, rnum::*};
 use crate::elaborator::VdBsqElaboratorInner;
-use builder::sum::VdBsqSumBuilder;
+use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
@@ -163,13 +163,20 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         VdBaseSeparator::Semicolon => todo!(),
                         VdBaseSeparator::Add => {
                             let mut builder = VdBsqSumBuilder::new(self.floater_db());
-                            builder.add_num_term(self.expr_fld(leader).term().num().unwrap());
+                            builder.add_num(self.expr_fld(leader).term().num().unwrap());
                             for &(_, follower) in followers.iter() {
-                                builder.add_num_term(self.expr_fld(follower).term().num().unwrap());
+                                builder.add_num(self.expr_fld(follower).term().num().unwrap());
                             }
                             builder.finish().into()
                         }
-                        VdBaseSeparator::Mul => todo!(),
+                        VdBaseSeparator::Mul => {
+                            let mut builder = VdBsqProductBuilder::new(self.floater_db());
+                            builder.mul_num(self.expr_fld(leader).term().num().unwrap());
+                            for &(_, follower) in followers.iter() {
+                                builder.mul_num(self.expr_fld(follower).term().num().unwrap());
+                            }
+                            builder.finish().into()
+                        }
                         VdBaseSeparator::Dot => todo!(),
                         VdBaseSeparator::Eq => todo!(),
                         VdBaseSeparator::Ne => todo!(),
