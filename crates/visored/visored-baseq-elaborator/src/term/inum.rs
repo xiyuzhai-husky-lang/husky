@@ -8,11 +8,38 @@ use smallvec::*;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqInumTerm<'sess> {
     Atom(VdBsqAtomInumTerm<'sess>),
     Sum(VdBsqSumInumTerm<'sess>),
     Product(VdBsqRnumTerm, VdBsqProductInumTermBase<'sess>),
+}
+
+impl<'sess> std::fmt::Debug for VdBsqInumTerm<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("InumTerm(")?;
+        self.show_fmt(f)?;
+        f.write_str(")")
+    }
+}
+
+impl<'sess> VdBsqInumTerm<'sess> {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdBsqInumTerm::Atom(term) => term.show_fmt(f),
+            VdBsqInumTerm::Sum(term) => term.show_fmt(f),
+            VdBsqInumTerm::Product(rnum, term) => {
+                debug_assert!(!rnum.is_zero());
+                if rnum.is_one() {
+                    term.show_fmt(f)
+                } else {
+                    rnum.show_fmt(f)?;
+                    f.write_str(" × ")?;
+                    term.show_fmt(f)
+                }
+            }
+        }
+    }
 }
 
 #[enum_class::from_variants]
@@ -60,7 +87,7 @@ impl<'sess> VdBsqNonSumInumTerm<'sess> {
     pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdBsqNonSumInumTerm::Atom(term) => term.show_fmt(f),
-            VdBsqNonSumInumTerm::Product(term) => todo!(),
+            VdBsqNonSumInumTerm::Product(term) => term.show_fmt(f),
         }
     }
 }

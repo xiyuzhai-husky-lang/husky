@@ -14,10 +14,8 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
-use visored_mir_opr::{
-    precedence::{VdMirPrecedence, VdMirPrecedenceRange},
-    separator::VdMirBaseSeparator,
-};
+use visored_mir_opr::separator::VdMirBaseSeparator;
+use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_term::{
     term::literal::{VdLiteral, VdLiteralData},
@@ -37,7 +35,7 @@ pub struct VdMirExprFld<'sess> {
 impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdMirExprFld(`")?;
-        self.show(VdMirPrecedenceRange::ANY, f)?;
+        self.show(VdPrecedenceRange::ANY, f)?;
         f.write_str("`)")
     }
 }
@@ -45,7 +43,7 @@ impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
 impl<'sess> VdMirExprFld<'sess> {
     pub fn show(
         self,
-        precedence_range: VdMirPrecedenceRange,
+        precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if precedence_range.contains(self.data().outer_precedence()) {
@@ -84,7 +82,7 @@ impl<'sess> VdMirExprFld<'sess> {
 
                                 // use unicode to show the superscript
                                 let superscript = superscript(i as u8).unwrap();
-                                arguments[0].show(VdMirPrecedenceRange::ATOM, f)?;
+                                arguments[0].show(VdPrecedenceRange::ATOM, f)?;
                                 write!(f, "{}", superscript)?;
                                 return Ok(());
                             }
@@ -98,7 +96,23 @@ impl<'sess> VdMirExprFld<'sess> {
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
                 VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
             },
-            VdMirExprFldData::FoldingSeparatedList { leader, followers } => todo!(),
+            VdMirExprFldData::FoldingSeparatedList { leader, followers } => {
+                let VdMirFunc::NormalBaseSeparator(signature) = followers.first().unwrap().0 else {
+                    todo!("maybe non base separator?")
+                };
+                let precedence_range = signature.opr().left_precedence_range();
+                leader.show(precedence_range, f)?;
+                for (func, follower) in followers {
+                    let VdMirFunc::NormalBaseSeparator(signature) = func else {
+                        todo!("maybe non base separator?")
+                    };
+                    f.write_str(" ")?;
+                    signature.opr().show_fmt(f)?;
+                    f.write_str(" ")?;
+                    follower.show(precedence_range, f)?;
+                }
+                Ok(())
+            }
             VdMirExprFldData::ChainingSeparatedList {
                 leader,
                 followers,
@@ -147,12 +161,14 @@ pub enum VdMirExprFldData<'sess> {
 }
 
 impl<'sess> VdMirExprFldData<'sess> {
-    pub fn outer_precedence(&self) -> VdMirPrecedence {
+    pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
-            VdMirExprFldData::Literal(_) => VdMirPrecedence::ATOM,
-            VdMirExprFldData::Variable(_, _) => VdMirPrecedence::ATOM,
+            VdMirExprFldData::Literal(_) => VdPrecedence::ATOM,
+            VdMirExprFldData::Variable(_, _) => VdPrecedence::ATOM,
             VdMirExprFldData::Application { function, .. } => function.outer_precedence(),
-            VdMirExprFldData::FoldingSeparatedList { leader, followers } => todo!(),
+            VdMirExprFldData::FoldingSeparatedList { leader, followers } => {
+                followers[0].0.outer_precedence()
+            }
             VdMirExprFldData::ChainingSeparatedList {
                 leader,
                 followers,
@@ -174,6 +190,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let term = self.calc_expr_term(expr_entry, symbol_local_defn_storage);
         let db = self.session().floater_db();
         let expr_fld = VdMirExprFld::new(data, ty, term, db);
+        use husky_print_utils::p;
+        p!(expr_fld, term);
         self.save_expr_fld(expr_idx, expr_fld);
     }
 

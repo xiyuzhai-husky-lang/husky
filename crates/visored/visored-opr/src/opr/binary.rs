@@ -73,17 +73,11 @@ impl VdBaseBinaryOpr {
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub enum VdCompositeBinaryOpr {
-    Add,
-    Eq,
-}
+pub enum VdCompositeBinaryOpr {}
 
 impl VdCompositeBinaryOpr {
     pub fn fmt_str(self) -> &'static str {
-        match self {
-            VdCompositeBinaryOpr::Add => "+",
-            VdCompositeBinaryOpr::Eq => "=",
-        }
+        match self {}
     }
 
     pub fn left_precedence_range(self) -> VdPrecedenceRange {
@@ -96,15 +90,11 @@ impl VdCompositeBinaryOpr {
 
     pub fn latex_code(&self) -> &str {
         match self {
-            VdCompositeBinaryOpr::Add => "+",
-            VdCompositeBinaryOpr::Eq => "=",
+            _ => todo!(),
         }
     }
 
     pub fn precedence(self) -> VdPrecedence {
-        match self {
-            VdCompositeBinaryOpr::Add => VdPrecedence::ADD_SUB,
-            VdCompositeBinaryOpr::Eq => VdPrecedence::RELATION,
-        }
+        match self {}
     }
 }

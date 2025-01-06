@@ -65,3 +65,42 @@ impl<'sess> VdBsqTerm<'sess> {
         VdBsqPropTerm::new_num_relationship(lhs, kind, rhs, db).into()
     }
 }
+
+impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
+    pub fn data(self) -> &'sess VdBsqNumRelationshipPropTermData<'sess> {
+        match self.0.data() {
+            VdBsqPropTermData::NumRelationship(data) => data,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl<'sess> std::fmt::Debug for VdBsqNumRelationshipPropTerm<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("NumRelationshipPropTerm(")?;
+        self.show_fmt(f)?;
+        f.write_str(")")
+    }
+}
+
+impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.data().show_fmt(f)
+    }
+}
+
+impl<'sess> VdBsqNumRelationshipPropTermData<'sess> {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.lhs_minus_rhs.show_fmt(f)?;
+        f.write_str(" ")?;
+        match self.kind {
+            VdBsqNumRelationshipPropTermKind::Eq => f.write_str("="),
+            VdBsqNumRelationshipPropTermKind::Ne => f.write_str("≠"),
+            VdBsqNumRelationshipPropTermKind::Lt => f.write_str("<"),
+            VdBsqNumRelationshipPropTermKind::Gt => f.write_str(">"),
+            VdBsqNumRelationshipPropTermKind::Le => f.write_str("≤"),
+            VdBsqNumRelationshipPropTermKind::Ge => f.write_str("≥"),
+        }?;
+        f.write_str(" 0")
+    }
+}

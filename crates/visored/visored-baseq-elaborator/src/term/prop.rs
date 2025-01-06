@@ -12,6 +12,7 @@ pub enum VdBsqPropTerm<'sess> {
 
 #[floated]
 pub struct VdBsqPropTermFld<'sess> {
+    #[return_ref]
     pub data: VdBsqPropTermData<'sess>,
 }
 
@@ -19,4 +20,21 @@ pub struct VdBsqPropTermFld<'sess> {
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqPropTermData<'sess> {
     NumRelationship(VdBsqNumRelationshipPropTermData<'sess>),
+}
+
+impl<'sess> std::fmt::Debug for VdBsqPropTerm<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("PropTerm(")?;
+        self.show_fmt(f)?;
+        f.write_str(")")
+    }
+}
+
+impl<'sess> VdBsqPropTerm<'sess> {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdBsqPropTerm::NumRelationship(term) => term.show_fmt(f),
+            VdBsqPropTerm::Trivial(b) => write!(f, "{}", b),
+        }
+    }
 }

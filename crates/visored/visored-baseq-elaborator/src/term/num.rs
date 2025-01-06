@@ -63,3 +63,12 @@ impl<'sess> VdBsqNumTerm<'sess> {
         *self = self.add(rhs, db);
     }
 }
+
+impl<'sess> VdBsqNumTerm<'sess> {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdBsqNumTerm::Rnum(term) => term.show_fmt(f),
+            VdBsqNumTerm::Inum(term) => term.show_fmt(f),
+        }
+    }
+}

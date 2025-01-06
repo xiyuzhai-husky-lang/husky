@@ -1,4 +1,4 @@
-use crate::precedence::VdMirPrecedence;
+use visored_opr::{precedence::VdPrecedence, separator::VdSeparatorClass};
 
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
@@ -13,9 +13,9 @@ impl VdMirBasePrefixOpr {
 }
 
 impl VdMirBasePrefixOpr {
-    pub fn precedence(self) -> VdMirPrecedence {
+    pub fn precedence(self) -> VdPrecedence {
         match self {
-            VdMirBasePrefixOpr::RING_POS | VdMirBasePrefixOpr::RING_NEG => VdMirPrecedence::SIGN,
+            VdMirBasePrefixOpr::RING_POS | VdMirBasePrefixOpr::RING_NEG => VdPrecedence::SIGN,
             _ => todo!(),
         }
     }

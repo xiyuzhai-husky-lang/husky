@@ -50,14 +50,20 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
     }
 }
 
-impl<'sess> VdBsqInumSumTermData<'sess> {
+impl<'sess> VdBsqSumInumTerm<'sess> {
     pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        self.data().show_fmt(f)
     }
 }
 
-impl<'sess> VdBsqSumInumTerm<'sess> {
+impl<'sess> VdBsqInumSumTermData<'sess> {
     pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        self.constant_term.show_fmt(f)?;
+        for (monomial, coefficient) in self.monomials.iter() {
+            f.write_str(" + ")?;
+            coefficient.show_fmt(f)?;
+            monomial.show_fmt(f)?;
+        }
+        Ok(())
     }
 }

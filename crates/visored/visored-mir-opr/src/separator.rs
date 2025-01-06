@@ -1,4 +1,7 @@
-use crate::precedence::{VdMirPrecedence, VdMirPrecedenceRange};
+use visored_opr::{
+    precedence::{VdPrecedence, VdPrecedenceRange},
+    separator::VdSeparatorClass,
+};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub enum VdMirBaseSeparator {
@@ -20,6 +23,8 @@ pub enum VdMirBaseSeparator {
     Supsetneq,
     In,
     Notin,
+    SetTimes,
+    TensorOtimes,
 }
 
 impl VdMirBaseSeparator {
@@ -42,25 +47,92 @@ impl VdMirBaseSeparator {
 }
 
 impl VdMirBaseSeparator {
-    pub fn precedence(self) -> VdMirPrecedence {
-        todo!()
+    pub fn precedence(self) -> VdPrecedence {
+        match self {
+            VdMirBaseSeparator::CommRingAdd => VdPrecedence::ADD_SUB,
+            VdMirBaseSeparator::CommRingMul => VdPrecedence::MUL_DIV,
+            VdMirBaseSeparator::SetTimes => VdPrecedence::MUL_DIV,
+            VdMirBaseSeparator::TensorOtimes => VdPrecedence::MUL_DIV,
+            VdMirBaseSeparator::Eq
+            | VdMirBaseSeparator::Ne
+            | VdMirBaseSeparator::Lt
+            | VdMirBaseSeparator::Gt
+            | VdMirBaseSeparator::Le
+            | VdMirBaseSeparator::Ge
+            | VdMirBaseSeparator::Subset
+            | VdMirBaseSeparator::Supset
+            | VdMirBaseSeparator::Subseteq
+            | VdMirBaseSeparator::Supseteq
+            | VdMirBaseSeparator::Subseteqq
+            | VdMirBaseSeparator::Supseteqq
+            | VdMirBaseSeparator::Subsetneq
+            | VdMirBaseSeparator::Supsetneq
+            | VdMirBaseSeparator::In
+            | VdMirBaseSeparator::Notin => VdPrecedence::RELATION,
+        }
     }
 
-    pub fn left_precedence_range(self) -> VdMirPrecedenceRange {
-        todo!()
+    pub fn left_precedence_range(self) -> VdPrecedenceRange {
+        self.class().left_precedence_range()
     }
 
-    pub fn right_precedence_range(self) -> VdMirPrecedenceRange {
-        todo!()
+    pub fn right_precedence_range(self) -> VdPrecedenceRange {
+        self.class().right_precedence_range()
+    }
+
+    pub fn class(self) -> VdSeparatorClass {
+        match self {
+            VdMirBaseSeparator::CommRingAdd => VdSeparatorClass::Add,
+            VdMirBaseSeparator::CommRingMul => VdSeparatorClass::Mul,
+            VdMirBaseSeparator::SetTimes => VdSeparatorClass::Mul,
+            VdMirBaseSeparator::TensorOtimes => VdSeparatorClass::Mul,
+            VdMirBaseSeparator::Eq
+            | VdMirBaseSeparator::Ne
+            | VdMirBaseSeparator::Lt
+            | VdMirBaseSeparator::Gt
+            | VdMirBaseSeparator::Le
+            | VdMirBaseSeparator::Ge
+            | VdMirBaseSeparator::Subset
+            | VdMirBaseSeparator::Supset
+            | VdMirBaseSeparator::Subseteq
+            | VdMirBaseSeparator::Supseteq
+            | VdMirBaseSeparator::Subseteqq
+            | VdMirBaseSeparator::Supseteqq
+            | VdMirBaseSeparator::Subsetneq
+            | VdMirBaseSeparator::Supsetneq
+            | VdMirBaseSeparator::In
+            | VdMirBaseSeparator::Notin => VdSeparatorClass::Relation,
+        }
     }
 }
 
 impl VdMirBaseSeparator {
     pub fn unicode(self) -> &'static str {
-        todo!()
+        match self {
+            VdMirBaseSeparator::CommRingAdd => "+",
+            VdMirBaseSeparator::CommRingMul => "*",
+            VdMirBaseSeparator::Eq => "=",
+            VdMirBaseSeparator::Ne => "≠",
+            VdMirBaseSeparator::Lt => "<",
+            VdMirBaseSeparator::Gt => ">",
+            VdMirBaseSeparator::Le => "≤",
+            VdMirBaseSeparator::Ge => "≥",
+            VdMirBaseSeparator::Subset => "⊂",
+            VdMirBaseSeparator::Supset => "⊃",
+            VdMirBaseSeparator::Subseteq => "⊆",
+            VdMirBaseSeparator::Supseteq => "⊇",
+            VdMirBaseSeparator::Subseteqq => "⫅",
+            VdMirBaseSeparator::Supseteqq => "⫆",
+            VdMirBaseSeparator::Subsetneq => "⊊",
+            VdMirBaseSeparator::Supsetneq => "⊋",
+            VdMirBaseSeparator::In => "∈",
+            VdMirBaseSeparator::Notin => "∉",
+            VdMirBaseSeparator::SetTimes => "×",
+            VdMirBaseSeparator::TensorOtimes => "⊗",
+        }
     }
 
     pub fn show_fmt(self, f: &mut impl std::fmt::Write) -> std::fmt::Result {
-        todo!()
+        f.write_str(self.unicode())
     }
 }

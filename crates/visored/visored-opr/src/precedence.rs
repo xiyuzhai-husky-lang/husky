@@ -90,6 +90,7 @@ impl VdPrecedenceRange {
     pub const ADD_SUB_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::ADD_SUB);
     pub const ADD_SUB_RIGHT: Self = VdPrecedenceRange::Greater(VdPrecedence::ADD_SUB);
     pub const MUL_DIV_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::MUL_DIV);
+    pub const MUL_DIV_RIGHT: Self = VdPrecedenceRange::Greater(VdPrecedence::MUL_DIV);
     pub const COMPARISON_LEFT: Self = VdPrecedenceRange::NoLess(VdPrecedence::RELATION);
     pub const ATOM: Self = VdPrecedenceRange::NoLess(VdPrecedence::ATOM);
 }

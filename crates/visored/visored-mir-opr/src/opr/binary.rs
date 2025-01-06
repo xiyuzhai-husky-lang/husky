@@ -1,4 +1,7 @@
-use crate::precedence::{VdMirPrecedence, VdMirPrecedenceRange};
+use visored_opr::{
+    precedence::{VdPrecedence, VdPrecedenceRange},
+    separator::VdSeparatorClass,
+};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub enum VdMirBaseBinaryOpr {
@@ -12,19 +15,31 @@ impl VdMirBaseBinaryOpr {
 }
 
 impl VdMirBaseBinaryOpr {
-    pub fn precedence(self) -> VdMirPrecedence {
-        todo!()
+    pub fn precedence(self) -> VdPrecedence {
+        match self {
+            VdMirBaseBinaryOpr::CommRingSub => VdPrecedence::ADD_SUB,
+            VdMirBaseBinaryOpr::CommFieldDiv => VdPrecedence::MUL_DIV,
+        }
     }
 
-    pub fn left_precedence_range(self) -> VdMirPrecedenceRange {
-        todo!()
+    pub fn left_precedence_range(self) -> VdPrecedenceRange {
+        match self {
+            VdMirBaseBinaryOpr::CommRingSub => VdPrecedenceRange::ADD_SUB_LEFT,
+            VdMirBaseBinaryOpr::CommFieldDiv => VdPrecedenceRange::MUL_DIV_LEFT,
+        }
     }
 
-    pub fn right_precedence_range(self) -> VdMirPrecedenceRange {
-        todo!()
+    pub fn right_precedence_range(self) -> VdPrecedenceRange {
+        match self {
+            VdMirBaseBinaryOpr::CommRingSub => VdPrecedenceRange::ADD_SUB_RIGHT,
+            VdMirBaseBinaryOpr::CommFieldDiv => VdPrecedenceRange::MUL_DIV_RIGHT,
+        }
     }
 
     pub fn unicode(self) -> &'static str {
-        todo!()
+        match self {
+            VdMirBaseBinaryOpr::CommRingSub => "-",
+            VdMirBaseBinaryOpr::CommFieldDiv => "÷",
+        }
     }
 }

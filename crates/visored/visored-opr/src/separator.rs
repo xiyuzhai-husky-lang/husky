@@ -173,10 +173,6 @@ impl VdBaseSeparator {
             VdBaseSeparator::Otimes => "⊗",
         }
     }
-
-    pub fn show(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str(self.unicode())
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

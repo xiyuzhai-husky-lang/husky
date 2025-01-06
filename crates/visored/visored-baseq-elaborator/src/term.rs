@@ -58,7 +58,17 @@ impl<'sess> VdBsqTerm<'sess> {
 
 impl<'sess> std::fmt::Debug for VdBsqTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        self.show_fmt(f)
+    }
+}
+
+impl<'sess> VdBsqTerm<'sess> {
+    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            VdBsqTerm::Rnum(rnum) => rnum.show_fmt(f),
+            VdBsqTerm::Inum(inum) => inum.show_fmt(f),
+            VdBsqTerm::Prop(prop) => prop.show_fmt(f),
+        }
     }
 }
 
@@ -190,6 +200,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         VdMirBaseSeparator::Supsetneq => todo!(),
                         VdMirBaseSeparator::In => todo!(),
                         VdMirBaseSeparator::Notin => todo!(),
+                        VdMirBaseSeparator::SetTimes => todo!(),
+                        VdMirBaseSeparator::TensorOtimes => todo!(),
                     },
                     VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
                     VdMirFunc::Power(signature) => todo!(),
@@ -237,6 +249,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                             VdMirBaseSeparator::Supsetneq => todo!(),
                             VdMirBaseSeparator::In => todo!(),
                             VdMirBaseSeparator::Notin => todo!(),
+                            VdMirBaseSeparator::SetTimes => todo!(),
+                            VdMirBaseSeparator::TensorOtimes => todo!(),
                         },
                         VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
                         VdMirFunc::Power(signature) => todo!(),

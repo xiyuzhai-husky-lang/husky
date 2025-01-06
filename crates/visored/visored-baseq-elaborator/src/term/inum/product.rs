@@ -108,6 +108,18 @@ impl<'sess> VdBsqTerm<'sess> {
 
 impl<'sess> VdBsqProductInumTermBaseData<'sess> {
     pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        for (base, exponent) in self.exponentials() {
+            base.show_fmt(f)?;
+            f.write_str("^(")?;
+            exponent.show_fmt(f)?;
+            f.write_str(")")?;
+        }
+        Ok(())
+    }
+}
+
+impl<'sess> VdBsqProductInumTermBase<'sess> {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.data().show_fmt(f)
     }
 }

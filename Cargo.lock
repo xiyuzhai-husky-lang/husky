@@ -13443,6 +13443,7 @@ dependencies = [
  "visored-mir-expr",
  "visored-mir-opr",
  "visored-models",
+ "visored-opr",
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
@@ -13609,6 +13610,9 @@ dependencies = [
 [[package]]
 name = "visored-mir-opr"
 version = "0.1.0"
+dependencies = [
+ "visored-opr",
+]
 
 [[package]]
 name = "visored-models"
