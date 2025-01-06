@@ -9313,6 +9313,7 @@ dependencies = [
 name = "miracle"
 version = "0.1.0"
 dependencies = [
+ "alt-maybe-result",
  "alt-option",
  "ordered-float 4.5.0",
  "sealed",

@@ -7,6 +7,7 @@ pub mod metric;
 pub mod state;
 
 use self::{config::*, error::*, metric::*, state::*};
+use alt_maybe_result::*;
 use alt_option::*;
 use sealed::sealed;
 
@@ -70,14 +71,14 @@ pub trait HasMiracleFull: HasMiracle {
         self,
         stages: &[f64],
         max_heartbeats: u64,
-        f: impl FnMut(&mut Self) -> AltOption<MiracleResult<R>>,
-    ) -> AltOption<MiracleResult<R>>;
+        f: impl FnMut(&mut Self) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>;
 
     fn split<R>(
         &mut self,
         number_of_values: u64,
-        f: impl FnMut(&mut Self, u64) -> AltOption<MiracleResult<R>>,
-    ) -> AltOption<MiracleResult<R>>;
+        f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>;
 }
 
 #[sealed]
@@ -86,8 +87,8 @@ impl<T: HasMiracle> HasMiracleFull for T {
         mut self,
         stages: &[f64],
         max_heartbeats: u64,
-        mut f: impl FnMut(&mut Self) -> AltOption<MiracleResult<R>>,
-    ) -> AltOption<MiracleResult<R>> {
+        mut f: impl FnMut(&mut Self) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R> {
         assert!(self.miracle().is_uninitialized());
         let fst = *stages.first().unwrap();
         assert!(fst >= 0.0);
@@ -107,18 +108,18 @@ impl<T: HasMiracle> HasMiracleFull for T {
             };
             f(&mut self)?;
         }
-        AltNone
+        AltNothing
     }
 
     fn split<R>(
         &mut self,
         number_of_values: u64,
-        mut f: impl FnMut(&mut Self, u64) -> AltOption<MiracleResult<R>>,
-    ) -> AltOption<MiracleResult<R>> {
+        mut f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R> {
         for i in 0..number_of_values {
-            crate::state::calc_alt_option_with_new_value_appended(self, i, |g| f(g, i))?;
+            crate::state::calc_with_new_value_appended(self, i, |g| f(g, i))?;
         }
-        AltNone
+        AltNothing
     }
 }
 
@@ -141,7 +142,7 @@ fn run_staged_alt_option_works() {
         miracle: Miracle::new(),
     };
     assert_eq!(
-        gerald.run_staged(&[1.0], 10, |_| AltSome(Ok(1))),
-        AltSome(Ok(1))
+        gerald.run_staged(&[1.0], 10, |_| AltJustOk(1)),
+        AltJustOk(1)
     );
 }

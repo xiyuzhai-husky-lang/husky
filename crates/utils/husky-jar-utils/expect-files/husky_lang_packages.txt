@@ -583,6 +583,7 @@
         name: "miracle",
         relative_path: "crates/abstractions/miracle",
         dependencies: [
+            "alt-maybe-result",
             "alt-option",
             "ordered-float",
             "sealed",

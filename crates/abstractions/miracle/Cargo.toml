@@ -16,6 +16,8 @@ alt-option.workspace = true
 ordered-float.workspace = true
 sealed.workspace = true
 thiserror.workspace = true
+# abstractions
+alt-maybe-result.workspace = true
 
 [lints]
 workspace = true

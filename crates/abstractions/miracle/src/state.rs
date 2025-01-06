@@ -25,18 +25,18 @@ impl MiracleState {
     }
 }
 
-pub(crate) fn calc_alt_option_with_new_value_appended<G, R>(
+pub(crate) fn calc_with_new_value_appended<G, R>(
     g: &mut G,
     value: u64,
-    mut f: impl FnMut(&mut G) -> AltOption<MiracleResult<R>>,
-) -> AltOption<MiracleResult<R>>
+    mut f: impl FnMut(&mut G) -> MiracleAltMaybeResult<R>,
+) -> MiracleAltMaybeResult<R>
 where
     G: HasMiracle,
 {
     g.miracle_mut().state_mut().vector.push(value);
     update_heartbeats(g, value);
     if g.miracle().state().heartbeats >= g.miracle().config().max_heartbeats {
-        return AltSome(Err(MiracleError::HeartbeatsExceeded));
+        return AltJustErr(MiracleError::HeartbeatsExceeded);
     }
     let result = f(g);
     g.miracle_mut().state_mut().vector.pop();
