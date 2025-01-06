@@ -5131,6 +5131,7 @@
         name: "visored-baseq-elaborator",
         relative_path: "crates/visored/visored-baseq-elaborator",
         dependencies: [
+            "alt-maybe-result",
             "alt-option",
             "either",
             "enum-class",
@@ -5148,7 +5149,9 @@
             "latex-vfs",
             "miracle",
             "monadic-fold",
+            "ordered-float",
             "rustc-hash",
+            "serde",
             "smallvec",
             "thiserror",
             "vec-like",
