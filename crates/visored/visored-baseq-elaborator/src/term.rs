@@ -20,6 +20,7 @@ use visored_mir_expr::{
     },
 };
 use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
+use visored_opr::precedence::VdPrecedenceRange;
 use visored_term::term::{literal::VdLiteralData, VdTermData};
 
 #[enum_class::from_variants]
@@ -58,16 +59,22 @@ impl<'sess> VdBsqTerm<'sess> {
 
 impl<'sess> std::fmt::Debug for VdBsqTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.show_fmt(f)
+        f.write_str("VdBsqTerm(`")?;
+        self.show_fmt(VdPrecedenceRange::Any, f)?;
+        f.write_str("`)")
     }
 }
 
 impl<'sess> VdBsqTerm<'sess> {
-    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
         match self {
-            VdBsqTerm::Rnum(rnum) => rnum.show_fmt(f),
-            VdBsqTerm::Inum(inum) => inum.show_fmt(f),
-            VdBsqTerm::Prop(prop) => prop.show_fmt(f),
+            VdBsqTerm::Rnum(rnum) => rnum.show_fmt(precedence_range, f),
+            VdBsqTerm::Inum(inum) => inum.show_fmt(precedence_range, f),
+            VdBsqTerm::Prop(prop) => prop.show_fmt(precedence_range, f),
         }
     }
 }
@@ -75,7 +82,7 @@ impl<'sess> VdBsqTerm<'sess> {
 impl<'sess> std::fmt::Debug for VdBsqNumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdBsqNumTerm(`")?;
-        self.show_fmt(f)?;
+        self.show_fmt(VdPrecedenceRange::Any, f)?;
         f.write_str("`)")
     }
 }

@@ -24,16 +24,20 @@ pub enum VdBsqPropTermData<'sess> {
 
 impl<'sess> std::fmt::Debug for VdBsqPropTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("PropTerm(")?;
-        self.show_fmt(f)?;
-        f.write_str(")")
+        f.write_str("PropTerm(`")?;
+        self.show_fmt(VdPrecedenceRange::Any, f)?;
+        f.write_str("`)")
     }
 }
 
 impl<'sess> VdBsqPropTerm<'sess> {
-    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
         match self {
-            VdBsqPropTerm::NumRelationship(term) => term.show_fmt(f),
+            VdBsqPropTerm::NumRelationship(term) => term.show_fmt(precedence_range, f),
             VdBsqPropTerm::Trivial(b) => write!(f, "{}", b),
         }
     }

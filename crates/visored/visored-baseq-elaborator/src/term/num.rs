@@ -31,14 +31,18 @@ impl<'sess> VdBsqNumTerm<'sess> {
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
-    pub fn is_zero_trivially(&self) -> bool {
+    pub fn is_zero_trivially(self) -> bool {
         match self {
             VdBsqNumTerm::Rnum(term) => term.is_zero(),
             VdBsqNumTerm::Inum(term) => false,
         }
     }
 
-    pub fn eqs_i128_trivially(&self, rhs: i128) -> bool {
+    pub fn is_one_trivially(self) -> bool {
+        self.eqs_i128_trivially(1)
+    }
+
+    pub fn eqs_i128_trivially(self, rhs: i128) -> bool {
         match self {
             VdBsqNumTerm::Rnum(term) => term.eqs_i128(rhs),
             VdBsqNumTerm::Inum(term) => false,
@@ -87,10 +91,14 @@ impl<'sess> VdBsqNumTerm<'sess> {
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
-    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(
+        &self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
         match self {
-            VdBsqNumTerm::Rnum(term) => term.show_fmt(f),
-            VdBsqNumTerm::Inum(term) => term.show_fmt(f),
+            VdBsqNumTerm::Rnum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNumTerm::Inum(term) => term.show_fmt(precedence_range, f),
         }
     }
 }

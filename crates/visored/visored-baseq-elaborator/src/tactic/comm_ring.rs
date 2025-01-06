@@ -38,11 +38,16 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             return Ok(AltNone);
         };
         let config = self.session().config().tactic().comm_ring();
+        use husky_print_utils::*;
+        p!(term);
         match self.run_staged(config.stages(), config.max_heartbeats(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
             builder.add_rnum(term.constant_term());
             fold_sum(slf, term.monomials(), builder, &|elaborator, builder| {
-                let VdBsqNumTerm::Rnum(rnum) = builder.finish() else {
+                let term = builder.finish();
+                let VdBsqNumTerm::Rnum(rnum) = term else {
+                    use husky_print_utils::*;
+                    p!(term);
                     return AltNothing;
                 };
                 let hypothesis = elaborator

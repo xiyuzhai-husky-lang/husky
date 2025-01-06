@@ -1,6 +1,7 @@
 use super::*;
 use latex_math_letter::letter::LxMathLetter;
 use visored_mir_expr::symbol::local_defn::VdMirSymbolLocalDefnIdx;
+use visored_opr::precedence::VdPrecedenceRange;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqAtomInumTerm<'sess>(VdBsqInumTermFld<'sess>);
@@ -56,17 +57,35 @@ impl<'sess> VdBsqTerm<'sess> {
 }
 
 impl<'sess> VdBsqAtomInumTerm<'sess> {
-    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.data().show_fmt(f)
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        self.data().show_fmt(precedence_range, f)
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        self.data().outer_precedence()
     }
 }
 
 impl<'sess> VdBsqInumAtomTermData {
-    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(
+        &self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
         match self {
             VdBsqInumAtomTermData::Variable(lx_math_letter, _) => {
                 write!(f, "{}", lx_math_letter.unicode())
             }
+        }
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        match self {
+            VdBsqInumAtomTermData::Variable(_, _) => VdPrecedence::ATOM,
         }
     }
 }

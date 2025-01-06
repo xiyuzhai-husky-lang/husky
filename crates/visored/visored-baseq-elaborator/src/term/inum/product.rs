@@ -1,3 +1,5 @@
+use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -53,6 +55,10 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
 
     pub fn exponentials(&self) -> &'sess [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)] {
         self.data().exponentials()
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        self.data().outer_precedence()
     }
 }
 
@@ -122,19 +128,63 @@ impl<'sess> VdBsqTerm<'sess> {
 }
 
 impl<'sess> VdBsqProductInumTermBaseData<'sess> {
-    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        for (base, exponent) in self.exponentials() {
-            base.show_fmt(f)?;
-            f.write_str("^(")?;
-            exponent.show_fmt(f)?;
-            f.write_str(")")?;
+    pub fn show_fmt(
+        &self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        let outer_precedence = if self.exponentials.len() == 1 {
+            let (base, exponent) = self.exponentials.data()[0];
+            if exponent.is_one_trivially() {
+                let base_outer_precedence = base.outer_precedence();
+                if VdPrecedenceRange::MUL_DIV_LEFT.contains(base_outer_precedence) {
+                    base_outer_precedence
+                } else {
+                    VdPrecedence::ATOM
+                }
+            } else {
+                VdPrecedence::MUL_DIV
+            }
+        } else {
+            VdPrecedence::MUL_DIV
+        };
+        if precedence_range.contains(outer_precedence) {
+            self.show_fmt_inner(f)
+        } else {
+            f.write_str("(")?;
+            self.show_fmt_inner(f)?;
+            f.write_str(")")
+        }
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        todo!()
+        // VdPrecedence::MUL_DIV
+    }
+
+    fn show_fmt_inner(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        for &(base, exponent) in self.exponentials() {
+            match exponent {
+                VdBsqNumTerm::ZERO => unreachable!(),
+                VdBsqNumTerm::ONE => base.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?,
+                _ => {
+                    base.show_fmt(VdPrecedenceRange::ATOM, f)?;
+                    f.write_str("^")?;
+                    exponent.show_fmt(VdPrecedenceRange::ATOM, f)?;
+                    f.write_str("")?
+                }
+            }
         }
         Ok(())
     }
 }
 
 impl<'sess> VdBsqProductInumTermBase<'sess> {
-    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.data().show_fmt(f)
+    pub fn show_fmt(
+        &self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        self.data().show_fmt(precedence_range, f)
     }
 }

@@ -77,21 +77,29 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
 
 impl<'sess> std::fmt::Debug for VdBsqNumRelationshipPropTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("NumRelationshipPropTerm(")?;
-        self.show_fmt(f)?;
-        f.write_str(")")
+        f.write_str("NumRelationshipPropTerm(`")?;
+        self.show_fmt(VdPrecedenceRange::Any, f)?;
+        f.write_str("`)")
     }
 }
 
 impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
-    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.data().show_fmt(f)
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        self.data().show_fmt(precedence_range, f)
     }
 }
 
 impl<'sess> VdBsqNumRelationshipPropTermData<'sess> {
-    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.lhs_minus_rhs.show_fmt(f)?;
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        self.lhs_minus_rhs.show_fmt(precedence_range, f)?;
         f.write_str(" ")?;
         match self.kind {
             VdBsqNumRelationshipPropTermKind::Eq => f.write_str("="),

@@ -1,5 +1,7 @@
 use std::num::NonZeroU128;
 
+use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
+
 use super::*;
 
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -17,9 +19,9 @@ impl From<i128> for VdBsqRnumTerm {
 
 impl std::fmt::Debug for VdBsqRnumTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("`")?;
-        self.show_fmt(f)?;
-        f.write_str("`")
+        f.write_str("VdBsqRnumTerm(`")?;
+        self.show_fmt(VdPrecedenceRange::Any, f)?;
+        f.write_str("`)")
     }
 }
 
@@ -118,7 +120,36 @@ impl VdBsqRnumTerm {
 }
 
 impl<'sess> VdBsqRnumTerm {
-    pub fn show_fmt(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        let outer_precedence = self.outer_precedence();
+        if precedence_range.contains(outer_precedence) {
+            self.show_fmt_inner(f)
+        } else {
+            f.write_str("(")?;
+            self.show_fmt_inner(f)?;
+            f.write_str(")")
+        }
+    }
+
+    pub fn outer_precedence(self) -> VdPrecedence {
+        match self {
+            VdBsqRnumTerm::Int128(i) => {
+                if i >= 0 {
+                    VdPrecedence::ATOM
+                } else {
+                    VdPrecedence::ADD_SUB
+                }
+            }
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+
+    fn show_fmt_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdBsqRnumTerm::Int128(i) => write!(f, "{}", i),
             VdBsqRnumTerm::BigInt() => todo!(),
