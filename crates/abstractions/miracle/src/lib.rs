@@ -2,10 +2,11 @@
 //! continuously revives its wielder to become stronger after each defeat.
 
 pub mod config;
+pub mod error;
 pub mod metric;
 pub mod state;
 
-use self::{config::*, metric::*, state::*};
+use self::{config::*, error::*, metric::*, state::*};
 use alt_option::*;
 use sealed::sealed;
 
@@ -36,6 +37,20 @@ impl Miracle {
 }
 
 impl Miracle {
+    pub fn state(&self) -> &MiracleState {
+        match &self.inner {
+            MiracleInner::Uninitialized => panic!("miracle is uninitialized"),
+            MiracleInner::Initialized { state, config } => state,
+        }
+    }
+
+    pub fn config(&self) -> &MiracleConfig {
+        match &self.inner {
+            MiracleInner::Uninitialized => panic!("miracle is uninitialized"),
+            MiracleInner::Initialized { config, .. } => config,
+        }
+    }
+
     pub fn state_mut(&mut self) -> &mut MiracleState {
         match &mut self.inner {
             MiracleInner::Uninitialized => panic!("miracle is uninitialized"),
@@ -51,22 +66,28 @@ pub trait HasMiracle {
 
 #[sealed]
 pub trait HasMiracleFull: HasMiracle {
-    fn run_staged_alt_option<R>(
+    fn run_staged<R>(
         self,
         stages: &[f64],
         max_heartbeats: u64,
-        f: impl FnMut(&mut Self) -> AltOption<R>,
-    ) -> AltOption<R>;
+        f: impl FnMut(&mut Self) -> AltOption<MiracleResult<R>>,
+    ) -> AltOption<MiracleResult<R>>;
+
+    fn split<R>(
+        &mut self,
+        number_of_values: u64,
+        f: impl FnMut(&mut Self, u64) -> AltOption<MiracleResult<R>>,
+    ) -> AltOption<MiracleResult<R>>;
 }
 
 #[sealed]
 impl<T: HasMiracle> HasMiracleFull for T {
-    fn run_staged_alt_option<R>(
+    fn run_staged<R>(
         mut self,
         stages: &[f64],
         max_heartbeats: u64,
-        mut f: impl FnMut(&mut Self) -> AltOption<R>,
-    ) -> AltOption<R> {
+        mut f: impl FnMut(&mut Self) -> AltOption<MiracleResult<R>>,
+    ) -> AltOption<MiracleResult<R>> {
         assert!(self.miracle().is_uninitialized());
         let fst = *stages.first().unwrap();
         assert!(fst >= 0.0);
@@ -85,6 +106,17 @@ impl<T: HasMiracle> HasMiracleFull for T {
                 },
             };
             f(&mut self)?;
+        }
+        AltNone
+    }
+
+    fn split<R>(
+        &mut self,
+        number_of_values: u64,
+        mut f: impl FnMut(&mut Self, u64) -> AltOption<MiracleResult<R>>,
+    ) -> AltOption<MiracleResult<R>> {
+        for i in 0..number_of_values {
+            crate::state::calc_alt_option_with_new_value_appended(self, i, |g| f(g, i))?;
         }
         AltNone
     }
@@ -109,7 +141,7 @@ fn run_staged_alt_option_works() {
         miracle: Miracle::new(),
     };
     assert_eq!(
-        gerald.run_staged_alt_option(&[1.0], 10, |_| AltSome(1)),
-        AltSome(1)
+        gerald.run_staged(&[1.0], 10, |_| AltSome(Ok(1))),
+        AltSome(Ok(1))
     );
 }

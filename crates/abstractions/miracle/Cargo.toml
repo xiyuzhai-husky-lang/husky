@@ -15,6 +15,7 @@ keywords.workspace = true
 alt-option.workspace = true
 ordered-float.workspace = true
 sealed.workspace = true
+thiserror.workspace = true
 
 [lints]
 workspace = true
