@@ -50,13 +50,19 @@ end Example5
 
 namespace Example6
 def h(x : ℝ) := by
-  have h1 : x ^ 2 ≥ 0 := by apply sq_nonneg
+  have h1 : x - x = 0 := by term_trivial
   exact ()
 end Example6
 
 namespace Example7
+def h(x : ℝ) := by
+  have h1 : x ^ 2 ≥ 0 := by apply sq_nonneg
+  exact ()
+end Example7
+
+namespace Example8
 def h(x : ℝ)(h1 : x ≥ 1) := by
   have h2 : x - 1 ≥ 0 := by term_equivalent
   exact ()
-end Example7
+end Example8
 
