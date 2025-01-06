@@ -10,6 +10,7 @@ use crate::{
 };
 use eterned::db::EternerDb;
 use floated_sequential::db::FloaterDb;
+use miracle::{HasMiracle, Miracle};
 use std::marker::PhantomData;
 use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
@@ -31,6 +32,7 @@ use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 pub struct VdBsqElaboratorInner<'db, 'sess> {
     session: &'sess VdBsqSession<'db>,
     expr_to_fld_map: VdMirExprMap<VdMirExprFld<'sess>>,
+    miracle: Miracle,
     pub(crate) hypothesis_constructor: VdBsqHypothesisConstructor<'db, 'sess>,
 }
 
@@ -42,7 +44,18 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             session,
             hypothesis_constructor: VdBsqHypothesisConstructor::new(session),
             expr_to_fld_map: VdMirExprMap::new2(region_data.expr_arena),
+            miracle: Miracle::new(),
         }
+    }
+}
+
+impl<'db, 'sess> HasMiracle for VdBsqElaboratorInner<'db, 'sess> {
+    fn miracle(&self) -> &Miracle {
+        &self.miracle
+    }
+
+    fn miracle_mut(&mut self) -> &mut Miracle {
+        &mut self.miracle
     }
 }
 

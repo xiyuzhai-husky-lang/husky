@@ -13432,6 +13432,8 @@ dependencies = [
  "latex-math-letter",
  "latex-prelude",
  "latex-vfs",
+ "miracle",
+ "monadic-fold",
  "relative-path",
  "rustc-hash 2.0.0",
  "smallvec",

@@ -21,9 +21,11 @@ thiserror.workspace = true
 alt-option.workspace = true
 enum-class.workspace = true
 eterned.workspace = true
-idx-arena.workspace = true
-vec-like.workspace = true
 floated-sequential.workspace = true
+idx-arena.workspace = true
+miracle.workspace = true
+monadic-fold.workspace = true
+vec-like.workspace = true
 # latex
 latex-math-letter.workspace = true
 latex-prelude.workspace = true
