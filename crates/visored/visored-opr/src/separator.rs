@@ -9,7 +9,7 @@ pub enum VdBaseSeparator {
     Semicolon,
     Add,
     Mul,
-    Dot,
+    Cdot,
     Eq,
     Ne,
     Lt,
@@ -36,7 +36,7 @@ impl VdBaseSeparator {
     pub const SEMICOLON: Self = Self::Semicolon;
     pub const ADD: Self = Self::Add;
     pub const MUL: Self = Self::Mul;
-    pub const DOT: Self = Self::Dot;
+    pub const CDOT: Self = Self::Cdot;
     pub const EQ: Self = Self::Eq;
     pub const NE: Self = Self::Ne;
     pub const LT: Self = Self::Lt;
@@ -53,10 +53,10 @@ impl VdBaseSeparator {
             VdBaseSeparator::Comma => VdSeparatorClass::Comma,
             VdBaseSeparator::Semicolon => VdSeparatorClass::Space,
             VdBaseSeparator::Add => VdSeparatorClass::Add,
-            VdBaseSeparator::Mul | VdBaseSeparator::Times | VdBaseSeparator::Otimes => {
-                VdSeparatorClass::Mul
-            }
-            VdBaseSeparator::Dot => VdSeparatorClass::Mul,
+            VdBaseSeparator::Mul
+            | VdBaseSeparator::Times
+            | VdBaseSeparator::Otimes
+            | VdBaseSeparator::Cdot => VdSeparatorClass::Mul,
             VdBaseSeparator::Eq
             | VdBaseSeparator::Ne
             | VdBaseSeparator::Lt
@@ -95,7 +95,7 @@ impl VdBaseSeparator {
             VdBaseSeparator::Mul | VdBaseSeparator::Times | VdBaseSeparator::Otimes => {
                 VdPrecedence::MUL_DIV
             }
-            VdBaseSeparator::Dot => VdPrecedence::MUL_DIV,
+            VdBaseSeparator::Cdot => VdPrecedence::MUL_DIV,
             VdBaseSeparator::Eq
             | VdBaseSeparator::Ne
             | VdBaseSeparator::Lt
@@ -122,7 +122,7 @@ impl VdBaseSeparator {
             VdBaseSeparator::Semicolon => ";",
             VdBaseSeparator::Add => "+",
             VdBaseSeparator::Mul => "\\times",
-            VdBaseSeparator::Dot => "\\cdot",
+            VdBaseSeparator::Cdot => "\\cdot",
             VdBaseSeparator::Eq => "=",
             VdBaseSeparator::Ne => "\\neq",
             VdBaseSeparator::Lt => "<",
@@ -151,7 +151,7 @@ impl VdBaseSeparator {
             VdBaseSeparator::Semicolon => ";",
             VdBaseSeparator::Add => "+",
             VdBaseSeparator::Mul => "×",
-            VdBaseSeparator::Dot => "·",
+            VdBaseSeparator::Cdot => "·",
             VdBaseSeparator::Eq => "=",
             VdBaseSeparator::Ne => "≠",
             VdBaseSeparator::Lt => "<",
@@ -242,24 +242,25 @@ impl VdBaseSeparator {
             todo!()
         };
         match ident.as_str() {
-            "space" => Self::Space,
-            "comma" => Self::Comma,
-            "semicolon" => Self::Semicolon,
-            "add" => Self::Add,
-            "mul" => Self::Mul,
-            "dot" => Self::Dot,
-            "eq" => Self::Eq,
-            "ne" => Self::Ne,
-            "lt" => Self::Lt,
-            "gt" => Self::Gt,
-            "le" => Self::Le,
-            "ge" => Self::Ge,
-            "subset" => Self::Subset,
-            "supset" => Self::Supset,
-            "in" => Self::In,
-            "notin" => Self::Notin,
-            "times" => Self::Times,
-            "otimes" => Self::Otimes,
+            "space" => VdBaseSeparator::Space,
+            "comma" => VdBaseSeparator::Comma,
+            "semicolon" => VdBaseSeparator::Semicolon,
+            "add" => VdBaseSeparator::Add,
+            "mul" => VdBaseSeparator::Mul,
+            "dot" => VdBaseSeparator::Cdot,
+            "eq" => VdBaseSeparator::Eq,
+            "ne" => VdBaseSeparator::Ne,
+            "lt" => VdBaseSeparator::Lt,
+            "gt" => VdBaseSeparator::Gt,
+            "le" => VdBaseSeparator::Le,
+            "ge" => VdBaseSeparator::Ge,
+            "subset" => VdBaseSeparator::Subset,
+            "supset" => VdBaseSeparator::Supset,
+            "in" => VdBaseSeparator::In,
+            "notin" => VdBaseSeparator::Notin,
+            "times" => VdBaseSeparator::Times,
+            "otimes" => VdBaseSeparator::Otimes,
+            "cdot" => VdBaseSeparator::Cdot,
             _ => todo!(),
         }
     }
