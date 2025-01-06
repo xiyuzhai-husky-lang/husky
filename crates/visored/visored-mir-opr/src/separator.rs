@@ -23,8 +23,8 @@ pub enum VdMirBaseSeparator {
 }
 
 impl VdMirBaseSeparator {
-    pub const RING_ADD: Self = VdMirBaseSeparator::CommRingAdd;
-    pub const RING_MUL: Self = VdMirBaseSeparator::CommRingMul;
+    pub const COMM_RING_ADD: Self = VdMirBaseSeparator::CommRingAdd;
+    pub const COMM_RING_MUL: Self = VdMirBaseSeparator::CommRingMul;
     pub const EQ: Self = VdMirBaseSeparator::Eq;
     pub const NE: Self = VdMirBaseSeparator::Ne;
     pub const LT: Self = VdMirBaseSeparator::Lt;
