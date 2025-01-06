@@ -16,6 +16,7 @@ where
     ) {
         match hypothesis_chunk {
             Some(hypothesis_chunk) => {
+                // ad hoc
                 // self.build_hypothesis_chunk_tactics(hypothesis_chunk, ln_tactics)
                 ln_tactics.push(self.default_tactic_data());
             }
