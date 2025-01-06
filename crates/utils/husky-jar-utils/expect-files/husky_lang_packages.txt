@@ -8,8 +8,21 @@
         ],
     },
     PackageSummary {
+        name: "alt-maybe-result",
+        relative_path: "crates/abstractions/alt-maybe-result",
+        dependencies: [
+            "alt-option",
+            "original-error",
+        ],
+    },
+    PackageSummary {
         name: "alt-option",
         relative_path: "crates/abstractions/alt-option",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "original-error",
+        relative_path: "crates/abstractions/original-error",
         dependencies: [],
     },
     PackageSummary {
@@ -244,11 +257,6 @@
         dependencies: [
             "original-error",
         ],
-    },
-    PackageSummary {
-        name: "original-error",
-        relative_path: "crates/abstractions/original-error",
-        dependencies: [],
     },
     PackageSummary {
         name: "salsa-macros",
@@ -578,6 +586,7 @@
             "alt-option",
             "ordered-float",
             "sealed",
+            "thiserror",
         ],
     },
     PackageSummary {

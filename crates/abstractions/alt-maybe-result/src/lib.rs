@@ -143,13 +143,15 @@ impl<T, E> AltMaybeResult<T, E> {
     /// convert into `Result<Option<T>, E>`
     ///
     /// ```
-    /// use maybe_result::*;
-    /// let a: MaybeResult<i32, ()> = JustOk(1);
-    /// assert_eq!(a.into_result_option(), Ok(Some(1)));
-    /// let b: MaybeResult<i32, ()> = JustErr(());
-    /// assert_eq!(b.into_result_option(), Err(()));
-    /// let c: MaybeResult<i32, ()> = Nothing;
-    /// assert_eq!(c.into_result_option(), Ok(None));
+    /// use alt_maybe_result::*;
+    /// use alt_option::*;
+    ///
+    /// let a: AltMaybeResult<i32, ()> = AltJustOk(1);
+    /// assert_eq!(a.into_result_alt_option(), Ok(AltSome(1)));
+    /// let b: AltMaybeResult<i32, ()> = AltJustErr(());
+    /// assert_eq!(b.into_result_alt_option(), Err(()));
+    /// let c: AltMaybeResult<i32, ()> = AltNothing;
+    /// assert_eq!(c.into_result_alt_option(), Ok(AltNone));
     /// ```
     pub fn into_result_alt_option(self) -> Result<AltOption<T>, E> {
         match self {
