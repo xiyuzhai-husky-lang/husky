@@ -44,7 +44,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             session,
             hypothesis_constructor: VdBsqHypothesisConstructor::new(session),
             expr_to_fld_map: VdMirExprMap::new2(region_data.expr_arena),
-            miracle: Miracle::new(),
+            miracle: Miracle::new_uninitialized(),
         }
     }
 }
