@@ -24,7 +24,19 @@ impl<'sess> VdBsqSumBuilder<'sess> {
             unpruned_monomials: VdBsqInumMonomialCoefficients::default(),
         }
     }
+}
 
+impl<'sess> VdBsqSumBuilder<'sess> {
+    pub fn constant_rnum(&self) -> VdBsqRnumTerm {
+        self.constant_rnum
+    }
+
+    pub fn unpruned_monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
+        &self.unpruned_monomials
+    }
+}
+
+impl<'sess> VdBsqSumBuilder<'sess> {
     pub fn add_num(&mut self, term: VdBsqNumTerm<'sess>) {
         match term {
             VdBsqNumTerm::Rnum(term) => self.add_rnum(term),
@@ -38,6 +50,10 @@ impl<'sess> VdBsqSumBuilder<'sess> {
 
     pub fn add_rnum(&mut self, term: VdBsqRnumTerm) {
         self.constant_rnum.add_assign(term, self.db);
+    }
+
+    pub fn sub_rnum(&mut self, term: VdBsqRnumTerm) {
+        self.constant_rnum.sub_assign(term, self.db);
     }
 
     pub fn sub_num(&mut self, term: VdBsqNumTerm<'sess>) {
@@ -68,6 +84,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn sub_sum(&mut self, term: VdBsqSumInumTerm<'sess>) {
+        self.sub_rnum(term.constant_term());
         for &(monomial, coeff) in term.monomials() {
             self.add_monomial(monomial, coeff.neg(self.db));
         }
@@ -79,7 +96,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
 
     pub fn add_general_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqNumTerm<'sess>) {
         match term {
-            VdBsqNumTerm::Rnum(term) => todo!(),
+            VdBsqNumTerm::Rnum(term) => self.add_rnum(rnum.mul(term, self.db)),
             VdBsqNumTerm::Inum(term) => match term {
                 VdBsqInumTerm::Atom(term) => todo!(),
                 VdBsqInumTerm::Sum(term) => todo!(),

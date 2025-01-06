@@ -82,9 +82,9 @@ where
                     };
                     g(
                         elaborator,
-                        &sum.monomials()
-                            .iter()
-                            .map(|&(monomial, coeff)| {
+                        &[(sum.constant_term(), vec![])]
+                            .into_iter()
+                            .chain(sum.monomials().iter().map(|&(monomial, coeff)| {
                                 (
                                     coeff,
                                     match monomial {
@@ -96,7 +96,7 @@ where
                                         }
                                     },
                                 )
-                            })
+                            }))
                             .collect::<Vec<_>>()
                             as &[(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)],
                     )

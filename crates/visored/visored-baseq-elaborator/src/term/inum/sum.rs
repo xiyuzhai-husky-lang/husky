@@ -2,7 +2,7 @@ use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
 use super::*;
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqSumInumTerm<'sess>(VdBsqInumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -57,6 +57,12 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
 
     pub fn irrational_monomial_coefficients(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
         &self.monomials
+    }
+}
+
+impl<'sess> std::fmt::Debug for VdBsqSumInumTerm<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.show_fmt(VdPrecedenceRange::ANY, f)
     }
 }
 

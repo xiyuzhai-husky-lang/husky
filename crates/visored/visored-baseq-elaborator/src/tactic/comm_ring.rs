@@ -38,24 +38,22 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             return Ok(AltNone);
         };
         let config = self.session().config().tactic().comm_ring();
-        use husky_print_utils::*;
-        p!(term);
         match self.run_staged(config.stages(), config.max_heartbeats(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
             builder.add_rnum(term.constant_term());
             fold_sum(slf, term.monomials(), builder, &|elaborator, builder| {
                 let term = builder.finish();
                 let VdBsqNumTerm::Rnum(rnum) = term else {
-                    use husky_print_utils::*;
-                    p!(term);
                     return AltNothing;
                 };
-                let hypothesis = elaborator
-                    .hypothesis_constructor
-                    .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::CommRing);
                 match rnum.compare_with_zero(kind) {
-                    true => AltJustOk(todo!()),
-                    false => todo!("report error"),
+                    true => {
+                        let hypothesis = elaborator
+                            .hypothesis_constructor
+                            .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::CommRing);
+                        AltJustOk(Ok(hypothesis))
+                    }
+                    false => todo!("report error, rnum = {:?}, kind = {:?}", rnum, kind),
                 }
             })
         }) {
@@ -63,7 +61,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 Ok(hypothesis) => Ok(AltSome(hypothesis)),
                 Err(contradiction) => Err(contradiction),
             },
-            AltJustErr(_) | AltNothing => Ok(AltNone),
+            AltJustErr(_) | AltNothing => {
+                todo!();
+                Ok(AltNone)
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> VdBsqPropTerm<'sess> {
+        use husky_print_utils::*;
         let lhs_minus_rhs = lhs.sub(rhs, db);
         match lhs_minus_rhs {
             VdBsqNumTerm::Rnum(term) => {

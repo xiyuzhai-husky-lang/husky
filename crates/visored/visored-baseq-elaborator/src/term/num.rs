@@ -66,23 +66,7 @@ impl<'sess> VdBsqNumTerm<'sess> {
         let mut builder = VdBsqSumBuilder::new(db);
         builder.add_num(self);
         builder.sub_num(rhs);
-        let term = builder.finish();
-        if format!("{:?}", term) == "VdBsqNumTerm(`-1 + 1`)" {
-            use husky_print_utils::p;
-            p!(self, rhs);
-            match self {
-                VdBsqNumTerm::Rnum(term) => todo!("term = {:?}", term),
-                VdBsqNumTerm::Inum(term) => match term {
-                    VdBsqInumTerm::Atom(term) => todo!("term = {:?}", term),
-                    VdBsqInumTerm::Sum(term) => todo!("term = {:?}", term),
-                    VdBsqInumTerm::Product(rnum, term) => {
-                        todo!("rnum = {:?}, term = {:?}", rnum, term)
-                    }
-                },
-            }
-            todo!()
-        }
-        term
+        builder.finish()
     }
 
     pub fn add_assign(&mut self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) {

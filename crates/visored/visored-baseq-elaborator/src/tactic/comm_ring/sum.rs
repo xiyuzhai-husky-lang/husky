@@ -26,31 +26,26 @@ where
 
     fn foldm_step(
         elaborator: &mut Self::Engine,
-        builder: VdBsqSumBuilder<'sess>,
-        (term, rnum): (VdBsqNonSumInumTerm<'sess>, VdBsqRnumTerm),
+        sum_builder: VdBsqSumBuilder<'sess>,
+        (term, rnum0): (VdBsqNonSumInumTerm<'sess>, VdBsqRnumTerm),
         f: &impl Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Self::Output,
     ) -> Self::Output {
+        let db = elaborator.floater_db();
         match term {
             VdBsqNonSumInumTerm::Atom(vd_bsq_atom_inum_term) => todo!(),
-            VdBsqNonSumInumTerm::Product(vd_bsq_product_inum_term_base) => fold_product(
-                elaborator,
-                vd_bsq_product_inum_term_base.exponentials(),
-                &|elaborator, expansion| {
-                    let mut sum_builder = builder.clone();
-                    for (rnum, exponentials) in
-                        expansion.expect("expansion shouldn't be None after folding")
-                    {
+            VdBsqNonSumInumTerm::Product(base) => {
+                fold_product(elaborator, base.exponentials(), &|elaborator, expansion| {
+                    let mut sum_builder = sum_builder.clone();
+                    let expansion = expansion.expect("expansion shouldn't be None after folding");
+                    for (rnum, exponentials) in expansion {
                         sum_builder.add_general_product(
-                            rnum,
-                            VdBsqProductInumTermBase::from_parts(
-                                exponentials,
-                                elaborator.floater_db(),
-                            ),
+                            rnum0.mul(rnum, db),
+                            VdBsqProductInumTermBase::from_parts(exponentials, db),
                         );
                     }
                     f(elaborator, sum_builder)
-                },
-            ),
+                })
+            }
         }
     }
 }
