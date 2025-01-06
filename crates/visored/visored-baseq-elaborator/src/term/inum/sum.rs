@@ -46,7 +46,7 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
     }
 
     pub fn monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
-        self.data().irrational_monomial_coefficients()
+        self.data().monomials()
     }
 }
 
@@ -55,7 +55,7 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
         self.constant_term
     }
 
-    pub fn irrational_monomial_coefficients(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
+    pub fn monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
         &self.monomials
     }
 }

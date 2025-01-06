@@ -44,6 +44,22 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             fold_sum(slf, term.monomials(), builder, &|elaborator, builder| {
                 let term = builder.finish();
                 let VdBsqNumTerm::Rnum(rnum) = term else {
+                    use husky_print_utils::p;
+                    match term {
+                        VdBsqNumTerm::Rnum(term) => (),
+                        VdBsqNumTerm::Inum(term) => match term {
+                            VdBsqInumTerm::Atom(term) => (),
+                            VdBsqInumTerm::Sum(term) => {
+                                if term.monomials().len() > 1 {
+                                    use husky_print_utils::p;
+                                    p!(term.monomials().data()[0] == term.monomials().data()[1]);
+                                }
+                                p!(term, term.monomials());
+                            }
+                            VdBsqInumTerm::Product(term, _) => (),
+                        },
+                    }
+                    p!(term);
                     return AltNothing;
                 };
                 match rnum.compare_with_zero(kind) {
@@ -61,10 +77,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 Ok(hypothesis) => Ok(AltSome(hypothesis)),
                 Err(contradiction) => Err(contradiction),
             },
-            AltJustErr(_) | AltNothing => {
-                todo!();
-                Ok(AltNone)
-            }
+            AltJustErr(_) | AltNothing => Ok(AltNone),
         }
     }
 }

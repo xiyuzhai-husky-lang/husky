@@ -10,6 +10,16 @@ pub enum VdBsqNumTerm<'sess> {
     Inum(VdBsqInumTerm<'sess>),
 }
 
+impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(term: VdBsqNonProductNumTerm<'sess>) -> Self {
+        match term {
+            VdBsqNonProductNumTerm::Rnum(term) => VdBsqNumTerm::Rnum(term),
+            VdBsqNonProductNumTerm::AtomInum(term) => VdBsqNumTerm::Inum(term.into()),
+            VdBsqNonProductNumTerm::SumInum(term) => VdBsqNumTerm::Inum(term.into()),
+        }
+    }
+}
+
 impl<'sess> From<i128> for VdBsqNumTerm<'sess> {
     fn from(value: i128) -> Self {
         VdBsqNumTerm::Rnum(VdBsqRnumTerm::Int128(value))

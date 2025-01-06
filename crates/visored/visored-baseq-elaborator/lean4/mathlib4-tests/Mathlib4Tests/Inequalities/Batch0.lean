@@ -90,3 +90,9 @@ def h(x : ℝ) := by
   exact ()
 end Example11
 
+namespace Example12
+def h(x : ℝ) := by
+  have h1 : (1 + x) * x = x + x ^ 2 := by comm_ring
+  exact ()
+end Example12
+

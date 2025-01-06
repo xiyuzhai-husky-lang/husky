@@ -6,6 +6,7 @@ use crate::term::{
     },
     rnum::VdBsqRnumTerm,
 };
+use itertools::Itertools;
 use miracle::error::MiracleAltMaybeResult;
 use monadic_fold::engine::IsMonadicFoldEngineScheme;
 use monadic_fold::engine::IsMonadicFoldEngineSchemeFull;
@@ -36,6 +37,7 @@ where
         )
             -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
+        let db = elaborator.floater_db();
         let config = elaborator.session().config().tactic().comm_ring();
         let product_expansion_limit = config.product_expansion_limit();
         let exponential_expansion_limit = config.exponential_expansion_limit();
@@ -46,7 +48,21 @@ where
         )]|
          -> Result<Vec<(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)>, ()> {
             match expansion {
-                Some(_) => todo!(),
+                Some(ref expansion) => {
+                    if expansion.len() * factor_expansion.len() > product_expansion_limit {
+                        return Err(());
+                    }
+                    Ok(expansion
+                        .iter()
+                        .cartesian_product(factor_expansion)
+                        .map(|(&(rnum0, ref exponentials0), &(rnum1, ref exponentials1))| {
+                            (
+                                rnum0.mul(rnum1, db),
+                                exponentials0.into_iter().chain(exponentials1).copied().collect(),
+                            )
+                        })
+                        .collect())
+                },
                 None => {
                     if factor_expansion.len() > product_expansion_limit {
                         return Err(());
@@ -64,6 +80,8 @@ where
                 let Ok(expansion) = merge(factor_expansion) else {
                     return AltNothing;
                 };
+                use husky_print_utils::p;
+                p!(expansion);
                 f(elaborator, Some(expansion))
             };
         elaborator.exec_batch(&[
@@ -101,6 +119,9 @@ where
                             as &[(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)],
                     )
                 } else {
+                    let VdBsqNonProductNumTerm::SumInum(sum) = base else {
+                        return AltNothing;
+                    };
                     todo!()
                 }
             },
