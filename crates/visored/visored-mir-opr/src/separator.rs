@@ -10,6 +10,16 @@ pub enum VdMirBaseSeparator {
     Gt,
     Le,
     Ge,
+    Subset,
+    Supset,
+    Subseteq,
+    Supseteq,
+    Subseteqq,
+    Supseteqq,
+    Subsetneq,
+    Supsetneq,
+    In,
+    Notin,
 }
 
 impl VdMirBaseSeparator {
@@ -21,6 +31,14 @@ impl VdMirBaseSeparator {
     pub const GT: Self = VdMirBaseSeparator::Gt;
     pub const LE: Self = VdMirBaseSeparator::Le;
     pub const GE: Self = VdMirBaseSeparator::Ge;
+    pub const SUBSET: Self = VdMirBaseSeparator::Subset;
+    pub const SUPSET: Self = VdMirBaseSeparator::Supset;
+    pub const SUBSETEQ: Self = VdMirBaseSeparator::Subseteq;
+    pub const SUPSETEQ: Self = VdMirBaseSeparator::Supseteq;
+    pub const SUBSETEQQ: Self = VdMirBaseSeparator::Subseteqq;
+    pub const SUPSETEQQ: Self = VdMirBaseSeparator::Supseteqq;
+    pub const SUBSETNEQ: Self = VdMirBaseSeparator::Subsetneq;
+    pub const SUPSETNEQ: Self = VdMirBaseSeparator::Supsetneq;
 }
 
 impl VdMirBaseSeparator {

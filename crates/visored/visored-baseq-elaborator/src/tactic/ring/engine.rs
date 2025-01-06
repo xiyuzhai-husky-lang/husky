@@ -65,6 +65,16 @@ impl<'db, 'sess> VdMirRingTacticEngine<'db, 'sess> {
                     VdMirBaseSeparator::Gt => todo!(),
                     VdMirBaseSeparator::Le => todo!(),
                     VdMirBaseSeparator::Ge => todo!(),
+                    VdMirBaseSeparator::Subset => todo!(),
+                    VdMirBaseSeparator::Supset => todo!(),
+                    VdMirBaseSeparator::Subseteq => todo!(),
+                    VdMirBaseSeparator::Supseteq => todo!(),
+                    VdMirBaseSeparator::Subseteqq => todo!(),
+                    VdMirBaseSeparator::Supseteqq => todo!(),
+                    VdMirBaseSeparator::Subsetneq => todo!(),
+                    VdMirBaseSeparator::Supsetneq => todo!(),
+                    VdMirBaseSeparator::In => todo!(),
+                    VdMirBaseSeparator::Notin => todo!(),
                 }
             }
             VdMirExprData::ChainingSeparatedList {
