@@ -9,6 +9,7 @@ pub mod state;
 use self::{config::*, error::*, metric::*, state::*};
 use alt_maybe_result::*;
 use alt_option::*;
+use ordered_float::NotNan;
 use sealed::sealed;
 
 pub struct Miracle {
@@ -68,10 +69,15 @@ pub trait HasMiracle {
 #[sealed]
 pub trait HasMiracleFull: HasMiracle {
     fn run_staged<R>(
-        self,
-        stages: &[f64],
+        &mut self,
+        stages: &[NotNan<f64>],
         max_heartbeats: u64,
         f: impl FnMut(&mut Self) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>;
+
+    fn exec_batch<R>(
+        &mut self,
+        fs: &[&dyn Fn(&mut Self) -> MiracleAltMaybeResult<R>],
     ) -> MiracleAltMaybeResult<R>;
 
     fn split<R>(
@@ -84,18 +90,20 @@ pub trait HasMiracleFull: HasMiracle {
 #[sealed]
 impl<T: HasMiracle> HasMiracleFull for T {
     fn run_staged<R>(
-        mut self,
-        stages: &[f64],
+        &mut self,
+        stages: &[NotNan<f64>],
         max_heartbeats: u64,
         mut f: impl FnMut(&mut Self) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R> {
         assert!(self.miracle().is_uninitialized());
+        assert!(stages.len() > 0, "stages must be non-empty");
         let fst = *stages.first().unwrap();
-        assert!(fst >= 0.0);
-        for (norm_low, norm_high) in [(0.0, fst)]
-            .into_iter()
-            .chain(stages.windows(2).map(|w| (w[0], w[1])))
-        {
+        assert!(fst.into_inner() >= 0.0);
+        for (norm_low, norm_high) in [(0.0, fst.into_inner())].into_iter().chain(
+            stages
+                .windows(2)
+                .map(|w| (w[0].into_inner(), w[1].into_inner())),
+        ) {
             *self.miracle_mut() = Miracle {
                 inner: MiracleInner::Initialized {
                     state: MiracleState::new(),
@@ -106,7 +114,18 @@ impl<T: HasMiracle> HasMiracleFull for T {
                     },
                 },
             };
-            f(&mut self)?;
+            f(self)?;
+        }
+        self.miracle_mut().inner = MiracleInner::Uninitialized;
+        AltNothing
+    }
+
+    fn exec_batch<R>(
+        &mut self,
+        fs: &[&dyn Fn(&mut Self) -> MiracleAltMaybeResult<R>],
+    ) -> MiracleAltMaybeResult<R> {
+        for (i, f) in fs.iter().enumerate() {
+            crate::state::calc_with_new_value_appended(self, i as u64, |g| f(g))?;
         }
         AltNothing
     }
@@ -142,7 +161,7 @@ fn run_staged_alt_option_works() {
         miracle: Miracle::new(),
     };
     assert_eq!(
-        gerald.run_staged(&[1.0], 10, |_| AltJustOk(1)),
+        gerald.run_staged(&[NotNan::new(1.0).unwrap()], 10, |_| AltJustOk(1)),
         AltJustOk(1)
     );
 }

@@ -220,6 +220,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => {
                 VdMirHypothesisConstruction::TermEquivalent {}
             }
+            VdBsqHypothesisConstruction::CommRing => todo!(),
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
     }

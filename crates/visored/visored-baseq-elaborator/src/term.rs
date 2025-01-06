@@ -1,6 +1,6 @@
 pub mod builder;
 pub mod inum;
-mod num;
+pub mod num;
 pub mod prop;
 pub mod rnum;
 

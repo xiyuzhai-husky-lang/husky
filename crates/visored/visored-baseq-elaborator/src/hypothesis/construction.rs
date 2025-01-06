@@ -11,6 +11,7 @@ pub enum VdBsqHypothesisConstruction<'sess> {
         path: VdTheoremPath,
         is_real_coercion: VdBsqCoercion<'sess>,
     },
+    CommRing,
     TermEquivalent {
         hypothesis: VdBsqHypothesisIdx<'sess>,
     },

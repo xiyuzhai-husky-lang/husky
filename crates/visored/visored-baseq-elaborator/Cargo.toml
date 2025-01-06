@@ -14,10 +14,13 @@ keywords.workspace = true
 [dependencies]
 either.workspace = true
 expect-test.workspace = true
+ordered-float.workspace = true
 rustc-hash.workspace = true
+serde.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
+alt-maybe-result.workspace = true
 alt-option.workspace = true
 enum-class.workspace = true
 eterned.workspace = true

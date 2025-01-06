@@ -9,6 +9,7 @@ use crate::{
     hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx},
 };
 use alt_option::AltOption;
+use miracle::HasMiracleFull;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdBsqTactic {

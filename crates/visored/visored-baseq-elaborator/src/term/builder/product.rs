@@ -3,8 +3,8 @@ use crate::term::{
     atom::VdBsqAtomInumTerm,
     product::{VdBsqProductInumTermBase, VdBsqProductInumTermBaseData},
     sum::VdBsqSumInumTerm,
-    VdBsqExponentialPowers, VdBsqInumMonomialCoefficients, VdBsqInumTerm, VdBsqNonSumInumTerm,
-    VdBsqNumTerm, VdBsqRnumTerm,
+    VdBsqExponentialPowers, VdBsqInumMonomialCoefficients, VdBsqInumTerm, VdBsqNonProductNumTerm,
+    VdBsqNonSumInumTerm, VdBsqNumTerm, VdBsqRnumTerm,
 };
 use floated_sequential::db::FloaterDb;
 
@@ -35,7 +35,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn mul_rnum(&mut self, rnum: VdBsqRnumTerm) {
-        self.rnum_coefficient *= rnum;
+        self.rnum_coefficient.mul_assign(rnum, self.db);
     }
 
     pub fn mul_inum(&mut self, inum: VdBsqInumTerm<'sess>) {
@@ -62,6 +62,17 @@ impl<'sess> VdBsqProductBuilder<'sess> {
 
     pub fn mul_product(&mut self, rnum: VdBsqRnumTerm, product: VdBsqProductInumTermBase<'sess>) {
         todo!()
+    }
+
+    pub fn mul_exponential(
+        &mut self,
+        base: VdBsqNonProductNumTerm<'sess>,
+        exponent: VdBsqNumTerm<'sess>,
+    ) {
+        self.unpruned_exponentials
+            .insert_or_update((base, exponent), |(_, old_coeff)| {
+                old_coeff.add_assign(exponent, self.db)
+            });
     }
 
     pub fn finish(self) -> VdBsqNumTerm<'sess> {

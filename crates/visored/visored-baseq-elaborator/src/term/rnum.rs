@@ -9,6 +9,12 @@ pub enum VdBsqRnumTerm {
     Rat128(i128, u128),
 }
 
+impl From<i128> for VdBsqRnumTerm {
+    fn from(i: i128) -> Self {
+        VdBsqRnumTerm::Int128(i)
+    }
+}
+
 impl std::fmt::Debug for VdBsqRnumTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("`")?;
@@ -25,10 +31,8 @@ impl VdBsqRnumTerm {
             VdBsqRnumTerm::Rat128(a, b) => VdBsqRnumTerm::Rat128(-a, b),
         }
     }
-}
 
-impl std::ops::AddAssign for VdBsqRnumTerm {
-    fn add_assign(&mut self, rhs: Self) {
+    pub fn add_assign(&mut self, rhs: Self, db: &FloaterDb) {
         match self {
             VdBsqRnumTerm::Int128(slf) => match rhs {
                 VdBsqRnumTerm::Int128(rhs) => match slf.checked_add(rhs) {
@@ -42,10 +46,8 @@ impl std::ops::AddAssign for VdBsqRnumTerm {
             VdBsqRnumTerm::Rat128(_, _) => todo!(),
         }
     }
-}
 
-impl std::ops::SubAssign for VdBsqRnumTerm {
-    fn sub_assign(&mut self, rhs: Self) {
+    pub fn sub_assign(&mut self, rhs: Self, db: &FloaterDb) {
         match self {
             VdBsqRnumTerm::Int128(slf) => match rhs {
                 VdBsqRnumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
@@ -59,10 +61,23 @@ impl std::ops::SubAssign for VdBsqRnumTerm {
             VdBsqRnumTerm::Rat128(_, _) => todo!(),
         }
     }
-}
 
-impl std::ops::MulAssign for VdBsqRnumTerm {
-    fn mul_assign(&mut self, rhs: Self) {
+    pub fn mul(self, rhs: Self, db: &FloaterDb) -> Self {
+        match self {
+            VdBsqRnumTerm::Int128(slf) => match rhs {
+                VdBsqRnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
+                    Some(product) => VdBsqRnumTerm::Int128(product),
+                    None => todo!(),
+                },
+                VdBsqRnumTerm::BigInt() => todo!(),
+                VdBsqRnumTerm::Rat128(_, _) => todo!(),
+            },
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+
+    pub fn mul_assign(&mut self, rhs: Self, db: &FloaterDb) {
         match self {
             VdBsqRnumTerm::Int128(slf) => match rhs {
                 VdBsqRnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {

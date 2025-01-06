@@ -22,6 +22,17 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
         ))
     }
 
+    pub fn from_parts(
+        exponentials: VdBsqExponentialParts<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        let mut builder = VdBsqProductBuilder::new(db);
+        for (base, exponent) in exponentials {
+            builder.mul_exponential(base, exponent);
+        }
+        builder.finish()
+    }
+
     pub fn new_power(
         base: VdBsqNonProductNumTerm<'sess>,
         exponent: VdBsqNumTerm<'sess>,
@@ -38,6 +49,10 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
             VdBsqInumTermData::Product(data) => data,
             _ => unreachable!(),
         }
+    }
+
+    pub fn exponentials(&self) -> &'sess [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)] {
+        self.data().exponentials()
     }
 }
 

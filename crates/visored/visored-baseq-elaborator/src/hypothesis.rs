@@ -63,6 +63,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             VdBsqHypothesisConstruction::TermTrivial(b) => {
                 VdMirHypothesisConstruction::TermTrivial(b)
             }
+            VdBsqHypothesisConstruction::CommRing => todo!(),
         };
         let goal = match explicit_goal {
             Some(goal) => goal,

@@ -10,6 +10,12 @@ pub enum VdBsqNumTerm<'sess> {
     Inum(VdBsqInumTerm<'sess>),
 }
 
+impl<'sess> From<i128> for VdBsqNumTerm<'sess> {
+    fn from(value: i128) -> Self {
+        VdBsqNumTerm::Rnum(VdBsqRnumTerm::Int128(value))
+    }
+}
+
 impl<'sess> From<VdBsqNumTerm<'sess>> for VdBsqTerm<'sess> {
     fn from(term: VdBsqNumTerm<'sess>) -> Self {
         match term {

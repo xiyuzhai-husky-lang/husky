@@ -115,6 +115,9 @@ pub type VdBsqInumNonSumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonSumInumTerm<'sess>, T, 4>;
 pub type VdBsqInumMonomialCoefficients<'sess> = VdBsqInumNonSumTermMap<'sess, VdBsqRnumTerm>;
 pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;
+pub type VdBsqExponentialPowersRef<'a, 'sess> =
+    &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)];
+pub type VdBsqExponentialParts<'sess> = Vec<(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)>;
 
 impl<'sess> std::fmt::Debug for VdBsqInumTermFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
