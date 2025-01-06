@@ -5146,6 +5146,8 @@
             "latex-math-letter",
             "latex-prelude",
             "latex-vfs",
+            "miracle",
+            "monadic-fold",
             "rustc-hash",
             "smallvec",
             "thiserror",

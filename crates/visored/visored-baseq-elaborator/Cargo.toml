@@ -55,7 +55,3 @@ husky-case-utils = { workspace = true, features = ["relative_path"] }
 
 [lints]
 workspace = true
-
-[[bin]]
-name = "measure_ring"
-path = "bin/measure_ring.rs"

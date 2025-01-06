@@ -33,5 +33,6 @@ pub fn load_obvious_tactics() -> Vec<VdBsqTactic> {
         VdBsqTactic::TermTrivial,
         VdBsqTactic::Assumption,
         VdBsqTactic::LibrarySearch,
+        VdBsqTactic::CommRing,
     ]
 }

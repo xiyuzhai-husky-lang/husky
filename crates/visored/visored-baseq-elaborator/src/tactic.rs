@@ -1,6 +1,6 @@
 pub mod assumption;
+pub mod comm_ring;
 pub mod library_search;
-pub mod ring;
 pub mod term_trivial;
 
 use crate::{
@@ -15,6 +15,7 @@ pub enum VdBsqTactic {
     TermTrivial,
     Assumption,
     LibrarySearch,
+    CommRing,
 }
 
 impl VdBsqTactic {
@@ -27,6 +28,7 @@ impl VdBsqTactic {
             VdBsqTactic::TermTrivial => elaborator.term_trivial(prop),
             VdBsqTactic::Assumption => elaborator.assumption(prop),
             VdBsqTactic::LibrarySearch => elaborator.library_search(prop),
+            VdBsqTactic::CommRing => elaborator.comm_ring(prop),
         }
     }
 }
