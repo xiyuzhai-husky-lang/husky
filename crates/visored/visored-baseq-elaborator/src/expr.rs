@@ -94,7 +94,6 @@ impl<'sess> VdMirExprFld<'sess> {
                 }
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-                VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
             },
             VdMirExprFldData::FoldingSeparatedList { leader, followers } => {
                 let VdMirFunc::NormalBaseSeparator(signature) = followers.first().unwrap().0 else {

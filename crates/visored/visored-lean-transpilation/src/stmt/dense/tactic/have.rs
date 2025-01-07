@@ -183,6 +183,5 @@ fn is_equivalence(func: &VdMirFunc) -> bool {
         VdMirFunc::Power(signature) => todo!(),
         VdMirFunc::InSet => todo!(),
         VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-        VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
     }
 }

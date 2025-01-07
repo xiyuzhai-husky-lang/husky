@@ -195,7 +195,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 ..
             } => match dispatch {
                 VdSemFracDispatch::Div { signature } => VdMirExprData::Application {
-                    function: VdMirFunc::NormalBaseFrac(signature),
+                    function: VdMirFunc::NormalBaseBinaryOpr(signature),
                     arguments: [numerator, denominator].to_vd_mir(self),
                 },
             },

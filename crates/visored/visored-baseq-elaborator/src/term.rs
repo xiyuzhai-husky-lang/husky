@@ -165,7 +165,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 }
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-                VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
             },
             VdMirExprData::FoldingSeparatedList {
                 leader,
@@ -222,7 +221,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     VdMirFunc::Power(signature) => todo!(),
                     VdMirFunc::InSet => todo!(),
                     VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-                    VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
                 }
             }
             VdMirExprData::ChainingSeparatedList {
@@ -271,7 +269,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         VdMirFunc::Power(signature) => todo!(),
                         VdMirFunc::InSet => todo!(),
                         VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-                        VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
                     }
                 }
             },

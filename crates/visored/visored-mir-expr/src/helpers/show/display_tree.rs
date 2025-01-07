@@ -56,9 +56,6 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                     VdMirFunc::NormalBaseSqrt(signature) => {
                         format!("sqrt")
                     }
-                    VdMirFunc::NormalBaseFrac(signature) => {
-                        format!("frac")
-                    }
                 };
                 (
                     value,

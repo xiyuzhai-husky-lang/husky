@@ -18,7 +18,6 @@ pub enum VdMirFunc {
     Power(VdPowerSignature),
     InSet,
     NormalBaseSqrt(VdBaseSqrtSignature),
-    NormalBaseFrac(VdBaseBinaryOprSignature),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -29,7 +28,6 @@ pub enum VdMirFuncKey {
     InSet,
     Power(VdInstantiation),
     NormalBaseSqrt(VdInstantiation),
-    NormalBaseFrac(VdInstantiation),
 }
 
 impl VdMirFunc {
@@ -49,9 +47,6 @@ impl VdMirFunc {
             VdMirFunc::NormalBaseSqrt(signature) => {
                 Left(VdMirFuncKey::NormalBaseSqrt(signature.instantiation()))
             }
-            VdMirFunc::NormalBaseFrac(signature) => {
-                Left(VdMirFuncKey::NormalBaseFrac(signature.instantiation()))
-            }
         }
     }
 
@@ -67,7 +62,6 @@ impl VdMirFunc {
             VdMirFunc::Power(signature) => VdPrecedence::ATOM,
             VdMirFunc::InSet => todo!(),
             VdMirFunc::NormalBaseSqrt(signature) => VdPrecedence::ATOM,
-            VdMirFunc::NormalBaseFrac(signature) => VdPrecedence::ATOM,
         }
     }
 }

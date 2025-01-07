@@ -147,7 +147,6 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             VdMirFunc::Power(signature) => (), // ad hoc
             VdMirFunc::InSet => todo!(),
             VdMirFunc::NormalBaseSqrt(signature) => todo!(),
-            VdMirFunc::NormalBaseFrac(signature) => todo!(),
         }
     }
 
