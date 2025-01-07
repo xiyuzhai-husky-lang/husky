@@ -14,7 +14,7 @@ keywords.workspace = true
 [dependencies]
 thiserror.workspace = true
 # math
-num-traits.workspace = true
+num-try.workspace = true
 
 [lints]
 workspace = true

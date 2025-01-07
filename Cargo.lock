@@ -348,7 +348,7 @@ version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f2a05fd1bd10b2527e20a2cd32d8873d115b8b39fe219ee25f42a8aca6ba278"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -357,7 +357,7 @@ version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cab112f0a86d568ea0e627cc1d6be74a1e9cd55214684db5561995f6dad897c6"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -1408,7 +1408,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ff11ddd2af3b5e80dd0297fee6e56ac038d9bdc549573cdb51bd6d2efe7f05e"
 dependencies = [
  "num-complex",
- "num-traits 0.2.19",
+ "num-traits",
  "rand",
  "serde",
 ]
@@ -1493,7 +1493,7 @@ checksum = "a21f936df1771bf62b77f047b726c4625ff2e8aa607c01ec06e5a05bd8463401"
 dependencies = [
  "android-tzdata",
  "iana-time-zone",
- "num-traits 0.2.19",
+ "num-traits",
  "serde",
  "windows-targets 0.52.6",
 ]
@@ -1692,7 +1692,7 @@ dependencies = [
 name = "combinatorics"
 version = "0.1.0"
 dependencies = [
- "num-traits 0.1.0",
+ "num-try",
  "thiserror",
 ]
 
@@ -8095,7 +8095,7 @@ dependencies = [
  "exr",
  "gif",
  "image-webp",
- "num-traits 0.2.19",
+ "num-traits",
  "png",
  "qoi",
  "ravif",
@@ -8669,7 +8669,7 @@ checksum = "e49ff5bbaf07352b492b17aab73a86871f0c6029f427035fd0562cd0df573c8a"
 dependencies = [
  "cauchy",
  "lapack",
- "num-traits 0.2.19",
+ "num-traits",
  "openblas-src",
  "thiserror",
 ]
@@ -9394,7 +9394,7 @@ dependencies = [
  "matrixmultiply",
  "num-complex",
  "num-rational",
- "num-traits 0.2.19",
+ "num-traits",
  "simba",
  "typenum",
 ]
@@ -9442,7 +9442,7 @@ dependencies = [
  "matrixmultiply",
  "num-complex",
  "num-integer",
- "num-traits 0.2.19",
+ "num-traits",
  "rawpointer",
 ]
 
@@ -9456,7 +9456,7 @@ dependencies = [
  "lax",
  "ndarray",
  "num-complex",
- "num-traits 0.2.19",
+ "num-traits",
  "rand",
  "thiserror",
 ]
@@ -9483,7 +9483,7 @@ dependencies = [
  "ndarray",
  "noisy_float",
  "num-integer",
- "num-traits 0.2.19",
+ "num-traits",
  "rand",
 ]
 
@@ -9495,7 +9495,7 @@ checksum = "668b3abeae3e0637740340e0e32a9bf9308380e146ea6797950f9ff16e88d88a"
 dependencies = [
  "lazy_static 1.5.0",
  "ndarray",
- "num-traits 0.2.19",
+ "num-traits",
  "regex",
 ]
 
@@ -9581,7 +9581,7 @@ version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "978fe6e6ebc0bf53de533cd456ca2d9de13de13856eda1518a285d7705a213af"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -9713,7 +9713,7 @@ dependencies = [
  "num-integer",
  "num-iter",
  "num-rational",
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -9723,7 +9723,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a5e44f723f1133c9deac646763579fdb3ac745e418f2a7af9cd0c431da1f20b9"
 dependencies = [
  "num-integer",
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -9732,7 +9732,7 @@ version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "73f88a1307638156682bada9d7604135552957b7818057dcef22705b4d509495"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
  "rand",
  "serde",
 ]
@@ -9760,7 +9760,7 @@ version = "0.1.46"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7969661fd2958a5cb096e56c8e1ad0444ac2bbcd0061bd28660485a44879858f"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -9771,7 +9771,7 @@ checksum = "1429034a0490724d0075ebb2bc9e875d6503c3cf69e235a8941aa757d83ef5bf"
 dependencies = [
  "autocfg",
  "num-integer",
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -9782,14 +9782,7 @@ checksum = "f83d14da390562dca69fc84082e73e548e1ad308d24accdedd2720017cb37824"
 dependencies = [
  "num-bigint",
  "num-integer",
- "num-traits 0.2.19",
-]
-
-[[package]]
-name = "num-traits"
-version = "0.1.0"
-dependencies = [
- "thiserror",
+ "num-traits",
 ]
 
 [[package]]
@@ -9800,6 +9793,13 @@ checksum = "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
 dependencies = [
  "autocfg",
  "libm",
+]
+
+[[package]]
+name = "num-try"
+version = "0.1.0"
+dependencies = [
+ "thiserror",
 ]
 
 [[package]]
@@ -10220,7 +10220,7 @@ version = "2.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68f19d67e5a2795c94e73e0bb1cc1a7edeb2e28efd39e2e1c9b7a40c1108b11c"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
 ]
 
 [[package]]
@@ -10229,7 +10229,7 @@ version = "4.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c65ee1f9701bf938026630b455d5315f490640234259037edb259798b3bcf85e"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
  "rand",
  "serde",
 ]
@@ -10895,7 +10895,7 @@ version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "32cb0b9bc82b0a0876c2dd994a7e7a2683d3e7390ca40e6886785ef0c7e3ee31"
 dependencies = [
- "num-traits 0.2.19",
+ "num-traits",
  "rand",
 ]
 
@@ -10930,7 +10930,7 @@ dependencies = [
  "new_debug_unreachable",
  "noop_proc_macro",
  "num-derive",
- "num-traits 0.2.19",
+ "num-traits",
  "once_cell",
  "paste",
  "profiling",
@@ -11197,7 +11197,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "228ed7c16fa39782c3b3468e974aec2795e9089153cd08ee2e9aefb3613334c4"
 dependencies = [
  "byteorder",
- "num-traits 0.2.19",
+ "num-traits",
  "paste",
 ]
 
@@ -11279,7 +11279,7 @@ dependencies = [
  "ndarray-rand",
  "ndarray-stats",
  "ndarray_einsum_beta",
- "num-traits 0.2.19",
+ "num-traits",
  "openblas-src",
  "thiserror",
 ]
@@ -12019,7 +12019,7 @@ checksum = "061507c94fc6ab4ba1c9a0305018408e312e17c041eb63bef8aa726fa33aceae"
 dependencies = [
  "approx 0.5.1",
  "num-complex",
- "num-traits 0.2.19",
+ "num-traits",
  "paste",
  "wide",
 ]
@@ -13347,7 +13347,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d6f32aaa24bacd11e488aa9ba66369c7cd514885742c9fe08cfe85884db3e92b"
 dependencies = [
  "aligned-vec",
- "num-traits 0.2.19",
+ "num-traits",
  "wasm-bindgen",
 ]
 

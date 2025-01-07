@@ -1,5 +1,5 @@
 [package]
-name = "num-traits"
+name = "num-try"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

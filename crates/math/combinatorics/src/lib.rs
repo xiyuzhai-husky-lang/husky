@@ -1,7 +1,7 @@
 pub mod error;
 
 use self::error::*;
-use num_traits::unsigned_int::Int;
+use num_try::unsigned_int::Int;
 
 pub fn checked_binomial_coefficient<N: Int>(n: N, k: N) -> CombinatoricsResult<N> {
     if k > n {
@@ -206,7 +206,7 @@ fn multinomial_indices_overflows() {
 pub fn checked_multinomial_coefficient<N: Int>(r: N, indices: &[N]) -> CombinatoricsResult<N> {
     // Validate input
     assert_eq!(
-        indices.iter().copied().sum::<N>(),
+        N::try_sum(indices.iter().copied())?,
         r,
         "Sum of indices must equal r for multinomial coefficient, r = {r}, indices = {indices:?}"
     );

@@ -1,25 +1,8 @@
 pub mod error;
 
 use self::error::*;
-use std::{
-    iter::{Product, Sum},
-    ops::{Add, Div, Mul, Sub},
-};
 
-pub trait Int:
-    std::fmt::Debug
-    + std::fmt::Display
-    + Copy
-    + PartialEq
-    + PartialOrd
-    + Ord
-    + Add
-    + Sub
-    + Mul
-    + Div
-    + Sum
-    + Product
-{
+pub trait Int: std::fmt::Debug + std::fmt::Display + Copy + PartialEq + PartialOrd + Ord {
     const ZERO: Self;
     const ONE: Self;
 
@@ -44,6 +27,8 @@ pub trait Int:
         }
         Ok(result)
     }
+
+    fn try_sum(iter: impl IntoIterator<Item = Self>) -> IntResult<Self>;
 }
 
 macro_rules! impl_unsigned_int {
@@ -86,6 +71,14 @@ macro_rules! impl_unsigned_int {
             fn checked_pow(self, other: Self) -> IntResult<Self> {
                 self.checked_pow(other.try_into().map_err(|_| IntError::AsPow)?)
                     .ok_or(IntError::Overflow)
+            }
+
+            #[inline]
+            fn try_sum(iter: impl IntoIterator<Item = Self>) -> IntResult<Self> {
+                iter.into_iter()
+                    .try_fold(Self::ZERO, |acc, x| -> IntResult<Self> {
+                        acc.checked_add(x).ok_or(IntError::Overflow)
+                    })
             }
         }
     };
