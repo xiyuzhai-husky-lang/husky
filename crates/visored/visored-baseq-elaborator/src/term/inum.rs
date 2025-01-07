@@ -105,18 +105,10 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
 }
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonSumInumTerm<'sess> {
     Atom(VdBsqAtomInumTerm<'sess>),
     Product(VdBsqProductInumTermBase<'sess>),
-}
-
-impl<'sess> std::fmt::Debug for VdBsqNonSumInumTerm<'sess> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("NonSumInumTerm(`")?;
-        self.show_fmt(VdPrecedenceRange::Any, f)?;
-        f.write_str("`)")
-    }
 }
 
 impl<'sess> VdBsqNonSumInumTerm<'sess> {

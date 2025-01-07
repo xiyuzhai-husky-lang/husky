@@ -1,6 +1,7 @@
 use crate::*;
 use ordered_float::NotNan;
 
+#[derive(Debug)]
 pub struct MiracleState {
     vector: Vec<u64>,
     heartbeats: u64,

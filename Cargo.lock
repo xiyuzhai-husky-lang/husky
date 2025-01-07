@@ -13430,6 +13430,7 @@ dependencies = [
  "husky-sha-utils",
  "husky-unicode-symbols",
  "idx-arena",
+ "itertools 0.13.0",
  "latex-math-letter",
  "latex-prelude",
  "latex-vfs",

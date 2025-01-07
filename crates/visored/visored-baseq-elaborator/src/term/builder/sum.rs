@@ -48,6 +48,10 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
+    pub fn add_rnum_times_atom(&mut self, rnum: VdBsqRnumTerm, atom: VdBsqAtomInumTerm<'sess>) {
+        self.add_monomial(VdBsqNonSumInumTerm::Atom(atom), rnum);
+    }
+
     pub fn add_rnum(&mut self, term: VdBsqRnumTerm) {
         self.constant_rnum.add_assign(term, self.db);
     }
@@ -98,8 +102,18 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         match term {
             VdBsqNumTerm::Rnum(term) => self.add_rnum(rnum.mul(term, self.db)),
             VdBsqNumTerm::Inum(term) => match term {
-                VdBsqInumTerm::Atom(term) => todo!(),
-                VdBsqInumTerm::Sum(term) => todo!(),
+                VdBsqInumTerm::Atom(term) => {
+                    self.add_monomial(VdBsqNonSumInumTerm::Atom(term), rnum);
+                }
+                VdBsqInumTerm::Sum(term) => {
+                    self.add_monomial(
+                        VdBsqNonSumInumTerm::Product(VdBsqProductInumTermBase::new(
+                            [(term.into(), VdBsqNumTerm::ONE)].into_iter().collect(),
+                            self.db,
+                        )),
+                        rnum,
+                    );
+                }
                 VdBsqInumTerm::Product(rnum1, base) => {
                     self.add_product(rnum.mul(rnum1, self.db), base);
                 }

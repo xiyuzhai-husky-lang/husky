@@ -24,15 +24,19 @@ where
 
     type Output = MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>;
 
+    /// add term times rnum0 to partial sum (sum_builder)
     fn foldm_step(
         elaborator: &mut Self::Engine,
-        sum_builder: VdBsqSumBuilder<'sess>,
+        mut sum_builder: VdBsqSumBuilder<'sess>,
         (term, rnum0): (VdBsqNonSumInumTerm<'sess>, VdBsqRnumTerm),
         f: &impl Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Self::Output,
     ) -> Self::Output {
         let db = elaborator.floater_db();
         match term {
-            VdBsqNonSumInumTerm::Atom(vd_bsq_atom_inum_term) => todo!(),
+            VdBsqNonSumInumTerm::Atom(atom) => {
+                sum_builder.add_rnum_times_atom(rnum0, atom);
+                f(elaborator, sum_builder)
+            }
             VdBsqNonSumInumTerm::Product(base) => {
                 fold_product(elaborator, base.exponentials(), &|elaborator, expansion| {
                     let mut sum_builder = sum_builder.clone();

@@ -14,6 +14,7 @@ keywords.workspace = true
 [dependencies]
 either.workspace = true
 expect-test.workspace = true
+itertools.workspace = true
 ordered-float.workspace = true
 rustc-hash.workspace = true
 serde.workspace = true
