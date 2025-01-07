@@ -1,14 +1,14 @@
-name = "central-46"
+name = "baseline"
 version = "0.1.0"
-defaultTargets = ["central-46"]
+defaultTargets = ["baseline"]
 
 [[lean_lib]]
-name = "Central46"
+name = "Baseline"
 
 [[lean_exe]]
-name = "central-46"
+name = "baseline"
 root = "Main"
 
 [[require]]
 name = "mathlib"
-git = "https://github.com/leanprover-community/mathlib4.git"
+scope = "leanprover-community"

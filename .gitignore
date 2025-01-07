@@ -352,6 +352,14 @@ projects/ai-math-autoformalization/python/.chat_completion_cache/
 projects/ai-math-autoformalization/python/outputs/
 projects/ai-math-autoformalization/python/__pycache__/
 
+# 
+projects/ai-math-autoformalization/python/mathlib/
+projects/ai-math-autoformalization/python/*.pem
+projects/ai-math-autoformalization/python/.lake/
+projects/ai-math-autoformalization/python/tt/
+
+projects/ai-math-autoformalization/python_test/
+
 # Python
 __pycache__/
 *.py[cod]
