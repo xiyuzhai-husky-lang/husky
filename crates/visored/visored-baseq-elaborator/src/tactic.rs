@@ -13,8 +13,8 @@ use miracle::HasMiracleFull;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdBsqTactic {
-    TermTrivial,
     Assumption,
+    TermTrivial,
     LibrarySearch,
     CommRing,
 }
@@ -26,8 +26,8 @@ impl VdBsqTactic {
         elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         match self {
-            VdBsqTactic::TermTrivial => elaborator.term_trivial(prop),
             VdBsqTactic::Assumption => elaborator.assumption(prop),
+            VdBsqTactic::TermTrivial => elaborator.term_trivial(prop),
             VdBsqTactic::LibrarySearch => elaborator.library_search(prop),
             VdBsqTactic::CommRing => elaborator.comm_ring(prop),
         }

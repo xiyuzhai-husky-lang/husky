@@ -30,8 +30,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 #[deprecated = "TODO: load tactics from a file"]
 pub fn load_obvious_tactics() -> Vec<VdBsqTactic> {
     vec![
-        VdBsqTactic::TermTrivial,
+        // order matters!!!
+        // assumption should always be the first tactic
         VdBsqTactic::Assumption,
+        VdBsqTactic::TermTrivial,
         VdBsqTactic::LibrarySearch,
         VdBsqTactic::CommRing,
     ]

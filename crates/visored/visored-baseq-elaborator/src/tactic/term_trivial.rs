@@ -10,6 +10,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &mut self,
         prop: VdMirExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+        debug_assert!(
+            self.hypothesis_constructor
+                .stack()
+                .get_active_hypothesis_with_expr(prop)
+                .is_none(),
+            "term_trivial should only be called on a fresh prop"
+        );
         let VdBsqTerm::Prop(VdBsqPropTerm::Trivial(b)) = prop.term() else {
             return Ok(AltNone);
         };
