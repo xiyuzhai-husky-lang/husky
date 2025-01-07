@@ -80,8 +80,6 @@ where
                 let Ok(expansion) = merge(factor_expansion) else {
                     return AltNothing;
                 };
-                use husky_print_utils::p;
-                p!(expansion);
                 f(elaborator, Some(expansion))
             };
         elaborator.exec_batch(&[
@@ -186,7 +184,36 @@ where
                                 exponent,
                                 max_size,
                             ) {
-                                Ok(_) => todo!(),
+                                Ok(coefficients) => {
+                                    let mut factor_expansion: Vec<(
+                                        VdBsqRnumTerm,
+                                        VdBsqExponentialParts<'sess>,
+                                    )> = vec![];
+                                    for (coeff, indices) in coefficients {
+                                        let mut cumulative_coeff: VdBsqRnumTerm = coeff.into();
+                                        let mut exponential_parts: VdBsqExponentialParts<'sess> =
+                                            vec![];
+                                        for (i, index) in indices.into_iter().enumerate() {
+                                            if index == 0 {
+                                                continue;
+                                            }
+                                            let (summand, coeff) = sum.monomials().data()[i];
+                                            cumulative_coeff
+                                                .mul_assign(coeff.pow128(index, db).into(), db);
+                                            match summand {
+                                                VdBsqNonSumInumTerm::Atom(term) => {
+                                                    let part = (term.into(), index.into());
+                                                    exponential_parts.push(part);
+                                                }
+                                                VdBsqNonSumInumTerm::Product(base) => {
+                                                    todo!()
+                                                }
+                                            }
+                                        }
+                                        factor_expansion.push((coeff.into(), exponential_parts));
+                                    }
+                                    g(elaborator, &factor_expansion)
+                                }
                                 Err(_) => AltNothing,
                             }
                         }
