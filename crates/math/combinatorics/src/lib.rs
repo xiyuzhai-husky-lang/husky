@@ -1,31 +1,31 @@
 pub mod error;
 
 use self::error::*;
-use num_try::unsigned_int::Int;
+use num_try::unsigned_int::IntTry;
 
-pub fn checked_binomial_coefficient<N: Int>(n: N, k: N) -> CombinatoricsResult<N> {
+pub fn try_binomial_coefficient<N: IntTry>(n: N, k: N) -> CombinatoricsResult<N> {
     if k > n {
         return Ok(N::ZERO);
     }
 
     // Use smaller k to optimize calculation
-    let k = k.min(n.checked_sub(k)?);
+    let k = k.min(n.try_sub(k)?);
 
     let mut result = N::ONE;
     for i in 0..k.into_usize()? {
         let i = N::from_usize(i)?;
         // Multiply by (n-i)
-        result = result.checked_mul(n.checked_sub(i)?)?;
+        result = result.try_mul(n.try_sub(i)?)?;
         // Divide by (i+1)
-        result = result.checked_div(i.checked_add(N::ONE)?)?;
+        result = result.try_div(i.try_add(N::ONE)?)?;
     }
     Ok(result)
 }
 
 #[test]
-fn checked_binomial_coefficient_works() {
+fn try_binomial_coefficient_works() {
     fn test(n: u128, k: u128, expected: u128) {
-        assert_eq!(checked_binomial_coefficient::<u128>(n, k), Ok(expected));
+        assert_eq!(try_binomial_coefficient::<u128>(n, k), Ok(expected));
     }
 
     test(0, 0, 1);
@@ -40,7 +40,7 @@ fn checked_binomial_coefficient_works() {
 /// For sum of `r` variables raised to the `n`th power (interpreting the signature as
 /// `multinomial_indices(n, r)`, i.e., n = exponent, r = number_of_variables),
 /// return the coefficients of its multinomial expansion along with their index-tuples.
-pub fn multinomial_expansion<N: Int>(
+pub fn try_multinomial_expansion<N: IntTry>(
     number_of_summands: N,
     power: N,
     max_size: usize,
@@ -63,7 +63,7 @@ pub fn multinomial_expansion<N: Int>(
     let mut result = Vec::new();
     let mut current = vec![N::ZERO; number_of_summands.into_usize()?];
 
-    fn backtrack<N: Int>(
+    fn backtrack<N: IntTry>(
         idx: usize,        // which position in `current` we are assigning
         remaining: N,      // how many "units" of exponent left to distribute
         exponent: N,       // total exponent n
@@ -73,7 +73,7 @@ pub fn multinomial_expansion<N: Int>(
         // If we're at the last slot, it must take whatever is left
         if idx == current.len() - 1 {
             current[idx] = remaining;
-            let coeff = checked_multinomial_coefficient(exponent, current)?;
+            let coeff = try_multinomial_coefficient(exponent, current)?;
             result.push((coeff, current.to_vec()));
             // Reset back to 0 for cleanliness in backtracking
             current[idx] = N::ZERO;
@@ -85,13 +85,7 @@ pub fn multinomial_expansion<N: Int>(
         for val in (0..=remaining.into_usize()?).rev() {
             let val = N::from_usize(val)?;
             current[idx] = val;
-            backtrack(
-                idx + 1,
-                remaining.checked_sub(val)?,
-                exponent,
-                current,
-                result,
-            )?;
+            backtrack(idx + 1, remaining.try_sub(val)?, exponent, current, result)?;
             current[idx] = N::ZERO;
         }
         Ok(())
@@ -102,10 +96,10 @@ pub fn multinomial_expansion<N: Int>(
 }
 
 #[test]
-fn multinomial_indices_works() {
+fn try_multinomial_indices_works() {
     #[track_caller]
     fn t(n: u64, r: u64, expected: Vec<(u64, Vec<u64>)>) {
-        let mut actual = multinomial_expansion(n, r, 40).unwrap();
+        let mut actual = try_multinomial_expansion(n, r, 40).unwrap();
         assert_eq!(actual, expected);
     }
 
@@ -184,10 +178,10 @@ fn multinomial_indices_works() {
 }
 
 #[test]
-fn multinomial_indices_overflows() {
+fn try_multinomial_indices_overflows() {
     #[track_caller]
     fn t(number_of_summands: u64, power: u64) {
-        assert!(multinomial_expansion(number_of_summands, power, 100).is_err());
+        assert!(try_multinomial_expansion(number_of_summands, power, 100).is_err());
     }
 
     t(100, 100);
@@ -203,7 +197,7 @@ fn multinomial_indices_overflows() {
 }
 
 #[track_caller]
-pub fn checked_multinomial_coefficient<N: Int>(r: N, indices: &[N]) -> CombinatoricsResult<N> {
+pub fn try_multinomial_coefficient<N: IntTry>(r: N, indices: &[N]) -> CombinatoricsResult<N> {
     // Validate input
     assert_eq!(
         N::try_sum(indices.iter().copied())?,
@@ -212,20 +206,20 @@ pub fn checked_multinomial_coefficient<N: Int>(r: N, indices: &[N]) -> Combinato
     );
 
     // Start with r!
-    let mut result = r.checked_factorial()?;
+    let mut result = r.try_factorial()?;
 
     // Divide by the factorial of each index
     for &index in indices {
-        result = result.checked_div(index.checked_factorial()?)?;
+        result = result.try_div(index.try_factorial()?)?;
     }
 
     Ok(result)
 }
 
 #[test]
-fn checked_multinomial_coefficient_works() {
+fn try_multinomial_coefficient_works() {
     fn test(n: u64, indices: &[u64], expected: u64) {
-        assert_eq!(checked_multinomial_coefficient(n, indices), Ok(expected));
+        assert_eq!(try_multinomial_coefficient(n, indices), Ok(expected));
     }
 
     // Basic cases
@@ -240,10 +234,13 @@ fn checked_multinomial_coefficient_works() {
     test(2, &[0, 2], 1);
 }
 
-pub fn number_of_summands_in_multinomial_expansion<N: Int>(n: N, r: N) -> CombinatoricsResult<N> {
+pub fn number_of_summands_in_multinomial_expansion<N: IntTry>(
+    n: N,
+    r: N,
+) -> CombinatoricsResult<N> {
     // Formula is binomial(n+r-1,r-1) for combinations with repetition
-    let n_plus_r = n.checked_add(r)?;
-    let n_plus_r_minus_1 = n_plus_r.checked_sub(N::ONE)?;
-    let r_minus_1 = r.checked_sub(N::ONE)?;
-    checked_binomial_coefficient(n_plus_r_minus_1, r_minus_1)
+    let n_plus_r = n.try_add(r)?;
+    let n_plus_r_minus_1 = n_plus_r.try_sub(N::ONE)?;
+    let r_minus_1 = r.try_sub(N::ONE)?;
+    try_binomial_coefficient(n_plus_r_minus_1, r_minus_1)
 }

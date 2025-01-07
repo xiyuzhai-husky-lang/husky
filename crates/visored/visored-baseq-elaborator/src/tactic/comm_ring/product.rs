@@ -118,7 +118,7 @@ where
                             as &[(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)],
                     )
                 } else {
-                    use combinatorics::multinomial_expansion;
+                    use combinatorics::try_multinomial_expansion;
 
                     let VdBsqNonProductNumTerm::SumInum(sum) = base else {
                         return AltNothing;
@@ -129,7 +129,7 @@ where
                             let n_summands_in_factor = sum.monomials().len() + 1;
                             let max_size = product_expansion_limit
                                 / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
-                            match multinomial_expansion(
+                            match try_multinomial_expansion(
                                 n_summands_in_factor as i128,
                                 exponent,
                                 max_size,
@@ -186,7 +186,7 @@ where
                             let n_summands_in_factor = sum.monomials().len();
                             let max_size = product_expansion_limit
                                 / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
-                            match multinomial_expansion(
+                            match try_multinomial_expansion(
                                 n_summands_in_factor as i128,
                                 exponent,
                                 max_size,
