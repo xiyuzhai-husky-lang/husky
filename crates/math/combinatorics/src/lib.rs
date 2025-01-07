@@ -41,23 +41,27 @@ fn checked_binomial_coefficient_works() {
 /// `multinomial_indices(n, r)`, i.e., n = exponent, r = number_of_variables),
 /// return the coefficients of its multinomial expansion along with their index-tuples.
 pub fn multinomial_expansion<N: UnsignedInt>(
-    n: N,
-    r: N,
+    number_of_summands: N,
+    power: N,
     max_size: usize,
 ) -> CombinatoricsResult<Vec<(N, Vec<N>)>> {
     // Check if r exceeds vector capacity
-    if r.as_usize() > max_size {
-        return Err(CombinatoricsError::MultinomialExpansionVariableCountExceedsLimit);
+    if number_of_summands.as_usize() > max_size {
+        return Err(
+            CombinatoricsError::MultinomialExpansionNumberOfSummandsBeforeExpansionExceedsLimit,
+        );
     }
 
     // Check if total combinations would exceed capacity
-    let terms = count_expansion_terms(n, r)?;
+    let terms = count_expansion_terms(power, number_of_summands)?;
     if terms.as_usize() > max_size {
-        return Err(CombinatoricsError::MultinomialExpansionNumberOfTermsExceedsLimit);
+        return Err(
+            CombinatoricsError::MultinomialExpansionNumberOfSummandsAfterExpansionExceedsLimit,
+        );
     }
 
     let mut result = Vec::new();
-    let mut current = vec![N::ZERO; r.as_usize()];
+    let mut current = vec![N::ZERO; number_of_summands.as_usize()];
 
     fn backtrack<N: UnsignedInt>(
         idx: usize,        // which position in `current` we are assigning
@@ -93,7 +97,7 @@ pub fn multinomial_expansion<N: UnsignedInt>(
         Ok(())
     }
 
-    backtrack(0, n, n, &mut current, &mut result)?;
+    backtrack(0, power, power, &mut current, &mut result)?;
     Ok(result)
 }
 
@@ -118,8 +122,8 @@ fn multinomial_indices_works() {
 
     // (x + y + z)^2
     t(
-        2,
         3,
+        2,
         vec![
             (1, vec![2, 0, 0]), // x^2
             (2, vec![1, 1, 0]), // 2xy
@@ -150,8 +154,8 @@ fn multinomial_indices_works() {
 
     // (x + y)^3
     t(
-        3,
         2,
+        3,
         vec![
             (1, vec![3, 0]), // x^3
             (3, vec![2, 1]), // 3x^2y
@@ -162,8 +166,8 @@ fn multinomial_indices_works() {
 
     // (x + y + z + w)^2
     t(
-        2,
         4,
+        2,
         vec![
             (1, vec![2, 0, 0, 0]), // x^2
             (2, vec![1, 1, 0, 0]), // 2xy
@@ -182,21 +186,20 @@ fn multinomial_indices_works() {
 #[test]
 fn multinomial_indices_overflows() {
     #[track_caller]
-    fn t(n: u64, r: u64) {
-        assert!(multinomial_expansion(n, r, 100).is_err());
+    fn t(number_of_summands: u64, power: u64) {
+        assert!(multinomial_expansion(number_of_summands, power, 100).is_err());
     }
 
-    // Large numbers that should overflow
     t(100, 100);
-    t(u64::MAX, 2); // Extreme n value
-    t(2, u64::MAX); // Extreme r value
-    t(1000, 50); // Large n with moderate r
-    t(50, 1000); // Moderate n with large r
+    t(2, u64::MAX); // Extreme power
+    t(u64::MAX, 2); // Extreme number of summands
+    t(50, 1000); // Large power with moderate number of summands
+    t(1000, 50); // Moderate power with large number of summands
 
     // Edge cases that should overflow
     t(64, 64); // Numbers near u64 bit size
-    t(u64::MAX - 1, 2); // Near maximum u64 value
-    t(2, u64::MAX - 1); // Near maximum u64 value
+    t(2, u64::MAX - 1); // Near maximum power
+    t(u64::MAX - 1, 2); // Near maximum number of summands
 }
 
 #[track_caller]
