@@ -163,7 +163,14 @@ where
                                                         exponential_parts.push(part);
                                                     }
                                                     VdBsqNonSumInumTerm::Product(base) => {
-                                                        todo!()
+                                                        for &(base, exponent) in base.exponentials()
+                                                        {
+                                                            let part = (
+                                                                base.into(),
+                                                                exponent.mul128(index, db).into(),
+                                                            );
+                                                            exponential_parts.push(part);
+                                                        }
                                                     }
                                                 }
                                             }

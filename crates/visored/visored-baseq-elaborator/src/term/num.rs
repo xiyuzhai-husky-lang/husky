@@ -82,6 +82,13 @@ impl<'sess> VdBsqNumTerm<'sess> {
     pub fn add_assign(&mut self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) {
         *self = self.add(rhs, db);
     }
+
+    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        match self {
+            VdBsqNumTerm::Rnum(term) => VdBsqNumTerm::Rnum(term.mul128(rhs, db)),
+            VdBsqNumTerm::Inum(term) => VdBsqNumTerm::Inum(term.mul128(rhs, db)),
+        }
+    }
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {

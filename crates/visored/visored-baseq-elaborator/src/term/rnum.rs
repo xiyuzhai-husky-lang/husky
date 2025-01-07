@@ -65,14 +65,18 @@ impl VdBsqRnumTerm {
     }
 
     pub fn mul(self, rhs: Self, db: &FloaterDb) -> Self {
+        match rhs {
+            VdBsqRnumTerm::Int128(rhs) => self.mul128(rhs, db),
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
+
+    pub fn mul128(self, rhs: i128, db: &FloaterDb) -> Self {
         match self {
-            VdBsqRnumTerm::Int128(slf) => match rhs {
-                VdBsqRnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
-                    Some(product) => VdBsqRnumTerm::Int128(product),
-                    None => todo!(),
-                },
-                VdBsqRnumTerm::BigInt() => todo!(),
-                VdBsqRnumTerm::Rat128(_, _) => todo!(),
+            VdBsqRnumTerm::Int128(i) => match i.checked_mul(rhs) {
+                Some(product) => VdBsqRnumTerm::Int128(product),
+                None => todo!(),
             },
             VdBsqRnumTerm::BigInt() => todo!(),
             VdBsqRnumTerm::Rat128(_, _) => todo!(),
