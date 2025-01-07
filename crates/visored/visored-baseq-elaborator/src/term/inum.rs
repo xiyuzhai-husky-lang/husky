@@ -180,7 +180,19 @@ impl<'sess> VdBsqInumTermData<'sess> {
 }
 
 impl<'sess> VdBsqInumTerm<'sess> {
-    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqInumTerm<'sess> {
-        todo!()
+    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        if rhs == 0 {
+            return VdBsqNumTerm::ZERO;
+        }
+        if rhs == 1 {
+            return self.into();
+        }
+        match self {
+            VdBsqInumTerm::Atom(term) => term.mul128(rhs, db),
+            VdBsqInumTerm::Sum(term) => term.mul128(rhs, db),
+            VdBsqInumTerm::Product(rnum, term) => {
+                VdBsqInumTerm::Product(rnum.mul128(rhs, db), term).into()
+            }
+        }
     }
 }

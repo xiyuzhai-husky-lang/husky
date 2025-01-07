@@ -143,3 +143,9 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
         Ok(())
     }
 }
+
+impl<'sess> VdBsqSumInumTerm<'sess> {
+    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        todo!()
+    }
+}

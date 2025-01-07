@@ -86,7 +86,7 @@ impl<'sess> VdBsqNumTerm<'sess> {
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         match self {
             VdBsqNumTerm::Rnum(term) => VdBsqNumTerm::Rnum(term.mul128(rhs, db)),
-            VdBsqNumTerm::Inum(term) => VdBsqNumTerm::Inum(term.mul128(rhs, db)),
+            VdBsqNumTerm::Inum(term) => term.mul128(rhs, db),
         }
     }
 }

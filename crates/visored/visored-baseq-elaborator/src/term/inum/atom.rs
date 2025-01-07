@@ -89,3 +89,21 @@ impl<'sess> VdBsqInumAtomTermData {
         }
     }
 }
+
+impl<'sess> VdBsqAtomInumTerm<'sess> {
+    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        if rhs == 0 {
+            return VdBsqNumTerm::ZERO;
+        }
+        if rhs == 1 {
+            return self.into();
+        }
+        let product_base = VdBsqProductInumTermBase::new(
+            [(VdBsqNonProductNumTerm::AtomInum(self), VdBsqNumTerm::ONE)]
+                .into_iter()
+                .collect(),
+            db,
+        );
+        VdBsqInumTerm::Product(rhs.into(), product_base).into()
+    }
+}
