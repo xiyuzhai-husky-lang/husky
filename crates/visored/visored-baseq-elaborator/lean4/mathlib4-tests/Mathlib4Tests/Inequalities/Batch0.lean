@@ -119,3 +119,10 @@ def h(x : ℝ)(y : ℝ) := by
   have h1 : (x + y) ^ 3 = x ^ 3 + 3 * (x ^ 2) * y + 3 * x * (y ^ 2) + y ^ 3 := by comm_ring
   exact ()
 end Example16
+
+namespace Example17
+def h(x : ℝ)(y : ℝ) := by
+  have h1 : (x + y) ^ 4 = x ^ 4 + 4 * (x ^ 3) * y + 6 * (x ^ 2) * (y ^ 2) + 4 * x * (y ^ 3) + y ^ 4 := by comm_ring
+  exact ()
+end Example17
+
