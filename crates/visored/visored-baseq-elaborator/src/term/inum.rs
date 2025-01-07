@@ -13,7 +13,7 @@ use visored_opr::precedence::VdPrecedence;
 pub enum VdBsqInumTerm<'sess> {
     Atom(VdBsqAtomInumTerm<'sess>),
     Sum(VdBsqSumInumTerm<'sess>),
-    Product(VdBsqRnumTerm, VdBsqProductInumTermBase<'sess>),
+    Product(VdBsqRnumTerm<'sess>, VdBsqProductInumTermBase<'sess>),
 }
 
 impl<'sess> std::fmt::Debug for VdBsqInumTerm<'sess> {
@@ -40,7 +40,7 @@ impl<'sess> VdBsqInumTerm<'sess> {
                     term.show_fmt(precedence_range, f)
                 } else {
                     fn show_product_fmt_inner<'sess>(
-                        rnum: VdBsqRnumTerm,
+                        rnum: VdBsqRnumTerm<'sess>,
                         term: VdBsqProductInumTermBase<'sess>,
                         f: &mut std::fmt::Formatter<'_>,
                     ) -> std::fmt::Result {
@@ -69,7 +69,7 @@ impl<'sess> VdBsqInumTerm<'sess> {
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonProductNumTerm<'sess> {
-    Rnum(VdBsqRnumTerm),
+    Rnum(VdBsqRnumTerm<'sess>),
     AtomInum(VdBsqAtomInumTerm<'sess>),
     SumInum(VdBsqSumInumTerm<'sess>),
 }
@@ -151,7 +151,7 @@ pub type VdBsqNonProductNumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
 pub type VdBsqInumNonSumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonSumInumTerm<'sess>, T, 4>;
-pub type VdBsqInumMonomialCoefficients<'sess> = VdBsqInumNonSumTermMap<'sess, VdBsqRnumTerm>;
+pub type VdBsqInumMonomialCoefficients<'sess> = VdBsqInumNonSumTermMap<'sess, VdBsqRnumTerm<'sess>>;
 pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;
 pub type VdBsqExponentialPowersRef<'a, 'sess> =
     &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)];

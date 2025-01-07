@@ -12,7 +12,7 @@ pub struct VdBsqProductBuilder<'sess> {
     db: &'sess FloaterDb,
     /// Only for numbers representable efficiently by computers.
     /// For huge numbers like `2^100000`, we don't want to put it here.
-    rnum_coefficient: VdBsqRnumTerm,
+    rnum_coefficient: VdBsqRnumTerm<'sess>,
     unpruned_exponentials: VdBsqExponentialPowers<'sess>,
 }
 
@@ -34,7 +34,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         }
     }
 
-    pub fn mul_rnum(&mut self, rnum: VdBsqRnumTerm) {
+    pub fn mul_rnum(&mut self, rnum: VdBsqRnumTerm<'sess>) {
         self.rnum_coefficient.mul_assign(rnum, self.db);
     }
 
@@ -60,7 +60,11 @@ impl<'sess> VdBsqProductBuilder<'sess> {
             });
     }
 
-    pub fn mul_product(&mut self, rnum: VdBsqRnumTerm, product: VdBsqProductInumTermBase<'sess>) {
+    pub fn mul_product(
+        &mut self,
+        rnum: VdBsqRnumTerm<'sess>,
+        product: VdBsqProductInumTermBase<'sess>,
+    ) {
         self.mul_rnum(rnum);
         for &(base, exponent) in product.exponentials() {
             self.mul_exponential(base, exponent);

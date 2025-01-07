@@ -7,7 +7,7 @@ pub struct VdBsqSumInumTerm<'sess>(VdBsqInumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqInumSumTermData<'sess> {
-    constant_term: VdBsqRnumTerm,
+    constant_term: VdBsqRnumTerm<'sess>,
     monomials: VdBsqInumMonomialCoefficients<'sess>,
 }
 
@@ -19,7 +19,7 @@ impl<'sess> From<VdBsqSumInumTerm<'sess>> for VdBsqNumTerm<'sess> {
 
 impl<'sess> VdBsqSumInumTerm<'sess> {
     pub fn new(
-        constant_term: VdBsqRnumTerm,
+        constant_term: VdBsqRnumTerm<'sess>,
         monomials: VdBsqInumMonomialCoefficients<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
@@ -41,11 +41,11 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
         }
     }
 
-    pub fn constant_term(&self) -> VdBsqRnumTerm {
+    pub fn constant_term(self) -> VdBsqRnumTerm<'sess> {
         self.data().constant_term()
     }
 
-    pub fn nonzero_constant_term(&self) -> Option<VdBsqRnumTerm> {
+    pub fn nonzero_constant_term(self) -> Option<VdBsqRnumTerm<'sess>> {
         if self.constant_term().is_zero() {
             None
         } else {
@@ -53,13 +53,13 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
         }
     }
 
-    pub fn monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
+    pub fn monomials(self) -> &'sess VdBsqInumMonomialCoefficients<'sess> {
         self.data().monomials()
     }
 }
 
 impl<'sess> VdBsqInumSumTermData<'sess> {
-    pub fn constant_term(&self) -> VdBsqRnumTerm {
+    pub fn constant_term(&self) -> VdBsqRnumTerm<'sess> {
         self.constant_term
     }
 

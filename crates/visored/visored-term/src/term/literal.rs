@@ -2,6 +2,7 @@ pub mod bigint;
 pub mod special_constant;
 
 use eterned::db::EternerDb;
+use num_bigint::Sign;
 
 use self::{bigint::VdBigIntData, special_constant::VdSpecialConstant};
 use super::*;
@@ -87,7 +88,10 @@ fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
                 menu.int
             }
         }
-        VdLiteralData::BigInt(ref i) => todo!(),
+        VdLiteralData::BigInt(ref i) => match i.sign() {
+            Sign::Minus => menu.int,
+            Sign::NoSign | Sign::Plus => menu.nat,
+        },
         VdLiteralData::Float(_) => menu.rat,
         VdLiteralData::SpecialConstant(special_constant) => todo!(),
     }

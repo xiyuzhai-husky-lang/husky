@@ -192,3 +192,9 @@ def h(x : ℝ)(n : ℕ) := by
   exact ()
 end Example28
 
+namespace Example29
+def h := by
+  have h1 : 1000340282366920938463463374607431768211456 = 1000340282366920938463463374607431768211456 := by term_trivial
+  exact ()
+end Example29
+

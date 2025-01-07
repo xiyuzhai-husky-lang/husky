@@ -12,7 +12,7 @@ pub struct VdBsqSumBuilder<'sess> {
     db: &'sess FloaterDb,
     /// Only for numbers representable efficiently by computers.
     /// For huge numbers like `2^100000`, we don't want to put it here.
-    constant_rnum: VdBsqRnumTerm,
+    constant_rnum: VdBsqRnumTerm<'sess>,
     unpruned_monomials: VdBsqInumMonomialCoefficients<'sess>,
 }
 
@@ -48,15 +48,19 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn add_rnum_times_atom(&mut self, rnum: VdBsqRnumTerm, atom: VdBsqAtomInumTerm<'sess>) {
+    pub fn add_rnum_times_atom(
+        &mut self,
+        rnum: VdBsqRnumTerm<'sess>,
+        atom: VdBsqAtomInumTerm<'sess>,
+    ) {
         self.add_monomial(VdBsqNonSumInumTerm::Atom(atom), rnum);
     }
 
-    pub fn add_rnum(&mut self, term: VdBsqRnumTerm) {
+    pub fn add_rnum(&mut self, term: VdBsqRnumTerm<'sess>) {
         self.constant_rnum.add_assign(term, self.db);
     }
 
-    pub fn sub_rnum(&mut self, term: VdBsqRnumTerm) {
+    pub fn sub_rnum(&mut self, term: VdBsqRnumTerm<'sess>) {
         self.constant_rnum.sub_assign(term, self.db);
     }
 
@@ -94,11 +98,15 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn add_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqProductInumTermBase<'sess>) {
+    pub fn add_product(
+        &mut self,
+        rnum: VdBsqRnumTerm<'sess>,
+        term: VdBsqProductInumTermBase<'sess>,
+    ) {
         self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum);
     }
 
-    pub fn add_general_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqNumTerm<'sess>) {
+    pub fn add_general_product(&mut self, rnum: VdBsqRnumTerm<'sess>, term: VdBsqNumTerm<'sess>) {
         match term {
             VdBsqNumTerm::Rnum(term) => self.add_rnum(rnum.mul(term, self.db)),
             VdBsqNumTerm::Inum(term) => match term {
@@ -121,11 +129,15 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn sub_product(&mut self, rnum: VdBsqRnumTerm, term: VdBsqProductInumTermBase<'sess>) {
+    pub fn sub_product(
+        &mut self,
+        rnum: VdBsqRnumTerm<'sess>,
+        term: VdBsqProductInumTermBase<'sess>,
+    ) {
         self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum.neg(self.db));
     }
 
-    pub fn add_monomial(&mut self, term: VdBsqNonSumInumTerm<'sess>, coeff: VdBsqRnumTerm) {
+    pub fn add_monomial(&mut self, term: VdBsqNonSumInumTerm<'sess>, coeff: VdBsqRnumTerm<'sess>) {
         self.unpruned_monomials
             .insert_or_update((term, coeff), |(_, old_coeff)| {
                 old_coeff.add_assign(coeff, self.db);

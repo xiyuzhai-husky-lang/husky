@@ -6,6 +6,7 @@ pub mod rnum;
 
 use self::{inum::*, num::*, prop::*, rnum::*};
 use crate::elaborator::VdBsqElaboratorInner;
+use bigint::VdBsqRnumTermBigInt;
 use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
@@ -26,7 +27,7 @@ use visored_term::term::{literal::VdLiteralData, VdTermData};
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqTerm<'sess> {
-    Rnum(VdBsqRnumTerm),
+    Rnum(VdBsqRnumTerm<'sess>),
     Inum(VdBsqInumTerm<'sess>),
     Prop(VdBsqPropTerm<'sess>),
 }
@@ -34,8 +35,10 @@ pub enum VdBsqTerm<'sess> {
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
-    ) -> Either<(VdBsqRnumTerm, VdBsqProductInumTermBase<'sess>), VdBsqNonProductNumTerm<'sess>>
-    {
+    ) -> Either<
+        (VdBsqRnumTerm<'sess>, VdBsqProductInumTermBase<'sess>),
+        VdBsqNonProductNumTerm<'sess>,
+    > {
         match self {
             VdBsqNumTerm::Rnum(term) => todo!(),
             VdBsqNumTerm::Inum(term) => match term {
@@ -93,10 +96,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         expr_entry: &VdMirExprEntry,
         symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
     ) -> VdBsqTerm<'sess> {
+        let db = self.floater_db();
         match *expr_entry.data() {
             VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
                 VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqRnumTerm::Int128(i)),
-                VdLiteralData::BigInt(ref n) => todo!(),
+                VdLiteralData::BigInt(ref n) => VdBsqTerm::Rnum(VdBsqRnumTerm::BigInt(
+                    VdBsqRnumTermBigInt::new(n.clone(), db),
+                )),
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },

@@ -15,6 +15,7 @@ keywords.workspace = true
 either.workspace = true
 expect-test.workspace = true
 itertools.workspace = true
+num-bigint.workspace = true
 ordered-float.workspace = true
 rustc-hash.workspace = true
 serde.workspace = true

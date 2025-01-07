@@ -6,7 +6,7 @@ use smallvec::*;
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNumTerm<'sess> {
-    Rnum(VdBsqRnumTerm),
+    Rnum(VdBsqRnumTerm<'sess>),
     Inum(VdBsqInumTerm<'sess>),
 }
 

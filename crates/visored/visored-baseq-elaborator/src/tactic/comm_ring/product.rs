@@ -21,7 +21,7 @@ where
     type Engine = VdBsqElaboratorInner<'db, 'sess>;
 
     /// Initial state is set to None.
-    type State = Option<Vec<(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)>>;
+    type State = Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>;
 
     type Item = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
 
@@ -29,11 +29,11 @@ where
 
     fn foldm_step(
         elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
-        expansion: Option<Vec<(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)>>,
+        expansion: Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
         (base, exponent): (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>),
         f: &impl Fn(
             &mut VdBsqElaboratorInner<'db, 'sess>,
-            Option<Vec<(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)>>,
+            Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
         )
             -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
@@ -43,10 +43,10 @@ where
         let exponential_expansion_limit = config.exponential_expansion_limit();
         // returns error if the expansion exceeds comm ring product expansion limit
         let merge = |factor_expansion: &[(
-            VdBsqRnumTerm,
+            VdBsqRnumTerm<'sess>,
             VdBsqExponentialParts<'sess>,
         )]|
-         -> Result<Vec<(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)>, ()> {
+         -> Result<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>, ()> {
             match expansion {
                 Some(ref expansion) => {
                     if expansion.len() * factor_expansion.len() > product_expansion_limit {
@@ -76,7 +76,7 @@ where
         };
         let g =
             |elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
-             factor_expansion: &[(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)]| {
+             factor_expansion: &[(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)]| {
                 let Ok(expansion) = merge(factor_expansion) else {
                     return AltNothing;
                 };
@@ -115,7 +115,7 @@ where
                                 )
                             }))
                             .collect::<Vec<_>>()
-                            as &[(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)],
+                            as &[(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)],
                     )
                 } else {
                     use combinatorics::try_multinomial_expansion;
@@ -136,7 +136,7 @@ where
                             ) {
                                 Ok(coefficients) => {
                                     let mut factor_expansion: Vec<(
-                                        VdBsqRnumTerm,
+                                        VdBsqRnumTerm<'sess>,
                                         VdBsqExponentialParts<'sess>,
                                     )> = vec![];
                                     for (coeff, indices) in coefficients {
@@ -193,7 +193,7 @@ where
                             ) {
                                 Ok(coefficients) => {
                                     let mut factor_expansion: Vec<(
-                                        VdBsqRnumTerm,
+                                        VdBsqRnumTerm<'sess>,
                                         VdBsqExponentialParts<'sess>,
                                     )> = vec![];
                                     for (coeff, indices) in coefficients {
@@ -242,7 +242,7 @@ pub fn fold_product<'db, 'sess>(
     exponentials: &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,
-        Option<Vec<(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)>>,
+        Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
     Scheme::foldm(engine, None, exponentials.iter().copied(), f)
