@@ -100,7 +100,8 @@ where
                     };
                     g(
                         elaborator,
-                        &[(sum.constant_term(), vec![])]
+                        &sum.nonzero_constant_term()
+                            .map(|rnum| (rnum, vec![]))
                             .into_iter()
                             .chain(sum.monomials().iter().map(|&(monomial, coeff)| {
                                 (
@@ -119,13 +120,77 @@ where
                             as &[(VdBsqRnumTerm, VdBsqExponentialParts<'sess>)],
                     )
                 } else {
+                    use combinatorics::multinomial_expansion;
+
                     let VdBsqNonProductNumTerm::SumInum(sum) = base else {
                         return AltNothing;
                     };
                     use husky_print_utils::p;
-                    p!(sum);
-                    todo!()
-                    // AltNothing
+                    match sum.nonzero_constant_term() {
+                        Some(_) => {
+                            let n_summands_in_factor = sum.monomials().len() + 1;
+                            let max_size = product_expansion_limit
+                                / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
+                            match multinomial_expansion(
+                                n_summands_in_factor as i128,
+                                exponent,
+                                max_size,
+                            ) {
+                                Ok(coefficients) => {
+                                    let mut factor_expansion: Vec<(
+                                        VdBsqRnumTerm,
+                                        VdBsqExponentialParts<'sess>,
+                                    )> = vec![];
+                                    for (coeff, indices) in coefficients {
+                                        let mut cumulative_coeff: VdBsqRnumTerm = coeff.into();
+                                        let mut exponential_parts: VdBsqExponentialParts<'sess> =
+                                            vec![];
+                                        for (i, index) in indices.into_iter().enumerate() {
+                                            if index == 0 {
+                                                continue;
+                                            }
+                                            if i == 0 {
+                                                cumulative_coeff.mul_assign(
+                                                    sum.constant_term().pow128(index, db).into(),
+                                                    db,
+                                                )
+                                            } else {
+                                                let (summand, coeff) =
+                                                    sum.monomials().data()[(i - 1) as usize];
+                                                cumulative_coeff
+                                                    .mul_assign(coeff.pow128(index, db).into(), db);
+                                                match summand {
+                                                    VdBsqNonSumInumTerm::Atom(term) => {
+                                                        let part = (term.into(), index.into());
+                                                        exponential_parts.push(part);
+                                                    }
+                                                    VdBsqNonSumInumTerm::Product(base) => {
+                                                        todo!()
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        factor_expansion.push((coeff.into(), exponential_parts));
+                                    }
+                                    g(elaborator, &factor_expansion)
+                                }
+                                Err(_) => AltNothing,
+                            }
+                        }
+                        None => {
+                            let n_summands_in_factor = sum.monomials().len();
+                            let max_size = product_expansion_limit
+                                / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
+                            match multinomial_expansion(
+                                n_summands_in_factor as i128,
+                                exponent,
+                                max_size,
+                            ) {
+                                Ok(_) => todo!(),
+                                Err(_) => AltNothing,
+                            }
+                        }
+                    }
                 }
             },
         ])

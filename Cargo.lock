@@ -13434,6 +13434,7 @@ version = "0.1.0"
 dependencies = [
  "alt-maybe-result",
  "alt-option",
+ "combinatorics",
  "either",
  "enum-class",
  "eterned",

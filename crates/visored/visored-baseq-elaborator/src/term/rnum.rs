@@ -93,6 +93,29 @@ impl VdBsqRnumTerm {
             VdBsqRnumTerm::Rat128(_, _) => todo!(),
         }
     }
+
+    pub fn pow128(self, exponent: i128, db: &FloaterDb) -> Self {
+        match self {
+            VdBsqRnumTerm::Int128(i) => {
+                if exponent > 0 {
+                    let exponent: u32 = match exponent.try_into() {
+                        Ok(exponent) => exponent,
+                        Err(_) => todo!(),
+                    };
+                    match i.checked_pow(exponent) {
+                        Some(pow) => VdBsqRnumTerm::Int128(pow),
+                        None => todo!(),
+                    }
+                } else {
+                    use husky_print_utils::p;
+                    p!(exponent);
+                    todo!()
+                }
+            }
+            VdBsqRnumTerm::BigInt() => todo!(),
+            VdBsqRnumTerm::Rat128(_, _) => todo!(),
+        }
+    }
 }
 
 impl VdBsqRnumTerm {

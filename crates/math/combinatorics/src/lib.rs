@@ -53,7 +53,7 @@ pub fn multinomial_expansion<N: Int>(
     }
 
     // Check if total combinations would exceed capacity
-    let terms = count_expansion_terms(power, number_of_summands)?;
+    let terms = number_of_summands_in_multinomial_expansion(power, number_of_summands)?;
     if terms.into_usize()? > max_size {
         return Err(
             CombinatoricsError::MultinomialExpansionNumberOfSummandsAfterExpansionExceedsLimit,
@@ -240,7 +240,7 @@ fn checked_multinomial_coefficient_works() {
     test(2, &[0, 2], 1);
 }
 
-fn count_expansion_terms<N: Int>(n: N, r: N) -> CombinatoricsResult<N> {
+pub fn number_of_summands_in_multinomial_expansion<N: Int>(n: N, r: N) -> CombinatoricsResult<N> {
     // Formula is binomial(n+r-1,r-1) for combinations with repetition
     let n_plus_r = n.checked_add(r)?;
     let n_plus_r_minus_1 = n_plus_r.checked_sub(N::ONE)?;

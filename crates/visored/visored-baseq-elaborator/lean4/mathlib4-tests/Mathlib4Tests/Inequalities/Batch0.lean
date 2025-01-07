@@ -98,7 +98,7 @@ end Example12
 
 namespace Example13
 def h(x : ℝ) := by
-  have h1 : (1 + x) * (1 + x) = 1 + 2 * x + x ^ 2 := by obvious
+  have h1 : (1 + x) * (1 + x) = 1 + 2 * x + x ^ 2 := by comm_ring
   exact ()
 end Example13
 

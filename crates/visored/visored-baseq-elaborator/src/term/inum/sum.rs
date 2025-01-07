@@ -45,6 +45,14 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
         self.data().constant_term()
     }
 
+    pub fn nonzero_constant_term(&self) -> Option<VdBsqRnumTerm> {
+        if self.constant_term().is_zero() {
+            None
+        } else {
+            Some(self.constant_term())
+        }
+    }
+
     pub fn monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
         self.data().monomials()
     }

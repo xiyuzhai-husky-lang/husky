@@ -34,6 +34,8 @@ vec-like.workspace = true
 latex-math-letter.workspace = true
 latex-prelude.workspace = true
 latex-vfs.workspace = true
+# math
+combinatorics.workspace = true
 # utils
 husky-debug-utils.workspace = true
 husky-path-utils.workspace = true
