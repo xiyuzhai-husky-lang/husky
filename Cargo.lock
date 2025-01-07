@@ -13809,6 +13809,7 @@ dependencies = [
  "eterned",
  "lazy_static 1.5.0",
  "lisp-csv",
+ "num-bigint",
  "rustc-hash 2.0.0",
  "salsa",
  "smallvec",

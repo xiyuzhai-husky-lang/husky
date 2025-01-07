@@ -90,7 +90,7 @@ fn to_lean_literal(literal: VdLiteral, db: &EternerDb) -> LnLiteral {
                 LnLiteralData::Int(i.to_string())
             }
         }
-        VdLiteralData::BigInt(n) => todo!(),
+        VdLiteralData::BigInt(ref n) => todo!(),
         VdLiteralData::Float(ref lit) => LnLiteralData::Float(lit.to_string()),
         VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };

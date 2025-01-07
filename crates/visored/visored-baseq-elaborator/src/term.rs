@@ -96,7 +96,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         match *expr_entry.data() {
             VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
                 VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqRnumTerm::Int128(i)),
-                VdLiteralData::BigInt(n) => todo!(),
+                VdLiteralData::BigInt(ref n) => todo!(),
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },

@@ -1,8 +1,9 @@
+pub mod bigint;
 pub mod special_constant;
 
 use eterned::db::EternerDb;
 
-use self::special_constant::VdSpecialConstant;
+use self::{bigint::VdBigIntData, special_constant::VdSpecialConstant};
 use super::*;
 use crate::{menu::vd_ty_menu, ty::VdType};
 
@@ -42,7 +43,7 @@ impl VdLiteral {
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdLiteralData {
     Int128(i128),
-    BigInt(()),
+    BigInt(VdBigIntData),
     Float(String),
     SpecialConstant(VdSpecialConstant),
 }
@@ -86,7 +87,7 @@ fn zfc_literal_ty(literal: VdLiteral, db: &EternerDb) -> VdType {
                 menu.int
             }
         }
-        VdLiteralData::BigInt(n) => todo!(),
+        VdLiteralData::BigInt(ref i) => todo!(),
         VdLiteralData::Float(_) => menu.rat,
         VdLiteralData::SpecialConstant(special_constant) => todo!(),
     }

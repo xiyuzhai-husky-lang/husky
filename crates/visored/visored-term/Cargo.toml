@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+num-bigint.workspace = true
 lazy_static.workspace = true
 rustc-hash.workspace = true
 smallvec.workspace = true
