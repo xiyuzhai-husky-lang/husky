@@ -1,75 +1,38 @@
-from prompts import SYSTEM_MESSAGE, prompt
+from prompts import PromptType, PromptGenerator
 from api import ChatCompletionAPI
 from utils import parse_testcase, parse_response
+from lean_sandbox import LeanSandbox
 import os
-import subprocess
 
 TESTCASES_DIR = "testcases"
+EXAMPLES_DIR = "examples"
 OUTPUT_DIR = "outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-MAIN_FUNC = \
-'''
-def main : IO Unit :=
-  IO.println "Success!"
-'''
 
+# Initialize LeanSandbox
+sandbox = LeanSandbox()
 
-# Initialize project if needed
-def setup_lean_project():
-    try:
-        print("Initializing Lean project...")
-        subprocess.run(["lake", "init", "mathproof"], check=False)
-        
-        print("Fetching mathlib...")
-        subprocess.run(["lake", "update"], check=True)
-        
-    except subprocess.CalledProcessError as e:
-        print(f"Error setting up project: {e}")
-        raise
-
-def run_lean_file(file_path):
-    result = subprocess.run(
-        ["lake", "env", "lean", "--run", file_path],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
-    
-    # # Combine stdout and stderr for error checking
-    # output = result.stdout + result.stderr
-    
-    # # Check for common error patterns
-    # if "unknown module prefix 'Mathlib'" in output:
-    #     print("Mathlib not found. Attempting to set up project...")
-    #     setup_lean_project()
-    #     # Try running the file again
-    #     result = subprocess.run(
-    #         ["lake", "env", "lean", "--run", file_path],
-    #         stdout=subprocess.PIPE,
-    #         stderr=subprocess.PIPE,
-    #         text=True
-    #     )
-    #     output = result.stdout + result.stderr
-    
-    # return output
-
-    return result
 
 
 # api = ChatCompletionAPI("local")
 # api = ChatCompletionAPI("openai", model="gpt4o")
 api = ChatCompletionAPI("gemini", model="gemini-1.5-flash")
-max_tries = 2
+max_tries = 10
 
 # files = os.listdir(TESTCASES_DIR)
-files = ['batch_example9.md']
+files = ['batch_example5.md']
 
 print(f'total files: {len(files)}, containing: {files}')
 
-# Try to setup lean project first
-# setup_lean_project()
+# # Setup lean project using the sandbox
+sandbox.setup_lean_project()
 
+# Initialize PromptGenerator
+prompt_generator = PromptGenerator(
+    n_shot=2,
+    examples_dir=EXAMPLES_DIR
+)
 
 for file in files:
     if file.endswith(".md"):
@@ -79,21 +42,32 @@ for file in files:
         
         bug_msg = None
         for _ in range(max_tries):
+            # Use PromptGenerator to generate messages
+            system_message, user_message = prompt_generator.generate_prompt(
+                prompt_type=PromptType.PROBLEM_LATEXPROOF_LEANPROOF_BUG,
+                problem=problem,
+                latex_proof=latex,
+                lean_proof=lean,
+                bug_msg=bug_msg
+            )
+            
+            # print(f'system_message\n {system_message}\n')
+            # print(f'user_message\n {user_message}\n')
+            
             messages = [
-                {"role": "system", "content": SYSTEM_MESSAGE},
-                {"role": "user", "content": prompt(problem, latex, lean, bug_msg)},
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": user_message},
             ]
 
-            print(messages[1]["content"])
+            # print(messages[1]["content"])
 
             completion = api.chat_completion(messages, use_cache=False)
             lean = parse_response(completion["content"])
             
             output_file = f"{OUTPUT_DIR}/{file.replace('.md', '.lean')}"
-            with open(output_file, "w") as f:
-                f.write(lean + "\n" + MAIN_FUNC)
+            sandbox.generate_lean_checking_file(lean, output_file)
 
-            exec_result = run_lean_file(output_file)
+            exec_result = sandbox.run_lean_file(output_file)
             bug_msg = exec_result.stdout[:1000]
 
             print(f'\n\n=================== try: {_}, file: {file} ===================\n\n')
