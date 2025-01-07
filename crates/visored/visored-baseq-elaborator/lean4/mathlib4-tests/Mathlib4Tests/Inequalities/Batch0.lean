@@ -162,3 +162,9 @@ def h(x : ℝ) := by
   exact ()
 end Example23
 
+namespace Example24
+def h(x : ℝ)(y : ℝ) := by
+  have h1 : (x ^ 2 + y ^ 2) ^ 2 = x ^ 4 + 2 * (x ^ 2) * (y ^ 2) + y ^ 4 := by comm_ring
+  exact ()
+end Example24
+
