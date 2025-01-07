@@ -1,11 +1,15 @@
 use super::*;
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq, Clone)]
-pub enum UnsignedIntError {
+pub enum IntError {
     #[error("overflow")]
     Overflow,
     #[error("as_pow")]
     AsPow,
+    #[error("into_usize")]
+    IntoUsize,
+    #[error("from_usize")]
+    FromUsize,
 }
 
-pub type UnsignedIntResult<T> = Result<T, UnsignedIntError>;
+pub type IntResult<T> = Result<T, IntError>;

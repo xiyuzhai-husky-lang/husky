@@ -6,7 +6,7 @@ use std::{
     ops::{Add, Div, Mul, Sub},
 };
 
-pub trait UnsignedInt:
+pub trait Int:
     std::fmt::Debug
     + std::fmt::Display
     + Copy
@@ -23,24 +23,24 @@ pub trait UnsignedInt:
     const ZERO: Self;
     const ONE: Self;
 
-    fn as_usize(self) -> usize;
+    fn into_usize(self) -> IntResult<usize>;
 
-    fn from_usize(n: usize) -> Self;
+    fn from_usize(n: usize) -> IntResult<Self>;
 
-    fn checked_add(self, other: Self) -> UnsignedIntResult<Self>;
+    fn checked_add(self, other: Self) -> IntResult<Self>;
 
-    fn checked_sub(self, other: Self) -> UnsignedIntResult<Self>;
+    fn checked_sub(self, other: Self) -> IntResult<Self>;
 
-    fn checked_mul(self, other: Self) -> UnsignedIntResult<Self>;
+    fn checked_mul(self, other: Self) -> IntResult<Self>;
 
-    fn checked_div(self, other: Self) -> UnsignedIntResult<Self>;
+    fn checked_div(self, other: Self) -> IntResult<Self>;
 
-    fn checked_pow(self, other: Self) -> UnsignedIntResult<Self>;
+    fn checked_pow(self, other: Self) -> IntResult<Self>;
 
-    fn checked_factorial(self) -> UnsignedIntResult<Self> {
+    fn checked_factorial(self) -> IntResult<Self> {
         let mut result = Self::ONE;
-        for i in 1..=self.as_usize() {
-            result = result.checked_mul(Self::from_usize(i))?;
+        for i in 1..=self.into_usize()? {
+            result = result.checked_mul(Self::from_usize(i)?)?;
         }
         Ok(result)
     }
@@ -48,49 +48,55 @@ pub trait UnsignedInt:
 
 macro_rules! impl_unsigned_int {
     ($t:ty) => {
-        impl UnsignedInt for $t {
+        impl Int for $t {
             const ZERO: Self = 0;
             const ONE: Self = 1;
 
             #[inline]
-            fn as_usize(self) -> usize {
-                self as usize
+            fn into_usize(self) -> IntResult<usize> {
+                self.try_into().map_err(|_| IntError::IntoUsize)
             }
 
             #[inline]
-            fn from_usize(n: usize) -> Self {
-                n as Self
+            fn from_usize(n: usize) -> IntResult<Self> {
+                n.try_into().map_err(|_| IntError::FromUsize)
             }
 
             #[inline]
-            fn checked_add(self, other: Self) -> UnsignedIntResult<Self> {
-                self.checked_add(other).ok_or(UnsignedIntError::Overflow)
+            fn checked_add(self, other: Self) -> IntResult<Self> {
+                self.checked_add(other).ok_or(IntError::Overflow)
             }
 
             #[inline]
-            fn checked_sub(self, other: Self) -> UnsignedIntResult<Self> {
-                self.checked_sub(other).ok_or(UnsignedIntError::Overflow)
+            fn checked_sub(self, other: Self) -> IntResult<Self> {
+                self.checked_sub(other).ok_or(IntError::Overflow)
             }
 
             #[inline]
-            fn checked_mul(self, other: Self) -> UnsignedIntResult<Self> {
-                self.checked_mul(other).ok_or(UnsignedIntError::Overflow)
+            fn checked_mul(self, other: Self) -> IntResult<Self> {
+                self.checked_mul(other).ok_or(IntError::Overflow)
             }
 
             #[inline]
-            fn checked_div(self, other: Self) -> UnsignedIntResult<Self> {
-                self.checked_div(other).ok_or(UnsignedIntError::Overflow)
+            fn checked_div(self, other: Self) -> IntResult<Self> {
+                self.checked_div(other).ok_or(IntError::Overflow)
             }
 
             #[inline]
-            fn checked_pow(self, other: Self) -> UnsignedIntResult<Self> {
-                self.checked_pow(other.try_into().map_err(|_| UnsignedIntError::AsPow)?)
-                    .ok_or(UnsignedIntError::Overflow)
+            fn checked_pow(self, other: Self) -> IntResult<Self> {
+                self.checked_pow(other.try_into().map_err(|_| IntError::AsPow)?)
+                    .ok_or(IntError::Overflow)
             }
         }
     };
 }
 
+impl_unsigned_int!(i8);
+impl_unsigned_int!(i16);
+impl_unsigned_int!(i32);
+impl_unsigned_int!(i64);
+impl_unsigned_int!(i128);
+impl_unsigned_int!(isize);
 impl_unsigned_int!(u8);
 impl_unsigned_int!(u16);
 impl_unsigned_int!(u32);

@@ -1,9 +1,9 @@
-use num_traits::unsigned_int::error::UnsignedIntError;
+use num_traits::unsigned_int::error::IntError;
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq, Clone)]
 pub enum CombinatoricsError {
     #[error("unsigned int error: {0}")]
-    UnsignedInt(#[from] UnsignedIntError),
+    UnsignedInt(#[from] IntError),
     #[error("multinomial expansion number of summands before expansion exceeds limit")]
     MultinomialExpansionNumberOfSummandsBeforeExpansionExceedsLimit,
     #[error("multinomial expansion number of summands after expansion exceeds limit")]

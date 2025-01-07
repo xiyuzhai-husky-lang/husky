@@ -1,9 +1,9 @@
 pub mod error;
 
 use self::error::*;
-use num_traits::unsigned_int::UnsignedInt;
+use num_traits::unsigned_int::Int;
 
-pub fn checked_binomial_coefficient<N: UnsignedInt>(n: N, k: N) -> CombinatoricsResult<N> {
+pub fn checked_binomial_coefficient<N: Int>(n: N, k: N) -> CombinatoricsResult<N> {
     if k > n {
         return Ok(N::ZERO);
     }
@@ -12,8 +12,8 @@ pub fn checked_binomial_coefficient<N: UnsignedInt>(n: N, k: N) -> Combinatorics
     let k = k.min(n.checked_sub(k)?);
 
     let mut result = N::ONE;
-    for i in 0..k.as_usize() {
-        let i = N::from_usize(i);
+    for i in 0..k.into_usize()? {
+        let i = N::from_usize(i)?;
         // Multiply by (n-i)
         result = result.checked_mul(n.checked_sub(i)?)?;
         // Divide by (i+1)
@@ -40,13 +40,13 @@ fn checked_binomial_coefficient_works() {
 /// For sum of `r` variables raised to the `n`th power (interpreting the signature as
 /// `multinomial_indices(n, r)`, i.e., n = exponent, r = number_of_variables),
 /// return the coefficients of its multinomial expansion along with their index-tuples.
-pub fn multinomial_expansion<N: UnsignedInt>(
+pub fn multinomial_expansion<N: Int>(
     number_of_summands: N,
     power: N,
     max_size: usize,
 ) -> CombinatoricsResult<Vec<(N, Vec<N>)>> {
     // Check if r exceeds vector capacity
-    if number_of_summands.as_usize() > max_size {
+    if number_of_summands.into_usize()? > max_size {
         return Err(
             CombinatoricsError::MultinomialExpansionNumberOfSummandsBeforeExpansionExceedsLimit,
         );
@@ -54,16 +54,16 @@ pub fn multinomial_expansion<N: UnsignedInt>(
 
     // Check if total combinations would exceed capacity
     let terms = count_expansion_terms(power, number_of_summands)?;
-    if terms.as_usize() > max_size {
+    if terms.into_usize()? > max_size {
         return Err(
             CombinatoricsError::MultinomialExpansionNumberOfSummandsAfterExpansionExceedsLimit,
         );
     }
 
     let mut result = Vec::new();
-    let mut current = vec![N::ZERO; number_of_summands.as_usize()];
+    let mut current = vec![N::ZERO; number_of_summands.into_usize()?];
 
-    fn backtrack<N: UnsignedInt>(
+    fn backtrack<N: Int>(
         idx: usize,        // which position in `current` we are assigning
         remaining: N,      // how many "units" of exponent left to distribute
         exponent: N,       // total exponent n
@@ -82,8 +82,8 @@ pub fn multinomial_expansion<N: UnsignedInt>(
 
         // Enumerate possible values at this position in *descending* order
         // so that the final output matches the test's expected ordering.
-        for val in (0..=remaining.as_usize()).rev() {
-            let val = N::from_usize(val);
+        for val in (0..=remaining.into_usize()?).rev() {
+            let val = N::from_usize(val)?;
             current[idx] = val;
             backtrack(
                 idx + 1,
@@ -203,10 +203,7 @@ fn multinomial_indices_overflows() {
 }
 
 #[track_caller]
-pub fn checked_multinomial_coefficient<N: UnsignedInt>(
-    r: N,
-    indices: &[N],
-) -> CombinatoricsResult<N> {
+pub fn checked_multinomial_coefficient<N: Int>(r: N, indices: &[N]) -> CombinatoricsResult<N> {
     // Validate input
     assert_eq!(
         indices.iter().copied().sum::<N>(),
@@ -243,7 +240,7 @@ fn checked_multinomial_coefficient_works() {
     test(2, &[0, 2], 1);
 }
 
-fn count_expansion_terms<N: UnsignedInt>(n: N, r: N) -> CombinatoricsResult<N> {
+fn count_expansion_terms<N: Int>(n: N, r: N) -> CombinatoricsResult<N> {
     // Formula is binomial(n+r-1,r-1) for combinations with repetition
     let n_plus_r = n.checked_add(r)?;
     let n_plus_r_minus_1 = n_plus_r.checked_sub(N::ONE)?;
