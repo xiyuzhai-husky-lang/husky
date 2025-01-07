@@ -122,6 +122,8 @@ where
                     let VdBsqNonProductNumTerm::SumInum(sum) = base else {
                         return AltNothing;
                     };
+                    use husky_print_utils::p;
+                    p!(sum);
                     todo!()
                 }
             },
