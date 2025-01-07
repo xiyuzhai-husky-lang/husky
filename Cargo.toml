@@ -23,6 +23,7 @@ members = [
     "crates/linktime/*",
     "crates/lisp/*",
     "crates/llms/*",
+    "crates/math/*",
     "crates/mayuri/*",
     "crates/mir/*",
     "crates/mizar/*",
