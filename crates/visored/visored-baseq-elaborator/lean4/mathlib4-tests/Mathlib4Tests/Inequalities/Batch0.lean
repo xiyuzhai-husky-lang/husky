@@ -180,3 +180,15 @@ def h(x : ℝ)(y : ℝ)(n : ℕ) := by
   exact ()
 end Example26
 
+namespace Example27
+def h(x : ℝ)(n : ℕ) := by
+  have h1 : (x ^ (n ^ 2) + 1) ^ 2 = x ^ (2 * (n ^ 2)) + 2 * (x ^ (n ^ 2)) + 1 := by comm_ring
+  exact ()
+end Example27
+
+namespace Example28
+def h(x : ℝ)(n : ℕ) := by
+  have h1 : (x ^ (2 * n) + 1) ^ 2 = x ^ (4 * n) + 2 * (x ^ (2 * n)) + 1 := by comm_ring
+  exact ()
+end Example28
+

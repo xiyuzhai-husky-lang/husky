@@ -35,7 +35,7 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                 item,
                 right_delimiter_token_idx,
                 right_delimiter,
-            } => todo!(),
+            } => *left_delimiter_token_idx,
             VdSynExprData::Delimited { left_delimiter, .. } => {
                 self.calc_left_delimiter_first_token_idx(left_delimiter)
             }
