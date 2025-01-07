@@ -357,7 +357,7 @@ projects/ai-math-autoformalization/python/mathlib/
 projects/ai-math-autoformalization/python/*.pem
 projects/ai-math-autoformalization/python/.lake/
 projects/ai-math-autoformalization/python/tt/
-projects/ai-math-autoformalization/python/backup/
+
 projects/ai-math-autoformalization/python_test/
 
 # Python
