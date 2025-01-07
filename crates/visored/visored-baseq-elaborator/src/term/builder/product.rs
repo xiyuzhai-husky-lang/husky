@@ -61,7 +61,10 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn mul_product(&mut self, rnum: VdBsqRnumTerm, product: VdBsqProductInumTermBase<'sess>) {
-        todo!()
+        self.mul_rnum(rnum);
+        for &(base, exponent) in product.exponentials() {
+            self.mul_exponential(base, exponent);
+        }
     }
 
     pub fn mul_exponential(
