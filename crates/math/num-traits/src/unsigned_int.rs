@@ -1,3 +1,6 @@
+pub mod error;
+
+use self::error::*;
 use std::{
     iter::{Product, Sum},
     ops::{Add, Div, Mul, Sub},
@@ -24,22 +27,22 @@ pub trait UnsignedInt:
 
     fn from_usize(n: usize) -> Self;
 
-    fn checked_add(self, other: Self) -> Option<Self>;
+    fn checked_add(self, other: Self) -> UnsignedIntResult<Self>;
 
-    fn checked_sub(self, other: Self) -> Option<Self>;
+    fn checked_sub(self, other: Self) -> UnsignedIntResult<Self>;
 
-    fn checked_mul(self, other: Self) -> Option<Self>;
+    fn checked_mul(self, other: Self) -> UnsignedIntResult<Self>;
 
-    fn checked_div(self, other: Self) -> Option<Self>;
+    fn checked_div(self, other: Self) -> UnsignedIntResult<Self>;
 
-    fn checked_pow(self, other: Self) -> Option<Self>;
+    fn checked_pow(self, other: Self) -> UnsignedIntResult<Self>;
 
-    fn checked_factorial(self) -> Option<Self> {
+    fn checked_factorial(self) -> UnsignedIntResult<Self> {
         let mut result = Self::ONE;
         for i in 1..=self.as_usize() {
             result = result.checked_mul(Self::from_usize(i))?;
         }
-        Some(result)
+        Ok(result)
     }
 }
 
@@ -60,28 +63,29 @@ macro_rules! impl_unsigned_int {
             }
 
             #[inline]
-            fn checked_add(self, other: Self) -> Option<Self> {
-                self.checked_add(other)
+            fn checked_add(self, other: Self) -> UnsignedIntResult<Self> {
+                self.checked_add(other).ok_or(UnsignedIntError::Overflow)
             }
 
             #[inline]
-            fn checked_sub(self, other: Self) -> Option<Self> {
-                self.checked_sub(other)
+            fn checked_sub(self, other: Self) -> UnsignedIntResult<Self> {
+                self.checked_sub(other).ok_or(UnsignedIntError::Overflow)
             }
 
             #[inline]
-            fn checked_mul(self, other: Self) -> Option<Self> {
-                self.checked_mul(other)
+            fn checked_mul(self, other: Self) -> UnsignedIntResult<Self> {
+                self.checked_mul(other).ok_or(UnsignedIntError::Overflow)
             }
 
             #[inline]
-            fn checked_div(self, other: Self) -> Option<Self> {
-                self.checked_div(other)
+            fn checked_div(self, other: Self) -> UnsignedIntResult<Self> {
+                self.checked_div(other).ok_or(UnsignedIntError::Overflow)
             }
 
             #[inline]
-            fn checked_pow(self, other: Self) -> Option<Self> {
-                self.checked_pow(other.try_into().ok()?)
+            fn checked_pow(self, other: Self) -> UnsignedIntResult<Self> {
+                self.checked_pow(other.try_into().map_err(|_| UnsignedIntError::AsPow)?)
+                    .ok_or(UnsignedIntError::Overflow)
             }
         }
     };
@@ -97,7 +101,7 @@ impl_unsigned_int!(usize);
 #[test]
 fn checked_factorial64_works() {
     fn test(n: u64, expected: u64) {
-        assert_eq!(n.checked_factorial(), Some(expected));
+        assert_eq!(n.checked_factorial(), Ok(expected));
     }
     test(0, 1);
     test(1, 1);

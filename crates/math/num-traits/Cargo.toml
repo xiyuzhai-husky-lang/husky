@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+thiserror.workspace = true
 
 [lints]
 workspace = true

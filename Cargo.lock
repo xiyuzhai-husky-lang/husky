@@ -1693,6 +1693,7 @@ name = "combinatorics"
 version = "0.1.0"
 dependencies = [
  "num-traits 0.1.0",
+ "thiserror",
 ]
 
 [[package]]
@@ -9787,6 +9788,9 @@ dependencies = [
 [[package]]
 name = "num-traits"
 version = "0.1.0"
+dependencies = [
+ "thiserror",
+]
 
 [[package]]
 name = "num-traits"

@@ -1,8 +1,11 @@
+pub mod error;
+
+use self::error::*;
 use num_traits::unsigned_int::UnsignedInt;
 
-pub fn checked_binomial_coefficient<N: UnsignedInt>(n: N, k: N) -> Option<N> {
+pub fn checked_binomial_coefficient<N: UnsignedInt>(n: N, k: N) -> CombinatoricsResult<N> {
     if k > n {
-        return Some(N::ZERO);
+        return Ok(N::ZERO);
     }
 
     // Use smaller k to optimize calculation
@@ -16,13 +19,13 @@ pub fn checked_binomial_coefficient<N: UnsignedInt>(n: N, k: N) -> Option<N> {
         // Divide by (i+1)
         result = result.checked_div(i.checked_add(N::ONE)?)?;
     }
-    Some(result)
+    Ok(result)
 }
 
 #[test]
 fn checked_binomial_coefficient_works() {
     fn test(n: u128, k: u128, expected: u128) {
-        assert_eq!(checked_binomial_coefficient::<u128>(n, k), Some(expected));
+        assert_eq!(checked_binomial_coefficient::<u128>(n, k), Ok(expected));
     }
 
     test(0, 0, 1);
@@ -41,16 +44,16 @@ pub fn multinomial_expansion<N: UnsignedInt>(
     n: N,
     r: N,
     max_size: usize,
-) -> Option<Vec<(N, Vec<N>)>> {
+) -> CombinatoricsResult<Vec<(N, Vec<N>)>> {
     // Check if r exceeds vector capacity
     if r.as_usize() > max_size {
-        return None;
+        return Err(CombinatoricsError::MultinomialExpansionVariableCountExceedsLimit);
     }
 
     // Check if total combinations would exceed capacity
     let terms = count_expansion_terms(n, r)?;
     if terms.as_usize() > max_size {
-        return None;
+        return Err(CombinatoricsError::MultinomialExpansionNumberOfTermsExceedsLimit);
     }
 
     let mut result = Vec::new();
@@ -62,7 +65,7 @@ pub fn multinomial_expansion<N: UnsignedInt>(
         exponent: N,       // total exponent n
         current: &mut [N], // in-progress index-tuple
         result: &mut Vec<(N, Vec<N>)>,
-    ) -> Option<()> {
+    ) -> CombinatoricsResult<()> {
         // If we're at the last slot, it must take whatever is left
         if idx == current.len() - 1 {
             current[idx] = remaining;
@@ -70,7 +73,7 @@ pub fn multinomial_expansion<N: UnsignedInt>(
             result.push((coeff, current.to_vec()));
             // Reset back to 0 for cleanliness in backtracking
             current[idx] = N::ZERO;
-            return Some(());
+            return Ok(());
         }
 
         // Enumerate possible values at this position in *descending* order
@@ -87,11 +90,11 @@ pub fn multinomial_expansion<N: UnsignedInt>(
             )?;
             current[idx] = N::ZERO;
         }
-        Some(())
+        Ok(())
     }
 
     backtrack(0, n, n, &mut current, &mut result)?;
-    Some(result)
+    Ok(result)
 }
 
 #[test]
@@ -180,7 +183,7 @@ fn multinomial_indices_works() {
 fn multinomial_indices_overflows() {
     #[track_caller]
     fn t(n: u64, r: u64) {
-        assert!(multinomial_expansion(n, r, 100).is_none());
+        assert!(multinomial_expansion(n, r, 100).is_err());
     }
 
     // Large numbers that should overflow
@@ -197,7 +200,10 @@ fn multinomial_indices_overflows() {
 }
 
 #[track_caller]
-pub fn checked_multinomial_coefficient<N: UnsignedInt>(r: N, indices: &[N]) -> Option<N> {
+pub fn checked_multinomial_coefficient<N: UnsignedInt>(
+    r: N,
+    indices: &[N],
+) -> CombinatoricsResult<N> {
     // Validate input
     assert_eq!(
         indices.iter().copied().sum::<N>(),
@@ -213,13 +219,13 @@ pub fn checked_multinomial_coefficient<N: UnsignedInt>(r: N, indices: &[N]) -> O
         result = result.checked_div(index.checked_factorial()?)?;
     }
 
-    Some(result)
+    Ok(result)
 }
 
 #[test]
 fn checked_multinomial_coefficient_works() {
     fn test(n: u64, indices: &[u64], expected: u64) {
-        assert_eq!(checked_multinomial_coefficient(n, indices), Some(expected));
+        assert_eq!(checked_multinomial_coefficient(n, indices), Ok(expected));
     }
 
     // Basic cases
@@ -234,7 +240,7 @@ fn checked_multinomial_coefficient_works() {
     test(2, &[0, 2], 1);
 }
 
-fn count_expansion_terms<N: UnsignedInt>(n: N, r: N) -> Option<N> {
+fn count_expansion_terms<N: UnsignedInt>(n: N, r: N) -> CombinatoricsResult<N> {
     // Formula is binomial(n+r-1,r-1) for combinations with repetition
     let n_plus_r = n.checked_add(r)?;
     let n_plus_r_minus_1 = n_plus_r.checked_sub(N::ONE)?;
