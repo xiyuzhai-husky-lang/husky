@@ -26,11 +26,16 @@ def find_all(s, sub):
         yield start
         start += len(sub)
 
+
 def parse_response(response):
     positions = list(find_all(response, "```"))
     if len(positions) % 2 != 0 or len(positions) == 0:
+        # Return a Lean error statement instead of raising an exception
+        # print(response)
+        # raise ValueError("No paired '```' found in response")
         print(response)
-        raise ValueError("No paired '```' found in response")
+        print("No paired '```' found in response")
+        return 'theorem error_no_code_block : false := by\n  sorry\n  -- ERROR: No code block found in response:\n  -- ' + response.replace('\n', '\n  -- ')
     
     if len(positions) > 2:
         print("More than one pair of '```' found in response, default to the last pair")

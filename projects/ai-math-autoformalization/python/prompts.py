@@ -68,24 +68,30 @@ class PromptGenerator:
             PromptType.ONLY_PROBLEM: (
                 "You are a helpful assistant to write Lean 4 proofs. You will be given a "
                 "mathematical problem statement. Your task is to write a complete Lean 4 proof. "
-                "You can use any Lean 4 tactics, and only allowed to use dependency from Mathlib."
-                "Remember never use Lean 3 grammar, but use Lean 4 grammar!"
+                "You can use any Lean 4 tactics, and only allowed to use dependency from Mathlib. "
+                "Can not use other lean3 dependencies like data, analysis, tactic, etc. "
+                "You should use something like Mathlib.Data.xxx, Mathlib.Tactic.xxx, etc. "
+                "Remember never use Lean 3 grammar, but use Lean 4 grammar! "
                 "And you have to include the Lean proof inside the ``` Lean ``` block."
             ),
             PromptType.PROBLEM_LATEXPROOF: (
                 "You are a helpful assistant to write Lean 4 proofs. You will be given the "
                 "statement of a problem and its proof in LaTeX. Your task is to write a complete Lean 4 proof. "
-                "You can use any Lean 4 tactics, and only allowed to use dependency from Mathlib."
-                "Remember never use Lean 3 grammar, but use Lean 4 grammar!"
+                "You can use any Lean 4 tactics, and only allowed to use dependency from Mathlib. "
+                "Can not use other lean3 dependencies like data, analysis, tactic, etc. "
+                "You should use something like Mathlib.Data.xxx, Mathlib.Tactic.xxx, etc. "
+                "Remember never use Lean 3 grammar, but use Lean 4 grammar! "
                 "And you have to include the Lean proof inside the ``` Lean ``` block."
             ),
             PromptType.PROBLEM_LATEXPROOF_LEANPROOF_BUG: (
                 "You are a helpful assistant to write Lean 4 proofs. You will be given the "
                 "statement of a problem, its proof in LaTeX, and a partial proof in Lean 4. "
                 "Your task is to complete the Lean 4 proof by filling the 'sorry's and correct "
-                "all mistakes given by bug messages." 
-                "You can use any Lean 4 tactics, and only allowed to use dependency from Mathlib."
-                "Remember never use Lean 3 grammar, but use Lean 4 grammar!"
+                "all mistakes given by bug messages. " 
+                "You can use any Lean 4 tactics, and only allowed to use dependency from Mathlib. "
+                "Can not use other lean3 dependencies like data, analysis, tactic, etc. "
+                "You should use something like Mathlib.Data.xxx, Mathlib.Tactic.xxx, etc. "
+                "Remember never use Lean 3 grammar, but use Lean 4 grammar! "
                 "And you have to include the Lean proof inside the ``` Lean ``` block."
             )
         }
