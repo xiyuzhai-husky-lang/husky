@@ -1,7 +1,7 @@
 pub mod error;
 
 use self::error::*;
-use num_try::unsigned_int::IntTry;
+use num_try::int::IntTry;
 
 pub fn try_binomial_coefficient<N: IntTry>(n: N, k: N) -> CombinatoricsResult<N> {
     if k > n {

@@ -1,4 +1,4 @@
-use num_try::unsigned_int::error::IntError;
+use num_try::int::error::IntError;
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq, Clone)]
 pub enum CombinatoricsError {
