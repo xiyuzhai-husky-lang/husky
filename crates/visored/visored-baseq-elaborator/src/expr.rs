@@ -2,7 +2,7 @@ mod helpers;
 
 use floated_sequential::{db::FloaterDb, floated};
 use latex_math_letter::letter::LxMathLetter;
-use smallvec::SmallVec;
+use smallvec::*;
 use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::{
     expr::{
@@ -184,11 +184,11 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn cache_expr_fld(&mut self, expr_idx: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
         let expr_entry = &region_data.expr_arena[expr_idx];
         let symbol_local_defn_storage = region_data.symbol_local_defn_storage;
-        let data = self.calc_expr_fld_data(expr_entry, symbol_local_defn_storage);
+        let expr_data = self.calc_expr_fld_data(expr_entry, symbol_local_defn_storage);
         let ty = expr_entry.ty();
-        let term = self.calc_expr_term(expr_entry, symbol_local_defn_storage);
+        let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
-        let expr_fld = VdMirExprFld::new(data, ty, term, db);
+        let expr_fld = VdMirExprFld::new(expr_data, ty, term, db);
         self.save_expr_fld(expr_idx, expr_fld);
     }
 
@@ -240,5 +240,24 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             },
             VdMirExprData::ItemPath(vd_item_path) => VdMirExprFldData::ItemPath(vd_item_path),
         }
+    }
+}
+
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub(crate) fn mk_expr(
+        &self,
+        expr_data: VdMirExprFldData<'sess>,
+        ty: VdType,
+    ) -> VdMirExprFld<'sess> {
+        let term = self.calc_expr_term(&expr_data, ty);
+        let db = self.session().floater_db();
+        VdMirExprFld::new(expr_data, ty, term, db)
+    }
+
+    pub(crate) fn mk_zero(&self) -> VdMirExprFld<'sess> {
+        self.mk_expr(
+            VdMirExprFldData::Literal(self.term_menu().zero),
+            self.ty_menu().nat,
+        )
     }
 }

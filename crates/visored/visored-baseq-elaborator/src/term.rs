@@ -5,7 +5,10 @@ pub mod prop;
 pub mod rnum;
 
 use self::{inum::*, num::*, prop::*, rnum::*};
-use crate::elaborator::VdBsqElaboratorInner;
+use crate::{
+    elaborator::VdBsqElaboratorInner,
+    expr::{VdMirExprFld, VdMirExprFldData},
+};
 use bigint::VdBsqRnumTermBigInt;
 use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
@@ -22,7 +25,10 @@ use visored_mir_expr::{
 };
 use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_opr::precedence::VdPrecedenceRange;
-use visored_term::term::{literal::VdLiteralData, VdTermData};
+use visored_term::{
+    term::{literal::VdLiteralData, VdTermData},
+    ty::VdType,
+};
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -91,14 +97,10 @@ impl<'sess> std::fmt::Debug for VdBsqNumTerm<'sess> {
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub fn calc_expr_term(
-        &self,
-        expr_entry: &VdMirExprEntry,
-        symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
-    ) -> VdBsqTerm<'sess> {
+    pub fn calc_expr_term(&self, expr: &VdMirExprFldData<'sess>, ty: VdType) -> VdBsqTerm<'sess> {
         let db = self.floater_db();
-        match *expr_entry.data() {
-            VdMirExprData::Literal(vd_literal) => match *vd_literal.data() {
+        match *expr {
+            VdMirExprFldData::Literal(vd_literal) => match *vd_literal.data() {
                 VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqRnumTerm::Int128(i)),
                 VdLiteralData::BigInt(ref n) => VdBsqTerm::Rnum(VdBsqRnumTerm::BigInt(
                     VdBsqRnumTermBigInt::new(n.clone(), db),
@@ -106,12 +108,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },
-            VdMirExprData::Variable(local_defn_idx) => {
-                let lx_math_letter =
-                    match *symbol_local_defn_storage.defn_arena()[local_defn_idx].head() {
-                        VdMirSymbolLocalDefnHead::Letter(lx_math_letter) => lx_math_letter,
-                    };
-                if expr_entry.ty().is_numeric(self.eterner_db()) {
+            VdMirExprFldData::Variable(lx_math_letter, local_defn_idx) => {
+                if ty.is_numeric(self.eterner_db()) {
                     if let Some(_) = self.eval_variable() {
                         todo!()
                     } else {
@@ -125,35 +123,26 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     todo!()
                 }
             }
-            VdMirExprData::Application {
+            VdMirExprFldData::Application {
                 function,
-                arguments,
+                ref arguments,
             } => match function {
                 VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
                 VdMirFunc::NormalBaseSeparator(signature) => todo!(),
                 VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
                     VdMirBaseBinaryOpr::CommRingSub => {
-                        let lopd = self
-                            .expr_fld(arguments.first().unwrap())
-                            .term()
-                            .num()
-                            .unwrap();
-                        let ropd = self
-                            .expr_fld(arguments.last().unwrap())
-                            .term()
-                            .num()
-                            .unwrap();
+                        let lopd = arguments[0].term().num().unwrap();
+                        let ropd = arguments[1].term().num().unwrap();
                         lopd.sub(ropd, self.floater_db()).into()
                     }
                     VdMirBaseBinaryOpr::CommFieldDiv => todo!(),
                 },
                 VdMirFunc::Power(signature) => {
                     assert_eq!(arguments.len(), 2);
-                    let Some(base) = self.expr_fld(arguments.first().unwrap()).term().num() else {
+                    let Some(base) = arguments[0].term().num() else {
                         todo!()
                     };
-                    let Some(exponent) = self.expr_fld(arguments.last().unwrap()).term().num()
-                    else {
+                    let Some(exponent) = arguments[1].term().num() else {
                         todo!()
                     };
                     match base.product_or_non_product() {
@@ -166,17 +155,17 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
             },
-            VdMirExprData::FoldingSeparatedList {
+            VdMirExprFldData::FoldingSeparatedList {
                 leader,
                 ref followers,
             } => {
                 let (func, follower) = *followers.first().unwrap();
                 let num_relationship = |slf: &Self, kind| {
                     VdBsqTerm::new_num_relationship(
-                        slf.expr_fld(leader).term().num().unwrap(),
+                        leader.term().num().unwrap(),
                         kind,
-                        slf.expr_fld(follower).term().num().unwrap(),
-                        slf.floater_db(),
+                        follower.term().num().unwrap(),
+                        self.floater_db(),
                     )
                 };
                 match func {
@@ -184,17 +173,17 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
                         VdMirBaseSeparator::CommRingAdd => {
                             let mut builder = VdBsqSumBuilder::new(self.floater_db());
-                            builder.add_num(self.expr_fld(leader).term().num().unwrap());
+                            builder.add_num(leader.term().num().unwrap());
                             for &(_, follower) in followers.iter() {
-                                builder.add_num(self.expr_fld(follower).term().num().unwrap());
+                                builder.add_num(follower.term().num().unwrap());
                             }
                             builder.finish().into()
                         }
                         VdMirBaseSeparator::CommRingMul => {
                             let mut builder = VdBsqProductBuilder::new(self.floater_db());
-                            builder.mul_num(self.expr_fld(leader).term().num().unwrap());
+                            builder.mul_num(leader.term().num().unwrap());
                             for &(_, follower) in followers.iter() {
-                                builder.mul_num(self.expr_fld(follower).term().num().unwrap());
+                                builder.mul_num(follower.term().num().unwrap());
                             }
                             builder.finish().into()
                         }
@@ -223,7 +212,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
                 }
             }
-            VdMirExprData::ChainingSeparatedList {
+            VdMirExprFldData::ChainingSeparatedList {
                 leader,
                 ref followers,
                 joined_signature: joined_separator_and_signature,
@@ -235,10 +224,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     let (func, follower) = *followers.first().unwrap();
                     let num_relationship = |slf: &Self, kind| {
                         VdBsqTerm::new_num_relationship(
-                            slf.expr_fld(leader).term().num().unwrap(),
+                            leader.term().num().unwrap(),
                             kind,
-                            slf.expr_fld(follower).term().num().unwrap(),
-                            slf.floater_db(),
+                            follower.term().num().unwrap(),
+                            self.floater_db(),
                         )
                     };
                     match func {
@@ -272,7 +261,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     }
                 }
             },
-            VdMirExprData::ItemPath(vd_item_path) => todo!(),
+            VdMirExprFldData::ItemPath(vd_item_path) => todo!(),
         }
     }
 }

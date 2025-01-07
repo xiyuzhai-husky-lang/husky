@@ -7,7 +7,7 @@ use hypothesis::{
 };
 use smallvec::SmallVec;
 use smallvec::ToSmallVec;
-use visored_mir_opr::separator::VdMirBaseSeparator;
+use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 #[derive(Default)]
@@ -45,12 +45,11 @@ pub trait IsVdMirSequentialElaboratorInner {
 
     fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
-    fn elaborate_application_expr(
+    fn elaborate_field_div_expr(
         &mut self,
-        function: VdMirFunc,
-        arguments: VdMirExprIdxRange,
+        divisor: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
-    );
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
     fn elaborate_folding_separated_list_expr(
         &mut self,
@@ -113,13 +112,12 @@ impl IsVdMirSequentialElaboratorInner for () {
         Ok(())
     }
 
-    fn elaborate_application_expr(
+    fn elaborate_field_div_expr(
         &mut self,
-        function: VdMirFunc,
-        arguments: VdMirExprIdxRange,
+        divisor: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
-    ) {
-        ()
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction> {
+        Ok(())
     }
 
     fn elaborate_folding_separated_list_expr(
@@ -350,8 +348,7 @@ where
                 for arg in arguments {
                     self.elaborate_expr(arg, hypothesis_constructor);
                 }
-                self.inner
-                    .elaborate_application_expr(function, arguments, hypothesis_constructor);
+                self.elaborate_application_expr(expr, function, arguments, hypothesis_constructor);
             }
             VdMirExprData::FoldingSeparatedList {
                 leader,
@@ -391,5 +388,37 @@ where
         }
         self.inner
             .cache_expr(expr, hypothesis_constructor.region_data());
+    }
+
+    fn elaborate_application_expr(
+        &mut self,
+        expr: VdMirExprIdx,
+        function: VdMirFunc,
+        arguments: VdMirExprIdxRange,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) {
+        match function {
+            VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+            VdMirFunc::NormalBaseSeparator(signature) => todo!(),
+            VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
+                VdMirBaseBinaryOpr::CommRingSub => (),
+                VdMirBaseBinaryOpr::CommFieldDiv => {
+                    let _ = self.inner.elaborate_field_div_expr(
+                        arguments.last().unwrap(),
+                        hypothesis_constructor,
+                    );
+                    // ad hoc, should save this somewhere
+                    // todo!()
+                }
+            },
+            // ad hoc, should check very carefully that one of the following holds:
+            // - the base is positive
+            // - the base is zero and the exponent is positive
+            // - the exponent is a positive integer
+            // - the base is nonzero and the exponent is zero
+            VdMirFunc::Power(signature) => (),
+            VdMirFunc::InSet => todo!(),
+            VdMirFunc::NormalBaseSqrt(signature) => (), // ad hoc, should be merged with power
+        }
     }
 }

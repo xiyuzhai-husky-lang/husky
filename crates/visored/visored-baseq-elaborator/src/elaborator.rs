@@ -1,5 +1,5 @@
 use crate::{
-    expr::VdMirExprFld,
+    expr::{VdMirExprFld, VdMirExprFldData},
     hypothesis::{
         construction::VdBsqHypothesisConstruction,
         constructor::VdBsqHypothesisConstructor,
@@ -11,6 +11,7 @@ use crate::{
 use eterned::db::EternerDb;
 use floated_sequential::db::FloaterDb;
 use miracle::{HasMiracle, Miracle};
+use smallvec::*;
 use std::marker::PhantomData;
 use visored_mir_expr::{
     elaborator::linear::{IsVdMirSequentialElaboratorInner, VdMirSequentialElaborator},
@@ -27,10 +28,20 @@ use visored_mir_expr::{
     stmt::{VdMirStmtData, VdMirStmtIdx},
 };
 use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
-use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
+use visored_signature::{
+    menu::{vd_signature_menu, VdSignatureMenu},
+    signature::separator::base::VdBaseSeparatorSignature,
+};
+use visored_term::{
+    menu::{vd_ty_menu, VdTypeMenu},
+    term::menu::{vd_term_menu, VdTermMenu},
+};
 
 pub struct VdBsqElaboratorInner<'db, 'sess> {
     session: &'sess VdBsqSession<'db>,
+    term_menu: &'db VdTermMenu,
+    ty_menu: &'db VdTypeMenu,
+    signature_menu: &'db VdSignatureMenu,
     expr_to_fld_map: VdMirExprMap<VdMirExprFld<'sess>>,
     miracle: Miracle,
     pub(crate) hypothesis_constructor: VdBsqHypothesisConstructor<'db, 'sess>,
@@ -42,6 +53,9 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn new(session: &'sess VdBsqSession<'db>, region_data: VdMirExprRegionDataRef) -> Self {
         Self {
             session,
+            term_menu: vd_term_menu(session.eterner_db()),
+            ty_menu: vd_ty_menu(session.eterner_db()),
+            signature_menu: vd_signature_menu(session.eterner_db()),
             hypothesis_constructor: VdBsqHypothesisConstructor::new(session),
             expr_to_fld_map: VdMirExprMap::new2(region_data.expr_arena),
             miracle: Miracle::new_uninitialized(),
@@ -70,6 +84,18 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 
     pub fn floater_db(&self) -> &'sess FloaterDb {
         self.session.floater_db()
+    }
+
+    pub fn term_menu(&self) -> &'db VdTermMenu {
+        self.term_menu
+    }
+
+    pub fn ty_menu(&self) -> &'db VdTypeMenu {
+        self.ty_menu
+    }
+
+    pub fn signature_menu(&self) -> &'db VdSignatureMenu {
+        self.signature_menu
     }
 
     #[track_caller]
@@ -131,23 +157,26 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         todo!()
     }
 
-    fn elaborate_application_expr(
+    fn elaborate_field_div_expr(
         &mut self,
-        function: VdMirFunc,
-        arguments: VdMirExprIdxRange,
+        divisor: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
-    ) {
-        match function {
-            VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
-            VdMirFunc::NormalBaseSeparator(signature) => todo!(),
-            VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
-                VdMirBaseBinaryOpr::CommRingSub => (),
-                VdMirBaseBinaryOpr::CommFieldDiv => todo!(),
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
+        let divisor = self.expr_fld(divisor);
+        let signature = if divisor.ty() == self.ty_menu().nat {
+            self.signature_menu().nat_ne
+        } else {
+            todo!()
+        };
+        let prop = self.mk_expr(
+            VdMirExprFldData::ChainingSeparatedList {
+                leader: divisor,
+                followers: smallvec![(VdMirFunc::NormalBaseSeparator(signature), self.mk_zero())],
+                joined_signature: None,
             },
-            VdMirFunc::Power(signature) => (), // ad hoc
-            VdMirFunc::InSet => todo!(),
-            VdMirFunc::NormalBaseSqrt(signature) => todo!(),
-        }
+            self.ty_menu().prop,
+        );
+        self.obvious(prop)
     }
 
     fn elaborate_folding_separated_list_expr(
