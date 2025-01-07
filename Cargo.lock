@@ -9317,6 +9317,7 @@ dependencies = [
  "alt-option",
  "ordered-float 4.5.0",
  "sealed",
+ "serde",
  "thiserror",
 ]
 

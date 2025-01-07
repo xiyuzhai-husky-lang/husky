@@ -4,15 +4,14 @@
 pub mod config;
 pub mod error;
 pub mod metric;
+pub mod stage;
 pub mod state;
-mod utils;
 
-use self::{config::*, error::*, metric::*, state::*};
+use self::{config::*, error::*, metric::*, stage::*, state::*};
 use alt_maybe_result::*;
 use alt_option::*;
 use ordered_float::NotNan;
 use sealed::sealed;
-use utils::with_miracle;
 
 pub struct Miracle {
     inner: MiracleInner,
@@ -22,6 +21,10 @@ impl Miracle {
     pub fn is_uninitialized(&self) -> bool {
         matches!(self.inner, MiracleInner::Uninitialized)
     }
+
+    pub fn exceeds_norm_limit(&self) -> bool {
+        self.state().norm(&self.stage().metrics) > self.stage().max_norm
+    }
 }
 
 #[derive(Debug)]
@@ -29,7 +32,7 @@ pub enum MiracleInner {
     Uninitialized,
     Initialized {
         state: MiracleState,
-        config: MiracleConfig,
+        stage: MiracleStage,
     },
 }
 
@@ -45,21 +48,21 @@ impl Miracle {
     pub fn state(&self) -> &MiracleState {
         match &self.inner {
             MiracleInner::Uninitialized => panic!("miracle is uninitialized"),
-            MiracleInner::Initialized { state, config } => state,
+            MiracleInner::Initialized { state, .. } => state,
         }
     }
 
-    pub fn config(&self) -> &MiracleConfig {
+    pub fn stage(&self) -> &MiracleStage {
         match &self.inner {
             MiracleInner::Uninitialized => panic!("miracle is uninitialized"),
-            MiracleInner::Initialized { config, .. } => config,
+            MiracleInner::Initialized { stage, .. } => stage,
         }
     }
 
     pub fn state_mut(&mut self) -> &mut MiracleState {
         match &mut self.inner {
             MiracleInner::Uninitialized => panic!("miracle is uninitialized"),
-            MiracleInner::Initialized { state, config } => state,
+            MiracleInner::Initialized { state, .. } => state,
         }
     }
 }
@@ -71,10 +74,9 @@ pub trait HasMiracle {
 
 #[sealed]
 pub trait HasMiracleFull: HasMiracle {
-    fn run_staged<R>(
+    fn run_stages<R>(
         &mut self,
-        stages: &[NotNan<f64>],
-        max_heartbeats: u64,
+        stages: &[MiracleStage],
         f: impl FnMut(&mut Self) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
 
@@ -92,29 +94,14 @@ pub trait HasMiracleFull: HasMiracle {
 
 #[sealed]
 impl<T: HasMiracle> HasMiracleFull for T {
-    fn run_staged<R>(
+    fn run_stages<R>(
         &mut self,
-        stages: &[NotNan<f64>],
-        max_heartbeats: u64,
+        stages: &[MiracleStage],
         mut f: impl FnMut(&mut Self) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R> {
         assert!(stages.len() > 0, "stages must be non-empty");
-        let fst = *stages.first().unwrap();
-        assert!(fst.into_inner() >= 0.0);
-        for (norm_low, norm_high) in [(0.0, fst.into_inner())].into_iter().chain(
-            stages
-                .windows(2)
-                .map(|w| (w[0].into_inner(), w[1].into_inner())),
-        ) {
-            with_miracle(
-                self,
-                MiracleConfig {
-                    norm_low,
-                    norm_high,
-                    max_heartbeats,
-                },
-                |g| f(g),
-            )?;
+        for stage in stages {
+            stage.run(self, |g| f(g))?;
         }
         AltNothing
     }
@@ -160,7 +147,16 @@ fn run_staged_alt_option_works() {
         miracle: Miracle::new_uninitialized(),
     };
     assert_eq!(
-        gerald.run_staged(&[NotNan::new(1.0).unwrap()], 10, |_| AltJustOk(1)),
+        gerald.run_stages(
+            &[MiracleStage {
+                max_norm: NotNan::new(1.0).unwrap(),
+                max_heartbeats: 10,
+                metrics: vec![MiracleMetric::L1 {
+                    scale: NotNan::new(1.0).unwrap()
+                }],
+            }],
+            |_| AltJustOk(1)
+        ),
         AltJustOk(1)
     );
 }

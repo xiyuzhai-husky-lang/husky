@@ -36,8 +36,11 @@ where
 {
     g.miracle_mut().state_mut().vector.push(value);
     update_heartbeats(g, value);
-    if g.miracle().state().heartbeats >= g.miracle().config().max_heartbeats {
+    if g.miracle().state().heartbeats >= g.miracle().stage().max_heartbeats {
         return AltJustErr(MiracleError::HeartbeatsExceeded);
+    }
+    if g.miracle().exceeds_norm_limit() {
+        return AltNothing;
     }
     let result = f(g);
     g.miracle_mut().state_mut().vector.pop();

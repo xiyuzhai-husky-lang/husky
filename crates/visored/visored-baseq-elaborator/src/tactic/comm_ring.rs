@@ -38,7 +38,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             return Ok(AltNone);
         };
         let config = self.session().config().tactic().comm_ring();
-        match self.run_staged(config.stages(), config.max_heartbeats(), |slf| {
+        match self.run_stages(config.stages(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
             builder.add_rnum(term.constant_term());
             fold_sum(slf, term.monomials(), builder, &|elaborator, builder| {
