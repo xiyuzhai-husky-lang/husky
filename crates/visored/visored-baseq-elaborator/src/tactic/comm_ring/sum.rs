@@ -40,7 +40,6 @@ where
             VdBsqNonSumInumTerm::Product(base) => {
                 fold_product(elaborator, base.exponentials(), &|elaborator, expansion| {
                     let mut sum_builder = sum_builder.clone();
-                    let expansion = expansion.expect("expansion shouldn't be None after folding");
                     for (rnum, exponentials) in expansion {
                         sum_builder.add_general_product(
                             rnum0.mul(rnum, db),

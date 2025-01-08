@@ -15,11 +15,11 @@ pub fn fold_product<'db, 'sess>(
     exponentials: &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,
-        Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
+        Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
     engine.foldm::<_, _, _, _>(
-        None,
+        vec![],
         exponentials.iter().copied(),
         &[
             multiply_without_expanding as FnType,
@@ -29,7 +29,7 @@ pub fn fold_product<'db, 'sess>(
     )
 }
 
-type State<'sess> = Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>;
+type State<'sess> = Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>;
 type Item<'sess> = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
 type FnType<'db, 'sess> =
     fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &Item<'sess>) -> Option<State<'sess>>;
@@ -79,8 +79,7 @@ fn multiply_with_expanding<'db, 'sess>(
             }))
             .collect::<Vec<_>>()
     } else {
-        let max_size =
-            product_expansion_limit / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
+        let max_size = product_expansion_limit / expansion.len().max(1);
         let has_constant_term = sum.nonzero_constant_term().is_some();
         multinomial_expansion(sum, exponent, max_size, db, has_constant_term)?
     };
@@ -148,12 +147,12 @@ fn multiply_aux<'db, 'sess>(
     let db = elaborator.floater_db();
     let config = elaborator.session().config().tactic().comm_ring();
     let product_expansion_limit = config.product_expansion_limit();
-    match expansion {
-        Some(ref expansion) => {
+    match expansion.is_empty() {
+        false => {
             if expansion.len() * factor_expansion.len() > product_expansion_limit {
                 return None;
             }
-            Some(Some(
+            Some(
                 expansion
                     .iter()
                     .cartesian_product(factor_expansion)
@@ -170,18 +169,18 @@ fn multiply_aux<'db, 'sess>(
                         },
                     )
                     .collect(),
-            ))
+            )
         }
-        None => {
+        true => {
             if factor_expansion.len() > product_expansion_limit {
                 return None;
             }
-            Some(Some(
+            Some(
                 factor_expansion
                     .iter()
                     .map(|&(rnum, ref exponentials)| (rnum, exponentials.to_vec()))
                     .collect(),
-            ))
+            )
         }
     }
 }
