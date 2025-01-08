@@ -83,7 +83,7 @@ impl<'a> LnMirExprFormatter<'a> {
         let expr_entry = &expr_arena[expr];
         let expr_data = expr_entry.data();
         let needs_bracket = (!precedence_range.include(expr_data.outer_precedence()))
-            && expr_entry.ty_ascription().is_none();
+            || expr_entry.ty_ascription().is_some();
         if needs_bracket {
             // TODO: consider multiline
             self.result += "(";
