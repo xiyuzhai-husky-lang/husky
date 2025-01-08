@@ -245,5 +245,36 @@ pub fn fold_product<'db, 'sess>(
         Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
-    Scheme::foldm(engine, None, exponentials.iter().copied(), f)
+    engine.foldm::<_, _, _, _>(
+        &None,
+        exponentials.iter().copied(),
+        &[
+            multiply_without_expanding as FnType<'db, 'sess>,
+            multiply_with_expanding as FnType<'db, 'sess>,
+        ],
+        &|_, _| todo!(),
+    )
+}
+
+type FnType<'db, 'sess> =
+    for<'a, 'b, 'c> fn(
+        &'a mut VdBsqElaboratorInner<'b, 'c>,
+        &Option<Vec<(VdBsqLitNumTerm<'c>, VdBsqExponentialParts<'c>)>>,
+        &(VdBsqNonProductNumTerm<'c>, VdBsqNumTerm<'c>),
+    ) -> Option<Vec<(VdBsqLitNumTerm<'c>, VdBsqExponentialParts<'c>)>>;
+
+fn multiply_without_expanding<'db, 'sess>(
+    engine: &mut VdBsqElaboratorInner<'db, 'sess>,
+    expansion: &Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
+    (base, exponent): &(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>),
+) -> Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>> {
+    todo!()
+}
+
+fn multiply_with_expanding<'db, 'sess>(
+    engine: &mut VdBsqElaboratorInner<'db, 'sess>,
+    expansion: &Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
+    (base, exponent): &(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>),
+) -> Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>> {
+    todo!()
 }

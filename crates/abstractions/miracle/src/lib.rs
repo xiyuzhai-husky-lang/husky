@@ -96,16 +96,17 @@ pub trait HasMiracleFull: HasMiracle {
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
 
-    fn foldm<S, I, R>(
+    fn foldm<S, I, F, R>(
         &mut self,
         init: &S,
         iter: I,
-        f: &[&dyn Fn(&mut Self, &S, &I::Item) -> S],
+        f: &[F],
         g: &impl Fn(&mut Self, &S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>
     where
         I: IntoIterator,
-        I::IntoIter: Clone;
+        I::IntoIter: Clone,
+        F: Fn(&mut Self, &S, &I::Item) -> S;
 }
 
 #[sealed]
@@ -151,16 +152,17 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
-    fn foldm<S, I, R>(
+    fn foldm<S, I, F, R>(
         &mut self,
         init: &S,
         iter: I,
-        f: &[&dyn Fn(&mut Self, &S, &I::Item) -> S],
+        f: &[F],
         g: &impl Fn(&mut Self, &S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>
     where
         I: IntoIterator,
         I::IntoIter: Clone,
+        F: Fn(&mut Self, &S, &I::Item) -> S,
     {
         crate::foldm::foldm_aux(self, init, iter.into_iter(), f, g)
     }
