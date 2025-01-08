@@ -11,7 +11,7 @@ pub struct VdBsqProductInumTermBaseData<'sess> {
 }
 
 impl<'sess> VdBsqProductInumTermBaseData<'sess> {
-    pub fn exponentials(&self) -> &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)] {
+    pub fn exponentials(&self) -> &VdBsqExponentialPowers<'sess> {
         &self.exponentials
     }
 }
@@ -53,7 +53,7 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
         }
     }
 
-    pub fn exponentials(&self) -> &'sess [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)] {
+    pub fn exponentials(&self) -> &'sess VdBsqExponentialPowers<'sess> {
         self.data().exponentials()
     }
 
@@ -64,12 +64,12 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
 
 impl<'sess> VdBsqInumTerm<'sess> {
     pub fn new_product(
-        rnum_coefficient: VdBsqRnumTerm<'sess>,
+        lit_num_coefficient: VdBsqLitNumTerm<'sess>,
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
         VdBsqInumTerm::Product(
-            rnum_coefficient,
+            lit_num_coefficient,
             VdBsqProductInumTermBase::new(exponentials, db),
         )
     }
@@ -89,7 +89,7 @@ impl<'sess> VdBsqInumTerm<'sess> {
             },
         }
         VdBsqInumTerm::Product(
-            VdBsqRnumTerm::ONE,
+            VdBsqLitNumTerm::ONE,
             VdBsqProductInumTermBase::new_power(base, exponent, db),
         )
     }
@@ -97,12 +97,12 @@ impl<'sess> VdBsqInumTerm<'sess> {
 
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn new_product(
-        rnum_coefficient: VdBsqRnumTerm<'sess>,
+        lit_num_coefficient: VdBsqLitNumTerm<'sess>,
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
         VdBsqNumTerm::Inum(VdBsqInumTerm::new_product(
-            rnum_coefficient,
+            lit_num_coefficient,
             exponentials,
             db,
         ))

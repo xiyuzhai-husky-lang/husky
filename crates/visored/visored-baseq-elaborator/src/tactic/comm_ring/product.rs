@@ -4,7 +4,7 @@ use crate::term::{
         VdBsqExponentialParts, VdBsqExponentialPowers, VdBsqExponentialPowersRef,
         VdBsqNonProductNumTerm, VdBsqNonSumInumTerm,
     },
-    rnum::VdBsqRnumTerm,
+    lit::VdBsqLitNumTerm,
 };
 use itertools::Itertools;
 use miracle::error::MiracleAltMaybeResult;
@@ -21,7 +21,7 @@ where
     type Engine = VdBsqElaboratorInner<'db, 'sess>;
 
     /// Initial state is set to None.
-    type State = Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>;
+    type State = Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>;
 
     type Item = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
 
@@ -29,11 +29,11 @@ where
 
     fn foldm_step(
         elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
-        expansion: Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
+        expansion: Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
         (base, exponent): (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>),
         f: &impl Fn(
             &mut VdBsqElaboratorInner<'db, 'sess>,
-            Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
+            Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
         )
             -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
@@ -43,10 +43,10 @@ where
         let exponential_expansion_limit = config.exponential_expansion_limit();
         // returns error if the expansion exceeds comm ring product expansion limit
         let merge = |factor_expansion: &[(
-            VdBsqRnumTerm<'sess>,
+            VdBsqLitNumTerm<'sess>,
             VdBsqExponentialParts<'sess>,
         )]|
-         -> Result<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>, ()> {
+         -> Result<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>, ()> {
             match expansion {
                 Some(ref expansion) => {
                     if expansion.len() * factor_expansion.len() > product_expansion_limit {
@@ -76,7 +76,7 @@ where
         };
         let g =
             |elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
-             factor_expansion: &[(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)]| {
+             factor_expansion: &[(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)]| {
                 let Ok(expansion) = merge(factor_expansion) else {
                     return AltNothing;
                 };
@@ -85,7 +85,7 @@ where
         elaborator.exec_batch(&[
             &|elaborator| g(elaborator, &[(1.into(), vec![(base, exponent)])]),
             &|elaborator| {
-                let VdBsqNumTerm::Rnum(VdBsqRnumTerm::Int128(exponent)) = exponent else {
+                let VdBsqNumTerm::Rnum(VdBsqLitNumTerm::Int128(exponent)) = exponent else {
                     return AltNothing;
                 };
                 if exponent > exponential_expansion_limit as i128 {
@@ -115,7 +115,7 @@ where
                                 )
                             }))
                             .collect::<Vec<_>>()
-                            as &[(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)],
+                            as &[(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)],
                     )
                 } else {
                     use combinatorics::try_multinomial_expansion;
@@ -136,11 +136,11 @@ where
                             ) {
                                 Ok(coefficients) => {
                                     let mut factor_expansion: Vec<(
-                                        VdBsqRnumTerm<'sess>,
+                                        VdBsqLitNumTerm<'sess>,
                                         VdBsqExponentialParts<'sess>,
                                     )> = vec![];
                                     for (coeff, indices) in coefficients {
-                                        let mut cumulative_coeff: VdBsqRnumTerm = coeff.into();
+                                        let mut cumulative_coeff: VdBsqLitNumTerm = coeff.into();
                                         let mut exponential_parts: VdBsqExponentialParts<'sess> =
                                             vec![];
                                         for (i, index) in indices.into_iter().enumerate() {
@@ -193,11 +193,11 @@ where
                             ) {
                                 Ok(coefficients) => {
                                     let mut factor_expansion: Vec<(
-                                        VdBsqRnumTerm<'sess>,
+                                        VdBsqLitNumTerm<'sess>,
                                         VdBsqExponentialParts<'sess>,
                                     )> = vec![];
                                     for (coeff, indices) in coefficients {
-                                        let mut cumulative_coeff: VdBsqRnumTerm = coeff.into();
+                                        let mut cumulative_coeff: VdBsqLitNumTerm = coeff.into();
                                         let mut exponential_parts: VdBsqExponentialParts<'sess> =
                                             vec![];
                                         for (i, index) in indices.into_iter().enumerate() {
@@ -242,7 +242,7 @@ pub fn fold_product<'db, 'sess>(
     exponentials: &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,
-        Option<Vec<(VdBsqRnumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
+        Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
     Scheme::foldm(engine, None, exponentials.iter().copied(), f)

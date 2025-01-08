@@ -3,7 +3,7 @@ use floated_sequential::{db::FloaterDb, floated};
 use num_bigint::Sign;
 use visored_term::term::literal::bigint::VdBigIntData;
 
-use super::VdBsqRnumTerm;
+use super::VdBsqLitNumTerm;
 
 #[floated]
 pub struct VdBsqRnumTermBigInt<'sess> {
@@ -26,7 +26,7 @@ impl<'sess> VdBsqRnumTermBigInt<'sess> {
 }
 
 impl<'sess> VdBsqRnumTermBigInt<'sess> {
-    pub fn sub(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqRnumTerm<'sess> {
+    pub fn sub(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqLitNumTerm<'sess> {
         let sub = self.inner() - rhs.inner();
         match sub {
             Left(inner) => VdBsqRnumTermBigInt::new(inner, db).into(),

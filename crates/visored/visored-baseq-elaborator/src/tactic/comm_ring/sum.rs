@@ -1,6 +1,6 @@
 use super::*;
 use crate::term::{
-    builder::sum::VdBsqSumBuilder, inum::product::VdBsqProductInumTermBase, rnum::VdBsqRnumTerm,
+    builder::sum::VdBsqSumBuilder, inum::product::VdBsqProductInumTermBase, lit::VdBsqLitNumTerm,
 };
 use crate::term::{
     inum::{sum::VdBsqSumInumTerm, VdBsqNonSumInumTerm},
@@ -20,7 +20,7 @@ where
 
     type State = VdBsqSumBuilder<'sess>;
 
-    type Item = (VdBsqNonSumInumTerm<'sess>, VdBsqRnumTerm<'sess>);
+    type Item = (VdBsqNonSumInumTerm<'sess>, VdBsqLitNumTerm<'sess>);
 
     type Output = MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>;
 
@@ -28,7 +28,7 @@ where
     fn foldm_step(
         elaborator: &mut Self::Engine,
         mut sum_builder: VdBsqSumBuilder<'sess>,
-        (term, rnum0): (VdBsqNonSumInumTerm<'sess>, VdBsqRnumTerm<'sess>),
+        (term, rnum0): (VdBsqNonSumInumTerm<'sess>, VdBsqLitNumTerm<'sess>),
         f: &impl Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Self::Output,
     ) -> Self::Output {
         let db = elaborator.floater_db();
@@ -56,7 +56,7 @@ where
 
 pub(super) fn fold_sum<'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
-    terms: &[(VdBsqNonSumInumTerm<'sess>, VdBsqRnumTerm<'sess>)],
+    terms: &[(VdBsqNonSumInumTerm<'sess>, VdBsqLitNumTerm<'sess>)],
     builder: VdBsqSumBuilder<'sess>,
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,

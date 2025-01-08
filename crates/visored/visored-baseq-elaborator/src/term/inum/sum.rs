@@ -7,7 +7,7 @@ pub struct VdBsqSumInumTerm<'sess>(VdBsqInumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqInumSumTermData<'sess> {
-    constant_term: VdBsqRnumTerm<'sess>,
+    constant_term: VdBsqLitNumTerm<'sess>,
     monomials: VdBsqInumMonomialCoefficients<'sess>,
 }
 
@@ -19,7 +19,7 @@ impl<'sess> From<VdBsqSumInumTerm<'sess>> for VdBsqNumTerm<'sess> {
 
 impl<'sess> VdBsqSumInumTerm<'sess> {
     pub fn new(
-        constant_term: VdBsqRnumTerm<'sess>,
+        constant_term: VdBsqLitNumTerm<'sess>,
         monomials: VdBsqInumMonomialCoefficients<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
@@ -41,11 +41,11 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
         }
     }
 
-    pub fn constant_term(self) -> VdBsqRnumTerm<'sess> {
+    pub fn constant_term(self) -> VdBsqLitNumTerm<'sess> {
         self.data().constant_term()
     }
 
-    pub fn nonzero_constant_term(self) -> Option<VdBsqRnumTerm<'sess>> {
+    pub fn nonzero_constant_term(self) -> Option<VdBsqLitNumTerm<'sess>> {
         if self.constant_term().is_zero() {
             None
         } else {
@@ -59,7 +59,7 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
 }
 
 impl<'sess> VdBsqInumSumTermData<'sess> {
-    pub fn constant_term(&self) -> VdBsqRnumTerm<'sess> {
+    pub fn constant_term(&self) -> VdBsqLitNumTerm<'sess> {
         self.constant_term
     }
 
@@ -109,7 +109,7 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
         if num_of_summands == 1 {
             let (monomial, coeff) = self.monomials.data()[0];
             match coeff {
-                VdBsqRnumTerm::ONE => monomial.outer_precedence(),
+                VdBsqLitNumTerm::ONE => monomial.outer_precedence(),
                 _ => VdPrecedence::MUL_DIV,
             }
         } else {
@@ -131,7 +131,7 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
                 coefficient.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)?;
                 match monomial {
                     VdBsqNonSumInumTerm::Atom(term) => (),
-                    VdBsqNonSumInumTerm::Product(base) => match base.exponentials()[0].0 {
+                    VdBsqNonSumInumTerm::Product(base) => match base.exponentials().data()[0].0 {
                         VdBsqNonProductNumTerm::Rnum(_) => f.write_str(" × ")?,
                         VdBsqNonProductNumTerm::AtomInum(_)
                         | VdBsqNonProductNumTerm::SumInum(_) => (),

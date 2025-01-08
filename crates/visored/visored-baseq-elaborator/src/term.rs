@@ -1,10 +1,10 @@
 pub mod builder;
 pub mod inum;
+pub mod lit;
 pub mod num;
 pub mod prop;
-pub mod rnum;
 
-use self::{inum::*, num::*, prop::*, rnum::*};
+use self::{inum::*, lit::*, num::*, prop::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::{VdMirExprFld, VdMirExprFldData},
@@ -33,7 +33,7 @@ use visored_term::{
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqTerm<'sess> {
-    Rnum(VdBsqRnumTerm<'sess>),
+    Rnum(VdBsqLitNumTerm<'sess>),
     Inum(VdBsqInumTerm<'sess>),
     Prop(VdBsqPropTerm<'sess>),
 }
@@ -42,7 +42,7 @@ impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
     ) -> Either<
-        (VdBsqRnumTerm<'sess>, VdBsqProductInumTermBase<'sess>),
+        (VdBsqLitNumTerm<'sess>, VdBsqProductInumTermBase<'sess>),
         VdBsqNonProductNumTerm<'sess>,
     > {
         match self {
@@ -101,8 +101,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let db = self.floater_db();
         match *expr {
             VdMirExprFldData::Literal(vd_literal) => match *vd_literal.data() {
-                VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqRnumTerm::Int128(i)),
-                VdLiteralData::BigInt(ref n) => VdBsqTerm::Rnum(VdBsqRnumTerm::BigInt(
+                VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqLitNumTerm::Int128(i)),
+                VdLiteralData::BigInt(ref n) => VdBsqTerm::Rnum(VdBsqLitNumTerm::BigInt(
                     VdBsqRnumTermBigInt::new(n.clone(), db),
                 )),
                 VdLiteralData::Float(_) => todo!(),
@@ -135,7 +135,11 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         let ropd = arguments[1].term().num().unwrap();
                         lopd.sub(ropd, self.floater_db()).into()
                     }
-                    VdMirBaseBinaryOpr::CommFieldDiv => todo!(),
+                    VdMirBaseBinaryOpr::CommFieldDiv => {
+                        let lopd = arguments[0].term().num().unwrap();
+                        let ropd = arguments[1].term().num().unwrap();
+                        lopd.div(ropd, self.floater_db()).into()
+                    }
                 },
                 VdMirFunc::Power(signature) => {
                     assert_eq!(arguments.len(), 2);

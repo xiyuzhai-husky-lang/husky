@@ -6,7 +6,7 @@ use smallvec::*;
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNumTerm<'sess> {
-    Rnum(VdBsqRnumTerm<'sess>),
+    Rnum(VdBsqLitNumTerm<'sess>),
     Inum(VdBsqInumTerm<'sess>),
 }
 
@@ -22,7 +22,7 @@ impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
 
 impl<'sess> From<i128> for VdBsqNumTerm<'sess> {
     fn from(value: i128) -> Self {
-        VdBsqNumTerm::Rnum(VdBsqRnumTerm::Int128(value))
+        VdBsqNumTerm::Rnum(VdBsqLitNumTerm::Int128(value))
     }
 }
 
@@ -36,8 +36,8 @@ impl<'sess> From<VdBsqNumTerm<'sess>> for VdBsqTerm<'sess> {
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
-    pub const ZERO: Self = VdBsqNumTerm::Rnum(VdBsqRnumTerm::ZERO);
-    pub const ONE: Self = VdBsqNumTerm::Rnum(VdBsqRnumTerm::ONE);
+    pub const ZERO: Self = VdBsqNumTerm::Rnum(VdBsqLitNumTerm::ZERO);
+    pub const ONE: Self = VdBsqNumTerm::Rnum(VdBsqLitNumTerm::ONE);
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
@@ -88,6 +88,12 @@ impl<'sess> VdBsqNumTerm<'sess> {
             VdBsqNumTerm::Rnum(term) => VdBsqNumTerm::Rnum(term.mul128(rhs, db)),
             VdBsqNumTerm::Inum(term) => term.mul128(rhs, db),
         }
+    }
+
+    pub fn div(self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        let mut builder = VdBsqProductBuilder::new_from_num(self, db);
+        builder.div_num(rhs);
+        builder.finish()
     }
 }
 

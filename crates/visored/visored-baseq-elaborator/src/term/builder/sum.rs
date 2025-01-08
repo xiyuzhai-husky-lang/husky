@@ -3,7 +3,8 @@ use crate::term::{
     atom::VdBsqAtomInumTerm,
     product::{VdBsqProductInumTermBase, VdBsqProductInumTermBaseData},
     sum::VdBsqSumInumTerm,
-    VdBsqInumMonomialCoefficients, VdBsqInumTerm, VdBsqNonSumInumTerm, VdBsqNumTerm, VdBsqRnumTerm,
+    VdBsqInumMonomialCoefficients, VdBsqInumTerm, VdBsqLitNumTerm, VdBsqNonSumInumTerm,
+    VdBsqNumTerm,
 };
 use floated_sequential::db::FloaterDb;
 
@@ -12,7 +13,7 @@ pub struct VdBsqSumBuilder<'sess> {
     db: &'sess FloaterDb,
     /// Only for numbers representable efficiently by computers.
     /// For huge numbers like `2^100000`, we don't want to put it here.
-    constant_rnum: VdBsqRnumTerm<'sess>,
+    constant_rnum: VdBsqLitNumTerm<'sess>,
     unpruned_monomials: VdBsqInumMonomialCoefficients<'sess>,
 }
 
@@ -20,14 +21,14 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     pub fn new(db: &'sess FloaterDb) -> Self {
         Self {
             db,
-            constant_rnum: VdBsqRnumTerm::ZERO,
+            constant_rnum: VdBsqLitNumTerm::ZERO,
             unpruned_monomials: VdBsqInumMonomialCoefficients::default(),
         }
     }
 }
 
 impl<'sess> VdBsqSumBuilder<'sess> {
-    pub fn constant_rnum(&self) -> VdBsqRnumTerm {
+    pub fn constant_rnum(&self) -> VdBsqLitNumTerm {
         self.constant_rnum
     }
 
@@ -50,17 +51,17 @@ impl<'sess> VdBsqSumBuilder<'sess> {
 
     pub fn add_rnum_times_atom(
         &mut self,
-        rnum: VdBsqRnumTerm<'sess>,
+        rnum: VdBsqLitNumTerm<'sess>,
         atom: VdBsqAtomInumTerm<'sess>,
     ) {
         self.add_monomial(VdBsqNonSumInumTerm::Atom(atom), rnum);
     }
 
-    pub fn add_rnum(&mut self, term: VdBsqRnumTerm<'sess>) {
+    pub fn add_rnum(&mut self, term: VdBsqLitNumTerm<'sess>) {
         self.constant_rnum.add_assign(term, self.db);
     }
 
-    pub fn sub_rnum(&mut self, term: VdBsqRnumTerm<'sess>) {
+    pub fn sub_rnum(&mut self, term: VdBsqLitNumTerm<'sess>) {
         self.constant_rnum.sub_assign(term, self.db);
     }
 
@@ -80,11 +81,11 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn add_atom_inum(&mut self, term: VdBsqAtomInumTerm<'sess>) {
-        self.add_monomial(VdBsqNonSumInumTerm::Atom(term), VdBsqRnumTerm::ONE);
+        self.add_monomial(VdBsqNonSumInumTerm::Atom(term), VdBsqLitNumTerm::ONE);
     }
 
     pub fn sub_atom(&mut self, term: VdBsqAtomInumTerm<'sess>) {
-        self.add_monomial(VdBsqNonSumInumTerm::Atom(term), VdBsqRnumTerm::NEG_ONE);
+        self.add_monomial(VdBsqNonSumInumTerm::Atom(term), VdBsqLitNumTerm::NEG_ONE);
     }
 
     pub fn add_sum(&mut self, term: VdBsqSumInumTerm<'sess>) {
@@ -100,13 +101,13 @@ impl<'sess> VdBsqSumBuilder<'sess> {
 
     pub fn add_product(
         &mut self,
-        rnum: VdBsqRnumTerm<'sess>,
+        rnum: VdBsqLitNumTerm<'sess>,
         term: VdBsqProductInumTermBase<'sess>,
     ) {
         self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum);
     }
 
-    pub fn add_general_product(&mut self, rnum: VdBsqRnumTerm<'sess>, term: VdBsqNumTerm<'sess>) {
+    pub fn add_general_product(&mut self, rnum: VdBsqLitNumTerm<'sess>, term: VdBsqNumTerm<'sess>) {
         match term {
             VdBsqNumTerm::Rnum(term) => self.add_rnum(rnum.mul(term, self.db)),
             VdBsqNumTerm::Inum(term) => match term {
@@ -131,13 +132,17 @@ impl<'sess> VdBsqSumBuilder<'sess> {
 
     pub fn sub_product(
         &mut self,
-        rnum: VdBsqRnumTerm<'sess>,
+        rnum: VdBsqLitNumTerm<'sess>,
         term: VdBsqProductInumTermBase<'sess>,
     ) {
         self.add_monomial(VdBsqNonSumInumTerm::Product(term), rnum.neg(self.db));
     }
 
-    pub fn add_monomial(&mut self, term: VdBsqNonSumInumTerm<'sess>, coeff: VdBsqRnumTerm<'sess>) {
+    pub fn add_monomial(
+        &mut self,
+        term: VdBsqNonSumInumTerm<'sess>,
+        coeff: VdBsqLitNumTerm<'sess>,
+    ) {
         self.unpruned_monomials
             .insert_or_update((term, coeff), |(_, old_coeff)| {
                 old_coeff.add_assign(coeff, self.db);
@@ -152,7 +157,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
             .collect();
         match (monomials.len(), self.constant_rnum) {
             (0, _) => self.constant_rnum.into(),
-            (1, VdBsqRnumTerm::ZERO) => {
+            (1, VdBsqLitNumTerm::ZERO) => {
                 let (non_sum, coeff) = monomials.into_iter().next().unwrap();
                 assert!(!coeff.is_zero());
                 if coeff.is_one() {
