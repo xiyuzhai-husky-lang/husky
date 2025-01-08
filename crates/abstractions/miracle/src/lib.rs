@@ -96,6 +96,7 @@ pub trait HasMiracleFull: HasMiracle {
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
 
+    /// `f` returns an option so that we could kill it early
     fn foldm_batch<S, I, F, R>(
         &mut self,
         init: S,
