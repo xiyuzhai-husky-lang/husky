@@ -19,6 +19,14 @@ pub enum VdBsqTactic {
     CommRing,
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdBsqTacticCall {
+    Assumption,
+    TermTrivial,
+    LibrarySearch,
+    CommRing,
+}
+
 impl VdBsqTactic {
     pub fn run<'db, 'sess>(
         &self,

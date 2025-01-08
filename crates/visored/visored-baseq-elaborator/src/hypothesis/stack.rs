@@ -25,12 +25,12 @@ use rustc_hash::FxHashMap;
 pub struct VdBsqHypothesisStack<'sess> {
     active_hypotheses: Vec<VdBsqHypothesisIdx<'sess>>,
     block_starts: Vec<usize>,
-    expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBsqHypothesisRecord<'sess>>,
-    term_to_hypothesis_map: FxHashMap<VdBsqTerm<'sess>, VdBsqHypothesisRecord<'sess>>,
+    expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBsqHypothesisStackRecord<'sess>>,
+    term_to_hypothesis_map: FxHashMap<VdBsqTerm<'sess>, VdBsqHypothesisStackRecord<'sess>>,
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct VdBsqHypothesisRecord<'sess> {
+pub struct VdBsqHypothesisStackRecord<'sess> {
     stack_idx: usize,
     hypothesis_idx: VdBsqHypothesisIdx<'sess>,
 }
@@ -88,7 +88,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         );
         self.expr_to_hypothesis_map.insert(
             expr,
-            VdBsqHypothesisRecord {
+            VdBsqHypothesisStackRecord {
                 stack_idx,
                 hypothesis_idx,
             },
@@ -97,7 +97,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         if self.get_active_hypothesis_with_term(term).is_none() {
             self.term_to_hypothesis_map.insert(
                 term,
-                VdBsqHypothesisRecord {
+                VdBsqHypothesisStackRecord {
                     stack_idx,
                     hypothesis_idx,
                 },

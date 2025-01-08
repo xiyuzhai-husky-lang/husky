@@ -1,4 +1,5 @@
 use crate::{
+    call::stack::VdBsqCallStack,
     expr::{VdMirExprFld, VdMirExprFldData},
     hypothesis::{
         construction::VdBsqHypothesisConstruction,
@@ -45,6 +46,7 @@ pub struct VdBsqElaboratorInner<'db, 'sess> {
     expr_to_fld_map: VdMirExprMap<VdMirExprFld<'sess>>,
     miracle: Miracle,
     pub(crate) hypothesis_constructor: VdBsqHypothesisConstructor<'db, 'sess>,
+    pub(crate) call_stack: VdBsqCallStack,
 }
 
 pub type VdBsqElaborator<'db, 'sess> = VdMirSequentialElaborator<VdBsqElaboratorInner<'db, 'sess>>;
@@ -59,6 +61,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             hypothesis_constructor: VdBsqHypothesisConstructor::new(session),
             expr_to_fld_map: VdMirExprMap::new2(region_data.expr_arena),
             miracle: Miracle::new_uninitialized(),
+            call_stack: VdBsqCallStack::new(),
         }
     }
 }

@@ -1,3 +1,5 @@
+#![feature(let_chains)]
+pub mod call;
 pub mod coercion;
 pub mod config;
 pub mod elaborator;
