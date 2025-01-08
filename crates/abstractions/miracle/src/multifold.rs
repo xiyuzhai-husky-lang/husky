@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(crate) fn foldm_batch<Engine, S, I, R>(
+pub(crate) fn fold_batch<Engine, S, I, R>(
     engine: &mut Engine,
     state: S,
     mut iter: impl Iterator<Item = I> + Clone,
@@ -20,7 +20,7 @@ where
                 let Some(state) = f(engine, &state, &item) else {
                     return AltNothing;
                 };
-                foldm_batch(engine, state, iter.clone(), fs, g)
+                fold_batch(engine, state, iter.clone(), fs, g)
             }
         })
         .collect::<Vec<_>>();

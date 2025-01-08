@@ -3,8 +3,8 @@
 
 pub mod config;
 pub mod error;
-pub mod foldm;
 pub mod metric;
+pub mod multifold;
 pub mod stage;
 pub mod state;
 
@@ -97,7 +97,7 @@ pub trait HasMiracleFull: HasMiracle {
     ) -> MiracleAltMaybeResult<R>;
 
     /// `f` returns an option so that we could kill it early
-    fn foldm_batch<S, I, R>(
+    fn multifold<S, I, R>(
         &mut self,
         init: S,
         iter: I,
@@ -154,7 +154,7 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
-    fn foldm_batch<S, I, R>(
+    fn multifold<S, I, R>(
         &mut self,
         init: S,
         iter: I,
@@ -165,7 +165,7 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         I: IntoIterator,
         I::IntoIter: Clone,
     {
-        crate::foldm::foldm_batch(self, init, iter.into_iter(), f, g)
+        crate::multifold::fold_batch(self, init, iter.into_iter(), f, g)
     }
 }
 
