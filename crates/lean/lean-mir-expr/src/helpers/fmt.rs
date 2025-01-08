@@ -79,7 +79,8 @@ impl<'a> LnMirExprFormatter<'a> {
         try_multiline: bool,
         precedence_range: LnPrecedenceRange,
     ) {
-        let needs_bracket = !precedence_range.include(self.expr_arena[expr].outer_precedence());
+        let needs_bracket =
+            !precedence_range.include(self.expr_arena[expr].data().outer_precedence());
         if needs_bracket {
             // TODO: consider multiline
             self.result += "(";
@@ -102,7 +103,7 @@ impl<'a> LnMirExprFormatter<'a> {
         // This ensures that subexpressions only attempt multiline formatting if the parent is already multiline.
         let subexpr_try_multiline = multiline;
         let arena = self.expr_arena;
-        match arena[expr] {
+        match *arena[expr].data() {
             LnMirExprData::ItemPath(item_path) => {
                 self.result += &item_path.show(db);
             }

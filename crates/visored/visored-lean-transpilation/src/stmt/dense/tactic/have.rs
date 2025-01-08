@@ -1,4 +1,5 @@
 use super::*;
+use lean_mir_expr::expr::LnMirExprEntry;
 use visored_mir_expr::{
     hint::VdMirHintIdxRange,
     hypothesis::{chunk::VdMirHypothesisChunk, VdMirHypothesisIdx},
@@ -128,15 +129,21 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         let ultimate_prop_function = VdMirFunc::NormalBaseSeparator(joined_signature).to_lean(self);
         let ultimate_prop_arguments = [leader, followers.last().unwrap().1].to_lean(self);
         let construction_tactics = self.alloc_tactics(vec![tactic_data]);
-        let construction = self.alloc_expr(LnMirExprData::By {
-            tactics: construction_tactics,
-        });
+        let construction = self.alloc_expr(LnMirExprEntry::new(
+            LnMirExprData::By {
+                tactics: construction_tactics,
+            },
+            None,
+        ));
         LnMirTacticData::Have {
             ident,
-            ty: self.alloc_expr(LnMirExprData::Application {
-                function: ultimate_prop_function,
-                arguments: ultimate_prop_arguments,
-            }),
+            ty: self.alloc_expr(LnMirExprEntry::new(
+                LnMirExprData::Application {
+                    function: ultimate_prop_function,
+                    arguments: ultimate_prop_arguments,
+                },
+                None,
+            )),
             construction,
         }
     }

@@ -1,6 +1,6 @@
 //! TODO: put this under helpers
 use crate::{
-    expr::{LnMirExprArena, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange},
+    expr::{LnMirExprArena, LnMirExprData, LnMirExprEntry, LnMirExprIdx, LnMirExprIdxRange},
     helpers::fmt::{LnMirExprFormatter, LnMirExprFormatterConfig},
     item_defn::{
         LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap, LnItemDefnData, LnItemDefnIdx,
@@ -53,15 +53,15 @@ impl LnMirExprConstructor {
 }
 
 impl LnMirExprConstructor {
-    pub fn alloc_expr(&mut self, data: LnMirExprData) -> LnMirExprIdx {
-        self.expr_arena.alloc_one(data)
+    pub fn alloc_expr(&mut self, entry: LnMirExprEntry) -> LnMirExprIdx {
+        self.expr_arena.alloc_one(entry)
     }
 
     pub fn alloc_exprs(
         &mut self,
-        data: impl IntoIterator<Item = LnMirExprData>,
+        entries: impl IntoIterator<Item = LnMirExprEntry>,
     ) -> LnMirExprIdxRange {
-        self.expr_arena.alloc_batch(data)
+        self.expr_arena.alloc_batch(entries)
     }
 
     pub fn alloc_stmt(&mut self, data: LnMirStmtData) -> LnMirStmtIdx {

@@ -1,3 +1,5 @@
+use lean_mir_expr::expr::LnMirExprEntry;
+
 use super::*;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
@@ -21,9 +23,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 // It's intentional that this is transpiled to have tactic instead of show.
                 // Lean's show will change the goal. However, until lean's show tactic can supply tactics for goal conversion, we will stick to have tactic.
                 let construction_tactics = following_stmts.to_lean(self);
-                let construction = self.alloc_expr(LnMirExprData::By {
-                    tactics: construction_tactics,
-                });
+                let construction = self.alloc_expr(LnMirExprEntry::new(
+                    LnMirExprData::By {
+                        tactics: construction_tactics,
+                    },
+                    todo!(),
+                ));
                 LnMirTacticData::Have {
                     ident: self.mangle_hypothesis(),
                     ty,

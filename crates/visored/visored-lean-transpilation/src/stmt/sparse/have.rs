@@ -2,7 +2,9 @@ use super::*;
 use dictionary::func_key::VdFuncKeyTranslation;
 use either::*;
 use lean_mir_expr::{
-    expr::application::LnMirFunc, item_defn::def::LnMirDefBody, tactic::LnMirTacticData,
+    expr::{application::LnMirFunc, LnMirExprEntry},
+    item_defn::def::LnMirDefBody,
+    tactic::LnMirTacticData,
 };
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::instantiation::LnInstantiation;
@@ -77,10 +79,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         LnItemDefnData::Def {
             ident,
             parameters: vec![],
-            ty: Some(self.alloc_expr(LnMirExprData::Application {
-                function: ultimate_prop_function,
-                arguments: ultimate_prop_arguments,
-            })),
+            ty: Some(self.alloc_expr(LnMirExprEntry::new(
+                LnMirExprData::Application {
+                    function: ultimate_prop_function,
+                    arguments: ultimate_prop_arguments,
+                },
+                todo!(),
+            ))),
             body: self.alloc_tactics([tactic_data]).into(),
         }
     }

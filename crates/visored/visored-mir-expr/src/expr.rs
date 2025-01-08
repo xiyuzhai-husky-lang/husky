@@ -67,6 +67,10 @@ impl VdMirExprEntry {
     pub fn ty(&self) -> VdType {
         self.ty
     }
+
+    pub fn expected_ty(&self) -> VdType {
+        self.expected_ty
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]

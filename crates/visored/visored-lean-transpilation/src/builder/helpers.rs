@@ -1,6 +1,9 @@
 use super::*;
 use lean_entity_path::LnItemPath;
-use lean_mir_expr::tactic::{LnMirTacticData, LnMirTacticIdxRange};
+use lean_mir_expr::{
+    expr::LnMirExprEntry,
+    tactic::{LnMirTacticData, LnMirTacticIdxRange},
+};
 
 impl<'a, S> VdLeanTranspilationBuilder<'a, S>
 where
@@ -21,7 +24,9 @@ where
     }
 
     pub fn exact_unit(&mut self) -> LnMirTacticData {
-        let unit = self.alloc_expr(LnMirExprData::ItemPath(LnItemPath::UNIT));
+        let data = LnMirExprData::ItemPath(LnItemPath::UNIT);
+        let entry = LnMirExprEntry::new(data, None);
+        let unit = self.alloc_expr(entry);
         LnMirTacticData::Exact { term: unit }
     }
 }

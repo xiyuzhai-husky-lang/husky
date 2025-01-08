@@ -1,4 +1,4 @@
-use super::{LnMirExprData, LnMirExprIdx};
+use super::{LnMirExprData, LnMirExprEntry, LnMirExprIdx};
 use crate::constructor::LnMirExprConstructor;
 use eterned::{db::EternerDb, memo};
 use lazy_static::lazy_static;
@@ -74,7 +74,9 @@ impl LnMirExprConstructor {
     pub fn build_func_from_key(&mut self, key: LnMirFuncKey) -> LnMirFunc {
         match key {
             LnMirFuncKey::ItemPath(item_path) => {
-                LnMirFunc::Expr(self.alloc_expr(LnMirExprData::ItemPath(item_path)))
+                let data = LnMirExprData::ItemPath(item_path);
+                let entry = LnMirExprEntry::new(data, None);
+                LnMirFunc::Expr(self.alloc_expr(entry))
             }
             LnMirFuncKey::BinaryOpr { opr, instantiation } => {
                 LnMirFunc::BinaryOpr { opr, instantiation }

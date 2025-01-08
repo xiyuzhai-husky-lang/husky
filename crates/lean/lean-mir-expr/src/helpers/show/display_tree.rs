@@ -46,7 +46,7 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
 impl<'a> LnMirExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: LnMirExprIdx) -> DisplayTree {
         let db = self.db();
-        let value = match self.expr_arena[expr] {
+        let value = match *self.expr_arena[expr].data() {
             LnMirExprData::Literal(literal) => format!("literal: `{}`", literal.data()),
             LnMirExprData::ItemPath(item_path) => format!("item path: `{}`", item_path.show(db)),
             LnMirExprData::Variable { ident } => format!("variable: `{}`", ident.data()),
@@ -61,7 +61,7 @@ impl<'a> LnMirExprDisplayTreeBuilder<'a> {
             LnMirExprData::Sorry => "sorry".to_string(),
             LnMirExprData::By { tactics } => format!("by"),
         };
-        let children = self.expr_arena[expr].children();
+        let children = self.expr_arena[expr].data().children();
         DisplayTree::new(
             value,
             children.into_iter().map(|c| self.render_expr(c)).collect(),

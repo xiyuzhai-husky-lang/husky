@@ -1,7 +1,7 @@
 use super::*;
 use lean_entity_path::theorem::LnTheoremPath;
 use lean_mir_expr::{
-    expr::LnMirExprData,
+    expr::{LnMirExprData, LnMirExprEntry},
     tactic::{LnMirTacticData, LnMirTacticIdxRange},
 };
 use visored_entity_path::theorem::VdTheoremPath;
@@ -65,9 +65,12 @@ where
                 self.alloc_tactics([ad_hoc_tactic_data])
             }
         };
-        let construction = self.alloc_expr(LnMirExprData::By {
-            tactics: construction_tactics,
-        });
+        let construction = self.alloc_expr(LnMirExprEntry::new(
+            LnMirExprData::By {
+                tactics: construction_tactics,
+            },
+            None,
+        ));
         let ident = self.mangle_hypothesis();
         ln_tactics.push(LnMirTacticData::Have {
             ident,

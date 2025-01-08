@@ -6,9 +6,12 @@ use crate::{
     builder::VdLeanTranspilationBuilder,
     dictionary::{func_key::VdFuncKeyTranslation, item_path::VdItemPathTranslation},
     scheme::IsVdLeanTranspilationScheme,
+    ty::VdTypeLeanTranspilation,
 };
 use either::*;
-use lean_mir_expr::expr::{application::LnMirFunc, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange};
+use lean_mir_expr::expr::{
+    application::LnMirFunc, LnMirExprData, LnMirExprEntry, LnMirExprIdx, LnMirExprIdxRange,
+};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::term::literal::{LnLiteral, LnLiteralData};
 use visored_mir_expr::expr::{
@@ -21,8 +24,8 @@ where
     S: IsVdLeanTranspilationScheme,
 {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirExprIdx {
-        let data = builder.build_expr(self);
-        builder.alloc_expr(data)
+        let entry = builder.build_expr_entry(self);
+        builder.alloc_expr(entry)
     }
 }
 
@@ -34,7 +37,7 @@ where
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirExprIdxRange {
         let mut exprs = vec![];
         for expr in self {
-            exprs.push(builder.build_expr(expr));
+            exprs.push(builder.build_expr_entry(expr));
         }
         builder.alloc_exprs(exprs)
     }
@@ -44,7 +47,22 @@ impl<'db, S> VdLeanTranspilationBuilder<'db, S>
 where
     S: IsVdLeanTranspilationScheme,
 {
-    pub(crate) fn build_expr(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
+    pub(crate) fn build_expr_entry(&mut self, expr: VdMirExprIdx) -> LnMirExprEntry {
+        let data = self.build_expr_data(expr);
+        let entry = &self.expr_arena()[expr];
+        let ty = entry.expected_ty();
+        let expected_ty = entry.expected_ty();
+        let ty_coercion = if ty != expected_ty {
+            match expected_ty.to_lean(self) {
+                VdTypeLeanTranspilation::Type(expected_ty) => Some(expected_ty),
+            }
+        } else {
+            None
+        };
+        LnMirExprEntry::new(data, ty_coercion)
+    }
+
+    fn build_expr_data(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
         match *self.expr_arena()[expr].data() {
             VdMirExprData::Literal(literal) => {
                 LnMirExprData::Literal(to_lean_literal(literal, self.db()))

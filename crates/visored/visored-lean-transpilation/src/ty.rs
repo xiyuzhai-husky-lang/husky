@@ -1,6 +1,6 @@
 use crate::*;
 use dictionary::item_path::VdItemPathTranslation;
-use lean_mir_expr::expr::{LnMirExprData, LnMirExprIdx};
+use lean_mir_expr::expr::{LnMirExprData, LnMirExprEntry, LnMirExprIdx};
 use lean_term::ty::LnType;
 use visored_entity_path::path::VdItemPath;
 use visored_term::{
@@ -42,11 +42,12 @@ where
 {
     fn build_ln_ty_from_vd_item_path(&mut self, item_path: VdItemPath) -> LnMirExprIdx {
         let Some(translation) = self.dictionary().item_path_translation(item_path) else {
-            todo!()
+            todo!("item path not found in dictionary, item path: {item_path:?}")
         };
         let data = match *translation {
             VdItemPathTranslation::ItemPath(ln_item_path) => LnMirExprData::ItemPath(ln_item_path),
         };
-        self.alloc_expr(data)
+        let entry = LnMirExprEntry::new(data, todo!());
+        self.alloc_expr(entry)
     }
 }

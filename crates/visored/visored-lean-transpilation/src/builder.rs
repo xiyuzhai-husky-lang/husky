@@ -7,7 +7,7 @@ use lean_coword::ident::LnIdent;
 use lean_entity_path::menu::{ln_item_path_menu, LnItemPathMenu};
 use lean_mir_expr::{
     constructor::{LnMirExprConstructor, WithLnNamespace},
-    expr::{LnMirExprArena, LnMirExprData},
+    expr::{LnMirExprArena, LnMirExprData, LnMirExprEntry},
     item_defn::{
         def::LnMirDefBody, LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap,
         LnItemDefnData, LnItemDefnIdxRange,
@@ -200,7 +200,7 @@ where
     }
 
     pub(crate) fn sorry(&mut self) -> LnMirDefBody {
-        LnMirDefBody::Expr(self.alloc_expr(LnMirExprData::Sorry))
+        LnMirDefBody::Expr(self.alloc_expr(LnMirExprEntry::new(LnMirExprData::Sorry, todo!())))
     }
 }
 
