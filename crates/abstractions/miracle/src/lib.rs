@@ -96,7 +96,7 @@ pub trait HasMiracleFull: HasMiracle {
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
 
-    fn foldm<S, I, F, R>(
+    fn foldm_batch<S, I, F, R>(
         &mut self,
         init: S,
         iter: I,
@@ -154,7 +154,7 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
-    fn foldm<S, I, F, R>(
+    fn foldm_batch<S, I, F, R>(
         &mut self,
         init: S,
         iter: I,
