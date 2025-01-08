@@ -44,8 +44,8 @@ impl<'a> VdSemExprBuilder<'a> {
             .base_binary_opr_default_dispatch(lopd.ty, base_opr, ropd.ty)
         {
             let expr_ty = dispatch.expr_ty();
-            let lopd = self.alloc_expr(syn_lopd, lopd);
-            let ropd = self.alloc_expr(syn_ropd, ropd);
+            let lopd = self.alloc_expr(syn_lopd, lopd, dispatch.lopd_ty());
+            let ropd = self.alloc_expr(syn_ropd, ropd, dispatch.ropd_ty());
             (
                 VdSemExprData::Binary {
                     lopd,

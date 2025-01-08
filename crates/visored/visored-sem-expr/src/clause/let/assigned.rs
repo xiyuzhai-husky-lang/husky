@@ -13,7 +13,8 @@ impl ToVdSem<VdSemLetAssignedDispatch> for &VdSynLetAssignedResolution {
         let pattern = self.pattern().to_vd_sem(builder);
         let assignment = builder.build_expr_entry(self.assignment());
         let ty = assignment.ty();
-        let assignment = builder.alloc_expr(self.assignment(), assignment);
+        let expected_ty = builder.ty_menu().prop;
+        let assignment = builder.alloc_expr(self.assignment(), assignment, expected_ty);
         builder.infer_pattern_symbol_tys(&pattern, ty);
         VdSemLetAssignedDispatch {
             pattern,

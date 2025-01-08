@@ -6,12 +6,12 @@ version = 3
 name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
-    "husky-any-linket-impls",
-    "husky-ki-repr-interface",
-    "husky-linket-impl",
-    "husky-standard-linket-impl",
-    "husky-standard-linket-impl-macros",
-    "husky-standard-value",
+ "husky-any-linket-impls",
+ "husky-ki-repr-interface",
+ "husky-linket-impl",
+ "husky-standard-linket-impl",
+ "husky-standard-linket-impl-macros",
+ "husky-standard-value",
 ]
 
 [[package]]
@@ -19,7 +19,12 @@ name = "ahash"
 version = "0.8.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e89da841a80418a9b391ebaea17f5c112ffaaa96f621d2c285b5174da76b9011"
-dependencies = ["cfg-if", "once_cell", "version_check", "zerocopy"]
+dependencies = [
+ "cfg-if",
+ "once_cell",
+ "version_check",
+ "zerocopy",
+]
 
 [[package]]
 name = "arc-swap"
@@ -40,7 +45,10 @@ checksum = "0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0"
 [[package]]
 name = "base-coword"
 version = "0.1.0"
-dependencies = ["eterned", "lazy_static"]
+dependencies = [
+ "eterned",
+ "lazy_static",
+]
 
 [[package]]
 name = "bitflags"
@@ -53,14 +61,18 @@ name = "block-buffer"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3078c7629b62d3f0439517fa394996acacc5cbc91c5a20d8c658e77abd503a71"
-dependencies = ["generic-array"]
+dependencies = [
+ "generic-array",
+]
 
 [[package]]
 name = "cc"
 version = "1.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b62ac837cdb5cb22e10a256099b4fc502b1dfe560cb282963a974d7abd80e476"
-dependencies = ["shlex"]
+dependencies = [
+ "shlex",
+]
 
 [[package]]
 name = "cfg-if"
@@ -73,7 +85,10 @@ name = "colored"
 version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cbf2150cce219b664a8a70df7a1f933836724b503f8a413af9365b4dcc4d90b8"
-dependencies = ["lazy_static", "windows-sys 0.48.0"]
+dependencies = [
+ "lazy_static",
+ "windows-sys 0.48.0",
+]
 
 [[package]]
 name = "composite-pattern"
@@ -84,14 +99,18 @@ name = "convert_case"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec182b0ca2f35d8fc196cf3404988fd8b8c739a4d270ff118a398feb0cbec1ca"
-dependencies = ["unicode-segmentation"]
+dependencies = [
+ "unicode-segmentation",
+]
 
 [[package]]
 name = "cpufeatures"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "16b80225097f2e5ae4e7179dd2266824648f3e2f49d9134d584b76389d31c4c3"
-dependencies = ["libc"]
+dependencies = [
+ "libc",
+]
 
 [[package]]
 name = "crossbeam"
@@ -99,11 +118,11 @@ version = "0.8.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1137cd7e7fc0fb5d3c5a8678be38ec56e819125d8d7907411fe24ccb943faca8"
 dependencies = [
-    "crossbeam-channel",
-    "crossbeam-deque",
-    "crossbeam-epoch",
-    "crossbeam-queue",
-    "crossbeam-utils",
+ "crossbeam-channel",
+ "crossbeam-deque",
+ "crossbeam-epoch",
+ "crossbeam-queue",
+ "crossbeam-utils",
 ]
 
 [[package]]
@@ -111,28 +130,37 @@ name = "crossbeam-channel"
 version = "0.5.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "33480d6946193aa8033910124896ca395333cae7e2d1113d1fef6c3272217df2"
-dependencies = ["crossbeam-utils"]
+dependencies = [
+ "crossbeam-utils",
+]
 
 [[package]]
 name = "crossbeam-deque"
 version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "613f8cc01fe9cf1a3eb3d7f488fd2fa8388403e97039e2f73692932e291a770d"
-dependencies = ["crossbeam-epoch", "crossbeam-utils"]
+dependencies = [
+ "crossbeam-epoch",
+ "crossbeam-utils",
+]
 
 [[package]]
 name = "crossbeam-epoch"
 version = "0.9.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5b82ac4a3c2ca9c3460964f020e1402edd5753411d7737aa39c3714ad1b5420e"
-dependencies = ["crossbeam-utils"]
+dependencies = [
+ "crossbeam-utils",
+]
 
 [[package]]
 name = "crossbeam-queue"
 version = "0.3.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "df0346b5d5e76ac2fe4e327c5fd1118d6be7c51dfb18f9b7922923f287471e35"
-dependencies = ["crossbeam-utils"]
+dependencies = [
+ "crossbeam-utils",
+]
 
 [[package]]
 name = "crossbeam-utils"
@@ -145,7 +173,10 @@ name = "crypto-common"
 version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1bfb12502f3fc46cca1bb51ac28df9d618d813cdc3d2f25b9fe775a34af26bb3"
-dependencies = ["generic-array", "typenum"]
+dependencies = [
+ "generic-array",
+ "typenum",
+]
 
 [[package]]
 name = "dashmap"
@@ -153,12 +184,12 @@ version = "6.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5041cc499144891f3790297212f32a74fb938e5136a14943f338ef9e0ae276cf"
 dependencies = [
-    "cfg-if",
-    "crossbeam-utils",
-    "hashbrown",
-    "lock_api",
-    "once_cell",
-    "parking_lot_core",
+ "cfg-if",
+ "crossbeam-utils",
+ "hashbrown",
+ "lock_api",
+ "once_cell",
+ "parking_lot_core",
 ]
 
 [[package]]
@@ -166,7 +197,10 @@ name = "digest"
 version = "0.10.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ed9a281f7bc9b7576e61468ba615a66a5c8cfdff42420a70aa82701a3b1e292"
-dependencies = ["block-buffer", "crypto-common"]
+dependencies = [
+ "block-buffer",
+ "crypto-common",
+]
 
 [[package]]
 name = "dissimilar"
@@ -183,22 +217,35 @@ checksum = "60b1af1c220855b6ceac025d3f6ecdd2b7c4894bfe9cd9bda4fbb4bc7c0d4cf0"
 [[package]]
 name = "enum-class"
 version = "0.1.0"
-dependencies = ["enum-class-macros"]
+dependencies = [
+ "enum-class-macros",
+]
 
 [[package]]
 name = "enum-class-macros"
 version = "0.1.0"
-dependencies = ["husky-proc-macro-utils", "proc-macro2", "quote", "syn"]
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "enum-index"
 version = "0.1.0"
-dependencies = ["enum-index-macros"]
+dependencies = [
+ "enum-index-macros",
+]
 
 [[package]]
 name = "enum-index-macros"
 version = "0.1.0"
-dependencies = ["proc-macro2", "quote", "syn"]
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "equivalent"
@@ -210,47 +257,62 @@ checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
 name = "eterned"
 version = "0.1.0"
 dependencies = [
-    "attach",
-    "dashmap",
-    "eterned-macros",
-    "husky-sha-utils",
-    "husky-wild-utils",
-    "pool",
-    "sealed",
+ "attach",
+ "dashmap",
+ "eterned-macros",
+ "husky-sha-utils",
+ "husky-wild-utils",
+ "pool",
+ "sealed",
 ]
 
 [[package]]
 name = "eterned-macros"
 version = "0.1.0"
-dependencies = ["convert_case", "proc-macro2", "quote", "syn"]
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "expect-test"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9e0be0a561335815e06dab7c62e50353134c796e7a6155402a64bcff66b6a5e0"
-dependencies = ["dissimilar", "once_cell"]
+dependencies = [
+ "dissimilar",
+ "once_cell",
+]
 
 [[package]]
 name = "generic-array"
 version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "85649ca51fd72272d7821adaf274ad91c288277713d9c18820d8499a7ff69e9a"
-dependencies = ["typenum", "version_check"]
+dependencies = [
+ "typenum",
+ "version_check",
+]
 
 [[package]]
 name = "hashbrown"
 version = "0.14.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
-dependencies = ["ahash"]
+dependencies = [
+ "ahash",
+]
 
 [[package]]
 name = "hashlink"
 version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6ba4ff7128dee98c7dc9794b6a411377e1404dba1c97deb8d1a55297bd25d8af"
-dependencies = ["hashbrown"]
+dependencies = [
+ "hashbrown",
+]
 
 [[package]]
 name = "heck"
@@ -274,115 +336,133 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 name = "husky-any-linket-impls"
 version = "0.1.0"
 dependencies = [
-    "colored",
-    "husky-item-path-interface",
-    "husky-linket-impl",
-    "husky-standard-linket-impl",
-    "rustc_version",
+ "colored",
+ "husky-item-path-interface",
+ "husky-linket-impl",
+ "husky-standard-linket-impl",
+ "rustc_version",
 ]
 
 [[package]]
 name = "husky-check-utils"
 version = "0.1.0"
-dependencies = ["husky-print-utils"]
+dependencies = [
+ "husky-print-utils",
+]
 
 [[package]]
 name = "husky-core"
 version = "0.1.0"
 dependencies = [
-    "husky-standard-linket-impl",
-    "husky-standard-value",
-    "husky-visual-protocol",
-    "ordered-float",
+ "husky-standard-linket-impl",
+ "husky-standard-value",
+ "husky-visual-protocol",
+ "ordered-float",
 ]
 
 [[package]]
 name = "husky-coword"
 version = "0.1.0"
 dependencies = [
-    "base-coword",
-    "husky-print-utils",
-    "husky-unicode-symbols",
-    "once_cell",
-    "salsa",
-    "vec-like",
+ "base-coword",
+ "husky-print-utils",
+ "husky-unicode-symbols",
+ "once_cell",
+ "salsa",
+ "vec-like",
 ]
 
 [[package]]
 name = "husky-decl-macro-utils"
 version = "0.1.0"
-dependencies = ["husky-path-utils"]
+dependencies = [
+ "husky-path-utils",
+]
 
 [[package]]
 name = "husky-figure-zone-protocol"
 version = "0.1.0"
-dependencies = ["enum-class", "serde", "shifted-unsigned-int"]
+dependencies = [
+ "enum-class",
+ "serde",
+ "shifted-unsigned-int",
+]
 
 [[package]]
 name = "husky-io-utils"
 version = "0.1.0"
 dependencies = [
-    "composite-pattern",
-    "husky-print-utils",
-    "relative-path",
-    "thiserror",
+ "composite-pattern",
+ "husky-print-utils",
+ "relative-path",
+ "thiserror",
 ]
 
 [[package]]
 name = "husky-item-path-interface"
 version = "0.1.0"
-dependencies = ["serde", "shifted-unsigned-int"]
+dependencies = [
+ "serde",
+ "shifted-unsigned-int",
+]
 
 [[package]]
 name = "husky-ki-repr-interface"
 version = "0.1.0"
-dependencies = ["serde", "shifted-unsigned-int", "smallvec"]
+dependencies = [
+ "serde",
+ "shifted-unsigned-int",
+ "smallvec",
+]
 
 [[package]]
 name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
-    "eterned",
-    "husky-decl-macro-utils",
-    "husky-figure-zone-protocol",
-    "husky-item-path-interface",
-    "husky-ki-repr-interface",
-    "husky-value",
-    "husky-value-protocol",
-    "husky-wild-utils",
-    "serde",
-    "smallvec",
-    "vec-like",
+ "eterned",
+ "husky-decl-macro-utils",
+ "husky-figure-zone-protocol",
+ "husky-item-path-interface",
+ "husky-ki-repr-interface",
+ "husky-value",
+ "husky-value-protocol",
+ "husky-wild-utils",
+ "serde",
+ "smallvec",
+ "vec-like",
 ]
 
 [[package]]
 name = "husky-literal-value"
 version = "0.1.0"
-dependencies = ["husky-value", "ordered-float"]
+dependencies = [
+ "husky-value",
+ "ordered-float",
+]
 
 [[package]]
 name = "husky-minimal-toml-utils"
 version = "0.1.0"
 dependencies = [
-    "husky-coword",
-    "husky-io-utils",
-    "husky-print-utils",
-    "salsa",
-    "thiserror",
+ "husky-coword",
+ "husky-io-utils",
+ "husky-print-utils",
+ "salsa",
+ "thiserror",
 ]
 
 [[package]]
 name = "husky-path-utils"
 version = "0.1.0"
 dependencies = [
-    "husky-check-utils",
-    "husky-coword",
-    "husky-minimal-toml-utils",
-    "husky-print-utils",
-    "pathdiff",
-    "relative-path",
-    "salsa",
-    "thiserror",
+ "husky-check-utils",
+ "husky-coword",
+ "husky-minimal-toml-utils",
+ "husky-print-utils",
+ "pathdiff",
+ "relative-path",
+ "salsa",
+ "thiserror",
 ]
 
 [[package]]
@@ -392,65 +472,86 @@ version = "0.1.0"
 [[package]]
 name = "husky-proc-macro-utils"
 version = "0.1.0"
-dependencies = ["proc-macro2", "quote", "syn"]
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "husky-salsa-log-utils"
 version = "0.1.0"
-dependencies = ["expect-test"]
+dependencies = [
+ "expect-test",
+]
 
 [[package]]
 name = "husky-sha-utils"
 version = "0.1.0"
-dependencies = ["crypto-common", "hex", "sealed", "sha2"]
+dependencies = [
+ "crypto-common",
+ "hex",
+ "sealed",
+ "sha2",
+]
 
 [[package]]
 name = "husky-standard-linket-impl"
 version = "0.1.0"
 dependencies = [
-    "husky-decl-macro-utils",
-    "husky-item-path-interface",
-    "husky-ki-repr-interface",
-    "husky-linket-impl",
-    "husky-standard-value",
-    "husky-value",
-    "husky-value-protocol",
-    "serde",
-    "smallvec",
-    "vec-like",
+ "husky-decl-macro-utils",
+ "husky-item-path-interface",
+ "husky-ki-repr-interface",
+ "husky-linket-impl",
+ "husky-standard-value",
+ "husky-value",
+ "husky-value-protocol",
+ "serde",
+ "smallvec",
+ "vec-like",
 ]
 
 [[package]]
 name = "husky-standard-linket-impl-macros"
 version = "0.1.0"
-dependencies = ["husky-proc-macro-utils", "proc-macro2", "quote", "syn"]
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "husky-standard-value"
 version = "0.1.0"
 dependencies = [
-    "husky-decl-macro-utils",
-    "husky-literal-value",
-    "husky-print-utils",
-    "husky-standard-value-macros",
-    "husky-value",
-    "husky-value-macros",
-    "husky-value-protocol",
-    "husky-visual-protocol",
-    "husky-wild-utils",
-    "ordered-float",
-    "paste",
-    "serde",
-    "serde-impl",
-    "serde_json",
-    "smallvec",
-    "thiserror",
+ "husky-decl-macro-utils",
+ "husky-literal-value",
+ "husky-print-utils",
+ "husky-standard-value-macros",
+ "husky-value",
+ "husky-value-macros",
+ "husky-value-protocol",
+ "husky-visual-protocol",
+ "husky-wild-utils",
+ "ordered-float",
+ "paste",
+ "serde",
+ "serde-impl",
+ "serde_json",
+ "smallvec",
+ "thiserror",
 ]
 
 [[package]]
 name = "husky-standard-value-macros"
 version = "0.1.0"
-dependencies = ["husky-proc-macro-utils", "proc-macro2", "quote", "syn"]
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "husky-unicode-symbols"
@@ -459,29 +560,41 @@ version = "0.1.0"
 [[package]]
 name = "husky-value"
 version = "0.1.0"
-dependencies = ["husky-value-protocol", "husky-visual-protocol", "serde"]
+dependencies = [
+ "husky-value-protocol",
+ "husky-visual-protocol",
+ "serde",
+]
 
 [[package]]
 name = "husky-value-macros"
 version = "0.1.0"
-dependencies = ["husky-proc-macro-utils", "proc-macro2", "quote", "syn"]
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "husky-value-protocol"
 version = "0.1.0"
-dependencies = ["ordered-float", "serde"]
+dependencies = [
+ "ordered-float",
+ "serde",
+]
 
 [[package]]
 name = "husky-visual-protocol"
 version = "0.1.0"
 dependencies = [
-    "enum-class",
-    "husky-figure-zone-protocol",
-    "husky-print-utils",
-    "ordered-float",
-    "serde",
-    "shifted-unsigned-int",
-    "smallvec",
+ "enum-class",
+ "husky-figure-zone-protocol",
+ "husky-print-utils",
+ "ordered-float",
+ "serde",
+ "shifted-unsigned-int",
+ "smallvec",
 ]
 
 [[package]]
@@ -493,7 +606,10 @@ name = "indexmap"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68b900aa2f7301e21c36462b170ee99994de34dff39a4a6a528e80e7376d07e5"
-dependencies = ["equivalent", "hashbrown"]
+dependencies = [
+ "equivalent",
+ "hashbrown",
+]
 
 [[package]]
 name = "itoa"
@@ -518,7 +634,10 @@ name = "lock_api"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "07af8b9cdd281b7915f413fa73f29ebd5d55d0d3f0155584dade1ff18cea1b17"
-dependencies = ["autocfg", "scopeguard"]
+dependencies = [
+ "autocfg",
+ "scopeguard",
+]
 
 [[package]]
 name = "log"
@@ -530,27 +649,29 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 name = "malamute"
 version = "0.1.0"
 dependencies = [
-    "ad-hoc-devsoul-dependency",
-    "husky-core",
-    "ml-task",
-    "serde",
-    "smallvec",
+ "ad-hoc-devsoul-dependency",
+ "husky-core",
+ "ml-task",
+ "serde",
+ "smallvec",
 ]
 
 [[package]]
 name = "malamute-linkets"
 version = "0.1.0"
 dependencies = [
-    "ad-hoc-devsoul-dependency",
-    "husky-core",
-    "malamute",
-    "ml-task",
+ "ad-hoc-devsoul-dependency",
+ "husky-core",
+ "malamute",
+ "ml-task",
 ]
 
 [[package]]
 name = "maybe-result"
 version = "0.1.0"
-dependencies = ["original-error"]
+dependencies = [
+ "original-error",
+]
 
 [[package]]
 name = "memchr"
@@ -561,14 +682,19 @@ checksum = "78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3"
 [[package]]
 name = "ml-task"
 version = "0.1.0"
-dependencies = ["ad-hoc-devsoul-dependency", "husky-core"]
+dependencies = [
+ "ad-hoc-devsoul-dependency",
+ "husky-core",
+]
 
 [[package]]
-name = "num-try"
+name = "num-traits"
 version = "0.2.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
-dependencies = ["autocfg"]
+dependencies = [
+ "autocfg",
+]
 
 [[package]]
 name = "once_cell"
@@ -581,7 +707,11 @@ name = "ordered-float"
 version = "4.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c65ee1f9701bf938026630b455d5315f490640234259037edb259798b3bcf85e"
-dependencies = ["num-try", "rand", "serde"]
+dependencies = [
+ "num-traits",
+ "rand",
+ "serde",
+]
 
 [[package]]
 name = "original-error"
@@ -592,7 +722,10 @@ name = "parking_lot"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f1bf18183cf54e8d6059647fc3063646a1801cf30896933ec2311622cc4b9a27"
-dependencies = ["lock_api", "parking_lot_core"]
+dependencies = [
+ "lock_api",
+ "parking_lot_core",
+]
 
 [[package]]
 name = "parking_lot_core"
@@ -600,11 +733,11 @@ version = "0.9.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1e401f977ab385c9e4e3ab30627d6f26d00e2c73eef317493c4ec6d468726cf8"
 dependencies = [
-    "cfg-if",
-    "libc",
-    "redox_syscall",
-    "smallvec",
-    "windows-targets 0.52.6",
+ "cfg-if",
+ "libc",
+ "redox_syscall",
+ "smallvec",
+ "windows-targets 0.52.6",
 ]
 
 [[package]]
@@ -622,49 +755,64 @@ checksum = "8835116a5c179084a830efb3adc117ab007512b535bc1a21c991d3b32a6b44dd"
 [[package]]
 name = "pool"
 version = "0.1.0"
-dependencies = ["vec-array"]
+dependencies = [
+ "vec-array",
+]
 
 [[package]]
 name = "proc-macro2"
 version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77"
-dependencies = ["unicode-ident"]
+dependencies = [
+ "unicode-ident",
+]
 
 [[package]]
 name = "psm"
 version = "0.1.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "aa37f80ca58604976033fae9515a8a2989fc13797d953f7c04fb8fa36a11f205"
-dependencies = ["cc"]
+dependencies = [
+ "cc",
+]
 
 [[package]]
 name = "quote"
 version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5b9d34b8991d19d98081b46eacdd8eb58c6f2b201139f7c5f643cc155a633af"
-dependencies = ["proc-macro2"]
+dependencies = [
+ "proc-macro2",
+]
 
 [[package]]
 name = "rand"
 version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404"
-dependencies = ["rand_core", "serde"]
+dependencies = [
+ "rand_core",
+ "serde",
+]
 
 [[package]]
 name = "rand_core"
 version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
-dependencies = ["serde"]
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "redox_syscall"
 version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2a908a6e00f1fdd0dfd9c0eb08ce85126f6d8bbda50017e74bc4a4b7d4a926a4"
-dependencies = ["bitflags"]
+dependencies = [
+ "bitflags",
+]
 
 [[package]]
 name = "relative-path"
@@ -683,7 +831,9 @@ name = "rustc_version"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cfcb3a22ef46e85b45de6ee7e79d063319ebb6594faafcf1c225ea92ab6e9b92"
-dependencies = ["semver"]
+dependencies = [
+ "semver",
+]
 
 [[package]]
 name = "ryu"
@@ -695,40 +845,40 @@ checksum = "f3cb5ba0dc43242ce17de99c180e96db90b235b8a9fdc9543c96d2209116bd9f"
 name = "salsa"
 version = "0.1.0"
 dependencies = [
-    "arc-swap",
-    "crossbeam",
-    "crossbeam-utils",
-    "dashmap",
-    "either",
-    "enum-index",
-    "eterned",
-    "hashlink",
-    "husky-salsa-log-utils",
-    "husky-wild-utils",
-    "indexmap",
-    "log",
-    "maybe-result",
-    "parking_lot",
-    "relative-path",
-    "rustc-hash",
-    "salsa-macros",
-    "smallvec",
-    "snapshot",
-    "stacker",
-    "vec-like",
+ "arc-swap",
+ "crossbeam",
+ "crossbeam-utils",
+ "dashmap",
+ "either",
+ "enum-index",
+ "eterned",
+ "hashlink",
+ "husky-salsa-log-utils",
+ "husky-wild-utils",
+ "indexmap",
+ "log",
+ "maybe-result",
+ "parking_lot",
+ "relative-path",
+ "rustc-hash",
+ "salsa-macros",
+ "smallvec",
+ "snapshot",
+ "stacker",
+ "vec-like",
 ]
 
 [[package]]
 name = "salsa-macros"
 version = "0.1.0"
 dependencies = [
-    "convert_case",
-    "heck 0.5.0",
-    "husky-proc-macro-utils",
-    "proc-macro2",
-    "quote",
-    "serde_json",
-    "syn",
+ "convert_case",
+ "heck 0.5.0",
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "serde_json",
+ "syn",
 ]
 
 [[package]]
@@ -742,7 +892,12 @@ name = "sealed"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f4a8caec23b7800fb97971a1c6ae365b6239aaeddfb934d6265f8505e795699d"
-dependencies = ["heck 0.4.1", "proc-macro2", "quote", "syn"]
+dependencies = [
+ "heck 0.4.1",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "semver"
@@ -755,38 +910,59 @@ name = "serde"
 version = "1.0.210"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c8e3592472072e6e22e0a54d5904d9febf8508f65fb8552499a1abc7d1078c3a"
-dependencies = ["serde_derive"]
+dependencies = [
+ "serde_derive",
+]
 
 [[package]]
 name = "serde-impl"
 version = "0.1.0"
-dependencies = ["serde", "serde_json"]
+dependencies = [
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "serde_derive"
 version = "1.0.210"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "243902eda00fad750862fc144cea25caca5e20d615af0a81bee94ca738f1df1f"
-dependencies = ["proc-macro2", "quote", "syn"]
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "serde_json"
 version = "1.0.128"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6ff5456707a1de34e7e37f2a6fd3d3f808c318259cbd01ab6377795054b483d8"
-dependencies = ["indexmap", "itoa", "memchr", "ryu", "serde"]
+dependencies = [
+ "indexmap",
+ "itoa",
+ "memchr",
+ "ryu",
+ "serde",
+]
 
 [[package]]
 name = "sha2"
 version = "0.10.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "793db75ad2bcafc3ffa7c68b215fee268f537982cd901d132f89c6343f3a3dc8"
-dependencies = ["cfg-if", "cpufeatures", "digest"]
+dependencies = [
+ "cfg-if",
+ "cpufeatures",
+ "digest",
+]
 
 [[package]]
 name = "shifted-unsigned-int"
 version = "0.1.0"
-dependencies = ["serde"]
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "shlex"
@@ -799,7 +975,9 @@ name = "smallvec"
 version = "1.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3c5e1a9a646d36c3599cd173a41282daf47c44583ad367b8e6837255952e5c67"
-dependencies = ["serde"]
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "snapshot"
@@ -810,28 +988,44 @@ name = "stacker"
 version = "0.1.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "799c883d55abdb5e98af1a7b3f23b9b6de8ecada0ecac058672d7635eb48ca7b"
-dependencies = ["cc", "cfg-if", "libc", "psm", "windows-sys 0.59.0"]
+dependencies = [
+ "cc",
+ "cfg-if",
+ "libc",
+ "psm",
+ "windows-sys 0.59.0",
+]
 
 [[package]]
 name = "syn"
 version = "2.0.77"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9f35bcdf61fd8e7be6caf75f429fdca8beb3ed76584befb503b1569faee373ed"
-dependencies = ["proc-macro2", "quote", "unicode-ident"]
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-ident",
+]
 
 [[package]]
 name = "thiserror"
 version = "1.0.63"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c0342370b38b6a11b6cc11d6a805569958d54cfa061a29969c3b5ce2ea405724"
-dependencies = ["thiserror-impl"]
+dependencies = [
+ "thiserror-impl",
+]
 
 [[package]]
 name = "thiserror-impl"
 version = "1.0.63"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a4558b58466b9ad7ca0f102865eccc95938dca1a74a856f2b57b6629050da261"
-dependencies = ["proc-macro2", "quote", "syn"]
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "typenum"
@@ -858,7 +1052,12 @@ version = "0.1.0"
 [[package]]
 name = "vec-like"
 version = "0.0.0"
-dependencies = ["husky-wild-utils", "serde", "smallvec", "thiserror"]
+dependencies = [
+ "husky-wild-utils",
+ "serde",
+ "smallvec",
+ "thiserror",
+]
 
 [[package]]
 name = "version_check"
@@ -871,14 +1070,18 @@ name = "windows-sys"
 version = "0.48.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "677d2418bec65e3338edb076e806bc1ec15693c5d0104683f2efe857f61056a9"
-dependencies = ["windows-targets 0.48.5"]
+dependencies = [
+ "windows-targets 0.48.5",
+]
 
 [[package]]
 name = "windows-sys"
 version = "0.59.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1e38bc4d79ed67fd075bcc251a1c39b32a1776bbe92e5bef1f0bf1f8c531853b"
-dependencies = ["windows-targets 0.52.6"]
+dependencies = [
+ "windows-targets 0.52.6",
+]
 
 [[package]]
 name = "windows-targets"
@@ -886,13 +1089,13 @@ version = "0.48.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9a2fa6e2155d7247be68c096456083145c183cbbbc2764150dda45a87197940c"
 dependencies = [
-    "windows_aarch64_gnullvm 0.48.5",
-    "windows_aarch64_msvc 0.48.5",
-    "windows_i686_gnu 0.48.5",
-    "windows_i686_msvc 0.48.5",
-    "windows_x86_64_gnu 0.48.5",
-    "windows_x86_64_gnullvm 0.48.5",
-    "windows_x86_64_msvc 0.48.5",
+ "windows_aarch64_gnullvm 0.48.5",
+ "windows_aarch64_msvc 0.48.5",
+ "windows_i686_gnu 0.48.5",
+ "windows_i686_msvc 0.48.5",
+ "windows_x86_64_gnu 0.48.5",
+ "windows_x86_64_gnullvm 0.48.5",
+ "windows_x86_64_msvc 0.48.5",
 ]
 
 [[package]]
@@ -901,14 +1104,14 @@ version = "0.52.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9b724f72796e036ab90c1021d4780d4d3d648aca59e491e6b98e725b84e99973"
 dependencies = [
-    "windows_aarch64_gnullvm 0.52.6",
-    "windows_aarch64_msvc 0.52.6",
-    "windows_i686_gnu 0.52.6",
-    "windows_i686_gnullvm",
-    "windows_i686_msvc 0.52.6",
-    "windows_x86_64_gnu 0.52.6",
-    "windows_x86_64_gnullvm 0.52.6",
-    "windows_x86_64_msvc 0.52.6",
+ "windows_aarch64_gnullvm 0.52.6",
+ "windows_aarch64_msvc 0.52.6",
+ "windows_i686_gnu 0.52.6",
+ "windows_i686_gnullvm",
+ "windows_i686_msvc 0.52.6",
+ "windows_x86_64_gnu 0.52.6",
+ "windows_x86_64_gnullvm 0.52.6",
+ "windows_x86_64_msvc 0.52.6",
 ]
 
 [[package]]
@@ -1006,11 +1209,17 @@ name = "zerocopy"
 version = "0.7.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1b9b4fd18abc82b8136838da5d50bae7bdea537c574d8dc1a34ed098d6c166f0"
-dependencies = ["zerocopy-derive"]
+dependencies = [
+ "zerocopy-derive",
+]
 
 [[package]]
 name = "zerocopy-derive"
 version = "0.7.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fa4f8080344d4671fb4e831a13ad1e68092748387dfc4f55e356242fae12ce3e"
-dependencies = ["proc-macro2", "quote", "syn"]
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]

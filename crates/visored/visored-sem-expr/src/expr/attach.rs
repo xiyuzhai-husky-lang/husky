@@ -43,25 +43,25 @@ impl<'a> VdSemExprBuilder<'a> {
             .default_global_dispatch_table()
             .power_default_dispatch(base.ty, exponent.ty)
         {
-            let base = self.alloc_expr(syn_base, base);
-            let exponent = self.alloc_expr(syn_exponent, exponent);
             match dispatch {
-                VdAttachGlobalDispatch::Normal { signature } => {
-                    let VdAttachSignature::Power(signature) = signature else {
-                        unreachable!()
-                    };
-                    return Some((
-                        VdSemExprData::Attach {
-                            base,
-                            scripts: vec![(LxScriptKind::Superscript, exponent)],
-                            dispatch: VdSemAttachDispatch::GlobalPower {
-                                signature,
-                                exponent,
+                VdAttachGlobalDispatch::Normal { signature } => match signature {
+                    VdAttachSignature::Power(signature) => {
+                        let base = self.alloc_expr(syn_base, base, signature.base_ty());
+                        let exponent =
+                            self.alloc_expr(syn_exponent, exponent, signature.exponent_ty());
+                        return Some((
+                            VdSemExprData::Attach {
+                                base,
+                                scripts: vec![(LxScriptKind::Superscript, exponent)],
+                                dispatch: VdSemAttachDispatch::GlobalPower {
+                                    signature,
+                                    exponent,
+                                },
                             },
-                        },
-                        dispatch.expr_ty(),
-                    ));
-                }
+                            signature.expr_ty(),
+                        ));
+                    }
+                },
             }
         }
         self.emit_message_over_expr_to_stdout(

@@ -7,7 +7,10 @@ use hypothesis::{
 };
 use smallvec::SmallVec;
 use smallvec::ToSmallVec;
-use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
+use visored_mir_opr::{
+    opr::{binary::VdMirBaseBinaryOpr, prefix::VdMirBasePrefixOpr},
+    separator::VdMirBaseSeparator,
+};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 #[derive(Default)]
@@ -398,7 +401,11 @@ where
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
         match function {
-            VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+            VdMirFunc::NormalBasePrefixOpr(signature) => match signature.opr {
+                VdMirBasePrefixOpr::RingPos => (),
+                VdMirBasePrefixOpr::RingNeg => (),
+                _ => todo!(),
+            },
             VdMirFunc::NormalBaseSeparator(signature) => todo!(),
             VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
                 VdMirBaseBinaryOpr::CommRingSub => (),

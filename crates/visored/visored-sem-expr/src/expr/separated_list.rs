@@ -36,6 +36,22 @@ pub enum VdSemSeparatedListFollowerDispatch {
     },
 }
 impl VdSemSeparatedListFollowerDispatch {
+    pub fn left_item_ty(&self, mut mk_ty_from_right_item_term: impl FnMut() -> VdType) -> VdType {
+        match self {
+            VdSemSeparatedListFollowerDispatch::Folding {
+                base_separator,
+                signature,
+            } => signature.item_ty(),
+            VdSemSeparatedListFollowerDispatch::Chaining {
+                base_separator,
+                signature,
+            } => signature.item_ty(),
+            VdSemSeparatedListFollowerDispatch::InSet { expr_ty, .. } => {
+                mk_ty_from_right_item_term()
+            }
+        }
+    }
+
     fn expr_ty(&self) -> VdType {
         match *self {
             VdSemSeparatedListFollowerDispatch::Folding {
@@ -88,7 +104,10 @@ impl<'db> VdSemExprBuilder<'db> {
             return leader;
         }
         let followers = self.calc_separated_list_dispatches(&leader, followers);
-        let leader = self.alloc_expr(items.first().unwrap(), leader);
+        let leader_expected_ty = followers[0]
+            .dispatch
+            .left_item_ty(|| VdType::new(self.infer_expr_term(followers[0].expr)));
+        let leader = self.alloc_expr(items.first().unwrap(), leader, leader_expected_ty);
         let ty = followers.last().unwrap().dispatch.expr_ty();
         let data = match separator_class {
             VdSeparatorClass::Relation => {
@@ -181,7 +200,8 @@ impl<'db> VdSemExprBuilder<'db> {
             let dispatch =
                 self.calc_separated_list_dispatch_step(prev_item_ty, separator, expr_entry.ty());
             prev_item_ty = expr_entry.ty();
-            let expr = self.alloc_expr(syn_expr, expr_entry);
+            let expr =
+                self.alloc_expr(syn_expr, expr_entry, dispatch.right_item_ty(self.ty_menu()));
             followers.push(VdSemSeparatedListFollower {
                 separator,
                 expr,

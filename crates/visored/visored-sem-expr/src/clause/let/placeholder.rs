@@ -50,9 +50,9 @@ impl ToVdSem<VdSemLetPlaceholderDispatch> for &VdSynLetPlaceholderResolution {
 impl ToVdSem<VdSemLetClausePlaceholderTypeRepr> for VdSynLetClausePlaceholderType {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemLetClausePlaceholderTypeRepr {
         match self {
-            VdSynLetClausePlaceholderType::Expr(expr) => {
-                VdSemLetClausePlaceholderTypeRepr::Expr(expr.to_vd_sem(builder))
-            }
+            VdSynLetClausePlaceholderType::Expr(expr) => VdSemLetClausePlaceholderTypeRepr::Expr(
+                (expr, builder.ty_menu().set).to_vd_sem(builder),
+            ),
         }
     }
 }

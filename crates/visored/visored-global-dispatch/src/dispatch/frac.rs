@@ -22,6 +22,20 @@ pub enum VdFracGlobalDispatch {
 }
 
 impl VdFracGlobalDispatch {
+    pub fn numerator_ty(self) -> VdType {
+        match self {
+            VdFracGlobalDispatch::Div { signature } => signature.lopd_ty(),
+        }
+    }
+
+    pub fn denominator_ty(self) -> VdType {
+        match self {
+            VdFracGlobalDispatch::Div { signature } => signature.ropd_ty(),
+        }
+    }
+}
+
+impl VdFracGlobalDispatch {
     pub fn standard_defaults(
         vd_ty_menu: &VdTypeMenu,
         global_dispatch_menu: &VdGlobalDispatchMenu,

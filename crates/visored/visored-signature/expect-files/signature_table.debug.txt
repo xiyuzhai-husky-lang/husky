@@ -296,7 +296,7 @@ VdSignatureTable {
             Base(
                 VdBaseSqrtSignature {
                     instantiation: √(real_sqrt) ...,
-                    base_ty: ℝ,
+                    radicand_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),

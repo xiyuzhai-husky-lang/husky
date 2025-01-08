@@ -15,7 +15,6 @@ macro "term_equivalent": tactic =>`(tactic|
   | ring; done
   | ring_nf; done
   | linarith; done
-  | norm_num; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
@@ -51,7 +50,7 @@ end Example4
 
 namespace Example5
 def h := by
-  have h1 : 1 / 2 * 2 = 1 := by norm_num
+  have h1 : 1 / 2 * 2 = 1 := by term_equivalent
   exact ()
 end Example5
 
@@ -210,3 +209,4 @@ def h := by
   have h1 : 1000340282366920938463463374607431768211456 = 1000340282366920938463463374607431768211456 := by term_equivalent
   exact ()
 end Example31
+

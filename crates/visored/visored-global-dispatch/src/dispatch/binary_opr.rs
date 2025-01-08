@@ -25,6 +25,20 @@ pub enum VdBinaryOprGlobalDispatch {
 }
 
 impl VdBinaryOprGlobalDispatch {
+    pub fn lopd_ty(self) -> VdType {
+        match self {
+            VdBinaryOprGlobalDispatch::Normal { signature, .. } => signature.lopd_ty(),
+        }
+    }
+
+    pub fn ropd_ty(self) -> VdType {
+        match self {
+            VdBinaryOprGlobalDispatch::Normal { signature, .. } => signature.ropd_ty(),
+        }
+    }
+}
+
+impl VdBinaryOprGlobalDispatch {
     pub fn standard_defaults(
         vd_ty_menu: &VdTypeMenu,
         vd_opr_menu: &VdOprMenu,

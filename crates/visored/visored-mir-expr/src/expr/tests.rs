@@ -70,10 +70,10 @@ fn frac_to_vd_mir_works() {
     t(
         "\\frac{1}{2}",
         &expect![[r#"
-        frac
-        ├─ 1
-        └─ 2
-    "#]],
+            binary opr
+            ├─ 1
+            └─ 2
+        "#]],
     );
 }
 

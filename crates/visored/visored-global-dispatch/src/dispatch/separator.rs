@@ -38,6 +38,16 @@ pub enum VdSeparatorGlobalDispatch {
 }
 
 impl VdSeparatorGlobalDispatch {
+    pub fn right_item_ty(&self, ty_menu: &VdTypeMenu) -> VdType {
+        match self {
+            VdSeparatorGlobalDispatch::Folding { signature, .. } => signature.item_ty(),
+            VdSeparatorGlobalDispatch::Chaining { signature, .. } => signature.item_ty(),
+            VdSeparatorGlobalDispatch::InSet { expr_ty, .. } => ty_menu.set,
+        }
+    }
+}
+
+impl VdSeparatorGlobalDispatch {
     pub(crate) fn standard_defaults(
         vd_ty_menu: &VdTypeMenu,
         vd_opr_menu: &VdOprMenu,

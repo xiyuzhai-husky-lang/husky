@@ -17,8 +17,9 @@ smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
 enum-class.workspace = true
-idx-arena.workspace = true
 eterned.workspace = true
+idx-arena.workspace = true
+once-place.workspace = true
 salsa = { workspace = true, optional = true }
 # latex
 latex-ast.workspace = true

@@ -24,7 +24,13 @@ pub enum VdPrefixOprGlobalDispatch {
     },
 }
 impl VdPrefixOprGlobalDispatch {
-    pub fn expr_ty(self) -> visored_term::ty::VdType {
+    pub fn opd_ty(self) -> VdType {
+        match self {
+            VdPrefixOprGlobalDispatch::Base { signature, .. } => signature.opd_ty(),
+        }
+    }
+
+    pub fn expr_ty(self) -> VdType {
         match self {
             VdPrefixOprGlobalDispatch::Base { signature, .. } => signature.expr_ty(),
         }

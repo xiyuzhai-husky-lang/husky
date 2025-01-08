@@ -25,6 +25,7 @@ use latex_math_letter::letter::LxMathLetter;
 use latex_prelude::script::LxScriptKind;
 use latex_token::idx::{LxMathTokenIdx, LxTokenIdx, LxTokenIdxRange};
 use letter::VdSemLetterDispatch;
+use once_place::OncePlace;
 use sqrt::VdSemSqrtDispatch;
 use visored_opr::{
     delimiter::{
@@ -128,10 +129,11 @@ pub enum VdSemExprData {
 pub struct VdSemExprEntry {
     data: VdSemExprData,
     ty: VdType,
+    expected_ty: OncePlace<VdType>,
     /// `None` if not inferred
     ///
     /// Note that all terms are inferred.
-    term: Option<VdTerm>,
+    term: OncePlace<VdTerm>,
     // todo: var deps
 }
 
@@ -146,7 +148,8 @@ impl VdSemExprEntry {
         Self {
             data,
             ty,
-            term: None,
+            expected_ty: OncePlace::default(),
+            term: OncePlace::default(),
         }
     }
 
@@ -160,9 +163,12 @@ impl VdSemExprEntry {
 }
 
 impl VdSemExprEntry {
+    pub(crate) fn set_expected_ty(&mut self, ty: VdType) {
+        self.expected_ty.set(ty);
+    }
+
     pub(crate) fn set_term(&mut self, term: VdTerm) {
-        debug_assert!(self.term.is_none());
-        self.term = Some(term);
+        self.term.set(term);
     }
 }
 
@@ -179,13 +185,14 @@ where
     }
 }
 
-impl ToVdSem<VdSemExprIdx> for VdSynExprIdx {
+impl ToVdSem<VdSemExprIdx> for (VdSynExprIdx, VdType) {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemExprIdx {
-        if let Some(&idx) = builder.syn_to_sem_expr_map().get(self) {
+        let (slf, expected_ty) = self;
+        if let Some(&idx) = builder.syn_to_sem_expr_map().get(slf) {
             return idx;
         }
-        let entry = builder.build_expr_entry(self);
-        builder.alloc_expr(self, entry)
+        let entry = builder.build_expr_entry(slf);
+        builder.alloc_expr(slf, entry, expected_ty)
     }
 }
 
@@ -223,9 +230,10 @@ impl<'a> VdSemExprBuilder<'a> {
                 right_delimiter_token_idx,
                 right_delimiter,
             } => {
+                // this is much simpler than the delimited case because the delimiter has no semantic meaning
                 let item = self.build_expr_entry(syn_item);
                 let ty = item.ty();
-                let item = self.alloc_expr(syn_item, item);
+                let item = self.alloc_expr(syn_item, item, ty);
                 (
                     VdSemExprData::LxDelimited {
                         left_delimiter_token_idx,

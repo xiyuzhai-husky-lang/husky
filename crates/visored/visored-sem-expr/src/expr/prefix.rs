@@ -41,7 +41,7 @@ impl<'a> VdSemExprBuilder<'a> {
             .base_prefix_opr_default_dispatch(base_opr, opd.ty())
         {
             let expr_ty = dispatch.expr_ty();
-            let opd = self.alloc_expr(syn_opd, opd);
+            let opd = self.alloc_expr(syn_opd, opd, dispatch.opd_ty());
             (
                 VdSemExprData::Prefix {
                     opr,

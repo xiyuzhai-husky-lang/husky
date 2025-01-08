@@ -36,7 +36,9 @@ impl<'a> VdSemExprBuilder<'a> {
         let item = self.build_expr_entry(syn_item);
         //
         let ty = item.ty();
-        let item = self.alloc_expr(syn_item, item);
+        // no coercion needed for delimited expr
+        let expected_ty = item.ty();
+        let item = self.alloc_expr(syn_item, item, expected_ty);
         (
             VdSemExprData::Delimited {
                 left_delimiter,

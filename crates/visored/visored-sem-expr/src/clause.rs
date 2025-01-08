@@ -97,7 +97,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 right_math_delimiter_token_idx,
             } => VdSemClauseData::Assume {
                 left_math_delimiter_token_idx,
-                formula: formula.to_vd_sem(self),
+                formula: (formula, self.ty_menu().prop).to_vd_sem(self),
                 right_math_delimiter_token_idx,
             },
             VdSynClauseData::Goal {
@@ -106,7 +106,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 right_math_delimiter_token_idx,
             } => VdSemClauseData::Goal {
                 left_math_delimiter_token_idx,
-                formula: formula.to_vd_sem(self),
+                formula: (formula, self.ty_menu().prop).to_vd_sem(self),
                 right_math_delimiter_token_idx,
             },
             VdSynClauseData::Have {
@@ -115,7 +115,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 right_math_delimiter_token_idx,
             } => VdSemClauseData::Have {
                 left_math_delimiter_token_idx,
-                formula: formula.to_vd_sem(self),
+                formula: (formula, self.ty_menu().prop).to_vd_sem(self),
                 right_math_delimiter_token_idx,
             },
             VdSynClauseData::Show {
@@ -124,7 +124,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 right_math_delimiter_token_idx,
             } => VdSemClauseData::Show {
                 left_math_delimiter_token_idx,
-                formula: formula.to_vd_sem(self),
+                formula: (formula, self.ty_menu().prop).to_vd_sem(self),
                 right_math_delimiter_token_idx,
             },
         }

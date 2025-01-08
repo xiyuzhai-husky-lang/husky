@@ -43,7 +43,7 @@ use visored_syn_expr::{
     clause::VdSynClauseArena,
     division::VdSynDivisionArena,
     expr::VdSynExprArena,
-    helpers::tracker::{IsVdSynExprInput, VdSynExprTracker},
+    helpers::tracker::{IsVdSynExprInput, VdSynExprTracker, VdSynFormula},
     phrase::VdSynPhraseArena,
     range::{
         VdSynBlockTokenIdxRangeMap, VdSynClauseTokenIdxRangeMap, VdSynDivisionTokenIdxRangeMap,
@@ -52,7 +52,7 @@ use visored_syn_expr::{
     sentence::VdSynSentenceArena,
     vibe::VdSynExprVibe,
 };
-use visored_term::ty::table::VdItemPathZfcTypeTable;
+use visored_term::ty::{table::VdItemPathZfcTypeTable, VdType};
 
 pub struct VdSemExprTracker<'a, Input: IsVdSemExprInput<'a>> {
     pub input: Input,
@@ -260,6 +260,17 @@ impl<'a> IsVdSemExprInput<'a> for LxPageInput<'a> {
 
 impl<'a> IsVdSemExprInput<'a> for LxFormulaInput<'a> {
     type VdSemExprOutput = VdSemExprIdx;
+}
+
+impl ToVdSem<VdSemExprIdx> for VdSynFormula {
+    fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemExprIdx {
+        if let Some(&idx) = builder.syn_to_sem_expr_map().get(self.expr) {
+            return idx;
+        }
+        let entry = builder.build_expr_entry(self.expr);
+        let expected_ty = builder.ty_menu().prop;
+        builder.alloc_expr(self.expr, entry, expected_ty)
+    }
 }
 
 impl IsVdSemExprOutput for VdSemDivisionIdxRange {

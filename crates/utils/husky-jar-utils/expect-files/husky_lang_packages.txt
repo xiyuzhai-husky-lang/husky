@@ -4345,10 +4345,12 @@
         name: "visored-term",
         relative_path: "crates/visored/visored-term",
         dependencies: [
+            "either",
             "enum-class",
             "eterned",
             "lazy_static",
             "lisp-csv",
+            "num-bigint",
             "rustc-hash",
             "salsa",
             "smallvec",
@@ -4411,6 +4413,7 @@
             "latex-math-letter",
             "latex-prelude",
             "latex-token",
+            "once-place",
             "salsa",
             "smallvec",
             "thiserror",
@@ -4833,6 +4836,21 @@
         ],
     },
     PackageSummary {
+        name: "combinatorics",
+        relative_path: "crates/math/combinatorics",
+        dependencies: [
+            "num-try",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "num-try",
+        relative_path: "crates/math/num-try",
+        dependencies: [
+            "thiserror",
+        ],
+    },
+    PackageSummary {
         name: "mayuri-core",
         relative_path: "crates/mayuri/mayuri-core",
         dependencies: [
@@ -5134,6 +5152,7 @@
         dependencies: [
             "alt-maybe-result",
             "alt-option",
+            "combinatorics",
             "either",
             "enum-class",
             "eterned",
@@ -5151,6 +5170,8 @@
             "latex-vfs",
             "miracle",
             "monadic-fold",
+            "num-bigint",
+            "num-integer",
             "ordered-float",
             "rustc-hash",
             "serde",
