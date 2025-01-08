@@ -18,7 +18,7 @@ pub fn fold_product<'db, 'sess>(
         Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
-    engine.foldm_batch::<_, _, _, _>(
+    engine.foldm_batch(
         vec![],
         exponentials.iter().copied(),
         &[

@@ -97,17 +97,16 @@ pub trait HasMiracleFull: HasMiracle {
     ) -> MiracleAltMaybeResult<R>;
 
     /// `f` returns an option so that we could kill it early
-    fn foldm_batch<S, I, F, R>(
+    fn foldm_batch<S, I, R>(
         &mut self,
         init: S,
         iter: I,
-        f: &[F],
+        f: &[impl Fn(&mut Self, &S, &I::Item) -> Option<S>],
         g: &impl Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>
     where
         I: IntoIterator,
-        I::IntoIter: Clone,
-        F: Fn(&mut Self, &S, &I::Item) -> Option<S>;
+        I::IntoIter: Clone;
 }
 
 #[sealed]
@@ -155,19 +154,18 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
-    fn foldm_batch<S, I, F, R>(
+    fn foldm_batch<S, I, R>(
         &mut self,
         init: S,
         iter: I,
-        f: &[F],
+        f: &[impl Fn(&mut Self, &S, &I::Item) -> Option<S>],
         g: &impl Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>
     where
         I: IntoIterator,
         I::IntoIter: Clone,
-        F: Fn(&mut Self, &S, &I::Item) -> Option<S>,
     {
-        crate::foldm::foldm_aux(self, init, iter.into_iter(), f, g)
+        crate::foldm::foldm_batch(self, init, iter.into_iter(), f, g)
     }
 }
 
