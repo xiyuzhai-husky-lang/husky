@@ -36,7 +36,7 @@ pub enum LnMirExprData {
 
 pub struct LnMirExprEntry {
     data: LnMirExprData,
-    ty_coercion: Option<LnMirExprIdx>,
+    ty_ascription: Option<LnMirExprIdx>,
 }
 
 pub type LnMirExprArena = Arena<LnMirExprEntry>;
@@ -45,8 +45,11 @@ pub type LnMirExprIdx = ArenaIdx<LnMirExprEntry>;
 pub type LnMirExprIdxRange = ArenaIdxRange<LnMirExprEntry>;
 
 impl LnMirExprEntry {
-    pub fn new(data: LnMirExprData, ty_coercion: Option<LnMirExprIdx>) -> Self {
-        Self { data, ty_coercion }
+    pub fn new(data: LnMirExprData, ty_ascription: Option<LnMirExprIdx>) -> Self {
+        Self {
+            data,
+            ty_ascription,
+        }
     }
 }
 
@@ -55,8 +58,8 @@ impl LnMirExprEntry {
         &self.data
     }
 
-    pub fn ty_coercion(&self) -> Option<LnMirExprIdx> {
-        self.ty_coercion
+    pub fn ty_ascription(&self) -> Option<LnMirExprIdx> {
+        self.ty_ascription
     }
 }
 

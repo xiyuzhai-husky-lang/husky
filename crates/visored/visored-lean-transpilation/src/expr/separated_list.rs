@@ -36,7 +36,7 @@ where
                 VdMirFunc::NormalBaseSeparator(signature) => signature.item_ty(),
                 _ => todo!(),
             };
-            let result_ty_coercion = if result_expected_ty != result_ty {
+            let result_ty_ascription = if result_expected_ty != result_ty {
                 match result_expected_ty.to_lean(self) {
                     VdTypeLeanTranspilation::Type(expected_ty) => Some(expected_ty),
                 }
@@ -46,7 +46,7 @@ where
             result = LnMirExprData::Application {
                 function,
                 arguments: self
-                    .alloc_exprs([LnMirExprEntry::new(result, result_ty_coercion), follower]),
+                    .alloc_exprs([LnMirExprEntry::new(result, result_ty_ascription), follower]),
             };
             result_ty = match func {
                 VdMirFunc::NormalBaseSeparator(signature) => signature.expr_ty(),
