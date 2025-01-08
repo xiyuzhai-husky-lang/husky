@@ -13463,6 +13463,7 @@ dependencies = [
  "thiserror",
  "vec-like",
  "visored-annotation",
+ "visored-baseq-elaborator-macros",
  "visored-entity-path",
  "visored-lean-transpilation",
  "visored-mir-expr",

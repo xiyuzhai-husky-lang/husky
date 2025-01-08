@@ -1,6 +1,8 @@
 use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
 use std::marker::PhantomData;
+use visored_baseq_elaborator_macros::stashes;
 
+// #[stashes]
 pub struct VdBsqHypothesisStashes<'sess> {
     phantom: PhantomData<&'sess ()>,
 }
@@ -19,6 +21,7 @@ impl<'sess> VdBsqHypothesisStashes<'sess> {
         record: VdBsqHypothesisStackRecord<'sess>,
         entry: &VdBsqHypothesisEntry<'sess>,
     ) {
-        todo!()
+        // ad hoc
+        // todo!()
     }
 }

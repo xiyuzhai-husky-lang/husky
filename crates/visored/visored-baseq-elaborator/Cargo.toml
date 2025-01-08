@@ -55,6 +55,7 @@ visored-opr.workspace = true
 visored-signature.workspace = true
 visored-syn-expr.workspace = true
 visored-term.workspace = true
+visored-baseq-elaborator-macros.workspace = true
 
 [dev-dependencies]
 relative-path.workspace = true
