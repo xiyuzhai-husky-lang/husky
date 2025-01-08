@@ -1,6 +1,6 @@
 use super::*;
 use crate::term::{
-    builder::sum::VdBsqSumBuilder, inum::product::VdBsqProductInumTermBase, lit::VdBsqLitNumTerm,
+    builder::sum::VdBsqSumBuilder, inum::product::VdBsqProductInumTermBase, litnum::VdBsqLitNumTerm,
 };
 use crate::term::{
     inum::{sum::VdBsqSumInumTerm, VdBsqNonSumInumTerm},

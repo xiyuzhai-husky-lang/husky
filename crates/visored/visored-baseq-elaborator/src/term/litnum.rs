@@ -1,27 +1,18 @@
 pub mod bigint;
+pub mod bigrat;
+pub mod frac128;
 
-use self::bigint::VdBsqRnumTermBigInt;
+use self::{bigint::VdBsqRnumTermBigInt, frac128::VdBsqFrac128};
 use super::*;
 use std::num::NonZeroU128;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
+#[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqLitNumTerm<'sess> {
     Int128(i128),
     BigInt(VdBsqRnumTermBigInt<'sess>),
-    Rat128(i128, u128),
-}
-
-impl<'sess> From<i128> for VdBsqLitNumTerm<'sess> {
-    fn from(i: i128) -> Self {
-        VdBsqLitNumTerm::Int128(i)
-    }
-}
-
-impl<'sess> From<VdBsqRnumTermBigInt<'sess>> for VdBsqLitNumTerm<'sess> {
-    fn from(i: VdBsqRnumTermBigInt<'sess>) -> Self {
-        VdBsqLitNumTerm::BigInt(i)
-    }
+    Frac128(VdBsqFrac128),
 }
 
 impl<'sess> std::fmt::Debug for VdBsqLitNumTerm<'sess> {
@@ -37,7 +28,7 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
         match self {
             VdBsqLitNumTerm::Int128(i) => VdBsqLitNumTerm::Int128(-i),
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(a, b) => VdBsqLitNumTerm::Rat128(-a, b),
+            VdBsqLitNumTerm::Frac128(f) => VdBsqLitNumTerm::Frac128(-f),
         }
     }
 
@@ -57,10 +48,10 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                     p!(self, rhs);
                     todo!()
                 }
-                VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+                VdBsqLitNumTerm::Frac128(_) => todo!(),
             },
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 
@@ -72,60 +63,62 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                     None => todo!(),
                 },
                 VdBsqLitNumTerm::BigInt(i) => todo!(),
-                VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+                VdBsqLitNumTerm::Frac128(_) => todo!(),
             },
             VdBsqLitNumTerm::BigInt(i) => match rhs {
                 VdBsqLitNumTerm::Int128(_) => todo!(),
                 VdBsqLitNumTerm::BigInt(i1) => *self = i.sub(i1, db),
-                VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+                VdBsqLitNumTerm::Frac128(_) => todo!(),
             },
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 
-    pub fn mul(self, rhs: Self, db: &FloaterDb) -> Self {
+    pub fn mul(self, rhs: Self, db: &'sess FloaterDb) -> Self {
         match rhs {
             VdBsqLitNumTerm::Int128(rhs) => self.mul128(rhs, db),
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 
-    pub fn mul128(self, rhs: i128, db: &FloaterDb) -> Self {
+    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> Self {
         match self {
             VdBsqLitNumTerm::Int128(i) => match i.checked_mul(rhs) {
                 Some(product) => VdBsqLitNumTerm::Int128(product),
                 None => todo!(),
             },
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 
-    pub fn mul_assign(&mut self, rhs: Self, db: &FloaterDb) {
-        match self {
+    pub fn mul_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
+        match *self {
+            VdBsqLitNumTerm::ZERO => (),
+            VdBsqLitNumTerm::ONE => *self = rhs,
             VdBsqLitNumTerm::Int128(slf) => match rhs {
                 VdBsqLitNumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
                     Some(product) => *self = VdBsqLitNumTerm::Int128(product),
                     None => todo!(),
                 },
                 VdBsqLitNumTerm::BigInt(i) => todo!(),
-                VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+                VdBsqLitNumTerm::Frac128(f) => todo!(),
             },
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(f) => *self = f.mul_litnum(rhs, db),
         }
     }
 
     pub fn div_assign(&mut self, rhs: Self, db: &FloaterDb) {
-        match self {
+        match *self {
             VdBsqLitNumTerm::Int128(slf) => match rhs {
-                VdBsqLitNumTerm::Int128(rhs) => todo!(),
+                VdBsqLitNumTerm::Int128(rhs) => *self = VdBsqFrac128::new128(slf, rhs),
                 VdBsqLitNumTerm::BigInt(i) => todo!(),
-                VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+                VdBsqLitNumTerm::Frac128(_) => todo!(),
             },
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 
@@ -148,7 +141,7 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                 }
             }
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 }
@@ -208,7 +201,7 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                     VdPrecedence::ADD_SUB
                 }
             }
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 
@@ -216,7 +209,7 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
         match self {
             VdBsqLitNumTerm::Int128(i) => write!(f, "{}", i),
             VdBsqLitNumTerm::BigInt(i) => i.show_fmt(f),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 }
@@ -233,7 +226,7 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                 VdBsqNumRelationshipPropTermKind::Ge => i >= 0,
             },
             VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Rat128(_, _) => todo!(),
+            VdBsqLitNumTerm::Frac128(_) => todo!(),
         }
     }
 }

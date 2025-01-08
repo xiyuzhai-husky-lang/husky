@@ -4,7 +4,7 @@ use crate::term::{
         VdBsqExponentialParts, VdBsqExponentialPowers, VdBsqExponentialPowersRef,
         VdBsqNonProductNumTerm, VdBsqNonSumInumTerm,
     },
-    lit::VdBsqLitNumTerm,
+    litnum::VdBsqLitNumTerm,
 };
 use itertools::Itertools;
 use miracle::error::MiracleAltMaybeResult;

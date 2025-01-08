@@ -1,10 +1,10 @@
 pub mod builder;
 pub mod inum;
-pub mod lit;
+pub mod litnum;
 pub mod num;
 pub mod prop;
 
-use self::{inum::*, lit::*, num::*, prop::*};
+use self::{inum::*, litnum::*, num::*, prop::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::{VdMirExprFld, VdMirExprFldData},
