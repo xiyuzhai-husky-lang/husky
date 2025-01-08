@@ -58,10 +58,10 @@ fn multiply_with_expanding<'db, 'sess>(
         return None;
     }
     debug_assert!(exponent > 0);
+    let VdBsqNonProductNumTerm::SumInum(sum) = base else {
+        return None;
+    };
     let factor_expansion = if exponent == 1 {
-        let VdBsqNonProductNumTerm::SumInum(sum) = base else {
-            return None;
-        };
         sum.nonzero_constant_term()
             .map(|rnum| (rnum, vec![]))
             .into_iter()
@@ -80,9 +80,6 @@ fn multiply_with_expanding<'db, 'sess>(
     } else {
         use combinatorics::try_multinomial_expansion;
 
-        let VdBsqNonProductNumTerm::SumInum(sum) = base else {
-            return None;
-        };
         match sum.nonzero_constant_term() {
             Some(_) => {
                 let n_summands_in_factor = sum.monomials().len() + 1;
