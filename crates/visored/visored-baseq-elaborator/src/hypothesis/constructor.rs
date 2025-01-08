@@ -68,3 +68,13 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
         hypothesis_idx
     }
 }
+
+impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
+    pub fn enter_block(&mut self) {
+        self.stack.enter_block();
+    }
+
+    pub fn exit_block(&mut self) {
+        self.stack.exit_block();
+    }
+}

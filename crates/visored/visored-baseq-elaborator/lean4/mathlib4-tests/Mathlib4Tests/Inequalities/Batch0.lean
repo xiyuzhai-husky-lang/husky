@@ -32,19 +32,19 @@ end Example1
 
 namespace Example2
 def h := by
-  have h1 : 1 + 1 = 2 := by term_equivalent
+  have h1 : 1 + 1 = 2 := by term_trivial
   exact ()
 end Example2
 
 namespace Example3
 def h := by
-  have h1 : 1 * 1 = 1 := by term_equivalent
+  have h1 : 1 * 1 = 1 := by term_trivial
   exact ()
 end Example3
 
 namespace Example4
 def h := by
-  have h1 : 1 * 1 = 1 := by term_equivalent
+  have h1 : 1 * 1 = 1 := by term_trivial
   exact ()
 end Example4
 
@@ -56,31 +56,31 @@ end Example5
 
 namespace Example6
 def h := by
-  have h1 : 0 < 1 := by term_equivalent
+  have h1 : 0 < 1 := by term_trivial
   exact ()
 end Example6
 
 namespace Example7
 def h := by
-  have h1 : 0 ≠ 1 := by term_equivalent
+  have h1 : 0 ≠ 1 := by term_trivial
   exact ()
 end Example7
 
 namespace Example8
 def h(x : ℝ) := by
-  have h1 : x = x := by term_equivalent
+  have h1 : x = x := by term_trivial
   exact ()
 end Example8
 
 namespace Example9
 def h(x : ℝ) := by
-  have h1 : x - x = (0 : ℝ) := by term_equivalent
+  have h1 : x - x = (0 : ℝ) := by term_trivial
   exact ()
 end Example9
 
 namespace Example10
 def h(x : ℝ) := by
-  have h1 : x + x = (2 : ℝ) * x := by term_equivalent
+  have h1 : x + x = (2 : ℝ) * x := by term_trivial
   exact ()
 end Example10
 
@@ -206,7 +206,7 @@ end Example30
 
 namespace Example31
 def h := by
-  have h1 : 1000340282366920938463463374607431768211456 = 1000340282366920938463463374607431768211456 := by term_equivalent
+  have h1 : 1000340282366920938463463374607431768211456 = 1000340282366920938463463374607431768211456 := by term_trivial
   exact ()
 end Example31
 

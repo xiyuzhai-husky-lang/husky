@@ -25,7 +25,7 @@ use visored_mir_expr::{
         VdMirHypothesisIdx,
     },
     region::VdMirExprRegionDataRef,
-    stmt::{VdMirStmtData, VdMirStmtIdx},
+    stmt::{block::VdMirBlockKind, VdMirStmtData, VdMirStmtIdx},
 };
 use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_signature::{
@@ -113,6 +113,24 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 'sess> {
     type HypothesisIdx = VdBsqHypothesisIdx<'sess>;
     type Contradiction = VdBsqHypothesisContradiction<'sess>;
+
+    fn enter_block(&mut self, kind: VdMirBlockKind) {
+        match kind {
+            VdMirBlockKind::Paragraph | VdMirBlockKind::Sentence => (),
+            VdMirBlockKind::Environment | VdMirBlockKind::Division => {
+                self.hypothesis_constructor.enter_block()
+            }
+        }
+    }
+
+    fn exit_block(&mut self, kind: VdMirBlockKind) {
+        match kind {
+            VdMirBlockKind::Paragraph | VdMirBlockKind::Sentence => (),
+            VdMirBlockKind::Environment | VdMirBlockKind::Division => {
+                self.hypothesis_constructor.exit_block()
+            }
+        }
+    }
 
     fn elaborate_let_assigned_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {
         Ok(())

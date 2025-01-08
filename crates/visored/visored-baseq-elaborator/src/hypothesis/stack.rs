@@ -24,6 +24,7 @@ use rustc_hash::FxHashMap;
 /// at the expected position in the stack. This ensures we only return valid, "live" hypotheses.
 pub struct VdBsqHypothesisStack<'sess> {
     active_hypotheses: Vec<VdBsqHypothesisIdx<'sess>>,
+    block_starts: Vec<usize>,
     expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBsqHypothesisRecord<'sess>>,
     term_to_hypothesis_map: FxHashMap<VdBsqTerm<'sess>, VdBsqHypothesisRecord<'sess>>,
 }
@@ -37,7 +38,8 @@ pub struct VdBsqHypothesisRecord<'sess> {
 impl<'sess> VdBsqHypothesisStack<'sess> {
     pub(super) fn new() -> Self {
         Self {
-            active_hypotheses: Vec::new(),
+            active_hypotheses: vec![],
+            block_starts: vec![],
             expr_to_hypothesis_map: FxHashMap::default(),
             term_to_hypothesis_map: FxHashMap::default(),
         }
@@ -106,5 +108,14 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
     pub fn rollback(&mut self, len: usize) {
         debug_assert!(len <= self.len());
         self.active_hypotheses.truncate(len);
+    }
+
+    pub fn enter_block(&mut self) {
+        self.block_starts.push(self.active_hypotheses.len());
+    }
+
+    pub fn exit_block(&mut self) {
+        let block_start = self.block_starts.pop().unwrap();
+        self.active_hypotheses.truncate(block_start);
     }
 }

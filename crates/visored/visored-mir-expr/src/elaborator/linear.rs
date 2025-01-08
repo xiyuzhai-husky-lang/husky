@@ -7,6 +7,7 @@ use hypothesis::{
 };
 use smallvec::SmallVec;
 use smallvec::ToSmallVec;
+use stmt::block::{VdMirBlockKind, VdMirBlockMeta};
 use visored_mir_opr::{
     opr::{binary::VdMirBaseBinaryOpr, prefix::VdMirBasePrefixOpr},
     separator::VdMirBaseSeparator,
@@ -21,21 +22,20 @@ where
     inner: Inner,
 }
 
-pub trait IsVdMirSequentialElaboratorInner {
+pub trait IsVdMirSequentialElaboratorInner: Sized {
     type HypothesisIdx: std::fmt::Debug + Eq;
     type Contradiction: std::fmt::Debug;
 
-    fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), Self::Contradiction>;
+    fn enter_block(&mut self, kind: VdMirBlockKind);
+    fn exit_block(&mut self, kind: VdMirBlockKind);
 
+    fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), Self::Contradiction>;
     fn elaborate_assume_stmt(
         &mut self,
         prop: VdMirExprIdx,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-
     fn elaborate_let_assigned_stmt(&mut self) -> Result<(), Self::Contradiction>;
-
     fn elaborate_goal_stmt(&mut self) -> Result<(), Self::Contradiction>;
-
     fn elaborate_have_stmt(
         &mut self,
         stmt: VdMirStmtIdx,
@@ -43,9 +43,7 @@ pub trait IsVdMirSequentialElaboratorInner {
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-
     fn elaborate_show_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-
     fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
     fn elaborate_field_div_expr(
@@ -53,20 +51,17 @@ pub trait IsVdMirSequentialElaboratorInner {
         divisor: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-
     fn elaborate_folding_separated_list_expr(
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
     );
-
     fn elaborate_chaining_separated_list_expr(
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
         joined_signature: Option<VdBaseSeparatorSignature>,
     );
-
     fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef);
 
     fn transcribe_explicit_hypothesis(
@@ -80,6 +75,10 @@ pub trait IsVdMirSequentialElaboratorInner {
 impl IsVdMirSequentialElaboratorInner for () {
     type HypothesisIdx = ();
     type Contradiction = ();
+
+    fn enter_block(&mut self, kind: VdMirBlockKind) {}
+
+    fn exit_block(&mut self, kind: VdMirBlockKind) {}
 
     fn elaborate_let_assigned_stmt(&mut self) -> Result<(), ()> {
         Ok(())
@@ -214,8 +213,13 @@ where
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) {
         match *hypothesis_constructor.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block { stmts, .. } => {
-                self.elaborate_stmts(stmts, hypothesis_constructor)
+            VdMirStmtData::Block {
+                stmts, ref meta, ..
+            } => {
+                let kind = meta.kind();
+                self.inner.enter_block(kind);
+                self.elaborate_stmts(stmts, hypothesis_constructor);
+                self.inner.exit_block(kind);
             }
             VdMirStmtData::LetPlaceholder { .. } => {
                 self.inner
