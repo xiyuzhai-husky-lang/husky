@@ -1,10 +1,10 @@
-pub mod cache;
-pub mod caches;
 pub mod construction;
 pub mod constructor;
 pub mod contradiction;
 pub mod region;
 pub mod stack;
+pub mod stash;
+pub mod stashes;
 
 use self::construction::VdBsqHypothesisConstruction;
 use crate::{elaborator::VdBsqElaboratorInner, expr::VdMirExprFld};
