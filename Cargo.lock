@@ -13475,6 +13475,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-baseq-elaborator-macros"
+version = "0.1.0"
+dependencies = [
+ "quote",
+ "syn 2.0.87",
+]
+
+[[package]]
 name = "visored-cli"
 version = "0.1.0"
 dependencies = [
