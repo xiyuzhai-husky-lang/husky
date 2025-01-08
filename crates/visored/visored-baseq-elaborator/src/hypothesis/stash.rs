@@ -3,7 +3,7 @@
 //! Stashes need external sources to provide up-to-update values.
 pub mod shared;
 pub mod unique;
-pub mod update;
+pub mod upgrade;
 
 pub trait IsVdBsqHypothesisStashScheme {
     type Key<'sess>;

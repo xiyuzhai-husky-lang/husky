@@ -7,21 +7,21 @@ use std::marker::PhantomData;
 
 pub trait IsVdBsqHypothesisUpdateStashScheme: IsVdBsqHypothesisStashScheme {}
 
-pub struct VdBsqHypothesisUpdateStash<'sess, Scheme>
+pub struct VdBsqHypothesisUpgradeStash<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
-    map: FxHashMap<Scheme::Key<'sess>, VdBsqHypothesisUpdateStashEntry<'sess, Scheme>>,
+    map: FxHashMap<Scheme::Key<'sess>, VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>>,
 }
 
-pub struct VdBsqHypothesisUpdateStashEntry<'sess, Scheme>
+pub struct VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
     values: Vec<(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>)>,
 }
 
-impl<'sess, Scheme> Default for VdBsqHypothesisUpdateStash<'sess, Scheme>
+impl<'sess, Scheme> Default for VdBsqHypothesisUpgradeStash<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
@@ -32,7 +32,7 @@ where
     }
 }
 
-impl<'sess, Scheme> VdBsqHypothesisUpdateStashEntry<'sess, Scheme>
+impl<'sess, Scheme> VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
@@ -49,7 +49,7 @@ where
     }
 }
 
-impl<'sess, Scheme> VdBsqHypothesisUpdateStash<'sess, Scheme>
+impl<'sess, Scheme> VdBsqHypothesisUpgradeStash<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
