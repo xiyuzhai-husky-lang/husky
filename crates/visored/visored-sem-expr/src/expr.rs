@@ -160,6 +160,10 @@ impl VdSemExprEntry {
     pub fn ty(&self) -> VdType {
         self.ty
     }
+
+    pub fn expected_ty(&self) -> VdType {
+        *self.expected_ty
+    }
 }
 
 impl VdSemExprEntry {

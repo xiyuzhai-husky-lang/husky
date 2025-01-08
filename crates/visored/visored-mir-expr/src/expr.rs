@@ -49,6 +49,7 @@ pub enum VdMirExprData {
 pub struct VdMirExprEntry {
     data: VdMirExprData,
     ty: VdType,
+    expected_ty: VdType,
 }
 
 pub type VdMirExprArena = Arena<VdMirExprEntry>;
@@ -105,7 +106,12 @@ impl<'db> VdMirExprBuilder<'db> {
     fn build_expr_entry(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprEntry {
         let data = self.build_expr_data(sem_expr_idx);
         let ty = self.sem_expr_arena()[sem_expr_idx].ty();
-        VdMirExprEntry { data, ty }
+        let expected_ty = self.sem_expr_arena()[sem_expr_idx].expected_ty();
+        VdMirExprEntry {
+            data,
+            ty,
+            expected_ty,
+        }
     }
 
     fn build_expr_data(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprData {
