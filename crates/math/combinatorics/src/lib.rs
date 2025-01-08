@@ -40,7 +40,7 @@ fn try_binomial_coefficient_works() {
 /// For sum of `r` variables raised to the `n`th power (interpreting the signature as
 /// `multinomial_indices(n, r)`, i.e., n = exponent, r = number_of_variables),
 /// return the coefficients of its multinomial expansion along with their index-tuples.
-pub fn try_multinomial_expansion<N: IntTry>(
+pub fn try_multinomial_expansion_coefficients<N: IntTry>(
     number_of_summands: N,
     power: N,
     max_size: usize,
@@ -99,7 +99,7 @@ pub fn try_multinomial_expansion<N: IntTry>(
 fn try_multinomial_indices_works() {
     #[track_caller]
     fn t(n: u64, r: u64, expected: Vec<(u64, Vec<u64>)>) {
-        let mut actual = try_multinomial_expansion(n, r, 40).unwrap();
+        let mut actual = try_multinomial_expansion_coefficients(n, r, 40).unwrap();
         assert_eq!(actual, expected);
     }
 
@@ -181,7 +181,7 @@ fn try_multinomial_indices_works() {
 fn try_multinomial_indices_overflows() {
     #[track_caller]
     fn t(number_of_summands: u64, power: u64) {
-        assert!(try_multinomial_expansion(number_of_summands, power, 100).is_err());
+        assert!(try_multinomial_expansion_coefficients(number_of_summands, power, 100).is_err());
     }
 
     t(100, 100);

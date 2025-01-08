@@ -1,11 +1,12 @@
 use super::*;
 use crate::term::{
     inum::{
-        VdBsqExponentialParts, VdBsqExponentialPowers, VdBsqExponentialPowersRef,
-        VdBsqNonProductNumTerm, VdBsqNonSumInumTerm,
+        sum::VdBsqSumInumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
+        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm, VdBsqNonSumInumTerm,
     },
     litnum::VdBsqLitNumTerm,
 };
+use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
 use miracle::error::MiracleAltMaybeResult;
 
@@ -78,101 +79,65 @@ fn multiply_with_expanding<'db, 'sess>(
             }))
             .collect::<Vec<_>>()
     } else {
-        use combinatorics::try_multinomial_expansion;
+        let max_size =
+            product_expansion_limit / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
+        let has_constant_term = sum.nonzero_constant_term().is_some();
+        multinomial_expansion(sum, exponent, max_size, db, has_constant_term)?
+    };
+    multiply_aux(elaborator, expansion, &factor_expansion)
+}
 
-        match sum.nonzero_constant_term() {
-            Some(_) => {
-                let n_summands_in_factor = sum.monomials().len() + 1;
-                let max_size =
-                    product_expansion_limit / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
-                match try_multinomial_expansion(n_summands_in_factor as i128, exponent, max_size) {
-                    Ok(coefficients) => {
-                        let mut factor_expansion: Vec<(
-                            VdBsqLitNumTerm<'sess>,
-                            VdBsqExponentialParts<'sess>,
-                        )> = vec![];
-                        for (coeff, indices) in coefficients {
-                            let mut cumulative_coeff: VdBsqLitNumTerm = coeff.into();
-                            let mut exponential_parts: VdBsqExponentialParts<'sess> = vec![];
-                            for (i, index) in indices.into_iter().enumerate() {
-                                if index == 0 {
-                                    continue;
-                                }
-                                if i == 0 {
-                                    cumulative_coeff.mul_assign(
-                                        sum.constant_term().pow128(index, db).into(),
-                                        db,
-                                    )
-                                } else {
-                                    let (summand, coeff) = sum.monomials().data()[(i - 1) as usize];
-                                    cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
-                                    match summand {
-                                        VdBsqNonSumInumTerm::Atom(term) => {
-                                            let part = (term.into(), index.into());
-                                            exponential_parts.push(part);
-                                        }
-                                        VdBsqNonSumInumTerm::Product(base) => {
-                                            for &(base, exponent) in base.exponentials() {
-                                                let part = (
-                                                    base.into(),
-                                                    exponent.mul128(index, db).into(),
-                                                );
-                                                exponential_parts.push(part);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            factor_expansion.push((coeff.into(), exponential_parts));
-                        }
-                        factor_expansion
-                    }
-                    Err(_) => return None,
-                }
+fn multinomial_expansion<'db, 'sess>(
+    sum: VdBsqSumInumTerm<'sess>,
+    exponent: i128,
+    max_size: usize,
+    db: &'sess FloaterDb,
+    has_constant_term: bool,
+) -> Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>> {
+    use combinatorics::try_multinomial_expansion_coefficients;
+
+    let n_summands = if has_constant_term {
+        sum.monomials().len() + 1
+    } else {
+        sum.monomials().len()
+    };
+
+    let coefficients =
+        try_multinomial_expansion_coefficients(n_summands as i128, exponent, max_size)
+            .map_err(|_| ())
+            .ok()?;
+    let mut factor_expansion = Vec::new();
+
+    for (coeff, indices) in coefficients {
+        let mut cumulative_coeff: VdBsqLitNumTerm = coeff.into();
+        let mut exponential_parts = Vec::new();
+
+        for (i, index) in indices.into_iter().enumerate() {
+            if index == 0 {
+                continue;
             }
-            None => {
-                let n_summands_in_factor = sum.monomials().len();
-                let max_size =
-                    product_expansion_limit / expansion.as_ref().map(|exp| exp.len()).unwrap_or(1);
-                match try_multinomial_expansion(n_summands_in_factor as i128, exponent, max_size) {
-                    Ok(coefficients) => {
-                        let mut factor_expansion: Vec<(
-                            VdBsqLitNumTerm<'sess>,
-                            VdBsqExponentialParts<'sess>,
-                        )> = vec![];
-                        for (coeff, indices) in coefficients {
-                            let mut cumulative_coeff: VdBsqLitNumTerm = coeff.into();
-                            let mut exponential_parts: VdBsqExponentialParts<'sess> = vec![];
-                            for (i, index) in indices.into_iter().enumerate() {
-                                if index == 0 {
-                                    continue;
-                                }
-                                let (summand, coeff) = sum.monomials().data()[i];
-                                cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
-                                match summand {
-                                    VdBsqNonSumInumTerm::Atom(term) => {
-                                        let part = (term.into(), index.into());
-                                        exponential_parts.push(part);
-                                    }
-                                    VdBsqNonSumInumTerm::Product(base) => {
-                                        for &(base, exponent) in base.exponentials() {
-                                            let part =
-                                                (base.into(), exponent.mul128(index, db).into());
-                                            exponential_parts.push(part);
-                                        }
-                                    }
-                                }
-                            }
-                            factor_expansion.push((coeff.into(), exponential_parts));
-                        }
-                        factor_expansion
+            if has_constant_term && i == 0 {
+                cumulative_coeff.mul_assign(sum.constant_term().pow128(index, db).into(), db);
+                continue;
+            }
+            let monomial_idx = if has_constant_term { i - 1 } else { i };
+            let (summand, coeff) = sum.monomials().data()[monomial_idx];
+            cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
+            match summand {
+                VdBsqNonSumInumTerm::Atom(term) => {
+                    exponential_parts.push((term.into(), index.into()));
+                }
+                VdBsqNonSumInumTerm::Product(base) => {
+                    for &(base, exp) in base.exponentials() {
+                        exponential_parts.push((base.into(), exp.mul128(index, db).into()));
                     }
-                    Err(_) => return None,
                 }
             }
         }
-    };
-    multiply_aux(elaborator, expansion, &factor_expansion)
+        factor_expansion.push((coeff.into(), exponential_parts));
+    }
+
+    Some(factor_expansion)
 }
 
 fn multiply_aux<'db, 'sess>(
