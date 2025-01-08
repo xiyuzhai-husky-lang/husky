@@ -5,25 +5,25 @@ use crate::hypothesis::{
 use rustc_hash::FxHashMap;
 use std::marker::PhantomData;
 
-pub trait IsVdBsqHypothesisUpdateCacheScheme: IsVdBsqHypothesisCacheScheme {}
+pub trait IsVdBsqHypothesisUpdateStashScheme: IsVdBsqHypothesisStashScheme {}
 
-pub struct VdBsqHypothesisUpdateCache<'sess, Scheme>
+pub struct VdBsqHypothesisUpdateStash<'sess, Scheme>
 where
-    Scheme: IsVdBsqHypothesisUpdateCacheScheme,
+    Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
-    map: FxHashMap<Scheme::Key<'sess>, VdBsqHypothesisUpdateCacheEntry<'sess, Scheme>>,
+    map: FxHashMap<Scheme::Key<'sess>, VdBsqHypothesisUpdateStashEntry<'sess, Scheme>>,
 }
 
-pub struct VdBsqHypothesisUpdateCacheEntry<'sess, Scheme>
+pub struct VdBsqHypothesisUpdateStashEntry<'sess, Scheme>
 where
-    Scheme: IsVdBsqHypothesisUpdateCacheScheme,
+    Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
     values: Vec<(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>)>,
 }
 
-impl<'sess, Scheme> Default for VdBsqHypothesisUpdateCache<'sess, Scheme>
+impl<'sess, Scheme> Default for VdBsqHypothesisUpdateStash<'sess, Scheme>
 where
-    Scheme: IsVdBsqHypothesisUpdateCacheScheme,
+    Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
     fn default() -> Self {
         Self {
@@ -32,9 +32,9 @@ where
     }
 }
 
-impl<'sess, Scheme> VdBsqHypothesisUpdateCacheEntry<'sess, Scheme>
+impl<'sess, Scheme> VdBsqHypothesisUpdateStashEntry<'sess, Scheme>
 where
-    Scheme: IsVdBsqHypothesisUpdateCacheScheme,
+    Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
     fn clear_inactive_values(
         &mut self,
@@ -49,9 +49,9 @@ where
     }
 }
 
-impl<'sess, Scheme> VdBsqHypothesisUpdateCache<'sess, Scheme>
+impl<'sess, Scheme> VdBsqHypothesisUpdateStash<'sess, Scheme>
 where
-    Scheme: IsVdBsqHypothesisUpdateCacheScheme,
+    Scheme: IsVdBsqHypothesisUpdateStashScheme,
 {
     pub fn cache(
         &mut self,
