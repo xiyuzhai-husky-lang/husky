@@ -47,7 +47,7 @@ where
         let data = match *translation {
             VdItemPathTranslation::ItemPath(ln_item_path) => LnMirExprData::ItemPath(ln_item_path),
         };
-        let entry = LnMirExprEntry::new(data, todo!());
+        let entry = LnMirExprEntry::new(data, None);
         self.alloc_expr(entry)
     }
 }

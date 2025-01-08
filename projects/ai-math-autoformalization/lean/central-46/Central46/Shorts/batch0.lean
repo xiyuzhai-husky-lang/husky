@@ -10,13 +10,13 @@ end Example1
 
 namespace Example2
 def h(x : ℝ) := by
-  have h1 : x ^ 2 ≥ 0 := by obvious
+  have h1 : x ^ 2 ≥ (0 : ℝ) := by obvious
   exact ()
 end Example2
 
 namespace Example3
 def h(x : ℝ) := by
-  have h1 : x ^ 2 + 1 ≥ 2 * x := by obvious
+  have h1 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious
   exact ()
 end Example3
 
@@ -37,7 +37,7 @@ def h := by
     1 = 1 := by obvious
     _ < 2 := by obvious
   have h5 : 1.0 ≤ 1 := by calc
-    1.0 ≤ 1 := by obvious
+    1.0 ≤ (1 : ℚ) := by obvious
     _ ≤ 1 := by obvious
   exact ()
 end Example4

@@ -17,10 +17,15 @@ use visored_global_dispatch::dispatch::{
 };
 use visored_global_resolution::resolution::letter::VdLetterGlobalResolution;
 use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
+use visored_opr::opr::binary::VdBaseBinaryOpr;
 use visored_sem_expr::expr::{
-    binary::VdSemBinaryDispatch, frac::VdSemFracDispatch, letter::VdSemLetterDispatch,
-    prefix::VdSemPrefixDispatch, separated_list::VdSemSeparatedListFollowerDispatch,
-    sqrt::VdSemSqrtDispatch, VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
+    binary::{VdSemBinaryDispatch, VdSemBinaryOpr},
+    frac::VdSemFracDispatch,
+    letter::VdSemLetterDispatch,
+    prefix::VdSemPrefixDispatch,
+    separated_list::VdSemSeparatedListFollowerDispatch,
+    sqrt::VdSemSqrtDispatch,
+    VdSemExprData, VdSemExprIdx, VdSemExprIdxRange,
 };
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 use visored_term::{term::literal::VdLiteral, ty::VdType};
@@ -49,7 +54,7 @@ pub enum VdMirExprData {
 pub struct VdMirExprEntry {
     data: VdMirExprData,
     ty: VdType,
-    expected_ty: VdType,
+    expected_ty: Option<VdType>,
 }
 
 pub type VdMirExprArena = Arena<VdMirExprEntry>;
@@ -68,7 +73,7 @@ impl VdMirExprEntry {
         self.ty
     }
 
-    pub fn expected_ty(&self) -> VdType {
+    pub fn expected_ty(&self) -> Option<VdType> {
         self.expected_ty
     }
 }
@@ -118,27 +123,31 @@ impl<'db> VdMirExprBuilder<'db> {
         }
     }
 
-    fn build_expr_data(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprData {
-        match *self.sem_expr_arena()[sem_expr_idx].data() {
+    fn build_expr_data(&mut self, sem_expr: VdSemExprIdx) -> VdMirExprData {
+        match *self.sem_expr_arena()[sem_expr].data() {
             VdSemExprData::Literal { literal, .. } => VdMirExprData::Literal(literal),
             VdSemExprData::Binary {
                 lopd,
                 opr,
                 ropd,
                 dispatch,
-            } => VdMirExprData::Application {
-                function: match dispatch {
-                    VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
-                        VdBinaryOprGlobalDispatch::Normal {
-                            base_binary_opr,
-                            signature,
-                        } => VdMirFunc::NormalBaseBinaryOpr(signature),
+            } => {
+                match opr {
+                    VdSemBinaryOpr::Base(_, VdBaseBinaryOpr::Div) => todo!(),
+                    _ => (),
+                }
+                VdMirExprData::Application {
+                    function: match dispatch {
+                        VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
+                            VdBinaryOprGlobalDispatch::Normal {
+                                base_binary_opr,
+                                signature,
+                            } => VdMirFunc::NormalBaseBinaryOpr(signature),
+                        },
                     },
-                    // VdSemBinaryDispatch::IntAdd => VdMirApplicationFunction::IntAdd,
-                    // VdSemBinaryDispatch::TrivialEq => VdMirApplicationFunction::TrivialEq,
-                },
-                arguments: [lopd, ropd].to_vd_mir(self),
-            },
+                    arguments: [lopd, ropd].to_vd_mir(self),
+                }
+            }
             VdSemExprData::Prefix { opr, opd, dispatch } => match dispatch {
                 VdSemPrefixDispatch::Global(dispatch) => match dispatch {
                     VdPrefixOprGlobalDispatch::Base {

@@ -21,9 +21,13 @@ impl<'a> VdSemExprBuilder<'a> {
             .default_global_dispatch_table()
             .base_frac_default_dispatch(numerator.ty, denominator.ty)
         {
-            let numerator = self.alloc_expr(syn_numerator, numerator, dispatch.numerator_ty());
-            let denominator =
-                self.alloc_expr(syn_denominator, denominator, dispatch.denominator_ty());
+            let numerator =
+                self.alloc_expr(syn_numerator, numerator, Some(dispatch.numerator_ty()));
+            let denominator = self.alloc_expr(
+                syn_denominator,
+                denominator,
+                Some(dispatch.denominator_ty()),
+            );
             match dispatch {
                 VdFracGlobalDispatch::Div { signature } => (
                     VdSemExprData::Frac {

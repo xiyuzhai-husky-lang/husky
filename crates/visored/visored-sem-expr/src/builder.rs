@@ -254,9 +254,11 @@ impl<'db> VdSemExprBuilder<'db> {
         &mut self,
         syn_expr: VdSynExprIdx,
         mut entry: VdSemExprEntry,
-        expected_ty: VdType,
+        expected_ty: Option<VdType>,
     ) -> VdSemExprIdx {
-        entry.set_expected_ty(expected_ty);
+        if let Some(expected_ty) = expected_ty {
+            entry.set_expected_ty(expected_ty);
+        }
         let expr = self.expr_arena.alloc_one(entry);
         self.syn_to_sem_expr_map.insert(syn_expr, expr);
         expr

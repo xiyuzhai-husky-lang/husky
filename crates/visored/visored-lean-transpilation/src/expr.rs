@@ -50,11 +50,14 @@ where
     pub(crate) fn build_expr_entry(&mut self, expr: VdMirExprIdx) -> LnMirExprEntry {
         let data = self.build_expr_data(expr);
         let entry = &self.expr_arena()[expr];
-        let ty = entry.expected_ty();
-        let expected_ty = entry.expected_ty();
-        let ty_ascription = if ty != expected_ty {
-            match expected_ty.to_lean(self) {
-                VdTypeLeanTranspilation::Type(expected_ty) => Some(expected_ty),
+        let ty = entry.ty();
+        let ty_ascription = if let Some(expected_ty) = entry.expected_ty() {
+            if ty != expected_ty {
+                match expected_ty.to_lean(self) {
+                    VdTypeLeanTranspilation::Type(expected_ty) => Some(expected_ty),
+                }
+            } else {
+                None
             }
         } else {
             None

@@ -22,7 +22,8 @@ impl<'a> VdSemExprBuilder<'a> {
             match dispatch {
                 VdSqrtGlobalDispatch::Base { signature } => {
                     let expr_ty = signature.expr_ty();
-                    let radicand = self.alloc_expr(syn_radicand, radicand, signature.radicand_ty());
+                    let radicand =
+                        self.alloc_expr(syn_radicand, radicand, Some(signature.radicand_ty()));
                     let expr_data = VdSemExprData::Sqrt {
                         command_token_idx,
                         radicand,

@@ -51,7 +51,7 @@ fn basic_visored_expr_to_lean_works() {
             application
             └─ literal: `1`
         "#]],
-        &expect!["-1"],
+        &expect!["-(1 : ℤ)"],
     );
     t(
         models,
@@ -91,7 +91,7 @@ fn basic_visored_expr_to_lean_works() {
             ├─ literal: `1`
             └─ literal: `2`
         "#]],
-        &expect!["1 / 2"],
+        &expect!["(1 : ℚ) / (2 : ℚ)"],
     );
     t(
         models,
@@ -101,7 +101,7 @@ fn basic_visored_expr_to_lean_works() {
             ├─ item path: `√`
             └─ literal: `2`
         "#]],
-        &expect!["√ 2"],
+        &expect!["√ (2 : ℝ)"],
     );
 }
 

@@ -107,7 +107,7 @@ impl<'db> VdSemExprBuilder<'db> {
         let leader_expected_ty = followers[0]
             .dispatch
             .left_item_ty(|| VdType::new(self.infer_expr_term(followers[0].expr)));
-        let leader = self.alloc_expr(items.first().unwrap(), leader, leader_expected_ty);
+        let leader = self.alloc_expr(items.first().unwrap(), leader, Some(leader_expected_ty));
         let ty = followers.last().unwrap().dispatch.expr_ty();
         let data = match separator_class {
             VdSeparatorClass::Relation => {
@@ -200,8 +200,11 @@ impl<'db> VdSemExprBuilder<'db> {
             let dispatch =
                 self.calc_separated_list_dispatch_step(prev_item_ty, separator, expr_entry.ty());
             prev_item_ty = expr_entry.ty();
-            let expr =
-                self.alloc_expr(syn_expr, expr_entry, dispatch.right_item_ty(self.ty_menu()));
+            let expr = self.alloc_expr(
+                syn_expr,
+                expr_entry,
+                Some(dispatch.right_item_ty(self.ty_menu())),
+            );
             followers.push(VdSemSeparatedListFollower {
                 separator,
                 expr,

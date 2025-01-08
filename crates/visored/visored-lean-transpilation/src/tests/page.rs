@@ -170,7 +170,7 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ └─ literal: `2`
               │   │ └─ literal: `0`
               │   └─ tactics
-              │     └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: 8, construction: 1 }`
+              │     └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: 10, construction: 1 }`
               ├─ group: `sentence`
               │ └─ def: `h2`
               │   ├─ application
@@ -185,7 +185,7 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ └─ literal: `1`
               │   │ └─ literal: `0`
               │   └─ tactics
-              │     └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: 27, construction: 16 }`
+              │     └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: 34, construction: 20 }`
               └─ group: `sentence`
                 └─ def: `h4`
                   ├─ application
@@ -198,7 +198,7 @@ fn basic_visored_clause_to_lean_works() {
                   │   ├─ literal: `2`
                   │   └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: 48, construction: 39 }`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: 60, construction: 49 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.
@@ -207,17 +207,17 @@ fn basic_visored_clause_to_lean_works() {
 
             -- Then ${(x-1)}^2 \ge 0$.
 
-            def h : (x - 1) ^ 2 ≥ 0 := by
-              have h1 : (x - 1) ^ 2 ≥ 0 := by obvious
+            def h : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by
+              have h1 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by obvious
 
             -- Then $x^2-2x+1 \ge 0$.
 
-            def h2 : x ^ 2 - 2 * x + 1 ≥ 0 := by
-              have h3 : x ^ 2 - 2 * x + 1 ≥ 0 := by obvious
+            def h2 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by
+              have h3 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by obvious
 
             -- Then $x^2 + 1\ge 2x$.
 
-            def h4 : x ^ 2 + 1 ≥ 2 * x := by
-              have h5 : x ^ 2 + 1 ≥ 2 * x := by obvious"#]],
+            def h4 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by
+              have h5 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious"#]],
     );
 }

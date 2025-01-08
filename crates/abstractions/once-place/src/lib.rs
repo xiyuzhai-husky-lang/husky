@@ -8,6 +8,12 @@ impl<T> Default for OncePlace<T> {
 }
 
 impl<T> OncePlace<T> {
+    pub fn get(&self) -> Option<&T> {
+        self.0.as_ref()
+    }
+}
+
+impl<T> OncePlace<T> {
     pub fn set(&mut self, value: T) {
         debug_assert!(self.0.is_none());
         self.0 = Some(value);

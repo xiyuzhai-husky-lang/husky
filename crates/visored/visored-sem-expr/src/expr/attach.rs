@@ -46,9 +46,9 @@ impl<'a> VdSemExprBuilder<'a> {
             match dispatch {
                 VdAttachGlobalDispatch::Normal { signature } => match signature {
                     VdAttachSignature::Power(signature) => {
-                        let base = self.alloc_expr(syn_base, base, signature.base_ty());
+                        let base = self.alloc_expr(syn_base, base, Some(signature.base_ty()));
                         let exponent =
-                            self.alloc_expr(syn_exponent, exponent, signature.exponent_ty());
+                            self.alloc_expr(syn_exponent, exponent, Some(signature.exponent_ty()));
                         return Some((
                             VdSemExprData::Attach {
                                 base,

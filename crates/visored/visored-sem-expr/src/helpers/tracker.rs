@@ -268,8 +268,7 @@ impl ToVdSem<VdSemExprIdx> for VdSynFormula {
             return idx;
         }
         let entry = builder.build_expr_entry(self.expr);
-        let expected_ty = builder.ty_menu().prop;
-        builder.alloc_expr(self.expr, entry, expected_ty)
+        builder.alloc_expr(self.expr, entry, None)
     }
 }
 

@@ -161,14 +161,17 @@ impl VdSemExprEntry {
         self.ty
     }
 
-    pub fn expected_ty(&self) -> VdType {
-        *self.expected_ty
+    pub fn expected_ty(&self) -> Option<VdType> {
+        self.expected_ty.get().copied()
     }
 }
 
 impl VdSemExprEntry {
-    pub(crate) fn set_expected_ty(&mut self, ty: VdType) {
-        self.expected_ty.set(ty);
+    pub(crate) fn set_expected_ty(&mut self, expected_ty: VdType) {
+        if format!("{:?}", expected_ty) == "Prop" && format!("{:?}", self.ty()) == "ℚ" {
+            todo!()
+        }
+        self.expected_ty.set(expected_ty);
     }
 
     pub(crate) fn set_term(&mut self, term: VdTerm) {
@@ -196,7 +199,7 @@ impl ToVdSem<VdSemExprIdx> for (VdSynExprIdx, VdType) {
             return idx;
         }
         let entry = builder.build_expr_entry(slf);
-        builder.alloc_expr(slf, entry, expected_ty)
+        builder.alloc_expr(slf, entry, Some(expected_ty))
     }
 }
 
@@ -237,7 +240,7 @@ impl<'a> VdSemExprBuilder<'a> {
                 // this is much simpler than the delimited case because the delimiter has no semantic meaning
                 let item = self.build_expr_entry(syn_item);
                 let ty = item.ty();
-                let item = self.alloc_expr(syn_item, item, ty);
+                let item = self.alloc_expr(syn_item, item, None);
                 (
                     VdSemExprData::LxDelimited {
                         left_delimiter_token_idx,
