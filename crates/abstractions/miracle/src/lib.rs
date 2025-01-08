@@ -3,6 +3,7 @@
 
 pub mod config;
 pub mod error;
+pub mod foldm;
 pub mod metric;
 pub mod stage;
 pub mod state;
@@ -85,15 +86,30 @@ pub trait HasMiracleFull: HasMiracle {
         fs: &[&dyn Fn(&mut Self) -> MiracleAltMaybeResult<R>],
     ) -> MiracleAltMaybeResult<R>;
 
+    fn exec_batch2<'a, R, F>(&'a mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
+    where
+        F: Fn(&'a mut Self) -> MiracleAltMaybeResult<R>;
+
     fn split<R>(
         &mut self,
         number_of_values: u64,
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
+
+    fn foldm<S, I, R>(
+        &mut self,
+        init: &S,
+        iter: I,
+        f: &[&dyn Fn(&mut Self, &S, &I::Item) -> S],
+        g: &impl Fn(&mut Self, &S) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>
+    where
+        I: IntoIterator,
+        I::IntoIter: Clone;
 }
 
 #[sealed]
-impl<T: HasMiracle> HasMiracleFull for T {
+impl<Engine: HasMiracle> HasMiracleFull for Engine {
     fn run_stages<R>(
         &mut self,
         stages: &[MiracleStage],
@@ -116,6 +132,14 @@ impl<T: HasMiracle> HasMiracleFull for T {
         AltNothing
     }
 
+    fn exec_batch2<'a, R, F>(&'a mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
+    where
+        F: Fn(&'a mut Self) -> MiracleAltMaybeResult<R>,
+    {
+        todo!()
+        // self.exec_batch(&fs.iter().map(|f| &f).collect::<Vec<_>>())
+    }
+
     fn split<R>(
         &mut self,
         number_of_values: u64,
@@ -125,6 +149,20 @@ impl<T: HasMiracle> HasMiracleFull for T {
             crate::state::calc_with_new_value_appended(self, i, |g| f(g, i))?;
         }
         AltNothing
+    }
+
+    fn foldm<S, I, R>(
+        &mut self,
+        init: &S,
+        iter: I,
+        f: &[&dyn Fn(&mut Self, &S, &I::Item) -> S],
+        g: &impl Fn(&mut Self, &S) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>
+    where
+        I: IntoIterator,
+        I::IntoIter: Clone,
+    {
+        crate::foldm::foldm_aux(self, init, iter.into_iter(), f, g)
     }
 }
 
