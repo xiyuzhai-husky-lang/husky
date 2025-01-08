@@ -15,6 +15,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &mut self,
         prop: VdMirExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
+        self.with_call(VdBsqStrategyCall::Obvious, |slf| slf.obvious_inner(prop))
+    }
+
+    fn obvious_inner(
+        &mut self,
+        prop: VdMirExprFld<'sess>,
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         for tactic in self.session().obvious_tactics() {
             match tactic.run(prop, self)? {
                 AltSome(hypothesis_idx) => return Ok(hypothesis_idx),

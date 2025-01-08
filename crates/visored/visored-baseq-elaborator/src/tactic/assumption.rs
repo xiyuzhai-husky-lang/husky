@@ -5,8 +5,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &mut self,
         prop: VdMirExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
-        self.with_call(VdBsqTacticCall::Assumption, |slf| {
-            Ok(slf.hypothesis_constructor.assumption(prop).into())
-        })
+        Ok(self.hypothesis_constructor.assumption(prop).into())
     }
 }

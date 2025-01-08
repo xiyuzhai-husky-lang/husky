@@ -1,5 +1,11 @@
-#[derive(Debug, PartialEq, Eq)]
-pub enum VdBsqManeuver {}
+pub mod diff;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VdBsqManeuverCall {}
+pub enum VdBsqManeuver {
+    Diff,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum VdBsqManeuverCall {
+    Diff,
+}

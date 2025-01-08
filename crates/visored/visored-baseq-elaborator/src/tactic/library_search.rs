@@ -28,6 +28,15 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &mut self,
         prop: VdMirExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+        self.with_call(VdBsqTacticCall::LibrarySearch, |slf| {
+            slf.library_search_inner(prop)
+        })
+    }
+
+    fn library_search_inner(
+        &mut self,
+        prop: VdMirExprFld<'sess>,
+    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         try_alt!(self.square_nonnegative(prop));
         Ok(AltNone)
     }

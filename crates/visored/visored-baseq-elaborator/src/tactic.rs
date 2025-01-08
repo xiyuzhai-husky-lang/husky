@@ -19,10 +19,9 @@ pub enum VdBsqTactic {
     CommRing,
 }
 
+// Trivial tactics are not tracked
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdBsqTacticCall {
-    Assumption,
-    TermTrivial,
     LibrarySearch,
     CommRing,
 }

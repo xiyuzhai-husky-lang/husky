@@ -27,6 +27,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &mut self,
         prop: VdMirExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+        self.with_call(VdBsqTacticCall::CommRing, |slf| slf.comm_ring_inner(prop))
+    }
+
+    fn comm_ring_inner(
+        &mut self,
+        prop: VdMirExprFld<'sess>,
+    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         let VdBsqTerm::Prop(VdBsqPropTerm::NumRelationship(num_relationship)) = prop.term() else {
             return Ok(AltNone);
         };
