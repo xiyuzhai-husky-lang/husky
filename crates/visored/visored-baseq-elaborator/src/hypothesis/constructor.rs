@@ -64,7 +64,7 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
         let hypothesis_idx = self
             .arena
             .alloc_one(VdBsqHypothesisEntry { expr, construction });
-        self.stack.append(hypothesis_idx, &self.arena);
+        self.stack.push(hypothesis_idx, &self.arena[hypothesis_idx]);
         hypothesis_idx
     }
 }

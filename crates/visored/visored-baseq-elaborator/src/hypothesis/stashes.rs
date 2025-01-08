@@ -1,3 +1,4 @@
+use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
 use std::marker::PhantomData;
 
 pub struct VdBsqHypothesisStashes<'sess> {
@@ -9,5 +10,15 @@ impl<'sess> VdBsqHypothesisStashes<'sess> {
         Self {
             phantom: PhantomData,
         }
+    }
+}
+
+impl<'sess> VdBsqHypothesisStashes<'sess> {
+    pub(super) fn add_hypothesis(
+        &mut self,
+        record: VdBsqHypothesisStackRecord<'sess>,
+        entry: &VdBsqHypothesisEntry<'sess>,
+    ) {
+        todo!()
     }
 }

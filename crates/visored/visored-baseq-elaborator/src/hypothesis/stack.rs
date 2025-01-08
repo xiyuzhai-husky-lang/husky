@@ -74,37 +74,46 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
 }
 
 impl<'sess> VdBsqHypothesisStack<'sess> {
-    pub fn append(
+    pub fn push(
         &mut self,
         hypothesis_idx: VdBsqHypothesisIdx<'sess>,
-        arena: &VdBsqHypothesisArena<'sess>,
+        entry: &VdBsqHypothesisEntry<'sess>,
     ) {
         let stack_idx = self.active_hypotheses.len();
         self.active_hypotheses.push(hypothesis_idx);
-        let expr = arena[hypothesis_idx].expr();
-        let term = expr.term();
+        let record = VdBsqHypothesisStackRecord {
+            stack_idx,
+            hypothesis_idx,
+        };
+        self.add_hypothesis_to_expr_map(record, entry);
+        self.add_hypothesis_to_term_map(record, entry);
+        self.stashes.add_hypothesis(record, entry);
+    }
+
+    fn add_hypothesis_to_expr_map(
+        &mut self,
+        record: VdBsqHypothesisStackRecord<'sess>,
+        entry: &VdBsqHypothesisEntry<'sess>,
+    ) {
+        let expr = entry.expr();
         // never recreate an active hypothesis with the exact same expression
         debug_assert!(
             self.get_active_hypothesis_with_expr(expr).is_none(),
             "hypothesis already exists, expr: {:?}",
             expr
         );
-        self.expr_to_hypothesis_map.insert(
-            expr,
-            VdBsqHypothesisStackRecord {
-                stack_idx,
-                hypothesis_idx,
-            },
-        );
+        self.expr_to_hypothesis_map.insert(expr, record);
+    }
+
+    fn add_hypothesis_to_term_map(
+        &mut self,
+        record: VdBsqHypothesisStackRecord<'sess>,
+        entry: &VdBsqHypothesisEntry<'sess>,
+    ) {
+        let term = entry.expr().term();
         // only add the hypothesis to the term map if the term is not already present
         if self.get_active_hypothesis_with_term(term).is_none() {
-            self.term_to_hypothesis_map.insert(
-                term,
-                VdBsqHypothesisStackRecord {
-                    stack_idx,
-                    hypothesis_idx,
-                },
-            );
+            self.term_to_hypothesis_map.insert(term, record);
         }
     }
 
