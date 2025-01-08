@@ -86,9 +86,10 @@ pub trait HasMiracleFull: HasMiracle {
         fs: &[&dyn Fn(&mut Self) -> MiracleAltMaybeResult<R>],
     ) -> MiracleAltMaybeResult<R>;
 
-    fn exec_batch2<R, F>(&mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
-    where
-        F: Fn(&mut Self) -> MiracleAltMaybeResult<R>;
+    fn exec_batch2<R>(
+        &mut self,
+        fs: &[impl Fn(&mut Self) -> MiracleAltMaybeResult<R>],
+    ) -> MiracleAltMaybeResult<R>;
 
     fn split<R>(
         &mut self,
@@ -133,10 +134,10 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
-    fn exec_batch2<R, F>(&mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
-    where
-        F: Fn(&mut Self) -> MiracleAltMaybeResult<R>,
-    {
+    fn exec_batch2<R>(
+        &mut self,
+        fs: &[impl Fn(&mut Self) -> MiracleAltMaybeResult<R>],
+    ) -> MiracleAltMaybeResult<R> {
         for (i, f) in fs.iter().enumerate() {
             crate::state::calc_with_new_value_appended(self, i as u64, |g| f(g))?;
         }
