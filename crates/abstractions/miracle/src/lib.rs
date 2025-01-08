@@ -86,9 +86,9 @@ pub trait HasMiracleFull: HasMiracle {
         fs: &[&dyn Fn(&mut Self) -> MiracleAltMaybeResult<R>],
     ) -> MiracleAltMaybeResult<R>;
 
-    fn exec_batch2<'a, R, F>(&'a mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
+    fn exec_batch2<R, F>(&mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
     where
-        F: Fn(&'a mut Self) -> MiracleAltMaybeResult<R>;
+        F: Fn(&mut Self) -> MiracleAltMaybeResult<R>;
 
     fn split<R>(
         &mut self,
@@ -98,15 +98,15 @@ pub trait HasMiracleFull: HasMiracle {
 
     fn foldm<S, I, F, R>(
         &mut self,
-        init: &S,
+        init: S,
         iter: I,
         f: &[F],
-        g: &impl Fn(&mut Self, &S) -> MiracleAltMaybeResult<R>,
+        g: &impl Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>
     where
         I: IntoIterator,
         I::IntoIter: Clone,
-        F: Fn(&mut Self, &S, &I::Item) -> S;
+        F: Fn(&mut Self, &S, &I::Item) -> Option<S>;
 }
 
 #[sealed]
@@ -133,12 +133,14 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
-    fn exec_batch2<'a, R, F>(&'a mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
+    fn exec_batch2<R, F>(&mut self, fs: &[F]) -> MiracleAltMaybeResult<R>
     where
-        F: Fn(&'a mut Self) -> MiracleAltMaybeResult<R>,
+        F: Fn(&mut Self) -> MiracleAltMaybeResult<R>,
     {
-        todo!()
-        // self.exec_batch(&fs.iter().map(|f| &f).collect::<Vec<_>>())
+        for (i, f) in fs.iter().enumerate() {
+            crate::state::calc_with_new_value_appended(self, i as u64, |g| f(g))?;
+        }
+        AltNothing
     }
 
     fn split<R>(
@@ -154,15 +156,15 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
 
     fn foldm<S, I, F, R>(
         &mut self,
-        init: &S,
+        init: S,
         iter: I,
         f: &[F],
-        g: &impl Fn(&mut Self, &S) -> MiracleAltMaybeResult<R>,
+        g: &impl Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>
     where
         I: IntoIterator,
         I::IntoIter: Clone,
-        F: Fn(&mut Self, &S, &I::Item) -> S,
+        F: Fn(&mut Self, &S, &I::Item) -> Option<S>,
     {
         crate::foldm::foldm_aux(self, init, iter.into_iter(), f, g)
     }
