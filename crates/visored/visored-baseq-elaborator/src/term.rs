@@ -7,7 +7,7 @@ pub mod prop;
 use self::{comnum::*, litnum::*, num::*, prop::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
-    expr::{VdMirExprFld, VdMirExprFldData},
+    expr::{VdBsqExprFld, VdBsqExprFldData},
 };
 use bigint::VdBsqBigInt;
 use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
@@ -97,10 +97,10 @@ impl<'sess> std::fmt::Debug for VdBsqNumTerm<'sess> {
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub fn calc_expr_term(&self, expr: &VdMirExprFldData<'sess>, ty: VdType) -> VdBsqTerm<'sess> {
+    pub fn calc_expr_term(&self, expr: &VdBsqExprFldData<'sess>, ty: VdType) -> VdBsqTerm<'sess> {
         let db = self.floater_db();
         match *expr {
-            VdMirExprFldData::Literal(vd_literal) => match *vd_literal.data() {
+            VdBsqExprFldData::Literal(vd_literal) => match *vd_literal.data() {
                 VdLiteralData::Int128(i) => VdBsqTerm::Litnum(VdBsqLitnumTerm::Int128(i)),
                 VdLiteralData::BigInt(ref n) => {
                     VdBsqTerm::Litnum(VdBsqLitnumTerm::BigInt(VdBsqBigInt::new(n.clone(), db)))
@@ -108,7 +108,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },
-            VdMirExprFldData::Variable(lx_math_letter, local_defn_idx) => {
+            VdBsqExprFldData::Variable(lx_math_letter, local_defn_idx) => {
                 if ty.is_numeric(self.eterner_db()) {
                     if let Some(_) = self.eval_variable() {
                         todo!()
@@ -123,7 +123,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     todo!()
                 }
             }
-            VdMirExprFldData::Application {
+            VdBsqExprFldData::Application {
                 function,
                 ref arguments,
             } => match function {
@@ -159,7 +159,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
             },
-            VdMirExprFldData::FoldingSeparatedList {
+            VdBsqExprFldData::FoldingSeparatedList {
                 leader,
                 ref followers,
             } => {
@@ -216,7 +216,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
                 }
             }
-            VdMirExprFldData::ChainingSeparatedList {
+            VdBsqExprFldData::ChainingSeparatedList {
                 leader,
                 ref followers,
                 joined_signature: joined_separator_and_signature,
@@ -265,7 +265,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     }
                 }
             },
-            VdMirExprFldData::ItemPath(vd_item_path) => todo!(),
+            VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
         }
     }
 }

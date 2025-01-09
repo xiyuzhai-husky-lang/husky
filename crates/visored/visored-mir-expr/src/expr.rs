@@ -6,6 +6,7 @@ pub mod tests;
 
 use crate::*;
 use application::VdMirFunc;
+use hypothesis::constructor::VdMirHypothesisConstructor;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
 };
@@ -63,6 +64,16 @@ pub type VdMirExprOrderedMap<T> = ArenaOrderedMap<VdMirExprEntry, T>;
 pub type VdMirExprArenaRef<'a> = ArenaRef<'a, VdMirExprEntry>;
 pub type VdMirExprIdx = ArenaIdx<VdMirExprEntry>;
 pub type VdMirExprIdxRange = ArenaIdxRange<VdMirExprEntry>;
+
+impl VdMirExprEntry {
+    pub fn new(data: VdMirExprData, ty: VdType, expected_ty: Option<VdType>) -> Self {
+        Self {
+            data,
+            ty,
+            expected_ty,
+        }
+    }
+}
 
 impl VdMirExprEntry {
     pub fn data(&self) -> &VdMirExprData {

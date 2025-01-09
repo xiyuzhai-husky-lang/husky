@@ -9,6 +9,7 @@ use visored_mir_expr::{
         application::VdMirFunc, VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprEntry,
         VdMirExprIdx, VdMirExprIdxRange, VdMirExprMap, VdMirExprOrderedMap,
     },
+    hypothesis::constructor::VdMirHypothesisConstructor,
     region::VdMirExprRegionDataRef,
     symbol::local_defn::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
@@ -25,14 +26,15 @@ use visored_term::{
 use crate::{elaborator::VdBsqElaboratorInner, session::VdBsqSession, term::VdBsqTerm};
 
 #[floated]
-pub struct VdMirExprFld<'sess> {
+pub struct VdBsqExprFld<'sess> {
     #[return_ref]
-    pub data: VdMirExprFldData<'sess>,
+    pub data: VdBsqExprFldData<'sess>,
     pub ty: VdType,
     pub term: VdBsqTerm<'sess>,
+    pub expected_ty: Option<VdType>,
 }
 
-impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqExprFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdMirExprFld(`")?;
         self.show(VdPrecedenceRange::ANY, f)?;
@@ -40,7 +42,7 @@ impl<'sess> std::fmt::Debug for VdMirExprFld<'sess> {
     }
 }
 
-impl<'sess> VdMirExprFld<'sess> {
+impl<'sess> VdBsqExprFld<'sess> {
     pub fn show(
         self,
         precedence_range: VdPrecedenceRange,
@@ -57,9 +59,9 @@ impl<'sess> VdMirExprFld<'sess> {
 
     fn show_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
-            VdMirExprFldData::Literal(literal) => literal.show(f),
-            VdMirExprFldData::Variable(letter, _) => letter.show(f),
-            VdMirExprFldData::Application {
+            VdBsqExprFldData::Literal(literal) => literal.show(f),
+            VdBsqExprFldData::Variable(letter, _) => letter.show(f),
+            VdBsqExprFldData::Application {
                 function,
                 arguments,
             } => match function {
@@ -76,7 +78,7 @@ impl<'sess> VdMirExprFld<'sess> {
                 }
                 VdMirFunc::Power(signature) => {
                     match arguments[1].data() {
-                        VdMirExprFldData::Literal(literal) => match *literal.data() {
+                        VdBsqExprFldData::Literal(literal) => match *literal.data() {
                             VdLiteralData::Int128(i) if i >= 0 && i < 10 => {
                                 use husky_unicode_symbols::superscript::superscript;
 
@@ -98,7 +100,7 @@ impl<'sess> VdMirExprFld<'sess> {
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
             },
-            VdMirExprFldData::FoldingSeparatedList { leader, followers } => {
+            VdBsqExprFldData::FoldingSeparatedList { leader, followers } => {
                 let VdMirFunc::NormalBaseSeparator(signature) = followers.first().unwrap().0 else {
                     todo!("maybe non base separator?")
                 };
@@ -115,7 +117,7 @@ impl<'sess> VdMirExprFld<'sess> {
                 }
                 Ok(())
             }
-            VdMirExprFldData::ChainingSeparatedList {
+            VdBsqExprFldData::ChainingSeparatedList {
                 leader,
                 followers,
                 joined_signature,
@@ -136,13 +138,13 @@ impl<'sess> VdMirExprFld<'sess> {
                 }
                 Ok(())
             }
-            VdMirExprFldData::ItemPath(vd_item_path) => todo!(),
+            VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
         }
     }
 }
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdMirExprFldData<'sess> {
+pub enum VdBsqExprFldData<'sess> {
     Literal(VdLiteral),
     Variable(LxMathLetter, VdMirSymbolLocalDefnIdx),
     Application {
@@ -150,38 +152,38 @@ pub enum VdMirExprFldData<'sess> {
         arguments: VdMirExprFlds<'sess>,
     },
     FoldingSeparatedList {
-        leader: VdMirExprFld<'sess>,
+        leader: VdBsqExprFld<'sess>,
         /// TODO: should we use VdBaseSeparatorSignature instead?
-        followers: SmallVec<[(VdMirFunc, VdMirExprFld<'sess>); 4]>,
+        followers: SmallVec<[(VdMirFunc, VdBsqExprFld<'sess>); 4]>,
     },
     ChainingSeparatedList {
-        leader: VdMirExprFld<'sess>,
-        followers: SmallVec<[(VdMirFunc, VdMirExprFld<'sess>); 4]>,
+        leader: VdBsqExprFld<'sess>,
+        followers: SmallVec<[(VdMirFunc, VdBsqExprFld<'sess>); 4]>,
         joined_signature: Option<VdBaseSeparatorSignature>,
     },
     ItemPath(VdItemPath),
 }
 
-impl<'sess> VdMirExprFldData<'sess> {
+impl<'sess> VdBsqExprFldData<'sess> {
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
-            VdMirExprFldData::Literal(_) => VdPrecedence::ATOM,
-            VdMirExprFldData::Variable(_, _) => VdPrecedence::ATOM,
-            VdMirExprFldData::Application { function, .. } => function.outer_precedence(),
-            VdMirExprFldData::FoldingSeparatedList { leader, followers } => {
+            VdBsqExprFldData::Literal(_) => VdPrecedence::ATOM,
+            VdBsqExprFldData::Variable(_, _) => VdPrecedence::ATOM,
+            VdBsqExprFldData::Application { function, .. } => function.outer_precedence(),
+            VdBsqExprFldData::FoldingSeparatedList { leader, followers } => {
                 followers[0].0.outer_precedence()
             }
-            VdMirExprFldData::ChainingSeparatedList {
+            VdBsqExprFldData::ChainingSeparatedList {
                 leader,
                 followers,
                 joined_signature,
             } => followers.first().unwrap().0.outer_precedence(),
-            VdMirExprFldData::ItemPath(vd_item_path) => todo!(),
+            VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
         }
     }
 }
 
-pub type VdMirExprFlds<'sess> = SmallVec<[VdMirExprFld<'sess>; 4]>;
+pub type VdMirExprFlds<'sess> = SmallVec<[VdBsqExprFld<'sess>; 4]>;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn cache_expr_fld(&mut self, expr_idx: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
@@ -191,7 +193,8 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let ty = expr_entry.ty();
         let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
-        let expr_fld = VdMirExprFld::new(expr_data, ty, term, db);
+        let expected_ty = expr_entry.expected_ty();
+        let expr_fld = VdBsqExprFld::new(expr_data, ty, term, expected_ty, db);
         self.save_expr_fld(expr_idx, expr_fld);
     }
 
@@ -199,20 +202,20 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         &self,
         entry: &VdMirExprEntry,
         symbol_local_defn_storage: &VdMirSymbolLocalDefnStorage,
-    ) -> VdMirExprFldData<'sess> {
+    ) -> VdBsqExprFldData<'sess> {
         match *entry.data() {
-            VdMirExprData::Literal(vd_literal) => VdMirExprFldData::Literal(vd_literal),
+            VdMirExprData::Literal(vd_literal) => VdBsqExprFldData::Literal(vd_literal),
             VdMirExprData::Variable(local_defn_idx) => {
                 let lx_math_letter =
                     match *symbol_local_defn_storage.defn_arena()[local_defn_idx].head() {
                         VdMirSymbolLocalDefnHead::Letter(lx_math_letter) => lx_math_letter,
                     };
-                VdMirExprFldData::Variable(lx_math_letter, local_defn_idx)
+                VdBsqExprFldData::Variable(lx_math_letter, local_defn_idx)
             }
             VdMirExprData::Application {
                 function,
                 arguments,
-            } => VdMirExprFldData::Application {
+            } => VdBsqExprFldData::Application {
                 function,
                 arguments: arguments
                     .into_iter()
@@ -222,7 +225,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             VdMirExprData::FoldingSeparatedList {
                 leader,
                 ref followers,
-            } => VdMirExprFldData::FoldingSeparatedList {
+            } => VdBsqExprFldData::FoldingSeparatedList {
                 leader: self.expr_fld(leader),
                 followers: followers
                     .iter()
@@ -233,7 +236,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 leader,
                 ref followers,
                 joined_signature,
-            } => VdMirExprFldData::ChainingSeparatedList {
+            } => VdBsqExprFldData::ChainingSeparatedList {
                 leader: self.expr_fld(leader),
                 followers: followers
                     .iter()
@@ -241,7 +244,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     .collect(),
                 joined_signature,
             },
-            VdMirExprData::ItemPath(vd_item_path) => VdMirExprFldData::ItemPath(vd_item_path),
+            VdMirExprData::ItemPath(vd_item_path) => VdBsqExprFldData::ItemPath(vd_item_path),
         }
     }
 }
@@ -249,18 +252,59 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn mk_expr(
         &self,
-        expr_data: VdMirExprFldData<'sess>,
+        expr_data: VdBsqExprFldData<'sess>,
         ty: VdType,
-    ) -> VdMirExprFld<'sess> {
+        expected_ty: Option<VdType>,
+    ) -> VdBsqExprFld<'sess> {
         let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
-        VdMirExprFld::new(expr_data, ty, term, db)
+        VdBsqExprFld::new(expr_data, ty, term, expected_ty, db)
     }
 
-    pub(crate) fn mk_zero(&self) -> VdMirExprFld<'sess> {
+    pub(crate) fn mk_zero(&self, expected_ty: Option<VdType>) -> VdBsqExprFld<'sess> {
         self.mk_expr(
-            VdMirExprFldData::Literal(self.term_menu().zero),
+            VdBsqExprFldData::Literal(self.term_menu().zero),
             self.ty_menu().nat,
+            expected_ty,
         )
+    }
+}
+
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub fn transcribe_expr(
+        &self,
+        expr: VdBsqExprFld<'sess>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+    ) -> VdMirExprIdx {
+        let data = match *expr.data() {
+            VdBsqExprFldData::Literal(lit) => VdMirExprData::Literal(lit),
+            VdBsqExprFldData::Variable(_, symbol) => VdMirExprData::Variable(symbol),
+            VdBsqExprFldData::Application {
+                function,
+                ref arguments,
+            } => todo!(),
+            VdBsqExprFldData::FoldingSeparatedList {
+                leader,
+                ref followers,
+            } => todo!(),
+            VdBsqExprFldData::ChainingSeparatedList {
+                leader,
+                ref followers,
+                joined_signature,
+            } => VdMirExprData::ChainingSeparatedList {
+                leader: self.transcribe_expr(leader, hypothesis_constructor),
+                followers: followers
+                    .iter()
+                    .map(|&(func, follower)| {
+                        (func, self.transcribe_expr(follower, hypothesis_constructor))
+                    })
+                    .collect(),
+                joined_signature,
+            },
+            VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
+        };
+        let ty = expr.ty();
+        let expected_ty = expr.expected_ty();
+        hypothesis_constructor.construct_new_expr(data, ty, expected_ty)
     }
 }

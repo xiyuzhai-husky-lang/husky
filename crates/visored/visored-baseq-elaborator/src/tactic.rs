@@ -5,7 +5,7 @@ pub mod term_trivial;
 
 use crate::{
     elaborator::VdBsqElaboratorInner,
-    expr::VdMirExprFld,
+    expr::VdBsqExprFld,
     hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx},
 };
 use alt_option::AltOption;
@@ -29,7 +29,7 @@ pub enum VdBsqTacticCall {
 impl VdBsqTactic {
     pub fn run<'db, 'sess>(
         &self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
         elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         match self {

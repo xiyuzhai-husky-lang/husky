@@ -2,7 +2,7 @@ pub mod number;
 
 use crate::{
     elaborator::VdBsqElaboratorInner,
-    expr::VdMirExprFld,
+    expr::VdBsqExprFld,
     hypothesis::{
         construction::VdBsqHypothesisConstruction, contradiction::VdBsqHypothesisContradiction,
         VdBsqHypothesisIdx,
@@ -55,9 +55,9 @@ impl<'sess> VdBsqCoercionOutcome<'sess> {
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn transcribe_coercion(
-        &mut self,
+        &self,
         coercion: VdBsqCoercion<'sess>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) -> VdMirCoercion {
         match coercion {
             VdBsqCoercion::Trivial(vd_baseq_trivial_coercion) => VdMirCoercion::Trivial,

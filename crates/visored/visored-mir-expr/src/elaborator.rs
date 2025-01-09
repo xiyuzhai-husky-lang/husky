@@ -8,22 +8,22 @@ use crate::{
     *,
 };
 
-pub trait IsVdMirTacticElaborator {
+pub trait IsVdMirTacticElaborator<'db> {
     fn elaborate_stmts_ext(
         self,
         stmts: VdMirStmtIdxRange,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     );
     fn elaborate_stmt_ext(
         self,
         stmt: VdMirStmtIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     );
     fn elaborate_expr_ext(
         self,
         expr: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     );
 }
 
-pub type VdMirTrivialElaborator = self::linear::VdMirSequentialElaborator<()>;
+pub type VdMirTrivialElaborator<'db> = self::linear::VdMirSequentialElaborator<'db, ()>;

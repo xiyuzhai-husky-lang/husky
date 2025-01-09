@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    coercion::VdBsqCoercionOutcome, expr::VdMirExprFldData,
+    coercion::VdBsqCoercionOutcome, expr::VdBsqExprFldData,
     hypothesis::construction::VdBsqHypothesisConstruction,
 };
 use alt_option::*;
@@ -26,7 +26,7 @@ macro_rules! require {
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn library_search(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         self.with_call(VdBsqTacticCall::LibrarySearch, |slf| {
             slf.library_search_inner(prop)
@@ -35,7 +35,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 
     fn library_search_inner(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         try_alt!(self.square_nonnegative(prop));
         Ok(AltNone)
@@ -43,10 +43,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 
     fn square_nonnegative(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         use husky_print_utils::*;
-        let VdMirExprFldData::ChainingSeparatedList {
+        let VdBsqExprFldData::ChainingSeparatedList {
             leader,
             followers,
             joined_signature: None,
@@ -61,7 +61,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         };
         require!(ge.opr() == VdMirBaseSeparator::GE);
         require!(rhs.is_zero());
-        let VdMirExprFldData::Application {
+        let VdBsqExprFldData::Application {
             function: pow,
             arguments: pow_args,
         } = leader.data()

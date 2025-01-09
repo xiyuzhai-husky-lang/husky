@@ -57,10 +57,10 @@ pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String;
 
-    fn elaborate_self(
+    fn elaborate_self<'db>(
         self,
-        elaborator: impl IsVdMirTacticElaborator,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        elaborator: impl IsVdMirTacticElaborator<'db>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     );
 }
 
@@ -81,13 +81,13 @@ impl<'a, Input> VdMirExprTracker<'a, Input>
 where
     Input: IsVdMirExprInput<'a>,
 {
-    pub fn new<Elaborator: IsVdMirTacticElaborator>(
+    pub fn new<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &VdModels,
         vibe: VdSynExprVibe,
-        db: &EternerDb,
+        db: &'db EternerDb,
         gen_elaborator: impl Fn(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let VdSemExprTracker {
@@ -205,10 +205,10 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
         DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
 
-    fn elaborate_self(
+    fn elaborate_self<'db>(
         self,
-        elaborator: impl IsVdMirTacticElaborator,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        elaborator: impl IsVdMirTacticElaborator<'db>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         elaborator.elaborate_stmts_ext(self, hypothesis_constructor)
     }
@@ -219,10 +219,10 @@ impl IsVdMirExprOutput for VdMirExprIdx {
         builder.render_expr(self).show(&Default::default())
     }
 
-    fn elaborate_self(
+    fn elaborate_self<'db>(
         self,
-        elaborator: impl IsVdMirTacticElaborator,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        elaborator: impl IsVdMirTacticElaborator<'db>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         elaborator.elaborate_expr_ext(self, hypothesis_constructor)
     }

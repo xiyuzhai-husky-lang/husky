@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'sess> VdMirExprFld<'sess> {
+impl<'sess> VdBsqExprFld<'sess> {
     pub fn is_real(
         &self,
         elaborator: &mut VdBsqElaboratorInner<'_, 'sess>,

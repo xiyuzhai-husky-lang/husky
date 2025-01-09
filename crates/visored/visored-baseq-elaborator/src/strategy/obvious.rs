@@ -1,7 +1,7 @@
 use crate::tactic::VdBsqTactic;
 use alt_option::*;
 use elaborator::VdBsqElaboratorInner;
-use expr::VdMirExprFld;
+use expr::VdBsqExprFld;
 use hypothesis::{
     construction::VdBsqHypothesisConstruction, contradiction::VdBsqHypothesisResult,
     VdBsqHypothesisIdx,
@@ -13,14 +13,14 @@ use super::*;
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn obvious(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         self.with_call(VdBsqStrategyCall::Obvious, |slf| slf.obvious_inner(prop))
     }
 
     fn obvious_inner(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         for tactic in self.session().obvious_tactics() {
             match tactic.run(prop, self)? {

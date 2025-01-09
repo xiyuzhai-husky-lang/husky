@@ -71,6 +71,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
+                ..
             } => todo!(),
             VdMirStmtData::Goal { prop } => todo!(),
             VdMirStmtData::Have {

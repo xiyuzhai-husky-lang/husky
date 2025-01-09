@@ -1,6 +1,6 @@
 use crate::{
     call::stack::VdBsqCallStack,
-    expr::{VdMirExprFld, VdMirExprFldData},
+    expr::{VdBsqExprFld, VdBsqExprFldData},
     hypothesis::{
         construction::VdBsqHypothesisConstruction,
         constructor::VdBsqHypothesisConstructor,
@@ -44,7 +44,7 @@ pub struct VdBsqElaboratorInner<'db, 'sess> {
     term_menu: &'db VdTermMenu,
     ty_menu: &'db VdTypeMenu,
     signature_menu: &'db VdSignatureMenu,
-    expr_to_fld_map: VdMirExprMap<VdMirExprFld<'sess>>,
+    expr_to_fld_map: VdMirExprMap<VdBsqExprFld<'sess>>,
     miracle: Miracle,
     pub(crate) hypothesis_constructor: VdBsqHypothesisConstructor<'db, 'sess>,
     pub(crate) call_stack: VdBsqCallStack,
@@ -58,7 +58,8 @@ impl<'db, 'sess> std::fmt::Debug for VdBsqElaboratorInner<'db, 'sess> {
     }
 }
 
-pub type VdBsqElaborator<'db, 'sess> = VdMirSequentialElaborator<VdBsqElaboratorInner<'db, 'sess>>;
+pub type VdBsqElaborator<'db, 'sess> =
+    VdMirSequentialElaborator<'db, VdBsqElaboratorInner<'db, 'sess>>;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn new(session: &'sess VdBsqSession<'db>, region_data: VdMirExprRegionDataRef) -> Self {
@@ -115,18 +116,18 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     }
 
     #[track_caller]
-    pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdMirExprFld<'sess> {
+    pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdBsqExprFld<'sess> {
         self.expr_to_fld_map[expr]
     }
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub(crate) fn save_expr_fld(&mut self, expr: VdMirExprIdx, fld: VdMirExprFld<'sess>) {
+    pub(crate) fn save_expr_fld(&mut self, expr: VdMirExprIdx, fld: VdBsqExprFld<'sess>) {
         self.expr_to_fld_map.insert_new(expr, fld);
     }
 }
 
-impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 'sess> {
+impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<'db, 'sess> {
     type HypothesisIdx = VdBsqHypothesisIdx<'sess>;
     type Contradiction = VdBsqHypothesisContradiction<'sess>;
 
@@ -153,7 +154,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         pattern: &VdMirPattern,
         assignment: VdMirExprIdx,
         region_data: VdMirExprRegionDataRef,
-    ) -> VdBsqHypothesisResult<'sess, ()> {
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         match *pattern {
             VdMirPattern::Letter {
                 letter,
@@ -161,18 +162,18 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             } => {
                 let assignment = self.expr_fld(assignment);
                 let variable = self.mk_expr(
-                    VdMirExprFldData::Variable(letter, symbol_local_defn),
+                    VdBsqExprFldData::Variable(letter, symbol_local_defn),
                     assignment.ty(),
+                    None,
                 );
                 let signature = self.eq_signature(assignment.ty());
-                let eq_expr_data = VdMirExprFldData::ChainingSeparatedList {
+                let eq_expr_data = VdBsqExprFldData::ChainingSeparatedList {
                     leader: variable,
                     followers: smallvec![(VdMirFunc::NormalBaseSeparator(signature), assignment)],
                     joined_signature: None,
                 };
-                let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop);
-                self.obvious(prop).map(|_| ())?;
-                Ok(())
+                let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop, None);
+                self.obvious(prop)
             }
         }
     }
@@ -228,12 +229,16 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             todo!()
         };
         let prop = self.mk_expr(
-            VdMirExprFldData::ChainingSeparatedList {
+            VdBsqExprFldData::ChainingSeparatedList {
                 leader: divisor,
-                followers: smallvec![(VdMirFunc::NormalBaseSeparator(signature), self.mk_zero())],
+                followers: smallvec![(
+                    VdMirFunc::NormalBaseSeparator(signature),
+                    self.mk_zero(Some(divisor.ty()))
+                )],
                 joined_signature: None,
             },
             self.ty_menu().prop,
+            None,
         );
         self.obvious(prop)
     }
@@ -285,10 +290,10 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
     }
 
     fn transcribe_explicit_hypothesis(
-        &mut self,
+        &self,
         hypothesis: Self::HypothesisIdx,
         goal: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) -> VdMirHypothesisIdx {
         let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
             VdBsqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
@@ -313,5 +318,13 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
             VdBsqHypothesisConstruction::CommRing => VdMirHypothesisConstruction::CommRing,
         };
         hypothesis_constructor.construct_new_hypothesis(goal, construction)
+    }
+
+    fn transcribe_implicit_hypothesis(
+        &self,
+        hypothesis: VdBsqHypothesisIdx<'sess>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+    ) -> VdMirHypothesisIdx {
+        self.transcribe_implicit_hypothesis(hypothesis, hypothesis_constructor)
     }
 }

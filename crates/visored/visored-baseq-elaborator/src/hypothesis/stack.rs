@@ -26,7 +26,7 @@ use rustc_hash::FxHashMap;
 pub struct VdBsqHypothesisStack<'sess> {
     active_hypotheses: Vec<VdBsqHypothesisIdx<'sess>>,
     block_starts: Vec<usize>,
-    expr_to_hypothesis_map: FxHashMap<VdMirExprFld<'sess>, VdBsqHypothesisStackRecord<'sess>>,
+    expr_to_hypothesis_map: FxHashMap<VdBsqExprFld<'sess>, VdBsqHypothesisStackRecord<'sess>>,
     term_to_hypothesis_map: FxHashMap<VdBsqTerm<'sess>, VdBsqHypothesisStackRecord<'sess>>,
     stashes: VdBsqHypothesisStashes<'sess>,
 }
@@ -60,7 +60,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
 
     pub(crate) fn get_active_hypothesis_with_expr(
         &self,
-        expr: VdMirExprFld<'sess>,
+        expr: VdBsqExprFld<'sess>,
     ) -> Option<VdBsqHypothesisIdx<'sess>> {
         let record = self.expr_to_hypothesis_map.get(&expr).copied()?;
         (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))

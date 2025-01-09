@@ -8,7 +8,7 @@ use alt_option::*;
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn term_trivial(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         debug_assert!(
             self.hypothesis_constructor

@@ -79,14 +79,14 @@ where
     Scheme: IsVdLeanTranspilationScheme,
     Input: IsVdLeanTranspilationInput<'a, Scheme>,
 {
-    pub fn new<Elaborator: IsVdMirTacticElaborator>(
+    pub fn new<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &'a VdModels,
         vibe: VdSynExprVibe,
-        db: &'a EternerDb,
-        scheme: &'a Scheme,
+        db: &'db EternerDb,
+        scheme: &'db Scheme,
         gen_elaborator: impl Fn(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let content = input.content();

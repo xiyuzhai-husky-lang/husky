@@ -1,3 +1,5 @@
+use std::marker::PhantomData;
+
 use super::*;
 use crate::stmt::{VdMirStmtData, VdMirStmtMap};
 use expr::{application::VdMirFunc, VdMirExprData, VdMirExprIdxRange};
@@ -16,14 +18,15 @@ use visored_mir_opr::{
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 #[derive(Default)]
-pub struct VdMirSequentialElaborator<Inner>
+pub struct VdMirSequentialElaborator<'db, Inner>
 where
-    Inner: IsVdMirSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner<'db>,
 {
     inner: Inner,
+    phantom: PhantomData<&'db ()>,
 }
 
-pub trait IsVdMirSequentialElaboratorInner: Sized {
+pub trait IsVdMirSequentialElaboratorInner<'db>: Sized {
     type HypothesisIdx: std::fmt::Debug + Eq;
     type Contradiction: std::fmt::Debug;
 
@@ -41,7 +44,7 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
         pattern: &VdMirPattern,
         assignment: VdMirExprIdx,
         region_data: VdMirExprRegionDataRef,
-    ) -> Result<(), Self::Contradiction>;
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
     fn elaborate_goal_stmt(&mut self) -> Result<(), Self::Contradiction>;
     fn elaborate_have_stmt(
         &mut self,
@@ -57,7 +60,7 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
     fn elaborate_field_div_expr(
         &mut self,
         divisor: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
     fn elaborate_folding_separated_list_expr(
         &mut self,
@@ -73,14 +76,20 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
     fn cache_expr(&mut self, expr: VdMirExprIdx, region_data: VdMirExprRegionDataRef);
 
     fn transcribe_explicit_hypothesis(
-        &mut self,
+        &self,
         hypothesis: Self::HypothesisIdx,
         expr: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+    ) -> VdMirHypothesisIdx;
+
+    fn transcribe_implicit_hypothesis(
+        &self,
+        hypothesis: Self::HypothesisIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) -> VdMirHypothesisIdx;
 }
 
-impl IsVdMirSequentialElaboratorInner for () {
+impl<'db> IsVdMirSequentialElaboratorInner<'db> for () {
     type HypothesisIdx = ();
     type Contradiction = ();
 
@@ -156,35 +165,45 @@ impl IsVdMirSequentialElaboratorInner for () {
         ()
     }
 
-    #[track_caller]
     fn transcribe_explicit_hypothesis(
-        &mut self,
+        &self,
         hypothesis: (),
         expr: VdMirExprIdx,
         hypothesis_constructor: &mut VdMirHypothesisConstructor,
     ) -> VdMirHypothesisIdx {
         hypothesis_constructor.construct_new_hypothesis(expr, VdMirHypothesisConstruction::Sorry)
     }
-}
 
-impl<Inner> VdMirSequentialElaborator<Inner>
-where
-    Inner: IsVdMirSequentialElaboratorInner,
-{
-    pub fn new(inner: Inner) -> Self {
-        Self { inner }
+    fn transcribe_implicit_hypothesis(
+        &self,
+        hypothesis: (),
+        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+    ) -> VdMirHypothesisIdx {
+        hypothesis_constructor.construct_new_hypothesis(todo!(), VdMirHypothesisConstruction::Sorry)
     }
 }
 
-impl<Inner> IsVdMirTacticElaborator for VdMirSequentialElaborator<Inner>
+impl<'db, Inner> VdMirSequentialElaborator<'db, Inner>
 where
-    Inner: IsVdMirSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner<'db>,
+{
+    pub fn new(inner: Inner) -> Self {
+        Self {
+            inner,
+            phantom: PhantomData,
+        }
+    }
+}
+
+impl<'db, Inner> IsVdMirTacticElaborator<'db> for VdMirSequentialElaborator<'db, Inner>
+where
+    Inner: IsVdMirSequentialElaboratorInner<'db>,
 {
     // # elaborate
     fn elaborate_stmts_ext(
         mut self,
         stmts: VdMirStmtIdxRange,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         self.elaborate_stmts(stmts, hypothesis_constructor);
     }
@@ -192,7 +211,7 @@ where
     fn elaborate_stmt_ext(
         mut self,
         stmt: VdMirStmtIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         self.elaborate_stmt(stmt, hypothesis_constructor);
     }
@@ -200,20 +219,20 @@ where
     fn elaborate_expr_ext(
         mut self,
         expr: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         self.elaborate_expr(expr, hypothesis_constructor);
     }
 }
 
-impl<Inner> VdMirSequentialElaborator<Inner>
+impl<'db, Inner> VdMirSequentialElaborator<'db, Inner>
 where
-    Inner: IsVdMirSequentialElaboratorInner,
+    Inner: IsVdMirSequentialElaboratorInner<'db>,
 {
     fn elaborate_stmts(
         &mut self,
         stmts: VdMirStmtIdxRange,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         for stmt in stmts {
             self.elaborate_stmt(stmt, hypothesis_constructor);
@@ -223,7 +242,7 @@ where
     fn elaborate_stmt(
         &mut self,
         stmt: VdMirStmtIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         match *hypothesis_constructor.stmt_arena()[stmt].data() {
             VdMirStmtData::Block {
@@ -245,16 +264,13 @@ where
                     .inner
                     .elaborate_assume_stmt(prop)
                     .expect("handle contradiction");
-                let hypothesis_chunk = hypothesis_constructor.obtain_hypothesis_chunk_within_stmt(
-                    stmt,
-                    |hypothesis_constructor| {
-                        self.inner.transcribe_explicit_hypothesis(
-                            hypothesis,
-                            prop,
-                            hypothesis_constructor,
-                        )
-                    },
-                );
+                let hypothesis_chunk = self
+                    .obtain_hypothesis_chunk_within_stmt_from_explicit_hypothesis(
+                        stmt,
+                        hypothesis,
+                        prop,
+                        hypothesis_constructor,
+                    );
                 hypothesis_constructor
                     .stmt_arena_mut()
                     .update(stmt, |entry| {
@@ -275,13 +291,32 @@ where
             } => {
                 let pattern = pattern.clone();
                 self.elaborate_expr(assignment, hypothesis_constructor);
-                self.inner
+                let hypothesis = self
+                    .inner
                     .elaborate_let_assigned_stmt(
                         &pattern,
                         assignment,
                         hypothesis_constructor.region_data(),
                     )
                     .expect("handle contradiction");
+                let hypothesis_chunk = self
+                    .obtain_hypothesis_chunk_within_stmt_from_implicit_hypothesis(
+                        stmt,
+                        hypothesis,
+                        hypothesis_constructor,
+                    );
+                hypothesis_constructor
+                    .stmt_arena_mut()
+                    .update(stmt, |entry| {
+                        let VdMirStmtData::LetAssigned {
+                            hypothesis_chunk_place,
+                            ..
+                        } = entry.data_mut()
+                        else {
+                            unreachable!()
+                        };
+                        hypothesis_chunk_place.set(Ok(hypothesis_chunk));
+                    });
             }
             VdMirStmtData::Goal { .. } => {
                 self.inner
@@ -294,16 +329,13 @@ where
                     .inner
                     .elaborate_have_stmt(stmt, prop, hint, hypothesis_constructor.region_data())
                     .expect("handle contradiction");
-                let hypothesis_chunk = hypothesis_constructor.obtain_hypothesis_chunk_within_stmt(
-                    stmt,
-                    |hypothesis_constructor| {
-                        self.inner.transcribe_explicit_hypothesis(
-                            hypothesis,
-                            prop,
-                            hypothesis_constructor,
-                        )
-                    },
-                );
+                let hypothesis_chunk = self
+                    .obtain_hypothesis_chunk_within_stmt_from_explicit_hypothesis(
+                        stmt,
+                        hypothesis,
+                        prop,
+                        hypothesis_constructor,
+                    );
                 hypothesis_constructor
                     .stmt_arena_mut()
                     .update(stmt, |entry| {
@@ -357,10 +389,35 @@ where
         }
     }
 
+    fn obtain_hypothesis_chunk_within_stmt_from_explicit_hypothesis(
+        &mut self,
+        stmt: VdMirStmtIdx,
+        hypothesis: Inner::HypothesisIdx,
+        prop: VdMirExprIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+    ) -> VdMirHypothesisChunk {
+        hypothesis_constructor.obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
+            self.inner
+                .transcribe_explicit_hypothesis(hypothesis, prop, hypothesis_constructor)
+        })
+    }
+
+    fn obtain_hypothesis_chunk_within_stmt_from_implicit_hypothesis(
+        &self,
+        stmt: VdMirStmtIdx,
+        hypothesis: Inner::HypothesisIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+    ) -> VdMirHypothesisChunk {
+        hypothesis_constructor.obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
+            self.inner
+                .transcribe_implicit_hypothesis(hypothesis, hypothesis_constructor)
+        })
+    }
+
     fn elaborate_expr(
         &mut self,
         expr: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         // ad hoc
         // TODO: store expr elaboration in expr arena
@@ -423,7 +480,7 @@ where
         expr: VdMirExprIdx,
         function: VdMirFunc,
         arguments: VdMirExprIdxRange,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) {
         match function {
             VdMirFunc::NormalBasePrefixOpr(signature) => match signature.opr {

@@ -25,14 +25,14 @@ use alt_option::*;
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn comm_ring(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         self.with_call(VdBsqTacticCall::CommRing, |slf| slf.comm_ring_inner(prop))
     }
 
     fn comm_ring_inner(
         &mut self,
-        prop: VdMirExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
     ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
         let VdBsqTerm::Prop(VdBsqPropTerm::NumRelationship(num_relationship)) = prop.term() else {
             return Ok(AltNone);

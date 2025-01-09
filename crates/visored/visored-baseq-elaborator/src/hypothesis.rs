@@ -7,7 +7,7 @@ pub mod stash;
 pub mod stashes;
 
 use self::construction::VdBsqHypothesisConstruction;
-use crate::{elaborator::VdBsqElaboratorInner, expr::VdMirExprFld};
+use crate::{elaborator::VdBsqElaboratorInner, expr::VdBsqExprFld};
 use idx_arena::{Arena, ArenaIdx};
 use visored_mir_expr::{
     expr::VdMirExprIdx,
@@ -19,7 +19,7 @@ use visored_mir_expr::{
 
 #[derive(Debug)]
 pub struct VdBsqHypothesisEntry<'sess> {
-    expr: VdMirExprFld<'sess>,
+    expr: VdBsqExprFld<'sess>,
     construction: VdBsqHypothesisConstruction<'sess>,
 }
 
@@ -27,7 +27,7 @@ pub type VdBsqHypothesisIdx<'sess> = ArenaIdx<VdBsqHypothesisEntry<'sess>>;
 pub type VdBsqHypothesisArena<'sess> = Arena<VdBsqHypothesisEntry<'sess>>;
 
 impl<'sess> VdBsqHypothesisEntry<'sess> {
-    pub fn expr(&self) -> VdMirExprFld<'sess> {
+    pub fn expr(&self) -> VdBsqExprFld<'sess> {
         self.expr
     }
 
@@ -38,21 +38,22 @@ impl<'sess> VdBsqHypothesisEntry<'sess> {
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn transcribe_implicit_hypothesis(
-        &mut self,
+        &self,
         hypothesis: VdBsqHypothesisIdx<'sess>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) -> VdMirHypothesisIdx {
         self.transcribe_hypothesis_aux(hypothesis, None, hypothesis_constructor)
     }
 
     #[inline(always)]
     pub(crate) fn transcribe_hypothesis_aux(
-        &mut self,
+        &self,
         hypothesis: VdBsqHypothesisIdx<'sess>,
-        explicit_goal: Option<VdMirExprIdx>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        explicit_prop: Option<VdMirExprIdx>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
     ) -> VdMirHypothesisIdx {
-        let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
+        let hypothesis_entry = &self.hypothesis_constructor.arena()[hypothesis];
+        let construction = match *hypothesis_entry.construction() {
             VdBsqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
             VdBsqHypothesisConstruction::Apply {
                 path,
@@ -69,10 +70,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             }
             VdBsqHypothesisConstruction::CommRing => todo!(),
         };
-        let goal = match explicit_goal {
-            Some(goal) => goal,
-            None => todo!(),
+        let prop = match explicit_prop {
+            Some(prop) => prop,
+            None => self.transcribe_expr(hypothesis_entry.expr(), hypothesis_constructor),
         };
-        hypothesis_constructor.construct_new_hypothesis(goal, construction)
+        hypothesis_constructor.construct_new_hypothesis(prop, construction)
     }
 }

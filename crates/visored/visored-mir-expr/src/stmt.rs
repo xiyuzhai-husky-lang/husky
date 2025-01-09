@@ -38,6 +38,7 @@ pub enum VdMirStmtData {
     LetAssigned {
         pattern: VdMirPattern,
         assignment: VdMirExprIdx,
+        hypothesis_chunk_place: OncePlace<VdMirHypothesisResult>,
     },
     LetPlaceholder {
         pattern: VdMirPattern,
@@ -271,6 +272,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 VdSemLetClauseDispatch::Assigned(dispatch) => VdMirStmtData::LetAssigned {
                     pattern: dispatch.pattern().to_vd_mir(self),
                     assignment: dispatch.assignment().to_vd_mir(self),
+                    hypothesis_chunk_place: OncePlace::default(),
                 },
                 VdSemLetClauseDispatch::Placeholder(dispatch) => VdMirStmtData::LetPlaceholder {
                     pattern: dispatch.pattern().to_vd_mir(self),

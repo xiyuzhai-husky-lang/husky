@@ -1,5 +1,5 @@
 use crate::{
-    expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprIdx},
+    expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprEntry, VdMirExprIdx},
     hint::VdMirHintArena,
     hypothesis::{VdMirHypothesisEntry, VdMirHypothesisIdxRange},
     region::VdMirExprRegionDataRef,
@@ -7,6 +7,7 @@ use crate::{
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
 };
 use eterned::db::EternerDb;
+use visored_term::ty::VdType;
 
 use super::{
     chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisArena,
@@ -92,7 +93,6 @@ impl<'db> VdMirHypothesisConstructor<'db> {
     }
 
     // TODO: do more things like handle hypothesis stack, register src, etc.
-    #[track_caller]
     pub fn construct_new_hypothesis(
         &mut self,
         expr: VdMirExprIdx,
@@ -101,6 +101,16 @@ impl<'db> VdMirHypothesisConstructor<'db> {
         assert!(self.current_stmt_and_hypothesis_chunk_start.is_some());
         self.hypothesis_arena
             .alloc_one(VdMirHypothesisEntry::new(expr, hypothesis))
+    }
+
+    pub fn construct_new_expr(
+        &mut self,
+        data: VdMirExprData,
+        ty: VdType,
+        expected_ty: Option<VdType>,
+    ) -> VdMirExprIdx {
+        self.expr_arena
+            .alloc_one(VdMirExprEntry::new(data, ty, expected_ty))
     }
 
     pub(crate) fn finish(
