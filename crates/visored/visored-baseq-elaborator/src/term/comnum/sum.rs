@@ -19,10 +19,21 @@ impl<'sess> From<VdBsqSumComnumTerm<'sess>> for VdBsqNumTerm<'sess> {
 
 impl<'sess> VdBsqSumComnumTerm<'sess> {
     pub fn new(
-        constant_term: VdBsqLitnumTerm<'sess>,
+        constant_term: impl Into<VdBsqLitnumTerm<'sess>>,
         monomials: VdBsqMonomialCoefficients<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
+        let constant_term = constant_term.into();
+        #[cfg(debug_assertions)]
+        {
+            for (monomial, coeff) in monomials.data() {
+                debug_assert!(coeff.is_nonzero(), "monomial coefficient should be nonzero");
+            }
+            debug_assert!(
+                !(constant_term.is_zero() && monomials.len() == 1),
+                "should be reduced to product"
+            );
+        }
         Self(VdBsqComnumTermFld::new(
             VdBsqComnumTermData::Sum(VdBsqComnumSumTermData {
                 constant_term,

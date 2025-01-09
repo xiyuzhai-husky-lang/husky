@@ -8,7 +8,13 @@ pub struct VdBsqFrac128 {
 }
 
 impl VdBsqFrac128 {
-    pub fn new128<'sess>(raw_numerator: i128, raw_denominator: i128) -> VdBsqLitnumTerm<'sess> {
+    pub fn new128<'sess>(
+        raw_numerator: i128,
+        raw_denominator: i128,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        if raw_denominator == 0 {
+            return None;
+        }
         let (numerator, denominator) = reduce(raw_numerator, raw_denominator);
         debug_assert!(denominator > 0);
         debug_assert_eq!(
@@ -16,13 +22,30 @@ impl VdBsqFrac128 {
             BigInt::from(numerator) * BigInt::from(raw_denominator)
         );
         if denominator == 1 {
-            numerator.into()
+            Some(numerator.into())
         } else {
-            Self {
-                numerator,
-                denominator,
-            }
-            .into()
+            Some(
+                Self {
+                    numerator,
+                    denominator,
+                }
+                .into(),
+            )
+        }
+    }
+
+    pub fn new_i128_inverse(i: i128) -> Option<VdBsqFrac128> {
+        debug_assert!(i != 0);
+        if i > 0 {
+            Some(Self {
+                numerator: 1,
+                denominator: i,
+            })
+        } else {
+            Some(Self {
+                numerator: -1,
+                denominator: i.checked_neg()?,
+            })
         }
     }
 }
@@ -83,7 +106,7 @@ impl<'sess> VdBsqFrac128 {
             denominator,
         } = self;
         match numerator.checked_mul(rhs) {
-            Some(raw_numerator) => Self::new128(raw_numerator, denominator),
+            Some(raw_numerator) => Self::new128(raw_numerator, denominator).unwrap(),
             None => todo!(),
         }
     }

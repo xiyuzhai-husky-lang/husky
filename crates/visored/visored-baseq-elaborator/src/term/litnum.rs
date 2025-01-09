@@ -77,8 +77,8 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn mul(self, rhs: Self, db: &'sess FloaterDb) -> Self {
         match rhs {
             VdBsqLitnumTerm::Int128(rhs) => self.mul128(rhs, db),
-            VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(rhs) => todo!(),
+            VdBsqLitnumTerm::Frac128(rhs) => self.mul_frac128(rhs, db),
         }
     }
 
@@ -90,6 +90,20 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
             },
             VdBsqLitnumTerm::BigInt(i) => todo!(),
             VdBsqLitnumTerm::Frac128(_) => todo!(),
+        }
+    }
+
+    pub fn mul_frac128(self, rhs: VdBsqFrac128, db: &'sess FloaterDb) -> Self {
+        match self {
+            VdBsqLitnumTerm::Int128(slf) => {
+                let Some(numerator) = slf.checked_mul(rhs.numerator()) else {
+                    todo!()
+                };
+                VdBsqFrac128::new128(numerator, rhs.denominator())
+                    .expect("denominator can't be nonzero")
+            }
+            VdBsqLitnumTerm::BigInt(slf) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => todo!(),
         }
     }
 
@@ -113,7 +127,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn div_assign(&mut self, rhs: Self, db: &FloaterDb) {
         match *self {
             VdBsqLitnumTerm::Int128(slf) => match rhs {
-                VdBsqLitnumTerm::Int128(rhs) => *self = VdBsqFrac128::new128(slf, rhs),
+                VdBsqLitnumTerm::Int128(rhs) => *self = VdBsqFrac128::new128(slf, rhs).unwrap(),
                 VdBsqLitnumTerm::BigInt(i) => todo!(),
                 VdBsqLitnumTerm::Frac128(_) => todo!(),
             },
@@ -173,8 +187,63 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     }
 
     pub fn inverse(self) -> Option<Self> {
-        todo!()
+        match self {
+            VdBsqLitnumTerm::Int128(slf) => {
+                if slf == 0 {
+                    None
+                } else if slf == 1 || slf == -1 {
+                    Some(slf.into())
+                } else {
+                    match VdBsqFrac128::new_i128_inverse(slf) {
+                        Some(frac) => Some(frac.into()),
+                        None => Some(todo!("use big frac")),
+                    }
+                }
+            }
+            VdBsqLitnumTerm::BigInt(slf) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => {
+                VdBsqFrac128::new128(slf.denominator(), slf.numerator())
+            }
+        }
     }
+}
+
+#[test]
+fn vd_bsq_litnum_term_inverse_works() {
+    assert!(VdBsqLitnumTerm::Int128(0).inverse().is_none());
+
+    fn t<'sess>(
+        input: impl Into<VdBsqLitnumTerm<'sess>>,
+        expected: impl Into<VdBsqLitnumTerm<'sess>>,
+    ) {
+        let litnum = input.into();
+        let inverse = litnum.inverse();
+        assert!(inverse.is_some());
+        assert!(inverse.unwrap() == expected.into());
+    }
+
+    struct Div(i128, i128);
+
+    impl<'sess> Into<VdBsqLitnumTerm<'sess>> for Div {
+        fn into(self) -> VdBsqLitnumTerm<'sess> {
+            let litnum = VdBsqFrac128::new128(self.0, self.1).unwrap();
+            match litnum {
+                VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => {
+                    assert!(vd_bsq_frac128.numerator() == self.0);
+                    assert!(vd_bsq_frac128.denominator() == self.1);
+                }
+                _ => panic!(),
+            }
+            litnum
+        }
+    }
+
+    t(1, 1);
+    t(-1, -1);
+    t(Div(2, 3), Div(3, 2));
+    t(Div(-2, 3), Div(-3, 2));
+    t(5, Div(1, 5));
+    t(-5, Div(-1, 5));
 }
 
 impl<'sess> VdBsqLitnumTerm<'sess> {

@@ -5,6 +5,7 @@ use crate::{
         IsVdBsqHypothesisStashScheme,
     },
     term::{
+        builder::sum::VdBsqSumBuilder,
         comnum::{sum::VdBsqSumComnumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
         litnum::VdBsqLitnumTerm,
         num::VdBsqNumTerm,
@@ -27,7 +28,7 @@ impl IsVdBsqHypothesisStashScheme for VdBsqLitNumEqualityScheme {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBsqLitNumEqualityKey<'sess> {
-    reduced_term: VdBsqTerm<'sess>,
+    normalized_monomials: VdBsqNumTerm<'sess>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -52,19 +53,33 @@ impl IsVdBsqHypothesisUniqueStashScheme for VdBsqLitNumEqualityScheme {
         };
         require!(term.kind() == VdBsqNumRelationshipPropTermKind::Eq);
         require!(let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(lhs_minus_rhs)) = term.lhs_minus_rhs());
-        let (constant_term, monomials) = normalize_then_split(lhs_minus_rhs, db);
-        todo!()
+        let (normalized_constant_litnum, normalized_monomials) =
+            normalize_then_split_fld(lhs_minus_rhs, db);
+        let neg_normalized_constant_litnum = normalized_constant_litnum.neg(db);
+        let key = VdBsqLitNumEqualityKey {
+            normalized_monomials,
+        };
+        let value = VdBsqLitNumEqualityValue {
+            litnum: neg_normalized_constant_litnum,
+        };
+        Some((key, value))
     }
 }
 
-fn normalize_then_split<'sess>(
+fn normalize_then_split_fld<'sess>(
     sum: VdBsqSumComnumTerm<'sess>,
     db: &'sess FloaterDb,
-) -> (VdBsqLitnumTerm<'sess>, VdBsqSumComnumTerm<'sess>) {
-    todo!()
+) -> (VdBsqLitnumTerm<'sess>, VdBsqNumTerm<'sess>) {
+    let (litnum, monomials) = normalize_then_split_raw(sum, db);
+    let monomials = if monomials.len() > 1 {
+        VdBsqSumComnumTerm::new(0, monomials, db).into()
+    } else {
+        todo!()
+    };
+    (litnum, monomials)
 }
 
-fn normalize_then_split_aux<'sess>(
+fn normalize_then_split_raw<'sess>(
     sum: VdBsqSumComnumTerm<'sess>,
     db: &'sess FloaterDb,
 ) -> (VdBsqLitnumTerm<'sess>, VdBsqMonomialCoefficients<'sess>) {
@@ -72,6 +87,8 @@ fn normalize_then_split_aux<'sess>(
     debug_assert!(monomials.len() > 0);
     let coeff0 = monomials.data()[0].1;
     debug_assert!(coeff0.is_nonzero());
-    let _ = coeff0.inverse().expect("nonzero");
-    todo!()
+    let inv_coeff0 = coeff0.inverse().expect("nonzero");
+    let normalized_constant_term = sum.constant_term().mul(inv_coeff0, db);
+    let normalized_monomials = monomials.map_collect(|coeff| coeff.mul(inv_coeff0, db));
+    (normalized_constant_term, normalized_monomials)
 }

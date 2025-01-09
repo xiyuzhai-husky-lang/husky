@@ -1,18 +1,20 @@
-mod litnum_equality;
+pub mod litnum_equality;
 
+use self::litnum_equality::*;
 use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
+use floated_sequential::db::FloaterDb;
 use std::marker::PhantomData;
 use visored_baseq_elaborator_macros::stashes;
 
-// #[stashes]
+#[stashes]
 pub struct VdBsqHypothesisStashes<'sess> {
-    phantom: PhantomData<&'sess ()>,
+    litnum_equality: LitnumEqualityStash<'sess>,
 }
 
 impl<'sess> VdBsqHypothesisStashes<'sess> {
     pub(super) fn new() -> Self {
         Self {
-            phantom: PhantomData,
+            litnum_equality: LitnumEqualityStash::new(),
         }
     }
 }
@@ -20,10 +22,10 @@ impl<'sess> VdBsqHypothesisStashes<'sess> {
 impl<'sess> VdBsqHypothesisStashes<'sess> {
     pub(super) fn add_hypothesis(
         &mut self,
-        record: VdBsqHypothesisStackRecord<'sess>,
-        entry: &VdBsqHypothesisEntry<'sess>,
+        hypothesis_record: VdBsqHypothesisStackRecord<'sess>,
+        hypothesis_entry: &VdBsqHypothesisEntry<'sess>,
+        db: &'sess FloaterDb,
     ) {
-        // ad hoc
-        // todo!()
+        self._add_hypothesis(hypothesis_record, hypothesis_entry, db);
     }
 }

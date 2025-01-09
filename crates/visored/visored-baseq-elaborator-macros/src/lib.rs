@@ -24,17 +24,24 @@ pub fn stashes(_attr: TokenStream, input: TokenStream) -> TokenStream {
     // Generate the implementation
     let field_calls = fields.iter().map(|field| {
         quote! {
-            self.#field.add_hypothesis(hypothesis_record, hypothesis_entry);
+            self.#field.add_hypothesis(hypothesis_record, hypothesis_entry, db);
         }
     });
+
+    // Get the generics from the input struct
+    let (impl_generics, ty_generics, where_clause) = input.generics.split_for_impl();
 
     let expanded = quote! {
         // Keep the original struct definition
         #input
 
         // Generate the implementation
-        impl #struct_name {
-            fn _add_hypothesis(&mut self, hypothesis_record: Record, hypothesis_entry: &Entry) {
+        impl #impl_generics #struct_name #ty_generics #where_clause {
+            fn _add_hypothesis(&mut self,
+                hypothesis_record: VdBsqHypothesisStackRecord<'sess>,
+                hypothesis_entry: &VdBsqHypothesisEntry<'sess>,
+                db: &'sess FloaterDb,
+            ) {
                 #(#field_calls)*
             }
         }

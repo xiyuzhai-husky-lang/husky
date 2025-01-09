@@ -20,6 +20,10 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
 
 // # getters
 impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
+    pub fn floater_db(&self) -> &'sess FloaterDb {
+        self.session.floater_db()
+    }
+
     pub fn stack(&self) -> &VdBsqHypothesisStack<'sess> {
         &self.stack
     }
@@ -64,7 +68,11 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
         let hypothesis_idx = self
             .arena
             .alloc_one(VdBsqHypothesisEntry { expr, construction });
-        self.stack.push(hypothesis_idx, &self.arena[hypothesis_idx]);
+        self.stack.push(
+            hypothesis_idx,
+            &self.arena[hypothesis_idx],
+            self.floater_db(),
+        );
         hypothesis_idx
     }
 }

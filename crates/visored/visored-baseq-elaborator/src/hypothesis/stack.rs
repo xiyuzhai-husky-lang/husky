@@ -78,6 +78,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         &mut self,
         hypothesis_idx: VdBsqHypothesisIdx<'sess>,
         entry: &VdBsqHypothesisEntry<'sess>,
+        db: &'sess FloaterDb,
     ) {
         let stack_idx = self.active_hypotheses.len();
         self.active_hypotheses.push(hypothesis_idx);
@@ -87,7 +88,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         };
         self.add_hypothesis_to_expr_map(record, entry);
         self.add_hypothesis_to_term_map(record, entry);
-        self.stashes.add_hypothesis(record, entry);
+        self.stashes.add_hypothesis(record, entry, db);
     }
 
     fn add_hypothesis_to_expr_map(
