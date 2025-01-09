@@ -55,6 +55,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
+                hypothesis_chunk_place,
                 ..
             } => {
                 ln_tactics.push(LnMirTacticData::Let {
@@ -67,6 +68,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                     ty: None,
                     construction: assignment.to_lean(self),
                 });
+                self.build_hypothesis_chunk_tactics(hypothesis_chunk_place.unwrap(), ln_tactics);
                 self.build_ln_tactics_from_vd_stmts(following_stmts, ln_tactics);
             }
             VdMirStmtData::Goal { prop } => {

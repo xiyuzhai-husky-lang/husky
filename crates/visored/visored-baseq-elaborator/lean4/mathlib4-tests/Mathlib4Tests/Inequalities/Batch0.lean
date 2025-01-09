@@ -238,7 +238,8 @@ end Example33
 namespace Example34
 def h := by
   let x := 1
-  have h1 : x = 1 := by term_equivalent
+  have h1 : x = 1 := by let_assigned
+  have h2 : x = 1 := by term_equivalent
   exact ()
 end Example34
 

@@ -18,12 +18,15 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 leader,
                 ref followers,
                 joined_signature: Some(joined_signature),
-            } => self.build_have_nontrivial_chaining_separated_list(
-                leader,
-                followers,
-                joined_signature,
-                ln_tactics,
-            ),
+            } => {
+                self.build_hypothesis_chunk_tactics(hypothesis_chunk, ln_tactics);
+                self.build_have_nontrivial_chaining_separated_list(
+                    leader,
+                    followers,
+                    joined_signature,
+                    ln_tactics,
+                )
+            }
             _ => {
                 let ty = prop.to_lean(self);
                 self.build_have_tactics(stmt, hypothesis_chunk, ln_tactics);
