@@ -5,6 +5,7 @@ use hint::VdMirHintIdx;
 use hypothesis::{
     chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisIdx,
 };
+use pattern::VdMirPattern;
 use smallvec::SmallVec;
 use smallvec::ToSmallVec;
 use stmt::block::{VdMirBlockKind, VdMirBlockMeta};
@@ -34,7 +35,11 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
         &mut self,
         prop: VdMirExprIdx,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-    fn elaborate_let_assigned_stmt(&mut self) -> Result<(), Self::Contradiction>;
+    fn elaborate_let_assigned_stmt(
+        &mut self,
+        pattern: &VdMirPattern,
+        assignment: VdMirExprIdx,
+    ) -> Result<(), Self::Contradiction>;
     fn elaborate_goal_stmt(&mut self) -> Result<(), Self::Contradiction>;
     fn elaborate_have_stmt(
         &mut self,
@@ -80,7 +85,11 @@ impl IsVdMirSequentialElaboratorInner for () {
 
     fn exit_block(&mut self, kind: VdMirBlockKind) {}
 
-    fn elaborate_let_assigned_stmt(&mut self) -> Result<(), ()> {
+    fn elaborate_let_assigned_stmt(
+        &mut self,
+        pattern: &VdMirPattern,
+        assignment: VdMirExprIdx,
+    ) -> Result<Self::HypothesisIdx, ()> {
         Ok(())
     }
 
@@ -255,12 +264,16 @@ where
                         hypothesis_chunk_place.set(Ok(hypothesis_chunk));
                     });
             }
-            VdMirStmtData::LetAssigned { .. } => {
-                let elaboration = self
-                    .inner
-                    .elaborate_let_assigned_stmt()
+            VdMirStmtData::LetAssigned {
+                ref pattern,
+                assignment,
+                ..
+            } => {
+                let pattern = pattern.clone();
+                self.elaborate_expr(assignment, hypothesis_constructor);
+                self.inner
+                    .elaborate_let_assigned_stmt(&pattern, assignment)
                     .expect("handle contradiction");
-                todo!();
             }
             VdMirStmtData::Goal { .. } => {
                 self.inner

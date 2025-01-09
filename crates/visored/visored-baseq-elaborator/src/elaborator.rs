@@ -25,6 +25,7 @@ use visored_mir_expr::{
         construction::VdMirHypothesisConstruction, constructor::VdMirHypothesisConstructor,
         VdMirHypothesisIdx,
     },
+    pattern::VdMirPattern,
     region::VdMirExprRegionDataRef,
     stmt::{block::VdMirBlockKind, VdMirStmtData, VdMirStmtIdx},
 };
@@ -139,8 +140,12 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         }
     }
 
-    fn elaborate_let_assigned_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {
-        Ok(())
+    fn elaborate_let_assigned_stmt(
+        &mut self,
+        pattern: &VdMirPattern,
+        assignment: VdMirExprIdx,
+    ) -> VdBsqHypothesisResult<'sess, ()> {
+        todo!()
     }
 
     fn elaborate_let_placeholder_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {

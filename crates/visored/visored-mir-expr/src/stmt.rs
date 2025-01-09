@@ -35,6 +35,10 @@ pub enum VdMirStmtData {
         stmts: VdMirStmtIdxRange,
         meta: VdMirBlockMeta,
     },
+    LetAssigned {
+        pattern: VdMirPattern,
+        assignment: VdMirExprIdx,
+    },
     LetPlaceholder {
         pattern: VdMirPattern,
         ty: VdMirExprIdx,
@@ -42,10 +46,6 @@ pub enum VdMirStmtData {
     Assume {
         prop: VdMirExprIdx,
         hypothesis_chunk_place: OncePlace<VdMirHypothesisResult>,
-    },
-    LetAssigned {
-        pattern: VdMirPattern,
-        assignment: VdMirExprIdx,
     },
     Goal {
         prop: VdMirExprIdx,
@@ -268,7 +268,10 @@ impl<'db> VdMirExprBuilder<'db> {
                 right_math_delimiter_token_idx: right_dollar_token_idx,
                 ref dispatch,
             } => match dispatch {
-                VdSemLetClauseDispatch::Assigned(dispatch) => todo!(),
+                VdSemLetClauseDispatch::Assigned(dispatch) => VdMirStmtData::LetAssigned {
+                    pattern: dispatch.pattern().to_vd_mir(self),
+                    assignment: dispatch.assignment().to_vd_mir(self),
+                },
                 VdSemLetClauseDispatch::Placeholder(dispatch) => VdMirStmtData::LetPlaceholder {
                     pattern: dispatch.pattern().to_vd_mir(self),
                     ty: match *dispatch.ty_repr() {
