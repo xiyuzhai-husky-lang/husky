@@ -174,7 +174,9 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
                     joined_signature: None,
                 };
                 let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop, None);
-                todo!()
+                Ok(self
+                    .hypothesis_constructor
+                    .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::LetAssigned))
             }
         }
     }

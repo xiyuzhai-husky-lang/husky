@@ -73,6 +73,12 @@ macro "expr_equivalent": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "let_assigned": tactic =>`(tactic|
+  first
+  | dsimp; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 macro "term_equivalent": tactic =>`(tactic|
   first
   | simp; done

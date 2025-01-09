@@ -80,12 +80,12 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
 
     pub(crate) fn construct_new_hypothesis(
         &mut self,
-        expr: VdBsqExprFld<'sess>,
+        prop: VdBsqExprFld<'sess>,
         construction: VdBsqHypothesisConstruction<'sess>,
     ) -> VdBsqHypothesisIdx<'sess> {
         let hypothesis_idx = self
             .arena
-            .alloc_one(VdBsqHypothesisEntry { expr, construction });
+            .alloc_one(VdBsqHypothesisEntry { prop, construction });
         self.stack.push(
             hypothesis_idx,
             &self.arena[hypothesis_idx],

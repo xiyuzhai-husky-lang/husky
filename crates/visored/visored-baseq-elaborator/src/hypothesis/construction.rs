@@ -19,4 +19,5 @@ pub enum VdBsqHypothesisConstruction<'sess> {
         hypothesis: VdBsqHypothesisIdx<'sess>,
     },
     Sorry,
+    LetAssigned,
 }

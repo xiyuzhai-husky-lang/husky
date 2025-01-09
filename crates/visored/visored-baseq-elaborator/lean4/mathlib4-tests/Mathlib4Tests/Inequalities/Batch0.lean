@@ -15,6 +15,12 @@ macro "expr_equivalent": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "let_assigned": tactic =>`(tactic|
+  first
+  | dsimp; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 macro "term_equivalent": tactic =>`(tactic|
   first
   | simp; done
@@ -56,7 +62,8 @@ end Example4
 
 namespace Example5
 def h := by
-  have h1 : (1 : ℚ) / (2 : ℚ) * (2 : ℚ) = (1 : ℚ) := by term_equivalent
+  have h1 : (2 : ℚ) ≠ 0 := by term_trivial
+  have h2 : (1 : ℚ) / (2 : ℚ) * (2 : ℚ) = (1 : ℚ) := by term_equivalent
   exact ()
 end Example5
 

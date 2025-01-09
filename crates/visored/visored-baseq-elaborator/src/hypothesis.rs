@@ -19,7 +19,7 @@ use visored_mir_expr::{
 
 #[derive(Debug)]
 pub struct VdBsqHypothesisEntry<'sess> {
-    expr: VdBsqExprFld<'sess>,
+    prop: VdBsqExprFld<'sess>,
     construction: VdBsqHypothesisConstruction<'sess>,
 }
 
@@ -28,7 +28,7 @@ pub type VdBsqHypothesisArena<'sess> = Arena<VdBsqHypothesisEntry<'sess>>;
 
 impl<'sess> VdBsqHypothesisEntry<'sess> {
     pub fn expr(&self) -> VdBsqExprFld<'sess> {
-        self.expr
+        self.prop
     }
 
     pub fn construction(&self) -> &VdBsqHypothesisConstruction<'sess> {
@@ -88,6 +88,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 }
             }
             VdBsqHypothesisConstruction::CommRing => VdMirHypothesisConstruction::CommRing,
+            VdBsqHypothesisConstruction::LetAssigned => VdMirHypothesisConstruction::LetAssigned,
         };
         let prop = match explicit_prop {
             Some(prop) => prop,
