@@ -57,7 +57,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) fn transcribe_coercion(
         &self,
         coercion: VdBsqCoercion<'sess>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdMirCoercion {
         match coercion {
             VdBsqCoercion::Trivial(vd_baseq_trivial_coercion) => VdMirCoercion::Trivial,

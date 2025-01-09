@@ -56,11 +56,11 @@ where
                 }])
             }
             VdMirHypothesisConstruction::Assume => return,
-            VdMirHypothesisConstruction::TermEquivalent {} => {
+            VdMirHypothesisConstruction::TermEquivalent { hypothesis } => {
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_equivalent");
                 self.alloc_tactics([ad_hoc_tactic_data])
             }
-            VdMirHypothesisConstruction::ExprEquivalent {} => {
+            VdMirHypothesisConstruction::ExprEquivalent { hypothesis } => {
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("expr_equivalent");
                 self.alloc_tactics([ad_hoc_tactic_data])
             }

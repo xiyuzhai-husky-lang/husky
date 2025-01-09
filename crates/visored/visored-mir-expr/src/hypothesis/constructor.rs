@@ -1,3 +1,7 @@
+use super::{
+    chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisArena,
+    VdMirHypothesisIdx,
+};
 use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef, VdMirExprData, VdMirExprEntry, VdMirExprIdx},
     hint::VdMirHintArena,
@@ -7,14 +11,10 @@ use crate::{
     symbol::local_defn::storage::VdMirSymbolLocalDefnStorage,
 };
 use eterned::db::EternerDb;
+use rustc_hash::FxHashMap;
 use visored_term::ty::VdType;
 
-use super::{
-    chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisArena,
-    VdMirHypothesisIdx,
-};
-
-pub struct VdMirHypothesisConstructor<'db> {
+pub struct VdMirHypothesisConstructor<'db, Src> {
     db: &'db EternerDb,
     expr_arena: VdMirExprArena,
     stmt_arena: VdMirStmtArena,
@@ -22,9 +22,10 @@ pub struct VdMirHypothesisConstructor<'db> {
     hypothesis_arena: VdMirHypothesisArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     current_stmt_and_hypothesis_chunk_start: Option<(VdMirStmtIdx, VdMirHypothesisIdx)>,
+    cache: FxHashMap<Src, VdMirHypothesisIdx>,
 }
 
-impl<'db> VdMirHypothesisConstructor<'db> {
+impl<'db, Src> VdMirHypothesisConstructor<'db, Src> {
     pub fn new(
         db: &'db EternerDb,
         expr_arena: VdMirExprArena,
@@ -40,11 +41,12 @@ impl<'db> VdMirHypothesisConstructor<'db> {
             symbol_local_defn_storage,
             hypothesis_arena: Default::default(),
             current_stmt_and_hypothesis_chunk_start: None,
+            cache: FxHashMap::default(),
         }
     }
 }
 
-impl<'db> VdMirHypothesisConstructor<'db> {
+impl<'db, Src> VdMirHypothesisConstructor<'db, Src> {
     pub fn expr_arena(&self) -> VdMirExprArenaRef {
         self.expr_arena.as_arena_ref()
     }
@@ -67,7 +69,7 @@ impl<'db> VdMirHypothesisConstructor<'db> {
     }
 }
 
-impl<'db> VdMirHypothesisConstructor<'db> {
+impl<'db, Src> VdMirHypothesisConstructor<'db, Src> {
     pub(crate) fn obtain_hypothesis_chunk_within_stmt(
         &mut self,
         stmt: VdMirStmtIdx,
@@ -95,12 +97,22 @@ impl<'db> VdMirHypothesisConstructor<'db> {
     // TODO: do more things like handle hypothesis stack, register src, etc.
     pub fn construct_new_hypothesis(
         &mut self,
-        expr: VdMirExprIdx,
-        hypothesis: VdMirHypothesisConstruction,
-    ) -> VdMirHypothesisIdx {
+        src: Src,
+        f: impl Fn(&mut Self) -> (VdMirExprIdx, VdMirHypothesisConstruction),
+    ) -> VdMirHypothesisIdx
+    where
+        Src: std::hash::Hash + Eq,
+    {
         assert!(self.current_stmt_and_hypothesis_chunk_start.is_some());
-        self.hypothesis_arena
-            .alloc_one(VdMirHypothesisEntry::new(expr, hypothesis))
+        if let Some(&hypothesis) = self.cache.get(&src) {
+            return hypothesis;
+        }
+        let (expr, hypothesis) = f(self);
+        let hypothesis = self
+            .hypothesis_arena
+            .alloc_one(VdMirHypothesisEntry::new(expr, hypothesis));
+        self.cache.insert(src, hypothesis);
+        hypothesis
     }
 
     pub fn construct_new_expr(

@@ -12,10 +12,10 @@ pub enum VdMirHypothesisConstruction {
     Assume,
     Sorry,
     TermEquivalent {
-        // hypothesis: VdMirHypothesisIdx,
+        hypothesis: VdMirHypothesisIdx,
     },
     ExprEquivalent {
-        // hypothesis: VdMirHypothesisIdx,
+        hypothesis: VdMirHypothesisIdx,
     },
     TermTrivial(bool),
     CommRing,

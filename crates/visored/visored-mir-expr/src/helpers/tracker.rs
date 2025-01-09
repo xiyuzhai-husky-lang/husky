@@ -57,10 +57,10 @@ pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String;
 
-    fn elaborate_self<'db>(
+    fn elaborate_self<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         self,
-        elaborator: impl IsVdMirTacticElaborator<'db>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        elaborator: Elaborator,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, Elaborator::HypothesisIdx>,
     );
 }
 
@@ -205,10 +205,10 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
         DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
 
-    fn elaborate_self<'db>(
+    fn elaborate_self<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         self,
-        elaborator: impl IsVdMirTacticElaborator<'db>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        elaborator: Elaborator,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, Elaborator::HypothesisIdx>,
     ) {
         elaborator.elaborate_stmts_ext(self, hypothesis_constructor)
     }
@@ -219,10 +219,10 @@ impl IsVdMirExprOutput for VdMirExprIdx {
         builder.render_expr(self).show(&Default::default())
     }
 
-    fn elaborate_self<'db>(
+    fn elaborate_self<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         self,
-        elaborator: impl IsVdMirTacticElaborator<'db>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        elaborator: Elaborator,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, Elaborator::HypothesisIdx>,
     ) {
         elaborator.elaborate_expr_ext(self, hypothesis_constructor)
     }

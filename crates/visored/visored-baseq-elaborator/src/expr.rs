@@ -23,7 +23,10 @@ use visored_term::{
     ty::VdType,
 };
 
-use crate::{elaborator::VdBsqElaboratorInner, session::VdBsqSession, term::VdBsqTerm};
+use crate::{
+    elaborator::VdBsqElaboratorInner, hypothesis::VdBsqHypothesisIdx, session::VdBsqSession,
+    term::VdBsqTerm,
+};
 
 #[floated]
 pub struct VdBsqExprFld<'sess> {
@@ -274,7 +277,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn transcribe_expr(
         &self,
         expr: VdBsqExprFld<'sess>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdMirExprIdx {
         let data = match *expr.data() {
             VdBsqExprFldData::Literal(lit) => VdMirExprData::Literal(lit),

@@ -12,6 +12,7 @@ use crate::{
 use eterned::db::EternerDb;
 use floated_sequential::db::FloaterDb;
 use miracle::{HasMiracle, Miracle};
+use rustc_hash::FxHashMap;
 use smallvec::*;
 use std::marker::PhantomData;
 use visored_mir_expr::{
@@ -173,7 +174,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
                     joined_signature: None,
                 };
                 let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop, None);
-                self.obvious(prop)
+                todo!()
             }
         }
     }
@@ -220,7 +221,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
     fn elaborate_field_div_expr(
         &mut self,
         divisor: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
         let divisor = self.expr_fld(divisor);
         let signature = if divisor.ty() == self.ty_menu().nat {
@@ -292,39 +293,17 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
     fn transcribe_explicit_hypothesis(
         &self,
         hypothesis: Self::HypothesisIdx,
-        goal: VdMirExprIdx,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        prop: VdMirExprIdx,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdMirHypothesisIdx {
-        let construction = match *self.hypothesis_constructor.arena()[hypothesis].construction() {
-            VdBsqHypothesisConstruction::Sorry => VdMirHypothesisConstruction::Sorry,
-            VdBsqHypothesisConstruction::TermTrivial(b) => {
-                VdMirHypothesisConstruction::TermTrivial(b)
-            }
-            VdBsqHypothesisConstruction::Apply {
-                path,
-                is_real_coercion,
-            } => VdMirHypothesisConstruction::Apply {
-                path,
-                is_real_coercion: self
-                    .transcribe_coercion(is_real_coercion, hypothesis_constructor),
-            },
-            VdBsqHypothesisConstruction::Assume => VdMirHypothesisConstruction::Assume,
-            VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => {
-                VdMirHypothesisConstruction::TermEquivalent {}
-            }
-            VdBsqHypothesisConstruction::ExprEquivalent { hypothesis } => {
-                VdMirHypothesisConstruction::ExprEquivalent {}
-            }
-            VdBsqHypothesisConstruction::CommRing => VdMirHypothesisConstruction::CommRing,
-        };
-        hypothesis_constructor.construct_new_hypothesis(goal, construction)
+        self.transcribe_hypothesis(hypothesis, Some(prop), hypothesis_constructor)
     }
 
     fn transcribe_implicit_hypothesis(
         &self,
         hypothesis: VdBsqHypothesisIdx<'sess>,
-        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db>,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdMirHypothesisIdx {
-        self.transcribe_implicit_hypothesis(hypothesis, hypothesis_constructor)
+        self.transcribe_hypothesis(hypothesis, None, hypothesis_constructor)
     }
 }
