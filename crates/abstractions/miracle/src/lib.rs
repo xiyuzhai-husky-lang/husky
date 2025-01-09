@@ -1,12 +1,17 @@
+#![feature(impl_trait_in_assoc_type)]
+#![feature(inherent_associated_types)]
 //! Named after Gerard Valkyrie's "The Miracle" from Bleach, a divine ability that
 //! continuously revives its wielder to become stronger after each defeat.
 
 pub mod config;
 pub mod error;
+pub mod foldm;
 pub mod metric;
 pub mod multifold;
 pub mod stage;
 pub mod state;
+
+use std::marker::PhantomData;
 
 use self::{config::*, error::*, metric::*, stage::*, state::*};
 use alt_maybe_result::*;
@@ -97,6 +102,23 @@ pub trait HasMiracleFull: HasMiracle {
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
 
+    fn foldm<S, I, R, H>(
+        &mut self,
+        init: S,
+        iter: I,
+        h: &H,
+        f: &impl Fn(
+            &mut Self,
+            S,
+            I::Item,
+            &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
+        ) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>
+    where
+        I: IntoIterator,
+        I::IntoIter: Clone,
+        H: Fn(&mut Self, S) -> MiracleAltMaybeResult<R>;
+
     /// `f` returns an option so that we could kill it early
     fn multifold<S, I, R>(
         &mut self,
@@ -155,6 +177,26 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
+    fn foldm<S, I, R, H>(
+        &mut self,
+        init: S,
+        iter: I,
+        h: &H,
+        f: &impl Fn(
+            &mut Self,
+            S,
+            I::Item,
+            &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
+        ) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>
+    where
+        I: IntoIterator,
+        I::IntoIter: Clone,
+        H: Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
+    {
+        crate::foldm::foldm(self, init, iter.into_iter(), h, f)
+    }
+
     fn multifold<S, I, R>(
         &mut self,
         init: S,
@@ -166,7 +208,7 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         I: IntoIterator,
         I::IntoIter: Clone,
     {
-        crate::multifold::fold_batch(self, init, iter.into_iter(), f, g)
+        crate::multifold::multifold(self, init, iter.into_iter(), f, g)
     }
 }
 
@@ -202,3 +244,5 @@ fn run_staged_alt_option_works() {
         AltJustOk(1)
     );
 }
+
+pub trait IsMiracleFoldmEngine: Sized {}
