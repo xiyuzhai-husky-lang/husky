@@ -265,9 +265,35 @@ impl<'a> LnMirExprFormatter<'a> {
                 body,
             } => {
                 write!(self.result, "def {}", ident.data());
+                // Group consecutive parameters with the same type
+                let mut current_group = Vec::new();
+                let mut current_ty = None;
+
                 for param in parameters {
-                    write!(self.result, "({} : ", param.ident.data());
-                    self.format_expr_ext(param.ty);
+                    if let Some(ty) = current_ty {
+                        if ty == param.ty {
+                            current_group.push(param.ident.data());
+                        } else {
+                            // Print current group
+                            write!(self.result, " ({} : ", current_group.join(" "));
+                            self.format_expr_ext(ty);
+                            write!(self.result, ")");
+
+                            // Start new group
+                            current_group = vec![param.ident.data()];
+                            current_ty = Some(param.ty);
+                        }
+                    } else {
+                        // First parameter
+                        current_group.push(param.ident.data());
+                        current_ty = Some(param.ty);
+                    }
+                }
+
+                // Print final group if any
+                if let Some(ty) = current_ty {
+                    write!(self.result, " ({} : ", current_group.join(" "));
+                    self.format_expr_ext(ty);
                     write!(self.result, ")");
                 }
                 if let Some(ty) = ty {
