@@ -3,23 +3,23 @@ use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 use super::*;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqProductInumTermBase<'sess>(VdBsqInumTermFld<'sess>);
+pub struct VdBsqProductComnumTermBase<'sess>(VdBsqComnumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqProductInumTermBaseData<'sess> {
+pub struct VdBsqProductComnumTermBaseData<'sess> {
     exponentials: VdBsqExponentialPowers<'sess>,
 }
 
-impl<'sess> VdBsqProductInumTermBaseData<'sess> {
+impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
     pub fn exponentials(&self) -> &VdBsqExponentialPowers<'sess> {
         &self.exponentials
     }
 }
 
-impl<'sess> VdBsqProductInumTermBase<'sess> {
+impl<'sess> VdBsqProductComnumTermBase<'sess> {
     pub fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
-        VdBsqProductInumTermBase(VdBsqInumTermFld::new(
-            VdBsqInumTermData::Product(VdBsqProductInumTermBaseData { exponentials }),
+        VdBsqProductComnumTermBase(VdBsqComnumTermFld::new(
+            VdBsqComnumTermData::Product(VdBsqProductComnumTermBaseData { exponentials }),
             db,
         ))
     }
@@ -45,10 +45,10 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductInumTermBase<'sess> {
-    pub fn data(&self) -> &'sess VdBsqProductInumTermBaseData<'sess> {
+impl<'sess> VdBsqProductComnumTermBase<'sess> {
+    pub fn data(&self) -> &'sess VdBsqProductComnumTermBaseData<'sess> {
         match self.0.data() {
-            VdBsqInumTermData::Product(data) => data,
+            VdBsqComnumTermData::Product(data) => data,
             _ => unreachable!(),
         }
     }
@@ -62,15 +62,15 @@ impl<'sess> VdBsqProductInumTermBase<'sess> {
     }
 }
 
-impl<'sess> VdBsqInumTerm<'sess> {
+impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn new_product(
-        litnum_coefficient: VdBsqLitNumTerm<'sess>,
+        litn_coefficient: VdBsqLitnumTerm<'sess>,
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqInumTerm::Product(
-            litnum_coefficient,
-            VdBsqProductInumTermBase::new(exponentials, db),
+        VdBsqComnumTerm::Product(
+            litn_coefficient,
+            VdBsqProductComnumTermBase::new(exponentials, db),
         )
     }
 
@@ -80,29 +80,29 @@ impl<'sess> VdBsqInumTerm<'sess> {
         db: &'sess FloaterDb,
     ) -> Self {
         match base {
-            VdBsqNonProductNumTerm::Rnum(term) => todo!(),
+            VdBsqNonProductNumTerm::Litnum(term) => todo!(),
             _ => match exponent {
                 VdBsqNumTerm::ZERO => todo!(),
                 VdBsqNumTerm::ONE => todo!(),
-                VdBsqNumTerm::Inum(VdBsqInumTerm::Sum(term)) => todo!(),
+                VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)) => todo!(),
                 _ => (),
             },
         }
-        VdBsqInumTerm::Product(
-            VdBsqLitNumTerm::ONE,
-            VdBsqProductInumTermBase::new_power(base, exponent, db),
+        VdBsqComnumTerm::Product(
+            VdBsqLitnumTerm::ONE,
+            VdBsqProductComnumTermBase::new_power(base, exponent, db),
         )
     }
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn new_product(
-        litnum_coefficient: VdBsqLitNumTerm<'sess>,
+        litn_coefficient: VdBsqLitnumTerm<'sess>,
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqNumTerm::Inum(VdBsqInumTerm::new_product(
-            litnum_coefficient,
+        VdBsqNumTerm::Comnum(VdBsqComnumTerm::new_product(
+            litn_coefficient,
             exponentials,
             db,
         ))
@@ -113,7 +113,7 @@ impl<'sess> VdBsqNumTerm<'sess> {
         exponent: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqNumTerm::Inum(VdBsqInumTerm::new_power(base, exponent, db))
+        VdBsqNumTerm::Comnum(VdBsqComnumTerm::new_power(base, exponent, db))
     }
 }
 
@@ -123,11 +123,11 @@ impl<'sess> VdBsqTerm<'sess> {
         exponent: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqTerm::Inum(VdBsqInumTerm::new_power(base, exponent, db))
+        VdBsqTerm::Comnum(VdBsqComnumTerm::new_power(base, exponent, db))
     }
 }
 
-impl<'sess> VdBsqProductInumTermBaseData<'sess> {
+impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,
@@ -179,7 +179,7 @@ impl<'sess> VdBsqProductInumTermBaseData<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductInumTermBase<'sess> {
+impl<'sess> VdBsqProductComnumTermBase<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,

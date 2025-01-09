@@ -1,50 +1,50 @@
 use super::*;
-use crate::term::sum::VdBsqSumInumTerm;
+use crate::term::sum::VdBsqSumComnumTerm;
 use builder::sum::VdBsqSumBuilder;
 use smallvec::*;
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNumTerm<'sess> {
-    Rnum(VdBsqLitNumTerm<'sess>),
-    Inum(VdBsqInumTerm<'sess>),
+    Litnum(VdBsqLitnumTerm<'sess>),
+    Comnum(VdBsqComnumTerm<'sess>),
 }
 
 impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
     fn from(term: VdBsqNonProductNumTerm<'sess>) -> Self {
         match term {
-            VdBsqNonProductNumTerm::Rnum(term) => VdBsqNumTerm::Rnum(term),
-            VdBsqNonProductNumTerm::AtomInum(term) => VdBsqNumTerm::Inum(term.into()),
-            VdBsqNonProductNumTerm::SumInum(term) => VdBsqNumTerm::Inum(term.into()),
+            VdBsqNonProductNumTerm::Litnum(term) => VdBsqNumTerm::Litnum(term),
+            VdBsqNonProductNumTerm::AtomComnum(term) => VdBsqNumTerm::Comnum(term.into()),
+            VdBsqNonProductNumTerm::SumComnum(term) => VdBsqNumTerm::Comnum(term.into()),
         }
     }
 }
 
 impl<'sess> From<i128> for VdBsqNumTerm<'sess> {
     fn from(value: i128) -> Self {
-        VdBsqNumTerm::Rnum(VdBsqLitNumTerm::Int128(value))
+        VdBsqNumTerm::Litnum(VdBsqLitnumTerm::Int128(value))
     }
 }
 
 impl<'sess> From<VdBsqNumTerm<'sess>> for VdBsqTerm<'sess> {
     fn from(term: VdBsqNumTerm<'sess>) -> Self {
         match term {
-            VdBsqNumTerm::Rnum(term) => VdBsqTerm::Rnum(term),
-            VdBsqNumTerm::Inum(term) => VdBsqTerm::Inum(term),
+            VdBsqNumTerm::Litnum(term) => VdBsqTerm::Litnum(term),
+            VdBsqNumTerm::Comnum(term) => VdBsqTerm::Comnum(term),
         }
     }
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
-    pub const ZERO: Self = VdBsqNumTerm::Rnum(VdBsqLitNumTerm::ZERO);
-    pub const ONE: Self = VdBsqNumTerm::Rnum(VdBsqLitNumTerm::ONE);
+    pub const ZERO: Self = VdBsqNumTerm::Litnum(VdBsqLitnumTerm::ZERO);
+    pub const ONE: Self = VdBsqNumTerm::Litnum(VdBsqLitnumTerm::ONE);
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn is_zero_trivially(self) -> bool {
         match self {
-            VdBsqNumTerm::Rnum(term) => term.is_zero(),
-            VdBsqNumTerm::Inum(term) => false,
+            VdBsqNumTerm::Litnum(term) => term.is_zero(),
+            VdBsqNumTerm::Comnum(term) => false,
         }
     }
 
@@ -54,8 +54,8 @@ impl<'sess> VdBsqNumTerm<'sess> {
 
     pub fn eqs_i128_trivially(self, rhs: i128) -> bool {
         match self {
-            VdBsqNumTerm::Rnum(term) => term.eqs_i128(rhs),
-            VdBsqNumTerm::Inum(term) => false,
+            VdBsqNumTerm::Litnum(term) => term.eqs_i128(rhs),
+            VdBsqNumTerm::Comnum(term) => false,
         }
     }
 
@@ -85,8 +85,8 @@ impl<'sess> VdBsqNumTerm<'sess> {
 
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         match self {
-            VdBsqNumTerm::Rnum(term) => VdBsqNumTerm::Rnum(term.mul128(rhs, db)),
-            VdBsqNumTerm::Inum(term) => term.mul128(rhs, db),
+            VdBsqNumTerm::Litnum(term) => VdBsqNumTerm::Litnum(term.mul128(rhs, db)),
+            VdBsqNumTerm::Comnum(term) => term.mul128(rhs, db),
         }
     }
 
@@ -104,8 +104,8 @@ impl<'sess> VdBsqNumTerm<'sess> {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqNumTerm::Rnum(term) => term.show_fmt(precedence_range, f),
-            VdBsqNumTerm::Inum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNumTerm::Litnum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNumTerm::Comnum(term) => term.show_fmt(precedence_range, f),
         }
     }
 }

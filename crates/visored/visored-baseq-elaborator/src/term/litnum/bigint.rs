@@ -3,15 +3,15 @@ use floated_sequential::{db::FloaterDb, floated};
 use num_bigint::Sign;
 use visored_term::term::literal::bigint::VdBigIntData;
 
-use super::VdBsqLitNumTerm;
+use super::VdBsqLitnumTerm;
 
 #[floated]
-pub struct VdBsqRnumTermBigInt<'sess> {
+pub struct VdBsqBigInt<'sess> {
     #[return_ref]
     pub inner: VdBigIntData,
 }
 
-impl<'sess> VdBsqRnumTermBigInt<'sess> {
+impl<'sess> VdBsqBigInt<'sess> {
     pub fn sign(self) -> Sign {
         self.inner().sign()
     }
@@ -25,11 +25,11 @@ impl<'sess> VdBsqRnumTermBigInt<'sess> {
     }
 }
 
-impl<'sess> VdBsqRnumTermBigInt<'sess> {
-    pub fn sub(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqBigInt<'sess> {
+    pub fn sub(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
         let sub = self.inner() - rhs.inner();
         match sub {
-            Left(inner) => VdBsqRnumTermBigInt::new(inner, db).into(),
+            Left(inner) => VdBsqBigInt::new(inner, db).into(),
             Right(i) => i.into(),
         }
     }

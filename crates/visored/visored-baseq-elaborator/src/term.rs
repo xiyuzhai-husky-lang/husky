@@ -1,21 +1,21 @@
 pub mod builder;
-pub mod inum;
+pub mod comnum;
 pub mod litnum;
 pub mod num;
 pub mod prop;
 
-use self::{inum::*, litnum::*, num::*, prop::*};
+use self::{comnum::*, litnum::*, num::*, prop::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::{VdMirExprFld, VdMirExprFldData},
 };
-use bigint::VdBsqRnumTermBigInt;
+use bigint::VdBsqBigInt;
 use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
 use num_relationship::VdBsqNumRelationshipPropTermKind;
-use product::VdBsqProductInumTermBase;
+use product::VdBsqProductComnumTermBase;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprData, VdMirExprEntry},
@@ -33,8 +33,8 @@ use visored_term::{
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqTerm<'sess> {
-    Rnum(VdBsqLitNumTerm<'sess>),
-    Inum(VdBsqInumTerm<'sess>),
+    Litnum(VdBsqLitnumTerm<'sess>),
+    Comnum(VdBsqComnumTerm<'sess>),
     Prop(VdBsqPropTerm<'sess>),
 }
 
@@ -42,15 +42,15 @@ impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
     ) -> Either<
-        (VdBsqLitNumTerm<'sess>, VdBsqProductInumTermBase<'sess>),
+        (VdBsqLitnumTerm<'sess>, VdBsqProductComnumTermBase<'sess>),
         VdBsqNonProductNumTerm<'sess>,
     > {
         match self {
-            VdBsqNumTerm::Rnum(term) => todo!(),
-            VdBsqNumTerm::Inum(term) => match term {
-                VdBsqInumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::AtomInum(term)),
-                VdBsqInumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::SumInum(term)),
-                VdBsqInumTerm::Product(rnum, term) => Left((rnum, term)),
+            VdBsqNumTerm::Litnum(term) => todo!(),
+            VdBsqNumTerm::Comnum(term) => match term {
+                VdBsqComnumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::AtomComnum(term)),
+                VdBsqComnumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::SumComnum(term)),
+                VdBsqComnumTerm::Product(litnum, term) => Left((litnum, term)),
             },
         }
     }
@@ -59,8 +59,8 @@ impl<'sess> VdBsqNumTerm<'sess> {
 impl<'sess> VdBsqTerm<'sess> {
     pub fn num(self) -> Option<VdBsqNumTerm<'sess>> {
         match self {
-            VdBsqTerm::Rnum(rnum) => Some(VdBsqNumTerm::Rnum(rnum)),
-            VdBsqTerm::Inum(inum) => Some(VdBsqNumTerm::Inum(inum)),
+            VdBsqTerm::Litnum(litnum) => Some(VdBsqNumTerm::Litnum(litnum)),
+            VdBsqTerm::Comnum(comnum) => Some(VdBsqNumTerm::Comnum(comnum)),
             VdBsqTerm::Prop(_) => None,
         }
     }
@@ -81,8 +81,8 @@ impl<'sess> VdBsqTerm<'sess> {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqTerm::Rnum(rnum) => rnum.show_fmt(precedence_range, f),
-            VdBsqTerm::Inum(inum) => inum.show_fmt(precedence_range, f),
+            VdBsqTerm::Litnum(litnum) => litnum.show_fmt(precedence_range, f),
+            VdBsqTerm::Comnum(comnum) => comnum.show_fmt(precedence_range, f),
             VdBsqTerm::Prop(prop) => prop.show_fmt(precedence_range, f),
         }
     }
@@ -101,10 +101,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let db = self.floater_db();
         match *expr {
             VdMirExprFldData::Literal(vd_literal) => match *vd_literal.data() {
-                VdLiteralData::Int128(i) => VdBsqTerm::Rnum(VdBsqLitNumTerm::Int128(i)),
-                VdLiteralData::BigInt(ref n) => VdBsqTerm::Rnum(VdBsqLitNumTerm::BigInt(
-                    VdBsqRnumTermBigInt::new(n.clone(), db),
-                )),
+                VdLiteralData::Int128(i) => VdBsqTerm::Litnum(VdBsqLitnumTerm::Int128(i)),
+                VdLiteralData::BigInt(ref n) => {
+                    VdBsqTerm::Litnum(VdBsqLitnumTerm::BigInt(VdBsqBigInt::new(n.clone(), db)))
+                }
                 VdLiteralData::Float(_) => todo!(),
                 VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
             },

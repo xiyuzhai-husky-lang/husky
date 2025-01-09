@@ -2,33 +2,33 @@ pub mod bigint;
 pub mod bigrat;
 pub mod frac128;
 
-use self::{bigint::VdBsqRnumTermBigInt, frac128::VdBsqFrac128};
+use self::{bigint::VdBsqBigInt, frac128::VdBsqFrac128};
 use super::*;
 use std::num::NonZeroU128;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqLitNumTerm<'sess> {
+pub enum VdBsqLitnumTerm<'sess> {
     Int128(i128),
-    BigInt(VdBsqRnumTermBigInt<'sess>),
+    BigInt(VdBsqBigInt<'sess>),
     Frac128(VdBsqFrac128),
 }
 
-impl<'sess> std::fmt::Debug for VdBsqLitNumTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqLitnumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("VdBsqRnumTerm(`")?;
+        f.write_str("VdBsqLitnumTerm(`")?;
         self.show_fmt(VdPrecedenceRange::Any, f)?;
         f.write_str("`)")
     }
 }
 
-impl<'sess> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn neg(self, db: &FloaterDb) -> Self {
         match self {
-            VdBsqLitNumTerm::Int128(i) => VdBsqLitNumTerm::Int128(-i),
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(f) => VdBsqLitNumTerm::Frac128(-f),
+            VdBsqLitnumTerm::Int128(i) => VdBsqLitnumTerm::Int128(-i),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(f) => VdBsqLitnumTerm::Frac128(-f),
         }
     }
 
@@ -38,100 +38,100 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
             return;
         }
         match self {
-            VdBsqLitNumTerm::Int128(slf) => match rhs {
-                VdBsqLitNumTerm::Int128(rhs) => match slf.checked_add(rhs) {
-                    Some(sum) => *self = VdBsqLitNumTerm::Int128(sum),
+            VdBsqLitnumTerm::Int128(slf) => match rhs {
+                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_add(rhs) {
+                    Some(sum) => *self = VdBsqLitnumTerm::Int128(sum),
                     None => todo!(),
                 },
-                VdBsqLitNumTerm::BigInt(i) => {
+                VdBsqLitnumTerm::BigInt(i) => {
                     use husky_print_utils::p;
                     p!(self, rhs);
                     todo!()
                 }
-                VdBsqLitNumTerm::Frac128(_) => todo!(),
+                VdBsqLitnumTerm::Frac128(_) => todo!(),
             },
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 
     pub fn sub_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
         match self {
-            VdBsqLitNumTerm::Int128(slf) => match rhs {
-                VdBsqLitNumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
-                    Some(sum) => *self = VdBsqLitNumTerm::Int128(sum),
+            VdBsqLitnumTerm::Int128(slf) => match rhs {
+                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
+                    Some(sum) => *self = VdBsqLitnumTerm::Int128(sum),
                     None => todo!(),
                 },
-                VdBsqLitNumTerm::BigInt(i) => todo!(),
-                VdBsqLitNumTerm::Frac128(_) => todo!(),
+                VdBsqLitnumTerm::BigInt(i) => todo!(),
+                VdBsqLitnumTerm::Frac128(_) => todo!(),
             },
-            VdBsqLitNumTerm::BigInt(i) => match rhs {
-                VdBsqLitNumTerm::Int128(_) => todo!(),
-                VdBsqLitNumTerm::BigInt(i1) => *self = i.sub(i1, db),
-                VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => match rhs {
+                VdBsqLitnumTerm::Int128(_) => todo!(),
+                VdBsqLitnumTerm::BigInt(i1) => *self = i.sub(i1, db),
+                VdBsqLitnumTerm::Frac128(_) => todo!(),
             },
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 
     pub fn mul(self, rhs: Self, db: &'sess FloaterDb) -> Self {
         match rhs {
-            VdBsqLitNumTerm::Int128(rhs) => self.mul128(rhs, db),
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Int128(rhs) => self.mul128(rhs, db),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> Self {
         match self {
-            VdBsqLitNumTerm::Int128(i) => match i.checked_mul(rhs) {
-                Some(product) => VdBsqLitNumTerm::Int128(product),
+            VdBsqLitnumTerm::Int128(i) => match i.checked_mul(rhs) {
+                Some(product) => VdBsqLitnumTerm::Int128(product),
                 None => todo!(),
             },
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 
     pub fn mul_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
         match *self {
-            VdBsqLitNumTerm::ZERO => (),
-            VdBsqLitNumTerm::ONE => *self = rhs,
-            VdBsqLitNumTerm::Int128(slf) => match rhs {
-                VdBsqLitNumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
-                    Some(product) => *self = VdBsqLitNumTerm::Int128(product),
+            VdBsqLitnumTerm::ZERO => (),
+            VdBsqLitnumTerm::ONE => *self = rhs,
+            VdBsqLitnumTerm::Int128(slf) => match rhs {
+                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
+                    Some(product) => *self = VdBsqLitnumTerm::Int128(product),
                     None => todo!(),
                 },
-                VdBsqLitNumTerm::BigInt(i) => todo!(),
-                VdBsqLitNumTerm::Frac128(f) => todo!(),
+                VdBsqLitnumTerm::BigInt(i) => todo!(),
+                VdBsqLitnumTerm::Frac128(f) => todo!(),
             },
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(f) => *self = f.mul_litnum(rhs, db),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(f) => *self = f.mul_litn(rhs, db),
         }
     }
 
     pub fn div_assign(&mut self, rhs: Self, db: &FloaterDb) {
         match *self {
-            VdBsqLitNumTerm::Int128(slf) => match rhs {
-                VdBsqLitNumTerm::Int128(rhs) => *self = VdBsqFrac128::new128(slf, rhs),
-                VdBsqLitNumTerm::BigInt(i) => todo!(),
-                VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Int128(slf) => match rhs {
+                VdBsqLitnumTerm::Int128(rhs) => *self = VdBsqFrac128::new128(slf, rhs),
+                VdBsqLitnumTerm::BigInt(i) => todo!(),
+                VdBsqLitnumTerm::Frac128(_) => todo!(),
             },
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 
     pub fn pow128(self, exponent: i128, db: &FloaterDb) -> Self {
         match self {
-            VdBsqLitNumTerm::Int128(i) => {
+            VdBsqLitnumTerm::Int128(i) => {
                 if exponent > 0 {
                     let exponent: u32 = match exponent.try_into() {
                         Ok(exponent) => exponent,
                         Err(_) => todo!(),
                     };
                     match i.checked_pow(exponent) {
-                        Some(pow) => VdBsqLitNumTerm::Int128(pow),
+                        Some(pow) => VdBsqLitnumTerm::Int128(pow),
                         None => todo!(),
                     }
                 } else {
@@ -140,19 +140,19 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                     todo!()
                 }
             }
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 }
 
-impl<'sess> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqLitnumTerm<'sess> {
     pub const ZERO: Self = Self::Int128(0);
     pub const ONE: Self = Self::Int128(1);
     pub const NEG_ONE: Self = Self::Int128(-1);
 }
 
-impl<'sess> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn is_zero(self) -> bool {
         self.eqs_i128(0)
     }
@@ -163,13 +163,13 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
 
     pub fn eqs_i128(self, i0: i128) -> bool {
         match self {
-            VdBsqLitNumTerm::Int128(i) => i == i0,
+            VdBsqLitnumTerm::Int128(i) => i == i0,
             _ => false,
         }
     }
 }
 
-impl<'sess> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
@@ -187,37 +187,37 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
 
     pub fn outer_precedence(self) -> VdPrecedence {
         match self {
-            VdBsqLitNumTerm::Int128(i) => {
+            VdBsqLitnumTerm::Int128(i) => {
                 if i >= 0 {
                     VdPrecedence::ATOM
                 } else {
                     VdPrecedence::ADD_SUB
                 }
             }
-            VdBsqLitNumTerm::BigInt(i) => {
+            VdBsqLitnumTerm::BigInt(i) => {
                 if i.is_nonnegative() {
                     VdPrecedence::ATOM
                 } else {
                     VdPrecedence::ADD_SUB
                 }
             }
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 
     fn show_fmt_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VdBsqLitNumTerm::Int128(i) => write!(f, "{}", i),
-            VdBsqLitNumTerm::BigInt(i) => i.show_fmt(f),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Int128(i) => write!(f, "{}", i),
+            VdBsqLitnumTerm::BigInt(i) => i.show_fmt(f),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 }
 
-impl<'sess> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn compare_with_zero(self, kind: VdBsqNumRelationshipPropTermKind) -> bool {
         match self {
-            VdBsqLitNumTerm::Int128(i) => match kind {
+            VdBsqLitnumTerm::Int128(i) => match kind {
                 VdBsqNumRelationshipPropTermKind::Eq => i == 0,
                 VdBsqNumRelationshipPropTermKind::Ne => i != 0,
                 VdBsqNumRelationshipPropTermKind::Lt => i < 0,
@@ -225,8 +225,8 @@ impl<'sess> VdBsqLitNumTerm<'sess> {
                 VdBsqNumRelationshipPropTermKind::Le => i <= 0,
                 VdBsqNumRelationshipPropTermKind::Ge => i >= 0,
             },
-            VdBsqLitNumTerm::BigInt(i) => todo!(),
-            VdBsqLitNumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
         }
     }
 }

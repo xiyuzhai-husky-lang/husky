@@ -3,28 +3,28 @@ use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 use super::*;
 
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqSumInumTerm<'sess>(VdBsqInumTermFld<'sess>);
+pub struct VdBsqSumComnumTerm<'sess>(VdBsqComnumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqInumSumTermData<'sess> {
-    constant_term: VdBsqLitNumTerm<'sess>,
-    monomials: VdBsqInumMonomialCoefficients<'sess>,
+pub struct VdBsqComnumSumTermData<'sess> {
+    constant_term: VdBsqLitnumTerm<'sess>,
+    monomials: VdBsqMonomialCoefficients<'sess>,
 }
 
-impl<'sess> From<VdBsqSumInumTerm<'sess>> for VdBsqNumTerm<'sess> {
-    fn from(value: VdBsqSumInumTerm<'sess>) -> Self {
-        VdBsqNumTerm::Inum(VdBsqInumTerm::Sum(value))
+impl<'sess> From<VdBsqSumComnumTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(value: VdBsqSumComnumTerm<'sess>) -> Self {
+        VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(value))
     }
 }
 
-impl<'sess> VdBsqSumInumTerm<'sess> {
+impl<'sess> VdBsqSumComnumTerm<'sess> {
     pub fn new(
-        constant_term: VdBsqLitNumTerm<'sess>,
-        monomials: VdBsqInumMonomialCoefficients<'sess>,
+        constant_term: VdBsqLitnumTerm<'sess>,
+        monomials: VdBsqMonomialCoefficients<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        Self(VdBsqInumTermFld::new(
-            VdBsqInumTermData::Sum(VdBsqInumSumTermData {
+        Self(VdBsqComnumTermFld::new(
+            VdBsqComnumTermData::Sum(VdBsqComnumSumTermData {
                 constant_term,
                 monomials,
             }),
@@ -33,19 +33,19 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
     }
 }
 
-impl<'sess> VdBsqSumInumTerm<'sess> {
-    pub fn data(self) -> &'sess VdBsqInumSumTermData<'sess> {
+impl<'sess> VdBsqSumComnumTerm<'sess> {
+    pub fn data(self) -> &'sess VdBsqComnumSumTermData<'sess> {
         match self.0.data() {
-            VdBsqInumTermData::Sum(data) => data,
+            VdBsqComnumTermData::Sum(data) => data,
             _ => unreachable!(),
         }
     }
 
-    pub fn constant_term(self) -> VdBsqLitNumTerm<'sess> {
+    pub fn constant_term(self) -> VdBsqLitnumTerm<'sess> {
         self.data().constant_term()
     }
 
-    pub fn nonzero_constant_term(self) -> Option<VdBsqLitNumTerm<'sess>> {
+    pub fn nonzero_constant_term(self) -> Option<VdBsqLitnumTerm<'sess>> {
         if self.constant_term().is_zero() {
             None
         } else {
@@ -53,28 +53,28 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
         }
     }
 
-    pub fn monomials(self) -> &'sess VdBsqInumMonomialCoefficients<'sess> {
+    pub fn monomials(self) -> &'sess VdBsqMonomialCoefficients<'sess> {
         self.data().monomials()
     }
 }
 
-impl<'sess> VdBsqInumSumTermData<'sess> {
-    pub fn constant_term(&self) -> VdBsqLitNumTerm<'sess> {
+impl<'sess> VdBsqComnumSumTermData<'sess> {
+    pub fn constant_term(&self) -> VdBsqLitnumTerm<'sess> {
         self.constant_term
     }
 
-    pub fn monomials(&self) -> &VdBsqInumMonomialCoefficients<'sess> {
+    pub fn monomials(&self) -> &VdBsqMonomialCoefficients<'sess> {
         &self.monomials
     }
 }
 
-impl<'sess> std::fmt::Debug for VdBsqSumInumTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqSumComnumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.show_fmt(VdPrecedenceRange::ANY, f)
     }
 }
 
-impl<'sess> VdBsqSumInumTerm<'sess> {
+impl<'sess> VdBsqSumComnumTerm<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,
@@ -84,7 +84,7 @@ impl<'sess> VdBsqSumInumTerm<'sess> {
     }
 }
 
-impl<'sess> VdBsqInumSumTermData<'sess> {
+impl<'sess> VdBsqComnumSumTermData<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,
@@ -109,7 +109,7 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
         if num_of_summands == 1 {
             let (monomial, coeff) = self.monomials.data()[0];
             match coeff {
-                VdBsqLitNumTerm::ONE => monomial.outer_precedence(),
+                VdBsqLitnumTerm::ONE => monomial.outer_precedence(),
                 _ => VdPrecedence::MUL_DIV,
             }
         } else {
@@ -130,11 +130,11 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
             if !coefficient.is_one() {
                 coefficient.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)?;
                 match monomial {
-                    VdBsqNonSumInumTerm::Atom(term) => (),
-                    VdBsqNonSumInumTerm::Product(base) => match base.exponentials().data()[0].0 {
-                        VdBsqNonProductNumTerm::Rnum(_) => f.write_str(" × ")?,
-                        VdBsqNonProductNumTerm::AtomInum(_)
-                        | VdBsqNonProductNumTerm::SumInum(_) => (),
+                    VdBsqNonSumComnumTerm::Atom(term) => (),
+                    VdBsqNonSumComnumTerm::Product(base) => match base.exponentials().data()[0].0 {
+                        VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
+                        VdBsqNonProductNumTerm::AtomComnum(_)
+                        | VdBsqNonProductNumTerm::SumComnum(_) => (),
                     },
                 }
             }
@@ -144,7 +144,7 @@ impl<'sess> VdBsqInumSumTermData<'sess> {
     }
 }
 
-impl<'sess> VdBsqSumInumTerm<'sess> {
+impl<'sess> VdBsqSumComnumTerm<'sess> {
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         todo!()
     }

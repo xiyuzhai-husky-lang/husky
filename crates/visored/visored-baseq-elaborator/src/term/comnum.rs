@@ -10,54 +10,54 @@ use visored_opr::precedence::VdPrecedence;
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqInumTerm<'sess> {
-    Atom(VdBsqAtomInumTerm<'sess>),
-    Sum(VdBsqSumInumTerm<'sess>),
-    Product(VdBsqLitNumTerm<'sess>, VdBsqProductInumTermBase<'sess>),
+pub enum VdBsqComnumTerm<'sess> {
+    Atom(VdBsqAtomComnumTerm<'sess>),
+    Sum(VdBsqSumComnumTerm<'sess>),
+    Product(VdBsqLitnumTerm<'sess>, VdBsqProductComnumTermBase<'sess>),
 }
 
-impl<'sess> std::fmt::Debug for VdBsqInumTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqComnumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("InumTerm(`")?;
+        f.write_str("ComnumTerm(`")?;
         self.show_fmt(VdPrecedenceRange::Any, f)?;
         f.write_str("`)")
     }
 }
 
-impl<'sess> VdBsqInumTerm<'sess> {
+impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqInumTerm::Atom(term) => term.show_fmt(precedence_range, f),
-            VdBsqInumTerm::Sum(term) => term.show_fmt(precedence_range, f),
-            VdBsqInumTerm::Product(rnum, term) => {
-                debug_assert!(!rnum.is_zero());
-                if rnum.is_one() {
+            VdBsqComnumTerm::Atom(term) => term.show_fmt(precedence_range, f),
+            VdBsqComnumTerm::Sum(term) => term.show_fmt(precedence_range, f),
+            VdBsqComnumTerm::Product(litnum, term) => {
+                debug_assert!(!litnum.is_zero());
+                if litnum.is_one() {
                     debug_assert!(!term.data().exponentials().is_empty());
                     term.show_fmt(precedence_range, f)
                 } else {
                     fn show_product_fmt_inner<'sess>(
-                        rnum: VdBsqLitNumTerm<'sess>,
-                        term: VdBsqProductInumTermBase<'sess>,
+                        litnum: VdBsqLitnumTerm<'sess>,
+                        term: VdBsqProductComnumTermBase<'sess>,
                         f: &mut std::fmt::Formatter<'_>,
                     ) -> std::fmt::Result {
-                        rnum.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
+                        litnum.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
                         match term.exponentials().data()[0].0 {
-                            VdBsqNonProductNumTerm::Rnum(_) => f.write_str(" × ")?,
-                            VdBsqNonProductNumTerm::AtomInum(_)
-                            | VdBsqNonProductNumTerm::SumInum(_) => (),
+                            VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
+                            VdBsqNonProductNumTerm::AtomComnum(_)
+                            | VdBsqNonProductNumTerm::SumComnum(_) => (),
                         }
                         term.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)
                     }
 
                     if precedence_range.contains(VdPrecedence::MUL_DIV) {
-                        show_product_fmt_inner(rnum, term, f)
+                        show_product_fmt_inner(litnum, term, f)
                     } else {
                         f.write_str("(")?;
-                        show_product_fmt_inner(rnum, term, f)?;
+                        show_product_fmt_inner(litnum, term, f)?;
                         f.write_str(")")
                     }
                 }
@@ -69,9 +69,9 @@ impl<'sess> VdBsqInumTerm<'sess> {
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonProductNumTerm<'sess> {
-    Rnum(VdBsqLitNumTerm<'sess>),
-    AtomInum(VdBsqAtomInumTerm<'sess>),
-    SumInum(VdBsqSumInumTerm<'sess>),
+    Litnum(VdBsqLitnumTerm<'sess>),
+    AtomComnum(VdBsqAtomComnumTerm<'sess>),
+    SumComnum(VdBsqSumComnumTerm<'sess>),
 }
 
 impl<'sess> std::fmt::Debug for VdBsqNonProductNumTerm<'sess> {
@@ -89,98 +89,97 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqNonProductNumTerm::Rnum(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonProductNumTerm::AtomInum(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonProductNumTerm::SumInum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonProductNumTerm::Litnum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonProductNumTerm::AtomComnum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonProductNumTerm::SumComnum(term) => term.show_fmt(precedence_range, f),
         }
     }
 
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
-            VdBsqNonProductNumTerm::Rnum(term) => term.outer_precedence(),
-            VdBsqNonProductNumTerm::AtomInum(term) => term.outer_precedence(),
-            VdBsqNonProductNumTerm::SumInum(term) => VdPrecedence::ADD_SUB,
+            VdBsqNonProductNumTerm::Litnum(term) => term.outer_precedence(),
+            VdBsqNonProductNumTerm::AtomComnum(term) => term.outer_precedence(),
+            VdBsqNonProductNumTerm::SumComnum(term) => VdPrecedence::ADD_SUB,
         }
     }
 }
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqNonSumInumTerm<'sess> {
-    Atom(VdBsqAtomInumTerm<'sess>),
-    Product(VdBsqProductInumTermBase<'sess>),
+pub enum VdBsqNonSumComnumTerm<'sess> {
+    Atom(VdBsqAtomComnumTerm<'sess>),
+    Product(VdBsqProductComnumTermBase<'sess>),
 }
 
-impl<'sess> VdBsqNonSumInumTerm<'sess> {
+impl<'sess> VdBsqNonSumComnumTerm<'sess> {
     pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqNonSumInumTerm::Atom(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonSumInumTerm::Product(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonSumComnumTerm::Atom(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonSumComnumTerm::Product(term) => term.show_fmt(precedence_range, f),
         }
     }
 
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
-            VdBsqNonSumInumTerm::Atom(term) => term.outer_precedence(),
-            VdBsqNonSumInumTerm::Product(term) => term.outer_precedence(),
+            VdBsqNonSumComnumTerm::Atom(term) => term.outer_precedence(),
+            VdBsqNonSumComnumTerm::Product(term) => term.outer_precedence(),
         }
     }
 }
 
-pub type VdBsqNonSumInumTerms<'sess> = SmallVec<[VdBsqNonSumInumTerm<'sess>; 4]>;
+pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqNonSumComnumTerm<'sess>; 4]>;
 
 #[floated]
-pub struct VdBsqInumTermFld<'sess> {
+pub struct VdBsqComnumTermFld<'sess> {
     #[return_ref]
-    pub data: VdBsqInumTermData<'sess>,
+    pub data: VdBsqComnumTermData<'sess>,
 }
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqInumTermData<'sess> {
-    Atom(VdBsqInumAtomTermData),
-    Sum(VdBsqInumSumTermData<'sess>),
-    Product(VdBsqProductInumTermBaseData<'sess>),
+pub enum VdBsqComnumTermData<'sess> {
+    Atom(VdBsqComnumAtomTermData),
+    Sum(VdBsqComnumSumTermData<'sess>),
+    Product(VdBsqProductComnumTermBaseData<'sess>),
 }
 
 pub type VdBsqNonProductNumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
-pub type VdBsqInumNonSumTermMap<'sess, T> =
-    OrderedSmallVecPairMap<VdBsqNonSumInumTerm<'sess>, T, 4>;
-pub type VdBsqInumMonomialCoefficients<'sess> =
-    VdBsqInumNonSumTermMap<'sess, VdBsqLitNumTerm<'sess>>;
+pub type VdBsqNonSumComnumTermMap<'sess, T> =
+    OrderedSmallVecPairMap<VdBsqNonSumComnumTerm<'sess>, T, 4>;
+pub type VdBsqMonomialCoefficients<'sess> = VdBsqNonSumComnumTermMap<'sess, VdBsqLitnumTerm<'sess>>;
 pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;
 pub type VdBsqExponentialPowersRef<'a, 'sess> =
     &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)];
 pub type VdBsqExponentialParts<'sess> = Vec<(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)>;
 
-impl<'sess> std::fmt::Debug for VdBsqInumTermFld<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqComnumTermFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("InumTermFld(`")?;
+        f.write_str("ComnumTermFld(`")?;
         self.data().show_fmt(VdPrecedenceRange::Any, f)?;
         f.write_str("`)")
     }
 }
 
-impl<'sess> VdBsqInumTermData<'sess> {
+impl<'sess> VdBsqComnumTermData<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqInumTermData::Atom(term) => term.show_fmt(precedence_range, f),
-            VdBsqInumTermData::Sum(term) => term.show_fmt(precedence_range, f),
-            VdBsqInumTermData::Product(term) => term.show_fmt(precedence_range, f),
+            VdBsqComnumTermData::Atom(term) => term.show_fmt(precedence_range, f),
+            VdBsqComnumTermData::Sum(term) => term.show_fmt(precedence_range, f),
+            VdBsqComnumTermData::Product(term) => term.show_fmt(precedence_range, f),
         }
     }
 }
 
-impl<'sess> VdBsqInumTerm<'sess> {
+impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         if rhs == 0 {
             return VdBsqNumTerm::ZERO;
@@ -189,10 +188,10 @@ impl<'sess> VdBsqInumTerm<'sess> {
             return self.into();
         }
         match self {
-            VdBsqInumTerm::Atom(term) => term.mul128(rhs, db),
-            VdBsqInumTerm::Sum(term) => term.mul128(rhs, db),
-            VdBsqInumTerm::Product(rnum, term) => {
-                VdBsqInumTerm::Product(rnum.mul128(rhs, db), term).into()
+            VdBsqComnumTerm::Atom(term) => term.mul128(rhs, db),
+            VdBsqComnumTerm::Sum(term) => term.mul128(rhs, db),
+            VdBsqComnumTerm::Product(litnum, term) => {
+                VdBsqComnumTerm::Product(litnum.mul128(rhs, db), term).into()
             }
         }
     }

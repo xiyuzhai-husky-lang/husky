@@ -30,10 +30,10 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
         use husky_print_utils::*;
         let lhs_minus_rhs = lhs.sub(rhs, db);
         match lhs_minus_rhs {
-            VdBsqNumTerm::Rnum(term) => {
+            VdBsqNumTerm::Litnum(term) => {
                 return VdBsqPropTerm::Trivial(term.compare_with_zero(kind))
             }
-            VdBsqNumTerm::Inum(term) => (),
+            VdBsqNumTerm::Comnum(term) => (),
         }
         VdBsqPropTerm::NumRelationship(Self(VdBsqPropTermFld::new(
             VdBsqPropTermData::NumRelationship(VdBsqNumRelationshipPropTermData {

@@ -1,3 +1,5 @@
+mod lit_num_equality;
+
 use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
 use std::marker::PhantomData;
 use visored_baseq_elaborator_macros::stashes;

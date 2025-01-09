@@ -8,7 +8,7 @@ use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
     term::{
         builder::sum::VdBsqSumBuilder,
-        inum::VdBsqInumTerm,
+        comnum::VdBsqComnumTerm,
         num::VdBsqNumTerm,
         prop::{
             num_relationship::{
@@ -39,7 +39,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         };
         let VdBsqNumRelationshipPropTermData {
             kind,
-            lhs_minus_rhs: VdBsqNumTerm::Inum(VdBsqInumTerm::Sum(term)),
+            lhs_minus_rhs: VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)),
         } = *num_relationship.data()
         else {
             return Ok(AltNone);
@@ -47,20 +47,20 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let config = self.session().config().tactic().comm_ring();
         match self.run_stages(config.stages(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
-            builder.add_rnum(term.constant_term());
+            builder.add_litnum(term.constant_term());
             fold_sum(slf, term.monomials(), builder, &|elaborator, builder| {
                 let term = builder.finish();
-                let VdBsqNumTerm::Rnum(rnum) = term else {
+                let VdBsqNumTerm::Litnum(litnum) = term else {
                     return AltNothing;
                 };
-                match rnum.compare_with_zero(kind) {
+                match litnum.compare_with_zero(kind) {
                     true => {
                         let hypothesis = elaborator
                             .hypothesis_constructor
                             .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::CommRing);
                         AltJustOk(Ok(hypothesis))
                     }
-                    false => todo!("report error, rnum = {:?}, kind = {:?}", rnum, kind),
+                    false => todo!("report error, litnum = {:?}, kind = {:?}", litnum, kind),
                 }
             })
         }) {

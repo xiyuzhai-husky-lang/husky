@@ -8,7 +8,7 @@ pub struct VdBsqFrac128 {
 }
 
 impl VdBsqFrac128 {
-    pub fn new128<'sess>(raw_numerator: i128, raw_denominator: i128) -> VdBsqLitNumTerm<'sess> {
+    pub fn new128<'sess>(raw_numerator: i128, raw_denominator: i128) -> VdBsqLitnumTerm<'sess> {
         let (numerator, denominator) = reduce(raw_numerator, raw_denominator);
         debug_assert!(denominator > 0);
         debug_assert_eq!(
@@ -65,19 +65,19 @@ impl std::ops::Neg for VdBsqFrac128 {
 }
 
 impl<'sess> VdBsqFrac128 {
-    pub fn mul_litnum(
+    pub fn mul_litn(
         self,
-        rhs: VdBsqLitNumTerm<'sess>,
+        rhs: VdBsqLitnumTerm<'sess>,
         db: &'sess FloaterDb,
-    ) -> VdBsqLitNumTerm<'sess> {
+    ) -> VdBsqLitnumTerm<'sess> {
         match rhs {
-            VdBsqLitNumTerm::Int128(i) => self.mul_i128(i, db),
-            VdBsqLitNumTerm::BigInt(vd_bsq_rnum_term_big_int) => todo!(),
-            VdBsqLitNumTerm::Frac128(vd_bsq_frac128) => todo!(),
+            VdBsqLitnumTerm::Int128(i) => self.mul_i128(i, db),
+            VdBsqLitnumTerm::BigInt(vd_bsq_litnum_term_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
         }
     }
 
-    pub fn mul_i128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqLitNumTerm<'sess> {
+    pub fn mul_i128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
         let Self {
             numerator,
             denominator,

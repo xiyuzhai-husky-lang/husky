@@ -1,9 +1,10 @@
 use super::*;
 use crate::term::{
-    builder::sum::VdBsqSumBuilder, inum::product::VdBsqProductInumTermBase, litnum::VdBsqLitNumTerm,
+    builder::sum::VdBsqSumBuilder, comnum::product::VdBsqProductComnumTermBase,
+    litnum::VdBsqLitnumTerm,
 };
 use crate::term::{
-    inum::{sum::VdBsqSumInumTerm, VdBsqNonSumInumTerm},
+    comnum::{sum::VdBsqSumComnumTerm, VdBsqNonSumComnumTerm},
     num::VdBsqNumTerm,
 };
 use miracle::error::MiracleAltMaybeResult;
@@ -20,30 +21,30 @@ where
 
     type State = VdBsqSumBuilder<'sess>;
 
-    type Item = (VdBsqNonSumInumTerm<'sess>, VdBsqLitNumTerm<'sess>);
+    type Item = (VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>);
 
     type Output = MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>;
 
-    /// add term times rnum0 to partial sum (sum_builder)
+    /// add term times litnum0 to partial sum (sum_builder)
     fn foldm_step(
         elaborator: &mut Self::Engine,
         mut sum_builder: VdBsqSumBuilder<'sess>,
-        (term, rnum0): (VdBsqNonSumInumTerm<'sess>, VdBsqLitNumTerm<'sess>),
+        (term, litnum0): (VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>),
         f: &impl Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Self::Output,
     ) -> Self::Output {
         let db = elaborator.floater_db();
         match term {
-            VdBsqNonSumInumTerm::Atom(atom) => {
-                sum_builder.add_rnum_times_atom(rnum0, atom);
+            VdBsqNonSumComnumTerm::Atom(atom) => {
+                sum_builder.add_litnum_times_atom(litnum0, atom);
                 f(elaborator, sum_builder)
             }
-            VdBsqNonSumInumTerm::Product(base) => {
+            VdBsqNonSumComnumTerm::Product(base) => {
                 fold_product(elaborator, base.exponentials(), &|elaborator, expansion| {
                     let mut sum_builder = sum_builder.clone();
-                    for (rnum, exponentials) in expansion {
+                    for (litnum, exponentials) in expansion {
                         sum_builder.add_general_product(
-                            rnum0.mul(rnum, db),
-                            VdBsqProductInumTermBase::from_parts(exponentials, db),
+                            litnum0.mul(litnum, db),
+                            VdBsqProductComnumTermBase::from_parts(exponentials, db),
                         );
                     }
                     f(elaborator, sum_builder)
@@ -55,7 +56,7 @@ where
 
 pub(super) fn fold_sum<'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
-    terms: &[(VdBsqNonSumInumTerm<'sess>, VdBsqLitNumTerm<'sess>)],
+    terms: &[(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
     builder: VdBsqSumBuilder<'sess>,
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,

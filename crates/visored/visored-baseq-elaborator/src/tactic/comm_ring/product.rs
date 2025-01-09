@@ -1,10 +1,10 @@
 use super::*;
 use crate::term::{
-    inum::{
-        sum::VdBsqSumInumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
-        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm, VdBsqNonSumInumTerm,
+    comnum::{
+        sum::VdBsqSumComnumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
+        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm, VdBsqNonSumComnumTerm,
     },
-    litnum::VdBsqLitNumTerm,
+    litnum::VdBsqLitnumTerm,
 };
 use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
@@ -15,7 +15,7 @@ pub fn fold_product<'db, 'sess>(
     exponentials: &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,
-        Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>,
+        Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
     engine.multifold(
@@ -29,7 +29,7 @@ pub fn fold_product<'db, 'sess>(
     )
 }
 
-type State<'sess> = Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>;
+type State<'sess> = Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>;
 type Item<'sess> = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
 type FnType<'db, 'sess> =
     fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &Item<'sess>) -> Option<State<'sess>>;
@@ -52,28 +52,28 @@ fn multiply_with_expanding<'db, 'sess>(
     let config = elaborator.session().config().tactic().comm_ring();
     let product_expansion_limit = config.product_expansion_limit();
     let exponential_expansion_limit = config.exponential_expansion_limit();
-    let VdBsqNumTerm::Rnum(VdBsqLitNumTerm::Int128(exponent)) = exponent else {
+    let VdBsqNumTerm::Litnum(VdBsqLitnumTerm::Int128(exponent)) = exponent else {
         return None;
     };
     if exponent > exponential_expansion_limit as i128 {
         return None;
     }
     debug_assert!(exponent > 0);
-    let VdBsqNonProductNumTerm::SumInum(sum) = base else {
+    let VdBsqNonProductNumTerm::SumComnum(sum) = base else {
         return None;
     };
     let factor_expansion = if exponent == 1 {
         sum.nonzero_constant_term()
-            .map(|rnum| (rnum, vec![]))
+            .map(|litnum| (litnum, vec![]))
             .into_iter()
             .chain(sum.monomials().iter().map(|&(monomial, coeff)| {
                 (
                     coeff,
                     match monomial {
-                        VdBsqNonSumInumTerm::Atom(atom) => {
+                        VdBsqNonSumComnumTerm::Atom(atom) => {
                             vec![(atom.into(), 1.into())]
                         }
-                        VdBsqNonSumInumTerm::Product(base) => base.exponentials().to_vec(),
+                        VdBsqNonSumComnumTerm::Product(base) => base.exponentials().to_vec(),
                     },
                 )
             }))
@@ -87,12 +87,12 @@ fn multiply_with_expanding<'db, 'sess>(
 }
 
 fn multinomial_expansion<'db, 'sess>(
-    sum: VdBsqSumInumTerm<'sess>,
+    sum: VdBsqSumComnumTerm<'sess>,
     exponent: i128,
     max_size: usize,
     db: &'sess FloaterDb,
     has_constant_term: bool,
-) -> Option<Vec<(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)>> {
+) -> Option<Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>> {
     use combinatorics::try_multinomial_expansion_coefficients;
 
     let n_summands = if has_constant_term {
@@ -108,7 +108,7 @@ fn multinomial_expansion<'db, 'sess>(
     let mut factor_expansion = Vec::new();
 
     for (coeff, indices) in coefficients {
-        let mut cumulative_coeff: VdBsqLitNumTerm = coeff.into();
+        let mut cumulative_coeff: VdBsqLitnumTerm = coeff.into();
         let mut exponential_parts = Vec::new();
 
         for (i, index) in indices.into_iter().enumerate() {
@@ -123,10 +123,10 @@ fn multinomial_expansion<'db, 'sess>(
             let (summand, coeff) = sum.monomials().data()[monomial_idx];
             cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
             match summand {
-                VdBsqNonSumInumTerm::Atom(term) => {
+                VdBsqNonSumComnumTerm::Atom(term) => {
                     exponential_parts.push((term.into(), index.into()));
                 }
-                VdBsqNonSumInumTerm::Product(base) => {
+                VdBsqNonSumComnumTerm::Product(base) => {
                     for &(base, exp) in base.exponentials() {
                         exponential_parts.push((base.into(), exp.mul128(index, db).into()));
                     }
@@ -142,7 +142,7 @@ fn multinomial_expansion<'db, 'sess>(
 fn multiply_aux<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     expansion: &State<'sess>,
-    factor_expansion: &[(VdBsqLitNumTerm<'sess>, VdBsqExponentialParts<'sess>)],
+    factor_expansion: &[(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)],
 ) -> Option<State<'sess>> {
     let db = elaborator.floater_db();
     let config = elaborator.session().config().tactic().comm_ring();
@@ -157,9 +157,9 @@ fn multiply_aux<'db, 'sess>(
                     .iter()
                     .cartesian_product(factor_expansion)
                     .map(
-                        |(&(rnum0, ref exponentials0), &(rnum1, ref exponentials1))| {
+                        |(&(litnum0, ref exponentials0), &(litnum1, ref exponentials1))| {
                             (
-                                rnum0.mul(rnum1, db),
+                                litnum0.mul(litnum1, db),
                                 exponentials0
                                     .into_iter()
                                     .chain(exponentials1)
@@ -178,7 +178,7 @@ fn multiply_aux<'db, 'sess>(
             Some(
                 factor_expansion
                     .iter()
-                    .map(|&(rnum, ref exponentials)| (rnum, exponentials.to_vec()))
+                    .map(|&(litnum, ref exponentials)| (litnum, exponentials.to_vec()))
                     .collect(),
             )
         }
