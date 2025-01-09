@@ -17,6 +17,15 @@ pub struct VdBsqSumBuilder<'sess> {
     unpruned_monomials: VdBsqMonomialCoefficients<'sess>,
 }
 
+impl<'sess> std::fmt::Debug for VdBsqSumBuilder<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("VdBsqSumBuilder")
+            .field("constant_litnum", &self.constant_litnum)
+            .field("unpruned_monomials", &self.unpruned_monomials)
+            .finish()
+    }
+}
+
 impl<'sess> VdBsqSumBuilder<'sess> {
     pub fn new(db: &'sess FloaterDb) -> Self {
         Self {
@@ -89,7 +98,10 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn add_sum(&mut self, term: VdBsqSumComnumTerm<'sess>) {
-        todo!()
+        self.add_litnum(term.constant_term());
+        for &(monomial, coeff) in term.monomials() {
+            self.add_monomial(monomial, coeff);
+        }
     }
 
     pub fn sub_sum(&mut self, term: VdBsqSumComnumTerm<'sess>) {

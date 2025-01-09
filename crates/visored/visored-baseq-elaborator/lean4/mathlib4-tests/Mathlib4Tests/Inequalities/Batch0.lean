@@ -210,3 +210,14 @@ def h := by
   exact ()
 end Example31
 
+namespace Example32
+def h(x : ℝ)(y : ℝ) := by
+  have h1 : x + y = y + x := by term_trivial
+  exact ()
+end Example32
+
+namespace Example33
+def h(x : ℝ)(h1 : x = (1 : ℝ)) := by
+  exact ()
+end Example33
+

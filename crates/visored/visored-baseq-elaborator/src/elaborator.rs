@@ -101,6 +101,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         self.signature_menu
     }
 
+    pub fn call_stack(&self) -> &VdBsqCallStack {
+        &self.call_stack
+    }
+
     #[track_caller]
     pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdMirExprFld<'sess> {
         self.expr_to_fld_map[expr]

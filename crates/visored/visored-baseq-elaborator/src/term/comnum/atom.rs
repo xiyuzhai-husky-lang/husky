@@ -106,4 +106,24 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
         );
         VdBsqComnumTerm::Product(rhs.into(), product_base).into()
     }
+
+    pub fn mul_litnum(
+        self,
+        rhs: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        if rhs == 0.into() {
+            return VdBsqNumTerm::ZERO;
+        }
+        if rhs == 1.into() {
+            return self.into();
+        }
+        let product_base = VdBsqProductComnumTermBase::new(
+            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
+                .into_iter()
+                .collect(),
+            db,
+        );
+        VdBsqComnumTerm::Product(rhs.into(), product_base).into()
+    }
 }

@@ -12,3 +12,9 @@ pub enum VdBsqCall {
     Tactic(VdBsqTacticCall),
     Maneuver(VdBsqManeuverCall),
 }
+
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub fn print_call_stack(&self) {
+        todo!()
+    }
+}

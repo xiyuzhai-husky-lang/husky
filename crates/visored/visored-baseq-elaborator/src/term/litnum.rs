@@ -107,6 +107,17 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
+    pub fn mul_nonsum(
+        self,
+        rhs: VdBsqNonSumComnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        match rhs {
+            VdBsqNonSumComnumTerm::Atom(rhs) => rhs.mul_litnum(self, db),
+            VdBsqNonSumComnumTerm::Product(rhs) => todo!(),
+        }
+    }
+
     pub fn mul_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
         match *self {
             VdBsqLitnumTerm::ZERO => (),

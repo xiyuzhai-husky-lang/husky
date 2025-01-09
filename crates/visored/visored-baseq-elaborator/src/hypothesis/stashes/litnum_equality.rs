@@ -5,7 +5,7 @@ use crate::{
         IsVdBsqHypothesisStashScheme,
     },
     term::{
-        builder::sum::VdBsqSumBuilder,
+        builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder},
         comnum::{sum::VdBsqSumComnumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
         litnum::VdBsqLitnumTerm,
         num::VdBsqNumTerm,
@@ -74,7 +74,8 @@ fn normalize_then_split_fld<'sess>(
     let monomials = if monomials.len() > 1 {
         VdBsqSumComnumTerm::new(0, monomials, db).into()
     } else {
-        todo!()
+        let (monomial, coeff) = monomials.data()[0];
+        coeff.mul_nonsum(monomial, db)
     };
     (litnum, monomials)
 }
