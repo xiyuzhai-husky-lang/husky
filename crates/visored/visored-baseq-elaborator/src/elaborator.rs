@@ -167,17 +167,12 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
                 let signature = self.eq_signature(assignment.ty());
                 let eq_expr_data = VdMirExprFldData::ChainingSeparatedList {
                     leader: variable,
-                    followers: smallvec![(
-                        VdMirFunc::NormalBaseSeparator(signature),
-                        self.mk_zero()
-                    )],
+                    followers: smallvec![(VdMirFunc::NormalBaseSeparator(signature), assignment)],
                     joined_signature: None,
                 };
                 let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop);
-                self.obvious(prop).map(|_| ());
-                use husky_print_utils::*;
-                p!(self);
-                todo!()
+                self.obvious(prop).map(|_| ())?;
+                Ok(())
             }
         }
     }

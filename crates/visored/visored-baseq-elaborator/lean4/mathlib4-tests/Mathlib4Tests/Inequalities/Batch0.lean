@@ -231,7 +231,6 @@ end Example33
 namespace Example34
 def h := by
   let x := 1
-  have h1 : x = 1 := by obvious
+  have h1 : x = 1 := by expr_equivalent
   exact ()
 end Example34
-
