@@ -9,6 +9,7 @@ pub mod hypothesis;
 pub mod maneuver;
 pub mod outcome;
 pub mod session;
+mod signature;
 pub mod strategy;
 pub mod tactic;
 pub mod term;

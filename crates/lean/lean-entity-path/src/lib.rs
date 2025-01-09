@@ -27,25 +27,27 @@ pub enum LnItemPath {
     Ge,
     Eq,
     RealSqrt,
+    Prop,
 }
 
 // TODO: maybe use menu?
 impl LnItemPath {
-    pub const UNIT: Self = Self::Unit;
-    pub const NAT: Self = Self::Nat;
-    pub const RAT: Self = Self::Rat;
-    pub const INT: Self = Self::Int;
-    pub const REAL: Self = Self::Real;
-    pub const COMPLEX: Self = Self::Complex;
-    pub const RING_ADD: Self = Self::RingAdd;
-    pub const RING_MUL: Self = Self::RingMul;
-    pub const RING_POS: Self = Self::RingPos;
-    pub const RING_NEG: Self = Self::RingNeg;
-    pub const FIELD_DIV: Self = Self::FieldDiv;
-    pub const LE: Self = Self::Le;
-    pub const GE: Self = Self::Ge;
-    pub const EQ: Self = Self::Eq;
-    pub const REAL_SQRT: Self = Self::RealSqrt;
+    pub const UNIT: Self = LnItemPath::Unit;
+    pub const NAT: Self = LnItemPath::Nat;
+    pub const RAT: Self = LnItemPath::Rat;
+    pub const INT: Self = LnItemPath::Int;
+    pub const REAL: Self = LnItemPath::Real;
+    pub const COMPLEX: Self = LnItemPath::Complex;
+    pub const PROP: Self = LnItemPath::Prop;
+    pub const RING_ADD: Self = LnItemPath::RingAdd;
+    pub const RING_MUL: Self = LnItemPath::RingMul;
+    pub const RING_POS: Self = LnItemPath::RingPos;
+    pub const RING_NEG: Self = LnItemPath::RingNeg;
+    pub const FIELD_DIV: Self = LnItemPath::FieldDiv;
+    pub const LE: Self = LnItemPath::Le;
+    pub const GE: Self = LnItemPath::Ge;
+    pub const EQ: Self = LnItemPath::Eq;
+    pub const REAL_SQRT: Self = LnItemPath::RealSqrt;
 }
 
 impl LnItemPath {
@@ -66,6 +68,7 @@ impl LnItemPath {
             LnItemPath::Ge => "≥".to_string(),
             LnItemPath::Eq => "=".to_string(),
             LnItemPath::RealSqrt => "√".to_string(),
+            LnItemPath::Prop => "Prop".to_string(),
         }
     }
 }

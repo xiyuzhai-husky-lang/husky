@@ -19,7 +19,7 @@ pub enum LnMirTacticData {
     Have {
         // TODO: pattern??
         ident: LnIdent,
-        ty: LnMirExprIdx,
+        ty: Option<LnMirExprIdx>,
         construction: LnMirExprIdx,
     },
     Show {

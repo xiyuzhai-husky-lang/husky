@@ -31,7 +31,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 ));
                 LnMirTacticData::Have {
                     ident: self.mangle_hypothesis(),
-                    ty,
+                    ty: Some(ty),
                     construction,
                 }
             }

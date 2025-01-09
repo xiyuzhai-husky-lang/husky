@@ -8,7 +8,7 @@ pub enum VdCategoryPath {
 
 impl VdCategoryPath {
     pub const SET: Self = VdCategoryPath::Set;
-    pub const PROPOSITION: Self = VdCategoryPath::Prop;
+    pub const PROP: Self = VdCategoryPath::Prop;
 }
 
 impl VdCategoryPath {

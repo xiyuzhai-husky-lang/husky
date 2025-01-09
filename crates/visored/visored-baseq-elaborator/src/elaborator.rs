@@ -144,8 +144,31 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
         &mut self,
         pattern: &VdMirPattern,
         assignment: VdMirExprIdx,
+        region_data: VdMirExprRegionDataRef,
     ) -> VdBsqHypothesisResult<'sess, ()> {
-        todo!()
+        match *pattern {
+            VdMirPattern::Letter {
+                letter,
+                symbol_local_defn,
+            } => {
+                let assignment = self.expr_fld(assignment);
+                let variable = self.mk_expr(
+                    VdMirExprFldData::Variable(letter, symbol_local_defn),
+                    assignment.ty(),
+                );
+                let signature = self.eq_signature(assignment.ty());
+                let eq_expr_data = VdMirExprFldData::ChainingSeparatedList {
+                    leader: variable,
+                    followers: smallvec![(
+                        VdMirFunc::NormalBaseSeparator(signature),
+                        self.mk_zero()
+                    )],
+                    joined_signature: None,
+                };
+                let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop);
+                self.obvious(prop).map(|_| ())
+            }
+        }
     }
 
     fn elaborate_let_placeholder_stmt(&mut self) -> VdBsqHypothesisResult<'sess, ()> {

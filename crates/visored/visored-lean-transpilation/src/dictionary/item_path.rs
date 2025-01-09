@@ -45,6 +45,10 @@ impl VdItemPathDictionary {
                 VdItemPath::COMPLEX,
                 VdItemPathTranslation::ItemPath(LnItemPath::COMPLEX),
             ),
+            (
+                VdItemPath::PROP,
+                VdItemPathTranslation::ItemPath(LnItemPath::PROP),
+            ),
         ])
     }
 }

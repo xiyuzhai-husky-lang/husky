@@ -228,3 +228,10 @@ def h(x : ℝ)(h1 : x = (1 : ℝ)) := by
   exact ()
 end Example33
 
+namespace Example34
+def h := by
+  have x := (1 : Prop)
+  have h1 : x = 1 := by obvious
+  exact ()
+end Example34
+

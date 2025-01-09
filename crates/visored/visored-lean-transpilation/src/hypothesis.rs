@@ -78,7 +78,7 @@ where
         let ident = self.mangle_hypothesis();
         ln_tactics.push(LnMirTacticData::Have {
             ident,
-            ty: hypothesis_entry.expr().to_lean(self),
+            ty: Some(hypothesis_entry.expr().to_lean(self)),
             construction,
         });
     }

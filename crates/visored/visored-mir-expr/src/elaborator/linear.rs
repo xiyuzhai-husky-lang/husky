@@ -30,6 +30,7 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
     fn enter_block(&mut self, kind: VdMirBlockKind);
     fn exit_block(&mut self, kind: VdMirBlockKind);
 
+    /// # stmt
     fn elaborate_let_placeholder_stmt(&mut self) -> Result<(), Self::Contradiction>;
     fn elaborate_assume_stmt(
         &mut self,
@@ -39,6 +40,7 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
         &mut self,
         pattern: &VdMirPattern,
         assignment: VdMirExprIdx,
+        region_data: VdMirExprRegionDataRef,
     ) -> Result<(), Self::Contradiction>;
     fn elaborate_goal_stmt(&mut self) -> Result<(), Self::Contradiction>;
     fn elaborate_have_stmt(
@@ -51,6 +53,7 @@ pub trait IsVdMirSequentialElaboratorInner: Sized {
     fn elaborate_show_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
     fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
+    /// # expr
     fn elaborate_field_div_expr(
         &mut self,
         divisor: VdMirExprIdx,
@@ -89,7 +92,8 @@ impl IsVdMirSequentialElaboratorInner for () {
         &mut self,
         pattern: &VdMirPattern,
         assignment: VdMirExprIdx,
-    ) -> Result<Self::HypothesisIdx, ()> {
+        region_data: VdMirExprRegionDataRef,
+    ) -> Result<(), ()> {
         Ok(())
     }
 
@@ -272,7 +276,11 @@ where
                 let pattern = pattern.clone();
                 self.elaborate_expr(assignment, hypothesis_constructor);
                 self.inner
-                    .elaborate_let_assigned_stmt(&pattern, assignment)
+                    .elaborate_let_assigned_stmt(
+                        &pattern,
+                        assignment,
+                        hypothesis_constructor.region_data(),
+                    )
                     .expect("handle contradiction");
             }
             VdMirStmtData::Goal { .. } => {

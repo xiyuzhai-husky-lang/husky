@@ -114,7 +114,7 @@ fn basic_visored_clause_to_lean_works() {
                   │ ├─ variable: `x`
                   │ └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: 4, construction: 1 }`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(4), construction: 1 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.
@@ -141,7 +141,7 @@ fn basic_visored_clause_to_lean_works() {
                   │ │ └─ variable: `x`
                   │ └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: 6, construction: 1 }`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(6), construction: 1 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{N}$.
@@ -170,7 +170,7 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ └─ literal: `2`
               │   │ └─ literal: `0`
               │   └─ tactics
-              │     └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: 10, construction: 1 }`
+              │     └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(10), construction: 1 }`
               ├─ group: `sentence`
               │ └─ def: `h2`
               │   ├─ application
@@ -185,7 +185,7 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ └─ literal: `1`
               │   │ └─ literal: `0`
               │   └─ tactics
-              │     └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: 34, construction: 20 }`
+              │     └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: Some(34), construction: 20 }`
               └─ group: `sentence`
                 └─ def: `h4`
                   ├─ application
@@ -198,7 +198,7 @@ fn basic_visored_clause_to_lean_works() {
                   │   ├─ literal: `2`
                   │   └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: 60, construction: 49 }`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: Some(60), construction: 49 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.

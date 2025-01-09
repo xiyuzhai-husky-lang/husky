@@ -137,13 +137,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         ));
         LnMirTacticData::Have {
             ident,
-            ty: self.alloc_expr(LnMirExprEntry::new(
+            ty: Some(self.alloc_expr(LnMirExprEntry::new(
                 LnMirExprData::Application {
                     function: ultimate_prop_function,
                     arguments: ultimate_prop_arguments,
                 },
                 None,
-            )),
+            ))),
             construction,
         }
     }

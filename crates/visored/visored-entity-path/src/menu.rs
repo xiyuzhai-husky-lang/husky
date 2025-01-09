@@ -47,7 +47,7 @@ impl VdItemPathMenu {
         Self {
             // # categories
             set: VdCategoryPath::SET,
-            prop: VdCategoryPath::PROPOSITION,
+            prop: VdCategoryPath::PROP,
             // # sets
             nat: VdSetPath::NATURAL_NUMBER,
             rat: VdSetPath::RATIONAL_NUMBER,

@@ -333,8 +333,11 @@ impl<'a> LnMirExprFormatter<'a> {
                 ty,
                 construction,
             } => {
-                write!(self.result, "have {} : ", ident.data());
-                self.format_expr_ext(ty);
+                write!(self.result, "have {}", ident.data());
+                if let Some(ty) = ty {
+                    write!(self.result, " : ");
+                    self.format_expr_ext(ty);
+                }
                 write!(self.result, " := ");
                 self.format_expr_ext(construction);
             }

@@ -57,9 +57,14 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 assignment,
             } => {
                 ln_tactics.push(LnMirTacticData::Have {
-                    ident: todo!(),
-                    ty: todo!(),
-                    construction: todo!(),
+                    ident: match *pattern {
+                        VdMirPattern::Letter {
+                            letter,
+                            symbol_local_defn,
+                        } => self.mangle_symbol(symbol_local_defn),
+                    },
+                    ty: None,
+                    construction: assignment.to_lean(self),
                 });
                 self.build_ln_tactics_from_vd_stmts(following_stmts, ln_tactics);
             }
