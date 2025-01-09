@@ -8,9 +8,12 @@ use eterned::db::EternerDb;
 use lisp_csv::expr::{LpCsvExpr, LpCsvExprData};
 use smallvec::{smallvec, SmallVec};
 use visored_coword::namae::VdNamae;
-use visored_entity_path::path::VdItemPath;
+use visored_entity_path::path::{
+    set::{VdPreludeSetPath, VdSetPath},
+    VdItemPath,
+};
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdType(VdTerm);
 
 impl std::ops::Deref for VdType {
@@ -29,7 +32,7 @@ impl std::fmt::Debug for VdType {
 
 impl VdType {
     pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.show_aux(f)
+        self.0.show_fmt(f)
     }
 }
 
@@ -54,12 +57,48 @@ impl VdType {
     pub fn is_function_like(self, db: &EternerDb) -> bool {
         is_vd_ty_function_like(**self, db)
     }
+
+    pub fn is_numeric(self, db: &EternerDb) -> bool {
+        is_vd_ty_numeric(**self, db)
+    }
 }
 
 #[eterned::memo]
 fn is_vd_ty_function_like(ty: VdTermId, db: &EternerDb) -> bool {
     match *ty.data() {
         VdTermData::ItemPath(_) => false,
+        VdTermData::Literal(_) => todo!(),
+        VdTermData::ForAll(_) => todo!(),
+        VdTermData::Exists(_) => todo!(),
+        VdTermData::Limit(_) => todo!(),
+        VdTermData::Eval(_) => todo!(),
+        VdTermData::SymbolicVariable(_) => todo!(),
+        VdTermData::AbstractVariable(_) => todo!(),
+        VdTermData::StackVariable(_) => todo!(),
+        VdTermData::Application(_) => todo!(),
+        VdTermData::Abstraction(_) => todo!(),
+    }
+}
+
+#[eterned::memo]
+fn is_vd_ty_numeric(ty: VdTermId, db: &EternerDb) -> bool {
+    match *ty.data() {
+        VdTermData::ItemPath(ref data) => match data.item_path() {
+            VdItemPath::Category(vd_category_path) => todo!(),
+            VdItemPath::Set(vd_set_path) => match vd_set_path {
+                VdSetPath::Prelude(vd_prelude_set_path) => match vd_prelude_set_path {
+                    VdPreludeSetPath::NaturalNumber
+                    | VdPreludeSetPath::RationalNumber
+                    | VdPreludeSetPath::Integer
+                    | VdPreludeSetPath::RealNumber
+                    | VdPreludeSetPath::ComplexNumber => true,
+                    _ => todo!(),
+                },
+            },
+            VdItemPath::Function(vd_function_path) => todo!(),
+            VdItemPath::Trait(vd_trait_path) => todo!(),
+            VdItemPath::TraitItem(vd_trait_item_path) => todo!(),
+        },
         VdTermData::Literal(_) => todo!(),
         VdTermData::ForAll(_) => todo!(),
         VdTermData::Exists(_) => todo!(),

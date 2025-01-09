@@ -1,4 +1,5 @@
 mod have;
+mod qed;
 mod show;
 
 use super::*;
@@ -11,7 +12,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     ) -> LnItemDefnIdxRange {
         let item_defns: Vec<_> = stmts
             .into_iter()
-            .map(|stmt| self.build_ln_item_defn_from_vd_stmt(stmt))
+            .filter_map(|stmt| self.build_ln_item_defn_from_vd_stmt(stmt))
             .collect();
         let source_map = self.source_map();
         let input = self.input();
@@ -24,6 +25,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                     VdMirStmtSource::Stmt(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
+                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
@@ -34,9 +36,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
 }
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
-    pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
+    pub(crate) fn build_ln_item_defn_from_vd_stmt(
+        &mut self,
+        stmt: VdMirStmtIdx,
+    ) -> Option<LnItemDefnData> {
         let db = self.db();
-        match self.stmt_arena()[stmt] {
+        match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 let defns = match *meta {
                     VdMirBlockMeta::Paragraph | VdMirBlockMeta::Sentence => stmts.to_lean(self),
@@ -57,22 +62,32 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
                         )
                     }
                 };
-                LnItemDefnData::Group { defns, meta }
+                Some(LnItemDefnData::Group { defns, meta })
             }
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
-                self.build_ln_item_from_vd_let_placeholder_stmt(pattern, ty)
+                Some(self.build_ln_item_from_let_placeholder_stmt(pattern, ty))
             }
+            VdMirStmtData::Assume { prop, .. } => Some(self.build_ln_item_from_assume_stmt(prop)),
             VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
+                ..
             } => todo!(),
             VdMirStmtData::Goal { prop } => todo!(),
-            VdMirStmtData::Have { prop, tactics } => self.build_have_stmt(prop, tactics),
-            VdMirStmtData::Show { prop, tactics } => self.build_show_stmt(prop, tactics),
+            VdMirStmtData::Have {
+                prop,
+                hypothesis_chunk_place,
+                ..
+            } => Some(self.build_have_stmt(stmt, prop, hypothesis_chunk_place.unwrap())),
+            VdMirStmtData::Show { prop, .. } => Some(self.build_show_stmt(stmt, prop)),
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
+                ..
+            } => Some(self.build_qed_stmt(stmt, goal_and_hypothesis_place.map(|(goal, _)| goal)?)),
         }
     }
 
-    fn build_ln_item_from_vd_let_placeholder_stmt(
+    fn build_ln_item_from_let_placeholder_stmt(
         &mut self,
         pattern: &VdMirPattern,
         ty: VdMirExprIdx,
@@ -81,11 +96,18 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             VdMirPattern::Letter {
                 symbol_local_defn, ..
             } => self.mangle_symbol(symbol_local_defn),
-            VdMirPattern::Assumed => self.mangle_hypothesis(),
         };
         LnItemDefnData::Variable {
             ident,
             ty: ty.to_lean(self),
+        }
+    }
+
+    fn build_ln_item_from_assume_stmt(&mut self, prop: VdMirExprIdx) -> LnItemDefnData {
+        let ident = self.mangle_hypothesis();
+        LnItemDefnData::Variable {
+            ident,
+            ty: prop.to_lean(self),
         }
     }
 }

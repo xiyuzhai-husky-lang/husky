@@ -15,7 +15,7 @@ impl VdAttachSignature {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdPowerSignature {
     instantiation: VdInstantiation,
     base_ty: VdType,

@@ -40,10 +40,9 @@ visored-models.workspace = true
 visored-syn-expr.workspace = true
 visored-sem-expr.workspace = true
 visored-mir-expr.workspace = true
-visored-opr.workspace = true
+visored-mir-opr.workspace = true
 visored-prelude.workspace = true
 visored-signature.workspace = true
-visored-tactics-standard-linear-elaborator.workspace = true
 visored-term.workspace = true
 
 [dev-dependencies]

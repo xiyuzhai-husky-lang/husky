@@ -1,6 +1,10 @@
 pub mod builder;
+pub mod coercion;
+pub mod elaborator;
 pub mod expr;
 pub mod helpers;
+pub mod hint;
+pub mod hypothesis;
 pub mod pattern;
 pub mod region;
 pub mod source_map;

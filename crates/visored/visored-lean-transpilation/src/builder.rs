@@ -1,11 +1,13 @@
 mod debug;
+mod helpers;
 
 use eterned::db::EternerDb;
 use latex_token::storage::LxTokenStorage;
 use lean_coword::ident::LnIdent;
+use lean_entity_path::menu::{ln_item_path_menu, LnItemPathMenu};
 use lean_mir_expr::{
     constructor::{LnMirExprConstructor, WithLnNamespace},
-    expr::{LnMirExprArena, LnMirExprData},
+    expr::{LnMirExprArena, LnMirExprData, LnMirExprEntry},
     item_defn::{
         def::LnMirDefBody, LnItemDefnArena, LnItemDefnComment, LnItemDefnCommentMap,
         LnItemDefnData, LnItemDefnIdxRange,
@@ -17,11 +19,12 @@ use std::ops::{Deref, DerefMut};
 use visored_entity_path::module::VdModulePath;
 use visored_mir_expr::{
     expr::VdMirExprArenaRef,
+    hint::VdMirHintArenaRef,
+    hypothesis::VdMirHypothesisArenaRef,
     region::VdMirExprRegionData,
     source_map::VdMirSourceMap,
     stmt::VdMirStmtArenaRef,
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
-    tactic::VdMirTacticArenaRef,
 };
 use visored_sem_expr::range::{
     VdSemBlockTokenIdxRangeMap, VdSemClauseTokenIdxRangeMap, VdSemDivisionTokenIdxRangeMap,
@@ -39,10 +42,12 @@ pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     db: &'a EternerDb,
     scheme: &'a S,
     input: &'a str,
+    ln_item_path_menu: &'a LnItemPathMenu,
     lean_hir_expr_constructor: LnMirExprConstructor,
     expr_arena: VdMirExprArenaRef<'a>,
     stmt_arena: VdMirStmtArenaRef<'a>,
-    tactic_arena: VdMirTacticArenaRef<'a>,
+    hint_arena: VdMirHintArenaRef<'a>,
+    hypothesis_arena: VdMirHypothesisArenaRef<'a>,
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
     current_module_path: VdModulePath,
@@ -92,7 +97,8 @@ where
             input,
             vd_mir_expr_region_data.expr_arena(),
             vd_mir_expr_region_data.stmt_arena(),
-            vd_mir_expr_region_data.tactic_arena(),
+            vd_mir_expr_region_data.hint_arena(),
+            vd_mir_expr_region_data.hypothesis_arena(),
             vd_mir_expr_region_data.symbol_local_defn_storage(),
             source_map,
             dictionary,
@@ -113,7 +119,8 @@ where
         input: &'a str,
         expr_arena: VdMirExprArenaRef<'a>,
         stmt_arena: VdMirStmtArenaRef<'a>,
-        tactic_arena: VdMirTacticArenaRef<'a>,
+        hint_arena: VdMirHintArenaRef<'a>,
+        hypothesis_arena: VdMirHypothesisArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
         source_map: &'a VdMirSourceMap,
         dictionary: &'a VdLeanDictionary,
@@ -129,10 +136,12 @@ where
         Self {
             db,
             scheme,
+            ln_item_path_menu: &ln_item_path_menu,
             lean_hir_expr_constructor: LnMirExprConstructor::new(db),
             expr_arena,
             stmt_arena,
-            tactic_arena,
+            hint_arena,
+            hypothesis_arena,
             source_map,
             dictionary,
             mangler: VdLeanTranspilationMangler::new(symbol_local_defn_storage, db),
@@ -191,7 +200,7 @@ where
     }
 
     pub(crate) fn sorry(&mut self) -> LnMirDefBody {
-        LnMirDefBody::Expr(self.alloc_expr(LnMirExprData::Sorry))
+        LnMirDefBody::Expr(self.alloc_expr(LnMirExprEntry::new(LnMirExprData::Sorry, todo!())))
     }
 }
 
@@ -211,8 +220,12 @@ where
         self.stmt_arena
     }
 
-    pub fn tactic_arena(&self) -> VdMirTacticArenaRef<'db> {
-        self.tactic_arena
+    pub fn hint_arena(&self) -> VdMirHintArenaRef<'db> {
+        self.hint_arena
+    }
+
+    pub fn hypothesis_arena(&self) -> VdMirHypothesisArenaRef<'db> {
+        self.hypothesis_arena
     }
 
     pub fn source_map(&self) -> &'db VdMirSourceMap {

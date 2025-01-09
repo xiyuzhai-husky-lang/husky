@@ -8,12 +8,22 @@ pub struct VdSemLetAssignedDispatch {
     assignment: VdSemExprIdx,
 }
 
+impl VdSemLetAssignedDispatch {
+    pub fn pattern(&self) -> &VdSemPattern {
+        &self.pattern
+    }
+
+    pub fn assignment(&self) -> VdSemExprIdx {
+        self.assignment
+    }
+}
+
 impl ToVdSem<VdSemLetAssignedDispatch> for &VdSynLetAssignedResolution {
     fn to_vd_sem(self, builder: &mut VdSemExprBuilder) -> VdSemLetAssignedDispatch {
         let pattern = self.pattern().to_vd_sem(builder);
         let assignment = builder.build_expr_entry(self.assignment());
         let ty = assignment.ty();
-        let assignment = builder.alloc_expr(self.assignment(), assignment);
+        let assignment = builder.alloc_expr(self.assignment(), assignment, None);
         builder.infer_pattern_symbol_tys(&pattern, ty);
         VdSemLetAssignedDispatch {
             pattern,

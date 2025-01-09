@@ -6,7 +6,7 @@ use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxPageInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
+use visored_mir_expr::elaborator::VdMirTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
@@ -27,7 +27,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
-        VdMirTacticTrivialElaborator::new_default,
+        |_| VdMirTrivialElaborator::default(),
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
@@ -114,7 +114,7 @@ fn basic_visored_clause_to_lean_works() {
                   │ ├─ variable: `x`
                   │ └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(4), construction: 1 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.
@@ -124,7 +124,7 @@ fn basic_visored_clause_to_lean_works() {
             -- Then $x=x$.
 
             def h : x = x := by
-              obvious"#]],
+              have h1 : x = x := by obvious"#]],
     );
     t(
         models,
@@ -141,7 +141,7 @@ fn basic_visored_clause_to_lean_works() {
                   │ │ └─ variable: `x`
                   │ └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(6), construction: 1 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{N}$.
@@ -151,7 +151,7 @@ fn basic_visored_clause_to_lean_works() {
             -- Then $2x\ge x$.
 
             def h : 2 * x ≥ x := by
-              obvious"#]],
+              have h1 : 2 * x ≥ x := by obvious"#]],
     );
     t(
         models,
@@ -170,9 +170,9 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ └─ literal: `2`
               │   │ └─ literal: `0`
               │   └─ tactics
-              │     └─ tactic: `Obvious`
+              │     └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(10), construction: 1 }`
               ├─ group: `sentence`
-              │ └─ def: `h1`
+              │ └─ def: `h2`
               │   ├─ application
               │   │ ├─ application
               │   │ │ ├─ application
@@ -185,9 +185,9 @@ fn basic_visored_clause_to_lean_works() {
               │   │ │ └─ literal: `1`
               │   │ └─ literal: `0`
               │   └─ tactics
-              │     └─ tactic: `Obvious`
+              │     └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: Some(34), construction: 20 }`
               └─ group: `sentence`
-                └─ def: `h2`
+                └─ def: `h4`
                   ├─ application
                   │ ├─ application
                   │ │ ├─ application
@@ -198,7 +198,7 @@ fn basic_visored_clause_to_lean_works() {
                   │   ├─ literal: `2`
                   │   └─ variable: `x`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: Some(60), construction: 49 }`
         "#]],
         &expect![[r#"
             -- Let $x\in\mathbb{R}$.
@@ -207,17 +207,17 @@ fn basic_visored_clause_to_lean_works() {
 
             -- Then ${(x-1)}^2 \ge 0$.
 
-            def h : (x - 1) ^ 2 ≥ 0 := by
-              obvious
+            def h : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by
+              have h1 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by obvious
 
             -- Then $x^2-2x+1 \ge 0$.
 
-            def h1 : x ^ 2 - 2 * x + 1 ≥ 0 := by
-              obvious
+            def h2 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by
+              have h3 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by obvious
 
             -- Then $x^2 + 1\ge 2x$.
 
-            def h2 : x ^ 2 + 1 ≥ 2 * x := by
-              obvious"#]],
+            def h4 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by
+              have h5 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious"#]],
     );
 }

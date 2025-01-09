@@ -6,7 +6,7 @@ use eterned::db::EternerDb;
 use latex_prelude::{helper::tracker::LxFormulaInput, mode::LxMode};
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
+use visored_mir_expr::elaborator::VdMirTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_fmt: &Expect) {
@@ -27,7 +27,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationSparseScheme,
-        VdMirTacticTrivialElaborator::new_default,
+        |_| VdMirTrivialElaborator::default(),
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
@@ -51,7 +51,7 @@ fn basic_visored_expr_to_lean_works() {
             application
             └─ literal: `1`
         "#]],
-        &expect!["-1"],
+        &expect!["-(1 : ℤ)"],
     );
     t(
         models,
@@ -91,7 +91,7 @@ fn basic_visored_expr_to_lean_works() {
             ├─ literal: `1`
             └─ literal: `2`
         "#]],
-        &expect!["1 / 2"],
+        &expect!["(1 : ℚ) / (2 : ℚ)"],
     );
     t(
         models,
@@ -101,7 +101,7 @@ fn basic_visored_expr_to_lean_works() {
             ├─ item path: `√`
             └─ literal: `2`
         "#]],
-        &expect!["√ 2"],
+        &expect!["√ (2 : ℝ)"],
     );
 }
 

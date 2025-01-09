@@ -32,7 +32,7 @@ complex, add, int, folding complex_add
 complex, add, rat, folding complex_add
 complex, add, real, folding complex_add
 complex, add, complex, folding complex_add
-// ## mul
+// ## mul space
 // ### nat
 nat, space, nat, folding nat_mul
 // ### int
@@ -63,6 +63,68 @@ complex, space, int, folding complex_mul
 complex, space, rat, folding complex_mul
 complex, space, real, folding complex_mul
 complex, space, complex, folding complex_mul
+// ## mul times
+// ### nat
+nat, times, nat, folding nat_mul
+// ### int
+nat, times, int, folding int_mul
+int, times, nat, folding int_mul
+int, times, int, folding int_mul
+// ### rat
+nat, times, rat, folding rat_mul
+int, times, rat, folding rat_mul
+rat, times, nat, folding rat_mul
+rat, times, int, folding rat_mul
+rat, times, rat, folding rat_mul
+// ### real
+nat, times, real, folding real_mul
+int, times, real, folding real_mul
+rat, times, real, folding real_mul
+real, times, nat, folding real_mul
+real, times, int, folding real_mul
+real, times, rat, folding real_mul
+real, times, real, folding real_mul
+// ### complex
+nat, times, complex, folding complex_mul
+int, times, complex, folding complex_mul
+rat, times, complex, folding complex_mul
+real, times, complex, folding complex_mul
+complex, times, nat, folding complex_mul
+complex, times, int, folding complex_mul
+complex, times, rat, folding complex_mul
+complex, times, real, folding complex_mul
+complex, times, complex, folding complex_mul
+// ## mul cdot
+// ### nat
+nat, cdot, nat, folding nat_mul
+// ### int
+nat, cdot, int, folding int_mul
+int, cdot, nat, folding int_mul
+int, cdot, int, folding int_mul
+// ### rat
+nat, cdot, rat, folding rat_mul
+int, cdot, rat, folding rat_mul
+rat, cdot, nat, folding rat_mul
+rat, cdot, int, folding rat_mul
+rat, cdot, rat, folding rat_mul
+// ### real
+nat, cdot, real, folding real_mul
+int, cdot, real, folding real_mul
+rat, cdot, real, folding real_mul
+real, cdot, nat, folding real_mul
+real, cdot, int, folding real_mul
+real, cdot, rat, folding real_mul
+real, cdot, real, folding real_mul
+// ### complex
+nat, cdot, complex, folding complex_mul
+int, cdot, complex, folding complex_mul
+rat, cdot, complex, folding complex_mul
+real, cdot, complex, folding complex_mul
+complex, cdot, nat, folding complex_mul
+complex, cdot, int, folding complex_mul
+complex, cdot, rat, folding complex_mul
+complex, cdot, real, folding complex_mul
+complex, cdot, complex, folding complex_mul
 // ## eq
 // ### nat
 nat, eq, nat, chaining nat_eq

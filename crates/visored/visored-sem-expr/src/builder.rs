@@ -197,7 +197,7 @@ impl<'a> VdSemExprBuilder<'a> {
         self.default_global_dispatch_table
     }
 
-    pub(crate) fn vd_ty_menu(&self) -> &'a VdTypeMenu {
+    pub(crate) fn ty_menu(&self) -> &'a VdTypeMenu {
         self.vd_ty_menu
     }
 
@@ -253,8 +253,12 @@ impl<'db> VdSemExprBuilder<'db> {
     pub(crate) fn alloc_expr(
         &mut self,
         syn_expr: VdSynExprIdx,
-        entry: VdSemExprEntry,
+        mut entry: VdSemExprEntry,
+        expected_ty: Option<VdType>,
     ) -> VdSemExprIdx {
+        if let Some(expected_ty) = expected_ty {
+            entry.set_expected_ty(expected_ty);
+        }
         let expr = self.expr_arena.alloc_one(entry);
         self.syn_to_sem_expr_map.insert(syn_expr, expr);
         expr

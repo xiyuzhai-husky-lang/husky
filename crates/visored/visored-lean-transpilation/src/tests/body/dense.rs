@@ -9,7 +9,7 @@ use latex_prelude::{
 };
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
+use visored_mir_expr::elaborator::VdMirTrivialElaborator;
 use visored_models::VdModels;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
@@ -31,7 +31,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
-        VdMirTacticTrivialElaborator::new_default,
+        |_| VdMirTrivialElaborator::default(),
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
@@ -48,11 +48,11 @@ fn basic_body_to_lean_works() {
               └─ def: `h`
                 ├─ item path: `ℕ`
                 └─ tactics
-                  └─ tactic: `Obvious`
+                  └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             def h(x : ℕ) := by
-              obvious"#]],
+              exact ()"#]],
     );
     t(
         models,
@@ -62,12 +62,10 @@ fn basic_body_to_lean_works() {
               └─ group: `environment`
                 └─ def: `h`
                   └─ tactics
-                    └─ tactic: `Obvious`
         "#]],
         &expect![[r#"
             namespace Example1
             def h := by
-              obvious
             end Example1
         "#]],
     );
@@ -80,12 +78,12 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Example1
             def h(x : ℝ) := by
-              obvious
+              exact ()
             end Example1
         "#]],
     );
@@ -98,12 +96,12 @@ fn basic_body_to_lean_works() {
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
+              exact ()
             end Section1
         "#]],
     );
@@ -116,13 +114,13 @@ fn basic_body_to_lean_works() {
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Obvious`
+              │     └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Obvious`
+              │       └─ tactic: `Exact { term: 3 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -131,11 +129,11 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
+              exact ()
 
             namespace Subsection1
             def h(y : ℝ) := by
-              obvious
+              exact ()
             end Subsection1
 
             namespace Subsection2

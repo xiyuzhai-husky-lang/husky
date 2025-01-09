@@ -12,13 +12,12 @@ use crate::{symbol::local_defn::VdMirSymbolLocalDefnIdx, *};
 use latex_math_letter::letter::LxMathLetter;
 use visored_sem_expr::pattern::VdSemPattern;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VdMirPattern {
     Letter {
         letter: LxMathLetter,
         symbol_local_defn: VdMirSymbolLocalDefnIdx,
     },
-    Assumed,
 }
 
 impl ToVdMir<VdMirPattern> for &VdSemPattern {

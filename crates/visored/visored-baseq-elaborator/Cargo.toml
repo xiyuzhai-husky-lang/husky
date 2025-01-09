@@ -1,0 +1,66 @@
+[package]
+name = "visored-baseq-elaborator"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+either.workspace = true
+expect-test.workspace = true
+itertools.workspace = true
+num-bigint.workspace = true
+num-integer.workspace = true
+ordered-float.workspace = true
+rustc-hash.workspace = true
+serde.workspace = true
+smallvec.workspace = true
+thiserror.workspace = true
+# abstractions
+alt-maybe-result.workspace = true
+alt-option.workspace = true
+enum-class.workspace = true
+eterned.workspace = true
+floated-sequential.workspace = true
+idx-arena.workspace = true
+miracle.workspace = true
+vec-like.workspace = true
+# latex
+latex-math-letter.workspace = true
+latex-prelude.workspace = true
+latex-vfs.workspace = true
+# math
+combinatorics.workspace = true
+# utils
+husky-control-flow-utils.workspace = true
+husky-debug-utils.workspace = true
+husky-path-utils.workspace = true
+husky-print-utils.workspace = true
+husky-sha-utils.workspace = true
+husky-unicode-symbols.workspace = true
+# visored
+visored-annotation.workspace = true
+visored-entity-path.workspace = true
+visored-lean-transpilation.workspace = true
+visored-mir-expr.workspace = true
+visored-models.workspace = true
+visored-mir-opr.workspace = true
+visored-opr.workspace = true
+visored-signature.workspace = true
+visored-syn-expr.workspace = true
+visored-term.workspace = true
+visored-baseq-elaborator-macros.workspace = true
+
+[dev-dependencies]
+relative-path.workspace = true
+# utils
+husky-case-utils = { workspace = true, features = ["relative_path"] }
+
+[lints]
+workspace = true

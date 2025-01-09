@@ -6,6 +6,7 @@ pub mod namespace;
 pub mod path;
 #[cfg(test)]
 mod tests;
+pub mod theorem;
 
 #[cfg(test)]
 use crate::tests::*;

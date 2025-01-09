@@ -107,7 +107,7 @@ impl<'db> VdSynSymbolBuilder<'db> {
                 VdBaseSeparator::Semicolon => todo!(),
                 VdBaseSeparator::Add => todo!(),
                 VdBaseSeparator::Mul => todo!(),
-                VdBaseSeparator::Dot => todo!(),
+                VdBaseSeparator::Cdot => todo!(),
                 VdBaseSeparator::Eq => self.infer_let_assigned_resolution(fst, snd).into(),
                 VdBaseSeparator::Ne => todo!(),
                 VdBaseSeparator::Lt => todo!(),

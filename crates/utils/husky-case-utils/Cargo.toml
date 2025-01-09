@@ -4,3 +4,8 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+convert_case.workspace = true
+relative-path = { workspace = true, optional = true }
+
+[features]
+relative_path = ["dep:relative-path"]

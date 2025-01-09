@@ -24,7 +24,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: +(nat_add) ...,
-                    opr: Add,
+                    opr: CommRingAdd,
                     item_ty: ℕ,
                     expr_ty: ℕ,
                 },
@@ -74,7 +74,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: -(ring_sub) ...,
-                    opr: Sub,
+                    opr: CommRingSub,
                     lopd_ty: ℝ,
                     ropd_ty: ℝ,
                     expr_ty: ℝ,
@@ -85,7 +85,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: *(ring_mul) ...,
-                    opr: Mul,
+                    opr: CommRingMul,
                     item_ty: ℤ,
                     expr_ty: ℤ,
                 },
@@ -125,7 +125,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: *(ring_mul) ...,
-                    opr: Mul,
+                    opr: CommRingMul,
                     item_ty: ℚ,
                     expr_ty: ℚ,
                 },
@@ -175,6 +175,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: RingNeg,
                     opd_ty: ℝ,
                     expr_ty: ℝ,
                 },
@@ -204,7 +205,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: /(field_div) ...,
-                    opr: Div,
+                    opr: CommFieldDiv,
                     lopd_ty: ℝ,
                     ropd_ty: ℝ,
                     expr_ty: ℝ,
@@ -215,7 +216,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: *(ring_mul) ...,
-                    opr: Mul,
+                    opr: CommRingMul,
                     item_ty: ℝ,
                     expr_ty: ℝ,
                 },
@@ -235,7 +236,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: +(ring_add) ...,
-                    opr: Add,
+                    opr: CommRingAdd,
                     item_ty: ℤ,
                     expr_ty: ℤ,
                 },
@@ -265,7 +266,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: *(ring_mul) ...,
-                    opr: Mul,
+                    opr: CommRingMul,
                     item_ty: ℂ,
                     expr_ty: ℂ,
                 },
@@ -295,7 +296,7 @@ VdSignatureTable {
             Base(
                 VdBaseSqrtSignature {
                     instantiation: √(real_sqrt) ...,
-                    base_ty: ℝ,
+                    radicand_ty: ℝ,
                     expr_ty: ℝ,
                 },
             ),
@@ -304,6 +305,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: RingPos,
                     opd_ty: ℚ,
                     expr_ty: ℚ,
                 },
@@ -313,6 +315,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: RingPos,
                     opd_ty: ℝ,
                     expr_ty: ℝ,
                 },
@@ -332,6 +335,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: RingNeg,
                     opd_ty: ℤ,
                     expr_ty: ℤ,
                 },
@@ -371,7 +375,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: +(ring_add) ...,
-                    opr: Add,
+                    opr: CommRingAdd,
                     item_ty: ℚ,
                     expr_ty: ℚ,
                 },
@@ -381,7 +385,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: +(ring_add) ...,
-                    opr: Add,
+                    opr: CommRingAdd,
                     item_ty: ℂ,
                     expr_ty: ℂ,
                 },
@@ -391,7 +395,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: +(ring_add) ...,
-                    opr: Add,
+                    opr: CommRingAdd,
                     item_ty: ℝ,
                     expr_ty: ℝ,
                 },
@@ -401,6 +405,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: RingNeg,
                     opd_ty: ℚ,
                     expr_ty: ℚ,
                 },
@@ -430,7 +435,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: /(field_div) ...,
-                    opr: Div,
+                    opr: CommFieldDiv,
                     lopd_ty: ℂ,
                     ropd_ty: ℂ,
                     expr_ty: ℂ,
@@ -441,6 +446,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: RingPos,
                     opd_ty: ℤ,
                     expr_ty: ℤ,
                 },
@@ -450,7 +456,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: /(field_div) ...,
-                    opr: Div,
+                    opr: CommFieldDiv,
                     lopd_ty: ℚ,
                     ropd_ty: ℚ,
                     expr_ty: ℚ,
@@ -461,7 +467,7 @@ VdSignatureTable {
             Base(
                 VdBaseSeparatorSignature {
                     instantiation: * ...,
-                    opr: Mul,
+                    opr: CommRingMul,
                     item_ty: ℕ,
                     expr_ty: ℕ,
                 },
@@ -481,7 +487,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: -(ring_sub) ...,
-                    opr: Sub,
+                    opr: CommRingSub,
                     lopd_ty: ℚ,
                     ropd_ty: ℚ,
                     expr_ty: ℚ,
@@ -512,6 +518,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: +(ring_pos) ...,
+                    opr: RingPos,
                     opd_ty: ℂ,
                     expr_ty: ℂ,
                 },
@@ -521,6 +528,7 @@ VdSignatureTable {
             Base(
                 VdBasePrefixOprSignature {
                     instantiation: -(ring_neg) ...,
+                    opr: RingNeg,
                     opd_ty: ℂ,
                     expr_ty: ℂ,
                 },
@@ -540,7 +548,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: -(ring_sub) ...,
-                    opr: Sub,
+                    opr: CommRingSub,
                     lopd_ty: ℤ,
                     ropd_ty: ℤ,
                     expr_ty: ℤ,
@@ -571,7 +579,7 @@ VdSignatureTable {
             Base(
                 VdBaseBinaryOprSignature {
                     instantiation: -(ring_sub) ...,
-                    opr: Sub,
+                    opr: CommRingSub,
                     lopd_ty: ℂ,
                     ropd_ty: ℂ,
                     expr_ty: ℂ,

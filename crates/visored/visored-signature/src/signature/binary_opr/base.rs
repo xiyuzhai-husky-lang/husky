@@ -1,13 +1,13 @@
 use super::*;
 use visored_entity_path::path::{trai_item::VdTraitItemPath, VdItemPath};
-use visored_opr::opr::binary::VdBaseBinaryOpr;
+use visored_mir_opr::opr::binary::VdMirBaseBinaryOpr;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBaseBinaryOprSignature {
     pub instantiation: VdInstantiation,
     // TODO: replace this with something more ethereal
-    pub opr: VdBaseBinaryOpr,
+    pub opr: VdMirBaseBinaryOpr,
     pub lopd_ty: VdType,
     pub ropd_ty: VdType,
     pub expr_ty: VdType,
@@ -34,19 +34,19 @@ impl VdBaseBinaryOprSignature {
             VdTraitItemPath::AbelianGroupAdd => todo!(),
             VdTraitItemPath::NatAdd => todo!(),
             VdTraitItemPath::NatMul => todo!(),
-            VdTraitItemPath::RingAdd => todo!(),
-            VdTraitItemPath::RingSub => VdBaseBinaryOpr::SUB,
-            VdTraitItemPath::RingMul => todo!(),
-            VdTraitItemPath::RingPower => todo!(),
-            VdTraitItemPath::RingPos => todo!(),
-            VdTraitItemPath::RingNeg => todo!(),
+            VdTraitItemPath::CommRingAdd => todo!(),
+            VdTraitItemPath::CommRingSub => VdMirBaseBinaryOpr::COMM_RING_SUB,
+            VdTraitItemPath::CommRingMul => todo!(),
+            VdTraitItemPath::CommRingPower => todo!(),
+            VdTraitItemPath::CommRingPos => todo!(),
+            VdTraitItemPath::CommRingNeg => todo!(),
             VdTraitItemPath::Eq => todo!(),
             VdTraitItemPath::Ne => todo!(),
             VdTraitItemPath::Lt => todo!(),
             VdTraitItemPath::Gt => todo!(),
             VdTraitItemPath::Le => todo!(),
             VdTraitItemPath::Ge => todo!(),
-            VdTraitItemPath::FieldDiv => VdBaseBinaryOpr::DIV,
+            VdTraitItemPath::FieldDiv => VdMirBaseBinaryOpr::COMM_FIELD_DIV,
             VdTraitItemPath::RealSqrt => todo!(),
         };
         Self {

@@ -16,6 +16,19 @@ pub struct VdItemPathTermData {
     item_path: VdItemPath,
 }
 
+impl VdItemPathTerm {
+    pub fn data(self) -> &'static VdItemPathTermData {
+        match self.0.data() {
+            VdTermData::ItemPath(data) => data,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn item_path(&self) -> VdItemPath {
+        self.data().item_path()
+    }
+}
+
 impl VdItemPathTermData {
     pub fn item_path(&self) -> VdItemPath {
         self.item_path

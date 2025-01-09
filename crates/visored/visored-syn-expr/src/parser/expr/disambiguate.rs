@@ -13,6 +13,7 @@ use latex_token::{
     idx::{LxMathTokenIdx, LxTokenIdxRange},
     token::math::digit::LxMathDigit,
 };
+use std::str::FromStr;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_global_resolution::resolution::{
     command::VdCompleteCommandGlobalResolution, punctuation::VdPunctuationGlobalResolution,
@@ -23,7 +24,7 @@ use visored_opr::{
     precedence::VdPrecedence,
     separator::VdBaseSeparator,
 };
-use visored_term::term::literal::{VdLiteral, VdLiteralData};
+use visored_term::term::literal::{bigint::VdBigIntData, VdLiteral, VdLiteralData};
 
 #[derive(Debug)]
 pub enum DisambiguatedAst {
@@ -203,9 +204,10 @@ impl<'a, 'db> VdSynExprParser<'a, 'db> {
                     *next += 1;
                 }
                 let data = match literal_number_kind {
-                    LiteralNumberKind::NaturalNumber => {
-                        VdLiteralData::Nat128(s.parse().expect("TODO: handle big natural number"))
-                    }
+                    LiteralNumberKind::NaturalNumber => match s.parse() {
+                        Ok(i) => VdLiteralData::Int128(i),
+                        Err(_) => VdLiteralData::BigInt(VdBigIntData::from_str(&s).unwrap()),
+                    },
                     LiteralNumberKind::Float => VdLiteralData::Float(s),
                 };
                 let expr_data = VdSynExprData::Literal {

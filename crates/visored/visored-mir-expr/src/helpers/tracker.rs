@@ -1,3 +1,4 @@
+use crate::elaborator::IsVdMirTacticElaborator;
 use crate::{
     builder::VdMirExprBuilder,
     expr::{VdMirExprArena, VdMirExprIdx},
@@ -8,16 +9,17 @@ use either::*;
 use eterned::db::EternerDb;
 use expr::{application::VdMirFunc, VdMirExprData};
 use helpers::show::display_tree::VdMirExprDisplayTreeBuilder;
+use hint::VdMirHintArena;
 use husky_tree_utils::display::DisplayTree;
+use hypothesis::{constructor::VdMirHypothesisConstructor, VdMirHypothesisArena};
 use latex_prelude::{
     helper::tracker::{LxDocumentBodyInput, LxDocumentInput, LxFormulaInput, LxPageInput},
     mode::LxMode,
 };
 use latex_token::storage::LxTokenStorage;
-use region::{VdMirExprRegionDataMut, VdMirExprRegionDataRef};
+use region::VdMirExprRegionDataRef;
 use source_map::VdMirSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
-use tactic::{elaboration::elaborator::IsVdMirTacticElaborator, VdMirTacticArena};
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
 use visored_sem_expr::{
@@ -29,11 +31,13 @@ use visored_sem_expr::{
 };
 use visored_syn_expr::vibe::VdSynExprVibe;
 
-pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMirTacticElaborator> {
+pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
+    pub input: Input,
     pub root_module_path: VdModulePath,
     pub expr_arena: VdMirExprArena,
     pub stmt_arena: VdMirStmtArena,
-    pub tactic_arena: VdMirTacticArena,
+    pub hint_arena: VdMirHintArena,
+    pub hypothesis_arena: VdMirHypothesisArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
     pub source_map: VdMirSourceMap,
     pub sem_expr_range_map: VdSemExprTokenIdxRangeMap,
@@ -44,7 +48,6 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>, Elaborator: IsVdMir
     pub sem_division_range_map: VdSemDivisionTokenIdxRangeMap,
     pub token_storage: LxTokenStorage,
     pub output: Input::VdMirExprOutput,
-    pub elaborator: Elaborator,
 }
 
 pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
@@ -54,10 +57,10 @@ pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     fn show(self, builder: &VdMirExprDisplayTreeBuilder) -> String;
 
-    fn eval_all_tactics_within_self(
+    fn elaborate_self<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         self,
-        region_data: VdMirExprRegionDataRef,
-        elaborator: &mut impl IsVdMirTacticElaborator,
+        elaborator: Elaborator,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, Elaborator::HypothesisIdx>,
     );
 }
 
@@ -74,19 +77,18 @@ where
     }
 }
 
-impl<'a, Input, Elaborator> VdMirExprTracker<'a, Input, Elaborator>
+impl<'a, Input> VdMirExprTracker<'a, Input>
 where
     Input: IsVdMirExprInput<'a>,
-    Elaborator: IsVdMirTacticElaborator,
 {
-    pub fn new(
+    pub fn new<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         input: Input,
         token_annotations: &[((&str, &str), VdTokenAnnotation)],
         space_annotations: &[((&str, &str), VdSpaceAnnotation)],
         models: &VdModels,
         vibe: VdSynExprVibe,
-        db: &EternerDb,
-        gen_elaborator: impl FnOnce(VdMirExprRegionDataRef) -> Elaborator,
+        db: &'db EternerDb,
+        gen_elaborator: impl Fn(VdMirExprRegionDataRef) -> Elaborator,
     ) -> Self {
         let VdSemExprTracker {
             root_module_path,
@@ -119,6 +121,7 @@ where
             db,
         );
         let mut builder = VdMirExprBuilder::new(
+            input.content(),
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),
             sem_clause_arena.as_arena_ref(),
@@ -128,34 +131,32 @@ where
             &sem_symbol_local_defn_storage,
         );
         let output: Input::VdMirExprOutput = FromToVdMir::from_to_vd_mir(output, &mut builder);
-        let (mut expr_arena, stmt_arena, mut tactic_arena, symbol_local_defn_storage, source_map) =
+        let (mut expr_arena, mut stmt_arena, mut hint_arena, symbol_local_defn_storage, source_map) =
             builder.finish();
-        let mut elaborator = gen_elaborator(VdMirExprRegionDataRef {
+        let region_data = VdMirExprRegionDataRef {
             expr_arena: expr_arena.as_arena_ref(),
             stmt_arena: stmt_arena.as_arena_ref(),
-            tactic_arena: tactic_arena.as_arena_ref(),
+            hint_arena: hint_arena.as_arena_ref(),
             symbol_local_defn_storage: &symbol_local_defn_storage,
-        });
-        output.eval_all_tactics_within_self(
-            VdMirExprRegionDataRef {
-                expr_arena: expr_arena.as_arena_ref(),
-                stmt_arena: stmt_arena.as_arena_ref(),
-                tactic_arena: tactic_arena.as_arena_ref(),
-                symbol_local_defn_storage: &symbol_local_defn_storage,
-            },
-            &mut elaborator,
+        };
+        let elaborator = gen_elaborator(region_data);
+        let mut hypothesis_constructor = VdMirHypothesisConstructor::new(
+            db,
+            expr_arena,
+            stmt_arena,
+            hint_arena,
+            symbol_local_defn_storage,
         );
-        elaborator.extract(VdMirExprRegionDataMut {
-            expr_arena: &mut expr_arena,
-            stmt_arena: stmt_arena.as_arena_ref(),
-            tactic_arena: &mut tactic_arena,
-            symbol_local_defn_storage: &symbol_local_defn_storage,
-        });
+        output.elaborate_self(elaborator, &mut hypothesis_constructor);
+        let (expr_arena, stmt_arena, hint_arena, hypothesis_arena, symbol_local_defn_storage) =
+            hypothesis_constructor.finish();
         Self {
+            input,
             root_module_path,
             expr_arena,
             stmt_arena,
-            tactic_arena,
+            hint_arena,
+            hypothesis_arena,
             symbol_local_defn_storage,
             source_map,
             sem_expr_range_map,
@@ -166,7 +167,6 @@ where
             sem_division_range_map,
             token_storage,
             output,
-            elaborator,
         }
     }
 
@@ -205,12 +205,12 @@ impl IsVdMirExprOutput for VdMirStmtIdxRange {
         DisplayTree::show_trees(&builder.render_stmts(self), &Default::default())
     }
 
-    fn eval_all_tactics_within_self(
+    fn elaborate_self<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         self,
-        region_data: VdMirExprRegionDataRef,
-        elaborator: &mut impl IsVdMirTacticElaborator,
+        elaborator: Elaborator,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, Elaborator::HypothesisIdx>,
     ) {
-        elaborator.eval_all_tactics_within_stmts(self, region_data);
+        elaborator.elaborate_stmts_ext(self, hypothesis_constructor)
     }
 }
 
@@ -219,11 +219,11 @@ impl IsVdMirExprOutput for VdMirExprIdx {
         builder.render_expr(self).show(&Default::default())
     }
 
-    fn eval_all_tactics_within_self(
+    fn elaborate_self<'db, Elaborator: IsVdMirTacticElaborator<'db>>(
         self,
-        region_data: VdMirExprRegionDataRef,
-        elaborator: &mut impl IsVdMirTacticElaborator,
+        elaborator: Elaborator,
+        hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, Elaborator::HypothesisIdx>,
     ) {
-        elaborator.eval_all_tactics_within_expr(self, region_data);
+        elaborator.elaborate_expr_ext(self, hypothesis_constructor)
     }
 }

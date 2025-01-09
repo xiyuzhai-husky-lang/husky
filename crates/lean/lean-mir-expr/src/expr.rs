@@ -8,7 +8,7 @@ use lean_opr::{
     opr::{binary::LnBinaryOpr, prefix::LnPrefixOpr, suffix::LnSuffixOpr},
     precedence::LnPrecedence,
 };
-use lean_term::term::literal::LnLiteral;
+use lean_term::{term::literal::LnLiteral, ty::LnType};
 use smallvec::SmallVec;
 
 use crate::tactic::LnMirTacticIdxRange;
@@ -34,10 +34,34 @@ pub enum LnMirExprData {
     },
 }
 
-pub type LnMirExprArena = Arena<LnMirExprData>;
-pub type LnMirExprArenaRef<'a> = ArenaRef<'a, LnMirExprData>;
-pub type LnMirExprIdx = ArenaIdx<LnMirExprData>;
-pub type LnMirExprIdxRange = ArenaIdxRange<LnMirExprData>;
+pub struct LnMirExprEntry {
+    data: LnMirExprData,
+    ty_ascription: Option<LnMirExprIdx>,
+}
+
+pub type LnMirExprArena = Arena<LnMirExprEntry>;
+pub type LnMirExprArenaRef<'a> = ArenaRef<'a, LnMirExprEntry>;
+pub type LnMirExprIdx = ArenaIdx<LnMirExprEntry>;
+pub type LnMirExprIdxRange = ArenaIdxRange<LnMirExprEntry>;
+
+impl LnMirExprEntry {
+    pub fn new(data: LnMirExprData, ty_ascription: Option<LnMirExprIdx>) -> Self {
+        Self {
+            data,
+            ty_ascription,
+        }
+    }
+}
+
+impl LnMirExprEntry {
+    pub fn data(&self) -> &LnMirExprData {
+        &self.data
+    }
+
+    pub fn ty_ascription(&self) -> Option<LnMirExprIdx> {
+        self.ty_ascription
+    }
+}
 
 impl LnMirExprData {
     pub(crate) fn outer_precedence(&self) -> LnPrecedence {

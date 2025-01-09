@@ -15,8 +15,15 @@ def main : IO Unit :=
 '''
 
 api = ChatCompletionAPI("local")
+# api = ChatCompletionAPI("openai", model="gpt4o")
+# api = ChatCompletionAPI("gemini", model="gemini-1.5-flash")
+
+
+max_tries = 10
 
 files = os.listdir(TESTCASES_DIR)
+print(f'total files: {len(files)}, containing: {files}')
+
 for file in files:
     if file.endswith(".md"):
 
@@ -24,7 +31,7 @@ for file in files:
             problem, latex, lean = parse_testcase(f.read())
         
         bug_msg = None
-        for _ in range(10):
+        for _ in range(max_tries):
             messages = [
                 {"role": "system", "content": SYSTEM_MESSAGE},
                 {"role": "user", "content": prompt(problem, latex, lean, bug_msg)},
@@ -32,7 +39,7 @@ for file in files:
 
             print(messages[1]["content"])
 
-            completion = api.chat_completion(messages)
+            completion = api.chat_completion(messages, use_cache=False)
             lean = parse_response(completion["content"])
             
             output_file = f"{OUTPUT_DIR}/{file.replace('.md', '.lean')}"
@@ -42,6 +49,8 @@ for file in files:
             exec_result = subprocess.run(["lake", "env", "lean", "--run", output_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
             bug_msg = exec_result.stdout[:500]
-
+            print(f'\n\n=================== try: {_}, file: {file} ===================\n\n')
+            print(bug_msg)
+            
             if bug_msg.strip() == "Success!":
                 break

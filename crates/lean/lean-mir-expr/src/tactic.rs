@@ -1,5 +1,6 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use lean_coword::ident::LnIdent;
+use lean_entity_path::theorem::LnTheoremPath;
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::instantiation::LnInstantiation;
 use smallvec::SmallVec;
@@ -18,7 +19,13 @@ pub enum LnMirTacticData {
     Have {
         // TODO: pattern??
         ident: LnIdent,
-        ty: LnMirExprIdx,
+        ty: Option<LnMirExprIdx>,
+        construction: LnMirExprIdx,
+    },
+    Let {
+        // TODO: pattern??
+        ident: LnIdent,
+        ty: Option<LnMirExprIdx>,
         construction: LnMirExprIdx,
     },
     Show {
@@ -33,7 +40,13 @@ pub enum LnMirTacticData {
     First {
         arms: LnMirTacticIdxRange,
     },
+    Apply {
+        path: LnTheoremPath,
+    },
     Obvious,
+    AdHoc {
+        name: &'static str,
+    },
 }
 
 pub type LnMirTacticArena = Arena<LnMirTacticData>;

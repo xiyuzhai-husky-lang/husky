@@ -1,4 +1,5 @@
 use super::*;
+use crate::elaborator::VdMirTrivialElaborator;
 use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdMirExprTracker;
@@ -6,7 +7,6 @@ use latex_prelude::helper::tracker::LxDocumentInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expect: &Expect) {
@@ -26,7 +26,7 @@ fn t(models: &VdModels, content: &str, expect: &Expect) {
         models,
         VdSynExprVibe::ROOT_CNL,
         db,
-        VdMirTacticTrivialElaborator::new_default,
+        |_| VdMirTrivialElaborator::default(),
     );
     expect.assert_eq(&tracker.show_display_tree(db));
 }
@@ -44,8 +44,9 @@ Let $x\in\mathbb{R}$.
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
               └─ block: Paragraph
-                └─ block: Sentence
-                  └─ let placeholder
+                ├─ block: Sentence
+                │ └─ let placeholder
+                └─ qed
         "#]],
     );
     t(
@@ -60,8 +61,9 @@ Let $x\in\mathbb{R}$.
             └─ block: Division(Section, VdModulePath(`root.section1`))
               └─ block: Division(Stmts, VdModulePath(`root.section1.stmts1`))
                 └─ block: Paragraph
-                  └─ block: Sentence
-                    └─ let placeholder
+                  ├─ block: Sentence
+                  │ └─ let placeholder
+                  └─ qed
         "#]],
     );
     t(
@@ -82,13 +84,15 @@ Let $y\in\mathbb{R}$.
             └─ block: Division(Section, VdModulePath(`root.section1`))
               ├─ block: Division(Stmts, VdModulePath(`root.section1.stmts1`))
               │ └─ block: Paragraph
-              │   └─ block: Sentence
-              │     └─ let placeholder
+              │   ├─ block: Sentence
+              │   │ └─ let placeholder
+              │   └─ qed
               ├─ block: Division(Subsection, VdModulePath(`root.section1.subsection1`))
               │ └─ block: Division(Stmts, VdModulePath(`root.section1.subsection1.stmts1`))
               │   └─ block: Paragraph
-              │     └─ block: Sentence
-              │       └─ let placeholder
+              │     ├─ block: Sentence
+              │     │ └─ let placeholder
+              │     └─ qed
               ├─ block: Division(Subsection, VdModulePath(`root.section1.subsection2`))
               └─ block: Division(Subsection, VdModulePath(`root.section1.subsection3`))
                 ├─ block: Division(Subsubsection, VdModulePath(`root.section1.subsection3.subsubsection1`))

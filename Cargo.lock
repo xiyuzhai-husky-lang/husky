@@ -205,6 +205,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5c6cb57a04249c6480766f7f7cef5467412af1490f8d1e243141daddada3264f"
 
 [[package]]
+name = "alt-maybe-result"
+version = "0.1.0"
+dependencies = [
+ "alt-option",
+ "original-error",
+]
+
+[[package]]
 name = "alt-option"
 version = "0.1.0"
 
@@ -1681,6 +1689,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "combinatorics"
+version = "0.1.0"
+dependencies = [
+ "num-try",
+ "thiserror",
+]
+
+[[package]]
 name = "combine"
 version = "4.6.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3000,12 +3016,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "floated"
+name = "floated-parallel"
 version = "0.1.0"
 dependencies = [
  "attach",
  "dashmap 6.0.1",
- "floated-macros",
+ "floated-parallel-macros",
  "husky-sha-utils",
  "husky-wild-utils",
  "pool",
@@ -3013,10 +3029,35 @@ dependencies = [
 ]
 
 [[package]]
-name = "floated-macros"
+name = "floated-parallel-macros"
 version = "0.1.0"
 dependencies = [
  "convert_case",
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.87",
+]
+
+[[package]]
+name = "floated-sequential"
+version = "0.1.0"
+dependencies = [
+ "attach",
+ "floated-sequential-macros",
+ "husky-sha-utils",
+ "husky-wild-utils",
+ "pool",
+ "rustc-hash 2.0.0",
+ "sealed",
+]
+
+[[package]]
+name = "floated-sequential-macros"
+version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.87",
@@ -3280,6 +3321,16 @@ dependencies = [
  "tracing",
  "tracing-subscriber",
  "usage-cap",
+]
+
+[[package]]
+name = "generalized-aho-corasick"
+version = "0.1.0"
+dependencies = [
+ "alt-option",
+ "either",
+ "eterned",
+ "rustc-hash 2.0.0",
 ]
 
 [[package]]
@@ -4725,6 +4776,10 @@ dependencies = [
 [[package]]
 name = "husky-case-utils"
 version = "0.1.0"
+dependencies = [
+ "convert_case",
+ "relative-path",
+]
 
 [[package]]
 name = "husky-check-utils"
@@ -6412,6 +6467,7 @@ dependencies = [
  "pathdiff",
  "relative-path",
  "salsa",
+ "tempfile",
  "thiserror",
 ]
 
@@ -9262,6 +9318,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "miracle"
+version = "0.1.0"
+dependencies = [
+ "alt-maybe-result",
+ "alt-option",
+ "ordered-float 4.5.0",
+ "sealed",
+ "serde",
+ "thiserror",
+]
+
+[[package]]
 name = "mizar-hir-expr"
 version = "0.1.0"
 
@@ -9718,6 +9786,13 @@ checksum = "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
 dependencies = [
  "autocfg",
  "libm",
+]
+
+[[package]]
+name = "num-try"
+version = "0.1.0"
+dependencies = [
+ "thiserror",
 ]
 
 [[package]]
@@ -13347,6 +13422,61 @@ dependencies = [
 ]
 
 [[package]]
+name = "visored-baseq-elaborator"
+version = "0.1.0"
+dependencies = [
+ "alt-maybe-result",
+ "alt-option",
+ "combinatorics",
+ "either",
+ "enum-class",
+ "eterned",
+ "expect-test",
+ "floated-sequential",
+ "husky-case-utils",
+ "husky-control-flow-utils",
+ "husky-debug-utils",
+ "husky-path-utils",
+ "husky-print-utils",
+ "husky-sha-utils",
+ "husky-unicode-symbols",
+ "idx-arena",
+ "itertools 0.13.0",
+ "latex-math-letter",
+ "latex-prelude",
+ "latex-vfs",
+ "miracle",
+ "num-bigint",
+ "num-integer",
+ "ordered-float 4.5.0",
+ "relative-path",
+ "rustc-hash 2.0.0",
+ "serde",
+ "smallvec",
+ "thiserror",
+ "vec-like",
+ "visored-annotation",
+ "visored-baseq-elaborator-macros",
+ "visored-entity-path",
+ "visored-lean-transpilation",
+ "visored-mir-expr",
+ "visored-mir-opr",
+ "visored-models",
+ "visored-opr",
+ "visored-signature",
+ "visored-syn-expr",
+ "visored-term",
+]
+
+[[package]]
+name = "visored-baseq-elaborator-macros"
+version = "0.1.0"
+dependencies = [
+ "quote",
+ "syn 2.0.87",
+]
+
+[[package]]
 name = "visored-cli"
 version = "0.1.0"
 dependencies = [
@@ -13456,13 +13586,12 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-mir-expr",
+ "visored-mir-opr",
  "visored-models",
- "visored-opr",
  "visored-prelude",
  "visored-sem-expr",
  "visored-signature",
  "visored-syn-expr",
- "visored-tactics-standard-linear-elaborator",
  "visored-term",
 ]
 
@@ -13488,6 +13617,7 @@ dependencies = [
  "latex-vfs",
  "lazy_static 1.5.0",
  "once-place",
+ "rustc-hash 2.0.0",
  "salsa",
  "smallvec",
  "thiserror",
@@ -13495,6 +13625,7 @@ dependencies = [
  "visored-entity-path",
  "visored-global-dispatch",
  "visored-global-resolution",
+ "visored-mir-opr",
  "visored-models",
  "visored-opr",
  "visored-prelude",
@@ -13502,6 +13633,13 @@ dependencies = [
  "visored-signature",
  "visored-syn-expr",
  "visored-term",
+]
+
+[[package]]
+name = "visored-mir-opr"
+version = "0.1.0"
+dependencies = [
+ "visored-opr",
 ]
 
 [[package]]
@@ -13576,6 +13714,7 @@ dependencies = [
  "latex-prelude",
  "latex-token",
  "latex-vfs",
+ "once-place",
  "salsa",
  "smallvec",
  "thiserror",
@@ -13606,7 +13745,7 @@ dependencies = [
  "rustc-hash 2.0.0",
  "salsa",
  "visored-entity-path",
- "visored-opr",
+ "visored-mir-opr",
  "visored-term",
 ]
 
@@ -13669,35 +13808,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "visored-tactics-standard-linear-elaborator"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "eterned",
- "husky-path-utils",
- "husky-sha-utils",
- "idx-arena",
- "latex-prelude",
- "latex-vfs",
- "rustc-hash 2.0.0",
- "thiserror",
- "vec-like",
- "visored-annotation",
- "visored-mir-expr",
- "visored-models",
- "visored-opr",
- "visored-syn-expr",
- "visored-term",
-]
-
-[[package]]
 name = "visored-term"
 version = "0.1.0"
 dependencies = [
+ "either",
  "enum-class",
  "eterned",
  "lazy_static 1.5.0",
  "lisp-csv",
+ "num-bigint",
  "rustc-hash 2.0.0",
  "salsa",
  "smallvec",

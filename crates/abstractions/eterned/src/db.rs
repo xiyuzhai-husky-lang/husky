@@ -49,10 +49,22 @@ impl EternerDb {
         unsafe {
             arb_ref(
                 self.memo_jars
-                    .entry(std::any::TypeId::of::<M::Jar>())
+                    .entry(std::any::TypeId::of::<M>())
                     .or_insert_with(|| MemoJarDyn::new::<M>())
                     .downcast(),
             )
+        }
+    }
+}
+
+impl EternerDb {
+    pub fn print_debug(&self) {
+        println!("eterners len: {:?}", self.eterners.len());
+        println!("memo_jars len: {:?}", self.memo_jars.len());
+        for entry in self.memo_jars.iter() {
+            let (k, v) = entry.pair();
+            println!("memo_jar key: {:?}", k);
+            println!("memo_jar type name: {:?}", v.type_name());
         }
     }
 }

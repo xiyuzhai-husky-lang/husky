@@ -3,8 +3,8 @@ use husky_tree_utils::display::DisplayTree;
 
 use crate::{
     expr::{application::VdMirFunc, VdMirExprArenaRef, VdMirExprData, VdMirExprIdx},
+    hint::{VdMirHintIdx, VdMirHintIdxRange},
     stmt::{VdMirStmtArenaRef, VdMirStmtData, VdMirStmtIdx, VdMirStmtIdxRange},
-    tactic::{VdMirTacticIdx, VdMirTacticIdxRange},
 };
 
 pub struct VdMirExprDisplayTreeBuilder<'a> {
@@ -36,7 +36,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
 impl<'a> VdMirExprDisplayTreeBuilder<'a> {
     pub fn render_expr(&self, expr: VdMirExprIdx) -> DisplayTree {
         let db = self.db();
-        let (value, children) = match self.expr_arena[expr] {
+        let (value, children) = match *self.expr_arena[expr].data() {
             VdMirExprData::Literal(literal) => (literal.data().to_string(), vec![]),
             VdMirExprData::Variable(ref variable) => ("variable".to_string(), vec![]),
             VdMirExprData::Application {
@@ -55,9 +55,6 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
                     }
                     VdMirFunc::NormalBaseSqrt(signature) => {
                         format!("sqrt")
-                    }
-                    VdMirFunc::NormalBaseFrac(signature) => {
-                        format!("frac")
                     }
                 };
                 (
@@ -101,7 +98,7 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
     }
 
     pub fn render_stmt(&self, stmt: VdMirStmtIdx) -> DisplayTree {
-        let (value, children) = match self.stmt_arena[stmt] {
+        let (value, children) = match *self.stmt_arena[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 (format!("block: {:?}", meta), self.render_stmts(stmts))
             }
@@ -109,36 +106,41 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 (format!("let placeholder",), vec![])
             }
+            VdMirStmtData::Assume { .. } => todo!(),
             // TODO: render pattern
             VdMirStmtData::LetAssigned {
                 ref pattern,
                 assignment,
+                ..
             } => (format!("let assigned"), vec![self.render_expr(assignment)]),
             VdMirStmtData::Goal { prop } => (format!("goal"), vec![self.render_expr(prop)]),
-            VdMirStmtData::Have { prop, tactics } => (
-                format!("have"),
-                [self.render_expr(prop)]
+            VdMirStmtData::Have { prop, hint, .. } => {
+                (format!("have"), vec![self.render_expr(prop)])
+            }
+            VdMirStmtData::Show { prop, hint } => (format!("show"), vec![self.render_expr(prop)]),
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
+            } => (
+                format!("qed"),
+                goal_and_hypothesis_place
                     .into_iter()
-                    .chain(self.render_tactics(tactics))
+                    .map(|(goal, _)| self.render_expr(goal))
                     .collect(),
             ),
-            VdMirStmtData::Show { prop, tactics } => {
-                (format!("show"), vec![self.render_expr(prop)])
-            }
         };
         DisplayTree::new(value, children)
     }
 
     fn render_tactics<'b>(
         &'b self,
-        tactics: VdMirTacticIdxRange,
+        tactics: VdMirHintIdxRange,
     ) -> impl Iterator<Item = DisplayTree> + 'b {
         tactics
             .into_iter()
             .map(move |tactic| self.render_tactic(tactic))
     }
 
-    fn render_tactic(&self, tactic: VdMirTacticIdx) -> DisplayTree {
+    fn render_tactic(&self, tactic: VdMirHintIdx) -> DisplayTree {
         DisplayTree::new(format!("tactic: {:?}", tactic), vec![])
     }
 }

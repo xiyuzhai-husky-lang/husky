@@ -5,6 +5,7 @@ pub enum VdSetPath {
     Prelude(VdPreludeSetPath),
 }
 
+#[non_exhaustive]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdPreludeSetPath {
     NaturalNumber,

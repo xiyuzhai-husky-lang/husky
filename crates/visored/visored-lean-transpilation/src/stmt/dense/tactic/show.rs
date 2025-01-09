@@ -1,3 +1,5 @@
+use lean_mir_expr::expr::LnMirExprEntry;
+
 use super::*;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
@@ -6,15 +8,14 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         prop: VdMirExprIdx,
         following_stmts: VdMirStmtIdxRange,
     ) -> LnMirTacticData {
-        match self.expr_arena()[prop] {
+        match *self.expr_arena()[prop].data() {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature: Some((joined_separator, joined_signature)),
+                joined_signature: Some(joined_signature),
             } => self.build_show_nontrivial_chaining_separated_list(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
             ),
             _ => {
@@ -22,12 +23,15 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 // It's intentional that this is transpiled to have tactic instead of show.
                 // Lean's show will change the goal. However, until lean's show tactic can supply tactics for goal conversion, we will stick to have tactic.
                 let construction_tactics = following_stmts.to_lean(self);
-                let construction = self.alloc_expr(LnMirExprData::By {
-                    tactics: construction_tactics,
-                });
+                let construction = self.alloc_expr(LnMirExprEntry::new(
+                    LnMirExprData::By {
+                        tactics: construction_tactics,
+                    },
+                    todo!(),
+                ));
                 LnMirTacticData::Have {
                     ident: self.mangle_hypothesis(),
-                    ty,
+                    ty: Some(ty),
                     construction,
                 }
             }
@@ -38,7 +42,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnMirTacticData {
         todo!()

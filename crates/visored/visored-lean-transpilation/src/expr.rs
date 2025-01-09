@@ -6,9 +6,12 @@ use crate::{
     builder::VdLeanTranspilationBuilder,
     dictionary::{func_key::VdFuncKeyTranslation, item_path::VdItemPathTranslation},
     scheme::IsVdLeanTranspilationScheme,
+    ty::VdTypeLeanTranspilation,
 };
 use either::*;
-use lean_mir_expr::expr::{application::LnMirFunc, LnMirExprData, LnMirExprIdx, LnMirExprIdxRange};
+use lean_mir_expr::expr::{
+    application::LnMirFunc, LnMirExprData, LnMirExprEntry, LnMirExprIdx, LnMirExprIdxRange,
+};
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::term::literal::{LnLiteral, LnLiteralData};
 use visored_mir_expr::expr::{
@@ -21,8 +24,8 @@ where
     S: IsVdLeanTranspilationScheme,
 {
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirExprIdx {
-        let data = builder.build_expr(self);
-        builder.alloc_expr(data)
+        let entry = builder.build_expr_entry(self);
+        builder.alloc_expr(entry)
     }
 }
 
@@ -34,7 +37,7 @@ where
     fn to_lean(self, builder: &mut VdLeanTranspilationBuilder<S>) -> LnMirExprIdxRange {
         let mut exprs = vec![];
         for expr in self {
-            exprs.push(builder.build_expr(expr));
+            exprs.push(builder.build_expr_entry(expr));
         }
         builder.alloc_exprs(exprs)
     }
@@ -44,8 +47,26 @@ impl<'db, S> VdLeanTranspilationBuilder<'db, S>
 where
     S: IsVdLeanTranspilationScheme,
 {
-    pub(crate) fn build_expr(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
-        match self.expr_arena()[expr] {
+    pub(crate) fn build_expr_entry(&mut self, expr: VdMirExprIdx) -> LnMirExprEntry {
+        let data = self.build_expr_data(expr);
+        let entry = &self.expr_arena()[expr];
+        let ty = entry.ty();
+        let ty_ascription = if let Some(expected_ty) = entry.expected_ty() {
+            if ty != expected_ty {
+                match expected_ty.to_lean(self) {
+                    VdTypeLeanTranspilation::Type(expected_ty) => Some(expected_ty),
+                }
+            } else {
+                None
+            }
+        } else {
+            None
+        };
+        LnMirExprEntry::new(data, ty_ascription)
+    }
+
+    fn build_expr_data(&mut self, expr: VdMirExprIdx) -> LnMirExprData {
+        match *self.expr_arena()[expr].data() {
             VdMirExprData::Literal(literal) => {
                 LnMirExprData::Literal(to_lean_literal(literal, self.db()))
             }
@@ -74,22 +95,30 @@ where
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature,
-            } => self.build_chaining_separated_list(
-                leader,
-                followers,
-                joined_separator_and_signature,
-            ),
+                joined_signature,
+            } => self.build_chaining_separated_list(leader, followers, joined_signature),
         }
     }
 }
 
 #[eterned::memo]
 fn to_lean_literal(literal: VdLiteral, db: &EternerDb) -> LnLiteral {
-    let data = match literal.data() {
-        VdLiteralData::Nat128(lit) => LnLiteralData::Nat(lit.to_string()),
-        VdLiteralData::Int128(lit) => LnLiteralData::Int(lit.to_string()),
-        VdLiteralData::Float(lit) => LnLiteralData::Float(lit.to_string()),
+    let data = match *literal.data() {
+        VdLiteralData::Int128(i) => {
+            if i >= 0 {
+                LnLiteralData::Nat(i.to_string())
+            } else {
+                LnLiteralData::Int(i.to_string())
+            }
+        }
+        VdLiteralData::BigInt(ref n) => {
+            if n.is_nonnegative() {
+                LnLiteralData::Nat(n.to_string())
+            } else {
+                LnLiteralData::Int(n.to_string())
+            }
+        }
+        VdLiteralData::Float(ref lit) => LnLiteralData::Float(lit.to_string()),
         VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
     };
     LnLiteral::new(data, db)

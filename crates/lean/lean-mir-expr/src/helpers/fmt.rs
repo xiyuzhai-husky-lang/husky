@@ -1,5 +1,6 @@
 use crate::{
     expr::{application::LnMirFunc, LnMirExprArenaRef, LnMirExprData, LnMirExprIdx},
+    helpers::compare::deep_expr_eq,
     item_defn::{
         def::LnMirDefBody, LnItemDefnArenaRef, LnItemDefnComment, LnItemDefnData, LnItemDefnIdx,
         LnItemDefnIdxRange, LnItemDefnOrderedMap, LnMirItemDefnGroupMeta,
@@ -79,13 +80,21 @@ impl<'a> LnMirExprFormatter<'a> {
         try_multiline: bool,
         precedence_range: LnPrecedenceRange,
     ) {
-        let needs_bracket = !precedence_range.include(self.expr_arena[expr].outer_precedence());
+        let expr_arena = self.expr_arena;
+        let expr_entry = &expr_arena[expr];
+        let expr_data = expr_entry.data();
+        let needs_bracket = (!precedence_range.include(expr_data.outer_precedence()))
+            || expr_entry.ty_ascription().is_some();
         if needs_bracket {
             // TODO: consider multiline
             self.result += "(";
         }
         let prev_len = self.result.len();
         self.format_expr_inner(expr, false);
+        if let Some(ty_ascription) = expr_entry.ty_ascription() {
+            self.result += " : ";
+            self.format_expr_ext(ty_ascription);
+        }
         if try_multiline && !self.check_lines(prev_len) {
             self.result.truncate(prev_len);
             self.format_expr_inner(expr, true);
@@ -102,7 +111,7 @@ impl<'a> LnMirExprFormatter<'a> {
         // This ensures that subexpressions only attempt multiline formatting if the parent is already multiline.
         let subexpr_try_multiline = multiline;
         let arena = self.expr_arena;
-        match arena[expr] {
+        match *arena[expr].data() {
             LnMirExprData::ItemPath(item_path) => {
                 self.result += &item_path.show(db);
             }
@@ -257,9 +266,35 @@ impl<'a> LnMirExprFormatter<'a> {
                 body,
             } => {
                 write!(self.result, "def {}", ident.data());
+                // Group consecutive parameters with the same type
+                let mut current_group = Vec::new();
+                let mut current_ty = None;
+
                 for param in parameters {
-                    write!(self.result, "({} : ", param.ident.data());
-                    self.format_expr_ext(param.ty);
+                    if let Some(ty) = current_ty {
+                        if deep_expr_eq(ty, param.ty, self.expr_arena) {
+                            current_group.push(param.ident.data());
+                        } else {
+                            // Print current group
+                            write!(self.result, " ({} : ", current_group.join(" "));
+                            self.format_expr_ext(ty);
+                            write!(self.result, ")");
+
+                            // Start new group
+                            current_group = vec![param.ident.data()];
+                            current_ty = Some(param.ty);
+                        }
+                    } else {
+                        // First parameter
+                        current_group.push(param.ident.data());
+                        current_ty = Some(param.ty);
+                    }
+                }
+
+                // Print final group if any
+                if let Some(ty) = current_ty {
+                    write!(self.result, " ({} : ", current_group.join(" "));
+                    self.format_expr_ext(ty);
                     write!(self.result, ")");
                 }
                 if let Some(ty) = ty {
@@ -283,6 +318,10 @@ impl<'a> LnMirExprFormatter<'a> {
                     self.result += line;
                 }
                 self.make_sure_new_line();
+            }
+            LnItemDefnComment::Qed => {
+                self.make_sure_new_line();
+                self.result += "-- qed";
             }
         }
     }
@@ -321,8 +360,24 @@ impl<'a> LnMirExprFormatter<'a> {
                 ty,
                 construction,
             } => {
-                write!(self.result, "have {} : ", ident.data());
-                self.format_expr_ext(ty);
+                write!(self.result, "have {}", ident.data());
+                if let Some(ty) = ty {
+                    write!(self.result, " : ");
+                    self.format_expr_ext(ty);
+                }
+                write!(self.result, " := ");
+                self.format_expr_ext(construction);
+            }
+            LnMirTacticData::Let {
+                ident,
+                ty,
+                construction,
+            } => {
+                write!(self.result, "let {}", ident.data());
+                if let Some(ty) = ty {
+                    write!(self.result, " : ");
+                    self.format_expr_ext(ty);
+                }
                 write!(self.result, " := ");
                 self.format_expr_ext(construction);
             }
@@ -374,6 +429,13 @@ impl<'a> LnMirExprFormatter<'a> {
                     self.result += "| ";
                     self.format_tactic(arm);
                 }
+            }
+            LnMirTacticData::Apply { path } => {
+                self.result += "apply ";
+                self.result += path.code();
+            }
+            LnMirTacticData::AdHoc { name } => {
+                self.result += name;
             }
         }
     }

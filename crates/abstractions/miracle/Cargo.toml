@@ -1,0 +1,24 @@
+[package]
+name = "miracle"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+alt-option.workspace = true
+ordered-float.workspace = true
+sealed.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+# abstractions
+alt-maybe-result.workspace = true
+
+[lints]
+workspace = true

@@ -21,7 +21,7 @@ pub enum VdItemPath {
 impl VdItemPath {
     // # categories
     pub const SET: Self = VdItemPath::Category(VdCategoryPath::SET);
-    pub const PROPOSITION: Self = VdItemPath::Category(VdCategoryPath::PROPOSITION);
+    pub const PROP: Self = VdItemPath::Category(VdCategoryPath::PROP);
     // # sets
     pub const NAT: Self = VdItemPath::Set(VdSetPath::NATURAL_NUMBER);
     pub const RAT: Self = VdItemPath::Set(VdSetPath::RATIONAL_NUMBER);

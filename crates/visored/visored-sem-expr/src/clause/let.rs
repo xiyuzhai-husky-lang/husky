@@ -23,7 +23,7 @@ impl<'a> VdSemExprBuilder<'a> {
         let dispatch = resolution.to_vd_sem(self);
         VdSemClauseData::Let {
             left_math_delimiter_token_idx: left_dollar_token_idx,
-            formula: formula.to_vd_sem(self),
+            formula: (formula, self.ty_menu().prop).to_vd_sem(self),
             right_math_delimiter_token_idx: right_dollar_token_idx,
             dispatch,
         }

@@ -85,9 +85,6 @@ impl VdFuncKeyDictionary {
             real_ge,
             in_set,
             real_sqrt,
-            rat_frac,
-            real_frac,
-            complex_frac,
         } = *vd_mir_func_key_menu(db);
         let LnMirFuncKeyMenu {
             int_pos: ln_int_pos,
@@ -209,9 +206,6 @@ impl VdFuncKeyDictionary {
             (real_ge, ChainingBinaryOpr(ln_real_ge)),
             (in_set, InSet),
             (real_sqrt, Function(ln_real_sqrt)),
-            (rat_frac, JustBinaryOpr(ln_rat_div)),
-            (real_frac, JustBinaryOpr(ln_real_div)),
-            (complex_frac, JustBinaryOpr(ln_complex_div)),
         ])
     }
 

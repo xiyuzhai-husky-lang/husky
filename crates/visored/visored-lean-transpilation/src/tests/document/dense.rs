@@ -1,4 +1,4 @@
-use visored_mir_expr::tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
+use visored_mir_expr::elaborator::VdMirTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 use super::*;
@@ -22,7 +22,7 @@ fn t(models: &VdModels, content: &str, expected_display_tree: &Expect, expected_
         VdSynExprVibe::ROOT_CNL,
         db,
         &VdLeanTranspilationDenseScheme,
-        VdMirTacticTrivialElaborator::new_default,
+        |_| VdMirTrivialElaborator::default(),
     );
     expected_display_tree.assert_eq(&tracker.show_display_tree(db));
     expected_fmt.assert_eq(&tracker.show_fmt(db));
@@ -43,11 +43,11 @@ Let $x\in\mathbb{R}$.
               └─ def: `h`
                 ├─ item path: `ℝ`
                 └─ tactics
-                  └─ tactic: `Obvious`
+                  └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             def h(x : ℝ) := by
-              obvious"#]],
+              exact ()"#]],
     );
     t(
         models,
@@ -63,12 +63,12 @@ Let $x\in\mathbb{R}$.
                 └─ def: `h`
                   ├─ item path: `ℝ`
                   └─ tactics
-                    └─ tactic: `Obvious`
+                    └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
+              exact ()
             end Section1
         "#]],
     );
@@ -92,13 +92,13 @@ Let $y\in\mathbb{R}$.
               │ └─ def: `h`
               │   ├─ item path: `ℝ`
               │   └─ tactics
-              │     └─ tactic: `Obvious`
+              │     └─ tactic: `Exact { term: 1 }`
               ├─ group: `division`
               │ └─ group: `division`
               │   └─ def: `h`
               │     ├─ item path: `ℝ`
               │     └─ tactics
-              │       └─ tactic: `Obvious`
+              │       └─ tactic: `Exact { term: 3 }`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -107,11 +107,11 @@ Let $y\in\mathbb{R}$.
         &expect![[r#"
             namespace Section1
             def h(x : ℝ) := by
-              obvious
+              exact ()
 
             namespace Subsection1
             def h(y : ℝ) := by
-              obvious
+              exact ()
             end Subsection1
 
             namespace Subsection2
@@ -160,7 +160,7 @@ fn latex_shorts_to_lean_works() {
             VdSynExprVibe::ROOT_CNL,
             db,
             &VdLeanTranspilationDenseScheme,
-            VdMirTacticTrivialElaborator::new_default,
+            |_| VdMirTrivialElaborator::default(),
         );
         expect_file![projects_dir.join(format!(
             "ai-math-autoformalization/lean/central-46/Central46/Shorts/{}.lean",
@@ -169,7 +169,6 @@ fn latex_shorts_to_lean_works() {
         .assert_eq(&format!(
             r#"import Mathlib
 import Obvious
-
 open Obvious
 
 {}"#,

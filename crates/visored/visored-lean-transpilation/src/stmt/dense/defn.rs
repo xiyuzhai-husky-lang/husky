@@ -28,6 +28,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                     VdMirStmtSource::Stmt(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
+                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
@@ -40,7 +41,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
         let db = self.db();
-        match self.stmt_arena()[stmt] {
+        match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 match *meta {
                     VdMirBlockMeta::Paragraph => self.build_ln_def_from_vd_paragraph(stmts),
@@ -97,10 +98,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 // LnItemDefnData::Group { defns, meta }
             }
             VdMirStmtData::LetPlaceholder { .. }
+            | VdMirStmtData::Assume { .. }
             | VdMirStmtData::LetAssigned { .. }
             | VdMirStmtData::Have { .. }
-            | VdMirStmtData::Show { .. } => unreachable!(),
-            VdMirStmtData::Goal { prop } => todo!(),
+            | VdMirStmtData::Show { .. }
+            | VdMirStmtData::Goal { .. }
+            | VdMirStmtData::Qed { .. } => unreachable!(),
         }
     }
 
@@ -158,7 +161,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         parameters: &mut Vec<LnDefParameter>,
     ) -> std::ops::ControlFlow<Option<VdMirExprIdx>> {
         let stmt_arena = self.stmt_arena();
-        match stmt_arena[stmt] {
+        match *stmt_arena[stmt].data() {
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 parameters.push(LnDefParameter {
                     ident: match *pattern {
@@ -166,9 +169,15 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                             letter,
                             symbol_local_defn,
                         } => self.mangle_symbol(symbol_local_defn),
-                        VdMirPattern::Assumed => self.mangle_hypothesis(),
                     },
                     ty: ty.to_lean(self),
+                });
+                std::ops::ControlFlow::Continue(())
+            }
+            VdMirStmtData::Assume { prop, .. } => {
+                parameters.push(LnDefParameter {
+                    ident: self.mangle_hypothesis(),
+                    ty: prop.to_lean(self),
                 });
                 std::ops::ControlFlow::Continue(())
             }

@@ -21,8 +21,8 @@ use helpers::show::display_tree::VdSynExprDisplayTreeBuilder;
 use husky_tree_utils::display::DisplayTree;
 use latex_ast::{
     ast::{
-        parse_latex_input_into_asts, root::LxRootAstIdxRange, rose::LxRoseAstIdxRange, LxAstArena,
-        LxAstIdxRange,
+        math::LxMathAstIdxRange, parse_latex_input_into_asts, root::LxRootAstIdxRange,
+        rose::LxRoseAstIdxRange, LxAstArena, LxAstIdxRange,
     },
     helpers::tracker::{IsLxAstInput, LxAstTracker},
     range::{calc_ast_token_idx_range_map, LxAstTokenIdxRangeMap},
@@ -223,7 +223,20 @@ impl<'a> IsVdSynExprInput<'a> for LxPageInput<'a> {
 }
 
 impl<'a> IsVdSynExprInput<'a> for LxFormulaInput<'a> {
-    type VdSynExprOutput = VdSynExprIdx;
+    type VdSynExprOutput = VdSynFormula;
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct VdSynFormula {
+    pub expr: VdSynExprIdx,
+}
+
+impl ToVdSyn<VdSynFormula> for (LxTokenIdxRange, LxMathAstIdxRange) {
+    fn to_vd_syn(self, builder: &mut VdSynExprBuilder, vibe: VdSynExprVibe) -> VdSynFormula {
+        VdSynFormula {
+            expr: self.to_vd_syn(builder, vibe),
+        }
+    }
 }
 
 impl IsVdSynOutput for VdSynDivisionIdxRange {
@@ -260,7 +273,7 @@ impl IsVdSynOutput for VdSynBlockIdxRange {
     }
 }
 
-impl IsVdSynOutput for VdSynExprIdx {
+impl IsVdSynOutput for VdSynFormula {
     fn build_entity_tree_root_node(
         self,
         builder: &mut VdSynExprEntityTreeBuilder,
@@ -272,10 +285,10 @@ impl IsVdSynOutput for VdSynExprIdx {
     }
 
     fn build_all_symbols(self, builder: &mut VdSynSymbolBuilder) {
-        builder.build_expr(self);
+        builder.build_expr(self.expr);
     }
 
     fn show(&self, builder: &VdSynExprDisplayTreeBuilder) -> String {
-        builder.render_expr(*self).show(&Default::default())
+        builder.render_expr(self.expr).show(&Default::default())
     }
 }

@@ -23,6 +23,7 @@ members = [
     "crates/linktime/*",
     "crates/lisp/*",
     "crates/llms/*",
+    "crates/math/*",
     "crates/mayuri/*",
     "crates/mir/*",
     "crates/mizar/*",
@@ -157,6 +158,8 @@ ndarray = "0.15.6"
 ndarray-stats = "0.5.1"
 notify-debouncer-mini = "0.5.0"
 notify-debouncer-full = "0.4.0"
+num-bigint = "0.4"
+num-integer = "0.1"
 once_cell = "1.20.2"
 openai-api-rs = "5.2.3"
 ordered-float = { version = "4.5.0", features = ["serde"] }
@@ -230,6 +233,7 @@ xxhash-rust = { version = "0.8.5" }
 yaml-rust2 = "0.9.0"
 # abstractions
 alien-seed = { path = "crates/abstractions/alien-seed" }
+alt-maybe-result = { path = "crates/abstractions/alt-maybe-result" }
 alt-option = { path = "crates/abstractions/alt-option" }
 attach = { path = "crates/abstractions/attach" }
 base-vfs = { path = "crates/abstractions/base-vfs" }
@@ -242,14 +246,17 @@ enum-index = { path = "crates/abstractions/enum-index" }
 enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
 eterned = { path = "crates/abstractions/eterned" }
 eterned-macros = { path = "crates/abstractions/eterned-macros" }
-floated = { path = "crates/abstractions/floated" }
-floated-macros = { path = "crates/abstractions/floated-macros" }
+floated-parallel = { path = "crates/abstractions/floated-parallel" }
+floated-parallel-macros = { path = "crates/abstractions/floated-parallel-macros" }
+floated-sequential = { path = "crates/abstractions/floated-sequential" }
+floated-sequential-macros = { path = "crates/abstractions/floated-sequential-macros" }
 from-str-pos = { path = "crates/abstractions/from-str-pos" }
 graph-dynamics = { path = "crates/abstractions/graph-dynamics" }
 idx = { path = "crates/abstractions/idx" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
 is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
+miracle = { path = "crates/abstractions/miracle" }
 once-place = { path = "crates/abstractions/once-place" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
@@ -406,6 +413,9 @@ openai = { path = "crates/llms/openai" }
 gemini = { path = "crates/llms/gemini" }
 sglang = { path = "crates/llms/sglang" }
 llm-benchmarks = { path = "crates/llms/llm-benchmarks" }
+# math
+combinatorics = { path = "crates/math/combinatorics" }
+num-try = { path = "crates/math/num-try" }
 # nlp
 spacy-rs = { path = "crates/nlp/spacy-rs" }
 # protocols
@@ -451,6 +461,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utils
 husky-adversarial-utils = { path = "crates/utils/husky-adversarial-utils" }
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
+husky-case-utils = { path = "crates/utils/husky-case-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-cli-utils = { path = "crates/utils/husky-cli-utils" }
 husky-codespan-utils = { path = "crates/utils/husky-codespan-utils" }
@@ -499,13 +510,15 @@ visored-isabelle-hol-transpilation = { path = "crates/visored/visored-isabelle-h
 visored-lean-transpilation = { path = "crates/visored/visored-lean-transpilation" }
 visored-models = { path = "crates/visored/visored-models" }
 visored-mir-expr = { path = "crates/visored/visored-mir-expr" }
+visored-mir-opr = { path = "crates/visored/visored-mir-opr" }
 visored-opr = { path = "crates/visored/visored-opr" }
 visored-pipeline = { path = "crates/visored/visored-pipeline" }
 visored-prelude = { path = "crates/visored/visored-prelude" }
 visored-sem-expr = { path = "crates/visored/visored-sem-expr" }
 visored-signature = { path = "crates/visored/visored-signature" }
 visored-syn-expr = { path = "crates/visored/visored-syn-expr" }
-visored-tactics-standard-linear-elaborator = { path = "crates/visored/visored-tactics-standard-linear-elaborator" }
+visored-baseq-elaborator = { path = "crates/visored/visored-baseq-elaborator" }
+visored-baseq-elaborator-macros = { path = "crates/visored/visored-baseq-elaborator-macros" }
 visored-term = { path = "crates/visored/visored-term" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }

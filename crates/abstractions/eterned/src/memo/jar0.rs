@@ -35,4 +35,11 @@ impl<T> Default for Jar0<T> {
 impl<T> IsMemoJar for Jar0<T> where T: Send + Sync + 'static {}
 
 #[sealed]
-impl<T> IsMemoJarDyn for Jar0<T> where T: Send + Sync + 'static {}
+impl<T> IsMemoJarDyn for Jar0<T>
+where
+    T: Send + Sync + 'static,
+{
+    fn type_name(&self) -> &'static str {
+        std::any::type_name::<Self>()
+    }
+}

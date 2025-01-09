@@ -1,4 +1,6 @@
 mod dense;
+mod have;
+mod qed;
 mod sparse;
 
 use crate::*;

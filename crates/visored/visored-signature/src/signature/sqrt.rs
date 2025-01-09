@@ -8,10 +8,10 @@ pub enum VdSqrtSignature {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, PartialOrd, Ord)]
 pub struct VdBaseSqrtSignature {
     instantiation: VdInstantiation,
-    base_ty: VdType,
+    radicand_ty: VdType,
     expr_ty: VdType,
 }
 
@@ -25,7 +25,7 @@ impl VdBaseSqrtSignature {
     pub fn new(instantiation: VdInstantiation, base_ty: VdType, expr_ty: VdType) -> Self {
         Self {
             instantiation,
-            base_ty,
+            radicand_ty: base_ty,
             expr_ty,
         }
     }
@@ -36,8 +36,8 @@ impl VdBaseSqrtSignature {
         self.instantiation
     }
 
-    pub fn base_ty(self) -> VdType {
-        self.base_ty
+    pub fn radicand_ty(self) -> VdType {
+        self.radicand_ty
     }
 
     pub fn expr_ty(self) -> VdType {

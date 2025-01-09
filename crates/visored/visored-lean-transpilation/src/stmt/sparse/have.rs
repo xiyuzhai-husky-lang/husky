@@ -2,39 +2,48 @@ use super::*;
 use dictionary::func_key::VdFuncKeyTranslation;
 use either::*;
 use lean_mir_expr::{
-    expr::application::LnMirFunc, item_defn::def::LnMirDefBody, tactic::LnMirTacticData,
+    expr::{application::LnMirFunc, LnMirExprEntry},
+    item_defn::def::LnMirDefBody,
+    tactic::LnMirTacticData,
 };
 use lean_opr::opr::binary::LnBinaryOpr;
 use lean_term::instantiation::LnInstantiation;
-use visored_mir_expr::{expr::application::VdMirFunc, tactic::VdMirTacticIdxRange};
-use visored_opr::{opr::binary::VdBaseBinaryOpr, separator::VdBaseSeparator};
+use visored_mir_expr::{
+    expr::application::VdMirFunc,
+    hint::VdMirHintIdxRange,
+    hypothesis::{chunk::VdMirHypothesisChunk, VdMirHypothesisIdx},
+};
+use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
 use visored_signature::signature::separator::base::VdBaseSeparatorSignature;
 
 impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     pub(super) fn build_have_stmt(
         &mut self,
+        stmt: VdMirStmtIdx,
         prop: VdMirExprIdx,
-        tactics: VdMirTacticIdxRange,
+        hypothesis_chunk: VdMirHypothesisChunk,
     ) -> LnItemDefnData {
-        match self.expr_arena()[prop] {
+        match *self.expr_arena()[prop].data() {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature: Some((joined_separator, joined_signature)),
+                joined_signature: Some(joined_signature),
             } => self.build_then_nontrivial_chaining_separated_list(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
             ),
             _ => {
                 let ident = self.mangle_hypothesis();
+                let mut ln_tactics = vec![];
+                self.build_have_tactics(stmt, hypothesis_chunk, &mut ln_tactics);
+                let ln_tactics = self.alloc_tactics(ln_tactics);
                 LnItemDefnData::Def {
                     ident,
                     parameters: vec![],
                     ty: Some(prop.to_lean(self)),
                     // TODO: better??
-                    body: LnMirDefBody::Tactics(tactics.to_lean(self)),
+                    body: LnMirDefBody::Tactics(ln_tactics),
                 }
             }
         }
@@ -44,7 +53,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
     ) -> LnItemDefnData {
         debug_assert!(followers.len() >= 2);
@@ -71,10 +79,13 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         LnItemDefnData::Def {
             ident,
             parameters: vec![],
-            ty: Some(self.alloc_expr(LnMirExprData::Application {
-                function: ultimate_prop_function,
-                arguments: ultimate_prop_arguments,
-            })),
+            ty: Some(self.alloc_expr(LnMirExprEntry::new(
+                LnMirExprData::Application {
+                    function: ultimate_prop_function,
+                    arguments: ultimate_prop_arguments,
+                },
+                todo!(),
+            ))),
             body: self.alloc_tactics([tactic_data]).into(),
         }
     }

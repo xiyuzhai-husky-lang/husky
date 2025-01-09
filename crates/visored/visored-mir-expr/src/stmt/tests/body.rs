@@ -1,4 +1,5 @@
 use super::*;
+use crate::elaborator::VdMirTrivialElaborator;
 use eterned::db::EternerDb;
 use expect_test::{expect, Expect};
 use helpers::tracker::VdMirExprTracker;
@@ -6,7 +7,6 @@ use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_prelude::mode::LxMode;
 use latex_vfs::path::LxFilePath;
 use std::path::PathBuf;
-use tactic::elaboration::elaborator::VdMirTacticTrivialElaborator;
 use visored_syn_expr::vibe::VdSynExprVibe;
 
 fn t(models: &VdModels, content: &str, expect: &Expect) {
@@ -26,7 +26,7 @@ fn t(models: &VdModels, content: &str, expect: &Expect) {
         models,
         VdSynExprVibe::ROOT_CNL,
         db,
-        |region_data| VdMirTacticTrivialElaborator::new((), region_data),
+        |_| VdMirTrivialElaborator::default(),
     );
     expect.assert_eq(&tracker.show_display_tree(db));
 }
@@ -40,8 +40,9 @@ fn basic_body_to_vd_mir_works() {
         &expect![[r#"
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
               └─ block: Paragraph
-                └─ block: Sentence
-                  └─ let placeholder
+                ├─ block: Sentence
+                │ └─ let placeholder
+                └─ qed
         "#]],
     );
     t(
@@ -59,8 +60,9 @@ fn basic_body_to_vd_mir_works() {
             └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
               └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, Example, VdModulePath(`root.stmts1.example1`))
                 └─ block: Paragraph
-                  └─ block: Sentence
-                    └─ let placeholder
+                  ├─ block: Sentence
+                  │ └─ let placeholder
+                  └─ qed
         "#]],
     );
 }

@@ -1,33 +1,35 @@
 use super::*;
-use visored_mir_expr::tactic::VdMirTacticIdxRange;
+use lean_mir_expr::expr::LnMirExprEntry;
+use visored_mir_expr::{
+    hint::VdMirHintIdxRange,
+    hypothesis::{chunk::VdMirHypothesisChunk, VdMirHypothesisIdx},
+};
 
 impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     pub(super) fn build_ln_tactic_from_vd_have(
         &mut self,
+        stmt: VdMirStmtIdx,
         prop: VdMirExprIdx,
-        tactics: VdMirTacticIdxRange,
-    ) -> LnMirTacticData {
-        match self.expr_arena()[prop] {
+        hypothesis_chunk: VdMirHypothesisChunk,
+        ln_tactics: &mut Vec<LnMirTacticData>,
+    ) {
+        match *self.expr_arena()[prop].data() {
             VdMirExprData::ChainingSeparatedList {
                 leader,
                 ref followers,
-                joined_separator_and_signature: Some((joined_separator, joined_signature)),
-            } => self.build_have_nontrivial_chaining_separated_list(
-                leader,
-                followers,
-                joined_separator,
-                joined_signature,
-            ),
+                joined_signature: Some(joined_signature),
+            } => {
+                self.build_hypothesis_chunk_tactics(hypothesis_chunk, ln_tactics);
+                self.build_have_nontrivial_chaining_separated_list(
+                    leader,
+                    followers,
+                    joined_signature,
+                    ln_tactics,
+                )
+            }
             _ => {
-                let ident = self.mangle_hypothesis();
                 let ty = prop.to_lean(self);
-                let tactics = tactics.to_lean(self);
-                let construction = self.alloc_expr(LnMirExprData::By { tactics });
-                LnMirTacticData::Have {
-                    ident,
-                    ty,
-                    construction,
-                }
+                self.build_have_tactics(stmt, hypothesis_chunk, ln_tactics);
             }
         }
     }
@@ -36,34 +38,35 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
-    ) -> LnMirTacticData {
+        ln_tactics: &mut Vec<LnMirTacticData>,
+    ) {
         let n = calc_number_of_foremost_equivalences(followers);
-        match n {
+        let tactic_data = match n {
             0 => self.build_have_nontrivial_chaining_separated_list_aux(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
+                ln_tactics,
             ),
             n => self.build_have_nontrivial_chaining_separated_list_with_foremost_equivalences(
                 leader,
                 followers,
-                joined_separator,
                 joined_signature,
                 n,
+                ln_tactics,
             ),
-        }
+        };
+        ln_tactics.push(tactic_data);
     }
 
     fn build_have_nontrivial_chaining_separated_list_with_foremost_equivalences(
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
         number_of_foremost_equivalences: usize,
+        ln_tactics: &mut Vec<LnMirTacticData>,
     ) -> LnMirTacticData {
         let foremost_equivalences = &followers[..number_of_foremost_equivalences];
         let non_foremost_equivalences = &followers[number_of_foremost_equivalences..];
@@ -86,14 +89,14 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         let forward_tactic_data = self.build_have_nontrivial_chaining_separated_list_aux(
             leader,
             &followers,
-            joined_separator,
             joined_signature,
+            ln_tactics,
         );
         let backward_tactic_data = self.build_have_nontrivial_chaining_separated_list_aux(
             reverse_leader,
             &reverse_followers,
-            joined_separator,
             joined_signature,
+            ln_tactics,
         );
         LnMirTacticData::First {
             arms: self.alloc_tactics([forward_tactic_data, backward_tactic_data]),
@@ -104,8 +107,8 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         leader: VdMirExprIdx,
         followers: &[(VdMirFunc, VdMirExprIdx)],
-        joined_separator: VdBaseSeparator,
         joined_signature: VdBaseSeparatorSignature,
+        ln_tactics: &mut Vec<LnMirTacticData>,
     ) -> LnMirTacticData {
         debug_assert!(followers.len() >= 2);
         let ident = self.mangle_hypothesis();
@@ -129,15 +132,21 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         let ultimate_prop_function = VdMirFunc::NormalBaseSeparator(joined_signature).to_lean(self);
         let ultimate_prop_arguments = [leader, followers.last().unwrap().1].to_lean(self);
         let construction_tactics = self.alloc_tactics(vec![tactic_data]);
-        let construction = self.alloc_expr(LnMirExprData::By {
-            tactics: construction_tactics,
-        });
+        let construction = self.alloc_expr(LnMirExprEntry::new(
+            LnMirExprData::By {
+                tactics: construction_tactics,
+            },
+            None,
+        ));
         LnMirTacticData::Have {
             ident,
-            ty: self.alloc_expr(LnMirExprData::Application {
-                function: ultimate_prop_function,
-                arguments: ultimate_prop_arguments,
-            }),
+            ty: Some(self.alloc_expr(LnMirExprEntry::new(
+                LnMirExprData::Application {
+                    function: ultimate_prop_function,
+                    arguments: ultimate_prop_arguments,
+                },
+                None,
+            ))),
             construction,
         }
     }
@@ -159,35 +168,30 @@ fn is_equivalence(func: &VdMirFunc) -> bool {
     match func {
         VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
         VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
-            VdBaseSeparator::Space => todo!(),
-            VdBaseSeparator::Comma => todo!(),
-            VdBaseSeparator::Semicolon => todo!(),
-            VdBaseSeparator::Add => todo!(),
-            VdBaseSeparator::Mul => todo!(),
-            VdBaseSeparator::Dot => todo!(),
-            VdBaseSeparator::Eq => true,
-            VdBaseSeparator::Ne => false,
-            VdBaseSeparator::Lt => false,
-            VdBaseSeparator::Gt => false,
-            VdBaseSeparator::Le => false,
-            VdBaseSeparator::Ge => false,
-            VdBaseSeparator::Subset => false,
-            VdBaseSeparator::Supset => false,
-            VdBaseSeparator::Subseteq => false,
-            VdBaseSeparator::Supseteq => false,
-            VdBaseSeparator::Subseteqq => false,
-            VdBaseSeparator::Supseteqq => false,
-            VdBaseSeparator::Subsetneq => false,
-            VdBaseSeparator::Supsetneq => false,
-            VdBaseSeparator::In => false,
-            VdBaseSeparator::Notin => false,
-            VdBaseSeparator::Times => todo!(),
-            VdBaseSeparator::Otimes => todo!(),
+            VdMirBaseSeparator::CommRingAdd => true,
+            VdMirBaseSeparator::CommRingMul => true,
+            VdMirBaseSeparator::Eq => true,
+            VdMirBaseSeparator::Ne => false,
+            VdMirBaseSeparator::Lt => false,
+            VdMirBaseSeparator::Gt => false,
+            VdMirBaseSeparator::Le => false,
+            VdMirBaseSeparator::Ge => false,
+            VdMirBaseSeparator::Subset => false,
+            VdMirBaseSeparator::Supset => false,
+            VdMirBaseSeparator::Subseteq => false,
+            VdMirBaseSeparator::Supseteq => false,
+            VdMirBaseSeparator::Subseteqq => false,
+            VdMirBaseSeparator::Supseteqq => false,
+            VdMirBaseSeparator::Subsetneq => false,
+            VdMirBaseSeparator::Supsetneq => false,
+            VdMirBaseSeparator::In => false,
+            VdMirBaseSeparator::Notin => false,
+            VdMirBaseSeparator::SetTimes => todo!(),
+            VdMirBaseSeparator::TensorOtimes => todo!(),
         },
         VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
         VdMirFunc::Power(signature) => todo!(),
         VdMirFunc::InSet => todo!(),
         VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
-        VdMirFunc::NormalBaseFrac(vd_base_binary_opr_signature) => todo!(),
     }
 }

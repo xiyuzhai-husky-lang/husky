@@ -2,11 +2,11 @@ mod builder;
 pub mod dictionary;
 mod expr;
 pub mod helpers;
+pub mod hypothesis;
 pub mod mangle;
 pub mod namespace;
 pub mod scheme;
 pub mod stmt;
-mod tactic;
 #[cfg(test)]
 mod tests;
 pub mod ty;

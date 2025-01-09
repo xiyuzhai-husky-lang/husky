@@ -2,11 +2,14 @@ from openai import OpenAI
 import hashlib
 from diskcache import Cache
 import os
+import google.generativeai as genai 
 
 cache = Cache(".chat_completion_cache")
 
 class ChatCompletionAPI:
     def __init__(self, type, model=None):
+        self.init_type = type
+
         if type == "local":
             self.client = OpenAI(
                 api_key=os.environ["LOCAL_API_KEY"],
@@ -16,6 +19,11 @@ class ChatCompletionAPI:
         elif type == "openai":
             # key is set in the environment variable OPENAI_API_KEY
             self.client = OpenAI()
+            self.model = model
+        elif type == "gemini":
+            # key is set in the environment variable GEMINI_API_KEY
+            genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+            self.client = genai.GenerativeModel(model)
             self.model = model
         else:
             raise ValueError("Invalid type")
@@ -33,15 +41,26 @@ class ChatCompletionAPI:
             if cached_result:
                 return cached_result
         
-        completion = self.client.chat.completions.create(
-            model=model,
-            messages=messages
-        )
-        result = {
-            "role": completion.choices[0].message.role,
-            "content": completion.choices[0].message.content,
-        }
-        cache.set(cache_key, result)
+        if self.init_type == "gemini":
+            query = messages[-1]["content"]
+            completion = self.client.generate_content(query)
+            result = {
+                "role": "assistant",
+                "content": completion.text
+            }
+        else:
+            completion = self.client.chat.completions.create(
+                model=model,
+                messages=messages
+            )
+            result = {
+                "role": completion.choices[0].message.role,
+                "content": completion.choices[0].message.content,
+            }
+        
+        if use_cache:
+            cache.set(cache_key, result)
+
         return result
 
     def chat_completion(self, messages, use_cache=True):

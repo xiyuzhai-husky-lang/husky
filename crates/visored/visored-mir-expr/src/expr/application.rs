@@ -1,5 +1,6 @@
 use super::*;
 use either::*;
+use visored_opr::precedence::VdPrecedence;
 use visored_signature::signature::{
     attach::VdPowerSignature, binary_opr::base::VdBaseBinaryOprSignature,
     prefix_opr::VdBasePrefixOprSignature, separator::base::VdBaseSeparatorSignature,
@@ -9,7 +10,7 @@ use visored_term::instantiation::VdInstantiation;
 
 pub mod menu;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VdMirFunc {
     NormalBasePrefixOpr(VdBasePrefixOprSignature),
     NormalBaseSeparator(VdBaseSeparatorSignature),
@@ -17,7 +18,6 @@ pub enum VdMirFunc {
     Power(VdPowerSignature),
     InSet,
     NormalBaseSqrt(VdBaseSqrtSignature),
-    NormalBaseFrac(VdBaseBinaryOprSignature),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -28,7 +28,6 @@ pub enum VdMirFuncKey {
     InSet,
     Power(VdInstantiation),
     NormalBaseSqrt(VdInstantiation),
-    NormalBaseFrac(VdInstantiation),
 }
 
 impl VdMirFunc {
@@ -48,9 +47,21 @@ impl VdMirFunc {
             VdMirFunc::NormalBaseSqrt(signature) => {
                 Left(VdMirFuncKey::NormalBaseSqrt(signature.instantiation()))
             }
-            VdMirFunc::NormalBaseFrac(signature) => {
-                Left(VdMirFuncKey::NormalBaseFrac(signature.instantiation()))
-            }
+        }
+    }
+
+    pub fn expr(self) -> Option<VdMirExprIdx> {
+        self.key_or_expr().right()
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        match self {
+            VdMirFunc::NormalBasePrefixOpr(signature) => signature.opr.precedence(),
+            VdMirFunc::NormalBaseSeparator(signature) => signature.opr().precedence(),
+            VdMirFunc::NormalBaseBinaryOpr(signature) => signature.opr.precedence(),
+            VdMirFunc::Power(signature) => VdPrecedence::ATOM,
+            VdMirFunc::InSet => todo!(),
+            VdMirFunc::NormalBaseSqrt(signature) => VdPrecedence::ATOM,
         }
     }
 }
