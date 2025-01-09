@@ -90,7 +90,10 @@ impl<'sess> VdMirExprFld<'sess> {
                         },
                         _ => (),
                     }
-                    todo!()
+                    arguments[0].show(VdPrecedenceRange::ATOM, f)?;
+                    write!(f, "^{{")?;
+                    arguments[1].show(VdPrecedenceRange::ANY, f)?;
+                    f.write_str("}}")
                 }
                 VdMirFunc::InSet => todo!(),
                 VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),

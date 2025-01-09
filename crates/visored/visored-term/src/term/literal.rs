@@ -34,7 +34,7 @@ impl VdLiteral {
     pub fn show(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
             VdLiteralData::Int128(i) => write!(f, "{}", i),
-            VdLiteralData::BigInt(n) => todo!(),
+            VdLiteralData::BigInt(n) => write!(f, "{}", **n),
             VdLiteralData::Float(s) => write!(f, "{}", s),
             VdLiteralData::SpecialConstant(vd_special_constant) => todo!(),
         }

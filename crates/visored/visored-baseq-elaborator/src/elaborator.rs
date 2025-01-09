@@ -50,6 +50,14 @@ pub struct VdBsqElaboratorInner<'db, 'sess> {
     pub(crate) call_stack: VdBsqCallStack,
 }
 
+impl<'db, 'sess> std::fmt::Debug for VdBsqElaboratorInner<'db, 'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("VdBsqElaboratorInner")
+            .field("hypothesis_constructor", &self.hypothesis_constructor)
+            .finish()
+    }
+}
+
 pub type VdBsqElaborator<'db, 'sess> = VdMirSequentialElaborator<VdBsqElaboratorInner<'db, 'sess>>;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
@@ -166,7 +174,10 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner for VdBsqElaboratorInner<'db, 
                     joined_signature: None,
                 };
                 let prop = self.mk_expr(eq_expr_data, self.ty_menu().prop);
-                self.obvious(prop).map(|_| ())
+                self.obvious(prop).map(|_| ());
+                use husky_print_utils::*;
+                p!(self);
+                todo!()
             }
         }
     }

@@ -8,6 +8,20 @@ pub struct VdBsqHypothesisConstructor<'db, 'sess> {
     arena: VdBsqHypothesisArena<'sess>,
 }
 
+impl<'db, 'sess> std::fmt::Debug for VdBsqHypothesisConstructor<'db, 'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let active_hypotheses = self
+            .stack
+            .active_hypotheses()
+            .iter()
+            .map(|h| &self.arena[h])
+            .collect::<Vec<_>>();
+        f.debug_struct("VdBsqHypothesisConstructor")
+            .field("active_hypotheses", &active_hypotheses)
+            .finish()
+    }
+}
+
 impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
     pub(crate) fn new(session: &'sess VdBsqSession<'db>) -> Self {
         Self {

@@ -54,6 +54,10 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         self.active_hypotheses.len()
     }
 
+    pub fn active_hypotheses(&self) -> &[VdBsqHypothesisIdx<'sess>] {
+        &self.active_hypotheses
+    }
+
     pub(crate) fn get_active_hypothesis_with_expr(
         &self,
         expr: VdMirExprFld<'sess>,

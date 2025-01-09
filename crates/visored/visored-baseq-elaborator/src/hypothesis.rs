@@ -17,6 +17,7 @@ use visored_mir_expr::{
     },
 };
 
+#[derive(Debug)]
 pub struct VdBsqHypothesisEntry<'sess> {
     expr: VdMirExprFld<'sess>,
     construction: VdBsqHypothesisConstruction<'sess>,
