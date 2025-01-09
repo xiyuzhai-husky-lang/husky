@@ -10,7 +10,7 @@ use crate::term::{
 use miracle::error::MiracleAltMaybeResult;
 use std::marker::PhantomData;
 
-pub(super) fn fold_sum<'db, 'sess>(
+pub(super) fn foldm_sum<'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
     terms: &[(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
     builder: VdBsqSumBuilder<'sess>,
@@ -19,10 +19,10 @@ pub(super) fn fold_sum<'db, 'sess>(
         VdBsqSumBuilder<'sess>,
     ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
 ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
-    engine.foldm(builder, terms.iter().copied(), f, &foldm_step)
+    engine.foldm(builder, terms.iter().copied(), f, &foldm_sum_step)
 }
 
-fn foldm_step<'db, 'sess>(
+fn foldm_sum_step<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     mut sum_builder: VdBsqSumBuilder<'sess>,
     (term, litnum0): (VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>),
@@ -39,7 +39,7 @@ fn foldm_step<'db, 'sess>(
             f(elaborator, sum_builder)
         }
         VdBsqNonSumComnumTerm::Product(base) => {
-            fold_product(elaborator, base.exponentials(), &|elaborator, expansion| {
+            foldm_product(elaborator, base.exponentials(), &|elaborator, expansion| {
                 let mut sum_builder = sum_builder.clone();
                 for (litnum, exponentials) in expansion {
                     sum_builder.add_general_product(

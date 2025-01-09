@@ -1,8 +1,8 @@
 mod product;
 mod sum;
 
-use self::product::fold_product;
-use self::sum::fold_sum;
+use self::product::foldm_product;
+use self::sum::foldm_sum;
 use super::*;
 use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
@@ -48,7 +48,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         match self.run_stages(config.stages(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
             builder.add_litnum(term.constant_term());
-            fold_sum(slf, term.monomials(), builder, &|elaborator, builder| {
+            foldm_sum(slf, term.monomials(), builder, &|elaborator, builder| {
                 let term = builder.finish();
                 let VdBsqNumTerm::Litnum(litnum) = term else {
                     return AltNothing;

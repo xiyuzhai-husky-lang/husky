@@ -10,7 +10,7 @@ use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
 use miracle::error::MiracleAltMaybeResult;
 
-pub fn fold_product<'db, 'sess>(
+pub fn foldm_product<'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
     exponentials: &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
     f: &impl Fn(
