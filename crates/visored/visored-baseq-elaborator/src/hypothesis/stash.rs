@@ -6,6 +6,6 @@ pub mod unique;
 pub mod upgrade;
 
 pub trait IsVdBsqHypothesisStashScheme {
-    type Key<'sess>;
-    type Value<'sess>;
+    type Key<'sess>: Eq + std::hash::Hash;
+    type Value<'sess>: Eq;
 }

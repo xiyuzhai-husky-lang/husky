@@ -74,6 +74,14 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
             _ => unreachable!(),
         }
     }
+
+    pub fn lhs_minus_rhs(self) -> VdBsqNumTerm<'sess> {
+        self.data().lhs_minus_rhs
+    }
+
+    pub fn kind(self) -> VdBsqNumRelationshipPropTermKind {
+        self.data().kind
+    }
 }
 
 impl<'sess> std::fmt::Debug for VdBsqNumRelationshipPropTerm<'sess> {

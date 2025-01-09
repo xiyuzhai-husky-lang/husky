@@ -14,6 +14,11 @@ macro_rules! require {
             return Default::default();
         }
     };
+    (let $pattern: pat = $expr: expr) => {
+        let $pattern = $expr else {
+            return Default::default();
+        };
+    };
 }
 
 #[macro_export]

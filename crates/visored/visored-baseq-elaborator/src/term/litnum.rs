@@ -157,6 +157,10 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         self.eqs_i128(0)
     }
 
+    pub fn is_nonzero(self) -> bool {
+        !self.is_zero()
+    }
+
     pub fn is_one(self) -> bool {
         self.eqs_i128(1)
     }
@@ -166,6 +170,10 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
             VdBsqLitnumTerm::Int128(i) => i == i0,
             _ => false,
         }
+    }
+
+    pub fn inverse(self) -> Option<Self> {
+        todo!()
     }
 }
 

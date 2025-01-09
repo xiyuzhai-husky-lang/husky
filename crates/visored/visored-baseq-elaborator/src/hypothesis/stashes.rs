@@ -1,4 +1,4 @@
-mod lit_num_equality;
+mod litnum_equality;
 
 use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
 use std::marker::PhantomData;
