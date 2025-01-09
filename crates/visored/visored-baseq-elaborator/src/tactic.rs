@@ -7,6 +7,7 @@ use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::VdBsqExprFld,
     hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx},
+    *,
 };
 use alt_option::AltOption;
 use miracle::HasMiracleFull;

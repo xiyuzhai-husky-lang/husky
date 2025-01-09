@@ -117,7 +117,7 @@ pub trait HasMiracleFull: HasMiracle {
     where
         I: IntoIterator,
         I::IntoIter: Clone,
-        H: Fn(&mut Self, S) -> MiracleAltMaybeResult<R>;
+        H: Fn(&mut Self, S) -> MiracleAltMaybeResult<R> + ?Sized;
 
     /// `f` returns an option so that we could kill it early
     fn multifold<S, I, R>(
@@ -192,7 +192,7 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
     where
         I: IntoIterator,
         I::IntoIter: Clone,
-        H: Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
+        H: Fn(&mut Self, S) -> MiracleAltMaybeResult<R> + ?Sized,
     {
         crate::foldm::foldm(self, init, iter.into_iter(), h, f)
     }

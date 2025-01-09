@@ -16,8 +16,8 @@ pub fn foldm_product<'db, 'sess>(
     f: &impl Fn(
         &mut VdBsqElaboratorInner<'db, 'sess>,
         Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>,
-    ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
-) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
+    ) -> Mhr<'sess>,
+) -> Mhr<'sess> {
     engine.multifold(
         vec![],
         exponentials.iter().copied(),

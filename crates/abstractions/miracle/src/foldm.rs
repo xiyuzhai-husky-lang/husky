@@ -14,7 +14,7 @@ pub(crate) fn foldm<Engine, S, I, R, H>(
 ) -> MiracleAltMaybeResult<R>
 where
     I: Iterator + Clone,
-    H: Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
+    H: Fn(&mut Engine, S) -> MiracleAltMaybeResult<R> + ?Sized,
 {
     let Some(item) = iter.next() else {
         return h(engine, state);

@@ -18,4 +18,8 @@ mod tests;
 pub mod variable;
 
 use eterned::db::EternerDb;
+use hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx};
+use miracle::error::MiracleAltMaybeResult;
 use visored_models::VdModels;
+
+type Mhr<'sess> = MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>;

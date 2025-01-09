@@ -14,11 +14,8 @@ pub(super) fn foldm_sum<'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
     terms: &[(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
     builder: VdBsqSumBuilder<'sess>,
-    f: &impl Fn(
-        &mut VdBsqElaboratorInner<'db, 'sess>,
-        VdBsqSumBuilder<'sess>,
-    ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
-) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
+    f: &dyn Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Mhr<'sess>,
+) -> Mhr<'sess> {
     engine.foldm(builder, terms.iter().copied(), f, &foldm_sum_step)
 }
 
@@ -26,17 +23,13 @@ fn foldm_sum_step<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     mut sum_builder: VdBsqSumBuilder<'sess>,
     (term, litnum0): (VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>),
-    f: &dyn Fn(
-        &mut VdBsqElaboratorInner<'db, 'sess>,
-        VdBsqSumBuilder<'sess>,
-    )
-        -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
-) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
+    heuristic: &dyn Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Mhr<'sess>,
+) -> Mhr<'sess> {
     let db = elaborator.floater_db();
     match term {
         VdBsqNonSumComnumTerm::Atom(atom) => {
             sum_builder.add_litnum_times_atom(litnum0, atom);
-            f(elaborator, sum_builder)
+            heuristic(elaborator, sum_builder)
         }
         VdBsqNonSumComnumTerm::Product(base) => {
             foldm_product(elaborator, base.exponentials(), &|elaborator, expansion| {
@@ -47,7 +40,7 @@ fn foldm_sum_step<'db, 'sess>(
                         VdBsqProductComnumTermBase::from_parts(exponentials, db),
                     );
                 }
-                f(elaborator, sum_builder)
+                heuristic(elaborator, sum_builder)
             })
         }
     }
