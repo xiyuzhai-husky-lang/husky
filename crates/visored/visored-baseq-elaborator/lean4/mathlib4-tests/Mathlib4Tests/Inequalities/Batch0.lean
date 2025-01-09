@@ -230,8 +230,8 @@ end Example33
 
 namespace Example34
 def h := by
-  have x := (1 : Prop)
-  have h1 : x = 1 := by obvious
+  -- have x := 1
+  let x := 1
+  have h1 : x = 1 := by dsimp
   exact ()
 end Example34
-
