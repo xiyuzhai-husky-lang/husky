@@ -592,13 +592,6 @@
         ],
     },
     PackageSummary {
-        name: "monadic-fold",
-        relative_path: "crates/abstractions/monadic-fold",
-        dependencies: [
-            "sealed",
-        ],
-    },
-    PackageSummary {
         name: "notify-change",
         relative_path: "crates/abstractions/notify-change",
         dependencies: [],
@@ -5158,6 +5151,7 @@
             "eterned",
             "expect-test",
             "floated-sequential",
+            "husky-control-flow-utils",
             "husky-debug-utils",
             "husky-path-utils",
             "husky-print-utils",
@@ -5169,7 +5163,6 @@
             "latex-prelude",
             "latex-vfs",
             "miracle",
-            "monadic-fold",
             "num-bigint",
             "num-integer",
             "ordered-float",
@@ -5179,6 +5172,7 @@
             "thiserror",
             "vec-like",
             "visored-annotation",
+            "visored-baseq-elaborator-macros",
             "visored-entity-path",
             "visored-lean-transpilation",
             "visored-mir-expr",
@@ -5190,6 +5184,14 @@
             "visored-term",
             "husky-case-utils",
             "relative-path",
+        ],
+    },
+    PackageSummary {
+        name: "visored-baseq-elaborator-macros",
+        relative_path: "crates/visored/visored-baseq-elaborator-macros",
+        dependencies: [
+            "quote",
+            "syn",
         ],
     },
     PackageSummary {

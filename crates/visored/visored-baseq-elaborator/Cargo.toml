@@ -30,7 +30,6 @@ eterned.workspace = true
 floated-sequential.workspace = true
 idx-arena.workspace = true
 miracle.workspace = true
-monadic-fold.workspace = true
 vec-like.workspace = true
 # latex
 latex-math-letter.workspace = true

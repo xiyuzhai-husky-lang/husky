@@ -257,7 +257,6 @@ idx-arena = { path = "crates/abstractions/idx-arena" }
 is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
 miracle = { path = "crates/abstractions/miracle" }
-monadic-fold = { path = "crates/abstractions/monadic-fold" }
 once-place = { path = "crates/abstractions/once-place" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
