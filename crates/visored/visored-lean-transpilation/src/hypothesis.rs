@@ -60,6 +60,10 @@ where
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_equivalent");
                 self.alloc_tactics([ad_hoc_tactic_data])
             }
+            VdMirHypothesisConstruction::ExprEquivalent {} => {
+                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("expr_equivalent");
+                self.alloc_tactics([ad_hoc_tactic_data])
+            }
             VdMirHypothesisConstruction::CommRing => {
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("comm_ring");
                 self.alloc_tactics([ad_hoc_tactic_data])

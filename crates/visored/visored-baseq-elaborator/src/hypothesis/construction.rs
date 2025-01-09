@@ -12,6 +12,9 @@ pub enum VdBsqHypothesisConstruction<'sess> {
         is_real_coercion: VdBsqCoercion<'sess>,
     },
     CommRing,
+    ExprEquivalent {
+        hypothesis: VdBsqHypothesisIdx<'sess>,
+    },
     TermEquivalent {
         hypothesis: VdBsqHypothesisIdx<'sess>,
     },

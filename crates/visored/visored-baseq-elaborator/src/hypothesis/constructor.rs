@@ -48,6 +48,10 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
         expr: VdMirExprFld<'sess>,
     ) -> Option<VdBsqHypothesisIdx<'sess>> {
         if let Some(hypothesis) = self.stack.get_active_hypothesis_with_expr(expr) {
+            let hypothesis = self.construct_new_hypothesis(
+                expr,
+                VdBsqHypothesisConstruction::ExprEquivalent { hypothesis },
+            );
             Some(hypothesis)
         } else if let Some(hypothesis) = self.stack.get_active_hypothesis_with_term(expr.term()) {
             let hypothesis = self.construct_new_hypothesis(

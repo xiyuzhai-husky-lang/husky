@@ -9,6 +9,12 @@ macro "term_trivial": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "expr_equivalent": tactic =>`(tactic|
+  first
+  | assumption; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 macro "term_equivalent": tactic =>`(tactic|
   first
   | simp; done
@@ -218,6 +224,7 @@ end Example32
 
 namespace Example33
 def h(x : ℝ)(h1 : x = (1 : ℝ)) := by
+  have h2 : x = (1 : ℝ) := by expr_equivalent
   exact ()
 end Example33
 

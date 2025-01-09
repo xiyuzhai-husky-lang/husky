@@ -62,6 +62,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             },
             VdBsqHypothesisConstruction::Assume => VdMirHypothesisConstruction::Assume,
             VdBsqHypothesisConstruction::TermEquivalent { hypothesis } => todo!(),
+            VdBsqHypothesisConstruction::ExprEquivalent { hypothesis } => todo!(),
             VdBsqHypothesisConstruction::TermTrivial(b) => {
                 VdMirHypothesisConstruction::TermTrivial(b)
             }

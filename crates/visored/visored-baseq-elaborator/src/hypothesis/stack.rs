@@ -97,13 +97,10 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         entry: &VdBsqHypothesisEntry<'sess>,
     ) {
         let expr = entry.expr();
-        // never recreate an active hypothesis with the exact same expression
-        debug_assert!(
-            self.get_active_hypothesis_with_expr(expr).is_none(),
-            "hypothesis already exists, expr: {:?}",
-            expr
-        );
-        self.expr_to_hypothesis_map.insert(expr, record);
+        // only add the hypothesis to the term map if the term is not already present
+        if self.get_active_hypothesis_with_expr(expr).is_none() {
+            self.expr_to_hypothesis_map.insert(expr, record);
+        }
     }
 
     fn add_hypothesis_to_term_map(
