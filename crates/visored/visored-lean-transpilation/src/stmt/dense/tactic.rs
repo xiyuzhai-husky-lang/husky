@@ -56,7 +56,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 ref pattern,
                 assignment,
             } => {
-                ln_tactics.push(LnMirTacticData::Have {
+                ln_tactics.push(LnMirTacticData::Let {
                     ident: match *pattern {
                         VdMirPattern::Letter {
                             letter,

@@ -341,6 +341,19 @@ impl<'a> LnMirExprFormatter<'a> {
                 write!(self.result, " := ");
                 self.format_expr_ext(construction);
             }
+            LnMirTacticData::Let {
+                ident,
+                ty,
+                construction,
+            } => {
+                write!(self.result, "let {}", ident.data());
+                if let Some(ty) = ty {
+                    write!(self.result, " : ");
+                    self.format_expr_ext(ty);
+                }
+                write!(self.result, " := ");
+                self.format_expr_ext(construction);
+            }
             LnMirTacticData::Show { ty, tactics } => {
                 write!(self.result, "show ");
                 self.format_expr_ext(ty);

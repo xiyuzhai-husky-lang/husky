@@ -22,6 +22,12 @@ pub enum LnMirTacticData {
         ty: Option<LnMirExprIdx>,
         construction: LnMirExprIdx,
     },
+    Let {
+        // TODO: pattern??
+        ident: LnIdent,
+        ty: Option<LnMirExprIdx>,
+        construction: LnMirExprIdx,
+    },
     Show {
         ty: LnMirExprIdx,
         tactics: LnMirTacticIdxRange,
