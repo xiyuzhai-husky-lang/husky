@@ -1,17 +1,18 @@
 use super::*;
 
-pub fn mapm_collect<'a, 'db, 'sess, S, A, I, MA, R>(
+pub fn mapm_collect<'db, 'sess, S, A, I, MA>(
     iter: I,
-    f: &'a impl Fn(&mut Elr<'db, 'sess>, I::Item) -> MA,
-) -> impl ElabM<'db, 'sess, S> + 'a
+    f: impl Fn(I::Item) -> MA + Clone,
+) -> impl ElabM<'db, 'sess, S>
 where
     'db: 'sess,
-    S: Default + Extend<A> + Clone + 'a,
-    I: IntoIterator + 'a,
+    S: Default + Extend<A> + Clone,
+    I: IntoIterator,
     I::IntoIter: Clone,
-    MA: ElabM<'db, 'sess, A> + 'a,
+    MA: ElabM<'db, 'sess, A>,
 {
-    miracle::foldm::mapm_collect(iter.into_iter(), move |engine, item| {
-        move |engine, heuristic| f(engine, item).eval(engine, heuristic)
+    miracle::foldm::mapm_collect(iter.into_iter(), move |item| {
+        let f = f.clone();
+        move |engine, heuristic| f(item).eval(engine, heuristic)
     })
 }

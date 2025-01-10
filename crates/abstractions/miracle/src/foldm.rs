@@ -45,17 +45,16 @@ where
     move |engine, heuristic| crate::foldm::_foldm(engine, init, iter.into_iter(), &f, heuristic)
 }
 
-pub fn mapm_collect<'a, Engine, S, A, I, MA, R>(
+pub fn mapm_collect<Engine, S, A, I, MA, R>(
     iter: I,
-    f: impl Fn(&mut Engine, I::Item) -> MA + 'a,
+    f: impl Fn(I::Item) -> MA,
 ) -> impl FnOnce(
     &mut Engine,
     &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
 ) -> MiracleAltMaybeResult<R>
-       + 'a
 where
-    S: Default + Extend<A> + Clone + 'a,
-    I: IntoIterator + 'a,
+    S: Default + Extend<A> + Clone,
+    I: IntoIterator,
     I::IntoIter: Clone,
     MA: FnOnce(
         &mut Engine,
@@ -71,7 +70,7 @@ where
                    state: S,
                    item,
                    heuristic: &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>| {
-                let ma = f(engine, item);
+                let ma = f(item);
                 ma(engine, &move |engine: &mut Engine, a| {
                     let mut state = state.clone();
                     state.extend_one(a);

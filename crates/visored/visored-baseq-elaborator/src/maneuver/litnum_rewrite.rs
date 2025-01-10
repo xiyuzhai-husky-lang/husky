@@ -1,12 +1,14 @@
 use super::*;
 use crate::{
     coercion::VdBsqCoercionOutcome,
-    elabm::ElabM,
+    elabm::{foldm::mapm_collect, ElabM},
     expr::{VdBsqExprFld, VdBsqExprFldData},
     hypothesis::construction::VdBsqHypothesisConstruction,
     Mhr,
 };
 use alt_option::*;
+use expr::VdBsqExprFollowers;
+use smallvec::SmallVec;
 use visored_baseq_elaborator_macros::unify_elabm;
 use visored_entity_path::{
     path::{
@@ -46,31 +48,42 @@ where
             .get_active_litnum_equality(expr, db)
         {
             Some(litnum) => todo!(),
-            None => rewrite_subexprs(expr).eval(elaborator, heuristic),
+            None => rewrite_subexprs(expr, litnum_rewrite_inner).eval(elaborator, heuristic),
         }
     }
 }
 
-fn rewrite_subexprs<'db, 'sess>(
+fn rewrite_subexprs<'a, 'db, 'sess, MExpr>(
     expr: VdBsqExprFld<'sess>,
-) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>>
+    f: impl Fn(VdBsqExprFld<'sess>) -> MExpr + Clone + 'a,
+) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>> + 'a
 where
-    'db: 'sess,
+    'db: 'sess + 'a,
+    'sess: 'a,
+    MExpr: ElabM<'db, 'sess, VdBsqExprFld<'sess>> + 'a,
 {
     #[unify_elabm]
-    match expr.data() {
+    match *expr.data() {
         VdBsqExprFldData::Literal(vd_literal) => todo!(),
         VdBsqExprFldData::Variable(lx_math_letter, arena_idx) => todo!(),
         VdBsqExprFldData::Application {
             function,
-            arguments,
+            ref arguments,
         } => todo!(),
-        VdBsqExprFldData::FoldingSeparatedList { leader, followers } => todo!(),
+        VdBsqExprFldData::FoldingSeparatedList {
+            leader,
+            ref followers,
+        } => todo!(),
         VdBsqExprFldData::ChainingSeparatedList {
             leader,
-            followers,
+            ref followers,
             joined_signature,
-        } => todo!(),
+        } => f(leader).bind(|elr, leader| {
+            mapm_collect(followers, |&(func, follower)| {
+                f(follower).map(move |elr, follower| (func, follower))
+            })
+            .map(|elr, followers: VdBsqExprFollowers<'sess>| todo!())
+        }),
         VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
     }
 }

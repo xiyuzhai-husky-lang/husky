@@ -167,6 +167,8 @@ pub enum VdBsqExprFldData<'sess> {
     ItemPath(VdItemPath),
 }
 
+pub type VdBsqExprFollowers<'sess> = SmallVec<[(VdMirFunc, VdBsqExprFld<'sess>); 4]>;
+
 impl<'sess> VdBsqExprFldData<'sess> {
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
