@@ -854,6 +854,11 @@
         ],
     },
     PackageSummary {
+        name: "yonad0",
+        relative_path: "crates/abstractions/yonad0",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "cybertron-mini-lean-compiler-developer",
         relative_path: "crates/apps/cybertron-mini-lean-compiler-developer",
         dependencies: [
@@ -4249,6 +4254,7 @@
             "latex-vfs",
             "lazy_static",
             "once-place",
+            "rustc-hash",
             "salsa",
             "smallvec",
             "thiserror",

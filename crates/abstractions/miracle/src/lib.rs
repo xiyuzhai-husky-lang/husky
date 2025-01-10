@@ -102,23 +102,6 @@ pub trait HasMiracleFull: HasMiracle {
         number_of_values: u64,
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
-
-    fn foldm<S, I, R>(
-        init: S,
-        iter: I,
-        f: &impl Fn(
-            &mut Self,
-            S,
-            I::Item,
-            &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-        ) -> MiracleAltMaybeResult<R>,
-    ) -> impl FnOnce(
-        &mut Self,
-        &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone;
 }
 
 #[sealed]
@@ -164,26 +147,6 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
             crate::state::calc_with_new_value_appended(self, i, |g| f(g, i))?;
         }
         AltNothing
-    }
-
-    fn foldm<S, I, R>(
-        init: S,
-        iter: I,
-        f: &impl Fn(
-            &mut Self,
-            S,
-            I::Item,
-            &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-        ) -> MiracleAltMaybeResult<R>,
-    ) -> impl FnOnce(
-        &mut Self,
-        &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone,
-    {
-        |slf, heuristic| crate::foldm::_foldm(slf, init, iter.into_iter(), f, heuristic)
     }
 }
 
