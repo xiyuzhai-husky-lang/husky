@@ -65,7 +65,7 @@ where
 {
     #[unify_elabm]
     match *expr.data() {
-        VdBsqExprFldData::Literal(vd_literal) => todo!(),
+        VdBsqExprFldData::Literal(vd_literal) => Pure(expr),
         VdBsqExprFldData::Variable(lx_math_letter, arena_idx) => todo!(),
         VdBsqExprFldData::Application {
             function,
@@ -83,7 +83,17 @@ where
             mapm_collect(followers, |&(func, follower)| {
                 f(follower).map(move |elr, follower| (func, follower))
             })
-            .map(|elr, followers: VdBsqExprFollowers<'sess>| todo!())
+            .map(move |elr, followers: VdBsqExprFollowers<'sess>| {
+                elr.mk_expr(
+                    VdBsqExprFldData::ChainingSeparatedList {
+                        leader,
+                        followers,
+                        joined_signature,
+                    },
+                    expr.ty(),
+                    expr.expected_ty(),
+                )
+            })
         }),
         VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
     }

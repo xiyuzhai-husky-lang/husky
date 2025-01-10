@@ -282,7 +282,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         ty: VdType,
         expected_ty: Option<VdType>,
     ) -> VdBsqExprFld<'sess> {
-        self.mk_expr(VdBsqExprFldData::Literal(todo!()), ty, expected_ty)
+        let db = self.session().eterner_db();
+        let lit = match litnum {
+            VdBsqLitnumTerm::Int128(i) => VdLiteral::new(VdLiteralData::Int128(i), db),
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        };
+        self.mk_expr(VdBsqExprFldData::Literal(lit), ty, expected_ty)
     }
 }
 

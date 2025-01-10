@@ -20,4 +20,5 @@ pub enum VdMirHypothesisConstruction {
     TermTrivial(bool),
     CommRing,
     LetAssigned,
+    LitnumReduce,
 }

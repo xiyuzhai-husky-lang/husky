@@ -94,6 +94,13 @@ macro "comm_ring": tactic =>`(tactic|
   | ring_nf; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
+
+macro "litnum_reduce": tactic =>`(tactic|
+  first
+  | ring; done
+  | ring_nf; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
 {}
 "#,
                 tracker.show_fmt(db)

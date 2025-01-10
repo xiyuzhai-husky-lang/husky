@@ -29,7 +29,12 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let rewritem = litnum_rewritem(prop);
         rewritem.eval(self, &|elr, expr| match expr.term() {
             VdBsqTerm::Prop(VdBsqPropTerm::Trivial(b)) => match b {
-                true => todo!(),
+                true => {
+                    let hypothesis = elr
+                        .hypothesis_constructor
+                        .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::LitnumReduce);
+                    AltJustOk(Ok(hypothesis))
+                }
                 false => todo!(),
             },
             _ => AltNothing,

@@ -89,6 +89,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             }
             VdBsqHypothesisConstruction::CommRing => VdMirHypothesisConstruction::CommRing,
             VdBsqHypothesisConstruction::LetAssigned => VdMirHypothesisConstruction::LetAssigned,
+            VdBsqHypothesisConstruction::LitnumReduce => VdMirHypothesisConstruction::LitnumReduce,
         };
         let prop = match explicit_prop {
             Some(prop) => prop,

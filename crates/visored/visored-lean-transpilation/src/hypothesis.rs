@@ -72,6 +72,10 @@ where
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("let_assigned");
                 self.alloc_tactics([ad_hoc_tactic_data])
             }
+            VdMirHypothesisConstruction::LitnumReduce => {
+                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("litnum_reduce");
+                self.alloc_tactics([ad_hoc_tactic_data])
+            }
         };
         let construction = self.alloc_expr(LnMirExprEntry::new(
             LnMirExprData::By {

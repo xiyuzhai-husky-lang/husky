@@ -36,6 +36,13 @@ macro "comm_ring": tactic =>`(tactic|
   | ring_nf; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
+
+macro "litnum_reduce": tactic =>`(tactic|
+  first
+  | ring; done
+  | ring_nf; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
 namespace Example1
 def h := by
   have h1 : 0 = 0 := by term_trivial
@@ -247,7 +254,7 @@ namespace Example35
 def h := by
   let x := 1
   have h1 : x = 1 := by let_assigned
-  have h2 : x > 0 := by obvious
+  have h2 : x > 0 := by litnum_reduce
   exact ()
 end Example35
 
