@@ -8,6 +8,7 @@ use crate::term::{
     num::VdBsqNumTerm,
 };
 use miracle::error::MiracleAltMaybeResult;
+use product::foldm_product;
 use std::marker::PhantomData;
 
 pub(super) fn foldm_sum<'db, 'sess>(
@@ -32,7 +33,7 @@ fn foldm_sum_step<'db, 'sess>(
             heuristic(elaborator, sum_builder)
         }
         VdBsqNonSumComnumTerm::Product(base) => {
-            foldm_product(elaborator, base.exponentials(), &|elaborator, expansion| {
+            foldm_product(base.exponentials()).eval(elaborator, &|elaborator, expansion| {
                 let mut sum_builder = sum_builder.clone();
                 for (litnum, exponentials) in expansion {
                     sum_builder.add_general_product(

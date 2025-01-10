@@ -18,6 +18,7 @@ pub mod term;
 mod tests;
 pub mod variable;
 
+use crate::monad::ElabM;
 use eterned::db::EternerDb;
 use hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx};
 use miracle::error::MiracleAltMaybeResult;
