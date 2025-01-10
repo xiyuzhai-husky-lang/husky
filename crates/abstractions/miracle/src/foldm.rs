@@ -3,12 +3,13 @@ pub(crate) fn _foldm<Engine, S, I, R>(
     engine: &mut Engine,
     state: S,
     mut iter: I,
-    f: &impl Fn(
-        &mut Engine,
-        S,
-        I::Item,
-        &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>,
+    f: impl Fn(
+            &mut Engine,
+            S,
+            I::Item,
+            &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
+        ) -> MiracleAltMaybeResult<R>
+        + Copy,
     h: &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
 ) -> MiracleAltMaybeResult<R>
 where
