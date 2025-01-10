@@ -55,7 +55,7 @@ where
 
 fn rewrite_subexprs<'a, 'db, 'sess, MExpr>(
     expr: VdBsqExprFld<'sess>,
-    f: impl Fn(VdBsqExprFld<'sess>) -> MExpr + Clone + 'a,
+    f: impl Fn(VdBsqExprFld<'sess>) -> MExpr + Copy + 'a,
 ) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>> + 'a
 where
     'db: 'sess + 'a,
