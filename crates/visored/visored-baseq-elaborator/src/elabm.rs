@@ -1,4 +1,6 @@
-use crate::{elaborator::VdBsqElaboratorInner, Mhr};
+pub mod foldm;
+
+use crate::{elaborator::VdBsqElaboratorInner, Mhr, *};
 
 type E<'db, 'sess> = VdBsqElaboratorInner<'db, 'sess>;
 type R<'sess> = Mhr<'sess>;

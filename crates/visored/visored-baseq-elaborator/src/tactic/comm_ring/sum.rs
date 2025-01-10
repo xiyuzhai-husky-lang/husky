@@ -23,7 +23,7 @@ where
     foldm(
         builder,
         terms.iter().copied(),
-        &|elaborator, builder, term, heuristic| {
+        |elaborator, builder, term, heuristic| {
             foldm_sum_step(builder, term).eval(elaborator, heuristic)
         },
     )

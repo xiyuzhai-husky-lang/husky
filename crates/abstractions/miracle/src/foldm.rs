@@ -25,12 +25,13 @@ where
 pub fn foldm<'a, Engine, S, I, R>(
     init: S,
     iter: I,
-    f: &'a impl Fn(
-        &mut Engine,
-        S,
-        I::Item,
-        &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>,
+    f: impl Fn(
+            &mut Engine,
+            S,
+            I::Item,
+            &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
+        ) -> MiracleAltMaybeResult<R>
+        + 'a,
 ) -> impl FnOnce(
     &mut Engine,
     &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
@@ -41,12 +42,12 @@ where
     I: IntoIterator + 'a,
     I::IntoIter: Clone,
 {
-    |engine, heuristic| crate::foldm::_foldm(engine, init, iter.into_iter(), f, heuristic)
+    move |engine, heuristic| crate::foldm::_foldm(engine, init, iter.into_iter(), &f, heuristic)
 }
 
 pub fn mapm_collect<'a, Engine, S, A, I, MA, R>(
     iter: I,
-    f: &'a impl Fn(&mut Engine, I::Item) -> MA,
+    f: impl Fn(&mut Engine, I::Item) -> MA + 'a,
 ) -> impl FnOnce(
     &mut Engine,
     &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
@@ -66,7 +67,10 @@ where
             engine,
             S::default(),
             iter.into_iter(),
-            &|engine, state, item, heuristic| {
+            &move |engine: &mut Engine,
+                   state: S,
+                   item,
+                   heuristic: &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>| {
                 let ma = f(engine, item);
                 ma(engine, &move |engine: &mut Engine, a| {
                     let mut state = state.clone();
