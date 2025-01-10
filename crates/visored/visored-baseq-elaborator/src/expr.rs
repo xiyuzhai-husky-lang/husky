@@ -24,8 +24,10 @@ use visored_term::{
 };
 
 use crate::{
-    elaborator::VdBsqElaboratorInner, hypothesis::VdBsqHypothesisIdx, session::VdBsqSession,
-    term::VdBsqTerm,
+    elaborator::VdBsqElaboratorInner,
+    hypothesis::VdBsqHypothesisIdx,
+    session::VdBsqSession,
+    term::{litnum::VdBsqLitnumTerm, VdBsqTerm},
 };
 
 #[floated]
@@ -272,6 +274,15 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             self.ty_menu().nat,
             expected_ty,
         )
+    }
+
+    pub(crate) fn mk_lit(
+        &self,
+        litnum: VdBsqLitnumTerm<'sess>,
+        ty: VdType,
+        expected_ty: Option<VdType>,
+    ) -> VdBsqExprFld<'sess> {
+        self.mk_expr(VdBsqExprFldData::Literal(todo!()), ty, expected_ty)
     }
 }
 

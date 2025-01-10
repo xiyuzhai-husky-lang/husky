@@ -101,11 +101,18 @@ impl<'sess> LitnumEqualityStash<'sess> {
     pub fn reduce(
         &self,
         term: VdBsqComnumTerm<'sess>,
-        stack: &VdBsqHypothesisStack<'sess>,
+        active_hypotheses: &VdBsqActiveHypotheses<'sess>,
         db: &'sess FloaterDb,
     ) -> Option<VdBsqLitnumTerm<'sess>> {
-        match term {
-            VdBsqComnumTerm::Atom(term) => todo!(),
+        /// decompose `t = ax + b`
+        let (a, x, b): (
+            VdBsqLitnumTerm<'sess>,
+            VdBsqNumTerm<'sess>,
+            VdBsqLitnumTerm<'sess>,
+        ) = match term {
+            VdBsqComnumTerm::Atom(term) => {
+                (VdBsqLitnumTerm::ONE, term.into(), VdBsqLitnumTerm::ZERO)
+            }
             VdBsqComnumTerm::Sum(term) => {
                 let (_, _) = normalize_then_split_fld(term, db);
                 todo!()
@@ -113,6 +120,11 @@ impl<'sess> LitnumEqualityStash<'sess> {
             VdBsqComnumTerm::Product(term, base) => {
                 todo!()
             }
-        }
+        };
+        let key = VdBsqLitNumEqualityKey {
+            normalized_monomials: x,
+        };
+        let value = self.get_valid_value(&key, active_hypotheses)?.litnum;
+        Some(a.mul(value, db).add(b, db))
     }
 }

@@ -21,7 +21,7 @@ pub(crate) fn stashes(_attr: TokenStream, input: TokenStream) -> TokenStream {
     // Generate the implementation
     let field_calls = fields.iter().map(|field| {
         quote! {
-            self.#field.add_hypothesis(hypothesis_record, hypothesis_entry, db);
+            self.#field.add_hypothesis(hypothesis_record, hypothesis_entry, db, active_hypotheses);
         }
     });
 
@@ -38,6 +38,7 @@ pub(crate) fn stashes(_attr: TokenStream, input: TokenStream) -> TokenStream {
                 hypothesis_record: VdBsqHypothesisStackRecord<'sess>,
                 hypothesis_entry: &VdBsqHypothesisEntry<'sess>,
                 db: &'sess FloaterDb,
+                active_hypotheses: &VdBsqActiveHypotheses<'sess>,
             ) {
                 #(#field_calls)*
             }

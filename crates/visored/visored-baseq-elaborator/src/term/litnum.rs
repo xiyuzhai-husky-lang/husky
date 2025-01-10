@@ -32,6 +32,28 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
+    pub fn add(self, rhs: Self, db: &FloaterDb) -> Self {
+        if self.is_zero() {
+            return rhs;
+        }
+        match self {
+            VdBsqLitnumTerm::Int128(slf) => match rhs {
+                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_add(rhs) {
+                    Some(sum) => VdBsqLitnumTerm::Int128(sum),
+                    None => todo!(),
+                },
+                VdBsqLitnumTerm::BigInt(i) => {
+                    use husky_print_utils::p;
+                    p!(self, rhs);
+                    todo!()
+                }
+                VdBsqLitnumTerm::Frac128(_) => todo!(),
+            },
+            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => todo!(),
+        }
+    }
+
     pub fn add_assign(&mut self, rhs: Self, db: &FloaterDb) {
         if self.is_zero() {
             *self = rhs;

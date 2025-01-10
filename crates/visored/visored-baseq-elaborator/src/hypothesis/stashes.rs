@@ -1,9 +1,12 @@
 pub mod litnum_equality;
 
-use crate::elaborator::VdBsqElaboratorInner;
-
 use self::litnum_equality::*;
-use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
+use super::{
+    stack::{VdBsqActiveHypotheses, VdBsqHypothesisStackRecord},
+    VdBsqHypothesisEntry,
+};
+use crate::elaborator::VdBsqElaboratorInner;
+use crate::hypothesis::stack::VdBsqHypothesisStack;
 use floated_sequential::db::FloaterDb;
 use std::marker::PhantomData;
 use visored_baseq_elaborator_macros::stashes;
@@ -33,7 +36,8 @@ impl<'sess> VdBsqHypothesisStashes<'sess> {
         hypothesis_record: VdBsqHypothesisStackRecord<'sess>,
         hypothesis_entry: &VdBsqHypothesisEntry<'sess>,
         db: &'sess FloaterDb,
+        active_hypotheses: &VdBsqActiveHypotheses<'sess>,
     ) {
-        self._add_hypothesis(hypothesis_record, hypothesis_entry, db);
+        self._add_hypothesis(hypothesis_record, hypothesis_entry, db, active_hypotheses);
     }
 }

@@ -7,6 +7,7 @@ use crate::{
     Mhr,
 };
 use alt_option::*;
+use elabm::Pure;
 use expr::VdBsqExprFollowers;
 use smallvec::SmallVec;
 use visored_baseq_elaborator_macros::unify_elabm;
@@ -37,17 +38,17 @@ where
     'db: 'sess,
 {
     move |elaborator: &mut Elr<'db, 'sess>,
-          heuristic: &dyn Fn(
-        &mut VdBsqElaboratorInner<'db, 'sess>,
-        VdBsqExprFld<'sess>,
-    ) -> Mhr<'sess>| {
+          heuristic: &Heuristic<'_, 'db, 'sess, VdBsqExprFld<'sess>>| {
         let db = elaborator.floater_db();
         match elaborator
             .hypothesis_constructor
             .stack()
             .get_active_litnum_equality(expr, db)
         {
-            Some(litnum) => todo!(),
+            Some(litnum) => {
+                let litnum = elaborator.mk_lit(litnum, expr.ty(), expr.expected_ty());
+                Pure(litnum).eval(elaborator, heuristic)
+            }
             None => rewrite_subexprs(expr, litnum_rewrite_inner).eval(elaborator, heuristic),
         }
     }

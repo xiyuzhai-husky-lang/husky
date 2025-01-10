@@ -13,6 +13,7 @@ impl<'db, 'sess> std::fmt::Debug for VdBsqHypothesisConstructor<'db, 'sess> {
         let active_hypotheses = self
             .stack
             .active_hypotheses()
+            .data()
             .iter()
             .map(|h| &self.arena[h])
             .collect::<Vec<_>>();
