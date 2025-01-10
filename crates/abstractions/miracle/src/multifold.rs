@@ -5,7 +5,7 @@ pub(crate) fn multifold<Engine, S, I, R>(
     state: S,
     mut iter: impl Iterator<Item = I> + Clone,
     fs: &[impl Fn(&mut Engine, &S, &I) -> Option<S>],
-    h: &impl Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
+    h: &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
 ) -> MiracleAltMaybeResult<R>
 where
     Engine: HasMiracleFull,

@@ -7,6 +7,7 @@ pub mod expr;
 pub mod helpers;
 pub mod hypothesis;
 pub mod maneuver;
+mod monad;
 pub mod outcome;
 pub mod session;
 mod signature;

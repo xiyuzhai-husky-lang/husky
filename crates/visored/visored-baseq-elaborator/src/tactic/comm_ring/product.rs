@@ -9,6 +9,7 @@ use crate::term::{
 use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
 use miracle::error::MiracleAltMaybeResult;
+use monad::ElabM;
 
 pub fn foldm_product<'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
@@ -26,6 +27,22 @@ pub fn foldm_product<'db, 'sess>(
             multiply_with_expanding as FnType,
         ],
         f,
+    )
+}
+
+pub fn foldm_product2<'a, 'db, 'sess>(
+    exponentials: &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
+) -> impl ElabM<'db, 'sess, Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>> + 'a
+where
+    'db: 'sess,
+{
+    VdBsqElaboratorInner::multifold2(
+        vec![],
+        exponentials.iter().copied(),
+        &[
+            multiply_without_expanding as FnType,
+            multiply_with_expanding as FnType,
+        ],
     )
 }
 
