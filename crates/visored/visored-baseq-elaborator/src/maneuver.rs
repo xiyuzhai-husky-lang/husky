@@ -1,5 +1,5 @@
 pub mod diff;
-mod litnum_rewrite;
+pub mod litnum_rewrite;
 
 use crate::{elaborator::VdBsqElaboratorInner, *};
 
@@ -13,4 +13,13 @@ pub enum VdBsqManeuver {
 pub enum VdBsqManeuverCall {
     Diff,
     LitnumRewrite,
+}
+
+impl VdBsqManeuverCall {
+    pub fn wrap<'db, 'sess, R>(self, m: impl ElabM<'db, 'sess, R>) -> impl ElabM<'db, 'sess, R>
+    where
+        'db: 'sess,
+    {
+        call::stack::with_call(self, m)
+    }
 }

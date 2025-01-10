@@ -45,3 +45,12 @@ impl VdBsqTactic {
         }
     }
 }
+
+impl VdBsqTacticCall {
+    pub fn wrap<'db, 'sess, R>(self, m: impl ElabM<'db, 'sess, R>) -> impl ElabM<'db, 'sess, R>
+    where
+        'db: 'sess,
+    {
+        call::stack::with_call(self, m)
+    }
+}

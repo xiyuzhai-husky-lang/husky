@@ -1,4 +1,5 @@
 use super::*;
+use crate::maneuver::litnum_rewrite::litnum_rewritem;
 use crate::{
     coercion::VdBsqCoercionOutcome, expr::VdBsqExprFldData,
     hypothesis::construction::VdBsqHypothesisConstruction,
@@ -24,7 +25,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     }
 
     fn litnum_reduce_inner(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
-        let _ = todo!();
+        let rewritem = litnum_rewritem(prop);
         todo!()
     }
 }

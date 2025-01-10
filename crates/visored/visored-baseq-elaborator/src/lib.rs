@@ -29,6 +29,7 @@ use hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx};
 use miracle::error::MiracleAltMaybeResult;
 use visored_models::VdModels;
 
+type Er<'db, 'sess> = VdBsqElaboratorInner<'db, 'sess>;
 type Mhr<'sess> = MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>;
 type Hr<'sess> = VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>;
 type Heuristic<'a, 'db, 'sess, T> =

@@ -19,23 +19,23 @@ use visored_mir_expr::expr::application::VdMirFunc;
 use visored_mir_opr::separator::VdMirBaseSeparator;
 use visored_term::term::VdTerm;
 
-impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub(crate) fn litnum_rewrite(
-        &mut self,
-        expr: VdBsqExprFld<'sess>,
-    ) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>> {
-        self.with_call(VdBsqManeuverCall::LitnumRewrite, |slf| {
-            slf.litnum_rewrite_inner(expr)
-        })
-    }
+pub(crate) fn litnum_rewritem<'db, 'sess>(
+    expr: VdBsqExprFld<'sess>,
+) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>>
+where
+    'db: 'sess,
+{
+    VdBsqManeuverCall::LitnumRewrite.wrap(litnum_rewrite_inner(expr))
+}
 
-    fn litnum_rewrite_inner(
-        &mut self,
-        expr: VdBsqExprFld<'sess>,
-    ) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>> {
-        let _ = todo!();
-        todo!()
-    }
+fn litnum_rewrite_inner<'db, 'sess>(
+    expr: VdBsqExprFld<'sess>,
+) -> impl ElabM<'db, 'sess, VdBsqExprFld<'sess>>
+where
+    'db: 'sess,
+{
+    let _ = todo!();
+    todo!()
 }
 
 fn rewrite_subexprs<'db, 'sess>(
