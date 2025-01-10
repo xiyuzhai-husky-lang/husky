@@ -3,13 +3,10 @@ use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
     term::{prop::VdBsqPropTerm, VdBsqTerm},
 };
-use alt_option::*;
+use alt_maybe_result::*;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub(crate) fn term_trivial(
-        &mut self,
-        prop: VdBsqExprFld<'sess>,
-    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+    pub(crate) fn term_trivial(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
         debug_assert!(
             self.hypothesis_constructor
                 .stack()
@@ -18,13 +15,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             "term_trivial should only be called on a fresh prop"
         );
         let VdBsqTerm::Prop(VdBsqPropTerm::Trivial(b)) = prop.term() else {
-            return Ok(AltNone);
+            return AltNothing;
         };
         match b {
-            true => Ok(AltSome(
-                self.hypothesis_constructor
-                    .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::TermTrivial(b)),
-            )),
+            true => AltJustOk(Ok(self.hypothesis_constructor.construct_new_hypothesis(
+                prop,
+                VdBsqHypothesisConstruction::TermTrivial(b),
+            ))),
             false => todo!("raise error"),
         }
     }

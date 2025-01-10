@@ -32,7 +32,7 @@ impl VdBsqTactic {
         &self,
         prop: VdBsqExprFld<'sess>,
         elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
-    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+    ) -> Mhr<'sess> {
         match self {
             VdBsqTactic::Assumption => elaborator.assumption(prop),
             VdBsqTactic::TermTrivial => elaborator.term_trivial(prop),

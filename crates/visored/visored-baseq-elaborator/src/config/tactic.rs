@@ -9,7 +9,6 @@ pub struct VdBsqTacticConfig {
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct VdBsqCommRingTacticConfig {
-    stages: Vec<MiracleStage>,
     product_expansion_limit: usize,
     exponential_expansion_limit: usize,
 }
@@ -31,22 +30,6 @@ impl VdBsqTacticConfig {
 impl VdBsqCommRingTacticConfig {
     pub fn new_ad_hoc() -> Self {
         Self {
-            stages: vec![
-                MiracleStage {
-                    max_norm: NotNan::new(2.0).unwrap(),
-                    max_heartbeats: 100,
-                    metrics: vec![MiracleMetric::L1 {
-                        scale: NotNan::new(1.0).unwrap(),
-                    }],
-                },
-                MiracleStage {
-                    max_norm: NotNan::new(5.0).unwrap(),
-                    max_heartbeats: 1000,
-                    metrics: vec![MiracleMetric::L1 {
-                        scale: NotNan::new(1.0).unwrap(),
-                    }],
-                },
-            ],
             product_expansion_limit: 42,
             exponential_expansion_limit: 10,
         }
@@ -54,10 +37,6 @@ impl VdBsqCommRingTacticConfig {
 }
 
 impl VdBsqCommRingTacticConfig {
-    pub fn stages(&self) -> &[MiracleStage] {
-        &self.stages
-    }
-
     pub fn product_expansion_limit(&self) -> usize {
         self.product_expansion_limit
     }

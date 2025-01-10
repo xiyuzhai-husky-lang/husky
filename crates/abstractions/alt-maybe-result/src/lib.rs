@@ -79,6 +79,12 @@ where
     }
 }
 
+impl<T, E> std::ops::FromResidual<Option<Infallible>> for AltMaybeResult<T, E> {
+    fn from_residual(residual: Option<Infallible>) -> Self {
+        AltNothing
+    }
+}
+
 impl<T, E1, E2> std::ops::FromResidual<Result<Infallible, E1>> for AltMaybeResult<T, E2>
 where
     E2: From<E1>,

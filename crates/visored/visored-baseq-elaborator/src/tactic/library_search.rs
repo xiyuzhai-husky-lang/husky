@@ -18,33 +18,24 @@ use visored_term::term::VdTerm;
 macro_rules! require {
     ($condition:expr) => {
         if !$condition {
-            return Ok(AltNone);
+            return AltNothing;
         }
     };
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
-    pub(crate) fn library_search(
-        &mut self,
-        prop: VdBsqExprFld<'sess>,
-    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+    pub(crate) fn library_search(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
         self.with_call(VdBsqTacticCall::LibrarySearch, |slf| {
             slf.library_search_inner(prop)
         })
     }
 
-    fn library_search_inner(
-        &mut self,
-        prop: VdBsqExprFld<'sess>,
-    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
-        try_alt!(self.square_nonnegative(prop));
-        Ok(AltNone)
+    fn library_search_inner(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
+        self.square_nonnegative(prop)?;
+        AltNothing
     }
 
-    fn square_nonnegative(
-        &mut self,
-        prop: VdBsqExprFld<'sess>,
-    ) -> VdBsqHypothesisResult<'sess, AltOption<VdBsqHypothesisIdx<'sess>>> {
+    fn square_nonnegative(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
         use husky_print_utils::*;
         let VdBsqExprFldData::ChainingSeparatedList {
             leader,
@@ -52,7 +43,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             joined_signature: None,
         } = prop.data()
         else {
-            return Ok(AltNone);
+            return AltNothing;
         };
         assert!(followers.len() == 1);
         let (ge, rhs) = followers[0];
@@ -69,11 +60,11 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             unreachable!()
         };
         let VdMirFunc::Power(pow) = pow else {
-            return Ok(AltNone);
+            return AltNothing;
         };
         require!(pow_args[1].eqs_nat128(2));
         let Some(is_real_coercion) = pow_args[0].is_real(self).coercion() else {
-            return Ok(AltNone);
+            return AltNothing;
         };
         let construction = VdBsqHypothesisConstruction::Apply {
             path: VdTheoremPath::SquareNonnegative,
@@ -82,6 +73,6 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let hypothesis = self
             .hypothesis_constructor
             .construct_new_hypothesis(prop, construction);
-        Ok(AltSome(hypothesis))
+        AltJustOk(Ok(hypothesis))
     }
 }

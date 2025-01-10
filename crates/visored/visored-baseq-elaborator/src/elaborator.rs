@@ -8,10 +8,13 @@ use crate::{
         VdBsqHypothesisIdx,
     },
     session::VdBsqSession,
+    *,
 };
+use alt_maybe_result::*;
+use alt_option::*;
 use eterned::db::EternerDb;
 use floated_sequential::db::FloaterDb;
-use miracle::{HasMiracle, Miracle};
+use miracle::{error::MiracleAltMaybeResult, HasMiracle, Miracle};
 use rustc_hash::FxHashMap;
 use smallvec::*;
 use std::marker::PhantomData;
@@ -208,7 +211,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         let prop = self.expr_to_fld_map[prop];
         match hint {
             Some(hint) => todo!(),
-            None => self.obvious(prop),
+            None => self.run_obvious(prop),
         }
     }
 
@@ -243,7 +246,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
             self.ty_menu().prop,
             None,
         );
-        self.obvious(prop)
+        self.run_obvious(prop)
     }
 
     fn elaborate_folding_separated_list_expr(
@@ -307,5 +310,22 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdMirHypothesisIdx {
         self.transcribe_hypothesis(hypothesis, None, hypothesis_constructor)
+    }
+}
+
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub fn run(&mut self, mut f: impl FnMut(&mut Self) -> Mhr<'sess>) -> Hr<'sess> {
+        use miracle::HasMiracleFull;
+
+        let stages = self.session().config().stages();
+        assert!(stages.len() > 0, "stages must be non-empty");
+        match self.run_stages(stages, f) {
+            AltJustOk(res) => res,
+            AltJustErr(_) | AltNothing => todo!(),
+        }
+    }
+
+    pub fn run_obvious(&mut self, prop: VdBsqExprFld<'sess>) -> Hr<'sess> {
+        self.run(|slf| slf.obvious(prop))
     }
 }

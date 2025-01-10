@@ -21,6 +21,7 @@ mod tests;
 pub mod variable;
 
 use crate::monad::ElabM;
+use alt_maybe_result::*;
 use elaborator::VdBsqElaboratorInner;
 use eterned::db::EternerDb;
 use hypothesis::{contradiction::VdBsqHypothesisResult, VdBsqHypothesisIdx};
@@ -28,5 +29,6 @@ use miracle::error::MiracleAltMaybeResult;
 use visored_models::VdModels;
 
 type Mhr<'sess> = MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>;
+type Hr<'sess> = VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>;
 type Heuristic<'a, 'db, 'sess, T> =
     dyn Fn(&mut VdBsqElaboratorInner<'db, 'sess>, T) -> Mhr<'sess> + 'a;
