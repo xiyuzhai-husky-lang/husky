@@ -5,6 +5,7 @@ use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
 };
 use alt_option::*;
+use term::{prop::VdBsqPropTerm, VdBsqTerm};
 use visored_baseq_elaborator_macros::unify_elabm;
 use visored_entity_path::{
     path::{
@@ -26,6 +27,12 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 
     fn litnum_reduce_inner(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
         let rewritem = litnum_rewritem(prop);
-        todo!()
+        rewritem.eval(self, &|elr, expr| match expr.term() {
+            VdBsqTerm::Prop(VdBsqPropTerm::Trivial(b)) => match b {
+                true => todo!(),
+                false => todo!(),
+            },
+            _ => AltNothing,
+        })
     }
 }

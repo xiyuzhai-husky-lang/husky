@@ -34,7 +34,7 @@ pub(crate) fn with_call<'db, 'sess, R>(
 where
     'db: 'sess,
 {
-    |elaborator: &mut Er<'db, 'sess>, f: &dyn Fn(&mut Er<'db, 'sess>, R) -> _| {
+    |elaborator: &mut Elr<'db, 'sess>, f: &dyn Fn(&mut Elr<'db, 'sess>, R) -> _| {
         elaborator.call_stack.enter_call(call);
         let result = m.eval(elaborator, f);
         elaborator.call_stack.exit_call();

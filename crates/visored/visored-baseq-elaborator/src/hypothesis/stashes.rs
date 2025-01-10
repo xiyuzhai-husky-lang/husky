@@ -1,5 +1,7 @@
 pub mod litnum_equality;
 
+use crate::elaborator::VdBsqElaboratorInner;
+
 use self::litnum_equality::*;
 use super::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
 use floated_sequential::db::FloaterDb;
@@ -16,6 +18,12 @@ impl<'sess> VdBsqHypothesisStashes<'sess> {
         Self {
             litnum_equality: LitnumEqualityStash::new(),
         }
+    }
+}
+
+impl<'sess> VdBsqHypothesisStashes<'sess> {
+    pub fn litnum_equality(&self) -> &LitnumEqualityStash<'sess> {
+        &self.litnum_equality
     }
 }
 

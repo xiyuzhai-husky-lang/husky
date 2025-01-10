@@ -34,6 +34,18 @@ impl<'sess, Scheme> VdBsqHypothesisUniqueStash<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUniqueStashScheme,
 {
+    pub fn get(
+        &self,
+        key: Scheme::Key<'sess>,
+    ) -> Option<&(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>)> {
+        self.map.get(&key)
+    }
+}
+
+impl<'sess, Scheme> VdBsqHypothesisUniqueStash<'sess, Scheme>
+where
+    Scheme: IsVdBsqHypothesisUniqueStashScheme,
+{
     pub(crate) fn add_hypothesis(
         &mut self,
         hypothesis_record: VdBsqHypothesisStackRecord<'sess>,

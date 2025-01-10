@@ -34,8 +34,20 @@ fn litnum_rewrite_inner<'db, 'sess>(
 where
     'db: 'sess,
 {
-    let _ = todo!();
-    todo!()
+    move |elaborator: &mut Elr<'db, 'sess>,
+          heuristic: &dyn Fn(
+        &mut VdBsqElaboratorInner<'db, 'sess>,
+        VdBsqExprFld<'sess>,
+    ) -> Mhr<'sess>| {
+        match elaborator
+            .hypothesis_constructor
+            .stack()
+            .get_active_litnum_equality(expr)
+        {
+            Some(litnum) => todo!(),
+            None => rewrite_subexprs(expr).eval(elaborator, heuristic),
+        }
+    }
 }
 
 fn rewrite_subexprs<'db, 'sess>(

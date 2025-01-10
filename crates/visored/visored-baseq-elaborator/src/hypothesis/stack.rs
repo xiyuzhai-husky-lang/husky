@@ -1,6 +1,6 @@
 use super::*;
-use crate::hypothesis::stashes::VdBsqHypothesisStashes;
 use crate::term::VdBsqTerm;
+use crate::{hypothesis::stashes::VdBsqHypothesisStashes, term::litnum::VdBsqLitnumTerm};
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 
@@ -58,6 +58,10 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         &self.active_hypotheses
     }
 
+    pub fn stashes(&self) -> &VdBsqHypothesisStashes<'sess> {
+        &self.stashes
+    }
+
     pub(crate) fn get_active_hypothesis_with_expr(
         &self,
         expr: VdBsqExprFld<'sess>,
@@ -74,6 +78,18 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         let record = self.term_to_hypothesis_map.get(&term).copied()?;
         (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
             .then_some(record.hypothesis_idx)
+    }
+
+    pub(crate) fn get_active_litnum_equality(
+        &self,
+        expr: VdBsqExprFld<'sess>,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        let &(record, litnum) = self.stashes.litnum_equality().get(todo!())?;
+        // (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
+        //     .then_some(litnum)
+        use husky_print_utils::*;
+        p!(record, litnum);
+        todo!()
     }
 }
 
