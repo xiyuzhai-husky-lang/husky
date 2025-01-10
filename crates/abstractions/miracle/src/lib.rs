@@ -1,3 +1,4 @@
+#![feature(extend_one)]
 #![feature(impl_trait_in_assoc_type)]
 #![feature(inherent_associated_types)]
 //! Named after Gerard Valkyrie's "The Miracle" from Bleach, a divine ability that

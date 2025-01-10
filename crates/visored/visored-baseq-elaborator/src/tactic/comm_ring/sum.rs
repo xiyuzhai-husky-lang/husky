@@ -8,7 +8,7 @@ use crate::term::{
     num::VdBsqNumTerm,
 };
 use elabm::Pure;
-use miracle::error::MiracleAltMaybeResult;
+use miracle::{error::MiracleAltMaybeResult, foldm::foldm};
 use product::foldm_product;
 use std::marker::PhantomData;
 use visored_baseq_elaborator_macros::unify_elabm;
@@ -20,7 +20,7 @@ pub(super) fn foldm_sum<'a, 'db, 'sess>(
 where
     'db: 'sess,
 {
-    HasMiracleFull::foldm(
+    foldm(
         builder,
         terms.iter().copied(),
         &|elaborator, builder, term, heuristic| {
