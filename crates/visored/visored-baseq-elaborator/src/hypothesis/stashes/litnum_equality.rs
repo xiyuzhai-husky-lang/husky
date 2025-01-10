@@ -1,8 +1,11 @@
 use super::*;
 use crate::{
-    hypothesis::stash::{
-        unique::{IsVdBsqHypothesisUniqueStashScheme, VdBsqHypothesisUniqueStash},
-        IsVdBsqHypothesisStashScheme,
+    hypothesis::{
+        stack::VdBsqHypothesisStack,
+        stash::{
+            unique::{IsVdBsqHypothesisUniqueStashScheme, VdBsqHypothesisUniqueStash},
+            IsVdBsqHypothesisStashScheme,
+        },
     },
     term::{
         builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder},
@@ -92,4 +95,24 @@ fn normalize_then_split_raw<'sess>(
     let normalized_constant_term = sum.constant_term().mul(inv_coeff0, db);
     let normalized_monomials = monomials.map_collect(|coeff| coeff.mul(inv_coeff0, db));
     (normalized_constant_term, normalized_monomials)
+}
+
+impl<'sess> LitnumEqualityStash<'sess> {
+    pub fn reduce(
+        &self,
+        term: VdBsqComnumTerm<'sess>,
+        stack: &VdBsqHypothesisStack<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        match term {
+            VdBsqComnumTerm::Atom(term) => todo!(),
+            VdBsqComnumTerm::Sum(term) => {
+                let (_, _) = normalize_then_split_fld(term, db);
+                todo!()
+            }
+            VdBsqComnumTerm::Product(term, base) => {
+                todo!()
+            }
+        }
+    }
 }

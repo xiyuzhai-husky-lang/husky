@@ -39,10 +39,11 @@ where
         &mut VdBsqElaboratorInner<'db, 'sess>,
         VdBsqExprFld<'sess>,
     ) -> Mhr<'sess>| {
+        let db = elaborator.floater_db();
         match elaborator
             .hypothesis_constructor
             .stack()
-            .get_active_litnum_equality(expr)
+            .get_active_litnum_equality(expr, db)
         {
             Some(litnum) => todo!(),
             None => rewrite_subexprs(expr).eval(elaborator, heuristic),
@@ -56,8 +57,6 @@ fn rewrite_subexprs<'db, 'sess>(
 where
     'db: 'sess,
 {
-    // move |_: &mut VdBsqElaboratorInner<'db, 'sess>,
-    //       _: &dyn Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqExprFld<'sess>) -> Mhr<'sess>| todo!()
     #[unify_elabm]
     match expr.data() {
         VdBsqExprFldData::Literal(vd_literal) => todo!(),

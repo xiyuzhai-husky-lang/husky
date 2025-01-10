@@ -1,5 +1,5 @@
 use super::*;
-use crate::term::VdBsqTerm;
+use crate::term::{num::VdBsqNumTerm, VdBsqTerm};
 use crate::{hypothesis::stashes::VdBsqHypothesisStashes, term::litnum::VdBsqLitnumTerm};
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
@@ -83,13 +83,12 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
     pub(crate) fn get_active_litnum_equality(
         &self,
         expr: VdBsqExprFld<'sess>,
+        db: &'sess FloaterDb,
     ) -> Option<VdBsqLitnumTerm<'sess>> {
-        let &(record, litnum) = self.stashes.litnum_equality().get(todo!())?;
-        // (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
-        //     .then_some(litnum)
-        use husky_print_utils::*;
-        p!(record, litnum);
-        todo!()
+        let VdBsqNumTerm::Comnum(term) = expr.term().num()? else {
+            return None;
+        };
+        self.stashes.litnum_equality().reduce(term, self, db)
     }
 }
 

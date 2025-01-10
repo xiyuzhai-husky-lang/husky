@@ -1,5 +1,11 @@
 use super::*;
-use crate::hypothesis::{stack::VdBsqHypothesisStackRecord, VdBsqHypothesisEntry};
+use crate::{
+    hypothesis::{
+        stack::{VdBsqHypothesisStack, VdBsqHypothesisStackRecord},
+        VdBsqHypothesisEntry,
+    },
+    term::VdBsqTerm,
+};
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 use std::marker::PhantomData;
@@ -27,18 +33,6 @@ where
         Self {
             map: FxHashMap::default(),
         }
-    }
-}
-
-impl<'sess, Scheme> VdBsqHypothesisUniqueStash<'sess, Scheme>
-where
-    Scheme: IsVdBsqHypothesisUniqueStashScheme,
-{
-    pub fn get(
-        &self,
-        key: Scheme::Key<'sess>,
-    ) -> Option<&(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>)> {
-        self.map.get(&key)
     }
 }
 
