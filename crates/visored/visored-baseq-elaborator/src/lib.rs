@@ -1,15 +1,16 @@
+#![feature(never_type)]
 #![feature(proc_macro_hygiene)]
 #![feature(stmt_expr_attributes)]
 #![feature(let_chains)]
 pub mod call;
 pub mod coercion;
 pub mod config;
+mod elabm;
 pub mod elaborator;
 pub mod expr;
 pub mod helpers;
 pub mod hypothesis;
 pub mod maneuver;
-mod monad;
 pub mod outcome;
 pub mod session;
 mod signature;
@@ -20,7 +21,7 @@ pub mod term;
 mod tests;
 pub mod variable;
 
-use crate::monad::ElabM;
+use crate::elabm::ElabM;
 use alt_maybe_result::*;
 use elaborator::VdBsqElaboratorInner;
 use eterned::db::EternerDb;

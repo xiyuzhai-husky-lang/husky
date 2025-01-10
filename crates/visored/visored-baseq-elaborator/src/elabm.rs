@@ -69,3 +69,30 @@ where
         f(engine, self.0)
     }
 }
+
+impl<'db, 'sess, T> ElabM<'db, 'sess, T> for !
+where
+    'db: 'sess,
+{
+    fn eval(
+        self,
+        engine: &mut E<'db, 'sess>,
+        f: &dyn Fn(&mut E<'db, 'sess>, T) -> R<'sess>,
+    ) -> R<'sess> {
+        unreachable!()
+    }
+}
+
+impl<'db, 'sess, T> ElabM<'db, 'sess, T> for ()
+where
+    'db: 'sess,
+{
+    #[track_caller]
+    fn eval(
+        self,
+        engine: &mut E<'db, 'sess>,
+        f: &dyn Fn(&mut E<'db, 'sess>, T) -> R<'sess>,
+    ) -> R<'sess> {
+        todo!()
+    }
+}

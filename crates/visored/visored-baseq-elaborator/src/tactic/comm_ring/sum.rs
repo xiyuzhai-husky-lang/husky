@@ -7,8 +7,8 @@ use crate::term::{
     comnum::{sum::VdBsqSumComnumTerm, VdBsqNonSumComnumTerm},
     num::VdBsqNumTerm,
 };
+use elabm::Pure;
 use miracle::error::MiracleAltMaybeResult;
-use monad::Pure;
 use product::foldm_product;
 use std::marker::PhantomData;
 use visored_baseq_elaborator_macros::unify_elabm;

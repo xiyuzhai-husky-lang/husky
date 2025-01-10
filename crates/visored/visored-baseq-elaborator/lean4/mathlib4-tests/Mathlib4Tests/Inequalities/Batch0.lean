@@ -243,3 +243,11 @@ def h := by
   exact ()
 end Example34
 
+namespace Example35
+def h := by
+  let x := 1
+  have h1 : x = 1 := by let_assigned
+  have h2 : x > 0 := by obvious
+  exact ()
+end Example35
+

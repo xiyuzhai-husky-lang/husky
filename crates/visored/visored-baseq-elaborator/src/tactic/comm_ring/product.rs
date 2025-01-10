@@ -6,6 +6,7 @@ use crate::term::{
     },
     litnum::VdBsqLitnumTerm,
 };
+use elabm::ElabM;
 use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
 use miracle::multifold::Multifold;
@@ -13,7 +14,6 @@ use miracle::{
     error::MiracleAltMaybeResult,
     multifold::{self, multifold2},
 };
-use monad::ElabM;
 
 pub fn foldm_product<'a, 'db, 'sess>(
     exponentials: &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],

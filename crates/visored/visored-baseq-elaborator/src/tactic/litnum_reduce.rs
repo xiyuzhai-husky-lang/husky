@@ -1,0 +1,30 @@
+use super::*;
+use crate::{
+    coercion::VdBsqCoercionOutcome, expr::VdBsqExprFldData,
+    hypothesis::construction::VdBsqHypothesisConstruction,
+};
+use alt_option::*;
+use visored_baseq_elaborator_macros::unify_elabm;
+use visored_entity_path::{
+    path::{
+        set::{VdPreludeSetPath, VdSetPath},
+        VdItemPath,
+    },
+    theorem::VdTheoremPath,
+};
+use visored_mir_expr::expr::application::VdMirFunc;
+use visored_mir_opr::separator::VdMirBaseSeparator;
+use visored_term::term::VdTerm;
+
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub(crate) fn litnum_reduce(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
+        self.with_call(VdBsqTacticCall::LitnumReduce, |slf| {
+            slf.litnum_reduce_inner(prop)
+        })
+    }
+
+    fn litnum_reduce_inner(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
+        let _ = todo!();
+        todo!()
+    }
+}

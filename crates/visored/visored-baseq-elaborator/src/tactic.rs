@@ -1,6 +1,7 @@
 pub mod assumption;
 pub mod comm_ring;
 pub mod library_search;
+mod litnum_reduce;
 pub mod term_trivial;
 
 use crate::{
@@ -18,6 +19,7 @@ pub enum VdBsqTactic {
     TermTrivial,
     LibrarySearch,
     CommRing,
+    LitnumReduce,
 }
 
 // Trivial tactics are not tracked
@@ -25,6 +27,7 @@ pub enum VdBsqTactic {
 pub enum VdBsqTacticCall {
     LibrarySearch,
     CommRing,
+    LitnumReduce,
 }
 
 impl VdBsqTactic {
@@ -38,6 +41,7 @@ impl VdBsqTactic {
             VdBsqTactic::TermTrivial => elaborator.term_trivial(prop),
             VdBsqTactic::LibrarySearch => elaborator.library_search(prop),
             VdBsqTactic::CommRing => elaborator.comm_ring(prop),
+            VdBsqTactic::LitnumReduce => elaborator.litnum_reduce(prop),
         }
     }
 }
