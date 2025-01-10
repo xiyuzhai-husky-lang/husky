@@ -55,7 +55,7 @@ where
     }
 }
 
-struct Pure<T>(T);
+pub(crate) struct Pure<T>(pub T);
 
 impl<'db, 'sess, T> ElabM<'db, 'sess, T> for Pure<T>
 where

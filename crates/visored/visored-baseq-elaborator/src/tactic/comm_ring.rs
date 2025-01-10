@@ -48,7 +48,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         match self.run_stages(config.stages(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
             builder.add_litnum(term.constant_term());
-            foldm_sum(slf, term.monomials(), builder).eval(slf, &|slf, builder| {
+            foldm_sum(term.monomials(), builder).eval(slf, &|slf, builder| {
                 let term = builder.finish();
                 let VdBsqNumTerm::Litnum(litnum) = term else {
                     return AltNothing;
