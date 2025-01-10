@@ -48,14 +48,14 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         match self.run_stages(config.stages(), |slf| {
             let mut builder = VdBsqSumBuilder::new(slf.floater_db());
             builder.add_litnum(term.constant_term());
-            foldm_sum(slf, term.monomials(), builder, &|elaborator, builder| {
+            foldm_sum(slf, term.monomials(), builder).eval(slf, &|slf, builder| {
                 let term = builder.finish();
                 let VdBsqNumTerm::Litnum(litnum) = term else {
                     return AltNothing;
                 };
                 match litnum.compare_with_zero(kind) {
                     true => {
-                        let hypothesis = elaborator
+                        let hypothesis = slf
                             .hypothesis_constructor
                             .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::CommRing);
                         AltJustOk(Ok(hypothesis))

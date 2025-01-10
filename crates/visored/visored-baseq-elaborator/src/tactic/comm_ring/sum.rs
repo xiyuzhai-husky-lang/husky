@@ -11,13 +11,12 @@ use miracle::error::MiracleAltMaybeResult;
 use product::foldm_product;
 use std::marker::PhantomData;
 
-pub(super) fn foldm_sum<'db, 'sess>(
+pub(super) fn foldm_sum<'a, 'db, 'sess>(
     engine: &mut VdBsqElaboratorInner<'db, 'sess>,
-    terms: &[(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
+    terms: &'a [(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
     builder: VdBsqSumBuilder<'sess>,
-    f: &dyn Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Mhr<'sess>,
-) -> Mhr<'sess> {
-    engine._foldm(builder, terms.iter().copied(), &foldm_sum_step, f)
+) -> impl ElabM<'db, 'sess, VdBsqSumBuilder<'sess>> + 'a {
+    HasMiracleFull::foldm(builder, terms.iter().copied(), &foldm_sum_step)
 }
 
 fn foldm_sum_step<'db, 'sess>(
