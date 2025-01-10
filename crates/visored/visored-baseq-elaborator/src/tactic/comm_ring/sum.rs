@@ -17,7 +17,7 @@ pub(super) fn foldm_sum<'db, 'sess>(
     builder: VdBsqSumBuilder<'sess>,
     f: &dyn Fn(&mut VdBsqElaboratorInner<'db, 'sess>, VdBsqSumBuilder<'sess>) -> Mhr<'sess>,
 ) -> Mhr<'sess> {
-    engine.foldm(builder, terms.iter().copied(), &foldm_sum_step, f)
+    engine._foldm(builder, terms.iter().copied(), &foldm_sum_step, f)
 }
 
 fn foldm_sum_step<'db, 'sess>(

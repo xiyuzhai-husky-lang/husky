@@ -8,7 +8,11 @@ use crate::term::{
 };
 use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
-use miracle::error::MiracleAltMaybeResult;
+use miracle::multifold::Multifold;
+use miracle::{
+    error::MiracleAltMaybeResult,
+    multifold::{self, multifold2},
+};
 use monad::ElabM;
 
 pub fn foldm_product<'a, 'db, 'sess>(
@@ -17,12 +21,11 @@ pub fn foldm_product<'a, 'db, 'sess>(
 where
     'db: 'sess,
 {
-    VdBsqElaboratorInner::multifold2(
+    exponentials.multifold(
         vec![],
-        exponentials.iter().copied(),
         &[
             multiply_without_expanding as FnType,
-            multiply_with_expanding as FnType,
+            multiply_with_expanding as _,
         ],
     )
 }
@@ -30,12 +33,12 @@ where
 type State<'sess> = Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>;
 type Item<'sess> = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
 type FnType<'db, 'sess> =
-    fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &Item<'sess>) -> Option<State<'sess>>;
+    fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &&Item<'sess>) -> Option<State<'sess>>;
 
 fn multiply_without_expanding<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     expansion: &State<'sess>,
-    &(base, exponent): &Item<'sess>,
+    &&(base, exponent): &&Item<'sess>,
 ) -> Option<State<'sess>> {
     let factor_expansion = &[(1.into(), vec![(base, exponent)])];
     multiply_aux(elaborator, expansion, factor_expansion)
@@ -44,7 +47,7 @@ fn multiply_without_expanding<'db, 'sess>(
 fn multiply_with_expanding<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     expansion: &State<'sess>,
-    &(base, exponent): &Item<'sess>,
+    &&(base, exponent): &&Item<'sess>,
 ) -> Option<State<'sess>> {
     let db = elaborator.floater_db();
     let config = elaborator.session().config().tactic().comm_ring();

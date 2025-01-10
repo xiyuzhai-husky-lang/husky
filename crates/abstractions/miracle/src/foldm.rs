@@ -1,25 +1,23 @@
 use crate::*;
-
-pub(crate) fn foldm<Engine, S, I, R, H>(
+pub(crate) fn _foldm<Engine, S, I, R>(
     engine: &mut Engine,
     state: S,
     mut iter: I,
-    h: &H,
     f: &impl Fn(
         &mut Engine,
         S,
         I::Item,
         &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>,
+    h: &dyn Fn(&mut Engine, S) -> MiracleAltMaybeResult<R>,
 ) -> MiracleAltMaybeResult<R>
 where
     I: Iterator + Clone,
-    H: Fn(&mut Engine, S) -> MiracleAltMaybeResult<R> + ?Sized,
 {
     let Some(item) = iter.next() else {
         return h(engine, state);
     };
     f(engine, state, item, &|engine, state| {
-        foldm(engine, state, iter.clone(), h, f)
+        _foldm(engine, state, iter.clone(), f, h)
     })
 }

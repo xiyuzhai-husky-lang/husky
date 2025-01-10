@@ -102,7 +102,7 @@ pub trait HasMiracleFull: HasMiracle {
         f: impl FnMut(&mut Self, u64) -> MiracleAltMaybeResult<R>,
     ) -> MiracleAltMaybeResult<R>;
 
-    fn foldm<S, I, R>(
+    fn _foldm<S, I, R>(
         &mut self,
         init: S,
         iter: I,
@@ -118,8 +118,7 @@ pub trait HasMiracleFull: HasMiracle {
         I: IntoIterator,
         I::IntoIter: Clone;
 
-    fn foldm2<S, I, R>(
-        &mut self,
+    fn foldm<S, I, R>(
         init: S,
         iter: I,
         f: &impl Fn(
@@ -128,31 +127,6 @@ pub trait HasMiracleFull: HasMiracle {
             I::Item,
             &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
         ) -> MiracleAltMaybeResult<R>,
-    ) -> impl FnOnce(
-        &mut Self,
-        &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone;
-
-    /// `f` returns an option so that we could kill it early
-    fn multifold<S, I, R>(
-        &mut self,
-        init: S,
-        iter: I,
-        f: &[impl Fn(&mut Self, &S, &I::Item) -> Option<S>],
-        g: &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone;
-
-    /// `f` returns an option so that we could kill it early
-    fn multifold2<S, I, R>(
-        init: S,
-        iter: I,
-        f: &[impl Fn(&mut Self, &S, &I::Item) -> Option<S>],
     ) -> impl FnOnce(
         &mut Self,
         &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
@@ -207,27 +181,26 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         AltNothing
     }
 
+    fn _foldm<S, I, R>(
+        &mut self,
+        init: S,
+        iter: I,
+        f: &impl Fn(
+            &mut Self,
+            S,
+            I::Item,
+            &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
+        ) -> MiracleAltMaybeResult<R>,
+        heuristic: &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
+    ) -> MiracleAltMaybeResult<R>
+    where
+        I: IntoIterator,
+        I::IntoIter: Clone,
+    {
+        crate::foldm::_foldm(self, init, iter.into_iter(), f, heuristic)
+    }
+
     fn foldm<S, I, R>(
-        &mut self,
-        init: S,
-        iter: I,
-        f: &impl Fn(
-            &mut Self,
-            S,
-            I::Item,
-            &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-        ) -> MiracleAltMaybeResult<R>,
-        heuristic: &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone,
-    {
-        crate::foldm::foldm(self, init, iter.into_iter(), heuristic, f)
-    }
-
-    fn foldm2<S, I, R>(
-        &mut self,
         init: S,
         iter: I,
         f: &impl Fn(
@@ -244,36 +217,7 @@ impl<Engine: HasMiracle> HasMiracleFull for Engine {
         I: IntoIterator,
         I::IntoIter: Clone,
     {
-        |slf, heuristic| crate::foldm::foldm(slf, init, iter.into_iter(), heuristic, f)
-    }
-
-    fn multifold<S, I, R>(
-        &mut self,
-        init: S,
-        iter: I,
-        f: &[impl Fn(&mut Self, &S, &I::Item) -> Option<S>],
-        heuristic: &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone,
-    {
-        crate::multifold::multifold(self, init, iter.into_iter(), f, heuristic)
-    }
-
-    fn multifold2<S, I, R>(
-        init: S,
-        iter: I,
-        f: &[impl Fn(&mut Self, &S, &I::Item) -> Option<S>],
-    ) -> impl FnOnce(
-        &mut Self,
-        &dyn Fn(&mut Self, S) -> MiracleAltMaybeResult<R>,
-    ) -> MiracleAltMaybeResult<R>
-    where
-        I: IntoIterator,
-        I::IntoIter: Clone,
-    {
-        |slf, heuristic| crate::multifold::multifold(slf, init, iter.into_iter(), f, heuristic)
+        |slf, heuristic| crate::foldm::_foldm(slf, init, iter.into_iter(), f, heuristic)
     }
 }
 
