@@ -1,3 +1,5 @@
+#![feature(proc_macro_hygiene)]
+#![feature(stmt_expr_attributes)]
 #![feature(let_chains)]
 pub mod call;
 pub mod coercion;

@@ -11,6 +11,7 @@ use miracle::error::MiracleAltMaybeResult;
 use monad::Pure;
 use product::foldm_product;
 use std::marker::PhantomData;
+use visored_baseq_elaborator_macros::unify_elabm;
 
 pub(super) fn foldm_sum<'a, 'db, 'sess>(
     terms: &'a [(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
@@ -35,26 +36,24 @@ fn foldm_sum_step<'db, 'sess>(
 where
     'db: 'sess,
 {
-    move |elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
-          heuristic: &Heuristic<'_, 'db, 'sess, VdBsqSumBuilder<'sess>>| {
-        let db = elaborator.floater_db();
-        match term {
-            VdBsqNonSumComnumTerm::Atom(atom) => {
-                sum_builder.add_litnum_times_atom(litnum0, atom);
-                Pure(sum_builder).eval(elaborator, heuristic)
-            }
-            VdBsqNonSumComnumTerm::Product(base) => foldm_product(base.exponentials())
-                .map(|elaborator, expansion| {
-                    let mut sum_builder = sum_builder.clone();
-                    for (litnum, exponentials) in expansion {
-                        sum_builder.add_general_product(
-                            litnum0.mul(litnum, db),
-                            VdBsqProductComnumTermBase::from_parts(exponentials, db),
-                        );
-                    }
-                    sum_builder
-                })
-                .eval(elaborator, heuristic),
+    #[unify_elabm]
+    match term {
+        VdBsqNonSumComnumTerm::Atom(atom) => {
+            sum_builder.add_litnum_times_atom(litnum0, atom);
+            Pure(sum_builder)
+        }
+        VdBsqNonSumComnumTerm::Product(base) => {
+            let db = elaborator.floater_db();
+            foldm_product(base.exponentials()).map(|elaborator, expansion| {
+                let mut sum_builder = sum_builder.clone();
+                for (litnum, exponentials) in expansion {
+                    sum_builder.add_general_product(
+                        litnum0.mul(litnum, db),
+                        VdBsqProductComnumTermBase::from_parts(exponentials, db),
+                    );
+                }
+                sum_builder
+            })
         }
     }
 }
