@@ -117,7 +117,8 @@ impl<'sess> VdBsqLitNumBound<'sess> {
     }
 
     pub fn finalize(self, rhs: VdBsqLitnumTerm<'sess>, db: &'sess FloaterDb) -> bool {
-        if self.boundary_kind.contains(self.opr.boundary_kind()) {
+        // range A contains range B means if x is in B, then x is in A
+        if self.opr.boundary_kind().contains(self.boundary_kind) {
             if self.litnum == rhs {
                 return true;
             }

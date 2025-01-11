@@ -288,3 +288,9 @@ def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
   have h2 : x > (0 : ℝ) := by litnum_bound
   exact ()
 end Example38
+
+namespace Example39
+def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
+  have h2 : x ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example39
