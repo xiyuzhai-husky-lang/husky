@@ -36,5 +36,6 @@ pub fn load_obvious_tactics() -> Vec<VdBsqTactic> {
         VdBsqTactic::LibrarySearch,
         VdBsqTactic::CommRing,
         VdBsqTactic::LitnumReduce,
+        VdBsqTactic::LitnumEstimate,
     ]
 }
