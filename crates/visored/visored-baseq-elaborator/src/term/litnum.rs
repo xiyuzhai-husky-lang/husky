@@ -6,6 +6,7 @@ use crate::foundations::num::VdBsqSign;
 
 use self::{bigint::VdBsqBigInt, frac128::VdBsqFrac128};
 use super::*;
+use num_bigint::Sign;
 use std::num::NonZeroU128;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
@@ -74,8 +75,10 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         if self.sign(db) == sign {
             self
         } else {
-            todo!()
-            // self.neg(db)
+            match sign {
+                Sign::Minus | Sign::Plus => self.neg(db),
+                Sign::NoSign => todo!(),
+            }
         }
     }
 
