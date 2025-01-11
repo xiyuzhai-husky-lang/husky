@@ -43,6 +43,7 @@ macro "litnum_reduce": tactic =>`(tactic|
   | simp [*]; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
+
 namespace Example1
 def h := by
   have h1 : 0 = 0 := by term_trivial

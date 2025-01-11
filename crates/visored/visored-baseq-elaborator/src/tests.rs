@@ -101,8 +101,8 @@ macro "litnum_reduce": tactic =>`(tactic|
   | simp [*]; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
-{}
-"#,
+
+{}"#,
                 tracker.show_fmt(db)
             );
             expect_file!(relative_path.to_logical_path(lean4_dir)).assert_eq(&lean4_code);
