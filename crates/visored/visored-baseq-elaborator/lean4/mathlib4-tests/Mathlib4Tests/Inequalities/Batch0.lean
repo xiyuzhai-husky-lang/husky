@@ -309,12 +309,30 @@ end Example41
 
 namespace Example42
 def h (x : ℝ) (h1 : x < (1 : ℝ)) := by
-  have h2 : x < (2 : ℝ) := by litnum_bound
+  have h2 : x ≤ (1 : ℝ) := by litnum_bound
   exact ()
 end Example42
 
 namespace Example43
 def h (x : ℝ) (h1 : x < (1 : ℝ)) := by
-  have h2 : x ≤ (2 : ℝ) := by litnum_bound
+  have h2 : x < (2 : ℝ) := by litnum_bound
   exact ()
 end Example43
+
+namespace Example44
+def h (x : ℝ) (h1 : x < (1 : ℝ)) := by
+  have h2 : x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example44
+
+namespace Example45
+def h (x : ℝ) (h1 : x ≤ (1 : ℝ)) := by
+  have h2 : x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example45
+
+namespace Example46
+def h (x : ℝ) (h1 : x ≤ (1 : ℝ)) := by
+  have h2 : x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example46
