@@ -65,8 +65,9 @@ where
 {
     #[unify_elabm]
     match *expr.data() {
-        VdBsqExprFldData::Literal(vd_literal) => Pure(expr),
-        VdBsqExprFldData::Variable(lx_math_letter, arena_idx) => Pure(expr),
+        VdBsqExprFldData::Literal(_)
+        | VdBsqExprFldData::Variable(_, _)
+        | VdBsqExprFldData::ItemPath(_) => Pure(expr),
         VdBsqExprFldData::Application {
             function,
             ref arguments,
@@ -127,6 +128,5 @@ where
                 )
             })
         }),
-        VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
     }
 }
