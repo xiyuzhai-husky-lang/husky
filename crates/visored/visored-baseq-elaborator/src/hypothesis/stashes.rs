@@ -15,14 +15,14 @@ use visored_baseq_elaborator_macros::stashes;
 #[stashes]
 pub struct VdBsqHypothesisStashes<'sess> {
     litnum_equality: LitnumEqualityStash<'sess>,
-    litnum_bound: LitnumBoundStash<'sess>,
+    litnum_bound: VdBsqLitnumBoundStash<'sess>,
 }
 
 impl<'sess> VdBsqHypothesisStashes<'sess> {
     pub(super) fn new() -> Self {
         Self {
             litnum_equality: LitnumEqualityStash::new(),
-            litnum_bound: LitnumBoundStash::new(),
+            litnum_bound: VdBsqLitnumBoundStash::new(),
         }
     }
 }
@@ -30,6 +30,10 @@ impl<'sess> VdBsqHypothesisStashes<'sess> {
 impl<'sess> VdBsqHypothesisStashes<'sess> {
     pub fn litnum_equality(&self) -> &LitnumEqualityStash<'sess> {
         &self.litnum_equality
+    }
+
+    pub fn litnum_bound(&self) -> &VdBsqLitnumBoundStash<'sess> {
+        &self.litnum_bound
     }
 }
 

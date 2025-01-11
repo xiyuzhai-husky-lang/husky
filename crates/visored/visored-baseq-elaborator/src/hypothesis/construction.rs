@@ -18,4 +18,5 @@ pub enum VdBsqHypothesisConstruction<'sess> {
     Sorry,
     LetAssigned,
     LitnumReduce,
+    LitnumBound,
 }

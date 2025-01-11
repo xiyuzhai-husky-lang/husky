@@ -16,6 +16,12 @@ pub enum AltMaybeResult<T, E> {
     AltNothing,
 }
 
+impl<T, E> Default for AltMaybeResult<T, E> {
+    fn default() -> Self {
+        AltNothing
+    }
+}
+
 impl<T, E> AltMaybeResult<T, E> {
     #[track_caller]
     pub fn expect(self, message: &str) -> T {

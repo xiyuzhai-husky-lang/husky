@@ -131,19 +131,6 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
     fn is_record_valid(&self, record: VdBsqHypothesisStackRecord<'sess>) -> bool {
         self.active_hypotheses.is_record_active(record)
     }
-
-    pub(crate) fn get_active_litnum_equality(
-        &self,
-        expr: VdBsqExprFld<'sess>,
-        db: &'sess FloaterDb,
-    ) -> Option<VdBsqLitnumTerm<'sess>> {
-        let VdBsqNumTerm::Comnum(term) = expr.term().num()? else {
-            return None;
-        };
-        self.stashes
-            .litnum_equality()
-            .reduce(term, &self.active_hypotheses, db)
-    }
 }
 
 impl<'sess> VdBsqHypothesisStack<'sess> {

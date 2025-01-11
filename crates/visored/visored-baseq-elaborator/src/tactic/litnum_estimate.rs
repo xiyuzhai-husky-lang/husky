@@ -6,6 +6,7 @@ use crate::{
 };
 use alt_option::*;
 use foundations::opr::separator::relation::comparison::VdBsqBoundOpr;
+use husky_control_flow_utils::require;
 use term::{litnum::VdBsqLitnumTerm, prop::VdBsqPropTerm, VdBsqTerm};
 use visored_baseq_elaborator_macros::unify_elabm;
 use visored_entity_path::{
@@ -38,7 +39,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         if followers.len() != 1 {
             return AltNothing;
         }
-        let relationship = match followers[0].0 {
+        let opr = match followers[0].0 {
             VdMirFunc::NormalBaseSeparator(signature) => {
                 VdBsqBoundOpr::from_mir_base_separator(signature.opr())?
             }
@@ -47,28 +48,39 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let VdBsqTerm::Litnum(rhs) = followers[0].1.term() else {
             return AltNothing;
         };
-        try_all(self, leader, relationship, rhs)
+        try_all(self, prop, leader, opr, rhs)
     }
 }
 
 fn try_all<'db, 'sess>(
     elr: &mut VdBsqElaboratorInner<'db, 'sess>,
+    prop: VdBsqExprFld<'sess>,
     leader: VdBsqExprFld<'sess>,
-    comp: VdBsqBoundOpr,
+    opr: VdBsqBoundOpr,
     rhs: VdBsqLitnumTerm<'sess>,
 ) -> Mhr<'sess> {
-    try_one_shot(elr, leader, comp, rhs)?;
+    try_one_shot(elr, prop, leader, opr, rhs)?;
     AltNothing
 }
 
 fn try_one_shot<'db, 'sess>(
     elr: &mut VdBsqElaboratorInner<'db, 'sess>,
+    prop: VdBsqExprFld<'sess>,
     leader: VdBsqExprFld<'sess>,
-    comp: VdBsqBoundOpr,
+    opr: VdBsqBoundOpr,
     rhs: VdBsqLitnumTerm<'sess>,
 ) -> Mhr<'sess> {
-    // elr.hypothesis_constructor
-    //     .stack()
-    //     .get_active_litnum_inequality(expr, db);
-    todo!()
+    let db = elr.floater_db();
+    let VdBsqTerm::Comnum(leader) = leader.term() else {
+        todo!()
+    };
+    let bound = elr
+        .hypothesis_constructor
+        .stack()
+        .get_active_litnum_bound(leader, opr, db)?;
+    require!(bound.finalize(rhs, db));
+    let hypothesis = elr
+        .hypothesis_constructor
+        .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::LitnumBound);
+    AltJustOk(Ok(hypothesis))
 }

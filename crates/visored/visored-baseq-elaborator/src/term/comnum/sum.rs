@@ -1,5 +1,3 @@
-mod split;
-
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
 use super::*;

@@ -1,4 +1,5 @@
 pub mod atom;
+pub mod helpers;
 pub mod product;
 pub mod sum;
 

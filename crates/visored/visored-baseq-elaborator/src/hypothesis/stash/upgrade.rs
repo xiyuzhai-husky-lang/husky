@@ -6,7 +6,7 @@ use crate::hypothesis::{
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 use smallvec::*;
-use std::marker::PhantomData;
+use std::{cell::RefCell, marker::PhantomData};
 
 pub trait IsVdBsqHypothesisUpgradeStashScheme: IsVdBsqHypothesisStashScheme {
     fn is_new_value_an_upgrade<'sess>(old: &Self::Value<'sess>, new: &Self::Value<'sess>) -> bool;
@@ -28,7 +28,7 @@ pub struct VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpgradeStashScheme,
 {
-    values: SmallVec<[(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>); 4]>,
+    values: RefCell<SmallVec<[(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>); 4]>>,
 }
 
 impl<'sess, Scheme> Default for VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
@@ -37,7 +37,7 @@ where
 {
     fn default() -> Self {
         Self {
-            values: smallvec![],
+            values: RefCell::new(smallvec![]),
         }
     }
 }
@@ -57,6 +57,30 @@ impl<'sess, Scheme> VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpgradeStashScheme,
 {
+    fn get_active_value<R>(
+        &self,
+        active_hypotheses: &VdBsqActiveHypotheses<'sess>,
+        f: impl FnOnce(&Scheme::Value<'sess>) -> R,
+    ) -> Option<R> {
+        self.clear_inactive_values(active_hypotheses);
+        let values = self.values.borrow();
+        values.last().map(|(_, value)| f(value))
+    }
+
+    fn clear_inactive_values(&self, active_hypotheses: &VdBsqActiveHypotheses) {
+        let mut values = self.values.borrow_mut();
+        while let Some(&(stack_record, _)) = values.last()
+            && !active_hypotheses.is_record_active(stack_record)
+        {
+            values.pop();
+        }
+    }
+}
+
+impl<'sess, Scheme> VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
+where
+    Scheme: IsVdBsqHypothesisUpgradeStashScheme,
+{
     fn cache(
         &mut self,
         hypothesis_stack_record: VdBsqHypothesisStackRecord<'sess>,
@@ -64,22 +88,15 @@ where
         value: Scheme::Value<'sess>,
     ) {
         self.clear_inactive_values(active_hypotheses);
-        match self.values.last() {
+        let mut values = self.values.borrow_mut();
+        match values.last() {
             Some((_, last_value)) if Scheme::is_new_value_an_upgrade(last_value, &value) => {
-                self.values.push((hypothesis_stack_record, value));
+                values.push((hypothesis_stack_record, value));
             }
             None => {
-                self.values.push((hypothesis_stack_record, value));
+                values.push((hypothesis_stack_record, value));
             }
             _ => (),
-        }
-    }
-
-    fn clear_inactive_values(&mut self, active_hypotheses: &VdBsqActiveHypotheses) {
-        while let Some(&(stack_record, _)) = self.values.last()
-            && !active_hypotheses.is_record_active(stack_record)
-        {
-            self.values.pop();
         }
     }
 }
@@ -92,6 +109,35 @@ where
         Self {
             map: FxHashMap::default(),
         }
+    }
+}
+
+impl<'sess, Scheme> VdBsqHypothesisUpgradeStash<'sess, Scheme>
+where
+    Scheme: IsVdBsqHypothesisUpgradeStashScheme,
+{
+    pub fn get_active_value(
+        &self,
+        key: Scheme::Key<'sess>,
+        db: &'sess FloaterDb,
+        active_hypotheses: &VdBsqActiveHypotheses<'sess>,
+    ) -> Option<Scheme::Value<'sess>>
+    where
+        Scheme::Value<'sess>: Copy,
+    {
+        let entry = self.map.get(&key)?;
+        entry.get_active_value(active_hypotheses, |&value| value)
+    }
+
+    pub fn get_active_value_with<R>(
+        &self,
+        key: Scheme::Key<'sess>,
+        db: &'sess FloaterDb,
+        active_hypotheses: &VdBsqActiveHypotheses<'sess>,
+        f: impl FnOnce(&Scheme::Value<'sess>) -> R,
+    ) -> Option<R> {
+        let entry = self.map.get(&key)?;
+        entry.get_active_value(active_hypotheses, f)
     }
 }
 

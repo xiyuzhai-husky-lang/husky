@@ -10,11 +10,31 @@ use std::num::NonZeroU128;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Clone, Copy, Hash, Eq, PartialEq)]
 pub enum VdBsqLitnumTerm<'sess> {
     Int128(i128),
     BigInt(VdBsqBigInt<'sess>),
     Frac128(VdBsqFrac128),
+}
+
+impl<'sess> PartialOrd for VdBsqLitnumTerm<'sess> {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl<'sess> Ord for VdBsqLitnumTerm<'sess> {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        match self {
+            VdBsqLitnumTerm::Int128(slf) => match other {
+                VdBsqLitnumTerm::Int128(other) => slf.cmp(other),
+                VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+                VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+            },
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        }
+    }
 }
 
 impl<'sess> std::fmt::Debug for VdBsqLitnumTerm<'sess> {
@@ -156,7 +176,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
-    pub fn mul_nonsum(
+    pub fn mul_nonsum_comnum(
         self,
         rhs: VdBsqNonSumComnumTerm<'sess>,
         db: &'sess FloaterDb,

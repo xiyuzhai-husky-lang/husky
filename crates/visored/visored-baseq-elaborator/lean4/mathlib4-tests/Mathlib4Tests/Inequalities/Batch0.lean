@@ -44,6 +44,12 @@ macro "litnum_reduce": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "litnum_bound": tactic =>`(tactic|
+  first
+  | linarith; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 namespace Example1
 def h := by
   have h1 : 0 = 0 := by term_trivial
@@ -279,6 +285,6 @@ end Example37
 
 namespace Example38
 def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
-  have h2 : x > (0 : ℝ) := by obvious
+  have h2 : x > (0 : ℝ) := by litnum_bound
   exact ()
 end Example38

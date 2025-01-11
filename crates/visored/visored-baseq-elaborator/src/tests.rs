@@ -102,6 +102,12 @@ macro "litnum_reduce": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
+macro "litnum_bound": tactic =>`(tactic|
+  first
+  | linarith; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 {}"#,
                 tracker.show_fmt(db)
             );

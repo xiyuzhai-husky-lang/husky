@@ -1,5 +1,6 @@
 use super::*;
 use crate::{
+    expr::VdBsqExprFld,
     foundations::opr::separator::relation::comparison::VdBsqComparisonOpr,
     hypothesis::{
         stack::VdBsqHypothesisStack,
@@ -32,7 +33,7 @@ impl IsVdBsqHypothesisStashScheme for VdBsqLitNumEqualityScheme {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBsqLitNumEqualityKey<'sess> {
-    normalized_monomials: VdBsqNumTerm<'sess>,
+    normalized_monomials: VdBsqComnumTerm<'sess>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -80,7 +81,7 @@ impl<'sess> LitnumEqualityStash<'sess> {
         /// decompose `t = a(b + x)`
         let (a, (b, x)): (
             VdBsqLitnumTerm<'sess>,
-            (VdBsqLitnumTerm<'sess>, VdBsqNumTerm<'sess>),
+            (VdBsqLitnumTerm<'sess>, VdBsqComnumTerm<'sess>),
         ) = match term {
             VdBsqComnumTerm::Atom(atom) => {
                 (VdBsqLitnumTerm::ONE, (VdBsqLitnumTerm::ZERO, atom.into()))
@@ -95,5 +96,20 @@ impl<'sess> LitnumEqualityStash<'sess> {
         };
         let value = self.get_valid_value(&key, active_hypotheses)?.litnum;
         Some(a.mul(value.add(b, db), db))
+    }
+}
+
+impl<'sess> VdBsqHypothesisStack<'sess> {
+    pub(crate) fn get_active_litnum_equality(
+        &self,
+        expr: VdBsqExprFld<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        let VdBsqNumTerm::Comnum(term) = expr.term().num()? else {
+            return None;
+        };
+        self.stashes()
+            .litnum_equality()
+            .reduce(term, self.active_hypotheses(), db)
     }
 }

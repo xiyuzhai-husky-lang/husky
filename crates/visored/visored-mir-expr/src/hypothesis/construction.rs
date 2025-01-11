@@ -18,4 +18,5 @@ pub enum VdMirHypothesisConstruction {
     CommRing,
     LetAssigned,
     LitnumReduce,
+    LitnumBound,
 }

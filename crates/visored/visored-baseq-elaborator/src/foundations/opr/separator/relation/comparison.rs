@@ -41,3 +41,31 @@ pub enum VdBsqBoundBoundaryKind {
     Closed,
     Open,
 }
+
+impl VdBsqBoundBoundaryKind {
+    pub fn contains(self, other: Self) -> bool {
+        match (self, other) {
+            (VdBsqBoundBoundaryKind::Open, VdBsqBoundBoundaryKind::Closed) => false,
+            _ => true,
+        }
+    }
+}
+
+#[test]
+fn vd_bsq_bound_boundary_kind_contains_works() {
+    assert!(VdBsqBoundBoundaryKind::Closed.contains(VdBsqBoundBoundaryKind::Open));
+    assert!(!VdBsqBoundBoundaryKind::Open.contains(VdBsqBoundBoundaryKind::Closed));
+    assert!(VdBsqBoundBoundaryKind::Closed.contains(VdBsqBoundBoundaryKind::Closed));
+    assert!(VdBsqBoundBoundaryKind::Open.contains(VdBsqBoundBoundaryKind::Open));
+}
+
+impl VdBsqBoundOpr {
+    pub fn boundary_kind(self) -> VdBsqBoundBoundaryKind {
+        match self {
+            VdBsqBoundOpr::Lt => VdBsqBoundBoundaryKind::Open,
+            VdBsqBoundOpr::Gt => VdBsqBoundBoundaryKind::Open,
+            VdBsqBoundOpr::Le => VdBsqBoundBoundaryKind::Closed,
+            VdBsqBoundOpr::Ge => VdBsqBoundBoundaryKind::Closed,
+        }
+    }
+}
