@@ -210,6 +210,14 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
+    pub fn div_litnum(
+        self,
+        rhs: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        todo!()
+    }
+
     pub fn div_assign(&mut self, rhs: Self, db: &FloaterDb) {
         match *self {
             VdBsqLitnumTerm::Int128(slf) => match rhs {

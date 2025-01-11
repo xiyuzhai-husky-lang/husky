@@ -44,9 +44,10 @@ impl<'sess> VdBsqSumComnumTerm<'sess> {
         debug_assert!(monomials.len() > 0);
         let coeff0 = monomials.data()[0].1;
         debug_assert!(coeff0.is_nonzero());
-        let factor = f(coeff0.inverse().expect("nonzero"));
-        let normalized_constant_term = self.constant_term().mul(factor, db);
-        let normalized_monomials = monomials.map_collect(|coeff| coeff.mul(factor, db));
+        let factor = f(coeff0);
+        let inv_factor = factor.inverse().expect("nonzero");
+        let normalized_constant_term = self.constant_term().mul(inv_factor, db);
+        let normalized_monomials = monomials.map_collect(|coeff| coeff.mul(inv_factor, db));
         (factor, (normalized_constant_term, normalized_monomials))
     }
 }
@@ -67,7 +68,10 @@ impl<'sess> VdBsqComnumTerm<'sess> {
     ) {
         match self {
             VdBsqComnumTerm::Sum(sum) => sum.split_fld(f, db),
-            _ => (1.into(), (0.into(), self)),
+            _ => {
+                let factor = f(1.into());
+                (factor, (0.into(), self.div_litnum(factor, db).unwrap()))
+            }
         }
     }
 }

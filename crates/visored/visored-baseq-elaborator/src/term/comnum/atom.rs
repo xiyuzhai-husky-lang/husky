@@ -77,8 +77,8 @@ impl<'sess> VdBsqComnumAtomTermData {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqComnumAtomTermData::Variable(lx_math_letter, _) => {
-                write!(f, "{}", lx_math_letter.unicode())
+            VdBsqComnumAtomTermData::Variable(lx_math_letter, idx) => {
+                write!(f, "{}({})", lx_math_letter.unicode(), idx.index())
             }
         }
     }
@@ -124,6 +124,26 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
                 .collect(),
             db,
         );
-        VdBsqComnumTerm::Product(rhs.into(), product_base).into()
+        VdBsqComnumTerm::Product(rhs, product_base).into()
+    }
+
+    pub fn div_litnum(
+        self,
+        rhs: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqComnumTerm<'sess>> {
+        if rhs == 0.into() {
+            return None;
+        }
+        if rhs == 1.into() {
+            return Some(self.into());
+        }
+        let product_base = VdBsqProductComnumTermBase::new(
+            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
+                .into_iter()
+                .collect(),
+            db,
+        );
+        Some(VdBsqComnumTerm::Product(rhs.inverse().unwrap(), product_base).into())
     }
 }

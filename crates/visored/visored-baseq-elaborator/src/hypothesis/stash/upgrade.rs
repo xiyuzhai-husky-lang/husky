@@ -28,11 +28,31 @@ where
     map: FxHashMap<Scheme::Key<'sess>, VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>>,
 }
 
+impl<'sess, Scheme> std::fmt::Debug for VdBsqHypothesisUpgradeStash<'sess, Scheme>
+where
+    Scheme: IsVdBsqHypothesisUpgradeStashScheme,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("VdBsqHypothesisUpgradeStash")
+            .field("map", &self.map)
+            .finish()
+    }
+}
+
 pub struct VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
 where
     Scheme: IsVdBsqHypothesisUpgradeStashScheme,
 {
     values: RefCell<SmallVec<[(VdBsqHypothesisStackRecord<'sess>, Scheme::Value<'sess>); 4]>>,
+}
+
+impl<'sess, Scheme> std::fmt::Debug for VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
+where
+    Scheme: IsVdBsqHypothesisUpgradeStashScheme,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_list().entries(self.values.borrow().iter()).finish()
+    }
 }
 
 impl<'sess, Scheme> Default for VdBsqHypothesisUpgradeStashEntry<'sess, Scheme>
@@ -67,8 +87,7 @@ where
         f: impl FnOnce(&Scheme::Value<'sess>) -> R,
     ) -> Option<R> {
         self.clear_inactive_values(active_hypotheses);
-        let values = self.values.borrow();
-        values.last().map(|(_, value)| f(value))
+        self.values.borrow().last().map(|(_, value)| f(value))
     }
 
     fn clear_inactive_values(&self, active_hypotheses: &VdBsqActiveHypotheses) {
@@ -140,6 +159,9 @@ where
         active_hypotheses: &VdBsqActiveHypotheses<'sess>,
         f: impl FnOnce(&Scheme::Value<'sess>) -> R,
     ) -> Option<R> {
+        use husky_print_utils::*;
+        p!(self);
+        p!(key, self.map.get(&key));
         let entry = self.map.get(&key)?;
         entry.get_active_value(active_hypotheses, f)
     }

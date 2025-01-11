@@ -10,19 +10,11 @@ use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_opr::precedence::VdPrecedence;
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqComnumTerm<'sess> {
     Atom(VdBsqAtomComnumTerm<'sess>),
     Sum(VdBsqSumComnumTerm<'sess>),
     Product(VdBsqLitnumTerm<'sess>, VdBsqProductComnumTermBase<'sess>),
-}
-
-impl<'sess> std::fmt::Debug for VdBsqComnumTerm<'sess> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("ComnumTerm(`")?;
-        self.show_fmt(VdPrecedenceRange::Any, f)?;
-        f.write_str("`)")
-    }
 }
 
 impl<'sess> VdBsqComnumTerm<'sess> {
@@ -68,19 +60,11 @@ impl<'sess> VdBsqComnumTerm<'sess> {
 }
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonProductNumTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
     AtomComnum(VdBsqAtomComnumTerm<'sess>),
     SumComnum(VdBsqSumComnumTerm<'sess>),
-}
-
-impl<'sess> std::fmt::Debug for VdBsqNonProductNumTerm<'sess> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("NonProductNumTerm(")?;
-        self.show_fmt(VdPrecedenceRange::Any, f)?;
-        f.write_str(")")
-    }
 }
 
 impl<'sess> VdBsqNonProductNumTerm<'sess> {
@@ -193,6 +177,26 @@ impl<'sess> VdBsqComnumTerm<'sess> {
             VdBsqComnumTerm::Sum(term) => term.mul128(rhs, db),
             VdBsqComnumTerm::Product(litnum, term) => {
                 VdBsqComnumTerm::Product(litnum.mul128(rhs, db), term).into()
+            }
+        }
+    }
+
+    pub fn div_litnum(
+        self,
+        rhs: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqComnumTerm<'sess>> {
+        if rhs.is_zero() {
+            return None;
+        }
+        if rhs.is_one() {
+            return Some(self.into());
+        }
+        match self {
+            VdBsqComnumTerm::Atom(slf) => Some(slf.div_litnum(rhs, db).unwrap().into()),
+            VdBsqComnumTerm::Sum(slf) => Some(slf.div_litnum(rhs, db).unwrap()),
+            VdBsqComnumTerm::Product(litnum, term) => {
+                Some(VdBsqComnumTerm::Product(litnum.div_litnum(rhs, db).unwrap(), term).into())
             }
         }
     }

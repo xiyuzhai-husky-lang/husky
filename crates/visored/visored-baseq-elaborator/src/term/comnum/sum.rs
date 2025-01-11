@@ -159,4 +159,12 @@ impl<'sess> VdBsqSumComnumTerm<'sess> {
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         todo!()
     }
+
+    pub fn div_litnum(
+        self,
+        rhs: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqComnumTerm<'sess>> {
+        todo!()
+    }
 }

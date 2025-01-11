@@ -220,7 +220,7 @@ impl<'sess> VdBsqLitnumBoundStash<'sess> {
         active_hypotheses: &VdBsqActiveHypotheses<'sess>,
         db: &'sess FloaterDb,
     ) -> Option<VdBsqLitNumBound<'sess>> {
-        let (factor, (litnum, normalized_monomials)) = split(term, VdBsqBoundOpr::Lt, db);
+        let (factor, (litnum, normalized_monomials)) = split(term, opr, db);
         self.get_active_value_with(
             VdBsqLitNumBoundKey {
                 normalized_monomials,

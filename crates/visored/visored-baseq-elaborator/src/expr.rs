@@ -42,30 +42,32 @@ pub struct VdBsqExprFld<'sess> {
 impl<'sess> std::fmt::Debug for VdBsqExprFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdMirExprFld(`")?;
-        self.show(VdPrecedenceRange::ANY, f)?;
+        self.show_fmt(VdPrecedenceRange::ANY, f)?;
         f.write_str("`)")
     }
 }
 
 impl<'sess> VdBsqExprFld<'sess> {
-    pub fn show(
+    pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if precedence_range.contains(self.data().outer_precedence()) {
-            self.show_inner(f)
+            self.show_fmt_inner(f)
         } else {
             f.write_str("(")?;
-            self.show_inner(f)?;
+            self.show_fmt_inner(f)?;
             f.write_str(")")
         }
     }
 
-    fn show_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn show_fmt_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
             VdBsqExprFldData::Literal(literal) => literal.show(f),
-            VdBsqExprFldData::Variable(letter, _) => letter.show(f),
+            VdBsqExprFldData::Variable(letter, idx) => {
+                write!(f, "{}({})", letter.unicode(), idx.index())
+            }
             VdBsqExprFldData::Application {
                 function,
                 arguments,
@@ -74,11 +76,11 @@ impl<'sess> VdBsqExprFld<'sess> {
                 VdMirFunc::NormalBaseSeparator(signature) => todo!(),
                 VdMirFunc::NormalBaseBinaryOpr(signature) => {
                     let opr = signature.opr;
-                    arguments[0].show(opr.left_precedence_range(), f)?;
+                    arguments[0].show_fmt(opr.left_precedence_range(), f)?;
                     f.write_str(" ")?;
                     f.write_str(opr.unicode())?;
                     f.write_str(" ")?;
-                    arguments[1].show(opr.right_precedence_range(), f)?;
+                    arguments[1].show_fmt(opr.right_precedence_range(), f)?;
                     Ok(())
                 }
                 VdMirFunc::Power(signature) => {
@@ -89,7 +91,7 @@ impl<'sess> VdBsqExprFld<'sess> {
 
                                 // use unicode to show the superscript
                                 let superscript = superscript(i as u8).unwrap();
-                                arguments[0].show(VdPrecedenceRange::ATOM, f)?;
+                                arguments[0].show_fmt(VdPrecedenceRange::ATOM, f)?;
                                 write!(f, "{}", superscript)?;
                                 return Ok(());
                             }
@@ -97,9 +99,9 @@ impl<'sess> VdBsqExprFld<'sess> {
                         },
                         _ => (),
                     }
-                    arguments[0].show(VdPrecedenceRange::ATOM, f)?;
+                    arguments[0].show_fmt(VdPrecedenceRange::ATOM, f)?;
                     write!(f, "^{{")?;
-                    arguments[1].show(VdPrecedenceRange::ANY, f)?;
+                    arguments[1].show_fmt(VdPrecedenceRange::ANY, f)?;
                     f.write_str("}}")
                 }
                 VdMirFunc::InSet => todo!(),
@@ -110,7 +112,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     todo!("maybe non base separator?")
                 };
                 let precedence_range = signature.opr().left_precedence_range();
-                leader.show(precedence_range, f)?;
+                leader.show_fmt(precedence_range, f)?;
                 for (func, follower) in followers {
                     let VdMirFunc::NormalBaseSeparator(signature) = func else {
                         todo!("maybe non base separator?")
@@ -118,7 +120,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     f.write_str(" ")?;
                     signature.opr().show_fmt(f)?;
                     f.write_str(" ")?;
-                    follower.show(precedence_range, f)?;
+                    follower.show_fmt(precedence_range, f)?;
                 }
                 Ok(())
             }
@@ -131,7 +133,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     todo!("maybe non base separator?")
                 };
                 let precedence_range = signature.opr().left_precedence_range();
-                leader.show(precedence_range, f)?;
+                leader.show_fmt(precedence_range, f)?;
                 for (func, follower) in followers {
                     let VdMirFunc::NormalBaseSeparator(signature) = func else {
                         todo!("maybe non base separator?")
@@ -139,7 +141,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     f.write_str(" ")?;
                     signature.opr().show_fmt(f)?;
                     f.write_str(" ")?;
-                    follower.show(precedence_range, f)?;
+                    follower.show_fmt(precedence_range, f)?;
                 }
                 Ok(())
             }
