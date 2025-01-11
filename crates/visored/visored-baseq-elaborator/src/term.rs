@@ -23,7 +23,10 @@ use visored_mir_expr::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
-use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
+use visored_mir_opr::{
+    opr::{binary::VdMirBaseBinaryOpr, prefix::VdMirBasePrefixOpr},
+    separator::VdMirBaseSeparator,
+};
 use visored_opr::precedence::VdPrecedenceRange;
 use visored_term::{
     term::{literal::VdLiteralData, VdTermData},
@@ -127,7 +130,16 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 function,
                 ref arguments,
             } => match function {
-                VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+                VdMirFunc::NormalBasePrefixOpr(signature) => match signature.opr {
+                    VdMirBasePrefixOpr::RingPos => arguments[0].term(),
+                    VdMirBasePrefixOpr::RingNeg => arguments[0]
+                        .term()
+                        .num()
+                        .unwrap()
+                        .neg(self.floater_db())
+                        .into(),
+                    _ => todo!(),
+                },
                 VdMirFunc::NormalBaseSeparator(signature) => todo!(),
                 VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
                     VdMirBaseBinaryOpr::CommRingSub => {

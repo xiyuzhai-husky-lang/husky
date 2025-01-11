@@ -336,3 +336,63 @@ def h (x : ℝ) (h1 : x ≤ (1 : ℝ)) := by
   have h2 : x ≤ (2 : ℝ) := by litnum_bound
   exact ()
 end Example46
+
+namespace Example47
+def h (x : ℝ) (h1 : - x > (0 : ℝ)) := by
+  have h2 : - x > (0 : ℝ) := by old_main_hypothesis
+  exact ()
+end Example47
+
+namespace Example48
+def h (x : ℝ) (h1 : - x > (1 : ℝ)) := by
+  have h2 : - x > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example48
+
+namespace Example49
+def h (x : ℝ) (h1 : - x > (1 : ℝ)) := by
+  have h2 : - x ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example49
+
+namespace Example50
+def h (x : ℝ) (h1 : - x ≥ (1 : ℝ)) := by
+  have h2 : - x ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example50
+
+namespace Example51
+def h (x : ℝ) (h1 : - x ≥ (1 : ℝ)) := by
+  have h2 : - x > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example51
+
+namespace Example52
+def h (x : ℝ) (h1 : - x < (1 : ℝ)) := by
+  have h2 : - x ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example52
+
+namespace Example53
+def h (x : ℝ) (h1 : - x < (1 : ℝ)) := by
+  have h2 : - x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example53
+
+namespace Example54
+def h (x : ℝ) (h1 : - x < (1 : ℝ)) := by
+  have h2 : - x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example54
+
+namespace Example55
+def h (x : ℝ) (h1 : - x ≤ (1 : ℝ)) := by
+  have h2 : - x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example55
+
+namespace Example56
+def h (x : ℝ) (h1 : - x ≤ (1 : ℝ)) := by
+  have h2 : - x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example56

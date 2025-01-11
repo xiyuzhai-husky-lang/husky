@@ -165,6 +165,16 @@ impl<'sess> VdBsqComnumTermData<'sess> {
 }
 
 impl<'sess> VdBsqComnumTerm<'sess> {
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqComnumTerm<'sess> {
+        match self {
+            VdBsqComnumTerm::Atom(term) => term.neg(db).into(),
+            VdBsqComnumTerm::Sum(term) => term.neg(db).into(),
+            VdBsqComnumTerm::Product(litnum, term) => {
+                VdBsqComnumTerm::Product(litnum.neg(db), term).into()
+            }
+        }
+    }
+
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         if rhs == 0 {
             return VdBsqNumTerm::ZERO;
@@ -196,7 +206,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
             VdBsqComnumTerm::Atom(slf) => Some(slf.div_litnum(rhs, db).unwrap().into()),
             VdBsqComnumTerm::Sum(slf) => Some(slf.div_litnum(rhs, db).unwrap()),
             VdBsqComnumTerm::Product(litnum, term) => {
-                Some(VdBsqComnumTerm::Product(litnum.div_litnum(rhs, db).unwrap(), term).into())
+                Some(VdBsqComnumTerm::Product(litnum.div(rhs, db).unwrap(), term).into())
             }
         }
     }

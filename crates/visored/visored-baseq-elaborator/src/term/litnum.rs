@@ -210,9 +210,35 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
-    pub fn div_litnum(
+    pub fn div(
         self,
         rhs: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        match rhs {
+            VdBsqLitnumTerm::Int128(rhs) => self.div128(rhs, db),
+            VdBsqLitnumTerm::BigInt(rhs) => todo!(),
+            VdBsqLitnumTerm::Frac128(rhs) => self.div_frac128(rhs, db),
+        }
+    }
+
+    pub fn div128(self, rhs: i128, db: &'sess FloaterDb) -> Option<VdBsqLitnumTerm<'sess>> {
+        if rhs == 0 {
+            return None;
+        }
+        if rhs == 1 {
+            return Some(self);
+        }
+        match self {
+            VdBsqLitnumTerm::Int128(i) => VdBsqFrac128::new128(i, rhs).unwrap().into(),
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        }
+    }
+
+    pub fn div_frac128(
+        self,
+        rhs: VdBsqFrac128,
         db: &'sess FloaterDb,
     ) -> Option<VdBsqLitnumTerm<'sess>> {
         todo!()

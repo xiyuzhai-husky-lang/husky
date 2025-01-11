@@ -159,11 +159,7 @@ where
         active_hypotheses: &VdBsqActiveHypotheses<'sess>,
         f: impl FnOnce(&Scheme::Value<'sess>) -> R,
     ) -> Option<R> {
-        use husky_print_utils::*;
-        p!(self);
-        p!(key, self.map.get(&key));
-        let entry = self.map.get(&key)?;
-        entry.get_active_value(active_hypotheses, f)
+        self.map.get(&key)?.get_active_value(active_hypotheses, f)
     }
 }
 

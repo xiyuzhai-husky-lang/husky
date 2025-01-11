@@ -156,6 +156,10 @@ impl<'sess> VdBsqComnumSumTermData<'sess> {
 }
 
 impl<'sess> VdBsqSumComnumTerm<'sess> {
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqSumComnumTerm<'sess> {
+        todo!()
+    }
+
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         todo!()
     }

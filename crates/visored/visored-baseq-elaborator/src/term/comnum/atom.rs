@@ -91,6 +91,16 @@ impl<'sess> VdBsqComnumAtomTermData {
 }
 
 impl<'sess> VdBsqAtomComnumTerm<'sess> {
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqComnumTerm<'sess> {
+        let product_base = VdBsqProductComnumTermBase::new(
+            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
+                .into_iter()
+                .collect(),
+            db,
+        );
+        VdBsqComnumTerm::Product((-1).into(), product_base)
+    }
+
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         if rhs == 0 {
             return VdBsqNumTerm::ZERO;

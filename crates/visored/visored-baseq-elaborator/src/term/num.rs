@@ -59,6 +59,13 @@ impl<'sess> VdBsqNumTerm<'sess> {
         }
     }
 
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        match self {
+            VdBsqNumTerm::Litnum(term) => term.neg(db).into(),
+            VdBsqNumTerm::Comnum(term) => term.neg(db).into(),
+        }
+    }
+
     pub fn add(self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         if rhs.is_zero_trivially() {
             return self;
