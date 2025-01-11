@@ -270,3 +270,15 @@ def h := by
   exact ()
 end Example36
 
+namespace Example37
+def h (x : ℝ) (h1 : x > (0 : ℝ)) := by
+  have h2 : x > (0 : ℝ) := by expr_equivalent
+  exact ()
+end Example37
+
+namespace Example38
+def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
+  have h2 : x > (0 : ℝ) := by obvious
+  exact ()
+end Example38
+

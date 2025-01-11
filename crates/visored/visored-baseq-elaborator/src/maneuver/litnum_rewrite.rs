@@ -66,7 +66,7 @@ where
     #[unify_elabm]
     match *expr.data() {
         VdBsqExprFldData::Literal(vd_literal) => Pure(expr),
-        VdBsqExprFldData::Variable(lx_math_letter, arena_idx) => todo!(),
+        VdBsqExprFldData::Variable(lx_math_letter, arena_idx) => Pure(expr),
         VdBsqExprFldData::Application {
             function,
             ref arguments,
