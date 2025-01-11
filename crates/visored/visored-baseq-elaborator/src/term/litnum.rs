@@ -26,16 +26,42 @@ impl<'sess> PartialOrd for VdBsqLitnumTerm<'sess> {
 
 impl<'sess> Ord for VdBsqLitnumTerm<'sess> {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        match self {
-            VdBsqLitnumTerm::Int128(slf) => match other {
-                VdBsqLitnumTerm::Int128(other) => slf.cmp(other),
-                VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
-                VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
-            },
-            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
-            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        match *other {
+            VdBsqLitnumTerm::Int128(other) => self.cmp_with_i128(other),
+            VdBsqLitnumTerm::BigInt(other) => self.cmp_with_bigint(other),
+            VdBsqLitnumTerm::Frac128(other) => self.cmp_with_frac128(other),
         }
     }
+}
+
+#[test]
+fn vd_bsq_litnum_term_ord_works() {
+    #[track_caller]
+    fn t<'sess>(a: impl Into<VdBsqLitnumTerm<'sess>>, b: impl Into<VdBsqLitnumTerm<'sess>>) {
+        let a = a.into();
+        let b = b.into();
+        assert!(a < b);
+        assert!(b > a);
+        assert!(a <= b);
+        assert!(b >= a);
+        assert!(a == a);
+        assert!(b == b);
+        assert!(a != b);
+        assert!(b != a);
+    }
+    use self::frac128::Div;
+
+    t(0, 1);
+    t(0, 2);
+    t(-1, 1);
+    t(-1, Div(1, 2));
+    t(Div(1, 2), 1);
+    t(-1, Div(-1, 2));
+    t(Div(-3, 2), -1);
+    t(Div(2, 3), Div(3, 2));
+    t(Div(-3, 2), Div(-2, 3));
+    t(Div(1, 5), 5);
+    t(-5, Div(-1, 5));
 }
 
 impl<'sess> std::fmt::Debug for VdBsqLitnumTerm<'sess> {
@@ -332,6 +358,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
 fn vd_bsq_litnum_term_inverse_works() {
     assert!(VdBsqLitnumTerm::Int128(0).inverse().is_none());
 
+    #[track_caller]
     fn t<'sess>(
         input: impl Into<VdBsqLitnumTerm<'sess>>,
         expected: impl Into<VdBsqLitnumTerm<'sess>>,
@@ -339,24 +366,10 @@ fn vd_bsq_litnum_term_inverse_works() {
         let litnum = input.into();
         let inverse = litnum.inverse();
         assert!(inverse.is_some());
-        assert!(inverse.unwrap() == expected.into());
+        assert_eq!(inverse.unwrap(), expected.into());
     }
 
-    struct Div(i128, i128);
-
-    impl<'sess> Into<VdBsqLitnumTerm<'sess>> for Div {
-        fn into(self) -> VdBsqLitnumTerm<'sess> {
-            let litnum = VdBsqFrac128::new128(self.0, self.1).unwrap();
-            match litnum {
-                VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => {
-                    assert!(vd_bsq_frac128.numerator() == self.0);
-                    assert!(vd_bsq_frac128.denominator() == self.1);
-                }
-                _ => panic!(),
-            }
-            litnum
-        }
-    }
+    use self::frac128::Div;
 
     t(1, 1);
     t(-1, -1);
@@ -398,7 +411,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                     VdPrecedence::ADD_SUB
                 }
             }
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(_) => VdPrecedence::MUL_DIV,
         }
     }
 
@@ -406,13 +419,13 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         match self {
             VdBsqLitnumTerm::Int128(i) => write!(f, "{}", i),
             VdBsqLitnumTerm::BigInt(i) => i.show_fmt(f),
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(i) => i.show_fmt(f),
         }
     }
 }
 
 impl<'sess> VdBsqLitnumTerm<'sess> {
-    pub fn compare_with_zero(self, kind: VdBsqComparisonOpr) -> bool {
+    pub fn cmp_with_zero(self, kind: VdBsqComparisonOpr) -> bool {
         match self {
             VdBsqLitnumTerm::Int128(i) => match kind {
                 VdBsqComparisonOpr::EQ => i == 0,
@@ -424,6 +437,30 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
             },
             VdBsqLitnumTerm::BigInt(i) => todo!(),
             VdBsqLitnumTerm::Frac128(_) => todo!(),
+        }
+    }
+
+    pub fn cmp_with_i128(self, i: i128) -> std::cmp::Ordering {
+        match self {
+            VdBsqLitnumTerm::Int128(slf) => slf.cmp(&i),
+            VdBsqLitnumTerm::BigInt(slf) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => slf.cmp_with_i128(i),
+        }
+    }
+
+    pub fn cmp_with_bigint(self, i: VdBsqBigInt<'sess>) -> std::cmp::Ordering {
+        match self {
+            VdBsqLitnumTerm::Int128(i) => todo!(),
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        }
+    }
+
+    pub fn cmp_with_frac128(self, other: VdBsqFrac128) -> std::cmp::Ordering {
+        match self {
+            VdBsqLitnumTerm::Int128(slf) => other.cmp_with_i128(slf).reverse(),
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => slf.cmp(&other),
         }
     }
 }

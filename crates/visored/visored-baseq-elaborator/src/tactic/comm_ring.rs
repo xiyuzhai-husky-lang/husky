@@ -40,7 +40,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             let VdBsqNumTerm::Litnum(litnum) = term else {
                 return AltNothing;
             };
-            match litnum.compare_with_zero(kind) {
+            match litnum.cmp_with_zero(kind) {
                 true => {
                     let hypothesis = slf
                         .hypothesis_constructor
