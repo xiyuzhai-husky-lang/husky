@@ -70,7 +70,28 @@ where
         VdBsqExprFldData::Application {
             function,
             ref arguments,
-        } => todo!(),
+        } =>
+        {
+            #[unify_elabm]
+            match function {
+                VdMirFunc::NormalBasePrefixOpr(_)
+                | VdMirFunc::NormalBaseSeparator(_)
+                | VdMirFunc::NormalBaseBinaryOpr(_)
+                | VdMirFunc::Power(_)
+                | VdMirFunc::InSet
+                | VdMirFunc::NormalBaseSqrt(_) => mapm_collect(arguments, |&argument| f(argument))
+                    .map(|elr, arguments| {
+                        elr.mk_expr(
+                            VdBsqExprFldData::Application {
+                                function,
+                                arguments,
+                            },
+                            expr.ty(),
+                            expr.expected_ty(),
+                        )
+                    }),
+            }
+        }
         VdBsqExprFldData::FoldingSeparatedList {
             leader,
             ref followers,
