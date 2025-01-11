@@ -35,10 +35,51 @@ pub struct VdBsqLitNumBoundKey<'sess> {
     normalized_monomials: VdBsqComnumTerm<'sess>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub struct VdBsqNormalizedLitNumBound<'sess> {
     litnum: VdBsqLitnumTerm<'sess>,
     boundary_kind: VdBsqBoundBoundaryKind,
+}
+
+impl<'sess> VdBsqNormalizedLitNumBound<'sess> {
+    pub fn is_upgrade_of(self, other: Self) -> bool {
+        self > other
+    }
+}
+
+#[test]
+fn vd_bsq_normalized_litnum_bound_is_upgrade_works() {
+    fn t<'sess>(
+        slf: VdBsqNormalizedLitNumBound<'sess>,
+        other: VdBsqNormalizedLitNumBound<'sess>,
+        expected: bool,
+    ) {
+        assert_eq!(slf.is_upgrade_of(other), expected);
+    }
+    fn c<'sess>(t: impl Into<VdBsqLitnumTerm<'sess>>) -> VdBsqNormalizedLitNumBound<'sess> {
+        VdBsqNormalizedLitNumBound {
+            litnum: t.into(),
+            boundary_kind: VdBsqBoundBoundaryKind::Closed,
+        }
+    }
+    fn o<'sess>(t: impl Into<VdBsqLitnumTerm<'sess>>) -> VdBsqNormalizedLitNumBound<'sess> {
+        VdBsqNormalizedLitNumBound {
+            litnum: t.into(),
+            boundary_kind: VdBsqBoundBoundaryKind::Open,
+        }
+    }
+    t(c(1), o(1), false);
+    t(o(1), o(1), false);
+    t(c(1), c(1), false);
+    t(o(1), c(1), true);
+    t(c(1), c(2), false);
+    t(c(1), o(2), false);
+    t(o(1), c(2), false);
+    t(o(1), o(2), false);
+    t(c(2), c(1), true);
+    t(c(2), o(1), true);
+    t(o(2), c(1), true);
+    t(o(2), o(1), true);
 }
 
 impl<'sess> VdBsqNormalizedLitNumBound<'sess> {
@@ -100,13 +141,14 @@ impl IsVdBsqHypothesisStashScheme for VdBsqLitNumBoundScheme {
 }
 
 impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
-    fn is_new_value_an_upgrade<'sess>(old: &Self::Value<'sess>, new: &Self::Value<'sess>) -> bool {
+    fn is_new_value_upgrade_of_old<'sess>(
+        old: &Self::Value<'sess>,
+        new: &Self::Value<'sess>,
+    ) -> bool {
         if old == new {
             return false;
         }
-        use husky_print_utils::*;
-        p!(old, new);
-        todo!()
+        new.is_upgrade_of(*old)
     }
 
     fn key_value_from_hypothesis<'sess>(
@@ -120,7 +162,7 @@ impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
         let VdBsqComparisonOpr::Bound(opr) = term.kind() else {
             return None;
         };
-        require!(let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)) = term.lhs_minus_rhs());
+        require!(let VdBsqNumTerm::Comnum(term) = term.lhs_minus_rhs());
         let (_, (litnum, normalized_monomials)) = split(term, opr, db);
         let lower_bound_litnum = litnum.neg(db);
         let boundary_kind = opr.boundary_kind();
@@ -138,7 +180,7 @@ impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
 
 /// will reduce upper bound to lower bound
 fn split<'sess>(
-    lhs_minus_rhs: impl Into<VdBsqComnumTerm<'sess>>,
+    lhs_minus_rhs: VdBsqComnumTerm<'sess>,
     opr: VdBsqBoundOpr,
     db: &'sess FloaterDb,
 ) -> (
@@ -151,9 +193,8 @@ fn split<'sess>(
         VdBsqBoundOpr::Le => VdBsqSign::Minus,
         VdBsqBoundOpr::Ge => VdBsqSign::Plus,
     };
-    let (factor, (litnum, normalized_monomials)) = lhs_minus_rhs
-        .into()
-        .split_sum_fld(|factor| factor.with_sign(sign, db), db);
+    let (factor, (litnum, normalized_monomials)) =
+        lhs_minus_rhs.split_sum_fld(|factor| factor.with_sign(sign, db), db);
     (factor, (litnum, normalized_monomials))
 }
 

@@ -4,12 +4,16 @@ use crate::hypothesis::{
     VdBsqHypothesisEntry, VdBsqHypothesisIdx,
 };
 use floated_sequential::db::FloaterDb;
+use husky_control_flow_utils::require;
 use rustc_hash::FxHashMap;
 use smallvec::*;
 use std::{cell::RefCell, marker::PhantomData};
 
 pub trait IsVdBsqHypothesisUpgradeStashScheme: IsVdBsqHypothesisStashScheme {
-    fn is_new_value_an_upgrade<'sess>(old: &Self::Value<'sess>, new: &Self::Value<'sess>) -> bool;
+    fn is_new_value_upgrade_of_old<'sess>(
+        old: &Self::Value<'sess>,
+        new: &Self::Value<'sess>,
+    ) -> bool;
     fn key_value_from_hypothesis<'sess>(
         record: VdBsqHypothesisStackRecord<'sess>,
         entry: &VdBsqHypothesisEntry<'sess>,
@@ -90,7 +94,7 @@ where
         self.clear_inactive_values(active_hypotheses);
         let mut values = self.values.borrow_mut();
         match values.last() {
-            Some((_, last_value)) if Scheme::is_new_value_an_upgrade(last_value, &value) => {
+            Some((_, last_value)) if Scheme::is_new_value_upgrade_of_old(last_value, &value) => {
                 values.push((hypothesis_stack_record, value));
             }
             None => {
@@ -152,11 +156,8 @@ where
         db: &'sess FloaterDb,
         active_hypotheses: &VdBsqActiveHypotheses<'sess>,
     ) {
-        let Some((key, value)) =
-            Scheme::key_value_from_hypothesis(hypothesis_stack_record, hypothesis_entry, db)
-        else {
-            return;
-        };
+        require!(let Some((key, value)) =
+            Scheme::key_value_from_hypothesis(hypothesis_stack_record, hypothesis_entry, db));
         self.map
             .entry(key)
             .or_default()
