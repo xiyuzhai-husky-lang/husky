@@ -65,8 +65,8 @@ impl<'sess> VdBsqExprFld<'sess> {
     fn show_fmt_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
             VdBsqExprFldData::Literal(literal) => literal.show(f),
-            VdBsqExprFldData::Variable(letter, idx) => {
-                write!(f, "{}({})", letter.unicode(), idx.index())
+            VdBsqExprFldData::Variable(letter, _) => {
+                write!(f, "{}", letter.unicode())
             }
             VdBsqExprFldData::Application {
                 function,

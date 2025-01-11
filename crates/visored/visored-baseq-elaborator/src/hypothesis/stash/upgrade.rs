@@ -19,6 +19,7 @@ pub trait IsVdBsqHypothesisUpgradeStashScheme: IsVdBsqHypothesisStashScheme {
         entry: &VdBsqHypothesisEntry<'sess>,
         db: &'sess FloaterDb,
     ) -> Option<(Self::Key<'sess>, Self::Value<'sess>)>;
+    fn debug_keys<'sess>(key1: &Self::Key<'sess>, key2: &Self::Key<'sess>);
 }
 
 pub struct VdBsqHypothesisUpgradeStash<'sess, Scheme>
@@ -159,6 +160,11 @@ where
         active_hypotheses: &VdBsqActiveHypotheses<'sess>,
         f: impl FnOnce(&Scheme::Value<'sess>) -> R,
     ) -> Option<R> {
+        use husky_print_utils::p;
+        for (k, v) in self.map.iter() {
+            Scheme::debug_keys(k, &key);
+            todo!();
+        }
         self.map.get(&key)?.get_active_value(active_hypotheses, f)
     }
 }

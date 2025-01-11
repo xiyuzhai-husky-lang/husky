@@ -18,6 +18,15 @@ impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
 
 impl<'sess> VdBsqProductComnumTermBase<'sess> {
     pub fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
+        #[cfg(debug_assertions)]
+        {
+            debug_assert!(exponentials.len() == 1);
+            if exponentials.len() == 1 {
+                let (base, exponent) = exponentials.data()[0];
+                // debug_assert!(exponent.is_one_trivially());
+                // todo!()
+            }
+        }
         VdBsqProductComnumTermBase(VdBsqComnumTermFld::new(
             VdBsqComnumTermData::Product(VdBsqProductComnumTermBaseData { exponentials }),
             db,

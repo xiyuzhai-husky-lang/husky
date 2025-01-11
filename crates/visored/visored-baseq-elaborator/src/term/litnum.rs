@@ -11,7 +11,7 @@ use std::num::NonZeroU128;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
 #[enum_class::from_variants]
-#[derive(Clone, Copy, Hash, Eq, PartialEq)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq)]
 pub enum VdBsqLitnumTerm<'sess> {
     Int128(i128),
     BigInt(VdBsqBigInt<'sess>),
@@ -62,14 +62,6 @@ fn vd_bsq_litnum_term_ord_works() {
     t(Div(-3, 2), Div(-2, 3));
     t(Div(1, 5), 5);
     t(-5, Div(-1, 5));
-}
-
-impl<'sess> std::fmt::Debug for VdBsqLitnumTerm<'sess> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("VdBsqLitnumTerm(`")?;
-        self.show_fmt(VdPrecedenceRange::Any, f)?;
-        f.write_str("`)")
-    }
 }
 
 impl<'sess> VdBsqLitnumTerm<'sess> {
@@ -154,6 +146,10 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     }
 
     pub fn sub_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
+        if self.is_zero() {
+            *self = rhs.neg(db);
+            return;
+        }
         match self {
             VdBsqLitnumTerm::Int128(slf) => match rhs {
                 VdBsqLitnumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
@@ -161,7 +157,11 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                     None => todo!(),
                 },
                 VdBsqLitnumTerm::BigInt(i) => todo!(),
-                VdBsqLitnumTerm::Frac128(_) => todo!(),
+                VdBsqLitnumTerm::Frac128(rhs) => {
+                    use husky_print_utils::p;
+                    p!(self, rhs);
+                    todo!()
+                }
             },
             VdBsqLitnumTerm::BigInt(i) => match rhs {
                 VdBsqLitnumTerm::Int128(_) => todo!(),

@@ -129,6 +129,7 @@ pub struct VdBsqComnumTermFld<'sess> {
 pub enum VdBsqComnumTermData<'sess> {
     Atom(VdBsqComnumAtomTermData),
     Sum(VdBsqComnumSumTermData<'sess>),
+    // TODO: maybe remove this???
     Product(VdBsqProductComnumTermBaseData<'sess>),
 }
 

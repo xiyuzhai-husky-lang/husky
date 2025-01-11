@@ -11,6 +11,14 @@ pub struct VdBsqBigInt<'sess> {
     pub inner: VdBigIntData,
 }
 
+impl<'sess> std::fmt::Debug for VdBsqBigInt<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("VdBsqBigInt(`")?;
+        self.show_fmt(f)?;
+        f.write_str("`)")
+    }
+}
+
 impl<'sess> VdBsqBigInt<'sess> {
     pub fn sign(self) -> Sign {
         self.inner().sign()

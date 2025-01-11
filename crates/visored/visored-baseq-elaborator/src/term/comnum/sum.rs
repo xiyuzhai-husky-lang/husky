@@ -81,7 +81,11 @@ impl<'sess> VdBsqComnumSumTermData<'sess> {
 
 impl<'sess> std::fmt::Debug for VdBsqSumComnumTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.show_fmt(VdPrecedenceRange::ANY, f)
+        // self.show_fmt(VdPrecedenceRange::ANY, f)
+        f.debug_struct("VdBsqSumComnumTerm")
+            .field("constant_term", &self.constant_term())
+            .field("monomials", &self.monomials())
+            .finish()
     }
 }
 

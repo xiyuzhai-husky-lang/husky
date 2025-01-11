@@ -77,8 +77,8 @@ impl<'sess> VdBsqComnumAtomTermData {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqComnumAtomTermData::Variable(lx_math_letter, idx) => {
-                write!(f, "{}({})", lx_math_letter.unicode(), idx.index())
+            VdBsqComnumAtomTermData::Variable(lx_math_letter, _) => {
+                write!(f, "{}", lx_math_letter.unicode())
             }
         }
     }
