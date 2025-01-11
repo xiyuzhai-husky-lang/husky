@@ -2,6 +2,8 @@ pub mod bigint;
 pub mod bigrat;
 pub mod frac128;
 
+use crate::foundations::num::VdBsqSign;
+
 use self::{bigint::VdBsqBigInt, frac128::VdBsqFrac128};
 use super::*;
 use std::num::NonZeroU128;
@@ -29,6 +31,31 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
             VdBsqLitnumTerm::Int128(i) => VdBsqLitnumTerm::Int128(-i),
             VdBsqLitnumTerm::BigInt(i) => todo!(),
             VdBsqLitnumTerm::Frac128(f) => VdBsqLitnumTerm::Frac128(-f),
+        }
+    }
+
+    pub fn sign(self, db: &FloaterDb) -> VdBsqSign {
+        match self {
+            VdBsqLitnumTerm::Int128(i) => {
+                if i > 0 {
+                    VdBsqSign::Plus
+                } else if i < 0 {
+                    VdBsqSign::Minus
+                } else {
+                    VdBsqSign::NoSign
+                }
+            }
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        }
+    }
+
+    pub fn with_sign(self, sign: VdBsqSign, db: &FloaterDb) -> Self {
+        if self.sign(db) == sign {
+            self
+        } else {
+            todo!()
+            // self.neg(db)
         }
     }
 

@@ -58,7 +58,7 @@ impl IsVdBsqHypothesisUniqueStashScheme for VdBsqLitNumEqualityScheme {
         require!(term.kind() == VdBsqComparisonOpr::Eq);
         require!(let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(lhs_minus_rhs)) = term.lhs_minus_rhs());
         let (_, (normalized_constant_litnum, normalized_monomials)) =
-            split_sum_into_normalized_litnum_and_monomials_fld(lhs_minus_rhs, db);
+            lhs_minus_rhs.split_fld(|f| f, db);
         let neg_normalized_constant_litnum = normalized_constant_litnum.neg(db);
         let key = VdBsqLitNumEqualityKey {
             normalized_monomials,
@@ -68,40 +68,6 @@ impl IsVdBsqHypothesisUniqueStashScheme for VdBsqLitNumEqualityScheme {
         };
         Some((key, value))
     }
-}
-
-fn split_sum_into_normalized_litnum_and_monomials_fld<'sess>(
-    sum: VdBsqSumComnumTerm<'sess>,
-    db: &'sess FloaterDb,
-) -> (
-    VdBsqLitnumTerm<'sess>,
-    (VdBsqLitnumTerm<'sess>, VdBsqNumTerm<'sess>),
-) {
-    let (factor, (litnum, monomials)) = split_sum_into_normalized_litnum_and_monomials(sum, db);
-    let monomials = if monomials.len() > 1 {
-        VdBsqSumComnumTerm::new(0, monomials, db).into()
-    } else {
-        let (monomial, coeff) = monomials.data()[0];
-        coeff.mul_nonsum(monomial, db)
-    };
-    (factor, (litnum, monomials))
-}
-
-fn split_sum_into_normalized_litnum_and_monomials<'sess>(
-    sum: VdBsqSumComnumTerm<'sess>,
-    db: &'sess FloaterDb,
-) -> (
-    VdBsqLitnumTerm<'sess>,
-    (VdBsqLitnumTerm<'sess>, VdBsqMonomialCoefficients<'sess>),
-) {
-    let mut monomials = sum.monomials().clone();
-    debug_assert!(monomials.len() > 0);
-    let coeff0 = monomials.data()[0].1;
-    debug_assert!(coeff0.is_nonzero());
-    let inv_coeff0 = coeff0.inverse().expect("nonzero");
-    let normalized_constant_term = sum.constant_term().mul(inv_coeff0, db);
-    let normalized_monomials = monomials.map_collect(|coeff| coeff.mul(inv_coeff0, db));
-    (inv_coeff0, (normalized_constant_term, normalized_monomials))
 }
 
 impl<'sess> LitnumEqualityStash<'sess> {
@@ -119,9 +85,7 @@ impl<'sess> LitnumEqualityStash<'sess> {
             VdBsqComnumTerm::Atom(atom) => {
                 (VdBsqLitnumTerm::ONE, (VdBsqLitnumTerm::ZERO, atom.into()))
             }
-            VdBsqComnumTerm::Sum(sum) => {
-                split_sum_into_normalized_litnum_and_monomials_fld(sum, db)
-            }
+            VdBsqComnumTerm::Sum(sum) => sum.split_fld(|f| f, db),
             VdBsqComnumTerm::Product(term, base) => {
                 todo!()
             }

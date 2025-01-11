@@ -1,7 +1,10 @@
 use super::*;
 use crate::{
-    foundations::opr::separator::relation::comparison::{
-        VdBsqBoundBoundaryKind, VdBsqComparisonOpr,
+    foundations::{
+        num::VdBsqSign,
+        opr::separator::relation::comparison::{
+            VdBsqBoundBoundaryKind, VdBsqBoundOpr, VdBsqComparisonOpr,
+        },
     },
     hypothesis::{
         stack::VdBsqHypothesisStack,
@@ -26,6 +29,17 @@ pub type LitnumBoundStash<'sess> = VdBsqHypothesisUpgradeStash<'sess, VdBsqLitNu
 
 pub struct VdBsqLitNumBoundScheme;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct VdBsqLitNumBoundKey<'sess> {
+    normalized_monomials: VdBsqNumTerm<'sess>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VdBsqLitNumBoundValue<'sess> {
+    lower_bound_litnum: VdBsqLitnumTerm<'sess>,
+    boundary_kind: VdBsqBoundBoundaryKind,
+}
+
 impl IsVdBsqHypothesisStashScheme for VdBsqLitNumBoundScheme {
     type Key<'sess> = VdBsqLitNumBoundKey<'sess>;
 
@@ -34,6 +48,11 @@ impl IsVdBsqHypothesisStashScheme for VdBsqLitNumBoundScheme {
 
 impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
     fn is_new_value_an_upgrade<'sess>(old: &Self::Value<'sess>, new: &Self::Value<'sess>) -> bool {
+        if old == new {
+            return false;
+        }
+        use husky_print_utils::*;
+        p!(old, new);
         todo!()
     }
 
@@ -49,17 +68,29 @@ impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
             return None;
         };
         require!(let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(lhs_minus_rhs)) = term.lhs_minus_rhs());
-        todo!()
+        let sign = match opr {
+            VdBsqBoundOpr::Lt => VdBsqSign::Minus,
+            VdBsqBoundOpr::Gt => VdBsqSign::Plus,
+            VdBsqBoundOpr::Le => VdBsqSign::Minus,
+            VdBsqBoundOpr::Ge => VdBsqSign::Plus,
+        };
+        let (_, (litnum, normalized_monomials)) =
+            lhs_minus_rhs.split_fld(|f| f.with_sign(sign, db), db);
+        let lower_bound_litnum = litnum.neg(db);
+        let boundary_kind = match opr {
+            VdBsqBoundOpr::Lt => VdBsqBoundBoundaryKind::Open,
+            VdBsqBoundOpr::Gt => VdBsqBoundBoundaryKind::Open,
+            VdBsqBoundOpr::Le => VdBsqBoundBoundaryKind::Closed,
+            VdBsqBoundOpr::Ge => VdBsqBoundBoundaryKind::Closed,
+        };
+        Some((
+            VdBsqLitNumBoundKey {
+                normalized_monomials,
+            },
+            VdBsqLitNumBoundValue {
+                lower_bound_litnum,
+                boundary_kind,
+            },
+        ))
     }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct VdBsqLitNumBoundKey<'sess> {
-    normalized_monomials: VdBsqNumTerm<'sess>,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VdBsqLitNumBoundValue<'sess> {
-    lower_bound_litnum: VdBsqLitnumTerm<'sess>,
-    boundary_kind: VdBsqBoundBoundaryKind,
 }
