@@ -5,6 +5,7 @@ use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
 };
 use alt_option::*;
+use foundations::opr::separator::relation::comparison::VdBsqOrderComparison;
 use term::{litnum::VdBsqLitnumTerm, prop::VdBsqPropTerm, VdBsqTerm};
 use visored_baseq_elaborator_macros::unify_elabm;
 use visored_entity_path::{
@@ -38,13 +39,9 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             return AltNothing;
         }
         let relationship = match followers[0].0 {
-            VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
-                VdMirBaseSeparator::Lt => LitnumEstimateRelationship::Lt,
-                VdMirBaseSeparator::Gt => LitnumEstimateRelationship::Gt,
-                VdMirBaseSeparator::Le => LitnumEstimateRelationship::Le,
-                VdMirBaseSeparator::Ge => LitnumEstimateRelationship::Ge,
-                _ => return AltNothing,
-            },
+            VdMirFunc::NormalBaseSeparator(signature) => {
+                VdBsqOrderComparison::from_mir_base_separator(signature.opr())?
+            }
             _ => return AltNothing,
         };
         let VdBsqTerm::Litnum(rhs) = followers[0].1.term() else {
@@ -54,31 +51,24 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     }
 }
 
-enum LitnumEstimateRelationship {
-    Lt,
-    Gt,
-    Le,
-    Ge,
-}
-
 fn try_all<'db, 'sess>(
     elr: &mut VdBsqElaboratorInner<'db, 'sess>,
     leader: VdBsqExprFld<'sess>,
-    relationship: LitnumEstimateRelationship,
+    comp: VdBsqOrderComparison,
     rhs: VdBsqLitnumTerm<'sess>,
 ) -> Mhr<'sess> {
-    try_one_shot(elr, leader, relationship, rhs)?;
+    try_one_shot(elr, leader, comp, rhs)?;
     AltNothing
 }
 
 fn try_one_shot<'db, 'sess>(
     elr: &mut VdBsqElaboratorInner<'db, 'sess>,
     leader: VdBsqExprFld<'sess>,
-    relationship: LitnumEstimateRelationship,
+    comp: VdBsqOrderComparison,
     rhs: VdBsqLitnumTerm<'sess>,
 ) -> Mhr<'sess> {
-    elr.hypothesis_constructor
-        .stack()
-        .get_active_litnum_inequality(expr, db);
+    // elr.hypothesis_constructor
+    //     .stack()
+    //     .get_active_litnum_inequality(expr, db);
     todo!()
 }

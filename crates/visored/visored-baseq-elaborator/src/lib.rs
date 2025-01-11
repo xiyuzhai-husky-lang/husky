@@ -8,6 +8,7 @@ pub mod config;
 mod elabm;
 pub mod elaborator;
 pub mod expr;
+pub mod foundations;
 pub mod helpers;
 pub mod hypothesis;
 pub mod maneuver;
