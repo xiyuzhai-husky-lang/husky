@@ -93,7 +93,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                 }
             }
             VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
-            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => slf.sign(),
         }
     }
 
@@ -201,7 +201,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                     .expect("denominator can't be nonzero")
             }
             VdBsqLitnumTerm::BigInt(slf) => todo!(),
-            VdBsqLitnumTerm::Frac128(slf) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => slf.mul(rhs, db),
         }
     }
 
@@ -267,7 +267,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         rhs: VdBsqFrac128,
         db: &'sess FloaterDb,
     ) -> Option<VdBsqLitnumTerm<'sess>> {
-        todo!()
+        Some(self.mul_frac128(rhs.inverse(), db))
     }
 
     pub fn div_assign(&mut self, rhs: Self, db: &FloaterDb) {

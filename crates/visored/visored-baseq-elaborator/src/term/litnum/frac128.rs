@@ -90,6 +90,44 @@ impl VdBsqFrac128 {
     pub fn denominator(self) -> i128 {
         self.denominator
     }
+
+    pub fn sign(self) -> VdBsqSign {
+        if self.numerator > 0 {
+            VdBsqSign::Plus
+        } else if self.numerator < 0 {
+            VdBsqSign::Minus
+        } else {
+            VdBsqSign::NoSign
+        }
+    }
+
+    pub fn inverse(self) -> Self {
+        assert!(self.numerator != 0);
+        if self.numerator > 0 {
+            Self {
+                numerator: self.denominator,
+                denominator: self.numerator,
+            }
+        } else {
+            Self {
+                numerator: self.denominator.checked_neg().unwrap(),
+                denominator: match self.numerator.checked_neg() {
+                    Some(neg_numerator) => neg_numerator,
+                    None => todo!(),
+                },
+            }
+        }
+    }
+
+    pub fn mul<'sess>(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
+        let Some(raw_numerator) = self.numerator.checked_mul(rhs.numerator) else {
+            todo!()
+        };
+        let Some(raw_denominator) = self.denominator.checked_mul(rhs.denominator) else {
+            todo!()
+        };
+        Self::new128(raw_numerator, raw_denominator).unwrap()
+    }
 }
 
 impl std::ops::Neg for VdBsqFrac128 {

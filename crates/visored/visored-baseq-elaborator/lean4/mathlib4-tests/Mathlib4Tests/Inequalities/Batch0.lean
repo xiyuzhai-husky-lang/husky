@@ -456,3 +456,63 @@ def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≤ (1 : ℝ)) := by
   have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
   exact ()
 end Example66
+
+namespace Example67
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ) := by old_main_hypothesis
+  exact ()
+end Example67
+
+namespace Example68
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example68
+
+namespace Example69
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example69
+
+namespace Example70
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example70
+
+namespace Example71
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example71
+
+namespace Example72
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example72
+
+namespace Example73
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example73
+
+namespace Example74
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example74
+
+namespace Example75
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example75
+
+namespace Example76
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example76
