@@ -87,9 +87,13 @@ impl<'sess> LitnumEqualityStash<'sess> {
                 (VdBsqLitnumTerm::ONE, (VdBsqLitnumTerm::ZERO, atom.into()))
             }
             VdBsqComnumTerm::Sum(sum) => sum.split_fld(|f| f, db),
-            VdBsqComnumTerm::Product(term, base) => {
-                todo!()
-            }
+            VdBsqComnumTerm::Product(factor, base) => (
+                factor,
+                (
+                    VdBsqLitnumTerm::ZERO,
+                    VdBsqComnumTerm::Product(VdBsqLitnumTerm::ONE, base),
+                ),
+            ),
         };
         let key = VdBsqLitNumEqualityKey {
             normalized_monomials: x,
