@@ -21,8 +21,13 @@ where
         hypothesis_chunk: VdMirHypothesisChunk,
         ln_tactics: &mut Vec<LnMirTacticData>,
     ) {
-        for hypothesis in hypothesis_chunk.new_hypotheses() {
+        let new_hypotheses = hypothesis_chunk.new_hypotheses();
+        let main_hypothesis = hypothesis_chunk.main_hypothesis();
+        for hypothesis in new_hypotheses {
             self.build_hypothesis_tactics(hypothesis, ln_tactics);
+        }
+        if !new_hypotheses.contains(main_hypothesis) {
+            self.build_old_main_hypothesis_tactics(main_hypothesis, ln_tactics);
         }
     }
 
@@ -60,10 +65,6 @@ where
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_equivalent");
                 self.alloc_tactics([ad_hoc_tactic_data])
             }
-            VdMirHypothesisConstruction::ExprEquivalent { hypothesis } => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("expr_equivalent");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
             VdMirHypothesisConstruction::CommRing => {
                 let ad_hoc_tactic_data = self.ad_hoc_tactic_data("comm_ring");
                 self.alloc_tactics([ad_hoc_tactic_data])
@@ -87,6 +88,30 @@ where
         ln_tactics.push(LnMirTacticData::Have {
             ident,
             ty: Some(hypothesis_entry.expr().to_lean(self)),
+            construction,
+        });
+    }
+
+    fn build_old_main_hypothesis_tactics(
+        &mut self,
+        main_hypothesis: VdMirHypothesisIdx,
+        ln_tactics: &mut Vec<LnMirTacticData>,
+    ) {
+        let ad_hoc_tactic_data = self.ad_hoc_tactic_data("old_main_hypothesis");
+        let construction_tactics = self.alloc_tactics([ad_hoc_tactic_data]);
+        let construction = self.alloc_expr(LnMirExprEntry::new(
+            LnMirExprData::By {
+                tactics: construction_tactics,
+            },
+            None,
+        ));
+        ln_tactics.push(LnMirTacticData::Have {
+            ident: self.mangle_hypothesis(),
+            ty: Some(
+                self.hypothesis_arena()[main_hypothesis]
+                    .expr()
+                    .to_lean(self),
+            ),
             construction,
         });
     }

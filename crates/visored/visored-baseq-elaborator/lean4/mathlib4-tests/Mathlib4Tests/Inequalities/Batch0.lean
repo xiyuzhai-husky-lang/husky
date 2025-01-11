@@ -9,7 +9,7 @@ macro "term_trivial": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
-macro "expr_equivalent": tactic =>`(tactic|
+macro "old_main_hypothesis": tactic =>`(tactic|
   first
   | assumption; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
@@ -238,7 +238,7 @@ end Example32
 
 namespace Example33
 def h (x : ℝ) (h1 : x = (1 : ℝ)) := by
-  have h2 : x = (1 : ℝ) := by expr_equivalent
+  have h2 : x = (1 : ℝ) := by old_main_hypothesis
   exact ()
 end Example33
 
@@ -272,7 +272,7 @@ end Example36
 
 namespace Example37
 def h (x : ℝ) (h1 : x > (0 : ℝ)) := by
-  have h2 : x > (0 : ℝ) := by expr_equivalent
+  have h2 : x > (0 : ℝ) := by old_main_hypothesis
   exact ()
 end Example37
 
@@ -281,4 +281,3 @@ def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
   have h2 : x > (0 : ℝ) := by obvious
   exact ()
 end Example38
-

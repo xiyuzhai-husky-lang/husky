@@ -67,7 +67,7 @@ macro "term_trivial": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
-macro "expr_equivalent": tactic =>`(tactic|
+macro "old_main_hypothesis": tactic =>`(tactic|
   first
   | assumption; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
