@@ -187,7 +187,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                 None => todo!(),
             },
             VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => slf.mul_i128(rhs, db),
         }
     }
 

@@ -68,9 +68,19 @@ impl<'sess> VdBsqComnumTerm<'sess> {
     ) {
         match self {
             VdBsqComnumTerm::Sum(sum) => sum.split_fld(f, db),
-            _ => {
+            VdBsqComnumTerm::Atom(_) => {
                 let factor = f(1.into());
                 (factor, (0.into(), self.div_litnum(factor, db).unwrap()))
+            }
+            VdBsqComnumTerm::Product(factor0, base) => {
+                let factor = f(factor0);
+                (
+                    factor,
+                    (
+                        0.into(),
+                        VdBsqComnumTerm::Product(factor0.div(factor, db).unwrap(), base),
+                    ),
+                )
             }
         }
     }

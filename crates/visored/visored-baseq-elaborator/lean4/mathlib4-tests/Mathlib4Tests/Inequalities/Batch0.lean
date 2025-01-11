@@ -405,54 +405,54 @@ end Example57
 
 namespace Example58
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) > (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by litnum_bound
   exact ()
 end Example58
 
 namespace Example59
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) > (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) ≥ (1 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) ≥ (1 : ℝ) := by litnum_bound
   exact ()
 end Example59
 
 namespace Example60
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≥ (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) ≥ (0 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) ≥ (0 : ℝ) := by litnum_bound
   exact ()
 end Example60
 
 namespace Example61
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≥ (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by litnum_bound
   exact ()
 end Example61
 
 namespace Example62
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) < (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) ≤ (1 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) ≤ (1 : ℝ) := by litnum_bound
   exact ()
 end Example62
 
 namespace Example63
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) < (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) < (2 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) < (2 : ℝ) := by litnum_bound
   exact ()
 end Example63
 
 namespace Example64
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) < (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
   exact ()
 end Example64
 
 namespace Example65
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≤ (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) < (2 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) < (2 : ℝ) := by litnum_bound
   exact ()
 end Example65
 
 namespace Example66
 def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≤ (1 : ℝ)) := by
-  have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by obvious
+  have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
   exact ()
 end Example66
