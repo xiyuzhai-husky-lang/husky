@@ -74,7 +74,18 @@ where
         VdBsqExprFldData::FoldingSeparatedList {
             leader,
             ref followers,
-        } => todo!(),
+        } => f(leader).bind(|elr, leader| {
+            mapm_collect(followers, |&(func, follower)| {
+                f(follower).map(move |elr, follower| (func, follower))
+            })
+            .map(move |elr, followers: VdBsqExprFollowers<'sess>| {
+                elr.mk_expr(
+                    VdBsqExprFldData::FoldingSeparatedList { leader, followers },
+                    expr.ty(),
+                    expr.expected_ty(),
+                )
+            })
+        }),
         VdBsqExprFldData::ChainingSeparatedList {
             leader,
             ref followers,

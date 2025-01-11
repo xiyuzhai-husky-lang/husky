@@ -40,6 +40,7 @@ macro "comm_ring": tactic =>`(tactic|
 macro "litnum_reduce": tactic =>`(tactic|
   first
   | simp; done
+  | simp [*]; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 namespace Example1
@@ -256,4 +257,16 @@ def h := by
   have h2 : x > 0 := by litnum_reduce
   exact ()
 end Example35
+
+namespace Example36
+def h := by
+  let x := 1
+  have h1 : x = 1 := by let_assigned
+  let y := 1
+  have h2 : y = 1 := by let_assigned
+  let z := 2
+  have h3 : z = 2 := by let_assigned
+  have h4 : x + y = z := by litnum_reduce
+  exact ()
+end Example36
 

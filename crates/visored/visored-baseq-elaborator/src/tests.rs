@@ -98,6 +98,7 @@ macro "comm_ring": tactic =>`(tactic|
 macro "litnum_reduce": tactic =>`(tactic|
   first
   | simp; done
+  | simp [*]; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 {}
