@@ -181,9 +181,12 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         rhs: VdBsqNonSumComnumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> VdBsqNumTerm<'sess> {
+        if self.is_zero() {
+            return VdBsqNumTerm::ZERO;
+        }
         match rhs {
             VdBsqNonSumComnumTerm::Atom(rhs) => rhs.mul_litnum(self, db),
-            VdBsqNonSumComnumTerm::Product(rhs) => todo!(),
+            VdBsqNonSumComnumTerm::Product(rhs) => VdBsqComnumTerm::Product(self, rhs).into(),
         }
     }
 
