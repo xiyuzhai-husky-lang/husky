@@ -1,3 +1,5 @@
+use crate::foundations::opr::separator::relation::comparison::VdBsqComparisonOpr;
+
 use super::*;
 
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -7,23 +9,13 @@ pub struct VdBsqNumRelationshipPropTerm<'sess>(VdBsqPropTermFld<'sess>);
 pub struct VdBsqNumRelationshipPropTermData<'sess> {
     /// The left-hand side of the inequality minus the right-hand side.
     pub lhs_minus_rhs: VdBsqNumTerm<'sess>,
-    pub kind: VdBsqNumRelationshipPropTermKind,
-}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqNumRelationshipPropTermKind {
-    Eq,
-    Ne,
-    Lt,
-    Gt,
-    Le,
-    Ge,
+    pub opr: VdBsqComparisonOpr,
 }
 
 impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
     pub fn new(
         lhs: VdBsqNumTerm<'sess>,
-        kind: VdBsqNumRelationshipPropTermKind,
+        kind: VdBsqComparisonOpr,
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> VdBsqPropTerm<'sess> {
@@ -38,7 +30,7 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
         VdBsqPropTerm::NumRelationship(Self(VdBsqPropTermFld::new(
             VdBsqPropTermData::NumRelationship(VdBsqNumRelationshipPropTermData {
                 lhs_minus_rhs,
-                kind,
+                opr: kind,
             }),
             db,
         )))
@@ -48,7 +40,7 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
 impl<'sess> VdBsqPropTerm<'sess> {
     pub fn new_num_relationship(
         lhs: VdBsqNumTerm<'sess>,
-        kind: VdBsqNumRelationshipPropTermKind,
+        kind: VdBsqComparisonOpr,
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
@@ -59,7 +51,7 @@ impl<'sess> VdBsqPropTerm<'sess> {
 impl<'sess> VdBsqTerm<'sess> {
     pub fn new_num_relationship(
         lhs: VdBsqNumTerm<'sess>,
-        kind: VdBsqNumRelationshipPropTermKind,
+        kind: VdBsqComparisonOpr,
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
@@ -79,8 +71,8 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
         self.data().lhs_minus_rhs
     }
 
-    pub fn kind(self) -> VdBsqNumRelationshipPropTermKind {
-        self.data().kind
+    pub fn kind(self) -> VdBsqComparisonOpr {
+        self.data().opr
     }
 }
 
@@ -110,13 +102,13 @@ impl<'sess> VdBsqNumRelationshipPropTermData<'sess> {
     ) -> std::fmt::Result {
         self.lhs_minus_rhs.show_fmt(precedence_range, f)?;
         f.write_str(" ")?;
-        match self.kind {
-            VdBsqNumRelationshipPropTermKind::Eq => f.write_str("="),
-            VdBsqNumRelationshipPropTermKind::Ne => f.write_str("≠"),
-            VdBsqNumRelationshipPropTermKind::Lt => f.write_str("<"),
-            VdBsqNumRelationshipPropTermKind::Gt => f.write_str(">"),
-            VdBsqNumRelationshipPropTermKind::Le => f.write_str("≤"),
-            VdBsqNumRelationshipPropTermKind::Ge => f.write_str("≥"),
+        match self.opr {
+            VdBsqComparisonOpr::EQ => f.write_str("="),
+            VdBsqComparisonOpr::NE => f.write_str("≠"),
+            VdBsqComparisonOpr::LT => f.write_str("<"),
+            VdBsqComparisonOpr::GT => f.write_str(">"),
+            VdBsqComparisonOpr::LE => f.write_str("≤"),
+            VdBsqComparisonOpr::GE => f.write_str("≥"),
         }?;
         f.write_str(" 0")
     }

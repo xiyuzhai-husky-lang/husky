@@ -10,12 +10,7 @@ use crate::{
         builder::sum::VdBsqSumBuilder,
         comnum::VdBsqComnumTerm,
         num::VdBsqNumTerm,
-        prop::{
-            num_relationship::{
-                VdBsqNumRelationshipPropTermData, VdBsqNumRelationshipPropTermKind,
-            },
-            VdBsqPropTerm,
-        },
+        prop::{num_relationship::VdBsqNumRelationshipPropTermData, VdBsqPropTerm},
         VdBsqTerm,
     },
 };
@@ -32,7 +27,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             return AltNothing;
         };
         let VdBsqNumRelationshipPropTermData {
-            kind,
+            opr: kind,
             lhs_minus_rhs: VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)),
         } = *num_relationship.data()
         else {

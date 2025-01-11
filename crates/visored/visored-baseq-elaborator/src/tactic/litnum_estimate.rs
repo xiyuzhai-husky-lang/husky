@@ -5,7 +5,7 @@ use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
 };
 use alt_option::*;
-use foundations::opr::separator::relation::comparison::VdBsqOrderComparison;
+use foundations::opr::separator::relation::comparison::VdBsqBoundOpr;
 use term::{litnum::VdBsqLitnumTerm, prop::VdBsqPropTerm, VdBsqTerm};
 use visored_baseq_elaborator_macros::unify_elabm;
 use visored_entity_path::{
@@ -40,7 +40,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         }
         let relationship = match followers[0].0 {
             VdMirFunc::NormalBaseSeparator(signature) => {
-                VdBsqOrderComparison::from_mir_base_separator(signature.opr())?
+                VdBsqBoundOpr::from_mir_base_separator(signature.opr())?
             }
             _ => return AltNothing,
         };
@@ -54,7 +54,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
 fn try_all<'db, 'sess>(
     elr: &mut VdBsqElaboratorInner<'db, 'sess>,
     leader: VdBsqExprFld<'sess>,
-    comp: VdBsqOrderComparison,
+    comp: VdBsqBoundOpr,
     rhs: VdBsqLitnumTerm<'sess>,
 ) -> Mhr<'sess> {
     try_one_shot(elr, leader, comp, rhs)?;
@@ -64,7 +64,7 @@ fn try_all<'db, 'sess>(
 fn try_one_shot<'db, 'sess>(
     elr: &mut VdBsqElaboratorInner<'db, 'sess>,
     leader: VdBsqExprFld<'sess>,
-    comp: VdBsqOrderComparison,
+    comp: VdBsqBoundOpr,
     rhs: VdBsqLitnumTerm<'sess>,
 ) -> Mhr<'sess> {
     // elr.hypothesis_constructor

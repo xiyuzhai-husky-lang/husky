@@ -8,13 +8,13 @@ use self::{comnum::*, litnum::*, num::*, prop::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::{VdBsqExprFld, VdBsqExprFldData},
+    foundations::opr::separator::relation::comparison::VdBsqComparisonOpr,
 };
 use bigint::VdBsqBigInt;
 use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
-use num_relationship::VdBsqNumRelationshipPropTermKind;
 use product::VdBsqProductComnumTermBase;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
@@ -223,7 +223,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             } => match joined_separator_and_signature {
                 Some(joined_separator_and_signature) => todo!(),
                 None => {
-                    use VdBsqNumRelationshipPropTermKind::*;
+                    use VdBsqComparisonOpr::*;
 
                     let (func, follower) = *followers.first().unwrap();
                     let num_relationship = |slf: &Self, kind| {
@@ -239,12 +239,24 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
                             VdMirBaseSeparator::CommRingAdd => todo!(),
                             VdMirBaseSeparator::CommRingMul => todo!(),
-                            VdMirBaseSeparator::Eq => num_relationship(self, Eq),
-                            VdMirBaseSeparator::Ne => num_relationship(self, Ne),
-                            VdMirBaseSeparator::Lt => num_relationship(self, Lt),
-                            VdMirBaseSeparator::Gt => num_relationship(self, Gt),
-                            VdMirBaseSeparator::Le => num_relationship(self, Le),
-                            VdMirBaseSeparator::Ge => num_relationship(self, Ge),
+                            VdMirBaseSeparator::Eq => {
+                                num_relationship(self, VdBsqComparisonOpr::EQ)
+                            }
+                            VdMirBaseSeparator::Ne => {
+                                num_relationship(self, VdBsqComparisonOpr::NE)
+                            }
+                            VdMirBaseSeparator::Lt => {
+                                num_relationship(self, VdBsqComparisonOpr::LT)
+                            }
+                            VdMirBaseSeparator::Gt => {
+                                num_relationship(self, VdBsqComparisonOpr::GT)
+                            }
+                            VdMirBaseSeparator::Le => {
+                                num_relationship(self, VdBsqComparisonOpr::LE)
+                            }
+                            VdMirBaseSeparator::Ge => {
+                                num_relationship(self, VdBsqComparisonOpr::GE)
+                            }
                             VdMirBaseSeparator::Subset => todo!(),
                             VdMirBaseSeparator::Supset => todo!(),
                             VdMirBaseSeparator::Subseteq => todo!(),

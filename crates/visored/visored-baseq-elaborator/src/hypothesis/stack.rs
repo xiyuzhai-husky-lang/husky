@@ -46,7 +46,7 @@ impl<'sess> VdBsqActiveHypotheses<'sess> {
         &self.0
     }
 
-    pub fn is_record_valid(&self, record: VdBsqHypothesisStackRecord<'sess>) -> bool {
+    pub fn is_record_active(&self, record: VdBsqHypothesisStackRecord<'sess>) -> bool {
         self.0.get(record.stack_idx) == Some(&record.hypothesis_idx)
     }
 
@@ -80,7 +80,7 @@ impl<'sess, T> VdBsqHypothesisStackRecorded<'sess, T> {
 impl<'sess, T> VdBsqHypothesisStackRecorded<'sess, T> {
     pub fn get_valid_value(&self, active_hypotheses: &VdBsqActiveHypotheses<'sess>) -> Option<&T> {
         active_hypotheses
-            .is_record_valid(self.record)
+            .is_record_active(self.record)
             .then_some(&self.value)
     }
 }
@@ -129,7 +129,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
     }
 
     fn is_record_valid(&self, record: VdBsqHypothesisStackRecord<'sess>) -> bool {
-        self.active_hypotheses.is_record_valid(record)
+        self.active_hypotheses.is_record_active(record)
     }
 
     pub(crate) fn get_active_litnum_equality(

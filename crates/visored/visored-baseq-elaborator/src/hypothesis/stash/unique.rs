@@ -67,13 +67,13 @@ where
 {
     pub(crate) fn add_hypothesis(
         &mut self,
-        hypothesis_record: VdBsqHypothesisStackRecord<'sess>,
+        hypothesis_stack_record: VdBsqHypothesisStackRecord<'sess>,
         hypothesis_entry: &VdBsqHypothesisEntry<'sess>,
         db: &'sess FloaterDb,
         active_hypotheses: &VdBsqActiveHypotheses<'sess>,
     ) {
         let Some((key, value)) =
-            Scheme::key_value_from_hypothesis(hypothesis_record, hypothesis_entry, db)
+            Scheme::key_value_from_hypothesis(hypothesis_stack_record, hypothesis_entry, db)
         else {
             return;
         };
@@ -84,7 +84,7 @@ where
                 .map
                 .insert(
                     key,
-                    VdBsqHypothesisStackRecorded::new(hypothesis_record, value)
+                    VdBsqHypothesisStackRecorded::new(hypothesis_stack_record, value)
                 )
                 .is_none());
         }

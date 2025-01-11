@@ -325,15 +325,15 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
 }
 
 impl<'sess> VdBsqLitnumTerm<'sess> {
-    pub fn compare_with_zero(self, kind: VdBsqNumRelationshipPropTermKind) -> bool {
+    pub fn compare_with_zero(self, kind: VdBsqComparisonOpr) -> bool {
         match self {
             VdBsqLitnumTerm::Int128(i) => match kind {
-                VdBsqNumRelationshipPropTermKind::Eq => i == 0,
-                VdBsqNumRelationshipPropTermKind::Ne => i != 0,
-                VdBsqNumRelationshipPropTermKind::Lt => i < 0,
-                VdBsqNumRelationshipPropTermKind::Gt => i > 0,
-                VdBsqNumRelationshipPropTermKind::Le => i <= 0,
-                VdBsqNumRelationshipPropTermKind::Ge => i >= 0,
+                VdBsqComparisonOpr::EQ => i == 0,
+                VdBsqComparisonOpr::NE => i != 0,
+                VdBsqComparisonOpr::LT => i < 0,
+                VdBsqComparisonOpr::GT => i > 0,
+                VdBsqComparisonOpr::LE => i <= 0,
+                VdBsqComparisonOpr::GE => i >= 0,
             },
             VdBsqLitnumTerm::BigInt(i) => todo!(),
             VdBsqLitnumTerm::Frac128(_) => todo!(),
