@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
-    atom::VdBsqAtomComnumTerm,
-    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData},
+    atom::VdBsqAtomTerm,
+    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData, VdBsqProductTerm},
     sum::VdBsqSumComnumTerm,
     VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNumTerm,
 };
@@ -52,7 +52,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
             VdBsqNumTerm::Comnum(term) => match term {
                 VdBsqComnumTerm::Atom(term) => self.add_atom(term),
                 VdBsqComnumTerm::Sum(term) => self.add_sum(term),
-                VdBsqComnumTerm::Product(litnum, term) => self.add_product(litnum, term),
+                VdBsqComnumTerm::Product(product) => self.add_product(product),
             },
         }
     }
@@ -76,15 +76,15 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         match term {
             VdBsqComnumTerm::Atom(term) => self.sub_atom(term),
             VdBsqComnumTerm::Sum(term) => self.sub_sum(term),
-            VdBsqComnumTerm::Product(litnum, term) => self.sub_product(litnum, term),
+            VdBsqComnumTerm::Product(product) => self.sub_product(product),
         }
     }
 
-    pub fn add_atom(&mut self, term: VdBsqAtomComnumTerm<'sess>) {
+    pub fn add_atom(&mut self, term: VdBsqAtomTerm<'sess>) {
         self.add_monomial(VdBsqProductBase::Atom(term), VdBsqLitnumTerm::ONE);
     }
 
-    pub fn sub_atom(&mut self, term: VdBsqAtomComnumTerm<'sess>) {
+    pub fn sub_atom(&mut self, term: VdBsqAtomTerm<'sess>) {
         self.add_monomial(VdBsqProductBase::Atom(term), VdBsqLitnumTerm::NEG_ONE);
     }
 
@@ -102,8 +102,8 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn add_product(&mut self, litnum: VdBsqLitnumTerm<'sess>, term: VdBsqProductBase<'sess>) {
-        self.add_monomial(term, litnum);
+    pub fn add_product(&mut self, product: VdBsqProductTerm<'sess>) {
+        self.add_monomial(product.base(), product.litnum_factor());
     }
 
     pub fn add_general_product(
@@ -126,15 +126,17 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                         litnum,
                     );
                 }
-                VdBsqComnumTerm::Product(litnum1, base) => {
-                    self.add_product(litnum.mul(litnum1, self.db), base);
+                VdBsqComnumTerm::Product(product) => {
+                    self.add_product(
+                        product.with_litnum_factor_update(|litnum1| litnum.mul(litnum1, self.db)),
+                    );
                 }
             },
         }
     }
 
-    pub fn sub_product(&mut self, litnum: VdBsqLitnumTerm<'sess>, term: VdBsqProductBase<'sess>) {
-        self.add_monomial(term, litnum.neg(self.db));
+    pub fn sub_product(&mut self, product: VdBsqProductTerm<'sess>) {
+        self.add_monomial(product.base(), product.litnum_factor().neg(self.db));
     }
 
     pub fn add_monomial(&mut self, term: VdBsqProductBase<'sess>, coeff: VdBsqLitnumTerm<'sess>) {
@@ -158,7 +160,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                 if coeff.is_one() {
                     todo!()
                 } else {
-                    VdBsqComnumTerm::Product(coeff, base).into()
+                    VdBsqProductTerm::new(coeff, base).into()
                 }
             }
             _ => VdBsqSumComnumTerm::new(self.constant_litnum, monomials, self.db).into(),

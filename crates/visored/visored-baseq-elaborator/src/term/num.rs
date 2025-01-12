@@ -1,6 +1,7 @@
 use super::*;
 use crate::term::sum::VdBsqSumComnumTerm;
 use builder::sum::VdBsqSumBuilder;
+use product::VdBsqProductTerm;
 use smallvec::*;
 
 #[enum_class::from_variants]
@@ -17,6 +18,12 @@ impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
             VdBsqNonProductNumTerm::AtomComnum(term) => VdBsqNumTerm::Comnum(term.into()),
             VdBsqNonProductNumTerm::SumComnum(term) => VdBsqNumTerm::Comnum(term.into()),
         }
+    }
+}
+
+impl<'sess> From<VdBsqProductTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(value: VdBsqProductTerm<'sess>) -> Self {
+        VdBsqNumTerm::Comnum(value.into())
     }
 }
 

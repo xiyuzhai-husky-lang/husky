@@ -7,6 +7,7 @@ use crate::foundations::num::VdBsqSign;
 use self::{bigint::VdBsqBigInt, frac128::VdBsqFrac128};
 use super::*;
 use num_bigint::Sign;
+use product::VdBsqProductTerm;
 use std::num::NonZeroU128;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
@@ -213,7 +214,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         if self.is_zero() {
             return VdBsqNumTerm::ZERO;
         }
-        VdBsqComnumTerm::Product(self, rhs).into()
+        VdBsqProductTerm::new(self, rhs).into()
     }
 
     pub fn mul_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {

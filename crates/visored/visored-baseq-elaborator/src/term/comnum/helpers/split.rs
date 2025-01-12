@@ -72,13 +72,16 @@ impl<'sess> VdBsqComnumTerm<'sess> {
                 let factor = f(1.into());
                 (factor, (0.into(), self.div_litnum(factor, db).unwrap()))
             }
-            VdBsqComnumTerm::Product(factor0, base) => {
+            VdBsqComnumTerm::Product(product) => {
+                let factor0 = product.litnum_factor();
                 let factor = f(factor0);
                 (
                     factor,
                     (
                         0.into(),
-                        VdBsqComnumTerm::Product(factor0.div(factor, db).unwrap(), base),
+                        product
+                            .with_litnum_factor(factor0.div(factor, db).unwrap())
+                            .into(),
                     ),
                 )
             }

@@ -12,9 +12,9 @@ use visored_opr::precedence::VdPrecedence;
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqComnumTerm<'sess> {
-    Atom(VdBsqAtomComnumTerm<'sess>),
+    Atom(VdBsqAtomTerm<'sess>),
     Sum(VdBsqSumComnumTerm<'sess>),
-    Product(VdBsqLitnumTerm<'sess>, VdBsqProductBase<'sess>),
+    Product(VdBsqProductTerm<'sess>),
 }
 
 impl<'sess> VdBsqComnumTerm<'sess> {
@@ -26,35 +26,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         match self {
             VdBsqComnumTerm::Atom(term) => term.show_fmt(precedence_range, f),
             VdBsqComnumTerm::Sum(term) => term.show_fmt(precedence_range, f),
-            VdBsqComnumTerm::Product(litnum, term) => {
-                debug_assert!(!litnum.is_zero());
-                if litnum.is_one() {
-                    debug_assert!(!term.data().exponentials().is_empty());
-                    term.show_fmt(precedence_range, f)
-                } else {
-                    fn show_product_fmt_inner<'sess>(
-                        litnum: VdBsqLitnumTerm<'sess>,
-                        term: VdBsqProductBase<'sess>,
-                        f: &mut std::fmt::Formatter<'_>,
-                    ) -> std::fmt::Result {
-                        litnum.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
-                        match term.exponentials().data()[0].0 {
-                            VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
-                            VdBsqNonProductNumTerm::AtomComnum(_)
-                            | VdBsqNonProductNumTerm::SumComnum(_) => (),
-                        }
-                        term.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)
-                    }
-
-                    if precedence_range.contains(VdPrecedence::MUL_DIV) {
-                        show_product_fmt_inner(litnum, term, f)
-                    } else {
-                        f.write_str("(")?;
-                        show_product_fmt_inner(litnum, term, f)?;
-                        f.write_str(")")
-                    }
-                }
-            }
+            VdBsqComnumTerm::Product(term) => term.show_fmt(precedence_range, f),
         }
     }
 }
@@ -63,7 +35,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonProductNumTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
-    AtomComnum(VdBsqAtomComnumTerm<'sess>),
+    AtomComnum(VdBsqAtomTerm<'sess>),
     SumComnum(VdBsqSumComnumTerm<'sess>),
 }
 
@@ -142,9 +114,9 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         match self {
             VdBsqComnumTerm::Atom(term) => term.neg(db).into(),
             VdBsqComnumTerm::Sum(term) => term.neg(db).into(),
-            VdBsqComnumTerm::Product(litnum, term) => {
-                VdBsqComnumTerm::Product(litnum.neg(db), term).into()
-            }
+            VdBsqComnumTerm::Product(product) => product
+                .with_litnum_factor_update(|litnum| litnum.neg(db))
+                .into(),
         }
     }
 
@@ -156,11 +128,11 @@ impl<'sess> VdBsqComnumTerm<'sess> {
             return self.into();
         }
         match self {
-            VdBsqComnumTerm::Atom(term) => term.mul128(rhs, db),
+            VdBsqComnumTerm::Atom(term) => term.mul_litnum(rhs, db),
             VdBsqComnumTerm::Sum(term) => term.mul128(rhs, db),
-            VdBsqComnumTerm::Product(litnum, term) => {
-                VdBsqComnumTerm::Product(litnum.mul128(rhs, db), term).into()
-            }
+            VdBsqComnumTerm::Product(product) => product
+                .with_litnum_factor_update(|litnum| litnum.mul128(rhs, db))
+                .into(),
         }
     }
 
@@ -178,9 +150,11 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         match self {
             VdBsqComnumTerm::Atom(slf) => Some(slf.div_litnum(rhs, db).unwrap().into()),
             VdBsqComnumTerm::Sum(slf) => Some(slf.div_litnum(rhs, db).unwrap()),
-            VdBsqComnumTerm::Product(litnum, term) => {
-                Some(VdBsqComnumTerm::Product(litnum.div(rhs, db).unwrap(), term).into())
-            }
+            VdBsqComnumTerm::Product(product) => Some(
+                product
+                    .with_litnum_factor_update(|litnum| litnum.div(rhs, db).unwrap())
+                    .into(),
+            ),
         }
     }
 }

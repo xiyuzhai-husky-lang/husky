@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
-    atom::VdBsqAtomComnumTerm,
-    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData},
+    atom::VdBsqAtomTerm,
+    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData, VdBsqProductTerm},
     sum::VdBsqSumComnumTerm,
     VdBsqComnumTerm, VdBsqExponentialPowers, VdBsqLitnumTerm, VdBsqMonomialCoefficients,
     VdBsqNonProductNumTerm, VdBsqNumTerm,
@@ -12,7 +12,7 @@ pub struct VdBsqProductBuilder<'sess> {
     db: &'sess FloaterDb,
     /// Only for numbers representable efficiently by computers.
     /// For huge numbers like `2^100000`, we don't want to put it here.
-    litn_coefficient: VdBsqLitnumTerm<'sess>,
+    litnum_factor: VdBsqLitnumTerm<'sess>,
     unpruned_exponentials: VdBsqExponentialPowers<'sess>,
 }
 
@@ -20,7 +20,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     pub fn new(db: &'sess FloaterDb) -> Self {
         Self {
             db,
-            litn_coefficient: VdBsqLitnumTerm::ONE,
+            litnum_factor: VdBsqLitnumTerm::ONE,
             unpruned_exponentials: VdBsqExponentialPowers::default(),
         }
     }
@@ -35,7 +35,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     pub fn new_from_litnum(litnum: VdBsqLitnumTerm<'sess>, db: &'sess FloaterDb) -> Self {
         Self {
             db,
-            litn_coefficient: litnum,
+            litnum_factor: litnum,
             unpruned_exponentials: VdBsqExponentialPowers::default(),
         }
     }
@@ -44,13 +44,11 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         match comnum {
             VdBsqComnumTerm::Atom(atom) => Self::new_from_atom(atom, db),
             VdBsqComnumTerm::Sum(sum) => Self::new_from_sum(sum, db),
-            VdBsqComnumTerm::Product(litnum, product) => {
-                Self::new_from_product(litnum, product, db)
-            }
+            VdBsqComnumTerm::Product(product) => Self::new_from_product(product, db),
         }
     }
 
-    pub fn new_from_atom(atom: VdBsqAtomComnumTerm<'sess>, db: &'sess FloaterDb) -> Self {
+    pub fn new_from_atom(atom: VdBsqAtomTerm<'sess>, db: &'sess FloaterDb) -> Self {
         todo!()
     }
 
@@ -58,14 +56,10 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         todo!()
     }
 
-    pub fn new_from_product(
-        litn_coefficient: VdBsqLitnumTerm<'sess>,
-        product: VdBsqProductBase<'sess>,
-        db: &'sess FloaterDb,
-    ) -> Self {
+    pub fn new_from_product(product: VdBsqProductTerm<'sess>, db: &'sess FloaterDb) -> Self {
         Self {
             db,
-            litn_coefficient: litn_coefficient,
+            litnum_factor: product.litnum_factor(),
             unpruned_exponentials: product.exponentials().clone(),
         }
     }
@@ -80,18 +74,18 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn mul_litnum(&mut self, litnum: VdBsqLitnumTerm<'sess>) {
-        self.litn_coefficient.mul_assign(litnum, self.db);
+        self.litnum_factor.mul_assign(litnum, self.db);
     }
 
     pub fn mul_comnum(&mut self, comnum: VdBsqComnumTerm<'sess>) {
         match comnum {
             VdBsqComnumTerm::Atom(atom) => self.mul_atom(atom),
             VdBsqComnumTerm::Sum(sum) => self.mul_sum(sum),
-            VdBsqComnumTerm::Product(litnum, product) => self.mul_product(litnum, product),
+            VdBsqComnumTerm::Product(product) => self.mul_product(product),
         }
     }
 
-    pub fn mul_atom(&mut self, atom: VdBsqAtomComnumTerm<'sess>) {
+    pub fn mul_atom(&mut self, atom: VdBsqAtomTerm<'sess>) {
         self.unpruned_exponentials
             .insert_or_update((atom.into(), VdBsqNumTerm::ONE), |(_, old_coeff)| {
                 old_coeff.add_assign(VdBsqNumTerm::ONE, self.db)
@@ -105,12 +99,8 @@ impl<'sess> VdBsqProductBuilder<'sess> {
             });
     }
 
-    pub fn mul_product(
-        &mut self,
-        litnum: VdBsqLitnumTerm<'sess>,
-        product: VdBsqProductBase<'sess>,
-    ) {
-        self.mul_litnum(litnum);
+    pub fn mul_product(&mut self, product: VdBsqProductTerm<'sess>) {
+        self.mul_litnum(product.litnum_factor());
         for &(base, exponent) in product.exponentials() {
             self.mul_exponential(base, exponent);
         }
@@ -135,7 +125,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn div_litnum(&mut self, litn: VdBsqLitnumTerm<'sess>) {
-        self.litn_coefficient.div_assign(litn, self.db);
+        self.litnum_factor.div_assign(litn, self.db);
     }
 
     pub fn div_comnum(&mut self, comnum: VdBsqComnumTerm<'sess>) {
@@ -143,13 +133,13 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn finish(self) -> VdBsqNumTerm<'sess> {
-        match self.litn_coefficient {
+        match self.litnum_factor {
             VdBsqLitnumTerm::ZERO => VdBsqNumTerm::ZERO,
             litn_coefficient => {
                 let exponentials: VdBsqExponentialPowers<'sess> =
                     self.unpruned_exponentials.into_iter().collect();
                 if exponentials.is_empty() {
-                    return VdBsqNumTerm::Litnum(self.litn_coefficient);
+                    return VdBsqNumTerm::Litnum(self.litnum_factor);
                 }
                 if litn_coefficient.is_one() && exponentials.len() == 1 {
                     let (base, exponent) = exponentials.data()[0];
@@ -157,7 +147,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
                         return base.into();
                     }
                 }
-                VdBsqNumTerm::new_product(self.litn_coefficient, exponentials, self.db)
+                VdBsqNumTerm::new_product(self.litnum_factor, exponentials, self.db)
             }
         }
     }

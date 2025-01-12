@@ -4,26 +4,26 @@ use visored_mir_expr::symbol::local_defn::VdMirSymbolLocalDefnIdx;
 use visored_opr::precedence::VdPrecedenceRange;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqAtomComnumTerm<'sess>(VdBsqComnumTermFld<'sess>);
+pub struct VdBsqAtomTerm<'sess>(VdBsqComnumTermFld<'sess>);
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqComnumAtomTermData {
     Variable(LxMathLetter, VdMirSymbolLocalDefnIdx),
 }
 
-impl<'sess> From<VdBsqAtomComnumTerm<'sess>> for VdBsqNumTerm<'sess> {
-    fn from(value: VdBsqAtomComnumTerm<'sess>) -> Self {
+impl<'sess> From<VdBsqAtomTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(value: VdBsqAtomTerm<'sess>) -> Self {
         VdBsqNumTerm::Comnum(VdBsqComnumTerm::Atom(value))
     }
 }
 
-impl<'sess> VdBsqAtomComnumTerm<'sess> {
+impl<'sess> VdBsqAtomTerm<'sess> {
     pub fn new(data: VdBsqComnumAtomTermData, db: &'sess FloaterDb) -> Self {
-        VdBsqAtomComnumTerm(VdBsqComnumTermFld::new(VdBsqComnumTermData::Atom(data), db))
+        VdBsqAtomTerm(VdBsqComnumTermFld::new(VdBsqComnumTermData::Atom(data), db))
     }
 }
 
-impl<'sess> VdBsqAtomComnumTerm<'sess> {
+impl<'sess> VdBsqAtomTerm<'sess> {
     pub fn data(self) -> &'sess VdBsqComnumAtomTermData {
         match self.0.data() {
             VdBsqComnumTermData::Atom(data) => data,
@@ -34,7 +34,7 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
 
 impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn new_atom(data: VdBsqComnumAtomTermData, db: &'sess FloaterDb) -> Self {
-        VdBsqComnumTerm::Atom(VdBsqAtomComnumTerm::new(data, db))
+        VdBsqComnumTerm::Atom(VdBsqAtomTerm::new(data, db))
     }
 }
 
@@ -44,7 +44,7 @@ impl<'sess> VdBsqTerm<'sess> {
         local_defn_idx: VdMirSymbolLocalDefnIdx,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqTerm::Comnum(VdBsqComnumTerm::Atom(VdBsqAtomComnumTerm(
+        VdBsqTerm::Comnum(VdBsqComnumTerm::Atom(VdBsqAtomTerm(
             VdBsqComnumTermFld::new(
                 VdBsqComnumTermData::Atom(VdBsqComnumAtomTermData::Variable(
                     lx_math_letter,
@@ -56,7 +56,7 @@ impl<'sess> VdBsqTerm<'sess> {
     }
 }
 
-impl<'sess> VdBsqAtomComnumTerm<'sess> {
+impl<'sess> VdBsqAtomTerm<'sess> {
     pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
@@ -90,51 +90,24 @@ impl<'sess> VdBsqComnumAtomTermData {
     }
 }
 
-impl<'sess> VdBsqAtomComnumTerm<'sess> {
-    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqComnumTerm<'sess> {
-        let product_base = VdBsqProductBase::new(
-            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
-                .into_iter()
-                .collect(),
-            db,
-        );
-        VdBsqComnumTerm::Product((-1).into(), product_base)
-    }
-
-    pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
-        if rhs == 0 {
-            return VdBsqNumTerm::ZERO;
-        }
-        if rhs == 1 {
-            return self.into();
-        }
-        let product_base = VdBsqProductBase::new(
-            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
-                .into_iter()
-                .collect(),
-            db,
-        );
-        VdBsqComnumTerm::Product(rhs.into(), product_base).into()
+impl<'sess> VdBsqAtomTerm<'sess> {
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqProductTerm<'sess> {
+        VdBsqProductTerm::new(-1, self)
     }
 
     pub fn mul_litnum(
         self,
-        rhs: VdBsqLitnumTerm<'sess>,
+        rhs: impl Into<VdBsqLitnumTerm<'sess>>,
         db: &'sess FloaterDb,
     ) -> VdBsqNumTerm<'sess> {
+        let rhs = rhs.into();
         if rhs == 0.into() {
             return VdBsqNumTerm::ZERO;
         }
         if rhs == 1.into() {
             return self.into();
         }
-        let product_base = VdBsqProductBase::new(
-            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
-                .into_iter()
-                .collect(),
-            db,
-        );
-        VdBsqComnumTerm::Product(rhs, product_base).into()
+        VdBsqProductTerm::new(rhs, self).into()
     }
 
     pub fn div_litnum(
@@ -148,12 +121,6 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
         if rhs == 1.into() {
             return Some(self.into());
         }
-        let product_base = VdBsqProductBase::new(
-            [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
-                .into_iter()
-                .collect(),
-            db,
-        );
-        Some(VdBsqComnumTerm::Product(rhs.inverse().unwrap(), product_base).into())
+        Some(VdBsqProductTerm::new(rhs.inverse().unwrap(), self).into())
     }
 }

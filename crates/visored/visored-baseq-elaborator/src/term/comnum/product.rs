@@ -1,10 +1,126 @@
+use super::*;
 use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 
-use super::*;
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+pub struct VdBsqProductTerm<'sess> {
+    litnum_factor: VdBsqLitnumTerm<'sess>,
+    base: VdBsqProductBase<'sess>,
+}
 
+impl<'sess> VdBsqProductTerm<'sess> {
+    pub fn new(
+        litnum_factor: impl Into<VdBsqLitnumTerm<'sess>>,
+        base: impl Into<VdBsqProductBase<'sess>>,
+    ) -> Self {
+        Self {
+            litnum_factor: litnum_factor.into(),
+            base: base.into(),
+        }
+    }
+
+    pub fn new2(
+        litnum_factor: VdBsqLitnumTerm<'sess>,
+        exponentials: VdBsqExponentialPowers<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Self {
+        let base = VdBsqProductBase::new(exponentials, db);
+        Self {
+            litnum_factor,
+            base,
+        }
+    }
+
+    pub fn with_litnum_factor(self, litnum_factor: VdBsqLitnumTerm<'sess>) -> Self {
+        Self {
+            litnum_factor,
+            base: self.base,
+        }
+    }
+
+    pub fn with_litnum_factor_update(
+        self,
+        f: impl FnOnce(VdBsqLitnumTerm<'sess>) -> VdBsqLitnumTerm<'sess>,
+    ) -> Self {
+        Self {
+            litnum_factor: f(self.litnum_factor),
+            base: self.base,
+        }
+    }
+}
+
+impl<'sess> VdBsqProductTerm<'sess> {
+    pub fn litnum_factor(self) -> VdBsqLitnumTerm<'sess> {
+        self.litnum_factor
+    }
+
+    pub fn base(&self) -> VdBsqProductBase<'sess> {
+        self.base
+    }
+
+    pub fn exponentials(&self) -> &VdBsqExponentialPowers<'sess> {
+        self.base.exponentials()
+    }
+}
+
+impl<'sess> From<VdBsqProductBase<'sess>> for VdBsqProductTerm<'sess> {
+    fn from(base: VdBsqProductBase<'sess>) -> Self {
+        Self {
+            litnum_factor: VdBsqLitnumTerm::ONE,
+            base,
+        }
+    }
+}
+
+impl<'sess> From<VdBsqProductBase<'sess>> for VdBsqComnumTerm<'sess> {
+    fn from(base: VdBsqProductBase<'sess>) -> Self {
+        Self::Product(base.into())
+    }
+}
+
+impl<'sess> VdBsqProductTerm<'sess> {
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        let Self {
+            litnum_factor: factor,
+            base,
+        } = self;
+        debug_assert!(!factor.is_zero());
+        if factor.is_one() {
+            debug_assert!(!base.exponentials().is_empty());
+            base.show_fmt(precedence_range, f)
+        } else {
+            fn show_product_fmt_inner<'sess>(
+                litnum: VdBsqLitnumTerm<'sess>,
+                term: VdBsqProductBase<'sess>,
+                f: &mut std::fmt::Formatter<'_>,
+            ) -> std::fmt::Result {
+                litnum.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
+                match term.exponentials().data()[0].0 {
+                    VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
+                    VdBsqNonProductNumTerm::AtomComnum(_)
+                    | VdBsqNonProductNumTerm::SumComnum(_) => (),
+                }
+                term.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)
+            }
+
+            if precedence_range.contains(VdPrecedence::MUL_DIV) {
+                show_product_fmt_inner(factor, base, f)
+            } else {
+                f.write_str("(")?;
+                show_product_fmt_inner(factor, base, f)?;
+                f.write_str(")")
+            }
+        }
+    }
+}
+
+#[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqProductBase<'sess> {
-    Atom(VdBsqAtomComnumTerm<'sess>),
+    Atom(VdBsqAtomTerm<'sess>),
     Sum(VdBsqSumComnumTerm<'sess>),
     NonTrivial(VdBsqNonTrivialProductBase<'sess>),
 }
@@ -89,11 +205,11 @@ impl<'sess> VdBsqProductBase<'sess> {
 
 impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn new_product(
-        litn_coefficient: VdBsqLitnumTerm<'sess>,
+        factor: VdBsqLitnumTerm<'sess>,
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqComnumTerm::Product(litn_coefficient, VdBsqProductBase::new(exponentials, db))
+        VdBsqProductTerm::new2(factor, exponentials, db).into()
     }
 
     pub fn new_power(
@@ -110,10 +226,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
                 _ => (),
             },
         }
-        VdBsqComnumTerm::Product(
-            VdBsqLitnumTerm::ONE,
-            VdBsqProductBase::new_power(base, exponent, db),
-        )
+        VdBsqProductBase::new_power(base, exponent, db).into()
     }
 }
 
