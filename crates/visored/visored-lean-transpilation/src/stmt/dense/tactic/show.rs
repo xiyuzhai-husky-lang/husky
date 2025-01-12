@@ -22,12 +22,17 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 let ty = prop.to_lean(self);
                 // It's intentional that this is transpiled to have tactic instead of show.
                 // Lean's show will change the goal. However, until lean's show tactic can supply tactics for goal conversion, we will stick to have tactic.
-                let construction_tactics = following_stmts.to_lean(self);
+                let construction_tactics: LnMirTacticIdxRange = following_stmts.to_lean(self);
+                if construction_tactics.is_empty() {
+                    use husky_print_utils::p;
+                    p!(self.input(), following_stmts.len());
+                    todo!()
+                }
                 let construction = self.alloc_expr(LnMirExprEntry::new(
                     LnMirExprData::By {
                         tactics: construction_tactics,
                     },
-                    todo!(),
+                    None,
                 ));
                 LnMirTacticData::Have {
                     ident: self.mangle_hypothesis(),

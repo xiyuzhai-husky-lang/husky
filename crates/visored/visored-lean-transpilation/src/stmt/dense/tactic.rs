@@ -87,10 +87,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 );
                 self.build_ln_tactics_from_vd_stmts(following_stmts, ln_tactics);
             }
-            VdMirStmtData::Show { prop, .. } => {
+            VdMirStmtData::Show {
+                prop,
+                goal_and_hypothesis_chunk_place,
+                ..
+            } => {
                 // Here, we also provide the following stmts to build the tactic.
                 ln_tactics.push(self.build_ln_tactic_from_vd_show(prop, following_stmts));
-                todo!("show tactics")
+                if let Some((goal, hypothesis_chunk_place)) = goal_and_hypothesis_chunk_place {
+                    // ad hoc, let's see if this works
+                    self.build_hypothesis_chunk_tactics(
+                        hypothesis_chunk_place.unwrap(),
+                        ln_tactics,
+                    );
+                }
             }
             VdMirStmtData::Qed {
                 goal_and_hypothesis_chunk_place,

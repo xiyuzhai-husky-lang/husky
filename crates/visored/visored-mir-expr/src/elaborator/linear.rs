@@ -101,7 +101,7 @@ pub enum TrivialHypothesisIdx {
         prop: VdMirExprIdx,
     },
     Show {
-        goal: VdMirExprIdx,
+        // goal: VdMirExprIdx,
     },
     Qed {
         // goal: VdMirExprIdx,
@@ -151,8 +151,7 @@ impl<'db> IsVdMirSequentialElaboratorInner<'db> for () {
     }
 
     fn elaborate_show_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
-        todo!()
-        // Ok(TrivialHypothesisIdx::Show)
+        Ok(TrivialHypothesisIdx::Show {})
     }
 
     fn elaborate_qed_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
@@ -377,12 +376,36 @@ where
                         hypothesis_chunk_place.set(Ok(hypothesis_chunk));
                     });
             }
-            VdMirStmtData::Show { .. } => {
-                let elaboration = self
+            VdMirStmtData::Show {
+                goal_and_hypothesis_chunk_place,
+                ..
+            } => {
+                let hypothesis = self
                     .inner
                     .elaborate_show_stmt()
                     .expect("handle contradiction");
-                todo!();
+                if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
+                    let hypothesis_chunk = hypothesis_constructor
+                        .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
+                            self.inner.transcribe_explicit_hypothesis(
+                                hypothesis,
+                                goal,
+                                hypothesis_constructor,
+                            )
+                        });
+                    hypothesis_constructor
+                        .stmt_arena_mut()
+                        .update(stmt, |entry| {
+                            let VdMirStmtData::Show {
+                                goal_and_hypothesis_chunk_place: Some((_, hypothesis_chunk_place)),
+                                ..
+                            } = entry.data_mut()
+                            else {
+                                unreachable!()
+                            };
+                            hypothesis_chunk_place.set(Ok(hypothesis_chunk));
+                        });
+                }
             }
             VdMirStmtData::Qed {
                 goal_and_hypothesis_chunk_place,

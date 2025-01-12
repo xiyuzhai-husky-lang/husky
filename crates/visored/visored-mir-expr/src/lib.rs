@@ -20,7 +20,7 @@ use self::tests::*;
 use either::*;
 use visored_models::VdModels;
 
-pub trait ToVdMir<T>: Copy {
+pub trait ToVdMir<T> {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> T;
 }
 

@@ -59,6 +59,7 @@ pub enum VdMirStmtData {
     Show {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
+        goal_and_hypothesis_chunk_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
     },
     Qed {
         goal_and_hypothesis_chunk_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
@@ -189,13 +190,18 @@ impl<'db> VdMirExprBuilder<'db> {
 
 impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<VdMirExprIdx>) {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let (sentences, mut ext_goal) = self;
+        let (sentences, ext_goal) = self;
+        let mut goal = OncePlace::<VdMirExprIdx>::default();
+        if let Some(ext_goal) = ext_goal {
+            goal.set(ext_goal);
+        }
         let mut entries = sentences
             .into_iter()
-            .map(|sentence| VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence)))
+            .map(|sentence| {
+                VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence, &mut goal))
+            })
             .collect::<Vec<_>>();
-        let goal = builder.collect_goal(ext_goal, &entries);
-        entries.push(VdMirStmtEntry::new_qed(goal));
+        entries.push(VdMirStmtEntry::new_qed(goal.get().cloned()));
         let sources = sentences
             .into_iter()
             .map(VdMirStmtSource::Sentence)
@@ -205,41 +211,14 @@ impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<VdMirExprIdx>
 }
 
 impl<'db> VdMirExprBuilder<'db> {
-    fn collect_goal(
-        &self,
-        ext_goal: Option<VdMirExprIdx>,
-        entries: &[VdMirStmtEntry],
-    ) -> Option<VdMirExprIdx> {
-        let mut goal = ext_goal;
-        for entry in entries {
-            self.collect_goal_aux(entry, &mut goal);
-        }
-        goal
-    }
-
-    fn collect_goal_aux(&self, entry: &VdMirStmtEntry, goal: &mut Option<VdMirExprIdx>) {
-        match *entry.data() {
-            VdMirStmtData::Goal { prop } => {
-                if goal.is_some() {
-                    todo!();
-                }
-                *goal = Some(prop)
-            }
-            VdMirStmtData::Block { stmts, ref meta } => {
-                for stmt in stmts {
-                    self.collect_goal_aux(&self.stmt_arena()[stmt], goal);
-                }
-            }
-            _ => {}
-        }
-    }
-}
-
-impl<'db> VdMirExprBuilder<'db> {
-    fn build_stmt_from_sem_sentence(&mut self, sentence: VdSemSentenceIdx) -> VdMirStmtData {
+    fn build_stmt_from_sem_sentence(
+        &mut self,
+        sentence: VdSemSentenceIdx,
+        goal: &mut OncePlace<VdMirExprIdx>,
+    ) -> VdMirStmtData {
         match self.sem_sentence_arena()[sentence] {
             VdSemSentenceData::Clauses { clauses, end } => VdMirStmtData::Block {
-                stmts: clauses.to_vd_mir(self),
+                stmts: (clauses, goal).to_vd_mir(self),
                 meta: VdMirBlockMeta::Sentence,
             },
             VdSemSentenceData::Have => todo!(),
@@ -248,19 +227,24 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
+impl ToVdMir<VdMirStmtIdxRange> for (VdSemClauseIdxRange, &mut OncePlace<VdMirExprIdx>) {
     fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let entries = self
+        let (clauses, goal) = self;
+        let entries = clauses
             .into_iter()
-            .map(|clause| VdMirStmtEntry::new(builder.build_stmt_from_sem_clause(clause)))
+            .map(|clause| VdMirStmtEntry::new(builder.build_stmt_from_sem_clause(clause, goal)))
             .collect::<Vec<_>>();
-        let sources = self.into_iter().map(VdMirStmtSource::Clause);
+        let sources = clauses.into_iter().map(VdMirStmtSource::Clause);
         builder.alloc_stmts(entries, sources)
     }
 }
 
 impl<'db> VdMirExprBuilder<'db> {
-    fn build_stmt_from_sem_clause(&mut self, clause: VdSemClauseIdx) -> VdMirStmtData {
+    fn build_stmt_from_sem_clause(
+        &mut self,
+        clause: VdSemClauseIdx,
+        goal: &mut OncePlace<VdMirExprIdx>,
+    ) -> VdMirStmtData {
         match *self.sem_clause_arena()[clause].data() {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
@@ -281,37 +265,27 @@ impl<'db> VdMirExprBuilder<'db> {
                     },
                 },
             },
-            VdSemClauseData::Assume {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Assume {
+            VdSemClauseData::Assume { formula, .. } => VdMirStmtData::Assume {
                 prop: formula.to_vd_mir(self),
                 hypothesis_chunk_place: OncePlace::default(),
             },
-            VdSemClauseData::Goal {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Goal {
-                prop: formula.to_vd_mir(self),
-            },
-            VdSemClauseData::Have {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Have {
+            VdSemClauseData::Goal { formula, .. } => {
+                let prop = formula.to_vd_mir(self);
+                goal.set(prop);
+                VdMirStmtData::Goal { prop }
+            }
+            VdSemClauseData::Have { formula, .. } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
                 hint: None, // ad hoc
                 hypothesis_chunk_place: OncePlace::default(),
             },
-            VdSemClauseData::Show {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Show {
+            VdSemClauseData::Show { formula, .. } => VdMirStmtData::Show {
                 prop: formula.to_vd_mir(self),
-                hint: None, // ad hoc
+                hint: None,
+                goal_and_hypothesis_chunk_place: match goal.get().cloned() {
+                    Some(goal) => Some((goal, OncePlace::default())),
+                    None => None,
+                },
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }
