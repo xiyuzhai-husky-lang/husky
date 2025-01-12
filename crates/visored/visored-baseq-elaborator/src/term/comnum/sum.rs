@@ -21,7 +21,7 @@ impl<'sess> From<VdBsqSumTerm<'sess>> for VdBsqNumTerm<'sess> {
 }
 
 impl<'sess> VdBsqSumTerm<'sess> {
-    pub fn new_ext(
+    pub fn new(
         constant_term: impl Into<VdBsqLitnumTerm<'sess>>,
         monomials: VdBsqMonomialCoefficients<'sess>,
         db: &'sess FloaterDb,
@@ -37,7 +37,7 @@ impl<'sess> VdBsqSumTerm<'sess> {
                 "should be reduced to product"
             );
         }
-        Self::new(
+        Self::new_inner(
             VdBsqComnumSumTermData {
                 constant_term,
                 monomials,

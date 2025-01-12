@@ -1,7 +1,14 @@
 use crate::*;
 use convert_case::{Case, Casing};
+use parse::Parse;
+use syn::parse::ParseStream;
 
-pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
+pub(crate) fn floated(attr: TokenStream, item: TokenStream) -> TokenStream {
+    let attr = parse_macro_input!(attr as Attr);
+    let (constructor_vis, constructor_ident) = match attr.constructor_attr {
+        Some(attr) => (attr.vis, attr.ident),
+        None => (Visibility::Inherited, format_ident!("new_inner")),
+    };
     let input = parse_macro_input!(item as DeriveInput);
     let vis = input.vis;
     let ty_ident = input.ident;
@@ -116,7 +123,7 @@ pub(crate) fn floated(_attr: TokenStream, item: TokenStream) -> TokenStream {
         #vis struct #ty_ident<#lifetime_ident>(::floated_sequential::Floated<#lifetime_ident, #data_ty_ident>);
 
         impl<#lifetime_ident> #ty_ident<#lifetime_ident> {
-            #vis fn new(#(#ctor_params),*, db: &#lifetime_ident ::floated_sequential::db::FloaterDb) -> Self {
+            #constructor_vis fn #constructor_ident(#(#ctor_params),*, db: &#lifetime_ident ::floated_sequential::db::FloaterDb) -> Self {
                 use ::floated_sequential::Floated;
 
                 let data = #data_ty_ident {
@@ -166,5 +173,44 @@ impl FieldAttr {
             }
         }
         slf
+    }
+}
+
+struct Attr {
+    constructor_attr: Option<ConstructorAttr>,
+}
+
+struct ConstructorAttr {
+    vis: Visibility,
+    ident: Ident,
+}
+
+impl Parse for ConstructorAttr {
+    fn parse(input: ParseStream) -> Result<Self> {
+        let ident: Ident = input.parse()?;
+        if !ident.to_string().eq("constructor") {
+            return Ok(Self {
+                vis: Visibility::Inherited,
+                ident: format_ident!("new"),
+            });
+        }
+        let _: Token![=] = input.parse()?;
+        Ok(Self {
+            vis: input.parse()?,
+            ident: input.parse()?,
+        })
+    }
+}
+
+impl Parse for Attr {
+    fn parse(input: ParseStream) -> Result<Self> {
+        if input.is_empty() {
+            return Ok(Self {
+                constructor_attr: None,
+            });
+        }
+        Ok(Self {
+            constructor_attr: Some(input.parse()?),
+        })
     }
 }

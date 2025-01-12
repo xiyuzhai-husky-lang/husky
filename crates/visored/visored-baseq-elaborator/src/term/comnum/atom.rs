@@ -30,7 +30,7 @@ impl<'sess> From<VdBsqAtomTerm<'sess>> for VdBsqNumTerm<'sess> {
 
 impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn new_atom(data: VdBsqComnumAtomTermData, db: &'sess FloaterDb) -> Self {
-        VdBsqComnumTerm::Atom(VdBsqAtomTerm::new(data, db))
+        VdBsqComnumTerm::Atom(VdBsqAtomTerm::new_inner(data, db))
     }
 }
 
@@ -40,7 +40,7 @@ impl<'sess> VdBsqTerm<'sess> {
         local_defn_idx: VdMirSymbolLocalDefnIdx,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqTerm::Comnum(VdBsqComnumTerm::Atom(VdBsqAtomTerm::new(
+        VdBsqTerm::Comnum(VdBsqComnumTerm::Atom(VdBsqAtomTerm::new_inner(
             VdBsqComnumAtomTermData::Variable(lx_math_letter, local_defn_idx),
             db,
         )))

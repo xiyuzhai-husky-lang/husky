@@ -203,7 +203,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
         let expected_ty = expr_entry.expected_ty();
-        let expr_fld = VdBsqExprFld::new(expr_data, ty, term, expected_ty, db);
+        let expr_fld = VdBsqExprFld::new_inner(expr_data, ty, term, expected_ty, db);
         self.save_expr_fld(expr_idx, expr_fld);
     }
 
@@ -267,7 +267,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     ) -> VdBsqExprFld<'sess> {
         let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
-        VdBsqExprFld::new(expr_data, ty, term, expected_ty, db)
+        VdBsqExprFld::new_inner(expr_data, ty, term, expected_ty, db)
     }
 
     pub(crate) fn mk_zero(&self, expected_ty: Option<VdType>) -> VdBsqExprFld<'sess> {

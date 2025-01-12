@@ -1,6 +1,6 @@
 use floated_sequential::{db::FloaterDb, *};
 
-#[floated]
+#[floated(constructor = pub new)]
 pub struct Coword<'db> {
     #[return_ref]
     data: String,

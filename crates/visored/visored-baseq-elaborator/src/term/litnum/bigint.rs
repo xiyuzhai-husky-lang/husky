@@ -5,7 +5,7 @@ use visored_term::term::literal::bigint::VdBigIntData;
 
 use super::VdBsqLitnumTerm;
 
-#[floated]
+#[floated(constructor = pub new)]
 pub struct VdBsqBigInt<'sess> {
     #[return_ref]
     pub inner: VdBigIntData,

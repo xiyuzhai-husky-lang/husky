@@ -163,7 +163,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                     VdBsqProductTerm::new(coeff, base).into()
                 }
             }
-            _ => VdBsqSumTerm::new_ext(self.constant_litnum, monomials, self.db).into(),
+            _ => VdBsqSumTerm::new(self.constant_litnum, monomials, self.db).into(),
         }
     }
 }

@@ -16,7 +16,7 @@ impl<'sess> VdBsqSumTerm<'sess> {
     ) {
         let (factor, (litnum, monomials)) = self.split(f, db);
         let monomials = if monomials.len() > 1 {
-            VdBsqSumTerm::new_ext(0, monomials, db).into()
+            VdBsqSumTerm::new(0, monomials, db).into()
         } else {
             let (monomial, coeff) = monomials.data()[0];
             match coeff.mul_product_base(monomial, db) {

@@ -25,7 +25,7 @@ impl<'sess> VdBsqNumRelationshipPropTerm<'sess> {
             VdBsqNumTerm::Litnum(term) => return VdBsqPropTerm::Trivial(term.cmp_with_zero(kind)),
             VdBsqNumTerm::Comnum(term) => (),
         }
-        VdBsqPropTerm::NumRelationship(Self(VdBsqPropTermFld::new(
+        VdBsqPropTerm::NumRelationship(Self(VdBsqPropTermFld::new_inner(
             VdBsqPropTermData::NumRelationship(VdBsqNumRelationshipPropTermData {
                 lhs_minus_rhs,
                 opr: kind,
