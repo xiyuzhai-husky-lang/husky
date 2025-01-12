@@ -1,5 +1,6 @@
 pub mod assumption;
 pub mod comm_ring;
+pub mod kurapika;
 pub mod library_search;
 pub mod litnum_estimate;
 pub mod litnum_reduce;
@@ -18,6 +19,7 @@ use miracle::HasMiracleFull;
 pub enum VdBsqTactic {
     Assumption,
     TermTrivial,
+    Kurapika,
     LibrarySearch,
     CommRing,
     LitnumReduce,
@@ -27,6 +29,9 @@ pub enum VdBsqTactic {
 // Trivial tactics are not tracked
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdBsqTacticCall {
+    Assumption,
+    TermTrivial,
+    Kurapika,
     LibrarySearch,
     CommRing,
     LitnumReduce,
@@ -42,6 +47,7 @@ impl VdBsqTactic {
         match self {
             VdBsqTactic::Assumption => elaborator.assumption(prop),
             VdBsqTactic::TermTrivial => elaborator.term_trivial(prop),
+            VdBsqTactic::Kurapika => elaborator.kurapika(prop),
             VdBsqTactic::LibrarySearch => elaborator.library_search(prop),
             VdBsqTactic::CommRing => elaborator.comm_ring(prop),
             VdBsqTactic::LitnumReduce => elaborator.litnum_reduce(prop),

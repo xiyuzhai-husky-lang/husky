@@ -33,6 +33,7 @@ pub fn load_obvious_tactics() -> Vec<VdBsqTactic> {
         // assumption should always be the first tactic
         VdBsqTactic::Assumption,
         VdBsqTactic::TermTrivial,
+        VdBsqTactic::Kurapika,
         VdBsqTactic::LitnumReduce,
         VdBsqTactic::LitnumEstimate,
         VdBsqTactic::CommRing,
