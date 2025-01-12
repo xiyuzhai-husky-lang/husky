@@ -23,12 +23,11 @@ impl<'sess> VdBsqProductTerm<'sess> {
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        todo!()
-        // let base = VdBsqProductBase::new(exponentials, db);
-        // Self {
-        //     litnum_factor,
-        //     base,
-        // }
+        let base = VdBsqProductBase::new(exponentials, db);
+        Self {
+            litnum_factor,
+            base,
+        }
     }
 
     pub fn with_litnum_factor(self, litnum_factor: VdBsqLitnumTerm<'sess>) -> Self {
@@ -153,12 +152,20 @@ impl<'sess> std::fmt::Debug for VdBsqNonTrivialProductBase<'sess> {
 }
 
 impl<'sess> VdBsqProductBase<'sess> {
-    pub fn new(exponentials: VdBsqExponentialParts<'sess>, db: &'sess FloaterDb) -> Self {
-        todo!()
-        // VdBsqProductBase(VdBsqComnumTermFld::new(
-        //     VdBsqComnumTermData::Product(VdBsqProductComnumTermBaseData { exponentials }),
-        //     db,
-        // ))
+    pub fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
+        if exponentials.len() == 1 {
+            let (base, exponent) = exponentials.data()[0];
+            match exponent {
+                VdBsqNumTerm::ZERO => todo!(),
+                VdBsqNumTerm::ONE => match base {
+                    VdBsqNonProductNumTerm::Litnum(vd_bsq_litnum_term) => todo!(),
+                    VdBsqNonProductNumTerm::AtomComnum(base) => return base.into(),
+                    VdBsqNonProductNumTerm::SumComnum(base) => return base.into(),
+                },
+                _ => (),
+            }
+        }
+        VdBsqNonTrivialProductBase::new(exponentials, db).into()
     }
 
     pub fn from_parts(
@@ -186,7 +193,7 @@ impl<'sess> VdBsqNonTrivialProductBase<'sess> {
     fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
         #[cfg(debug_assertions)]
         {
-            debug_assert!(exponentials.len() == 1);
+            debug_assert!(exponentials.len() > 0);
             if exponentials.len() == 1 {
                 let (base, exponent) = exponentials.data()[0];
                 // debug_assert!(exponent.is_one_trivially());

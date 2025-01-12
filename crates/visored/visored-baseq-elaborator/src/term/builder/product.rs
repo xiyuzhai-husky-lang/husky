@@ -107,10 +107,15 @@ impl<'sess> VdBsqProductBuilder<'sess> {
 
     pub fn mul_product(&mut self, product: VdBsqProductTerm<'sess>) {
         self.mul_litnum(product.litnum_factor());
-        // for (base, exponent) in product.exponentials() {
-        //     self.mul_exponential(base, exponent);
-        // }
-        todo!()
+        match product.base() {
+            VdBsqProductBase::Atom(base) => self.mul_atom(base),
+            VdBsqProductBase::Sum(base) => self.mul_sum(base),
+            VdBsqProductBase::NonTrivial(base) => {
+                for &(base, exponent) in base.exponentials() {
+                    self.mul_exponential(base, exponent);
+                }
+            }
+        }
     }
 
     pub fn mul_exponential(

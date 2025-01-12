@@ -177,22 +177,6 @@ impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
             },
         ))
     }
-
-    fn debug_keys<'sess>(key1: &Self::Key<'sess>, key2: &Self::Key<'sess>) {
-        use husky_print_utils::p;
-        p!(key1, key2, key1 == key2);
-        let VdBsqComnumTerm::Sum(key1) = key1.normalized_monomials else {
-            unreachable!();
-        };
-        let VdBsqComnumTerm::Sum(key2) = key2.normalized_monomials else {
-            unreachable!();
-        };
-        p!(key1.monomials().data()[0] == key2.monomials().data()[0]);
-        let m0 = key1.monomials().data()[0];
-        let m1 = key2.monomials().data()[0];
-        p!(m0, m1, m0 == m1);
-        todo!()
-    }
 }
 
 /// will reduce upper bound to lower bound
@@ -237,23 +221,6 @@ impl<'sess> VdBsqLitnumBoundStash<'sess> {
         db: &'sess FloaterDb,
     ) -> Option<VdBsqLitNumBound<'sess>> {
         let (factor, (litnum, normalized_monomials)) = split(term, opr, db);
-        use husky_print_utils::p;
-        p!(
-            self,
-            term,
-            opr,
-            factor,
-            litnum,
-            normalized_monomials,
-            self.get_active_value_with(
-                VdBsqLitNumBoundKey {
-                    normalized_monomials,
-                },
-                db,
-                active_hypotheses,
-                |&value| value.unnormalize(factor, opr, db),
-            )
-        );
         self.get_active_value_with(
             VdBsqLitNumBoundKey {
                 normalized_monomials,
