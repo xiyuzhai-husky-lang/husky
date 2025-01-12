@@ -2,7 +2,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(a : ℝ)(b : ℝ) : ((a + b) / (2 : ℝ)) ^ 2 ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by
+def h (a b : ℝ) : ((a + b) / (2 : ℝ)) ^ 2 ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by
   have h1 : (a - b) ^ 2 ≥ (0 : ℝ) := by obvious
   have h2 : a ^ 2 - (2 : ℝ) * a * b + b ^ 2 ≥ (0 : ℝ) := by obvious
   have h3 : (2 : ℝ) * a * b ≤ a ^ 2 + b ^ 2 := by obvious

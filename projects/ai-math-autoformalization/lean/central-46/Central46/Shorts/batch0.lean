@@ -9,13 +9,13 @@ def h := by
 end Example1
 
 namespace Example2
-def h(x : ℝ) := by
+def h (x : ℝ) := by
   have h1 : x ^ 2 ≥ (0 : ℝ) := by obvious
   exact ()
 end Example2
 
 namespace Example3
-def h(x : ℝ) := by
+def h (x : ℝ) := by
   have h1 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious
   exact ()
 end Example3

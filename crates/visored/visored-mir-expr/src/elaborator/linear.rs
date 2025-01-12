@@ -104,7 +104,7 @@ pub enum TrivialHypothesisIdx {
         goal: VdMirExprIdx,
     },
     Qed {
-        goal: VdMirExprIdx,
+        // goal: VdMirExprIdx,
     },
     FieldDiv {
         divisor: idx_arena::ArenaIdx<expr::VdMirExprEntry>,
@@ -156,8 +156,7 @@ impl<'db> IsVdMirSequentialElaboratorInner<'db> for () {
     }
 
     fn elaborate_qed_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
-        todo!()
-        // Ok(TrivialHypothesisIdx::Qed)
+        Ok(TrivialHypothesisIdx::Qed {})
     }
 
     fn elaborate_field_div_expr(
@@ -386,9 +385,9 @@ where
                 todo!();
             }
             VdMirStmtData::Qed {
-                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
+                goal_and_hypothesis_chunk_place,
             } => {
-                if let Some((goal, _)) = goal_and_hypothesis_place {
+                if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
                     let hypothesis = self
                         .inner
                         .elaborate_qed_stmt()

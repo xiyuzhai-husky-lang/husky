@@ -2,7 +2,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(x : ℝ)(h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
+def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
   have h2 : x > (0 : ℝ) := by obvious
   first
   | have h3 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc

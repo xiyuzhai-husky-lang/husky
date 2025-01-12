@@ -79,7 +79,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(a : ℝ)(b : ℝ) : (a + b) ^ 2 ≥ (0 : ℝ) := by
+def h (a b : ℝ) : (a + b) ^ 2 ≥ (0 : ℝ) := by
   have h1 : (a + b) ^ 2 ≥ (0 : ℝ) := by obvious
   obvious
 
@@ -124,7 +124,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(x : ℝ)(y : ℝ)(h1 : x ≥ (0 : ℝ))(h2 : y ≥ (0 : ℝ)) : (x + y) / (2 : ℝ) ≥ √ (x * y) := by
+def h (x y : ℝ) (h1 : x ≥ (0 : ℝ)) (h2 : y ≥ (0 : ℝ)) : (x + y) / (2 : ℝ) ≥ √ (x * y) := by
   first
   | have h3 : (√ x - √ y) ^ 2 = x - (2 : ℝ) * √ (x * y) + y := by calc
     (√ x - √ y) ^ 2 = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
@@ -177,7 +177,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(a : ℝ)(b : ℝ)(c : ℝ) : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by
+def h (a b c : ℝ) : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by
   first
   | have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) := by calc
     (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - (2 : ℝ) * a * b + b ^ 2 + b ^ 2 - (2 : ℝ) * b * c + c ^ 2 + c ^ 2 - (2 : ℝ) * c * a + a ^ 2 := by obvious
@@ -230,7 +230,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(x : ℝ)(h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
+def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
   have h2 : x > (0 : ℝ) := by obvious
   first
   | have h3 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
@@ -287,7 +287,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h(a : ℝ)(b : ℝ) : ((a + b) / (2 : ℝ)) ^ 2 ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by
+def h (a b : ℝ) : ((a + b) / (2 : ℝ)) ^ 2 ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by
   have h1 : (a - b) ^ 2 ≥ (0 : ℝ) := by obvious
   have h2 : a ^ 2 - (2 : ℝ) * a * b + b ^ 2 ≥ (0 : ℝ) := by obvious
   have h3 : (2 : ℝ) * a * b ≤ a ^ 2 + b ^ 2 := by obvious
