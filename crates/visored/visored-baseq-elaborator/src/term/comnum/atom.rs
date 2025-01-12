@@ -83,7 +83,10 @@ impl<'sess> VdBsqComnumAtomTermData {
 
 impl<'sess> VdBsqAtomTerm<'sess> {
     pub fn neg(self, db: &'sess FloaterDb) -> VdBsqProductTerm<'sess> {
-        VdBsqProductTerm::new(-1, self)
+        match VdBsqProductTerm::new(-1, self) {
+            VdBsqNumTerm::Comnum(VdBsqComnumTerm::Product(product)) => product,
+            _ => unreachable!(),
+        }
     }
 
     pub fn mul_litnum(
@@ -112,6 +115,9 @@ impl<'sess> VdBsqAtomTerm<'sess> {
         if rhs == 1.into() {
             return Some(self.into());
         }
-        Some(VdBsqProductTerm::new(rhs.inverse().unwrap(), self).into())
+        match VdBsqProductTerm::new(rhs.inverse().unwrap(), self) {
+            VdBsqNumTerm::Litnum(_) => unreachable!(),
+            VdBsqNumTerm::Comnum(comnum) => Some(comnum),
+        }
     }
 }

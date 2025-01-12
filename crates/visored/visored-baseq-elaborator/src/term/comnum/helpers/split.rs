@@ -70,20 +70,20 @@ impl<'sess> VdBsqComnumTerm<'sess> {
             VdBsqComnumTerm::Sum(sum) => sum.split_fld(f, db),
             VdBsqComnumTerm::Atom(_) => {
                 let factor = f(1.into());
-                (factor, (0.into(), self.div_litnum(factor, db).unwrap()))
+                let VdBsqNumTerm::Comnum(term) = self.div_litnum(factor, db).unwrap() else {
+                    unreachable!()
+                };
+                (factor, (0.into(), term))
             }
             VdBsqComnumTerm::Product(product) => {
                 let factor0 = product.litnum_factor();
                 let factor = f(factor0);
-                (
-                    factor,
-                    (
-                        0.into(),
-                        product
-                            .with_litnum_factor(factor0.div(factor, db).unwrap())
-                            .into(),
-                    ),
-                )
+                let VdBsqNumTerm::Comnum(term) =
+                    product.with_litnum_factor(factor0.div(factor, db).unwrap())
+                else {
+                    unreachable!()
+                };
+                (factor, (0.into(), term))
             }
         }
     }

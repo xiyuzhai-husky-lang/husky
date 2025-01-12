@@ -61,7 +61,7 @@ fn multiply_with_expanding<'db, 'sess>(
         return None;
     }
     debug_assert!(exponent > 0);
-    let VdBsqNonProductNumTerm::SumComnum(sum) = base else {
+    let VdBsqNonProductNumTerm::Sum(sum) = base else {
         return None;
     };
     let factor_expansion = if exponent == 1 {
@@ -76,7 +76,8 @@ fn multiply_with_expanding<'db, 'sess>(
                             vec![(atom.into(), 1.into())]
                         }
                         VdBsqProductBase::Sum(sum) => {
-                            vec![(sum.into(), 1.into())]
+                            todo!()
+                            // vec![(sum.into(), 1.into())]
                         }
                         VdBsqProductBase::NonTrivial(base) => base.exponentials().to_vec(),
                     },
@@ -132,7 +133,8 @@ fn multinomial_expansion<'db, 'sess>(
                     exponential_parts.push((term.into(), index.into()));
                 }
                 VdBsqProductBase::Sum(sum) => {
-                    exponential_parts.push((sum.into(), index.into()));
+                    todo!()
+                    // exponential_parts.push((sum.into(), index.into()));
                 }
                 VdBsqProductBase::NonTrivial(base) => {
                     for &(base, exp) in base.exponentials() {

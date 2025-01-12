@@ -35,8 +35,8 @@ impl<'sess> VdBsqComnumTerm<'sess> {
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonProductNumTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
-    AtomComnum(VdBsqAtomTerm<'sess>),
-    SumComnum(VdBsqSumTerm<'sess>),
+    Atom(VdBsqAtomTerm<'sess>),
+    Sum(VdBsqSumTerm<'sess>),
 }
 
 impl<'sess> VdBsqNonProductNumTerm<'sess> {
@@ -47,16 +47,16 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
     ) -> std::fmt::Result {
         match self {
             VdBsqNonProductNumTerm::Litnum(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonProductNumTerm::AtomComnum(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonProductNumTerm::SumComnum(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonProductNumTerm::Atom(term) => term.show_fmt(precedence_range, f),
+            VdBsqNonProductNumTerm::Sum(term) => term.show_fmt(precedence_range, f),
         }
     }
 
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
             VdBsqNonProductNumTerm::Litnum(term) => term.outer_precedence(),
-            VdBsqNonProductNumTerm::AtomComnum(term) => term.outer_precedence(),
-            VdBsqNonProductNumTerm::SumComnum(term) => VdPrecedence::ADD_SUB,
+            VdBsqNonProductNumTerm::Atom(term) => term.outer_precedence(),
+            VdBsqNonProductNumTerm::Sum(term) => VdPrecedence::ADD_SUB,
         }
     }
 }
@@ -72,13 +72,13 @@ pub type VdBsqExponentialPowersRef<'a, 'sess> =
 pub type VdBsqExponentialParts<'sess> = Vec<(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)>;
 
 impl<'sess> VdBsqComnumTerm<'sess> {
-    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqComnumTerm<'sess> {
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         match self {
             VdBsqComnumTerm::Atom(term) => term.neg(db).into(),
             VdBsqComnumTerm::Sum(term) => term.neg(db).into(),
-            VdBsqComnumTerm::Product(product) => product
-                .with_litnum_factor_update(|litnum| litnum.neg(db))
-                .into(),
+            VdBsqComnumTerm::Product(product) => {
+                product.with_litnum_factor_update(|litnum| litnum.neg(db))
+            }
         }
     }
 
@@ -102,7 +102,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         self,
         rhs: VdBsqLitnumTerm<'sess>,
         db: &'sess FloaterDb,
-    ) -> Option<VdBsqComnumTerm<'sess>> {
+    ) -> Option<VdBsqNumTerm<'sess>> {
         if rhs.is_zero() {
             return None;
         }
@@ -111,12 +111,10 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         }
         match self {
             VdBsqComnumTerm::Atom(slf) => Some(slf.div_litnum(rhs, db).unwrap().into()),
-            VdBsqComnumTerm::Sum(slf) => Some(slf.div_litnum(rhs, db).unwrap()),
-            VdBsqComnumTerm::Product(product) => Some(
-                product
-                    .with_litnum_factor_update(|litnum| litnum.div(rhs, db).unwrap())
-                    .into(),
-            ),
+            VdBsqComnumTerm::Sum(slf) => Some(slf.div_litnum(rhs, db).unwrap().into()),
+            VdBsqComnumTerm::Product(product) => {
+                Some(product.with_litnum_factor_update(|litnum| litnum.div(rhs, db).unwrap()))
+            }
         }
     }
 }

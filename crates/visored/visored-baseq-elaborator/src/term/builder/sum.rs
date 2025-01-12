@@ -121,7 +121,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                     self.add_monomial(term, litnum);
                 }
                 VdBsqComnumTerm::Product(product) => {
-                    self.add_product(
+                    self.add_num(
                         product.with_litnum_factor_update(|litnum1| litnum.mul(litnum1, self.db)),
                     );
                 }

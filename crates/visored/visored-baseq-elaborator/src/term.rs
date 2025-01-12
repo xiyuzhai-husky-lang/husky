@@ -49,8 +49,8 @@ impl<'sess> VdBsqNumTerm<'sess> {
         match self {
             VdBsqNumTerm::Litnum(term) => todo!(),
             VdBsqNumTerm::Comnum(term) => match term {
-                VdBsqComnumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::AtomComnum(term)),
-                VdBsqComnumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::SumComnum(term)),
+                VdBsqComnumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::Atom(term)),
+                VdBsqComnumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::Sum(term)),
                 VdBsqComnumTerm::Product(product) => {
                     Left((product.litnum_factor(), product.base()))
                 }

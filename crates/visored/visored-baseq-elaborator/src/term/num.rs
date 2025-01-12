@@ -15,8 +15,8 @@ impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
     fn from(term: VdBsqNonProductNumTerm<'sess>) -> Self {
         match term {
             VdBsqNonProductNumTerm::Litnum(term) => VdBsqNumTerm::Litnum(term),
-            VdBsqNonProductNumTerm::AtomComnum(term) => VdBsqNumTerm::Comnum(term.into()),
-            VdBsqNonProductNumTerm::SumComnum(term) => VdBsqNumTerm::Comnum(term.into()),
+            VdBsqNonProductNumTerm::Atom(term) => VdBsqNumTerm::Comnum(term.into()),
+            VdBsqNonProductNumTerm::Sum(term) => VdBsqNumTerm::Comnum(term.into()),
         }
     }
 }

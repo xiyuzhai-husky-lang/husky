@@ -125,7 +125,7 @@ end Example12
 
 namespace Example13
 def h (x : ℝ) := by
-  have h1 : (2 : ℝ) * ((1 : ℝ) + x) = (2 : ℝ) + (2 : ℝ) * x := by obvious
+  have h1 : (2 : ℝ) * ((1 : ℝ) + x) = (2 : ℝ) + (2 : ℝ) * x := by comm_ring
   exact ()
 end Example13
 
@@ -261,7 +261,7 @@ namespace Example35
 def h := by
   let x := 1
   have h1 : x = 1 := by let_assigned
-  have h2 : x > 0 := by obvious
+  have h2 : x > 0 := by litnum_reduce
   exact ()
 end Example35
 
@@ -273,7 +273,7 @@ def h := by
   have h2 : y = 1 := by let_assigned
   let z := 2
   have h3 : z = 2 := by let_assigned
-  have h4 : x + y = z := by obvious
+  have h4 : x + y = z := by litnum_reduce
   exact ()
 end Example36
 
@@ -285,25 +285,25 @@ end Example37
 
 namespace Example38
 def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
-  have h2 : x > (0 : ℝ) := by obvious
+  have h2 : x > (0 : ℝ) := by litnum_bound
   exact ()
 end Example38
 
 namespace Example39
 def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
-  have h2 : x ≥ (1 : ℝ) := by obvious
+  have h2 : x ≥ (1 : ℝ) := by litnum_bound
   exact ()
 end Example39
 
 namespace Example40
 def h (x : ℝ) (h1 : x ≥ (1 : ℝ)) := by
-  have h2 : x ≥ (0 : ℝ) := by obvious
+  have h2 : x ≥ (0 : ℝ) := by litnum_bound
   exact ()
 end Example40
 
 namespace Example41
 def h (x : ℝ) (h1 : x ≥ (1 : ℝ)) := by
-  have h2 : x > (0 : ℝ) := by obvious
+  have h2 : x > (0 : ℝ) := by litnum_bound
   exact ()
 end Example41
 

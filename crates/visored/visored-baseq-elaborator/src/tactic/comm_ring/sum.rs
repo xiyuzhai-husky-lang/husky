@@ -39,7 +39,11 @@ where
             Pure(sum_builder)
         }
         VdBsqProductBase::Sum(sum) => {
-            sum_builder.add_monomial(VdBsqProductBase::Sum(sum), litnum0);
+            let db = elaborator.floater_db();
+            sum_builder.add_litnum(litnum0.mul(sum.constant_term(), db));
+            for &(base, litnum) in sum.monomials() {
+                sum_builder.add_monomial(base, litnum0.mul(litnum, db));
+            }
             Pure(sum_builder)
         }
         VdBsqProductBase::NonTrivial(base) => {
