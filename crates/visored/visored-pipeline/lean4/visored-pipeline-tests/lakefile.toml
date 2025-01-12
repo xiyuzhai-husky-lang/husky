@@ -13,7 +13,3 @@ scope = "leanprover-community"
 
 [[lean_lib]]
 name = "VisoredPipelineTests"
-
-[[require]]
-name = "obvious"
-path = "../../../../../lean4/obvious"

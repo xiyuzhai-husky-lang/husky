@@ -1,3 +1,5 @@
+pub mod obvious;
+
 use std::path::Path;
 
 /// Represents the output of a Lean command execution

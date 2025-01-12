@@ -1,5 +1,4 @@
-import Mathlib
-syntax "attack" : tactic
+pub const OBVIOUS_HEADER: &str = r#"syntax "attack" : tactic
 
 macro_rules
 | `(tactic| attack) => `(tactic|
@@ -20,7 +19,4 @@ macro "obvious": tactic =>`(tactic|
   | congr; all_goals attack; done
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
-)
-def h : 1 + 1 = 2 := by
-  have h1 : 1 + 1 = 2 := by obvious
-  obvious
+)"#;

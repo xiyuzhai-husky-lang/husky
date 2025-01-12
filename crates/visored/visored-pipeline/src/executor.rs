@@ -9,6 +9,7 @@ use input::VdPipelineInput;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_vfs::path::LxFilePath;
 use lean_helpers::lake_lean;
+use lean_helpers::obvious::OBVIOUS_HEADER;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use visored_lean_transpilation::{
@@ -197,11 +198,10 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
         );
         self.lean4_code = Some(format!(
             r#"import Mathlib
-import Obvious
-open Obvious
-
+{}
 {}
 "#,
+            OBVIOUS_HEADER,
             tracker.show_fmt(self.db)
         ));
         let lean4_code_path = self
