@@ -1,3 +1,7 @@
+mod nontrivial_chain;
+mod old_main;
+mod ordinary;
+
 use super::*;
 use lean_entity_path::theorem::LnTheoremPath;
 use lean_mir_expr::{
@@ -7,8 +11,10 @@ use lean_mir_expr::{
 use visored_entity_path::theorem::VdTheoremPath;
 use visored_mir_expr::{
     coercion::VdMirCoercion,
+    expr::VdMirExprData,
     hypothesis::{
-        chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction, VdMirHypothesisIdx,
+        chunk::VdMirHypothesisChunk, construction::VdMirHypothesisConstruction,
+        VdMirHypothesisEntry, VdMirHypothesisIdx,
     },
 };
 
@@ -37,86 +43,19 @@ where
         ln_tactics: &mut Vec<LnMirTacticData>,
     ) {
         let hypothesis_entry = &self.hypothesis_arena()[hypothesis];
-        let construction_tactics = match hypothesis_entry.construction() {
-            VdMirHypothesisConstruction::Sorry => {
-                let default_tactic_data = self.default_tactic_data();
-                self.alloc_tactics([default_tactic_data])
-            }
-            VdMirHypothesisConstruction::TermTrivial(b) => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_trivial");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
-            VdMirHypothesisConstruction::Apply {
-                path,
-                is_real_coercion,
-            } => {
-                match is_real_coercion {
-                    VdMirCoercion::Trivial => (),
-                    VdMirCoercion::Obvious(arena_idx) => todo!("handle this properly."),
-                }
-                self.alloc_tactics([LnMirTacticData::Apply {
-                    path: match path {
-                        VdTheoremPath::SquareNonnegative => LnTheoremPath::SquareNonnegative,
-                    },
-                }])
-            }
-            VdMirHypothesisConstruction::Assume => return,
-            VdMirHypothesisConstruction::TermEquivalent { hypothesis } => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("term_equivalent");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
-            VdMirHypothesisConstruction::CommRing => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("comm_ring");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
-            VdMirHypothesisConstruction::LetAssigned => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("let_assigned");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
-            VdMirHypothesisConstruction::LitnumReduce => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("litnum_reduce");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
-            VdMirHypothesisConstruction::LitnumBound => {
-                let ad_hoc_tactic_data = self.ad_hoc_tactic_data("litnum_bound");
-                self.alloc_tactics([ad_hoc_tactic_data])
-            }
-        };
-        let construction = self.alloc_expr(LnMirExprEntry::new(
-            LnMirExprData::By {
-                tactics: construction_tactics,
-            },
-            None,
-        ));
-        let ident = self.mangle_hypothesis();
-        ln_tactics.push(LnMirTacticData::Have {
-            ident,
-            ty: Some(hypothesis_entry.expr().to_lean(self)),
-            construction,
-        });
-    }
-
-    fn build_old_main_hypothesis_tactics(
-        &mut self,
-        main_hypothesis: VdMirHypothesisIdx,
-        ln_tactics: &mut Vec<LnMirTacticData>,
-    ) {
-        let ad_hoc_tactic_data = self.ad_hoc_tactic_data("old_main_hypothesis");
-        let construction_tactics = self.alloc_tactics([ad_hoc_tactic_data]);
-        let construction = self.alloc_expr(LnMirExprEntry::new(
-            LnMirExprData::By {
-                tactics: construction_tactics,
-            },
-            None,
-        ));
-        ln_tactics.push(LnMirTacticData::Have {
-            ident: self.mangle_hypothesis(),
-            ty: Some(
-                self.hypothesis_arena()[main_hypothesis]
-                    .expr()
-                    .to_lean(self),
+        match *self.expr_arena()[hypothesis_entry.expr()].data() {
+            VdMirExprData::ChainingSeparatedList {
+                leader,
+                ref followers,
+                joined_signature: Some(joined_signature),
+            } => self.build_nontrivial_chain_hypothesis_tactics(
+                hypothesis_entry,
+                leader,
+                followers,
+                joined_signature,
+                ln_tactics,
             ),
-            construction,
-        });
+            _ => self.build_ordinary_hypothesis_tactics(hypothesis_entry, ln_tactics),
+        }
     }
 }

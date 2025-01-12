@@ -576,3 +576,11 @@ def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y ≤
   have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y ≤ (1 : ℝ) := by litnum_bound
   exact ()
 end Example86
+
+namespace Example87
+def h := by
+  have h1 : 0 < 2 := by calc
+    0 < 1 := by obvious
+    _ < 2 := by obvious
+  exact ()
+end Example87

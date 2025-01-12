@@ -19,4 +19,5 @@ pub enum VdMirHypothesisConstruction {
     LetAssigned,
     LitnumReduce,
     LitnumBound,
+    Kurapika,
 }
