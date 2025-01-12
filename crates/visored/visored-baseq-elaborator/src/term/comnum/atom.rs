@@ -92,7 +92,7 @@ impl<'sess> VdBsqComnumAtomTermData {
 
 impl<'sess> VdBsqAtomComnumTerm<'sess> {
     pub fn neg(self, db: &'sess FloaterDb) -> VdBsqComnumTerm<'sess> {
-        let product_base = VdBsqProductComnumTermBase::new(
+        let product_base = VdBsqProductBase::new(
             [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
                 .into_iter()
                 .collect(),
@@ -108,7 +108,7 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
         if rhs == 1 {
             return self.into();
         }
-        let product_base = VdBsqProductComnumTermBase::new(
+        let product_base = VdBsqProductBase::new(
             [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
                 .into_iter()
                 .collect(),
@@ -128,7 +128,7 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
         if rhs == 1.into() {
             return self.into();
         }
-        let product_base = VdBsqProductComnumTermBase::new(
+        let product_base = VdBsqProductBase::new(
             [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
                 .into_iter()
                 .collect(),
@@ -148,7 +148,7 @@ impl<'sess> VdBsqAtomComnumTerm<'sess> {
         if rhs == 1.into() {
             return Some(self.into());
         }
-        let product_base = VdBsqProductComnumTermBase::new(
+        let product_base = VdBsqProductBase::new(
             [(VdBsqNonProductNumTerm::AtomComnum(self), VdBsqNumTerm::ONE)]
                 .into_iter()
                 .collect(),

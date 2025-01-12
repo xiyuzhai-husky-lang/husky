@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomComnumTerm,
-    product::{VdBsqProductComnumTermBase, VdBsqProductComnumTermBaseData},
+    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData},
     sum::VdBsqSumComnumTerm,
     VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNonSumComnumTerm,
     VdBsqNumTerm,
@@ -111,11 +111,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn add_product(
-        &mut self,
-        litnum: VdBsqLitnumTerm<'sess>,
-        term: VdBsqProductComnumTermBase<'sess>,
-    ) {
+    pub fn add_product(&mut self, litnum: VdBsqLitnumTerm<'sess>, term: VdBsqProductBase<'sess>) {
         self.add_monomial(VdBsqNonSumComnumTerm::Product(term), litnum);
     }
 
@@ -132,7 +128,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                 }
                 VdBsqComnumTerm::Sum(term) => {
                     self.add_monomial(
-                        VdBsqNonSumComnumTerm::Product(VdBsqProductComnumTermBase::new(
+                        VdBsqNonSumComnumTerm::Product(VdBsqProductBase::new(
                             [(term.into(), VdBsqNumTerm::ONE)].into_iter().collect(),
                             self.db,
                         )),
@@ -146,11 +142,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         }
     }
 
-    pub fn sub_product(
-        &mut self,
-        litnum: VdBsqLitnumTerm<'sess>,
-        term: VdBsqProductComnumTermBase<'sess>,
-    ) {
+    pub fn sub_product(&mut self, litnum: VdBsqLitnumTerm<'sess>, term: VdBsqProductBase<'sess>) {
         self.add_monomial(VdBsqNonSumComnumTerm::Product(term), litnum.neg(self.db));
     }
 
@@ -182,7 +174,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                     match non_sum {
                         VdBsqNonSumComnumTerm::Atom(term) => VdBsqComnumTerm::Product(
                             coeff,
-                            VdBsqProductComnumTermBase::new(
+                            VdBsqProductBase::new(
                                 [(term.into(), VdBsqNumTerm::ONE)].into_iter().collect(),
                                 self.db,
                             ),

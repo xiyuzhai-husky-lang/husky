@@ -1,7 +1,6 @@
 use super::*;
 use crate::term::{
-    builder::sum::VdBsqSumBuilder, comnum::product::VdBsqProductComnumTermBase,
-    litnum::VdBsqLitnumTerm,
+    builder::sum::VdBsqSumBuilder, comnum::product::VdBsqProductBase, litnum::VdBsqLitnumTerm,
 };
 use crate::term::{
     comnum::{sum::VdBsqSumComnumTerm, VdBsqNonSumComnumTerm},
@@ -49,7 +48,7 @@ where
                 for (litnum, exponentials) in expansion {
                     sum_builder.add_general_product(
                         litnum0.mul(litnum, db),
-                        VdBsqProductComnumTermBase::from_parts(exponentials, db),
+                        VdBsqProductBase::from_parts(exponentials, db),
                     );
                 }
                 sum_builder

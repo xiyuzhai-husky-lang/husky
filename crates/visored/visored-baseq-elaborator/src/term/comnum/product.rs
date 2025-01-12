@@ -3,7 +3,24 @@ use visored_opr::precedence::{VdPrecedence, VdPrecedenceRange};
 use super::*;
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqProductComnumTermBase<'sess>(VdBsqComnumTermFld<'sess>);
+pub enum VdBsqProductBase<'sess> {
+    Atom(VdBsqAtomComnumTerm<'sess>),
+    NonTrivialProductBase(VdBsqNonTrivialProductBase<'sess>),
+}
+
+#[floated]
+pub struct VdBsqNonTrivialProductBase<'sess> {
+    #[return_ref]
+    data: VdBsqProductComnumTermBaseData<'sess>,
+}
+
+impl<'sess> std::fmt::Debug for VdBsqNonTrivialProductBase<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("VdBsqNonTrivialProductBase")
+            .field("data", self.data())
+            .finish()
+    }
+}
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct VdBsqProductComnumTermBaseData<'sess> {
@@ -16,7 +33,7 @@ impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductComnumTermBase<'sess> {
+impl<'sess> VdBsqProductBase<'sess> {
     pub fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
         #[cfg(debug_assertions)]
         {
@@ -27,10 +44,11 @@ impl<'sess> VdBsqProductComnumTermBase<'sess> {
                 // todo!()
             }
         }
-        VdBsqProductComnumTermBase(VdBsqComnumTermFld::new(
-            VdBsqComnumTermData::Product(VdBsqProductComnumTermBaseData { exponentials }),
-            db,
-        ))
+        todo!()
+        // VdBsqProductBase(VdBsqComnumTermFld::new(
+        //     VdBsqComnumTermData::Product(VdBsqProductComnumTermBaseData { exponentials }),
+        //     db,
+        // ))
     }
 
     pub fn from_parts(
@@ -54,12 +72,13 @@ impl<'sess> VdBsqProductComnumTermBase<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductComnumTermBase<'sess> {
+impl<'sess> VdBsqProductBase<'sess> {
     pub fn data(&self) -> &'sess VdBsqProductComnumTermBaseData<'sess> {
-        match self.0.data() {
-            VdBsqComnumTermData::Product(data) => data,
-            _ => unreachable!(),
-        }
+        todo!()
+        // match self.0.data() {
+        //     VdBsqComnumTermData::Product(data) => data,
+        //     _ => unreachable!(),
+        // }
     }
 
     pub fn exponentials(&self) -> &'sess VdBsqExponentialPowers<'sess> {
@@ -77,10 +96,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqComnumTerm::Product(
-            litn_coefficient,
-            VdBsqProductComnumTermBase::new(exponentials, db),
-        )
+        VdBsqComnumTerm::Product(litn_coefficient, VdBsqProductBase::new(exponentials, db))
     }
 
     pub fn new_power(
@@ -99,7 +115,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
         }
         VdBsqComnumTerm::Product(
             VdBsqLitnumTerm::ONE,
-            VdBsqProductComnumTermBase::new_power(base, exponent, db),
+            VdBsqProductBase::new_power(base, exponent, db),
         )
     }
 }
@@ -188,7 +204,7 @@ impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductComnumTermBase<'sess> {
+impl<'sess> VdBsqProductBase<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,

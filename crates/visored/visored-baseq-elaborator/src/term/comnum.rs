@@ -14,7 +14,7 @@ use visored_opr::precedence::VdPrecedence;
 pub enum VdBsqComnumTerm<'sess> {
     Atom(VdBsqAtomComnumTerm<'sess>),
     Sum(VdBsqSumComnumTerm<'sess>),
-    Product(VdBsqLitnumTerm<'sess>, VdBsqProductComnumTermBase<'sess>),
+    Product(VdBsqLitnumTerm<'sess>, VdBsqProductBase<'sess>),
 }
 
 impl<'sess> VdBsqComnumTerm<'sess> {
@@ -34,7 +34,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
                 } else {
                     fn show_product_fmt_inner<'sess>(
                         litnum: VdBsqLitnumTerm<'sess>,
-                        term: VdBsqProductComnumTermBase<'sess>,
+                        term: VdBsqProductBase<'sess>,
                         f: &mut std::fmt::Formatter<'_>,
                     ) -> std::fmt::Result {
                         litnum.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
@@ -93,7 +93,7 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNonSumComnumTerm<'sess> {
     Atom(VdBsqAtomComnumTerm<'sess>),
-    Product(VdBsqProductComnumTermBase<'sess>),
+    Product(VdBsqProductBase<'sess>),
 }
 
 impl<'sess> VdBsqNonSumComnumTerm<'sess> {

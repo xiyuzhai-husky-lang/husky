@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomComnumTerm,
-    product::{VdBsqProductComnumTermBase, VdBsqProductComnumTermBaseData},
+    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData},
     sum::VdBsqSumComnumTerm,
     VdBsqComnumTerm, VdBsqExponentialPowers, VdBsqLitnumTerm, VdBsqMonomialCoefficients,
     VdBsqNonProductNumTerm, VdBsqNonSumComnumTerm, VdBsqNumTerm,
@@ -60,7 +60,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
 
     pub fn new_from_product(
         litn_coefficient: VdBsqLitnumTerm<'sess>,
-        product: VdBsqProductComnumTermBase<'sess>,
+        product: VdBsqProductBase<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
         Self {
@@ -108,7 +108,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     pub fn mul_product(
         &mut self,
         litnum: VdBsqLitnumTerm<'sess>,
-        product: VdBsqProductComnumTermBase<'sess>,
+        product: VdBsqProductBase<'sess>,
     ) {
         self.mul_litnum(litnum);
         for &(base, exponent) in product.exponentials() {

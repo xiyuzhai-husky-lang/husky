@@ -15,7 +15,7 @@ use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
-use product::VdBsqProductComnumTermBase;
+use product::VdBsqProductBase;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprData, VdMirExprEntry},
@@ -44,10 +44,8 @@ pub enum VdBsqTerm<'sess> {
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
-    ) -> Either<
-        (VdBsqLitnumTerm<'sess>, VdBsqProductComnumTermBase<'sess>),
-        VdBsqNonProductNumTerm<'sess>,
-    > {
+    ) -> Either<(VdBsqLitnumTerm<'sess>, VdBsqProductBase<'sess>), VdBsqNonProductNumTerm<'sess>>
+    {
         match self {
             VdBsqNumTerm::Litnum(term) => todo!(),
             VdBsqNumTerm::Comnum(term) => match term {
