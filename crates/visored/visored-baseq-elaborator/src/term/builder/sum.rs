@@ -1,8 +1,8 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomTerm,
-    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData, VdBsqProductTerm},
-    sum::VdBsqSumComnumTerm,
+    product::{VdBsqProductBase, VdBsqProductBaseData, VdBsqProductTerm},
+    sum::VdBsqSumTerm,
     VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNumTerm,
 };
 use floated_sequential::db::FloaterDb;
@@ -88,14 +88,14 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         self.add_monomial(VdBsqProductBase::Atom(term), VdBsqLitnumTerm::NEG_ONE);
     }
 
-    pub fn add_sum(&mut self, term: VdBsqSumComnumTerm<'sess>) {
+    pub fn add_sum(&mut self, term: VdBsqSumTerm<'sess>) {
         self.add_litnum(term.constant_term());
         for &(monomial, coeff) in term.monomials() {
             self.add_monomial(monomial, coeff);
         }
     }
 
-    pub fn sub_sum(&mut self, term: VdBsqSumComnumTerm<'sess>) {
+    pub fn sub_sum(&mut self, term: VdBsqSumTerm<'sess>) {
         self.sub_litnum(term.constant_term());
         for &(monomial, coeff) in term.monomials() {
             self.add_monomial(monomial, coeff.neg(self.db));
@@ -163,7 +163,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                     VdBsqProductTerm::new(coeff, base).into()
                 }
             }
-            _ => VdBsqSumComnumTerm::new(self.constant_litnum, monomials, self.db).into(),
+            _ => VdBsqSumTerm::new_ext(self.constant_litnum, monomials, self.db).into(),
         }
     }
 }

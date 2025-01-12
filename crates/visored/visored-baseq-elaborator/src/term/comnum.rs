@@ -13,7 +13,7 @@ use visored_opr::precedence::VdPrecedence;
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqComnumTerm<'sess> {
     Atom(VdBsqAtomTerm<'sess>),
-    Sum(VdBsqSumComnumTerm<'sess>),
+    Sum(VdBsqSumTerm<'sess>),
     Product(VdBsqProductTerm<'sess>),
 }
 
@@ -36,7 +36,7 @@ impl<'sess> VdBsqComnumTerm<'sess> {
 pub enum VdBsqNonProductNumTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
     AtomComnum(VdBsqAtomTerm<'sess>),
-    SumComnum(VdBsqSumComnumTerm<'sess>),
+    SumComnum(VdBsqSumTerm<'sess>),
 }
 
 impl<'sess> VdBsqNonProductNumTerm<'sess> {
@@ -62,22 +62,6 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
 }
 
 pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqProductBase<'sess>; 4]>;
-
-#[floated]
-pub struct VdBsqComnumTermFld<'sess> {
-    #[return_ref]
-    pub data: VdBsqComnumTermData<'sess>,
-}
-
-#[enum_class::from_variants]
-#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqComnumTermData<'sess> {
-    Atom(VdBsqComnumAtomTermData),
-    Sum(VdBsqComnumSumTermData<'sess>),
-    // TODO: maybe remove this???
-    Product(VdBsqProductComnumTermBaseData<'sess>),
-}
-
 pub type VdBsqNonProductNumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
 pub type VdBsqNonSumComnumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqProductBase<'sess>, T, 4>;
@@ -86,28 +70,6 @@ pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqN
 pub type VdBsqExponentialPowersRef<'a, 'sess> =
     &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)];
 pub type VdBsqExponentialParts<'sess> = Vec<(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)>;
-
-impl<'sess> std::fmt::Debug for VdBsqComnumTermFld<'sess> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("ComnumTermFld(`")?;
-        self.data().show_fmt(VdPrecedenceRange::Any, f)?;
-        f.write_str("`)")
-    }
-}
-
-impl<'sess> VdBsqComnumTermData<'sess> {
-    pub fn show_fmt(
-        &self,
-        precedence_range: VdPrecedenceRange,
-        f: &mut std::fmt::Formatter<'_>,
-    ) -> std::fmt::Result {
-        match self {
-            VdBsqComnumTermData::Atom(term) => term.show_fmt(precedence_range, f),
-            VdBsqComnumTermData::Sum(term) => term.show_fmt(precedence_range, f),
-            VdBsqComnumTermData::Product(term) => term.show_fmt(precedence_range, f),
-        }
-    }
-}
 
 impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn neg(self, db: &'sess FloaterDb) -> VdBsqComnumTerm<'sess> {

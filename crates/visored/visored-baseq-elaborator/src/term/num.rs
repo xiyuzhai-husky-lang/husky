@@ -1,5 +1,5 @@
 use super::*;
-use crate::term::sum::VdBsqSumComnumTerm;
+use crate::term::sum::VdBsqSumTerm;
 use builder::sum::VdBsqSumBuilder;
 use product::VdBsqProductTerm;
 use smallvec::*;

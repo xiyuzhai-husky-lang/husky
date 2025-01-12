@@ -2,7 +2,7 @@ use super::*;
 use crate::term::{
     builder::sum::VdBsqSumBuilder, comnum::product::VdBsqProductBase, litnum::VdBsqLitnumTerm,
 };
-use crate::term::{comnum::sum::VdBsqSumComnumTerm, num::VdBsqNumTerm};
+use crate::term::{comnum::sum::VdBsqSumTerm, num::VdBsqNumTerm};
 use elabm::Pure;
 use miracle::{error::MiracleAltMaybeResult, foldm::foldm};
 use product::foldm_product;

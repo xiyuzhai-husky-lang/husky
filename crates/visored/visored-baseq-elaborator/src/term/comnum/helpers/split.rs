@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'sess> VdBsqSumComnumTerm<'sess> {
+impl<'sess> VdBsqSumTerm<'sess> {
     /// `f` takes in the inverse of the leading coefficient and returns the factor.
     ///
     /// Split into `factor * (normalized_constant_term + normalized_monomials)`.
@@ -16,7 +16,7 @@ impl<'sess> VdBsqSumComnumTerm<'sess> {
     ) {
         let (factor, (litnum, monomials)) = self.split(f, db);
         let monomials = if monomials.len() > 1 {
-            VdBsqSumComnumTerm::new(0, monomials, db).into()
+            VdBsqSumTerm::new_ext(0, monomials, db).into()
         } else {
             let (monomial, coeff) = monomials.data()[0];
             match coeff.mul_product_base(monomial, db) {

@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
     comnum::{
-        sum::VdBsqSumComnumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
+        sum::VdBsqSumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
         VdBsqExponentialPowersRef, VdBsqNonProductNumTerm,
     },
     litnum::VdBsqLitnumTerm,
@@ -92,7 +92,7 @@ fn multiply_with_expanding<'db, 'sess>(
 }
 
 fn multinomial_expansion<'db, 'sess>(
-    sum: VdBsqSumComnumTerm<'sess>,
+    sum: VdBsqSumTerm<'sess>,
     exponent: i128,
     max_size: usize,
     db: &'sess FloaterDb,

@@ -11,7 +11,7 @@ use crate::{
     },
     term::{
         builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder},
-        comnum::{sum::VdBsqSumComnumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
+        comnum::{sum::VdBsqSumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
         litnum::VdBsqLitnumTerm,
         num::VdBsqNumTerm,
         prop::VdBsqPropTerm,

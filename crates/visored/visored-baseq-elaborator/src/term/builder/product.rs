@@ -1,8 +1,8 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomTerm,
-    product::{VdBsqProductBase, VdBsqProductComnumTermBaseData, VdBsqProductTerm},
-    sum::VdBsqSumComnumTerm,
+    product::{VdBsqProductBase, VdBsqProductBaseData, VdBsqProductTerm},
+    sum::VdBsqSumTerm,
     VdBsqComnumTerm, VdBsqExponentialPowers, VdBsqLitnumTerm, VdBsqMonomialCoefficients,
     VdBsqNonProductNumTerm, VdBsqNumTerm,
 };
@@ -52,7 +52,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         todo!()
     }
 
-    pub fn new_from_sum(sum: VdBsqSumComnumTerm<'sess>, db: &'sess FloaterDb) -> Self {
+    pub fn new_from_sum(sum: VdBsqSumTerm<'sess>, db: &'sess FloaterDb) -> Self {
         todo!()
     }
 
@@ -92,7 +92,7 @@ impl<'sess> VdBsqProductBuilder<'sess> {
             });
     }
 
-    pub fn mul_sum(&mut self, sum: VdBsqSumComnumTerm<'sess>) {
+    pub fn mul_sum(&mut self, sum: VdBsqSumTerm<'sess>) {
         self.unpruned_exponentials
             .insert_or_update((sum.into(), VdBsqNumTerm::ONE), |(_, old_coeff)| {
                 old_coeff.add_assign(VdBsqNumTerm::ONE, self.db)

@@ -121,14 +121,14 @@ impl<'sess> VdBsqProductTerm<'sess> {
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqProductBase<'sess> {
     Atom(VdBsqAtomTerm<'sess>),
-    Sum(VdBsqSumComnumTerm<'sess>),
+    Sum(VdBsqSumTerm<'sess>),
     NonTrivial(VdBsqNonTrivialProductBase<'sess>),
 }
 
 #[floated]
 pub struct VdBsqNonTrivialProductBase<'sess> {
     #[return_ref]
-    data: VdBsqProductComnumTermBaseData<'sess>,
+    data: VdBsqProductBaseData<'sess>,
 }
 
 impl<'sess> std::fmt::Debug for VdBsqNonTrivialProductBase<'sess> {
@@ -140,11 +140,11 @@ impl<'sess> std::fmt::Debug for VdBsqNonTrivialProductBase<'sess> {
 }
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqProductComnumTermBaseData<'sess> {
+pub struct VdBsqProductBaseData<'sess> {
     exponentials: VdBsqExponentialPowers<'sess>,
 }
 
-impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
+impl<'sess> VdBsqProductBaseData<'sess> {
     pub fn exponentials(&self) -> &VdBsqExponentialPowers<'sess> {
         &self.exponentials
     }
@@ -190,7 +190,7 @@ impl<'sess> VdBsqProductBase<'sess> {
 }
 
 impl<'sess> VdBsqProductBase<'sess> {
-    pub fn data(&self) -> &'sess VdBsqProductComnumTermBaseData<'sess> {
+    pub fn data(&self) -> &'sess VdBsqProductBaseData<'sess> {
         todo!()
         // match self.0.data() {
         //     VdBsqComnumTermData::Product(data) => data,
@@ -262,7 +262,7 @@ impl<'sess> VdBsqTerm<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductComnumTermBaseData<'sess> {
+impl<'sess> VdBsqProductBaseData<'sess> {
     pub fn show_fmt(
         &self,
         precedence_range: VdPrecedenceRange,

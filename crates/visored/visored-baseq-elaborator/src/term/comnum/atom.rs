@@ -3,8 +3,19 @@ use latex_math_letter::letter::LxMathLetter;
 use visored_mir_expr::symbol::local_defn::VdMirSymbolLocalDefnIdx;
 use visored_opr::precedence::VdPrecedenceRange;
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqAtomTerm<'sess>(VdBsqComnumTermFld<'sess>);
+#[floated]
+pub struct VdBsqAtomTerm<'sess> {
+    #[return_ref]
+    data: VdBsqComnumAtomTermData,
+}
+
+impl<'sess> std::fmt::Debug for VdBsqAtomTerm<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("AtomTerm(`")?;
+        self.data().show_fmt(VdPrecedenceRange::Any, f)?;
+        f.write_str("`)")
+    }
+}
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqComnumAtomTermData {
@@ -14,21 +25,6 @@ pub enum VdBsqComnumAtomTermData {
 impl<'sess> From<VdBsqAtomTerm<'sess>> for VdBsqNumTerm<'sess> {
     fn from(value: VdBsqAtomTerm<'sess>) -> Self {
         VdBsqNumTerm::Comnum(VdBsqComnumTerm::Atom(value))
-    }
-}
-
-impl<'sess> VdBsqAtomTerm<'sess> {
-    pub fn new(data: VdBsqComnumAtomTermData, db: &'sess FloaterDb) -> Self {
-        VdBsqAtomTerm(VdBsqComnumTermFld::new(VdBsqComnumTermData::Atom(data), db))
-    }
-}
-
-impl<'sess> VdBsqAtomTerm<'sess> {
-    pub fn data(self) -> &'sess VdBsqComnumAtomTermData {
-        match self.0.data() {
-            VdBsqComnumTermData::Atom(data) => data,
-            _ => unreachable!(),
-        }
     }
 }
 
@@ -44,14 +40,9 @@ impl<'sess> VdBsqTerm<'sess> {
         local_defn_idx: VdMirSymbolLocalDefnIdx,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqTerm::Comnum(VdBsqComnumTerm::Atom(VdBsqAtomTerm(
-            VdBsqComnumTermFld::new(
-                VdBsqComnumTermData::Atom(VdBsqComnumAtomTermData::Variable(
-                    lx_math_letter,
-                    local_defn_idx,
-                )),
-                db,
-            ),
+        VdBsqTerm::Comnum(VdBsqComnumTerm::Atom(VdBsqAtomTerm::new(
+            VdBsqComnumAtomTermData::Variable(lx_math_letter, local_defn_idx),
+            db,
         )))
     }
 }
