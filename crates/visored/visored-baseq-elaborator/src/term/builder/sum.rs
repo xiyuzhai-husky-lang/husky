@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomTerm,
-    product::{VdBsqProductBase, VdBsqProductTerm},
+    product::{VdBsqProductStem, VdBsqProductTerm},
     sum::VdBsqSumTerm,
     VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNumTerm,
 };
@@ -81,11 +81,11 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn add_atom(&mut self, term: VdBsqAtomTerm<'sess>) {
-        self.add_monomial(VdBsqProductBase::Atom(term), VdBsqLitnumTerm::ONE);
+        self.add_monomial(VdBsqProductStem::Atom(term), VdBsqLitnumTerm::ONE);
     }
 
     pub fn sub_atom(&mut self, term: VdBsqAtomTerm<'sess>) {
-        self.add_monomial(VdBsqProductBase::Atom(term), VdBsqLitnumTerm::NEG_ONE);
+        self.add_monomial(VdBsqProductStem::Atom(term), VdBsqLitnumTerm::NEG_ONE);
     }
 
     pub fn add_sum(&mut self, term: VdBsqSumTerm<'sess>) {
@@ -115,10 +115,13 @@ impl<'sess> VdBsqSumBuilder<'sess> {
             VdBsqNumTerm::Litnum(term) => self.add_litnum(litnum.mul(term, self.db)),
             VdBsqNumTerm::Comnum(term) => match term {
                 VdBsqComnumTerm::Atom(term) => {
-                    self.add_monomial(VdBsqProductBase::Atom(term), litnum);
+                    self.add_monomial(VdBsqProductStem::Atom(term), litnum);
                 }
                 VdBsqComnumTerm::Sum(term) => {
-                    self.add_monomial(term, litnum);
+                    self.add_litnum(litnum.mul(term.constant_term(), self.db));
+                    for &(monomial, coeff) in term.monomials() {
+                        self.add_monomial(monomial, litnum.mul(coeff, self.db));
+                    }
                 }
                 VdBsqComnumTerm::Product(product) => {
                     self.add_num(
@@ -135,7 +138,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
 
     pub fn add_monomial(
         &mut self,
-        base: impl Into<VdBsqProductBase<'sess>>,
+        base: impl Into<VdBsqProductStem<'sess>>,
         coeff: impl Into<VdBsqLitnumTerm<'sess>>,
     ) {
         let base = base.into();

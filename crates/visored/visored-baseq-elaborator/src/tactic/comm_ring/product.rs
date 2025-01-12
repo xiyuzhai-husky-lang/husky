@@ -14,7 +14,7 @@ use miracle::{
     error::MiracleAltMaybeResult,
     multifold::{self, multifold2},
 };
-use term::comnum::product::VdBsqProductBase;
+use term::comnum::product::VdBsqProductStem;
 
 pub fn foldm_product<'a, 'db, 'sess>(
     exponentials: &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
@@ -72,14 +72,10 @@ fn multiply_with_expanding<'db, 'sess>(
                 (
                     coeff,
                     match monomial {
-                        VdBsqProductBase::Atom(atom) => {
+                        VdBsqProductStem::Atom(atom) => {
                             vec![(atom.into(), 1.into())]
                         }
-                        VdBsqProductBase::Sum(sum) => {
-                            todo!()
-                            // vec![(sum.into(), 1.into())]
-                        }
-                        VdBsqProductBase::NonTrivial(base) => base.exponentials().to_vec(),
+                        VdBsqProductStem::NonTrivial(base) => base.exponentials().to_vec(),
                     },
                 )
             }))
@@ -129,14 +125,10 @@ fn multinomial_expansion<'db, 'sess>(
             let (summand, coeff) = sum.monomials().data()[monomial_idx];
             cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
             match summand {
-                VdBsqProductBase::Atom(term) => {
+                VdBsqProductStem::Atom(term) => {
                     exponential_parts.push((term.into(), index.into()));
                 }
-                VdBsqProductBase::Sum(sum) => {
-                    todo!()
-                    // exponential_parts.push((sum.into(), index.into()));
-                }
-                VdBsqProductBase::NonTrivial(base) => {
+                VdBsqProductStem::NonTrivial(base) => {
                     for &(base, exp) in base.exponentials() {
                         exponential_parts.push((base.into(), exp.mul128(index, db).into()));
                     }

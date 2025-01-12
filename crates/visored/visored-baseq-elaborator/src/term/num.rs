@@ -104,6 +104,17 @@ impl<'sess> VdBsqNumTerm<'sess> {
         }
     }
 
+    pub fn mul_litnum(
+        self,
+        litnum: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        match self {
+            VdBsqNumTerm::Litnum(slf) => slf.mul(litnum, db).into(),
+            VdBsqNumTerm::Comnum(slf) => slf.mul_litnum(litnum, db).into(),
+        }
+    }
+
     pub fn div(self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         let mut builder = VdBsqProductBuilder::new_from_num(self, db);
         builder.div_num(rhs);

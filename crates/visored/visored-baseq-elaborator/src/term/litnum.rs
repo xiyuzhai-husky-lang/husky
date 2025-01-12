@@ -208,7 +208,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
 
     pub fn mul_product_base(
         self,
-        rhs: VdBsqProductBase<'sess>,
+        rhs: VdBsqProductStem<'sess>,
         db: &'sess FloaterDb,
     ) -> VdBsqNumTerm<'sess> {
         if self.is_zero() {

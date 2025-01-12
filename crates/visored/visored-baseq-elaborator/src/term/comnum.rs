@@ -61,10 +61,10 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
     }
 }
 
-pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqProductBase<'sess>; 4]>;
+pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqProductStem<'sess>; 4]>;
 pub type VdBsqNonProductNumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
-pub type VdBsqNonSumComnumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqProductBase<'sess>, T, 4>;
+pub type VdBsqNonSumComnumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqProductStem<'sess>, T, 4>;
 pub type VdBsqMonomialCoefficients<'sess> = VdBsqNonSumComnumTermMap<'sess, VdBsqLitnumTerm<'sess>>;
 pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;
 pub type VdBsqExponentialPowersRef<'a, 'sess> =
@@ -95,6 +95,18 @@ impl<'sess> VdBsqComnumTerm<'sess> {
             VdBsqComnumTerm::Product(product) => product
                 .with_litnum_factor_update(|litnum| litnum.mul128(rhs, db))
                 .into(),
+        }
+    }
+
+    pub fn mul_litnum(
+        self,
+        litnum: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        match self {
+            VdBsqComnumTerm::Atom(term) => term.mul_litnum(litnum, db).into(),
+            VdBsqComnumTerm::Sum(term) => term.mul_litnum(litnum, db).into(),
+            VdBsqComnumTerm::Product(term) => term.mul_litnum(litnum, db).into(),
         }
     }
 

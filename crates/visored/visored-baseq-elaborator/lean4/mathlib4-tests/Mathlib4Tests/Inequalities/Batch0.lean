@@ -125,7 +125,7 @@ end Example12
 
 namespace Example13
 def h (x : ℝ) := by
-  have h1 : (2 : ℝ) * ((1 : ℝ) + x) = (2 : ℝ) + (2 : ℝ) * x := by comm_ring
+  have h1 : (2 : ℝ) * ((1 : ℝ) + x) = (2 : ℝ) + (2 : ℝ) * x := by term_trivial
   exact ()
 end Example13
 

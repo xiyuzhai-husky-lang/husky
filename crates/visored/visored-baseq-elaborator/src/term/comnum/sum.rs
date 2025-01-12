@@ -145,9 +145,8 @@ impl<'sess> VdBsqComnumSumTermData<'sess> {
             if !coefficient.is_one() {
                 coefficient.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)?;
                 match monomial {
-                    VdBsqProductBase::Atom(term) => (),
-                    VdBsqProductBase::Sum(term) => todo!(),
-                    VdBsqProductBase::NonTrivial(base) => match base.exponentials().data()[0].0 {
+                    VdBsqProductStem::Atom(term) => (),
+                    VdBsqProductStem::NonTrivial(base) => match base.exponentials().data()[0].0 {
                         VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
                         VdBsqNonProductNumTerm::Atom(_) | VdBsqNonProductNumTerm::Sum(_) => (),
                     },
@@ -166,6 +165,28 @@ impl<'sess> VdBsqSumTerm<'sess> {
 
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         todo!()
+    }
+
+    pub fn mul_litnum(
+        self,
+        litnum: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        if litnum.is_zero() {
+            return VdBsqNumTerm::ZERO;
+        }
+        if litnum.is_one() {
+            return self.into();
+        }
+        Self::new(
+            self.constant_term().mul(litnum, db),
+            self.monomials()
+                .iter()
+                .map(|&(monomial, coeff)| (monomial, coeff.mul(litnum, db)))
+                .collect(),
+            db,
+        )
+        .into()
     }
 
     pub fn div_litnum(
