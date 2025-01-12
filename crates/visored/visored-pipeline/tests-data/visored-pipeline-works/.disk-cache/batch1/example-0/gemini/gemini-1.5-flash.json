@@ -96,5 +96,33 @@
       }
     },
     "time": "2024-12-27T18:02:28.407509974Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x \\in \\mathbb{R}$.\nLet $y \\in \\mathbb{R}$.\nThe goal is to prove $x+y=2$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x \\in \\mathbb{R}$.\nLet $y \\in \\mathbb{R}$.\nThe goal is to prove $x+y=2$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:01:01.812434709Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nThe goal is to prove $1+1=2$.\nWe have $1+1=2$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nThe goal is to prove $1+1=2$.\nWe have $1+1=2$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:09:55.345214289Z"
   }
 ]

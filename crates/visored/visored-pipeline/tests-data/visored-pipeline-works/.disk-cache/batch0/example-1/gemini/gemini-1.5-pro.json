@@ -446,5 +446,75 @@
       }
     },
     "time": "2024-12-27T18:01:50.788150684Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof to incorporate the problem setup. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Only introduce variables that are clearly stated in the problem description but not yet in the proof. Do not introduce variables that are not stated in the problem description. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x \\ge 0$.\nAssume $y \\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2025-01-12T14:00:33.135655751Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. For example, $\\left(a+b\\right)^2$ should be replaced by ${\\left(a+b\\right)}^2$. Be extremely strict about this. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x \\ge 0$.\nAssume $y \\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x \\ge 0$.\nAssume $y \\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have ${(\\sqrt x - \\sqrt y)}^2 = {(\\sqrt{x})}^2 - 2\\sqrt{x}\\sqrt{y} + {(\\sqrt{y})}^2= x - 2\\sqrt{xy} + y$.\nWe have ${(\\sqrt x - \\sqrt y)}^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:00:39.584976545Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nFor any superscript and subscript, if the intended base is not atomic latex expression, wrap it in curly braces. For example, $(a+b)^2$ should be replaced by ${{(a+b)}}^2$. For example, $\\left(a+b\\right)^2$ should be replaced by ${\\left(a+b\\right)}^2$. Be extremely strict about this. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x \\ge 0$.\nAssume $y \\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have ${(\\sqrt x - \\sqrt y)}^2 = {(\\sqrt{x})}^2 - 2\\sqrt{x}\\sqrt{y} + {(\\sqrt{y})}^2= x - 2\\sqrt{xy} + y$.\nWe have ${(\\sqrt x - \\sqrt y)}^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n\n\n----- SIDE INSTRUCTIONS -----\n\n                    Ensure the result is valid latex code, i.e., formula is wrapped in $...$.\n                    \n                    Wrap the proof in \\begin{{proof}} and \\end{{proof}}.\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE\n```latex\n$(a+b)^2 \\ge 0$ should be replaced by ${{(a+b)}}^2 \\ge 0$.\n```\n\n---------\nExample 2:\n\n---- EXAMPLE\n```latex\n$\\left(a+b\\right)^2 \\ge 0$ should be replaced by ${\\left(a+b\\right)}^2 \\ge 0$.\n```\n\n---------\nExample 3:\n\n---- EXAMPLE\n```latex\n$f(a+b)^2 \\ge 0$ should be replaced by ${f(a+b)}^2 \\ge 0$.\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x \\ge 0$.\nAssume $y \\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have ${{(\\sqrt x - \\sqrt y)}}^2 = {{(\\sqrt{x})}}^2 - 2\\sqrt{x}\\sqrt{y} + {{(\\sqrt{y})}}^2= x - 2\\sqrt{xy} + y$.\nWe have ${{(\\sqrt x - \\sqrt y)}}^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:00:44.353726283Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof to incorporate the problem setup. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. Only introduce variables that are clearly stated in the problem description but not yet in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x \\ge 0$.\nAssume $y \\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2025-01-12T14:06:31.949637555Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nYou're inserting sentences to the original proof to incorporate the problem setup. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:\n- Let <phrase>. Only introduce variables that are clearly stated in the problem description but not yet in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.\n- Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.\n- The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.\n            \n\n----- INPUT -----\n```latex\n\\begin{proof}\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```\n\n----- SIDE INSTRUCTIONS -----\nSometimes you need to combine the two. For example, use `Let $x\\\\in\\\\mathbb{R}$. Assume $x\\\\ge 0$` to express `Let $x$ be a positive real number.`.\n                Wrap the proof in \\begin{{proof}} and \\end{{proof}}. \n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE ----\n\nInput:\n\n```latex\nProve that $1+1=2$.\n\\begin{proof}\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n\nOutput:\n\n```latex\nProve that $1+1=2$.\n\\begin{proof}\nThe goal is to prove $1+1=2$.\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n            \n---------\n\n\nHere are some antiexamples that show you what you should definitely avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nAntiexample 1:\n\nThe following antiexample is bad because it introduces unnecessary variables.\n\n---- ANTI-EXAMPLE INPUT ----\n```latex\nProve that $1+1=2$.\n\\begin{proof}\nIt's trivial that $1+1=2$.\n\\end{proof}\n\n---- ANTI-EXAMPLE OUTPUT ----\n```latex\n\\begin{proof}\nLet $x\\\\in\\\\mathbb{R}$.\nLet $y\\\\in\\\\mathbb{R}$.\nThe goal is to prove $1+1=2$.\nIt's trivial that $1+1=2$.\n\\end{proof}\n```\n\nThis is really stupid because $x$ and $y$ are not stated in the problem description. Furthermore, it states the wrong goal for the problem.\n            \n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nLet $y\\in\\mathbb{R}$.\nAssume $x\\ge 0$.\nAssume $y\\ge 0$.\nThe goal is to prove $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\nWe have $(\\sqrt x - \\sqrt y)^2 = (\\sqrt{x})^2 - 2\\sqrt{x}\\sqrt{y} + (\\sqrt{y})^2= x - 2\\sqrt{xy} + y$.\nWe have $(\\sqrt x - \\sqrt y)^2 \\ge 0$ because $x$ and $y$ are positive.\nWe have $x - 2\\sqrt{xy} + y \\ge 0$.\nWe have $x+y \\ge 2\\sqrt{xy}$.\nWe have $\\frac{x+y}{2} \\ge \\sqrt{xy}$.\n\\end{proof}\n```"
+      }
+    },
+    "time": "2025-01-12T14:09:37.090390832Z"
   }
 ]

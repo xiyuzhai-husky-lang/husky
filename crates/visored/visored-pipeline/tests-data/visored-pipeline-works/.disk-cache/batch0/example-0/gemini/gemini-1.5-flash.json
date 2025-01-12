@@ -306,5 +306,75 @@
       }
     },
     "time": "2024-12-27T17:52:29.308604751Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all unnecessary variables introduced using `Let`.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\n$a\\in\\mathbb{R}$.\n$b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:02:42.465451907Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\n$a\\in\\mathbb{R}$.\n$b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\n$a\\in\\mathbb{R}$.\n$b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:02:43.285056071Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all unnecessary variables introduced using `Let`. You should only remove sentences in the beginning of the proof.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:03:22.504368782Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:03:23.118549311Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all unnecessary variables introduced using `Let` that are not stated in the problem description. You should only remove sentences in the beginning of the proof.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nThe goal is to prove $(a+b)^2 \\ge 0$.\nWe have $(a+b)^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:04:07.459064640Z"
   }
 ]

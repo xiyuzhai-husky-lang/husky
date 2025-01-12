@@ -65,9 +65,7 @@ It's trivial that $1+1=2$.
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-Let $a\in\mathbb{R}$.
-Let $b\in\mathbb{R}$.
-The goal is to prove $a+b = 2$.
+The goal is to prove $1+1=2$.
 We have $1+1=2$.
 \end{tcolorbox}
 
@@ -78,7 +76,7 @@ import Mathlib
 import Obvious
 open Obvious
 
-def h (a b : ℝ) : a + b = (2 : ℝ) := by
+def h : 1 + 1 = 2 := by
   have h1 : 1 + 1 = 2 := by obvious
   obvious
 

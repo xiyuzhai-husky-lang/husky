@@ -246,8 +246,8 @@ Make sure that each sentence begins with \"We have\" or \"It's enough to show th
         AllLlmsStringTransformation {
         model: self.routing_resolved.solver.mathematical_understanding.model,
         instruction: LlmStringTransformationInstruction::MainInputSide {
-            main: "You're inserting sentences to the original proof to incorporate the problem description. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:
-- Let <phrase>. This is for introducing a free variable or an assigned variable that appears in the proof. Only introduce variables that are stated in the problem description but not yet in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.
+            main: "You're inserting sentences to the original proof to incorporate the problem setup. Only add information from the problem description that is not explicitly stated in the original proof. Don't modify the original proof other than that. In the beginning of the proof, introducing all variables and assumptions using the following format:
+- Let <phrase>. Only introduce variables that are clearly stated in the problem description but not yet in the proof. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`. Try to isolate things as much as possible, i.e., declare one variable per sentence. For example, `Let $x\\in\\mathbb{R}$. Let $y\\in\\mathbb{R}$` is better than `Let $x,y\\in\\mathbb{R}$`.
 - Assume <assumption>. This is for introducing an assumption. Try to use formula as much as possible, such as `Let $x\\in\\mathbb{R}$` instead of `Let $x$ be a real number`.
 - The goal is to prove <proposition>. This is for stating the goal of the proof. Write one only only one sentence of this format after stating all variables and assumptions.
             "
@@ -258,20 +258,66 @@ Make sure that each sentence begins with \"We have\" or \"It's enough to show th
                 .to_string(),
             ),
         },
+        examples: vec![
+            r#"
+---- EXAMPLE ----
+
+Input:
+
+```latex
+Prove that $1+1=2$.
+\begin{proof}
+It's trivial that $1+1=2$.
+\end{proof}
+```
+
+Output:
+
+```latex
+Prove that $1+1=2$.
+\begin{proof}
+The goal is to prove $1+1=2$.
+It's trivial that $1+1=2$.
+\end{proof}
+```
+            "#.to_string(),
+        ],
+        antiexamples: vec![
+            r#"
+The following antiexample is bad because it introduces unnecessary variables.
+
+---- ANTI-EXAMPLE INPUT ----
+```latex
+Prove that $1+1=2$.
+\begin{proof}
+It's trivial that $1+1=2$.
+\end{proof}
+
+---- ANTI-EXAMPLE OUTPUT ----
+```latex
+\begin{proof}
+Let $x\\in\\mathbb{R}$.
+Let $y\\in\\mathbb{R}$.
+The goal is to prove $1+1=2$.
+It's trivial that $1+1=2$.
+\end{proof}
+```
+
+This is really stupid because $x$ and $y$ are not stated in the problem description. Furthermore, it states the wrong goal for the problem.
+            "#.to_string(),
+        ],
+    },
+    AllLlmsStringTransformation {
+        model: self.routing_resolved.solver.latex_rewriter.model,
+        instruction: LlmStringTransformationInstruction::MainInputSide {
+            main:
+                "Please remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense."
+                    .to_string(),
+            side: None,
+        },
         examples: vec![],
         antiexamples: vec![],
     },
-        AllLlmsStringTransformation {
-            model: self.routing_resolved.solver.latex_rewriter.model,
-            instruction: LlmStringTransformationInstruction::MainInputSide {
-                main:
-                    "Please remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense."
-                        .to_string(),
-                side: None,
-            },
-            examples: vec![],
-            antiexamples: vec![],
-        },
     AllLlmsStringTransformation {
             model: self.routing_resolved.solver.mathematical_understanding.model,
             instruction: LlmStringTransformationInstruction::MainInputSide {
