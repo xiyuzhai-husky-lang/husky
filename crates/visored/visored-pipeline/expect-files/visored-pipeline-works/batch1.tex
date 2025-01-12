@@ -159,4 +159,138 @@ def h (x : ℝ) : x ^ 2 ≥ (0 : ℝ) := by
 
 \end{lstlisting}
 \end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $a\in\mathbb{R}$. Let $b\in\mathbb{R}$. Prove: $a+b=b+a$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Trivial by the commutativity of addition for real numbers.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Trivial by the commutativity of addition for real numbers.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+The goal is to prove $a+b=b+a$.
+We have $a+b=b+a$ by the commutativity of addition for real numbers.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+def h (a b : ℝ) : a + b = b + a := by
+  have h1 : a + b = b + a := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Assume $x> 0$. Prove: $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $x>0$, we have $(x-1)^2 \ge 0$. Thus, $x - 2 + \frac{1}{x} \ge 0$, so $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $x>0$, we have $(x-1)^2 = x^2 - 2x + 1 \ge 0$. Thus, $x^2 - 2x + 1 \ge 0$, so $x^2 + 1 \ge 2x$. Since $x > 0$, dividing both sides by $x$ gives $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Assume $x>0$.
+The goal is to prove $x + \frac{1}{x} \ge 2$.
+We have $x>0$.
+We have ${{(x-1)}}^2 = x^2 - 2x + 1 \ge 0$.
+We have $x^2 - 2x + 1 \ge 0$.
+We have $x^2 + 1 \ge 2x$.
+We have $x > 0$.
+We have $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
+  have h2 : x > (0 : ℝ) := by obvious
+  first
+  | have h3 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
+    (x - (1 : ℝ)) ^ 2 = x ^ 2 - (2 : ℝ) * x + (1 : ℝ) := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h4 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by calc
+    x ^ 2 - (2 : ℝ) * x + (1 : ℝ) = (x - (1 : ℝ)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h5 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by obvious
+  have h6 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious
+  have h7 : x > (0 : ℝ) := by obvious
+  have h8 : x + (1 : ℝ) / x ≥ (2 : ℝ) := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
 \end{document}
