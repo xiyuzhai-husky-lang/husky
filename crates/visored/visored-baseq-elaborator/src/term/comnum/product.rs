@@ -23,11 +23,12 @@ impl<'sess> VdBsqProductTerm<'sess> {
         exponentials: VdBsqExponentialPowers<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        let base = VdBsqProductBase::new(exponentials, db);
-        Self {
-            litnum_factor,
-            base,
-        }
+        todo!()
+        // let base = VdBsqProductBase::new(exponentials, db);
+        // Self {
+        //     litnum_factor,
+        //     base,
+        // }
     }
 
     pub fn with_litnum_factor(self, litnum_factor: VdBsqLitnumTerm<'sess>) -> Self {
@@ -55,10 +56,6 @@ impl<'sess> VdBsqProductTerm<'sess> {
 
     pub fn base(&self) -> VdBsqProductBase<'sess> {
         self.base
-    }
-
-    pub fn exponentials(&self) -> &VdBsqExponentialPowers<'sess> {
-        self.base.exponentials()
     }
 }
 
@@ -89,31 +86,26 @@ impl<'sess> VdBsqProductTerm<'sess> {
         } = self;
         debug_assert!(!factor.is_zero());
         if factor.is_one() {
-            debug_assert!(!base.exponentials().is_empty());
             base.show_fmt(precedence_range, f)
         } else {
-            fn show_product_fmt_inner<'sess>(
-                litnum: VdBsqLitnumTerm<'sess>,
-                term: VdBsqProductBase<'sess>,
-                f: &mut std::fmt::Formatter<'_>,
-            ) -> std::fmt::Result {
-                litnum.show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
-                match term.exponentials().data()[0].0 {
-                    VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
-                    VdBsqNonProductNumTerm::AtomComnum(_)
-                    | VdBsqNonProductNumTerm::SumComnum(_) => (),
-                }
-                term.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)
-            }
-
             if precedence_range.contains(VdPrecedence::MUL_DIV) {
-                show_product_fmt_inner(factor, base, f)
+                self.show_fmt_inner(f)
             } else {
                 f.write_str("(")?;
-                show_product_fmt_inner(factor, base, f)?;
+                self.show_fmt_inner(f)?;
                 f.write_str(")")
             }
         }
+    }
+
+    fn show_fmt_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.litnum_factor
+            .show_fmt(VdPrecedenceRange::MUL_DIV_LEFT, f)?;
+        match self.base {
+            VdBsqProductBase::Atom(_) | VdBsqProductBase::Sum(_) => (),
+            VdBsqProductBase::NonTrivial(vd_bsq_non_trivial_product_base) => f.write_str(" × ")?,
+        }
+        self.base.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)
     }
 }
 
@@ -128,39 +120,40 @@ pub enum VdBsqProductBase<'sess> {
 #[floated]
 pub struct VdBsqNonTrivialProductBase<'sess> {
     #[return_ref]
-    data: VdBsqProductBaseData<'sess>,
+    exponentials: VdBsqExponentialPowers<'sess>,
+}
+
+impl<'sess> VdBsqNonTrivialProductBase<'sess> {
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        let exponentials = self.exponentials();
+        if exponentials.len() == 1 {
+            let (base, exponent) = exponentials.data()[0];
+            if exponent.is_one_trivially() {
+                let base_outer_precedence = base.outer_precedence();
+                if VdPrecedenceRange::MUL_DIV_LEFT.contains(base_outer_precedence) {
+                    base_outer_precedence
+                } else {
+                    VdPrecedence::ATOM
+                }
+            } else {
+                VdPrecedence::MUL_DIV
+            }
+        } else {
+            VdPrecedence::MUL_DIV
+        }
+    }
 }
 
 impl<'sess> std::fmt::Debug for VdBsqNonTrivialProductBase<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("VdBsqNonTrivialProductBase")
-            .field("data", self.data())
+            .field("exponentials", self.exponentials())
             .finish()
     }
 }
 
-#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct VdBsqProductBaseData<'sess> {
-    exponentials: VdBsqExponentialPowers<'sess>,
-}
-
-impl<'sess> VdBsqProductBaseData<'sess> {
-    pub fn exponentials(&self) -> &VdBsqExponentialPowers<'sess> {
-        &self.exponentials
-    }
-}
-
 impl<'sess> VdBsqProductBase<'sess> {
-    pub fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
-        #[cfg(debug_assertions)]
-        {
-            debug_assert!(exponentials.len() == 1);
-            if exponentials.len() == 1 {
-                let (base, exponent) = exponentials.data()[0];
-                // debug_assert!(exponent.is_one_trivially());
-                // todo!()
-            }
-        }
+    pub fn new(exponentials: VdBsqExponentialParts<'sess>, db: &'sess FloaterDb) -> Self {
         todo!()
         // VdBsqProductBase(VdBsqComnumTermFld::new(
         //     VdBsqComnumTermData::Product(VdBsqProductComnumTermBaseData { exponentials }),
@@ -189,17 +182,18 @@ impl<'sess> VdBsqProductBase<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductBase<'sess> {
-    pub fn data(&self) -> &'sess VdBsqProductBaseData<'sess> {
-        todo!()
-        // match self.0.data() {
-        //     VdBsqComnumTermData::Product(data) => data,
-        //     _ => unreachable!(),
-        // }
-    }
-
-    pub fn exponentials(&self) -> &'sess VdBsqExponentialPowers<'sess> {
-        self.data().exponentials()
+impl<'sess> VdBsqNonTrivialProductBase<'sess> {
+    fn new(exponentials: VdBsqExponentialPowers<'sess>, db: &'sess FloaterDb) -> Self {
+        #[cfg(debug_assertions)]
+        {
+            debug_assert!(exponentials.len() == 1);
+            if exponentials.len() == 1 {
+                let (base, exponent) = exponentials.data()[0];
+                // debug_assert!(exponent.is_one_trivially());
+                // todo!()
+            }
+        }
+        Self::new_inner(exponentials, db)
     }
 }
 
@@ -262,27 +256,35 @@ impl<'sess> VdBsqTerm<'sess> {
     }
 }
 
-impl<'sess> VdBsqProductBaseData<'sess> {
+impl<'sess> VdBsqProductBase<'sess> {
     pub fn show_fmt(
-        &self,
+        self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
-        let outer_precedence = if self.exponentials.len() == 1 {
-            let (base, exponent) = self.exponentials.data()[0];
-            if exponent.is_one_trivially() {
-                let base_outer_precedence = base.outer_precedence();
-                if VdPrecedenceRange::MUL_DIV_LEFT.contains(base_outer_precedence) {
-                    base_outer_precedence
-                } else {
-                    VdPrecedence::ATOM
-                }
-            } else {
-                VdPrecedence::MUL_DIV
-            }
-        } else {
-            VdPrecedence::MUL_DIV
-        };
+        match self {
+            VdBsqProductBase::Atom(slf) => slf.show_fmt(precedence_range, f),
+            VdBsqProductBase::Sum(slf) => slf.show_fmt(precedence_range, f),
+            VdBsqProductBase::NonTrivial(slf) => slf.show_fmt(precedence_range, f),
+        }
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        match self {
+            VdBsqProductBase::Atom(term) => term.outer_precedence(),
+            VdBsqProductBase::Sum(term) => term.outer_precedence(),
+            VdBsqProductBase::NonTrivial(term) => term.outer_precedence(),
+        }
+    }
+}
+
+impl<'sess> VdBsqNonTrivialProductBase<'sess> {
+    pub fn show_fmt(
+        self,
+        precedence_range: VdPrecedenceRange,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        let outer_precedence = self.outer_precedence();
         if precedence_range.contains(outer_precedence) {
             self.show_fmt_inner(f)
         } else {
@@ -290,11 +292,6 @@ impl<'sess> VdBsqProductBaseData<'sess> {
             self.show_fmt_inner(f)?;
             f.write_str(")")
         }
-    }
-
-    pub fn outer_precedence(&self) -> VdPrecedence {
-        todo!()
-        // VdPrecedence::MUL_DIV
     }
 
     fn show_fmt_inner(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -311,33 +308,5 @@ impl<'sess> VdBsqProductBaseData<'sess> {
             }
         }
         Ok(())
-    }
-}
-
-impl<'sess> VdBsqProductBase<'sess> {
-    pub fn show_fmt(
-        &self,
-        precedence_range: VdPrecedenceRange,
-        f: &mut std::fmt::Formatter<'_>,
-    ) -> std::fmt::Result {
-        self.data().show_fmt(precedence_range, f)
-    }
-
-    pub fn outer_precedence(&self) -> VdPrecedence {
-        match self {
-            VdBsqProductBase::Atom(term) => term.outer_precedence(),
-            VdBsqProductBase::Sum(term) => term.outer_precedence(),
-            VdBsqProductBase::NonTrivial(term) => term.outer_precedence(),
-        }
-    }
-}
-
-impl<'sess> VdBsqNonTrivialProductBase<'sess> {
-    pub fn outer_precedence(&self) -> VdPrecedence {
-        self.data().outer_precedence()
-    }
-
-    pub fn exponentials(&self) -> &'sess VdBsqExponentialPowers<'sess> {
-        self.data().exponentials()
     }
 }

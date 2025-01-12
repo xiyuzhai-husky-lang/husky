@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomTerm,
-    product::{VdBsqProductBase, VdBsqProductBaseData, VdBsqProductTerm},
+    product::{VdBsqProductBase, VdBsqProductTerm},
     sum::VdBsqSumTerm,
     VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNumTerm,
 };
@@ -118,13 +118,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
                     self.add_monomial(VdBsqProductBase::Atom(term), litnum);
                 }
                 VdBsqComnumTerm::Sum(term) => {
-                    self.add_monomial(
-                        VdBsqProductBase::new(
-                            [(term.into(), VdBsqNumTerm::ONE)].into_iter().collect(),
-                            self.db,
-                        ),
-                        litnum,
-                    );
+                    self.add_monomial(term, litnum);
                 }
                 VdBsqComnumTerm::Product(product) => {
                     self.add_product(
@@ -139,9 +133,15 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         self.add_monomial(product.base(), product.litnum_factor().neg(self.db));
     }
 
-    pub fn add_monomial(&mut self, term: VdBsqProductBase<'sess>, coeff: VdBsqLitnumTerm<'sess>) {
+    pub fn add_monomial(
+        &mut self,
+        base: impl Into<VdBsqProductBase<'sess>>,
+        coeff: impl Into<VdBsqLitnumTerm<'sess>>,
+    ) {
+        let base = base.into();
+        let coeff = coeff.into();
         self.unpruned_monomials
-            .insert_or_update((term, coeff), |(_, old_coeff)| {
+            .insert_or_update((base, coeff), |(_, old_coeff)| {
                 old_coeff.add_assign(coeff, self.db);
             });
     }

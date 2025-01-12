@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::{
     atom::VdBsqAtomTerm,
-    product::{VdBsqProductBase, VdBsqProductBaseData, VdBsqProductTerm},
+    product::{VdBsqProductBase, VdBsqProductTerm},
     sum::VdBsqSumTerm,
     VdBsqComnumTerm, VdBsqExponentialPowers, VdBsqLitnumTerm, VdBsqMonomialCoefficients,
     VdBsqNonProductNumTerm, VdBsqNumTerm,
@@ -60,7 +60,13 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         Self {
             db,
             litnum_factor: product.litnum_factor(),
-            unpruned_exponentials: product.exponentials().clone(),
+            unpruned_exponentials: match product.base() {
+                VdBsqProductBase::Atom(atom) => [(atom.into(), 1.into())].into_iter().collect(),
+                VdBsqProductBase::Sum(sum) => [(sum.into(), 1.into())].into_iter().collect(),
+                VdBsqProductBase::NonTrivial(non_trivial_product_base) => {
+                    non_trivial_product_base.exponentials().clone()
+                }
+            },
         }
     }
 }
@@ -101,9 +107,10 @@ impl<'sess> VdBsqProductBuilder<'sess> {
 
     pub fn mul_product(&mut self, product: VdBsqProductTerm<'sess>) {
         self.mul_litnum(product.litnum_factor());
-        for &(base, exponent) in product.exponentials() {
-            self.mul_exponential(base, exponent);
-        }
+        // for (base, exponent) in product.exponentials() {
+        //     self.mul_exponential(base, exponent);
+        // }
+        todo!()
     }
 
     pub fn mul_exponential(
