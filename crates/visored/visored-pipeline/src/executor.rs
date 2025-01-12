@@ -74,7 +74,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 
     fn query_raw_proof(&mut self) {
         let prompt = format!(
-            r#"Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX.
+            r#"Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX. If something is straightforward and trivial as seen by college level student, just say that it's trivial and don't ever try to say unnecessary things.
 
 ```latex
 {}
@@ -101,6 +101,17 @@ Solution:
 We have $(x+y)^2 \ge 0$ because these are real numbers.
 \end{{proof}}
 ```
+
+Problem: prove that $x^2 \ge 0$ for all real numbers $x$.
+
+Solution:
+```latex
+\begin{{proof}}
+We have $x^2 \ge 0$ because these are real numbers.
+\end{{proof}}
+```
+
+------- END OF EXAMPLES -------
 "#,
             self.input.content
         );

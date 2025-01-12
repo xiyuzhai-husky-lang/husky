@@ -40,5 +40,47 @@
       }
     },
     "time": "2025-01-12T14:25:21.857197852Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nThe square of a real number is non-negative.\n\\end{proof}\n```\n\n\n\nHere are some examples that help you understand the task.\n\n------- EXAMPLES -------\nExample 1:\n\n---- EXAMPLE ----\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n```latex\n\\begin{{proof}}\n...\nWe have $(a + f(x))^2  \\ge 0$.\n...\n\\end{{proof}}\n```\n\n---------\n\n\nHere are some antiexamples that show you what you should definitely avoid at all costs.\n\n------- ANTI-EXAMPLES -------\nAntiexample 1:\n\n---- ANTI-EXAMPLE ----\n\nThe following antiexample is bad because it fails to finish the proof of a trivial fact in one sentence. It sounds really stupid\n\n```latex\n...\nWe have $(a + f(x))^2$ being positive because these are real numbers. Therefore $(a + f(x))^2 \\ge 0$.\n...\n```\n\n```latex\n\\begin{{proof}}\nLet $a\\in\\mathbb{R}$.\nLet $b\\in\\mathbb{R}$.\nThe goal is to prove ${(a+b)}^2 \\ge 0$.\nWe have ${(a+b)}^2 = a^2 + 2ab + b^2$.\nWe have $a^2 \\ge 0$ and $b^2 \\ge 0$.\nIt's enough to show that $a^2 + 2ab + b^2 \\ge 0$.\nWe have $2ab \\ge -2|a||b|$.\nWe have $a^2 \\ge |a|^2$ and $b^2 \\ge |b|^2$.\nWe have $a^2 + 2ab + b^2 \\ge |a|^2 - 2|a||b| + |b|^2 = {(|a|-|b|)}^2$.\nWe have ${(|a|-|b|)}^2 \\ge 0$.\nWe have $a^2 + 2ab + b^2 \\ge 0$.\n\\end{{proof}}\n```\n\n---------\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nThe square of a real number is non-negative.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:33:17.210159453Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels in align environments from the following latex code:\n\n----- INPUT -----\n```latex\n\\begin{proof}\nThe square of a real number is non-negative.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nThe square of a real number is non-negative.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:33:19.055251889Z"
+  },
+  {
+    "seed": 1,
+    "request": {
+      "TextGeneration": {
+        "input": "You're doing some edits on user provided inputs. You will be given instructions and input. You should only return the edited input. Don't include any other text in any case.\n\n----- MAIN INSTRUCTIONS -----\nPlease remove all labels and refs in math environments. Use `$...$` for all math expressions. Don't change anything else in the strictest sense.\n\n----- INPUT -----\n```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nThe goal is to prove $x^2 \\ge 0$.\nWe have $x^2 \\ge 0$.\n\\end{proof}\n```\n\n"
+      }
+    },
+    "response": {
+      "TextGeneration": {
+        "text": "```latex\n\\begin{proof}\nLet $x\\in\\mathbb{R}$.\nThe goal is to prove $x^2 \\ge 0$.\nWe have $x^2 \\ge 0$.\n\\end{proof}\n```\n"
+      }
+    },
+    "time": "2025-01-12T14:33:22.535698746Z"
   }
 ]

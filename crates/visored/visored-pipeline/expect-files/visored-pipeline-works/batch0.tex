@@ -55,13 +55,13 @@ Prove that for all real numbers $a$ and $b$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Trivial since $(a+b)^2 \ge 0$.
+Trivial since the square of any real number is non-negative.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Trivial since $(a+b)^2 \ge 0$.
+Trivial since the square of any real number is non-negative.
 \end{tcolorbox}
 
 Regularized proof:
@@ -69,7 +69,7 @@ Regularized proof:
 Let $a\in\mathbb{R}$.
 Let $b\in\mathbb{R}$.
 The goal is to prove ${{(a+b)}}^2 \ge 0$.
-We have ${{(a+b)}}^2 \ge 0$.
+We have ${{(a+b)}}^2 \geq 0$.
 \end{tcolorbox}
 
 Lean 4 code:
@@ -115,26 +115,25 @@ Prove that for any positive real numbers $x$ and $y$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $x$ and $y$ are positive, $(\sqrt x - \sqrt y)^2 \ge 0$, so $x+y \ge 2\sqrt{xy}$, which implies $\frac{x+y}{2} \ge \sqrt{xy}$.
+Since $x$ and $y$ are positive, $(\sqrt x - \sqrt y)^2 \ge 0$. Thus $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Since $x$ and $y$ are positive, $(\sqrt x - \sqrt y)^2 = (\sqrt{x})^2 - 2\sqrt{x}\sqrt{y} + (\sqrt{y})^2= x - 2\sqrt{xy} + y \ge 0$, so $x+y \ge 2\sqrt{xy}$, which implies $\frac{x+y}{2} \ge \sqrt{xy}$.
+Since $x$ and $y$ are positive, $(\sqrt x - \sqrt y)^2 = (\sqrt x)^2 - 2\sqrt x \sqrt y + (\sqrt y)^2 = x - 2\sqrt{xy} + y \ge 0$. Thus $x + y \ge 2\sqrt{xy}$, so $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-Let $x\in\mathbb{R}$.
-Let $y\in\mathbb{R}$.
-Assume $x\ge 0$.
-Assume $y\ge 0$.
+Let $x\in\mathbb{R}$. Assume $x\ge 0$.
+Let $y\in\mathbb{R}$. Assume $y\ge 0$.
 The goal is to prove $\frac{x+y}{2} \ge \sqrt{xy}$.
-We have ${{(\sqrt x - \sqrt y)}}^2 = {{(\sqrt{x})}}^2 - 2\sqrt{x}\sqrt{y} + {{(\sqrt{y})}}^2= x - 2\sqrt{xy} + y$.
-We have ${{(\sqrt x - \sqrt y)}}^2 \ge 0$ because $x$ and $y$ are positive.
+We have ${{(\sqrt x - \sqrt y)}}^2 = {{(\sqrt x)}}^2 - 2\sqrt x \sqrt y + {{(\sqrt y)}}^2$.
+We have ${{(\sqrt x)}}^2 - 2\sqrt x \sqrt y + {{(\sqrt y)}}^2 = x - 2\sqrt{xy} + y$.
 We have $x - 2\sqrt{xy} + y \ge 0$.
-We have $x+y \ge 2\sqrt{xy}$.
+We have ${{(\sqrt x - \sqrt y)}}^2 \ge 0$.
+We have $x + y \ge 2\sqrt{xy}$.
 We have $\frac{x+y}{2} \ge \sqrt{xy}$.
 \end{tcolorbox}
 
@@ -164,16 +163,11 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
-def h (x y : ℝ) (h1 : x ≥ (0 : ℝ)) (h2 : y ≥ (0 : ℝ)) : (x + y) / (2 : ℝ) ≥ √ (x * y) := by
-  first
-  | have h3 : (√ x - √ y) ^ 2 = x - (2 : ℝ) * √ (x * y) + y := by calc
-    (√ x - √ y) ^ 2 = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
-    _ = x - (2 : ℝ) * √ (x * y) + y := by obvious
-  | have h4 : x - (2 : ℝ) * √ (x * y) + y = (√ x - √ y) ^ 2 := by calc
-    x - (2 : ℝ) * √ (x * y) + y = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
-    _ = (√ x - √ y) ^ 2 := by obvious
-  have h5 : (√ x - √ y) ^ 2 ≥ (0 : ℝ) := by obvious
-  have h6 : x - (2 : ℝ) * √ (x * y) + y ≥ (0 : ℝ) := by obvious
+def h (x : ℝ) (h1 : x ≥ (0 : ℝ)) (y : ℝ) (h2 : y ≥ (0 : ℝ)) : (x + y) / (2 : ℝ) ≥ √ (x * y) := by
+  have h3 : (√ x - √ y) ^ 2 = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
+  have h4 : √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 = x - (2 : ℝ) * √ (x * y) + y := by obvious
+  have h5 : x - (2 : ℝ) * √ (x * y) + y ≥ (0 : ℝ) := by obvious
+  have h6 : (√ x - √ y) ^ 2 ≥ (0 : ℝ) := by obvious
   have h7 : x + y ≥ (2 : ℝ) * √ (x * y) := by obvious
   have h8 : (x + y) / (2 : ℝ) ≥ √ (x * y) := by obvious
   obvious
@@ -191,13 +185,13 @@ Show that for all real numbers $a$, $b$, and $c$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-We have $(a-b)^2+(b-c)^2+(c-a)^2 \ge 0$, so $a^2+b^2+c^2 \ge ab+bc+ca$.
+We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = (a-b)^2 + (b-c)^2 + (c-a)^2 \ge 0$. Thus, $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-We have $(a-b)^2+(b-c)^2+(c-a)^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2 - ab - bc - ca) \ge 0$, so $a^2+b^2+c^2 \ge ab+bc+ca$.
+We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = (a-b)^2 + (b-c)^2 + (c-a)^2 \ge 0$. Thus, $2(a^2 + b^2 + c^2 - ab - bc - ca) \ge 0$, so $a^2 + b^2 + c^2 - ab - bc - ca \ge 0$, and hence $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 
 Regularized proof:
@@ -205,11 +199,12 @@ Regularized proof:
 Let $a\in\mathbb{R}$.
 Let $b\in\mathbb{R}$.
 Let $c\in\mathbb{R}$.
-The goal is to prove $a^2+b^2+c^2 \ge ab+bc+ca$.
-We have ${{(a-b)}}^2+{{(b-c)}}^2+{{(c-a)}}^2 = a^2 - 2ab + b^2 + b^2 - 2bc + c^2 + c^2 - 2ca + a^2 = 2(a^2+b^2+c^2 - ab - bc - ca)$.
-We have ${{(a-b)}}^2+{{(b-c)}}^2+{{(c-a)}}^2 \ge 0$.
-We have $2(a^2+b^2+c^2 - ab - bc - ca) \ge 0$.
-We have $a^2+b^2+c^2 \ge ab+bc+ca$.
+The goal is to prove $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+We have $2(a^2 + b^2 + c^2 - ab - bc - ca) = 2a^2 + 2b^2 + 2c^2 - 2ab - 2bc - 2ca = (a^2 - 2ab + b^2) + (b^2 - 2bc + c^2) + (c^2 - 2ca + a^2) = {(a-b)}^2 + {(b-c)}^2 + {(c-a)}^2$.
+We have ${(a-b)}^2 + {(b-c)}^2 + {(c-a)}^2 \ge 0$.
+We have $2(a^2 + b^2 + c^2 - ab - bc - ca) \ge 0$.
+We have $a^2 + b^2 + c^2 - ab - bc - ca \ge 0$.
+We have $a^2 + b^2 + c^2 \geq ab + bc + ca$.
 \end{tcolorbox}
 
 Lean 4 code:
@@ -240,15 +235,18 @@ macro "obvious": tactic =>`(tactic|
 )
 def h (a b c : ℝ) : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by
   first
-  | have h1 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) := by calc
-    (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - (2 : ℝ) * a * b + b ^ 2 + b ^ 2 - (2 : ℝ) * b * c + c ^ 2 + c ^ 2 - (2 : ℝ) * c * a + a ^ 2 := by obvious
-    _ = (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) := by obvious
-  | have h2 : (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) = (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by calc
-    (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) = a ^ 2 - (2 : ℝ) * a * b + b ^ 2 + b ^ 2 - (2 : ℝ) * b * c + c ^ 2 + c ^ 2 - (2 : ℝ) * c * a + a ^ 2 := by obvious
+  | have h1 : (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) = (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by calc
+    (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) = (2 : ℝ) * (a ^ 2) + (2 : ℝ) * (b ^ 2) + (2 : ℝ) * (c ^ 2) - (2 : ℝ) * a * b - (2 : ℝ) * b * c - (2 : ℝ) * c * a := by obvious
+    _ = a ^ 2 - (2 : ℝ) * a * b + b ^ 2 + (b ^ 2 - (2 : ℝ) * b * c + c ^ 2) + (c ^ 2 - (2 : ℝ) * c * a + a ^ 2) := by obvious
     _ = (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by obvious
+  | have h2 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) := by calc
+    (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 = a ^ 2 - (2 : ℝ) * a * b + b ^ 2 + (b ^ 2 - (2 : ℝ) * b * c + c ^ 2) + (c ^ 2 - (2 : ℝ) * c * a + a ^ 2) := by obvious
+    _ = (2 : ℝ) * (a ^ 2) + (2 : ℝ) * (b ^ 2) + (2 : ℝ) * (c ^ 2) - (2 : ℝ) * a * b - (2 : ℝ) * b * c - (2 : ℝ) * c * a := by obvious
+    _ = (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) := by obvious
   have h3 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ (0 : ℝ) := by obvious
   have h4 : (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) ≥ (0 : ℝ) := by obvious
-  have h5 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  have h5 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ (0 : ℝ) := by obvious
+  have h6 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
   obvious
 
 \end{lstlisting}
@@ -264,24 +262,22 @@ Prove that for any positive real number $x$:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $x>0$, we have $(x-1)^2 \ge 0$. Thus, $x + \frac{1}{x} \ge 2$.
+Since $(x-1)^2 \ge 0$ for all $x$, dividing by $x$ gives $x + \frac{1}{x} - 2 \ge 0$, so $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Since $x>0$, we have $(x-1)^2 = x^2 - 2x + 1 \ge 0$. Thus, $x^2 + 1 \ge 2x$, so $x + \frac{1}{x} \ge 2$.
+Since $(x-1)^2 = x^2 - 2x + 1 \ge 0$ for all $x$, dividing by $x$ gives $\frac{x^2 - 2x + 1}{x} = x + \frac{1}{x} - 2 \ge 0$, so $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-Let $x\in\mathbb{R}$.
-Assume $x>0$.
+Let $x\in\mathbb{R}$. Assume $x>0$.
 The goal is to prove $x + \frac{1}{x} \ge 2$.
-We have $x>0$.
-We have ${(x-1)}^2 = x^2 - 2x + 1 \ge 0$.
-We have $x^2 + 1 \ge 2x$ because ${(x-1)}^2 = x^2 - 2x + 1 \ge 0$.
-We have $x + \frac{1}{x} \ge 2$ because $x^2 + 1 \ge 2x$ and $x>0$.
+We have ${\left(x-1\right)}^2 = x^2 - 2x + 1 \ge 0$.
+We have $\frac{x^2 - 2x + 1}{x} = x + \frac{1}{x} - 2 \ge 0$ by dividing by $x$.
+We have $x + \frac{1}{x} \ge 2$.
 \end{tcolorbox}
 
 Lean 4 code:
@@ -311,15 +307,20 @@ macro "obvious": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
 def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
-  have h2 : x > (0 : ℝ) := by obvious
   first
-  | have h3 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
+  | have h2 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
     (x - (1 : ℝ)) ^ 2 = x ^ 2 - (2 : ℝ) * x + (1 : ℝ) := by obvious
     _ ≥ (0 : ℝ) := by obvious
-  | have h4 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by calc
+  | have h3 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by calc
     x ^ 2 - (2 : ℝ) * x + (1 : ℝ) = (x - (1 : ℝ)) ^ 2 := by obvious
     _ ≥ (0 : ℝ) := by obvious
-  have h5 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious
+  first
+  | have h4 : (x ^ 2 - (2 : ℝ) * x + (1 : ℝ)) / x ≥ (0 : ℝ) := by calc
+    (x ^ 2 - (2 : ℝ) * x + (1 : ℝ)) / x = x + (1 : ℝ) / x - (2 : ℝ) := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h5 : x + (1 : ℝ) / x - (2 : ℝ) ≥ (0 : ℝ) := by calc
+    x + (1 : ℝ) / x - (2 : ℝ) = (x ^ 2 - (2 : ℝ) * x + (1 : ℝ)) / x := by obvious
+    _ ≥ (0 : ℝ) := by obvious
   have h6 : x + (1 : ℝ) / x ≥ (2 : ℝ) := by obvious
   obvious
 
@@ -336,28 +337,27 @@ For positive real numbers $a$ and $b$, prove:
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-Since $(a-b)^2 \ge 0$, we have $a^2 - 2ab + b^2 \ge 0$, so $2ab \leq a^2 + b^2$.
-Adding $a^2+b^2$ to both sides gives $a^2 + 2ab + b^2 \leq 2(a^2+b^2)$, so $(a+b)^2 \leq 2(a^2+b^2)$, and $\left(\frac{a+b}{2}\right)^2 \leq \frac{a^2+b^2}{2}$.
+We have
+$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{(a-b)^2}{4} \ge 0. $
+Thus, the inequality holds.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-Since $(a-b)^2 \ge 0$, we have $a^2 - 2ab + b^2 \ge 0$, so $2ab \leq a^2 + b^2$.
-Adding $a^2+b^2$ to both sides gives $a^2 + 2ab + b^2 \leq (a^2 + b^2) + 2ab \leq (a^2+b^2) + (a^2+b^2) = 2(a^2+b^2)$, so $(a+b)^2 \leq 2(a^2+b^2)$, and $\frac{(a+b)^2}{4} = \left(\frac{a+b}{2}\right)^2 \leq \frac{2(a^2+b^2)}{4} = \frac{a^2+b^2}{2}$.
+We have
+$ \frac{a^2+b^2}{2} - \left(\frac{a+b}{2}\right)^2 = \frac{2a^2+2b^2}{4} - \frac{a^2+2ab+b^2}{4} = \frac{a^2-2ab+b^2}{4} = \frac{(a-b)^2}{4} \ge 0. $
+Thus, the inequality holds.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
 Let $a\in\mathbb{R}$.
 Let $b\in\mathbb{R}$.
-The goal is to prove ${\left(\frac{a+b}{2}\right)}^2 \leq \frac{a^2+b^2}{2}$.
-We have ${(a-b)}^2 \ge 0$.
-We have $a^2 - 2ab + b^2 \ge 0$.
-We have $2ab \leq a^2 + b^2$.
-We have $a^2 + 2ab + b^2 \leq (a^2 + b^2) + 2ab \leq (a^2+b^2) + (a^2+b^2) = 2(a^2+b^2)$.
-We have ${(a+b)}^2 \leq 2(a^2+b^2)$.
-We have $\frac{{(a+b)}^2}{4} = {\left(\frac{a+b}{2}\right)}^2 \leq \frac{2(a^2+b^2)}{4} = \frac{a^2+b^2}{2}$.
+The goal is to prove $\frac{a^2+b^2}{2} \ge {\left(\frac{a+b}{2}\right)}^2$.
+We have $\frac{a^2+b^2}{2} - {\left(\frac{a+b}{2}\right)}^2 = \frac{2a^2+2b^2}{4} - \frac{a^2+2ab+b^2}{4} = \frac{a^2-2ab+b^2}{4} = \frac{{{(a-b)}}^2}{4} \ge 0$.
+We have $\frac{a^2+b^2}{2} - {\left(\frac{a+b}{2}\right)}^2 \ge 0$.
+We have $\frac{a^2+b^2}{2} \ge {\left(\frac{a+b}{2}\right)}^2$.
 \end{tcolorbox}
 
 Lean 4 code:
@@ -386,24 +386,20 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
-def h (a b : ℝ) : ((a + b) / (2 : ℝ)) ^ 2 ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by
-  have h1 : (a - b) ^ 2 ≥ (0 : ℝ) := by obvious
-  have h2 : a ^ 2 - (2 : ℝ) * a * b + b ^ 2 ≥ (0 : ℝ) := by obvious
-  have h3 : (2 : ℝ) * a * b ≤ a ^ 2 + b ^ 2 := by obvious
-  have h4 : a ^ 2 + (2 : ℝ) * a * b + b ^ 2 ≤ (2 : ℝ) * (a ^ 2 + b ^ 2) := by calc
-    a ^ 2 + (2 : ℝ) * a * b + b ^ 2 ≤ a ^ 2 + b ^ 2 + (2 : ℝ) * a * b := by obvious
-    _ ≤ a ^ 2 + b ^ 2 + (a ^ 2 + b ^ 2) := by obvious
-    _ = (2 : ℝ) * (a ^ 2 + b ^ 2) := by obvious
-  have h5 : (a + b) ^ 2 ≤ (2 : ℝ) * (a ^ 2 + b ^ 2) := by obvious
+def h (a b : ℝ) : (a ^ 2 + b ^ 2) / (2 : ℝ) ≥ ((a + b) / (2 : ℝ)) ^ 2 := by
   first
-  | have h6 : (a + b) ^ 2 / (4 : ℝ) ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by calc
-    (a + b) ^ 2 / (4 : ℝ) = ((a + b) / (2 : ℝ)) ^ 2 := by obvious
-    _ ≤ (2 : ℝ) * (a ^ 2 + b ^ 2) / (4 : ℝ) := by obvious
-    _ = (a ^ 2 + b ^ 2) / (2 : ℝ) := by obvious
-  | have h7 : ((a + b) / (2 : ℝ)) ^ 2 ≤ (a ^ 2 + b ^ 2) / (2 : ℝ) := by calc
-    ((a + b) / (2 : ℝ)) ^ 2 = (a + b) ^ 2 / (4 : ℝ) := by obvious
-    _ ≤ (2 : ℝ) * (a ^ 2 + b ^ 2) / (4 : ℝ) := by obvious
-    _ = (a ^ 2 + b ^ 2) / (2 : ℝ) := by obvious
+  | have h1 : (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
+    (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 = ((2 : ℝ) * (a ^ 2) + (2 : ℝ) * (b ^ 2)) / (4 : ℝ) - (a ^ 2 + (2 : ℝ) * a * b + b ^ 2) / (4 : ℝ) := by obvious
+    _ = (a ^ 2 - (2 : ℝ) * a * b + b ^ 2) / (4 : ℝ) := by obvious
+    _ = (a - b) ^ 2 / (4 : ℝ) := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h2 : (a - b) ^ 2 / (4 : ℝ) ≥ (0 : ℝ) := by calc
+    (a - b) ^ 2 / (4 : ℝ) = (a ^ 2 - (2 : ℝ) * a * b + b ^ 2) / (4 : ℝ) := by obvious
+    _ = ((2 : ℝ) * (a ^ 2) + (2 : ℝ) * (b ^ 2)) / (4 : ℝ) - (a ^ 2 + (2 : ℝ) * a * b + b ^ 2) / (4 : ℝ) := by obvious
+    _ = (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h3 : (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 ≥ (0 : ℝ) := by obvious
+  have h4 : (a ^ 2 + b ^ 2) / (2 : ℝ) ≥ ((a + b) / (2 : ℝ)) ^ 2 := by obvious
   obvious
 
 \end{lstlisting}

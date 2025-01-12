@@ -54,13 +54,13 @@ Prove: $1+1=2$.
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-It's trivial that $1+1=2$.
+This is trivial.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-It's trivial that $1+1=2$.
+This is trivial.
 \end{tcolorbox}
 
 Regularized proof:
@@ -97,6 +97,64 @@ macro "obvious": tactic =>`(tactic|
 )
 def h : 1 + 1 = 2 := by
   have h1 : 1 + 1 = 2 := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Prove: $x^2\ge 0$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+The square of a real number is non-negative.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+The square of a real number is non-negative.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+The goal is to prove ${{x}}^2 \ge 0$.
+We have ${{x}}^2 \ge 0$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+def h (x : ℝ) : x ^ 2 ≥ (0 : ℝ) := by
+  have h1 : x ^ 2 ≥ (0 : ℝ) := by obvious
   obvious
 
 \end{lstlisting}
