@@ -7,10 +7,7 @@ use super::*;
 use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
     term::{
-        builder::sum::VdBsqSumBuilder,
-        comnum::VdBsqComnumTerm,
-        num::VdBsqNumTerm,
-        prop::{num_relationship::VdBsqNumRelationshipPropTermData, VdBsqPropTerm},
+        builder::sum::VdBsqSumBuilder, comnum::VdBsqComnumTerm, num::VdBsqNumTerm, prop::VdBsqProp,
         VdBsqTerm,
     },
 };
@@ -23,16 +20,13 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     }
 
     fn comm_ring_inner(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
-        let VdBsqTerm::Prop(VdBsqPropTerm::NumRelationship(num_relationship)) = prop.term() else {
+        let VdBsqTerm::Prop(VdBsqProp::NumRelation(num_relation)) = prop.term() else {
             return AltNothing;
         };
-        let VdBsqNumRelationshipPropTermData {
-            opr: kind,
-            lhs_minus_rhs: VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)),
-        } = *num_relationship.data()
-        else {
+        let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)) = num_relation.lhs_minus_rhs() else {
             return AltNothing;
         };
+        let opr = num_relation.opr();
         let mut builder = VdBsqSumBuilder::new(self.floater_db());
         builder.add_litnum(term.constant_term());
         foldm_sum(term.monomials(), builder).eval(self, &|slf, builder| {
@@ -40,14 +34,14 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             let VdBsqNumTerm::Litnum(litnum) = term else {
                 return AltNothing;
             };
-            match litnum.cmp_with_zero(kind) {
+            match litnum.cmp_with_zero(opr) {
                 true => {
                     let hypothesis = slf
                         .hypothesis_constructor
                         .construct_new_hypothesis(prop, VdBsqHypothesisConstruction::CommRing);
                     AltJustOk(Ok(hypothesis))
                 }
-                false => todo!("report error, litnum = {:?}, kind = {:?}", litnum, kind),
+                false => todo!("report error, litnum = {:?}, kind = {:?}", litnum, opr),
             }
         })
     }

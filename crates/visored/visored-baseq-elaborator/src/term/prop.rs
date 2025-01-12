@@ -1,28 +1,18 @@
-pub mod num_relationship;
+pub mod num_chain;
+pub mod num_relation;
 
+use self::{num_chain::*, num_relation::*};
 use super::*;
-use crate::term::num_relationship::*;
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqPropTerm<'sess> {
-    NumRelationship(VdBsqNumRelationshipPropTerm<'sess>),
+pub enum VdBsqProp<'sess> {
+    NumRelation(VdBsqNumRelation<'sess>),
+    NumChain(VdBsqNumChain<'sess>),
     Trivial(bool),
 }
 
-#[floated]
-pub struct VdBsqPropTermFld<'sess> {
-    #[return_ref]
-    pub data: VdBsqPropTermData<'sess>,
-}
-
-#[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqPropTermData<'sess> {
-    NumRelationship(VdBsqNumRelationshipPropTermData<'sess>),
-}
-
-impl<'sess> std::fmt::Debug for VdBsqPropTerm<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqProp<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("PropTerm(`")?;
         self.show_fmt(VdPrecedenceRange::Any, f)?;
@@ -30,15 +20,16 @@ impl<'sess> std::fmt::Debug for VdBsqPropTerm<'sess> {
     }
 }
 
-impl<'sess> VdBsqPropTerm<'sess> {
+impl<'sess> VdBsqProp<'sess> {
     pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqPropTerm::NumRelationship(term) => term.show_fmt(precedence_range, f),
-            VdBsqPropTerm::Trivial(b) => write!(f, "{}", b),
+            VdBsqProp::NumRelation(term) => term.show_fmt(precedence_range, f),
+            VdBsqProp::NumChain(_) => todo!(),
+            VdBsqProp::Trivial(b) => write!(f, "{}", b),
         }
     }
 }

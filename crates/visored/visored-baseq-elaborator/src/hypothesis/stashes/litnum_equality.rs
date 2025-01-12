@@ -14,7 +14,7 @@ use crate::{
         comnum::{sum::VdBsqSumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
         litnum::VdBsqLitnumTerm,
         num::VdBsqNumTerm,
-        prop::VdBsqPropTerm,
+        prop::VdBsqProp,
         VdBsqTerm,
     },
 };
@@ -53,10 +53,10 @@ impl IsVdBsqHypothesisUniqueStashScheme for VdBsqLitNumEqualityScheme {
         entry: &VdBsqHypothesisEntry<'sess>,
         db: &'sess FloaterDb,
     ) -> Option<(Self::Key<'sess>, Self::Value<'sess>)> {
-        let VdBsqTerm::Prop(VdBsqPropTerm::NumRelationship(term)) = entry.expr().term() else {
+        let VdBsqTerm::Prop(VdBsqProp::NumRelation(term)) = entry.expr().term() else {
             return None;
         };
-        require!(term.kind() == VdBsqComparisonOpr::Eq);
+        require!(term.opr() == VdBsqComparisonOpr::Eq);
         require!(let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(lhs_minus_rhs)) = term.lhs_minus_rhs());
         let (_, (normalized_constant_litnum, normalized_monomials)) =
             lhs_minus_rhs.split_fld(|f| f, db);

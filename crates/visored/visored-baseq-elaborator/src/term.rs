@@ -15,6 +15,7 @@ use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
+use num_chain::VdBsqNumChain;
 use product::VdBsqProductStem;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 use visored_mir_expr::{
@@ -38,7 +39,7 @@ use visored_term::{
 pub enum VdBsqTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
     Comnum(VdBsqComnumTerm<'sess>),
-    Prop(VdBsqPropTerm<'sess>),
+    Prop(VdBsqProp<'sess>),
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
@@ -233,7 +234,15 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 ref followers,
                 joined_signature: joined_separator_and_signature,
             } => match joined_separator_and_signature {
-                Some(joined_separator_and_signature) => todo!(),
+                Some(joined_separator_and_signature) => VdBsqNumChain::new(
+                    leader.term().num().unwrap(),
+                    followers
+                        .iter()
+                        .map(|&(func, follower)| (func, follower.term().num().unwrap()))
+                        .collect(),
+                    db,
+                )
+                .into(),
                 None => {
                     use VdBsqComparisonOpr::*;
 
