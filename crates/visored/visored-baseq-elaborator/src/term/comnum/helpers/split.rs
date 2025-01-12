@@ -19,7 +19,7 @@ impl<'sess> VdBsqSumComnumTerm<'sess> {
             VdBsqSumComnumTerm::new(0, monomials, db).into()
         } else {
             let (monomial, coeff) = monomials.data()[0];
-            match coeff.mul_nonsum_comnum(monomial, db) {
+            match coeff.mul_product_base(monomial, db) {
                 VdBsqNumTerm::Litnum(_) => unreachable!("the split of a sum is always nontrivial"),
                 VdBsqNumTerm::Comnum(comnum) => comnum,
             }

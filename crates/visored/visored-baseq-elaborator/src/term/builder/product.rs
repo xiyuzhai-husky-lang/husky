@@ -4,7 +4,7 @@ use crate::term::{
     product::{VdBsqProductBase, VdBsqProductComnumTermBaseData},
     sum::VdBsqSumComnumTerm,
     VdBsqComnumTerm, VdBsqExponentialPowers, VdBsqLitnumTerm, VdBsqMonomialCoefficients,
-    VdBsqNonProductNumTerm, VdBsqNonSumComnumTerm, VdBsqNumTerm,
+    VdBsqNonProductNumTerm, VdBsqNumTerm,
 };
 use floated_sequential::db::FloaterDb;
 

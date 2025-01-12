@@ -97,6 +97,10 @@ impl<'sess> VdBsqSumComnumTerm<'sess> {
     ) -> std::fmt::Result {
         self.data().show_fmt(precedence_range, f)
     }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        self.data().outer_precedence()
+    }
 }
 
 impl<'sess> VdBsqComnumSumTermData<'sess> {
@@ -145,8 +149,9 @@ impl<'sess> VdBsqComnumSumTermData<'sess> {
             if !coefficient.is_one() {
                 coefficient.show_fmt(VdPrecedenceRange::MUL_DIV_RIGHT, f)?;
                 match monomial {
-                    VdBsqNonSumComnumTerm::Atom(term) => (),
-                    VdBsqNonSumComnumTerm::Product(base) => match base.exponentials().data()[0].0 {
+                    VdBsqProductBase::Atom(term) => (),
+                    VdBsqProductBase::Sum(term) => todo!(),
+                    VdBsqProductBase::NonTrivial(base) => match base.exponentials().data()[0].0 {
                         VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
                         VdBsqNonProductNumTerm::AtomComnum(_)
                         | VdBsqNonProductNumTerm::SumComnum(_) => (),

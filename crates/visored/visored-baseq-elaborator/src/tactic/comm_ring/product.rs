@@ -2,7 +2,7 @@ use super::*;
 use crate::term::{
     comnum::{
         sum::VdBsqSumComnumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
-        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm, VdBsqNonSumComnumTerm,
+        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm,
     },
     litnum::VdBsqLitnumTerm,
 };
@@ -14,6 +14,7 @@ use miracle::{
     error::MiracleAltMaybeResult,
     multifold::{self, multifold2},
 };
+use term::comnum::product::VdBsqProductBase;
 
 pub fn foldm_product<'a, 'db, 'sess>(
     exponentials: &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
@@ -71,10 +72,13 @@ fn multiply_with_expanding<'db, 'sess>(
                 (
                     coeff,
                     match monomial {
-                        VdBsqNonSumComnumTerm::Atom(atom) => {
+                        VdBsqProductBase::Atom(atom) => {
                             vec![(atom.into(), 1.into())]
                         }
-                        VdBsqNonSumComnumTerm::Product(base) => base.exponentials().to_vec(),
+                        VdBsqProductBase::Sum(sum) => {
+                            vec![(sum.into(), 1.into())]
+                        }
+                        VdBsqProductBase::NonTrivial(base) => base.exponentials().to_vec(),
                     },
                 )
             }))
@@ -124,10 +128,13 @@ fn multinomial_expansion<'db, 'sess>(
             let (summand, coeff) = sum.monomials().data()[monomial_idx];
             cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
             match summand {
-                VdBsqNonSumComnumTerm::Atom(term) => {
+                VdBsqProductBase::Atom(term) => {
                     exponential_parts.push((term.into(), index.into()));
                 }
-                VdBsqNonSumComnumTerm::Product(base) => {
+                VdBsqProductBase::Sum(sum) => {
+                    exponential_parts.push((sum.into(), index.into()));
+                }
+                VdBsqProductBase::NonTrivial(base) => {
                     for &(base, exp) in base.exponentials() {
                         exponential_parts.push((base.into(), exp.mul128(index, db).into()));
                     }

@@ -89,34 +89,7 @@ impl<'sess> VdBsqNonProductNumTerm<'sess> {
     }
 }
 
-#[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqNonSumComnumTerm<'sess> {
-    Atom(VdBsqAtomComnumTerm<'sess>),
-    Product(VdBsqProductBase<'sess>),
-}
-
-impl<'sess> VdBsqNonSumComnumTerm<'sess> {
-    pub fn show_fmt(
-        self,
-        precedence_range: VdPrecedenceRange,
-        f: &mut std::fmt::Formatter<'_>,
-    ) -> std::fmt::Result {
-        match self {
-            VdBsqNonSumComnumTerm::Atom(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonSumComnumTerm::Product(term) => term.show_fmt(precedence_range, f),
-        }
-    }
-
-    pub fn outer_precedence(&self) -> VdPrecedence {
-        match self {
-            VdBsqNonSumComnumTerm::Atom(term) => term.outer_precedence(),
-            VdBsqNonSumComnumTerm::Product(term) => term.outer_precedence(),
-        }
-    }
-}
-
-pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqNonSumComnumTerm<'sess>; 4]>;
+pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqProductBase<'sess>; 4]>;
 
 #[floated]
 pub struct VdBsqComnumTermFld<'sess> {
@@ -135,8 +108,7 @@ pub enum VdBsqComnumTermData<'sess> {
 
 pub type VdBsqNonProductNumTermMap<'sess, T> =
     OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
-pub type VdBsqNonSumComnumTermMap<'sess, T> =
-    OrderedSmallVecPairMap<VdBsqNonSumComnumTerm<'sess>, T, 4>;
+pub type VdBsqNonSumComnumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqProductBase<'sess>, T, 4>;
 pub type VdBsqMonomialCoefficients<'sess> = VdBsqNonSumComnumTermMap<'sess, VdBsqLitnumTerm<'sess>>;
 pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;
 pub type VdBsqExponentialPowersRef<'a, 'sess> =

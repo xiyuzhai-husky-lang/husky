@@ -5,7 +5,8 @@ use super::*;
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqProductBase<'sess> {
     Atom(VdBsqAtomComnumTerm<'sess>),
-    NonTrivialProductBase(VdBsqNonTrivialProductBase<'sess>),
+    Sum(VdBsqSumComnumTerm<'sess>),
+    NonTrivial(VdBsqNonTrivialProductBase<'sess>),
 }
 
 #[floated]
@@ -83,10 +84,6 @@ impl<'sess> VdBsqProductBase<'sess> {
 
     pub fn exponentials(&self) -> &'sess VdBsqExponentialPowers<'sess> {
         self.data().exponentials()
-    }
-
-    pub fn outer_precedence(&self) -> VdPrecedence {
-        self.data().outer_precedence()
     }
 }
 
@@ -211,5 +208,23 @@ impl<'sess> VdBsqProductBase<'sess> {
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         self.data().show_fmt(precedence_range, f)
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        match self {
+            VdBsqProductBase::Atom(term) => term.outer_precedence(),
+            VdBsqProductBase::Sum(term) => term.outer_precedence(),
+            VdBsqProductBase::NonTrivial(term) => term.outer_precedence(),
+        }
+    }
+}
+
+impl<'sess> VdBsqNonTrivialProductBase<'sess> {
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        self.data().outer_precedence()
+    }
+
+    pub fn exponentials(&self) -> &'sess VdBsqExponentialPowers<'sess> {
+        self.data().exponentials()
     }
 }
