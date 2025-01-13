@@ -99,7 +99,7 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h : 1 + 1 = 2 := by
-  have h1 : 1 + 1 = 2 := by obvious
+  have h1 : 1 + 1 = 2 := by term_trivial
   obvious
 
 \end{lstlisting}
@@ -160,7 +160,7 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (x : ℝ) : x ^ 2 ≥ (0 : ℝ) := by
-  have h1 : x ^ 2 ≥ (0 : ℝ) := by obvious
+  have h1 : x ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
   obvious
 
 \end{lstlisting}
@@ -222,7 +222,7 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (a b : ℝ) : a + b = b + a := by
-  have h1 : a + b = b + a := by obvious
+  have h1 : a + b = b + a := by term_trivial
   obvious
 
 \end{lstlisting}
@@ -289,7 +289,7 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
-  have h2 : x > (0 : ℝ) := by obvious
+  have h2 : x > (0 : ℝ) := by old_main_hypothesis
   first
   | have h3 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
     (x - (1 : ℝ)) ^ 2 = x ^ 2 - (2 : ℝ) * x + (1 : ℝ) := by obvious
@@ -298,8 +298,8 @@ def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
     x ^ 2 - (2 : ℝ) * x + (1 : ℝ) = (x - (1 : ℝ)) ^ 2 := by obvious
     _ ≥ (0 : ℝ) := by obvious
   have h5 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by obvious
-  have h6 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious
-  have h7 : x > (0 : ℝ) := by obvious
+  have h6 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by term_equivalent
+  have h7 : x > (0 : ℝ) := by old_main_hypothesis
   have h8 : x + (1 : ℝ) / x ≥ (2 : ℝ) := by obvious
   obvious
 
@@ -515,11 +515,11 @@ macro "in_set" : term => `(true)
 
 def h (x : ℝ) (h1 : x > (0 : ℝ)) (y : ℝ) (h2 : y > (0 : ℝ)) : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by
   have h3 : in_set := by obvious
-  have h4 : x > (0 : ℝ) := by obvious
-  have h5 : in_set := by obvious
-  have h6 : y > (0 : ℝ) := by obvious
+  have h4 : x > (0 : ℝ) := by old_main_hypothesis
+  have h5 : in_set := by term_equivalent
+  have h6 : y > (0 : ℝ) := by old_main_hypothesis
   have h15 : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by
-    have h7 : (x - y) ^ 2 ≥ (0 : ℝ) := by obvious
+    have h7 : (x - y) ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
     first
     | have h8 : (x - y) ^ 2 ≥ (0 : ℝ) := by calc
       (x - y) ^ 2 = x ^ 2 - (2 : ℝ) * x * y + y ^ 2 := by obvious
@@ -618,8 +618,8 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (a b : ℝ) (h1 : a > (0 : ℝ)) (h2 : b > (0 : ℝ)) : a / b + b / a ≥ (2 : ℝ) := by
-  have h3 : a > (0 : ℝ) := by obvious
-  have h4 : b > (0 : ℝ) := by obvious
+  have h3 : a > (0 : ℝ) := by old_main_hypothesis
+  have h4 : b > (0 : ℝ) := by old_main_hypothesis
   first
   | have h5 : (√ (a / b) - √ (b / a)) ^ 2 ≥ (0 : ℝ) := by calc
     (√ (a / b) - √ (b / a)) ^ 2 = √ (a / b) ^ 2 - (2 : ℝ) * √ (a / b) * √ (b / a) + √ (b / a) ^ 2 := by obvious
@@ -630,7 +630,7 @@ def h (a b : ℝ) (h1 : a > (0 : ℝ)) (h2 : b > (0 : ℝ)) : a / b + b / a ≥ 
     _ = (√ (a / b) - √ (b / a)) ^ 2 := by obvious
     _ ≥ (0 : ℝ) := by obvious
   have h7 : a / b - (2 : ℝ) + b / a ≥ (0 : ℝ) := by obvious
-  have h8 : a / b + b / a ≥ (2 : ℝ) := by obvious
+  have h8 : a / b + b / a ≥ (2 : ℝ) := by term_equivalent
   obvious
 
 \end{lstlisting}

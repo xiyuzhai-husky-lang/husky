@@ -180,9 +180,11 @@ impl<'sess> VdBsqProductStem<'sess> {
                 VdBsqNumTerm::ZERO => todo!(),
                 VdBsqNumTerm::ONE => match base {
                     VdBsqNumTerm::Litnum(vd_bsq_litnum_term) => todo!(),
-                    VdBsqNumTerm::Comnum(VdBsqComnumTerm::Atom(base)) => return Left(base.into()),
-                    VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(base)) => return Right(base.into()),
-                    _ => todo!(),
+                    VdBsqNumTerm::Comnum(comnum) => match comnum {
+                        VdBsqComnumTerm::Atom(atom) => return Left(atom.into()),
+                        VdBsqComnumTerm::Sum(sum) => return Right(sum.into()),
+                        VdBsqComnumTerm::Product(product) => return Right(product.into()),
+                    },
                 },
                 _ => (),
             }

@@ -102,7 +102,7 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (a b : ℝ) : (a + b) ^ 2 ≥ (0 : ℝ) := by
-  have h1 : (a + b) ^ 2 ≥ (0 : ℝ) := by obvious
+  have h1 : (a + b) ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
   obvious
 
 \end{lstlisting}
@@ -173,8 +173,8 @@ def h (x : ℝ) (h1 : x ≥ (0 : ℝ)) (y : ℝ) (h2 : y ≥ (0 : ℝ)) : (x + y
   have h3 : (√ x - √ y) ^ 2 = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
   have h4 : √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 = x - (2 : ℝ) * √ (x * y) + y := by obvious
   have h5 : x - (2 : ℝ) * √ (x * y) + y ≥ (0 : ℝ) := by obvious
-  have h6 : (√ x - √ y) ^ 2 ≥ (0 : ℝ) := by obvious
-  have h7 : x + y ≥ (2 : ℝ) * √ (x * y) := by obvious
+  have h6 : (√ x - √ y) ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
+  have h7 : x + y ≥ (2 : ℝ) * √ (x * y) := by term_equivalent
   have h8 : (x + y) / (2 : ℝ) ≥ √ (x * y) := by obvious
   obvious
 
@@ -254,8 +254,8 @@ def h (a b c : ℝ) : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by
     _ = (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) := by obvious
   have h3 : (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 ≥ (0 : ℝ) := by obvious
   have h4 : (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) ≥ (0 : ℝ) := by obvious
-  have h5 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ (0 : ℝ) := by obvious
-  have h6 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by obvious
+  have h5 : a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a ≥ (0 : ℝ) := by litnum_bound
+  have h6 : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by term_equivalent
   obvious
 
 \end{lstlisting}
@@ -414,7 +414,7 @@ def h (a b : ℝ) : (a ^ 2 + b ^ 2) / (2 : ℝ) ≥ ((a + b) / (2 : ℝ)) ^ 2 :=
     _ = (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 := by obvious
     _ ≥ (0 : ℝ) := by obvious
   have h3 : (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 ≥ (0 : ℝ) := by obvious
-  have h4 : (a ^ 2 + b ^ 2) / (2 : ℝ) ≥ ((a + b) / (2 : ℝ)) ^ 2 := by obvious
+  have h4 : (a ^ 2 + b ^ 2) / (2 : ℝ) ≥ ((a + b) / (2 : ℝ)) ^ 2 := by term_equivalent
   obvious
 
 \end{lstlisting}

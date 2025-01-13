@@ -25,8 +25,8 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (a b : ℝ) (h1 : a > (0 : ℝ)) (h2 : b > (0 : ℝ)) : a / b + b / a ≥ (2 : ℝ) := by
-  have h3 : a > (0 : ℝ) := by obvious
-  have h4 : b > (0 : ℝ) := by obvious
+  have h3 : a > (0 : ℝ) := by old_main_hypothesis
+  have h4 : b > (0 : ℝ) := by old_main_hypothesis
   first
   | have h5 : (√ (a / b) - √ (b / a)) ^ 2 ≥ (0 : ℝ) := by calc
     (√ (a / b) - √ (b / a)) ^ 2 = √ (a / b) ^ 2 - (2 : ℝ) * √ (a / b) * √ (b / a) + √ (b / a) ^ 2 := by obvious
@@ -37,5 +37,5 @@ def h (a b : ℝ) (h1 : a > (0 : ℝ)) (h2 : b > (0 : ℝ)) : a / b + b / a ≥ 
     _ = (√ (a / b) - √ (b / a)) ^ 2 := by obvious
     _ ≥ (0 : ℝ) := by obvious
   have h7 : a / b - (2 : ℝ) + b / a ≥ (0 : ℝ) := by obvious
-  have h8 : a / b + b / a ≥ (2 : ℝ) := by obvious
+  have h8 : a / b + b / a ≥ (2 : ℝ) := by term_equivalent
   obvious
