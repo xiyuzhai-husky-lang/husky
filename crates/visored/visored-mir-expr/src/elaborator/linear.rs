@@ -53,7 +53,10 @@ pub trait IsVdMirSequentialElaboratorInner<'db>: Sized {
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-    fn elaborate_show_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+    fn elaborate_show_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
     fn elaborate_qed_stmt(
         &mut self,
         goal: VdMirExprIdx,
@@ -104,7 +107,7 @@ pub enum TrivialHypothesisIdx {
         prop: VdMirExprIdx,
     },
     Show {
-        // goal: VdMirExprIdx,
+        goal: VdMirExprIdx,
     },
     Qed {
         goal: VdMirExprIdx,
@@ -153,8 +156,8 @@ impl<'db> IsVdMirSequentialElaboratorInner<'db> for () {
         Ok(TrivialHypothesisIdx::Have { prop })
     }
 
-    fn elaborate_show_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
-        Ok(TrivialHypothesisIdx::Show {})
+    fn elaborate_show_stmt(&mut self, goal: VdMirExprIdx) -> Result<TrivialHypothesisIdx, ()> {
+        Ok(TrivialHypothesisIdx::Show { goal })
     }
 
     fn elaborate_qed_stmt(&mut self, goal: VdMirExprIdx) -> Result<TrivialHypothesisIdx, ()> {
@@ -383,12 +386,12 @@ where
                 goal_and_hypothesis_chunk_place,
                 ..
             } => {
-                let hypothesis = self
-                    .inner
-                    .elaborate_show_stmt()
-                    .expect("handle contradiction");
                 if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
                     self.elaborate_expr(goal, hypothesis_constructor);
+                    let hypothesis = self
+                        .inner
+                        .elaborate_show_stmt(goal)
+                        .expect("handle contradiction");
                     let hypothesis_chunk = hypothesis_constructor
                         .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
                             self.inner.transcribe_explicit_hypothesis(

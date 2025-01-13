@@ -196,6 +196,9 @@ pub type VdMirExprFlds<'sess> = SmallVec<[VdBsqExprFld<'sess>; 4]>;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn cache_expr_fld(&mut self, expr_idx: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
+        if self.expr_to_fld_map().has(expr_idx) {
+            return;
+        }
         let expr_entry = &region_data.expr_arena[expr_idx];
         let symbol_local_defn_storage = region_data.symbol_local_defn_storage;
         let expr_data = self.calc_expr_fld_data(expr_entry, symbol_local_defn_storage);

@@ -123,6 +123,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdBsqExprFld<'sess> {
         self.expr_to_fld_map[expr]
     }
+
+    pub(crate) fn expr_to_fld_map(&self) -> &VdMirExprMap<VdBsqExprFld<'sess>> {
+        &self.expr_to_fld_map
+    }
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
@@ -213,8 +217,12 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         }
     }
 
-    fn elaborate_show_stmt(&mut self) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
-        todo!()
+    fn elaborate_show_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
+        let goal = self.expr_fld(goal);
+        self.run_obvious(goal)
     }
 
     fn elaborate_qed_stmt(

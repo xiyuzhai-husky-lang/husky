@@ -49,7 +49,11 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn new_from_atom(atom: VdBsqAtomTerm<'sess>, db: &'sess FloaterDb) -> Self {
-        todo!()
+        Self {
+            db,
+            litnum_factor: 1.into(),
+            unpruned_exponentials: [(atom.into(), 1.into())].into_iter().collect(),
+        }
     }
 
     pub fn new_from_sum(sum: VdBsqSumTerm<'sess>, db: &'sess FloaterDb) -> Self {
@@ -174,7 +178,15 @@ impl<'sess> VdBsqProductBuilder<'sess> {
     }
 
     pub fn div_product(&mut self, product: VdBsqProductTerm<'sess>) {
-        todo!()
+        self.div_litnum(product.litnum_factor());
+        match product.stem() {
+            VdBsqProductStem::Atom(atom) => self.div_atom(atom),
+            VdBsqProductStem::NonTrivial(stem) => {
+                for &(base, exponent) in stem.exponentials() {
+                    self.div_exponential(base, exponent);
+                }
+            }
+        }
     }
 
     pub fn finish(self) -> VdBsqNumTerm<'sess> {
