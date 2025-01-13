@@ -84,8 +84,12 @@ impl<'sess> VdBsqNumTerm<'sess> {
         builder.finish()
     }
 
-    pub fn add_assign(&mut self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) {
-        *self = self.add(rhs, db);
+    pub fn add_assign(&mut self, rhs: impl Into<VdBsqNumTerm<'sess>>, db: &'sess FloaterDb) {
+        *self = self.add(rhs.into(), db);
+    }
+
+    pub fn sub_assign(&mut self, rhs: impl Into<VdBsqNumTerm<'sess>>, db: &'sess FloaterDb) {
+        *self = self.sub(rhs.into(), db);
     }
 
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {

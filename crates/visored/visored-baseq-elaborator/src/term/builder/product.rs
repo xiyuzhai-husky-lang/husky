@@ -120,7 +120,13 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         }
     }
 
-    pub fn mul_exponential(&mut self, base: VdBsqNumTerm<'sess>, exponent: VdBsqNumTerm<'sess>) {
+    pub fn mul_exponential(
+        &mut self,
+        base: impl Into<VdBsqNumTerm<'sess>>,
+        exponent: impl Into<VdBsqNumTerm<'sess>>,
+    ) {
+        let base = base.into();
+        let exponent = exponent.into();
         self.unpruned_exponentials
             .insert_or_update((base, exponent), |(_, old_coeff)| {
                 old_coeff.add_assign(exponent, self.db)
@@ -146,12 +152,25 @@ impl<'sess> VdBsqProductBuilder<'sess> {
         }
     }
 
+    pub fn div_exponential(
+        &mut self,
+        base: impl Into<VdBsqNumTerm<'sess>>,
+        exponent: impl Into<VdBsqNumTerm<'sess>>,
+    ) {
+        let base = base.into();
+        let exponent = exponent.into();
+        self.unpruned_exponentials
+            .insert_or_update((base, exponent), |(_, old_coeff)| {
+                old_coeff.sub_assign(exponent, self.db)
+            });
+    }
+
     pub fn div_atom(&mut self, atom: VdBsqAtomTerm<'sess>) {
-        todo!()
+        self.div_exponential(atom, VdBsqNumTerm::ONE);
     }
 
     pub fn div_sum(&mut self, sum: VdBsqSumTerm<'sess>) {
-        todo!()
+        self.div_exponential(sum, VdBsqNumTerm::ONE);
     }
 
     pub fn div_product(&mut self, product: VdBsqProductTerm<'sess>) {

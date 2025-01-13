@@ -101,7 +101,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
-    pub fn add(self, rhs: Self, db: &FloaterDb) -> Self {
+    pub fn add(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
         if self.is_zero() {
             return rhs;
         }
@@ -119,58 +119,24 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                 VdBsqLitnumTerm::Frac128(_) => todo!(),
             },
             VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => match rhs {
+                VdBsqLitnumTerm::Int128(_) => todo!(),
+                VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+                VdBsqLitnumTerm::Frac128(rhs) => slf.add(rhs, db),
+            },
         }
     }
 
-    pub fn add_assign(&mut self, rhs: Self, db: &FloaterDb) {
-        if self.is_zero() {
-            *self = rhs;
-            return;
-        }
-        match self {
-            VdBsqLitnumTerm::Int128(slf) => match rhs {
-                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_add(rhs) {
-                    Some(sum) => *self = VdBsqLitnumTerm::Int128(sum),
-                    None => todo!(),
-                },
-                VdBsqLitnumTerm::BigInt(i) => {
-                    use husky_print_utils::p;
-                    p!(self, rhs);
-                    todo!()
-                }
-                VdBsqLitnumTerm::Frac128(_) => todo!(),
-            },
-            VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
-        }
+    pub fn add_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
+        *self = self.add(rhs, db);
+    }
+
+    pub fn sub(self, rhs: Self, db: &'sess FloaterDb) -> Self {
+        self.add(rhs.neg(db), db)
     }
 
     pub fn sub_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
-        if self.is_zero() {
-            *self = rhs.neg(db);
-            return;
-        }
-        match self {
-            VdBsqLitnumTerm::Int128(slf) => match rhs {
-                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_sub(rhs) {
-                    Some(sum) => *self = VdBsqLitnumTerm::Int128(sum),
-                    None => todo!(),
-                },
-                VdBsqLitnumTerm::BigInt(i) => todo!(),
-                VdBsqLitnumTerm::Frac128(rhs) => {
-                    use husky_print_utils::p;
-                    p!(self, rhs);
-                    todo!()
-                }
-            },
-            VdBsqLitnumTerm::BigInt(i) => match rhs {
-                VdBsqLitnumTerm::Int128(_) => todo!(),
-                VdBsqLitnumTerm::BigInt(i1) => *self = i.sub(i1, db),
-                VdBsqLitnumTerm::Frac128(_) => todo!(),
-            },
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
-        }
+        *self = self.sub(rhs, db);
     }
 
     pub fn mul(self, rhs: Self, db: &'sess FloaterDb) -> Self {
@@ -299,7 +265,11 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                 }
             }
             VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(_) => todo!(),
+            VdBsqLitnumTerm::Frac128(slf) => {
+                use husky_print_utils::p;
+                p!(slf, exponent);
+                todo!()
+            }
         }
     }
 }

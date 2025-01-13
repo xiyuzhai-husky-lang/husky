@@ -23,6 +23,15 @@ impl<'sess> Into<VdBsqLitnumTerm<'sess>> for Div {
     }
 }
 
+impl Into<VdBsqFrac128> for Div {
+    fn into(self) -> VdBsqFrac128 {
+        match VdBsqFrac128::new128(self.0, self.1).unwrap() {
+            VdBsqLitnumTerm::Frac128(f) => f,
+            _ => panic!(),
+        }
+    }
+}
+
 impl VdBsqFrac128 {
     pub fn new128<'sess>(
         raw_numerator: i128,
@@ -101,6 +110,29 @@ impl VdBsqFrac128 {
         }
     }
 
+    pub fn add<'sess>(self, rhs: Self, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
+        // First multiply denominators to get common denominator
+        let Some(common_denominator) = self.denominator.checked_mul(rhs.denominator) else {
+            todo!()
+        };
+
+        // Scale up each numerator
+        let Some(lhs_scaled) = self.numerator.checked_mul(rhs.denominator) else {
+            todo!()
+        };
+        let Some(rhs_scaled) = rhs.numerator.checked_mul(self.denominator) else {
+            todo!()
+        };
+
+        // Add the scaled numerators
+        let Some(raw_numerator) = lhs_scaled.checked_add(rhs_scaled) else {
+            todo!()
+        };
+
+        // Create new reduced fraction
+        Self::new128(raw_numerator, common_denominator).unwrap()
+    }
+
     pub fn inverse(self) -> Self {
         assert!(self.numerator != 0);
         if self.numerator > 0 {
@@ -128,6 +160,22 @@ impl VdBsqFrac128 {
         };
         Self::new128(raw_numerator, raw_denominator).unwrap()
     }
+}
+
+#[test]
+fn vd_bsq_frac128_add_works() {
+    fn t<'sess>(
+        a: impl Into<VdBsqLitnumTerm<'sess>>,
+        b: impl Into<VdBsqLitnumTerm<'sess>>,
+        c: impl Into<VdBsqLitnumTerm<'sess>>,
+        db: &'sess FloaterDb,
+    ) {
+        assert_eq!(a.into().add(b.into(), db), c.into());
+    }
+    let db = &FloaterDb::default();
+    t(Div(1, 2), Div(3, 4), Div(5, 8), db);
+    t(Div(1, 2), Div(1, 2), 1, db);
+    t(Div(1, 2), Div(-1, 2), 0, db);
 }
 
 impl std::ops::Neg for VdBsqFrac128 {
