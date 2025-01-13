@@ -110,8 +110,8 @@ impl VdMirStmtEntry {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprBuilder<'db>> for VdSemDivisionIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirStmtIdxRange {
         let mut stmt_batch = VdMirStmtBatch::new();
         for division in self {
             stmt_batch.push(
@@ -151,8 +151,8 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemBlockIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
+impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprBuilder<'db>> for VdSemBlockIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirStmtIdxRange {
         let mut stmt_batch = VdMirStmtBatch::new();
         for stmt in self {
             builder.build_mir_stmts_from_block(stmt, &mut stmt_batch);

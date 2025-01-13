@@ -95,8 +95,8 @@ pub struct VdMirLiteral {}
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdMirVariable {}
 
-impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+impl<'db> ToVdMir<VdMirExprIdxRange, VdMirExprBuilder<'db>> for VdSemExprIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirExprIdxRange {
         let mut exprs: Vec<VdMirExprEntry> = Vec::with_capacity(self.len());
         for expr in self {
             exprs.push(builder.build_expr_entry(expr));
@@ -105,15 +105,15 @@ impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
     }
 }
 
-impl ToVdMir<VdMirExprIdx> for VdSemExprIdx {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdx {
+impl<'db> ToVdMir<VdMirExprIdx, VdMirExprBuilder<'db>> for VdSemExprIdx {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirExprIdx {
         let entry = builder.build_expr_entry(self);
         builder.alloc_expr(entry)
     }
 }
 
-impl<const N: usize> ToVdMir<VdMirExprIdxRange> for [VdSemExprIdx; N] {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+impl<'db, const N: usize> ToVdMir<VdMirExprIdxRange, VdMirExprBuilder<'db>> for [VdSemExprIdx; N] {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirExprIdxRange {
         let entries = self
             .into_iter()
             .map(|expr| builder.build_expr_entry(expr))

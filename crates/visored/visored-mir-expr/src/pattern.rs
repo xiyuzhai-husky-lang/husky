@@ -20,8 +20,8 @@ pub enum VdMirPattern {
     },
 }
 
-impl ToVdMir<VdMirPattern> for &VdSemPattern {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirPattern {
+impl<'db> ToVdMir<VdMirPattern, VdMirExprBuilder<'db>> for &VdSemPattern {
+    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirPattern {
         match *self {
             VdSemPattern::Letter {
                 token_idx_range,

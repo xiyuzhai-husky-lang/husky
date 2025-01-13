@@ -51,7 +51,8 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
 }
 
 pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
-    type VdMirExprOutput: IsVdMirExprOutput + FromToVdMir<Self::VdSemExprOutput>;
+    type VdMirExprOutput: IsVdMirExprOutput
+        + for<'db> FromToVdMir<Self::VdSemExprOutput, VdMirExprBuilder<'db>>;
 }
 
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
@@ -64,15 +65,15 @@ pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     );
 }
 
-pub trait FromToVdMir<S> {
-    fn from_to_vd_mir(output: S, builder: &mut VdMirExprBuilder) -> Self;
+pub trait FromToVdMir<S, Builder> {
+    fn from_to_vd_mir(output: S, builder: &mut Builder) -> Self;
 }
 
-impl<'a, S, T: IsVdMirExprOutput> FromToVdMir<S> for T
+impl<'db, S, T: IsVdMirExprOutput> FromToVdMir<S, VdMirExprBuilder<'db>> for T
 where
-    S: ToVdMir<T>,
+    S: ToVdMir<T, VdMirExprBuilder<'db>>,
 {
-    fn from_to_vd_mir(s: S, builder: &mut VdMirExprBuilder) -> Self {
+    fn from_to_vd_mir(s: S, builder: &mut VdMirExprBuilder<'db>) -> Self {
         s.to_vd_mir(builder)
     }
 }
