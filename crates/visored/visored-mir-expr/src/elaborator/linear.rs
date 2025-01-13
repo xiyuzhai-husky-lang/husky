@@ -54,7 +54,10 @@ pub trait IsVdMirSequentialElaboratorInner<'db>: Sized {
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
     fn elaborate_show_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-    fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+    fn elaborate_qed_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
     /// # expr
     fn elaborate_field_div_expr(
@@ -104,7 +107,7 @@ pub enum TrivialHypothesisIdx {
         // goal: VdMirExprIdx,
     },
     Qed {
-        // goal: VdMirExprIdx,
+        goal: VdMirExprIdx,
     },
     FieldDiv {
         divisor: idx_arena::ArenaIdx<expr::VdMirExprEntry>,
@@ -154,8 +157,8 @@ impl<'db> IsVdMirSequentialElaboratorInner<'db> for () {
         Ok(TrivialHypothesisIdx::Show {})
     }
 
-    fn elaborate_qed_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
-        Ok(TrivialHypothesisIdx::Qed {})
+    fn elaborate_qed_stmt(&mut self, goal: VdMirExprIdx) -> Result<TrivialHypothesisIdx, ()> {
+        Ok(TrivialHypothesisIdx::Qed { goal })
     }
 
     fn elaborate_field_div_expr(
@@ -385,6 +388,7 @@ where
                     .elaborate_show_stmt()
                     .expect("handle contradiction");
                 if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
+                    self.elaborate_expr(goal, hypothesis_constructor);
                     let hypothesis_chunk = hypothesis_constructor
                         .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
                             self.inner.transcribe_explicit_hypothesis(
@@ -411,9 +415,10 @@ where
                 goal_and_hypothesis_chunk_place,
             } => {
                 if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
+                    self.elaborate_expr(goal, hypothesis_constructor);
                     let hypothesis = self
                         .inner
-                        .elaborate_qed_stmt()
+                        .elaborate_qed_stmt(goal)
                         .expect("handle contradiction");
                     let hypothesis_chunk = hypothesis_constructor
                         .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {

@@ -217,8 +217,12 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         todo!()
     }
 
-    fn elaborate_qed_stmt(&mut self) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
-        todo!()
+    fn elaborate_qed_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
+        let goal = self.expr_fld(goal);
+        self.run_obvious(goal)
     }
 
     fn elaborate_field_div_expr(
