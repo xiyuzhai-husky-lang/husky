@@ -145,23 +145,17 @@ impl<'db> VdMirExprRegionBuilder<'db> {
                 opr,
                 ropd,
                 dispatch,
-            } => {
-                match opr {
-                    VdSemBinaryOpr::Base(_, VdBaseBinaryOpr::Div) => todo!(),
-                    _ => (),
-                }
-                VdMirExprData::Application {
-                    function: match dispatch {
-                        VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
-                            VdBinaryOprGlobalDispatch::Normal {
-                                base_binary_opr,
-                                signature,
-                            } => VdMirFunc::NormalBaseBinaryOpr(signature),
-                        },
+            } => VdMirExprData::Application {
+                function: match dispatch {
+                    VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
+                        VdBinaryOprGlobalDispatch::Normal {
+                            base_binary_opr,
+                            signature,
+                        } => VdMirFunc::NormalBaseBinaryOpr(signature),
                     },
-                    arguments: [lopd, ropd].to_vd_mir(self),
-                }
-            }
+                },
+                arguments: [lopd, ropd].to_vd_mir(self),
+            },
             VdSemExprData::Prefix { opr, opd, dispatch } => match dispatch {
                 VdSemPrefixDispatch::Global(dispatch) => match dispatch {
                     VdPrefixOprGlobalDispatch::Base {

@@ -65,7 +65,7 @@ impl<'db> GeminiClient<'db> {
                             .await;
                         None
                     }
-                    _ => todo!(),
+                    e => todo!("unhandled error: {}", e),
                 },
             },
             Err(e) => Some((usage, Err(e))),

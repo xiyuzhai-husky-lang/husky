@@ -553,4 +553,86 @@ def h (x : ℝ) (h1 : x > (0 : ℝ)) (y : ℝ) (h2 : y > (0 : ℝ)) : (1 : ℝ) 
 
 \end{lstlisting}
 \end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $a\in\mathbb{R}$. Assume $a > 0$.
+    Let $b\in\mathbb{R}$. Assume $b > 0$.
+    Prove: $\frac{a}{b} + \frac{b}{a} \ge 2$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $a>0$ and $b>0$, we have $(\sqrt{a/b} - \sqrt{b/a})^2 \ge 0$. Thus $a/b + b/a \ge 2$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $a>0$ and $b>0$, we have $(\sqrt{a/b} - \sqrt{b/a})^2 = (\sqrt{a/b})^2 - 2\sqrt{a/b}\sqrt{b/a} + (\sqrt{b/a})^2 = a/b - 2 + b/a \ge 0$. Thus $a/b - 2 + b/a \ge 0$, so $a/b + b/a \ge 2$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+Assume $a>0$.
+Assume $b>0$.
+The goal is to prove $a/b + b/a \ge 2$.
+We have $a>0$.
+We have $b>0$.
+We have ${{(\sqrt{a/b} - \sqrt{b/a})}}^2 = {{(\sqrt{a/b})}}^2 - 2\sqrt{a/b}\sqrt{b/a} + {{(\sqrt{b/a})}}^2 = a/b - 2 + b/a \ge 0$.
+We have $a/b - 2 + b/a \ge 0$.
+We have $a/b + b/a \ge 2$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (a b : ℝ) (h1 : a > (0 : ℝ)) (h2 : b > (0 : ℝ)) : a / b + b / a ≥ (2 : ℝ) := by
+  have h3 : a > (0 : ℝ) := by obvious
+  have h4 : b > (0 : ℝ) := by obvious
+  first
+  | have h5 : (√ (a / b) - √ (b / a)) ^ 2 ≥ (0 : ℝ) := by calc
+    (√ (a / b) - √ (b / a)) ^ 2 = √ (a / b) ^ 2 - (2 : ℝ) * √ (a / b) * √ (b / a) + √ (b / a) ^ 2 := by obvious
+    _ = a / b - (2 : ℝ) + b / a := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h6 : a / b - (2 : ℝ) + b / a ≥ (0 : ℝ) := by calc
+    a / b - (2 : ℝ) + b / a = √ (a / b) ^ 2 - (2 : ℝ) * √ (a / b) * √ (b / a) + √ (b / a) ^ 2 := by obvious
+    _ = (√ (a / b) - √ (b / a)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h7 : a / b - (2 : ℝ) + b / a ≥ (0 : ℝ) := by obvious
+  have h8 : a / b + b / a ≥ (2 : ℝ) := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
 \end{document}

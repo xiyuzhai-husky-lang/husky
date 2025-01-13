@@ -39,14 +39,14 @@ impl VdBaseBinaryOpr {
     pub fn left_precedence_range(self) -> VdPrecedenceRange {
         match self {
             VdBaseBinaryOpr::Sub => VdPrecedenceRange::ADD_SUB_LEFT,
-            VdBaseBinaryOpr::Div => todo!(),
+            VdBaseBinaryOpr::Div => VdPrecedenceRange::MUL_DIV_LEFT,
         }
     }
 
     pub fn right_precedence_range(self) -> VdPrecedenceRange {
         match self {
             VdBaseBinaryOpr::Sub => VdPrecedenceRange::ADD_SUB_RIGHT,
-            VdBaseBinaryOpr::Div => todo!(),
+            VdBaseBinaryOpr::Div => VdPrecedenceRange::MUL_DIV_RIGHT,
         }
     }
 
