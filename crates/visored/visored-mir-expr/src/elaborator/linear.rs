@@ -273,7 +273,9 @@ where
     ) {
         match *hypothesis_constructor.stmt_arena()[stmt].data() {
             VdMirStmtData::Block {
-                stmts, ref meta, ..
+                blocks: stmts,
+                ref meta,
+                ..
             } => {
                 let kind = meta.kind();
                 self.inner.enter_block(kind);

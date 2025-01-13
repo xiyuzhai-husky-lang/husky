@@ -137,7 +137,6 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
 
     fn enter_block(&mut self, kind: VdMirBlockKind) {
         match kind {
-            VdMirBlockKind::Paragraph | VdMirBlockKind::Sentence => (),
             VdMirBlockKind::Environment | VdMirBlockKind::Division => {
                 self.hypothesis_constructor.enter_block()
             }
@@ -146,7 +145,6 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
 
     fn exit_block(&mut self, kind: VdMirBlockKind) {
         match kind {
-            VdMirBlockKind::Paragraph | VdMirBlockKind::Sentence => (),
             VdMirBlockKind::Environment | VdMirBlockKind::Division => {
                 self.hypothesis_constructor.exit_block()
             }

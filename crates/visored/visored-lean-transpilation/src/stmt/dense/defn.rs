@@ -42,9 +42,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
         let db = self.db();
         match *self.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block { stmts, ref meta } => {
+            VdMirStmtData::Block {
+                blocks: stmts,
+                ref meta,
+            } => {
                 match *meta {
-                    VdMirBlockMeta::Paragraph => self.build_ln_def_from_vd_paragraph(stmts),
                     VdMirBlockMeta::Environment(_, environment_path, module_path) => {
                         let defn = self.with_module_path(module_path, |builder| {
                             builder.build_ln_def_from_vd_environment(
@@ -72,30 +74,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                             )),
                         }
                     }
-                    VdMirBlockMeta::Sentence => unreachable!(),
                 }
-                // let defns = match *meta {
-                //     VdMirBlockMeta::Paragraph => todo!(),
-                //     VdMirBlockMeta::Environment(_, environment_path, module_path) => todo!(),
-                //     VdMirBlockMeta::Division(_, module_path) => {
-                //         self.with_module_path(module_path, |builder| stmts.to_lean(builder))
-                //     }
-                //     VdMirBlockMeta::Sentence => unreachable!(),
-                // };
-                // let meta = match *meta {
-                //     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
-                //     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
-                //     VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
-                //         vd_module_path_to_ln_namespace(module_path, db),
-                //     ),
-                //     VdMirBlockMeta::Environment(_, environment_path, module_path) => {
-                //         todo!();
-                //         LnMirItemDefnGroupMeta::Environment(
-                //             vd_module_path_to_ln_namespace(module_path, db).unwrap(),
-                //         )
-                //     }
-                // };
-                // LnItemDefnData::Group { defns, meta }
             }
             VdMirStmtData::LetPlaceholder { .. }
             | VdMirStmtData::Assume { .. }
@@ -181,7 +160,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 });
                 std::ops::ControlFlow::Continue(())
             }
-            VdMirStmtData::Block { stmts, ref meta } => {
+            VdMirStmtData::Block {
+                blocks: stmts,
+                ref meta,
+            } => {
                 for stmt in stmts {
                     match self.build_ln_parameter_from_vd_stmt(stmt, parameters) {
                         std::ops::ControlFlow::Continue(()) => (),

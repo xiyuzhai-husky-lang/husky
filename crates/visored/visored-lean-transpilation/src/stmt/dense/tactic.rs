@@ -29,14 +29,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             return;
         };
         match *self.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block { stmts, ref meta } => {
+            VdMirStmtData::Block {
+                blocks: stmts,
+                ref meta,
+            } => {
                 match meta {
-                    VdMirBlockMeta::Paragraph => {
-                        self.build_ln_tactic_from_vd_paragraph(stmts, ln_tactics)
-                    }
-                    VdMirBlockMeta::Sentence => {
-                        self.build_ln_tactic_from_vd_sentence(stmts, ln_tactics)
-                    }
                     VdMirBlockMeta::Environment(lx_environment_path, _, vd_module_path) => todo!(),
                     VdMirBlockMeta::Division(vd_division_level, vd_module_path) => todo!(),
                 }

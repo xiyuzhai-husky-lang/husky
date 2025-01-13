@@ -7,8 +7,8 @@ use crate::{
     region::VdMirExprRegionData,
     source_map::VdMirSourceMap,
     stmt::{
-        VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtEntry, VdMirStmtIdxRange,
-        VdMirStmtSource,
+        batch::VdMirStmtBatch, VdMirStmtArena, VdMirStmtArenaRef, VdMirStmtData, VdMirStmtEntry,
+        VdMirStmtIdxRange, VdMirStmtSource,
     },
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnData},
 };
@@ -127,11 +127,8 @@ impl<'db> VdMirExprBuilder<'db> {
         self.expr_arena.alloc_batch(entries)
     }
 
-    pub(crate) fn alloc_stmts(
-        &mut self,
-        mut entries: Vec<VdMirStmtEntry>,
-        sources: impl IntoIterator<Item = VdMirStmtSource>,
-    ) -> VdMirStmtIdxRange {
+    pub(crate) fn alloc_stmts(&mut self, stmt_batch: VdMirStmtBatch) -> VdMirStmtIdxRange {
+        let (entries, sources) = stmt_batch.finish();
         let stmts = self.stmt_arena.alloc_batch(entries);
         self.source_map.set_stmts(stmts, sources);
         stmts

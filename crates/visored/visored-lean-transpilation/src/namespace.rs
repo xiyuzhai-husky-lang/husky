@@ -23,7 +23,7 @@ pub fn vd_module_path_to_ln_namespace(
                 VdDivisionLevel::Section => (),
                 VdDivisionLevel::Subsection => (),
                 VdDivisionLevel::Subsubsection => (),
-                VdDivisionLevel::Stmts => return None,
+                VdDivisionLevel::Blocks => return None,
             }
             let parent_namespace = vd_module_path_to_ln_namespace_or_inherited(parent, db);
             Some(parent_namespace.child(
@@ -72,7 +72,7 @@ pub fn vd_module_path_to_ln_namespace_or_inherited(
                 VdDivisionLevel::Section => (),
                 VdDivisionLevel::Subsection => (),
                 VdDivisionLevel::Subsubsection => (),
-                VdDivisionLevel::Stmts => return parent_namespace,
+                VdDivisionLevel::Blocks => return parent_namespace,
             }
             parent_namespace.child(
                 format!(

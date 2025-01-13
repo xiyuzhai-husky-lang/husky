@@ -42,17 +42,17 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     ) -> Option<LnItemDefnData> {
         let db = self.db();
         match *self.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block { stmts, ref meta } => {
+            VdMirStmtData::Block {
+                blocks: stmts,
+                ref meta,
+            } => {
                 let defns = match *meta {
-                    VdMirBlockMeta::Paragraph | VdMirBlockMeta::Sentence => stmts.to_lean(self),
                     VdMirBlockMeta::Environment(_, _, module_path)
                     | VdMirBlockMeta::Division(_, module_path) => {
                         self.with_module_path(module_path, |builder| stmts.to_lean(builder))
                     }
                 };
                 let meta = match *meta {
-                    VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
-                    VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
                     VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
                         vd_module_path_to_ln_namespace(module_path, db),
                     ),

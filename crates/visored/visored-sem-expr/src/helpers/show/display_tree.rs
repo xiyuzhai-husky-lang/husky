@@ -167,7 +167,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
-                stmts,
+                blocks: stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
             } => format!("{:?} stmt.block", source),
@@ -260,7 +260,7 @@ impl<'a> VdSemExprDisplayTreeBuilder<'a> {
             .token_idx_range_offset_range(division_range);
         let source = &self.input[offset_range];
         let value = match *self.division_arena[division].data() {
-            VdSemDivisionData::Stmts { stmts } => format!("{:?} division.stmts", source),
+            VdSemDivisionData::Blocks { blocks: stmts } => format!("{:?} division.stmts", source),
             VdSemDivisionData::Divisions { .. } => format!("{:?} division.divisions", source),
         };
         DisplayTree::new(
