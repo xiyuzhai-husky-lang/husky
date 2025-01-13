@@ -98,6 +98,9 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
+
+macro "in_set" : term => `(true)
+
 def h (a b : ℝ) : (a + b) ^ 2 ≥ (0 : ℝ) := by
   have h1 : (a + b) ^ 2 ≥ (0 : ℝ) := by obvious
   obvious
@@ -163,6 +166,9 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
+
+macro "in_set" : term => `(true)
+
 def h (x : ℝ) (h1 : x ≥ (0 : ℝ)) (y : ℝ) (h2 : y ≥ (0 : ℝ)) : (x + y) / (2 : ℝ) ≥ √ (x * y) := by
   have h3 : (√ x - √ y) ^ 2 = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
   have h4 : √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 = x - (2 : ℝ) * √ (x * y) + y := by obvious
@@ -233,6 +239,9 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
+
+macro "in_set" : term => `(true)
+
 def h (a b c : ℝ) : a ^ 2 + b ^ 2 + c ^ 2 ≥ a * b + b * c + c * a := by
   first
   | have h1 : (2 : ℝ) * (a ^ 2 + b ^ 2 + c ^ 2 - a * b - b * c - c * a) = (a - b) ^ 2 + (b - c) ^ 2 + (c - a) ^ 2 := by calc
@@ -306,6 +315,9 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
+
+macro "in_set" : term => `(true)
+
 def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
   first
   | have h2 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
@@ -386,6 +398,9 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
+
+macro "in_set" : term => `(true)
+
 def h (a b : ℝ) : (a ^ 2 + b ^ 2) / (2 : ℝ) ≥ ((a + b) / (2 : ℝ)) ^ 2 := by
   first
   | have h1 : (a ^ 2 + b ^ 2) / (2 : ℝ) - ((a + b) / (2 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc

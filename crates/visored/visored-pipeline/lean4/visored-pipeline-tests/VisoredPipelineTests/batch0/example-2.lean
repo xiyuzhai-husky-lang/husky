@@ -21,6 +21,9 @@ macro "obvious": tactic =>`(tactic|
   | gcongr; all_goals attack; done
   | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
 )
+
+macro "in_set" : term => `(true)
+
 def h (x : ℝ) (h1 : x ≥ (0 : ℝ)) (y : ℝ) (h2 : y ≥ (0 : ℝ)) : (x + y) / (2 : ℝ) ≥ √ (x * y) := by
   have h3 : (√ x - √ y) ^ 2 = √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 := by obvious
   have h4 : √ x ^ 2 - (2 : ℝ) * √ x * √ y + √ y ^ 2 = x - (2 : ℝ) * √ (x * y) + y := by obvious

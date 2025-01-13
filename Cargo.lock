@@ -13676,6 +13676,7 @@ dependencies = [
  "latex-prelude",
  "latex-vfs",
  "lean-helpers",
+ "lean-mir-expr",
  "llm-prelude",
  "rayon",
  "relative-path",

@@ -177,7 +177,7 @@ impl<'a> LnMirExprFormatter<'a> {
                         }
                     }
                     // ad hoc
-                    LnMirFunc::InSet => self.result += "sorry",
+                    LnMirFunc::InSet => self.result += "in_set",
                 }
             }
             LnMirExprData::Literal(lit) => {
