@@ -65,6 +65,15 @@ impl<'db> GeminiClient<'db> {
                             .await;
                         None
                     }
+                    "UNAVAILABLE" => {
+                        tracing::info!(
+                            "UNAVAILABLE, retrying in {:?}...",
+                            self.retry_delay_on_paid
+                        );
+                        tokio::time::sleep(tokio::time::Duration::from(self.retry_delay_on_paid))
+                            .await;
+                        None
+                    }
                     e => todo!("unhandled error: {}", e),
                 },
             },
