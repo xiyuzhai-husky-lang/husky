@@ -103,7 +103,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn add_product(&mut self, product: VdBsqProductTerm<'sess>) {
-        self.add_monomial(product.base(), product.litnum_factor());
+        self.add_monomial(product.stem(), product.litnum_factor());
     }
 
     pub fn add_general_product(
@@ -133,7 +133,7 @@ impl<'sess> VdBsqSumBuilder<'sess> {
     }
 
     pub fn sub_product(&mut self, product: VdBsqProductTerm<'sess>) {
-        self.add_monomial(product.base(), product.litnum_factor().neg(self.db));
+        self.add_monomial(product.stem(), product.litnum_factor().neg(self.db));
     }
 
     pub fn add_monomial(

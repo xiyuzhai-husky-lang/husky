@@ -3,22 +3,13 @@ use crate::term::sum::VdBsqSumTerm;
 use builder::sum::VdBsqSumBuilder;
 use product::VdBsqProductTerm;
 use smallvec::*;
+use visored_opr::precedence::VdPrecedence;
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum VdBsqNumTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
     Comnum(VdBsqComnumTerm<'sess>),
-}
-
-impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
-    fn from(term: VdBsqNonProductNumTerm<'sess>) -> Self {
-        match term {
-            VdBsqNonProductNumTerm::Litnum(term) => VdBsqNumTerm::Litnum(term),
-            VdBsqNonProductNumTerm::Atom(term) => VdBsqNumTerm::Comnum(term.into()),
-            VdBsqNonProductNumTerm::Sum(term) => VdBsqNumTerm::Comnum(term.into()),
-        }
-    }
 }
 
 impl<'sess> From<VdBsqProductTerm<'sess>> for VdBsqNumTerm<'sess> {
@@ -132,5 +123,9 @@ impl<'sess> VdBsqNumTerm<'sess> {
             VdBsqNumTerm::Litnum(term) => term.show_fmt(precedence_range, f),
             VdBsqNumTerm::Comnum(term) => term.show_fmt(precedence_range, f),
         }
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        todo!()
     }
 }

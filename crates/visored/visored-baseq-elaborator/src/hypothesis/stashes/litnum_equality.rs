@@ -89,7 +89,7 @@ impl<'sess> LitnumEqualityStash<'sess> {
             VdBsqComnumTerm::Sum(sum) => sum.split_fld(|f| f, db),
             VdBsqComnumTerm::Product(product) => (
                 product.litnum_factor(),
-                (VdBsqLitnumTerm::ZERO, product.base().into()),
+                (VdBsqLitnumTerm::ZERO, product.stem().into()),
             ),
         };
         let key = VdBsqLitNumEqualityKey {

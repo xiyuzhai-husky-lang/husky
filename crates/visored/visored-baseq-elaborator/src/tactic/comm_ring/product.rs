@@ -1,8 +1,7 @@
 use super::*;
 use crate::term::{
     comnum::{
-        sum::VdBsqSumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
-        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm,
+        sum::VdBsqSumTerm, VdBsqExponentialParts, VdBsqExponentialPowers, VdBsqExponentialPowersRef,
     },
     litnum::VdBsqLitnumTerm,
 };
@@ -17,7 +16,7 @@ use miracle::{
 use term::comnum::product::VdBsqProductStem;
 
 pub fn foldm_product<'a, 'db, 'sess>(
-    exponentials: &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
+    exponentials: &'a [(VdBsqNumTerm<'sess>, VdBsqNumTerm<'sess>)],
 ) -> impl ElabM<'db, 'sess, Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>> + 'a
 where
     'db: 'sess,
@@ -32,7 +31,7 @@ where
 }
 
 type State<'sess> = Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>;
-type Item<'sess> = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
+type Item<'sess> = (VdBsqNumTerm<'sess>, VdBsqNumTerm<'sess>);
 type FnType<'db, 'sess> =
     fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &&Item<'sess>) -> Option<State<'sess>>;
 
@@ -61,7 +60,7 @@ fn multiply_with_expanding<'db, 'sess>(
         return None;
     }
     debug_assert!(exponent > 0);
-    let VdBsqNonProductNumTerm::Sum(sum) = base else {
+    let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(sum)) = base else {
         return None;
     };
     let factor_expansion = if exponent == 1 {

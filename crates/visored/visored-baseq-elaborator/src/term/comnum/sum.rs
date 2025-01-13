@@ -147,8 +147,8 @@ impl<'sess> VdBsqComnumSumTermData<'sess> {
                 match monomial {
                     VdBsqProductStem::Atom(term) => (),
                     VdBsqProductStem::NonTrivial(base) => match base.exponentials().data()[0].0 {
-                        VdBsqNonProductNumTerm::Litnum(_) => f.write_str(" × ")?,
-                        VdBsqNonProductNumTerm::Atom(_) | VdBsqNonProductNumTerm::Sum(_) => (),
+                        VdBsqNumTerm::Litnum(_) => f.write_str(" × ")?,
+                        VdBsqNumTerm::Comnum(_) => (),
                     },
                 }
             }

@@ -31,45 +31,13 @@ impl<'sess> VdBsqComnumTerm<'sess> {
     }
 }
 
-#[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqNonProductNumTerm<'sess> {
-    Litnum(VdBsqLitnumTerm<'sess>),
-    Atom(VdBsqAtomTerm<'sess>),
-    Sum(VdBsqSumTerm<'sess>),
-}
-
-impl<'sess> VdBsqNonProductNumTerm<'sess> {
-    pub fn show_fmt(
-        self,
-        precedence_range: VdPrecedenceRange,
-        f: &mut std::fmt::Formatter<'_>,
-    ) -> std::fmt::Result {
-        match self {
-            VdBsqNonProductNumTerm::Litnum(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonProductNumTerm::Atom(term) => term.show_fmt(precedence_range, f),
-            VdBsqNonProductNumTerm::Sum(term) => term.show_fmt(precedence_range, f),
-        }
-    }
-
-    pub fn outer_precedence(&self) -> VdPrecedence {
-        match self {
-            VdBsqNonProductNumTerm::Litnum(term) => term.outer_precedence(),
-            VdBsqNonProductNumTerm::Atom(term) => term.outer_precedence(),
-            VdBsqNonProductNumTerm::Sum(term) => VdPrecedence::ADD_SUB,
-        }
-    }
-}
-
 pub type VdBsqNonSumComnumTerms<'sess> = SmallVec<[VdBsqProductStem<'sess>; 4]>;
-pub type VdBsqNonProductNumTermMap<'sess, T> =
-    OrderedSmallVecPairMap<VdBsqNonProductNumTerm<'sess>, T, 4>;
+pub type VdBsqNonProductNumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqNumTerm<'sess>, T, 4>;
 pub type VdBsqNonSumComnumTermMap<'sess, T> = OrderedSmallVecPairMap<VdBsqProductStem<'sess>, T, 4>;
 pub type VdBsqMonomialCoefficients<'sess> = VdBsqNonSumComnumTermMap<'sess, VdBsqLitnumTerm<'sess>>;
 pub type VdBsqExponentialPowers<'sess> = VdBsqNonProductNumTermMap<'sess, VdBsqNumTerm<'sess>>;
-pub type VdBsqExponentialPowersRef<'a, 'sess> =
-    &'a [(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)];
-pub type VdBsqExponentialParts<'sess> = Vec<(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)>;
+pub type VdBsqExponentialPowersRef<'a, 'sess> = &'a [(VdBsqNumTerm<'sess>, VdBsqNumTerm<'sess>)];
+pub type VdBsqExponentialParts<'sess> = Vec<(VdBsqNumTerm<'sess>, VdBsqNumTerm<'sess>)>;
 
 impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn neg(self, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {

@@ -15,6 +15,7 @@ use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
+use frac128::VdBsqFrac128;
 use num_chain::VdBsqNumChain;
 use product::VdBsqProductStem;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
@@ -45,15 +46,14 @@ pub enum VdBsqTerm<'sess> {
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
-    ) -> Either<(VdBsqLitnumTerm<'sess>, VdBsqProductStem<'sess>), VdBsqNonProductNumTerm<'sess>>
-    {
+    ) -> Either<(VdBsqLitnumTerm<'sess>, VdBsqProductStem<'sess>), VdBsqNumTerm<'sess>> {
         match self {
             VdBsqNumTerm::Litnum(term) => todo!(),
             VdBsqNumTerm::Comnum(term) => match term {
-                VdBsqComnumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::Atom(term)),
-                VdBsqComnumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::Sum(term)),
+                VdBsqComnumTerm::Atom(term) => Right(term.into()),
+                VdBsqComnumTerm::Sum(term) => Right(term.into()),
                 VdBsqComnumTerm::Product(product) => {
-                    Left((product.litnum_factor(), product.base()))
+                    Left((product.litnum_factor(), product.stem()))
                 }
             },
         }
@@ -162,15 +162,19 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     let Some(exponent) = arguments[1].term().num() else {
                         todo!()
                     };
-                    match base.product_or_non_product() {
-                        Either::Left(base) => todo!(),
-                        Either::Right(base) => {
-                            VdBsqTerm::new_power(base, exponent, self.floater_db())
-                        }
-                    }
+                    // TODO: simplify???
+                    VdBsqTerm::new_power(base, exponent, self.floater_db())
+                    // match base.product_or_non_product() {
+                    //     Left(_) => todo!(),
+                    //     Right(base) => VdBsqTerm::new_power(base, exponent, self.floater_db()),
+                    // }
                 }
                 VdMirFunc::InSet => todo!(),
-                VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
+                VdMirFunc::NormalBaseSqrt(signature) => {
+                    let radicand = arguments[0].term().num().unwrap();
+                    let exponent = VdBsqFrac128::new128(1, 2).unwrap();
+                    VdBsqTerm::new_power(radicand, exponent, self.floater_db())
+                }
             },
             VdBsqExprFldData::FoldingSeparatedList {
                 leader,

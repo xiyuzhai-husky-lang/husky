@@ -233,8 +233,14 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         let divisor = self.expr_fld(divisor);
         let signature = if divisor.ty() == self.ty_menu().nat {
             self.signature_menu().nat_ne
+        } else if divisor.ty() == self.ty_menu().int {
+            self.signature_menu().int_ne
+        } else if divisor.ty() == self.ty_menu().rat {
+            self.signature_menu().rat_ne
+        } else if divisor.ty() == self.ty_menu().real {
+            self.signature_menu().real_ne
         } else {
-            todo!()
+            todo!("divisor.ty() = {:?}", divisor.ty())
         };
         let prop = self.mk_expr(
             VdBsqExprFldData::ChainingSeparatedList {

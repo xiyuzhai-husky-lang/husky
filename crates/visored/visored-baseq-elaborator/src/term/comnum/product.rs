@@ -62,7 +62,7 @@ impl<'sess> VdBsqProductTerm<'sess> {
         self.litnum_factor
     }
 
-    pub fn base(&self) -> VdBsqProductStem<'sess> {
+    pub fn stem(&self) -> VdBsqProductStem<'sess> {
         self.stem
     }
 }
@@ -179,9 +179,10 @@ impl<'sess> VdBsqProductStem<'sess> {
             match exponent {
                 VdBsqNumTerm::ZERO => todo!(),
                 VdBsqNumTerm::ONE => match base {
-                    VdBsqNonProductNumTerm::Litnum(vd_bsq_litnum_term) => todo!(),
-                    VdBsqNonProductNumTerm::Atom(base) => return Left(base.into()),
-                    VdBsqNonProductNumTerm::Sum(base) => return Right(base.into()),
+                    VdBsqNumTerm::Litnum(vd_bsq_litnum_term) => todo!(),
+                    VdBsqNumTerm::Comnum(VdBsqComnumTerm::Atom(base)) => return Left(base.into()),
+                    VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(base)) => return Right(base.into()),
+                    _ => todo!(),
                 },
                 _ => (),
             }
@@ -201,7 +202,7 @@ impl<'sess> VdBsqProductStem<'sess> {
     }
 
     pub fn new_power(
-        base: VdBsqNonProductNumTerm<'sess>,
+        base: VdBsqNumTerm<'sess>,
         exponent: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Either<Self, VdBsqNumTerm<'sess>> {
@@ -223,9 +224,8 @@ impl<'sess> VdBsqNonTrivialProductStem<'sess> {
                 debug_assert!(!exponent.is_zero_trivially());
                 if exponent.is_one_trivially() {
                     match base {
-                        VdBsqNonProductNumTerm::Litnum(_) => unreachable!(),
-                        VdBsqNonProductNumTerm::Atom(_) => unreachable!(),
-                        VdBsqNonProductNumTerm::Sum(_) => unreachable!(),
+                        VdBsqNumTerm::Litnum(_) => unreachable!(),
+                        VdBsqNumTerm::Comnum(_) => unreachable!(),
                     }
                 }
             }
@@ -236,7 +236,7 @@ impl<'sess> VdBsqNonTrivialProductStem<'sess> {
 
 impl<'sess> VdBsqComnumTerm<'sess> {
     pub fn new_power(
-        base: VdBsqNonProductNumTerm<'sess>,
+        base: VdBsqNumTerm<'sess>,
         exponent: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
@@ -257,7 +257,7 @@ impl<'sess> VdBsqNumTerm<'sess> {
     }
 
     pub fn new_power(
-        base: VdBsqNonProductNumTerm<'sess>,
+        base: VdBsqNumTerm<'sess>,
         exponent: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
@@ -267,11 +267,11 @@ impl<'sess> VdBsqNumTerm<'sess> {
 
 impl<'sess> VdBsqTerm<'sess> {
     pub fn new_power(
-        base: VdBsqNonProductNumTerm<'sess>,
-        exponent: VdBsqNumTerm<'sess>,
+        base: impl Into<VdBsqNumTerm<'sess>>,
+        exponent: impl Into<VdBsqNumTerm<'sess>>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqTerm::Comnum(VdBsqComnumTerm::new_power(base, exponent, db))
+        VdBsqTerm::Comnum(VdBsqComnumTerm::new_power(base.into(), exponent.into(), db))
     }
 }
 
