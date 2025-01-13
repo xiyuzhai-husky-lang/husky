@@ -8,8 +8,8 @@ pub mod helpers;
 pub mod pattern;
 pub mod phrase;
 pub mod range;
-pub mod region;
 pub mod sentence;
+pub mod sheet;
 pub mod symbol;
 #[cfg(test)]
 mod tests;

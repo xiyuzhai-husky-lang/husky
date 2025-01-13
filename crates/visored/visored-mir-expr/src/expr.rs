@@ -6,6 +6,7 @@ pub mod tests;
 
 use crate::*;
 use application::VdMirFunc;
+use builder::region::VdMirExprRegionBuilder;
 use hypothesis::constructor::VdMirHypothesisConstructor;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
@@ -95,8 +96,8 @@ pub struct VdMirLiteral {}
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdMirVariable {}
 
-impl<'db> ToVdMir<VdMirExprIdxRange, VdMirExprBuilder<'db>> for VdSemExprIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirExprIdxRange {
+impl<'db> ToVdMir<VdMirExprIdxRange, VdMirExprRegionBuilder<'db>> for VdSemExprIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirExprIdxRange {
         let mut exprs: Vec<VdMirExprEntry> = Vec::with_capacity(self.len());
         for expr in self {
             exprs.push(builder.build_expr_entry(expr));
@@ -105,15 +106,17 @@ impl<'db> ToVdMir<VdMirExprIdxRange, VdMirExprBuilder<'db>> for VdSemExprIdxRang
     }
 }
 
-impl<'db> ToVdMir<VdMirExprIdx, VdMirExprBuilder<'db>> for VdSemExprIdx {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirExprIdx {
+impl<'db> ToVdMir<VdMirExprIdx, VdMirExprRegionBuilder<'db>> for VdSemExprIdx {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirExprIdx {
         let entry = builder.build_expr_entry(self);
         builder.alloc_expr(entry)
     }
 }
 
-impl<'db, const N: usize> ToVdMir<VdMirExprIdxRange, VdMirExprBuilder<'db>> for [VdSemExprIdx; N] {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirExprIdxRange {
+impl<'db, const N: usize> ToVdMir<VdMirExprIdxRange, VdMirExprRegionBuilder<'db>>
+    for [VdSemExprIdx; N]
+{
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirExprIdxRange {
         let entries = self
             .into_iter()
             .map(|expr| builder.build_expr_entry(expr))
@@ -122,7 +125,7 @@ impl<'db, const N: usize> ToVdMir<VdMirExprIdxRange, VdMirExprBuilder<'db>> for 
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_expr_entry(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprEntry {
         let data = self.build_expr_data(sem_expr_idx);
         let ty = self.sem_expr_arena()[sem_expr_idx].ty();

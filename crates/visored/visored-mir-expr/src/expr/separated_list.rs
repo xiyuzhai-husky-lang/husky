@@ -2,7 +2,7 @@ use super::*;
 use visored_opr::separator::VdBaseSeparator;
 use visored_sem_expr::expr::separated_list::VdSemSeparatedListFollower;
 
-impl<'a> VdMirExprBuilder<'a> {
+impl<'a> VdMirExprRegionBuilder<'a> {
     pub(super) fn build_folding_separated_list(
         &mut self,
         leader: VdSemExprIdx,

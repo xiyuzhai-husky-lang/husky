@@ -15,7 +15,7 @@ pub mod tactic;
 #[cfg(test)]
 mod tests;
 
-use self::builder::VdMirExprBuilder;
+use self::builder::region::VdMirExprRegionBuilder;
 #[cfg(test)]
 use self::tests::*;
 use either::*;

@@ -9,12 +9,12 @@ use visored_sem_expr::{
 };
 
 #[derive(Default, Debug, PartialEq, Eq)]
-pub struct VdMirSourceMap {
+pub struct VdMirRegionSourceMap {
     stmt_map: VdMirStmtOrderedMap<VdMirStmtSource>,
     tactic_map: VdMirHintOrderedMap<VdMirHintSource>,
 }
 
-impl VdMirSourceMap {
+impl VdMirRegionSourceMap {
     pub(crate) fn set_stmts(
         &mut self,
         stmts: VdMirStmtIdxRange,
@@ -40,7 +40,7 @@ impl VdMirSourceMap {
     }
 }
 
-impl std::ops::Index<VdMirStmtIdx> for VdMirSourceMap {
+impl std::ops::Index<VdMirStmtIdx> for VdMirRegionSourceMap {
     type Output = VdMirStmtSource;
 
     fn index(&self, index: VdMirStmtIdx) -> &Self::Output {
@@ -48,7 +48,7 @@ impl std::ops::Index<VdMirStmtIdx> for VdMirSourceMap {
     }
 }
 
-impl std::ops::Index<VdMirHintIdx> for VdMirSourceMap {
+impl std::ops::Index<VdMirHintIdx> for VdMirRegionSourceMap {
     type Output = VdMirHintSource;
 
     fn index(&self, index: VdMirHintIdx) -> &Self::Output {

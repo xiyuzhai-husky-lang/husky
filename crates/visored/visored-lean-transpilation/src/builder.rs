@@ -22,7 +22,7 @@ use visored_mir_expr::{
     hint::VdMirHintArenaRef,
     hypothesis::VdMirHypothesisArenaRef,
     region::VdMirExprRegionData,
-    source_map::VdMirSourceMap,
+    source_map::VdMirRegionSourceMap,
     stmt::VdMirStmtArenaRef,
     symbol::local_defn::{storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnIdx},
 };
@@ -51,7 +51,7 @@ pub struct VdLeanTranspilationBuilder<'a, S: IsVdLeanTranspilationScheme> {
     dictionary: &'a VdLeanDictionary,
     mangler: VdLeanTranspilationMangler,
     current_module_path: VdModulePath,
-    source_map: &'a VdMirSourceMap,
+    source_map: &'a VdMirRegionSourceMap,
     sem_expr_range_map: &'a VdSemExprTokenIdxRangeMap,
     sem_phrase_range_map: &'a VdSemPhraseTokenIdxRangeMap,
     sem_clause_range_map: &'a VdSemClauseTokenIdxRangeMap,
@@ -80,7 +80,7 @@ where
         scheme: &'a S,
         input: &'a str,
         vd_mir_expr_region_data: &'a VdMirExprRegionData,
-        source_map: &'a VdMirSourceMap,
+        source_map: &'a VdMirRegionSourceMap,
         dictionary: &'a VdLeanDictionary,
         root_module_path: VdModulePath,
         sem_expr_range_map: &'a VdSemExprTokenIdxRangeMap,
@@ -122,7 +122,7 @@ where
         hint_arena: VdMirHintArenaRef<'a>,
         hypothesis_arena: VdMirHypothesisArenaRef<'a>,
         symbol_local_defn_storage: &'a VdMirSymbolLocalDefnStorage,
-        source_map: &'a VdMirSourceMap,
+        source_map: &'a VdMirRegionSourceMap,
         dictionary: &'a VdLeanDictionary,
         root_module_path: VdModulePath,
         sem_expr_range_map: &'a VdSemExprTokenIdxRangeMap,
@@ -228,7 +228,7 @@ where
         self.hypothesis_arena
     }
 
-    pub fn source_map(&self) -> &'db VdMirSourceMap {
+    pub fn source_map(&self) -> &'db VdMirRegionSourceMap {
         self.source_map
     }
 

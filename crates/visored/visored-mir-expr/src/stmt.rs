@@ -33,7 +33,7 @@ use visored_term::ty::VdType;
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdMirStmtData {
     Block {
-        blocks: VdMirStmtIdxRange,
+        stmts: VdMirStmtIdxRange,
         meta: VdMirBlockMeta,
     },
     LetAssigned {
@@ -110,8 +110,8 @@ impl VdMirStmtEntry {
     }
 }
 
-impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprBuilder<'db>> for VdSemDivisionIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirStmtIdxRange {
+impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprRegionBuilder<'db>> for VdSemDivisionIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirStmtIdxRange {
         let mut stmt_batch = VdMirStmtBatch::new();
         for division in self {
             stmt_batch.push(
@@ -123,11 +123,11 @@ impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprBuilder<'db>> for VdSemDivisionIdx
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_stmt_from_sem_division(&mut self, division: VdSemDivisionIdx) -> VdMirStmtData {
         match *self.sem_division_arena()[division].data() {
             VdSemDivisionData::Blocks { blocks } => VdMirStmtData::Block {
-                blocks: blocks.to_vd_mir(self),
+                stmts: blocks.to_vd_mir(self),
                 meta: VdMirBlockMeta::Division(
                     VdDivisionLevel::Blocks,
                     self.sem_division_arena()[division].module_path(),
@@ -141,7 +141,7 @@ impl<'db> VdMirExprBuilder<'db> {
                 rcurl_token_idx,
                 subdivisions,
             } => VdMirStmtData::Block {
-                blocks: subdivisions.to_vd_mir(self),
+                stmts: subdivisions.to_vd_mir(self),
                 meta: VdMirBlockMeta::Division(
                     level,
                     self.sem_division_arena()[division].module_path(),
@@ -151,8 +151,8 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprBuilder<'db>> for VdSemBlockIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirStmtIdxRange {
+impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprRegionBuilder<'db>> for VdSemBlockIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirStmtIdxRange {
         let mut stmt_batch = VdMirStmtBatch::new();
         for stmt in self {
             builder.build_mir_stmts_from_block(stmt, &mut stmt_batch);
@@ -161,7 +161,7 @@ impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprBuilder<'db>> for VdSemBlockIdxRan
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_mir_stmts_from_block(
         &mut self,
         block: VdSemBlockIdx,
@@ -182,7 +182,7 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_stmts_from_sem_sentences(
         &mut self,
         sentences: VdSemSentenceIdxRange,
@@ -208,7 +208,7 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_stmts_from_sem_clauses(
         &mut self,
         clauses: VdSemClauseIdxRange,

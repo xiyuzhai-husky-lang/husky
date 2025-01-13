@@ -42,10 +42,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
     ) -> Option<LnItemDefnData> {
         let db = self.db();
         match *self.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block {
-                blocks: stmts,
-                ref meta,
-            } => {
+            VdMirStmtData::Block { stmts, ref meta } => {
                 let defns = match *meta {
                     VdMirBlockMeta::Environment(_, _, module_path)
                     | VdMirBlockMeta::Division(_, module_path) => {

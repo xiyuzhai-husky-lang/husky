@@ -29,10 +29,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             return;
         };
         match *self.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block {
-                blocks: stmts,
-                ref meta,
-            } => {
+            VdMirStmtData::Block { stmts, ref meta } => {
                 match meta {
                     VdMirBlockMeta::Environment(lx_environment_path, _, vd_module_path) => todo!(),
                     VdMirBlockMeta::Division(vd_division_level, vd_module_path) => todo!(),

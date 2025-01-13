@@ -99,10 +99,9 @@ impl<'a> VdMirExprDisplayTreeBuilder<'a> {
 
     pub fn render_stmt(&self, stmt: VdMirStmtIdx) -> DisplayTree {
         let (value, children) = match *self.stmt_arena[stmt].data() {
-            VdMirStmtData::Block {
-                blocks: stmts,
-                ref meta,
-            } => (format!("block: {:?}", meta), self.render_stmts(stmts)),
+            VdMirStmtData::Block { stmts, ref meta } => {
+                (format!("block: {:?}", meta), self.render_stmts(stmts))
+            }
             // TODO: render pattern and type
             VdMirStmtData::LetPlaceholder { ref pattern, ty } => {
                 (format!("let placeholder",), vec![])

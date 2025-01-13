@@ -1,3 +1,5 @@
+use idx_arena::{Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+
 use crate::{
     expr::{VdMirExprArena, VdMirExprArenaRef},
     hint::{VdMirHintArena, VdMirHintArenaRef, VdMirHintIdx},
@@ -13,6 +15,15 @@ pub struct VdMirExprRegionData {
     hypothesis_arena: VdMirHypothesisArena,
     symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
 }
+
+pub struct VdMirExprRegionEntry {
+    data: VdMirExprRegionData,
+}
+
+pub type VdMirExprRegionIdx = ArenaIdx<VdMirExprRegionEntry>;
+pub type VdMirExprRegionIdxRange = ArenaIdxRange<VdMirExprRegionEntry>;
+pub type VdMirExprRegionArena = Arena<VdMirExprRegionEntry>;
+pub type VdMirExprRegionArenaRef<'a> = ArenaRef<'a, VdMirExprRegionEntry>;
 
 impl VdMirExprRegionData {
     pub fn new(

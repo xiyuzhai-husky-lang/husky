@@ -47,7 +47,7 @@ impl VdMirSymbolLocalDefnData {
     }
 }
 
-impl<'a> VdMirExprBuilder<'a> {
+impl<'a> VdMirExprRegionBuilder<'a> {
     pub(crate) fn build_symbol_local_defns(
         &mut self,
         sem_symbol_local_defn_storage: &VdSemSymbolLocalDefnStorage,
@@ -71,23 +71,29 @@ impl<'a> VdMirExprBuilder<'a> {
     }
 }
 
-impl<'db> ToVdMir<VdMirSymbolLocalDefnIdx, VdMirExprBuilder<'db>> for VdSemSymbolLocalDefnIdx {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirSymbolLocalDefnIdx {
+impl<'db> ToVdMir<VdMirSymbolLocalDefnIdx, VdMirExprRegionBuilder<'db>>
+    for VdSemSymbolLocalDefnIdx
+{
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirSymbolLocalDefnIdx {
         // INVARIANCE: the index is always the same as the syn index
         unsafe { VdMirSymbolLocalDefnIdx::new_ext(self.index()) }
     }
 }
 
-impl<'db> ToVdMir<VdMirSymbolLocalDefnHead, VdMirExprBuilder<'db>> for &VdSemSymbolLocalDefnHead {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirSymbolLocalDefnHead {
+impl<'db> ToVdMir<VdMirSymbolLocalDefnHead, VdMirExprRegionBuilder<'db>>
+    for &VdSemSymbolLocalDefnHead
+{
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirSymbolLocalDefnHead {
         match *self {
             VdSemSymbolLocalDefnHead::Letter(_, letter) => VdMirSymbolLocalDefnHead::Letter(letter),
         }
     }
 }
 
-impl<'db> ToVdMir<VdMirSymbolLocalDefnBody, VdMirExprBuilder<'db>> for &VdSemSymbolLocalDefnBody {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder<'db>) -> VdMirSymbolLocalDefnBody {
+impl<'db> ToVdMir<VdMirSymbolLocalDefnBody, VdMirExprRegionBuilder<'db>>
+    for &VdSemSymbolLocalDefnBody
+{
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirSymbolLocalDefnBody {
         match self {
             VdSemSymbolLocalDefnBody::Assigned => VdMirSymbolLocalDefnBody::Assigned,
             VdSemSymbolLocalDefnBody::Placeholder => VdMirSymbolLocalDefnBody::Placeholder,

@@ -42,18 +42,11 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
     pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
         let db = self.db();
         match *self.stmt_arena()[stmt].data() {
-            VdMirStmtData::Block {
-                blocks: stmts,
-                ref meta,
-            } => {
+            VdMirStmtData::Block { stmts, ref meta } => {
                 match *meta {
                     VdMirBlockMeta::Environment(_, environment_path, module_path) => {
                         let defn = self.with_module_path(module_path, |builder| {
-                            builder.build_ln_def_from_vd_environment(
-                                stmts,
-                                environment_path,
-                                module_path,
-                            )
+                            builder.build_ln_def_from_vd_paragraph(stmts)
                         });
                         let defn = self.alloc_item_defn(defn, LnItemDefnComment::Void);
                         LnItemDefnData::Group {
@@ -160,10 +153,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 });
                 std::ops::ControlFlow::Continue(())
             }
-            VdMirStmtData::Block {
-                blocks: stmts,
-                ref meta,
-            } => {
+            VdMirStmtData::Block { stmts, ref meta } => {
                 for stmt in stmts {
                     match self.build_ln_parameter_from_vd_stmt(stmt, parameters) {
                         std::ops::ControlFlow::Continue(()) => (),

@@ -9,7 +9,7 @@ use crate::{
     symbol::local_defn::storage::VdSemSymbolLocalDefnStorage,
 };
 
-pub struct VdSemExprRegionData {
+pub struct VdSemExprSheetData {
     expr_arena: VdSemExprArena,
     phrase_arena: VdSemPhraseArena,
     clause_arena: VdSemClauseArena,
@@ -19,7 +19,7 @@ pub struct VdSemExprRegionData {
     sem_symbol_local_defn_storage: VdSemSymbolLocalDefnStorage,
 }
 
-impl VdSemExprRegionData {
+impl VdSemExprSheetData {
     pub(crate) fn new(
         expr_arena: VdSemExprArena,
         phrase_arena: VdSemPhraseArena,
