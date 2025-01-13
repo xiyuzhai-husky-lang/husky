@@ -13,6 +13,10 @@ use lean_helpers::obvious::OBVIOUS_HEADER;
 use lean_mir_expr::helpers::ad_hoc_header::AD_HOC_HEADER;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use visored_baseq_elaborator::{
+    elaborator::{VdBsqElaborator, VdBsqElaboratorInner},
+    session::VdBsqSession,
+};
 use visored_lean_transpilation::{
     helpers::tracker::VdLeanTranspilationTracker, scheme::dense::VdLeanTranspilationDenseScheme,
 };
@@ -194,6 +198,7 @@ We have $x^2 \ge 0$ because these are real numbers.
         let regularized_proof = extract_proof(&regularized_proof);
         self.regularized_proof = Some((transformations, regularized_proof.clone()));
         let file_path = LxFilePath::new(PathBuf::from(file!()), self.db);
+        let session = &VdBsqSession::new(self.db);
         let tracker = VdLeanTranspilationTracker::new(
             LxDocumentBodyInput {
                 specs_dir: self.specs_dir,
@@ -206,7 +211,7 @@ We have $x^2 \ge 0$ because these are real numbers.
             VdSynExprVibe::ROOT_CNL,
             self.db,
             &VdLeanTranspilationDenseScheme,
-            |_| VdMirTrivialElaborator::default(),
+            |region_data| VdBsqElaborator::new(VdBsqElaboratorInner::new(session, region_data)),
         );
         self.lean4_code = Some(format!(
             r#"import Mathlib
