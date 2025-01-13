@@ -24,7 +24,13 @@ impl VdMirStmtBatch {
         &mut self.goal_place
     }
 
-    pub(crate) fn finish(self) -> (Vec<VdMirStmtEntry>, Vec<VdMirStmtSource>) {
-        (self.stmts, self.sources)
+    pub(crate) fn finish(
+        self,
+    ) -> (
+        Vec<VdMirStmtEntry>,
+        Vec<VdMirStmtSource>,
+        Option<VdMirExprIdx>,
+    ) {
+        (self.stmts, self.sources, self.goal_place.finish())
     }
 }

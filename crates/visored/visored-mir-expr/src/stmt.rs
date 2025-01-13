@@ -74,11 +74,11 @@ pub struct VdMirStmtEntry {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirStmtSource {
-    Stmt(VdSemBlockIdx),
+    Block(VdSemBlockIdx),
     Division(VdSemDivisionIdx),
     Sentence(VdSemSentenceIdx),
     Clause(VdSemClauseIdx),
-    Qed(VdSemSentenceIdxRange),
+    Qed,
 }
 
 pub type VdMirStmtArena = Arena<VdMirStmtEntry>;
@@ -177,7 +177,24 @@ impl<'db> VdMirExprRegionBuilder<'db> {
                 blocks,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
-            } => todo!(),
+            } => {
+                let environment_path = match resolution {
+                    VdEnvironmentGlobalResolution::Environment(environment_path) => {
+                        environment_path
+                    }
+                };
+                stmt_batch.push(
+                    VdMirStmtEntry::new(VdMirStmtData::Block {
+                        stmts: blocks.to_vd_mir(self),
+                        meta: VdMirBlockMeta::Environment(
+                            environment_signature.path(),
+                            environment_path,
+                            self.sem_block_arena()[block].module_path(),
+                        ),
+                    }),
+                    VdMirStmtSource::Block(block),
+                );
+            }
         }
     }
 }

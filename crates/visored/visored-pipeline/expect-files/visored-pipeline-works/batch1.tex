@@ -426,4 +426,110 @@ def h (x : ℝ) (h1 : x ≥ (0 : ℝ)) : x + (1 : ℝ) ≥ (2 : ℝ) * √ x := 
 
 \end{lstlisting}
 \end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Assume $x>0$.
+    Let $y\in\mathbb{R}$. Assume $y>0$.
+    Prove: $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $x>0$ and $y>0$, we have $(x-y)^2 \ge 0$. Thus $(x+y)^2 \ge 4xy$. Dividing by $xy(x+y)$ gives $\frac{1}{x}+\frac{1}{y} \ge \frac{4}{x+y}$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $x>0$ and $y>0$, we have $(x-y)^2 \ge 0$. Thus $(x-y)^2 = x^2 -2xy + y^2 \ge 0$, so $x^2 + y^2 \ge 2xy$, and hence $x^2 + 2xy + y^2 = (x+y)^2 \ge 4xy$. Dividing by $xy(x+y)$ gives $\frac{(x+y)^2}{xy(x+y)} = \frac{x+y}{xy} = \frac{x}{xy} + \frac{y}{xy} = \frac{1}{y}+\frac{1}{x} \ge \frac{4xy}{xy(x+y)} = \frac{4}{x+y}$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Assume $x>0$.
+Let $y\in\mathbb{R}$.
+Assume $y>0$.
+The goal is to prove $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$.
+We have $x \in \mathbb{R}$.
+We have $x>0$.
+We have $y \in \mathbb{R}$.
+We have $y>0$.
+It's enough to show that $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$.
+We have ${(x-y)}^2 \ge 0$.
+We have ${(x-y)}^2 = x^2 -2xy + y^2 \ge 0$.
+We have $x^2 + y^2 \ge 2xy$.
+We have $x^2 + 2xy + y^2 = {(x+y)}^2 \ge 4xy$.
+We have $\frac{{(x+y)}^2}{xy(x+y)} = \frac{x+y}{xy} = \frac{x}{xy} + \frac{y}{xy} = \frac{1}{y}+\frac{1}{x} \ge \frac{4xy}{xy(x+y)} = \frac{4}{x+y}$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+def h (x : ℝ) (h1 : x > (0 : ℝ)) (y : ℝ) (h2 : y > (0 : ℝ)) : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by
+  have h3 : sorry := by obvious
+  have h4 : x > (0 : ℝ) := by obvious
+  have h5 : sorry := by obvious
+  have h6 : y > (0 : ℝ) := by obvious
+  have h15 : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by
+    have h7 : (x - y) ^ 2 ≥ (0 : ℝ) := by obvious
+    first
+    | have h8 : (x - y) ^ 2 ≥ (0 : ℝ) := by calc
+      (x - y) ^ 2 = x ^ 2 - (2 : ℝ) * x * y + y ^ 2 := by obvious
+      _ ≥ (0 : ℝ) := by obvious
+    | have h9 : x ^ 2 - (2 : ℝ) * x * y + y ^ 2 ≥ (0 : ℝ) := by calc
+      x ^ 2 - (2 : ℝ) * x * y + y ^ 2 = (x - y) ^ 2 := by obvious
+      _ ≥ (0 : ℝ) := by obvious
+    have h10 : x ^ 2 + y ^ 2 ≥ (2 : ℝ) * x * y := by obvious
+    first
+    | have h11 : x ^ 2 + (2 : ℝ) * x * y + y ^ 2 ≥ (4 : ℝ) * x * y := by calc
+      x ^ 2 + (2 : ℝ) * x * y + y ^ 2 = (x + y) ^ 2 := by obvious
+      _ ≥ (4 : ℝ) * x * y := by obvious
+    | have h12 : (x + y) ^ 2 ≥ (4 : ℝ) * x * y := by calc
+      (x + y) ^ 2 = x ^ 2 + (2 : ℝ) * x * y + y ^ 2 := by obvious
+      _ ≥ (4 : ℝ) * x * y := by obvious
+    first
+    | have h13 : (x + y) ^ 2 / (x * y * (x + y)) ≥ (4 : ℝ) / (x + y) := by calc
+      (x + y) ^ 2 / (x * y * (x + y)) = (x + y) / (x * y) := by obvious
+      _ = x / (x * y) + y / (x * y) := by obvious
+      _ = (1 : ℝ) / y + (1 : ℝ) / x := by obvious
+      _ ≥ (4 : ℝ) * x * y / (x * y * (x + y)) := by obvious
+      _ = (4 : ℝ) / (x + y) := by obvious
+    | have h14 : (1 : ℝ) / y + (1 : ℝ) / x ≥ (4 : ℝ) / (x + y) := by calc
+      (1 : ℝ) / y + (1 : ℝ) / x = x / (x * y) + y / (x * y) := by obvious
+      _ = (x + y) / (x * y) := by obvious
+      _ = (x + y) ^ 2 / (x * y * (x + y)) := by obvious
+      _ ≥ (4 : ℝ) * x * y / (x * y * (x + y)) := by obvious
+      _ = (4 : ℝ) / (x + y) := by obvious
+    obvious
+  have h16 : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by obvious
+
+\end{lstlisting}
+\end{tcolorbox}
 \end{document}

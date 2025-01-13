@@ -44,14 +44,9 @@ fn basic_body_to_lean_works() {
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
             └─ group: `division`
-              └─ group: `paragraph`
-                └─ group: `sentence`
-                  └─ variable: `x`
+              └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{N}$.
-
-            variable (x : ℕ)"#]],
+        &expect!["variable (x : ℕ)"],
     );
     t(
         models,
@@ -71,14 +66,10 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             └─ group: `division`
               └─ group: `environment`
-                └─ group: `paragraph`
-                  └─ group: `sentence`
-                    └─ variable: `x`
+                └─ variable: `x`
         "#]],
         &expect![[r#"
             namespace Example1
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
             end Example1
         "#]],
@@ -89,14 +80,10 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             └─ group: `division`
               └─ group: `division`
-                └─ group: `paragraph`
-                  └─ group: `sentence`
-                    └─ variable: `x`
+                └─ variable: `x`
         "#]],
         &expect![[r#"
             namespace Section1
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
             end Section1
         "#]],
@@ -107,14 +94,10 @@ fn basic_body_to_lean_works() {
         &expect![[r#"
             └─ group: `division`
               ├─ group: `division`
-              │ └─ group: `paragraph`
-              │   └─ group: `sentence`
-              │     └─ variable: `x`
+              │ └─ variable: `x`
               ├─ group: `division`
               │ └─ group: `division`
-              │   └─ group: `paragraph`
-              │     └─ group: `sentence`
-              │       └─ variable: `y`
+              │   └─ variable: `y`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -122,13 +105,9 @@ fn basic_body_to_lean_works() {
         "#]],
         &expect![[r#"
             namespace Section1
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
 
             namespace Subsection1
-            -- Let $y\in\mathbb{R}$.
-
             variable (y : ℝ)
             end Subsection1
 

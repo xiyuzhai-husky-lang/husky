@@ -1,3 +1,5 @@
+use once_place::OncePlace;
+
 use super::*;
 
 pub struct VdMirExprRegionBuilder<'db> {
@@ -111,7 +113,19 @@ impl<'db> VdMirExprRegionBuilder<'db> {
     }
 
     pub(crate) fn alloc_stmts(&mut self, stmt_batch: VdMirStmtBatch) -> VdMirStmtIdxRange {
-        let (entries, sources) = stmt_batch.finish();
+        let (mut entries, mut sources, goal) = stmt_batch.finish();
+        if !entries.is_empty() {
+            match *entries[0].data() {
+                VdMirStmtData::Block { .. } => (),
+                _ => {
+                    entries.push(VdMirStmtEntry::new(VdMirStmtData::Qed {
+                        goal_and_hypothesis_chunk_place: goal
+                            .map(|goal| (goal, OncePlace::default())),
+                    }));
+                    sources.push(VdMirStmtSource::Qed);
+                }
+            }
+        }
         let stmts = self.stmt_arena.alloc_batch(entries);
         self.source_map.set_stmts(stmts, sources);
         stmts

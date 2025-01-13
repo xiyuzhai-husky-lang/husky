@@ -22,10 +22,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             item_defns,
             stmts.into_iter().map(|stmt| {
                 let token_idx_range = match source_map[stmt] {
-                    VdMirStmtSource::Stmt(_)
+                    VdMirStmtSource::Block(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
-                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
+                    VdMirStmtSource::Qed => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);

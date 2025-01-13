@@ -40,88 +40,56 @@ fn basic_visored_clause_to_lean_works() {
         models,
         "Let $x\\in\\mathbb{N}$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              └─ group: `sentence`
-                └─ variable: `x`
+            └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{N}$.
-
-            variable (x : ℕ)"#]],
+        &expect!["variable (x : ℕ)"],
     );
     t(
         models,
         "Let $x\\in\\mathbb{Z}$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              └─ group: `sentence`
-                └─ variable: `x`
+            └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{Z}$.
-
-            variable (x : ℤ)"#]],
+        &expect!["variable (x : ℤ)"],
     );
     t(
         models,
         "Let $x\\in\\mathbb{Q}$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              └─ group: `sentence`
-                └─ variable: `x`
+            └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{Q}$.
-
-            variable (x : ℚ)"#]],
+        &expect!["variable (x : ℚ)"],
     );
     t(
         models,
         "Let $x\\in\\mathbb{R}$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              └─ group: `sentence`
-                └─ variable: `x`
+            └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{R}$.
-
-            variable (x : ℝ)"#]],
+        &expect!["variable (x : ℝ)"],
     );
     t(
         models,
         "Let $x\\in\\mathbb{C}$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              └─ group: `sentence`
-                └─ variable: `x`
+            └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{C}$.
-
-            variable (x : ℂ)"#]],
+        &expect!["variable (x : ℂ)"],
     );
     t(
         models,
         "Let $x\\in\\mathbb{R}$. Then $x=x$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              ├─ group: `sentence`
+            ├─ variable: `x`
+            └─ def: `h`
+              ├─ application
+              │ ├─ variable: `x`
               │ └─ variable: `x`
-              └─ group: `sentence`
-                └─ def: `h`
-                  ├─ application
-                  │ ├─ variable: `x`
-                  │ └─ variable: `x`
-                  └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(4), construction: 1 }`
+              └─ tactics
+                └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(4), construction: 1 }`
         "#]],
         &expect![[r#"
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
-
-            -- Then $x=x$.
 
             def h : x = x := by
               have h1 : x = x := by obvious"#]],
@@ -130,25 +98,18 @@ fn basic_visored_clause_to_lean_works() {
         models,
         "Let $x\\in\\mathbb{N}$. Then $2x\\ge x$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              ├─ group: `sentence`
+            ├─ variable: `x`
+            └─ def: `h`
+              ├─ application
+              │ ├─ application
+              │ │ ├─ literal: `2`
+              │ │ └─ variable: `x`
               │ └─ variable: `x`
-              └─ group: `sentence`
-                └─ def: `h`
-                  ├─ application
-                  │ ├─ application
-                  │ │ ├─ literal: `2`
-                  │ │ └─ variable: `x`
-                  │ └─ variable: `x`
-                  └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(6), construction: 1 }`
+              └─ tactics
+                └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(6), construction: 1 }`
         "#]],
         &expect![[r#"
-            -- Let $x\in\mathbb{N}$.
-
             variable (x : ℕ)
-
-            -- Then $2x\ge x$.
 
             def h : 2 * x ≥ x := by
               have h1 : 2 * x ≥ x := by obvious"#]],
@@ -157,65 +118,52 @@ fn basic_visored_clause_to_lean_works() {
         models,
         "Let $x\\in\\mathbb{R}$. Then ${(x-1)}^2 \\ge 0$. Then $x^2-2x+1 \\ge 0$. Then $x^2 + 1\\ge 2x$.",
         &expect![[r#"
-            └─ group: `paragraph`
-              ├─ group: `sentence`
-              │ └─ variable: `x`
-              ├─ group: `sentence`
-              │ └─ def: `h`
-              │   ├─ application
-              │   │ ├─ application
-              │   │ │ ├─ application
-              │   │ │ │ ├─ variable: `x`
-              │   │ │ │ └─ literal: `1`
-              │   │ │ └─ literal: `2`
-              │   │ └─ literal: `0`
-              │   └─ tactics
-              │     └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(10), construction: 1 }`
-              ├─ group: `sentence`
-              │ └─ def: `h2`
-              │   ├─ application
-              │   │ ├─ application
-              │   │ │ ├─ application
-              │   │ │ │ ├─ application
-              │   │ │ │ │ ├─ variable: `x`
-              │   │ │ │ │ └─ literal: `2`
-              │   │ │ │ └─ application
-              │   │ │ │   ├─ literal: `2`
-              │   │ │ │   └─ variable: `x`
-              │   │ │ └─ literal: `1`
-              │   │ └─ literal: `0`
-              │   └─ tactics
-              │     └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: Some(34), construction: 20 }`
-              └─ group: `sentence`
-                └─ def: `h4`
-                  ├─ application
-                  │ ├─ application
-                  │ │ ├─ application
-                  │ │ │ ├─ variable: `x`
-                  │ │ │ └─ literal: `2`
-                  │ │ └─ literal: `1`
-                  │ └─ application
-                  │   ├─ literal: `2`
-                  │   └─ variable: `x`
-                  └─ tactics
-                    └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: Some(60), construction: 49 }`
+            ├─ variable: `x`
+            ├─ def: `h`
+            │ ├─ application
+            │ │ ├─ application
+            │ │ │ ├─ application
+            │ │ │ │ ├─ variable: `x`
+            │ │ │ │ └─ literal: `1`
+            │ │ │ └─ literal: `2`
+            │ │ └─ literal: `0`
+            │ └─ tactics
+            │   └─ tactic: `Have { ident: LnIdent(Coword("h1")), ty: Some(10), construction: 1 }`
+            ├─ def: `h2`
+            │ ├─ application
+            │ │ ├─ application
+            │ │ │ ├─ application
+            │ │ │ │ ├─ application
+            │ │ │ │ │ ├─ variable: `x`
+            │ │ │ │ │ └─ literal: `2`
+            │ │ │ │ └─ application
+            │ │ │ │   ├─ literal: `2`
+            │ │ │ │   └─ variable: `x`
+            │ │ │ └─ literal: `1`
+            │ │ └─ literal: `0`
+            │ └─ tactics
+            │   └─ tactic: `Have { ident: LnIdent(Coword("h3")), ty: Some(34), construction: 20 }`
+            └─ def: `h4`
+              ├─ application
+              │ ├─ application
+              │ │ ├─ application
+              │ │ │ ├─ variable: `x`
+              │ │ │ └─ literal: `2`
+              │ │ └─ literal: `1`
+              │ └─ application
+              │   ├─ literal: `2`
+              │   └─ variable: `x`
+              └─ tactics
+                └─ tactic: `Have { ident: LnIdent(Coword("h5")), ty: Some(60), construction: 49 }`
         "#]],
         &expect![[r#"
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
-
-            -- Then ${(x-1)}^2 \ge 0$.
 
             def h : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by
               have h1 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by obvious
 
-            -- Then $x^2-2x+1 \ge 0$.
-
             def h2 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by
               have h3 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by obvious
-
-            -- Then $x^2 + 1\ge 2x$.
 
             def h4 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by
               have h5 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious"#]],

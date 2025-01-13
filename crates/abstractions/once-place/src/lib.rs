@@ -29,6 +29,10 @@ impl<T> OncePlace<T> {
             self.0 = Some(value);
         }
     }
+
+    pub fn finish(self) -> Option<T> {
+        self.0
+    }
 }
 
 impl<T> std::ops::Deref for OncePlace<T> {

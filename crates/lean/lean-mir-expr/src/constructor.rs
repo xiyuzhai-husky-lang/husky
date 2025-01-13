@@ -98,7 +98,7 @@ impl LnMirExprConstructor {
 
     pub fn alloc_item_defns(
         &mut self,
-        item_defns: Vec<LnItemDefnData>,
+        item_defns: impl IntoIterator<Item = LnItemDefnData>,
         comments: impl IntoIterator<Item = LnItemDefnComment>,
     ) -> LnItemDefnIdxRange {
         let item_defns = self.item_defn_arena.alloc_batch(item_defns);
