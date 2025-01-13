@@ -133,6 +133,16 @@ impl VdBsqFrac128 {
         Self::new128(raw_numerator, common_denominator).unwrap()
     }
 
+    pub fn add_i128<'sess>(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
+        let Some(rhs_scaled) = rhs.checked_mul(self.denominator) else {
+            todo!()
+        };
+        let Some(raw_numerator) = self.numerator.checked_add(rhs_scaled) else {
+            todo!()
+        };
+        Self::new128(raw_numerator, self.denominator).unwrap()
+    }
+
     pub fn inverse(self) -> Self {
         assert!(self.numerator != 0);
         if self.numerator > 0 {
@@ -156,6 +166,29 @@ impl VdBsqFrac128 {
             todo!()
         };
         let Some(raw_denominator) = self.denominator.checked_mul(rhs.denominator) else {
+            todo!()
+        };
+        Self::new128(raw_numerator, raw_denominator).unwrap()
+    }
+
+    pub fn pow128<'sess>(self, exponent: i128, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
+        if exponent == 0 {
+            return 1.into();
+        }
+        if exponent == 1 {
+            return self.into();
+        }
+        if exponent < 0 {
+            return self.inverse().pow128(-exponent, db);
+        }
+        let exponent: u32 = match exponent.try_into() {
+            Ok(exponent) => exponent,
+            Err(_) => todo!(),
+        };
+        let Some(raw_numerator) = self.numerator.checked_pow(exponent) else {
+            todo!()
+        };
+        let Some(raw_denominator) = self.denominator.checked_pow(exponent) else {
             todo!()
         };
         Self::new128(raw_numerator, raw_denominator).unwrap()

@@ -25,5 +25,5 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (a b : ℝ) : a + b = b + a := by
-  have h1 : a + b = b + a := by obvious
+  have h1 : a + b = b + a := by term_trivial
   obvious

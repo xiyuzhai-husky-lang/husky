@@ -2,10 +2,12 @@ pub mod bigint;
 pub mod bigrat;
 pub mod frac128;
 
-use crate::foundations::num::VdBsqSign;
-
-use self::{bigint::VdBsqBigInt, frac128::VdBsqFrac128};
+use self::{
+    bigint::VdBsqBigInt,
+    frac128::{Div, VdBsqFrac128},
+};
 use super::*;
+use crate::foundations::num::VdBsqSign;
 use num_bigint::Sign;
 use product::VdBsqProductTerm;
 use std::num::NonZeroU128;
@@ -116,7 +118,7 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                     p!(self, rhs);
                     todo!()
                 }
-                VdBsqLitnumTerm::Frac128(_) => todo!(),
+                VdBsqLitnumTerm::Frac128(rhs) => rhs.add_i128(slf, db),
             },
             VdBsqLitnumTerm::BigInt(i) => todo!(),
             VdBsqLitnumTerm::Frac128(slf) => match rhs {
@@ -184,20 +186,21 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     }
 
     pub fn mul_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
-        match *self {
-            VdBsqLitnumTerm::ZERO => (),
-            VdBsqLitnumTerm::ONE => *self = rhs,
-            VdBsqLitnumTerm::Int128(slf) => match rhs {
-                VdBsqLitnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
-                    Some(product) => *self = VdBsqLitnumTerm::Int128(product),
-                    None => todo!(),
-                },
-                VdBsqLitnumTerm::BigInt(i) => todo!(),
-                VdBsqLitnumTerm::Frac128(f) => todo!(),
-            },
-            VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(f) => *self = f.mul_litn(rhs, db),
-        }
+        *self = self.mul(rhs, db);
+        // match *self {
+        //     VdBsqLitnumTerm::ZERO => (),
+        //     VdBsqLitnumTerm::ONE => *self = rhs,
+        //     VdBsqLitnumTerm::Int128(slf) => match rhs {
+        //         VdBsqLitnumTerm::Int128(rhs) => match slf.checked_mul(rhs) {
+        //             Some(product) => *self = VdBsqLitnumTerm::Int128(product),
+        //             None => todo!(),
+        //         },
+        //         VdBsqLitnumTerm::BigInt(i) => todo!(),
+        //         VdBsqLitnumTerm::Frac128(f) => todo!(),
+        //     },
+        //     VdBsqLitnumTerm::BigInt(i) => todo!(),
+        //     VdBsqLitnumTerm::Frac128(f) => *self = f.mul_litn(rhs, db),
+        // }
     }
 
     pub fn div(
@@ -246,7 +249,15 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
         }
     }
 
-    pub fn pow128(self, exponent: i128, db: &FloaterDb) -> Self {
+    pub fn pow(self, exponent: VdBsqLitnumTerm<'sess>, db: &'sess FloaterDb) -> Self {
+        match exponent {
+            VdBsqLitnumTerm::Int128(exponent) => self.pow128(exponent, db),
+            VdBsqLitnumTerm::BigInt(exponent) => todo!(),
+            VdBsqLitnumTerm::Frac128(exponent) => todo!(),
+        }
+    }
+
+    pub fn pow128(self, exponent: i128, db: &'sess FloaterDb) -> Self {
         match self {
             VdBsqLitnumTerm::Int128(i) => {
                 if exponent > 0 {
@@ -259,19 +270,39 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
                         None => todo!(),
                     }
                 } else {
-                    use husky_print_utils::p;
-                    p!(exponent);
-                    todo!()
+                    let neg_exponent: u32 = match (-exponent).try_into() {
+                        Ok(neg_exponent) => neg_exponent,
+                        Err(_) => todo!(),
+                    };
+                    let Some(raw_denominator) = i.checked_pow(neg_exponent) else {
+                        todo!()
+                    };
+                    VdBsqFrac128::new128(1, raw_denominator).unwrap()
                 }
             }
             VdBsqLitnumTerm::BigInt(i) => todo!(),
-            VdBsqLitnumTerm::Frac128(slf) => {
-                use husky_print_utils::p;
-                p!(slf, exponent);
-                todo!()
-            }
+            VdBsqLitnumTerm::Frac128(slf) => slf.pow128(exponent, db),
         }
     }
+}
+
+#[test]
+fn vd_bsq_litnum_term_pow128_works() {
+    #[track_caller]
+    fn t<'sess>(
+        a: impl Into<VdBsqLitnumTerm<'sess>>,
+        b: impl Into<i128>,
+        c: impl Into<VdBsqLitnumTerm<'sess>>,
+        db: &'sess FloaterDb,
+    ) {
+        assert_eq!(a.into().pow128(b.into(), db), c.into());
+    }
+
+    let db = &FloaterDb::default();
+    t(2, 3, 8, db);
+    t(2, -3, Div(1, 8), db);
+    t(Div(1, 2), 3, Div(1, 8), db);
+    t(Div(1, 2), -3, 8, db);
 }
 
 impl<'sess> VdBsqLitnumTerm<'sess> {

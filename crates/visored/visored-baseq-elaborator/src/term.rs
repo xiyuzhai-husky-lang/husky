@@ -302,7 +302,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     }
                 }
             },
-            VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
+            VdBsqExprFldData::ItemPath(vd_item_path) => todo!("vd_item_path = {:?}", vd_item_path),
         }
     }
 }

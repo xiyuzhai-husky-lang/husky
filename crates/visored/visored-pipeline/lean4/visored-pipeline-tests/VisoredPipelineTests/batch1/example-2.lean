@@ -25,5 +25,5 @@ macro "obvious": tactic =>`(tactic|
 macro "in_set" : term => `(true)
 
 def h (x : ℝ) : x ^ 2 ≥ (0 : ℝ) := by
-  have h1 : x ^ 2 ≥ (0 : ℝ) := by obvious
+  have h1 : x ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
   obvious
