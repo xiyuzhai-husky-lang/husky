@@ -14,18 +14,18 @@ impl<'sess> VdBsqNumRelation<'sess> {
         kind: VdBsqComparisonOpr,
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
-    ) -> VdBsqProp<'sess> {
+    ) -> VdBsqPropTerm<'sess> {
         use husky_print_utils::*;
         let lhs_minus_rhs = lhs.sub(rhs, db);
         match lhs_minus_rhs {
-            VdBsqNumTerm::Litnum(term) => return VdBsqProp::Trivial(term.cmp_with_zero(kind)),
+            VdBsqNumTerm::Litnum(term) => return VdBsqPropTerm::Trivial(term.cmp_with_zero(kind)),
             VdBsqNumTerm::Comnum(term) => (),
         }
         Self::new_inner(lhs_minus_rhs, kind, db).into()
     }
 }
 
-impl<'sess> VdBsqProp<'sess> {
+impl<'sess> VdBsqPropTerm<'sess> {
     pub fn new_num_relationship(
         lhs: VdBsqNumTerm<'sess>,
         kind: VdBsqComparisonOpr,
@@ -43,7 +43,7 @@ impl<'sess> VdBsqTerm<'sess> {
         rhs: VdBsqNumTerm<'sess>,
         db: &'sess FloaterDb,
     ) -> Self {
-        VdBsqProp::new_num_relationship(lhs, kind, rhs, db).into()
+        VdBsqPropTerm::new_num_relationship(lhs, kind, rhs, db).into()
     }
 }
 

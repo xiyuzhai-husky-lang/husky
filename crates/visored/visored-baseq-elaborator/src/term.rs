@@ -3,8 +3,9 @@ pub mod comnum;
 pub mod litnum;
 pub mod num;
 pub mod prop;
+pub mod set;
 
-use self::{comnum::*, litnum::*, num::*, prop::*};
+use self::{comnum::*, litnum::*, num::*, prop::*, set::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::{VdBsqExprFld, VdBsqExprFldData},
@@ -19,6 +20,7 @@ use frac128::VdBsqFrac128;
 use num_chain::VdBsqNumChain;
 use product::VdBsqProductStem;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
+use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprData, VdMirExprEntry},
     symbol::local_defn::{
@@ -40,7 +42,8 @@ use visored_term::{
 pub enum VdBsqTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
     Comnum(VdBsqComnumTerm<'sess>),
-    Prop(VdBsqProp<'sess>),
+    Prop(VdBsqPropTerm<'sess>),
+    Set(VdBsqSetTerm<'sess>),
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
@@ -66,6 +69,7 @@ impl<'sess> VdBsqTerm<'sess> {
             VdBsqTerm::Litnum(litnum) => Some(VdBsqNumTerm::Litnum(litnum)),
             VdBsqTerm::Comnum(comnum) => Some(VdBsqNumTerm::Comnum(comnum)),
             VdBsqTerm::Prop(_) => None,
+            VdBsqTerm::Set(_) => None,
         }
     }
 }
@@ -88,6 +92,7 @@ impl<'sess> VdBsqTerm<'sess> {
             VdBsqTerm::Litnum(litnum) => litnum.show_fmt(precedence_range, f),
             VdBsqTerm::Comnum(comnum) => comnum.show_fmt(precedence_range, f),
             VdBsqTerm::Prop(prop) => prop.show_fmt(precedence_range, f),
+            VdBsqTerm::Set(set) => set.show_fmt(precedence_range, f),
         }
     }
 }
@@ -297,12 +302,18 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         },
                         VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
                         VdMirFunc::Power(signature) => todo!(),
-                        VdMirFunc::InSet => todo!(),
+                        VdMirFunc::InSet => VdBsqPropTerm::InSet.into(),
                         VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
                     }
                 }
             },
-            VdBsqExprFldData::ItemPath(vd_item_path) => todo!("vd_item_path = {:?}", vd_item_path),
+            VdBsqExprFldData::ItemPath(path) => match path {
+                VdItemPath::Category(path) => todo!(),
+                VdItemPath::Set(path) => VdBsqSetTerm::Path(path).into(),
+                VdItemPath::Function(path) => todo!(),
+                VdItemPath::Trait(path) => todo!(),
+                VdItemPath::TraitItem(path) => todo!(),
+            },
         }
     }
 }

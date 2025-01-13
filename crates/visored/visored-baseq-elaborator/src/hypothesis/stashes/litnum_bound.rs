@@ -19,7 +19,7 @@ use crate::{
         comnum::{sum::VdBsqSumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
         litnum::VdBsqLitnumTerm,
         num::VdBsqNumTerm,
-        prop::VdBsqProp,
+        prop::VdBsqPropTerm,
         VdBsqTerm,
     },
 };
@@ -157,7 +157,7 @@ impl IsVdBsqHypothesisUpgradeStashScheme for VdBsqLitNumBoundScheme {
         entry: &VdBsqHypothesisEntry<'sess>,
         db: &'sess FloaterDb,
     ) -> Option<(Self::Key<'sess>, Self::Value<'sess>)> {
-        let VdBsqTerm::Prop(VdBsqProp::NumRelation(term)) = entry.expr().term() else {
+        let VdBsqTerm::Prop(VdBsqPropTerm::NumRelation(term)) = entry.expr().term() else {
             return None;
         };
         let VdBsqComparisonOpr::Bound(opr) = term.opr() else {

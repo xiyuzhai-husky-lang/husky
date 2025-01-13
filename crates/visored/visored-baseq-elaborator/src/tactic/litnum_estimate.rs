@@ -7,7 +7,7 @@ use crate::{
 use alt_option::*;
 use foundations::opr::separator::relation::comparison::VdBsqBoundOpr;
 use husky_control_flow_utils::require;
-use term::{litnum::VdBsqLitnumTerm, prop::VdBsqProp, VdBsqTerm};
+use term::{litnum::VdBsqLitnumTerm, prop::VdBsqPropTerm, VdBsqTerm};
 use visored_baseq_elaborator_macros::unify_elabm;
 use visored_entity_path::{
     path::{

@@ -79,15 +79,15 @@ impl VdItemPath {
 
 impl std::fmt::Debug for VdItemPath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.show_aux(f)
+        self.show_fmt(f)
     }
 }
 
 impl VdItemPath {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdItemPath::Category(category_path) => category_path.show_aux(f),
-            VdItemPath::Set(set_path) => set_path.show_aux(f),
+            VdItemPath::Set(set_path) => set_path.show_fmt(f),
             VdItemPath::Function(function_path) => function_path.show_aux(f),
             VdItemPath::Trait(trait_path) => trait_path.show_aux(f),
             VdItemPath::TraitItem(trait_item_path) => trait_item_path.show_aux(f),

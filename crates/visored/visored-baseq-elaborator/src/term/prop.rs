@@ -6,13 +6,14 @@ use super::*;
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum VdBsqProp<'sess> {
+pub enum VdBsqPropTerm<'sess> {
     NumRelation(VdBsqNumRelation<'sess>),
     NumChain(VdBsqNumChain<'sess>),
     Trivial(bool),
+    InSet,
 }
 
-impl<'sess> std::fmt::Debug for VdBsqProp<'sess> {
+impl<'sess> std::fmt::Debug for VdBsqPropTerm<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("PropTerm(`")?;
         self.show_fmt(VdPrecedenceRange::Any, f)?;
@@ -20,16 +21,17 @@ impl<'sess> std::fmt::Debug for VdBsqProp<'sess> {
     }
 }
 
-impl<'sess> VdBsqProp<'sess> {
+impl<'sess> VdBsqPropTerm<'sess> {
     pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         match self {
-            VdBsqProp::NumRelation(term) => term.show_fmt(precedence_range, f),
-            VdBsqProp::NumChain(_) => todo!(),
-            VdBsqProp::Trivial(b) => write!(f, "{}", b),
+            VdBsqPropTerm::NumRelation(term) => term.show_fmt(precedence_range, f),
+            VdBsqPropTerm::NumChain(_) => todo!(),
+            VdBsqPropTerm::Trivial(b) => write!(f, "{}", b),
+            VdBsqPropTerm::InSet => todo!(),
         }
     }
 }

@@ -1,7 +1,7 @@
 use super::*;
 use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
-    term::{prop::VdBsqProp, VdBsqTerm},
+    term::{prop::VdBsqPropTerm, VdBsqTerm},
 };
 use alt_maybe_result::*;
 
@@ -20,7 +20,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 .is_none(),
             "term_trivial should only be called on a fresh prop"
         );
-        let VdBsqTerm::Prop(VdBsqProp::Trivial(b)) = prop.term() else {
+        let VdBsqTerm::Prop(VdBsqPropTerm::Trivial(b)) = prop.term() else {
             return AltNothing;
         };
         match b {

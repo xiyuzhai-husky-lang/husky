@@ -7,8 +7,8 @@ use super::*;
 use crate::{
     hypothesis::construction::VdBsqHypothesisConstruction,
     term::{
-        builder::sum::VdBsqSumBuilder, comnum::VdBsqComnumTerm, num::VdBsqNumTerm, prop::VdBsqProp,
-        VdBsqTerm,
+        builder::sum::VdBsqSumBuilder, comnum::VdBsqComnumTerm, num::VdBsqNumTerm,
+        prop::VdBsqPropTerm, VdBsqTerm,
     },
 };
 use alt_maybe_result::*;
@@ -20,7 +20,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     }
 
     fn comm_ring_inner(&mut self, prop: VdBsqExprFld<'sess>) -> Mhr<'sess> {
-        let VdBsqTerm::Prop(VdBsqProp::NumRelation(num_relation)) = prop.term() else {
+        let VdBsqTerm::Prop(VdBsqPropTerm::NumRelation(num_relation)) = prop.term() else {
             return AltNothing;
         };
         let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(term)) = num_relation.lhs_minus_rhs() else {

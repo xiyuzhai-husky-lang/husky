@@ -41,7 +41,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         assert!(followers.len() == 1);
         let (ge, rhs) = followers[0];
         let VdMirFunc::NormalBaseSeparator(ge) = ge else {
-            unreachable!()
+            return AltNothing;
         };
         require!(ge.opr() == VdMirBaseSeparator::GE);
         require!(rhs.is_zero());
