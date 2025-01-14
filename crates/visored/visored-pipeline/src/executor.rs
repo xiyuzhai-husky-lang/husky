@@ -8,7 +8,6 @@ use husky_io_utils::diff_write;
 use input::VdPipelineInput;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_vfs::path::LxFilePath;
-use lean_helpers::lake_lean;
 use lean_helpers::obvious::OBVIOUS_HEADER;
 use lean_mir_expr::helpers::ad_hoc_header::AD_HOC_HEADER;
 use std::path::{Path, PathBuf};

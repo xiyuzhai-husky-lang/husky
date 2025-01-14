@@ -71,7 +71,9 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     pub fn neg(self, db: &FloaterDb) -> Self {
         match self {
             VdBsqLitnumTerm::Int128(i) => VdBsqLitnumTerm::Int128(-i),
-            VdBsqLitnumTerm::BigInt(i) => todo!(),
+            VdBsqLitnumTerm::BigInt(i) => {
+                todo!()
+            }
             VdBsqLitnumTerm::Frac128(f) => VdBsqLitnumTerm::Frac128(-f),
         }
     }
@@ -134,7 +136,35 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
     }
 
     pub fn sub(self, rhs: Self, db: &'sess FloaterDb) -> Self {
-        self.add(rhs.neg(db), db)
+        if self.is_zero() {
+            return rhs.neg(db);
+        }
+        if rhs.is_zero() {
+            return self;
+        }
+        if self == rhs {
+            return 0.into();
+        }
+        match rhs {
+            VdBsqLitnumTerm::Int128(rhs) => match self {
+                VdBsqLitnumTerm::Int128(slf) => match slf.checked_sub(rhs) {
+                    Some(sub) => VdBsqLitnumTerm::Int128(sub),
+                    None => todo!(),
+                },
+                VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+                VdBsqLitnumTerm::Frac128(slf) => slf.sub_i128(rhs, db),
+            },
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(f) => self.sub_frac128(f, db),
+        }
+    }
+
+    pub fn sub_frac128(self, rhs: VdBsqFrac128, db: &'sess FloaterDb) -> Self {
+        match self {
+            VdBsqLitnumTerm::Int128(_) => todo!(),
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        }
     }
 
     pub fn sub_assign(&mut self, rhs: Self, db: &'sess FloaterDb) {
@@ -284,6 +314,24 @@ impl<'sess> VdBsqLitnumTerm<'sess> {
             VdBsqLitnumTerm::Frac128(slf) => slf.pow128(exponent, db),
         }
     }
+}
+
+#[test]
+fn vd_bsq_litnum_term_sub_works() {
+    #[track_caller]
+    fn t<'sess>(
+        a: impl Into<VdBsqLitnumTerm<'sess>>,
+        b: impl Into<VdBsqLitnumTerm<'sess>>,
+        c: impl Into<VdBsqLitnumTerm<'sess>>,
+        db: &'sess FloaterDb,
+    ) {
+        assert_eq!(a.into().sub(b.into(), db), c.into());
+    }
+    let db = &FloaterDb::default();
+    t(2, 3, -1, db);
+    t(2, -3, 5, db);
+    t(Div(1, 2), 3, Div(-5, 2), db);
+    t(Div(1, 2), -3, Div(7, 2), db);
 }
 
 #[test]

@@ -42,11 +42,9 @@ fn basic_document_to_vd_mir_works() {
 Let $x\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
-            └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
-              └─ block: Paragraph
-                ├─ block: Sentence
-                │ └─ let placeholder
-                └─ qed
+            └─ block: Division(Blocks, VdModulePath(`root.stmts1`))
+              ├─ let placeholder
+              └─ qed
         "#]],
     );
     t(
@@ -59,11 +57,9 @@ Let $x\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
             └─ block: Division(Section, VdModulePath(`root.section1`))
-              └─ block: Division(Stmts, VdModulePath(`root.section1.stmts1`))
-                └─ block: Paragraph
-                  ├─ block: Sentence
-                  │ └─ let placeholder
-                  └─ qed
+              └─ block: Division(Blocks, VdModulePath(`root.section1.stmts1`))
+                ├─ let placeholder
+                └─ qed
         "#]],
     );
     t(
@@ -82,17 +78,13 @@ Let $y\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
             └─ block: Division(Section, VdModulePath(`root.section1`))
-              ├─ block: Division(Stmts, VdModulePath(`root.section1.stmts1`))
-              │ └─ block: Paragraph
-              │   ├─ block: Sentence
-              │   │ └─ let placeholder
-              │   └─ qed
+              ├─ block: Division(Blocks, VdModulePath(`root.section1.stmts1`))
+              │ ├─ let placeholder
+              │ └─ qed
               ├─ block: Division(Subsection, VdModulePath(`root.section1.subsection1`))
-              │ └─ block: Division(Stmts, VdModulePath(`root.section1.subsection1.stmts1`))
-              │   └─ block: Paragraph
-              │     ├─ block: Sentence
-              │     │ └─ let placeholder
-              │     └─ qed
+              │ └─ block: Division(Blocks, VdModulePath(`root.section1.subsection1.stmts1`))
+              │   ├─ let placeholder
+              │   └─ qed
               ├─ block: Division(Subsection, VdModulePath(`root.section1.subsection2`))
               └─ block: Division(Subsection, VdModulePath(`root.section1.subsection3`))
                 ├─ block: Division(Subsubsection, VdModulePath(`root.section1.subsection3.subsubsection1`))

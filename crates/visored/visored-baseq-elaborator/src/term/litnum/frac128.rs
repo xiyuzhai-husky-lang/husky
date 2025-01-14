@@ -143,6 +143,16 @@ impl VdBsqFrac128 {
         Self::new128(raw_numerator, self.denominator).unwrap()
     }
 
+    pub fn sub_i128<'sess>(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqLitnumTerm<'sess> {
+        let Some(rhs_scaled) = rhs.checked_mul(self.denominator) else {
+            todo!()
+        };
+        let Some(raw_numerator) = self.numerator.checked_sub(rhs_scaled) else {
+            todo!()
+        };
+        Self::new128(raw_numerator, self.denominator).unwrap()
+    }
+
     pub fn inverse(self) -> Self {
         assert!(self.numerator != 0);
         if self.numerator > 0 {
@@ -206,7 +216,7 @@ fn vd_bsq_frac128_add_works() {
         assert_eq!(a.into().add(b.into(), db), c.into());
     }
     let db = &FloaterDb::default();
-    t(Div(1, 2), Div(3, 4), Div(5, 8), db);
+    t(Div(1, 2), Div(3, 4), Div(5, 4), db);
     t(Div(1, 2), Div(1, 2), 1, db);
     t(Div(1, 2), Div(-1, 2), 0, db);
 }
