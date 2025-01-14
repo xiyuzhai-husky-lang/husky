@@ -18,6 +18,21 @@ impl<T> OncePlace<T> {
         debug_assert!(self.0.is_none());
         self.0 = Some(value);
     }
+
+    pub fn set_or_assert_eq(&mut self, value: T)
+    where
+        T: std::fmt::Debug + Eq,
+    {
+        if let Some(ref old) = self.0 {
+            assert_eq!(old, &value);
+        } else {
+            self.0 = Some(value);
+        }
+    }
+
+    pub fn finish(self) -> Option<T> {
+        self.0
+    }
 }
 
 impl<T> std::ops::Deref for OncePlace<T> {

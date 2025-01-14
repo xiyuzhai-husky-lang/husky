@@ -43,11 +43,11 @@ use crate::{
     },
     helpers::latex_fmt::VdSemExprLaTeXFormatter,
     phrase::{VdSemPhraseArena, VdSemPhraseArenaRef, VdSemPhraseData, VdSemPhraseIdx},
-    region::VdSemExprRegionData,
     sentence::{
         VdSemSentenceArena, VdSemSentenceArenaRef, VdSemSentenceData, VdSemSentenceIdx,
         VdSemSentenceIdxRange,
     },
+    sheet::VdSemExprSheetData,
     symbol::local_defn::{
         storage::VdSemSymbolLocalDefnStorage, VdSemSymbolLocalDefnData, VdSemSymbolLocalDefnIdx,
     },
@@ -318,8 +318,8 @@ impl<'db> VdSemExprBuilder<'db> {
         term
     }
 
-    pub(crate) fn finish_into_region_data(self) -> VdSemExprRegionData {
-        VdSemExprRegionData::new(
+    pub(crate) fn finish_into_region_data(self) -> VdSemExprSheetData {
+        VdSemExprSheetData::new(
             self.expr_arena,
             self.phrase_arena,
             self.clause_arena,

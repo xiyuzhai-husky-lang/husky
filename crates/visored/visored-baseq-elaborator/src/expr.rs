@@ -24,8 +24,10 @@ use visored_term::{
 };
 
 use crate::{
-    elaborator::VdBsqElaboratorInner, hypothesis::VdBsqHypothesisIdx, session::VdBsqSession,
-    term::VdBsqTerm,
+    elaborator::VdBsqElaboratorInner,
+    hypothesis::VdBsqHypothesisIdx,
+    session::VdBsqSession,
+    term::{litnum::VdBsqLitnumTerm, VdBsqTerm},
 };
 
 #[floated]
@@ -40,30 +42,32 @@ pub struct VdBsqExprFld<'sess> {
 impl<'sess> std::fmt::Debug for VdBsqExprFld<'sess> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("VdMirExprFld(`")?;
-        self.show(VdPrecedenceRange::ANY, f)?;
+        self.show_fmt(VdPrecedenceRange::ANY, f)?;
         f.write_str("`)")
     }
 }
 
 impl<'sess> VdBsqExprFld<'sess> {
-    pub fn show(
+    pub fn show_fmt(
         self,
         precedence_range: VdPrecedenceRange,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if precedence_range.contains(self.data().outer_precedence()) {
-            self.show_inner(f)
+            self.show_fmt_inner(f)
         } else {
             f.write_str("(")?;
-            self.show_inner(f)?;
+            self.show_fmt_inner(f)?;
             f.write_str(")")
         }
     }
 
-    fn show_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn show_fmt_inner(self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
             VdBsqExprFldData::Literal(literal) => literal.show(f),
-            VdBsqExprFldData::Variable(letter, _) => letter.show(f),
+            VdBsqExprFldData::Variable(letter, _) => {
+                write!(f, "{}", letter.unicode())
+            }
             VdBsqExprFldData::Application {
                 function,
                 arguments,
@@ -72,11 +76,11 @@ impl<'sess> VdBsqExprFld<'sess> {
                 VdMirFunc::NormalBaseSeparator(signature) => todo!(),
                 VdMirFunc::NormalBaseBinaryOpr(signature) => {
                     let opr = signature.opr;
-                    arguments[0].show(opr.left_precedence_range(), f)?;
+                    arguments[0].show_fmt(opr.left_precedence_range(), f)?;
                     f.write_str(" ")?;
                     f.write_str(opr.unicode())?;
                     f.write_str(" ")?;
-                    arguments[1].show(opr.right_precedence_range(), f)?;
+                    arguments[1].show_fmt(opr.right_precedence_range(), f)?;
                     Ok(())
                 }
                 VdMirFunc::Power(signature) => {
@@ -87,7 +91,7 @@ impl<'sess> VdBsqExprFld<'sess> {
 
                                 // use unicode to show the superscript
                                 let superscript = superscript(i as u8).unwrap();
-                                arguments[0].show(VdPrecedenceRange::ATOM, f)?;
+                                arguments[0].show_fmt(VdPrecedenceRange::ATOM, f)?;
                                 write!(f, "{}", superscript)?;
                                 return Ok(());
                             }
@@ -95,9 +99,9 @@ impl<'sess> VdBsqExprFld<'sess> {
                         },
                         _ => (),
                     }
-                    arguments[0].show(VdPrecedenceRange::ATOM, f)?;
+                    arguments[0].show_fmt(VdPrecedenceRange::ATOM, f)?;
                     write!(f, "^{{")?;
-                    arguments[1].show(VdPrecedenceRange::ANY, f)?;
+                    arguments[1].show_fmt(VdPrecedenceRange::ANY, f)?;
                     f.write_str("}}")
                 }
                 VdMirFunc::InSet => todo!(),
@@ -108,7 +112,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     todo!("maybe non base separator?")
                 };
                 let precedence_range = signature.opr().left_precedence_range();
-                leader.show(precedence_range, f)?;
+                leader.show_fmt(precedence_range, f)?;
                 for (func, follower) in followers {
                     let VdMirFunc::NormalBaseSeparator(signature) = func else {
                         todo!("maybe non base separator?")
@@ -116,7 +120,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     f.write_str(" ")?;
                     signature.opr().show_fmt(f)?;
                     f.write_str(" ")?;
-                    follower.show(precedence_range, f)?;
+                    follower.show_fmt(precedence_range, f)?;
                 }
                 Ok(())
             }
@@ -129,7 +133,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     todo!("maybe non base separator?")
                 };
                 let precedence_range = signature.opr().left_precedence_range();
-                leader.show(precedence_range, f)?;
+                leader.show_fmt(precedence_range, f)?;
                 for (func, follower) in followers {
                     let VdMirFunc::NormalBaseSeparator(signature) = func else {
                         todo!("maybe non base separator?")
@@ -137,7 +141,7 @@ impl<'sess> VdBsqExprFld<'sess> {
                     f.write_str(" ")?;
                     signature.opr().show_fmt(f)?;
                     f.write_str(" ")?;
-                    follower.show(precedence_range, f)?;
+                    follower.show_fmt(precedence_range, f)?;
                 }
                 Ok(())
             }
@@ -167,6 +171,8 @@ pub enum VdBsqExprFldData<'sess> {
     ItemPath(VdItemPath),
 }
 
+pub type VdBsqExprFollowers<'sess> = SmallVec<[(VdMirFunc, VdBsqExprFld<'sess>); 4]>;
+
 impl<'sess> VdBsqExprFldData<'sess> {
     pub fn outer_precedence(&self) -> VdPrecedence {
         match self {
@@ -190,6 +196,9 @@ pub type VdMirExprFlds<'sess> = SmallVec<[VdBsqExprFld<'sess>; 4]>;
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn cache_expr_fld(&mut self, expr_idx: VdMirExprIdx, region_data: VdMirExprRegionDataRef) {
+        if self.expr_to_fld_map().has(expr_idx) {
+            return;
+        }
         let expr_entry = &region_data.expr_arena[expr_idx];
         let symbol_local_defn_storage = region_data.symbol_local_defn_storage;
         let expr_data = self.calc_expr_fld_data(expr_entry, symbol_local_defn_storage);
@@ -197,7 +206,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
         let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
         let expected_ty = expr_entry.expected_ty();
-        let expr_fld = VdBsqExprFld::new(expr_data, ty, term, expected_ty, db);
+        let expr_fld = VdBsqExprFld::new_inner(expr_data, ty, term, expected_ty, db);
         self.save_expr_fld(expr_idx, expr_fld);
     }
 
@@ -261,7 +270,7 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     ) -> VdBsqExprFld<'sess> {
         let term = self.calc_expr_term(&expr_data, ty);
         let db = self.session().floater_db();
-        VdBsqExprFld::new(expr_data, ty, term, expected_ty, db)
+        VdBsqExprFld::new_inner(expr_data, ty, term, expected_ty, db)
     }
 
     pub(crate) fn mk_zero(&self, expected_ty: Option<VdType>) -> VdBsqExprFld<'sess> {
@@ -270,6 +279,21 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
             self.ty_menu().nat,
             expected_ty,
         )
+    }
+
+    pub(crate) fn mk_lit(
+        &self,
+        litnum: VdBsqLitnumTerm<'sess>,
+        ty: VdType,
+        expected_ty: Option<VdType>,
+    ) -> VdBsqExprFld<'sess> {
+        let db = self.session().eterner_db();
+        let lit = match litnum {
+            VdBsqLitnumTerm::Int128(i) => VdLiteral::new(VdLiteralData::Int128(i), db),
+            VdBsqLitnumTerm::BigInt(vd_bsq_big_int) => todo!(),
+            VdBsqLitnumTerm::Frac128(vd_bsq_frac128) => todo!(),
+        };
+        self.mk_expr(VdBsqExprFldData::Literal(lit), ty, expected_ty)
     }
 }
 

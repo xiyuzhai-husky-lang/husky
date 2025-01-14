@@ -7,11 +7,16 @@ pub fn make_all_lifetimes_static(ty: &Type) -> Type {
             for segment in &mut type_path.path.segments {
                 if let PathArguments::AngleBracketed(args) = &mut segment.arguments {
                     for arg in &mut args.args {
-                        if let GenericArgument::Lifetime(_) = arg {
-                            *arg = GenericArgument::Lifetime(Lifetime::new(
-                                "'static",
-                                proc_macro2::Span::call_site(),
-                            ));
+                        match arg {
+                            GenericArgument::Lifetime(lifetime) => {
+                                *lifetime = Lifetime::new("'static", proc_macro2::Span::call_site())
+                            }
+                            GenericArgument::Type(ty) => *ty = make_all_lifetimes_static(ty),
+                            GenericArgument::Const(expr) => (),
+                            GenericArgument::AssocType(assoc_type) => (),
+                            GenericArgument::AssocConst(assoc_const) => (),
+                            GenericArgument::Constraint(constraint) => (),
+                            _ => todo!(),
                         }
                     }
                 }
@@ -66,10 +71,13 @@ pub fn make_all_lifetimes_static(ty: &Type) -> Type {
             "make_all_lifetimes_static: TraitObject type not implemented: {:?}",
             type_trait_object
         ),
-        Type::Tuple(type_tuple) => unimplemented!(
-            "make_all_lifetimes_static: Tuple type not implemented: {:?}",
-            type_tuple
-        ),
+        Type::Tuple(type_tuple) => {
+            let mut type_tuple = type_tuple.clone();
+            for element in &mut type_tuple.elems {
+                *element = make_all_lifetimes_static(element);
+            }
+            Type::Tuple(type_tuple)
+        }
         Type::Verbatim(token_stream) => unimplemented!(
             "make_all_lifetimes_static: Verbatim type not implemented: {:?}",
             token_stream

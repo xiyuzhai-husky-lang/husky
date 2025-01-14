@@ -46,7 +46,7 @@ Let $x\in\mathbb{R}$.
                   └─ tactic: `Exact { term: 1 }`
         "#]],
         &expect![[r#"
-            def h(x : ℝ) := by
+            def h (x : ℝ) := by
               exact ()"#]],
     );
     t(
@@ -67,7 +67,7 @@ Let $x\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            def h(x : ℝ) := by
+            def h (x : ℝ) := by
               exact ()
             end Section1
         "#]],
@@ -106,11 +106,11 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            def h(x : ℝ) := by
+            def h (x : ℝ) := by
               exact ()
 
             namespace Subsection1
-            def h(y : ℝ) := by
+            def h (y : ℝ) := by
               exact ()
             end Subsection1
 

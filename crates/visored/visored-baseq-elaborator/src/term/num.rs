@@ -1,7 +1,9 @@
 use super::*;
-use crate::term::sum::VdBsqSumComnumTerm;
+use crate::term::sum::VdBsqSumTerm;
 use builder::sum::VdBsqSumBuilder;
+use product::VdBsqProductTerm;
 use smallvec::*;
+use visored_opr::precedence::VdPrecedence;
 
 #[enum_class::from_variants]
 #[derive(Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -10,13 +12,9 @@ pub enum VdBsqNumTerm<'sess> {
     Comnum(VdBsqComnumTerm<'sess>),
 }
 
-impl<'sess> From<VdBsqNonProductNumTerm<'sess>> for VdBsqNumTerm<'sess> {
-    fn from(term: VdBsqNonProductNumTerm<'sess>) -> Self {
-        match term {
-            VdBsqNonProductNumTerm::Litnum(term) => VdBsqNumTerm::Litnum(term),
-            VdBsqNonProductNumTerm::AtomComnum(term) => VdBsqNumTerm::Comnum(term.into()),
-            VdBsqNonProductNumTerm::SumComnum(term) => VdBsqNumTerm::Comnum(term.into()),
-        }
+impl<'sess> From<VdBsqProductTerm<'sess>> for VdBsqNumTerm<'sess> {
+    fn from(value: VdBsqProductTerm<'sess>) -> Self {
+        VdBsqNumTerm::Comnum(value.into())
     }
 }
 
@@ -59,6 +57,13 @@ impl<'sess> VdBsqNumTerm<'sess> {
         }
     }
 
+    pub fn neg(self, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
+        match self {
+            VdBsqNumTerm::Litnum(term) => term.neg(db).into(),
+            VdBsqNumTerm::Comnum(term) => term.neg(db).into(),
+        }
+    }
+
     pub fn add(self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         if rhs.is_zero_trivially() {
             return self;
@@ -79,14 +84,29 @@ impl<'sess> VdBsqNumTerm<'sess> {
         builder.finish()
     }
 
-    pub fn add_assign(&mut self, rhs: VdBsqNumTerm<'sess>, db: &'sess FloaterDb) {
-        *self = self.add(rhs, db);
+    pub fn add_assign(&mut self, rhs: impl Into<VdBsqNumTerm<'sess>>, db: &'sess FloaterDb) {
+        *self = self.add(rhs.into(), db);
+    }
+
+    pub fn sub_assign(&mut self, rhs: impl Into<VdBsqNumTerm<'sess>>, db: &'sess FloaterDb) {
+        *self = self.sub(rhs.into(), db);
     }
 
     pub fn mul128(self, rhs: i128, db: &'sess FloaterDb) -> VdBsqNumTerm<'sess> {
         match self {
             VdBsqNumTerm::Litnum(term) => VdBsqNumTerm::Litnum(term.mul128(rhs, db)),
             VdBsqNumTerm::Comnum(term) => term.mul128(rhs, db),
+        }
+    }
+
+    pub fn mul_litnum(
+        self,
+        litnum: VdBsqLitnumTerm<'sess>,
+        db: &'sess FloaterDb,
+    ) -> VdBsqNumTerm<'sess> {
+        match self {
+            VdBsqNumTerm::Litnum(slf) => slf.mul(litnum, db).into(),
+            VdBsqNumTerm::Comnum(slf) => slf.mul_litnum(litnum, db).into(),
         }
     }
 
@@ -107,5 +127,9 @@ impl<'sess> VdBsqNumTerm<'sess> {
             VdBsqNumTerm::Litnum(term) => term.show_fmt(precedence_range, f),
             VdBsqNumTerm::Comnum(term) => term.show_fmt(precedence_range, f),
         }
+    }
+
+    pub fn outer_precedence(&self) -> VdPrecedence {
+        todo!()
     }
 }

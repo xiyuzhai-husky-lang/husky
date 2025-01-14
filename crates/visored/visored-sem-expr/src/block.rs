@@ -25,7 +25,7 @@ pub enum VdSemBlockData {
         begin_command_token_idx: LxRoseTokenIdx,
         environment_signature: LxEnvironmentSignature,
         resolution: VdEnvironmentGlobalResolution,
-        stmts: VdSemBlockIdxRange,
+        blocks: VdSemBlockIdxRange,
         end_rcurl_token_idx: LxRoseTokenIdx,
     },
 }
@@ -80,7 +80,7 @@ impl<'a> VdSemExprBuilder<'a> {
             } => VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
-                stmts: stmts.to_vd_sem(self),
+                blocks: stmts.to_vd_sem(self),
                 begin_command_token_idx,
                 end_rcurl_token_idx,
             },
@@ -103,7 +103,7 @@ impl VdSemBlockData {
             VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
-                stmts,
+                blocks: stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
             } => stmts

@@ -1,4 +1,5 @@
 use super::*;
+use crate::elabm::ElabM;
 
 pub struct VdBsqCallStack {
     stack: Vec<VdBsqCall>,
@@ -14,11 +15,29 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn with_call<R>(
         &mut self,
         call: impl Into<VdBsqCall>,
-        f: impl FnOnce(&mut Self) -> R,
-    ) -> R {
+        f: impl FnOnce(&mut VdBsqElaboratorInner<'db, 'sess>) -> R,
+    ) -> R
+    where
+        'db: 'sess,
+    {
         self.call_stack.enter_call(call);
         let result = f(self);
         self.call_stack.exit_call();
+        result
+    }
+}
+
+pub(crate) fn with_call<'db, 'sess, R>(
+    call: impl Into<VdBsqCall>,
+    m: impl ElabM<'db, 'sess, R>,
+) -> impl ElabM<'db, 'sess, R>
+where
+    'db: 'sess,
+{
+    |elaborator: &mut Elr<'db, 'sess>, f: &dyn Fn(&mut Elr<'db, 'sess>, R) -> _| {
+        elaborator.call_stack.enter_call(call);
+        let result = m.eval(elaborator, f);
+        elaborator.call_stack.exit_call();
         result
     }
 }

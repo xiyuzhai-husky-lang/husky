@@ -1,6 +1,6 @@
 use crate::elaborator::IsVdMirTacticElaborator;
 use crate::{
-    builder::VdMirExprBuilder,
+    builder::region::VdMirExprRegionBuilder,
     expr::{VdMirExprArena, VdMirExprIdx},
     stmt::{VdMirStmtArena, VdMirStmtIdxRange},
     *,
@@ -18,7 +18,7 @@ use latex_prelude::{
 };
 use latex_token::storage::LxTokenStorage;
 use region::VdMirExprRegionDataRef;
-use source_map::VdMirSourceMap;
+use source_map::VdMirRegionSourceMap;
 use symbol::local_defn::storage::VdMirSymbolLocalDefnStorage;
 use visored_annotation::annotation::{space::VdSpaceAnnotation, token::VdTokenAnnotation};
 use visored_entity_path::module::VdModulePath;
@@ -39,7 +39,7 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
     pub hint_arena: VdMirHintArena,
     pub hypothesis_arena: VdMirHypothesisArena,
     pub symbol_local_defn_storage: VdMirSymbolLocalDefnStorage,
-    pub source_map: VdMirSourceMap,
+    pub source_map: VdMirRegionSourceMap,
     pub sem_expr_range_map: VdSemExprTokenIdxRangeMap,
     pub sem_phrase_range_map: VdSemPhraseTokenIdxRangeMap,
     pub sem_clause_range_map: VdSemClauseTokenIdxRangeMap,
@@ -51,7 +51,8 @@ pub struct VdMirExprTracker<'a, Input: IsVdMirExprInput<'a>> {
 }
 
 pub trait IsVdMirExprInput<'a>: IsVdSemExprInput<'a> {
-    type VdMirExprOutput: IsVdMirExprOutput + FromToVdMir<Self::VdSemExprOutput>;
+    type VdMirExprOutput: IsVdMirExprOutput
+        + for<'db> FromToVdMir<Self::VdSemExprOutput, VdMirExprRegionBuilder<'db>>;
 }
 
 pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
@@ -64,15 +65,15 @@ pub trait IsVdMirExprOutput: std::fmt::Debug + Copy {
     );
 }
 
-pub trait FromToVdMir<S> {
-    fn from_to_vd_mir(output: S, builder: &mut VdMirExprBuilder) -> Self;
+pub trait FromToVdMir<S, Builder> {
+    fn from_to_vd_mir(output: S, builder: &mut Builder) -> Self;
 }
 
-impl<'a, S, T: IsVdMirExprOutput> FromToVdMir<S> for T
+impl<'db, S, T: IsVdMirExprOutput> FromToVdMir<S, VdMirExprRegionBuilder<'db>> for T
 where
-    S: ToVdMir<T>,
+    S: ToVdMir<T, VdMirExprRegionBuilder<'db>>,
 {
-    fn from_to_vd_mir(s: S, builder: &mut VdMirExprBuilder) -> Self {
+    fn from_to_vd_mir(s: S, builder: &mut VdMirExprRegionBuilder<'db>) -> Self {
         s.to_vd_mir(builder)
     }
 }
@@ -120,7 +121,7 @@ where
             vibe,
             db,
         );
-        let mut builder = VdMirExprBuilder::new(
+        let mut builder = VdMirExprRegionBuilder::new(
             input.content(),
             sem_expr_arena.as_arena_ref(),
             sem_phrase_arena.as_arena_ref(),

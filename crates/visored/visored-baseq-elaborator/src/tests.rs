@@ -67,7 +67,7 @@ macro "term_trivial": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
-macro "expr_equivalent": tactic =>`(tactic|
+macro "old_main_hypothesis": tactic =>`(tactic|
   first
   | assumption; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
@@ -94,8 +94,21 @@ macro "comm_ring": tactic =>`(tactic|
   | ring_nf; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
-{}
-"#,
+
+macro "litnum_reduce": tactic =>`(tactic|
+  first
+  | simp; done
+  | simp [*]; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
+macro "litnum_bound": tactic =>`(tactic|
+  first
+  | linarith; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
+{}"#,
                 tracker.show_fmt(db)
             );
             expect_file!(relative_path.to_logical_path(lean4_dir)).assert_eq(&lean4_code);

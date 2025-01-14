@@ -24,15 +24,15 @@ impl VdSetPath {
 }
 
 impl VdSetPath {
-    pub fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    pub fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            VdSetPath::Prelude(path) => path.show_aux(f),
+            VdSetPath::Prelude(path) => path.show_fmt(f),
         }
     }
 }
 
 impl VdPreludeSetPath {
-    fn show_aux(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn show_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             VdPreludeSetPath::NaturalNumber => write!(f, "ℕ"),
             VdPreludeSetPath::RationalNumber => write!(f, "ℚ"),

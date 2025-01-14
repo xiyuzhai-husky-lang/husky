@@ -3,27 +3,34 @@ pub mod comnum;
 pub mod litnum;
 pub mod num;
 pub mod prop;
+pub mod set;
 
-use self::{comnum::*, litnum::*, num::*, prop::*};
+use self::{comnum::*, litnum::*, num::*, prop::*, set::*};
 use crate::{
     elaborator::VdBsqElaboratorInner,
     expr::{VdBsqExprFld, VdBsqExprFldData},
+    foundations::opr::separator::relation::comparison::VdBsqComparisonOpr,
 };
 use bigint::VdBsqBigInt;
 use builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder};
 use either::*;
 use floated_sequential::db::FloaterDb;
 use floated_sequential::floated;
-use num_relationship::VdBsqNumRelationshipPropTermKind;
-use product::VdBsqProductComnumTermBase;
+use frac128::VdBsqFrac128;
+use num_chain::VdBsqNumChain;
+use product::VdBsqProductStem;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
+use visored_entity_path::path::VdItemPath;
 use visored_mir_expr::{
     expr::{application::VdMirFunc, VdMirExprData, VdMirExprEntry},
     symbol::local_defn::{
         storage::VdMirSymbolLocalDefnStorage, VdMirSymbolLocalDefnHead, VdMirSymbolLocalDefnIdx,
     },
 };
-use visored_mir_opr::{opr::binary::VdMirBaseBinaryOpr, separator::VdMirBaseSeparator};
+use visored_mir_opr::{
+    opr::{binary::VdMirBaseBinaryOpr, prefix::VdMirBasePrefixOpr},
+    separator::VdMirBaseSeparator,
+};
 use visored_opr::precedence::VdPrecedenceRange;
 use visored_term::{
     term::{literal::VdLiteralData, VdTermData},
@@ -36,21 +43,21 @@ pub enum VdBsqTerm<'sess> {
     Litnum(VdBsqLitnumTerm<'sess>),
     Comnum(VdBsqComnumTerm<'sess>),
     Prop(VdBsqPropTerm<'sess>),
+    Set(VdBsqSetTerm<'sess>),
 }
 
 impl<'sess> VdBsqNumTerm<'sess> {
     pub fn product_or_non_product(
         self,
-    ) -> Either<
-        (VdBsqLitnumTerm<'sess>, VdBsqProductComnumTermBase<'sess>),
-        VdBsqNonProductNumTerm<'sess>,
-    > {
+    ) -> Either<(VdBsqLitnumTerm<'sess>, VdBsqProductStem<'sess>), VdBsqNumTerm<'sess>> {
         match self {
             VdBsqNumTerm::Litnum(term) => todo!(),
             VdBsqNumTerm::Comnum(term) => match term {
-                VdBsqComnumTerm::Atom(term) => Right(VdBsqNonProductNumTerm::AtomComnum(term)),
-                VdBsqComnumTerm::Sum(term) => Right(VdBsqNonProductNumTerm::SumComnum(term)),
-                VdBsqComnumTerm::Product(litnum, term) => Left((litnum, term)),
+                VdBsqComnumTerm::Atom(term) => Right(term.into()),
+                VdBsqComnumTerm::Sum(term) => Right(term.into()),
+                VdBsqComnumTerm::Product(product) => {
+                    Left((product.litnum_factor(), product.stem()))
+                }
             },
         }
     }
@@ -62,6 +69,7 @@ impl<'sess> VdBsqTerm<'sess> {
             VdBsqTerm::Litnum(litnum) => Some(VdBsqNumTerm::Litnum(litnum)),
             VdBsqTerm::Comnum(comnum) => Some(VdBsqNumTerm::Comnum(comnum)),
             VdBsqTerm::Prop(_) => None,
+            VdBsqTerm::Set(_) => None,
         }
     }
 }
@@ -84,6 +92,7 @@ impl<'sess> VdBsqTerm<'sess> {
             VdBsqTerm::Litnum(litnum) => litnum.show_fmt(precedence_range, f),
             VdBsqTerm::Comnum(comnum) => comnum.show_fmt(precedence_range, f),
             VdBsqTerm::Prop(prop) => prop.show_fmt(precedence_range, f),
+            VdBsqTerm::Set(set) => set.show_fmt(precedence_range, f),
         }
     }
 }
@@ -127,7 +136,16 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 function,
                 ref arguments,
             } => match function {
-                VdMirFunc::NormalBasePrefixOpr(signature) => todo!(),
+                VdMirFunc::NormalBasePrefixOpr(signature) => match signature.opr {
+                    VdMirBasePrefixOpr::RingPos => arguments[0].term(),
+                    VdMirBasePrefixOpr::RingNeg => arguments[0]
+                        .term()
+                        .num()
+                        .unwrap()
+                        .neg(self.floater_db())
+                        .into(),
+                    _ => todo!(),
+                },
                 VdMirFunc::NormalBaseSeparator(signature) => todo!(),
                 VdMirFunc::NormalBaseBinaryOpr(signature) => match signature.opr {
                     VdMirBaseBinaryOpr::CommRingSub => {
@@ -149,15 +167,19 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     let Some(exponent) = arguments[1].term().num() else {
                         todo!()
                     };
-                    match base.product_or_non_product() {
-                        Either::Left(base) => todo!(),
-                        Either::Right(base) => {
-                            VdBsqTerm::new_power(base, exponent, self.floater_db())
-                        }
-                    }
+                    // TODO: simplify???
+                    VdBsqTerm::new_power(base, exponent, self.floater_db())
+                    // match base.product_or_non_product() {
+                    //     Left(_) => todo!(),
+                    //     Right(base) => VdBsqTerm::new_power(base, exponent, self.floater_db()),
+                    // }
                 }
                 VdMirFunc::InSet => todo!(),
-                VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
+                VdMirFunc::NormalBaseSqrt(signature) => {
+                    let radicand = arguments[0].term().num().unwrap();
+                    let exponent = VdBsqFrac128::new128(1, 2).unwrap();
+                    VdBsqTerm::new_power(radicand, exponent, self.floater_db())
+                }
             },
             VdBsqExprFldData::FoldingSeparatedList {
                 leader,
@@ -221,9 +243,17 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                 ref followers,
                 joined_signature: joined_separator_and_signature,
             } => match joined_separator_and_signature {
-                Some(joined_separator_and_signature) => todo!(),
+                Some(joined_separator_and_signature) => VdBsqNumChain::new(
+                    leader.term().num().unwrap(),
+                    followers
+                        .iter()
+                        .map(|&(func, follower)| (func, follower.term().num().unwrap()))
+                        .collect(),
+                    db,
+                )
+                .into(),
                 None => {
-                    use VdBsqNumRelationshipPropTermKind::*;
+                    use VdBsqComparisonOpr::*;
 
                     let (func, follower) = *followers.first().unwrap();
                     let num_relationship = |slf: &Self, kind| {
@@ -239,12 +269,24 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         VdMirFunc::NormalBaseSeparator(signature) => match signature.opr() {
                             VdMirBaseSeparator::CommRingAdd => todo!(),
                             VdMirBaseSeparator::CommRingMul => todo!(),
-                            VdMirBaseSeparator::Eq => num_relationship(self, Eq),
-                            VdMirBaseSeparator::Ne => num_relationship(self, Ne),
-                            VdMirBaseSeparator::Lt => num_relationship(self, Lt),
-                            VdMirBaseSeparator::Gt => num_relationship(self, Gt),
-                            VdMirBaseSeparator::Le => num_relationship(self, Le),
-                            VdMirBaseSeparator::Ge => num_relationship(self, Ge),
+                            VdMirBaseSeparator::Eq => {
+                                num_relationship(self, VdBsqComparisonOpr::EQ)
+                            }
+                            VdMirBaseSeparator::Ne => {
+                                num_relationship(self, VdBsqComparisonOpr::NE)
+                            }
+                            VdMirBaseSeparator::Lt => {
+                                num_relationship(self, VdBsqComparisonOpr::LT)
+                            }
+                            VdMirBaseSeparator::Gt => {
+                                num_relationship(self, VdBsqComparisonOpr::GT)
+                            }
+                            VdMirBaseSeparator::Le => {
+                                num_relationship(self, VdBsqComparisonOpr::LE)
+                            }
+                            VdMirBaseSeparator::Ge => {
+                                num_relationship(self, VdBsqComparisonOpr::GE)
+                            }
                             VdMirBaseSeparator::Subset => todo!(),
                             VdMirBaseSeparator::Supset => todo!(),
                             VdMirBaseSeparator::Subseteq => todo!(),
@@ -260,12 +302,18 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                         },
                         VdMirFunc::NormalBaseBinaryOpr(signature) => todo!(),
                         VdMirFunc::Power(signature) => todo!(),
-                        VdMirFunc::InSet => todo!(),
+                        VdMirFunc::InSet => VdBsqPropTerm::InSet.into(),
                         VdMirFunc::NormalBaseSqrt(vd_base_sqrt_signature) => todo!(),
                     }
                 }
             },
-            VdBsqExprFldData::ItemPath(vd_item_path) => todo!(),
+            VdBsqExprFldData::ItemPath(path) => match path {
+                VdItemPath::Category(path) => todo!(),
+                VdItemPath::Set(path) => VdBsqSetTerm::Path(path).into(),
+                VdItemPath::Function(path) => todo!(),
+                VdItemPath::Trait(path) => todo!(),
+                VdItemPath::TraitItem(path) => todo!(),
+            },
         }
     }
 }

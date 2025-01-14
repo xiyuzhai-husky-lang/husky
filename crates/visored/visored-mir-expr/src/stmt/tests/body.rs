@@ -38,18 +38,16 @@ fn basic_body_to_vd_mir_works() {
         models,
         r#"Let $x\in\mathbb{R}$."#,
         &expect![[r#"
-            └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
-              └─ block: Paragraph
-                ├─ block: Sentence
-                │ └─ let placeholder
-                └─ qed
+            └─ block: Division(Blocks, VdModulePath(`root.stmts1`))
+              ├─ let placeholder
+              └─ qed
         "#]],
     );
     t(
         models,
         r#"\begin{example}\end{example}"#,
         &expect![[r#"
-            └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
+            └─ block: Division(Blocks, VdModulePath(`root.stmts1`))
               └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, Example, VdModulePath(`root.stmts1.example1`))
         "#]],
     );
@@ -57,12 +55,10 @@ fn basic_body_to_vd_mir_works() {
         models,
         r#"\begin{example}Let $x\in\mathbb{R}$.\end{example}"#,
         &expect![[r#"
-            └─ block: Division(Stmts, VdModulePath(`root.stmts1`))
+            └─ block: Division(Blocks, VdModulePath(`root.stmts1`))
               └─ block: Environment(LxEnvironmentPath { name: LxEnvironmentName(Coword("example")) }, Example, VdModulePath(`root.stmts1.example1`))
-                └─ block: Paragraph
-                  ├─ block: Sentence
-                  │ └─ let placeholder
-                  └─ qed
+                ├─ let placeholder
+                └─ qed
         "#]],
     );
 }

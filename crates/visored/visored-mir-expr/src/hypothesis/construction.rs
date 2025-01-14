@@ -14,10 +14,10 @@ pub enum VdMirHypothesisConstruction {
     TermEquivalent {
         hypothesis: VdMirHypothesisIdx,
     },
-    ExprEquivalent {
-        hypothesis: VdMirHypothesisIdx,
-    },
     TermTrivial(bool),
     CommRing,
     LetAssigned,
+    LitnumReduce,
+    LitnumBound,
+    Kurapika,
 }

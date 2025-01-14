@@ -253,7 +253,7 @@ impl<'a> VdSynSymbolBuilder<'a> {
                 division_level,
                 disambiguator,
             } => match division_level {
-                VdDivisionLevel::Stmts => self.calc_scope_from_module_path(parent),
+                VdDivisionLevel::Blocks => self.calc_scope_from_module_path(parent),
                 _ => VdSynSymbolLocalDefnScope::Module(module_path),
             },
             VdModulePathData::Paragraph {

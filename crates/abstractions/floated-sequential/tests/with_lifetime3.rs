@@ -1,6 +1,6 @@
 use floated_sequential::{db::FloaterDb, floated, note};
 
-#[floated]
+#[floated(constructor = pub new)]
 pub struct List<'sess> {
     pub data: ListData<'sess>,
 }

@@ -183,7 +183,9 @@ impl<'a> LxAstParser<'a> {
             LxMathTokenData::Punctuation(opr) => LxMathAstData::Punctuation(token_idx, opr), // it's not constructed into a tree yet in the ast stage
             LxMathTokenData::Digit(digit) => LxMathAstData::Digit(token_idx, digit),
             LxMathTokenData::Other(c) => {
-                println!("input: \n{}", self.input());
+                use colored::Colorize;
+
+                println!("input: \n{}", self.input().bright_yellow());
                 todo!("c: {:?}", c)
             }
             LxMathTokenData::Subscript => todo!(),

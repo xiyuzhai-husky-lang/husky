@@ -31,12 +31,6 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 match meta {
-                    VdMirBlockMeta::Paragraph => {
-                        self.build_ln_tactic_from_vd_paragraph(stmts, ln_tactics)
-                    }
-                    VdMirBlockMeta::Sentence => {
-                        self.build_ln_tactic_from_vd_sentence(stmts, ln_tactics)
-                    }
                     VdMirBlockMeta::Environment(lx_environment_path, _, vd_module_path) => todo!(),
                     VdMirBlockMeta::Division(vd_division_level, vd_module_path) => todo!(),
                 }
@@ -87,10 +81,20 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                 );
                 self.build_ln_tactics_from_vd_stmts(following_stmts, ln_tactics);
             }
-            VdMirStmtData::Show { prop, .. } => {
+            VdMirStmtData::Show {
+                prop,
+                goal_and_hypothesis_chunk_place,
+                ..
+            } => {
                 // Here, we also provide the following stmts to build the tactic.
                 ln_tactics.push(self.build_ln_tactic_from_vd_show(prop, following_stmts));
-                todo!("show tactics")
+                if let Some((goal, hypothesis_chunk_place)) = goal_and_hypothesis_chunk_place {
+                    // ad hoc, let's see if this works
+                    self.build_hypothesis_chunk_tactics(
+                        hypothesis_chunk_place.unwrap(),
+                        ln_tactics,
+                    );
+                }
             }
             VdMirStmtData::Qed {
                 goal_and_hypothesis_chunk_place,

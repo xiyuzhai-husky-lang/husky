@@ -13,9 +13,27 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         &mut self,
         stmts: VdMirStmtIdxRange,
     ) -> LnItemDefnIdxRange {
+        if stmts.is_empty() {
+            return self.alloc_item_defns(vec![], vec![]);
+        }
+        match *self.stmt_arena()[stmts.first().unwrap()].data() {
+            VdMirStmtData::Block { .. } => self.build_ln_item_defns_from_vd_blocks(stmts),
+            _ => {
+                let defn = self.build_ln_item_defn_from_vd_stmts(stmts);
+                self.alloc_item_defns([defn], [LnItemDefnComment::Void])
+            }
+        }
+    }
+}
+
+impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
+    fn build_ln_item_defns_from_vd_blocks(
+        &mut self,
+        stmts: VdMirStmtIdxRange,
+    ) -> LnItemDefnIdxRange {
         let item_defns: Vec<_> = stmts
             .into_iter()
-            .map(|stmt| self.build_ln_item_defn_from_vd_stmt(stmt))
+            .map(|stmt| self.build_ln_item_defn_from_vd_block(stmt))
             .collect();
         let source_map = self.source_map();
         let input = self.input();
@@ -25,10 +43,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             item_defns,
             stmts.into_iter().map(|stmt| {
                 let token_idx_range = match source_map[stmt] {
-                    VdMirStmtSource::Stmt(_)
+                    VdMirStmtSource::Block(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
-                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
+                    VdMirStmtSource::Qed => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
@@ -36,22 +54,15 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
             }),
         )
     }
-}
 
-impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
-    pub(crate) fn build_ln_item_defn_from_vd_stmt(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
+    fn build_ln_item_defn_from_vd_block(&mut self, stmt: VdMirStmtIdx) -> LnItemDefnData {
         let db = self.db();
         match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 match *meta {
-                    VdMirBlockMeta::Paragraph => self.build_ln_def_from_vd_paragraph(stmts),
                     VdMirBlockMeta::Environment(_, environment_path, module_path) => {
                         let defn = self.with_module_path(module_path, |builder| {
-                            builder.build_ln_def_from_vd_environment(
-                                stmts,
-                                environment_path,
-                                module_path,
-                            )
+                            builder.build_ln_item_defn_from_vd_stmts(stmts)
                         });
                         let defn = self.alloc_item_defn(defn, LnItemDefnComment::Void);
                         LnItemDefnData::Group {
@@ -72,30 +83,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
                             )),
                         }
                     }
-                    VdMirBlockMeta::Sentence => unreachable!(),
                 }
-                // let defns = match *meta {
-                //     VdMirBlockMeta::Paragraph => todo!(),
-                //     VdMirBlockMeta::Environment(_, environment_path, module_path) => todo!(),
-                //     VdMirBlockMeta::Division(_, module_path) => {
-                //         self.with_module_path(module_path, |builder| stmts.to_lean(builder))
-                //     }
-                //     VdMirBlockMeta::Sentence => unreachable!(),
-                // };
-                // let meta = match *meta {
-                //     VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
-                //     VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
-                //     VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
-                //         vd_module_path_to_ln_namespace(module_path, db),
-                //     ),
-                //     VdMirBlockMeta::Environment(_, environment_path, module_path) => {
-                //         todo!();
-                //         LnMirItemDefnGroupMeta::Environment(
-                //             vd_module_path_to_ln_namespace(module_path, db).unwrap(),
-                //         )
-                //     }
-                // };
-                // LnItemDefnData::Group { defns, meta }
             }
             VdMirStmtData::LetPlaceholder { .. }
             | VdMirStmtData::Assume { .. }
@@ -107,7 +95,7 @@ impl<'a> VdLeanTranspilationBuilder<'a, Dense> {
         }
     }
 
-    fn build_ln_def_from_vd_paragraph(&mut self, stmts: VdMirStmtIdxRange) -> LnItemDefnData {
+    fn build_ln_item_defn_from_vd_stmts(&mut self, stmts: VdMirStmtIdxRange) -> LnItemDefnData {
         let ident = self.mangle_hypothesis();
         let mut parameters: Vec<LnDefParameter> = vec![];
         let mut goal = None;

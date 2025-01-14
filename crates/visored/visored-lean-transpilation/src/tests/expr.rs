@@ -81,7 +81,7 @@ fn basic_visored_expr_to_lean_works() {
             ├─ literal: `1`
             └─ item path: `ℕ`
         "#]],
-        &expect!["sorry"],
+        &expect!["in_set"],
     );
     t(
         models,

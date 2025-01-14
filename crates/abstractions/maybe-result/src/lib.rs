@@ -15,6 +15,12 @@ pub enum MaybeResult<T, E> {
     Nothing,
 }
 
+impl<T, E> Default for MaybeResult<T, E> {
+    fn default() -> Self {
+        Nothing
+    }
+}
+
 impl<T, E> MaybeResult<T, E> {
     #[track_caller]
     pub fn expect(self, message: &str) -> T {

@@ -814,6 +814,7 @@ name = "latex-ast"
 version = "0.1.0"
 dependencies = [
  "base-coword",
+ "colored",
  "enum-class",
  "eterned",
  "husky-coword",

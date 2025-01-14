@@ -27,6 +27,7 @@ latex-prelude.workspace = true
 latex-vfs.workspace = true
 # lean
 lean-helpers.workspace = true
+lean-mir-expr.workspace = true
 # llms
 all-llms.workspace = true
 llm-prelude.workspace = true
@@ -34,10 +35,11 @@ llm-prelude.workspace = true
 husky-io-utils.workspace = true
 husky-print-utils.workspace = true
 # visored
-visored-models.workspace = true
-visored-syn-expr.workspace = true
 visored-lean-transpilation.workspace = true
 visored-mir-expr.workspace = true
+visored-models.workspace = true
+visored-syn-expr.workspace = true
+visored-baseq-elaborator.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

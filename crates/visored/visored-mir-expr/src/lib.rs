@@ -1,5 +1,6 @@
 pub mod builder;
 pub mod coercion;
+pub mod division;
 pub mod elaborator;
 pub mod expr;
 pub mod helpers;
@@ -14,22 +15,22 @@ pub mod tactic;
 #[cfg(test)]
 mod tests;
 
-use self::builder::VdMirExprBuilder;
+use self::builder::region::VdMirExprRegionBuilder;
 #[cfg(test)]
 use self::tests::*;
 use either::*;
 use visored_models::VdModels;
 
-pub trait ToVdMir<T>: Copy {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> T;
+pub trait ToVdMir<T, Builder> {
+    fn to_vd_mir(self, builder: &mut Builder) -> T;
 }
 
-impl<L, R, S, T> ToVdMir<Either<S, T>> for Either<L, R>
+impl<L, R, S, T, B> ToVdMir<Either<S, T>, B> for Either<L, R>
 where
-    L: ToVdMir<S>,
-    R: ToVdMir<T>,
+    L: ToVdMir<S, B>,
+    R: ToVdMir<T, B>,
 {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> Either<S, T> {
+    fn to_vd_mir(self, builder: &mut B) -> Either<S, T> {
         match self {
             Either::Left(l) => Either::Left(l.to_vd_mir(builder)),
             Either::Right(r) => Either::Right(r.to_vd_mir(builder)),

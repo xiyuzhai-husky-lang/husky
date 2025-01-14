@@ -78,17 +78,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
                     ),
                 }
             }
-            VdBsqHypothesisConstruction::ExprEquivalent { hypothesis } => {
-                VdMirHypothesisConstruction::ExprEquivalent {
-                    hypothesis: self.transcribe_hypothesis(
-                        hypothesis,
-                        None,
-                        hypothesis_constructor,
-                    ),
-                }
-            }
             VdBsqHypothesisConstruction::CommRing => VdMirHypothesisConstruction::CommRing,
             VdBsqHypothesisConstruction::LetAssigned => VdMirHypothesisConstruction::LetAssigned,
+            VdBsqHypothesisConstruction::LitnumReduce => VdMirHypothesisConstruction::LitnumReduce,
+            VdBsqHypothesisConstruction::LitnumBound => VdMirHypothesisConstruction::LitnumBound,
         };
         let prop = match explicit_prop {
             Some(prop) => prop,

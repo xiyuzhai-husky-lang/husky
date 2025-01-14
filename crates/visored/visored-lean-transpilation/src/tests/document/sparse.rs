@@ -39,14 +39,9 @@ Let $x\in\mathbb{R}$.
 \end{document}"#,
         &expect![[r#"
             └─ group: `division`
-              └─ group: `paragraph`
-                └─ group: `sentence`
-                  └─ variable: `x`
+              └─ variable: `x`
         "#]],
-        &expect![[r#"
-            -- Let $x\in\mathbb{R}$.
-
-            variable (x : ℝ)"#]],
+        &expect!["variable (x : ℝ)"],
     );
     t(
         models,
@@ -59,14 +54,10 @@ Let $x\in\mathbb{R}$.
         &expect![[r#"
             └─ group: `division`
               └─ group: `division`
-                └─ group: `paragraph`
-                  └─ group: `sentence`
-                    └─ variable: `x`
+                └─ variable: `x`
         "#]],
         &expect![[r#"
             namespace Section1
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
             end Section1
         "#]],
@@ -88,14 +79,10 @@ Let $y\in\mathbb{R}$.
         &expect![[r#"
             └─ group: `division`
               ├─ group: `division`
-              │ └─ group: `paragraph`
-              │   └─ group: `sentence`
-              │     └─ variable: `x`
+              │ └─ variable: `x`
               ├─ group: `division`
               │ └─ group: `division`
-              │   └─ group: `paragraph`
-              │     └─ group: `sentence`
-              │       └─ variable: `y`
+              │   └─ variable: `y`
               ├─ group: `division`
               └─ group: `division`
                 ├─ group: `division`
@@ -103,13 +90,9 @@ Let $y\in\mathbb{R}$.
         "#]],
         &expect![[r#"
             namespace Section1
-            -- Let $x\in\mathbb{R}$.
-
             variable (x : ℝ)
 
             namespace Subsection1
-            -- Let $y\in\mathbb{R}$.
-
             variable (y : ℝ)
             end Subsection1
 

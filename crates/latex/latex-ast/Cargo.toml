@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+colored.workspace = true
 egui = { workspace = true, optional = true }
 serde.workspace = true
 smallvec.workspace = true

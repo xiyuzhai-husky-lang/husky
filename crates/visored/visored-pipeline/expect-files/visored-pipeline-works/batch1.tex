@@ -54,20 +54,18 @@ Prove: $1+1=2$.
 
 Simplified proof:
 \begin{tcolorbox}[colback=blue!10, width=\linewidth]
-It's trivial that $1+1=2$.
+This is trivial.
 \end{tcolorbox}
 \end{example}
 
 Elaborated proof:
 \begin{tcolorbox}[colback=green!10, width=\linewidth]
-It's trivial that $1+1=2$.
+This is trivial.
 \end{tcolorbox}
 
 Regularized proof:
 \begin{tcolorbox}[colback=red!10, width=\linewidth]
-Let $a\in\mathbb{R}$.
-Let $b\in\mathbb{R}$.
-The goal is to prove $a+b = 2$.
+The goal is to prove $1+1=2$.
 We have $1+1=2$.
 \end{tcolorbox}
 
@@ -75,11 +73,635 @@ Lean 4 code:
 \begin{tcolorbox}[colback=white!10, width=\linewidth]
 \begin{lstlisting}[language=Lean4]
 import Mathlib
-import Obvious
-open Obvious
+syntax "attack" : tactic
 
-def h(a : ℝ)(b : ℝ) : a + b = (2 : ℝ) := by
-  have h1 : 1 + 1 = 2 := by obvious
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h : 1 + 1 = 2 := by
+  have h1 : 1 + 1 = 2 := by term_trivial
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Prove: $x^2\ge 0$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+The square of a real number is non-negative.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+The square of a real number is non-negative.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+The goal is to prove ${{x}}^2 \ge 0$.
+We have ${{x}}^2 \ge 0$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (x : ℝ) : x ^ 2 ≥ (0 : ℝ) := by
+  have h1 : x ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $a\in\mathbb{R}$. Let $b\in\mathbb{R}$. Prove: $a+b=b+a$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Trivial by the commutativity of addition for real numbers.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Trivial by the commutativity of addition for real numbers.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+The goal is to prove $a+b=b+a$.
+We have $a+b=b+a$ by the commutativity of addition for real numbers.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (a b : ℝ) : a + b = b + a := by
+  have h1 : a + b = b + a := by term_trivial
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Assume $x> 0$. Prove: $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $x>0$, we have $(x-1)^2 \ge 0$. Thus, $x - 2 + \frac{1}{x} \ge 0$, so $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $x>0$, we have $(x-1)^2 = x^2 - 2x + 1 \ge 0$. Thus, $x^2 - 2x + 1 \ge 0$, so $x^2 + 1 \ge 2x$. Since $x > 0$, dividing both sides by $x$ gives $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Assume $x>0$.
+The goal is to prove $x + \frac{1}{x} \ge 2$.
+We have $x>0$.
+We have ${{(x-1)}}^2 = x^2 - 2x + 1 \ge 0$.
+We have $x^2 - 2x + 1 \ge 0$.
+We have $x^2 + 1 \ge 2x$.
+We have $x > 0$.
+We have $x + \frac{1}{x} \ge 2$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (x : ℝ) (h1 : x > (0 : ℝ)) : x + (1 : ℝ) / x ≥ (2 : ℝ) := by
+  have h2 : x > (0 : ℝ) := by old_main_hypothesis
+  first
+  | have h3 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
+    (x - (1 : ℝ)) ^ 2 = x ^ 2 - (2 : ℝ) * x + (1 : ℝ) := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h4 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by calc
+    x ^ 2 - (2 : ℝ) * x + (1 : ℝ) = (x - (1 : ℝ)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h5 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by obvious
+  have h6 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by term_equivalent
+  have h7 : x > (0 : ℝ) := by old_main_hypothesis
+  have h8 : x + (1 : ℝ) / x ≥ (2 : ℝ) := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Prove: $x^2 + 1\ge 2x$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+$(x-1)^2 \ge 0$, so $x^2 + 1 \ge 2x$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+$(x-1)^2 = x^2 - 2x + 1 \ge 0$, so $x^2 + 1 \ge 2x$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+The goal is to prove $x^2 + 1 \ge 2x$.
+We have ${{x-1}}^2 = x^2 - 2x + 1 \ge 0$.
+We have $x^2 + 1 \ge 2x$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (x : ℝ) : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by
+  first
+  | have h1 : (x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
+    (x - (1 : ℝ)) ^ 2 = x ^ 2 - (2 : ℝ) * x + (1 : ℝ) := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h2 : x ^ 2 - (2 : ℝ) * x + (1 : ℝ) ≥ (0 : ℝ) := by calc
+    x ^ 2 - (2 : ℝ) * x + (1 : ℝ) = (x - (1 : ℝ)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h3 : x ^ 2 + (1 : ℝ) ≥ (2 : ℝ) * x := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Prove: $x + 1 \ge 2\sqrt{x}$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+We have $(\sqrt{x}-1)^2 \ge 0$, so $x+1 \ge 2\sqrt{x}$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+We have $(\sqrt{x}-1)^2 = x - 2\sqrt{x} + 1 \ge 0$, so $x+1 \ge 2\sqrt{x}$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Assume $x\ge 0$.
+The goal is to prove $x+1 \ge 2\sqrt{x}$.
+We have ${(\sqrt{x}-1)}^2 = x - 2\sqrt{x} + 1 \ge 0$.
+We have $x+1 \ge 2\sqrt{x}$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (x : ℝ) (h1 : x ≥ (0 : ℝ)) : x + (1 : ℝ) ≥ (2 : ℝ) * √ x := by
+  first
+  | have h2 : (√ x - (1 : ℝ)) ^ 2 ≥ (0 : ℝ) := by calc
+    (√ x - (1 : ℝ)) ^ 2 = x - (2 : ℝ) * √ x + (1 : ℝ) := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h3 : x - (2 : ℝ) * √ x + (1 : ℝ) ≥ (0 : ℝ) := by calc
+    x - (2 : ℝ) * √ x + (1 : ℝ) = (√ x - (1 : ℝ)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h4 : x + (1 : ℝ) ≥ (2 : ℝ) * √ x := by obvious
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Assume $x>0$.
+    Let $y\in\mathbb{R}$. Assume $y>0$.
+    Prove: $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $x>0$ and $y>0$, we have $(x-y)^2 \ge 0$. Thus $(x+y)^2 \ge 4xy$. Dividing by $xy(x+y)$ gives $\frac{1}{x}+\frac{1}{y} \ge \frac{4}{x+y}$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $x>0$ and $y>0$, we have $(x-y)^2 \ge 0$. Thus $(x-y)^2 = x^2 -2xy + y^2 \ge 0$, so $x^2 + y^2 \ge 2xy$, and hence $x^2 + 2xy + y^2 = (x+y)^2 \ge 4xy$. Dividing by $xy(x+y)$ gives $\frac{(x+y)^2}{xy(x+y)} = \frac{x+y}{xy} = \frac{x}{xy} + \frac{y}{xy} = \frac{1}{y}+\frac{1}{x} \ge \frac{4xy}{xy(x+y)} = \frac{4}{x+y}$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Assume $x>0$.
+Let $y\in\mathbb{R}$.
+Assume $y>0$.
+The goal is to prove $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$.
+We have $x \in \mathbb{R}$.
+We have $x>0$.
+We have $y \in \mathbb{R}$.
+We have $y>0$.
+It's enough to show that $\frac{1}{x} + \frac{1}{y} \ge \frac{4}{x+y}$.
+We have ${(x-y)}^2 \ge 0$.
+We have ${(x-y)}^2 = x^2 -2xy + y^2 \ge 0$.
+We have $x^2 + y^2 \ge 2xy$.
+We have $x^2 + 2xy + y^2 = {(x+y)}^2 \ge 4xy$.
+We have $\frac{{(x+y)}^2}{xy(x+y)} = \frac{x+y}{xy} = \frac{x}{xy} + \frac{y}{xy} = \frac{1}{y}+\frac{1}{x} \ge \frac{4xy}{xy(x+y)} = \frac{4}{x+y}$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (x : ℝ) (h1 : x > (0 : ℝ)) (y : ℝ) (h2 : y > (0 : ℝ)) : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by
+  have h3 : in_set := by obvious
+  have h4 : x > (0 : ℝ) := by old_main_hypothesis
+  have h5 : in_set := by term_equivalent
+  have h6 : y > (0 : ℝ) := by old_main_hypothesis
+  have h15 : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by
+    have h7 : (x - y) ^ 2 ≥ (0 : ℝ) := by apply sq_nonneg
+    first
+    | have h8 : (x - y) ^ 2 ≥ (0 : ℝ) := by calc
+      (x - y) ^ 2 = x ^ 2 - (2 : ℝ) * x * y + y ^ 2 := by obvious
+      _ ≥ (0 : ℝ) := by obvious
+    | have h9 : x ^ 2 - (2 : ℝ) * x * y + y ^ 2 ≥ (0 : ℝ) := by calc
+      x ^ 2 - (2 : ℝ) * x * y + y ^ 2 = (x - y) ^ 2 := by obvious
+      _ ≥ (0 : ℝ) := by obvious
+    have h10 : x ^ 2 + y ^ 2 ≥ (2 : ℝ) * x * y := by obvious
+    first
+    | have h11 : x ^ 2 + (2 : ℝ) * x * y + y ^ 2 ≥ (4 : ℝ) * x * y := by calc
+      x ^ 2 + (2 : ℝ) * x * y + y ^ 2 = (x + y) ^ 2 := by obvious
+      _ ≥ (4 : ℝ) * x * y := by obvious
+    | have h12 : (x + y) ^ 2 ≥ (4 : ℝ) * x * y := by calc
+      (x + y) ^ 2 = x ^ 2 + (2 : ℝ) * x * y + y ^ 2 := by obvious
+      _ ≥ (4 : ℝ) * x * y := by obvious
+    first
+    | have h13 : (x + y) ^ 2 / (x * y * (x + y)) ≥ (4 : ℝ) / (x + y) := by calc
+      (x + y) ^ 2 / (x * y * (x + y)) = (x + y) / (x * y) := by obvious
+      _ = x / (x * y) + y / (x * y) := by obvious
+      _ = (1 : ℝ) / y + (1 : ℝ) / x := by obvious
+      _ ≥ (4 : ℝ) * x * y / (x * y * (x + y)) := by obvious
+      _ = (4 : ℝ) / (x + y) := by obvious
+    | have h14 : (1 : ℝ) / y + (1 : ℝ) / x ≥ (4 : ℝ) / (x + y) := by calc
+      (1 : ℝ) / y + (1 : ℝ) / x = x / (x * y) + y / (x * y) := by obvious
+      _ = (x + y) / (x * y) := by obvious
+      _ = (x + y) ^ 2 / (x * y * (x + y)) := by obvious
+      _ ≥ (4 : ℝ) * x * y / (x * y * (x + y)) := by obvious
+      _ = (4 : ℝ) / (x + y) := by obvious
+    obvious
+  have h16 : (1 : ℝ) / x + (1 : ℝ) / y ≥ (4 : ℝ) / (x + y) := by obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $a\in\mathbb{R}$. Assume $a > 0$.
+    Let $b\in\mathbb{R}$. Assume $b > 0$.
+    Prove: $\frac{a}{b} + \frac{b}{a} \ge 2$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Since $a>0$ and $b>0$, we have $(\sqrt{a/b} - \sqrt{b/a})^2 \ge 0$. Thus $a/b + b/a \ge 2$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Since $a>0$ and $b>0$, we have $(\sqrt{a/b} - \sqrt{b/a})^2 = (\sqrt{a/b})^2 - 2\sqrt{a/b}\sqrt{b/a} + (\sqrt{b/a})^2 = a/b - 2 + b/a \ge 0$. Thus $a/b - 2 + b/a \ge 0$, so $a/b + b/a \ge 2$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $a\in\mathbb{R}$.
+Let $b\in\mathbb{R}$.
+Assume $a>0$.
+Assume $b>0$.
+The goal is to prove $a/b + b/a \ge 2$.
+We have $a>0$.
+We have $b>0$.
+We have ${{(\sqrt{a/b} - \sqrt{b/a})}}^2 = {{(\sqrt{a/b})}}^2 - 2\sqrt{a/b}\sqrt{b/a} + {{(\sqrt{b/a})}}^2 = a/b - 2 + b/a \ge 0$.
+We have $a/b - 2 + b/a \ge 0$.
+We have $a/b + b/a \ge 2$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (a b : ℝ) (h1 : a > (0 : ℝ)) (h2 : b > (0 : ℝ)) : a / b + b / a ≥ (2 : ℝ) := by
+  have h3 : a > (0 : ℝ) := by old_main_hypothesis
+  have h4 : b > (0 : ℝ) := by old_main_hypothesis
+  first
+  | have h5 : (√ (a / b) - √ (b / a)) ^ 2 ≥ (0 : ℝ) := by calc
+    (√ (a / b) - √ (b / a)) ^ 2 = √ (a / b) ^ 2 - (2 : ℝ) * √ (a / b) * √ (b / a) + √ (b / a) ^ 2 := by obvious
+    _ = a / b - (2 : ℝ) + b / a := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h6 : a / b - (2 : ℝ) + b / a ≥ (0 : ℝ) := by calc
+    a / b - (2 : ℝ) + b / a = √ (a / b) ^ 2 - (2 : ℝ) * √ (a / b) * √ (b / a) + √ (b / a) ^ 2 := by obvious
+    _ = (√ (a / b) - √ (b / a)) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h7 : a / b - (2 : ℝ) + b / a ≥ (0 : ℝ) := by obvious
+  have h8 : a / b + b / a ≥ (2 : ℝ) := by term_equivalent
+  obvious
+
+\end{lstlisting}
+\end{tcolorbox}
+
+
+\begin{example}
+Problem:
+\begin{tcolorbox}[colback=yellow!10, width=\linewidth]
+Let $x\in\mathbb{R}$. Let $y\in\mathbb{R}$.
+    Prove: $x^2 + y^2 \ge 2xy$.
+\end{tcolorbox}
+
+Simplified proof:
+\begin{tcolorbox}[colback=blue!10, width=\linewidth]
+Trivial since $(x-y)^2 \ge 0$.
+\end{tcolorbox}
+\end{example}
+
+Elaborated proof:
+\begin{tcolorbox}[colback=green!10, width=\linewidth]
+Trivial since $(x-y)^2 = x^2 -2xy + y^2 \ge 0$, so $x^2 + y^2 \ge 2xy$.
+\end{tcolorbox}
+
+Regularized proof:
+\begin{tcolorbox}[colback=red!10, width=\linewidth]
+Let $x\in\mathbb{R}$.
+Let $y\in\mathbb{R}$.
+The goal is to prove $x^2 + y^2 \ge 2xy$.
+We have ${{(x-y)}}^2 = x^2 -2xy + y^2 \ge 0$.
+We have $x^2 + y^2 \ge 2xy$.
+\end{tcolorbox}
+
+Lean 4 code:
+\begin{tcolorbox}[colback=white!10, width=\linewidth]
+\begin{lstlisting}[language=Lean4]
+import Mathlib
+syntax "attack" : tactic
+
+macro_rules
+| `(tactic| attack) => `(tactic|
+  first
+  | simp; done
+  | ring; done
+  | ring_nf; rw [Real.sq_sqrt]; ring; all_goals attack; done
+  | nlinarith; done
+  | apply sq_nonneg; all_goals attack; done
+  | apply div_nonneg; all_goals attack; done
+  | field_simp; ring; done
+  | linarith; done
+)
+
+macro "obvious": tactic =>`(tactic|
+  first
+  | attack; done
+  | congr; all_goals attack; done
+  | gcongr; all_goals attack; done
+  | fail "Could not prove this goal automatically. It might not be as obvious as you think!"
+)
+
+macro "in_set" : term => `(true)
+
+def h (x y : ℝ) : x ^ 2 + y ^ 2 ≥ (2 : ℝ) * x * y := by
+  first
+  | have h1 : (x - y) ^ 2 ≥ (0 : ℝ) := by calc
+    (x - y) ^ 2 = x ^ 2 - (2 : ℝ) * x * y + y ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  | have h2 : x ^ 2 - (2 : ℝ) * x * y + y ^ 2 ≥ (0 : ℝ) := by calc
+    x ^ 2 - (2 : ℝ) * x * y + y ^ 2 = (x - y) ^ 2 := by obvious
+    _ ≥ (0 : ℝ) := by obvious
+  have h3 : x ^ 2 + y ^ 2 ≥ (2 : ℝ) * x * y := by obvious
   obvious
 
 \end{lstlisting}

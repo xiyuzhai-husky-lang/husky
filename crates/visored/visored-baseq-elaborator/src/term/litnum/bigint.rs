@@ -5,10 +5,18 @@ use visored_term::term::literal::bigint::VdBigIntData;
 
 use super::VdBsqLitnumTerm;
 
-#[floated]
+#[floated(constructor = pub new)]
 pub struct VdBsqBigInt<'sess> {
     #[return_ref]
     pub inner: VdBigIntData,
+}
+
+impl<'sess> std::fmt::Debug for VdBsqBigInt<'sess> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("VdBsqBigInt(`")?;
+        self.show_fmt(f)?;
+        f.write_str("`)")
+    }
 }
 
 impl<'sess> VdBsqBigInt<'sess> {

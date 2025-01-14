@@ -22,10 +22,10 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
             item_defns,
             stmts.into_iter().map(|stmt| {
                 let token_idx_range = match source_map[stmt] {
-                    VdMirStmtSource::Stmt(_)
+                    VdMirStmtSource::Block(_)
                     | VdMirStmtSource::Division(_)
                     | VdMirStmtSource::Clause(_) => return LnItemDefnComment::Void,
-                    VdMirStmtSource::Qed(_) => return LnItemDefnComment::Qed,
+                    VdMirStmtSource::Qed => return LnItemDefnComment::Qed,
                     VdMirStmtSource::Sentence(sentence) => sem_sentence_range_map[sentence],
                 };
                 let offset_range = token_storage.token_idx_range_offset_range(token_idx_range);
@@ -44,15 +44,12 @@ impl<'a> VdLeanTranspilationBuilder<'a, Sparse> {
         match *self.stmt_arena()[stmt].data() {
             VdMirStmtData::Block { stmts, ref meta } => {
                 let defns = match *meta {
-                    VdMirBlockMeta::Paragraph | VdMirBlockMeta::Sentence => stmts.to_lean(self),
                     VdMirBlockMeta::Environment(_, _, module_path)
                     | VdMirBlockMeta::Division(_, module_path) => {
                         self.with_module_path(module_path, |builder| stmts.to_lean(builder))
                     }
                 };
                 let meta = match *meta {
-                    VdMirBlockMeta::Paragraph => LnMirItemDefnGroupMeta::Paragraph,
-                    VdMirBlockMeta::Sentence => LnMirItemDefnGroupMeta::Sentence,
                     VdMirBlockMeta::Division(_, module_path) => LnMirItemDefnGroupMeta::Division(
                         vd_module_path_to_ln_namespace(module_path, db),
                     ),

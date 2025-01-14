@@ -3,7 +3,7 @@ use latex_prelude::script::LxScriptKind;
 use visored_global_dispatch::dispatch::attach::VdAttachGlobalDispatch;
 use visored_sem_expr::expr::attach::VdSemAttachDispatch;
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     pub fn build_attach(
         &mut self,
         base: VdSemExprIdx,

@@ -48,7 +48,7 @@ pub enum VdSynDivisionChild {
 impl VdSynDivisionData {
     pub fn kind(&self) -> VdDivisionLevel {
         match *self {
-            VdSynDivisionData::Stmts { .. } => VdDivisionLevel::Stmts,
+            VdSynDivisionData::Stmts { .. } => VdDivisionLevel::Blocks,
             VdSynDivisionData::Divisions { level: kind, .. } => kind,
         }
     }

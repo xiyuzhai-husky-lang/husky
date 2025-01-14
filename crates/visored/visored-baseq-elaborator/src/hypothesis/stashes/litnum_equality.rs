@@ -1,15 +1,20 @@
 use super::*;
 use crate::{
-    hypothesis::stash::{
-        unique::{IsVdBsqHypothesisUniqueStashScheme, VdBsqHypothesisUniqueStash},
-        IsVdBsqHypothesisStashScheme,
+    expr::VdBsqExprFld,
+    foundations::opr::separator::relation::comparison::VdBsqComparisonOpr,
+    hypothesis::{
+        stack::VdBsqHypothesisStack,
+        stash::{
+            unique::{IsVdBsqHypothesisUniqueStashScheme, VdBsqHypothesisUniqueStash},
+            IsVdBsqHypothesisStashScheme,
+        },
     },
     term::{
         builder::{product::VdBsqProductBuilder, sum::VdBsqSumBuilder},
-        comnum::{sum::VdBsqSumComnumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
+        comnum::{sum::VdBsqSumTerm, VdBsqComnumTerm, VdBsqMonomialCoefficients},
         litnum::VdBsqLitnumTerm,
         num::VdBsqNumTerm,
-        prop::{num_relationship::VdBsqNumRelationshipPropTermKind, VdBsqPropTerm},
+        prop::VdBsqPropTerm,
         VdBsqTerm,
     },
 };
@@ -28,7 +33,7 @@ impl IsVdBsqHypothesisStashScheme for VdBsqLitNumEqualityScheme {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct VdBsqLitNumEqualityKey<'sess> {
-    normalized_monomials: VdBsqNumTerm<'sess>,
+    normalized_monomials: VdBsqComnumTerm<'sess>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -48,13 +53,13 @@ impl IsVdBsqHypothesisUniqueStashScheme for VdBsqLitNumEqualityScheme {
         entry: &VdBsqHypothesisEntry<'sess>,
         db: &'sess FloaterDb,
     ) -> Option<(Self::Key<'sess>, Self::Value<'sess>)> {
-        let VdBsqTerm::Prop(VdBsqPropTerm::NumRelationship(term)) = entry.expr().term() else {
+        let VdBsqTerm::Prop(VdBsqPropTerm::NumRelation(term)) = entry.expr().term() else {
             return None;
         };
-        require!(term.kind() == VdBsqNumRelationshipPropTermKind::Eq);
+        require!(term.opr() == VdBsqComparisonOpr::Eq);
         require!(let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(lhs_minus_rhs)) = term.lhs_minus_rhs());
-        let (normalized_constant_litnum, normalized_monomials) =
-            normalize_then_split_fld(lhs_minus_rhs, db);
+        let (_, (normalized_constant_litnum, normalized_monomials)) =
+            lhs_minus_rhs.split_fld(|f| f, db);
         let neg_normalized_constant_litnum = normalized_constant_litnum.neg(db);
         let key = VdBsqLitNumEqualityKey {
             normalized_monomials,
@@ -66,30 +71,46 @@ impl IsVdBsqHypothesisUniqueStashScheme for VdBsqLitNumEqualityScheme {
     }
 }
 
-fn normalize_then_split_fld<'sess>(
-    sum: VdBsqSumComnumTerm<'sess>,
-    db: &'sess FloaterDb,
-) -> (VdBsqLitnumTerm<'sess>, VdBsqNumTerm<'sess>) {
-    let (litnum, monomials) = normalize_then_split_raw(sum, db);
-    let monomials = if monomials.len() > 1 {
-        VdBsqSumComnumTerm::new(0, monomials, db).into()
-    } else {
-        let (monomial, coeff) = monomials.data()[0];
-        coeff.mul_nonsum(monomial, db)
-    };
-    (litnum, monomials)
+impl<'sess> LitnumEqualityStash<'sess> {
+    pub fn reduce(
+        &self,
+        term: VdBsqComnumTerm<'sess>,
+        active_hypotheses: &VdBsqActiveHypotheses<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        /// decompose `t = a(b + x)`
+        let (a, (b, x)): (
+            VdBsqLitnumTerm<'sess>,
+            (VdBsqLitnumTerm<'sess>, VdBsqComnumTerm<'sess>),
+        ) = match term {
+            VdBsqComnumTerm::Atom(atom) => {
+                (VdBsqLitnumTerm::ONE, (VdBsqLitnumTerm::ZERO, atom.into()))
+            }
+            VdBsqComnumTerm::Sum(sum) => sum.split_fld(|f| f, db),
+            VdBsqComnumTerm::Product(product) => (
+                product.litnum_factor(),
+                (VdBsqLitnumTerm::ZERO, product.stem().into()),
+            ),
+        };
+        let key = VdBsqLitNumEqualityKey {
+            normalized_monomials: x,
+        };
+        let value = self.get_valid_value(&key, active_hypotheses)?.litnum;
+        Some(a.mul(value.add(b, db), db))
+    }
 }
 
-fn normalize_then_split_raw<'sess>(
-    sum: VdBsqSumComnumTerm<'sess>,
-    db: &'sess FloaterDb,
-) -> (VdBsqLitnumTerm<'sess>, VdBsqMonomialCoefficients<'sess>) {
-    let mut monomials = sum.monomials().clone();
-    debug_assert!(monomials.len() > 0);
-    let coeff0 = monomials.data()[0].1;
-    debug_assert!(coeff0.is_nonzero());
-    let inv_coeff0 = coeff0.inverse().expect("nonzero");
-    let normalized_constant_term = sum.constant_term().mul(inv_coeff0, db);
-    let normalized_monomials = monomials.map_collect(|coeff| coeff.mul(inv_coeff0, db));
-    (normalized_constant_term, normalized_monomials)
+impl<'sess> VdBsqHypothesisStack<'sess> {
+    pub(crate) fn get_active_litnum_equality(
+        &self,
+        expr: VdBsqExprFld<'sess>,
+        db: &'sess FloaterDb,
+    ) -> Option<VdBsqLitnumTerm<'sess>> {
+        let VdBsqNumTerm::Comnum(term) = expr.term().num()? else {
+            return None;
+        };
+        self.stashes()
+            .litnum_equality()
+            .reduce(term, self.active_hypotheses(), db)
+    }
 }

@@ -53,8 +53,14 @@ pub trait IsVdMirSequentialElaboratorInner<'db>: Sized {
         hint: Option<VdMirHintIdx>,
         region_data: VdMirExprRegionDataRef,
     ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-    fn elaborate_show_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
-    fn elaborate_qed_stmt(&mut self) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+    fn elaborate_show_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
+    fn elaborate_qed_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> Result<Self::HypothesisIdx, Self::Contradiction>;
 
     /// # expr
     fn elaborate_field_div_expr(
@@ -150,14 +156,12 @@ impl<'db> IsVdMirSequentialElaboratorInner<'db> for () {
         Ok(TrivialHypothesisIdx::Have { prop })
     }
 
-    fn elaborate_show_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
-        todo!()
-        // Ok(TrivialHypothesisIdx::Show)
+    fn elaborate_show_stmt(&mut self, goal: VdMirExprIdx) -> Result<TrivialHypothesisIdx, ()> {
+        Ok(TrivialHypothesisIdx::Show { goal })
     }
 
-    fn elaborate_qed_stmt(&mut self) -> Result<TrivialHypothesisIdx, ()> {
-        todo!()
-        // Ok(TrivialHypothesisIdx::Qed)
+    fn elaborate_qed_stmt(&mut self, goal: VdMirExprIdx) -> Result<TrivialHypothesisIdx, ()> {
+        Ok(TrivialHypothesisIdx::Qed { goal })
     }
 
     fn elaborate_field_div_expr(
@@ -378,20 +382,46 @@ where
                         hypothesis_chunk_place.set(Ok(hypothesis_chunk));
                     });
             }
-            VdMirStmtData::Show { .. } => {
-                let elaboration = self
-                    .inner
-                    .elaborate_show_stmt()
-                    .expect("handle contradiction");
-                todo!();
-            }
-            VdMirStmtData::Qed {
-                goal_and_hypothesis_chunk_place: goal_and_hypothesis_place,
+            VdMirStmtData::Show {
+                goal_and_hypothesis_chunk_place,
+                ..
             } => {
-                if let Some((goal, _)) = goal_and_hypothesis_place {
+                if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
+                    self.elaborate_expr(goal, hypothesis_constructor);
                     let hypothesis = self
                         .inner
-                        .elaborate_qed_stmt()
+                        .elaborate_show_stmt(goal)
+                        .expect("handle contradiction");
+                    let hypothesis_chunk = hypothesis_constructor
+                        .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {
+                            self.inner.transcribe_explicit_hypothesis(
+                                hypothesis,
+                                goal,
+                                hypothesis_constructor,
+                            )
+                        });
+                    hypothesis_constructor
+                        .stmt_arena_mut()
+                        .update(stmt, |entry| {
+                            let VdMirStmtData::Show {
+                                goal_and_hypothesis_chunk_place: Some((_, hypothesis_chunk_place)),
+                                ..
+                            } = entry.data_mut()
+                            else {
+                                unreachable!()
+                            };
+                            hypothesis_chunk_place.set(Ok(hypothesis_chunk));
+                        });
+                }
+            }
+            VdMirStmtData::Qed {
+                goal_and_hypothesis_chunk_place,
+            } => {
+                if let Some((goal, _)) = goal_and_hypothesis_chunk_place {
+                    self.elaborate_expr(goal, hypothesis_constructor);
+                    let hypothesis = self
+                        .inner
+                        .elaborate_qed_stmt(goal)
                         .expect("handle contradiction");
                     let hypothesis_chunk = hypothesis_constructor
                         .obtain_hypothesis_chunk_within_stmt(stmt, |hypothesis_constructor| {

@@ -5,7 +5,7 @@ pub enum VdDivisionLevel {
     Section,
     Subsection,
     Subsubsection,
-    Stmts,
+    Blocks,
 }
 
 impl std::fmt::Display for VdDivisionLevel {
@@ -22,7 +22,7 @@ impl VdDivisionLevel {
             VdDivisionLevel::Section => "section",
             VdDivisionLevel::Subsection => "subsection",
             VdDivisionLevel::Subsubsection => "subsubsection",
-            VdDivisionLevel::Stmts => "stmts",
+            VdDivisionLevel::Blocks => "stmts",
         }
     }
 
@@ -33,7 +33,7 @@ impl VdDivisionLevel {
             VdDivisionLevel::Section => "Section",
             VdDivisionLevel::Subsection => "Subsection",
             VdDivisionLevel::Subsubsection => "Subsubsection",
-            VdDivisionLevel::Stmts => "Stmts",
+            VdDivisionLevel::Blocks => "Stmts",
         }
     }
 }
@@ -63,7 +63,7 @@ fn test_division_level_range_contains() {
     // Test Any range
     let any_range = VdDivisionLevelRange::Any;
     assert!(any_range.contains(VdDivisionLevel::Part));
-    assert!(any_range.contains(VdDivisionLevel::Stmts));
+    assert!(any_range.contains(VdDivisionLevel::Blocks));
 
     // Test NoLessThan range
     let below_chapter = VdDivisionLevelRange::Below(VdDivisionLevel::Chapter);
@@ -72,5 +72,5 @@ fn test_division_level_range_contains() {
     assert!(below_chapter.contains(VdDivisionLevel::Section));
     assert!(below_chapter.contains(VdDivisionLevel::Subsection));
     assert!(below_chapter.contains(VdDivisionLevel::Subsubsection));
-    assert!(below_chapter.contains(VdDivisionLevel::Stmts));
+    assert!(below_chapter.contains(VdDivisionLevel::Blocks));
 }

@@ -3,11 +3,12 @@
 //! Things like `have` and `show` are tactics in traditional provers, but are statements in visored.
 //!
 //! This is actually more similar to those in natural languages.
+pub(crate) mod batch;
 pub mod block;
 #[cfg(test)]
 mod tests;
 
-use self::block::*;
+use self::{batch::*, block::*};
 use crate::{expr::VdMirExprIdx, pattern::VdMirPattern, *};
 use hint::{VdMirHintData, VdMirHintEntry, VdMirHintIdx, VdMirHintIdxRange, VdMirHintSource};
 use hypothesis::{contradiction::VdMirHypothesisResult, VdMirHypothesisIdx};
@@ -59,6 +60,7 @@ pub enum VdMirStmtData {
     Show {
         prop: VdMirExprIdx,
         hint: Option<VdMirHintIdx>,
+        goal_and_hypothesis_chunk_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
     },
     Qed {
         goal_and_hypothesis_chunk_place: Option<(VdMirExprIdx, OncePlace<VdMirHypothesisResult>)>,
@@ -72,11 +74,11 @@ pub struct VdMirStmtEntry {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum VdMirStmtSource {
-    Stmt(VdSemBlockIdx),
+    Block(VdSemBlockIdx),
     Division(VdSemDivisionIdx),
     Sentence(VdSemSentenceIdx),
     Clause(VdSemClauseIdx),
-    Qed(VdSemSentenceIdxRange),
+    Qed,
 }
 
 pub type VdMirStmtArena = Arena<VdMirStmtEntry>;
@@ -108,24 +110,26 @@ impl VdMirStmtEntry {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemDivisionIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let entries = self
-            .into_iter()
-            .map(|division| VdMirStmtEntry::new(builder.build_stmt_from_sem_division(division)))
-            .collect::<Vec<_>>();
-        let sources = self.into_iter().map(VdMirStmtSource::Division);
-        builder.alloc_stmts(entries, sources)
+impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprRegionBuilder<'db>> for VdSemDivisionIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirStmtIdxRange {
+        let mut stmt_batch = VdMirStmtBatch::new();
+        for division in self {
+            stmt_batch.push(
+                VdMirStmtEntry::new(builder.build_stmt_from_sem_division(division)),
+                VdMirStmtSource::Division(division),
+            );
+        }
+        builder.alloc_stmts(stmt_batch)
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_stmt_from_sem_division(&mut self, division: VdSemDivisionIdx) -> VdMirStmtData {
         match *self.sem_division_arena()[division].data() {
-            VdSemDivisionData::Stmts { stmts } => VdMirStmtData::Block {
-                stmts: stmts.to_vd_mir(self),
+            VdSemDivisionData::Blocks { blocks } => VdMirStmtData::Block {
+                stmts: blocks.to_vd_mir(self),
                 meta: VdMirBlockMeta::Division(
-                    VdDivisionLevel::Stmts,
+                    VdDivisionLevel::Blocks,
                     self.sem_division_arena()[division].module_path(),
                 ),
             },
@@ -147,120 +151,100 @@ impl<'db> VdMirExprBuilder<'db> {
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemBlockIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let entries = self
-            .into_iter()
-            .map(|stmt| VdMirStmtEntry::new(builder.build_mir_stmt_from_block(stmt)))
-            .collect::<Vec<_>>();
-        let sources = self.into_iter().map(VdMirStmtSource::Stmt);
-        builder.alloc_stmts(entries, sources)
+impl<'db> ToVdMir<VdMirStmtIdxRange, VdMirExprRegionBuilder<'db>> for VdSemBlockIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirStmtIdxRange {
+        let mut stmt_batch = VdMirStmtBatch::new();
+        for stmt in self {
+            builder.build_mir_stmts_from_block(stmt, &mut stmt_batch);
+        }
+        builder.alloc_stmts(stmt_batch)
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
-    fn build_mir_stmt_from_block(&mut self, block: VdSemBlockIdx) -> VdMirStmtData {
+impl<'db> VdMirExprRegionBuilder<'db> {
+    fn build_mir_stmts_from_block(
+        &mut self,
+        block: VdSemBlockIdx,
+        stmt_batch: &mut VdMirStmtBatch,
+    ) {
         match *self.sem_block_arena()[block].data() {
-            VdSemBlockData::Paragraph(sentences) => VdMirStmtData::Block {
-                stmts: (sentences, None).to_vd_mir(self),
-                meta: VdMirBlockMeta::Paragraph,
-            },
+            VdSemBlockData::Paragraph(sentences) => {
+                self.build_stmts_from_sem_sentences(sentences, stmt_batch)
+            }
             VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
-                stmts,
+                blocks,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
-            } => VdMirStmtData::Block {
-                stmts: stmts.to_vd_mir(self),
-                meta: VdMirBlockMeta::Environment(
-                    environment_signature.path(),
-                    match resolution {
-                        VdEnvironmentGlobalResolution::Environment(vd_environment_path) => {
-                            vd_environment_path
-                        }
-                    },
-                    self.sem_block_arena()[block].module_path(),
-                ),
-            },
-        }
-    }
-}
-
-impl ToVdMir<VdMirStmtIdxRange> for (VdSemSentenceIdxRange, Option<VdMirExprIdx>) {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let (sentences, mut ext_goal) = self;
-        let mut entries = sentences
-            .into_iter()
-            .map(|sentence| VdMirStmtEntry::new(builder.build_stmt_from_sem_sentence(sentence)))
-            .collect::<Vec<_>>();
-        let goal = builder.collect_goal(ext_goal, &entries);
-        entries.push(VdMirStmtEntry::new_qed(goal));
-        let sources = sentences
-            .into_iter()
-            .map(VdMirStmtSource::Sentence)
-            .chain([VdMirStmtSource::Qed(sentences)]);
-        builder.alloc_stmts(entries, sources)
-    }
-}
-
-impl<'db> VdMirExprBuilder<'db> {
-    fn collect_goal(
-        &self,
-        ext_goal: Option<VdMirExprIdx>,
-        entries: &[VdMirStmtEntry],
-    ) -> Option<VdMirExprIdx> {
-        let mut goal = ext_goal;
-        for entry in entries {
-            self.collect_goal_aux(entry, &mut goal);
-        }
-        goal
-    }
-
-    fn collect_goal_aux(&self, entry: &VdMirStmtEntry, goal: &mut Option<VdMirExprIdx>) {
-        match *entry.data() {
-            VdMirStmtData::Goal { prop } => {
-                if goal.is_some() {
-                    todo!();
-                }
-                *goal = Some(prop)
+            } => {
+                let environment_path = match resolution {
+                    VdEnvironmentGlobalResolution::Environment(environment_path) => {
+                        environment_path
+                    }
+                };
+                stmt_batch.push(
+                    VdMirStmtEntry::new(VdMirStmtData::Block {
+                        stmts: blocks.to_vd_mir(self),
+                        meta: VdMirBlockMeta::Environment(
+                            environment_signature.path(),
+                            environment_path,
+                            self.sem_block_arena()[block].module_path(),
+                        ),
+                    }),
+                    VdMirStmtSource::Block(block),
+                );
             }
-            VdMirStmtData::Block { stmts, ref meta } => {
-                for stmt in stmts {
-                    self.collect_goal_aux(&self.stmt_arena()[stmt], goal);
-                }
-            }
-            _ => {}
         }
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
-    fn build_stmt_from_sem_sentence(&mut self, sentence: VdSemSentenceIdx) -> VdMirStmtData {
+impl<'db> VdMirExprRegionBuilder<'db> {
+    fn build_stmts_from_sem_sentences(
+        &mut self,
+        sentences: VdSemSentenceIdxRange,
+        stmt_batch: &mut VdMirStmtBatch,
+    ) {
+        for sentence in sentences {
+            self.build_stmts_from_sem_sentence(sentence, stmt_batch);
+        }
+    }
+
+    fn build_stmts_from_sem_sentence(
+        &mut self,
+        sentence: VdSemSentenceIdx,
+        stmt_batch: &mut VdMirStmtBatch,
+    ) {
         match self.sem_sentence_arena()[sentence] {
-            VdSemSentenceData::Clauses { clauses, end } => VdMirStmtData::Block {
-                stmts: clauses.to_vd_mir(self),
-                meta: VdMirBlockMeta::Sentence,
-            },
+            VdSemSentenceData::Clauses { clauses, end } => {
+                self.build_stmts_from_sem_clauses(clauses, stmt_batch);
+            }
             VdSemSentenceData::Have => todo!(),
             VdSemSentenceData::Show => todo!(),
         }
     }
 }
 
-impl ToVdMir<VdMirStmtIdxRange> for VdSemClauseIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirStmtIdxRange {
-        let entries = self
-            .into_iter()
-            .map(|clause| VdMirStmtEntry::new(builder.build_stmt_from_sem_clause(clause)))
-            .collect::<Vec<_>>();
-        let sources = self.into_iter().map(VdMirStmtSource::Clause);
-        builder.alloc_stmts(entries, sources)
+impl<'db> VdMirExprRegionBuilder<'db> {
+    fn build_stmts_from_sem_clauses(
+        &mut self,
+        clauses: VdSemClauseIdxRange,
+        stmt_batch: &mut VdMirStmtBatch,
+    ) {
+        for clause in clauses {
+            let stmt_data = self.build_stmt_from_sem_clause(clause, stmt_batch.goal_place_mut());
+            stmt_batch.push(
+                VdMirStmtEntry::new(stmt_data),
+                VdMirStmtSource::Clause(clause),
+            );
+        }
     }
-}
 
-impl<'db> VdMirExprBuilder<'db> {
-    fn build_stmt_from_sem_clause(&mut self, clause: VdSemClauseIdx) -> VdMirStmtData {
+    fn build_stmt_from_sem_clause(
+        &mut self,
+        clause: VdSemClauseIdx,
+        goal: &mut OncePlace<VdMirExprIdx>,
+    ) -> VdMirStmtData {
         match *self.sem_clause_arena()[clause].data() {
             VdSemClauseData::Verb => todo!(),
             VdSemClauseData::Let {
@@ -281,37 +265,27 @@ impl<'db> VdMirExprBuilder<'db> {
                     },
                 },
             },
-            VdSemClauseData::Assume {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Assume {
+            VdSemClauseData::Assume { formula, .. } => VdMirStmtData::Assume {
                 prop: formula.to_vd_mir(self),
                 hypothesis_chunk_place: OncePlace::default(),
             },
-            VdSemClauseData::Goal {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Goal {
-                prop: formula.to_vd_mir(self),
-            },
-            VdSemClauseData::Have {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Have {
+            VdSemClauseData::Goal { formula, .. } => {
+                let prop = formula.to_vd_mir(self);
+                goal.set(prop);
+                VdMirStmtData::Goal { prop }
+            }
+            VdSemClauseData::Have { formula, .. } => VdMirStmtData::Have {
                 prop: formula.to_vd_mir(self),
                 hint: None, // ad hoc
                 hypothesis_chunk_place: OncePlace::default(),
             },
-            VdSemClauseData::Show {
-                left_math_delimiter_token_idx: left_dollar_token_idx,
-                formula,
-                right_math_delimiter_token_idx: right_dollar_token_idx,
-            } => VdMirStmtData::Show {
+            VdSemClauseData::Show { formula, .. } => VdMirStmtData::Show {
                 prop: formula.to_vd_mir(self),
-                hint: None, // ad hoc
+                hint: None,
+                goal_and_hypothesis_chunk_place: match goal.get().cloned() {
+                    Some(goal) => Some((goal, OncePlace::default())),
+                    None => None,
+                },
             },
             VdSemClauseData::Todo(lx_rose_token_idx) => todo!(),
         }

@@ -17,8 +17,8 @@ pub struct VdSemDivisionEntry {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VdSemDivisionData {
-    Stmts {
-        stmts: VdSemBlockIdxRange,
+    Blocks {
+        blocks: VdSemBlockIdxRange,
     },
     Divisions {
         command_token_idx: LxRoseTokenIdx,
@@ -68,8 +68,8 @@ impl ToVdSem<VdSemDivisionIdxRange> for VdSynDivisionIdxRange {
 impl<'a> VdSemExprBuilder<'a> {
     pub(crate) fn build_division(&mut self, division: VdSynDivisionIdx) -> VdSemDivisionData {
         match self.syn_division_arena()[division] {
-            VdSynDivisionData::Stmts { stmts } => VdSemDivisionData::Stmts {
-                stmts: stmts.to_vd_sem(self),
+            VdSynDivisionData::Stmts { stmts } => VdSemDivisionData::Blocks {
+                blocks: stmts.to_vd_sem(self),
             },
             VdSynDivisionData::Divisions {
                 command_token_idx,

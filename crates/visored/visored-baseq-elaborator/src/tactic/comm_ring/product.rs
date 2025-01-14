@@ -1,43 +1,44 @@
 use super::*;
 use crate::term::{
     comnum::{
-        sum::VdBsqSumComnumTerm, VdBsqExponentialParts, VdBsqExponentialPowers,
-        VdBsqExponentialPowersRef, VdBsqNonProductNumTerm, VdBsqNonSumComnumTerm,
+        sum::VdBsqSumTerm, VdBsqExponentialParts, VdBsqExponentialPowers, VdBsqExponentialPowersRef,
     },
     litnum::VdBsqLitnumTerm,
 };
+use elabm::ElabM;
 use floated_sequential::db::FloaterDb;
 use itertools::Itertools;
-use miracle::error::MiracleAltMaybeResult;
+use miracle::multifold::Multifold;
+use miracle::{
+    error::MiracleAltMaybeResult,
+    multifold::{self, multifold2},
+};
+use term::comnum::product::VdBsqProductStem;
 
-pub fn foldm_product<'db, 'sess>(
-    engine: &mut VdBsqElaboratorInner<'db, 'sess>,
-    exponentials: &[(VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>)],
-    f: &impl Fn(
-        &mut VdBsqElaboratorInner<'db, 'sess>,
-        Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>,
-    ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
-) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
-    engine.multifold(
+pub fn foldm_product<'a, 'db, 'sess>(
+    exponentials: &'a [(VdBsqNumTerm<'sess>, VdBsqNumTerm<'sess>)],
+) -> impl ElabM<'db, 'sess, Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>> + 'a
+where
+    'db: 'sess,
+{
+    exponentials.multifold(
         vec![],
-        exponentials.iter().copied(),
         &[
             multiply_without_expanding as FnType,
-            multiply_with_expanding as FnType,
+            multiply_with_expanding as _,
         ],
-        f,
     )
 }
 
 type State<'sess> = Vec<(VdBsqLitnumTerm<'sess>, VdBsqExponentialParts<'sess>)>;
-type Item<'sess> = (VdBsqNonProductNumTerm<'sess>, VdBsqNumTerm<'sess>);
+type Item<'sess> = (VdBsqNumTerm<'sess>, VdBsqNumTerm<'sess>);
 type FnType<'db, 'sess> =
-    fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &Item<'sess>) -> Option<State<'sess>>;
+    fn(&mut VdBsqElaboratorInner<'db, 'sess>, &State<'sess>, &&Item<'sess>) -> Option<State<'sess>>;
 
 fn multiply_without_expanding<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     expansion: &State<'sess>,
-    &(base, exponent): &Item<'sess>,
+    &&(base, exponent): &&Item<'sess>,
 ) -> Option<State<'sess>> {
     let factor_expansion = &[(1.into(), vec![(base, exponent)])];
     multiply_aux(elaborator, expansion, factor_expansion)
@@ -46,7 +47,7 @@ fn multiply_without_expanding<'db, 'sess>(
 fn multiply_with_expanding<'db, 'sess>(
     elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     expansion: &State<'sess>,
-    &(base, exponent): &Item<'sess>,
+    &&(base, exponent): &&Item<'sess>,
 ) -> Option<State<'sess>> {
     let db = elaborator.floater_db();
     let config = elaborator.session().config().tactic().comm_ring();
@@ -59,7 +60,7 @@ fn multiply_with_expanding<'db, 'sess>(
         return None;
     }
     debug_assert!(exponent > 0);
-    let VdBsqNonProductNumTerm::SumComnum(sum) = base else {
+    let VdBsqNumTerm::Comnum(VdBsqComnumTerm::Sum(sum)) = base else {
         return None;
     };
     let factor_expansion = if exponent == 1 {
@@ -70,10 +71,10 @@ fn multiply_with_expanding<'db, 'sess>(
                 (
                     coeff,
                     match monomial {
-                        VdBsqNonSumComnumTerm::Atom(atom) => {
+                        VdBsqProductStem::Atom(atom) => {
                             vec![(atom.into(), 1.into())]
                         }
-                        VdBsqNonSumComnumTerm::Product(base) => base.exponentials().to_vec(),
+                        VdBsqProductStem::NonTrivial(base) => base.exponentials().to_vec(),
                     },
                 )
             }))
@@ -87,7 +88,7 @@ fn multiply_with_expanding<'db, 'sess>(
 }
 
 fn multinomial_expansion<'db, 'sess>(
-    sum: VdBsqSumComnumTerm<'sess>,
+    sum: VdBsqSumTerm<'sess>,
     exponent: i128,
     max_size: usize,
     db: &'sess FloaterDb,
@@ -123,10 +124,10 @@ fn multinomial_expansion<'db, 'sess>(
             let (summand, coeff) = sum.monomials().data()[monomial_idx];
             cumulative_coeff.mul_assign(coeff.pow128(index, db).into(), db);
             match summand {
-                VdBsqNonSumComnumTerm::Atom(term) => {
+                VdBsqProductStem::Atom(term) => {
                     exponential_parts.push((term.into(), index.into()));
                 }
-                VdBsqNonSumComnumTerm::Product(base) => {
+                VdBsqProductStem::NonTrivial(base) => {
                     for &(base, exp) in base.exponentials() {
                         exponential_parts.push((base.into(), exp.mul128(index, db).into()));
                     }

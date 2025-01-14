@@ -356,7 +356,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
             VdSemBlockData::Environment {
                 environment_signature,
                 resolution,
-                stmts,
+                blocks: stmts,
                 begin_command_token_idx,
                 end_rcurl_token_idx,
             } => LxTokenIdxRange::new_closed(*begin_command_token_idx, *end_rcurl_token_idx),
@@ -378,7 +378,7 @@ impl<'db> VdSemExprRangeCalculator<'db> {
 
     fn calc_division(&mut self, division: VdSemDivisionIdx) -> VdSemDivisionTokenIdxRange {
         match *self.division_arena[division].data() {
-            VdSemDivisionData::Stmts { stmts } => self
+            VdSemDivisionData::Blocks { blocks: stmts } => self
                 .get_stmt(stmts.start())
                 .join(self.get_stmt(stmts.last().expect("stmts are always non-empty"))),
             VdSemDivisionData::Divisions {

@@ -8,10 +8,13 @@ use crate::{
         VdBsqHypothesisIdx,
     },
     session::VdBsqSession,
+    *,
 };
+use alt_maybe_result::*;
+use alt_option::*;
 use eterned::db::EternerDb;
 use floated_sequential::db::FloaterDb;
-use miracle::{HasMiracle, Miracle};
+use miracle::{error::MiracleAltMaybeResult, HasMiracle, Miracle};
 use rustc_hash::FxHashMap;
 use smallvec::*;
 use std::marker::PhantomData;
@@ -120,6 +123,10 @@ impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
     pub fn expr_fld(&self, expr: VdMirExprIdx) -> VdBsqExprFld<'sess> {
         self.expr_to_fld_map[expr]
     }
+
+    pub(crate) fn expr_to_fld_map(&self) -> &VdMirExprMap<VdBsqExprFld<'sess>> {
+        &self.expr_to_fld_map
+    }
 }
 
 impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
@@ -134,7 +141,6 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
 
     fn enter_block(&mut self, kind: VdMirBlockKind) {
         match kind {
-            VdMirBlockKind::Paragraph | VdMirBlockKind::Sentence => (),
             VdMirBlockKind::Environment | VdMirBlockKind::Division => {
                 self.hypothesis_constructor.enter_block()
             }
@@ -143,7 +149,6 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
 
     fn exit_block(&mut self, kind: VdMirBlockKind) {
         match kind {
-            VdMirBlockKind::Paragraph | VdMirBlockKind::Sentence => (),
             VdMirBlockKind::Environment | VdMirBlockKind::Division => {
                 self.hypothesis_constructor.exit_block()
             }
@@ -208,16 +213,24 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         let prop = self.expr_to_fld_map[prop];
         match hint {
             Some(hint) => todo!(),
-            None => self.obvious(prop),
+            None => self.run_obvious(prop),
         }
     }
 
-    fn elaborate_show_stmt(&mut self) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
-        todo!()
+    fn elaborate_show_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
+        let goal = self.expr_fld(goal);
+        self.run_obvious(goal)
     }
 
-    fn elaborate_qed_stmt(&mut self) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
-        todo!()
+    fn elaborate_qed_stmt(
+        &mut self,
+        goal: VdMirExprIdx,
+    ) -> VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>> {
+        let goal = self.expr_fld(goal);
+        self.run_obvious(goal)
     }
 
     fn elaborate_field_div_expr(
@@ -228,8 +241,14 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         let divisor = self.expr_fld(divisor);
         let signature = if divisor.ty() == self.ty_menu().nat {
             self.signature_menu().nat_ne
+        } else if divisor.ty() == self.ty_menu().int {
+            self.signature_menu().int_ne
+        } else if divisor.ty() == self.ty_menu().rat {
+            self.signature_menu().rat_ne
+        } else if divisor.ty() == self.ty_menu().real {
+            self.signature_menu().real_ne
         } else {
-            todo!()
+            todo!("divisor.ty() = {:?}", divisor.ty())
         };
         let prop = self.mk_expr(
             VdBsqExprFldData::ChainingSeparatedList {
@@ -243,7 +262,7 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
             self.ty_menu().prop,
             None,
         );
-        self.obvious(prop)
+        self.run_obvious(prop)
     }
 
     fn elaborate_folding_separated_list_expr(
@@ -307,5 +326,22 @@ impl<'db, 'sess> IsVdMirSequentialElaboratorInner<'db> for VdBsqElaboratorInner<
         hypothesis_constructor: &mut VdMirHypothesisConstructor<'db, VdBsqHypothesisIdx<'sess>>,
     ) -> VdMirHypothesisIdx {
         self.transcribe_hypothesis(hypothesis, None, hypothesis_constructor)
+    }
+}
+
+impl<'db, 'sess> VdBsqElaboratorInner<'db, 'sess> {
+    pub fn run(&mut self, mut f: impl FnMut(&mut Self) -> Mhr<'sess>) -> Hr<'sess> {
+        use miracle::HasMiracleFull;
+
+        let stages = self.session().config().stages();
+        assert!(stages.len() > 0, "stages must be non-empty");
+        match self.run_stages(stages, f) {
+            AltJustOk(res) => res,
+            AltJustErr(_) | AltNothing => todo!(),
+        }
+    }
+
+    pub fn run_obvious(&mut self, prop: VdBsqExprFld<'sess>) -> Hr<'sess> {
+        self.run(|slf| slf.obvious(prop))
     }
 }

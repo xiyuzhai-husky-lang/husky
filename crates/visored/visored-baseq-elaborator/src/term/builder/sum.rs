@@ -1,10 +1,9 @@
 use super::*;
 use crate::term::{
-    atom::VdBsqAtomComnumTerm,
-    product::{VdBsqProductComnumTermBase, VdBsqProductComnumTermBaseData},
-    sum::VdBsqSumComnumTerm,
-    VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNonSumComnumTerm,
-    VdBsqNumTerm,
+    atom::VdBsqAtomTerm,
+    product::{VdBsqProductStem, VdBsqProductTerm},
+    sum::VdBsqSumTerm,
+    VdBsqComnumTerm, VdBsqLitnumTerm, VdBsqMonomialCoefficients, VdBsqNumTerm,
 };
 use floated_sequential::db::FloaterDb;
 
@@ -53,17 +52,9 @@ impl<'sess> VdBsqSumBuilder<'sess> {
             VdBsqNumTerm::Comnum(term) => match term {
                 VdBsqComnumTerm::Atom(term) => self.add_atom(term),
                 VdBsqComnumTerm::Sum(term) => self.add_sum(term),
-                VdBsqComnumTerm::Product(litnum, term) => self.add_product(litnum, term),
+                VdBsqComnumTerm::Product(product) => self.add_product(product),
             },
         }
-    }
-
-    pub fn add_litnum_times_atom(
-        &mut self,
-        litnum: VdBsqLitnumTerm<'sess>,
-        atom: VdBsqAtomComnumTerm<'sess>,
-    ) {
-        self.add_monomial(VdBsqNonSumComnumTerm::Atom(atom), litnum);
     }
 
     pub fn add_litnum(&mut self, term: VdBsqLitnumTerm<'sess>) {
@@ -85,38 +76,34 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         match term {
             VdBsqComnumTerm::Atom(term) => self.sub_atom(term),
             VdBsqComnumTerm::Sum(term) => self.sub_sum(term),
-            VdBsqComnumTerm::Product(litnum, term) => self.sub_product(litnum, term),
+            VdBsqComnumTerm::Product(product) => self.sub_product(product),
         }
     }
 
-    pub fn add_atom(&mut self, term: VdBsqAtomComnumTerm<'sess>) {
-        self.add_monomial(VdBsqNonSumComnumTerm::Atom(term), VdBsqLitnumTerm::ONE);
+    pub fn add_atom(&mut self, term: VdBsqAtomTerm<'sess>) {
+        self.add_monomial(VdBsqProductStem::Atom(term), VdBsqLitnumTerm::ONE);
     }
 
-    pub fn sub_atom(&mut self, term: VdBsqAtomComnumTerm<'sess>) {
-        self.add_monomial(VdBsqNonSumComnumTerm::Atom(term), VdBsqLitnumTerm::NEG_ONE);
+    pub fn sub_atom(&mut self, term: VdBsqAtomTerm<'sess>) {
+        self.add_monomial(VdBsqProductStem::Atom(term), VdBsqLitnumTerm::NEG_ONE);
     }
 
-    pub fn add_sum(&mut self, term: VdBsqSumComnumTerm<'sess>) {
+    pub fn add_sum(&mut self, term: VdBsqSumTerm<'sess>) {
         self.add_litnum(term.constant_term());
         for &(monomial, coeff) in term.monomials() {
             self.add_monomial(monomial, coeff);
         }
     }
 
-    pub fn sub_sum(&mut self, term: VdBsqSumComnumTerm<'sess>) {
+    pub fn sub_sum(&mut self, term: VdBsqSumTerm<'sess>) {
         self.sub_litnum(term.constant_term());
         for &(monomial, coeff) in term.monomials() {
             self.add_monomial(monomial, coeff.neg(self.db));
         }
     }
 
-    pub fn add_product(
-        &mut self,
-        litnum: VdBsqLitnumTerm<'sess>,
-        term: VdBsqProductComnumTermBase<'sess>,
-    ) {
-        self.add_monomial(VdBsqNonSumComnumTerm::Product(term), litnum);
+    pub fn add_product(&mut self, product: VdBsqProductTerm<'sess>) {
+        self.add_monomial(product.stem(), product.litnum_factor());
     }
 
     pub fn add_general_product(
@@ -128,39 +115,36 @@ impl<'sess> VdBsqSumBuilder<'sess> {
             VdBsqNumTerm::Litnum(term) => self.add_litnum(litnum.mul(term, self.db)),
             VdBsqNumTerm::Comnum(term) => match term {
                 VdBsqComnumTerm::Atom(term) => {
-                    self.add_monomial(VdBsqNonSumComnumTerm::Atom(term), litnum);
+                    self.add_monomial(VdBsqProductStem::Atom(term), litnum);
                 }
                 VdBsqComnumTerm::Sum(term) => {
-                    self.add_monomial(
-                        VdBsqNonSumComnumTerm::Product(VdBsqProductComnumTermBase::new(
-                            [(term.into(), VdBsqNumTerm::ONE)].into_iter().collect(),
-                            self.db,
-                        )),
-                        litnum,
-                    );
+                    self.add_litnum(litnum.mul(term.constant_term(), self.db));
+                    for &(monomial, coeff) in term.monomials() {
+                        self.add_monomial(monomial, litnum.mul(coeff, self.db));
+                    }
                 }
-                VdBsqComnumTerm::Product(litnum1, base) => {
-                    self.add_product(litnum.mul(litnum1, self.db), base);
+                VdBsqComnumTerm::Product(product) => {
+                    self.add_num(
+                        product.with_litnum_factor_update(|litnum1| litnum.mul(litnum1, self.db)),
+                    );
                 }
             },
         }
     }
 
-    pub fn sub_product(
-        &mut self,
-        litnum: VdBsqLitnumTerm<'sess>,
-        term: VdBsqProductComnumTermBase<'sess>,
-    ) {
-        self.add_monomial(VdBsqNonSumComnumTerm::Product(term), litnum.neg(self.db));
+    pub fn sub_product(&mut self, product: VdBsqProductTerm<'sess>) {
+        self.add_monomial(product.stem(), product.litnum_factor().neg(self.db));
     }
 
     pub fn add_monomial(
         &mut self,
-        term: VdBsqNonSumComnumTerm<'sess>,
-        coeff: VdBsqLitnumTerm<'sess>,
+        base: impl Into<VdBsqProductStem<'sess>>,
+        coeff: impl Into<VdBsqLitnumTerm<'sess>>,
     ) {
+        let base = base.into();
+        let coeff = coeff.into();
         self.unpruned_monomials
-            .insert_or_update((term, coeff), |(_, old_coeff)| {
+            .insert_or_update((base, coeff), |(_, old_coeff)| {
                 old_coeff.add_assign(coeff, self.db);
             });
     }
@@ -174,27 +158,15 @@ impl<'sess> VdBsqSumBuilder<'sess> {
         match (monomials.len(), self.constant_litnum) {
             (0, _) => self.constant_litnum.into(),
             (1, VdBsqLitnumTerm::ZERO) => {
-                let (non_sum, coeff) = monomials.into_iter().next().unwrap();
+                let (base, coeff) = monomials.into_iter().next().unwrap();
                 assert!(!coeff.is_zero());
                 if coeff.is_one() {
                     todo!()
                 } else {
-                    match non_sum {
-                        VdBsqNonSumComnumTerm::Atom(term) => VdBsqComnumTerm::Product(
-                            coeff,
-                            VdBsqProductComnumTermBase::new(
-                                [(term.into(), VdBsqNumTerm::ONE)].into_iter().collect(),
-                                self.db,
-                            ),
-                        )
-                        .into(),
-                        VdBsqNonSumComnumTerm::Product(base) => {
-                            VdBsqComnumTerm::Product(coeff, base).into()
-                        }
-                    }
+                    VdBsqProductTerm::new(coeff, base).into()
                 }
             }
-            _ => VdBsqSumComnumTerm::new(self.constant_litnum, monomials, self.db).into(),
+            _ => VdBsqSumTerm::new(self.constant_litnum, monomials, self.db).into(),
         }
     }
 }

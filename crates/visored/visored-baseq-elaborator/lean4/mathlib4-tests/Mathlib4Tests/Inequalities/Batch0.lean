@@ -9,7 +9,7 @@ macro "term_trivial": tactic =>`(tactic|
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
 
-macro "expr_equivalent": tactic =>`(tactic|
+macro "old_main_hypothesis": tactic =>`(tactic|
   first
   | assumption; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
@@ -36,6 +36,20 @@ macro "comm_ring": tactic =>`(tactic|
   | ring_nf; done
   | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
 )
+
+macro "litnum_reduce": tactic =>`(tactic|
+  first
+  | simp; done
+  | simp [*]; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
+macro "litnum_bound": tactic =>`(tactic|
+  first
+  | linarith; done
+  | fail "Could not prove this goal automatically. Afterall, this is an ad hoc implementation."
+)
+
 namespace Example1
 def h := by
   have h1 : 0 = 0 := by term_trivial
@@ -111,7 +125,7 @@ end Example12
 
 namespace Example13
 def h (x : ℝ) := by
-  have h1 : (2 : ℝ) * ((1 : ℝ) + x) = (2 : ℝ) + (2 : ℝ) * x := by comm_ring
+  have h1 : (2 : ℝ) * ((1 : ℝ) + x) = (2 : ℝ) + (2 : ℝ) * x := by term_trivial
   exact ()
 end Example13
 
@@ -231,7 +245,7 @@ end Example32
 
 namespace Example33
 def h (x : ℝ) (h1 : x = (1 : ℝ)) := by
-  have h2 : x = (1 : ℝ) := by expr_equivalent
+  have h2 : x = (1 : ℝ) := by old_main_hypothesis
   exact ()
 end Example33
 
@@ -243,3 +257,330 @@ def h := by
   exact ()
 end Example34
 
+namespace Example35
+def h := by
+  let x := 1
+  have h1 : x = 1 := by let_assigned
+  have h2 : x > 0 := by litnum_reduce
+  exact ()
+end Example35
+
+namespace Example36
+def h := by
+  let x := 1
+  have h1 : x = 1 := by let_assigned
+  let y := 1
+  have h2 : y = 1 := by let_assigned
+  let z := 2
+  have h3 : z = 2 := by let_assigned
+  have h4 : x + y = z := by litnum_reduce
+  exact ()
+end Example36
+
+namespace Example37
+def h (x : ℝ) (h1 : x > (0 : ℝ)) := by
+  have h2 : x > (0 : ℝ) := by old_main_hypothesis
+  exact ()
+end Example37
+
+namespace Example38
+def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
+  have h2 : x > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example38
+
+namespace Example39
+def h (x : ℝ) (h1 : x > (1 : ℝ)) := by
+  have h2 : x ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example39
+
+namespace Example40
+def h (x : ℝ) (h1 : x ≥ (1 : ℝ)) := by
+  have h2 : x ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example40
+
+namespace Example41
+def h (x : ℝ) (h1 : x ≥ (1 : ℝ)) := by
+  have h2 : x > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example41
+
+namespace Example42
+def h (x : ℝ) (h1 : x < (1 : ℝ)) := by
+  have h2 : x ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example42
+
+namespace Example43
+def h (x : ℝ) (h1 : x < (1 : ℝ)) := by
+  have h2 : x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example43
+
+namespace Example44
+def h (x : ℝ) (h1 : x < (1 : ℝ)) := by
+  have h2 : x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example44
+
+namespace Example45
+def h (x : ℝ) (h1 : x ≤ (1 : ℝ)) := by
+  have h2 : x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example45
+
+namespace Example46
+def h (x : ℝ) (h1 : x ≤ (1 : ℝ)) := by
+  have h2 : x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example46
+
+namespace Example47
+def h (x : ℝ) (h1 : - x > (0 : ℝ)) := by
+  have h2 : - x > (0 : ℝ) := by old_main_hypothesis
+  exact ()
+end Example47
+
+namespace Example48
+def h (x : ℝ) (h1 : - x > (1 : ℝ)) := by
+  have h2 : - x > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example48
+
+namespace Example49
+def h (x : ℝ) (h1 : - x > (1 : ℝ)) := by
+  have h2 : - x ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example49
+
+namespace Example50
+def h (x : ℝ) (h1 : - x ≥ (1 : ℝ)) := by
+  have h2 : - x ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example50
+
+namespace Example51
+def h (x : ℝ) (h1 : - x ≥ (1 : ℝ)) := by
+  have h2 : - x > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example51
+
+namespace Example52
+def h (x : ℝ) (h1 : - x < (1 : ℝ)) := by
+  have h2 : - x ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example52
+
+namespace Example53
+def h (x : ℝ) (h1 : - x < (1 : ℝ)) := by
+  have h2 : - x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example53
+
+namespace Example54
+def h (x : ℝ) (h1 : - x < (1 : ℝ)) := by
+  have h2 : - x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example54
+
+namespace Example55
+def h (x : ℝ) (h1 : - x ≤ (1 : ℝ)) := by
+  have h2 : - x < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example55
+
+namespace Example56
+def h (x : ℝ) (h1 : - x ≤ (1 : ℝ)) := by
+  have h2 : - x ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example56
+
+namespace Example57
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) > (0 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by old_main_hypothesis
+  exact ()
+end Example57
+
+namespace Example58
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) > (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example58
+
+namespace Example59
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) > (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example59
+
+namespace Example60
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≥ (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example60
+
+namespace Example61
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≥ (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example61
+
+namespace Example62
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example62
+
+namespace Example63
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example63
+
+namespace Example64
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example64
+
+namespace Example65
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≤ (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example65
+
+namespace Example66
+def h (x : ℝ) (h1 : -((2 : ℝ) * x) ≤ (1 : ℝ)) := by
+  have h2 : -((2 : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example66
+
+namespace Example67
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ) := by old_main_hypothesis
+  exact ()
+end Example67
+
+namespace Example68
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example68
+
+namespace Example69
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example69
+
+namespace Example70
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example70
+
+namespace Example71
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≥ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example71
+
+namespace Example72
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example72
+
+namespace Example73
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example73
+
+namespace Example74
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example74
+
+namespace Example75
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) < (2 : ℝ) := by litnum_bound
+  exact ()
+end Example75
+
+namespace Example76
+def h (x : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (1 : ℝ)) := by
+  have h2 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) ≤ (2 : ℝ) := by litnum_bound
+  exact ()
+end Example76
+
+namespace Example77
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y > (0 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example77
+
+namespace Example78
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y > (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example78
+
+namespace Example79
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y > (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y ≥ ((1 : ℚ) / (2 : ℚ) : ℝ) := by litnum_bound
+  exact ()
+end Example79
+
+namespace Example80
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y ≥ (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y ≥ (0 : ℝ) := by litnum_bound
+  exact ()
+end Example80
+
+namespace Example81
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y ≥ (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y > (0 : ℝ) := by litnum_bound
+  exact ()
+end Example81
+
+namespace Example82
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y < (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y ≤ ((1 : ℚ) / (2 : ℚ) : ℝ) := by litnum_bound
+  exact ()
+end Example82
+
+namespace Example83
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y < (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y < (1 : ℝ) := by litnum_bound
+  exact ()
+end Example83
+
+namespace Example84
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y < (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example84
+
+namespace Example85
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y ≤ (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y < (1 : ℝ) := by litnum_bound
+  exact ()
+end Example85
+
+namespace Example86
+def h (x y : ℝ) (h1 : -(((2 : ℚ) / (3 : ℚ) : ℝ) * x) + (2 : ℝ) * y ≤ (1 : ℝ)) := by
+  have h2 : -(((1 : ℚ) / (3 : ℚ) : ℝ) * x) + y ≤ (1 : ℝ) := by litnum_bound
+  exact ()
+end Example86
+
+namespace Example87
+def h := by
+  have h1 : 0 < 2 := by calc
+    0 < 1 := by obvious
+    _ < 2 := by obvious
+  exact ()
+end Example87

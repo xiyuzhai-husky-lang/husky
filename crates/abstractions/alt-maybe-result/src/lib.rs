@@ -16,6 +16,12 @@ pub enum AltMaybeResult<T, E> {
     AltNothing,
 }
 
+impl<T, E> Default for AltMaybeResult<T, E> {
+    fn default() -> Self {
+        AltNothing
+    }
+}
+
 impl<T, E> AltMaybeResult<T, E> {
     #[track_caller]
     pub fn expect(self, message: &str) -> T {
@@ -76,6 +82,12 @@ where
             AltMaybeResultResidual::AltJustOk(t) => AltJustOk(t),
             AltMaybeResultResidual::AltJustErr(e) => AltJustErr(e.into()),
         }
+    }
+}
+
+impl<T, E> std::ops::FromResidual<Option<Infallible>> for AltMaybeResult<T, E> {
+    fn from_residual(residual: Option<Infallible>) -> Self {
+        AltNothing
     }
 }
 

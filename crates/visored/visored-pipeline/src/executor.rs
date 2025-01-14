@@ -8,9 +8,14 @@ use husky_io_utils::diff_write;
 use input::VdPipelineInput;
 use latex_prelude::helper::tracker::LxDocumentBodyInput;
 use latex_vfs::path::LxFilePath;
-use lean_helpers::lake_lean;
+use lean_helpers::obvious::OBVIOUS_HEADER;
+use lean_mir_expr::helpers::ad_hoc_header::AD_HOC_HEADER;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
+use visored_baseq_elaborator::{
+    elaborator::{VdBsqElaborator, VdBsqElaboratorInner},
+    session::VdBsqSession,
+};
 use visored_lean_transpilation::{
     helpers::tracker::VdLeanTranspilationTracker, scheme::dense::VdLeanTranspilationDenseScheme,
 };
@@ -73,7 +78,7 @@ impl<'a, 'db> VdPipelineExecutor<'a, 'db> {
 
     fn query_raw_proof(&mut self) {
         let prompt = format!(
-            r#"Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX.
+            r#"Please provide the raw solution to the following problem. The solution should be a concise and complete mathematical proof written in LaTeX. If something is straightforward and trivial as seen by college level student, just say that it's trivial and don't ever try to say unnecessary things.
 
 ```latex
 {}
@@ -100,6 +105,17 @@ Solution:
 We have $(x+y)^2 \ge 0$ because these are real numbers.
 \end{{proof}}
 ```
+
+Problem: prove that $x^2 \ge 0$ for all real numbers $x$.
+
+Solution:
+```latex
+\begin{{proof}}
+We have $x^2 \ge 0$ because these are real numbers.
+\end{{proof}}
+```
+
+------- END OF EXAMPLES -------
 "#,
             self.input.content
         );
@@ -181,6 +197,7 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
         let regularized_proof = extract_proof(&regularized_proof);
         self.regularized_proof = Some((transformations, regularized_proof.clone()));
         let file_path = LxFilePath::new(PathBuf::from(file!()), self.db);
+        let session = &VdBsqSession::new(self.db);
         let tracker = VdLeanTranspilationTracker::new(
             LxDocumentBodyInput {
                 specs_dir: self.specs_dir,
@@ -193,13 +210,12 @@ We have $(x+y)^2 \ge 0$ because these are real numbers.
             VdSynExprVibe::ROOT_CNL,
             self.db,
             &VdLeanTranspilationDenseScheme,
-            |_| VdMirTrivialElaborator::default(),
+            |region_data| VdBsqElaborator::new(VdBsqElaboratorInner::new(session, region_data)),
         );
         self.lean4_code = Some(format!(
             r#"import Mathlib
-import Obvious
-open Obvious
-
+{OBVIOUS_HEADER}
+{AD_HOC_HEADER}
 {}
 "#,
             tracker.show_fmt(self.db)

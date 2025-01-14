@@ -10,7 +10,7 @@ pub enum VdSemDivisionChild {
 impl VdSemDivisionData {
     pub(crate) fn children(&self) -> Vec<VdSemDivisionChild> {
         match *self {
-            VdSemDivisionData::Stmts { stmts } => {
+            VdSemDivisionData::Blocks { blocks: stmts } => {
                 stmts.into_iter().map(VdSemDivisionChild::Stmt).collect()
             }
             VdSemDivisionData::Divisions {

@@ -6,6 +6,7 @@ pub mod tests;
 
 use crate::*;
 use application::VdMirFunc;
+use builder::region::VdMirExprRegionBuilder;
 use hypothesis::constructor::VdMirHypothesisConstructor;
 use idx_arena::{
     map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef,
@@ -95,8 +96,8 @@ pub struct VdMirLiteral {}
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct VdMirVariable {}
 
-impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+impl<'db> ToVdMir<VdMirExprIdxRange, VdMirExprRegionBuilder<'db>> for VdSemExprIdxRange {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirExprIdxRange {
         let mut exprs: Vec<VdMirExprEntry> = Vec::with_capacity(self.len());
         for expr in self {
             exprs.push(builder.build_expr_entry(expr));
@@ -105,15 +106,17 @@ impl ToVdMir<VdMirExprIdxRange> for VdSemExprIdxRange {
     }
 }
 
-impl ToVdMir<VdMirExprIdx> for VdSemExprIdx {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdx {
+impl<'db> ToVdMir<VdMirExprIdx, VdMirExprRegionBuilder<'db>> for VdSemExprIdx {
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirExprIdx {
         let entry = builder.build_expr_entry(self);
         builder.alloc_expr(entry)
     }
 }
 
-impl<const N: usize> ToVdMir<VdMirExprIdxRange> for [VdSemExprIdx; N] {
-    fn to_vd_mir(self, builder: &mut VdMirExprBuilder) -> VdMirExprIdxRange {
+impl<'db, const N: usize> ToVdMir<VdMirExprIdxRange, VdMirExprRegionBuilder<'db>>
+    for [VdSemExprIdx; N]
+{
+    fn to_vd_mir(self, builder: &mut VdMirExprRegionBuilder<'db>) -> VdMirExprIdxRange {
         let entries = self
             .into_iter()
             .map(|expr| builder.build_expr_entry(expr))
@@ -122,7 +125,7 @@ impl<const N: usize> ToVdMir<VdMirExprIdxRange> for [VdSemExprIdx; N] {
     }
 }
 
-impl<'db> VdMirExprBuilder<'db> {
+impl<'db> VdMirExprRegionBuilder<'db> {
     fn build_expr_entry(&mut self, sem_expr_idx: VdSemExprIdx) -> VdMirExprEntry {
         let data = self.build_expr_data(sem_expr_idx);
         let ty = self.sem_expr_arena()[sem_expr_idx].ty();
@@ -142,23 +145,17 @@ impl<'db> VdMirExprBuilder<'db> {
                 opr,
                 ropd,
                 dispatch,
-            } => {
-                match opr {
-                    VdSemBinaryOpr::Base(_, VdBaseBinaryOpr::Div) => todo!(),
-                    _ => (),
-                }
-                VdMirExprData::Application {
-                    function: match dispatch {
-                        VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
-                            VdBinaryOprGlobalDispatch::Normal {
-                                base_binary_opr,
-                                signature,
-                            } => VdMirFunc::NormalBaseBinaryOpr(signature),
-                        },
+            } => VdMirExprData::Application {
+                function: match dispatch {
+                    VdSemBinaryDispatch::Global(global_dispatch) => match global_dispatch {
+                        VdBinaryOprGlobalDispatch::Normal {
+                            base_binary_opr,
+                            signature,
+                        } => VdMirFunc::NormalBaseBinaryOpr(signature),
                     },
-                    arguments: [lopd, ropd].to_vd_mir(self),
-                }
-            }
+                },
+                arguments: [lopd, ropd].to_vd_mir(self),
+            },
             VdSemExprData::Prefix { opr, opd, dispatch } => match dispatch {
                 VdSemPrefixDispatch::Global(dispatch) => match dispatch {
                     VdPrefixOprGlobalDispatch::Base {

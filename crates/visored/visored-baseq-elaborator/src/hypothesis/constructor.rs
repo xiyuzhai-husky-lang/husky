@@ -13,6 +13,7 @@ impl<'db, 'sess> std::fmt::Debug for VdBsqHypothesisConstructor<'db, 'sess> {
         let active_hypotheses = self
             .stack
             .active_hypotheses()
+            .data()
             .iter()
             .map(|h| &self.arena[h])
             .collect::<Vec<_>>();
@@ -62,10 +63,6 @@ impl<'db, 'sess> VdBsqHypothesisConstructor<'db, 'sess> {
         expr: VdBsqExprFld<'sess>,
     ) -> Option<VdBsqHypothesisIdx<'sess>> {
         if let Some(hypothesis) = self.stack.get_active_hypothesis_with_expr(expr) {
-            let hypothesis = self.construct_new_hypothesis(
-                expr,
-                VdBsqHypothesisConstruction::ExprEquivalent { hypothesis },
-            );
             Some(hypothesis)
         } else if let Some(hypothesis) = self.stack.get_active_hypothesis_with_term(expr.term()) {
             let hypothesis = self.construct_new_hypothesis(

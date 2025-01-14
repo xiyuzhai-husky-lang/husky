@@ -1,53 +1,54 @@
 use super::*;
 use crate::term::{
-    builder::sum::VdBsqSumBuilder, comnum::product::VdBsqProductComnumTermBase,
-    litnum::VdBsqLitnumTerm,
+    builder::sum::VdBsqSumBuilder, comnum::product::VdBsqProductStem, litnum::VdBsqLitnumTerm,
 };
-use crate::term::{
-    comnum::{sum::VdBsqSumComnumTerm, VdBsqNonSumComnumTerm},
-    num::VdBsqNumTerm,
-};
-use miracle::error::MiracleAltMaybeResult;
+use crate::term::{comnum::sum::VdBsqSumTerm, num::VdBsqNumTerm};
+use elabm::Pure;
+use miracle::{error::MiracleAltMaybeResult, foldm::foldm};
+use product::foldm_product;
 use std::marker::PhantomData;
+use visored_baseq_elaborator_macros::unify_elabm;
 
-pub(super) fn foldm_sum<'db, 'sess>(
-    engine: &mut VdBsqElaboratorInner<'db, 'sess>,
-    terms: &[(VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>)],
+pub(super) fn foldm_sum<'a, 'db, 'sess>(
+    terms: &'a [(VdBsqProductStem<'sess>, VdBsqLitnumTerm<'sess>)],
     builder: VdBsqSumBuilder<'sess>,
-    f: &impl Fn(
-        &mut VdBsqElaboratorInner<'db, 'sess>,
-        VdBsqSumBuilder<'sess>,
-    ) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
-) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
-    engine.foldm(builder, terms.iter().copied(), f, &foldm_sum_step)
+) -> impl ElabM<'db, 'sess, VdBsqSumBuilder<'sess>> + 'a
+where
+    'db: 'sess,
+{
+    foldm(
+        builder,
+        terms.iter().copied(),
+        |elaborator, builder, term, heuristic| {
+            foldm_sum_step(builder, term).eval(elaborator, heuristic)
+        },
+    )
 }
 
 fn foldm_sum_step<'db, 'sess>(
-    elaborator: &mut VdBsqElaboratorInner<'db, 'sess>,
     mut sum_builder: VdBsqSumBuilder<'sess>,
-    (term, litnum0): (VdBsqNonSumComnumTerm<'sess>, VdBsqLitnumTerm<'sess>),
-    f: &dyn Fn(
-        &mut VdBsqElaboratorInner<'db, 'sess>,
-        VdBsqSumBuilder<'sess>,
-    )
-        -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>>,
-) -> MiracleAltMaybeResult<VdBsqHypothesisResult<'sess, VdBsqHypothesisIdx<'sess>>> {
-    let db = elaborator.floater_db();
+    (term, litnum0): (VdBsqProductStem<'sess>, VdBsqLitnumTerm<'sess>),
+) -> impl ElabM<'db, 'sess, VdBsqSumBuilder<'sess>>
+where
+    'db: 'sess,
+{
+    #[unify_elabm]
     match term {
-        VdBsqNonSumComnumTerm::Atom(atom) => {
-            sum_builder.add_litnum_times_atom(litnum0, atom);
-            f(elaborator, sum_builder)
+        VdBsqProductStem::Atom(atom) => {
+            sum_builder.add_monomial(VdBsqProductStem::Atom(atom), litnum0);
+            Pure(sum_builder)
         }
-        VdBsqNonSumComnumTerm::Product(base) => {
-            foldm_product(elaborator, base.exponentials(), &|elaborator, expansion| {
+        VdBsqProductStem::NonTrivial(base) => {
+            let db = elaborator.floater_db();
+            foldm_product(base.exponentials()).map(|elaborator, expansion| {
                 let mut sum_builder = sum_builder.clone();
                 for (litnum, exponentials) in expansion {
                     sum_builder.add_general_product(
                         litnum0.mul(litnum, db),
-                        VdBsqProductComnumTermBase::from_parts(exponentials, db),
+                        VdBsqProductStem::from_parts(exponentials, db),
                     );
                 }
-                f(elaborator, sum_builder)
+                sum_builder
             })
         }
     }

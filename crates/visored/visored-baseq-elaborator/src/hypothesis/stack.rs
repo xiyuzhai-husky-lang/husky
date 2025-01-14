@@ -1,6 +1,6 @@
 use super::*;
-use crate::hypothesis::stashes::VdBsqHypothesisStashes;
-use crate::term::VdBsqTerm;
+use crate::term::{num::VdBsqNumTerm, VdBsqTerm};
+use crate::{hypothesis::stashes::VdBsqHypothesisStashes, term::litnum::VdBsqLitnumTerm};
 use floated_sequential::db::FloaterDb;
 use rustc_hash::FxHashMap;
 
@@ -24,23 +24,71 @@ use rustc_hash::FxHashMap;
 /// Both maps are validated during lookups by checking if the recorded hypothesis still exists
 /// at the expected position in the stack. This ensures we only return valid, "live" hypotheses.
 pub struct VdBsqHypothesisStack<'sess> {
-    active_hypotheses: Vec<VdBsqHypothesisIdx<'sess>>,
+    active_hypotheses: VdBsqActiveHypotheses<'sess>,
     block_starts: Vec<usize>,
     expr_to_hypothesis_map: FxHashMap<VdBsqExprFld<'sess>, VdBsqHypothesisStackRecord<'sess>>,
     term_to_hypothesis_map: FxHashMap<VdBsqTerm<'sess>, VdBsqHypothesisStackRecord<'sess>>,
     stashes: VdBsqHypothesisStashes<'sess>,
 }
 
-#[derive(Debug, Clone, Copy)]
+pub struct VdBsqActiveHypotheses<'sess>(Vec<VdBsqHypothesisIdx<'sess>>);
+
+impl<'sess> VdBsqActiveHypotheses<'sess> {
+    fn new() -> Self {
+        Self(vec![])
+    }
+
+    pub fn len(&self) -> usize {
+        self.0.len()
+    }
+
+    pub fn data(&self) -> &[VdBsqHypothesisIdx<'sess>] {
+        &self.0
+    }
+
+    pub fn is_record_active(&self, record: VdBsqHypothesisStackRecord<'sess>) -> bool {
+        self.0.get(record.stack_idx) == Some(&record.hypothesis_idx)
+    }
+
+    fn push(&mut self, hypothesis_idx: VdBsqHypothesisIdx<'sess>) {
+        self.0.push(hypothesis_idx);
+    }
+
+    fn truncate(&mut self, len: usize) {
+        self.0.truncate(len);
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct VdBsqHypothesisStackRecord<'sess> {
     stack_idx: usize,
     hypothesis_idx: VdBsqHypothesisIdx<'sess>,
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub struct VdBsqHypothesisStackRecorded<'sess, T> {
+    record: VdBsqHypothesisStackRecord<'sess>,
+    value: T,
+}
+
+impl<'sess, T> VdBsqHypothesisStackRecorded<'sess, T> {
+    pub fn new(record: VdBsqHypothesisStackRecord<'sess>, value: T) -> Self {
+        Self { record, value }
+    }
+}
+
+impl<'sess, T> VdBsqHypothesisStackRecorded<'sess, T> {
+    pub fn get_valid_value(&self, active_hypotheses: &VdBsqActiveHypotheses<'sess>) -> Option<&T> {
+        active_hypotheses
+            .is_record_active(self.record)
+            .then_some(&self.value)
+    }
+}
+
 impl<'sess> VdBsqHypothesisStack<'sess> {
     pub(super) fn new() -> Self {
         Self {
-            active_hypotheses: vec![],
+            active_hypotheses: VdBsqActiveHypotheses::new(),
             block_starts: vec![],
             expr_to_hypothesis_map: FxHashMap::default(),
             term_to_hypothesis_map: FxHashMap::default(),
@@ -54,8 +102,12 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         self.active_hypotheses.len()
     }
 
-    pub fn active_hypotheses(&self) -> &[VdBsqHypothesisIdx<'sess>] {
+    pub fn active_hypotheses(&self) -> &VdBsqActiveHypotheses<'sess> {
         &self.active_hypotheses
+    }
+
+    pub fn stashes(&self) -> &VdBsqHypothesisStashes<'sess> {
+        &self.stashes
     }
 
     pub(crate) fn get_active_hypothesis_with_expr(
@@ -63,7 +115,7 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         expr: VdBsqExprFld<'sess>,
     ) -> Option<VdBsqHypothesisIdx<'sess>> {
         let record = self.expr_to_hypothesis_map.get(&expr).copied()?;
-        (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
+        self.is_record_valid(record)
             .then_some(record.hypothesis_idx)
     }
 
@@ -72,8 +124,12 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         term: VdBsqTerm<'sess>,
     ) -> Option<VdBsqHypothesisIdx<'sess>> {
         let record = self.term_to_hypothesis_map.get(&term).copied()?;
-        (self.active_hypotheses.get(record.stack_idx) == Some(&record.hypothesis_idx))
+        self.is_record_valid(record)
             .then_some(record.hypothesis_idx)
+    }
+
+    fn is_record_valid(&self, record: VdBsqHypothesisStackRecord<'sess>) -> bool {
+        self.active_hypotheses.is_record_active(record)
     }
 }
 
@@ -92,7 +148,8 @@ impl<'sess> VdBsqHypothesisStack<'sess> {
         };
         self.add_hypothesis_to_expr_map(record, entry);
         self.add_hypothesis_to_term_map(record, entry);
-        self.stashes.add_hypothesis(record, entry, db);
+        self.stashes
+            .add_hypothesis(record, entry, db, &self.active_hypotheses);
     }
 
     fn add_hypothesis_to_expr_map(
